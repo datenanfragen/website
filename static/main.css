@@ -1,0 +1,13 @@
+/* Framework */
+.col50 {width: 50%; float: left;}
+.col33 {width: 33%; float: left;}
+.col25 {width: 25%; float: left;}
+.col10 {width: 10%; float: left;}
+.clearfix {clear: both;}
+
+/* PDF Viewer */
+#pdf-viewer {
+    border: 0;
+    width: 100%;
+    height: 500px;
+}

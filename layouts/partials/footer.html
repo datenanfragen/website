@@ -1,0 +1,11 @@
+<footer>
+    <a href="{{ "contact" | absURL }}#license"><img src="https://licensebuttons.net/l/by-nd/4.0/80x15.png" alt="License information"></a>
+</footer>
+</div>
+{{ if .Params.needs_pdfkit }}
+<script src="{{ "js/blob-stream.js" | absURL }}"></script>
+<script src="{{ "js/pdfkit.js" | absURL }}"></script>
+<script src="{{ "js/generator.js" | absURL }}"></script>
+{{ end }}
+</body>
+</html>

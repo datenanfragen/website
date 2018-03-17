@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ .Title }}</title>
+    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+    <link rel="stylesheet" href="{{ "main.css" | absURL }}"/>
+    {{ .Hugo.Generator }}
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="logo"><a href="{{ "/" | absURL }}">datenanfragen.de</a></div>
+        <nav>
+            <div id="menu-items">
+                <a href="{{ "/" | absURL }}">Home</a>
+                <a href="{{ "post" | absURL }}">Blog</a>
+                <a href="{{ "publications" | absURL }}">Publications</a>
+                <a href="{{ "contact" | absURL }}">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="container">
