@@ -1,13 +1,41 @@
 /* Framework */
+.col75 {width: 75%; float: left;}
 .col50 {width: 50%; float: left;}
-.col33 {width: 33%; float: left;}
+.col33 {width: 33.333333%; float: left;}
 .col25 {width: 25%; float: left;}
 .col10 {width: 10%; float: left;}
 .clearfix {clear: both;}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+} /* With thanks to bootstrap */
 
 /* PDF Viewer */
 #pdf-viewer {
     border: 0;
     width: 100%;
-    height: 500px;
+    height: 800px;
 }
+
+/* Forms */
+.form-element {
+    width: 100%;
+}
+textarea.form-element {
+    max-width: 100%;
+    min-width: 100%;
+}
+.form-group {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
