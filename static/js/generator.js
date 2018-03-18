@@ -23,27 +23,101 @@ Array.from(document.getElementsByClassName('dynamic-input-delete')).forEach(func
 
 var iframe = document.getElementById('pdf-viewer');
 
-generatePDF({
-    sender_oneline: 'Markus Mustermensch | Helene-Engelbrecht-Straße 121 | 37473 Musterdorf',
-    recipient_address: 'Milena Mustermensch\nMusterfirma\nAbt. Musterung\nPostfach 123456\n67890 Musterstadt',
-    information_block: 'Mein Zeichen: muster-0001\nIhre Nachricht vom: 2018-03-14\n',
-    subject: 'Anfrage auf Selbstauskunft nach §15 EU-DSGVO',
-    content: 'Sehr geehrte Menschen,\n\n' +
-    '\n' +
-    'lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \n' +
-    '\n' +
-    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula eu sapien consequat eleifend. \n' +
-    '\n' +
-    'Donec nec dolor erat, condimentum sagittis sem. Praesent porttitor porttitor risus, dapibus rutrum ipsum gravida et. Integer lectus nisi, facilisis sit amet eleifend nec, pharetra ut augue. Integer quam nunc, consequat nec egestas ac, volutpat ac nisi. \n' +
-    '\n' +
-    'Sed consectetur dignissim dignissim. Donec pretium est sit amet ipsum fringilla feugiat. Aliquam erat volutpat. Maecenas scelerisque, orci sit amet cursus tincidunt, libero nisl eleifend tortor, vitae cursus risus mauris vitae nisi. Cras laoreet ultrices ligula eget tempus. \n' +
-    '\n' +
-    'Aenean metus purus, iaculis ut imperdiet eget, sodales et massa. Duis pellentesque nisl vel massa dapibus non lacinia velit volutpat. Maecenas accumsan interdum sodales. In hac habitasse platea dictumst. Pellentesque ornare blandit orci, eget tristique risus convallis ut. Vivamus a sapien neque. \n' +
-    '\n' +
-    'Lorem Ipsum Dolor Sit Amet\n' +
-    '\n' +
-    'Mit freundlichen Grüßen\n\n\nMarkus Mustermensch'
-}, iframe);
+
+/**
+ * {object} generateRequest({object})
+ *
+ * @param request_object {object} containing
+ * @return {object} letterObject to be plugged into generatePDF()
+ */
+function generateRequest(request_object) {
+    var subject = '';
+    var content = '';
+    var data_text = '[bold]Aktuelle Adresse:[endbold][tabular]' + formatAddress(request_object.current_address, '\n') + '[endtabular]';
+    request_object.data.forEach(function (item) {
+
+    });
+    switch(request_object.type) {
+        case 'erasure':
+            subject = 'Anfrage auf Löschung von Daten zu meiner Person nach §15 EU-DSGVO';
+            content = 'Sehr geehrte Damen und Herren,\n\nhiermit bitte ich um die Löschung der bei Ihnen gespeicherten personenbezogenen Daten über meine Person.' +
+                'Dies schließt insbesondere Scoring-Werte oder Verhaltensmuster mit ein. Zur Identifikation habe ich einige Daten beigefügt: \n\n' + data_text + '\n\n' +
+                'Dieses Schreiben ist nach Ausführung des Löschvorgangs zu vernichten.\n\nMit freundlichen Grüßen';
+            break;
+        case 'access':
+            subject = 'Anfrage auf Selbstauskunft nach §15 EU-DSGVO';
+            content = 'Sehr geehrte Damen und Herren,\n\nhiermit bitte ich um Auskunft über die zu mir gespeicherten personenbezogenen Daten, [bold]ihre Herkunft[endbold] und Verwendungszweck sowie eine Aufstellung, an wen die Daten in den letzten 24 Monaten weitergegeben wurden.' +
+                'Dies schließt insbesondere Scoring-Werte oder Verhaltensmuster mit ein. Zur Identifikation habe ich einige Daten beigefügt: \n\n\n' + data_text + '\n\n' +
+                'Mit freundlichen Grüßen';
+            break;
+        default:
+            return null;
+    }
+    return {
+        sender_address: formatAddress(request_object.current_address, '\n'),
+        sender_oneline: formatAddress(request_object.current_address, ' • '),
+        recipient_address: request_object.recipient_address,
+        information_block: 'Mein Zeichen: test-001',
+        subject:  subject,
+        content: content
+    };
+}
+
+/**
+ * {string} formatAddress({object}, {string})
+ * generates a formatted address string
+ * @param address {object} with schema {name: {string}, street_1: {string}, street_2: {string}, place: {string}, country: {string}}
+ * @param delimiter {string} defaults to '\n'
+ * @return {string}
+ */
+function formatAddress(address, delimiter) {
+    return address.name +
+        (address.street_1 ? delimiter + address.street_1 : '') +
+        (address.street_2 ? delimiter + address.street_2 : '') +
+        (address.place ? delimiter + address.place : '') +
+        (address.country ? delimiter + address.country : '');
+}
+
+var letter = generateRequest({
+    type: 'access',
+    current_address: {
+        name: 'Markus Mustermensch',
+        street_1: 'Lange Lange Langstraße 1254',
+        place: '43678 Musterdorf'
+    },
+    data: [{
+            title: 'Vorherige Adresse (bis 2014)',
+            type: 'address',
+            values: {
+                name: 'Marvin Muster',
+                street_1: '2576 Foo Lane',
+                place: 'Barinton 345 Z3',
+                country: 'UK'
+            }
+        }, {
+            title: 'Geburtsdatum',
+            type: 'input',
+            value: '1992-03-14'
+        }, {
+            title: 'Kundennummer',
+            type: 'input',
+            value: '#28848473'
+        }, {
+            title: 'PGP-Key (bitte bei elektronischer Antwort verwenden)',
+            type: 'textarea',
+            value: '-----BEGIN PGP PUBLIC KEY BLOCK-----\n' +
+            'Version: GnuPG v1.4.9 (Darwin)\n' +
+            ' \n' +
+            'mQENBErJM6oBCAC7NG5NZ5kiJg+KTTaIDjX9BU8bc7FI5a2zCYc3p9eikJfyyZYM\n' +
+            '...\n' +
+            'sWbckvcIjJRcAtRliKbAf+KjplbcEIzt+kxmweE5XeKvDFtzAD041FGAphIkKcuu\n' +
+            'IAzL+XcMWzc3DA==\n' +
+            '=+ojz\n' +
+            '-----END PGP PUBLIC KEY BLOCK-----'
+        }],
+    recipient_address: 'Musterfirma\nAbt. Musterung\nMilena Mustermensch\nMusterstraße 34\n87654 Musterstadt'
+});
+generatePDF(letter, iframe);
 
 Array.from(document.getElementsByClassName('form-element')).forEach(function(el) { el.onchange = function(ev) {
     generatePDF(el.value, iframe);
