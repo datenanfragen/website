@@ -5,3 +5,7 @@
 <script src="{{ "js/pdf-generation.js" | absURL }}"></script>
 <script src="{{ "js/generator.js" | absURL }}"></script>
 {{ end }}
+
+{{ if eq .Type "company" }}
+<script src="{{ "js/view-company.js" | absURL }}"></script>
+{{ end }}
