@@ -1,0 +1,7 @@
+[build]
+publish = "public"
+command = "hugo --baseURL=$URL"
+
+
+[context.production.environment]
+HUGO_VERSION = "0.37.1"
