@@ -7,8 +7,9 @@ var algolia_autocomplete = autocomplete('#aa-search-input', { hint: false, debug
     templates: {
         suggestion: function(suggestion) {
             return '<span><strong>' + suggestion._highlightResult.name.value + '</strong></span>'
-                + (suggestion._highlightResult.runs ? '<br><span>' + suggestion._highlightResult.runs.map(e => e.value).join(', ') + '</span>' : '')
+                + (suggestion._highlightResult.runs ? '<br><span>betreibt auch: ' + suggestion._highlightResult.runs.map(e => e.value).join(', ') + '</span>' : '')
                 + (suggestion._highlightResult.categories ? '<br><span>' + suggestion._highlightResult.categories.map(e => e.value).join(', ') + '</span>' : '');
-        }
+        },
+        footer: '<div class="algolia-branding"><img src="/img/search-by-algolia.svg"></div>'
     }
 });

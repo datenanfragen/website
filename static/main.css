@@ -57,24 +57,10 @@ textarea.form-element {
     -moz-appearance: none;
     appearance: none;
 }
-.aa-input-search::-webkit-search-decoration, .aa-input-search::-webkit-search-cancel-button, .aa-input-search::-webkit-search-results-button, .aa-input-search::-webkit-search-results-decoration {
-    display: none;
-}
-.aa-input-icon {
-    height: 16px;
-    width: 16px;
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    fill: #e4e4e4;
-}
 .aa-dropdown-menu {
     background-color: #fff;
     border: 1px solid rgba(228, 228, 228, 0.6);
     min-width: 500px;
-    margin-top: 10px;
     box-sizing: border-box;
 }
 .aa-suggestion {
@@ -86,4 +72,14 @@ textarea.form-element {
 }
 .aa-suggestion:hover, .aa-suggestion.aa-cursor {
     background-color: rgba(241, 241, 241, 0.35);
+}
+.algolia-branding {
+    font-size: 1.3em;
+    text-align: right;
+    padding: 10px;
+}
+
+.algolia-branding img {
+    height: 1em;
+    margin-bottom: -0.3em;
 }
