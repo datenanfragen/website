@@ -1,23 +1,8 @@
 // Dynamic Input Listener
 var dynamic_input_container = document.getElementById('request-dynamic-input');
 var dynamic_input_type = document.getElementById('dynamic-input-type');
-var dynamic_elements = [
-    {
-        "desc": "Name",
-        "type": "name"
-    }, {
-        "desc": "Geburtsdatum",
-        "type": "input"
-    }, {
-        "desc": "Adresse",
-        "type": "address"
-    }
-];
-dynamic_elements.forEach((item, id) => {
-    dynamic_input_container.appendChild(makeDynamicInputElement(item, id));
-});
-
-refreshListeners();
+var dynamic_elements = [];
+generateDynamicFields();
 
 document.getElementById('add-dynamic-inputs').onclick = function(ev) {
     var new_input = {
@@ -32,6 +17,28 @@ document.getElementById('add-dynamic-inputs').onclick = function(ev) {
 var iframe = document.getElementById('pdf-viewer');
 
 // functions.php
+function generateDynamicFields(required_fields = null) {
+    var defaults = [
+        {
+            "desc": "Name",
+            "type": "name"
+        }, {
+            "desc": "Geburtsdatum",
+            "type": "input"
+        }, {
+            "desc": "Adresse",
+            "type": "address"
+        }
+    ];
+    dynamic_elements = required_fields ? required_fields : defaults;
+    dynamic_input_container.innerHTML = ''; // TODO: Maybe be a little more… gentle here?
+    dynamic_elements.forEach((item, id) => {
+        dynamic_input_container.appendChild(makeDynamicInputElement(item, id));
+    });
+
+    refreshListeners();
+}
+
 function generateJsonFromInputFields() {
     const address_attributes = ['street_1', 'street_2', 'place', 'country', 'primary'];
 

@@ -1,7 +1,7 @@
 var client = algoliasearch('M90RBUHW3U', 'a306a2fc33ccc9aaf8cbe34948cf97ed');
 var index = client.initIndex('companies');
 
-autocomplete('#aa-search-input', { hint: false, debug: true }, {
+var algolia_autocomplete = autocomplete('#aa-search-input', { hint: false, debug: true }, {
     source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
     displayKey: 'name',
     templates: {
@@ -11,7 +11,4 @@ autocomplete('#aa-search-input', { hint: false, debug: true }, {
                 + (suggestion._highlightResult.categories ? '<br><span>' + suggestion._highlightResult.categories.map(e => e.value).join(', ') + '</span>' : '');
         }
     }
-})
-    .on('autocomplete:selected', function(event, suggestion, dataset) {
-        location.href = '/company?slug=' + suggestion.slug;
-    });
+});

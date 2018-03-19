@@ -5,6 +5,17 @@
 <script src="{{ "js/pdf-content-preparation.js" | absURL }}"></script>
 <script src="{{ "js/pdf-generation.js" | absURL }}"></script>
 <script src="{{ "js/generator.js" | absURL }}"></script>
+<script src="{{ "js/algoliasearch.min.js" | absURL }}"></script>
+<script src="{{ "js/autocomplete.min.js" | absURL }}"></script>
+<script src="{{ "js/company-search.js" | absURL }}"></script>
+<script>
+    algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
+        var recipient_input = document.getElementById('request-recipient');
+        recipient_input.value = suggestion.name + '\n' + suggestion.address;
+        recipient_input.onchange();
+        generateDynamicFields(suggestion['required-elements-access']);
+    });
+</script>
 {{ end }}
 
 {{ if eq .Type "company" }}
@@ -12,4 +23,9 @@
 <script src="{{ "js/algoliasearch.min.js" | absURL }}"></script>
 <script src="{{ "js/autocomplete.min.js" | absURL }}"></script>
 <script src="{{ "js/company-search.js" | absURL }}"></script>
+<script>
+    algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
+        location.href = '/company?slug=' + suggestion.slug;
+    });
+</script>
 {{ end }}
