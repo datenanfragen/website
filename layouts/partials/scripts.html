@@ -1,7 +1,8 @@
-{{ if .Params.needs_pdfkit }}
-<script src="{{ "js/blob-stream.js" | absURL }}"></script>
-<script src="{{ "js/pdfkit.js" | absURL }}"></script>
+{{ if eq .Type "generator" }}
+<script src="{{ "js/pdfmake.min.js" | absURL }}"></script>
+<script src="{{ "js/vfs_fonts.js" | absURL }}"></script>
 <script src="{{ "js/dynamic-input.js" | absURL }}"></script>
+<script src="{{ "js/pdf-content-preparation.js" | absURL }}"></script>
 <script src="{{ "js/pdf-generation.js" | absURL }}"></script>
 <script src="{{ "js/generator.js" | absURL }}"></script>
 {{ end }}

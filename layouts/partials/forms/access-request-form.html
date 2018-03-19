@@ -1,8 +1,13 @@
 <fieldset>
-    <legend>Adresse</legend>
-    {{ partial "forms/form-address" (dict "prefix" "request") }}
-</fieldset>
-<fieldset>
-    <legend>Angaben zum Auffinden der Daten</legend>
-    {{ partial "forms/form-dynamic" (dict "prefix" "request") }}
+    <legend>Hülle</legend>
+    <div id="request-dynamic-input">
+    </div>
+    <div class="dynamic-input-controls">
+        <select id="dynamic-input-type">
+            <option value="address">Adresse</option>
+            <option value="textarea">Freitext (mehrzeilig)</option>
+            <option value="input">Freitext (einzeilig)</option>
+        </select>
+        <button id="add-dynamic-inputs">Daten ergänzen</button>
+    </div>
 </fieldset>
