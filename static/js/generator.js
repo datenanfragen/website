@@ -30,7 +30,8 @@ function generateDynamicFields(required_fields = null) {
             "type": "name"
         }, {
             "desc": "Geburtsdatum",
-            "type": "input"
+            "type": "input",
+            "required": false
         }, {
             "desc": "Adresse",
             "type": "address"

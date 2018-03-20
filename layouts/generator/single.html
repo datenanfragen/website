@@ -1,25 +1,12 @@
 {{ partial "header" . }}
 
 <main>
-    <div class="grid">
+    <h2>Anfrage generieren</h2>
+    <input id="aa-search-input" class="aa-input-search" placeholder="Unternehmen auswählen…" type="search">
+    <div id="request-generator" class="grid" style="margin-top: 10px;">
         <div class="col50">
-            <div class="request-buttons">
-                <nav>
-                    <a href="">Selbstauskunft</a>
-                    <a href="">Löschantrag</a>
-                    <a href="">Freitext</a>
-                </nav>
-
-                <div class="recepient-form">
-                    Prefill with company details: <input id="aa-search-input" type="search">
-                    <textarea id="request-recipient" class="form-element"></textarea>
-                </div>
-
-                <div class="request-form">
-                    {{ partial "forms/access-request-form" . }}
-                    {{ partial "forms/erasure-request-form" . }}
-                    {{ partial "forms/generic-request-form" . }}
-                </div>
+            <div class="request-form">
+                {{ partial "forms/request-form" . }}
             </div>
         </div>
         <div class="col50">
@@ -27,6 +14,7 @@
             </iframe>
         </div>
     </div>
+    <div class="clearfix"></div>
 </main>
 
 {{ partial "footer" . }}

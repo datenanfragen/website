@@ -15,7 +15,7 @@ function displayCompanyInfo(data) {
         document.getElementById('company-details').innerHTML = '<p>Ungültige Daten empfangen.</p>';
     }
 
-    var html = '<h1>' + data.name + '</h1>';
+    var html = '<h2>' + data.name + '</h2>';
     if(data.categories) html += '<p><strong>Kategorien:</strong> ' + data.categories.join(', ') + '</p>';
     if(data.runs) {
         html += '<p><strong>Betreibt auch:</strong><ul>';
@@ -23,10 +23,12 @@ function displayCompanyInfo(data) {
         html += '</ul></p>';
     }
     if(data.address) html += '<p><strong>Adresse:</strong><br>' + nl2br(data.address) + ' </p>';
-    if(data.phone) html += '<p><strong>Telefon:</strong> ' + data.phone + '</p>';
-    if(data.fax) html += '<p><strong>Fax:</strong> ' + data.fax + '</p>';
-    if(data.email) html += '<p><strong>E-Mail:</strong> ' + data.email + '</p>';
-    if(data.web) html += '<p><strong>Webseite:</strong> ' + data.web + '</p>';
+    if(data.phone | data.fax | data.email | data.web) html += '<p>';
+    if(data.phone) html += '<strong>Telefon:</strong> ' + data.phone + '<br>';
+    if(data.fax) html += '<strong>Fax:</strong> ' + data.fax + '<br>';
+    if(data.email) html += '<strong>E-Mail:</strong> ' + data.email + '<br>';
+    if(data.web) html += '<strong>Webseite:</strong> ' + data.web;
+    if(data.phone | data.fax | data.email | data.web) html += '</p>';
     if(data.sources) {
         html += '<p><strong>Quellen:</strong><ul>';
         data.sources.forEach(source => { html += '<li><a href="' + source + '">' + source + '</a></li>' });

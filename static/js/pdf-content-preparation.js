@@ -30,14 +30,14 @@ function generateRequest(request_object) {
     });
     switch(request_object.type) {
         case 'erasure':
-            subject = 'Anfrage auf Löschung von Daten zu meiner Person nach §15 EU-DSGVO';
-            content = 'Sehr geehrte Damen und Herren,\n\nhiermit bitte ich um die Löschung der bei Ihnen gespeicherten personenbezogenen Daten über meine Person.' +
+            subject = 'Anfrage auf Löschung von Daten zu meiner Person nach Art. 17 DSGVO';
+            content = 'Sehr geehrte Damen und Herren,\n\nhiermit bitte ich um die Löschung der bei Ihnen gespeicherten personenbezogenen Daten über meine Person. ' +
                 'Dies schließt insbesondere Scoring-Werte oder Verhaltensmuster mit ein. Zur Identifikation habe ich einige Daten beigefügt: \n\n' + data_text + '\n\n' +
                 'Dieses Schreiben ist nach Ausführung des Löschvorgangs zu vernichten.\n\nMit freundlichen Grüßen';
             break;
         case 'access':
-            subject = 'Anfrage auf Selbstauskunft nach §15 EU-DSGVO';
-            content = 'Sehr geehrte Damen und Herren,\n\nhiermit bitte ich um Auskunft über die zu mir gespeicherten personenbezogenen Daten, [bold]ihre Herkunft[/bold] und Verwendungszweck sowie eine Aufstellung, an wen die Daten in den letzten 24 Monaten weitergegeben wurden.' +
+            subject = 'Anfrage auf Selbstauskunft nach Art. 15 DSGVO';
+            content = 'Sehr geehrte Damen und Herren,\n\nhiermit bitte ich um Auskunft über die zu mir gespeicherten personenbezogenen Daten, [bold]ihre Herkunft[/bold] und Verwendungszweck sowie eine Aufstellung, an wen die Daten in den letzten 24 Monaten weitergegeben wurden. ' +
                 'Dies schließt insbesondere Scoring-Werte oder Verhaltensmuster mit ein. Zur Identifikation habe ich einige Daten beigefügt: \n\n' + data_text + '\n' +
                 'Mit freundlichen Grüßen';
             break;
