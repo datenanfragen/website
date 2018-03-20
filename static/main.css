@@ -43,6 +43,10 @@ textarea.form-element {
     background: greenyellow;
 }
 
+#signature-container > canvas {
+    border: 1px solid #000;
+}
+
 /* Search, mostly taken from https://www.algolia.com/doc/tutorials/search-ui/autocomplete/auto-complete */
 .aa-input-container {
     display: inline-block;

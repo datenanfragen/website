@@ -49,7 +49,8 @@ function generateRequest(request_object) {
         recipient_address: request_object.recipient_address,
         information_block: 'Mein Zeichen: test-001',
         subject: subject,
-        content: content
+        content: content,
+        signature: request_object.signature
     };
 }
 
