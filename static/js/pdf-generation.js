@@ -52,8 +52,9 @@ function generatePDF(letter, iframe) {
                     },
                     parseContent(letter.content)
                 ],
-                absolutePosition: {x: mm2pt(25), y: mm2pt(85)}
-            }
+                marginTop: mm2pt(58)
+            },
+            handleSignature(letter.signature)
         ],
         background: page => ({canvas: [
             {
@@ -74,6 +75,8 @@ function generatePDF(letter, iframe) {
             }
         ]})
     };
+
+    console.log(doc);
 
     pdfMake.createPdf(doc).getBlob((blob) => {
         iframe.src = URL.createObjectURL(blob);
@@ -108,4 +111,16 @@ function parseContent(content) {
     });
 
     return content_array;
+}
+
+function handleSignature(signature) {
+    if(!signature) return null;
+    switch(signature.type) {
+        case 'text':
+            return {text: signature.value, marginTop: mm2pt(2)};
+        case 'image':
+            return {image: signature.value, width: mm2pt(60), marginTop: mm2pt(5)};
+        default:
+            return null;
+    }
 }
