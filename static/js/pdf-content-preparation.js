@@ -11,7 +11,7 @@ function generateRequest(request_object) {
     var name = '';
     var sender_address = {};
     request_object.data.forEach(function (item) {
-        data_text += '[bold]' + item.desc + ':[/bold] ';
+        data_text += '<bold>' + item.desc + ':</bold> ';
         switch(item.type) {
             case 'address':
                 data_text += '\n' + formatAddress(item.value, ', ');
@@ -30,16 +30,16 @@ function generateRequest(request_object) {
     });
     switch(request_object.type) {
         case 'erasure':
-            subject = 'Anfrage auf Löschung von Daten zu meiner Person nach Art. 17 DSGVO';
-            content = 'Sehr geehrte Damen und Herren,\n\nhiermit bitte ich um die Löschung der bei Ihnen gespeicherten personenbezogenen Daten über meine Person. ' +
-                'Dies schließt insbesondere Scoring-Werte oder Verhaltensmuster mit ein. Zur Identifikation habe ich einige Daten beigefügt: \n\n' + data_text + '\n\n' +
-                'Dieses Schreiben ist nach Ausführung des Löschvorgangs zu vernichten.\n\nMit freundlichen Grüßen';
+            subject = 'Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO';
+            content = '';
             break;
         case 'access':
-            subject = 'Anfrage auf Selbstauskunft nach Art. 15 DSGVO';
-            content = 'Sehr geehrte Damen und Herren,\n\nhiermit bitte ich um Auskunft über die zu mir gespeicherten personenbezogenen Daten, [bold]ihre Herkunft[/bold] und Verwendungszweck sowie eine Aufstellung, an wen die Daten in den letzten 24 Monaten weitergegeben wurden. ' +
-                'Dies schließt insbesondere Scoring-Werte oder Verhaltensmuster mit ein. Zur Identifikation habe ich einige Daten beigefügt: \n\n' + data_text + '\n' +
-                'Mit freundlichen Grüßen';
+            subject = 'Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO';
+            content = '';
+            break;
+        case 'rectification':
+            subject = 'Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO';
+            content = '';
             break;
         default:
             return null;

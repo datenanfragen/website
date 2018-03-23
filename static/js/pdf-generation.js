@@ -89,17 +89,17 @@ function generatePDF(letter, iframe) {
  * TODO: Documentation of "tags"
  */
 function parseContent(content) {
-    var regex = /\[(.+?\])([\s\S]*?)\[\/\1/gmu;
+    var regex = /<(.+?>)([\s\S]*?)<\/\1/gmu;
     var text_array = content.split(regex);
 
     var content_array = [];
     text_array.forEach(function(slice, i) {
         switch(slice) {
-            case 'bold]':
+            case 'bold>':
                 content_array.push({text: text_array[i + 1], bold: true});
                 delete text_array[i + 1];
                 break;
-            case 'italic]':
+            case 'italic>':
                 content_array.push({text: text_array[i + 1], italics: true});
                 delete text_array[i + 1];
                 break;
