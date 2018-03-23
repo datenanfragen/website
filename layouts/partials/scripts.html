@@ -9,12 +9,12 @@
 <script src="{{ "js/autocomplete.min.js" | absURL }}"></script>
 <script src="{{ "js/company-search.js" | absURL }}"></script>
 <script>
-    algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
-        var recipient_input = document.getElementById('request-recipient');
-        recipient_input.value = suggestion.name + '\n' + suggestion.address;
-        recipient_input.onchange();
-        generateDynamicFields(suggestion['required-elements-access']);
-    });
+algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
+    var recipient_input = document.getElementById('request-recipient');
+    recipient_input.value = suggestion.name + '\n' + suggestion.address;
+    recipient_input.onchange();
+    generateDynamicFields(suggestion['required-elements-access']);
+});
 </script>
 {{ end }}
 
@@ -27,5 +27,40 @@
     algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
         location.href = '/company?slug=' + suggestion.slug;
     });
+</script>
+{{ end }}
+
+{{ if .IsHome }}
+<script>
+    /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
+    window.onload = function() {
+        var dataText = [ "Datenauskunft.", "Vergessenwerden.", "Datenberichtigung.", "Widerspruch.", "Datenschutz!"];
+
+        function typeWriter(text, i, fnCallback) {
+            if (i < (text.length)) {
+                document.getElementById("home-hero-word").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+
+                setTimeout(function() {
+                    typeWriter(text, i + 1, fnCallback)
+                }, 150);
+            }
+            else if (typeof fnCallback == 'function') {
+                setTimeout(fnCallback, 700);
+            }
+        }
+        function StartTextAnimation(i) {
+            if (typeof dataText[i] == 'undefined'){
+                setTimeout(function() {
+                    StartTextAnimation(0);
+                }, 20000);
+            }
+            if (i < dataText[i].length) {
+                typeWriter(dataText[i], 0, function(){
+                    StartTextAnimation(i + 1);
+                });
+            }
+        }
+        StartTextAnimation(0);
+    };
 </script>
 {{ end }}

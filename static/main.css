@@ -119,7 +119,7 @@ header {
     padding: 25px 0;
     margin-bottom: 15px;
 }
-header .container {
+header #header-main {
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -241,4 +241,24 @@ textarea.form-element {
 .algolia-branding img {
     height: 1em;
     margin-bottom: -0.3em;
+}
+
+/* Home */
+#home-hero {
+    margin-top: 40px;
+    text-align: center;
+    font-family: Georgia, serif;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, .2);
+}
+#home-hero-line-1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+#home-hero-word {
+    font-family: "Special Elite", monospace;
+    font-size: 1.05em;
+}
+#home-hero-line-2 {
+    font-size: 4em;
+    margin-top: -30px;
 }

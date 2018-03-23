@@ -9,10 +9,14 @@
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     <link rel="stylesheet" href="{{ "main.css" | absURL }}"/>
     {{ .Hugo.Generator }}
+    {{ if .IsHome }}
+    <!-- TODO: Get rid of Google dependency! -->
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    {{ end }}
 </head>
 <body>
 <header>
-    <div class="container">
+    <div id="header-main" class="container">
         <div id="logo"><a href="{{ "/" | absURL }}">Datenanfragen.de</a></div>
         <nav id="main-nav">
             <div id="menu-items">
@@ -23,5 +27,13 @@
             </div>
         </nav>
     </div>
+    {{ if .IsHome }}
+    <div class="container">
+        <div id="home-hero">
+            <div id="home-hero-line-1">Du hast ein Recht auf <span id="home-hero-word">Datenauskunft</span></div>
+            <div id="home-hero-line-2">Nutze es.</div>
+        </div>
+    </div>
+    {{ end }}
 </header>
 <div class="container">
