@@ -77,7 +77,9 @@ function generatePDF(letter, iframe) {
     };
 
     pdfMake.createPdf(doc).getBlob((blob) => {
-        iframe.src = URL.createObjectURL(blob);
+        var url = URL.createObjectURL(blob);
+        iframe.src = url;
+        document.getElementById('download-button').setAttribute('href', url);
     });
 }
 

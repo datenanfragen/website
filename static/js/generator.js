@@ -4,6 +4,7 @@ var dynamic_input_container = document.getElementById('request-dynamic-input');
 var dynamic_input_type = document.getElementById('dynamic-input-type');
 var dynamic_elements = {};
 var signature_container = document.getElementById('signature-container');
+var iframe = document.getElementById('pdf-viewer');
 
 generateDynamicFields();
 var signature_canvas = setupSignatureCanvas(signature_container, 400, 200);
@@ -18,7 +19,12 @@ document.getElementById('add-dynamic-inputs').onclick = function(ev) {
     }));
 };
 
-var iframe = document.getElementById('pdf-viewer');
+document.getElementById('generate-button').onclick = function (ev) {
+    document.reRenderPDF();
+};
+document.pdfDone = function (url) {
+    download_link.setAttribute('href', url);
+};
 
 // functions.php
 function generateDynamicFields(fields = [
@@ -98,6 +104,7 @@ document.reRenderPDF = function() {
 function refreshListeners(element = document) {
     Array.from(element.getElementsByClassName('dynamic-input-delete')).forEach(function(el) { el.onclick = function(ev) {
         removeDynamicFieldById(el.getAttribute('rel'));
+        document.reRenderPDF();
     }});
     Array.from(element.getElementsByClassName('dynamic-input-primaryButton')).forEach(function(el) { el.onclick = function(ev) {
         Array.from(document.querySelectorAll('.dynamic-input-primary[value="true"]')).forEach(input => {

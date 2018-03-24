@@ -91,7 +91,7 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
     opacity: 0;
     transform: translateY(1rem);
 }
-button {
+button, .button {
     border-radius: 10px;
     border: none;
     padding: 7px;
@@ -104,6 +104,12 @@ button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+a.button {
+    display: block;
+    color: #fff;
+    padding: 7px;
+    line-height: 1.2;
 }
 select {
     -webkit-appearance: menulist;
@@ -189,6 +195,16 @@ footer {
     border: 0;
     width: 100%;
     height: 800px;
+}
+#pdf-controls {
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+#pdf-controls > button, .button {
+    float: right;
+    margin-right: 10px;
 }
 
 /* Forms */
