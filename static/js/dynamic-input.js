@@ -21,11 +21,11 @@ function makeDynamicInputElement(element, id) {
             input_elements =
                 '<div class="form-group fancy-fg"><input type="text" id="' + id + '-street_1" placeholder="Adresszeile 1" class="form-element"' + (element.required == false ? '' : ' required') + '>' +
                 '<label class="fancy-label" for="' + id + '-street_1">Adresszeile 1</label></div>\n' +
-                '<div class="form-group fancy-fg"><input type="text" id="' + id + '-street_2" placeholder="Adresszeile 2" class="form-element"' + (element.required == false ? '' : ' required') + '>' +
+                '<div class="form-group fancy-fg"><input type="text" id="' + id + '-street_2" placeholder="Adresszeile 2" class="form-element">' +
                 '<label class="fancy-label" for="' + id + '-street_2">Adresszeile 2</label></div>\n' +
                 '<div class="form-group fancy-fg"><input type="text" id="' + id + '-place" placeholder="Ort" class="form-element"' + (element.required == false ? '' : ' required') + '>' +
                 '<label class="fancy-label" for="' + id + '-place">Ort</label></div>\n' +
-                '<div class="form-group fancy-fg"><input type="text" id="' + id + '-country" placeholder="Land" class="form-element"' + (element.required == false ? '' : ' required') + '>' +
+                '<div class="form-group fancy-fg"><input type="text" id="' + id + '-country" placeholder="Land" class="form-element">' +
                 '<label class="fancy-label" for="' + id + '-country">Land</label></div>\n' +
                 '<input type="hidden" id="' + id + '-primary" class="dynamic-input-primary form-element" value="false">';
 
@@ -38,8 +38,8 @@ function makeDynamicInputElement(element, id) {
     container_element.innerHTML = '<div class="dynamic-input dynamic-input-textarea" id="dynamic-input-' + id + '">\n' +
         '<div class="col40">\n' +
         '<div class="form-group" style="width: 100%; display: table;">' +
-        '<div style="display: table-cell"><button id="' + id + '-delete" rel="dynamic-input-' + id + '" class="dynamic-input-delete"><img src="/img/trash.svg" style="height: 16px;"></button></div>' +
-        '<div style="display: table-cell;"><label for="' + id + '-desc" class="sr-only">Beschreibung</label><input type="text" id="' + id + '-desc" class="form-element" value="' + element.desc + '" placeholder="Beschreibung" style="margin-left: 5px;"></div>' +
+        '<div style="display: table-cell"><button id="' + id + '-delete" rel="' + id + '" class="dynamic-input-delete"><img src="/img/trash.svg" style="height: 16px;"></button></div>' +
+        '<div style="display: table-cell;"><label for="' + id + '-desc" class="sr-only">Beschreibung</label><input type="text" id="' + id + '-desc" class="form-element" value="' + element.desc + '" placeholder="Beschreibung" style="margin-left: 5px;" required></div>' +
         '</div>\n' +
         control_elements +
         '</div>\n' +

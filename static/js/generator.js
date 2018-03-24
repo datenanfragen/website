@@ -1,7 +1,8 @@
 // Dynamic Input Listener
+var dynamic_element_counter = 0
 var dynamic_input_container = document.getElementById('request-dynamic-input');
 var dynamic_input_type = document.getElementById('dynamic-input-type');
-var dynamic_elements = [];
+var dynamic_elements = {};
 var signature_container = document.getElementById('signature-container');
 
 generateDynamicFields();
@@ -11,51 +12,56 @@ document.getElementById('signature-clear-button').onclick = function (e) {
 };
 
 document.getElementById('add-dynamic-inputs').onclick = function(ev) {
-    var new_input = {
+    refreshListeners(addDynamicField({
         desc: '',
         type: dynamic_input_type.value
-    };
-    dynamic_elements.push(new_input); // TODO: BUG: Remove on delete
-    dynamic_input_container.appendChild(makeDynamicInputElement(new_input, dynamic_elements.length-1));
-    refreshListeners();
+    }));
 };
 
 var iframe = document.getElementById('pdf-viewer');
 
 // functions.php
-function generateDynamicFields(required_fields = null) {
-    var defaults = [
-        {
-            "desc": "Name",
-            "type": "name"
-        }, {
-            "desc": "Geburtsdatum",
-            "type": "input",
-            "required": false
-        }, {
-            "desc": "Adresse",
-            "type": "address"
-        }
-    ];
-    dynamic_elements = required_fields ? required_fields : defaults;
+function generateDynamicFields(fields = [
+    {
+        "desc": "Name",
+        "type": "name"
+    }, {
+        "desc": "Geburtsdatum",
+        "type": "input",
+        "required": false
+    }, {
+        "desc": "Adresse",
+        "type": "address"
+    }]) {
     dynamic_input_container.innerHTML = ''; // TODO: Maybe be a little more… gentle here?
-    dynamic_elements.forEach((item, id) => {
-        dynamic_input_container.appendChild(makeDynamicInputElement(item, id));
+    fields.forEach(field => {
+        refreshListeners(addDynamicField(field));
     });
+}
 
-    refreshListeners();
+function addDynamicField(field) {
+    let id = dynamic_element_counter++;
+    dynamic_elements[id] = field;
+    let element = makeDynamicInputElement(field, id);
+    dynamic_input_container.appendChild(element);
+    return element;
+}
+
+function removeDynamicFieldById(id) {
+    delete dynamic_elements[id];
+    document.getElementById('dynamic-input-' + id).remove();
 }
 
 function generateJsonFromInputFields() {
     const address_attributes = ['street_1', 'street_2', 'place', 'country', 'primary'];
 
     var data = [];
-    dynamic_elements.forEach((item, id) => {
+    for(var id in dynamic_elements) {
         var proto = {
             desc: document.getElementById(id + '-desc').value,
-            type: item.type
+            type: dynamic_elements[id].type
         };
-        switch(item.type) {
+        switch(dynamic_elements[id].type) {
             case 'address':
                 proto['value'] = {};
                 address_attributes.forEach(att => {
@@ -70,14 +76,13 @@ function generateJsonFromInputFields() {
                 break;
         }
         data.push(proto);
-    });
+    }
 
     return data;
 }
 
 document.reRenderPDF = function() {
     var data = generateJsonFromInputFields();
-    console.log(data);
     var letter = generateRequest({
         type: 'access',
         data: data,
@@ -87,16 +92,15 @@ document.reRenderPDF = function() {
             value: signature_canvas.node.toDataURL()
         }
     });
-    console.log(letter);
     generatePDF(letter, iframe);
 };
 
-function refreshListeners() {
-    Array.from(document.getElementsByClassName('dynamic-input-delete')).forEach(function(el) { el.onclick = function(ev) {
-        document.getElementById(el.getAttribute('rel')).remove();
+function refreshListeners(element = document) {
+    Array.from(element.getElementsByClassName('dynamic-input-delete')).forEach(function(el) { el.onclick = function(ev) {
+        removeDynamicFieldById(el.getAttribute('rel'));
     }});
-    Array.from(document.getElementsByClassName('dynamic-input-primaryButton')).forEach(function(el) { el.onclick = function(ev) {
-        Array.from(document.getElementsByClassName('dynamic-input-primary')).forEach(input => {
+    Array.from(element.getElementsByClassName('dynamic-input-primaryButton')).forEach(function(el) { el.onclick = function(ev) {
+        Array.from(document.querySelectorAll('.dynamic-input-primary[value="true"]')).forEach(input => {
             input.value = false;
             document.getElementById(input.id + 'Button').setAttribute('data-isprimary', "false");
         });
@@ -105,7 +109,7 @@ function refreshListeners() {
         input.onchange();
         el.setAttribute('data-isprimary', "true");
     }});
-    Array.from(document.getElementsByClassName('form-element')).forEach(function(el) { el.onchange = function(ev) {
+    Array.from(element.getElementsByClassName('form-element')).forEach(function(el) { el.onchange = function(ev) {
         document.reRenderPDF();
     }});
 }
@@ -178,6 +182,8 @@ function setupSignatureCanvas(container, width, height, fillColor = '#fff') {
     };
     canvas.node.onmouseup = function(e) {
         canvas.isDrawing = false;
+    };
+    canvas.node.onmouseout = function (e) {
         document.reRenderPDF();
     };
 

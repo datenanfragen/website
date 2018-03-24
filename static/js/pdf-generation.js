@@ -76,8 +76,6 @@ function generatePDF(letter, iframe) {
         ]})
     };
 
-    console.log(doc);
-
     pdfMake.createPdf(doc).getBlob((blob) => {
         iframe.src = URL.createObjectURL(blob);
     });

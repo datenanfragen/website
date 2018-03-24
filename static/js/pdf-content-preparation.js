@@ -31,15 +31,15 @@ function generateRequest(request_object) {
     switch(request_object.type) {
         case 'erasure':
             subject = 'Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO';
-            content = '';
+            content = '' + data_text;
             break;
         case 'access':
             subject = 'Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO';
-            content = '';
+            content = '' + data_text;
             break;
         case 'rectification':
             subject = 'Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO';
-            content = '';
+            content = '' + data_text;
             break;
         default:
             return null;
