@@ -19,13 +19,12 @@ algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dat
 {{ end }}
 
 {{ if eq .Type "company" }}
-<script src="{{ "js/view-company.js" | absURL }}"></script>
 <script src="{{ "js/algoliasearch.min.js" | absURL }}"></script>
 <script src="{{ "js/autocomplete.min.js" | absURL }}"></script>
 <script src="{{ "js/company-search.js" | absURL }}"></script>
 <script>
     algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
-        location.href = '/company?slug=' + suggestion.slug;
+        location.href = '/company/' + suggestion.slug;
     });
 </script>
 {{ end }}
