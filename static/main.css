@@ -30,8 +30,8 @@ h1, h2, h3 { line-height: 1.2; }
 h1 { font-size: 1.7em; }
 h2 { font-size: 1.4em; }
 
-a:active, a:focus, a:visited { color: #1982c4; }
-a:hover { color: #0062b1; }
+a, a:active, a:focus, a:visited { color: #1982c4; }
+a:hover, a:active { color: #0062b1; }
 
 img { max-width: 100%; }
 img.image {
@@ -42,9 +42,6 @@ img.image {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-}
-table thead th, table tbody td {
-    padding: 10px;
 }
 
 pre {
@@ -281,4 +278,9 @@ textarea.form-element {
 #home-hero-line-2 {
     font-size: 4em;
     margin-top: -30px;
+}
+
+.contact-table td:nth-child(1) {
+    font-weight: bold;
+    padding-right: 10px;
 }

@@ -2,9 +2,53 @@
 
 <main>
     <h1>Unternehmensdatenbank</h1>
-    <p>In unserer Unternehmensdatenbank findest Du zahlreiche Unternehmen (bzw. andere Organisationen) und ihre jeweiligen Kontaktdaten für datenschutzspezifische Anfragen.</p>
-    <input id="aa-search-input" class="aa-input-search" placeholder="Unternehmen suchen…" type="search">
-    <div id="company-details"></div>
+    <input id="aa-search-input" class="aa-input-search" placeholder="Anderes Unternehmen suchen…" type="search">
+    <div id="company-details">
+        <h2>Kontaktdaten für {{ .Params.name }}</h2>
+        {{ with .Params.categories }}<p><strong>Kategorie(n):</strong> {{ delimit . ", " }}</p>{{ end }}
+        {{ with .Params.runs }}
+        <p><strong>Betreibt auch:</strong></p>
+        <ul>
+                {{ range . }}
+                    <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        {{ end }}
+
+        <p>Zu {{ .Params.name }} sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Fragen zum Datenschutz stellen möchtest:</p>
+
+        {{ with .Params.address}}<p><strong>Adresse:</strong><br>{{ replace . "\n" "<br>" | safeHTML }}</p>{{ end }}
+        {{ if (.Params.phone) or .Params.fax or .Params.email or .Params.web }}
+        <table class="contact-table">
+            {{ with .Params.phone }}<tr><td>Telefon:</td><td>{{ . }}</td></tr>{{ end }}
+            {{ with .Params.fax }}<tr><td>Fax:</td><td>{{ . }}</td></tr>{{ end }}
+            {{ with .Params.email }}<tr><td>E-Mail:</td><td><a href="mailto:{{ . }}">{{ . }}</a></td></tr>{{ end }}
+            {{ with .Params.web }}<tr><td>Webseite:</td><td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td></tr>{{ end }}
+        </table>
+        {{ end }}
+
+        {{ with .Params.sources }}
+            <p><strong>Quellen:</strong></p>
+            <ul>
+                {{ range . }}
+                    <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
+
+        {{ with .Params.comments }}
+            <p><strong>Hinweise:</strong></p>
+            <ul>
+                {{ range . }}
+                    <li>{{ replace . "\n" "<br>" | safeHTML }}</li>
+                {{ end }}
+            </ul>
+        {{ end }}
+    </div>
+    <div id="companies-help-needed">
+        <!-- TODO: Style properly. -->
+        Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Wir freuen uns über Deine <a href="https://github.com/datenanfragen/companies">Mithilfe</a>!
+    </div>
 </main>
 
 {{ partial "footer" . }}

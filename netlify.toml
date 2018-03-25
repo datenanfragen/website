@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "hugo --baseURL=$URL"
+command = "./deploy.sh"
 
 
 [context.production.environment]
