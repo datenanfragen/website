@@ -44,6 +44,7 @@ function generateRequest(request_object) {
         default:
             return null;
     }
+    request_object.signature['name'] = name;
     return {
         sender_oneline: formatAddress(sender_address, ' • ', name),
         recipient_address: request_object.recipient_address,

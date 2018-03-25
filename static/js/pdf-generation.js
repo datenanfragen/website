@@ -14,7 +14,7 @@ function mm2pt(mm) {
  * @param letter {object} containing {sender_oneline: '', recipient_address: '', information_block: '', subject: '', content: ''}
  * @param iframe {Element} to view the PDF blob
  */
-function generatePDF(letter, iframe) {
+function generatePDF(letter, iframe, download_button) {
     var doc = {
         pageSize: 'A4',
         pageMargins: [mm2pt(25), mm2pt(27), mm2pt(20), mm2pt(16.9)], // [left, top, right, bottom]
@@ -76,10 +76,11 @@ function generatePDF(letter, iframe) {
         ]})
     };
 
+    if(download_button) download_button.setAttribute('href', 'javascript:void()');
     pdfMake.createPdf(doc).getBlob((blob) => {
         var url = URL.createObjectURL(blob);
         iframe.src = url;
-        document.getElementById('download-button').setAttribute('href', url);
+        if(download_button) download_button.setAttribute('href', url);
     });
 }
 
@@ -117,9 +118,12 @@ function handleSignature(signature) {
     if(!signature) return null;
     switch(signature.type) {
         case 'text':
-            return {text: signature.value, marginTop: mm2pt(2)};
+            return {text: signature.name, marginTop: mm2pt(2)};
         case 'image':
-            return {image: signature.value, width: mm2pt(60), marginTop: mm2pt(5)};
+            return [
+                {image: signature.value, width: mm2pt(60), marginTop: mm2pt(5)},
+                {text: signature.name, marginTop: mm2pt(1)}
+            ];
         default:
             return null;
     }

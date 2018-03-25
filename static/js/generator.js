@@ -1,15 +1,19 @@
 // Dynamic Input Listener
-var dynamic_element_counter = 0
+var dynamic_element_counter = 0;
 var dynamic_input_container = document.getElementById('request-dynamic-input');
 var dynamic_input_type = document.getElementById('dynamic-input-type');
 var dynamic_elements = {};
 var signature_container = document.getElementById('signature-container');
 var iframe = document.getElementById('pdf-viewer');
+var download_button = document.getElementById('download-button');
 
+refreshListeners(); // It is important to once add listeners for the whole document
 generateDynamicFields();
 var signature_canvas = setupSignatureCanvas(signature_container, 400, 200);
 document.getElementById('signature-clear-button').onclick = function (e) {
+    if(signature_canvas.isClear) return;
     signature_canvas.context.clearTo('#fff');
+    document.reRenderPDF();
 };
 
 document.getElementById('add-dynamic-inputs').onclick = function(ev) {
@@ -39,7 +43,12 @@ function generateDynamicFields(fields = [
         "desc": "Adresse",
         "type": "address"
     }]) {
+    // Reset
+    dynamic_elements = {};
+    dynamic_element_counter = 0;
     dynamic_input_container.innerHTML = ''; // TODO: Maybe be a little more… gentle here?
+
+    // Refill
     fields.forEach(field => {
         refreshListeners(addDynamicField(field));
     });
@@ -94,11 +103,12 @@ document.reRenderPDF = function() {
         data: data,
         recipient_address: document.getElementById('request-recipient').value,
         signature: {
-            type: 'image',
-            value: signature_canvas.node.toDataURL()
+            type: signature_canvas.isClear ? 'text' : 'image',
+            value:  signature_canvas.isClear ? null : signature_canvas.node.toDataURL(),
+            name: ''
         }
     });
-    generatePDF(letter, iframe);
+    generatePDF(letter, iframe, download_button);
 };
 
 function refreshListeners(element = document) {
@@ -136,6 +146,8 @@ function createCanvas(parent, width, height) {
 function setupSignatureCanvas(container, width, height, fillColor = '#fff') {
     var canvas = createCanvas(container, width, height);
     var ctx = canvas.context;
+    canvas.hasBeenDrawnOn = false;
+    canvas.isClear = true;
 
     // define a custom drawPath method
     ctx.fillCircle = function(x, y, radius, fillColor) {
@@ -161,6 +173,7 @@ function setupSignatureCanvas(container, width, height, fillColor = '#fff') {
     ctx.clearTo = function(fillColor) {
         ctx.fillStyle = fillColor;
         ctx.fillRect(0, 0, width, height);
+        canvas.isClear = true;
     };
     ctx.clearTo(fillColor);
 
@@ -186,12 +199,16 @@ function setupSignatureCanvas(container, width, height, fillColor = '#fff') {
         ctx.closePath();
 
         canvas.isDrawing = true;
+        canvas.hasBeenDrawnOn = true;
+        canvas.isClear = false;
     };
     canvas.node.onmouseup = function(e) {
         canvas.isDrawing = false;
     };
     canvas.node.onmouseout = function (e) {
-        document.reRenderPDF();
+        canvas.isDrawing = false;
+        if(canvas.hasBeenDrawnOn) document.reRenderPDF();
+        canvas.hasBeenDrawnOn = false;
     };
 
     return canvas;
