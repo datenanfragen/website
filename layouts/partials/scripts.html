@@ -10,10 +10,10 @@
 <script src="{{ "js/company-search.js" | absURL }}"></script>
 <script>
 algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
+    generateDynamicFields(suggestion['required-elements-access']);
     var recipient_input = document.getElementById('request-recipient');
     recipient_input.value = suggestion.name + '\n' + suggestion.address;
     recipient_input.onchange();
-    generateDynamicFields(suggestion['required-elements-access']);
 });
 </script>
 {{ end }}

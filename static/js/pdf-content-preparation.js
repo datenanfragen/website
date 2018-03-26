@@ -1,15 +1,19 @@
 /**
- * {object} generateRequest({object})
+ * {object} generateRequestLetter({object})
  *
  * @param request_object {object} containing
  * @return {object} letterObject to be plugged into generatePDF()
  */
-function generateRequest(request_object) {
+function generateRequestLetter(request_object) {
     var subject = '';
     var content = '';
     var data_text = '';
     var name = '';
     var sender_address = {};
+    var today = new Date();
+    var information_block = 'Mein Zeichen: ' + generateMark(today) + '\n' +
+        'Datum: ' + today.toISOString().substring(0, 10);
+
     request_object.data.forEach(function (item) {
         data_text += '<bold>' + item.desc + ':</bold> ';
         switch(item.type) {
@@ -48,7 +52,7 @@ function generateRequest(request_object) {
     return {
         sender_oneline: formatAddress(sender_address, ' • ', name),
         recipient_address: request_object.recipient_address,
-        information_block: 'Mein Zeichen: test-001',
+        information_block: information_block,
         subject: subject,
         content: content,
         signature: request_object.signature
@@ -65,4 +69,14 @@ function generateRequest(request_object) {
  */
 function formatAddress(address, delimiter = '\n', name = '') {
     return [name, address.street_1, address.street_2, address.place, address.country].filter(item => item).join(delimiter);
+}
+
+/**
+ * {string} generateMark({Date})
+ * returns a random mark for correspondence in the given year
+ * @param date {Date}
+ * @return {string}
+ */
+function generateMark(date) {
+    return date.getFullYear() + '-' + Math.random().toString(36).substring(2, 9).toUpperCase();
 }

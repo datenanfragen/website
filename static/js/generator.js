@@ -98,7 +98,7 @@ function generateJsonFromInputFields() {
 
 document.reRenderPDF = function() {
     var data = generateJsonFromInputFields();
-    var letter = generateRequest({
+    var letter = generateRequestLetter({
         type: 'access',
         data: data,
         recipient_address: document.getElementById('request-recipient').value,
