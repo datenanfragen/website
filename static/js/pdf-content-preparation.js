@@ -2,11 +2,13 @@
  * {object} generateRequestLetter({object})
  *
  * @param request_object {object} containing
+ * @param template {string} downloaded request template
  * @return {object} letterObject to be plugged into generatePDF()
  */
-function generateRequestLetter(request_object) {
+function generateRequestLetter(request_object, template) {
     var subject = '';
-    var content = '';
+    var flags = {};
+    var variables = {};
     var data_text = '';
     var name = '';
     var sender_address = {};
@@ -35,15 +37,34 @@ function generateRequestLetter(request_object) {
     switch(request_object.type) {
         case 'erasure':
             subject = 'Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO';
-            content = '' + data_text;
+            var erase_all = false;
+            flags = {
+                'erase_some': !erase_all,
+                'erase_all': erase_all
+            };
+            variables = {
+                'id_data': data_text,
+                'erasure_data': '<italic>Name, Handynummer, Score-Wert</italic>\n'
+            };
             break;
         case 'access':
             subject = 'Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO';
-            content = '' + data_text;
+            flags = {
+                'data_portability': false,
+                'runs': false
+            };
+            variables = {
+                'id_data': data_text,
+                'runs_list': '\nfoo\nbar'
+            };
             break;
         case 'rectification':
             subject = 'Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO';
-            content = '' + data_text;
+            flags = {};
+            variables = {
+                'id_data': data_text,
+                'rectification_data': data_text
+            };
             break;
         default:
             return null;
@@ -54,7 +75,7 @@ function generateRequestLetter(request_object) {
         recipient_address: request_object.recipient_address,
         information_block: information_block,
         subject: subject,
-        content: content,
+        content: handleTemplate(template, flags, variables),
         signature: request_object.signature
     };
 }
@@ -79,4 +100,14 @@ function formatAddress(address, delimiter = '\n', name = '') {
  */
 function generateMark(date) {
     return date.getFullYear() + '-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+}
+
+function handleTemplate(template, flags, variables) {
+    for(var flag in flags) {
+        template = template.replace(new RegExp('\\[' + flag + '>([\\s\\S]*?)\\]', 'gmu'), flags[flag] ? '$1' : '');
+    }
+    for(var variable in variables) {
+        template = template.replace('{' + variable + '}', variables[variable]);
+    }
+    return template;
 }

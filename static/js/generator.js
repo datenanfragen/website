@@ -97,18 +97,26 @@ function generateJsonFromInputFields() {
 }
 
 document.reRenderPDF = function() {
+    var url = 'https://raw.githubusercontent.com/datenanfragen/companies/master/templates/';
+    var type = document.querySelector('input[name="request-type"]:checked').value;
+    var template_name = document.querySelector('#request-template').value;
     var data = generateJsonFromInputFields();
-    var letter = generateRequestLetter({
-        type: 'access',
-        data: data,
-        recipient_address: document.getElementById('request-recipient').value,
-        signature: {
-            type: signature_canvas.isClear ? 'text' : 'image',
-            value:  signature_canvas.isClear ? null : signature_canvas.node.toDataURL(),
-            name: ''
-        }
-    });
-    generatePDF(letter, iframe, download_button);
+    fetch(url + 'de-' + type + '-' + template_name + '.txt')
+        .then(res => res.text())
+        .then(template => {
+            var letter = generateRequestLetter({
+                type: type,
+                data: data,
+                recipient_address: document.getElementById('request-recipient').value,
+                signature: {
+                    type: signature_canvas.isClear ? 'text' : 'image',
+                    value:  signature_canvas.isClear ? null : signature_canvas.node.toDataURL(),
+                    name: ''
+                }
+            }, template);
+            generatePDF(letter, iframe, download_button);
+        })
+        .catch(err => { console.error('Template download failed with error: ' + err); }); // TODO: Better error handling!
 };
 
 function refreshListeners(element = document) {

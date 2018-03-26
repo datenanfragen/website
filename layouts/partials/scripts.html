@@ -9,8 +9,10 @@
 <script src="{{ "js/autocomplete.min.js" | absURL }}"></script>
 <script src="{{ "js/company-search.js" | absURL }}"></script>
 <script>
+    // Very big TODO: This has to somehow move so that we can use the suggestion data
 algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
     generateDynamicFields(suggestion['required-elements-access']);
+    document.getElementById('request-template').value = suggestion['custom-access-template'] || 'default';
     var recipient_input = document.getElementById('request-recipient');
     recipient_input.value = suggestion.name + '\n' + suggestion.address;
     recipient_input.onchange();

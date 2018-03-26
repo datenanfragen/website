@@ -209,7 +209,7 @@ footer {
 }
 
 /* Forms */
-.form-element {
+input[type=search].form-element, input[type=text].form-element, input[type=email].form-element, input[type=password].form-element, input[type=tel].form-element, input[type=url].form-element, input[type=number].form-element, textarea.form-element, select.form-element {
     width: 100%;
 }
 textarea.form-element {
