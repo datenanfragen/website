@@ -1,0 +1,41 @@
+{
+    "name": "datenanfragen.de",
+    "version": "1.0.0",
+    "private": true,
+    "description": "The datenanfragen.de website",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/datenanfragen/website.git"
+    },
+    "author": "The datenanfragen.de project",
+    "contributors": [
+        {
+            "name": "Benjamin Altpeter",
+            "email": "hi@bn.al",
+            "url": "https://benjamin-altpeter.de"
+        },
+        {
+            "name": "Lorenz Sieben",
+            "email": "me@lorenz-sieben.com",
+            "url": "https://lorenz-sieben.com"
+        }
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "webpack",
+        "dev": "webpack --watch"
+    },
+    "bugs": {
+        "url": "https://github.com/datenanfragen/website/issues"
+    },
+    "homepage": "https://www.datenanfragen.de",
+    "dependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.4",
+        "babel-preset-env": "^1.6.1",
+        "preact": "^8.2.1",
+        "preact-cli": "^2.0.0",
+        "webpack": "^4.2.0",
+        "webpack-cli": "^2.0.13"
+    }
+}
