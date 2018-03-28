@@ -1,25 +1,7 @@
 {{ partial "header" . }}
 
-<main>
-    <h2>Anfrage generieren</h2>
-    <input id="aa-search-input" class="aa-input-search" placeholder="Unternehmen auswählen…" type="search">
-    <div id="request-generator" class="grid" style="margin-top: 10px;">
-        <div class="col50">
-            <div class="request-form">
-                {{ partial "forms/request-form" . }}
-            </div>
-        </div>
-        <div class="col50">
-            <div id="pdf-controls">
-                <a id="download-button" class="button" href="javascript:void()" download>PDF herunterladen</a>
-                <button id="generate-button">PDF generieren</button>
-                <div class="clearfix"></div>
-            </div>
-            <iframe id="pdf-viewer">
-            </iframe>
-        </div>
-    </div>
-    <div class="clearfix"></div>
+<main id="generator">
+
 </main>
 
 {{ partial "footer" . }}
