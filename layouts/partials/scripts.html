@@ -10,7 +10,7 @@
 <script src="{{ "js/company-search.js" | absURL }}"></script>
 <script>
     // Very big TODO: This has to somehow move so that we can use the suggestion data
-algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
+    algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
     generateDynamicFields(suggestion['required-elements-access']);
     document.getElementById('request-template').value = suggestion['custom-access-template'] || 'default';
     var recipient_input = document.getElementById('request-recipient');
@@ -26,42 +26,60 @@ algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dat
 <script src="{{ "js/company-search.js" | absURL }}"></script>
 <script>
     algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
-        location.href = '/company/' + suggestion.slug;
-    });
+    location.href = '/company/' + suggestion.slug;
+});
 </script>
 {{ end }}
 
 {{ if .IsHome }}
+<script src="{{ "js/algoliasearch.min.js" | absURL }}"></script>
+<script src="{{ "js/autocomplete.min.js" | absURL }}"></script>
+<script src="{{ "js/company-search.js" | absURL }}"></script>
+<script>
+algolia_autocomplete.on('autocomplete:selected', function(event, suggestion, dataset) {
+    /* TODO: Prefill generator with company for this */
+    location.href = '/generator?company=' + suggestion.slug;
+});
+</script>
+
 <script>
     /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
+    var hero_rights = [ "Datenauskunft.", "Vergessenwerden.", "Datenberichtigung.", "Widerspruch.", "Datenschutz!"];
+    /* TODO: Move create a proper repository of suggested companies and use that here. */
+    var search_suggested_companies = [ "Schufa", "Amazon", "Creditreform Boniversum", "infoscore", "ARD ZDF Deutschlandradio Beitragsservice", "CRIF Bürgel", "PayPal" ];
+
+    function typewriter(text, i, fnCallback) {
+        if (i < (text.length)) {
+            document.getElementById("home-hero-word").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+
+            setTimeout(function() {
+                typewriter(text, i + 1, fnCallback)
+            }, 150);
+        }
+        else if (typeof fnCallback == 'function') {
+            setTimeout(fnCallback, 700);
+        }
+    }
+    function startTextAnimation(i) {
+        if (typeof hero_rights[i] == 'undefined'){
+            setTimeout(function() {
+                startTextAnimation(0);
+            }, 20000);
+        }
+        if (i < hero_rights[i].length) {
+            typewriter(hero_rights[i], 0, function(){
+                startTextAnimation(i + 1);
+            });
+        }
+    }
+
+    function changePlaceholderCompany() {
+        document.getElementById("aa-search-input").placeholder = "Wie wäre es mit „" + search_suggested_companies[Math.floor(Math.random() * search_suggested_companies.length)] + "“?";
+    }
+
     window.onload = function() {
-        var dataText = [ "Datenauskunft.", "Vergessenwerden.", "Datenberichtigung.", "Widerspruch.", "Datenschutz!"];
-
-        function typeWriter(text, i, fnCallback) {
-            if (i < (text.length)) {
-                document.getElementById("home-hero-word").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
-
-                setTimeout(function() {
-                    typeWriter(text, i + 1, fnCallback)
-                }, 150);
-            }
-            else if (typeof fnCallback == 'function') {
-                setTimeout(fnCallback, 700);
-            }
-        }
-        function StartTextAnimation(i) {
-            if (typeof dataText[i] == 'undefined'){
-                setTimeout(function() {
-                    StartTextAnimation(0);
-                }, 20000);
-            }
-            if (i < dataText[i].length) {
-                typeWriter(dataText[i], 0, function(){
-                    StartTextAnimation(i + 1);
-                });
-            }
-        }
-        StartTextAnimation(0);
+        startTextAnimation(0);
+        setInterval(changePlaceholderCompany, 2000);
     };
 </script>
 {{ end }}
