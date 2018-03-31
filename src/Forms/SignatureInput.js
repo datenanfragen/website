@@ -114,7 +114,7 @@ export default class SignatureInput extends preact.Component {
         this.props.onChange({
             signature: {
                 type: this.state.isEmpty ? 'text' : 'image',
-                image: !this.state.isEmpty ? this.canvas.toDataURL() : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=' // Transparent 1x1 png
+                value: !this.state.isEmpty ? this.canvas.toDataURL() : ''
             }
         });
     }

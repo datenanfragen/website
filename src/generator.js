@@ -1,5 +1,6 @@
 import preact from 'preact';
 import RequestForm from 'Forms/RequestForm';
+import Letter from 'Letter';
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -8,10 +9,14 @@ class Generator extends preact.Component {
             'request_data': {
                 type: 'access',
                 data: [],
-                recipient_address: ''
+                recipient_address: '',
+                signature: {type: 'text', value: ''}
             }
         };
 
+        this.iframe = null;
+        this.download_button = null;
+        this.testRender = this.testRender.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
@@ -26,12 +31,11 @@ class Generator extends preact.Component {
                     </div>
                     <div className="col50">
                         <div id="pdf-controls">
-                            <a id="download-button" class="button" href="" download>PDF herunterladen</a>
-                            <button id="generate-button">PDF generieren</button>
+                            <a id="download-button" class="button" href="" download ref={el => this.download_button = el}>PDF herunterladen</a>
+                            <button id="generate-button" onClick={this.testRender}>PDF generieren</button>
                             <div className="clearfix" />
                         </div>
-                        <iframe id="pdf-viewer">
-                        </iframe>
+                        <iframe id="pdf-viewer" ref={el => this.iframe = el} />
                     </div>
                 </div>
                 <div className="clearfix" />
@@ -45,7 +49,21 @@ class Generator extends preact.Component {
             }
             return prev;
         });
-        console.log(this.state);
+    }
+
+    testRender() {
+        let url = 'https://raw.githubusercontent.com/datenanfragen/companies/master/templates/';
+        fetch(url + 'de-' + this.state.request_data.type + '-default.txt')
+            .then(res => res.text())
+            .then(template => {
+                let letter = Letter.fromRequest(this.state.request_data, template);
+                pdfMake.createPdf(letter.toPdfDoc()).getBlob((blob) => { // TODO: setBusyState
+                    var url = URL.createObjectURL(blob);
+                    this.iframe.src = url;
+                    this.download_button.setAttribute('href', url);
+                });
+            })
+            .catch(err => { console.error('Template download failed with error: ' + err); }); // TODO: Better error handling!
     }
 }
 
