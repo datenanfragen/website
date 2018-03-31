@@ -221,7 +221,7 @@ textarea.form-element {
     background: #00db20;
 }
 
-#signature-container > canvas {
+#signature {
     border: 1px solid #000;
 }
 
