@@ -14,16 +14,18 @@ export default class DynamicInputContainer extends preact.Component {
                 "optional": true
             }, {
                 "desc": "Adresse",
-                "type": "address"
+                "type": "address",
             }];
         let fields_object = {};
         fields_array.forEach((field, i) => {
+            field['value'] = field['type'] === 'address' ? {} : '';
             fields_object[i + 1] = field;
         });
         this.state = {
             fields: fields_object,
             fields_counter: fields_array.length || 0,
-            'dynamic-input-type': 'input'
+            'dynamic-input-type': 'input',
+            primary_address: 0
         };
 
         this.addDynamicInput = this.addDynamicInput.bind(this);
@@ -36,7 +38,9 @@ export default class DynamicInputContainer extends preact.Component {
         let input_elements = [];
         for(let i in this.state.fields) {
             let field = this.state.fields[i];
-            input_elements.push(<DynamicInput key={i} id={i} type={field.type} desc={field.desc} optional={field.optional} removeHandler={this.removeDynamicInput} onChange={this.handleInputChange}/>)
+            input_elements.push(<DynamicInput key={i} id={i} type={field.type} desc={field.desc} optional={field.optional}
+                                              removeHandler={this.removeDynamicInput} onChange={this.handleInputChange}
+                                              primary={this.state.primary_address === i} onPrimaryChange={this.handleInputChange}/>);
         }
         return (
             <fieldset>
@@ -69,8 +73,10 @@ export default class DynamicInputContainer extends preact.Component {
                 case 'desc':
                     prev.fields[id[0]].desc = event.target.value;
                     break;
+                case 'primaryButton':
+                    prev['primary_address'] = id[0];
+                    break;
                 default:
-                    prev.fields[id[0]].value = prev.fields[id[0]].value || {};
                     prev.fields[id[0]].value[id[1]] = event.target.value;
             }
             return prev;
@@ -89,7 +95,8 @@ export default class DynamicInputContainer extends preact.Component {
         let field = {
             desc: '',
             type: this.state['dynamic-input-type'],
-            optional: true
+            optional: true,
+            value: this.state['dynamic-input-type'] === 'address' ? {} : ''
         };
         this.setState(prev => {
             prev.fields_counter = prev.fields_counter + 1;
@@ -110,6 +117,8 @@ export default class DynamicInputContainer extends preact.Component {
         let data = [];
         for(let i in this.state.fields) {
             let field = this.state.fields[i];
+            delete field['optional'];
+            if(field['type'] === 'address') field.value['primary'] = (this.state.primary_address === i);
             data.push(field);
         }
         return data;

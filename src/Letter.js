@@ -180,14 +180,14 @@ export default class Letter {
 
     static formatData(request_data) {
         let formatted = '';
-        let primary_address = ''; // This seems like an odd place for this, but I really want to spare the additional loop(s).
+        let primary_address = {}; // This seems like an odd place for this, but I really want to spare the additional loop(s).
         let name = '';
         request_data.forEach(function (item) {
             formatted += '<bold>' + item.desc + ':</bold> ';
             switch(item.type) {
                 case 'address':
                     formatted += '\n' + Letter.formatAddress(item.value, ', ');
-                    if(item.value.primary === 'true') primary_address = item.value;
+                    if(item.value.primary) primary_address = item.value;
                     break;
                 case 'textarea':
                     formatted += '\n' + item.value;

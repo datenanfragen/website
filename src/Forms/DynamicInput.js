@@ -10,10 +10,10 @@ export default class DynamicInput extends preact.Component {
         let control = '';
         switch (this.props.type) {
             case 'address':
-                input = <AddressControl key={this.props.id} id={this.props.id} required={!this.props.optional} onChange={this.props.onChange} />;
+                input = <AddressControl key={this.props.id} id={this.props.id} required={!this.props.optional} onChange={this.props.onChange} primary={this.props.primary} />;
                 control = (
                     <div class="col50">
-                        <button id={this.props.id + '-primaryButton'} rel={this.props.id + '-primary'} class="dynamic-input-primaryButton" data-isprimary="false">Hauptadresse</button>
+                        <button id={this.props.id + '-primaryButton'} rel={this.props.id} className="dynamic-input-primaryButton" data-isprimary={this.props.primary} onClick={this.props.onPrimaryChange}>Hauptadresse</button>
                     </div>
                 );
                 break;
@@ -93,7 +93,7 @@ export class AddressControl extends preact.Component {
                     <input key={this.props.id + '-country'} type="text" id={this.props.id + '-country'} placeholder="Land" className="form-element" onChange={this.props.onChange} />
                     <label className="fancy-label" for={this.props.id + '-country'}>Land</label>
                 </div>
-                <input key={this.props.id + '-primary'} type="hidden" id={this.props.id + '-primary'} className="dynamic-input-primary form-element" value="false" onChange={this.props.onChange} />
+                <input key={this.props.id + '-primary'} type="hidden" id={this.props.id + '-primary'} className="dynamic-input-primary form-element" value={this.props.primary} onChange={this.props.onChange} />
             </div>
         );
     }
