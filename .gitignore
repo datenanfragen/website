@@ -179,3 +179,7 @@ $RECYCLE.BIN/
 # Hugo
 public/
 content/company/*
+
+
+# Generated JS
+static/js/*.gen.js
