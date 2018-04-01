@@ -51,7 +51,6 @@ export default class SignatureInput extends preact.Component {
     };
 
     clear() {
-        console.log('clear…');
         if(this.state.isEmpty) return;
         this.context.clearRect(0, 0, this.state.width, this.state.height);
         this.setState({isEmpty: true});
@@ -63,8 +62,8 @@ export default class SignatureInput extends preact.Component {
             <fieldset>
                 <legend>Unterschrift</legend>
                 Wenn Du möchtest, kannst Du Deine Anfrage hier unterschreiben. Zeichne dafür einfach mit gedrückter Maustaste in das Feld.
-                <div><canvas style={'background-color: ' + this.state.backgroundColor } ref={el => this.canvas = el} width={this.state.width} height={this.state.height} onMouseMove={this.handleMouse} onMouseDown={this.handleMouse} onMouseUp={this.handleMouse} onMouseOut={this.handleMouse} /></div>
-                <button onClick={this.clear}>Neu erstellen</button>
+                <div><canvas id={this.props.id} style={'background-color: ' + this.state.backgroundColor } ref={el => this.canvas = el} width={this.state.width} height={this.state.height} onMouseMove={this.handleMouse} onMouseDown={this.handleMouse} onMouseUp={this.handleMouse} onMouseOut={this.handleMouse} /></div>
+                <button onClick={this.clear}>Zurücksetzen</button>
             </fieldset>
         );
     }

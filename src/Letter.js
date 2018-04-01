@@ -106,7 +106,7 @@ export default class Letter {
         request_object.signature['name'] = data.name;
         let today = new Date();
         let letter = new Letter({
-            information_block: 'Mein Zeichen: ' + Letter.generateMark(today) + '\n' +
+            information_block: 'Mein Zeichen: ' + Letter.generateReference(today) + '\n' +
             'Datum: ' + today.toISOString().substring(0, 10),
             subject: subjects[request_object.type],
             recipient_address: request_object.recipient_address,
@@ -182,7 +182,7 @@ export default class Letter {
         let formatted = '';
         let primary_address = {}; // This seems like an odd place for this, but I really want to spare the additional loop(s).
         let name = '';
-        request_data.forEach(function (item) {
+        request_data.forEach((item) => {
             formatted += '<bold>' + item.desc + ':</bold> ';
             switch(item.type) {
                 case 'address':
@@ -216,12 +216,12 @@ export default class Letter {
     }
 
     /**
-     * {string} generateMark({Date})
-     * returns a random mark for correspondence in the given year
+     * {string} generateReference({Date})
+     * returns a random reference for correspondence in the given year
      * @param date {Date}
      * @return {string}
      */
-    static generateMark(date) {
+    static generateReference(date) {
         return date.getFullYear() + '-' + Math.random().toString(36).substring(2, 9).toUpperCase();
     }
 

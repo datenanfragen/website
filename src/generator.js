@@ -41,7 +41,9 @@ class Generator extends preact.Component {
         return (
             <main>
                 <h2>Anfrage generieren</h2>
-                <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies' onAutocompleteSelected={this.handleAutocompleteSelected} />
+                <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
+                           index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
+                           placeholder="Unternehmen auswählen…" debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div className="col50">
                         <RequestForm onChange={this.handleInputChange} request_data={this.state.request_data}/>
@@ -81,18 +83,38 @@ class Generator extends preact.Component {
     }
 
     testRender() {
-        let url = 'https://raw.githubusercontent.com/datenanfragen/companies/master/templates/';
-        fetch(url + 'de-' + this.state.request_data.type + '-default.txt')
-            .then(res => res.text())
-            .then(template => {
-                let letter = Letter.fromRequest(this.state.request_data, template);
+
+                let letter = Letter.fromRequest(this.state.request_data, 'Guten Tag,\n' +
+                    '\n' +
+                    'ich bitte hiermit um Auskunft gemäß Art. 15 DSGVO. Bitte bestätigen Sie mir, ob Sie mich betreffende personenbezogene Daten verarbeiten (vgl. Art. 4 Nr. 1 und 2 DSGVO).\n' +
+                    '\n' +
+                    'In diesem Fall bitte ich Sie im Sinne des Art. 15 Abs. 1 DSGVO um Auskunft über\n' +
+                    '1. <italic>sämtliche</italic> personenbezogenen Daten, die Sie zu meiner Person gespeichert haben;\n' +
+                    '2. die Verarbeitungszwecke;\n' +
+                    '3. die Kategorien personenbezogener Daten, die verarbeitet werden;\n' +
+                    '4. die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen Daten offengelegt worden sind oder noch offengelegt werden;\n' +
+                    '5. falls möglich die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder, falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer;\n' +
+                    '6. wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren Informationen über die Herkunft der Daten;\n' +
+                    'falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – sofern gegeben – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung meine Person.\n' +
+                    '\n' +
+                    'Sofern Sie meine personenbezogenen Daten an ein Drittland oder an eine internationale Organisation übermitteln, bitte ich über die geeigneten Garantien gemäß Art. 46 DSGVO im Zusammenhang mit der Übermittlung unterrichtet zu werden.\n' +
+                    '[data_portability>\n' +
+                    'Ich bitte Sie, mir die betreffenden personenbezogenen Daten, die ich Ihnen zur Verfügung gestellt habe, im Sinne des Art. 20 Abs. 1 DSGVO in einem strukturierten, gängigen und maschinenlesbaren Format zu übermitteln.]\n' +
+                    'Meine Anfrage schließt explizit auch [runs>die folgenden sowie] sämtliche weiteren Angebote und Unternehmen ein, für die Sie Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO sind[runs>: {runs_list}].\n' +
+                    '\n' +
+                    'Die Auskunft ist nach Art. 12 Abs. 3 DSGVO unverzüglich, in jedem Fall aber innerhalb eines Monats nach Eingang der Anfrage zu erteilen. Sie hat nach Art. 15 Abs. 3 DSGVO kostenlos zu erfolgen.\n' +
+                    '\n' +
+                    'Zur Identifikation meiner Person habe ich folgende Daten beigefügt:\n' +
+                    '{id_data}\n' +
+                    '\n' +
+                    'Sollten Sie meiner Anfrage nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.\n' +
+                    '\n' +
+                    'Mit freundlichen Grüßen');
                 pdfMake.createPdf(letter.toPdfDoc()).getBlob((blob) => { // TODO: setBusyState
                     var url = URL.createObjectURL(blob);
                     this.iframe.src = url;
                     this.download_button.setAttribute('href', url);
                 });
-            })
-            .catch(err => { console.error('Template download failed with error: ' + err); }); // TODO: Better error handling!
     }
 }
 

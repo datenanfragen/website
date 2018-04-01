@@ -24,16 +24,16 @@ export default class DynamicInputContainer extends preact.Component {
             fields: fields_object,
             fields_counter: nextProps.fields.length || 0,
             'dynamic-input-type': prevState['dynamic-input-type'] || 'input',
-            primary_address: 0
+            primary_address: prevState['primary_address'] || 0
         };
     }
 
-    shouldComponentUpdate(nextProps) {
-        return nextProps !== this.props;
+    componentWillUpdate() {
+        console.log('update', this.state);
     }
 
     componentWillReceiveProps(nextProps) {
-        if(this.shouldComponentUpdate(nextProps)) {
+        if(this.props !== nextProps) {
             this.setState(DynamicInputContainer.getDerivedStateFromProps(nextProps, this.state));
         }
     }

@@ -5,6 +5,7 @@ import SignatureInput from "./SignatureInput";
 export default class RequestForm extends preact.Component {
     constructor(props) {
         super(props);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     render() {
@@ -16,13 +17,13 @@ export default class RequestForm extends preact.Component {
                     <div className="request-type-chooser">
                         Was für eine Anfrage möchtest Du stellen?<br />
                         <input type="radio" id="request-type-choice-access" name="request-type" value="access" className="form-element" checked={this.props.request_data['type'] === 'access'}
-                               onChange={event => {this.props.onChange({type: event.target.value});}} /> <label for="request-type-choice-access">Selbstauskunft</label>
+                               onChange={this.handleChange} /> <label for="request-type-choice-access">Selbstauskunft</label>
                         <input type="radio" id="request-type-choice-erasure" name="request-type" value="erasure" className="form-element" checked={this.props.request_data['type'] === 'erasure'}
-                               onChange={event => {this.props.onChange({type: event.target.value});}} /> <label for="request-type-choice-erasure">Löschantrag</label>
+                               onChange={this.handleChange} /> <label for="request-type-choice-erasure">Löschantrag</label>
                         <input type="radio" id="request-type-choice-rectification" name="request-type" value="rectification" className="form-element" checked={this.props.request_data['type'] === 'rectification'}
-                               onChange={event => {this.props.onChange({type: event.target.value});}} /> <label for="request-type-choice-rectification">Berichtigungsantrag</label>
+                               onChange={this.handleChange} /> <label for="request-type-choice-rectification">Berichtigungsantrag</label>
                         <input type="radio" id="request-type-choice-custom" name="request-type" value="custom" className="form-element" checked={this.props.request_data['type'] === 'custom'}
-                               onChange={event => {this.props.onChange({type: event.target.value});}} /> <label for="request-type-choice-custom">Eigener Text</label>
+                               onChange={this.handleChange} /> <label for="request-type-choice-custom">Eigener Text</label>
                     </div>
 
                     <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
@@ -37,9 +38,13 @@ export default class RequestForm extends preact.Component {
 
                 <DynamicInputContainer onChange={this.props.onChange} fields={this.props.request_data['data']}/>
 
-                <SignatureInput width={400} height={200} onChange={this.props.onChange}/>
+                <SignatureInput id="signature" width={400} height={200} onChange={this.props.onChange}/>
             </div>
         );
+    }
+
+    handleChange(event) {
+        this.props.onChange({type: event.target.value});
     }
 
 }
