@@ -33,7 +33,6 @@ h2 { font-size: 1.4em; }
 a, a:active, a:focus, a:visited { color: #1982c4; }
 a:hover, a:active { color: #0062b1; }
 
-img { max-width: 100%; }
 img.image {
     display: block;
     margin: auto;
@@ -263,9 +262,30 @@ textarea.form-element {
 /* Home */
 #home-hero {
     margin-top: 40px;
-    text-align: center;
+    margin-bottom: 10px;
     font-family: Georgia, serif;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, .2);
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
+}
+#home-hero-bg-image-container {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+
+    z-index: -1;
+}
+#home-hero-bg-image {
+    width: calc(100% + 20px);
+    height: 500px;
+    object-fit: cover;
+
+    filter: blur(5px);
+
+    position: absolute;
+    left: -10px;
 }
 #home-hero-line-1 {
     font-size: 2.5em;
@@ -279,6 +299,17 @@ textarea.form-element {
     font-size: 4em;
     margin-top: -30px;
 }
+#home-hero-copy {
+    width: 50%;
+}
+
+.home-feature { padding-top: 50px; }
+.home-feature img {
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+}
+.home-feature h2 { margin: 0; }
 
 .contact-table td:nth-child(1) {
     font-weight: bold;
