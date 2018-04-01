@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # --- Fetch companies data ---
-git clone https://github.com/datenanfragen/companies tmp
+git clone --depth 1 https://github.com/datenanfragen/companies tmp
 mkdir -p content/company
 mv tmp/data/* content/company
 rm -rf tmp
@@ -8,6 +8,7 @@ rm -rf tmp
 cd content/company
 find . -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
 
-# --- Run Hugo ---
+# --- Run Webpack and Hugo ---
 cd ../..
+yarn run build
 hugo --baseURL=$URL
