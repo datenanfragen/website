@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # --- Fetch companies data ---
 git clone https://github.com/datenanfragen/companies tmp
 mkdir -p content/company

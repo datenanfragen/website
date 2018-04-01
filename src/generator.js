@@ -6,23 +6,25 @@ import SearchBar from "./SearchBar";
 class Generator extends preact.Component {
     constructor(props) {
         super(props);
+        this.default_fields = [{
+            "desc": "Name",
+            "type": "name",
+            "value": ""
+        }, {
+            "desc": "Geburtsdatum",
+            "type": "input",
+            "optional": true,
+            "value": ""
+        }, {
+            "desc": "Adresse",
+            "type": "address",
+            "value": {"primary": true}
+        }];
+
         this.state = {
             'request_data': {
                 type: 'access',
-                data: [{
-                    "desc": "Name",
-                    "type": "name",
-                    "value": ""
-                }, {
-                    "desc": "Geburtsdatum",
-                    "type": "input",
-                    "optional": true,
-                    "value": ""
-                }, {
-                    "desc": "Adresse",
-                    "type": "address",
-                    "value": {"primary": true}
-                }],
+                data: this.default_fields,
                 recipient_address: '',
                 signature: {type: 'text', value: ''}
             }
@@ -62,7 +64,7 @@ class Generator extends preact.Component {
         console.log(suggestion);
         this.setState(prev => {
             prev.request_data['recipient_address'] = suggestion.name + '\n' + suggestion.address;
-            prev.request_data['data'] = suggestion['required-elements-access']; // TODO: Be *a lot* gentler here. Compare the two arrays and keep already entered data. Also switch types.
+            prev.request_data['data'] = suggestion['required-elements-access'] || this.default_fields; // TODO: Be *a lot* gentler here. Compare the two arrays and keep already entered data. Also switch types.
             return prev;
         });
         console.log(this.state);
