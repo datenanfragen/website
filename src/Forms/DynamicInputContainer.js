@@ -4,34 +4,38 @@ import DynamicInput from "./DynamicInput";
 export default class DynamicInputContainer extends preact.Component {
     constructor(props) {
         super(props);
-        let fields_array = props.fields || [ // default fields
-            {
-                "desc": "Name",
-                "type": "name"
-            }, {
-                "desc": "Geburtsdatum",
-                "type": "input",
-                "optional": true
-            }, {
-                "desc": "Adresse",
-                "type": "address",
-            }];
-        let fields_object = {};
-        fields_array.forEach((field, i) => {
-            field['value'] = field['type'] === 'address' ? {} : '';
-            fields_object[i + 1] = field;
-        });
-        this.state = {
-            fields: fields_object,
-            fields_counter: fields_array.length || 0,
-            'dynamic-input-type': 'input',
-            primary_address: 0
-        };
+        this.state = DynamicInputContainer.getDerivedStateFromProps(this.props, {});
 
         this.addDynamicInput = this.addDynamicInput.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.removeDynamicInput = this.removeDynamicInput.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
+    // This is not yet implemented in preact but componentWillReceiveProps is going to be deprecated in React, so we will use this workaround to simulate the future. How exciting O.o
+    // Relevant issue: https://github.com/developit/preact/issues/1047
+    static getDerivedStateFromProps(nextProps, prevState) {
+        let fields_object = {};
+        nextProps.fields.forEach((field, i) => {
+            if(!field['value']) field['value'] = field['type'] === 'address' ? {} : '';
+            fields_object[i + 1] = field;
+        });
+        return {
+            fields: fields_object,
+            fields_counter: nextProps.fields.length || 0,
+            'dynamic-input-type': prevState['dynamic-input-type'] || 'input',
+            primary_address: 0
+        };
+    }
+
+    shouldComponentUpdate(nextProps) {
+        return nextProps !== this.props;
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(this.shouldComponentUpdate(nextProps)) {
+            this.setState(DynamicInputContainer.getDerivedStateFromProps(nextProps, this.state));
+        }
     }
 
     render() {
@@ -117,7 +121,6 @@ export default class DynamicInputContainer extends preact.Component {
         let data = [];
         for(let i in this.state.fields) {
             let field = this.state.fields[i];
-            delete field['optional'];
             if(field['type'] === 'address') field.value['primary'] = (this.state.primary_address === i);
             data.push(field);
         }

@@ -1,6 +1,7 @@
 import preact from 'preact';
 import RequestForm from 'Forms/RequestForm';
 import Letter from 'Letter';
+import SearchBar from "./SearchBar";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -8,7 +9,20 @@ class Generator extends preact.Component {
         this.state = {
             'request_data': {
                 type: 'access',
-                data: [],
+                data: [{
+                    "desc": "Name",
+                    "type": "name",
+                    "value": ""
+                }, {
+                    "desc": "Geburtsdatum",
+                    "type": "input",
+                    "optional": true,
+                    "value": ""
+                }, {
+                    "desc": "Adresse",
+                    "type": "address",
+                    "value": {"primary": true}
+                }],
                 recipient_address: '',
                 signature: {type: 'text', value: ''}
             }
@@ -18,16 +32,17 @@ class Generator extends preact.Component {
         this.download_button = null;
         this.testRender = this.testRender.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
     }
 
     render() {
         return (
             <main>
                 <h2>Anfrage generieren</h2>
-                <input id="aa-search-input" className="aa-input-search" placeholder="Unternehmen auswählen…" type="search" />
+                <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies' onAutocompleteSelected={this.handleAutocompleteSelected} />
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div className="col50">
-                        <RequestForm onChange={this.handleInputChange} type={this.state['request_data']['type']}/>
+                        <RequestForm onChange={this.handleInputChange} request_data={this.state.request_data}/>
                     </div>
                     <div className="col50">
                         <div id="pdf-controls">
@@ -42,6 +57,17 @@ class Generator extends preact.Component {
             </main>);
     }
 
+    handleAutocompleteSelected(event, suggestion, dataset) {
+        // TODO: Request template at this point
+        console.log(suggestion);
+        this.setState(prev => {
+            prev.request_data['recipient_address'] = suggestion.name + '\n' + suggestion.address;
+            prev.request_data['data'] = suggestion['required-elements-access']; // TODO: Be *a lot* gentler here. Compare the two arrays and keep already entered data. Also switch types.
+            return prev;
+        });
+        console.log(this.state);
+    }
+
     handleInputChange(changed_data) {
         this.setState(prev => {
             for(let key in changed_data) {
@@ -49,6 +75,7 @@ class Generator extends preact.Component {
             }
             return prev;
         });
+        // TODO: trigger a render sometimes (See #8)
     }
 
     testRender() {

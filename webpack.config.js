@@ -1,9 +1,12 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/generator.js',
+    entry: {
+        generator: './src/generator.js',
+        'company-list': './src/company-list.js'
+    },
     output: {
-        filename: 'generator.gen.js',
+        filename: '[name].gen.js',
         path: path.resolve(__dirname, 'static/js')
     },
     module: {
