@@ -17,6 +17,7 @@ class RequestList extends preact.Component {
             .catch(() => { console.log('Could not get requests.'); /* TODO: Proper error handling. */ });
 
         this.clearRequests = this.clearRequests.bind(this);
+        this.exportRequests = this.exportRequests.bind(this);
     }
     render() {
         let requests = [];
@@ -29,6 +30,7 @@ class RequestList extends preact.Component {
             <main>
                 <h1>Meine Anfragen</h1>
                 <p>Hier findest Du alle Anfragen, die Du mit diesem Browser bereits generiert hast. Das ist z.&nbsp;B. nützlich, um zu überprüfen, ob Unternehmen Dir rechtzeitig antworten.</p>
+                <p>Diese Daten sind <em>ausschließlich</em> auf Deinem eigenen Computer gespeichert und werden unter keinen Umständen an uns gesendet. Sie bleiben (auch nach einem Neustart) so lange erhalten, bis Du die Offline-Webseiten-Daten in Deinem Browser leerst oder unten alle Anfragen löscht. Du kannst sämtliche Daten auch <a onClick={this.exportRequests}>als CSV exportieren</a>.</p>
                 <table className='table'>
                     <thead><th>Datum</th><th>Empfänger</th><th>Zeichen</th><th>Art</th><th>Anfrage per</th></thead>
                     <tbody>{requests}</tbody>
@@ -37,6 +39,19 @@ class RequestList extends preact.Component {
                 <div className='clearfix' />
             </main>
         );
+    }
+
+    exportRequests() {
+        // see https://stackoverflow.com/a/14966131
+        let csv = 'data:text/csv;charset=utf-8,';
+        // TODO: We should set the filename to something sensible.
+        csv += 'date;recipient;reference;type;via\r\n';
+        Object.keys(this.state.requests).forEach((reference) => {
+            let request = this.state.requests[reference];
+            csv += [ request.date, request.recipient, reference, request.type, request.via ].join(';') + '\r\n';
+        });
+
+        window.open(encodeURI(csv));
     }
 
     clearRequests() {

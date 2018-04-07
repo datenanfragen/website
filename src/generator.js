@@ -186,7 +186,7 @@ class Generator extends preact.Component {
         // TODO: The reference needs to be stored in the state, so I can access it here
         let dummy_reference = (new Date).getFullYear() + '-' + Math.random().toString(36).substring(2, 9).toUpperCase();
         localforage.setItem(dummy_reference, {
-            date: new Date().toLocaleDateString(), // TODO: The date will be configurable in the future, we will need to grab that here
+            date: new Date().toISOString(), // TODO: The date will be configurable in the future, we will need to grab that here
             type: this.state.request_data.type,
             recipient: this.state.request_data.recipient_address.split('\n', 1)[0], // TODO: This should always work due to how this is generated but it's not very nice. Is there a better way?
             via: 'fax' // TODO: This is not currently implemented
