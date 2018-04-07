@@ -4,6 +4,7 @@ import Letter from 'Letter';
 import SearchBar from "./SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'i18n';
+import localforage from 'localforage';
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -64,6 +65,12 @@ class Generator extends preact.Component {
             }
         };
 
+        // TODO: Is there a better place for this?
+        localforage.config({
+            'name': 'Datenanfragen.de',
+            'storeName': 'my-requests'
+        });
+
         this.iframe = null;
         this.download_button = null;
         this.renderPdf = this.renderPdf.bind(this);
@@ -71,6 +78,7 @@ class Generator extends preact.Component {
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
+        this.storeRequest = this.storeRequest.bind(this);
 
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
@@ -152,7 +160,7 @@ class Generator extends preact.Component {
     }
 
     renderPdf() {
-        if(this.state.request_data['type'] === 'custom') {
+        if (this.state.request_data['type'] === 'custom') {
             let signature = this.state.request_data['signature'];
             signature['name'] = this.state.request_data.custom_data['name'];
             this.letter.setProps({
@@ -172,6 +180,17 @@ class Generator extends preact.Component {
                 + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf'); // TODO: This uses code that is not implemented in this branch, but has been merged into master.
             this.setState({download_active: true});
         });
+    }
+
+    storeRequest() {
+        // TODO: The reference needs to be stored in the state, so I can access it here
+        let dummy_reference = (new Date).getFullYear() + '-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+        localforage.setItem(dummy_reference, {
+            date: new Date().toLocaleDateString(), // TODO: The date will be configurable in the future, we will need to grab that here
+            type: this.state.request_data.type,
+            recipient: this.state.request_data.recipient_address.split('\n', 1)[0], // TODO: This should always work due to how this is generated but it's not very nice. Is there a better way?
+            via: 'fax' // TODO: This is not currently implemented
+        }).catch(() => { console.log('Failed to save request with reference ' + dummy_reference); /* TODO: Proper error handling. */ });
     }
 }
 
