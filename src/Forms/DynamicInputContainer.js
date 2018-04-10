@@ -28,10 +28,6 @@ export default class DynamicInputContainer extends preact.Component {
         };
     }
 
-    componentWillUpdate() {
-        console.log('update', this.state);
-    }
-
     componentWillReceiveProps(nextProps) {
         if(this.props !== nextProps) {
             this.setState(DynamicInputContainer.getDerivedStateFromProps(nextProps, this.state));
@@ -42,26 +38,25 @@ export default class DynamicInputContainer extends preact.Component {
         let input_elements = [];
         for(let i in this.state.fields) {
             let field = this.state.fields[i];
-            input_elements.push(<DynamicInput key={i} id={i} type={field.type} desc={field.desc} optional={field.optional}
+            input_elements.push(<DynamicInput key={i} id={i} suffix={this.props.id} type={field.type} desc={field.desc} optional={field.optional}
                                               removeHandler={this.removeDynamicInput} onChange={this.handleInputChange}
                                               primary={this.state.primary_address === i} onPrimaryChange={this.handleInputChange}/>);
         }
         return (
             <fieldset>
-                <legend>Meine Daten</legend>
-                Die Daten, die Du hier eingibst, helfen dem Unternehmen Dich zu identifizieren. Gib ruhig erst einmal zu wenig als zu viel an – im Zweifelsfall wird das Unternehmen schon nachfragen.<br />
-                Wenn wir Erfahrungswerte zu Daten haben, die definitiv angegeben werden müssen, sind diese mit einem * gekennzeichnet.
+                <legend>{this.props.title}</legend>
+                {this.props.children}
                 <div id="request-dynamic-input">
                     {input_elements}
                 </div>
                 <div className="dynamic-input-controls">
                     Du möchtest weitere Daten ergänzen? Kein Problem: Wähle einfach den passenden Feldtyp.<br />
-                    <select id="dynamic-input-type" onChange={this.handleTypeChange}>
+                    <select id={"dynamic-input-type-" + this.props.id} onChange={this.handleTypeChange}>
                         <option value="input" selected>Freitext (einzeilig)</option>
                         <option value="textarea">Freitext (mehrzeilig)</option>
                         <option value="address">Adresse</option>
                     </select>
-                    <button id="add-dynamic-inputs" onClick={this.addDynamicInput}>Feld hinzufügen</button>
+                    <button id={"add-dynamic-inputs" + this.props.id} onClick={this.addDynamicInput}>Feld hinzufügen</button>
                 </div>
             </fieldset>
         );

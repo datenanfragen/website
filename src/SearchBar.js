@@ -14,7 +14,7 @@ export default class SearchBar extends preact.Component {
     }
 
     componentDidMount() {
-        this.algolia_autocomplete = autocomplete('#' + this.props.id, {hint: false, debug: true}, {
+        this.algolia_autocomplete = autocomplete('#' + this.props.id, {hint: false, debug: this.props.debug || false}, {
             source: autocomplete.sources.hits(this.index, {hitsPerPage: 5}),
             displayKey: 'name',
             templates: {
@@ -24,8 +24,7 @@ export default class SearchBar extends preact.Component {
                         + (suggestion._highlightResult.categories ? '<br><span>' + suggestion._highlightResult.categories.map(e => e.value).join(', ') + '</span>' : '');
                 },
                 footer: '<div class="algolia-branding"><img src="/img/search-by-algolia.svg"></div>'
-            },
-            debug: this.props.debug || false
+            }
         });
         this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
         if (typeof this.props.setupPlaceholderChange === 'function') this.props.setupPlaceholderChange(this.input_element);

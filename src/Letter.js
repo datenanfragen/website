@@ -114,19 +114,18 @@ export default class Letter {
             signature: request_object.signature
         });
 
-        // Only for testing TODO: remove!
         var erase_all = false;
         flags = {
-            'erase_some': !erase_all,
-            'erase_all': erase_all,
-            'data_portability': false,
-            'runs': false
+            'erase_some': !request_object.erase_all,
+            'erase_all': request_object.erase_all,
+            'data_portability': request_object.data_portability,
+            'runs': request_object.recipient_runs ? request_object.recipient_runs.length > 0 : false
         };
         let variables = {
             'id_data': data.formatted,
             'rectification_data': data.formatted,
-            'erasure_data': '<italic>Name, Handynummer, Score-Wert</italic>\n',
-            'runs_list': '\nfoo\nbar'
+            'erasure_data': '<italic>' + request_object.erasure_data + '</italic>',
+            'runs_list': '<italic>' + (request_object.recipient_runs.join(', ') || '') + '</italic>'
         };
 
         letter.setProps({content: Letter.handleTemplate(template, flags, variables)});
