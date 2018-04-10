@@ -80,7 +80,9 @@ export default class DynamicInputContainer extends preact.Component {
             }
             return prev;
         });
-        this.props.onChange({data: this.getDataArray()});
+        let d = {};
+        d[this.props.id] = this.getDataArray();
+        this.props.onChange(d);
     }
 
     handleTypeChange(event) {

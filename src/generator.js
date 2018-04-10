@@ -24,13 +24,14 @@ class Generator extends preact.Component {
         this.state = {
             request_data: {
                 type: 'access',
-                data: this.default_fields,
+                id_data: this.default_fields,
                 recipient_address: '',
                 signature: {type: 'text', value: ''},
                 erase_all: true,
                 erasure_data: '',
                 data_portability: false,
-                recipient_runs: []
+                recipient_runs: [],
+                rectification_data: []
             },
             template_text: '',
             suggestion: null

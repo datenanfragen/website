@@ -5,15 +5,14 @@ import SignatureInput from "./SignatureInput";
 export default class RequestForm extends preact.Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
     }
 
     render() {
         let rectification_container = '';
         if(this.props.request_data['type'] === 'rectification') rectification_container =
-            <DynamicInputContainer id="rectification_data" title="Korrekte Daten" fields={[]}>
+            <DynamicInputContainer id="rectification_data" title="Korrekte Daten" fields={this.props.request_data['rectification_data']} onChange={this.props.onChange}>
                 Diese Daten sollen korrigiert werden. Du kannst hier auch andere Daten angeben, als für die Identifikation nötig waren.
-            </DynamicInputContainer>; // TODO: Make this do something
+            </DynamicInputContainer>;
 
         return (
             <div className="request-form">
@@ -45,7 +44,7 @@ export default class RequestForm extends preact.Component {
 
                 </fieldset>
 
-                <DynamicInputContainer id="id_data" onChange={this.props.onChange} fields={this.props.request_data['data']} title="Meine Daten">
+                <DynamicInputContainer id="id_data" onChange={this.props.onChange} fields={this.props.request_data['id_data']} title="Meine Daten">
                     Die Daten, die Du hier eingibst, helfen dem Unternehmen Dich zu identifizieren. Gib ruhig erst einmal zu wenig als zu viel an – im Zweifelsfall wird das Unternehmen schon nachfragen.<br />
                     Wenn wir Erfahrungswerte zu Daten haben, die definitiv angegeben werden müssen, sind diese mit einem * gekennzeichnet.
                 </DynamicInputContainer>

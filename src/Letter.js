@@ -102,15 +102,16 @@ export default class Letter {
             'rectification': 'Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO'
         };
 
-        let data = Letter.formatData(request_object.data);
-        request_object.signature['name'] = data.name;
+        let id_data = Letter.formatData(request_object.id_data);
+        let rectification_data = Letter.formatData(request_object.rectification_data);
+        request_object.signature['name'] = id_data.name;
         let today = new Date();
         let letter = new Letter({
             information_block: 'Mein Zeichen: ' + Letter.generateReference(today) + '\n' +
             'Datum: ' + today.toISOString().substring(0, 10),
             subject: subjects[request_object.type],
             recipient_address: request_object.recipient_address,
-            sender_oneline: Letter.formatAddress(data.primary_address, ' • ', data.name),
+            sender_oneline: Letter.formatAddress(id_data.primary_address, ' • ', id_data.name),
             signature: request_object.signature
         });
 
@@ -122,8 +123,8 @@ export default class Letter {
             'runs': request_object.recipient_runs ? request_object.recipient_runs.length > 0 : false
         };
         let variables = {
-            'id_data': data.formatted,
-            'rectification_data': data.formatted,
+            'id_data': id_data.formatted,
+            'rectification_data': rectification_data.formatted,
             'erasure_data': '<italic>' + request_object.erasure_data + '</italic>',
             'runs_list': '<italic>' + (request_object.recipient_runs.join(', ') || '') + '</italic>'
         };
