@@ -2,11 +2,10 @@
 
 <main>
     <div id="home-hero">
-        <div id="home-hero-line-1">Du hast ein Recht auf <span id="home-hero-word">Datenauskunft</span></div>
-        <div id="home-hero-line-2">Nutze es.</div>
+        <div id="home-hero-line-1">{{ T "home-hero-line-1" }} <span id="home-hero-word">{{ T "home-hero-word" }}</span></div>
+        <div id="home-hero-line-2">{{ T "home-hero-line-2" }}</div>
         <div id="home-hero-copy">
-            Jedes Unternehmen in der EU ist verpflichtet Dir Rechte auf Datenauskunft, -berichtigung, -löschung usw. zu gewähren. Mit Datenanfragen.de wollen wir Dir helfen diese Rechte auszuüben.
-            <br>Probier’ es doch gleich einmal aus und stelle eine Anfrage!
+            {{ T "home-hero-copy" | safeHTML }}
         </div>
         <div id="home-search"></div>
     </div>
@@ -18,17 +17,15 @@
                 <img src="https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=deed95a30efbb8d13f4692354b7e0a33">
             </div>
             <div class="col60">
-                <h2>Deine Rechte</h2>
-                <p>Die DSGVO gewährt Dir umfassende Rechte im Bezug auf den Datenschutz. So muss Dir z.&nbsp;B. jedes Unternehmen in der EU mitteilen, welche personenbezogenen Daten es zu Dir gespeichert hat. Wenn die Daten falsch sind, muss es sie berichtigen. Du darfst sogar verlangen, dass die Daten wieder gelöscht werden.
-                    <br>Mehr zu Deinen Rechten erfährst Du <a href="#">in diesem Artikel</a>.<!-- TODO: Write and link article --></p>
+                <h2>{{ T "home-feature-your-rights-title" }}</h2>
+                <p>{{ T "home-feature-your-rights" | safeHTML }}<!-- TODO: Write and link article --></p>
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="home-feature">
             <div class="col60">
-                <h2>Einfach Anfragen stellen</h2>
-                <p>Unser Generator nimmt Dir die Arbeit des Anfragenstellens ab. Wähle einfach ein Unternehmen aus, gib Deine persönlichen Daten ein und schon erhältst Du ein fertiges Schreiben, das Du nur noch abschicken musst. Ach ja: In unserer <a href="{{ "company" | absURL }}">Unternehmensdatenbank</a> haben wir übrigens auch schon die passenden Kontaktdaten für Dich bereitgelegt.
-                <br><a href="{{ "generator" | absURL }}">Jetzt eine Anfrage stellen</a></p>
+                <h2>{{ T "home-feature-easy-requests-title" }}</h2>
+                <p>{{ (T "home-feature-easy-requests" (dict "companyUrl" ("company" | absURL) "generatorUrl" ("generator" | absURL))) | safeHTML }}</p>
             </div>
             <div class="col40">
                 <!-- TODO: Host image ourselves and make sure to update it with the interface. -->
@@ -42,9 +39,8 @@
                 <img src="https://i.imgur.com/3quG2c9.jpg">
             </div>
             <div class="col60">
-                <h2>Antworten erhalten</h2>
-                <p>Manche Unternehmen antworten sehr vorbildlich auf Anfragen, anderen brauchen etwas mehr… Überzeugungsarbeit. Doch auch das ist kein Problem. Mit unserem Generator kannst Du Dir auch problemslos Mahnungen und Beschwerden erstellen lassen.
-                <br>Mehr Infos dazu findest Du <a href="#">in diesem Artikel</a>.<!-- TODO: Write and link article --></p>
+                <h2>{{ T "home-feature-answers-title" }}</h2>
+                <p>{{ T "home-feature-answers" | safeHTML }}<!-- TODO: Write and link article --></p>
             </div>
         </div>
     </div>
@@ -57,4 +53,4 @@
 </div>
 <div class="container">
 
-    {{ partial "footer" . }}
+{{ partial "footer" . }}

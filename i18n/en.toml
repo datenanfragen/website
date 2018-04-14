@@ -1,0 +1,131 @@
+# Categories
+
+[addresses]
+other = "addresses"
+
+[ads]
+other = "ads"
+
+["collection agency"]
+other = "collection agency"
+
+[commerce]
+other = "commerce"
+
+["credit agency"]
+other = "credit agency"
+
+[finance]
+other = "finance"
+
+[insurance]
+other = "insurance"
+
+["public body"]
+other = "public body"
+
+["social media"]
+other = "social media"
+
+[telecommunication]
+other = "telecommunication"
+
+[travel]
+other = "travel"
+
+[utility]
+other = "utility"
+
+# Header
+
+[header-name]
+other = "datarequests.org"
+
+[header-home]
+other = "Home"
+
+[header-generator]
+other = "Request generator"
+
+[header-cdb]
+other = "Company database"
+
+[header-contact]
+other = "Contact"
+
+# Home
+
+[home-hero-line-1]
+other = "You have a right to"
+
+[home-hero-word]
+other = "data access"
+
+[home-hero-line-2]
+other = "Use it."
+
+[home-hero-copy]
+other = "Every company in the EU is required by law to grant access to your personal data, the ability to have it corrected or even deleted and more. Here at datarequests.org, we want to help you exercise these rights.<br>Why don't you try it right now? Go ahead and send a request!"
+
+[home-feature-your-rights-title]
+other = "Your rights"
+
+[home-feature-your-rights]
+other = "The GDPR grants you extensive rights with regards to your privacy. To give you an example: Every company in the EU has to give you access to the personal data they are storing on you. If the data is incorrect, they have to correct it. You can even demand your personal data be deleted.<br>Find out more about your rights in <a href=\"#\">this post</a>."
+
+[home-feature-easy-requests-title]
+other = "Just send a request"
+
+[home-feature-easy-requests]
+other = "Our generator takes the work out of writing requests. Just select a company, enter your personal data and you immediately get a finished request, ready to be sent. Oh, and our <a href=\"{{ .companyUrl }}\">company database</a> has the contact data of many companies ready for you to use.<br><a href=\"{{ .generatorUrl }}\">Send a request now</a>"
+
+[home-feature-answers-title]
+other = "Get answers"
+
+[home-feature-answers]
+other = "Some companies will answer your requests very well. Others, well… they might need a little more convincing. That's not an issue, though: Our generator also allows you to very easily create warnings and complaints.<br>Find out more in <a href=\"#\">this post</a>."
+
+# Company database
+
+[cdb-title]
+other = "Company database"
+
+[cdb-search-bar-placeholder]
+other = "Look up another company…"
+
+[cdb-company-title]
+other = "Contact information for privacy-related requests to {{ .Params.name }}"
+
+[cdb-categories]
+one = "Category:"
+other = "Categories:"
+
+[cdb-runs]
+other = "Also runs:"
+
+[cdb-intro]
+other = "We have to following contact information on {{ .Params.name }} for you to use for privacy-related requests:"
+
+[cdb-address]
+other = "Address:"
+
+[cdb-phone]
+other = "Phone:"
+
+[cdb-fax]
+other = "Fax:"
+
+[cdb-email]
+other = "Email:"
+
+[cdb-web]
+other = "Website:"
+
+[cdb-sources]
+other = "Sources:"
+
+[cdb-notes]
+other = "Notes:"
+
+[cdb-help-needed]
+other = "Is this data inaccurate or the company you were looking for not in our database? We would love to have you <a href=\"https://github.com/datenanfragen/companies\">help us</a>!"
