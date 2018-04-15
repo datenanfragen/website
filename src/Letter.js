@@ -29,6 +29,17 @@ export default class Letter {
         }
         this.updateDoc();
     }
+
+    clearProps() {
+        this.props = {
+            sender_oneline: '',
+            recipient_address: '',
+            information_block: '',
+            subject: '',
+            content: '',
+            signature: {type: 'text', value: '', name: ''}
+        };
+    }
     
     updateDoc() {
         this.doc = {
@@ -95,7 +106,7 @@ export default class Letter {
         return this.doc;
     }
 
-    static fromRequest(request_object, template, flags = {}) {
+    static propsFromRequest(request_object, template, flags = {}) {
         let subjects = { // TODO: Find a more appropriate place for this.
             'erasure': 'Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO',
             'access': 'Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO',
@@ -106,16 +117,7 @@ export default class Letter {
         let rectification_data = Letter.formatData(request_object.rectification_data);
         request_object.signature['name'] = id_data.name;
         let today = new Date();
-        let letter = new Letter({
-            information_block: 'Mein Zeichen: ' + Letter.generateReference(today) + '\n' +
-            'Datum: ' + today.toISOString().substring(0, 10),
-            subject: subjects[request_object.type],
-            recipient_address: request_object.recipient_address,
-            sender_oneline: Letter.formatAddress(id_data.primary_address, ' • ', id_data.name),
-            signature: request_object.signature
-        });
 
-        var erase_all = false;
         flags = {
             'erase_some': !request_object.erase_all,
             'erase_all': request_object.erase_all,
@@ -129,8 +131,15 @@ export default class Letter {
             'runs_list': '<italic>' + (request_object.recipient_runs.join(', ') || '') + '</italic>'
         };
 
-        letter.setProps({content: Letter.handleTemplate(template, flags, variables)});
-        return letter;
+        return {
+            information_block: 'Mein Zeichen: ' + Letter.generateReference(today) + '\n' +
+            'Datum: ' + today.toISOString().substring(0, 10),
+            subject: subjects[request_object.type],
+            recipient_address: request_object.recipient_address,
+            sender_oneline: Letter.formatAddress(id_data.primary_address, ' • ', id_data.name),
+            signature: request_object.signature,
+            content: Letter.handleTemplate(template, flags, variables)
+        };
     }
 
     static handleSignature(signature) {

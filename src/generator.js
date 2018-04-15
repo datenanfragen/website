@@ -31,7 +31,13 @@ class Generator extends preact.Component {
                 erasure_data: '',
                 data_portability: false,
                 recipient_runs: [],
-                rectification_data: []
+                rectification_data: [],
+                custom_data: {
+                    content: '',
+                    subject: '',
+                    sender_address: {},
+                    name: ''
+                }
             },
             template_text: '',
             suggestion: null
@@ -39,6 +45,7 @@ class Generator extends preact.Component {
 
         this.template_url = 'http://' + window.location.host + '/templates/';
 
+        this.letter = new Letter({});
 
         this.iframe = null;
         this.download_button = null;
@@ -46,6 +53,7 @@ class Generator extends preact.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
+        this.handleLetterChange = this.handleLetterChange.bind(this);
 
         fetch(this.template_url + 'de-access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
@@ -60,7 +68,7 @@ class Generator extends preact.Component {
                            placeholder="Unternehmen auswählen…" debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div className="col50">
-                        <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} request_data={this.state.request_data}/>
+                        <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} request_data={this.state.request_data}/>
                     </div>
                     <div className="col50">
                         <div id="pdf-controls">
@@ -91,6 +99,11 @@ class Generator extends preact.Component {
 
     handleTypeChange(event) {
         this.handleInputChange({type: event.target.value});
+        if(event.target.value === 'custom') {
+            this.letter.clearProps();
+            this.letter.updateDoc();
+            return;
+        }
         let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || 'de-' + this.state.request_data.type + '-default.txt' : 'de-' + this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
@@ -106,9 +119,33 @@ class Generator extends preact.Component {
         // TODO: trigger a render sometimes (See #8)
     }
 
+    handleLetterChange(event, address_change = false) {
+        if(address_change) {
+            this.setState(prev => {
+                let att = event.target.getAttribute('name');
+                prev.request_data.custom_data['sender_address'][att] = event.target.value;
+            });
+        } else {
+            this.setState(prev => {
+                let att = event.target.getAttribute('name');
+                if(prev.request_data.custom_data.hasOwnProperty(att)) prev.request_data.custom_data[att] = event.target.value;
+            });
+        }
+    }
+
     renderPdf() {
-        let letter = Letter.fromRequest(this.state.request_data, this.state.template_text);
-        pdfMake.createPdf(letter.toPdfDoc()).getBlob((blob) => { // TODO: setBusyState
+        if(this.state.request_data['type'] === 'custom') {
+            let signature = this.state.request_data['signature'];
+            signature['name'] = this.state.request_data.custom_data['name'];
+            this.letter.setProps({
+                subject: this.state.request_data.custom_data['subject'],
+                content: this.state.request_data.custom_data['content'],
+                signature: signature,
+                recipient_address: this.state.request_data['recipient_address'],
+                sender_oneline: Letter.formatAddress(this.state.request_data.custom_data['sender_address'], ' • ', this.state.request_data.custom_data['name'])
+            });
+        } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
+        pdfMake.createPdf(this.letter.toPdfDoc()).getBlob((blob) => { // TODO: setBusyState
             var url = URL.createObjectURL(blob);
             this.iframe.src = url;
             this.download_button.setAttribute('href', url);
