@@ -24,6 +24,7 @@ class Generator extends preact.Component {
         this.state = {
             'request_data': {
                 type: 'access',
+                reference: Letter.generateReference(new Date()), // TODO: regenerate according to #4
                 data: this.default_fields,
                 recipient_address: '',
                 signature: {type: 'text', value: ''}

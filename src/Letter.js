@@ -16,7 +16,8 @@ export default class Letter {
             information_block: props.information_block || '',
             subject: props.subject || '',
             content: props.content || '',
-            signature: props.signature || {type: 'text', value: '', name: ''}
+            signature: props.signature || {type: 'text', value: '', name: ''},
+            reference_barcode: props.reference_barcode || {}
         };
         this.doc = {};
         this.updateDoc();
@@ -56,14 +57,8 @@ export default class Letter {
                         {
                             width: mm2pt(75),
                             text: [
-                                {
-                                    text: '*' + (new Date()).getFullYear() + '-' + Math.random().toString(36).substring(2, 9).toUpperCase() + '*', // TODO: Grab actual reference from the state once that is implemented
-                                    fontSize: 32,
-                                    // alignment: 'center', // TODO: This feels reasonable but looks quite ugly with that little stuff in the information block
-                                    font: 'Code39'
-
-                                },
-                                '\n' + this.props.information_block
+                                this.props.reference_barcode,
+                                this.props.information_block
                             ],
                         }
                     ],
@@ -114,7 +109,8 @@ export default class Letter {
         request_object.signature['name'] = data.name;
         let today = new Date();
         let letter = new Letter({
-            information_block: 'Mein Zeichen: ' + Letter.generateReference(today) + '\n' +
+            //reference_barcode: Letter.barcodeFromText(request_object.reference),
+            information_block: 'Mein Zeichen: ' + request_object.reference + '\n' +
             'Datum: ' + today.toISOString().substring(0, 10),
             subject: subjects[request_object.type],
             recipient_address: request_object.recipient_address,
@@ -231,6 +227,15 @@ export default class Letter {
      */
     static generateReference(date) {
         return date.getFullYear() + '-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+    }
+
+    static barcodeFromText(text, addNewline = true) {
+        return {
+            text: '*' + text + '*' + (addNewline ? '\n' : ''),
+                fontSize: 32,
+            // alignment: 'center', // TODO: This feels reasonable but looks quite ugly with that little stuff in the information block
+            font: 'Code39'
+        }
     }
 
     static handleTemplate(template, flags, variables) {
