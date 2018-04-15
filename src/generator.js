@@ -44,7 +44,7 @@ class Generator extends preact.Component {
             download_active: false
         };
 
-        this.template_url = '//' + window.location.host + '/templates/';
+        this.template_url = BASE_URL + '/templates/';
 
         this.letter = new Letter({});
 
