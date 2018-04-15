@@ -11,7 +11,7 @@ const search_suggested_companies = [ "Schufa", "Amazon", "Creditreform Boniversu
 
 preact.render(
     (
-        <IntlProvider scope="home" definition={i18n_definition}>
+        <IntlProvider scope="home" definition={I18N_DEFINITION}>
             <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
                        onAutocompleteSelected={(event, suggestion, dataset) => {
                            location.href = '/company/' + suggestion.slug;

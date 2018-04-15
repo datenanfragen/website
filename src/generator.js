@@ -120,4 +120,4 @@ class Generator extends preact.Component {
     }
 }
 
-preact.render((<IntlProvider scope="generator" definition={i18n_definition}><Generator/></IntlProvider>), null, document.getElementById('generator'));
+preact.render((<IntlProvider scope="generator" definition={I18N_DEFINITION}><Generator/></IntlProvider>), null, document.getElementById('generator'));

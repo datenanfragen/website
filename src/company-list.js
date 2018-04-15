@@ -6,7 +6,7 @@ import t from 'i18n';
 class CompanyList extends preact.Component {
     render() {
         return (
-            <IntlProvider scope="cdb" definition={i18n_definition}>
+            <IntlProvider scope="cdb" definition={I18N_DEFINITION}>
                 <main>
                     <h1><Text id="title" /></h1>
                     <p><Text id="explanation" /></p>
