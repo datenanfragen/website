@@ -109,7 +109,7 @@ export default class Letter {
         request_object.signature['name'] = data.name;
         let today = new Date();
         let letter = new Letter({
-            //reference_barcode: Letter.barcodeFromText(request_object.reference),
+            reference_barcode: Letter.barcodeFromText(request_object.reference),
             information_block: 'Mein Zeichen: ' + request_object.reference + '\n' +
             'Datum: ' + today.toISOString().substring(0, 10),
             subject: subjects[request_object.type],
