@@ -93,7 +93,7 @@ export default class DynamicInputContainer extends preact.Component {
         });
     }
 
-    addDynamicInput() {
+    addDynamicInput() { // TODO: Maybe move the fields completely up and remove these methods…
         let field = {
             desc: '',
             type: this.state['dynamic-input-type'],

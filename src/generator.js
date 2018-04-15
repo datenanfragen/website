@@ -40,7 +40,8 @@ class Generator extends preact.Component {
                 }
             },
             template_text: '',
-            suggestion: null
+            suggestion: null,
+            download_active: false
         };
 
         this.template_url = '//' + window.location.host + '/templates/';
@@ -72,7 +73,8 @@ class Generator extends preact.Component {
                     </div>
                     <div className="col50">
                         <div id="pdf-controls">
-                            <a id="download-button" class="button" href="" download ref={el => this.download_button = el}>PDF herunterladen</a>
+                            <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled')} href="" download=""
+                               ref={el => this.download_button = el} onClick={e => {if(!this.state.download_active) e.preventDefault();}}>PDF herunterladen</a>
                             <button id="generate-button" onClick={this.renderPdf}>PDF generieren</button>
                             <div className="clearfix" />
                         </div>
@@ -145,10 +147,14 @@ class Generator extends preact.Component {
                 sender_oneline: Letter.formatAddress(this.state.request_data.custom_data['sender_address'], ' • ', this.state.request_data.custom_data['name'])
             });
         } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
-        pdfMake.createPdf(this.letter.toPdfDoc()).getBlob((blob) => { // TODO: setBusyState
+        this.setState({download_active: false});
+        pdfMake.createPdf(this.letter.toPdfDoc()).getBlob((blob) => {
             var url = URL.createObjectURL(blob);
             this.iframe.src = url;
             this.download_button.setAttribute('href', url);
+            this.download_button.setAttribute('download', (this.state.suggestion !== null ? this.state.suggestion['slug'] : 'custom-company')
+                + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf'); // TODO: This uses code that is not implemented in this branch, but has been merged into master.
+            this.setState({download_active: true});
         });
     }
 }
