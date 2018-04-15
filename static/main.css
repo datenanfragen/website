@@ -202,10 +202,11 @@ footer {
     padding-top: 5px;
     padding-bottom: 10px;
 }
-#pdf-controls > button, .button {
+#pdf-controls > button, #pdf-controls > .button {
     float: right;
     margin-right: 10px;
 }
+
 
 /* Forms */
 input[type=search].form-element, input[type=text].form-element, input[type=email].form-element, input[type=password].form-element, input[type=tel].form-element, input[type=url].form-element, input[type=number].form-element, textarea.form-element, select.form-element {
@@ -222,6 +223,9 @@ textarea.form-element {
 
 #signature {
     border: 1px solid #000;
+}
+#tagxplanation {
+    font-size: 9pt;
 }
 
 /* Search, mostly taken from https://www.algolia.com/doc/tutorials/search-ui/autocomplete/auto-complete */

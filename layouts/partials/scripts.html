@@ -1,4 +1,8 @@
-{{ if eq .Type "generator" }}s
+<script>
+    const BASE_URL = {{ "/" | absURL }};
+</script>
+
+{{ if eq .Type "generator" }}
 <script src="{{ "js/pdfmake.min.js" | absURL }}"></script>
 <script src="{{ "js/vfs_fonts.js" | absURL }}"></script>
 <script src="{{ "js/generator.gen.js" | absURL }}"></script>

@@ -6,30 +6,51 @@ import SearchBar from "./SearchBar";
 class Generator extends preact.Component {
     constructor(props) {
         super(props);
-        this.default_fields = [{
-            "desc": "Name",
-            "type": "name",
-            "value": ""
-        }, {
-            "desc": "Geburtsdatum",
-            "type": "input",
-            "optional": true,
-            "value": ""
-        }, {
-            "desc": "Adresse",
-            "type": "address",
-            "value": {"primary": true}
-        }];
+        this.default_fields = [
+            {
+                "desc": "Name",
+                "type": "name",
+                "value": ""
+            },
+            {
+                "desc": "Geburtsdatum",
+                "type": "input",
+                "optional": true,
+                "value": ""
+            },
+            {
+                "desc": "Adresse",
+                "type": "address",
+                "value": { "primary": true }
+            }
+        ];
 
         this.state = {
-            'request_data': {
+            request_data: {
                 type: 'access',
+                id_data: this.default_fields,
                 reference: Letter.generateReference(new Date()), // TODO: regenerate according to #4
-                data: this.default_fields,
                 recipient_address: '',
-                signature: {type: 'text', value: ''}
-            }
+                signature: {type: 'text', value: ''},
+                erase_all: true,
+                erasure_data: '',
+                data_portability: false,
+                recipient_runs: [],
+                rectification_data: [],
+                custom_data: {
+                    content: '',
+                    subject: '',
+                    sender_address: {},
+                    name: ''
+                }
+            },
+            template_text: '',
+            suggestion: null,
+            download_active: false
         };
+
+        this.template_url = BASE_URL + '/templates/';
+        this.letter = new Letter({});
 
         // TODO: Is this the right spot for this?
         pdfMake.fonts = {
@@ -45,9 +66,14 @@ class Generator extends preact.Component {
 
         this.iframe = null;
         this.download_button = null;
-        this.testRender = this.testRender.bind(this);
+        this.renderPdf = this.renderPdf.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
+        this.handleTypeChange = this.handleTypeChange.bind(this);
+        this.handleLetterChange = this.handleLetterChange.bind(this);
+
+        fetch(this.template_url + 'de-access-default.txt')
+            .then(res => res.text()).then(text => {this.setState({template_text: text})});
     }
 
     render() {
@@ -59,12 +85,13 @@ class Generator extends preact.Component {
                            placeholder="Unternehmen auswählen…" debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div className="col50">
-                        <RequestForm onChange={this.handleInputChange} request_data={this.state.request_data}/>
+                        <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} request_data={this.state.request_data}/>
                     </div>
                     <div className="col50">
                         <div id="pdf-controls">
-                            <a id="download-button" class="button" href="" download ref={el => this.download_button = el}>PDF herunterladen</a>
-                            <button id="generate-button" onClick={this.testRender}>PDF generieren</button>
+                            <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled')} href="" download=""
+                               ref={el => this.download_button = el} onClick={e => {if(!this.state.download_active) e.preventDefault();}}>PDF herunterladen</a>
+                            <button id="generate-button" onClick={this.renderPdf}>PDF generieren</button>
                             <div className="clearfix" />
                         </div>
                         <iframe id="pdf-viewer" ref={el => this.iframe = el} />
@@ -75,14 +102,29 @@ class Generator extends preact.Component {
     }
 
     handleAutocompleteSelected(event, suggestion, dataset) {
-        // TODO: Request template at this point
-        console.log(suggestion);
+        let template_file = suggestion['custom-' + this.state.request_data.type + '-template'] || 'de-' + this.state.request_data.type + '-default.txt';
+        fetch(this.template_url + template_file)
+            .then(res => res.text()).then(text => {this.setState({template_text: text})});
+
         this.setState(prev => {
             prev.request_data['recipient_address'] = suggestion.name + '\n' + suggestion.address;
             prev.request_data['data'] = suggestion['required-elements-access'] || this.default_fields; // TODO: Be *a lot* gentler here. Compare the two arrays and keep already entered data. Also switch types.
+            prev.request_data['recipient_runs'] = suggestion.runs || [];
+            prev.suggestion = suggestion;
             return prev;
         });
-        console.log(this.state);
+    }
+
+    handleTypeChange(event) {
+        this.handleInputChange({type: event.target.value});
+        if(event.target.value === 'custom') {
+            this.letter.clearProps();
+            this.letter.updateDoc();
+            return;
+        }
+        let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || 'de-' + this.state.request_data.type + '-default.txt' : 'de-' + this.state.request_data.type + '-default.txt';
+        fetch(this.template_url + template_file)
+            .then(res => res.text()).then(text => {this.setState({template_text: text})});
     }
 
     handleInputChange(changed_data) {
@@ -95,38 +137,40 @@ class Generator extends preact.Component {
         // TODO: trigger a render sometimes (See #8)
     }
 
-    testRender() {
+    handleLetterChange(event, address_change = false) {
+        if(address_change) {
+            this.setState(prev => {
+                let att = event.target.getAttribute('name');
+                prev.request_data.custom_data['sender_address'][att] = event.target.value;
+            });
+        } else {
+            this.setState(prev => {
+                let att = event.target.getAttribute('name');
+                if(prev.request_data.custom_data.hasOwnProperty(att)) prev.request_data.custom_data[att] = event.target.value;
+            });
+        }
+    }
 
-        let letter = Letter.fromRequest(this.state.request_data, 'Guten Tag,\n' +
-            '\n' +
-            'ich bitte hiermit um Auskunft gemäß Art. 15 DSGVO. Bitte bestätigen Sie mir, ob Sie mich betreffende personenbezogene Daten verarbeiten (vgl. Art. 4 Nr. 1 und 2 DSGVO).\n' +
-            '\n' +
-            'In diesem Fall bitte ich Sie im Sinne des Art. 15 Abs. 1 DSGVO um Auskunft über\n' +
-            '1. <italic>sämtliche</italic> personenbezogenen Daten, die Sie zu meiner Person gespeichert haben;\n' +
-            '2. die Verarbeitungszwecke;\n' +
-            '3. die Kategorien personenbezogener Daten, die verarbeitet werden;\n' +
-            '4. die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen Daten offengelegt worden sind oder noch offengelegt werden;\n' +
-            '5. falls möglich die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder, falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer;\n' +
-            '6. wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren Informationen über die Herkunft der Daten;\n' +
-            'falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – sofern gegeben – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung meine Person.\n' +
-            '\n' +
-            'Sofern Sie meine personenbezogenen Daten an ein Drittland oder an eine internationale Organisation übermitteln, bitte ich über die geeigneten Garantien gemäß Art. 46 DSGVO im Zusammenhang mit der Übermittlung unterrichtet zu werden.\n' +
-            '[data_portability>\n' +
-            'Ich bitte Sie, mir die betreffenden personenbezogenen Daten, die ich Ihnen zur Verfügung gestellt habe, im Sinne des Art. 20 Abs. 1 DSGVO in einem strukturierten, gängigen und maschinenlesbaren Format zu übermitteln.]\n' +
-            'Meine Anfrage schließt explizit auch [runs>die folgenden sowie] sämtliche weiteren Angebote und Unternehmen ein, für die Sie Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO sind[runs>: {runs_list}].\n' +
-            '\n' +
-            'Die Auskunft ist nach Art. 12 Abs. 3 DSGVO unverzüglich, in jedem Fall aber innerhalb eines Monats nach Eingang der Anfrage zu erteilen. Sie hat nach Art. 15 Abs. 3 DSGVO kostenlos zu erfolgen.\n' +
-            '\n' +
-            'Zur Identifikation meiner Person habe ich folgende Daten beigefügt:\n' +
-            '{id_data}\n' +
-            '\n' +
-            'Sollten Sie meiner Anfrage nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.\n' +
-            '\n' +
-            'Mit freundlichen Grüßen');
-        pdfMake.createPdf(letter.toPdfDoc()).getBlob((blob) => { // TODO: setBusyState
+    renderPdf() {
+        if(this.state.request_data['type'] === 'custom') {
+            let signature = this.state.request_data['signature'];
+            signature['name'] = this.state.request_data.custom_data['name'];
+            this.letter.setProps({
+                subject: this.state.request_data.custom_data['subject'],
+                content: this.state.request_data.custom_data['content'],
+                signature: signature,
+                recipient_address: this.state.request_data['recipient_address'],
+                sender_oneline: Letter.formatAddress(this.state.request_data.custom_data['sender_address'], ' • ', this.state.request_data.custom_data['name'])
+            });
+        } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
+        this.setState({download_active: false});
+        pdfMake.createPdf(this.letter.toPdfDoc()).getBlob((blob) => {
             var url = URL.createObjectURL(blob);
             this.iframe.src = url;
             this.download_button.setAttribute('href', url);
+            this.download_button.setAttribute('download', (this.state.suggestion !== null ? this.state.suggestion['slug'] : 'custom-company')
+                + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf'); // TODO: This uses code that is not implemented in this branch, but has been merged into master.
+            this.setState({download_active: true});
         });
     }
 }
