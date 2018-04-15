@@ -6,25 +6,31 @@ import SearchBar from "./SearchBar";
 class Generator extends preact.Component {
     constructor(props) {
         super(props);
-        this.default_fields = [{
-            "desc": "Name",
-            "type": "name",
-            "value": ""
-        }, {
-            "desc": "Geburtsdatum",
-            "type": "input",
-            "optional": true,
-            "value": ""
-        }, {
-            "desc": "Adresse",
-            "type": "address",
-            "value": {"primary": true}
-        }];
+        this.default_fields = [
+            {
+                "desc": "Name",
+                "type": "name",
+                "value": ""
+            },
+            {
+                "desc": "Geburtsdatum",
+                "type": "input",
+                "optional": true,
+                "value": ""
+            },
+            {
+                "desc": "Adresse",
+                "type": "address",
+                "value": {"primary": true}
+            }
+        ];
 
         this.state = {
             request_data: {
                 type: 'access',
                 id_data: this.default_fields,
+                reference: Letter.generateReference(new Date()), // TODO: regenerate according to #4
+                data: this.default_fields,
                 recipient_address: '',
                 signature: {type: 'text', value: ''},
                 erase_all: true,
@@ -45,8 +51,19 @@ class Generator extends preact.Component {
         };
 
         this.template_url = BASE_URL + '/templates/';
-
         this.letter = new Letter({});
+
+        // TODO: Is this the right spot for this?
+        pdfMake.fonts = {
+            Roboto: {
+                normal: 'Roboto-Regular.ttf',
+                bold: 'Roboto-Medium.ttf',
+                italics: 'Roboto-Italic.ttf'
+            },
+            Code39: {
+                normal: 'code39.ttf'
+            }
+        };
 
         this.iframe = null;
         this.download_button = null;
