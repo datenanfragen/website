@@ -43,7 +43,7 @@ class Generator extends preact.Component {
             suggestion: null
         };
 
-        this.template_url = 'http://' + window.location.host + '/templates/';
+        this.template_url = '//' + window.location.host + '/templates/';
 
         this.letter = new Letter({});
 
