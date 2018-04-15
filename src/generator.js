@@ -21,7 +21,7 @@ class Generator extends preact.Component {
             {
                 "desc": "Adresse",
                 "type": "address",
-                "value": {"primary": true}
+                "value": { "primary": true }
             }
         ];
 
@@ -30,7 +30,6 @@ class Generator extends preact.Component {
                 type: 'access',
                 id_data: this.default_fields,
                 reference: Letter.generateReference(new Date()), // TODO: regenerate according to #4
-                data: this.default_fields,
                 recipient_address: '',
                 signature: {type: 'text', value: ''},
                 erase_all: true,

@@ -40,7 +40,7 @@ export default class Letter {
             signature: {type: 'text', value: '', name: ''}
         };
     }
-    
+
     updateDoc() {
         this.doc = {
             pageSize: 'A4',
@@ -120,15 +120,6 @@ export default class Letter {
         let rectification_data = Letter.formatData(request_object.rectification_data);
         request_object.signature['name'] = id_data.name;
         let today = new Date();
-        let letter = new Letter({
-            reference_barcode: Letter.barcodeFromText(request_object.reference),
-            information_block: 'Mein Zeichen: ' + request_object.reference + '\n' +
-            'Datum: ' + today.toISOString().substring(0, 10),
-            subject: subjects[request_object.type],
-            recipient_address: request_object.recipient_address,
-            sender_oneline: Letter.formatAddress(data.primary_address, ' • ', data.name),
-            signature: request_object.signature
-        });
 
         flags = {
             'erase_some': !request_object.erase_all,
@@ -144,7 +135,8 @@ export default class Letter {
         };
 
         return {
-            information_block: 'Mein Zeichen: ' + Letter.generateReference(today) + '\n' +
+            reference_barcode: Letter.barcodeFromText(request_object.reference),
+            information_block: 'Mein Zeichen: ' + request_object.reference + '\n' +
             'Datum: ' + today.toISOString().substring(0, 10),
             subject: subjects[request_object.type],
             recipient_address: request_object.recipient_address,
