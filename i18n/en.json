@@ -1,0 +1,45 @@
+{
+    "home": {
+        "data-access": "data access.",
+        "data-erasure": "data erasure.",
+        "data-rectification": "data rectification.",
+        "objection": "objection.",
+        "privacy": "privacy!",
+        "how-about": "How about “{{name}}”?"
+    },
+    "cdb": {
+        "title": "Company database",
+        "explanation": "Our company database holds the contact information of many companies (as well as other organisations) for your privacy-related requests.",
+        "select-company": "View a different company…"
+    },
+    "generator": {
+        "generate-request": "Request generator",
+        "download-pdf": "Download PDF",
+        "generate-pdf": "Generate PDF",
+        "select-company": "Select company…",
+        "request-parameters": "Request parameters",
+        "request-type": "What kind of request do you want to generate?",
+        "access-request": "Access request",
+        "erasure-request": "Erasure request",
+        "rectification-request": "Rectification request",
+        "own-request": "Your own text",
+        "recipient-explanation": "Who is the recipient?",
+        "recipient": "Recipient",
+        "my-data": "My data",
+        "my-data-explanation": "The data you specify here will help the company identify you. Feel free to err on the side of entering less—the company will contact you if they need more details.<br />Those fields, we know from experience definitely have to be filled in, are marked with an *.",
+        "add-dynamic-input-explanation": "Want to add more data? No problem: Just select the type of input you want to add.",
+        "input-single-line": "Text (single line)",
+        "input-multi-line": "Text (multi line)",
+        "input-address": "Address",
+        "add-input": "Add input",
+        "description": "Description",
+        "value": "Value",
+        "address-line-1": "Address line 1",
+        "address-line-2": "Address line 2",
+        "address-place": "Place",
+        "address-country": "Country",
+        "signature": "Signature",
+        "signature-explanation": "If you want, you can sign your request. Just keep your mouse pressed and draw into the canvas.",
+        "reset": "Reset"
+    }
+}

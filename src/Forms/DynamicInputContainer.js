@@ -1,5 +1,6 @@
 import preact from 'preact';
 import DynamicInput from "./DynamicInput";
+import { Text, MarkupText } from 'preact-i18n';
 
 export default class DynamicInputContainer extends preact.Component {
     constructor(props) {
@@ -48,20 +49,19 @@ export default class DynamicInputContainer extends preact.Component {
         }
         return (
             <fieldset>
-                <legend>Meine Daten</legend>
-                Die Daten, die Du hier eingibst, helfen dem Unternehmen Dich zu identifizieren. Gib ruhig erst einmal zu wenig als zu viel an – im Zweifelsfall wird das Unternehmen schon nachfragen.<br />
-                Wenn wir Erfahrungswerte zu Daten haben, die definitiv angegeben werden müssen, sind diese mit einem * gekennzeichnet.
+                <legend><Text id="my-data" /></legend>
+                <MarkupText id="my-data-explanation" />
                 <div id="request-dynamic-input">
                     {input_elements}
                 </div>
                 <div className="dynamic-input-controls">
-                    Du möchtest weitere Daten ergänzen? Kein Problem: Wähle einfach den passenden Feldtyp.<br />
+                    <Text id="add-dynamic-input-explanation" /><br />
                     <select id="dynamic-input-type" onChange={this.handleTypeChange}>
-                        <option value="input" selected>Freitext (einzeilig)</option>
-                        <option value="textarea">Freitext (mehrzeilig)</option>
-                        <option value="address">Adresse</option>
+                        <option value="input" selected><Text id="input-single-line" /></option>
+                        <option value="textarea"><Text id="input-multi-line" /></option>
+                        <option value="address"><Text id="input-address" /></option>
                     </select>
-                    <button id="add-dynamic-inputs" onClick={this.addDynamicInput}>Feld hinzufügen</button>
+                    &nbsp;<button id="add-dynamic-inputs" onClick={this.addDynamicInput}><Text id="add-input" /></button>
                 </div>
             </fieldset>
         );

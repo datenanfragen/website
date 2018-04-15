@@ -22,6 +22,12 @@ module.exports = {
         ]
     },
     resolve: {
-        modules: [path.resolve(__dirname, 'src'), 'node_modules']
+        modules: [ 'src', 'node_modules', 'i18n' ],
+        alias: {
+            'react': 'preact-compat',
+            'react-dom': 'preact-compat',
+            // Not necessary unless you consume a module using `createClass`
+            'create-react-class': 'preact-compat/lib/create-react-class'
+        }
     }
 };

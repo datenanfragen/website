@@ -2410,6 +2410,10 @@ dir-glob@^2.0.0:
     arrify "^1.0.1"
     path-type "^3.0.0"
 
+dlv@^1.0.2:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/dlv/-/dlv-1.1.1.tgz#c79d96bfe659a5568001250ed2aaf653992bdd3f"
+
 dns-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/dns-equal/-/dns-equal-1.0.0.tgz#b39e7f1da6eb0a75ba9c17324b34753c47e0654d"
@@ -6138,6 +6142,12 @@ preact-compat@^3.14.3, preact-compat@^3.18.0:
     preact-transition-group "^1.1.0"
     prop-types "^15.5.8"
     standalone-react-addons-pure-render-mixin "^0.1.1"
+
+preact-i18n@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/preact-i18n/-/preact-i18n-1.2.0.tgz#a1f49bb7b8001d433bffdffe0e7fc7cbaaf20cd8"
+  dependencies:
+    dlv "^1.0.2"
 
 preact-render-to-string@^3.6.0:
   version "3.7.0"

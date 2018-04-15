@@ -38,6 +38,7 @@
         "preact": "^8.2.1",
         "preact-cli": "^2.0.0",
         "preact-compat": "^3.18.0",
+        "preact-i18n": "^1.2.0",
         "react-instantsearch": "^5.0.1",
         "webpack": "^4.2.0",
         "webpack-cli": "^2.0.13"

@@ -1,3 +1,8 @@
+<script>
+    var locale = {{ .Site.Language.Lang }};
+    var i18n_definition = {{ readFile (delimit (slice "i18n/" .Site.Language.Lang ".json") "") | safeJS }};
+</script>
+
 {{ if eq .Type "generator" }}s
 <script src="{{ "js/pdfmake.min.js" | absURL }}"></script>
 <script src="{{ "js/vfs_fonts.js" | absURL }}"></script>

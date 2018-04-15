@@ -2,6 +2,8 @@ import preact from 'preact';
 import RequestForm from 'Forms/RequestForm';
 import Letter from 'Letter';
 import SearchBar from "./SearchBar";
+import { IntlProvider, Text } from 'preact-i18n';
+import t from 'i18n';
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -40,18 +42,18 @@ class Generator extends preact.Component {
     render() {
         return (
             <main>
-                <h2>Anfrage generieren</h2>
+                <h2><Text id="generate-request"/></h2>
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
-                           placeholder="Unternehmen auswählen…" debug={false}/>
+                           placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div className="col50">
                         <RequestForm onChange={this.handleInputChange} request_data={this.state.request_data}/>
                     </div>
                     <div className="col50">
                         <div id="pdf-controls">
-                            <a id="download-button" class="button" href="" download ref={el => this.download_button = el}>PDF herunterladen</a>
-                            <button id="generate-button" onClick={this.testRender}>PDF generieren</button>
+                            <a id="download-button" class="button" href="" download ref={el => this.download_button = el}><Text id="download-pdf"/></a>
+                            <button id="generate-button" onClick={this.testRender}><Text id="generate-pdf"/></button>
                             <div className="clearfix" />
                         </div>
                         <iframe id="pdf-viewer" ref={el => this.iframe = el} />
@@ -118,4 +120,4 @@ class Generator extends preact.Component {
     }
 }
 
-preact.render((<Generator/>), null, document.getElementById('generator'));
+preact.render((<IntlProvider scope="generator" definition={i18n_definition}><Generator/></IntlProvider>), null, document.getElementById('generator'));

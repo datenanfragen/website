@@ -1,0 +1,45 @@
+{
+    "home": {
+        "data-access": "Datenauskunft.",
+        "data-erasure": "Vergessenwerden.",
+        "data-rectification": "Datenberichtigung.",
+        "objection": "Widerspruch.",
+        "privacy": "Datenschutz!",
+        "how-about": "Wie wäre es mit „{{name}}“?"
+    },
+    "cdb": {
+        "title": "Unternehmensdatenbank",
+        "explanation": "In unserer Unternehmensdatenbank findest Du zahlreiche Unternehmen (bzw. andere Organisationen) und ihre jeweiligen Kontaktdaten für datenschutzspezifische Anfragen.",
+        "select-company": "Unternehmen auswählen…"
+    },
+    "generator": {
+        "generate-request": "Anfrage generieren",
+        "download-pdf": "PDF herunterladen",
+        "generate-pdf": "PDF generieren",
+        "select-company": "Unternehmen auswählen…",
+        "request-parameters": "Anfrageparameter",
+        "request-type": "Was für eine Anfrage möchtest Du stellen?",
+        "access-request": "Selbstauskunft",
+        "erasure-request": "Löschantrag",
+        "rectification-request": "Berichtigungsantrag",
+        "own-request": "Eigener Text",
+        "recipient-explanation": "An wen geht Deine Anfrage?",
+        "recipient": "Empfänger",
+        "my-data": "Meine Daten",
+        "my-data-explanation": "Die Daten, die Du hier eingibst, helfen dem Unternehmen Dich zu identifizieren. Gib ruhig erst einmal zu wenig als zu viel an – im Zweifelsfall wird das Unternehmen schon nachfragen.<br/>Wenn wir Erfahrungswerte zu Daten haben, die definitiv angegeben werden müssen, sind diese mit einem * gekennzeichnet.",
+        "add-dynamic-input-explanation": "Want to add more data? No problem: Just select the type of input you want to add.",
+        "input-single-line": "Freitext (einzeilig)",
+        "input-multi-line": "Freitext (mehrzeilig)",
+        "input-address": "Adresse",
+        "add-input": "Feld hinzufügen",
+        "description": "Beschreibung",
+        "value": "Wert",
+        "address-line-1": "Adresszeile 1",
+        "address-line-2": "Adresszeile 2",
+        "address-place": "Ort",
+        "address-country": "Land",
+        "signature": "Unterschrift",
+        "signature-explanation": "Wenn Du möchtest, kannst Du Deine Anfrage hier unterschreiben. Zeichne dafür einfach mit gedrückter Maustaste in das Feld.",
+        "reset": "Zurücksetzen"
+    }
+}
