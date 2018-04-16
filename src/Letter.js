@@ -37,7 +37,8 @@ export default class Letter {
             information_block: '',
             subject: '',
             content: '',
-            signature: {type: 'text', value: '', name: ''}
+            signature: {type: 'text', value: '', name: ''},
+            reference_barcode: props.reference_barcode
         };
     }
 
