@@ -49,8 +49,8 @@ export default class DynamicInputContainer extends preact.Component {
         }
         return (
             <fieldset>
-                <legend><Text id="my-data" /></legend>
-                <MarkupText id="my-data-explanation" />
+                <legend><Text id="id-data" /></legend>
+                <MarkupText id="id-data-explanation" />
                 <div id="request-dynamic-input">
                     {input_elements}
                 </div>

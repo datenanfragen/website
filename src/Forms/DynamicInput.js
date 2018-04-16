@@ -14,8 +14,8 @@ export default class DynamicInput extends preact.Component {
             case 'address':
                 input = <AddressControl key={this.props.id} id={this.props.id} required={!this.props.optional} onChange={this.props.onChange} primary={this.props.primary} />;
                 control = (
-                    <div class="col50">
-                        <button id={this.props.id + '-primaryButton'} rel={this.props.id} className="dynamic-input-primaryButton" data-isprimary={this.props.primary} onClick={this.props.onPrimaryChange}>Hauptadresse</button>
+                    <div class="col75">
+                        <button id={this.props.id + '-primaryButton'} rel={this.props.id} className="dynamic-input-primaryButton" data-isprimary={this.props.primary} onClick={this.props.onPrimaryChange}><Text id="primary-address" /></button>
                     </div>
                 );
                 break;
@@ -81,19 +81,19 @@ export class AddressControl extends preact.Component {
             <div>
                 <div className="form-group fancy-fg">
                     <input key={this.props.id + '-street_1'} type="text" id={this.props.id + '-street_1'} placeholder={t('address-line-1', 'generator')} className="form-element" required={this.props.required} onChange={this.props.onChange} />
-                    <label className="fancy-label" for={this.props.id + '-street_1'}>Adresszeile 1</label>
+                    <label className="fancy-label" for={this.props.id + '-street_1'}><Text id="address-line-1" /></label>
                 </div>
                 <div className="form-group fancy-fg">
                     <input key={this.props.id + '-street_2'} type="text" id={this.props.id + '-street_2'} placeholder={t('address-line-2', 'generator')} className="form-element" onChange={this.props.onChange} />
-                    <label className="fancy-label" for={this.props.id + '-street_2'}>Adresszeile 2</label>
+                    <label className="fancy-label" for={this.props.id + '-street_2'}><Text id="address-line-2" /></label>
                 </div>
                 <div className="form-group fancy-fg">
                     <input key={this.props.id + '-place'} type="text" id={this.props.id + '-place'} placeholder={t('address-place', 'generator')} className="form-element" required={this.props.required} onChange={this.props.onChange} />
-                    <label className="fancy-label" for={this.props.id + '-place'}>Ort</label>
+                    <label className="fancy-label" for={this.props.id + '-place'}><Text id="address-place" /></label>
                 </div>
                 <div className="form-group fancy-fg">
                     <input key={this.props.id + '-country'} type="text" id={this.props.id + '-country'} placeholder={t('address-country', 'generator')} className="form-element" onChange={this.props.onChange} />
-                    <label className="fancy-label" for={this.props.id + '-country'}>Land</label>
+                    <label className="fancy-label" for={this.props.id + '-country'}><Text id="address-country" /></label>
                 </div>
                 <input key={this.props.id + '-primary'} type="hidden" id={this.props.id + '-primary'} className="dynamic-input-primary form-element" value={this.props.primary} onChange={this.props.onChange} />
             </div>

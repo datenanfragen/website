@@ -7,6 +7,10 @@
         "privacy": "Datenschutz!",
         "how-about": "Wie wäre es mit „{{name}}“?"
     },
+    "search": {
+        "also-runs": "Betreibt auch: ",
+        "categories": "Kategorie(n): "
+    },
     "cdb": {
         "title": "Unternehmensdatenbank",
         "explanation": "In unserer Unternehmensdatenbank findest Du zahlreiche Unternehmen (bzw. andere Organisationen) und ihre jeweiligen Kontaktdaten für datenschutzspezifische Anfragen.",
@@ -25,9 +29,12 @@
         "own-request": "Eigener Text",
         "recipient-explanation": "An wen geht Deine Anfrage?",
         "recipient": "Empfänger",
-        "my-data": "Meine Daten",
-        "my-data-explanation": "Die Daten, die Du hier eingibst, helfen dem Unternehmen Dich zu identifizieren. Gib ruhig erst einmal zu wenig als zu viel an – im Zweifelsfall wird das Unternehmen schon nachfragen.<br/>Wenn wir Erfahrungswerte zu Daten haben, die definitiv angegeben werden müssen, sind diese mit einem * gekennzeichnet.",
+        "id-data": "Meine Daten",
+        "id-data-explanation": "Die Daten, die Du hier eingibst, helfen dem Unternehmen Dich zu identifizieren. Gib ruhig erst einmal zu wenig als zu viel an – im Zweifelsfall wird das Unternehmen schon nachfragen.<br/>Wenn wir Erfahrungswerte zu Daten haben, die definitiv angegeben werden müssen, sind diese mit einem * gekennzeichnet.",
         "add-dynamic-input-explanation": "Du möchtest weitere Daten ergänzen? Kein Problem: Wähle einfach den passenden Feldtyp.",
+        "name": "Name",
+        "birthdate": "Geburtsdatum",
+        "address": "Adresse",
         "input-single-line": "Freitext (einzeilig)",
         "input-multi-line": "Freitext (mehrzeilig)",
         "input-address": "Adresse",
@@ -39,6 +46,7 @@
         "address-place": "Ort",
         "address-country": "Land",
         "signature": "Unterschrift",
+        "primary-address": "Hauptadresse",
         "signature-explanation": "Wenn Du möchtest, kannst Du Deine Anfrage hier unterschreiben. Zeichne dafür einfach mit gedrückter Maustaste in das Feld.",
         "reset": "Zurücksetzen"
     }

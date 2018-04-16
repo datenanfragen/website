@@ -9,17 +9,19 @@ class Generator extends preact.Component {
     constructor(props) {
         super(props);
         this.default_fields = [{
-            "desc": "Name",
+            "desc": t('name', 'generator'),
             "type": "name",
+            "optional": true,
             "value": ""
         }, {
-            "desc": "Geburtsdatum",
+            "desc": t('birthdate', 'generator'),
             "type": "input",
             "optional": true,
             "value": ""
         }, {
-            "desc": "Adresse",
+            "desc": t('address', 'generator'),
             "type": "address",
+            "optional": true,
             "value": {"primary": true}
         }];
 

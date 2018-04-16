@@ -1,7 +1,7 @@
 import preact from 'preact';
 import algoliasearch from 'algoliasearch';
 import autocomplete from 'autocomplete.js';
-
+import t from 'i18n';
 
 export default class SearchBar extends preact.Component {
     constructor(props) {
@@ -20,10 +20,10 @@ export default class SearchBar extends preact.Component {
             templates: {
                 suggestion: function (suggestion) {
                     return '<span><strong>' + suggestion._highlightResult.name.value + '</strong></span>'
-                        + (suggestion._highlightResult.runs ? '<br><span>betreibt auch: ' + suggestion._highlightResult.runs.map(e => e.value).join(', ') + '</span>' : '')
-                        + (suggestion._highlightResult.categories ? '<br><span>' + suggestion._highlightResult.categories.map(e => e.value).join(', ') + '</span>' : '');
+                        + (suggestion._highlightResult.runs ? '<br><span>' + t('also-runs', 'search') + suggestion._highlightResult.runs.map(e => e.value).join(', ') + '</span>' : '')
+                        + (suggestion._highlightResult.categories ? '<br><span>' + t('categories', 'search') + suggestion._highlightResult.categories.map(e => e.value).join(', ') + '</span>' : '');
                 },
-                footer: '<div class="algolia-branding"><img src="/img/search-by-algolia.svg"></div>'
+                footer: '<div class="algolia-branding"><a href="https://www.algolia.com"><img src="/img/search-by-algolia.svg"></a></div>'
             },
             debug: this.props.debug || false
         });
