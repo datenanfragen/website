@@ -1,3 +1,5 @@
+import t from 'i18n';
+
 /**
  * {number} mm2pt({number}):
  * converts values from millimeters to PDF points
@@ -38,7 +40,7 @@ export default class Letter {
             subject: '',
             content: '',
             signature: {type: 'text', value: '', name: ''},
-            reference_barcode: props.reference_barcode
+            reference_barcode: {}
         };
     }
 
@@ -112,9 +114,9 @@ export default class Letter {
 
     static propsFromRequest(request_object, template, flags = {}) {
         let subjects = { // TODO: Find a more appropriate place for this.
-            'erasure': 'Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO',
-            'access': 'Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO',
-            'rectification': 'Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO'
+            'erasure': t('letter-subject-erasure', 'generator'),
+            'access': t('letter-subject-access', 'generator'),
+            'rectification': t('letter-subject-rectification', 'generator')
         };
 
         let id_data = Letter.formatData(request_object.id_data);
@@ -137,8 +139,8 @@ export default class Letter {
 
         return {
             reference_barcode: Letter.barcodeFromText(request_object.reference),
-            information_block: 'Mein Zeichen: ' + request_object.reference + '\n' +
-            'Datum: ' + today.toISOString().substring(0, 10),
+            information_block: t('my-reference', 'generator') + ': ' + request_object.reference + '\n' +
+            t('date', 'generator') + ': ' + today.toISOString().substring(0, 10),
             subject: subjects[request_object.type],
             recipient_address: request_object.recipient_address,
             sender_oneline: Letter.formatAddress(id_data.primary_address, ' • ', id_data.name),

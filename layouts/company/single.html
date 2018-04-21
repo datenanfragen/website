@@ -1,13 +1,13 @@
 {{ partial "header" . }}
 
 <main>
-    <h1>Unternehmensdatenbank</h1>
-    <input id="aa-search-input" class="aa-input-search" placeholder="Anderes Unternehmen suchen…" type="search">
+    <h1>{{ T "cdb-title" }}</h1>
+    <input id="aa-search-input" class="aa-input-search" placeholder="{{ T "cdb-search-bar-placeholder" }}" type="search">
     <div id="company-details">
-        <h2>Kontaktdaten für {{ .Params.name }}</h2>
-        {{ with .Params.categories }}<p><strong>Kategorie(n):</strong> {{ delimit . ", " }}</p>{{ end }}
+        <h2>{{ T "cdb-company-title" . }}</h2>
+        {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ( apply . "T" "." ) ) ", " }}</p>{{ end }}
         {{ with .Params.runs }}
-        <p><strong>Betreibt auch:</strong></p>
+        <p><strong>{{ T "cdb-runs" }}</strong></p>
         <ul>
                 {{ range . }}
                     <li>{{ . }}</li>
@@ -15,20 +15,20 @@
             </ul>
         {{ end }}
 
-        <p>Zu {{ .Params.name }} sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Fragen zum Datenschutz stellen möchtest:</p>
+        <p>{{ T "cdb-intro" . }}</p>
 
-        {{ with .Params.address}}<p><strong>Adresse:</strong><br>{{ replace . "\n" "<br>" | safeHTML }}</p>{{ end }}
+        {{ with .Params.address}}<p><strong>{{ T "cdb-address" }}</strong><br>{{ replace . "\n" "<br>" | safeHTML }}</p>{{ end }}
         {{ if (.Params.phone) or .Params.fax or .Params.email or .Params.web }}
         <table class="contact-table">
-            {{ with .Params.phone }}<tr><td>Telefon:</td><td>{{ . }}</td></tr>{{ end }}
-            {{ with .Params.fax }}<tr><td>Fax:</td><td>{{ . }}</td></tr>{{ end }}
-            {{ with .Params.email }}<tr><td>E-Mail:</td><td><a href="mailto:{{ . }}">{{ . }}</a></td></tr>{{ end }}
-            {{ with .Params.web }}<tr><td>Webseite:</td><td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td></tr>{{ end }}
+            {{ with .Params.phone }}<tr><td>{{ T "cdb-phone" }}</td><td>{{ . }}</td></tr>{{ end }}
+            {{ with .Params.fax }}<tr><td>{{ T "cdb-fax" }}</td><td>{{ . }}</td></tr>{{ end }}
+            {{ with .Params.email }}<tr><td>{{ T "cdb-email" }}</td><td><a href="mailto:{{ . }}">{{ . }}</a></td></tr>{{ end }}
+            {{ with .Params.web }}<tr><td>{{ T "cdb-web" }}</td><td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td></tr>{{ end }}
         </table>
         {{ end }}
 
         {{ with .Params.sources }}
-            <p><strong>Quellen:</strong></p>
+            <p><strong>{{ T "cdb-sources" }}</strong></p>
             <ul>
                 {{ range . }}
                     <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
@@ -37,7 +37,7 @@
         {{ end }}
 
         {{ with .Params.comments }}
-            <p><strong>Hinweise:</strong></p>
+            <p><strong>{{ T "cdb-notes" }}</strong></p>
             <ul>
                 {{ range . }}
                     <li>{{ replace . "\n" "<br>" | safeHTML }}</li>
@@ -47,7 +47,7 @@
     </div>
     <div id="companies-help-needed">
         <!-- TODO: Style properly. -->
-        Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Wir freuen uns über Deine <a href="https://github.com/datenanfragen/companies">Mithilfe</a>!
+        {{ T "cdb-help-needed" | safeHTML }}
     </div>
 </main>
 

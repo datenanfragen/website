@@ -2,28 +2,28 @@ import preact from 'preact';
 import RequestForm from 'Forms/RequestForm';
 import Letter from 'Letter';
 import SearchBar from "./SearchBar";
+import { IntlProvider, Text } from 'preact-i18n';
+import t from 'i18n';
 
 class Generator extends preact.Component {
     constructor(props) {
         super(props);
-        this.default_fields = [
-            {
-                "desc": "Name",
-                "type": "name",
-                "value": ""
-            },
-            {
-                "desc": "Geburtsdatum",
-                "type": "input",
-                "optional": true,
-                "value": ""
-            },
-            {
-                "desc": "Adresse",
-                "type": "address",
-                "value": { "primary": true }
-            }
-        ];
+        this.default_fields = [{
+            "desc": t('name', 'generator'),
+            "type": "name",
+            "optional": true,
+            "value": ""
+        }, {
+            "desc": t('birthdate', 'generator'),
+            "type": "input",
+            "optional": true,
+            "value": ""
+        }, {
+            "desc": t('address', 'generator'),
+            "type": "address",
+            "optional": true,
+            "value": {"primary": true}
+        }];
 
         this.state = {
             request_data: {
@@ -49,7 +49,7 @@ class Generator extends preact.Component {
             download_active: false
         };
 
-        this.template_url = BASE_URL + '/templates/';
+        this.template_url = BASE_URL + '/templates/' + LOCALE + '/';
         this.letter = new Letter({});
 
         // TODO: Is this the right spot for this?
@@ -72,17 +72,17 @@ class Generator extends preact.Component {
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
 
-        fetch(this.template_url + 'de-access-default.txt')
+        fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
     }
 
     render() {
         return (
             <main>
-                <h2>Anfrage generieren</h2>
+                <h2><Text id="generate-request"/></h2>
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
-                           placeholder="Unternehmen auswählen…" debug={false}/>
+                           placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div className="col50">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} request_data={this.state.request_data}/>
@@ -90,8 +90,8 @@ class Generator extends preact.Component {
                     <div className="col50">
                         <div id="pdf-controls">
                             <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled')} href="" download=""
-                               ref={el => this.download_button = el} onClick={e => {if(!this.state.download_active) e.preventDefault();}}>PDF herunterladen</a>
-                            <button id="generate-button" onClick={this.renderPdf}>PDF generieren</button>
+                               ref={el => this.download_button = el} onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>
+                            <button id="generate-button" onClick={this.renderPdf}><Text id="generate-pdf"/></button>
                             <div className="clearfix" />
                         </div>
                         <iframe id="pdf-viewer" ref={el => this.iframe = el} />
@@ -102,7 +102,7 @@ class Generator extends preact.Component {
     }
 
     handleAutocompleteSelected(event, suggestion, dataset) {
-        let template_file = suggestion['custom-' + this.state.request_data.type + '-template'] || 'de-' + this.state.request_data.type + '-default.txt';
+        let template_file = suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
 
@@ -122,7 +122,7 @@ class Generator extends preact.Component {
             this.letter.updateDoc();
             return;
         }
-        let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || 'de-' + this.state.request_data.type + '-default.txt' : 'de-' + this.state.request_data.type + '-default.txt';
+        let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt' : this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
     }
@@ -175,4 +175,4 @@ class Generator extends preact.Component {
     }
 }
 
-preact.render((<Generator/>), null, document.getElementById('generator'));
+preact.render((<IntlProvider scope="generator" definition={I18N_DEFINITION}><Generator/></IntlProvider>), null, document.getElementById('generator'));

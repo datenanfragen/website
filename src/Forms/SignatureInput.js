@@ -1,4 +1,5 @@
 import preact from 'preact';
+import { Text } from 'preact-i18n';
 
 export default class SignatureInput extends preact.Component {
     constructor(props) {
@@ -28,6 +29,10 @@ export default class SignatureInput extends preact.Component {
 
     componentDidUpdate() {
         this.context = this.canvas.getContext('2d');
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props;
     }
 
 
@@ -60,10 +65,10 @@ export default class SignatureInput extends preact.Component {
     render() {
         return (
             <fieldset>
-                <legend>Unterschrift</legend>
-                Wenn Du möchtest, kannst Du Deine Anfrage hier unterschreiben. Zeichne dafür einfach mit gedrückter Maustaste in das Feld.
+                <legend><Text id="signature" /></legend>
+                <Text id="signature-explanation" />
                 <div><canvas id={this.props.id} style={'background-color: ' + this.state.backgroundColor } ref={el => this.canvas = el} width={this.state.width} height={this.state.height} onMouseMove={this.handleMouse} onMouseDown={this.handleMouse} onMouseUp={this.handleMouse} onMouseOut={this.handleMouse} /></div>
-                <button onClick={this.clear}>Zurücksetzen</button>
+                <button onClick={this.clear}><Text id="reset" /></button>
             </fieldset>
         );
     }

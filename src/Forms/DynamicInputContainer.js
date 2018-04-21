@@ -1,5 +1,6 @@
 import preact from 'preact';
 import DynamicInput from "./DynamicInput";
+import { Text, MarkupText } from 'preact-i18n';
 
 export default class DynamicInputContainer extends preact.Component {
     constructor(props) {
@@ -53,13 +54,13 @@ export default class DynamicInputContainer extends preact.Component {
                     {input_elements}
                 </div>
                 <div className="dynamic-input-controls">
-                    Du möchtest weitere Daten ergänzen? Kein Problem: Wähle einfach den passenden Feldtyp.<br />
+                    <Text id="add-dynamic-input-explanation" /><br />
                     <select id={"dynamic-input-type-" + this.props.id} onChange={this.handleTypeChange}>
-                        <option value="input" selected>Freitext (einzeilig)</option>
-                        <option value="textarea">Freitext (mehrzeilig)</option>
-                        <option value="address">Adresse</option>
+                        <option value="input" selected><Text id="input-single-line" /></option>
+                        <option value="textarea"><Text id="input-multi-line" /></option>
+                        <option value="address"><Text id="input-address" /></option>
                     </select>
-                    <button id={"add-dynamic-inputs-" + this.props.id} onClick={this.addDynamicInput}>Feld hinzufügen</button>
+                    <button id={"add-dynamic-inputs-" + this.props.id} onClick={this.addDynamicInput}><Text id="add-input" /></button>
                 </div>
             </fieldset>
         );

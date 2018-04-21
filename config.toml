@@ -1,3 +1,19 @@
-baseURL = "https://wwww.datenanfragen.de/"
-languageCode = "de-de"
-title = "Datenanfragen.de – Du hast ein Recht auf Datenschutz, wir helfen Dir es zu nutzen"
+defaultContentLanguage = "de"
+enableMissingTranslationPlaceholders = true # TODO: Remove in production
+
+# Ignore the preact translation files which would otherwise cause Hugo to fail
+ignoreFiles = [ "i18n/.+\\.json$" ]
+
+[languages]
+    [languages.de]
+        languageCode = "de-de"
+        languageName = "Deutsch"
+        weight = 10
+        baseURL = "https://wwww.datenanfragen.de/"
+        title = "Datenanfragen.de – Du hast ein Recht auf Datenschutz, wir helfen Dir es zu nutzen"
+    [languages.en]
+        languageCode = "en-us"
+        languageName = "English"
+        weight = 20
+        baseURL = "https://wwww.datarequests.org/"
+        title = "datarequests.org—You have a right to privacy, we help you use it"

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="noindex"> <!-- TODO: Remove when open to public -->
-    <title>{{ .Title }}</title>
+    <meta name="robots" content="noindex"> <!-- TODO: Remove when open to the public -->
+    <title>{{ if .Title }}{{ .Title }}{{ else }}{{ T "header-name" }}{{ end }}</title>
     {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     <link rel="stylesheet" href="{{ "main.css" | absURL }}"/>
@@ -18,13 +18,13 @@
 <body>
 <header>
     <div id="header-main" class="container">
-        <div id="logo"><a href="{{ "/" | absURL }}">Datenanfragen.de</a></div>
+        <div id="logo"><a href="{{ "/" | absURL }}">{{ T "header-name" }}</a></div>
         <nav id="main-nav">
             <div id="menu-items">
-                <a href="{{ "/" | absURL }}">Startseite</a>
-                <a href="{{ "generator" | absURL }}">Generator</a>
-                <a href="{{ "company" | absURL }}">Unternehmen</a>
-                <a href="{{ "contact" | absURL }}">Kontakt</a>
+                <a href="{{ "/" | absURL }}">{{ T "header-home" }}</a>
+                <a href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
+                <a href="{{ "company" | absURL }}">{{ T "header-cdb" }}</a>
+                <a href="{{ "contact" | absURL }}">{{ T "header-contact" }}</a>
             </div>
         </nav>
     </div>
