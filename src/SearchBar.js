@@ -21,7 +21,7 @@ export default class SearchBar extends preact.Component {
                 suggestion: function (suggestion) {
                     return '<span><strong>' + suggestion._highlightResult.name.value + '</strong></span>'
                         + (suggestion._highlightResult.runs ? '<br><span>' + t('also-runs', 'search') + suggestion._highlightResult.runs.map(e => e.value).join(', ') + '</span>' : '')
-                        + (suggestion._highlightResult.categories ? '<br><span>' + t('categories', 'search') + suggestion._highlightResult.categories.map(e => e.value).join(', ') + '</span>' : '');
+                        + (suggestion._highlightResult.categories ? '<br><span>' + t('categories', 'search') + suggestion._highlightResult.categories.map(e => t(e.value, 'categories')).join(', ') + '</span>' : '');
                 },
                 footer: '<div class="algolia-branding"><a href="https://www.algolia.com"><img src="/img/search-by-algolia.svg"></a></div>'
             },

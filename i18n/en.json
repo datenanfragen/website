@@ -63,5 +63,19 @@
         "letter-subject-rectification": "Request for rectification of personal data according to Art. 16 GDPR",
         "my-reference": "My reference",
         "date": "Date"
+    },
+    "categories": {
+        "addresses": "addresses",
+        "ads": "ads",
+        "collection agency": "collection agency",
+        "commerce": "commerce",
+        "credit agency": "credit agency",
+        "finance": "finance",
+        "insurance": "insurance",
+        "public body": "public body",
+        "social media": "social media",
+        "telecommunication": "telecommunication",
+        "travel": "travel",
+        "utility": "utility"
     }
 }

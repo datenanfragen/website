@@ -63,5 +63,19 @@
         "letter-subject-rectification": "Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO",
         "my-reference": "Mein Zeichen",
         "date": "Datum"
+    },
+    "categories": {
+        "addresses": "Adressen",
+        "ads": "Werbung",
+        "collection agency": "Inkasso",
+        "commerce": "Handel",
+        "credit agency": "Auskunftei",
+        "finance": "Finanzen",
+        "insurance": "Versicherung",
+        "public body": "Öffentliche Stelle",
+        "social media": "Social Media",
+        "telecommunication": "Telekommunikation",
+        "travel": "Reise",
+        "utility": "Versorgung"
     }
 }
