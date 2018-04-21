@@ -48,6 +48,20 @@
         "primary-address": "Primary address",
         "signature": "Signature",
         "signature-explanation": "If you want, you can sign your request. Just keep your mouse pressed and draw into the canvas.",
-        "reset": "Reset"
+        "reset": "Reset",
+        "tagxplanation": "You can use the tags <code>&lt;italic&gt;&lt;/italic&gt;</code> and <code>&lt;bold&gt;&lt;/bold&gt;</code> in your text. Nested tags are not supported.",
+        "subject": "Subject",
+        "content": "Content",
+        "sender-address": "Sender Address",
+        "data-portability": "Get data in a machine-readable format",
+        "erase-all": "Erase all data",
+        "erasure-data": "Data to erase",
+        "rectification-data": "Correct Data",
+        "rectification-data-explanation": "Enter the data you want to be corrected. You can enter data that is not needed for the identification.",
+        "letter-subject-access": "Request for erasure of personal data according to Art. 17 GDPR",
+        "letter-subject-erasure": "Request to access to personal data according to Art. 15 GDPR",
+        "letter-subject-rectification": "Request for rectification of personal data according to Art. 16 GDPR",
+        "my-reference": "My reference",
+        "date": "Date"
     }
 }

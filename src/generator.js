@@ -49,7 +49,7 @@ class Generator extends preact.Component {
             download_active: false
         };
 
-        this.template_url = BASE_URL + '/templates/';
+        this.template_url = BASE_URL + '/templates/' + LOCALE + '/';
         this.letter = new Letter({});
 
         // TODO: Is this the right spot for this?
@@ -72,7 +72,7 @@ class Generator extends preact.Component {
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
 
-        fetch(this.template_url + 'de-access-default.txt')
+        fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
     }
 
@@ -102,7 +102,7 @@ class Generator extends preact.Component {
     }
 
     handleAutocompleteSelected(event, suggestion, dataset) {
-        let template_file = suggestion['custom-' + this.state.request_data.type + '-template'] || 'de-' + this.state.request_data.type + '-default.txt';
+        let template_file = suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
 
@@ -122,7 +122,7 @@ class Generator extends preact.Component {
             this.letter.updateDoc();
             return;
         }
-        let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || 'de-' + this.state.request_data.type + '-default.txt' : 'de-' + this.state.request_data.type + '-default.txt';
+        let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt' : this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
     }

@@ -48,6 +48,20 @@
         "signature": "Unterschrift",
         "primary-address": "Hauptadresse",
         "signature-explanation": "Wenn Du möchtest, kannst Du Deine Anfrage hier unterschreiben. Zeichne dafür einfach mit gedrückter Maustaste in das Feld.",
-        "reset": "Zurücksetzen"
+        "reset": "Zurücksetzen",
+        "tagxplanation": "Im Text können die Tags <code>&lt;italic&gt;&lt;/italic&gt;</code> sowie <code>&lt;bold&gt;&lt;/bold&gt;</code> verwendet werden. Geschachtelte Tags werden nicht unterstützt.",
+        "subject": "Betreff",
+        "content": "Inhalt",
+        "sender-address": "Absenderadresse",
+        "data-portability": "Daten in maschinenlesbarem Format erhalten",
+        "erase-all": "Alle Daten löschen",
+        "erasure-data": "Zu löschende Daten",
+        "rectification-data": "Korrekte Daten",
+        "rectification-data-explanation": "Diese Daten sollen korrigiert werden. Du kannst hier auch andere Daten angeben, als für die Identifikation nötig waren.",
+        "letter-subject-access": "Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO",
+        "letter-subject-erasure": "Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO",
+        "letter-subject-rectification": "Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO",
+        "my-reference": "Mein Zeichen",
+        "date": "Datum"
     }
 }

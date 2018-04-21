@@ -31,6 +31,10 @@ export default class SignatureInput extends preact.Component {
         this.context = this.canvas.getContext('2d');
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props;
+    }
+
 
     drawCircle(x, y, radius, fillColor) {
         this.context.fillStyle = fillColor;
