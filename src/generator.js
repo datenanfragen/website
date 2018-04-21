@@ -168,11 +168,22 @@ class Generator extends preact.Component {
             var url = URL.createObjectURL(blob);
             this.iframe.src = url;
             this.download_button.setAttribute('href', url);
-            this.download_button.setAttribute('download', (this.state.suggestion !== null ? this.state.suggestion['slug'] : 'custom-company')
+            this.download_button.setAttribute('download', (this.state.suggestion !== null ? this.state.suggestion['slug'] : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'))
                 + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf'); // TODO: This uses code that is not implemented in this branch, but has been merged into master.
             this.setState({download_active: true});
         });
     }
+}
+
+// taken from https://gist.github.com/mathewbyrne/1280286
+function slugify(text)
+{
+    return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')           // Replace spaces with -
+        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+        .replace(/^-+/, '')             // Trim - from start of text
+        .replace(/-+$/, '');            // Trim - from end of text
 }
 
 preact.render((<IntlProvider scope="generator" definition={I18N_DEFINITION}><Generator/></IntlProvider>), null, document.getElementById('generator'));

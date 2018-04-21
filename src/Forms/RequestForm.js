@@ -67,6 +67,8 @@ export default class RequestForm extends preact.Component {
                 break;
         }
 
+        console.log('render');
+
         return (
             <div className="request-form">
                 <fieldset>
@@ -88,7 +90,7 @@ export default class RequestForm extends preact.Component {
                         <Text id="recipient-explanation"/><br />
                         <textarea id="request-recipient" className="form-element" placeholder={t('recipient', 'generator')} rows="4" spellcheck="false" onChange={event => {
                             this.props.onChange({'recipient_address': event.target.value});
-                        }}>{this.props.request_data['recipient_address']}</textarea>
+                        }} value={this.props.request_data['recipient_address']} />
                         <label className="sr-only" for="request-recipient"><Text id="recipient"/></label>
                         <input type="hidden" id="request-template" value="default" />
                     </div>
@@ -102,6 +104,10 @@ export default class RequestForm extends preact.Component {
                 <SignatureInput id="signature" width={400} height={200} onChange={this.props.onChange}/>
             </div>
         );
+    }
+
+    componentWillUpdate(nextProps) {
+        console.log(nextProps);
     }
 
 
