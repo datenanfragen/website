@@ -16,6 +16,26 @@
         "explanation": "In unserer Unternehmensdatenbank findest Du zahlreiche Unternehmen (bzw. andere Organisationen) und ihre jeweiligen Kontaktdaten für datenschutzspezifische Anfragen.",
         "select-company": "Unternehmen auswählen…"
     },
+    "my-requests": {
+        "title": "Meine Anfragen",
+        "explanation": "Hier findest Du alle Anfragen, die Du mit diesem Browser bereits generiert hast. Das ist z.&nbsp;B. nützlich, um zu überprüfen, ob Unternehmen Dir rechtzeitig antworten.",
+        "explanation-saving": "Diese Daten sind <strong>ausschließlich</strong> auf Deinem eigenen Computer gespeichert und werden unter keinen Umständen an uns gesendet. Sie bleiben (auch nach einem Neustart) so lange erhalten, bis Du die Offline-Webseiten-Daten in Deinem Browser leerst oder unten alle Anfragen löscht. Du kannst sämtliche Daten auch",
+        "explanation-saving-link": "als CSV-Datei exportieren",
+        "date": "Datum",
+        "recipient": "Empfänger",
+        "reference": "Zeichen",
+        "type": "Art",
+        "via": "Anfrage per",
+        "access": "Datenauskunft",
+        "erasure": "Löschung",
+        "rectification": "Berichtigung",
+        "custom": "Sonstige",
+        "fax": "Fax",
+        "email": "E-Mail",
+        "letter": "Brief",
+        "delete-all": "Alle Anfragen löschen",
+        "delete-all-confirm": "Wirklich alle Daten löschen? Das kann *nicht* rückgängig gemacht werden."
+    },
     "generator": {
         "generate-request": "Anfrage generieren",
         "download-pdf": "PDF herunterladen",

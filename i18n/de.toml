@@ -50,6 +50,9 @@ other = "Anfrage generieren"
 [header-cdb]
 other = "Unternehmensdatenbank"
 
+[header-my-requests]
+other = "Meine Anfragen"
+
 [header-contact]
 other = "Impressum"
 

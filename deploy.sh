@@ -16,5 +16,5 @@ find . -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.de.md"' {} \;
 cd ../..
 yarn run build
 hugo
-# Apparently the _redirect script has to be in /public
-mv _redirects public/_redirects
+# The Netlify _redirect config has to be in /public
+cp _redirects public/_redirects

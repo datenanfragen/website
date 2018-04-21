@@ -160,7 +160,7 @@ class Generator extends preact.Component {
     }
 
     renderPdf() {
-        if (this.state.request_data['type'] === 'custom') {
+        if(this.state.request_data['type'] === 'custom') {
             let signature = this.state.request_data['signature'];
             signature['name'] = this.state.request_data.custom_data['name'];
             this.letter.setProps({
@@ -170,7 +170,9 @@ class Generator extends preact.Component {
                 recipient_address: this.state.request_data['recipient_address'],
                 sender_oneline: Letter.formatAddress(this.state.request_data.custom_data['sender_address'], ' • ', this.state.request_data.custom_data['name'])
             });
-        } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
+        }
+        else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
+
         this.setState({download_active: false});
         pdfMake.createPdf(this.letter.toPdfDoc()).getBlob((blob) => {
             var url = URL.createObjectURL(blob);
@@ -180,12 +182,12 @@ class Generator extends preact.Component {
                 + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf'); // TODO: This uses code that is not implemented in this branch, but has been merged into master.
             this.setState({download_active: true});
         });
+
+        this.storeRequest();
     }
 
     storeRequest() {
-        // TODO: The reference needs to be stored in the state, so I can access it here
-        let dummy_reference = (new Date).getFullYear() + '-' + Math.random().toString(36).substring(2, 9).toUpperCase();
-        localforage.setItem(dummy_reference, {
+        localforage.setItem(this.state.request_data['reference'], {
             date: new Date().toISOString(), // TODO: The date will be configurable in the future, we will need to grab that here
             type: this.state.request_data.type,
             recipient: this.state.request_data.recipient_address.split('\n', 1)[0], // TODO: This should always work due to how this is generated but it's not very nice. Is there a better way?
