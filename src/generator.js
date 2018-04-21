@@ -50,7 +50,7 @@ class Generator extends preact.Component {
             download_active: false
         };
 
-        this.template_url = BASE_URL + '/templates/' + LOCALE + '/';
+        this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
         this.letter = new Letter({});
 
         // TODO: Is this the right spot for this?
@@ -190,9 +190,10 @@ class Generator extends preact.Component {
         localforage.setItem(this.state.request_data['reference'], {
             date: new Date().toISOString(), // TODO: The date will be configurable in the future, we will need to grab that here
             type: this.state.request_data.type,
-            recipient: this.state.request_data.recipient_address.split('\n', 1)[0], // TODO: This should always work due to how this is generated but it's not very nice. Is there a better way?
+            slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
+            recipient: this.state.request_data.recipient_address,
             via: 'fax' // TODO: This is not currently implemented
-        }).catch(() => { console.log('Failed to save request with reference ' + dummy_reference); /* TODO: Proper error handling. */ });
+        }).catch(() => { console.log('Failed to save request with reference ' + this.state.request_data['reference']); /* TODO: Proper error handling. */ });
     }
 }
 

@@ -30,7 +30,10 @@ h1, h2, h3 { line-height: 1.2; }
 h1 { font-size: 1.7em; }
 h2 { font-size: 1.4em; }
 
-a, a:active, a:focus, a:visited { color: #1982c4; }
+a, a:active, a:focus, a:visited {
+    color: #1982c4;
+    text-decoration: none;
+}
 a:hover, a:active { color: #0062b1; }
 
 img.image {

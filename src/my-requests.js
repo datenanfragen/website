@@ -26,7 +26,8 @@ class RequestList extends preact.Component {
         Object.keys(this.state.requests).forEach((reference) => {
             let request = this.state.requests[reference];
             if(!request) return;
-            requests.push(<tr><td>{request.date}</td><td>{request.recipient}</td><td>{reference}</td><td>{t(request.type, 'my-requests')}</td><td>{t(request.via, 'my-requests')}</td></tr>);
+            let recipient = request.recipient.split('\n', 1)[0];
+            requests.push(<tr><td>{request.date}</td><td>{request.slug ? <a href={BASE_URL + 'company/' + request.slug}>{recipient}</a> : recipient}</td><td>{reference}</td><td>{t(request.type, 'my-requests')}</td><td>{t(request.via, 'my-requests')}</td></tr>);
         });
         return (
             <IntlProvider scope="my-requests" definition={I18N_DEFINITION}>
@@ -50,10 +51,10 @@ class RequestList extends preact.Component {
         // see https://stackoverflow.com/a/14966131
         let csv = 'data:text/csv;charset=utf-8,';
         // TODO: We should set the filename to something sensible.
-        csv += 'date;recipient;reference;type;via\r\n';
+        csv += 'date;slug;recipient;reference;type;via\r\n';
         Object.keys(this.state.requests).forEach((reference) => {
             let request = this.state.requests[reference];
-            csv += [ request.date, request.recipient, reference, request.type, request.via ].join(';') + '\r\n';
+            csv += [ request.date, request.slug, request.recipient.replace(/[\r\n]+/g, ', '), reference, request.type, request.via ].join(';') + '\r\n';
         });
 
         window.open(encodeURI(csv));
