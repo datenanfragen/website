@@ -9,11 +9,11 @@ ignoreFiles = [ "i18n/.+\\.json$" ]
         languageCode = "de-de"
         languageName = "Deutsch"
         weight = 10
-        baseURL = "https://wwww.datenanfragen.de/"
+        baseURL = "https://www.datenanfragen.de/"
         title = "Datenanfragen.de – Du hast ein Recht auf Datenschutz, wir helfen Dir es zu nutzen"
     [languages.en]
         languageCode = "en-us"
         languageName = "English"
         weight = 20
-        baseURL = "https://wwww.datarequests.org/"
+        baseURL = "https://www.datarequests.org/"
         title = "datarequests.org—You have a right to privacy, we help you use it"
