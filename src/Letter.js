@@ -9,7 +9,6 @@ function mm2pt(mm) {
 }
 
 export default class Letter {
-
     constructor(props) {
         this.props = { // private
             sender_oneline: props.sender_oneline || '',
@@ -17,7 +16,8 @@ export default class Letter {
             information_block: props.information_block || '',
             subject: props.subject || '',
             content: props.content || '',
-            signature: props.signature || {type: 'text', value: '', name: ''}
+            signature: props.signature || {type: 'text', value: '', name: ''},
+            reference_barcode: props.reference_barcode || {}
         };
         this.doc = {};
         this.updateDoc();
@@ -29,65 +29,80 @@ export default class Letter {
         }
         this.updateDoc();
     }
-    
+
+    clearProps() {
+        this.props = {
+            sender_oneline: '',
+            recipient_address: '',
+            information_block: '',
+            subject: '',
+            content: '',
+            signature: {type: 'text', value: '', name: ''},
+            reference_barcode: props.reference_barcode
+        };
+    }
+
     updateDoc() {
         this.doc = {
             pageSize: 'A4',
             pageMargins: [mm2pt(25), mm2pt(27), mm2pt(20), mm2pt(16.9)], // [left, top, right, bottom]
             content: [
-            {
-                columns: [
-                    {
-                        width: mm2pt(85),
-                        text: this.props.sender_oneline,
-                        fontSize: 6,
-                    }
-                ],
-                absolutePosition: {x: mm2pt(20), y: mm2pt(27)},
-            }, {
-                columns: [
-                    {
-                        width: mm2pt(85),
-                        text: this.props.recipient_address,
-                    }
-                ],
-                absolutePosition: {x: mm2pt(20), y: mm2pt(34)},
-            }, {
-                columns: [
-                    {
-                        width: mm2pt(75),
-                        text: this.props.information_block,
-                    }
-                ],
-                absolutePosition: {x: mm2pt(210-85), y: mm2pt(32)},
-            }, {
-                text: [
-                    {
-                        text: this.props.subject + '\n\n\n',
-                        bold: true
-                    },
-                    Letter.parseContent(this.props.content)
-                ],
-                marginTop: mm2pt(58)
-            },
-            Letter.handleSignature(this.props.signature)],
+                {
+                    columns: [
+                        {
+                            width: mm2pt(85),
+                            text: this.props.sender_oneline,
+                            fontSize: 6,
+                        }
+                    ],
+                    absolutePosition: {x: mm2pt(20), y: mm2pt(27)},
+                }, {
+                    columns: [
+                        {
+                            width: mm2pt(85),
+                            text: this.props.recipient_address,
+                        }
+                    ],
+                    absolutePosition: {x: mm2pt(20), y: mm2pt(34)},
+                }, {
+                    columns: [
+                        {
+                            width: mm2pt(75),
+                            text: [
+                                this.props.reference_barcode,
+                                this.props.information_block
+                            ],
+                        }
+                    ],
+                    absolutePosition: {x: mm2pt(210-85), y: mm2pt(32)},
+                }, {
+                    text: [
+                        {
+                            text: this.props.subject + '\n\n\n',
+                            bold: true
+                        },
+                        Letter.parseContent(this.props.content)
+                    ],
+                    marginTop: mm2pt(58)
+                },
+                Letter.handleSignature(this.props.signature)],
             background: page => ({canvas: [
-            {
-                type: 'line',
-                x1: 0, y1: mm2pt(87),
-                x2: mm2pt(8), y2: mm2pt(87),
-                lineWidth: 1
-            }, {
-                type: 'line',
-                x1: 0, y1: mm2pt(192),
-                x2: mm2pt(8), y2: mm2pt(192),
-                lineWidth: 1
-            }, {
-                type: 'line',
-                x1: 0, y1: mm2pt(148.5),
-                x2: mm2pt(10), y2: mm2pt(148.5),
-                lineWidth: 1
-            }]})
+                    {
+                        type: 'line',
+                        x1: 0, y1: mm2pt(87),
+                        x2: mm2pt(8), y2: mm2pt(87),
+                        lineWidth: 1
+                    }, {
+                        type: 'line',
+                        x1: 0, y1: mm2pt(192),
+                        x2: mm2pt(8), y2: mm2pt(192),
+                        lineWidth: 1
+                    }, {
+                        type: 'line',
+                        x1: 0, y1: mm2pt(148.5),
+                        x2: mm2pt(10), y2: mm2pt(148.5),
+                        lineWidth: 1
+                    }]})
         };
     }
 
@@ -95,42 +110,41 @@ export default class Letter {
         return this.doc;
     }
 
-    static fromRequest(request_object, template, flags = {}) {
+    static propsFromRequest(request_object, template, flags = {}) {
         let subjects = { // TODO: Find a more appropriate place for this.
             'erasure': 'Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO',
             'access': 'Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO',
             'rectification': 'Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO'
         };
 
-        let data = Letter.formatData(request_object.data);
-        request_object.signature['name'] = data.name;
+        let id_data = Letter.formatData(request_object.id_data);
+        let rectification_data = Letter.formatData(request_object.rectification_data);
+        request_object.signature['name'] = id_data.name;
         let today = new Date();
-        let letter = new Letter({
-            information_block: 'Mein Zeichen: ' + Letter.generateReference(today) + '\n' +
+
+        flags = {
+            'erase_some': !request_object.erase_all,
+            'erase_all': request_object.erase_all,
+            'data_portability': request_object.data_portability,
+            'runs': request_object.recipient_runs ? request_object.recipient_runs.length > 0 : false
+        };
+        let variables = {
+            'id_data': id_data.formatted,
+            'rectification_data': rectification_data.formatted,
+            'erasure_data': '<italic>' + request_object.erasure_data + '</italic>',
+            'runs_list': '<italic>' + (request_object.recipient_runs.join(', ') || '') + '</italic>'
+        };
+
+        return {
+            reference_barcode: Letter.barcodeFromText(request_object.reference),
+            information_block: 'Mein Zeichen: ' + request_object.reference + '\n' +
             'Datum: ' + today.toISOString().substring(0, 10),
             subject: subjects[request_object.type],
             recipient_address: request_object.recipient_address,
-            sender_oneline: Letter.formatAddress(data.primary_address, ' • ', data.name),
-            signature: request_object.signature
-        });
-
-        // Only for testing TODO: remove!
-        var erase_all = false;
-        flags = {
-            'erase_some': !erase_all,
-            'erase_all': erase_all,
-            'data_portability': false,
-            'runs': false
+            sender_oneline: Letter.formatAddress(id_data.primary_address, ' • ', id_data.name),
+            signature: request_object.signature,
+            content: Letter.handleTemplate(template, flags, variables)
         };
-        let variables = {
-            'id_data': data.formatted,
-            'rectification_data': data.formatted,
-            'erasure_data': '<italic>Name, Handynummer, Score-Wert</italic>\n',
-            'runs_list': '\nfoo\nbar'
-        };
-
-        letter.setProps({content: Letter.handleTemplate(template, flags, variables)});
-        return letter;
     }
 
     static handleSignature(signature) {
@@ -153,7 +167,7 @@ export default class Letter {
      * @param content {string} string to parse
      * TODO: Documentation of "tags"
      */
-     static parseContent(content) {
+    static parseContent(content) {
         const regex = /<(.+?>)([\s\S]*?)<\/\1/gmu;
         let text_array = content.split(regex);
 
@@ -223,6 +237,15 @@ export default class Letter {
      */
     static generateReference(date) {
         return date.getFullYear() + '-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+    }
+
+    static barcodeFromText(text, addNewline = true) {
+        return {
+            text: '*' + text + '*' + (addNewline ? '\n' : ''),
+                fontSize: 32,
+            // alignment: 'center', // TODO: This feels reasonable but looks quite ugly with that little stuff in the information block
+            font: 'Code39'
+        }
     }
 
     static handleTemplate(template, flags, variables) {

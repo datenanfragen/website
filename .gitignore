@@ -179,6 +179,7 @@ $RECYCLE.BIN/
 # Hugo
 public/
 content/company/*
+static/templates/*
 
 
 # Generated JS

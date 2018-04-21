@@ -14,7 +14,7 @@ export default class SearchBar extends preact.Component {
     }
 
     componentDidMount() {
-        this.algolia_autocomplete = autocomplete('#' + this.props.id, {hint: false, debug: true}, {
+        this.algolia_autocomplete = autocomplete('#' + this.props.id, {hint: false, debug: this.props.debug || false}, {
             source: autocomplete.sources.hits(this.index, {hitsPerPage: 5}),
             displayKey: 'name',
             templates: {

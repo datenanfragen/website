@@ -17,20 +17,19 @@ export default class DynamicInputContainer extends preact.Component {
     // Relevant issue: https://github.com/developit/preact/issues/1047
     static getDerivedStateFromProps(nextProps, prevState) {
         let fields_object = {};
+        let primary_address = prevState['primary_address'] || "0";
         nextProps.fields.forEach((field, i) => {
-            if(!field['value']) field['value'] = field['type'] === 'address' ? {} : '';
+            if(field['value']) {
+                if(field.type === 'address' && field.value['primary']) primary_address = "" + (i + 1);
+            } else field['value'] = field['type'] === 'address' ? {} : '';
             fields_object[i + 1] = field;
         });
         return {
             fields: fields_object,
             fields_counter: nextProps.fields.length || 0,
             'dynamic-input-type': prevState['dynamic-input-type'] || 'input',
-            primary_address: prevState['primary_address'] || 0
+            primary_address: primary_address
         };
-    }
-
-    componentWillUpdate() {
-        console.log('update', this.state);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -43,25 +42,25 @@ export default class DynamicInputContainer extends preact.Component {
         let input_elements = [];
         for(let i in this.state.fields) {
             let field = this.state.fields[i];
-            input_elements.push(<DynamicInput key={i} id={i} type={field.type} desc={field.desc} optional={field.optional}
+            input_elements.push(<DynamicInput key={i} id={i} suffix={this.props.id} type={field.type} desc={field.desc} optional={field.optional}
                                               removeHandler={this.removeDynamicInput} onChange={this.handleInputChange}
-                                              primary={this.state.primary_address === i} onPrimaryChange={this.handleInputChange}/>);
+                                              hasPrimary={this.props.hasPrimary} onPrimaryChange={this.handleInputChange} value={field.value}/>);
         }
         return (
             <fieldset>
-                <legend><Text id="id-data" /></legend>
-                <MarkupText id="id-data-explanation" />
-                <div id="request-dynamic-input">
+                <legend>{this.props.title}</legend>
+                {this.props.children}
+                <div id={"request-dynamic-input-" + this.props.id}>
                     {input_elements}
                 </div>
                 <div className="dynamic-input-controls">
                     <Text id="add-dynamic-input-explanation" /><br />
-                    <select id="dynamic-input-type" onChange={this.handleTypeChange}>
+                    <select id={"dynamic-input-type-" + this.props.id} onChange={this.handleTypeChange}>
                         <option value="input" selected><Text id="input-single-line" /></option>
                         <option value="textarea"><Text id="input-multi-line" /></option>
                         <option value="address"><Text id="input-address" /></option>
                     </select>
-                    &nbsp;<button id="add-dynamic-inputs" onClick={this.addDynamicInput}><Text id="add-input" /></button>
+                    <button id={"add-dynamic-inputs-" + this.props.id} onClick={this.addDynamicInput}><Text id="add-input" /></button>
                 </div>
             </fieldset>
         );
@@ -85,7 +84,7 @@ export default class DynamicInputContainer extends preact.Component {
             }
             return prev;
         });
-        this.props.onChange({data: this.getDataArray()});
+        this.pushStateUp();
     }
 
     handleTypeChange(event) {
@@ -95,7 +94,7 @@ export default class DynamicInputContainer extends preact.Component {
         });
     }
 
-    addDynamicInput() {
+    addDynamicInput() { // TODO: Maybe move the fields completely up and remove these methods…
         let field = {
             desc: '',
             type: this.state['dynamic-input-type'],
@@ -107,23 +106,30 @@ export default class DynamicInputContainer extends preact.Component {
             prev.fields[prev.fields_counter] = field;
             return prev;
         });
-        console.log(this.state);
+        this.pushStateUp();
     }
 
     removeDynamicInput(event) {
         this.setState(prev => {
             delete prev.fields[event.target.getAttribute('rel')];
             return prev;
-        })
+        });
+        this.pushStateUp();
     }
 
     getDataArray() {
         let data = [];
         for(let i in this.state.fields) {
             let field = this.state.fields[i];
-            if(field['type'] === 'address') field.value['primary'] = (this.state.primary_address === i);
+            if(field['type'] === 'address') field.value['primary'] = (this.state.primary_address === ("" + i));
             data.push(field);
         }
         return data;
+    }
+
+    pushStateUp() {
+        let d = {};
+        d[this.props.id] = this.getDataArray();
+        this.props.onChange(d);
     }
 }
