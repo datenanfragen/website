@@ -148,7 +148,7 @@ class Generator extends preact.Component {
 
         this.setState(prev => {
             prev.request_data['recipient_address'] = suggestion.name + '\n' + suggestion.address;
-            prev.request_data['data'] = suggestion['required-elements-access'] || this.default_fields; // TODO: Be *a lot* gentler here. Compare the two arrays and keep already entered data. Also switch types.
+            prev.request_data['id_data'] = suggestion['required-elements'] || this.default_fields; // TODO: Be *a lot* gentler here. Compare the two arrays and keep already entered data. Also switch types.
             prev.request_data['recipient_runs'] = suggestion.runs || [];
             prev.suggestion = suggestion;
             return prev;
