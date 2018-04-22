@@ -29,7 +29,7 @@ class Generator extends preact.Component {
             request_data: {
                 type: 'access',
                 id_data: this.default_fields,
-                reference: Letter.generateReference(new Date()), // TODO: regenerate according to #4
+                reference: Letter.generateReference(new Date()),
                 recipient_address: '',
                 signature: {type: 'text', value: ''},
                 erase_all: true,
@@ -71,6 +71,7 @@ class Generator extends preact.Component {
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
+        this.newRequest = this.newRequest.bind(this);
 
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
@@ -88,13 +89,13 @@ class Generator extends preact.Component {
                         {this.state.suggestion['fax'] ?  [<br />, t('fax', 'generator') + ': ' + this.state.suggestion['fax']] : []}
                         {this.state.suggestion['email'] ? [<br />, t('email', 'generator') + ': ' + this.state.suggestion['email']] : []}
                         <br /><a href="#" onClick={e => {
-                            e.preventDefault();
-                            this.setState(prev => {
-                                prev['suggestion'] = null;
-                                prev.request_data['recipient_runs'] = [];
-                                return prev;
-                            })
-                        }}><Text id="deselect-company" /></a>
+                        e.preventDefault();
+                        this.setState(prev => {
+                            prev['suggestion'] = null;
+                            prev.request_data['recipient_runs'] = [];
+                            return prev;
+                        })
+                    }}><Text id="deselect-company" /></a>
                     </fieldset>
                 </div>);
             if(this.state.suggestion['comments']) {
@@ -102,16 +103,19 @@ class Generator extends preact.Component {
                 this.state.suggestion['comments'].forEach(comment => {
                     comment_list.push(<div className="company-comments">{comment}</div>);
                 });
-               comments = <fieldset id="comment-container">
+                comments = <fieldset id="comment-container">
                     <legend><Text id="current-company-comments" /></legend>
-                   {comment_list}
+                    {comment_list}
                 </fieldset>;
             }
         }
 
         return (
             <main>
-                <h2><Text id="generate-request"/></h2>
+                <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
+                <div id="generator-controls">
+                    <button id="new-request-button" onClick={this.newRequest}><Text id='new-request'/></button>
+                </div>
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
@@ -127,7 +131,7 @@ class Generator extends preact.Component {
                             <button id="generate-button" onClick={this.renderPdf}><Text id="generate-pdf"/></button>
                             <div className="clearfix" />
                         </div>
-                        <iframe id="pdf-viewer" ref={el => this.iframe = el} className="empty" />
+                        <iframe id="pdf-viewer" ref={el => this.iframe = el} className={this.state.download_active ? '' : 'empty'} />
                         {comments}
                     </div>
                 </div>
@@ -185,6 +189,34 @@ class Generator extends preact.Component {
         }
     }
 
+    newRequest() {
+        this.setState(prev => {
+            prev['request_data'] = {
+                type: 'access',
+                id_data: prev['request_data']['id_data'],
+                reference: Letter.generateReference(new Date()),
+                recipient_address: '',
+                signature: prev['request_data']['signature'],
+                erase_all: true,
+                erasure_data: '',
+                data_portability: false,
+                recipient_runs: [],
+                rectification_data: [],
+                custom_data: {
+                    content: '',
+                    subject: '',
+                    sender_address: prev['request_data']['custom_data']['sender_address'],
+                    name: prev['request_data']['custom_data']['name']
+                }
+            };
+            prev['suggestion'] = null;
+            prev['download_active'] = false;
+            return prev;
+        });
+        fetch(this.template_url + 'access-default.txt')
+            .then(res => res.text()).then(text => {this.setState({template_text: text})});
+    }
+
     renderPdf() {
         if(this.state.request_data['type'] === 'custom') {
             let signature = this.state.request_data['signature'];
@@ -201,7 +233,6 @@ class Generator extends preact.Component {
         pdfMake.createPdf(this.letter.toPdfDoc()).getBlob((blob) => {
             var url = URL.createObjectURL(blob);
             this.iframe.src = url;
-            this.iframe.setAttribute('class', '');
             this.download_button.setAttribute('href', url);
             this.download_button.setAttribute('download', (this.state.suggestion !== null ? this.state.suggestion['slug'] : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'))
                 + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf'); // TODO: This uses code that is not implemented in this branch, but has been merged into master.

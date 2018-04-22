@@ -67,7 +67,8 @@
         "deselect-company": "Deselect",
         "current-company-comments": "Notes",
         "fax": "Fax",
-        "email": "Email"
+        "email": "Email",
+        "new-request": "New Request"
     },
     "categories": {
         "addresses": "addresses",

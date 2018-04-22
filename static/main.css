@@ -190,6 +190,15 @@ footer {
     border: 0;
 } /* With thanks to bootstrap */
 
+#generator-heading {
+    float: left;
+}
+
+#generator-controls {
+    margin-top: 1.2em;
+    float: right;
+}
+
 /* PDF Viewer */
 #pdf-viewer {
     border: 0;

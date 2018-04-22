@@ -67,7 +67,8 @@
         "deselect-company": "Kein Unternehmen auswählen",
         "current-company-comments": "Hinweise",
         "fax": "Fax",
-        "email": "E-Mail"
+        "email": "E-Mail",
+        "new-request": "Neue Anfrage"
     },
     "categories": {
         "addresses": "Adressen",
