@@ -62,7 +62,12 @@
         "letter-subject-erasure": "Request to access to personal data according to Art. 15 GDPR",
         "letter-subject-rectification": "Request for rectification of personal data according to Art. 16 GDPR",
         "my-reference": "My reference",
-        "date": "Date"
+        "date": "Date",
+        "current-company": "Selected company",
+        "deselect-company": "Deselect",
+        "current-company-comments": "Notes",
+        "fax": "Fax",
+        "email": "Email"
     },
     "categories": {
         "addresses": "addresses",

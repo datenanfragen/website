@@ -77,6 +77,38 @@ class Generator extends preact.Component {
     }
 
     render() {
+        let company_info = '';
+        let comments = '';
+        if(this.state.suggestion !== null) {
+            company_info =
+                (<div id="company-info">
+                    <fieldset>
+                        <legend><Text id="current-company" /></legend>
+                        <span id="company-name" style="font-size: 15pt">{this.state.suggestion['name']}</span>
+                        {this.state.suggestion['fax'] ?  [<br />, t('fax', 'generator') + ': ' + this.state.suggestion['fax']] : []}
+                        {this.state.suggestion['email'] ? [<br />, t('email', 'generator') + ': ' + this.state.suggestion['email']] : []}
+                        <br /><a href="#" onClick={e => {
+                            e.preventDefault();
+                            this.setState(prev => {
+                                prev['suggestion'] = null;
+                                prev.request_data['recipient_runs'] = [];
+                                return prev;
+                            })
+                        }}><Text id="deselect-company" /></a>
+                    </fieldset>
+                </div>);
+            if(this.state.suggestion['comments']) {
+                let comment_list = [];
+                this.state.suggestion['comments'].forEach(comment => {
+                    comment_list.push(<div className="company-comments">{comment}</div>);
+                });
+               comments = <fieldset id="comment-container">
+                    <legend><Text id="current-company-comments" /></legend>
+                   {comment_list}
+                </fieldset>;
+            }
+        }
+
         return (
             <main>
                 <h2><Text id="generate-request"/></h2>
@@ -88,13 +120,15 @@ class Generator extends preact.Component {
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} request_data={this.state.request_data}/>
                     </div>
                     <div className="col50">
+                        {company_info}
                         <div id="pdf-controls">
                             <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled')} href="" download=""
                                ref={el => this.download_button = el} onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>
                             <button id="generate-button" onClick={this.renderPdf}><Text id="generate-pdf"/></button>
                             <div className="clearfix" />
                         </div>
-                        <iframe id="pdf-viewer" ref={el => this.iframe = el} />
+                        <iframe id="pdf-viewer" ref={el => this.iframe = el} className="empty" />
+                        {comments}
                     </div>
                 </div>
                 <div className="clearfix" />
@@ -167,6 +201,7 @@ class Generator extends preact.Component {
         pdfMake.createPdf(this.letter.toPdfDoc()).getBlob((blob) => {
             var url = URL.createObjectURL(blob);
             this.iframe.src = url;
+            this.iframe.setAttribute('class', '');
             this.download_button.setAttribute('href', url);
             this.download_button.setAttribute('download', (this.state.suggestion !== null ? this.state.suggestion['slug'] : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'))
                 + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf'); // TODO: This uses code that is not implemented in this branch, but has been merged into master.

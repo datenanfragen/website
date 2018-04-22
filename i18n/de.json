@@ -62,7 +62,12 @@
         "letter-subject-erasure": "Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO",
         "letter-subject-rectification": "Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO",
         "my-reference": "Mein Zeichen",
-        "date": "Datum"
+        "date": "Datum",
+        "current-company": "Ausgewähltes Unternehmen",
+        "deselect-company": "Kein Unternehmen auswählen",
+        "current-company-comments": "Hinweise",
+        "fax": "Fax",
+        "email": "E-Mail"
     },
     "categories": {
         "addresses": "Adressen",

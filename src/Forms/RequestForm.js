@@ -67,8 +67,6 @@ export default class RequestForm extends preact.Component {
                 break;
         }
 
-        console.log('render');
-
         return (
             <div className="request-form">
                 <fieldset>
@@ -104,10 +102,6 @@ export default class RequestForm extends preact.Component {
                 <SignatureInput id="signature" width={400} height={200} onChange={this.props.onChange}/>
             </div>
         );
-    }
-
-    componentWillUpdate(nextProps) {
-        console.log(nextProps);
     }
 
 
