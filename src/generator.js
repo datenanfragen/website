@@ -15,7 +15,7 @@ class Generator extends preact.Component {
             "value": ""
         }, {
             "desc": t('birthdate', 'generator'),
-            "type": "input",
+            "type": "birthdate",
             "optional": true,
             "value": ""
         }, {
@@ -29,7 +29,7 @@ class Generator extends preact.Component {
             request_data: {
                 type: 'access',
                 id_data: this.default_fields,
-                reference: Letter.generateReference(new Date()), // TODO: regenerate according to #4
+                reference: Letter.generateReference(new Date()),
                 recipient_address: '',
                 signature: {type: 'text', value: ''},
                 erase_all: true,
@@ -46,40 +46,78 @@ class Generator extends preact.Component {
             },
             template_text: '',
             suggestion: null,
-            download_active: false
+            download_active: false,
+            blob_url: '',
+            download_filename: ''
         };
 
         this.template_url = BASE_URL + '/templates/' + LOCALE + '/';
         this.letter = new Letter({});
 
-        // TODO: Is this the right spot for this?
-        pdfMake.fonts = {
-            Roboto: {
-                normal: 'Roboto-Regular.ttf',
-                bold: 'Roboto-Medium.ttf',
-                italics: 'Roboto-Italic.ttf'
-            },
-            Code39: {
-                normal: 'code39.ttf'
-            }
-        };
-
-        this.iframe = null;
-        this.download_button = null;
         this.renderPdf = this.renderPdf.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
+        this.newRequest = this.newRequest.bind(this);
+
+        this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js'); // TODO: Maybe solve this via inline script and blob?
+        this.pdfWorker.onmessage = (message) => {
+            this.setState(prev => {
+                prev['blob_url'] = message.data;
+                prev['download_filename'] = (this.state.suggestion !== null ? this.state.suggestion['slug'] : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'))
+                    + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf';
+                prev['download_active'] = true;
+                return prev;
+            });
+        };
+        this.pdfWorker.onerror = (error) => {
+            console.log('Worker Error', error); // TODO: Proper error handling
+        };
 
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
     }
 
     render() {
+        let company_info = '';
+        let comments = '';
+        if(this.state.suggestion !== null) {
+            company_info =
+                (<div id="company-info">
+                    <fieldset>
+                        <legend><Text id="current-company" /></legend>
+                        <span id="company-name" style="font-size: 15pt">{this.state.suggestion['name']}</span>
+                        {this.state.suggestion['fax'] ?  [<br />, t('fax', 'generator') + ': ' + this.state.suggestion['fax']] : []}
+                        {this.state.suggestion['email'] ? [<br />, t('email', 'generator') + ': ' + this.state.suggestion['email']] : []}
+                        <br /><a href="#" onClick={e => {
+                        e.preventDefault();
+                        this.setState(prev => {
+                            prev['suggestion'] = null;
+                            prev.request_data['recipient_runs'] = [];
+                            return prev;
+                        })
+                    }}><Text id="deselect-company" /></a>
+                    </fieldset>
+                </div>);
+            if(this.state.suggestion['comments']) {
+                let comment_list = [];
+                this.state.suggestion['comments'].forEach(comment => {
+                    comment_list.push(<div className="company-comments">{comment}</div>);
+                });
+                comments = <fieldset id="comment-container">
+                    <legend><Text id="current-company-comments" /></legend>
+                    {comment_list}
+                </fieldset>;
+            }
+        }
+
         return (
             <main>
-                <h2><Text id="generate-request"/></h2>
+                <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
+                <div id="generator-controls">
+                    <button id="new-request-button" onClick={this.newRequest}><Text id='new-request'/></button>
+                </div>
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
@@ -88,13 +126,15 @@ class Generator extends preact.Component {
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} request_data={this.state.request_data}/>
                     </div>
                     <div className="col50">
+                        {company_info}
                         <div id="pdf-controls">
-                            <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled')} href="" download=""
-                               ref={el => this.download_button = el} onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>
+                            <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled')} href={this.state.blob_url} download={this.state.download_filename}
+                               onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>
                             <button id="generate-button" onClick={this.renderPdf}><Text id="generate-pdf"/></button>
                             <div className="clearfix" />
                         </div>
-                        <iframe id="pdf-viewer" ref={el => this.iframe = el} />
+                        <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
+                        {comments}
                     </div>
                 </div>
                 <div className="clearfix" />
@@ -113,6 +153,7 @@ class Generator extends preact.Component {
             prev.suggestion = suggestion;
             return prev;
         });
+        this.renderPdf();
     }
 
     handleTypeChange(event) {
@@ -124,17 +165,19 @@ class Generator extends preact.Component {
         }
         let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt' : this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
-            .then(res => res.text()).then(text => {this.setState({template_text: text})});
+            .then(res => res.text()).then(text => {this.setState({template_text: text}); this.renderPdf();});
     }
 
     handleInputChange(changed_data) {
+        let should_render = true;
         this.setState(prev => {
             for(let key in changed_data) {
+                if(key === 'type') should_render = false;
                 prev['request_data'][key] = changed_data[key];
             }
             return prev;
         });
-        // TODO: trigger a render sometimes (See #8)
+        if(should_render) this.renderPdf();
     }
 
     handleLetterChange(event, address_change = false) {
@@ -149,6 +192,37 @@ class Generator extends preact.Component {
                 if(prev.request_data.custom_data.hasOwnProperty(att)) prev.request_data.custom_data[att] = event.target.value;
             });
         }
+        this.renderPdf();
+    }
+
+    newRequest() {
+        this.setState(prev => {
+            prev['request_data'] = {
+                type: 'access',
+                id_data: prev['request_data']['id_data'],
+                reference: Letter.generateReference(new Date()),
+                recipient_address: '',
+                signature: prev['request_data']['signature'],
+                erase_all: true,
+                erasure_data: '',
+                data_portability: false,
+                recipient_runs: [],
+                rectification_data: [],
+                custom_data: {
+                    content: '',
+                    subject: '',
+                    sender_address: prev['request_data']['custom_data']['sender_address'],
+                    name: prev['request_data']['custom_data']['name']
+                }
+            };
+            prev['suggestion'] = null;
+            prev['download_active'] = false;
+            prev['blob_url'] = '';
+            prev['download_filename'] = '';
+            return prev;
+        });
+        fetch(this.template_url + 'access-default.txt')
+            .then(res => res.text()).then(text => {this.setState({template_text: text})});
     }
 
     renderPdf() {
@@ -164,15 +238,19 @@ class Generator extends preact.Component {
             });
         } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
         this.setState({download_active: false});
-        pdfMake.createPdf(this.letter.toPdfDoc()).getBlob((blob) => {
-            var url = URL.createObjectURL(blob);
-            this.iframe.src = url;
-            this.download_button.setAttribute('href', url);
-            this.download_button.setAttribute('download', (this.state.suggestion !== null ? this.state.suggestion['slug'] : 'custom-company')
-                + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf'); // TODO: This uses code that is not implemented in this branch, but has been merged into master.
-            this.setState({download_active: true});
-        });
+
+        this.pdfWorker.postMessage(this.letter.toPdfDoc());
     }
+}
+
+// taken from https://gist.github.com/mathewbyrne/1280286
+function slugify(text) {
+    return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')           // Replace spaces with -
+        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+        .replace(/^-+/, '')             // Trim - from start of text
+        .replace(/-+$/, '');            // Trim - from end of text
 }
 
 preact.render((<IntlProvider scope="generator" definition={I18N_DEFINITION}><Generator/></IntlProvider>), null, document.getElementById('generator'));

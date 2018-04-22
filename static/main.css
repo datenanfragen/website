@@ -48,7 +48,7 @@ pre {
     overflow: auto;
 }
 
-input[type=search], input[type=text], input[type=email], input[type=password], input[type=tel], input[type=url], input[type=number], textarea, select {
+input[type=search], input[type=text], input[type=email], input[type=password], input[type=tel], input[type=url], input[type=number], input[type=date], textarea, select {
     border: 1px solid #e4e4e4;
     border-radius: 5px;
     padding: 7px;
@@ -190,11 +190,23 @@ footer {
     border: 0;
 } /* With thanks to bootstrap */
 
+#generator-heading {
+    float: left;
+}
+
+#generator-controls {
+    margin-top: 1.2em;
+    float: right;
+}
+
 /* PDF Viewer */
 #pdf-viewer {
     border: 0;
     width: 100%;
     height: 800px;
+}
+#pdf-viewer.empty {
+    display: none;
 }
 #pdf-controls {
     width: 100%;
@@ -209,7 +221,7 @@ footer {
 
 
 /* Forms */
-input[type=search].form-element, input[type=text].form-element, input[type=email].form-element, input[type=password].form-element, input[type=tel].form-element, input[type=url].form-element, input[type=number].form-element, textarea.form-element, select.form-element {
+input[type=search].form-element, input[type=text].form-element, input[type=email].form-element, input[type=password].form-element, input[type=tel].form-element, input[type=url].form-element, input[type=number].form-element, input[type=date].form-element, textarea.form-element, select.form-element {
     width: 100%;
 }
 textarea.form-element {
