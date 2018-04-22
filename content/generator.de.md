@@ -1,7 +1,6 @@
 {
     "title": "Eine Anfrage generieren",
-    "type": "generator",
-    "static": true
+    "type": "generator"
 }
  
 Generator

@@ -1,7 +1,6 @@
 {
     "title": "Generate a request",
-    "type": "generator",
-    "static": true
+    "type": "generator"
 }
  
 Generator
