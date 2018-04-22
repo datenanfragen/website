@@ -210,7 +210,9 @@ export default class Letter {
                     break;
                 case 'name':
                     name = item.value;
+                case 'birthdate':
                 case 'input':
+                default:
                     formatted += item.value;
                     break;
             }

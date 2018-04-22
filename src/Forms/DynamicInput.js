@@ -25,6 +25,10 @@ export default class DynamicInput extends preact.Component {
                 input = <TextareaControl key={this.props.id + this.props.suffix} id={this.props.id}
                                          suffix={this.props.suffix} required={!this.props.optional} onChange={this.props.onChange} value={this.props.value} />;
                 break;
+            case 'birthdate':
+                input = <DateControl key={this.props.id + this.props.suffix} id={this.props.id}
+                                      suffix={this.props.suffix} required={!this.props.optional} onChange={this.props.onChange} value={this.props.value} />;
+                break;
             case 'name':
             case 'input':
             default:
@@ -79,6 +83,18 @@ export class InputControl extends preact.Component {
             <div className="form-group">
                 <label for={this.props.id + '-value-' + this.props.suffix} className="sr-only">{this.props.desc}</label>
                 <input key={this.props.id + this.props.suffix} name="value" type="text" id={this.props.id + '-value-' + this.props.suffix} rel={this.props.id}
+                       className="form-element" placeholder={t('value', 'generator')} required={this.props.required} onChange={this.props.onChange} value={this.props.value}/>
+            </div>
+        );
+    }
+}
+
+export class DateControl extends preact.Component {
+    render() {
+        return (
+            <div className="form-group">
+                <label for={this.props.id + '-value-' + this.props.suffix} className="sr-only">{this.props.desc}</label>
+                <input key={this.props.id + this.props.suffix} name="value" type="date" id={this.props.id + '-value-' + this.props.suffix} rel={this.props.id}
                        className="form-element" placeholder={t('value', 'generator')} required={this.props.required} onChange={this.props.onChange} value={this.props.value}/>
             </div>
         );

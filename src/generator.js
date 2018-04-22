@@ -15,7 +15,7 @@ class Generator extends preact.Component {
             "value": ""
         }, {
             "desc": t('birthdate', 'generator'),
-            "type": "input",
+            "type": "birthdate",
             "optional": true,
             "value": ""
         }, {
