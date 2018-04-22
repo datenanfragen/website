@@ -46,32 +46,34 @@ class Generator extends preact.Component {
             },
             template_text: '',
             suggestion: null,
-            download_active: false
+            download_active: false,
+            blob_url: '',
+            download_filename: ''
         };
 
         this.template_url = BASE_URL + '/templates/' + LOCALE + '/';
         this.letter = new Letter({});
 
-        // TODO: Is this the right spot for this?
-        pdfMake.fonts = {
-            Roboto: {
-                normal: 'Roboto-Regular.ttf',
-                bold: 'Roboto-Medium.ttf',
-                italics: 'Roboto-Italic.ttf'
-            },
-            Code39: {
-                normal: 'code39.ttf'
-            }
-        };
-
-        this.iframe = null;
-        this.download_button = null;
         this.renderPdf = this.renderPdf.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
         this.newRequest = this.newRequest.bind(this);
+
+        this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js'); // TODO: Maybe solve this via inline script and blob?
+        this.pdfWorker.onmessage = (message) => {
+            this.setState(prev => {
+                prev['blob_url'] = message.data;
+                prev['download_filename'] = (this.state.suggestion !== null ? this.state.suggestion['slug'] : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'))
+                    + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf';
+                prev['download_active'] = true;
+                return prev;
+            });
+        };
+        this.pdfWorker.onerror = (error) => {
+            console.log('Worker Error', error); // TODO: Proper error handling
+        };
 
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
@@ -126,12 +128,12 @@ class Generator extends preact.Component {
                     <div className="col50">
                         {company_info}
                         <div id="pdf-controls">
-                            <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled')} href="" download=""
-                               ref={el => this.download_button = el} onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>
+                            <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled')} href={this.state.blob_url} download={this.state.download_filename}
+                               onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>
                             <button id="generate-button" onClick={this.renderPdf}><Text id="generate-pdf"/></button>
                             <div className="clearfix" />
                         </div>
-                        <iframe id="pdf-viewer" ref={el => this.iframe = el} className={this.state.download_active ? '' : 'empty'} />
+                        <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
                         {comments}
                     </div>
                 </div>
@@ -151,6 +153,7 @@ class Generator extends preact.Component {
             prev.suggestion = suggestion;
             return prev;
         });
+        this.renderPdf();
     }
 
     handleTypeChange(event) {
@@ -162,17 +165,19 @@ class Generator extends preact.Component {
         }
         let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt' : this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
-            .then(res => res.text()).then(text => {this.setState({template_text: text})});
+            .then(res => res.text()).then(text => {this.setState({template_text: text}); this.renderPdf();});
     }
 
     handleInputChange(changed_data) {
+        let should_render = true;
         this.setState(prev => {
             for(let key in changed_data) {
+                if(key === 'type') should_render = false;
                 prev['request_data'][key] = changed_data[key];
             }
             return prev;
         });
-        // TODO: trigger a render sometimes (See #8)
+        if(should_render) this.renderPdf();
     }
 
     handleLetterChange(event, address_change = false) {
@@ -187,6 +192,7 @@ class Generator extends preact.Component {
                 if(prev.request_data.custom_data.hasOwnProperty(att)) prev.request_data.custom_data[att] = event.target.value;
             });
         }
+        this.renderPdf();
     }
 
     newRequest() {
@@ -211,6 +217,8 @@ class Generator extends preact.Component {
             };
             prev['suggestion'] = null;
             prev['download_active'] = false;
+            prev['blob_url'] = '';
+            prev['download_filename'] = '';
             return prev;
         });
         fetch(this.template_url + 'access-default.txt')
@@ -230,20 +238,13 @@ class Generator extends preact.Component {
             });
         } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
         this.setState({download_active: false});
-        pdfMake.createPdf(this.letter.toPdfDoc()).getBlob((blob) => {
-            var url = URL.createObjectURL(blob);
-            this.iframe.src = url;
-            this.download_button.setAttribute('href', url);
-            this.download_button.setAttribute('download', (this.state.suggestion !== null ? this.state.suggestion['slug'] : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'))
-                + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf'); // TODO: This uses code that is not implemented in this branch, but has been merged into master.
-            this.setState({download_active: true});
-        });
+
+        this.pdfWorker.postMessage(this.letter.toPdfDoc());
     }
 }
 
 // taken from https://gist.github.com/mathewbyrne/1280286
-function slugify(text)
-{
+function slugify(text) {
     return text.toString().toLowerCase()
         .replace(/\s+/g, '-')           // Replace spaces with -
         .replace(/[^\w\-]+/g, '')       // Remove all non-word chars

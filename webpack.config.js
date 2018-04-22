@@ -4,7 +4,8 @@ module.exports = {
     entry: {
         'generator': './src/generator.js',
         'company-list': './src/company-list.js',
-        'home': './src/home.js'
+        'home': './src/home.js',
+        'pdfworker': './src/PdfWorker.js'
     },
     output: {
         filename: '[name].gen.js',
