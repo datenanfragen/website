@@ -48,7 +48,7 @@ export default class DynamicInput extends preact.Component {
                         </div>
                         <div style="display: table-cell;">
                             <label for={this.props.id + '-desc-' + this.props.suffix} className="sr-only"><Text id="description" /></label>
-                            <input key={this.props.id + this.props.suffix} name="desc" type="text" id={this.props.id + '-desc-' + this.props.suffix}
+                            <input key={this.props.id + this.props.suffix} name="desc" type="text" id={this.props.id + '-desc-' + this.props.suffix} rel={this.props.id}
                                    className="form-element" value={this.props.desc} placeholder={t('description', 'generator')} style="margin-left: 5px;" required onChange={this.props.onChange} />
                         </div>
                     </div>
