@@ -16,7 +16,7 @@ export default class DynamicInput extends preact.Component {
                                         required={!this.props.optional} onChange={this.props.onChange} value={this.props.value} />;
                 if(this.props.hasPrimary) control = (
                     <div class="col50">
-                        <button id={this.props.id + '-primaryButton'} rel={this.props.id} className="dynamic-input-primaryButton"
+                        <button id={this.props.id + '-primaryButton'} name="primary_button" rel={this.props.id} className="dynamic-input-primaryButton"
                                 data-isprimary={this.props.value['primary']} onClick={this.props.onPrimaryChange}><Text id="primary-address" /></button>
                     </div>
                 );
@@ -44,7 +44,7 @@ export default class DynamicInput extends preact.Component {
                         </div>
                         <div style="display: table-cell;">
                             <label for={this.props.id + '-desc-' + this.props.suffix} className="sr-only"><Text id="description" /></label>
-                            <input key={this.props.id + this.props.suffix} type="text" id={this.props.id + '-desc-' + this.props.suffix}
+                            <input key={this.props.id + this.props.suffix} name="desc" type="text" id={this.props.id + '-desc-' + this.props.suffix}
                                    className="form-element" value={this.props.desc} placeholder={t('description', 'generator')} style="margin-left: 5px;" required onChange={this.props.onChange} />
                         </div>
                     </div>
@@ -64,7 +64,7 @@ export class TextareaControl extends preact.Component {
         return (
             <div className="form-group">
                 <label for={this.props.id + '-value-' + this.props.suffix} className="sr-only">{this.props.desc}</label>
-                <textarea key={this.props.id + this.props.suffix} id={this.props.id + '-value-' + this.props.suffix}
+                <textarea key={this.props.id + this.props.suffix} name="value" id={this.props.id + this.props.suffix} rel={this.props.id}
                           className="form-element" placeholder={t('value', 'generator')} required={this.props.required} onChange={this.props.onChange}>
                     {this.props.value}
                 </textarea>
@@ -78,7 +78,7 @@ export class InputControl extends preact.Component {
         return (
             <div className="form-group">
                 <label for={this.props.id + '-value-' + this.props.suffix} className="sr-only">{this.props.desc}</label>
-                <input key={this.props.id + this.props.suffix} type="text" id={this.props.id + '-value-' + this.props.suffix}
+                <input key={this.props.id + this.props.suffix} name="value" type="text" id={this.props.id + '-value-' + this.props.suffix} rel={this.props.id}
                        className="form-element" placeholder={t('value', 'generator')} required={this.props.required} onChange={this.props.onChange} value={this.props.value}/>
             </div>
         );
@@ -90,26 +90,26 @@ export class AddressControl extends preact.Component {
         return (
             <div>
                 <div className="form-group fancy-fg">
-                    <input key={this.props.id + '-street_1-' + this.props.suffix} type="text" id={this.props.id + '-street_1-' + this.props.suffix}
+                    <input key={this.props.id + '-street_1-' + this.props.suffix} name="street_1" rel={this.props.id} type="text" id={this.props.id + '-street_1-' + this.props.suffix}
                            placeholder={t('address-line-1', 'generator')} className="form-element" required={this.props.required} onChange={this.props.onChange} value={this.props.value['street_1']} />
                     <label className="fancy-label" for={this.props.id + '-street_1-' + this.props.suffix}><Text id="address-line-1" /></label>
                 </div>
                 <div className="form-group fancy-fg">
-                    <input key={this.props.id + '-street_2-' + this.props.suffix} type="text" id={this.props.id + '-street_2-' + this.props.suffix}
+                    <input key={this.props.id + '-street_2-' + this.props.suffix} name="street_2" rel={this.props.id} type="text" id={this.props.id + '-street_2-' + this.props.suffix}
                            placeholder={t('address-line-2', 'generator')} className="form-element" onChange={this.props.onChange} value={this.props.value['street_2']} />
                     <label className="fancy-label" for={this.props.id + '-street_2-' + this.props.suffix}><Text id="address-line-2" /></label>
                 </div>
                 <div className="form-group fancy-fg">
-                    <input key={this.props.id + '-place-' + this.props.suffix} type="text" id={this.props.id + '-place-' + this.props.suffix}
+                    <input key={this.props.id + '-place-' + this.props.suffix} name="place" rel={this.props.id} type="text" id={this.props.id + '-place-' + this.props.suffix}
                            placeholder={t('address-place', 'generator')} className="form-element" required={this.props.required} onChange={this.props.onChange} value={this.props.value['place']} />
                     <label className="fancy-label" for={this.props.id + '-place-' + this.props.suffix}><Text id="address-place" /></label>
                 </div>
                 <div className="form-group fancy-fg">
-                    <input key={this.props.id + '-country-' + this.props.suffix} type="text" id={this.props.id + '-country-' + this.props.suffix}
+                    <input key={this.props.id + '-country-' + this.props.suffix} name="country" rel={this.props.id} type="text" id={this.props.id + '-country-' + this.props.suffix}
                            placeholder={t('address-country', 'generator')} className="form-element" onChange={this.props.onChange} value={this.props.value['country']} />
                     <label className="fancy-label" for={this.props.id + '-country-' + this.props.suffix}><Text id="address-country" /></label>
                 </div>
-                <input key={this.props.id + '-primary-' + this.props.suffix} type="hidden" id={this.props.id + '-primary-' + this.props.suffix}
+                <input key={this.props.id + '-primary-' + this.props.suffix} name="primary" rel={this.props.id} type="hidden" id={this.props.id + '-primary-' + this.props.suffix}
                        className="dynamic-input-primary form-element" value={this.props.value['primary']} onChange={this.props.onChange} />
             </div>
         );

@@ -13,11 +13,7 @@ pdfMake.fonts = {
 };
 
 onmessage = (e) => {
-    let doc = e.data;
-    let pdf = pdfMake.createPdf(doc);
-    console.log('created pdf');
-    pdf.getBlob((blob) => {
-        var url = URL.createObjectURL(blob);
-        postMessage(url);
+    pdfMake.createPdf(e.data).getBlob((blob) => {
+        postMessage(URL.createObjectURL(blob));
     })
 };
