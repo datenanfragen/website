@@ -78,11 +78,17 @@
         "erasure-data": "Zu löschende Daten",
         "rectification-data": "Korrekte Daten",
         "rectification-data-explanation": "Diese Daten sollen korrigiert werden. Du kannst hier auch andere Daten angeben, als für die Identifikation nötig waren.",
-        "letter-subject-access": "Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO",
-        "letter-subject-erasure": "Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO",
+        "letter-subject-erasure": "Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO",
+        "letter-subject-access": "Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO",
         "letter-subject-rectification": "Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO",
         "my-reference": "Mein Zeichen",
-        "date": "Datum"
+        "date": "Datum",
+        "current-company": "Ausgewähltes Unternehmen",
+        "deselect-company": "Kein Unternehmen auswählen",
+        "current-company-comments": "Hinweise",
+        "fax": "Fax",
+        "email": "E-Mail",
+        "new-request": "Neue Anfrage"
     },
     "categories": {
         "addresses": "Adressen",

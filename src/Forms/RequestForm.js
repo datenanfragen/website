@@ -3,6 +3,7 @@ import DynamicInputContainer from "./DynamicInputContainer";
 import SignatureInput from "./SignatureInput";
 import { MarkupText, Text } from 'preact-i18n';
 import t from 'i18n';
+import {AddressControl} from "./DynamicInput";
 
 export default class RequestForm extends preact.Component {
     constructor(props) {
@@ -46,24 +47,9 @@ export default class RequestForm extends preact.Component {
                             <input type="text" id="custom-sender-name" name="name" placeholder={t('name', 'generator')} className="form-element" onChange={this.props.onLetterChange} value={this.props.request_data.custom_data['name']} />
                             <label className="fancy-label" for="custom-sender-name"><Text id="name" /></label>
                         </div>
-                        <div className="form-group fancy-fg">
-                            <input type="text" id="custom-sender-street_1" name="street_1" placeholder={t('address-line-1', 'generator')} className="form-element" onChange={event => this.props.onLetterChange(event, true)} value={this.props.request_data.custom_data['sender_address']['street_1']} />
-                            <label className="fancy-label" for="custom-sender-street_1"><Text id="address-line-1" /></label>
-                        </div>
-                        <div className="form-group fancy-fg">
-                            <input type="text" id="custom-sender-street_2" name="street_2" placeholder={t('address-line-2', 'generator')} className="form-element" onChange={event => this.props.onLetterChange(event, true)} value={this.props.request_data.custom_data['sender_address']['street_2']} />
-                            <label className="fancy-label" for="custom-sender-street_2"><Text id="address-line-2" /></label>
-                        </div>
-                        <div className="form-group fancy-fg">
-                            <input type="text" id="custom-sender-place" name="place" placeholder={t('address-place', 'generator')} className="form-element" onChange={event => this.props.onLetterChange(event, true)} value={this.props.request_data.custom_data['sender_address']['place']} />
-                            <label className="fancy-label" for="custom-sender-place"><Text id="address-place" /></label>
-                        </div>
-                        <div className="form-group fancy-fg">
-                            <input type="text" id="custom-sender-country" name="country" placeholder={t('address-country', 'generator')} className="form-element" onChange={event => this.props.onLetterChange(event, true)} value={this.props.request_data.custom_data['sender_address']['country']} />
-                            <label className="fancy-label" for="custom-sender-country"><Text id="address-country" /></label>
-                        </div>
+                        <AddressControl id='0' suffix='custom-request' required={false} onChange={event => this.props.onLetterChange(event, true)} value={this.props.request_data.custom_data['sender_address']} />
                     </fieldset>
-                ); // Todo: Cleanup: do this with the Controls classes, when they support name attributes (see #30)
+                );
                 break;
         }
 
@@ -88,7 +74,7 @@ export default class RequestForm extends preact.Component {
                         <Text id="recipient-explanation"/><br />
                         <textarea id="request-recipient" className="form-element" placeholder={t('recipient', 'generator')} rows="4" spellcheck="false" onChange={event => {
                             this.props.onChange({'recipient_address': event.target.value});
-                        }}>{this.props.request_data['recipient_address']}</textarea>
+                        }} value={this.props.request_data['recipient_address']} />
                         <label className="sr-only" for="request-recipient"><Text id="recipient"/></label>
                         <input type="hidden" id="request-template" value="default" />
                     </div>

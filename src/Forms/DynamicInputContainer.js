@@ -67,20 +67,19 @@ export default class DynamicInputContainer extends preact.Component {
     }
 
     handleInputChange(event) {
-        let id = event.target.getAttribute('id').split('-');
+        let rel = event.target.getAttribute('rel');
+        let name = event.target.getAttribute('name');
         this.setState(prev => {
-            switch(id[1]) {
-                case 'value':
-                    prev.fields[id[0]].value = event.target.value;
-                    break;
+            switch(name) {
                 case 'desc':
-                    prev.fields[id[0]].desc = event.target.value;
+                case 'value':
+                    prev.fields[rel][name] = event.target.value;
                     break;
-                case 'primaryButton':
-                    prev['primary_address'] = id[0];
+                case 'primary_button':
+                    prev['primary_address'] = "" + rel;
                     break;
                 default:
-                    prev.fields[id[0]].value[id[1]] = event.target.value;
+                    prev.fields[rel].value[name] = event.target.value;
             }
             return prev;
         });

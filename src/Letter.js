@@ -88,23 +88,23 @@ export default class Letter {
                     marginTop: mm2pt(58)
                 },
                 Letter.handleSignature(this.props.signature)],
-            background: page => ({canvas: [
-                    {
-                        type: 'line',
-                        x1: 0, y1: mm2pt(87),
-                        x2: mm2pt(8), y2: mm2pt(87),
-                        lineWidth: 1
-                    }, {
-                        type: 'line',
-                        x1: 0, y1: mm2pt(192),
-                        x2: mm2pt(8), y2: mm2pt(192),
-                        lineWidth: 1
-                    }, {
-                        type: 'line',
-                        x1: 0, y1: mm2pt(148.5),
-                        x2: mm2pt(10), y2: mm2pt(148.5),
-                        lineWidth: 1
-                    }]})
+            background: {canvas: [
+                {
+                    type: 'line',
+                    x1: 0, y1: mm2pt(87),
+                    x2: mm2pt(8), y2: mm2pt(87),
+                    lineWidth: 1
+                }, {
+                    type: 'line',
+                    x1: 0, y1: mm2pt(192),
+                    x2: mm2pt(8), y2: mm2pt(192),
+                    lineWidth: 1
+                }, {
+                    type: 'line',
+                    x1: 0, y1: mm2pt(148.5),
+                    x2: mm2pt(10), y2: mm2pt(148.5),
+                    lineWidth: 1
+                }]}
         };
     }
 
@@ -210,7 +210,9 @@ export default class Letter {
                     break;
                 case 'name':
                     name = item.value;
+                case 'birthdate':
                 case 'input':
+                default:
                     formatted += item.value;
                     break;
             }

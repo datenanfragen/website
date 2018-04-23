@@ -6,6 +6,7 @@ module.exports = {
         'generator': './src/generator.js',
         'company-list': './src/company-list.js',
         'my-requests': './src/my-requests.js'
+        'pdfworker': './src/PdfWorker.js'
     },
     output: {
         filename: '[name].gen.js',
