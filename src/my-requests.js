@@ -22,12 +22,12 @@ class RequestList extends preact.Component {
         this.exportRequests = this.exportRequests.bind(this);
     }
     render() {
-        let requests = [];
+        let request_rows = [];
         Object.keys(this.state.requests).forEach((reference) => {
             let request = this.state.requests[reference];
             if(!request) return;
             let recipient = request.recipient.split('\n', 1)[0];
-            requests.push(<tr><td>{request.date}</td><td>{request.slug ? <a href={BASE_URL + 'company/' + request.slug}>{recipient}</a> : recipient}</td><td>{reference}</td><td>{t(request.type, 'my-requests')}</td><td>{t(request.via, 'my-requests')}</td></tr>);
+            request_rows.push(<tr><td>{request.date}</td><td>{request.slug ? <a href={BASE_URL + 'company/' + request.slug}>{recipient}</a> : recipient}</td><td>{reference}</td><td>{t(request.type, 'my-requests')}</td><td>{t(request.via, 'my-requests')}</td></tr>);
         });
         return (
             <IntlProvider scope="my-requests" definition={I18N_DEFINITION}>
@@ -35,10 +35,10 @@ class RequestList extends preact.Component {
                     <h1><Text id="title" /></h1>
                     <p><MarkupText id="explanation" /></p>
                     {/* TODO: This is extremely ugly (and will not work for some languages) but I don't see a better way that still allows us to set the onClick handler. */}
-                    <p><MarkupText id="explanation-saving" /> <a onClick={this.exportRequests}><Text id="explanation-saving-link"/></a>.</p>
+                    <p><MarkupText id="explanation-saving" /> <a onClick={this.exportRequests} href="#"><Text id="explanation-saving-link"/></a>.</p>
                     <table className='table'>
                         <thead><th><Text id="date" /></th><th><Text id="recipient" /></th><th><Text id="reference" /></th><th><Text id="type" /></th><th><Text id="via" /></th></thead>
-                        <tbody>{requests}</tbody>
+                        <tbody>{request_rows}</tbody>
                     </table>
                     <button id="clear-button" onClick={this.clearRequests} style="float: right;"><Text id="delete-all" /></button>
                     <div className='clearfix' />
@@ -47,10 +47,11 @@ class RequestList extends preact.Component {
         );
     }
 
-    exportRequests() {
+    exportRequests(e) {
+        e.preventDefault();
         // see https://stackoverflow.com/a/14966131
         let csv = 'data:text/csv;charset=utf-8,';
-        // TODO: We should set the filename to something sensible.
+        // TODO: We should set the filename to something sensible. See
         csv += 'date;slug;recipient;reference;type;via\r\n';
         Object.keys(this.state.requests).forEach((reference) => {
             let request = this.state.requests[reference];

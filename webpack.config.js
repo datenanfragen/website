@@ -5,7 +5,7 @@ module.exports = {
         'home': './src/home.js',
         'generator': './src/generator.js',
         'company-list': './src/company-list.js',
-        'my-requests': './src/my-requests.js'
+        'my-requests': './src/my-requests.js',
         'pdfworker': './src/PdfWorker.js'
     },
     output: {
