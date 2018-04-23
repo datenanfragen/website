@@ -70,12 +70,11 @@ class Generator extends preact.Component {
 
         this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js'); // TODO: Maybe solve this via inline script and blob?
         this.pdfWorker.onmessage = (message) => {
-            this.setState(prev => {
-                prev['blob_url'] = message.data;
-                prev['download_filename'] = (this.state.suggestion !== null ? this.state.suggestion['slug'] : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'))
-                    + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf';
-                prev['download_active'] = true;
-                return prev;
+            this.setState({
+                blob_url: message.data,
+                download_filename: (this.state.suggestion !== null ? this.state.suggestion['slug'] : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'))
+                + '_' + this.state.request_data['type'] + '_' + this.state.request_data['reference'] + '.pdf',
+                download_active: true
             });
         };
         this.pdfWorker.onerror = (error) => {
