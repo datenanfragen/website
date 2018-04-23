@@ -19,8 +19,9 @@ class RequestList extends preact.Component {
             .catch(() => { console.log('Could not get requests.'); /* TODO: Proper error handling. */ });
 
         this.clearRequests = this.clearRequests.bind(this);
-        this.exportRequests = this.exportRequests.bind(this);
+        this.buildCsv = this.buildCsv.bind(this);
     }
+
     render() {
         let request_rows = [];
         Object.keys(this.state.requests).forEach((reference) => {
@@ -29,36 +30,36 @@ class RequestList extends preact.Component {
             let recipient = request.recipient.split('\n', 1)[0];
             request_rows.push(<tr><td>{request.date}</td><td>{request.slug ? <a href={BASE_URL + 'company/' + request.slug}>{recipient}</a> : recipient}</td><td>{reference}</td><td>{t(request.type, 'my-requests')}</td><td>{t(request.via, 'my-requests')}</td></tr>);
         });
+
+        let download_filename = (new URL(BASE_URL)).hostname.replace('www.', '') + '_export_' + (new Date()).toISOString().substring(0, 10) + '.csv';
+
         return (
             <IntlProvider scope="my-requests" definition={I18N_DEFINITION}>
                 <main>
                     <h1><Text id="title" /></h1>
                     <p><MarkupText id="explanation" /></p>
-                    {/* TODO: This is extremely ugly (and will not work for some languages) but I don't see a better way that still allows us to set the onClick handler. */}
-                    <p><MarkupText id="explanation-saving" /> <a onClick={this.exportRequests} href="#"><Text id="explanation-saving-link"/></a>.</p>
+                    <p><MarkupText id="explanation-saving" /></p>
                     <table className='table'>
                         <thead><th><Text id="date" /></th><th><Text id="recipient" /></th><th><Text id="reference" /></th><th><Text id="type" /></th><th><Text id="via" /></th></thead>
                         <tbody>{request_rows}</tbody>
                     </table>
-                    <button id="clear-button" onClick={this.clearRequests} style="float: right;"><Text id="delete-all" /></button>
+                    { /* TODO: Style differently once we have a design. */ }
+                    <button id="clear-button" onClick={this.clearRequests} style="float: right;"><Text id="delete-all-btn" /></button>
+                    <a id="download-button" className="button" href={URL.createObjectURL(this.buildCsv())} download={download_filename} style="float: right; margin-right: 10px;"><Text id="export-btn" /></a>
                     <div className='clearfix' />
                 </main>
             </IntlProvider>
         );
     }
 
-    exportRequests(e) {
-        e.preventDefault();
-        // see https://stackoverflow.com/a/14966131
-        let csv = 'data:text/csv;charset=utf-8,';
-        // TODO: We should set the filename to something sensible. See
-        csv += 'date;slug;recipient;reference;type;via\r\n';
+    buildCsv() {
+        let csv = 'date;slug;recipient;reference;type;via\r\n';
         Object.keys(this.state.requests).forEach((reference) => {
             let request = this.state.requests[reference];
             csv += [ request.date, request.slug, request.recipient.replace(/[\r\n]+/g, ', '), reference, request.type, request.via ].join(';') + '\r\n';
         });
 
-        window.open(encodeURI(csv));
+        return new Blob([csv], { type: 'text/csv;charset=utf-8' });
     }
 
     clearRequests() {
