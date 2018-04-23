@@ -4,6 +4,7 @@ import Letter from 'Letter';
 import SearchBar from "./SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'i18n';
+import localforage from 'localforage';
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -51,14 +52,20 @@ class Generator extends preact.Component {
             download_filename: ''
         };
 
-        this.template_url = BASE_URL + '/templates/' + LOCALE + '/';
+        this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
         this.letter = new Letter({});
 
+        // TODO: Is there a better place for this?
+        localforage.config({
+            'name': 'Datenanfragen.de',
+            'storeName': 'my-requests'
+        });
         this.renderPdf = this.renderPdf.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
+        this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
 
         this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js'); // TODO: Maybe solve this via inline script and blob?
@@ -237,9 +244,20 @@ class Generator extends preact.Component {
                 sender_oneline: Letter.formatAddress(this.state.request_data.custom_data['sender_address'], ' • ', this.state.request_data.custom_data['name'])
             });
         } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
-        this.setState({download_active: false});
 
+        this.setState({download_active: false});
         this.pdfWorker.postMessage(this.letter.toPdfDoc());
+        this.storeRequest();
+    }
+
+    storeRequest() {
+        localforage.setItem(this.state.request_data['reference'], {
+            date: new Date().toISOString(), // TODO: The date will be configurable in the future, we will need to grab that here
+            type: this.state.request_data.type,
+            slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
+            recipient: this.state.request_data.recipient_address,
+            via: 'fax' // TODO: This is not currently implemented
+        }).catch(() => { console.log('Failed to save request with reference ' + this.state.request_data['reference']); /* TODO: Proper error handling. */ });
     }
 }
 

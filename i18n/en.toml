@@ -50,6 +50,9 @@ other = "Request generator"
 [header-cdb]
 other = "Company database"
 
+[header-my-requests]
+other = "My requests"
+
 [header-contact]
 other = "Contact"
 

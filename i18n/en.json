@@ -16,6 +16,26 @@
         "explanation": "Our company database holds the contact information of many companies (as well as other organisations) for your privacy-related requests.",
         "select-company": "View a different company…"
     },
+    "my-requests": {
+        "title": "My requests",
+        "explanation": "Here is a list of all requests you have generated so far with this browser. This can for example be useful to check whether a company answers within the timeframe you set.",
+        "explanation-saving": "This data is saved <strong>exclusively</strong> on your own computer and will never be sent to us. It will remain saved until you use your browser's <em>Clear Browsing Data</em> feature or delete all requests below. You can also export all data as a CSV file.",
+        "date": "Date",
+        "recipient": "Recipient",
+        "reference": "Reference",
+        "type": "Type",
+        "via": "via",
+        "access": "access",
+        "erasure": "erasure",
+        "rectification": "rectification",
+        "custom": "custom",
+        "fax": "fax",
+        "email": "email",
+        "letter": "letter",
+        "delete-all-btn": "Delete all requests",
+        "delete-all-confirm": "Do you really want to clear all data? This *cannot* be undone.",
+        "export-btn": "Export as CSV"
+    },
     "generator": {
         "generate-request": "Request generator",
         "download-pdf": "Download PDF",

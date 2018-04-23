@@ -12,6 +12,10 @@
 <script src="{{ "js/company-list.gen.js" | absURL }}"></script>
 {{ end }}
 
+{{ if eq .Type "my-requests" }}
+<script src="{{ "js/my-requests.gen.js" | absURL }}"></script>
+{{ end }}
+
 {{ if .IsHome }}
 <script src="{{ "js/home.gen.js" | absURL }}"></script>
 {{ end }}
