@@ -146,7 +146,6 @@ export class AddressControl extends preact.Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        console.log('should update?', !this.state.focus && nextProps !== this.props, this.state.focus, nextProps);
         return !this.state.focus && nextProps !== this.props;
     }
 

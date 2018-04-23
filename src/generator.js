@@ -63,7 +63,6 @@ class Generator extends preact.Component {
 
         this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js'); // TODO: Maybe solve this via inline script and blob?
         this.pdfWorker.onmessage = (message) => {
-            console.log(this.state);
             this.setState({
                 blob_url: message.data,
                 download_filename: (this.state.suggestion !== null ? this.state.suggestion['slug'] : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'))
