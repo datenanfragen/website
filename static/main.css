@@ -315,7 +315,8 @@ textarea.form-element {
     font-weight: bold;
 }
 #home-hero-word {
-    font-family: "Special Elite", monospace;
+    font-family: "Courier New", monospace;
+    font-weight: normal;
     font-size: 1.05em;
 }
 #home-hero-line-2 {

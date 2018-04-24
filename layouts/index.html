@@ -13,8 +13,8 @@
     <div id="home-features">
         <div class="home-feature">
             <div class="col40">
-                <!-- TODO: Credit photographer (https://unsplash.com/photos/ilSnKT1IMxE) and host image ourselves. -->
-                <img src="https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=deed95a30efbb8d13f4692354b7e0a33">
+                <!-- TODO: Credit photographer (https://unsplash.com/photos/ilSnKT1IMxE). -->
+                <img src="{{ "img/home-your-rights.jpg" | absURL }}">
             </div>
             <div class="col60">
                 <h2>{{ T "home-feature-your-rights-title" }}</h2>
@@ -28,15 +28,14 @@
                 <p>{{ (T "home-feature-easy-requests" (dict "companyUrl" ("company" | absURL) "generatorUrl" ("generator" | absURL))) | safeHTML }}</p>
             </div>
             <div class="col40">
-                <!-- TODO: Host image ourselves and make sure to update it with the interface. -->
-                <img src="https://i.imgur.com/73r9m2f.png">
+                <!-- TODO: Make sure to update image with the interface. -->
+                <img src="{{ "img/home-send-requests.png" | absURL }}">
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="home-feature">
             <div class="col40">
-                <!-- TODO: Host image ourselves. -->
-                <img src="https://i.imgur.com/3quG2c9.jpg">
+                <img src="{{ "img/home-get-answers.jpg" | absURL }}">
             </div>
             <div class="col60">
                 <h2>{{ T "home-feature-answers-title" }}</h2>
@@ -48,8 +47,8 @@
 </main>
 </div>
 <div id="home-hero-bg-image-container">
-    <!-- TODO: Credit photographer (https://unsplash.com/photos/JuFcQxgCXwA) and host image ourselves. We should also find a better image. -->
-    <img id="home-hero-bg-image" src="https://images.unsplash.com/photo-1470173274384-c4e8e2f9ea4c?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=f693ccf22ef6642d5e2de13eee03ea3c">
+    <!-- TODO: Credit photographer (https://unsplash.com/photos/JuFcQxgCXwA). We should also find a better image. -->
+    <img id="home-hero-bg-image" src="{{ "img/home-hero-background.jpg" | absURL }}">
 </div>
 <div class="container">
 

@@ -10,10 +10,6 @@
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     <link rel="stylesheet" href="{{ "main.css" | absURL }}"/>
     {{ .Hugo.Generator }}
-    {{ if .IsHome }}
-    <!-- TODO: Get rid of Google dependency! -->
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-    {{ end }}
 </head>
 <body>
 <header>
