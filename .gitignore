@@ -184,3 +184,4 @@ static/templates/*
 
 # Generated JS
 static/js/*.gen.js
+static/js/*.gen.js.map
