@@ -3,7 +3,6 @@ import SearchBar from "./SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'i18n';
 
-
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
 const hero_rights = [ t("data-access", "home"), t("data-erasure", "home"), t("data-rectification", "home"), t("objection", "home"), t("privacy", "home") ];
 /* TODO: Create a proper repository of suggested companies and use that here. */
