@@ -8,7 +8,7 @@
     <title>{{ if .Title }}{{ .Title }}{{ else }}{{ T "header-name" }}{{ end }}</title>
     {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-    <link rel="stylesheet" href="{{ "main.css" | absURL }}"/>
+    <link rel="stylesheet" href="{{ "css/style.gen.css" | absURL }}"/>
     {{ .Hugo.Generator }}
 </head>
 <body>

@@ -2,12 +2,13 @@
     "name": "datenanfragen.de",
     "version": "1.0.0",
     "private": true,
-    "description": "The datenanfragen.de website",
+    "description": "The Datenanfragen.de website. We want to help you exercise your rights under the GDPR.",
+    "keywords": [ "privacy", "gdpr", "eu-gdpr", "hugo", "pdf-generation", "preact" ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/datenanfragen/website.git"
     },
-    "author": "The datenanfragen.de project",
+    "author": "The Datenanfragen.de project",
     "contributors": [
         {
             "name": "Benjamin Altpeter",
@@ -22,8 +23,8 @@
     ],
     "license": "MIT",
     "scripts": {
-        "build": "webpack",
-        "dev": "webpack --watch"
+        "build": "BABEL_ENV=production; webpack --mode=production --config webpack.prod.js",
+        "dev": "webpack --watch --mode=development --config webpack.dev.js"
     },
     "bugs": {
         "url": "https://github.com/datenanfragen/website/issues"
@@ -36,12 +37,15 @@
         "babel-loader": "^7.1.4",
         "babel-preset-env": "^1.6.1",
         "localforage": "^1.7.1",
+        "mini-css-extract-plugin": "^0.4.0",
+        "optimize-css-assets-webpack-plugin": "^4.0.0",
         "preact": "^8.2.1",
         "preact-cli": "^2.0.0",
         "preact-compat": "^3.18.0",
         "preact-i18n": "^1.2.0",
         "react-instantsearch": "^5.0.1",
         "webpack": "^4.2.0",
-        "webpack-cli": "^2.0.13"
+        "webpack-cli": "^2.0.13",
+        "webpack-merge": "^4.1.2"
     }
 }
