@@ -15,14 +15,14 @@ other = "Handel"
 ["credit agency"]
 other = "Auskunftei"
 
+[entertainment]
+other = "Unterhaltung"
+
 [finance]
 other = "Finanzen"
 
 [insurance]
 other = "Versicherung"
-
-[media]
-other = "Medien"
 
 ["public body"]
 other = "Öffentliche Stelle"

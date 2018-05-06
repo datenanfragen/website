@@ -15,14 +15,14 @@ other = "commerce"
 ["credit agency"]
 other = "credit agency"
 
+[entertainment]
+other = "entertainment"
+
 [finance]
 other = "finance"
 
 [insurance]
 other = "insurance"
-
-[media]
-other = "media"
 
 ["public body"]
 other = "public body"
