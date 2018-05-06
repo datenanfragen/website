@@ -21,6 +21,9 @@ other = "Finanzen"
 [insurance]
 other = "Versicherung"
 
+[media]
+other = "Medien"
+
 ["public body"]
 other = "Öffentliche Stelle"
 
