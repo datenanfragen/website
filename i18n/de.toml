@@ -56,6 +56,9 @@ other = "Unternehmensdatenbank"
 [header-my-requests]
 other = "Meine Anfragen"
 
+[header-blog]
+other = "Artikel"
+
 [header-contact]
 other = "Impressum"
 
@@ -135,3 +138,29 @@ other = "Hinweise:"
 
 [cdb-help-needed]
 other = "Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Wir freuen uns über Deine <a href=\"https://github.com/datenanfragen/companies\">Mithilfe</a>!"
+
+# Blog
+
+[blog-published]
+other = "Veröffentlicht: "
+
+[blog-last-edited]
+other = ", zuletzt geändert: "
+
+[blog-post]
+other = "Artikel"
+
+[blog-prev-page]
+other = "Vorherige Seite"
+
+[blog-next-page]
+other = "Nächste Seite"
+
+[blog-page]
+other = "Seite "
+
+[blog-of]
+other = " von "
+
+[blog-read-more]
+other = "Weiterlesen…"

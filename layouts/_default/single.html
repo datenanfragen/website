@@ -1,0 +1,19 @@
+{{ partial "header" . }}
+
+<main>
+    {{ if .Params.featured_image }}
+    <img class="image" src="{{ .Params.featured_image }}" alt="{{ .Title }}">
+    {{ end }}
+    <article class="main-article">
+        <h1>{{ .Title }}</h1>
+        <aside class="main-article-meta">
+            {{ if eq .Type "blog" }}{{ T "blog-published" }}<span class="meta-date"><time>{{ .Date.Format "2006-01-02T15:04" }}</time></span>{{ end }}{{ if .Params.last_edited }}{{ T "blog-last-edited" }}<span class="meta-last-edited"><time>{{ dateFormat "2006-01-02T15:04" .Params.last_edited }}</time></span>{{ end }}
+        </aside>
+
+        <div id="main-article-content" class="content">
+            {{ .Content }}
+        </div>
+    </article>
+</main>
+
+{{ partial "footer" . }}

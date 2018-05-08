@@ -36,6 +36,7 @@ a, a:active, a:focus, a:visited {
 }
 a:hover, a:active { color: #0062b1; }
 
+img { max-width: 100%; }
 img.image {
     display: block;
     margin: auto;
@@ -338,4 +339,20 @@ textarea.form-element {
 .contact-table td:nth-child(1) {
     font-weight: bold;
     padding-right: 10px;
+}
+
+/* Article */
+.main-article h1 { margin-bottom: 0; }
+.main-article-meta, .list-article-meta, .list-publication-meta { font-size: 0.8em; }
+
+article.list-article, article.list-publication {
+    border: 1px solid rgba(170, 170, 170, 0.51);
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+article.list-article .padded, article.list-publication .padded { padding: 0 15px 10px 15px; }
+article.list-article h2, article.list-publication h2 { margin-bottom: 0; }
+article.list-article .description, article.list-publication .description {
+    margin-top: 5px;
+    margin-bottom: 0;
 }

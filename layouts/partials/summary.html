@@ -1,0 +1,19 @@
+<article class="list-article">
+    {{ if .Params.featured_image }}
+    <a href="{{ .Permalink }}"><img class="image" src="{{ .Params.featured_image }}" alt="{{ .Title }}"></a>
+    {{ end }}
+    <div class="padded">
+        <a href="{{ .Permalink }}"><h2>{{ .Title }}</h2></a>
+        <aside class="list-article-meta">{{ if not .Params.static }}{{ T "blog-published" }}<span class="meta-date"><time>{{ .Date.Format "2006-01-02T15:04" }}</time></span>{{ end }}</aside>
+        <p class="description">
+            {{ if .Description }}
+            {{ .Description }}
+            {{ else }}
+            {{ .Summary }}
+            {{ if .Truncated }}
+            <a href="{{ .Permalink }}">{{ T "blog-read-more" }}</a>
+            {{ end }}
+            {{ end }}
+        </p>
+    </div>
+</article>

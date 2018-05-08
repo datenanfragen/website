@@ -56,6 +56,9 @@ other = "Company database"
 [header-my-requests]
 other = "My requests"
 
+[header-blog]
+other = "Posts"
+
 [header-contact]
 other = "Contact"
 
@@ -135,3 +138,29 @@ other = "Notes:"
 
 [cdb-help-needed]
 other = "Is this data inaccurate or the company you were looking for not in our database? We would love to have you <a href=\"https://github.com/datenanfragen/companies\">help us</a>!"
+
+# Blog
+
+[blog-published]
+other = "Published: "
+
+[blog-last-edited]
+other = ", last edited: "
+
+[blog-post]
+other = "Post"
+
+[blog-prev-page]
+other = "Previous page"
+
+[blog-next-page]
+other = "Next page"
+
+[blog-page]
+other = "Page "
+
+[blog-of]
+other = " of "
+
+[blog-read-more]
+other = "Read more…"
