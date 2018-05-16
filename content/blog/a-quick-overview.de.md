@@ -6,7 +6,7 @@
     "last_edited": "2018-05-09T01:23:34",
     "type": "blog",
     "featured_image": "/img/home-hero-background.jpg",
-    "tags": [ "datenanfragen.de", "datarequests.org", "dsgvo", "gdpr", "selbstauskunft", "generator", "open source" ]
+    "tags": [ "Datenanfragen.de", "datarequests.org", "dsgvo", "gdpr", "selbstauskunft", "generator", "open source" ]
 }
 
 Jedes Unternehmen in der EU ist verpflichtet Dir Rechte auf Datenauskunft, -berichtigung, -löschung usw. zu gewähren. Mit Datenanfragen.de wollen wir Dir helfen diese Rechte auszuüben.
@@ -24,6 +24,8 @@ Sobald die Daten, die ein Unternehmen zu Dir gespeichert hat, für den Zweck, f�
 Auch wenn Du einmal eine Einwilligung zur Verwendung Deiner Daten gegeben hast, darfst Du diese jederzeit widerrufen. Dabei darf das Unternehmen den Widerruf nicht schwieriger gestalten als die ursprüngliche Zustimmung.
 * **Recht auf Datenübertragbarkeit**  
 Die Daten, die Du einen Unternehmen zu Dir mitgeteilt hast, gehören Dir. Du hast ein Recht, diese Daten von dem Unternehmen in einem gängigen Format zu erhalten, sodass Du sie zu einem anderen Unternehmen übertragen kannst.
+
+Eine noch ausführlichere Übersicht findest Du in unserem [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "blog/your-gdpr-rights" >}}).
 
 ## Wie kann ich diese Rechte nutzen?
 

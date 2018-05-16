@@ -88,4 +88,4 @@ Auch bei Anfragen zur Löschung von Daten gilt Art. 19 DSGVO und der Verantwortl
 
 ## Wie nutze ich diese Rechte?
 
-Grundsätzlich kannst Du alle genannten Rechte über eine formlose Anfrage gegenüber einem Unternehmen geltend machen. Wie Du das konkret tun kannst und wie Dir [unser Generator]({{< ref "generator" >}}), erfährst Du in [diesem Artikel](#). <!-- TODO: Write and link article. -->
+Grundsätzlich kannst Du alle genannten Rechte über eine formlose Anfrage gegenüber einem Unternehmen geltend machen. Wie Du das konkret tun kannst und wie Dir [unser Generator]({{< ref "generator" >}}) dabei hilft, erfährst Du in [diesem Artikel](#). <!-- TODO: Write and link article. -->

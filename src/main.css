@@ -356,3 +356,16 @@ article.list-article .description, article.list-publication .description {
     margin-top: 5px;
     margin-bottom: 0;
 }
+
+.blog-letter {
+    border: 1px solid rgba(170, 170, 170, 0.51);
+    background-color: #fff;
+    padding: 20px 60px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.blog-letter-fill-in:before, .blog-letter-fill-in:after {
+    font-weight: bold;
+    content: "{";
+    color: #1982c4;
+}
+.blog-letter-fill-in:after { content: "}"; }
