@@ -30,7 +30,7 @@ Eine noch ausführlichere Übersicht findest Du in unserem [Artikel zu Deinen Re
 
 ## Wie kann ich diese Rechte nutzen?
 
-Zur Nutzung dieser Anträge kannst Du einfach einen formlosen Antrag an das jeweilige Unternehmen stellen. Die Unternehmen sind vom Gesetzgeber angehalten diesen Prozess so einfach wie möglich zu gestalten.
+Zur Nutzung dieser Rechte kannst Du einfach einen formlosen Antrag an das jeweilige Unternehmen stellen. Die Unternehmen sind vom Gesetzgeber angehalten diesen Prozess so einfach wie möglich zu gestalten.
 
 Wenn ein Unternehmen eine_n Datenschutzbeauftragte_n hat, ist es immer sinnvoll sich direkt an diese Stelle zu wenden. Ein_e Datenschutzbeauftragte_r muss nicht nur besonders zu datenschutzrechtlichen Themen geschult sein, sondern unterliegt auch Vertraulichkeitspflichten im Bezug auf eingehende Anfragen.
 
@@ -50,4 +50,4 @@ Es gibt bei Datenanfragen.de viele Stellen, an denen Du Dich beteiligen kannst �
 Wie schon erwähnt, führen wir eine Unternehmensdatenbank. Diese stellen wir vollkommen frei auch anderen Projekten zur Verfügung.  
 So eine Datenbank ist natürlich sehr wartungsaufwendig: Mal ändern sich die Kontaktdaten eines Unternehmens, mal wird ein Unternehmen aufgelöst und ist damit nicht mehr relevant. Und jeden Tag werden natürlich etliche Unternehmen gegründet, die wir am liebsten alle aufnehmen würden. Klar, dass wir das nicht alleine schaffen. Wenn Dir z.&nbsp;B. auffällt, dass die Daten eines Unternehmens nicht mehr aktuell sind oder ein Unternehmen noch fehlt, freuen wir uns über Deinen Beitrag. Mehr Informationen hierzu findest Du in dem [zugehörigen GitHub-Repository](https://github.com/datenanfragen/companies).
 
-Darüber hinaus wollen wir unsere Webseite zu einfach zu bedienen und gleichzeitig mächtig gestalten, wie möglich. Unsere Webseite und Software sind selbstverständlich vollständig Open Source. Wenn Du uns dabei helfen willst, wirf auch einen Blick in das [entsprechende GitHub-Repository](https://github.com/datenanfragen/website).
+Darüber hinaus wollen wir unsere Webseite so einfach zu bedienen und gleichzeitig mächtig gestalten, wie möglich. Unsere Webseite und Software sind selbstverständlich vollständig Open Source. Wenn Du uns dabei helfen willst, wirf auch einen Blick in das [entsprechende GitHub-Repository](https://github.com/datenanfragen/website).
