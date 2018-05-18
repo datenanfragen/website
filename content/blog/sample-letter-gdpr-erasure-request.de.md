@@ -1,5 +1,5 @@
 {
-    "title": "Musterbrief für Anfragen auf Löschung nach Art. 17 DSGVO („Recht auf Vergessenwerden“)",
+    "title": "Musterbrief für Anträge auf Löschung nach Art. 17 DSGVO („Recht auf Vergessenwerden“)",
     "slug": "musterbrief-dsgvo-anfrage-loeschung",
     "aliases": [ "blog/sample-letter-gdpr-erasure-request" ],
     "date": "2018-05-17T17:58:23+02:00",
@@ -60,7 +60,7 @@ Um Dir Dein Leben einfacher zu machen, kannst Du das Schreiben auch herunterlade
 
 * [Vorlage für LibreOffice oder OpenOffice (.ott)](/downloads/musterschreiben-dsgvo-loeschung-datenanfragen.de.ott)
 * [Vorlage für Microsoft Word (.dotx)](/downloads/musterschreiben-dsgvo-loeschung-datenanfragen.de.dotx)
-* [PDF-Vorlage (.pdf)](/downloads/musterschreiben-dsgvo-loeschung-datenanfragen.de.pdf)
+* [PDF-Formular (.pdf)](/downloads/musterschreiben-dsgvo-loeschung-datenanfragen.de.pdf)
 * [Textdokument (.txt)](/downloads/musterschreiben-dsgvo-loeschung-datenanfragen.de.txt)
 
 Du darfst die Vorlagen gerne verwenden wie immer Du möchtest. Wir stellen sie Dir unter einer [CC0-Lizenz](https://creativecommons.org/publicdomain/zero/1.0/) zur Verfügung. Die Vorlagen für LibreOffice und Word basieren auf [dieser LibreOffice-Vorlage](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
