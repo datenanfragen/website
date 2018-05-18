@@ -92,7 +92,7 @@ other = "Our generator takes the work out of writing requests. Just select a com
 other = "Get answers"
 
 [home-feature-answers]
-other = "Some companies will answer your requests very well. Others, well… they might need a little more convincing. That's not an issue, though: Our generator also allows you to very easily create warnings and complaints.<br>Find out more in <a href=\"#\">this post</a>."
+other = "Some companies will answer your requests very well. Others, well… they might need a little more convincing. That's not an issue, though: Our generator will allow you to very easily create warnings and complaints."
 
 # Company database
 

@@ -4,6 +4,8 @@
     "aliases": [ "blog/sample-letter-gdpr-access-request" ],
     "date": "2018-05-16T22:06:12+02:00",
 	"type": "blog",
+	"description": "Gemäß der DSGVO hast Du ein Recht auf Auskunft über die personenbezogenen Daten, die Verantwortliche zu Dir speichern. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
+	"featured_image": "/img/dsgvo-anfrage-auskunft-brief.jpg",
     "tags": [ "dsgvo", "gdpr", "selbstauskunft", "brief", "schreiben", "muster", "artikel 15" ]
 }
 

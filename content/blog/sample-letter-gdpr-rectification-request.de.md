@@ -4,6 +4,8 @@
     "aliases": [ "blog/sample-letter-gdpr-rectification-request" ],
     "date": "2018-05-18T12:43:47+02:00",
 	"type": "blog",
+	"description": "Nach der DSGVO hast Du ein Recht auf Berichtigung unrichtiger Daten, die ein Verantwortlicher zu Dir speichert und verarbeitet. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
+	"featured_image": "/img/dsgvo-anfrage-berichtigung-brief.jpg",
     "tags": [ "dsgvo", "gdpr", "berichtigung", "brief", "schreiben", "muster", "artikel 16" ]
 }
 

@@ -5,6 +5,7 @@
     "date": "2018-03-23T03:25:12+02:00",
     "last_edited": "2018-05-09T01:23:34",
     "type": "blog",
+    "description": "Jedes Unternehmen in der EU ist verpflichtet Dir Rechte auf Datenauskunft, -berichtigung, -löschung usw. zu gewähren. Mit Datenanfragen.de wollen wir Dir helfen diese Rechte auszuüben. In diesem Artikel wollen wir Dir einen kleinen Überblick über das Projekt verschaffen.",
     "featured_image": "/img/home-hero-background.jpg",
     "tags": [ "Datenanfragen.de", "datarequests.org", "dsgvo", "gdpr", "selbstauskunft", "generator", "open source" ]
 }

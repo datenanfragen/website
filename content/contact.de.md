@@ -19,5 +19,5 @@ Deutschland
 **Vertreten durch:** Benjamin Altpeter und Lorenz Sieben  
 Eintragung in das Vereinsregister des Amtsgerichts Braunschweig ist geplant.
 
-**Verantwortlich für den Inhalt § 55 Abs. 2 RStV:**  
+**Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Deutschland
