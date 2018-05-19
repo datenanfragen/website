@@ -1,6 +1,6 @@
 {
     "title": "Sample letter for requests for access to personal data as per Art. 15 GDPR",
-    "slug": "blog/sample-letter-gdpr-access-request",
+    "slug": "sample-letter-gdpr-access-request",
     "date": "2018-05-16T22:06:12+02:00",
     "last_edited": "2018-05-20T00:15:50",
 	"type": "blog",
