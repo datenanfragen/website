@@ -29,7 +29,7 @@ class Generator extends preact.Component {
         this.state = {
             request_data: {
                 type: 'access',
-                id_data: this.default_fields,
+                id_data: JSON.parse(JSON.stringify(this.default_fields)), // This is hideous but the only way to deep copy this array...
                 reference: Letter.generateReference(new Date()),
                 recipient_address: '',
                 signature: {type: 'text', value: ''},
@@ -83,6 +83,7 @@ class Generator extends preact.Component {
 
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
+
     }
 
     render() {
@@ -148,18 +149,39 @@ class Generator extends preact.Component {
     }
 
     handleAutocompleteSelected(event, suggestion, dataset) {
+        console.log(this.default_fields);
         let template_file = suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
 
         this.setState(prev => {
             prev.request_data['recipient_address'] = suggestion.name + '\n' + suggestion.address;
-            prev.request_data['id_data'] = suggestion['required-elements'] || this.default_fields; // TODO: Be *a lot* gentler here. Compare the two arrays and keep already entered data. Also switch types.
+            prev.request_data['id_data'] = this.mergeIdDataFields(prev.request_data['id_data'], suggestion['required-elements'] || this.default_fields);
             prev.request_data['recipient_runs'] = suggestion.runs || [];
             prev.suggestion = suggestion;
             return prev;
         });
         this.renderPdf();
+    }
+
+    mergeIdDataFields(fields_to_add_to, fields_to_merge) {
+        let new_fields = fields_to_merge.slice();
+        let old_fields = fields_to_add_to.slice();
+        let merged_fields = [];
+        old_fields.forEach((field, i) => { // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
+            let j = new_fields.findIndex(new_field => {
+                return new_field['type'] === field['type'] && new_field['desc'] === field['desc'];
+            });
+            if(typeof j !== 'undefined' && j >= 0) {
+                field['optional'] = 'optional' in new_fields[j] ? new_fields[j]['optional'] : false;
+                merged_fields.push(field);
+                new_fields.splice(j, 1);
+            }
+        });
+        return merged_fields.concat(new_fields.map(field => {
+            field['value'] = field['value'] || '';
+            return field;
+        }));
     }
 
     handleTypeChange(event) {
