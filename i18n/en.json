@@ -88,7 +88,8 @@
         "current-company-comments": "Notes",
         "fax": "Fax",
         "email": "Email",
-        "new-request": "New Request"
+        "new-request": "New Request",
+        "confirm-input-remove": "Really remove field?"
     },
     "categories": {
         "addresses": "addresses",

@@ -170,7 +170,7 @@ class Generator extends preact.Component {
         let merged_fields = [];
         old_fields.forEach((field, i) => { // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
             let j = new_fields.findIndex(new_field => {
-                return new_field['type'] === field['type'] && new_field['desc'] === field['desc'];
+                return new_field['type'] === field['type'] && new_field['desc'] === field['desc']; // Is it a good idea to also check for desc?
             });
             if(typeof j !== 'undefined' && j >= 0) {
                 field['optional'] = 'optional' in new_fields[j] ? new_fields[j]['optional'] : false;

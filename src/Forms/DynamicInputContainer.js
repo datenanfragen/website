@@ -1,6 +1,7 @@
 import preact from 'preact';
 import DynamicInput from "./DynamicInput";
 import { Text, MarkupText } from 'preact-i18n';
+import t from 'i18n';
 
 export default class DynamicInputContainer extends preact.Component {
     constructor(props) {
@@ -109,11 +110,13 @@ export default class DynamicInputContainer extends preact.Component {
     }
 
     removeDynamicInput(event) {
-        this.setState(prev => {
-            delete prev.fields[event.target.getAttribute('rel')];
-            return prev;
-        });
-        this.pushStateUp();
+        if(window.confirm(t('confirm-input-remove', 'generator'))) {
+            this.setState(prev => {
+                delete prev.fields[event.target.getAttribute('rel')];
+                return prev;
+            });
+            this.pushStateUp();
+        }
     }
 
     getDataArray() {
