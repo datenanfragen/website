@@ -88,7 +88,8 @@
         "current-company-comments": "Hinweise",
         "fax": "Fax",
         "email": "E-Mail",
-        "new-request": "Neue Anfrage"
+        "new-request": "Neue Anfrage",
+        "confirm-input-remove": "Feld wirklich löschen?"
     },
     "categories": {
         "addresses": "Adressen",
