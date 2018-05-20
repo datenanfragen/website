@@ -149,7 +149,6 @@ class Generator extends preact.Component {
     }
 
     handleAutocompleteSelected(event, suggestion, dataset) {
-        console.log(this.default_fields);
         let template_file = suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
@@ -178,8 +177,9 @@ class Generator extends preact.Component {
                 new_fields.splice(j, 1);
             }
         });
+        let primary = 0;
         return merged_fields.concat(new_fields.map(field => {
-            field['value'] = field['value'] || '';
+            field['value'] = field['value'] || (field['type'] === 'address' ? {"primary": primary++ === 1} : '');
             return field;
         }));
     }
