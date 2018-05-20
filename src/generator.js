@@ -167,19 +167,20 @@ class Generator extends preact.Component {
         let new_fields = fields_to_merge.slice();
         let old_fields = fields_to_add_to.slice();
         let merged_fields = [];
+        let has_primary_address = 0;
         old_fields.forEach((field, i) => { // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
             let j = new_fields.findIndex(new_field => {
                 return new_field['type'] === field['type'] && new_field['desc'] === field['desc']; // Is it a good idea to also check for desc?
             });
             if(typeof j !== 'undefined' && j >= 0) {
                 field['optional'] = 'optional' in new_fields[j] ? new_fields[j]['optional'] : false;
+                if(field['type'] === 'address') field['value']['primary'] = ++has_primary_address === 1;
                 merged_fields.push(field);
                 new_fields.splice(j, 1);
             }
         });
-        let primary = 0;
         return merged_fields.concat(new_fields.map(field => {
-            field['value'] = field['value'] || (field['type'] === 'address' ? {"primary": primary++ === 1} : '');
+            field['value'] = field['value'] || (field['type'] === 'address' ? {"primary": ++has_primary_address === 1} : '');
             return field;
         }));
     }
