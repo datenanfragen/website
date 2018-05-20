@@ -25,7 +25,7 @@ In aller Regel empfiehlt sich aber natürlich die Schriftform, allein schon um s
 
 Keine Sorge, Du musst dieses Schreiben nicht selbst aufsetzen. Wir haben ein Musterschreiben vorbereitet, das Du einfach übernehmen und für Deine Zwecke anpassen kannst.
 
-Hier ist unser Musterschreiben für Anträge auf Berichtigung nach Art. 16 DSGVO. Die Passagen in [eckigen Klammern] sind optional; hier kannst Du selbst entscheiden, ob Du diese übernehmen möchtest. Die Daten in <span class="blog-letter-fill-in">geschweiften Klammern</span> musst Du noch ausfüllen.
+Hier ist unser Musterschreiben für Anträge auf Berichtigung nach Art. 16 DSGVO. Die Daten in <span class="blog-letter-fill-in">geschweiften Klammern</span> musst Du noch ausfüllen.
 
 <div class="blog-letter">
 <p>Guten Tag,</p>
