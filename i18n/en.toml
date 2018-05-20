@@ -56,6 +56,9 @@ other = "Company database"
 [header-my-requests]
 other = "My requests"
 
+[header-blog]
+other = "Posts"
+
 [header-contact]
 other = "Contact"
 
@@ -77,7 +80,7 @@ other = "Every company in the EU is required by law to grant access to your pers
 other = "Your rights"
 
 [home-feature-your-rights]
-other = "The GDPR grants you extensive rights with regards to your privacy. To give you an example: Every company in the EU has to give you access to the personal data they are storing on you. If the data is incorrect, they have to correct it. You can even demand your personal data be deleted.<br>Find out more about your rights in <a href=\"#\">this post</a>."
+other = "The GDPR grants you extensive rights with regards to your privacy. To give you an example: Every company in the EU has to give you access to the personal data they are storing on you. If the data is incorrect, they have to correct it. You can even demand your personal data be deleted.<br>Find out more about your rights in <a href=\"{{ .articleUrl }}\">this post</a>."
 
 [home-feature-easy-requests-title]
 other = "Just send a request"
@@ -89,7 +92,7 @@ other = "Our generator takes the work out of writing requests. Just select a com
 other = "Get answers"
 
 [home-feature-answers]
-other = "Some companies will answer your requests very well. Others, well… they might need a little more convincing. That's not an issue, though: Our generator also allows you to very easily create warnings and complaints.<br>Find out more in <a href=\"#\">this post</a>."
+other = "Some companies will answer your requests very well. Others, well… they might need a little more convincing. That's not an issue, though: Our generator will allow you to very easily create warnings and complaints."
 
 # Company database
 
@@ -135,3 +138,29 @@ other = "Notes:"
 
 [cdb-help-needed]
 other = "Is this data inaccurate or the company you were looking for not in our database? We would love to have you <a href=\"https://github.com/datenanfragen/companies\">help us</a>!"
+
+# Blog
+
+[blog-published]
+other = "Published: "
+
+[blog-last-edited]
+other = ", last edited: "
+
+[blog-post]
+other = "Post"
+
+[blog-prev-page]
+other = "Previous page"
+
+[blog-next-page]
+other = "Next page"
+
+[blog-page]
+other = "Page "
+
+[blog-of]
+other = " of "
+
+[blog-read-more]
+other = "Read more…"

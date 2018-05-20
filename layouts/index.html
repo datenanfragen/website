@@ -18,7 +18,7 @@
             </div>
             <div class="col60">
                 <h2>{{ T "home-feature-your-rights-title" }}</h2>
-                <p>{{ T "home-feature-your-rights" | safeHTML }}<!-- TODO: Write and link article --></p>
+                <p>{{ T "home-feature-your-rights" (dict "articleUrl" ("blog/your-gdpr-rights" | absURL) ) | safeHTML }}</p>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -39,7 +39,7 @@
             </div>
             <div class="col60">
                 <h2>{{ T "home-feature-answers-title" }}</h2>
-                <p>{{ T "home-feature-answers" | safeHTML }}<!-- TODO: Write and link article --></p>
+                <p>{{ T "home-feature-answers" | safeHTML }}<!-- TODO: Write and link article. --></p>
             </div>
         </div>
     </div>

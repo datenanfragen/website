@@ -1,5 +1,6 @@
 defaultContentLanguage = "de"
 enableMissingTranslationPlaceholders = true # TODO: Remove in production
+pluralizeListTitles = false
 
 # Ignore the preact translation files which would otherwise cause Hugo to fail
 ignoreFiles = [ "i18n/.+\\.json$" ]

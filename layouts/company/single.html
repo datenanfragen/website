@@ -7,8 +7,8 @@
         <h2>{{ T "cdb-company-title" . }}</h2>
         {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ( apply . "T" "." ) ) ", " }}</p>{{ end }}
         {{ with .Params.runs }}
-        <p><strong>{{ T "cdb-runs" }}</strong></p>
-        <ul>
+            <p><strong>{{ T "cdb-runs" }}</strong></p>
+            <ul>
                 {{ range . }}
                     <li>{{ . }}</li>
                 {{ end }}
@@ -18,7 +18,7 @@
         <p>{{ T "cdb-intro" . }}</p>
 
         {{ with .Params.address}}<p><strong>{{ T "cdb-address" }}</strong><br>{{ replace . "\n" "<br>" | safeHTML }}</p>{{ end }}
-        {{ if (.Params.phone) or .Params.fax or .Params.email or .Params.web }}
+        {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
         <table class="contact-table">
             {{ with .Params.phone }}<tr><td>{{ T "cdb-phone" }}</td><td>{{ . }}</td></tr>{{ end }}
             {{ with .Params.fax }}<tr><td>{{ T "cdb-fax" }}</td><td>{{ . }}</td></tr>{{ end }}

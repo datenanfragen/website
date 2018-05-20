@@ -1,0 +1,12 @@
+{{ partial "header" . }}
+
+<main>
+    <h1>{{ T "blog-post" }}</h1>
+
+    {{ range .Paginator.Pages }}
+    {{ partial "summary.html" . }}
+    {{ end }}
+    {{ partial "pagination.html" . }}
+</main>
+
+{{ partial "footer" . }}

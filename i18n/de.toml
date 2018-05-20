@@ -56,6 +56,9 @@ other = "Unternehmensdatenbank"
 [header-my-requests]
 other = "Meine Anfragen"
 
+[header-blog]
+other = "Artikel"
+
 [header-contact]
 other = "Impressum"
 
@@ -77,7 +80,7 @@ other = "Jedes Unternehmen in der EU ist verpflichtet Dir Rechte auf Datenauskun
 other = "Deine Rechte"
 
 [home-feature-your-rights]
-other = "Die DSGVO gewährt Dir umfassende Rechte im Bezug auf den Datenschutz. So muss Dir z.&nbsp;B. jedes Unternehmen in der EU mitteilen, welche personenbezogenen Daten es zu Dir gespeichert hat. Wenn die Daten falsch sind, muss es sie berichtigen. Du darfst sogar verlangen, dass die Daten wieder gelöscht werden.<br>Mehr zu Deinen Rechten erfährst Du <a href=\"#\">in diesem Artikel</a>."
+other = "Die DSGVO gewährt Dir umfassende Rechte im Bezug auf den Datenschutz. So muss Dir z.&nbsp;B. jedes Unternehmen in der EU mitteilen, welche personenbezogenen Daten es zu Dir gespeichert hat. Wenn die Daten falsch sind, muss es sie berichtigen. Du darfst sogar verlangen, dass die Daten wieder gelöscht werden.<br>Mehr zu Deinen Rechten erfährst Du <a href=\"{{ .articleUrl }}\">in diesem Artikel</a>."
 
 [home-feature-easy-requests-title]
 other = "Einfach Anfragen stellen"
@@ -89,7 +92,7 @@ other = "Unser Generator nimmt Dir die Arbeit des Anfragenstellens ab. Wähle ei
 other = "Antworten erhalten"
 
 [home-feature-answers]
-other = "Manche Unternehmen antworten sehr vorbildlich auf Anfragen, anderen brauchen etwas mehr… Überzeugungsarbeit. Doch auch das ist kein Problem. Mit unserem Generator kannst Du Dir auch problemslos Mahnungen und Beschwerden erstellen lassen.<br>Mehr Infos dazu findest Du in <a href=\"#\">diesem Artikel</a>."
+other = "Manche Unternehmen antworten sehr vorbildlich auf Anfragen, anderen brauchen etwas mehr… Überzeugungsarbeit. Doch auch das ist kein Problem: Mit unserem Generator wirst Du Dir auch problemslos Mahnungen und Beschwerden erstellen lassen können."
 
 # Company database
 
@@ -135,3 +138,29 @@ other = "Hinweise:"
 
 [cdb-help-needed]
 other = "Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Wir freuen uns über Deine <a href=\"https://github.com/datenanfragen/companies\">Mithilfe</a>!"
+
+# Blog
+
+[blog-published]
+other = "Veröffentlicht: "
+
+[blog-last-edited]
+other = ", zuletzt geändert: "
+
+[blog-post]
+other = "Artikel"
+
+[blog-prev-page]
+other = "Vorherige Seite"
+
+[blog-next-page]
+other = "Nächste Seite"
+
+[blog-page]
+other = "Seite "
+
+[blog-of]
+other = " von "
+
+[blog-read-more]
+other = "Weiterlesen…"
