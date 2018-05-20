@@ -62,6 +62,17 @@ other = "Posts"
 [header-contact]
 other = "Contact"
 
+# Footer
+
+[footer-privacy-controls]
+other = "Privacy controls"
+
+[footer-privacy-policy]
+other = "Privacy policy"
+
+[footer-legal-notice]
+other = "Legal notice and contact data"
+
 # Home
 
 [home-hero-line-1]

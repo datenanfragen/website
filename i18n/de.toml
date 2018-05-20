@@ -62,6 +62,17 @@ other = "Artikel"
 [header-contact]
 other = "Impressum"
 
+# Footer
+
+[footer-privacy-controls]
+other = "Datenschutzeinstellungen"
+
+[footer-privacy-policy]
+other = "Datenschutzerklärung"
+
+[footer-legal-notice]
+other = "Impressum"
+
 # Home
 
 [home-hero-line-1]
