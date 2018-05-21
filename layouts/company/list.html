@@ -2,4 +2,16 @@
 
 <div id="company-list"></div>
 
+<div id="company-overview">
+    <!-- TODO: Only include those companies that are relevant to the user's selected country. -->
+    <!-- TODO: Ideally, these would be sorted by their relevance but we need #40 for that. -->
+    {{ range .Data.Pages.ByParam "name" }}
+    <article class="company-article">
+        <h2><a href="{{ .Permalink }}">{{ .Params.name }}</a></h2>
+        {{ with .Params.categories }}<div><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ( apply . "T" "." ) ) ", " }}</div>{{ end }}
+        {{ with .Params.runs }}<div><strong>{{ T "cdb-runs" }}</strong> {{ delimit . ", " }}</div>{{ end }}
+    </article>
+    {{ end }}
+</div>
+
 {{ partial "footer" . }}
