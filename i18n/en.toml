@@ -62,6 +62,18 @@ other = "Posts"
 [header-contact]
 other = "Contact"
 
+# Languages
+[de]
+other = "German (Deutsch)"
+
+[en]
+other = "English"
+
+# Footer
+
+[footer-other-langs]
+other = "Also available in: "
+
 # Home
 
 [home-hero-line-1]
