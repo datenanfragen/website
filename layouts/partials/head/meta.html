@@ -1,0 +1,49 @@
+{{ if .Site.RSSLink -}}
+<link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+<link href="{{ .Site.RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{- end }}
+{{ .Hugo.Generator }}
+
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
+{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Schema.org -->
+<meta itemprop="name" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
+<meta itemprop="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
+{{ with .Params.tags }}<meta itemprop="keywords" content="{{ delimit (first 6 .) ", " }}" />{{ end }}
+{{ with .Params.featuredImage }}<meta itemprop="image" content="{{ . | absURL }}">{{ end }}
+{{ with .Params.author }}<meta itemprop="author" content="{{ . }}">{{ end }}
+<meta itemprop="datePublished" content="{{ .Date.Format "2006-01-02 15:04:05" }}">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="{{ .Site.LanguageCode }}">
+<meta property="og:title" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
+<meta property="og:type" content="article">
+<meta property="og:updated_time" content="{{ .Date }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="article:modified_time" content="{{ .Date }}" />
+{{ with .Params.categories }}<meta property="article:section" content="{{ index . 0}}">{{ end }}
+{{ with .Params.tags }}{{ range first 6 . -}}
+<meta property="article:tag" content="{{ . }}" />
+{{ end }}{{ end }}
+{{ with .Params.featured_image }}<meta property="og:image" content="{{ . | absURL }}">
+<meta property="og:image:width" content="833">
+<meta property="og:image:height" content="436"> <!-- not the real values unfortunately but we don't seem to have a way to get that easily -->
+{{ end }}
+
+<!-- Twitter cards -->
+{{- with .Params.featuredImage }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{- else }}
+<meta name="twitter:card" content="summary">
+{{- end }}
+
+<meta name="twitter:title" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
+<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
+<meta name="twitter:site" content="@Datenanfragen">
+<meta name="twitter:creator" content="@Datenanfragen">
