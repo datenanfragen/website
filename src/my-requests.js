@@ -6,13 +6,11 @@ import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
 
 export default class UserRequests {
     constructor() {
-        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            // TODO: Is there a better place for this?
-            localforage.config({
-                'name': 'Datenanfragen.de', // TODO: Use the actual domain here?
-                'storeName': 'my-requests'
-            });
-        }
+        // TODO: Is there a better place for this?
+        localforage.config({
+            'name': 'Datenanfragen.de', // TODO: Use the actual domain here?
+            'storeName': 'my-requests'
+        });
     }
 
     getRequests() {
