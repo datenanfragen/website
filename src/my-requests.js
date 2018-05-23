@@ -4,29 +4,54 @@ import t from 'i18n';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
 
-class RequestList extends preact.Component {
-    constructor(props) {
-        super(props);
-        this.state = { requests: {} };
-
+export default class UserRequests {
+    constructor() {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             // TODO: Is there a better place for this?
             localforage.config({
                 'name': 'Datenanfragen.de', // TODO: Use the actual domain here?
                 'storeName': 'my-requests'
             });
-            let requests = {};
+        }
+    }
+
+    getRequests() {
+        let requests = {};
+        return new Promise((resolve, reject) => {
             localforage.iterate((data, reference) => {
                 requests[reference] = data;
             })
                 .then(() => {
-                    this.setState({requests: requests});
+                    resolve(requests);
                 })
                 .catch(() => {
                     console.log('Could not get requests.');
                     /* TODO: Proper error handling. */
+                    reject();
                 });
-        }
+        });
+    }
+
+    clearRequests() {
+        return localforage.clear();
+    }
+}
+
+class RequestList extends preact.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            requests: []
+        };
+
+        this.user_requests = new UserRequests();
+        this.user_requests.getRequests()
+            .then(requests => {
+                this.setState({
+                    requests: requests
+                });
+            });
 
         this.clearRequests = this.clearRequests.bind(this);
         this.buildCsv = this.buildCsv.bind(this);
@@ -83,9 +108,14 @@ class RequestList extends preact.Component {
 
     clearRequests() {
         if(window.confirm(t('delete-all-confirm', 'my-requests'))) {
-            localforage.clear()
-                .then(() => { this.setState({ requests: {} }); })
-                .catch((err) => { console.log('Could not clear requests: ' + err); /* TODO: Proper error handling. */});
+            this.user_requests.clearRequests()
+                .then(() => {
+                    this.setState({requests: []})
+                })
+                .catch((err) => {
+                    console.log('Could not clear requests: ' + err);
+                    /* TODO: Proper error handling. */
+                });
         }
     }
 }

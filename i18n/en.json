@@ -97,6 +97,8 @@
         "title": "Privacy controls",
         "explanation": "<p>We deeply value your right to privacy and try to limit data collection and processing as much as possible. Most of the features on datarequests.org will be run directly on your computer and the data you enter will never even reach our server. There are however some features we cannot offer without collecting some data. Here, you have the option to decide yourself whether you want to enable those features.</p><p>When you set any of the options below, your choice will be saved in a cookie. If we don't find a cookie for an option, we assume you don't want to use that feature and will disable it.</p>",
         "clear-cookies": "Clear all cookies",
+        "clear-my-requests": "Clear all saved requests",
+        "confirm-delete-my-requests": "You have disabled the “my requests” feature. Do you also want to delete all saved requests?",
         "algolia_search": "Company search via Algolia",
         "algolia_search-description": "Our company database holds privacy-related contact data for many companies which makes sending requests to them a lot simpler. To find the companies you are looking for, you can use our search engine. It is provided by Algolia, which will receive some data (including your IP address and exact search queries) as soon as you start typing. To find out more about how they use your data, have a look at their <a href='https://www.algolia.com/policies/privacy'>privacy policy</a>.",
         "save_my_requests": "“My requests” feature",

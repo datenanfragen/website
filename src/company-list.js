@@ -1,5 +1,5 @@
 import preact from 'preact';
-import SearchBar from "./SearchBar";
+import { SearchBar } from "./SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'i18n';
 import Privacy, {PRIVACY_ACTIONS} from "./Privacy";

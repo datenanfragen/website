@@ -18,7 +18,7 @@ In dieser Datenschutzerklärung möchten wir Dir erklären, welche Daten wir erf
 
 ### Geltungsbereich
 
-Diese Datenschutzerklärung gilt für die Webseiten [Datenanfragen.de](https://www.datenanfragen.de) und [datarequests.org](https://www.datarequests.org)). Beachte bitte, dass es für die Aktivitäten des Datenanfragen.de e.&nbsp;V. eine separate Datenschutzerklärung gibt. <!-- TODO: Link once ready. -->
+Diese Datenschutzerklärung gilt für die Webseiten [Datenanfragen.de](https://www.datenanfragen.de) und [datarequests.org](https://www.datarequests.org). Beachte bitte, dass es für die Aktivitäten des Datenanfragen.de e.&nbsp;V. eine separate Datenschutzerklärung gibt. <!-- TODO: Link once ready. -->
 
 Mit Datenanfragen.de wollen wir Dir helfen, Deine Datenschutzrechte einfacher auszuüben. Dazu bieten wir Dir einen Generator, mit dem Du automatisch Anfragen erstellen kannst, eine Datenbank mit Kontaktdaten für datenschutzspezifische Anfragen an viele Unternehmen und Informationsmaterialien zum Datenschutz und verwandten Themen.
 
@@ -64,7 +64,7 @@ In diesem Abschnitt möchten wir Dir genau erklären, unter welchen Umständen w
 ### Informationen, die wir automatisch sammeln
 
 #### Server-Logdateien
-Wenn Du unserer Webseite aufrufst, baut Dein Browser automatisch eine Verbindung zu einem Server von Netlify, 610 22nd Street, Suite 315, San Francisco CA 94107, USA auf. Dieser speichert dabei einige Informationen über die Verbindung in einer sogenannten Logdatei. Wir haben keinen Zugriff auf diese Logdateien. Mehr Informationen dazu, wie Netlify Deine Daten verarbeitet, kannst Du [deren Datenschutzerklärung](https://www.netlify.com/privacy/) entnehmen.
+Wenn Du unsere Webseite aufrufst, baut Dein Browser automatisch eine Verbindung zu einem Server von Netlify, 610 22nd Street, Suite 315, San Francisco CA 94107, USA auf. Dieser speichert dabei einige Informationen über die Verbindung in einer sogenannten Logdatei. Wir haben keinen Zugriff auf diese Logdateien. Mehr Informationen dazu, wie Netlify Deine Daten verarbeitet, kannst Du [deren Datenschutzerklärung](https://www.netlify.com/privacy/) entnehmen.
 
 - Betroffene Daten: die konkrete Unterseite, die Du besucht hast, das Datum und die Uhrzeit Deines Zugriffs, die Herkunft Deiner Anfrage (der sogenannte „Referrer“), Informationen zu Deinem Browser und Betriebssystem (der sogenannte „User-Agent-String“) und Deine IP-Adresse
 - Rechtsgrundlage: Die Speicherung erfolgt auf Grundlage Netlifys berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität ihrer Server im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
@@ -95,11 +95,10 @@ Um unsere Webseiten interessanter und lebendiger für Dich zu machen, haben wir 
 
 ### Algolia
 
-Die Suche, die wir Dir auf unserer Webseite anbieten, wird technisch von der Algolia, Inc., 589 Howard Street, Suite 5, San Francisco, CA 94105, USA (oder deren Tochterunternehmen Algolia SAS, 55 Rue d'Amsterdam, 75008 Paris, Frankreich und Algolia Ltd., 1 Primrose St, London, EC2A 2EX, UK) bereitgestellt. Dazu müssen die Suchbegriffe, die Du in unserer Suche eingibst, an Algolia übermittelt werden.
+Die Suche, die wir Dir auf unserer Webseite anbieten, wird technisch von der Algolia, Inc., 589 Howard Street, Suite 5, San Francisco, CA 94105, USA (oder deren Tochterunternehmen Algolia SAS, 55 Rue d'Amsterdam, 75008 Paris, Frankreich und Algolia Ltd., 1 Primrose St, London, EC2A 2EX, UK) bereitgestellt. Dazu müssen die Suchbegriffe, die Du in unserer Suche eingibst, an Algolia übermittelt werden. Algolia speichert jedes Zeichen, das Du in die Suchleiste eingibst in Verbindung mit Deiner IP-Adresse und den Daten, die Dein Browser an Algolia sendet (die sogenannten „Header“.). Diese Daten werden für die letzten 1000 Suchanfragen gespeichert und anschließend gelöscht.  
+Weitere Informationen dazu, wie die Daten verarbeitet werden, findest du in [der Datenschutzerklärung von Algolia](https://www.algolia.com/policies/privacy).
 
 Über unsere [Datenschutzeinstellungen](https://www.datenanfragen.de/privacy-controls) kannst Du jederzeit selbst entscheiden, ob Du die Suche aktivieren möchtest.
-
-Weitere Informationen dazu, wie die Daten verarbeitet werden, findest du in [der Datenschutzerklärung von Algolia](https://www.algolia.com/policies/privacy).
 
 ## Deine Rechte
 

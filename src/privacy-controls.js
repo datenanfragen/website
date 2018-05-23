@@ -1,6 +1,8 @@
 import preact from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
+import t from 'i18n';
 import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
+import UserRequests from "./my-requests";
 
 class PrivacyControl extends preact.Component {
     constructor(props) {
@@ -22,6 +24,10 @@ class PrivacyControl extends preact.Component {
 
         /* TODO: I think we need some kind of 'feedback' here to confirm to the user that the setting has indeed been saved. */
         Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
+        
+        if(this.props.privacy_action === 'SAVE_MY_REQUESTS' && this.state.enabled === false) {
+            if(confirm(t('confirm-delete-my-requests', 'privacy-controls'))) (new UserRequests()).clearRequests();
+        }
     }
 
     render() {
@@ -50,10 +56,16 @@ class PrivacyControls extends preact.Component {
                 <table>
                     {controls}
                 </table>
-                <button id="clear-button" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
+                <button id="clear-cookies-button" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
+                <button id="clear-requests-button" onClick={PrivacyControls.clearRequests} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
                 <div className="clearfix" />
             </main>
         );
+    }
+
+    static clearRequests() {
+        /* TODO: Indicate success. */
+        (new UserRequests()).clearRequests();
     }
 
     static clearCookies() {

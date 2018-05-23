@@ -1,7 +1,7 @@
 import preact from 'preact';
 import RequestForm from 'Forms/RequestForm';
 import Letter from 'Letter';
-import SearchBar from "./SearchBar";
+import { SearchBar } from "./SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'i18n';
 import localforage from 'localforage';
