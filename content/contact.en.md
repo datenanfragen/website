@@ -14,7 +14,7 @@ Germany
 
 **Phone (mobile):** +49 176 913 77 604  
 **Fax:** +49 531 615 4 288  
-**Email:** kontakt@datenanfragen.de
+**Email:** contact@datenanfragen.de ([PGP key](/pgp/62A7EC35.asc) `B64A 852D F7DF 855C A058  0A00 FC74 1754 62A7 EC35`)
 
 **Legally represented by:** Benjamin Altpeter und Lorenz Sieben  
 Entry into the register of associations of the local court Braunschweig is planned.

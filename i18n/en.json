@@ -9,7 +9,8 @@
     },
     "search": {
         "also-runs": "Also runs: ",
-        "categories": "Categories: "
+        "categories": "Categories: ",
+        "search-disabled": "You have disabled the search feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>."
     },
     "cdb": {
         "title": "Company database",
@@ -34,7 +35,8 @@
         "letter": "letter",
         "delete-all-btn": "Delete all requests",
         "delete-all-confirm": "Do you really want to clear all data? This *cannot* be undone.",
-        "export-btn": "Export as CSV"
+        "export-btn": "Export as CSV",
+        "feature-disabled": "You have disabled this feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>."
     },
     "generator": {
         "generate-request": "Request generator",
@@ -90,6 +92,19 @@
         "email": "Email",
         "new-request": "New request",
         "confirm-input-remove": "Really remove field?"
+    },
+    "privacy-controls": {
+        "title": "Privacy controls",
+        "explanation": "<p>We deeply value your right to privacy and try to limit data collection and processing as much as possible. Most of the features on datarequests.org will be run directly on your computer and the data you enter will never even reach our server. There are however some features we cannot offer without collecting some data. Here, you have the option to decide yourself whether you want to enable those features.</p><p>When you set any of the options below, your choice will be saved in a cookie. If we don't find a cookie for an option, we assume you don't want to use that feature and will disable it.</p>",
+        "clear-cookies": "Clear all cookies",
+        "clear-my-requests": "Clear all saved requests",
+        "confirm-delete-my-requests": "You have disabled the “my requests” feature. Do you also want to delete all saved requests?",
+        "algolia_search": "Company search via Algolia",
+        "algolia_search-description": "Our company database holds privacy-related contact data for many companies which makes sending requests to them a lot simpler. To find the companies you are looking for, you can use our search engine. It is provided by Algolia, which will receive some data (including your IP address and exact search queries) as soon as you start typing. To find out more about how they use your data, have a look at their <a href='https://www.algolia.com/policies/privacy'>privacy policy</a>.",
+        "save_my_requests": "“My requests” feature",
+        "save_my_requests-description": "To make managing your previous requests easier, we offer the “My requests” feature. If you enable it, all requests you generate will be saved on your own computer (using the local storage feature of your browser) and you can later browse through them <a href='/my-requests'>here</a>. There, you can also delete all saved request data at any time or export it as a CSV file.",
+        "save_id_data": "Remember identification data",
+        "save_id_data-description": "To make sending new requests easier, we can save your identification data for you. TODO: Explain how this works and how to delete the data afterwards."
     },
     "categories": {
         "addresses": "addresses",

@@ -10,6 +10,7 @@ module.exports = {
         'generator': './src/generator.js',
         'company-list': './src/company-list.js',
         'my-requests': './src/my-requests.js',
+        'privacy-controls': './src/privacy-controls.js',
         'pdfworker': './src/PdfWorker.js',
         'style': './src/main.css'
     },

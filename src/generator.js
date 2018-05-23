@@ -1,10 +1,11 @@
 import preact from 'preact';
 import RequestForm from 'Forms/RequestForm';
 import Letter from 'Letter';
-import SearchBar from "./SearchBar";
+import { SearchBar } from "./SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'i18n';
 import localforage from 'localforage';
+import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -55,11 +56,13 @@ class Generator extends preact.Component {
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
         this.letter = new Letter({});
 
-        // TODO: Is there a better place for this?
-        localforage.config({
-            'name': 'Datenanfragen.de',
-            'storeName': 'my-requests'
-        });
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
+            // TODO: Is there a better place for this?
+            localforage.config({
+                'name': 'Datenanfragen.de',
+                'storeName': 'my-requests'
+            });
+        }
         this.renderPdf = this.renderPdf.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
@@ -125,6 +128,7 @@ class Generator extends preact.Component {
                 <div id="generator-controls">
                     <button id="new-request-button" onClick={this.newRequest}><Text id='new-request'/></button>
                 </div>
+                <div className="clearfix" />
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
@@ -273,13 +277,15 @@ class Generator extends preact.Component {
     }
 
     storeRequest() {
-        localforage.setItem(this.state.request_data['reference'], {
-            date: new Date().toISOString(), // TODO: The date will be configurable in the future, we will need to grab that here
-            type: this.state.request_data.type,
-            slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
-            recipient: this.state.request_data.recipient_address,
-            via: 'fax' // TODO: This is not currently implemented
-        }).catch(() => { console.log('Failed to save request with reference ' + this.state.request_data['reference']); /* TODO: Proper error handling. */ });
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
+            localforage.setItem(this.state.request_data['reference'], {
+                date: new Date().toISOString(), // TODO: The date will be configurable in the future, we will need to grab that here
+                type: this.state.request_data.type,
+                slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
+                recipient: this.state.request_data.recipient_address,
+                via: 'fax' // TODO: This is not currently implemented
+            }).catch(() => { console.log('Failed to save request with reference ' + this.state.request_data['reference']); /* TODO: Proper error handling. */ });
+        }
     }
 }
 

@@ -71,6 +71,15 @@ other = "Impressum"
 
 # Footer
 
+[footer-privacy-controls]
+other = "Datenschutzeinstellungen"
+
+[footer-privacy-policy]
+other = "Datenschutzerklärung"
+
+[footer-legal-notice]
+other = "Impressum"
+
 [footer-other-langs]
 other = "Auch verfügbar auf: "
 

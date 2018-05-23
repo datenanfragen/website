@@ -9,7 +9,8 @@
     },
     "search": {
         "also-runs": "Betreibt auch: ",
-        "categories": "Kategorie(n): "
+        "categories": "Kategorie(n): ",
+        "search-disabled": "Du hast die Suchfunktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun."
     },
     "cdb": {
         "title": "Unternehmensdatenbank",
@@ -34,7 +35,8 @@
         "letter": "Brief",
         "delete-all-btn": "Alle Anfragen löschen",
         "delete-all-confirm": "Wirklich alle Daten löschen? Das kann *nicht* rückgängig gemacht werden.",
-        "export-btn": "Als CSV exportieren"
+        "export-btn": "Als CSV exportieren",
+        "feature-disabled": "Du hast diese Funktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun."
     },
     "generator": {
         "generate-request": "Anfrage generieren",
@@ -90,6 +92,19 @@
         "email": "E-Mail",
         "new-request": "Neue Anfrage",
         "confirm-input-remove": "Feld wirklich löschen?"
+    },
+    "privacy-controls": {
+        "title": "Datenschutzeinstellungen",
+        "explanation": "<p>Uns ist Dein Recht auf Datenschutz sehr wichtig, deshalb geben wir uns Mühe, unsere Datenerhebung und -verarbeitung so weit wie möglich beschränken. Die allermeisten Funktionen auf Datenanfragen.de werden direkt auf Deinem Computer berechnet und die Daten, die Du eingibst, erreichen überhaupt nie unseren Server. Es gibt allerdings auch einige Funktionen, die wir leider nicht anbieten können, ohne einige Daten zu erheben. Hier hast Du die Möglichkeit, selbst zu entscheiden, ob Du diese Funktionen aktivieren möchtest.</p><p>Wenn Du eine der folgenden Optionen setzt, wird Deine Entscheidung in einem Cookie gespeichert. Sollten wir für eine Option keinen entsprechenden Cookie finden, gehen wir davon aus, dass Du die Funktion nicht nutzen möchtest und deaktivieren die Option.</p>",
+        "clear-cookies": "Alle Cookies löschen",
+        "clear-my-requests": "Alle gespeicherten Anfragen löschen",
+        "confirm-delete-my-requests": "Du hast die „Meine Anfragen“-Funktion deaktiviert. Willst Du auch alle gespeicherten Anfragen löschen?",
+        "algolia_search": "Unternehmenssuche über Algolia",
+        "algolia_search-description": "Unsere Unternehmensdatenbank enthält für zahlreiche Unternehmen die Kontaktdaten für datenschutzbezogene Anfragen, was das Stellen von solchen Anfragen deutlich erleichert. Um das Unternehmen, das Du suchst, zu finden, kannst Du unsere Suchfunktion verwenden. Diese wird von Algolia bereitgestellt. Sobald Du etwas in die Suchzeile eingibst, emfängt Algolia einige Daten (darunter Deine IP-Adresse und die genauen Suchanfragen). Um mehr darüber zu erfahren, wie Algolia Deine Daten verwendet, kannst Du Dir deren <a href='https://www.algolia.com/policies/privacy'>Datenschutzerklärung</a> anschauen.",
+        "save_my_requests": "„Meine Anfragen“",
+        "save_my_requests-description": "Um Dir die Verwaltung Deiner bisherigen Anfragen zu erleichtern, bieten wir Dir die „Meine Anfragen“-Funktion an. Wenn du diese aktivierst, werden alle Deine Anfragen auf Deinem Computer (über die „local storage“-Schnittstelle Deines Browsers) gespeichert und Du kannst sie Dir später <a href='/my-requests'>hier</a> anschauen. Dort kannst Du auch jederzeit alle gespeicherten Anfragen löschen oder sie als CSV-Datei exportieren.",
+        "save_id_data": "Identifikationsdaten speichern",
+        "save_id_data-description": "Um Dir das Senden neuer Anfragen zu erleichern, können wir Deine Identifikationsdaten für Dich speichern. TODO: Explain how this works and how to delete the data afterwards."
     },
     "categories": {
         "addresses": "Adressen",

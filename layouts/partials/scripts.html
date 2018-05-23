@@ -16,6 +16,10 @@
 <script src="{{ "js/my-requests.gen.js" | absURL }}"></script>
 {{ end }}
 
+{{ if eq .Type "privacy-controls" }}
+<script src="{{ "js/privacy-controls.gen.js" | absURL }}"></script>
+{{ end }}
+
 {{ if .IsHome }}
 <script src="{{ "js/home.gen.js" | absURL }}"></script>
 {{ end }}
