@@ -1,9 +1,12 @@
 defaultContentLanguage = "de"
-enableMissingTranslationPlaceholders = true # TODO: Remove in production
 pluralizeListTitles = false
 
 # Ignore the preact translation files which would otherwise cause Hugo to fail
 ignoreFiles = [ "i18n/.+\\.json$" ]
+
+[Author]
+    name = "Datenanfragen.de e. V."
+    email = "kontakt@datenanfragen.de"
 
 [languages]
     [languages.de]
@@ -12,9 +15,11 @@ ignoreFiles = [ "i18n/.+\\.json$" ]
         weight = 10
         baseURL = "https://www.datenanfragen.de/"
         title = "Datenanfragen.de – Du hast ein Recht auf Datenschutz, wir helfen Dir es zu nutzen"
+        copyright = "Dieses Werk ist unter einer Creative Commons Attribution-NoDerviatives 4.0 International-Lizenz lizensiert."
     [languages.en]
         languageCode = "en-us"
         languageName = "English"
         weight = 20
         baseURL = "https://www.datarequests.org/"
         title = "datarequests.org—You have a right to privacy, we help you use it"
+        copyright = "This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License."

@@ -73,6 +73,18 @@ other = "Privacy policy"
 [footer-legal-notice]
 other = "Legal notice and contact data"
 
+# Languages
+[de]
+other = "German (Deutsch)"
+
+[en]
+other = "English"
+
+# Footer
+
+[footer-other-langs]
+other = "Also available in: "
+
 # Home
 
 [home-hero-line-1]

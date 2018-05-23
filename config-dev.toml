@@ -1,0 +1,2 @@
+# Use with --config config.toml,config-dev.toml
+enableMissingTranslationPlaceholders = true
