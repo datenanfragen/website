@@ -1,5 +1,11 @@
 <footer>
-    We <3 Datenschutz.
+    {{ if .IsTranslated }}
+    {{ T "footer-other-langs" }}
+    {{ range .Translations }}
+        <a href="{{ .Permalink }}">{{ T .Lang }}</a>
+    {{ end}}
+    {{ end }}
+    <span style="float: right;">We <3 Datenschutz.</span>
 </footer>
 </div>
 {{ partial "scripts" . }}

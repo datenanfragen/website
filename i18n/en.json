@@ -72,11 +72,11 @@
         "tagxplanation": "You can use the tags <code>&lt;italic&gt;&lt;/italic&gt;</code> and <code>&lt;bold&gt;&lt;/bold&gt;</code> in your text. Nested tags are not supported.",
         "subject": "Subject",
         "content": "Content",
-        "sender-address": "Sender Address",
+        "sender-address": "Sender address",
         "data-portability": "Get data in a machine-readable format",
         "erase-all": "Erase all data",
         "erasure-data": "Data to erase",
-        "rectification-data": "Correct Data",
+        "rectification-data": "Correct data",
         "rectification-data-explanation": "Enter the data you want to be corrected. You can enter data that is not needed for the identification.",
         "letter-subject-erasure": "Request for erasure of personal data according to Art. 17 GDPR",
         "letter-subject-access": "Request to access to personal data according to Art. 15 GDPR",
@@ -88,7 +88,7 @@
         "current-company-comments": "Notes",
         "fax": "Fax",
         "email": "Email",
-        "new-request": "New Request",
+        "new-request": "New request",
         "confirm-input-remove": "Really remove field?"
     },
     "categories": {

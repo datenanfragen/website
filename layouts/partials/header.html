@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="noindex"> <!-- TODO: Remove when open to the public -->
-    <title>{{ if .Title }}{{ .Title }}{{ else }}{{ T "header-name" }}{{ end }}</title>
-    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-    {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+
+    <title>{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}</title>
+
     <link rel="stylesheet" href="{{ "css/style.gen.css" | absURL }}"/>
-    {{ .Hugo.Generator }}
+
+    {{ partial "head/meta.html" . }}
 </head>
 <body>
 <header>

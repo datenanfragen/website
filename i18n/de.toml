@@ -39,6 +39,13 @@ other = "Reise"
 [utility]
 other = "Versorgung"
 
+# Languages
+[de]
+other = "Deutsch"
+
+[en]
+other = "Englisch (English)"
+
 # Header
 
 [header-name]
@@ -61,6 +68,11 @@ other = "Artikel"
 
 [header-contact]
 other = "Impressum"
+
+# Footer
+
+[footer-other-langs]
+other = "Auch verfügbar auf: "
 
 # Home
 
