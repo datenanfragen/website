@@ -94,7 +94,7 @@ In order to make our websites more interesting and dynamic for you, we have inte
 
 ### Algolia
 
-The search engine we offer on our website is operated by Algolia, Inc., 589 Howard Street, Suite 5, San Francisco, CA 94105, USA (or its subsidiaries Algolia SAS, 55 Rue d'Amsterdam, 75008 Paris, France and Algolia Ltd., 1 Primrose St, London, EC2A 2EX, UK). To do this, the search terms you enter in our search engine have to be sent to Algolia. Algolia saves every character you enter into the search bar in connection with your IP address and the data your browser sends to Algolia (the so-called “headers”).  
+The search engine we offer on our website is operated by Algolia, Inc., 589 Howard Street, Suite 5, San Francisco, CA 94105, USA (or its subsidiaries Algolia SAS, 55 Rue d'Amsterdam, 75008 Paris, France and Algolia Ltd., 1 Primrose St, London, EC2A 2EX, UK). To do this, the search terms you enter in our search engine have to be sent to Algolia. Algolia saves every character you enter into the search bar in connection with your IP address and the data your browser sends to Algolia (the so-called “headers”). This data is saved for the last 1000 search requests (of all users of our websites) and deleted afterwards.  
 For more information on how the data will be processed, please refer to [Algolia's privacy policy](https://www.algolia.com/policies/privacy).
 
 You can decide yourself whether you want to enable the search engine at any time via our [privacy controls](https://www.datarequests.org/privacy-controls).
