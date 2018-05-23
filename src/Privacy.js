@@ -22,7 +22,7 @@ export default class Privacy {
     }
 
     static setAllowed(privacy_action, value) {
-        Cookie.set(this.cookieNameForAction(privacy_action), value);
+        Cookie.set(this.cookieNameForAction(privacy_action), value, { expires: 365 });
     }
 
     static clearAllCookies() {

@@ -24,7 +24,7 @@ class PrivacyControl extends preact.Component {
 
         /* TODO: I think we need some kind of 'feedback' here to confirm to the user that the setting has indeed been saved. */
         Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
-        
+
         if(this.props.privacy_action === 'SAVE_MY_REQUESTS' && this.state.enabled === false) {
             if(confirm(t('confirm-delete-my-requests', 'privacy-controls'))) (new UserRequests()).clearRequests();
         }
