@@ -1,0 +1,17 @@
+@import "variables";
+
+.button {
+    padding: 12px 24px;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.16);
+    font-size: $font-size;
+    font-family: $body-font;
+}
+.button-primary, a.button-primary {
+    background-color: $primary-color;
+    color: #FFFFFF !important;
+}
+.button-secondary, a.button-secondary {
+    background-color: $bg-color;
+    color: $primary-color !important;
+}

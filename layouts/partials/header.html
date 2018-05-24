@@ -12,15 +12,16 @@
     {{ partial "head/meta.html" . }}
 </head>
 <body>
-<header>
+<header id="nav-header">
     <div id="header-main" class="container">
-        <div id="logo"><a href="{{ "/" | absURL }}">{{ T "header-name" }}</a></div>
+        <a href="{{ "/" | absURL }}"><img id="logo" src="{{ "img/logo-datenanfragen.svg" | absURL }}"></a> <!-- TODO: Change depending on language. -->
         <nav id="main-nav">
             <div id="menu-items">
-                <a href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
                 <a href="{{ "company" | absURL }}">{{ T "header-cdb" }}</a>
                 <a href="{{ "my-requests" | absURL }}">{{ T "header-my-requests" }}</a>
                 <a href="{{ "blog" | absURL }}">{{ T "header-blog" }}</a>
+
+                <a class="button button-primary icon-letter" href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
             </div>
         </nav>
     </div>

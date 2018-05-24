@@ -1,0 +1,16 @@
+%icon {
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+.icon-letter:before {
+    @extend %icon;
+    font-icon: 150% url('letter.svg');
+    vertical-align: -7px;
+}
+
+.icon-pencil:before {
+    @extend %icon;
+    font-icon: 130% url('pencil.svg');
+    vertical-align: -4px;
+}

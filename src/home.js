@@ -10,10 +10,7 @@ const search_suggested_companies = [ "Schufa", "Amazon", "Creditreform Boniversu
 
 preact.render((
         <IntlProvider scope="home" definition={I18N_DEFINITION}>
-            <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
-                       onAutocompleteSelected={(event, suggestion, dataset) => {
-                           location.href = '/company/' + suggestion.slug;
-                       }} placeholder={t('how-about', 'home', { 'name': 'Schufa' })} debug={false} setupPlaceholderChange={setupPlaceholderChange} />
+            {/* TODO: Wizard. */}
         </IntlProvider>
     ), null, document.getElementById('home-search'));
 
@@ -39,12 +36,6 @@ function startTextAnimation(i) {
             startTextAnimation(0);
         }, 20000);
     }
-}
-function setupPlaceholderChange(element) {
-    setInterval(() => {
-        let index = Math.floor(Math.random() * (search_suggested_companies.length-1));
-        element.placeholder = t('how-about', 'home', { 'name': search_suggested_companies[index] });
-    }, 2000);
 }
 
 window.onload = () => {
