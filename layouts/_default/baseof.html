@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}</title>
+    <title>
+        {{ block "title" . }}
+        {{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}
+        {{ end }}
+    </title>
 
     <link rel="stylesheet" href="{{ "css/style.gen.css" | absURL }}"/>
 
@@ -27,3 +31,23 @@
     </div>
 </header>
 <div class="container">
+    {{ block "main" . }}
+    {{ end }}
+
+    <footer>
+        {{ if .IsTranslated }}
+        {{ T "footer-other-langs" }}
+        {{ range .Translations }}
+        <a href="{{ .Permalink }}">{{ T .Lang }}</a>
+        {{ end}}
+        {{ end }}
+        <span style="float: right;">We <3 Datenschutz.
+        <a href="{{ "/privacy-controls" | absURL }}">{{ T "footer-privacy-controls" }}</a> &middot;
+        <a href="{{ "/privacy" | absURL }}">{{ T "footer-privacy-policy" }}</a> &middot;
+        <a href="{{ "/contact" | absURL }}">{{ T "footer-legal-notice" }}</a>
+    </span>
+    </footer>
+</div>
+{{ partial "scripts" . }}
+</body>
+</html>

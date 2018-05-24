@@ -1,5 +1,4 @@
-{{ partial "header" . }}
-
+{{ define "main" }}
 <div id="company-list"></div>
 
 <div id="company-overview">
@@ -14,5 +13,4 @@
     {{ end }}
     {{ partial "pagination.html" . }}
 </div>
-
-{{ partial "footer" . }}
+{{ end }}

@@ -1,5 +1,4 @@
-{{ partial "header" . }}
-
+{{ define "main" }}
 <main>
     <h1>{{ T "blog-post" }}</h1>
 
@@ -8,5 +7,4 @@
     {{ end }}
     {{ partial "pagination.html" . }}
 </main>
-
-{{ partial "footer" . }}
+{{ end }}

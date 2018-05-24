@@ -1,5 +1,4 @@
-{{ partial "header" . }}
-
+{{ define "main" }}
 <main>
     <h1>{{ T "cdb-title" }}</h1>
     <input id="aa-search-input" class="aa-input-search" placeholder="{{ T "cdb-search-bar-placeholder" }}" type="search">
@@ -50,5 +49,4 @@
         {{ T "cdb-help-needed" | safeHTML }}
     </div>
 </main>
-
-{{ partial "footer" . }}
+{{ end }}
