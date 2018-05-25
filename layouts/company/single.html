@@ -1,9 +1,15 @@
+{{ define "title" }}
+{{ T "cdb-company-title" . }} &middot; {{ .Site.Title }}
+{{ end }}
+
+{{ define "heading" }}
+{{ T "cdb-company-heading" . | safeHTML }}
+{{ end }}
+
 {{ define "main" }}
 <main>
-    <h1>{{ T "cdb-title" }}</h1>
     <input id="aa-search-input" class="aa-input-search" placeholder="{{ T "cdb-search-bar-placeholder" }}" type="search">
     <div id="company-details">
-        <h2>{{ T "cdb-company-title" . }}</h2>
         {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ( apply . "T" "." ) ) ", " }}</p>{{ end }}
         {{ with .Params.runs }}
             <p><strong>{{ T "cdb-runs" }}</strong></p>

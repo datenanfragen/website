@@ -17,8 +17,9 @@
 </head>
 <body>
 <header id="nav-header">
+    <div id="nav-header-bg"></div>
     <div id="header-main" class="container">
-        <a href="{{ "/" | absURL }}"><img id="logo" src="{{ "img/logo-datenanfragen.svg" | absURL }}"></a> <!-- TODO: Change depending on language. -->
+        <a href="{{ "/" | absURL }}"><img id="logo" src="{{ T "logo" . | absURL }}"></a> <!-- TODO: Change depending on language. -->
         <nav id="main-nav">
             <div id="menu-items">
                 <a href="{{ "company" | absURL }}">{{ T "header-cdb" }}</a>
@@ -33,9 +34,8 @@
 {{ if .IsHome }}
 <div id="home-hero-bg"></div>
 {{ else }}
-<div id="heading-bg"></div>
-<div id="heading-container" class="container">
-    <div id="heading"><h1>{{ block "heading" . }}{{ .Title }}{{ end }}</h1></div>
+<div id="heading-bg">
+    <div id="heading" class="container"><h1>{{ block "heading" . }}{{ .Title }}{{ end }}</h1></div>
 </div>
 {{ end }}
 <div class="container">

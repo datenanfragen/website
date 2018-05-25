@@ -87,7 +87,6 @@ class RequestList extends preact.Component {
         return (
             <IntlProvider scope="my-requests" definition={I18N_DEFINITION}>
                 <main>
-                    <h1><Text id="title" /></h1>
                     {content}
                 </main>
             </IntlProvider>

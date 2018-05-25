@@ -11,7 +11,6 @@ class CompanyList extends preact.Component {
         return (
             <IntlProvider scope="cdb" definition={I18N_DEFINITION}>
                 <main>
-                    <h1><Text id="title" /></h1>
                     <p><Text id="explanation" /></p>
                     <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
                                onAutocompleteSelected={(event, suggestion, dataset) => {

@@ -50,7 +50,6 @@ class PrivacyControls extends preact.Component {
 
         return (
             <main>
-                <h1><Text id="title" /></h1>
                 <MarkupText id="explanation" />
 
                 <table>

@@ -46,6 +46,14 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
 header#nav-header {
     margin-top: 25px;
 }
+#nav-header-bg {
+    position: absolute;
+    top: 0;
+    z-index: -2;
+    height: 65px;
+    width: 100%;
+    background-color: $bg-accent-color;
+}
 a #logo {
     height: 32px;
 }
@@ -57,23 +65,12 @@ a #logo {
     margin-left: 20px;
 }
 
-#heading-bg, #home-hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
 #heading-bg {
-    height: 200px;
     background-color: $bg-accent-color;
 }
-#heading-container {
-    height: 150px;
-}
 #heading h1 {
-    margin: 30px 0 0 0;
+    margin: 0 0 30px 0;
+    padding: 30px 0;
     text-align: center;
     font-size: 3.5em;
     color: $primary-color;
@@ -83,6 +80,12 @@ a #logo {
 #home-hero-bg {
     height: 95vh;
     min-height: 440px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
 
     background: url("../res/img/wave-bg.svg"), $bg-accent-color;
     background-size: cover;
