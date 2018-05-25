@@ -1,5 +1,4 @@
 %icon {
-    margin-right: 12px;
     vertical-align: middle;
 }
 
@@ -13,4 +12,10 @@
     @extend %icon;
     font-icon: 130% url('pencil.svg');
     vertical-align: -4px;
+}
+
+.icon-trash:before {
+    @extend %icon;
+    font-icon: url('trash.svg');
+    vertical-align: -3px;
 }

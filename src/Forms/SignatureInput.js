@@ -64,12 +64,12 @@ export default class SignatureInput extends preact.Component {
 
     render() {
         return (
-            <fieldset>
-                <legend><Text id="signature" /></legend>
+            <div>
+                <h2><Text id="signature" /></h2>
                 <Text id="signature-explanation" />
                 <div><canvas id={this.props.id} style={'background-color: ' + this.state.backgroundColor } ref={el => this.canvas = el} width={this.state.width} height={this.state.height} onMouseMove={this.handleMouse} onMouseDown={this.handleMouse} onMouseUp={this.handleMouse} onMouseOut={this.handleMouse} /></div>
-                <button onClick={this.clear}><Text id="reset" /></button>
-            </fieldset>
+                <button className="button-secondary" onClick={this.clear}><Text id="reset" /></button>
+            </div>
         );
     }
 

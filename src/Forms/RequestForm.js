@@ -29,8 +29,8 @@ export default class RequestForm extends preact.Component {
                 break;
             case 'custom':
                 body.push(
-                    <fieldset>
-                        <legend><Text id="own-request" /></legend>
+                    <div>
+                        <h2><Text id="own-request" /></h2>
                         <div className="form-group">
                             <label for="custom-subject-input" className="sr-only"><Text id="subject" /></label>
                             <input type="text" id="custom-subject-input" name="subject" className="form-element" placeholder={t('subject', 'generator')} onChange={this.props.onLetterChange} value={this.props.request_data.custom_data['subject']}/>
@@ -40,23 +40,23 @@ export default class RequestForm extends preact.Component {
                             <textarea type="text" id="custom-subject-input" name="content" className="form-element" placeholder={t('content', 'generator')} onChange={this.props.onLetterChange} style="height: 200px;" >{this.props.request_data.custom_data['content']}</textarea>
                             <div id="tagxplanation"><MarkupText id="tagxplanation" /></div>
                         </div>
-                    </fieldset>,
-                    <fieldset>
-                        <legend><Text id="sender-address" /></legend>
+                    </div>,
+                    <div>
+                        <h2><Text id="sender-address" /></h2>
                         <div className="form-group fancy-fg">
                             <input type="text" id="custom-sender-name" name="name" placeholder={t('name', 'generator')} className="form-element" onChange={this.props.onLetterChange} value={this.props.request_data.custom_data['name']} />
                             <label className="fancy-label" for="custom-sender-name"><Text id="name" /></label>
                         </div>
                         <AddressControl id='0' suffix='custom-request' required={false} onChange={event => this.props.onLetterChange(event, true)} value={this.props.request_data.custom_data['sender_address']} />
-                    </fieldset>
+                    </div>
                 );
                 break;
         }
 
         return (
             <div className="request-form">
-                <fieldset>
-                    <legend><Text id="request-parameters"/></legend>
+                <div>
+                    <h2><Text id="request-parameters"/></h2>
 
                     <div className="request-type-chooser">
                         <Text id="request-type" /><br />
@@ -81,7 +81,7 @@ export default class RequestForm extends preact.Component {
 
                     {this.renderFlags()}
 
-                </fieldset>
+                </div>
 
                 {body}
 

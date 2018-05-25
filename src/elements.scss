@@ -1,11 +1,15 @@
 @import "variables";
 
-.button {
+.button, button {
     padding: 12px 24px;
+    border: none;
     border-radius: 6px;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.16);
+    box-shadow: $shadow;
     font-size: $font-size;
     font-family: $body-font;
+    text-decoration: none;
+    cursor: pointer;
+    appearance: none;
 }
 .button-primary, a.button-primary {
     background-color: $primary-color;
@@ -15,3 +19,76 @@
     background-color: $bg-color;
     color: $primary-color !important;
 }
+.button.icon:before, button.icon:before {
+    margin-right: 12px;
+}
+.button-small {
+    padding: 5px 8px;
+}
+
+input[type=search], input[type=text], input[type=email], input[type=password], input[type=tel], input[type=url], input[type=number], input[type=date], textarea, select {
+    border: none;
+    padding: 7px;
+    box-sizing: border-box;
+    appearance: none;
+    background-color: $gray-color;
+    color: $primary-color;
+    font-family: $body-font;
+    font-size: $font-size - 2px;
+}
+textarea.form-element {
+    max-width: 100%;
+    min-width: 100%;
+    line-height: 1.6;
+}
+input[type=search].form-element, input[type=text].form-element, input[type=email].form-element, input[type=password].form-element, input[type=tel].form-element, input[type=url].form-element, input[type=number].form-element, input[type=date].form-element, textarea.form-element, select.form-element {
+    width: 100%;
+}
+input::placeholder, textarea::placeholder {
+    color: $gray-darker-color;
+}
+
+.box {
+    box-sizing: border-box;
+    box-shadow: 0 3px 40px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+/* Adapted after: https://www.algolia.com/doc/tutorials/search-ui/autocomplete/auto-complete */
+.aa-input-container {
+    display: inline-block;
+    position: relative;
+}
+.algolia-autocomplete { width: 100%; }
+.aa-input-search, input[type="search"].aa-input-search {
+    padding: 12px 28px 12px 12px;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: $shadow;
+    border-radius: 12px;
+}
+.aa-dropdown-menu {
+    background-color: #fff;
+    border: 1px solid rgba(228, 228, 228, 0.6);
+    width: 100%;
+    box-sizing: border-box;
+}
+.aa-suggestion {
+    padding: 12px;
+    cursor: pointer;
+}
+.aa-suggestion + .aa-suggestion { border-top: 1px solid rgba(228, 228, 228, 0.6); }
+.aa-suggestion:last-of-type { border-bottom: 1px solid rgba(228, 228, 228, 0.6); }
+.aa-suggestion:hover, .aa-suggestion.aa-cursor {
+    background-color: rgba(241, 241, 241, 0.35);
+}
+.algolia-branding {
+    font-size: 1.3em;
+    text-align: right;
+    padding: 10px;
+}
+.algolia-branding img {
+    height: 1em;
+    margin-bottom: -0.3em;
+}
+

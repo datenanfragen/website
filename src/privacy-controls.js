@@ -55,8 +55,8 @@ class PrivacyControls extends preact.Component {
                 <table>
                     {controls}
                 </table>
-                <button id="clear-cookies-button" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
-                <button id="clear-requests-button" onClick={PrivacyControls.clearRequests} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
+                <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
+                <button id="clear-requests-button" className="button-secondary" onClick={PrivacyControls.clearRequests} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
                 <div className="clearfix" />
             </main>
         );

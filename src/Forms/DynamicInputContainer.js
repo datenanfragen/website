@@ -48,8 +48,8 @@ export default class DynamicInputContainer extends preact.Component {
                                               hasPrimary={this.props.hasPrimary} onPrimaryChange={this.handleInputChange} value={field.value}/>);
         }
         return (
-            <fieldset>
-                <legend>{this.props.title}</legend>
+            <div>
+                <h2>{this.props.title}</h2>
                 {this.props.children}
                 <div id={"request-dynamic-input-" + this.props.id}>
                     {input_elements}
@@ -61,9 +61,9 @@ export default class DynamicInputContainer extends preact.Component {
                         <option value="textarea"><Text id="input-multi-line" /></option>
                         <option value="address"><Text id="input-address" /></option>
                     </select>
-                    <button id={"add-dynamic-inputs-" + this.props.id} onClick={this.addDynamicInput}><Text id="add-input" /></button>
+                    <button className="button-secondary" id={"add-dynamic-inputs-" + this.props.id} onClick={this.addDynamicInput}><Text id="add-input" /></button>
                 </div>
-            </fieldset>
+            </div>
         );
     }
 

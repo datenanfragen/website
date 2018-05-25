@@ -3,7 +3,7 @@
 .col75 { width: 75%; float: left; }
 .col66 { width: 66.666666%; float: left; }
 .col60 { width: 60%; float: left; }
-.col50 { width: 50%; float: left; }
+.col50 { width: calc(50% - 10px); float: left; }
 .col40 { width: 40%; float: left; }
 .col33 { width: 33.333333%; float: left; }
 .col30 { width: 30%; float: left; }
@@ -18,7 +18,7 @@ body {
     line-height: 1.6;
     font-size: $font-size;
     font-family: $body-font;
-    color: $text-font;
+    color: $text-color;
     background-color: $bg-color;
 }
 
@@ -28,7 +28,10 @@ body {
     margin: auto;
 }
 
-h1, h2, h3 { line-height: 1.2; }
+h1, h2, h3 {
+    line-height: 1.2;
+    margin: 0;
+}
 h1 { font-size: 1.7em; }
 h2 { font-size: 1.4em; }
 
@@ -64,8 +67,6 @@ pre {
     margin-bottom: 5px;
 }
 select {
-    -webkit-appearance: menulist;
-    -moz-appearance: menulist;
     appearance: menulist;
 }
 
@@ -78,4 +79,4 @@ select {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-} /* With thanks to Bootstrap */
+} /* With thanks to Bootstrap. */

@@ -47,9 +47,7 @@ export default class DynamicInput extends preact.Component {
                     <div className="form-group" style="width: 100%; display: table;">
                         <div style="display: table-cell">
                             <button id={this.props.id + '-delete-' + this.props.suffix} rel={this.props.id}
-                                    className="dynamic-input-delete" onClick={this.props.removeHandler}>
-                                <img src="/img/trash.svg" style="height: 16px;" />
-                            </button>
+                                    className="dynamic-input-delete button-primary button-small icon-trash" onClick={this.props.removeHandler} />
                         </div>
                         <div style="display: table-cell;">
                             <label for={this.props.id + '-desc-' + this.props.suffix} className="sr-only"><Text id="description" /></label>
