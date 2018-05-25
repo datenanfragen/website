@@ -3,5 +3,5 @@ publish = "public"
 command = "./deploy.sh"
 
 [context.production.environment]
-HUGO_VERSION = "0.37.1"
-YARN_VERSION = "1.5.1"
+HUGO_VERSION = "0.40.3"
+YARN_VERSION = "1.7.0"
