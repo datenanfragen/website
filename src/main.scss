@@ -57,16 +57,32 @@ a #logo {
     margin-left: 20px;
 }
 
-/* Home */
-#home-hero-bg {
+#heading-bg, #home-hero-bg {
     position: absolute;
     top: 0;
     left: 0;
-    height: 95vh;
-    min-height: 440px;
     width: 100%;
     overflow: hidden;
     z-index: -1;
+}
+#heading-bg {
+    height: 200px;
+    background-color: $bg-accent-color;
+}
+#heading-container {
+    height: 150px;
+}
+#heading h1 {
+    margin: 30px 0 0 0;
+    text-align: center;
+    font-size: 3.5em;
+    color: $primary-color;
+}
+
+/* Home */
+#home-hero-bg {
+    height: 95vh;
+    min-height: 440px;
 
     background: url("../res/img/wave-bg.svg"), $bg-accent-color;
     background-size: cover;

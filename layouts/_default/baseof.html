@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<html lang="{{ .Site.LanguageCode }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,14 @@
         </nav>
     </div>
 </header>
+{{ if .IsHome }}
+<div id="home-hero-bg"></div>
+{{ else }}
+<div id="heading-bg"></div>
+<div id="heading-container" class="container">
+    <div id="heading"><h1>{{ block "heading" . }}{{ .Title }}{{ end }}</h1></div>
+</div>
+{{ end }}
 <div class="container">
     {{ block "main" . }}
     {{ end }}
