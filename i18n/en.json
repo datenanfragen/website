@@ -91,6 +91,7 @@
         "fax": "Fax",
         "email": "Email",
         "new-request": "New request",
+        "next-request": "Next request",
         "confirm-input-remove": "Really remove field?"
     },
     "privacy-controls": {

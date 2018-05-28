@@ -50,10 +50,13 @@ class Generator extends preact.Component {
             suggestion: null,
             download_active: false,
             blob_url: '',
-            download_filename: ''
+            download_filename: '',
+            batch: [],
+            batch_position: 0
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
+        this.database_url = BASE_URL + 'db/';
         this.letter = new Letter({});
 
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
@@ -71,7 +74,7 @@ class Generator extends preact.Component {
         this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
 
-        this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js'); // TODO: Maybe solve this via inline script and blob?
+        this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
         this.pdfWorker.onmessage = (message) => {
             this.setState({
                 blob_url: message.data,
@@ -84,14 +87,23 @@ class Generator extends preact.Component {
             console.log('Worker Error', error); // TODO: Proper error handling
         };
 
+        let batch_companies = findGetParamter('companies');
+        if(batch_companies) {
+            this.setState({batch: batch_companies.split(',')});
+            if(this.state.batch && this.state.batch.length > 0) {
+                this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+            }
+        }
+
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
-
     }
 
     render() {
         let company_info = '';
         let comments = '';
+        let new_request_text = 'new-request';
+        if(this.state.batch && this.state.batch.length > 0) new_request_text = 'next-request';
         if(this.state.suggestion !== null) {
             company_info =
                 (<div id="company-info">
@@ -126,7 +138,7 @@ class Generator extends preact.Component {
             <main>
                 <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
                 <div id="generator-controls">
-                    <button id="new-request-button" onClick={this.newRequest}><Text id='new-request'/></button>
+                    <button id="new-request-button" onClick={this.newRequest}><Text id={new_request_text}/></button>
                 </div>
                 <div className="clearfix" />
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
@@ -152,18 +164,22 @@ class Generator extends preact.Component {
             </main>);
     }
 
-    handleAutocompleteSelected(event, suggestion, dataset) {
-        let template_file = suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
+    setCompany(company) {
+        let template_file = company['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
 
         this.setState(prev => {
-            prev.request_data['recipient_address'] = suggestion.name + '\n' + suggestion.address;
-            prev.request_data['id_data'] = this.mergeIdDataFields(prev.request_data['id_data'], suggestion['required-elements'] || this.default_fields);
-            prev.request_data['recipient_runs'] = suggestion.runs || [];
-            prev.suggestion = suggestion;
+            prev.request_data['recipient_address'] = company.name + '\n' + company.address;
+            prev.request_data['id_data'] = this.mergeIdDataFields(prev.request_data['id_data'], company['required-elements'] || this.default_fields);
+            prev.request_data['recipient_runs'] = company.runs || [];
+            prev.suggestion = company;
             return prev;
         });
+    }
+
+    handleAutocompleteSelected(event, suggestion, dataset) {
+        this.setCompany(suggestion);
         this.renderPdf();
     }
 
@@ -228,6 +244,15 @@ class Generator extends preact.Component {
         this.renderPdf();
     }
 
+    fetchCompanyDataBySlug(slug, callback) {
+        try {
+            fetch(this.database_url + slug + '.json')
+                .then(res => res.json()).then(json => {callback(json)});
+        } catch(error) {
+            console.error(error.message); // TODO: Proper Error Handling
+        }
+    }
+
     newRequest() {
         this.setState(prev => {
             prev['request_data'] = {
@@ -256,6 +281,10 @@ class Generator extends preact.Component {
         });
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
+
+        if(this.state.batch && this.state.batch.length > 0) {
+            this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+        }
     }
 
     renderPdf() {
@@ -297,6 +326,16 @@ function slugify(text) {
         .replace(/\-\-+/g, '-')         // Replace multiple - with single -
         .replace(/^-+/, '')             // Trim - from start of text
         .replace(/-+$/, '');            // Trim - from end of text
+}
+
+function findGetParamter(param){
+    let tmp = [];
+    let result = null;
+    location.search.substr(1).split('&').forEach(item => {
+        tmp = item.split('=');
+        if(tmp[0] === param) return result = decodeURIComponent(tmp[1]);
+    });
+    return result;
 }
 
 preact.render((<IntlProvider scope="generator" definition={I18N_DEFINITION}><Generator/></IntlProvider>), null, document.getElementById('generator'));
