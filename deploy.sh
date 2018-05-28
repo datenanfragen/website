@@ -3,6 +3,8 @@
 git clone --depth 1 https://github.com/datenanfragen/companies tmp
 mkdir -p content/company
 mkdir -p static/templates
+mkdir -p static/db
+cp tmp/data/* static/db
 mv tmp/data/* content/company
 mv tmp/templates/* static/templates
 rm -rf tmp

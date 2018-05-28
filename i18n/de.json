@@ -91,6 +91,7 @@
         "fax": "Fax",
         "email": "E-Mail",
         "new-request": "Neue Anfrage",
+        "next-request": "Nächste Anfrage",
         "confirm-input-remove": "Feld wirklich löschen?"
     },
     "privacy-controls": {
