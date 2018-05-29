@@ -27,11 +27,14 @@ class Generator extends preact.Component {
             "value": {"primary": true}
         }];
 
+        let today = new Date();
+
         this.state = {
             request_data: {
                 type: 'access',
                 id_data: JSON.parse(JSON.stringify(this.default_fields)), // This is hideous but the only way to deep copy this array...
-                reference: Letter.generateReference(new Date()),
+                reference: Letter.generateReference(today),
+                date: today.toISOString().substring(0, 10),
                 recipient_address: '',
                 signature: {type: 'text', value: ''},
                 erase_all: true,
@@ -39,6 +42,7 @@ class Generator extends preact.Component {
                 data_portability: false,
                 recipient_runs: [],
                 rectification_data: [],
+                information_block: '',
                 custom_data: {
                     content: '',
                     subject: '',
@@ -259,6 +263,7 @@ class Generator extends preact.Component {
                 type: 'access',
                 id_data: prev['request_data']['id_data'],
                 reference: Letter.generateReference(new Date()),
+                date: prev['request_data']['date'],
                 recipient_address: '',
                 signature: prev['request_data']['signature'],
                 erase_all: true,
@@ -266,6 +271,7 @@ class Generator extends preact.Component {
                 data_portability: false,
                 recipient_runs: [],
                 rectification_data: [],
+                information_block: prev['request_data']['information_block'], // TODO: Keep the information block or clear it for new requests?
                 custom_data: {
                     content: '',
                     subject: '',
@@ -296,7 +302,9 @@ class Generator extends preact.Component {
                 content: this.state.request_data.custom_data['content'],
                 signature: signature,
                 recipient_address: this.state.request_data['recipient_address'],
-                sender_oneline: Letter.formatAddress(this.state.request_data.custom_data['sender_address'], ' • ', this.state.request_data.custom_data['name'])
+                sender_oneline: Letter.formatAddress(this.state.request_data.custom_data['sender_address'], ' • ', this.state.request_data.custom_data['name']),
+                information_block: Letter.makeInformationBlock(this.state.request_data),
+                reference_barcode: Letter.barcodeFromText(this.state.request_data.reference)
             });
         } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
 
@@ -308,7 +316,7 @@ class Generator extends preact.Component {
     storeRequest() {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             localforage.setItem(this.state.request_data['reference'], {
-                date: new Date().toISOString(), // TODO: The date will be configurable in the future, we will need to grab that here
+                date: this.state.request_data.date,
                 type: this.state.request_data.type,
                 slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
                 recipient: this.state.request_data.recipient_address,

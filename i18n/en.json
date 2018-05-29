@@ -92,7 +92,9 @@
         "email": "Email",
         "new-request": "New request",
         "next-request": "Next request",
-        "confirm-input-remove": "Really remove field?"
+        "confirm-input-remove": "Really remove field?",
+        "information-block": "Information block",
+        "request-date": "Request date"
     },
     "privacy-controls": {
         "title": "Privacy controls",

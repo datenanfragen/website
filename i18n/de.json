@@ -92,7 +92,9 @@
         "email": "E-Mail",
         "new-request": "Neue Anfrage",
         "next-request": "Nächste Anfrage",
-        "confirm-input-remove": "Feld wirklich löschen?"
+        "confirm-input-remove": "Feld wirklich löschen?",
+        "information-block": "Informationsblock",
+        "request-date": "Datum der Anfrage"
     },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",

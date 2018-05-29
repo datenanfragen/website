@@ -139,8 +139,7 @@ export default class Letter {
 
         return {
             reference_barcode: Letter.barcodeFromText(request_object.reference),
-            information_block: t('my-reference', 'generator') + ': ' + request_object.reference + '\n' +
-            t('date', 'generator') + ': ' + today.toISOString().substring(0, 10),
+            information_block: Letter.makeInformationBlock(request_object),
             subject: subjects[request_object.type],
             recipient_address: request_object.recipient_address,
             sender_oneline: Letter.formatAddress(id_data.primary_address, ' • ', id_data.name),
@@ -262,4 +261,9 @@ export default class Letter {
         return template;
     }
 
+    static makeInformationBlock(request_object) {
+        return t('my-reference', 'generator') + ': ' + request_object.reference + '\n' +
+        t('date', 'generator') + ': ' + request_object.date + '\n' +
+        request_object.information_block;
+    }
 }
