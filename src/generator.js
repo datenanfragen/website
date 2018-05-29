@@ -271,7 +271,11 @@ class Generator extends preact.Component {
             prev['request_data']['transport_medium'] = event.target.value;
             switch(event.target.value) {
                 case 'fax':
-                    if(prev['suggestion']) prev['request_data']['recipient_address'] += '\n' + t('by-fax', 'generator') + (prev['suggestion']['fax'] || '');
+                    if(prev['suggestion'] && !prev['request_data']['recipient_address'].includes(t('by-fax', 'generator'))) prev['request_data']['recipient_address'] += '\n' + t('by-fax', 'generator') + (prev['suggestion']['fax'] || '');
+                    break;
+                case 'letter':
+                case 'email':
+                    prev['request_data']['recipient_address'] = prev['request_data']['recipient_address'].replace(new RegExp('(?:\\r\\n|\\r|\\n)' + t('by-fax', 'generator') + '\\+?[0-9\\s]*', 'gm'), '');
                     break;
             }
             return prev;
@@ -347,8 +351,10 @@ class Generator extends preact.Component {
                 this.pdfWorker.postMessage(this.letter.toPdfDoc());
                 break;
             case 'email':
-                let email_blob = new Blob([this.letter.toEmailString()], {
-                    type: 'text/plain'
+                let email_blob = new Blob([
+                    '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre style="white-space: pre-line;">' + this.letter.toEmailString() + '</pre></body>'
+                ], {
+                    type: 'text/html'
                 });
                 this.setState({blob_url: URL.createObjectURL(email_blob)});
                 break;
