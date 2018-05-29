@@ -303,7 +303,7 @@ class Generator extends preact.Component {
                 data_portability: false,
                 recipient_runs: [],
                 rectification_data: [],
-                information_block: prev['request_data']['information_block'], // TODO: Keep the information block or clear it for new requests?
+                information_block: '',
                 custom_data: {
                     content: '',
                     subject: '',
