@@ -112,6 +112,13 @@ export default class Letter {
         return this.doc;
     }
 
+    toEmailString() {
+        let email = t('subject', 'generator') + ': ' + this.props.subject + '\n\n';
+        email += this.props.information_block + '\n'
+         + Letter.stripTags(this.props.content) + (this.props.signature['type'] === 'text' ? '\n' + this.props.signature['name'] : '');
+        return email;
+    }
+
     static propsFromRequest(request_object, template, flags = {}) {
         let subjects = { // TODO: Find a more appropriate place for this.
             'erasure': t('letter-subject-erasure', 'generator'),
@@ -191,6 +198,11 @@ export default class Letter {
         });
 
         return content_array;
+    }
+
+    static stripTags(content) {
+        const regex = /<.+?>/gmu;
+        return content.replace(regex, '');
     }
 
     static formatData(request_data) {

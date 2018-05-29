@@ -57,6 +57,8 @@ export default class RequestForm extends preact.Component {
                 break;
         }
 
+        if(this.props.request_data['transport_medium'] !== 'email') body.push(<SignatureInput id="signature" width={400} height={200} onChange={this.props.onChange}/>);
+
         let information_block = [];
         if(this.state.information_block) {
             information_block =
@@ -89,6 +91,16 @@ export default class RequestForm extends preact.Component {
                                onChange={this.props.onTypeChange} /> <label for="request-type-choice-custom"><Text id="own-request"/></label>
                     </div>
 
+                    <div className="request-transport-medium-chooser">
+                        <Text id="request-transport-medium" /><br />
+                        <input type="radio" id="request-transport-medium-choice-fax" name="transport-medium" value="fax" className="form-element" checked={this.props.request_data['transport_medium'] === 'fax'}
+                               onChange={this.props.onTransportMediumChange} /> <label for="request-transport-medium-choice-fax"><Text id="fax"/></label>
+                        <input type="radio" id="request-transport-medium-choice-email" name="transport-medium" value="email" className="form-element" checked={this.props.request_data['transport_medium'] === 'email'}
+                               onChange={this.props.onTransportMediumChange} /> <label for="request-transport-medium-choice-email"><Text id="email"/></label>
+                        <input type="radio" id="request-transport-medium-choice-letter" name="transport-medium" value="letter" className="form-element" checked={this.props.request_data['transport_medium'] === 'letter'}
+                               onChange={this.props.onTransportMediumChange} /> <label for="request-transport-medium-choice-letter"><Text id="letter"/></label>
+                    </div>
+
                     <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
                         <Text id="recipient-explanation"/><br />
                         <textarea id="request-recipient" className="form-element" placeholder={t('recipient', 'generator')} rows="4" spellcheck="false" onChange={event => {
@@ -103,8 +115,6 @@ export default class RequestForm extends preact.Component {
                 </fieldset>
 
                 {body}
-
-                <SignatureInput id="signature" width={400} height={200} onChange={this.props.onChange}/>
 
                 <fieldset>
                     <legend><a href="" onClick={e => {

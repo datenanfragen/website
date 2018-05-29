@@ -42,6 +42,8 @@
         "generate-request": "Anfrage generieren",
         "download-pdf": "PDF herunterladen",
         "generate-pdf": "PDF generieren",
+        "send-email": "E-mail senden",
+        "generate-email": "E-mail generieren",
         "select-company": "Unternehmen auswählen…",
         "request-parameters": "Anfrageparameter",
         "request-type": "Was für eine Anfrage möchtest Du stellen?",
@@ -90,11 +92,14 @@
         "current-company-comments": "Hinweise",
         "fax": "Fax",
         "email": "E-Mail",
+        "letter": "Brief",
         "new-request": "Neue Anfrage",
         "next-request": "Nächste Anfrage",
         "confirm-input-remove": "Feld wirklich löschen?",
         "information-block": "Informationsblock",
-        "request-date": "Datum der Anfrage"
+        "request-date": "Datum der Anfrage",
+        "request-transport-medium": "Wie möchtest du die Anfrage versenden?",
+        "by-fax": "Via Fax: "
     },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",
