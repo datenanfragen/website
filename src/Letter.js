@@ -112,6 +112,13 @@ export default class Letter {
         return this.doc;
     }
 
+    toEmailString() {
+        let email = t('subject', 'generator') + ': ' + this.props.subject + '\n\n';
+        email += this.props.information_block + '\n'
+         + Letter.stripTags(this.props.content) + (this.props.signature['type'] === 'text' ? '\n' + this.props.signature['name'] : '');
+        return email;
+    }
+
     static propsFromRequest(request_object, template, flags = {}) {
         let subjects = { // TODO: Find a more appropriate place for this.
             'erasure': t('letter-subject-erasure', 'generator'),
@@ -139,8 +146,7 @@ export default class Letter {
 
         return {
             reference_barcode: Letter.barcodeFromText(request_object.reference),
-            information_block: t('my-reference', 'generator') + ': ' + request_object.reference + '\n' +
-            t('date', 'generator') + ': ' + today.toISOString().substring(0, 10),
+            information_block: Letter.makeInformationBlock(request_object),
             subject: subjects[request_object.type],
             recipient_address: request_object.recipient_address,
             sender_oneline: Letter.formatAddress(id_data.primary_address, ' • ', id_data.name),
@@ -192,6 +198,11 @@ export default class Letter {
         });
 
         return content_array;
+    }
+
+    static stripTags(content) {
+        const regex = /<.+?>/gmu;
+        return content.replace(regex, '');
     }
 
     static formatData(request_data) {
@@ -262,4 +273,9 @@ export default class Letter {
         return template;
     }
 
+    static makeInformationBlock(request_object) {
+        return t('my-reference', 'generator') + ': ' + request_object.reference + '\n' +
+        t('date', 'generator') + ': ' + request_object.date + '\n' +
+        request_object.information_block;
+    }
 }
