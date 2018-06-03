@@ -147,7 +147,7 @@ class Generator extends preact.Component {
         if(this.state.request_data.transport_medium === 'email') {
             generate_text = 'generate-email';
             let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
-                'subject=' + encodeURIComponent(this.letter.props.subject) +
+                'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t('my-reference', 'generator') + ': ' + this.state.request_data['reference'] + ')' +
                 '&body=' + encodeURIComponent(Letter.stripTags(this.letter.props.content));
             action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled')} href={mailto_link}
                                onClick={e => {if(!this.state.blob_url) e.preventDefault();}}><Text id="send-email"/></a>
