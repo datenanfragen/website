@@ -27,11 +27,15 @@ class Generator extends preact.Component {
             "value": {"primary": true}
         }];
 
+        let today = new Date();
+
         this.state = {
             request_data: {
                 type: 'access',
+                transport_medium: 'fax',
                 id_data: JSON.parse(JSON.stringify(this.default_fields)), // This is hideous but the only way to deep copy this array...
-                reference: Letter.generateReference(new Date()),
+                reference: Letter.generateReference(today),
+                date: today.toISOString().substring(0, 10),
                 recipient_address: '',
                 signature: {type: 'text', value: ''},
                 erase_all: true,
@@ -39,6 +43,7 @@ class Generator extends preact.Component {
                 data_portability: false,
                 recipient_runs: [],
                 rectification_data: [],
+                information_block: '',
                 custom_data: {
                     content: '',
                     subject: '',
@@ -50,10 +55,13 @@ class Generator extends preact.Component {
             suggestion: null,
             download_active: false,
             blob_url: '',
-            download_filename: ''
+            download_filename: '',
+            batch: [],
+            batch_position: 0
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
+        this.database_url = BASE_URL + 'db/';
         this.letter = new Letter({});
 
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
@@ -63,15 +71,16 @@ class Generator extends preact.Component {
                 'storeName': 'my-requests'
             });
         }
-        this.renderPdf = this.renderPdf.bind(this);
+        this.renderRequest = this.renderRequest.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
+        this.handleTransportMediumChange = this.handleTransportMediumChange.bind(this);
         this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
 
-        this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js'); // TODO: Maybe solve this via inline script and blob?
+        this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
         this.pdfWorker.onmessage = (message) => {
             this.setState({
                 blob_url: message.data,
@@ -84,14 +93,23 @@ class Generator extends preact.Component {
             console.log('Worker Error', error); // TODO: Proper error handling
         };
 
+        let batch_companies = findGetParamter('companies');
+        if(batch_companies) {
+            this.setState({batch: batch_companies.split(',')});
+            if(this.state.batch && this.state.batch.length > 0) {
+                this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+            }
+        }
+
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
-
     }
 
     render() {
         let company_info = '';
         let comments = '';
+        let new_request_text = 'new-request';
+        if(this.state.batch && this.state.batch.length > 0) new_request_text = 'next-request';
         if(this.state.suggestion !== null) {
             company_info =
                 (<div id="company-info">
@@ -122,11 +140,24 @@ class Generator extends preact.Component {
             }
         }
 
+        let generate_text = 'generate-pdf';
+        let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
+                               onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>;
+
+        if(this.state.request_data.transport_medium === 'email') {
+            generate_text = 'generate-email';
+            let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
+                'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t('my-reference', 'generator') + ': ' + this.state.request_data['reference'] + ')' +
+                '&body=' + encodeURIComponent(Letter.stripTags(this.letter.props.content)) + (this.letter.props.signature['type'] === 'text' ? '\n' + this.letter.props.signature['name'] : '');
+            action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled')} href={mailto_link}
+                               onClick={e => {if(!this.state.blob_url) e.preventDefault();}}><Text id="send-email"/></a>
+        }
+
         return (
             <main>
                 <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
                 <div id="generator-controls">
-                    <button className="button-primary" id="new-request-button" onClick={this.newRequest}><Text id='new-request'/></button>
+                    <button className="button-primary" id="new-request-button" onClick={this.newRequest}><Text id={new_request_text}/></button>
                 </div>
                 <div className="clearfix" />
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
@@ -134,14 +165,13 @@ class Generator extends preact.Component {
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div className="col50 box">
-                        <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} request_data={this.state.request_data}/>
+                        <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}/>
                     </div>
                     <div className="col50 box" style="min-height: 500px; float: right;">
                         {company_info}
                         <div id="pdf-controls">
-                            <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
-                               onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>
-                            <button id="generate-button" className="button-secondary" onClick={this.renderPdf}><Text id="generate-pdf"/></button>
+                            {action_button}
+                            <button id="generate-button" className="button-secondary" onClick={this.renderRequest}><Text id={generate_text} /></button>
                             <div className="clearfix" />
                         </div>
                         <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
@@ -152,19 +182,24 @@ class Generator extends preact.Component {
             </main>);
     }
 
-    handleAutocompleteSelected(event, suggestion, dataset) {
-        let template_file = suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
+    setCompany(company) {
+        let template_file = company['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
 
         this.setState(prev => {
-            prev.request_data['recipient_address'] = suggestion.name + '\n' + suggestion.address;
-            prev.request_data['id_data'] = this.mergeIdDataFields(prev.request_data['id_data'], suggestion['required-elements'] || this.default_fields);
-            prev.request_data['recipient_runs'] = suggestion.runs || [];
-            prev.suggestion = suggestion;
+            prev.request_data['transport_medium'] = company['suggested-transport-medium'] ? company['suggested-transport-medium'] : company['fax'] ? 'fax' : 'letter';
+            prev.request_data['recipient_address'] = company.name + '\n' + company.address + (prev.request_data['transport_medium'] === 'fax' ?'\n' + t('by-fax', 'generator') + company['fax'] : '');
+            prev.request_data['id_data'] = this.mergeIdDataFields(prev.request_data['id_data'], company['required-elements'] || this.default_fields);
+            prev.request_data['recipient_runs'] = company.runs || [];
+            prev.suggestion = company;
             return prev;
         });
-        this.renderPdf();
+    }
+
+    handleAutocompleteSelected(event, suggestion, dataset) {
+        this.setCompany(suggestion);
+        this.renderRequest();
     }
 
     mergeIdDataFields(fields_to_add_to, fields_to_merge) {
@@ -198,7 +233,7 @@ class Generator extends preact.Component {
         }
         let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt' : this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
-            .then(res => res.text()).then(text => {this.setState({template_text: text}); this.renderPdf();});
+            .then(res => res.text()).then(text => {this.setState({template_text: text}); this.renderRequest();});
     }
 
     handleInputChange(changed_data) {
@@ -210,7 +245,7 @@ class Generator extends preact.Component {
             }
             return prev;
         });
-        if(should_render) this.renderPdf();
+        if(should_render) this.renderRequest();
     }
 
     handleLetterChange(event, address_change = false) {
@@ -218,22 +253,53 @@ class Generator extends preact.Component {
             this.setState(prev => {
                 let att = event.target.getAttribute('name');
                 prev.request_data.custom_data['sender_address'][att] = event.target.value;
+                return prev;
             });
         } else {
             this.setState(prev => {
                 let att = event.target.getAttribute('name');
                 if(prev.request_data.custom_data.hasOwnProperty(att)) prev.request_data.custom_data[att] = event.target.value;
+                return prev;
             });
         }
-        this.renderPdf();
+        this.renderRequest();
+    }
+
+    handleTransportMediumChange(event) {
+        // TODO: Warning when sending via email
+        this.setState(prev => {
+            prev['request_data']['transport_medium'] = event.target.value;
+            switch(event.target.value) {
+                case 'fax':
+                    if(prev['suggestion'] && !prev['request_data']['recipient_address'].includes(t('by-fax', 'generator'))) prev['request_data']['recipient_address'] += '\n' + t('by-fax', 'generator') + (prev['suggestion']['fax'] || '');
+                    break;
+                case 'letter':
+                case 'email':
+                    prev['request_data']['recipient_address'] = prev['request_data']['recipient_address'].replace(new RegExp('(?:\\r\\n|\\r|\\n)' + t('by-fax', 'generator') + '\\+?[0-9\\s]*', 'gm'), '');
+                    break;
+            }
+            return prev;
+        });
+        this.renderRequest();
+    }
+
+    fetchCompanyDataBySlug(slug, callback) {
+        try {
+            fetch(this.database_url + slug + '.json')
+                .then(res => res.json()).then(json => {callback(json)});
+        } catch(error) {
+            console.error(error.message); // TODO: Proper Error Handling
+        }
     }
 
     newRequest() {
         this.setState(prev => {
             prev['request_data'] = {
                 type: 'access',
+                transport_medium: 'fax',
                 id_data: prev['request_data']['id_data'],
                 reference: Letter.generateReference(new Date()),
+                date: prev['request_data']['date'],
                 recipient_address: '',
                 signature: prev['request_data']['signature'],
                 erase_all: true,
@@ -241,6 +307,7 @@ class Generator extends preact.Component {
                 data_portability: false,
                 recipient_runs: [],
                 rectification_data: [],
+                information_block: '',
                 custom_data: {
                     content: '',
                     subject: '',
@@ -256,9 +323,13 @@ class Generator extends preact.Component {
         });
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
+
+        if(this.state.batch && this.state.batch.length > 0) {
+            this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+        }
     }
 
-    renderPdf() {
+    renderRequest() {
         if(this.state.request_data['type'] === 'custom') {
             let signature = this.state.request_data['signature'];
             signature['name'] = this.state.request_data.custom_data['name'];
@@ -267,23 +338,39 @@ class Generator extends preact.Component {
                 content: this.state.request_data.custom_data['content'],
                 signature: signature,
                 recipient_address: this.state.request_data['recipient_address'],
-                sender_oneline: Letter.formatAddress(this.state.request_data.custom_data['sender_address'], ' • ', this.state.request_data.custom_data['name'])
+                sender_oneline: Letter.formatAddress(this.state.request_data.custom_data['sender_address'], ' • ', this.state.request_data.custom_data['name']),
+                information_block: Letter.makeInformationBlock(this.state.request_data),
+                reference_barcode: Letter.barcodeFromText(this.state.request_data.reference)
             });
         } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
 
-        this.setState({download_active: false});
-        this.pdfWorker.postMessage(this.letter.toPdfDoc());
+        switch(this.state.request_data['transport_medium']) {
+            case 'fax':
+            case 'letter':
+                this.setState({download_active: false});
+                this.pdfWorker.postMessage(this.letter.toPdfDoc());
+                break;
+            case 'email':
+                let email_blob = new Blob([
+                    '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre style="white-space: pre-line;">' + this.letter.toEmailString() + '</pre></body>'
+                ], {
+                    type: 'text/html'
+                });
+                this.setState({blob_url: URL.createObjectURL(email_blob)});
+                break;
+        }
+
         this.storeRequest();
     }
 
     storeRequest() {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             localforage.setItem(this.state.request_data['reference'], {
-                date: new Date().toISOString(), // TODO: The date will be configurable in the future, we will need to grab that here
+                date: this.state.request_data.date,
                 type: this.state.request_data.type,
                 slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
                 recipient: this.state.request_data.recipient_address,
-                via: 'fax' // TODO: This is not currently implemented
+                via: this.state.request_data.transport_medium
             }).catch(() => { console.log('Failed to save request with reference ' + this.state.request_data['reference']); /* TODO: Proper error handling. */ });
         }
     }
@@ -297,6 +384,16 @@ function slugify(text) {
         .replace(/\-\-+/g, '-')         // Replace multiple - with single -
         .replace(/^-+/, '')             // Trim - from start of text
         .replace(/-+$/, '');            // Trim - from end of text
+}
+
+function findGetParamter(param){
+    let tmp = [];
+    let result = null;
+    location.search.substr(1).split('&').forEach(item => {
+        tmp = item.split('=');
+        if(tmp[0] === param) return result = decodeURIComponent(tmp[1]);
+    });
+    return result;
 }
 
 preact.render((<IntlProvider scope="generator" definition={I18N_DEFINITION}><Generator/></IntlProvider>), null, document.getElementById('generator'));

@@ -42,6 +42,8 @@
         "generate-request": "Request generator",
         "download-pdf": "Download PDF",
         "generate-pdf": "Generate PDF",
+        "send-email": "Send email",
+        "generate-email": "Generate email",
         "select-company": "Select company…",
         "request-parameters": "Request parameters",
         "request-type": "What kind of request do you want to generate?",
@@ -90,8 +92,14 @@
         "current-company-comments": "Notes",
         "fax": "Fax",
         "email": "Email",
+        "letter": "Letter",
         "new-request": "New request",
-        "confirm-input-remove": "Really remove field?"
+        "next-request": "Next request",
+        "confirm-input-remove": "Really remove field?",
+        "information-block": "Information block",
+        "request-date": "Request date",
+        "request-transport-medium": "How do you want to send your request?",
+        "by-fax": "By fax: "
     },
     "privacy-controls": {
         "title": "Privacy controls",

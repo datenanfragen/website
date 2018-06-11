@@ -180,7 +180,7 @@ $RECYCLE.BIN/
 public/
 content/company/*
 static/templates/*
-
+static/db/*
 
 # Generated JS and CSS
 static/*/*.gen.js
