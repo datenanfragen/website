@@ -39,6 +39,10 @@ other = "travel"
 [utility]
 other = "utility"
 
+# Workarounds
+[logo]
+other = "img/logo-datarequests.svg"
+
 # Header
 
 [header-name]
@@ -127,6 +131,9 @@ other = "Look up another company…"
 
 [cdb-company-title]
 other = "Contact information for privacy-related requests to {{ .Params.name }}"
+
+[cdb-company-heading]
+other = "Contact information for privacy-related requests to <span style='white-space: nowrap'>{{ .Params.name }}</span>"
 
 [cdb-categories]
 one = "Category:"

@@ -1,5 +1,12 @@
-{{ partial "header" . }}
+{{ define "title" }}
+{{ T "cdb-title" }} &middot; {{ .Site.Title }}
+{{ end }}
 
+{{ define "heading" }}
+{{ T "cdb-title" }}
+{{ end }}
+
+{{ define "main" }}
 <div id="company-list"></div>
 
 <div id="company-overview">
@@ -14,5 +21,4 @@
     {{ end }}
     {{ partial "pagination.html" . }}
 </div>
-
-{{ partial "footer" . }}
+{{ end }}

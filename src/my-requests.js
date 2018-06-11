@@ -76,8 +76,10 @@ class RequestList extends preact.Component {
                     <tbody>{request_rows}</tbody>
                 </table>
                 { /* TODO: Style differently once we have a design. */ }
-                <button id="clear-button" onClick={this.clearRequests} style="float: right;"><Text id="delete-all-btn" /></button>
-                <a id="download-button" className="button" href={URL.createObjectURL(this.buildCsv())} download={download_filename} style="float: right; margin-right: 10px;"><Text id="export-btn" /></a>
+                <div style="float: right;">
+                    <a id="download-button" className="button button-secondary" href={URL.createObjectURL(this.buildCsv())} download={download_filename} style="margin-right: 10px;"><Text id="export-btn" /></a>
+                    <button id="clear-button" className="button-secondary" onClick={this.clearRequests}><Text id="delete-all-btn" /></button>
+                </div>
                 <div className='clearfix' /></div>;
         }
         else {
@@ -87,7 +89,6 @@ class RequestList extends preact.Component {
         return (
             <IntlProvider scope="my-requests" definition={I18N_DEFINITION}>
                 <main>
-                    <h1><Text id="title" /></h1>
                     {content}
                 </main>
             </IntlProvider>

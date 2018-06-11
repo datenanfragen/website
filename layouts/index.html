@@ -1,13 +1,14 @@
-{{ partial "header" . }}
-
+{{ define "main" }}
 <main>
     <div id="home-hero">
-        <div id="home-hero-line-1">{{ T "home-hero-line-1" }} <span id="home-hero-word">{{ T "home-hero-word" }}</span></div>
-        <div id="home-hero-line-2">{{ T "home-hero-line-2" }}</div>
-        <div id="home-hero-copy">
-            {{ T "home-hero-copy" | safeHTML }}
+        <div id="home-hero-content">
+            <div id="home-hero-line-1">{{ T "home-hero-line-1" }} </div>
+            <div id="home-hero-line-2"><span id="home-hero-word">{{ T "home-hero-word" }}</span></div>
+            <a class="button button-primary icon icon-pencil" href="{{ "generator" | absURL }}">{{ T "home-hero-line-2" }}</a>
+            <!--<div id="home-hero-copy">-->
+            <!--{{ T "home-hero-copy" | safeHTML }}-->
+            <!--</div>-->
         </div>
-        <div id="home-search"></div>
     </div>
 
     <div id="home-features">
@@ -45,11 +46,4 @@
     </div>
     <div class="clearfix"></div>
 </main>
-</div>
-<div id="home-hero-bg-image-container">
-    <!-- TODO: Credit photographer (https://unsplash.com/photos/JuFcQxgCXwA). We should also find a better image. -->
-    <img id="home-hero-bg-image" src="{{ "img/home-hero-background.jpg" | absURL }}">
-</div>
-<div class="container">
-
-{{ partial "footer" . }}
+{{ end }}

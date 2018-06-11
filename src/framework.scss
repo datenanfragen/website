@@ -1,0 +1,82 @@
+@import "variables";
+
+.col75 { width: 75%; float: left; }
+.col66 { width: 66.666666%; float: left; }
+.col60 { width: 60%; float: left; }
+.col50 { width: calc(50% - 10px); float: left; }
+.col40 { width: 40%; float: left; }
+.col33 { width: 33.333333%; float: left; }
+.col30 { width: 30%; float: left; }
+.col25 { width: 25%; float: left; }
+.col10 { width: 10%; float: left; }
+.clearfix { clear: both; }
+.after-absolute { width: 100%; position: relative; float: left; }
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: $font-size;
+    font-family: $body-font;
+    color: $text-color;
+    background-color: $bg-color;
+}
+
+.container {
+    width: 80vw;
+    max-width: 1024px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin: 0;
+}
+h1 { font-size: 1.7em; }
+h2 { font-size: 1.4em; }
+
+a, a:active, a:focus, a:visited {
+    color: $accent-color;
+    text-decoration: none;
+}
+a:hover, a:active { color: $accent-darker-color; }
+
+img { max-width: 100%; }
+img.image {
+    display: block;
+    margin: auto;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table.table { width: 100%; }
+table.table thead th, table.table tbody td {
+    padding: 10px;
+}
+
+pre {
+    white-space: pre-wrap;
+    overflow: auto;
+}
+
+.form-group {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+select {
+    appearance: menulist;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+} /* With thanks to Bootstrap. */

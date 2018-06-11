@@ -1,0 +1,127 @@
+@import "variables";
+@import "framework";
+@import "elements";
+@import "icons";
+
+/* Fancy placeholder labels, see https://jonathan-harrell.com/advanced-css-form-styling/ */
+label.fancy-label {
+    position: absolute;
+    top: -19px;
+    left: 7px;
+    font-size: 0.75em;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.2s ease-out;
+}
+.form-group.fancy-fg { padding-bottom: 10px; }
+.form-group.fancy-fg:last-of-type { padding-bottom: 0; }
+input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.fancy-label {
+    opacity: 0;
+    transform: translateY(1rem);
+}
+
+/* PDF Viewer */
+#pdf-viewer {
+    border: 0;
+    width: 100%;
+    height: 800px;
+}
+#pdf-viewer.empty {
+    display: none;
+}
+
+
+.dynamic-input-primaryButton[data-isprimary="true"] {
+    background: #00db20;
+}
+
+#signature {
+    border: 1px solid #000;
+}
+#tagxplanation {
+    font-size: 9pt;
+}
+
+/* Header */
+header#nav-header {
+    margin-top: 25px;
+}
+#nav-header-bg {
+    position: absolute;
+    top: 0;
+    z-index: -2;
+    height: 65px;
+    width: 100%;
+    background-color: $bg-accent-color;
+}
+a #logo {
+    height: 32px;
+}
+#main-nav {
+    float: right;
+}
+#menu-items a {
+    color: $primary-lighter-color;
+    margin-left: 20px;
+}
+
+#heading-bg {
+    background-color: $bg-accent-color;
+}
+#heading h1 {
+    margin: 0 0 30px 0;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 3.5em;
+    color: $primary-color;
+}
+
+/* Home */
+#home-hero-bg {
+    height: 95vh;
+    min-height: 440px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+
+    background: url("../res/img/wave-bg.svg"), $bg-accent-color;
+    background-size: cover;
+}
+
+#home-hero {
+    position: relative;
+    height: 95vh;
+    min-height: 420px;
+
+    font-family: $heading-font;
+    color: $primary-color;
+    font-size: 3em;
+}
+#home-hero-content {
+    position: absolute;
+    top: 30%;
+    left: 0;
+}
+
+.contact-table td:nth-child(1) {
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+/* Blog */
+
+.blog-letter {
+    border: 1px solid rgba(170, 170, 170, 0.51);
+    background-color: #fff;
+    padding: 20px 60px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.blog-letter-fill-in:before, .blog-letter-fill-in:after {
+    font-weight: bold;
+    content: "{";
+    color: $primary-color;
+}
+.blog-letter-fill-in:after { content: "}"; }

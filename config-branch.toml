@@ -1,0 +1,19 @@
+defaultContentLanguage = "de"
+pluralizeListTitles = false
+
+# Ignore the preact translation files which would otherwise cause Hugo to fail
+ignoreFiles = [ "i18n/.+\\.json$" ]
+
+[languages]
+    [languages.de]
+        languageCode = "de-de"
+        languageName = "Deutsch"
+        weight = 10
+        title = "Datenanfragen.de – Du hast ein Recht auf Datenschutz, wir helfen Dir es zu nutzen"
+        copyright = "Dieses Werk ist unter einer Creative Commons Attribution-NoDerviatives 4.0 International-Lizenz lizensiert."
+    [languages.en]
+        languageCode = "en-us"
+        languageName = "English"
+        weight = 20
+        title = "datarequests.org—You have a right to privacy, we help you use it"
+        copyright = "This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License."

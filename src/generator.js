@@ -141,7 +141,7 @@ class Generator extends preact.Component {
         }
 
         let generate_text = 'generate-pdf';
-        let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled')} href={this.state.blob_url} download={this.state.download_filename}
+        let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
                                onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>;
 
         if(this.state.request_data.transport_medium === 'email') {
@@ -157,21 +157,21 @@ class Generator extends preact.Component {
             <main>
                 <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
                 <div id="generator-controls">
-                    <button id="new-request-button" onClick={this.newRequest}><Text id={new_request_text}/></button>
+                    <button className="button-primary" id="new-request-button" onClick={this.newRequest}><Text id={new_request_text}/></button>
                 </div>
                 <div className="clearfix" />
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
-                    <div className="col50">
+                    <div className="col50 box">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}/>
                     </div>
-                    <div className="col50">
+                    <div className="col50 box" style="min-height: 500px; float: right;">
                         {company_info}
                         <div id="pdf-controls">
                             {action_button}
-                            <button id="generate-button" onClick={this.renderRequest}><Text id={generate_text} /></button>
+                            <button id="generate-button" className="button-secondary" onClick={this.renderRequest}><Text id={generate_text} /></button>
                             <div className="clearfix" />
                         </div>
                         <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
