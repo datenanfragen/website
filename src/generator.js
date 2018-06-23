@@ -148,8 +148,8 @@ class Generator extends preact.Component {
             generate_text = 'generate-email';
             let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
                 'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t('my-reference', 'generator') + ': ' + this.state.request_data['reference'] + ')' +
-                '&body=' + encodeURIComponent(Letter.stripTags(this.letter.props.content)) + (this.letter.props.signature['type'] === 'text' ? '\n' + this.letter.props.signature['name'] : '');
-            action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled')} href={mailto_link}
+                '&body=' + encodeURIComponent(this.letter.toEmailString());
+            action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled') + ' button-primary'} href={mailto_link}
                                onClick={e => {if(!this.state.blob_url) e.preventDefault();}}><Text id="send-email"/></a>
         }
 
@@ -278,6 +278,9 @@ class Generator extends preact.Component {
                     prev['request_data']['recipient_address'] = prev['request_data']['recipient_address'].replace(new RegExp('(?:\\r\\n|\\r|\\n)' + t('by-fax', 'generator') + '\\+?[0-9\\s]*', 'gm'), '');
                     break;
             }
+
+            prev['request_data']['data_portability'] = event.target.value === 'email';
+
             return prev;
         });
         this.renderRequest();
@@ -352,7 +355,7 @@ class Generator extends preact.Component {
                 break;
             case 'email':
                 let email_blob = new Blob([
-                    '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre style="white-space: pre-line;">' + this.letter.toEmailString() + '</pre></body>'
+                    '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre style="white-space: pre-line;">' + this.letter.toEmailString(true) + '</pre></body>'
                 ], {
                     type: 'text/html'
                 });
