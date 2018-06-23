@@ -6,6 +6,7 @@ import { IntlProvider, Text } from 'preact-i18n';
 import t from 'i18n';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
+import Modal from "./Modal";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -57,7 +58,8 @@ class Generator extends preact.Component {
             blob_url: '',
             download_filename: '',
             batch: [],
-            batch_position: 0
+            batch_position: 0,
+            modal_showing: ''
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
@@ -79,6 +81,7 @@ class Generator extends preact.Component {
         this.handleTransportMediumChange = this.handleTransportMediumChange.bind(this);
         this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
+        this.hideModal = this.hideModal.bind(this);
 
         this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
         this.pdfWorker.onmessage = (message) => {
@@ -155,9 +158,10 @@ class Generator extends preact.Component {
 
         return (
             <main>
+                {this.state.modal_showing}
                 <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
                 <div id="generator-controls">
-                    <button className="button-primary" id="new-request-button" onClick={this.newRequest}><Text id={new_request_text}/></button>
+                    <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
                 </div>
                 <div className="clearfix" />
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
@@ -182,6 +186,31 @@ class Generator extends preact.Component {
             </main>);
     }
 
+    /**
+     *
+     * @param modal {string|Component} if it is a string, modal will be interpreted as modal_id
+     */
+    showModal(modal) {
+        if(typeof modal === 'string') {
+            let modal_id = modal;
+            switch(modal_id) {
+                case 'new_request': // TODO: Logic
+                     modal = (<Modal positiveText={t('new-request', 'generator')} negativeText={t('cancel', 'generator')}
+                                   onNegativeFeedback={this.hideModal} onPositiveFeedback={e => {
+                        this.hideModal();
+                        this.newRequest();
+                    }} positiveDefault={true} onDismiss={this.hideModal}>
+                        <Text id='modal-new-request' />
+                    </Modal>);
+            }
+        }
+        this.setState({'modal_showing': modal});
+    }
+
+    hideModal() {
+        this.setState({'modal_showing': ''});
+    }
+
     setCompany(company) {
         let template_file = company['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
@@ -198,8 +227,24 @@ class Generator extends preact.Component {
     }
 
     handleAutocompleteSelected(event, suggestion, dataset) {
-        this.setCompany(suggestion);
-        this.renderRequest();
+        if(this.state.suggestion) {
+            this.showModal(<Modal positiveText={t('new-request', 'generator')} negativeText={t('override-request', 'generator')}
+                                  onNegativeFeedback={e => {
+                                      this.hideModal();
+                                      this.setCompany(suggestion);
+                                      this.renderRequest();
+                                  }} onPositiveFeedback={e => {
+                this.hideModal();
+                this.newRequest();
+                this.setCompany(suggestion);
+                this.renderRequest();
+            }} positiveDefault={true} onDismiss={this.hideModal}>
+                <Text id='modal-autocomplete-new-request' />
+            </Modal>);
+        } else {
+            this.setCompany(suggestion);
+            this.renderRequest();
+        }
     }
 
     mergeIdDataFields(fields_to_add_to, fields_to_merge) {

@@ -95,11 +95,15 @@
         "letter": "Brief",
         "new-request": "Neue Anfrage",
         "next-request": "Nächste Anfrage",
+        "override-request": "Aktuelle Anfrage überschreiben",
+        "modal-autocomplete-new-request": "Ein neues Unternehmen wurde ausgewählt. Soll eine neue Anfrage erstellt werden?",
+        "modal-new-request": "Alle Felder zurücksetzen und eine neue Anfrage starten?",
         "confirm-input-remove": "Feld wirklich löschen?",
         "information-block": "Informationsblock",
         "request-date": "Datum der Anfrage",
         "request-transport-medium": "Wie möchtest du die Anfrage versenden?",
-        "by-fax": "Via Fax: "
+        "by-fax": "Via Fax: ",
+        "cancel": "Abbrechen"
     },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",
