@@ -46,7 +46,7 @@
         {{ if .IsTranslated }}
         {{ T "footer-other-langs" }}
         {{ range .Translations }}
-        <a href="{{ .Permalink }}">{{ T .Lang }}</a>
+        <a rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">{{ T .Lang }}</a>
         {{ end}}
         {{ end }}
         <span style="float: right;">We <3 Datenschutz.
