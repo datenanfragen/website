@@ -21,3 +21,23 @@ Entry into the register of associations of the local court Braunschweig is plann
 
 **Responsible for the content according to § 55(2) of German Interstate Broadcasting Treaty (RStV):**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
+
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "NGO",
+		"name": "Datenanfragen.de e. V.",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "c/o  Benjamin Altpeter, Schreinerweg 6",
+			"postalCode": "38126",
+			"addressLocality": "Braunschweig",
+			"addressCountry": "DE"
+		},
+		"telephone": "+49 176 913 77 604",
+		"faxNumber": "+49 531 615 4 288",
+		"email": "contact@datenanfragen.de",
+		"url": "https://verein.datenanfragen.de",
+		"logo": "https://www.datenanfragen.de/img/logo-datenanfragen-ev.png"
+	}
+</script>
