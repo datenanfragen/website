@@ -194,3 +194,6 @@ other = " of "
 
 [blog-read-more]
 other = "Read more…"
+
+[blog-tags-list]
+other = "Posts tagged: "

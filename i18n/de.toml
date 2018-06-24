@@ -192,3 +192,6 @@ other = " von "
 
 [blog-read-more]
 other = "Weiterlesen…"
+
+[blog-tags-list]
+other = "Artikel zum Tag: "
