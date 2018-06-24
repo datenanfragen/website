@@ -1,0 +1,22 @@
+{{ define "title" }}
+{{ T (.Title | lower) }} &middot; {{ .Site.Title }}
+{{ end }}
+
+{{ define "heading" }}
+{{ T (.Title | lower) }}
+{{ end }}
+
+{{ define "main" }}
+<div id="company-list"></div>
+
+{{ range .Paginator.Pages }}
+	{{ if eq .Kind "taxonomy" }}
+    	<h2><a href="{{ .Permalink }}">{{ T (.Title | lower) }}</a></h2>
+    {{ else if and (eq .Kind "page") (eq .Type "company") }}
+    	{{ partial "summary-company.html" . }}
+    {{ end }}
+{{ end }}
+
+{{ partial "pagination.html" . }}
+
+{{ end }}

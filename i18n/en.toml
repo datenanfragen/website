@@ -1,5 +1,8 @@
 # Categories
 
+[categories]
+other = "Categories"
+
 [addresses]
 other = "addresses"
 
@@ -130,7 +133,7 @@ other = "Company database"
 other = "Look up another company…"
 
 [cdb-company-title]
-other = "Contact information for privacy-related requests to {{ .Params.name }}"
+other = "{{ .Params.name }}: Contact information for privacy-related requests"
 
 [cdb-company-heading]
 other = "Contact information for privacy-related requests to <span style='white-space: nowrap'>{{ .Params.name }}</span>"
