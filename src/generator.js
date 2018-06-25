@@ -222,6 +222,7 @@ class Generator extends preact.Component {
             prev.request_data['id_data'] = this.mergeIdDataFields(prev.request_data['id_data'], company['required-elements'] || this.default_fields);
             prev.request_data['recipient_runs'] = company.runs || [];
             prev.suggestion = company;
+            prev['request_data']['data_portability'] = company['suggested-transport-medium'] === 'email';
             return prev;
         });
     }
