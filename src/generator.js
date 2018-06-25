@@ -1,12 +1,12 @@
 import preact from 'preact';
 import RequestForm from 'Forms/RequestForm';
-import Letter from 'Letter';
-import { SearchBar } from "./SearchBar";
+import Letter from 'Utility/Letter';
+import { SearchBar } from "./Components/SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
-import t from 'i18n';
+import t from 'Utility/i18n';
 import localforage from 'localforage';
-import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
-import Modal from "./Modal";
+import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
+import Modal from "./Components/Modal";
 
 class Generator extends preact.Component {
     constructor(props) {

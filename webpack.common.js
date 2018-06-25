@@ -13,7 +13,7 @@ module.exports = {
         'my-requests': './src/my-requests.js',
         'privacy-controls': './src/privacy-controls.js',
         'pdfworker': './src/PdfWorker.js',
-        'style': './src/main.scss'
+        'style': './src/styles/main.scss'
     },
     output: {
         filename: 'js/[name].gen.js',

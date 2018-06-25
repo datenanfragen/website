@@ -1,8 +1,8 @@
 import preact from 'preact';
-import { SearchBar } from "./SearchBar";
+import { SearchBar } from "Components/SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
-import t from 'i18n';
-import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
+import t from 'Utility/i18n';
+import Privacy, {PRIVACY_ACTIONS} from "Utility/Privacy";
 
 if(!Privacy.isAllowed(PRIVACY_ACTIONS.ALGOLIA_SEARCH) && document.getElementById('aa-search-input')) document.getElementById('aa-search-input').style.display = 'none';
 

@@ -2,7 +2,7 @@ import preact from 'preact';
 import DynamicInputContainer from "./DynamicInputContainer";
 import SignatureInput from "./SignatureInput";
 import { MarkupText, Text } from 'preact-i18n';
-import t from 'i18n';
+import t from '../Utility/i18n';
 import {AddressControl} from "./DynamicInput";
 
 export default class RequestForm extends preact.Component {

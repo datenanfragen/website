@@ -1,8 +1,8 @@
 import preact from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
-import t from 'i18n';
+import t from 'Utility/i18n';
 import localforage from 'localforage';
-import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
+import Privacy, {PRIVACY_ACTIONS} from "Utility/Privacy";
 
 export default class UserRequests {
     constructor() {
