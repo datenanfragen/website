@@ -22,7 +22,7 @@
 
         <p>{{ T "cdb-intro" . }}</p>
 
-        {{ with .Params.address}}<p><strong>{{ T "cdb-address" }}</strong><br>{{ replace . "\n" "<br>" | safeHTML }}</p>{{ end }}
+        {{ with .Params.address}}<p><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</p>{{ end }}
         {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
         <table class="contact-table">
             {{ with .Params.phone }}<tr><td>{{ T "cdb-phone" }}</td><td>{{ . }}</td></tr>{{ end }}

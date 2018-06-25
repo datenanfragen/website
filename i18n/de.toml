@@ -1,5 +1,8 @@
 # Categories
 
+[categories]
+other = "Kategorien"
+
 [addresses]
 other = "Adressen"
 
@@ -128,7 +131,7 @@ other = "Unternehmensdatenbank"
 other = "Anderes Unternehmen suchen…"
 
 [cdb-company-title]
-other = "Datenschutz-Kontaktdaten für {{ .Params.name }}"
+other = "{{ .Params.name }}: Datenschutz-Kontaktdaten"
 
 [cdb-company-heading]
 other = "Datenschutz-Kontaktdaten für <span style='white-space: nowrap'>{{ .Params.name }}</span>"
@@ -192,3 +195,6 @@ other = " von "
 
 [blog-read-more]
 other = "Weiterlesen…"
+
+[blog-tags-list]
+other = "Artikel zum Tag: "

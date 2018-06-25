@@ -1,0 +1,18 @@
+{{ define "title" }}
+{{ T "blog-tags-list" }} {{ .Title }} &middot; {{ .Site.Title }}
+{{ end }}
+
+{{ define "heading" }}
+{{ T "blog-tags-list" }} {{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+<div id="company-list"></div>
+
+{{ range .Data.Pages }}
+    {{ partial "summary" . }}
+{{ end }}
+
+{{ partial "pagination.html" . }}
+
+{{ end }}
