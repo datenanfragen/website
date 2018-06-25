@@ -6,6 +6,7 @@ import { IntlProvider, Text } from 'preact-i18n';
 import t from 'i18n';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
+import Modal from "./Modal";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -57,7 +58,8 @@ class Generator extends preact.Component {
             blob_url: '',
             download_filename: '',
             batch: [],
-            batch_position: 0
+            batch_position: 0,
+            modal_showing: ''
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
@@ -79,6 +81,7 @@ class Generator extends preact.Component {
         this.handleTransportMediumChange = this.handleTransportMediumChange.bind(this);
         this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
+        this.hideModal = this.hideModal.bind(this);
 
         this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
         this.pdfWorker.onmessage = (message) => {
@@ -148,16 +151,17 @@ class Generator extends preact.Component {
             generate_text = 'generate-email';
             let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
                 'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t('my-reference', 'generator') + ': ' + this.state.request_data['reference'] + ')' +
-                '&body=' + encodeURIComponent(Letter.stripTags(this.letter.props.content)) + (this.letter.props.signature['type'] === 'text' ? '\n' + this.letter.props.signature['name'] : '');
-            action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled')} href={mailto_link}
+                '&body=' + encodeURIComponent(this.letter.toEmailString());
+            action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled') + ' button-primary'} href={mailto_link}
                                onClick={e => {if(!this.state.blob_url) e.preventDefault();}}><Text id="send-email"/></a>
         }
 
         return (
             <main>
+                {this.state.modal_showing}
                 <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
                 <div id="generator-controls">
-                    <button className="button-primary" id="new-request-button" onClick={this.newRequest}><Text id={new_request_text}/></button>
+                    <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
                 </div>
                 <div className="clearfix" />
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
@@ -182,6 +186,31 @@ class Generator extends preact.Component {
             </main>);
     }
 
+    /**
+     *
+     * @param modal {string|Component} if it is a string, modal will be interpreted as modal_id
+     */
+    showModal(modal) {
+        if(typeof modal === 'string') {
+            let modal_id = modal;
+            switch(modal_id) {
+                case 'new_request': // TODO: Logic
+                     modal = (<Modal positiveText={t('new-request', 'generator')} negativeText={t('cancel', 'generator')}
+                                   onNegativeFeedback={this.hideModal} onPositiveFeedback={e => {
+                        this.hideModal();
+                        this.newRequest();
+                    }} positiveDefault={true} onDismiss={this.hideModal}>
+                        <Text id='modal-new-request' />
+                    </Modal>);
+            }
+        }
+        this.setState({'modal_showing': modal});
+    }
+
+    hideModal() {
+        this.setState({'modal_showing': ''});
+    }
+
     setCompany(company) {
         let template_file = company['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
         fetch(this.template_url + template_file)
@@ -193,13 +222,30 @@ class Generator extends preact.Component {
             prev.request_data['id_data'] = this.mergeIdDataFields(prev.request_data['id_data'], company['required-elements'] || this.default_fields);
             prev.request_data['recipient_runs'] = company.runs || [];
             prev.suggestion = company;
+            prev['request_data']['data_portability'] = company['suggested-transport-medium'] === 'email';
             return prev;
         });
     }
 
     handleAutocompleteSelected(event, suggestion, dataset) {
-        this.setCompany(suggestion);
-        this.renderRequest();
+        if(this.state.suggestion) {
+            this.showModal(<Modal positiveText={t('new-request', 'generator')} negativeText={t('override-request', 'generator')}
+                                  onNegativeFeedback={e => {
+                                      this.hideModal();
+                                      this.setCompany(suggestion);
+                                      this.renderRequest();
+                                  }} onPositiveFeedback={e => {
+                this.hideModal();
+                this.newRequest();
+                this.setCompany(suggestion);
+                this.renderRequest();
+            }} positiveDefault={true} onDismiss={this.hideModal}>
+                <Text id='modal-autocomplete-new-request' />
+            </Modal>);
+        } else {
+            this.setCompany(suggestion);
+            this.renderRequest();
+        }
     }
 
     mergeIdDataFields(fields_to_add_to, fields_to_merge) {
@@ -278,6 +324,9 @@ class Generator extends preact.Component {
                     prev['request_data']['recipient_address'] = prev['request_data']['recipient_address'].replace(new RegExp('(?:\\r\\n|\\r|\\n)' + t('by-fax', 'generator') + '\\+?[0-9\\s]*', 'gm'), '');
                     break;
             }
+
+            prev['request_data']['data_portability'] = event.target.value === 'email';
+
             return prev;
         });
         this.renderRequest();
@@ -352,7 +401,7 @@ class Generator extends preact.Component {
                 break;
             case 'email':
                 let email_blob = new Blob([
-                    '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre style="white-space: pre-line;">' + this.letter.toEmailString() + '</pre></body>'
+                    '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre style="white-space: pre-line;">' + this.letter.toEmailString(true) + '</pre></body>'
                 ], {
                     type: 'text/html'
                 });

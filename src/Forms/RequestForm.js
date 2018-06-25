@@ -18,7 +18,7 @@ export default class RequestForm extends preact.Component {
         let body = [];
         switch(this.props.request_data['type']) {
             case 'rectification':
-                body.push( // TODO: Also internationalize new features
+                body.push(
                     <DynamicInputContainer key="rectification_data" id="rectification_data" title={t('rectification-data', 'generator')} fields={this.props.request_data['rectification_data']} hasPrimary={false} onChange={this.props.onChange}>
                         <MarkupText id="rectification-data-explanation" />
                     </DynamicInputContainer>

@@ -54,6 +54,7 @@
         "preact-cli": "^2.0.0",
         "preact-compat": "^3.18.0",
         "preact-i18n": "^1.2.0",
+        "preact-portal": "^1.1.3",
         "react-instantsearch": "^5.0.1",
         "sass-loader": "^7.0.1",
         "svg-url-loader": "^2.3.2",

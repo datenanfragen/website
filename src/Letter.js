@@ -19,7 +19,8 @@ export default class Letter {
             subject: props.subject || '',
             content: props.content || '',
             signature: props.signature || {type: 'text', value: '', name: ''},
-            reference_barcode: props.reference_barcode || {}
+            reference_barcode: props.reference_barcode || {},
+            reference: props.reference || ''
         };
         this.doc = {};
         this.updateDoc();
@@ -40,7 +41,8 @@ export default class Letter {
             subject: '',
             content: '',
             signature: {type: 'text', value: '', name: ''},
-            reference_barcode: {}
+            reference_barcode: {},
+            reference: ''
         };
     }
 
@@ -112,10 +114,10 @@ export default class Letter {
         return this.doc;
     }
 
-    toEmailString() {
-        let email = t('subject', 'generator') + ': ' + this.props.subject + '\n\n';
+    toEmailString(include_subject = false) {
+        let email = include_subject ? t('subject', 'generator') + ': ' + this.props.subject +  (this.props.reference ? ' (' + t('my-reference', 'generator') + ': ' + this.props.reference + ')' : '') + '\n\n' : '';
         email += this.props.information_block + '\n'
-         + Letter.stripTags(this.props.content) + (this.props.signature['type'] === 'text' ? '\n' + this.props.signature['name'] : '');
+            + Letter.stripTags(this.props.content) + '\n' + this.props.signature['name'];
         return email;
     }
 
@@ -145,6 +147,7 @@ export default class Letter {
         };
 
         return {
+            reference: request_object.reference,
             reference_barcode: Letter.barcodeFromText(request_object.reference),
             information_block: Letter.makeInformationBlock(request_object),
             subject: subjects[request_object.type],
