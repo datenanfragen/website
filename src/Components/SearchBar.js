@@ -1,7 +1,7 @@
 import preact from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
-import t from 'i18n';
-import Privacy, {PRIVACY_ACTIONS} from "./Privacy";
+import t from '../Utility/i18n';
+import Privacy, {PRIVACY_ACTIONS} from "../Utility/Privacy";
 
 export let SearchBar;
 

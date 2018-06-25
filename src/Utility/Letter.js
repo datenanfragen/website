@@ -1,4 +1,4 @@
-import t from 'i18n';
+import t from '../Utility/i18n';
 
 /**
  * {number} mm2pt({number}):

@@ -1,7 +1,7 @@
 import preact from 'preact';
-import { SearchBar } from "./SearchBar";
+import { SearchBar } from "./Components/SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
-import t from 'i18n';
+import t from 'Utility/i18n';
 
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
 const hero_rights = [ t("data-access", "home"), t("data-erasure", "home"), t("data-rectification", "home"), t("objection", "home"), t("privacy", "home") ];
