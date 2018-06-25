@@ -91,6 +91,15 @@ export default class RequestForm extends preact.Component {
                                onChange={this.props.onTypeChange} /> <label for="request-type-choice-custom"><Text id="own-request"/></label>
                     </div>
 
+                    <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
+                        <Text id="recipient-explanation"/><br />
+                        <textarea id="request-recipient" className="form-element" placeholder={t('recipient', 'generator')} rows="4" spellcheck="false" onChange={event => {
+                            this.props.onChange({'recipient_address': event.target.value});
+                        }} value={this.props.request_data['recipient_address']} />
+                        <label className="sr-only" for="request-recipient"><Text id="recipient"/></label>
+                        <input type="hidden" id="request-template" value="default" />
+                    </div>
+
                     <div className="request-transport-medium-chooser">
                         <Text id="request-transport-medium" /><br />
                         <input type="radio" id="request-transport-medium-choice-fax" name="transport-medium" value="fax" className="form-element" checked={this.props.request_data['transport_medium'] === 'fax'}
@@ -99,15 +108,6 @@ export default class RequestForm extends preact.Component {
                                onChange={this.props.onTransportMediumChange} /> <label for="request-transport-medium-choice-email"><Text id="email"/></label>
                         <input type="radio" id="request-transport-medium-choice-letter" name="transport-medium" value="letter" className="form-element" checked={this.props.request_data['transport_medium'] === 'letter'}
                                onChange={this.props.onTransportMediumChange} /> <label for="request-transport-medium-choice-letter"><Text id="letter"/></label>
-                    </div>
-
-                    <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
-                        <Text id="recipient-explanation"/><br />
-                        <textarea id="request-recipient" className="form-element" placeholder={t('recipient', 'generator')} rows="4" spellcheck="false" onChange={event => {
-                            this.props.onChange({'recipient_address': event.target.value});
-                        }} value={this.props.request_data['recipient_address']} />
-                        <label className="sr-only" for="request-recipient"><Text id="recipient"/></label>
-                        <input type="hidden" id="request-template" value="default" />
                     </div>
 
                     {this.renderFlags()}

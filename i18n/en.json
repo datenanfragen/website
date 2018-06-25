@@ -131,6 +131,21 @@
         "social media": "social media",
         "telecommunication": "telecommunication",
         "travel": "travel",
-        "utility": "utility"
+        "utility": "utility",
+        "suggested": "suggested",
+        "other": "other"
+    },
+    "wizard": {
+        "suggested": "<p>Our wizard helps you identify companies that may store personal data on you and then send access requests to those.</p><p>We have kickstarted you with some companies that from our experience hold data on pretty much everyone in your country. In the next steps, we will suggests categories of companies to you that you may have interacted with. You can always add new companies through the search bar on the left or remove ones on the right.</p><p>Once you're happy with the selection, click ‘Next’ to head to the first category.</p>",
+        "commerce": "",
+        "entertainment": "",
+        "finance": "",
+        "insurance": "",
+        "social media": "",
+        "telecommunication": "",
+        "utility": "",
+        "other": "",
+        "next": "Next",
+        "finish": "Finish"
     }
 }

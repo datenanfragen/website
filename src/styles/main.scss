@@ -106,10 +106,15 @@ a #logo {
     left: 0;
 }
 
-.contact-table td:nth-child(1) {
-    font-weight: bold;
-    padding-right: 10px;
+#home-main-copy {
+    text-align: center;
+    font-weight: 200;
+    font-size: 1.8em;
 }
+
+/* Wizard */
+.wizard-tab { margin-right: 10px; }
+#wizard-buttons { float: right; }
 
 /* Blog */
 

@@ -131,6 +131,8 @@
         "social media": "Social Media",
         "telecommunication": "Telekommunikation",
         "travel": "Reise",
-        "utility": "Versorgung"
+        "utility": "Versorgung",
+        "suggested": "Empfohlen",
+        "other": "Sonstige"
     }
 }
