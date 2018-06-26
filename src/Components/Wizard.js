@@ -1,5 +1,6 @@
 import preact from "preact";
 import t from '../Utility/i18n';
+import { fetchCompanyNameBySlug } from '../Utility/companies';
 import { Text, MarkupText } from 'preact-i18n';
 import { SearchBar } from "../Components/SearchBar";
 
@@ -11,12 +12,22 @@ export default class Wizard extends preact.Component {
 
         this.state = {
             current_tab: 0,
-            selected_companies: { // TODO: Fill with actual suggested companies data
-                'schufa': 'SCHUFA Holding AG',
-                'adpublisher': 'adpublisher AG',
-                'creditreform-boniversum': 'Creditreform Boniversum GmbH'
-            }
+            selected_companies: []
         };
+
+        /* TODO: This is ridiculous. Best course of action is probably to generate that object in the deploy script. */
+        fetch(BASE_URL + 'db/suggested-companies/' + country + '.json')
+            .then(res => res.json()).then(json => {
+                json.forEach((slug) => {
+                    fetchCompanyNameBySlug(slug, (name) => {
+                        this.setState(prev => {
+                            prev.selected_companies[slug] = name;
+                            return prev;
+                        });
+                    });
+                })
+            }
+        );
 
         this.changeTab = this.changeTab.bind(this);
         this.addCompany = this.addCompany.bind(this);
@@ -57,8 +68,8 @@ export default class Wizard extends preact.Component {
                     {
                         this.state.current_tab === 0 ? '' :
                             <SearchBar id='aa-search-input' algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
-                               onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.slug, suggestion.name) }} placeholder={t('select-company', 'cdb')}
-                               facetFilters={this.state.current_tab === CATEGORIES.length - 1 ? [] : [ 'categories:' + CATEGORIES[this.state.current_tab] ]}
+                                       onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.slug, suggestion.name) }} placeholder={t('select-company', 'cdb')}
+                                       facetFilters={this.state.current_tab === CATEGORIES.length - 1 ? [] : [ 'categories:' + CATEGORIES[this.state.current_tab] ]}
                             />
                     }
 

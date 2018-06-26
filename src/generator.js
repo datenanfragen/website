@@ -4,6 +4,7 @@ import Letter from 'Utility/Letter';
 import { SearchBar } from "./Components/SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'Utility/i18n';
+import { fetchCompanyDataBySlug } from 'Utility/companies';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
@@ -100,7 +101,7 @@ class Generator extends preact.Component {
         if(batch_companies) {
             this.setState({batch: batch_companies.split(',')});
             if(this.state.batch && this.state.batch.length > 0) {
-                this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+                fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
             }
         }
 
@@ -332,15 +333,6 @@ class Generator extends preact.Component {
         this.renderRequest();
     }
 
-    fetchCompanyDataBySlug(slug, callback) {
-        try {
-            fetch(this.database_url + slug + '.json')
-                .then(res => res.json()).then(json => {callback(json)});
-        } catch(error) {
-            console.error(error.message); // TODO: Proper Error Handling
-        }
-    }
-
     newRequest() {
         this.setState(prev => {
             prev['request_data'] = {
@@ -374,7 +366,7 @@ class Generator extends preact.Component {
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
 
         if(this.state.batch && this.state.batch.length > 0) {
-            this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+            fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
         }
     }
 
