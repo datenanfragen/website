@@ -25,7 +25,6 @@ export default class Wizard extends preact.Component {
 
     changeTab(next) {
         this.setState({ current_tab: next >= CATEGORIES.length ? 0 : next });
-        console.log(CATEGORIES[this.state.current_tab]);
     }
 
     addCompany(slug, name) {
@@ -55,9 +54,13 @@ export default class Wizard extends preact.Component {
                 </div>
 
                 <div id="wizard-selector" className="col50">
-                    {/* TODO: Use faceting to only show results from the relevant category. */}
-                    <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
-                               onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.slug, suggestion.name) }} placeholder={t('select-company', 'cdb')} debug={false} style="margin-top: 15px;" />
+                    {
+                        this.state.current_tab === 0 ? '' :
+                            <SearchBar id='aa-search-input' algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
+                               onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.slug, suggestion.name) }} placeholder={t('select-company', 'cdb')}
+                               facetFilters={this.state.current_tab === CATEGORIES.length - 1 ? [] : [ 'categories:' + CATEGORIES[this.state.current_tab] ]}
+                            />
+                    }
 
                     <MarkupText id={CATEGORIES[this.state.current_tab]}/>
                 </div>

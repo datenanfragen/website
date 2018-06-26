@@ -21,8 +21,21 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.ALGOLIA_SEARCH)) {
         }
 
         componentDidMount() {
-            this.algolia_autocomplete = autocomplete('#' + this.props.id, {hint: false}, {
-                source: autocomplete.sources.hits(this.index, {hitsPerPage: 5}),
+            let options = {
+                hitsPerPage: this.props.numberOfHits || 5
+            };
+            if(this.props.facetFilters) options['facetFilters'] = this.props.facetFilters;
+
+            this.algolia_autocomplete = autocomplete('#' + this.props.id, { hint: false }, {
+                source: (query, callback) => {
+                    this.index.search(query, options)
+                        .then(
+                            answer => {
+                                callback(answer.hits);
+                            },
+                            () => { /* TODO: Error handling. */ });
+                },
+                // source: autocomplete.sources.hits(this.index, {hitsPerPage: 5}),
                 displayKey: 'name',
                 templates: {
                     suggestion: function (suggestion) {
