@@ -136,16 +136,17 @@
         "other": "other"
     },
     "wizard": {
-        "suggested": "<p>Our wizard helps you identify companies that may store personal data on you and then send access requests to those.</p><p>We have kickstarted you with some companies that from our experience hold data on pretty much everyone in your country. In the next steps, we will suggests categories of companies to you that you may have interacted with. You can always add new companies through the search bar on the left or remove ones on the right.</p><p>Once you're happy with the selection, click ‘Next’ to head to the first category.</p>",
-        "commerce": "",
-        "entertainment": "",
-        "finance": "",
-        "insurance": "",
-        "social media": "",
-        "telecommunication": "",
-        "utility": "",
-        "other": "",
+        "suggested": "<p>The first step to taking back control over your data is knowing what data companies have stored on you. Our wizard helps you identify companies that may store personal data on you and then send GDPR access requests to them.</p><p>On the right, we have kickstarted your list with some companies. Looks like a lot and you don't recognize most of them? Tell us about it! From our experience, these companies hold data on pretty much everyone in your country. We believe it is thus all the more important to ask them about your personal data.</p><p>In addition to those, we will suggest categories of companies to you that you may have actually interacted with in the next few steps. You can then add more companies from those categories and of course always remove previously added companies if you decide differently.</p><p>Once you're happy with the selection, click ‘Next’ to head to the first category.</p>",
+        "commerce": "<p>Let's start with commerce. Shopping a lot on Amazon or Ebay? You probably know already that online shops like to collect plenty of personal data on their users, so be sure to add the ones you use or have used in the past.</p><p>Worryingly, brick-and-mortar stores are also increasingly profiling their customers and we suggest at least adding the ones you visit regularly or where they have actively asked you for your data.</p><p>To add a company, just use the search bar above.</p>",
+        "entertainment": "<p>Do you remember what movie you last watched on Netflix, what the song with the most plays on your Spotify account is or how many hours you have spent playing your favorite steam game? Those companies certainly do.</p>",
+        "social media": "<p>If you are a member of any social network (like Facebook, WhatsApp, Twitter and Google+), don't forget to add those.</p>",
+        "finance": "<p>You likely have at least a bank account and maybe a separate credit card. But this category also includes payment providers like PayPal and Patreon.<br>Or maybe you have traded in crypto currency at some exchange?</p>",
+        "insurance": "<p>This category should be fairly obvious. Just don't forget that companies will often sell you insurances for non-obvious things these days, including travel and small electronic device purchases.</p>",
+        "telecommunication": "<p>Your phone provider and ISP may remember all your calls for billing purposes. We also recommend asking your email provider for what data they save on you—let's hope they don't scan your emails!<br>If you run a website, also ask your hoster and domain registrar.</p>",
+        "utility": "<p>Hang in there, we are almost done. By utilities, we mean gas, power, water, sewage etc. but also things like public transport.</p>",
+        "other": "<p>Phew, you have reached the last category. Thanks for sticking with us!</p><p>Of course, there are way too many diverse companies out there for us to fit them all into a category. In this last step, you can search through our entire database to catch all companies we've missed in the previous steps.</p><p>Once you've added all companies you want, click the ‘Finish’ button to go to the generator where we will actually generate the requests to the companies you have selected.</p>",
         "next": "Next",
-        "finish": "Finish"
+        "finish": "Finish",
+        "search-company": "Search for “{{category}}” companies…"
     }
 }

@@ -4,7 +4,7 @@ import { fetchCompanyNameBySlug } from '../Utility/companies';
 import { Text, MarkupText } from 'preact-i18n';
 import { SearchBar } from "../Components/SearchBar";
 
-const CATEGORIES = [ 'suggested', 'commerce', 'entertainment', 'finance', 'insurance', /*'public body',*/ 'social media', 'telecommunication', 'utility', 'other' ];
+const CATEGORIES = [ 'suggested', 'commerce', 'entertainment', 'social media', 'finance', 'insurance', 'telecommunication', 'utility', /*'public body',*/ 'other' ];
 
 export default class Wizard extends preact.Component {
     constructor(props) {
@@ -68,11 +68,12 @@ export default class Wizard extends preact.Component {
                     {
                         this.state.current_tab === 0 ? '' :
                             <SearchBar id='aa-search-input' algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
-                                       onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.slug, suggestion.name) }} placeholder={t('select-company', 'cdb')}
+                                       onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.slug, suggestion.name) }} placeholder={t('search-company', 'wizard', { category: t(CATEGORIES[this.state.current_tab], 'categories') })}
                                        facetFilters={this.state.current_tab === CATEGORIES.length - 1 ? [] : [ 'categories:' + CATEGORIES[this.state.current_tab] ]}
                             />
                     }
 
+                    {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
                     <MarkupText id={CATEGORIES[this.state.current_tab]}/>
                 </div>
                 <div id="wizard-selected" className="col50">
