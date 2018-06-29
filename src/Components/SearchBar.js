@@ -24,6 +24,10 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.ALGOLIA_SEARCH)) {
             let options = {
                 hitsPerPage: this.props.numberOfHits || 5
             };
+            if(!this.props.disableCountryFiltering) {
+                if(!this.props.facetFilters) this.props.facetFilters = [];
+                this.props.facetFilters.push([ 'relevant-countries:' + country, 'relevant-countries:all' ]);
+            }
             if(this.props.facetFilters) options['facetFilters'] = this.props.facetFilters;
 
             this.algolia_autocomplete = autocomplete('#' + this.props.id, { hint: false }, {
@@ -35,7 +39,6 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.ALGOLIA_SEARCH)) {
                             },
                             () => { /* TODO: Error handling. */ });
                 },
-                // source: autocomplete.sources.hits(this.index, {hitsPerPage: 5}),
                 displayKey: 'name',
                 templates: {
                     suggestion: function (suggestion) {
