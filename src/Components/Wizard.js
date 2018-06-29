@@ -56,34 +56,36 @@ export default class Wizard extends preact.Component {
     render() {
         let tabs = [];
         CATEGORIES.forEach((category, i) => {
-            tabs.push(<WizardTab desc={t(category, 'categories')} index={i} clickCallback={this.changeTab} />);
+            tabs.push(<WizardTab desc={t(category, 'categories')} index={i} isCurrent={this.state.current_tab === i} clickCallback={this.changeTab} />);
         });
         return (
-            <div id="wizard">
+            <div id="wizard" className="box">
                 <div id="wizard-tabs">
                     {tabs}
                 </div>
 
-                <div id="wizard-selector" className="col50">
-                    {
-                        this.state.current_tab === 0 ? '' :
-                            <SearchBar id='aa-search-input' algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
-                                       onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.slug, suggestion.name) }} placeholder={t('search-company', 'wizard', { category: t(CATEGORIES[this.state.current_tab], 'categories') })}
-                                       facetFilters={this.state.current_tab === CATEGORIES.length - 1 ? [] : [ 'categories:' + CATEGORIES[this.state.current_tab] ]}
-                            />
-                    }
+                <div id="wizard-inner">
+                    <div id="wizard-selector" className="col50">
+                        {
+                            this.state.current_tab === 0 ? '' :
+                                <SearchBar id='aa-search-input' algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
+                                           onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.slug, suggestion.name) }} placeholder={t('search-company', 'wizard', { category: t(CATEGORIES[this.state.current_tab], 'categories') })}
+                                           facetFilters={this.state.current_tab === CATEGORIES.length - 1 ? [] : [ 'categories:' + CATEGORIES[this.state.current_tab] ]}
+                                />
+                        }
 
-                    {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
-                    <MarkupText id={CATEGORIES[this.state.current_tab]}/>
+                        {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
+                        <MarkupText id={CATEGORIES[this.state.current_tab]}/>
+                        <div id="wizard-buttons">
+                            <button className="button-primary button-small" onClick={() => { this.changeTab(this.state.current_tab + 1)} }><Text id="next"/></button> <button className="button-secondary button-small" onClick={() => { location.href = BASE_URL + '/generator?companies=' + Object.keys(this.state.selected_companies).join(',') }}><Text id="finish"/></button>
+                        </div>
+                        <div className="clearfix" />
+                    </div>
+                    <div id="wizard-selected" className="col50">
+                        <SelectedCompaniesList companies={this.state.selected_companies} removeCallback={this.removeCompany} />
+                    </div>
+                    <div className="clearfix" />
                 </div>
-                <div id="wizard-selected" className="col50">
-                    <SelectedCompaniesList companies={this.state.selected_companies} removeCallback={this.removeCompany} />
-                </div>
-                <div className="clearfix" />
-                <div id="wizard-buttons">
-                    <button className="button-primary button-small" onClick={() => { this.changeTab(this.state.current_tab + 1)} }><Text id="next"/></button> <button className="button-secondary button-small" onClick={() => { location.href = BASE_URL + '/generator?companies=' + Object.keys(this.state.selected_companies).join(',') }}><Text id="finish"/></button>
-                </div>
-                <div className="clearfix" />
             </div>
         );
     }
@@ -91,7 +93,7 @@ export default class Wizard extends preact.Component {
 
 class WizardTab extends preact.Component {
     render() {
-        return <span class="wizard-tab"><a onClick={() => {this.props.clickCallback(this.props.index)}}>{this.props.desc}</a></span>;
+        return <a onClick={() => {this.props.clickCallback(this.props.index)}}><span className={'wizard-tab' + (this.props.isCurrent ? ' wizard-tab-current' : '')}>{this.props.desc}</span></a>;
     }
 }
 

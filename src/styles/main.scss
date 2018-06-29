@@ -113,8 +113,37 @@ a #logo {
 }
 
 /* Wizard */
-.wizard-tab { margin-right: 10px; }
+#wizard-tabs { margin-bottom: 10px; }
+.wizard-tab {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid $gray-color;
+    border-radius: 5px;
+    background-color: $bg-accent-color;
+    color: $text-color;
+    font-size: 0.9em;
+}
+.wizard-tab-current { background-color: $accent-lighter-color; }
 #wizard-buttons { float: right; }
+#wizard {
+    margin: 50px 0;
+}
+#wizard-inner {
+    position: relative;
+    overflow: hidden;
+    min-height: 450px;
+}
+#wizard-selected {
+    position: absolute;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+}
+#wizard-selected button { margin-right: 5px; }
 
 /* Blog */
 
