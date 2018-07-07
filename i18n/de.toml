@@ -78,14 +78,8 @@ other = "Impressum"
 
 # Footer
 
-[footer-privacy-controls]
-other = "Datenschutzeinstellungen"
-
-[footer-privacy-policy]
-other = "Datenschutzerklärung"
-
-[footer-legal-notice]
-other = "Impressum"
+[footer-about-us]
+other = "Wir sind der Datenanfragen.de e.&nbsp;V., ein gemeinnütziger Verein, der es sich zur Aufgabe gemacht hat, Dir bei der Ausübung Deines Rechts auf Datenschutz zu helfen. <a>Erfahre mehr.</a>"
 
 [footer-other-langs]
 other = "Auch verfügbar auf: "

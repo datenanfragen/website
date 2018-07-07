@@ -71,14 +71,11 @@ other = "Contact"
 
 # Footer
 
-[footer-privacy-controls]
-other = "Privacy controls"
+[footer-about-us]
+other = "We are Datenanfragen.de e.&nbsp;V., a registered non-profit from Germany. We have made it our mission to help you exercise your right to privacy. <a>Learn more.</a>"
 
-[footer-privacy-policy]
-other = "Privacy policy"
-
-[footer-legal-notice]
-other = "Legal notice and contact data"
+[footer-other-langs]
+other = "Also available in: "
 
 # Languages
 [de]
@@ -86,11 +83,6 @@ other = "German (Deutsch)"
 
 [en]
 other = "English"
-
-# Footer
-
-[footer-other-langs]
-other = "Also available in: "
 
 # Home
 

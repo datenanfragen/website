@@ -17,6 +17,6 @@ find . -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.de.md"' {} \;
 # --- Run Webpack and Hugo ---
 cd ../..
 yarn run build
-hugo
+hugo --config config.toml,config-menus.toml # TODO: This will (hopefully) produce a merge conflict when !23 is merged. `config-menus.toml` just has to be added to both `deploy-branch.sh` and `deploy.sh`
 # The Netlify _redirect config has to be in /public
 cp _redirects public/_redirects

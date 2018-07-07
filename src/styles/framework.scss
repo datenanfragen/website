@@ -8,6 +8,9 @@
 .col33 { width: 33.333333%; float: left; }
 .col30 { width: 30%; float: left; }
 .col25 { width: 25%; float: left; }
+.col22 { width: 22.222222%; float: left; }
+.col16 { width: 16.666666%; float: left; }
+.col15 { width: 15%; float: left; }
 .col10 { width: 10%; float: left; }
 .clearfix { clear: both; }
 .after-absolute { width: 100%; position: relative; float: left; }
@@ -35,11 +38,11 @@ h1, h2, h3 {
 h1 { font-size: 1.7em; }
 h2 { font-size: 1.4em; }
 
-a, a:active, a:focus, a:visited {
+a, a:visited {
     color: $accent-color;
     text-decoration: none;
 }
-a:hover, a:active { color: $accent-darker-color; }
+a:hover, a:active, a:focus { color: $accent-darker-color; }
 
 img { max-width: 100%; }
 img.image {
