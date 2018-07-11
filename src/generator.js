@@ -7,6 +7,7 @@ import t from 'Utility/i18n';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
+import {ErrorException, rethrow} from "./Utility/errors";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -93,7 +94,7 @@ class Generator extends preact.Component {
             });
         };
         this.pdfWorker.onerror = (error) => {
-            console.log('Worker Error', error); // TODO: Proper error handling
+            rethrow(error, 'PdfWorker error');
         };
 
         let batch_companies = findGetParamter('companies');
@@ -337,7 +338,7 @@ class Generator extends preact.Component {
             fetch(this.database_url + slug + '.json')
                 .then(res => res.json()).then(json => {callback(json)});
         } catch(error) {
-            console.error(error.message); // TODO: Proper Error Handling
+            rethrow(error, 'Fetching company data by slug failed.');
         }
     }
 
@@ -420,7 +421,9 @@ class Generator extends preact.Component {
                 slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
                 recipient: this.state.request_data.recipient_address,
                 via: this.state.request_data.transport_medium
-            }).catch(() => { console.log('Failed to save request with reference ' + this.state.request_data['reference']); /* TODO: Proper error handling. */ });
+            }).catch((error) => {
+                rethrow(error, 'Saving request failed.', { reference: this.state.request_data['reference'] });
+            });
         }
     }
 }

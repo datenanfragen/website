@@ -118,6 +118,12 @@
         "save_id_data": "Remember identification data",
         "save_id_data-description": "To make sending new requests easier, we can save your identification data for you. TODO: Explain how this works and how to delete the data afterwards."
     },
+    "error-handler": {
+        "explanation": "Unfortunately, an unexpected error just occurred. We would really appreciate if you took the time to send us an error report via GitHub or email, so we can diagnose the problem. Huge thanks in advance!",
+        "explain-context": "If applicable, please provide some context for the error, i.e. describe what you did before the error occurred. Please also remove any sensitive information from the debug information below.",
+        "report-on-github": "Report on GitHub",
+        "report-via-email": "Report via email"
+    },
     "categories": {
         "addresses": "addresses",
         "ads": "ads",

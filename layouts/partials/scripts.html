@@ -3,6 +3,7 @@
     const I18N_DEFINITION = {{ readFile (delimit (slice "i18n/" .Site.Language.Lang ".json") "") | safeJS }};
     const BASE_URL = {{ "/" | absURL }};
 </script>
+<script src="{{ "js/error-handler.gen.js" | absURL }}"></script>
 
 {{ if eq .Type "generator" }}
 <script src="{{ "js/generator.gen.js" | absURL }}"></script>
