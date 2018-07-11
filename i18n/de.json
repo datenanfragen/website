@@ -118,6 +118,12 @@
         "save_id_data": "Identifikationsdaten speichern",
         "save_id_data-description": "Um Dir das Senden neuer Anfragen zu erleichern, können wir Deine Identifikationsdaten für Dich speichern. TODO: Explain how this works and how to delete the data afterwards."
     },
+    "error-handler": {
+        "explanation": "Es ist leider ein unerwarteter Fehler aufgetreten. Wir wären Dir sehr dankbar, wenn Du Dir die Zeit nehmen würdest, uns eine Fehlermeldung über GitHub oder per E-Mail zu senden, sodass wir das Problem diagnostizieren können. Vielen Dank schon einmal!",
+        "explain-context": "Bitte gib uns wenn möglich ein bisschen Kontext für Deine Fehlermeldung. Beschreib also z. B., was Du getan hast, bevor der Fehler aufgetreten ist. Bitte entferne auch alle privaten Daten aus den Debuginformationen weiter unten.",
+        "report-on-github": "Über GitHub melden",
+        "report-via-email": "Per E-Mail melden"
+    },
     "categories": {
         "addresses": "Adressen",
         "ads": "Werbung",

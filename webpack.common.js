@@ -7,6 +7,7 @@ const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
 
 module.exports = {
     entry: {
+        'error-handler': './src/error-handler.js',
         'home': './src/home.js',
         'generator': './src/generator.js',
         'company-list': './src/company-list.js',
