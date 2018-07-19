@@ -152,3 +152,17 @@ footer a, footer a:visited {
 footer a:active, footer a:focus, footer a:hover {
     color: $primary-color;
 }
+
+@media (max-width: 768px) {
+    .footer-col {
+        width: 100%;
+        float: none;
+    }
+
+    #main-nav { float: none; }
+    #menu-items .button {
+        margin: 0;
+        display: block;
+        text-align: center;
+    }
+}
