@@ -168,7 +168,7 @@ other = "Quellen:"
 other = "Hinweise:"
 
 [cdb-help-needed]
-other = "Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Wir freuen uns über Deine <a href=\"https://github.com/datenanfragen/companies\">Mithilfe</a>!"
+other = "Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Wir freuen uns über Deine <a href=\"https://github.com/datenanfragen/data\">Mithilfe</a>!"
 
 # Blog
 
