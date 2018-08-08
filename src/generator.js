@@ -60,7 +60,8 @@ class Generator extends preact.Component {
             batch: [],
             batch_position: 0,
             modal_showing: '',
-            response_type: ''
+            response_type: '',
+            complaint_authority: null
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
@@ -122,11 +123,11 @@ class Generator extends preact.Component {
                                     request_date: request.date,
                                     request_recepient_address: request.recipient // TODO: Fix typo in template
                                 });
-                                if(response_type === 'admonition') {
+                                if (response_type === 'admonition') {
                                     prev.request_data['via'] = request.via;
                                     prev.request_data['recipient_address'] = request.recipient;
                                 }
-                                prev.request_data['reference'] = response_to; // TODO: Does a complaint get a new reference?
+                                //prev.request_data['reference'] = response_to; // TODO: Reference to information block
                                 prev.response_type = response_type;
                                 prev.request_data['type'] = 'custom';
                                 return prev;
@@ -134,6 +135,7 @@ class Generator extends preact.Component {
                             this.renderRequest();
                         });
                     });
+                if (response_type === 'complaint') this.showModal('choose_authority');
             }
         }
 
@@ -236,6 +238,24 @@ class Generator extends preact.Component {
                         this.newRequest();
                     }} positiveDefault={true} onDismiss={this.hideModal}>
                         <Text id='modal-new-request' />
+                    </Modal>);
+                     break;
+                case 'choose_authority': // TODO: Logic
+                    modal = (<Modal positiveText={t('select', 'generator')} negativeText={t('cancel', 'generator')}
+                                    onNegativeFeedback={() => {this.hideModal(); this.setState({complaint_authority: null});}} onPositiveFeedback={() => {
+                                        this.hideModal();
+                                        this.setState(prev => {
+                                            let authority = this.state['complaint_authority'];
+                                            this.setCompany(authority);
+                                            this.renderRequest();
+                                        }); // TODO: Show other authority information (e.g. PGP Key) somewhere
+                                    }}
+                                    positiveDefault={true} onDismiss={() => {this.hideModal(); this.setState({complaint_authority: null});}}>
+                        <Text id='modal-select-authority' />
+                        <SearchBar id="aa-authority-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='supervisory-authorities'
+                                   onAutocompleteSelected={(event, suggestion, dataset) => {
+                                        this.setState({complaint_authority: suggestion});
+                                   }} placeholder={t('select-authority', 'generator')} debug={true} style="margin-top: 15px;" /> {/* TODO: Only show relevant countries */}
                     </Modal>);
             }
         }

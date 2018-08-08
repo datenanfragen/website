@@ -36,21 +36,21 @@ export default class RequestForm extends preact.Component {
                     <div>
                         <h2><Text id="own-request" /></h2>
                         <div className="form-group">
-                            <label for="custom-subject-input" className="sr-only"><Text id="subject" /></label>
-                            <input type="text" id="custom-subject-input" name="subject" className="form-element" placeholder={t('subject', 'generator')} onChange={this.props.onLetterChange} value={this.props.request_data.custom_data['subject']}/>
-                        </div>
-                        <div className="form-group">
-                            <label for="custom-content-input" className="sr-only"><Text id="content"/></label>
-                            <textarea type="text" id="custom-content-input" name="content" className="form-element" placeholder={t('content', 'generator')} onChange={this.props.onLetterChange} style="height: 200px;" >{this.props.request_data.custom_data['content']}</textarea>
-                            <div id="tagxplanation"><MarkupText id="tagxplanation" /></div>
-                        </div>
-                        <div className="form-group">
                             <label for="custom-template-select" className="sr-only"><Text id="template"/></label>
                             <select type="text" id="custom-template-select" name="template" className="form-element" placeholder={t('template', 'generator')} onChange={this.props.onLetterTemplateChange}>
                                 <option value="no-template" checked={true}><Text id="no-template"/></option>
                                 <option value="admonition"><Text id="admonition"/></option>
                                 <option value="complaint"><Text id="complaint"/></option>
                             </select>
+                        </div>
+                        <div className="form-group">
+                            <label for="custom-subject-input" className="sr-only"><Text id="subject" /></label>
+                            <input type="text" id="custom-subject-input" name="subject" className="form-element" placeholder={t('subject', 'generator')} onChange={this.props.onLetterChange} value={this.props.request_data.custom_data['subject']}/>
+                        </div>
+                        <div className="form-group">
+                            <label for="custom-content-input" className="sr-only"><Text id="content"/></label>
+                            <textarea type="text" id="custom-content-input" name="content" className="form-element" placeholder={t('content', 'generator')} onChange={this.props.onLetterChange} style="height: 200px;" value={this.props.request_data.custom_data['content']} />
+                            <div id="tagxplanation"><MarkupText id="tagxplanation" /></div>
                         </div>
                     </div>,
                     <div>

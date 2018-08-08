@@ -18,6 +18,8 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.ALGOLIA_SEARCH)) {
 
             this.algolia_autocomplete = null;
             this.input_element = null;
+
+            this.suggestionTemplate = this.suggestionTemplate.bind(this);
         }
 
         componentDidMount() {
@@ -25,17 +27,19 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.ALGOLIA_SEARCH)) {
                 source: autocomplete.sources.hits(this.index, {hitsPerPage: 5}),
                 displayKey: 'name',
                 templates: {
-                    suggestion: function (suggestion) {
-                        return '<span><strong>' + suggestion._highlightResult.name.value + '</strong></span>'
-                            + (suggestion._highlightResult.runs ? '<br><span>' + t('also-runs', 'search') + suggestion._highlightResult.runs.map(e => e.value).join(', ') + '</span>' : '')
-                            + (suggestion._highlightResult.categories ? '<br><span>' + t('categories', 'search') + suggestion._highlightResult.categories.map(e => t(e.value, 'categories')).join(', ') + '</span>' : '');
-                    },
+                    suggestion: this.suggestionTemplate,
                     footer: '<div class="algolia-branding"><a href="https://www.algolia.com"><img src="/img/search-by-algolia.svg"></a></div>'
                 },
                 debug: this.props.debug || false
             });
             this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
             if (typeof this.props.setupPlaceholderChange === 'function') this.props.setupPlaceholderChange(this.input_element);
+        }
+
+        suggestionTemplate(suggestion) {
+            return '<span><strong>' + suggestion._highlightResult.name.value + '</strong></span>' + (this.props.index === 'companies' ? ''
+                + (suggestion._highlightResult.runs ? '<br><span>' + t('also-runs', 'search') + suggestion._highlightResult.runs.map(e => e.value).join(', ') + '</span>' : '')
+                + (suggestion._highlightResult.categories ? '<br><span>' + t('categories', 'search') + suggestion._highlightResult.categories.map(e => t(e.value, 'categories')).join(', ') + '</span>' : '') : '');
         }
 
         render() {
