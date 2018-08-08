@@ -103,7 +103,11 @@
         "request-date": "Datum der Anfrage",
         "request-transport-medium": "Wie möchtest du die Anfrage versenden?",
         "by-fax": "Via Fax: ",
-        "cancel": "Abbrechen"
+        "cancel": "Abbrechen",
+        "template": "Template",
+        "no-template": "Kein Template",
+        "admonition": "Mahnung",
+        "complaint": "Beschwerde"
     },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",

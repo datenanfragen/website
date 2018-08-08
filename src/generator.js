@@ -78,6 +78,7 @@ class Generator extends preact.Component {
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
+        this.handleLetterTemplateChange = this.handleLetterTemplateChange.bind(this);
         this.handleTransportMediumChange = this.handleTransportMediumChange.bind(this);
         this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
@@ -169,7 +170,9 @@ class Generator extends preact.Component {
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div className="col50 box">
-                        <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}/>
+                        <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange}
+                                     onTransportMediumChange={this.handleTransportMediumChange} onLetterTemplateChange={this.handleLetterTemplateChange}
+                                     request_data={this.state.request_data}/>
                     </div>
                     <div className="col50 box" style="min-height: 500px; float: right;">
                         {company_info}
@@ -309,6 +312,19 @@ class Generator extends preact.Component {
             });
         }
         this.renderRequest();
+    }
+
+    handleLetterTemplateChange(event) {
+        if(event.target.value && event.target.value !== "no-template") {
+            fetch(this.template_url + event.target.value + '.txt')
+                .then(res => res.text()).then(text => {
+                    this.setState(prev => {
+                        prev.request_data.custom_data['content'] = text;
+                        return prev;
+                    });
+                    this.renderRequest();
+                });
+        }
     }
 
     handleTransportMediumChange(event) {
