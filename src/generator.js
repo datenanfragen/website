@@ -59,7 +59,8 @@ class Generator extends preact.Component {
             download_filename: '',
             batch: [],
             batch_position: 0,
-            modal_showing: ''
+            modal_showing: '',
+            response_type: ''
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
@@ -102,6 +103,37 @@ class Generator extends preact.Component {
             this.setState({batch: batch_companies.split(',')});
             if(this.state.batch && this.state.batch.length > 0) {
                 this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+            }
+        }
+
+        const request_articles = {'access': 15, 'erasure': 17, 'rectification': 16};
+
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
+            let response_to = findGetParamter('response_to');
+            let response_type = findGetParamter('response_type');
+            if(response_to && response_type) {
+                localforage.getItem(response_to)
+                    .then(request => {
+                        fetch(this.template_url + response_type + '.txt')
+                            .then(res => res.text()).then(text => {
+                            this.setState(prev => {
+                                prev.request_data.custom_data['content'] = Letter.handleTemplate(text, [], {
+                                    request_article: request_articles[request.type],
+                                    request_date: request.date,
+                                    request_recepient_address: request.recipient // TODO: Fix typo in template
+                                });
+                                if(response_type === 'admonition') {
+                                    prev.request_data['via'] = request.via;
+                                    prev.request_data['recipient_address'] = request.recipient;
+                                }
+                                prev.request_data['reference'] = response_to; // TODO: Does a complaint get a new reference?
+                                prev.response_type = response_type;
+                                prev.request_data['type'] = 'custom';
+                                return prev;
+                            });
+                            this.renderRequest();
+                        });
+                    });
             }
         }
 
@@ -378,7 +410,8 @@ class Generator extends preact.Component {
                     subject: '',
                     sender_address: prev['request_data']['custom_data']['sender_address'],
                     name: prev['request_data']['custom_data']['name']
-                }
+                },
+                response_type: ''
             };
             prev['suggestion'] = null;
             prev['download_active'] = false;
