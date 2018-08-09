@@ -60,8 +60,10 @@
         "react-instantsearch": "^5.0.1",
         "react-scrollspy": "^3.3.5",
         "sass-loader": "^7.0.1",
+        "svg-pathdata": "^5.0.2",
         "svg-url-loader": "^2.3.2",
         "typesense": "^0.2.0",
+        "svgicons2svgfont": "^9.0.3",
         "webpack": "^4.2.0",
         "webpack-cli": "^3.0.8",
         "webpack-merge": "^4.1.2"

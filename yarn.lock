@@ -8265,7 +8265,7 @@ supports-color@^5.1.0, supports-color@^5.3.0, supports-color@^5.4.0:
   dependencies:
     has-flag "^3.0.0"
 
-svg-pathdata@^5.0.0:
+svg-pathdata@^5.0.0, svg-pathdata@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/svg-pathdata/-/svg-pathdata-5.0.2.tgz#e667b94a6071b60c5b123df04f9d6c9fe2f4850e"
 
@@ -8287,7 +8287,7 @@ svg2ttf@4.1.0:
     svgpath "^2.1.5"
     xmldom "~0.1.22"
 
-svgicons2svgfont@9.0.3:
+svgicons2svgfont@9.0.3, svgicons2svgfont@^9.0.3:
   version "9.0.3"
   resolved "https://registry.yarnpkg.com/svgicons2svgfont/-/svgicons2svgfont-9.0.3.tgz#441d14b21076a03ac242a0cf7a402cfbab4ce3d3"
   dependencies:

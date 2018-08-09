@@ -1,0 +1,33 @@
+cache:
+  paths:
+  - node_modules/
+
+variables:
+  HUGO_VERSION: '0.46'
+  HUGO_BINARY: hugo_${HUGO_VERSION}_linux-64bit
+
+build:
+  stage: build
+  image: node:10-alpine
+  before_script:
+    - apk update
+    - apk add bash git wget py-pygments
+    - rm -rf /var/cache/apk/*
+    - mkdir /usr/local/hugo
+    - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz -O /usr/local/hugo/${HUGO_BINARY}.tar.gz
+    - tar xzf /usr/local/hugo/${HUGO_BINARY}.tar.gz -C /usr/local/hugo/
+    - ln -s /usr/local/hugo/hugo /usr/local/bin/hugo
+    - rm /usr/local/hugo/${HUGO_BINARY}.tar.gz
+    - rm -rf /tmp/* /var/cache/apk/*
+  script:
+    - yarn
+    - chmod +x deploy.sh
+    - ./deploy.sh
+  artifacts:
+    paths:
+      - public/
+
+test:
+  image: node:10-alpine
+  script:
+    - echo TODO
