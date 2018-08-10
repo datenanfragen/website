@@ -21,13 +21,26 @@ build:
     - rm -rf /tmp/* /var/cache/apk/*
   script:
     - yarn
-    - chmod +x deploy.sh
-    - ./deploy.sh
+    - export DEPLOY_PRIME_URL="http://localhost:8080"
+    - chmod +x deploy-branch.sh
+    - ./deploy-branch.sh
   artifacts:
     paths:
       - public/
 
 test:
   image: node:10-alpine
+  stage: test
+  dependencies:
+    - build
   script:
-    - echo TODO
+    - echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
+    - apk update
+    - apk add libexif udev chromium chromium-chromedriver xvfb dbus-x11 ttf-freefont firefox
+    - export CHROME_BIN=/usr/bin/chromium-browser
+    - export CHROME_PATH=/usr/lib/chromium/
+    - rm -rf /var/cache/apk/*
+    - yarn global add geckodriver
+    - yarn http-server ./public -s &
+    - yarn test
+    - exit 0
