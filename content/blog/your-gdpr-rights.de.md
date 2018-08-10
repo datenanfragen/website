@@ -10,7 +10,7 @@
 
 Datenschutz spielt in unserer immer stärker digitalisierten Welt von Tag zu Tag eine wichtigere Rolle. Mit der neuen **Datenschutz-Grundverordnung** (**DSGVO**) stärkt die Europäische Union Deine Rechte im Bezug auf einen sorgsamen Umgang mit Deinen personenbezogenen Daten deutlich.
 
-In diesem Artikel wollen wir Dir einen ausführlichen Überblick über die Rechte verschaffen, die Du dank der DSGVO hast. Wenn Du eher auf der Suche nach einer kurzen Zusammenfassung bist, dann schau doch einmal in [diesem Artikel]({{< ref "blog/a-quick-overview" >}}) vorbei.
+In diesem Artikel wollen wir Dir einen ausführlichen Überblick über die Rechte verschaffen, die Du dank der DSGVO hast. Wenn Du eher auf der Suche nach einer kurzen Zusammenfassung bist, dann schau doch einmal in [diesem Artikel]({{< ref "/blog/a-quick-overview" >}}) vorbei.
 
 ## Was ist die DSVGO?
 
@@ -88,6 +88,6 @@ Auch bei Anfragen zur Löschung von Daten gilt Art. 19 DSGVO und der Verantwortl
 
 ## Wie nutze ich diese Rechte?
 
-Grundsätzlich kannst Du alle genannten Rechte über einen formlosen Antrag gegenüber einem Unternehmen geltend machen. Gerne kannst Du auch [unsen Generator]({{< ref "generator" >}}) verwenden, um Anfragen automatisch generieren zu lassen und dabei auf unsere umfangreiche Unternehmensdatenbank zuzugreifen.
+Grundsätzlich kannst Du alle genannten Rechte über einen formlosen Antrag gegenüber einem Unternehmen geltend machen. Gerne kannst Du auch [unsen Generator]({{< ref "/generator" >}}) verwenden, um Anfragen automatisch generieren zu lassen und dabei auf unsere umfangreiche Unternehmensdatenbank zuzugreifen.
 
 <!-- Grundsätzlich kannst Du alle genannten Rechte über eine formlose Anfrage gegenüber einem Unternehmen geltend machen. Wie Du das konkret tun kannst und wie Dir [unser Generator]({{< ref "generator" >}}) dabei hilft, erfährst Du in [diesem Artikel](#). /* TODO: Write and link article. */ -->

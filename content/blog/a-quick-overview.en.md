@@ -26,7 +26,7 @@ Even if you have given your consent to the use of your data at some point, you m
 * **Right to data portability**  
 The information you provide to a company is yours. You have the right to receive this information from them in a common machine-readable format so that you can easily transfer it to another company.
 
-You can find an even more detailed overview in our [article about your rights under the GDPR]({{< ref "blog/your-gdpr-rights" >}}).
+You can find an even more detailed overview in our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
 
 ## How can I exercise these rights?
 
