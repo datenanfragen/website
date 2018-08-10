@@ -15,4 +15,4 @@ find . -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.de.md"' {} \;
 # --- Run Webpack and Hugo ---
 cd ../..
 yarn run build
-hugo --config config-branch.toml,config-dev.toml --baseURL $DEPLOY_PRIME_URL
+hugo --config config-branch.toml,config-dev.toml,config-menus.toml --baseURL $DEPLOY_PRIME_URL

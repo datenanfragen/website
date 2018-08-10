@@ -42,21 +42,46 @@
 <div class="container">
     {{ block "main" . }}
     {{ end }}
-
-    <footer>
-        {{ if .IsTranslated }}
-        {{ T "footer-other-langs" }}
-        {{ range .Translations }}
-        <a rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">{{ T .Lang }}</a>
-        {{ end}}
-        {{ end }}
-        <span style="float: right;">We <3 Datenschutz.
-        <a href="{{ "/privacy-controls" | absURL }}">{{ T "footer-privacy-controls" }}</a> &middot;
-        <a href="{{ "/privacy" | absURL }}">{{ T "footer-privacy-policy" }}</a> &middot;
-        <a href="{{ "/contact" | absURL }}">{{ T "footer-legal-notice" }}</a>
-    </span>
-    </footer>
 </div>
+<footer>
+    <div class="container">
+        <div class="col33 footer-col">
+            {{ T "footer-about-us" | safeHTML }}
+            <!-- TODO: Proper styling, will maybe be placed somewhere else (see #61). -->
+            {{ if .IsTranslated }}
+            <p>{{ T "footer-other-langs" }}
+                {{ range .Translations }}
+                <a rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">{{ T .Lang }}</a>
+                {{ end}}</p>
+            {{ end }}
+        </div>
+        <div class="col22 footer-col">
+            <ul>
+                {{ range .Site.Menus.footerleft }}
+                <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+                {{ .Post }}
+                {{ end }}
+            </ul>
+        </div>
+        <div class="col22 footer-col">
+            <ul>
+                {{ range .Site.Menus.footercenter }}
+                <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+                {{ .Post }}
+                {{ end }}
+            </ul>
+        </div>
+        <div class="col22 footer-col">
+            <ul>
+                {{ range .Site.Menus.footerright }}
+                <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+                {{ .Post }}
+                {{ end }}
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</footer>
 {{ partial "scripts" . }}
 {{ block "scripts" . }}
 {{ end }}
