@@ -160,10 +160,12 @@ class Generator extends preact.Component {
         return (
             <main>
                 {this.state.modal_showing}
-                <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
-                <div id="generator-controls">
-                    <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
-                </div>
+                <header id="generator-header">
+                    <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
+                    <div id="generator-controls">
+                        <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
+                    </div>
+                </header>
                 <div className="clearfix" />
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}

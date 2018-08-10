@@ -2,6 +2,7 @@
 @import "framework";
 @import "elements";
 @import "icons";
+@import "generator";
 
 /* Fancy placeholder labels, see https://jonathan-harrell.com/advanced-css-form-styling/ */
 label.fancy-label {
@@ -18,28 +19,6 @@ label.fancy-label {
 input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.fancy-label {
     opacity: 0;
     transform: translateY(1rem);
-}
-
-/* PDF Viewer */
-#pdf-viewer {
-    border: 0;
-    width: 100%;
-    height: 800px;
-}
-#pdf-viewer.empty {
-    display: none;
-}
-
-
-.dynamic-input-primaryButton[data-isprimary="true"] {
-    background: #00db20;
-}
-
-#signature {
-    border: 1px solid #000;
-}
-#tagxplanation {
-    font-size: 9pt;
 }
 
 /* Header */

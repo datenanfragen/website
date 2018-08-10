@@ -1,6 +1,6 @@
 @import "variables";
 
-.button, button {
+#{$button} {
     padding: 12px 24px;
     border: none;
     border-radius: 6px;
@@ -10,6 +10,7 @@
     text-decoration: none;
     cursor: pointer;
     appearance: none;
+    height: $button-height;
 }
 .button-primary, a.button-primary {
     background-color: $primary-color;
@@ -24,9 +25,10 @@
 }
 .button-small {
     padding: 5px 8px;
+    height: $button-height - 14px;
 }
 
-input[type=search], input[type=text], input[type=email], input[type=password], input[type=tel], input[type=url], input[type=number], input[type=date], textarea, select {
+#{$text-inputs} {
     border: none;
     padding: 7px;
     box-sizing: border-box;
@@ -35,14 +37,15 @@ input[type=search], input[type=text], input[type=email], input[type=password], i
     color: $primary-color;
     font-family: $body-font;
     font-size: $font-size - 2px;
+
+    &.form-element {
+        width: 100%;
+    }
 }
 textarea.form-element {
     max-width: 100%;
     min-width: 100%;
     line-height: 1.6;
-}
-input[type=search].form-element, input[type=text].form-element, input[type=email].form-element, input[type=password].form-element, input[type=tel].form-element, input[type=url].form-element, input[type=number].form-element, input[type=date].form-element, textarea.form-element, select.form-element {
-    width: 100%;
 }
 input::placeholder, textarea::placeholder {
     color: $gray-darker-color;
