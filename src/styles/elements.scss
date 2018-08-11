@@ -136,3 +136,18 @@ input::placeholder, textarea::placeholder {
     margin-top: 20px;
 }
 
+/* Accordion */
+
+.accordion-title {
+    margin-top: 15px;
+    font-size: $font-size;
+    font-weight: bold;
+
+    a {
+        color: $text-color;
+
+        .icon {
+            float: right;
+        }
+    }
+}

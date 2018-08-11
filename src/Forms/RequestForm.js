@@ -4,16 +4,9 @@ import SignatureInput from "./SignatureInput";
 import { MarkupText, Text } from 'preact-i18n';
 import t from '../Utility/i18n';
 import {AddressControl} from "./DynamicInput";
+import Accordion from "../Components/Accordion";
 
 export default class RequestForm extends preact.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            information_block: false
-        }
-    }
-
     render() {
         let body = [];
         switch(this.props.request_data['type']) {
@@ -59,21 +52,6 @@ export default class RequestForm extends preact.Component {
 
         if(this.props.request_data['transport_medium'] !== 'email') body.push(<SignatureInput id="signature" width={400} height={200} onChange={this.props.onChange}/>);
 
-        let information_block = [];
-        if(this.state.information_block) {
-            information_block =
-                (<div id="information-block-form">
-                    <div className="form-group">
-                        <label for="request-date"><Text id='request-date'/></label>
-                        <input name="request-date" type="date" id="request-date" className="form-element"
-                               onChange={e => this.props.onChange({'date': e.target.value})} value={this.props.request_data['date']} />
-                    </div>
-                    <textarea id="information-block" className="form-element" placeholder={t('information-block', 'generator')}
-                              rows="4" spellcheck="true" onChange={e => this.props.onChange({'information_block': e.target.value})}
-                              value={this.props.request_data['information_block']} />
-                </div>);
-        }
-
         return (
             <div className="request-form">
                 <div>
@@ -116,13 +94,19 @@ export default class RequestForm extends preact.Component {
 
                 {body}
 
-                <fieldset>
-                    <legend><a href="" onClick={e => {
-                        e.preventDefault();
-                        this.setState({information_block: !this.state.information_block});
-                    }}><Text id='information-block'/></a></legend>
-                    {information_block}
-                </fieldset>
+
+                <Accordion title={t('information-block', 'generator')} id="advanced-information">
+                    <div id="information-block-form">
+                        <div className="form-group">
+                            <label for="request-date"><Text id='request-date'/></label>
+                            <input name="request-date" type="date" id="request-date" className="form-element"
+                                   onChange={e => this.props.onChange({'date': e.target.value})} value={this.props.request_data['date']} />
+                        </div>
+                        <textarea id="information-block" className="form-element" placeholder={t('information-block', 'generator')}
+                                  rows="4" spellcheck="true" onChange={e => this.props.onChange({'information_block': e.target.value})}
+                                  value={this.props.request_data['information_block']} />
+                    </div>
+                </Accordion>
             </div>
         );
     }

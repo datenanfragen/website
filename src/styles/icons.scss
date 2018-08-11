@@ -19,3 +19,15 @@
     font-icon: url('trash.svg');
     vertical-align: -3px;
 }
+
+.icon-arrow-down:before {
+    @extend %icon;
+    font-icon: url('arrow-down.svg');
+    vertical-align: -3px;
+}
+
+.icon-arrow-up:before {
+    @extend %icon;
+    font-icon: url('arrow-up.svg');
+    vertical-align: -3px;
+}
