@@ -31,3 +31,14 @@
     font-icon: url('arrow-up.svg');
     vertical-align: -3px;
 }
+
+.icon-arrow-right:before {
+    @extend %icon;
+    font-icon: url('arrow-right.svg');
+    vertical-align: -3px;
+}
+.icon-arrow-left:before {
+    @extend %icon;
+    font-icon: url('arrow-left.svg');
+    vertical-align: -3px;
+}
