@@ -20,17 +20,22 @@
     <!-- TODO: Ideally, these would be sorted by their relevance but we need #40 for that. -->
     {{ .Scratch.Set "letter" " " }}
     {{ .Scratch.Set "numbers_done" false }}
+    {{ .Scratch.Set "first_entry" true }}
     {{ range (.Scratch.GetSortedMapValues "upper_title") }}
         {{ with $.Site.GetPage "page" (printf "company/%s" .) }}
             <!-- TODO: This changes with hugo 0.45! -->
             {{ if not (in "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ" (upper (substr .Params.name 0 1))) }}
                 {{ if (not ($.Scratch.Get "numbers_done")) }}
                     {{ $.Scratch.Set "numbers_done" true }}
-                    <a class="letter-anchor" name="numbers"  href="#numbers"><h2>#</h2></a>
+                    {{ if not ($.Scratch.Get "first_entry") }}</div>{{ end }}
+                    <div id="numbers-container" class="sorting-container"><a class="letter-anchor" href="#numbers"><h2>#</h2></a><a class="stickyproof-anchor" name="numbers"></a>
+                    {{ $.Scratch.Set "first_entry" false }}
                 {{ end }}
             {{ else if lt ($.Scratch.Get "letter") (upper (substr .Params.name 0 1))}}
                 {{ $.Scratch.Set "letter" (upper (substr .Params.name 0 1))}}
-                <a class="letter-anchor" name="{{ $.Scratch.Get "letter" }}"  href="#{{ $.Scratch.Get "letter" }}"><h2>{{ $.Scratch.Get "letter" }}</h2></a>
+                {{ if not ($.Scratch.Get "first_entry") }}</div>{{ end }}
+                <div id="{{ $.Scratch.Get "letter" }}-container" class="sorting-container"><a class="letter-anchor"  href="#{{ $.Scratch.Get "letter" }}"><h2>{{ $.Scratch.Get "letter" }}</h2></a><a class="stickyproof-anchor" name="{{ $.Scratch.Get "letter" }}"></a>
+                {{ $.Scratch.Set "first_entry" false }}
             {{ end }}
             {{ partial "summary-company.html" . }}
         {{ end }}

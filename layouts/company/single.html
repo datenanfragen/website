@@ -8,7 +8,7 @@
 
 {{ define "main" }}
 <main>
-    <input id="aa-search-input" class="aa-input-search" placeholder="{{ T "cdb-search-bar-placeholder" }}" type="search">
+    <div id="company-search"></div>
     <div id="company-details">
         {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ( apply . "T" "." ) ) ", " }}</p>{{ end }}
         {{ with .Params.runs }}

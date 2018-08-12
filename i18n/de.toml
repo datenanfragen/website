@@ -121,9 +121,6 @@ other = "Manche Unternehmen antworten sehr vorbildlich auf Anfragen, anderen bra
 [cdb-title]
 other = "Unternehmensdatenbank"
 
-[cdb-search-bar-placeholder]
-other = "Anderes Unternehmen suchen…"
-
 [cdb-company-title]
 other = "{{ .Params.name }}: Datenschutz-Kontaktdaten"
 

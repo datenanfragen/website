@@ -178,3 +178,33 @@ select {
         }
     }
 }
+
+/* TextScroll */
+
+.textscroll {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-left: 0;
+
+    li {
+        display: block;
+        text-align: center;
+        flex: 1;
+        border-radius: 2px;
+
+        &.active {
+            background-color: $primary-color;
+
+            a {
+                color: $bg-color;
+            }
+        }
+
+        a {
+            font-size: 20px;
+            color: $text-color;
+            padding: 5px;
+        }
+    }
+}

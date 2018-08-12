@@ -121,9 +121,6 @@ other = "Some companies will answer your requests very well. Others, well… the
 [cdb-title]
 other = "Company database"
 
-[cdb-search-bar-placeholder]
-other = "Look up another company…"
-
 [cdb-company-title]
 other = "{{ .Params.name }}: Contact information for privacy-related requests"
 

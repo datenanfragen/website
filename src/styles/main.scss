@@ -160,16 +160,57 @@ a #logo {
 
 /* Company List */
 
+#company-list-controls {
+    background-color: $bg-color;
+    height: 190px;
+    z-index: 100;
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+    }
+}
+
 #company-overview {
     .letter-anchor {
         font-size: 30px;
-        color: $text-color;
+        color: $primary-color;
+    }
+}
+
+body.sticky-offset {
+    padding-top: 190px;
+}
+
+.sorting-container {
+    position: relative;
+
+    .stickyproof-anchor {
+        position: absolute;
+        top: -190px;
+        left: 0;
+        visibility: hidden;
+        height: 0;
     }
 }
 
 .company-summary {
+    color: $gray-darker-color;
+
     h1 {
-        font-size: 20px;
+        font-size: 23px;
+        text-decoration: underline;
+        display: inline-block;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        a {
+            color: $text-color;
+        }
     }
 }
 
