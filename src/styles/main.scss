@@ -158,6 +158,21 @@ a #logo {
     }
 }
 
+/* Company List */
+
+#company-overview {
+    .letter-anchor {
+        font-size: 30px;
+        color: $text-color;
+    }
+}
+
+.company-summary {
+    h1 {
+        font-size: 20px;
+    }
+}
+
 /* Footer */
 footer {
     background-color: $bg-accent-color;

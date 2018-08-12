@@ -9,12 +9,31 @@
 {{ define "main" }}
 <div id="company-list"></div>
 
+<!-- All of this only to make case-insensitive sorting possible. I hate you hugo -->
+{{ $pages := (.Data.Pages.ByParam "name")}}
+{{ range $pages }}
+    {{ $.Scratch.SetInMap "upper_title" (upper .Params.name) .Params.slug }}
+{{ end }}
+
 <div id="company-overview">
     <!-- TODO: Only include those companies that are relevant to the user's selected country. -->
     <!-- TODO: Ideally, these would be sorted by their relevance but we need #40 for that. -->
-    {{ range (.Paginate (.Data.Pages.ByParam "name")).Pages }}
-        {{ partial "summary-company.html" . }}
+    {{ .Scratch.Set "letter" " " }}
+    {{ .Scratch.Set "numbers_done" false }}
+    {{ range (.Scratch.GetSortedMapValues "upper_title") }}
+        {{ with $.Site.GetPage "page" (printf "company/%s" .) }}
+            <!-- TODO: This changes with hugo 0.45! -->
+            {{ if not (in "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ" (upper (substr .Params.name 0 1))) }}
+                {{ if (not ($.Scratch.Get "numbers_done")) }}
+                    {{ $.Scratch.Set "numbers_done" true }}
+                    <a class="letter-anchor" name="numbers"  href="#numbers"><h2>#</h2></a>
+                {{ end }}
+            {{ else if lt ($.Scratch.Get "letter") (upper (substr .Params.name 0 1))}}
+                {{ $.Scratch.Set "letter" (upper (substr .Params.name 0 1))}}
+                <a class="letter-anchor" name="{{ $.Scratch.Get "letter" }}"  href="#{{ $.Scratch.Get "letter" }}"><h2>{{ $.Scratch.Get "letter" }}</h2></a>
+            {{ end }}
+            {{ partial "summary-company.html" . }}
+        {{ end }}
     {{ end }}
-    {{ partial "pagination.html" . }}
 </div>
 {{ end }}
