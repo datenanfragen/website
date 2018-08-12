@@ -18,12 +18,17 @@
 /* Inputs */
 
 .dynamic-input-controls {
-    select {
-        height: $button-height;
+    .select-container {
+        float: left;
+
+        select {
+            height: $button-height;
+        }
     }
 
     button {
         margin-left: 10px;
+        float: left;
     }
 }
 

@@ -56,12 +56,16 @@ export default class DynamicInputContainer extends preact.Component {
                 </div>
                 <div className="dynamic-input-controls">
                     <Text id="add-dynamic-input-explanation" /><br />
-                    <select id={"dynamic-input-type-" + this.props.id} onChange={this.handleTypeChange}>
-                        <option value="input" selected><Text id="input-single-line" /></option>
-                        <option value="textarea"><Text id="input-multi-line" /></option>
-                        <option value="address"><Text id="input-address" /></option>
-                    </select>
+                    <div className="select-container">
+                        <select id={"dynamic-input-type-" + this.props.id} onChange={this.handleTypeChange}>
+                            <option value="input" selected><Text id="input-single-line" /></option>
+                            <option value="textarea"><Text id="input-multi-line" /></option>
+                            <option value="address"><Text id="input-address" /></option>
+                        </select>
+                        <div className="icon icon-arrow-down" />
+                    </div>
                     <button className="button-secondary" id={"add-dynamic-inputs-" + this.props.id} onClick={this.addDynamicInput}><Text id="add-input" /></button>
+                    <div className="clearfix" />
                 </div>
             </div>
         );

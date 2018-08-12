@@ -1,19 +1,27 @@
 @import "variables";
 
 #{$button} {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    box-shadow: $shadow;
+    padding: 11px 24px;
+    border: 2px solid $primary-color;
+    border-radius: 0;
+    box-sizing: border-box;
     font-size: $font-size;
     font-family: $body-font;
     text-decoration: none;
     cursor: pointer;
     appearance: none;
+    background-color: $bg-color;
+    color: $primary-color;
+
+    &:hover {
+        background-color: $primary-darker-color;
+        color: #fff !important;
+        border: 2px solid $primary-darker-color;
+    }
 }
 .button-primary, a.button-primary {
     background-color: $primary-color;
-    color: #FFFFFF !important;
+    color: #fff !important;
 }
 .button-secondary, a.button-secondary {
     background-color: $bg-color;
@@ -24,15 +32,14 @@
 }
 .button-small {
     padding: 5px 8px;
-    height: $button-height - 14px;
 }
 
 #{$text-inputs} {
-    border: none;
+    border: 2px solid $primary-color; /*none*/
     padding: 7px;
     box-sizing: border-box;
     appearance: none;
-    background-color: $gray-color;
+    /*background-color: $gray-color;*/
     color: $primary-color;
     font-family: $body-font;
     font-size: $font-size - 2px;
@@ -56,6 +63,26 @@ input::placeholder, textarea::placeholder {
     padding: 20px;
 }
 
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 30px;
+    width: 100%;
+}
+
+.select-container {
+    position: relative;
+    width: 200px;
+
+    .icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: $primary-color;
+    }
+}
+
 /* Adapted after: https://www.algolia.com/doc/tutorials/search-ui/autocomplete/auto-complete */
 .aa-input-container {
     display: inline-block;
@@ -67,7 +94,8 @@ input::placeholder, textarea::placeholder {
     width: 100%;
     background-color: #FFFFFF;
     box-shadow: $shadow;
-    border-radius: 12px;
+    border-radius: 0;
+    border: none;
 }
 .aa-dropdown-menu {
     background-color: #fff;
