@@ -116,6 +116,60 @@ other = "Antworten erhalten"
 [home-feature-answers]
 other = "Manche Unternehmen antworten sehr vorbildlich auf Anfragen, anderen brauchen etwas mehr… Überzeugungsarbeit. Doch auch das ist kein Problem: Mit unserem Generator wirst Du Dir auch problemslos Mahnungen und Beschwerden erstellen lassen können."
 
+[home-how-it-works-title]
+other = "So geht's"
+
+[home-how-it-works-parameters-title]
+other = "Parameter eingeben"
+
+[home-how-it-works-parameters]
+other = "Such Dir Unternehmen und Organisationen, bei den Du Anfragen möchtest. Gib ausreichend Daten an, damit dich die Unternehmen auch eindeutig identifizieren können. Damit es für Dich möglichst einfach wird, haben wir die Formulare schon für Dich vorbereitet. Keine Sorge: Alle Daten bleiben auf Deinem Computer und werden dort verarbeitet, sodass sie bei uns gar nicht erst ankommen."
+
+[home-how-it-works-generator-title]
+other = "Anfrage generieren"
+
+[home-how-it-works-generator]
+other = "Aus Deinen Angaben und den Daten, die wir zu den Unternehmen gespeichert haben generieren wir auf Deinem Computer die eigentlichen Anfragen. Du kannst dir aussuchen, wie du die Unternehmen kontaktieren möchtest: per E-Mail, per Fax oder auch per Post. Für jeden Weg generieren wir dir eine Anfrage."
+
+[home-how-it-works-send-title]
+other = "An Unternehmen schicken"
+
+[home-how-it-works-send]
+other = "Die fertige Anfrage muss nur noch auf den Weg. Um den Versand kümmerst Du Dich. So bleiben Deinen Daten zwischen Dir und den Unternehmen. Nach dem Abschicken heißt es dann warten. Die ersten Antworten sollten bald schon eintrudeln. Zuviel Zeit lassen dürfen sich die Unternehmen auch nicht. Wenn Du zu lange warten musst, kannst Du auch direkt eine Mahnung generieren oder dich sogar bei einer Aufsichtsbehörde beschweren."
+
+[home-how-it-works-get-started]
+other = "Los geht's!"
+
+[home-feature-your-rights-access-title]
+other = "Auskunftsrecht"
+
+[home-feature-your-rights-access]
+other = "Du hast ein Recht zu erfahren, welche Daten ein Unternehmen zu Deiner Person gespeichert hat. Darüber hinaus kannst Du z. B. erfragen, zu welchem Zwecke die Daten gespeichert wurden und aus welcher Quelle sie kommen. Wenn das Unternehmen Scorewerte berechnet, muss es Dir Deinen Score mitteilen und Dich aufklären, wie dieser Score zustandekommt."
+
+[home-feature-your-rights-rectification-title]
+other = "Recht auf Berichtigung"
+
+[home-feature-your-rights-rectification]
+other = "Wenn ein Unternehmen falsche Daten zu Dir gespeichert hat, muss es diese auf Deinen Hinweis unverzüglich korrigieren."
+
+[home-feature-your-rights-erasure-title]
+other = "Recht auf Vergessenwerden"
+
+[home-feature-your-rights-erasure]
+other = "Sobald die Daten, die ein Unternehmen zu Dir gespeichert hat, für den Zweck, für den sie erhoben wurden, nicht mehr notwendig sind, kannst Du von Unternehmen verlangen, dass sie diese Daten löschen. Wenn die Daten an Drittunternehmen weitergegeben wurden, müssen diese sogar über Deinen Löschwunsch informiert werden."
+
+[home-feature-your-rights-object-title]
+other = "Recht auf Widerspruch"
+
+[home-feature-your-rights-object]
+other = "Auch wenn Du einmal eine Einwilligung zur Verwendung Deiner Daten gegeben hast, darfst Du diese jederzeit widerrufen. Dabei darf das Unternehmen den Widerruf nicht schwieriger gestalten als die ursprüngliche Zustimmung."
+
+[home-feature-your-rights-portabillity-title]
+other = "Recht auf Datenübertragbarkeit"
+
+[home-feature-your-rights-portabillity]
+other = "Die Daten, die Du einen Unternehmen zu Dir mitgeteilt hast, gehören Dir. Du hast ein Recht, diese Daten von dem Unternehmen in einem gängigen Format zu erhalten, sodass Du sie zu einem anderen Unternehmen übertragen kannst."
+
 # Company database
 
 [cdb-title]

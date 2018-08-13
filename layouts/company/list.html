@@ -22,8 +22,7 @@
     {{ .Scratch.Set "numbers_done" false }}
     {{ .Scratch.Set "first_entry" true }}
     {{ range (.Scratch.GetSortedMapValues "upper_title") }}
-        {{ with $.Site.GetPage "page" (printf "company/%s" .) }}
-            <!-- TODO: This changes with hugo 0.45! -->
+        {{ with $.Site.GetPage (printf "company/%s" .) }}
             {{ if not (in "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ" (upper (substr .Params.name 0 1))) }}
                 {{ if (not ($.Scratch.Get "numbers_done")) }}
                     {{ $.Scratch.Set "numbers_done" true }}
