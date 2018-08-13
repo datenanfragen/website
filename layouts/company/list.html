@@ -40,5 +40,6 @@
             {{ partial "summary-company.html" . }}
         {{ end }}
     {{ end }}
+    {{ if gt (len (.Scratch.GetSortedMapValues "upper_title")) 0}}</div>{{ end }}
 </div>
 {{ end }}
