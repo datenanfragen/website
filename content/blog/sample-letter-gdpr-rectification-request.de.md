@@ -13,7 +13,7 @@ Falls ein Unternehmen oder eine sonstige Organisation (ein sogenannter Verantwor
 
 Dadurch kannst Du Dich z.&nbsp;B. gegen Auskunfteien (wie die Schufa) wehren, wenn diese Deine Kreditwürdigkeit oder Dein Zahlungsverhalten aufgrund nicht korrekter Einträge negativ bewerten.
 
-Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "blog/your-gdpr-rights" >}}) an.
+Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "/blog/your-gdpr-rights" >}}) an.
 
 ## Wie nutze ich dieses Recht?
 

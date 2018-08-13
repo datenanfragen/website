@@ -26,7 +26,7 @@ Auch wenn Du einmal eine Einwilligung zur Verwendung Deiner Daten gegeben hast, 
 * **Recht auf Datenübertragbarkeit**  
 Die Daten, die Du einen Unternehmen zu Dir mitgeteilt hast, gehören Dir. Du hast ein Recht, diese Daten von dem Unternehmen in einem gängigen Format zu erhalten, sodass Du sie zu einem anderen Unternehmen übertragen kannst.
 
-Eine noch ausführlichere Übersicht findest Du in unserem [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "blog/your-gdpr-rights" >}}).
+Eine noch ausführlichere Übersicht findest Du in unserem [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "/blog/your-gdpr-rights" >}}).
 
 ## Wie kann ich diese Rechte nutzen?
 
