@@ -1,5 +1,22 @@
 @import "variables";
 
+/* Fancy placeholder labels, see https://jonathan-harrell.com/advanced-css-form-styling/ */
+label.fancy-label {
+    position: absolute;
+    top: -19px;
+    left: 7px;
+    font-size: 0.75em;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.2s ease-out;
+}
+.form-group.fancy-fg { padding-bottom: 10px; }
+.form-group.fancy-fg:last-of-type { padding-bottom: 0; }
+input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.fancy-label {
+    opacity: 0;
+    transform: translateY(1rem);
+}
+
 /* Generator Header */
 
 #generator-header {
@@ -56,9 +73,11 @@
     color: $gray-color;
 }
 
-#signature {
-    border: 1px solid #000;
-}
 #tagxplanation {
     font-size: 9pt;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

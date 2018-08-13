@@ -34,6 +34,11 @@
     padding: 5px 8px;
 }
 
+canvas {
+    border: 2px solid $primary-color;
+    border-radius: 2px;
+}
+
 #{$text-inputs} {
     border: 2px solid $primary-color; /*none*/
     border-radius: 2px;
@@ -60,7 +65,9 @@ input::placeholder, textarea::placeholder {
 
 .box {
     box-sizing: border-box;
-    box-shadow: 0 3px 40px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 0 3px 40px rgba(0, 0, 0, 0.2);*/
+    border: 4px solid $primary-color;
+    border-radius: 2px;
     padding: 20px;
 }
 
@@ -94,9 +101,9 @@ select {
     padding: 12px 28px 12px 12px;
     width: 100%;
     background-color: #FFFFFF;
-    box-shadow: $shadow;
-    border-radius: 0;
-    border: none;
+    /* box-shadow: $shadow; */
+    border: 4px solid $primary-color;
+    border-radius: 2px;
 }
 .aa-dropdown-menu {
     background-color: #fff;

@@ -27,7 +27,7 @@ render() {
                                    onAutocompleteSelected={(event, suggestion, dataset) => {
                                        location.href = '/company/' + suggestion.slug;
                                    }} placeholder={t('select-company', 'cdb')} debug={true} style="margin-top: 15px;" />
-                        <Scrollspy items={anchor_ids} currentClassName="active" className="textscroll" offset={-195}>
+                        <Scrollspy items={anchor_ids} currentClassName="active" className="textscroll" offset={-205}>
                             {anchor_links}
                         </Scrollspy>
                     </div>
@@ -56,7 +56,7 @@ window.onscroll = () => {
         controls.classList.add("sticky");
         document.body.classList.add("sticky-offset");
     }
-    if(window.pageYOffset < controls.offsetTop + 190) {
+    if(window.pageYOffset < controls.offsetTop + 200) {
         controls.classList.remove("sticky");
         document.body.classList.remove("sticky-offset");
     }
