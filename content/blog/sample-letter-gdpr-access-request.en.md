@@ -13,7 +13,7 @@ According to the GDPR, you have a right to access the personal data stored and p
 
 First of all, this includes a confirmation as to whether your personal data is being processed. If so, you can request a copy of said data. But not only that: In addition, you also have the right to further details, such as the purposes of the processing, the recipients to whom the data is passed on and the duration of the storage.
 
-If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "blog/your-gdpr-rights" >}}).
+If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
 
 ## How do I exercise this right?
 
