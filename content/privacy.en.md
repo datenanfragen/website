@@ -26,19 +26,19 @@ With datarequests.org, we want to help you exercise your right to privacy. In or
 
 The controller as defined in Art. 4(7) GDPR for the services mentioned under “Scope” is:
 
-Verein Datenanfragen.de (in formation)  
+Datenanfragen.de e.&nbsp;V.  
 c/o Benjamin Altpeter  
 Schreinerweg 6  
 38126 Braunschweig  
 Germany
 
 Legally represented by: Benjamin Altpeter and Lorenz Sieben  
-Entry into the register of associations of the local court Braunschweig is planned.
+Datenanfragen.de e. V. is listed in the register of associations of the district court of Braunschweig, under the registration number VR 201732, and is recognized as a charitable organisation by the Braunschweig-Wilhelmstraße tax office.
 
 Phone (mobile): +49 176 913 77 604  
 Fax: +49 531 615 4 288  
 Email: [privacy@datenanfragen.de](mailto:privacy@datenanfragen.de) ([PGP key](https://www.datenanfragen.de/pgp/CF2CBB2E.asc) `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`)  
-Web: [www.datenanfragen.de](https://www.datenanfragen.de)
+Web: [verein.datenanfragen.de](https://verein.datenanfragen.de)
 
 If you have any questions about our privacy policy, believe that we are in violation of data protection laws or wish to assert your rights, please feel free to contact us at any time.
 
