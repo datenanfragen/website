@@ -47,7 +47,6 @@
         "babel-loader": "^8.0.0",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
         "chai": "^4.1.2",
-        "chai-webdriver": "^1.2.0",
         "http-server": "^0.11.1",
         "iconfont-webpack-plugin": "^3.0.0",
         "js-cookie": "^2.2.0",

@@ -2083,13 +2083,6 @@ center-align@^0.1.1:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
 
-chai-webdriver@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/chai-webdriver/-/chai-webdriver-1.2.0.tgz#1b2b2057b92310c9ea1d24c241e3e7e752d40180"
-  dependencies:
-    string "^3.0.0"
-    webdriver-sizzle ">= 0.2.1"
-
 chai@^4.1.2:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.2.0.tgz#760aa72cf20e3795e84b12877ce0e83737aa29e5"
@@ -8353,10 +8346,6 @@ string.prototype.codepointat@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/string.prototype.codepointat/-/string.prototype.codepointat-0.2.1.tgz#004ad44c8afc727527b108cd462b4d971cd469bc"
 
-string@^3.0.0:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/string/-/string-3.3.3.tgz#5ea211cd92d228e184294990a6cc97b366a77cb0"
-
 string_decoder@^1.0.0, string_decoder@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
@@ -9219,10 +9208,6 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   resolved "https://registry.yarnpkg.com/wbuf/-/wbuf-1.7.3.tgz#c1d8d149316d3ea852848895cb6a0bfe887b87df"
   dependencies:
     minimalistic-assert "^1.0.0"
-
-"webdriver-sizzle@>= 0.2.1":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/webdriver-sizzle/-/webdriver-sizzle-0.3.0.tgz#066b20b8e39bf39764e2118b4a5562f056a60966"
 
 webpack-cli@^3.0.8:
   version "3.1.2"
