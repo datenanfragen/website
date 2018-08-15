@@ -19,7 +19,10 @@ try {
 
         // This is horrendous. It is however the easiest (and worryingly cleanest) way I see to achieve the intended result here as the (interesting) properties of the `Error` object are not enumerable and JSON.stringify() only encodes enumerable properties.
         let debug_info = JSON.parse(JSON.stringify(event, [ 'code', 'message', 'description', 'arguments', 'type', 'name', 'colno', 'filename', 'lineno', 'error', 'stack', 'enduser_message' ]));
-        if(typeof debug_info.error !== 'object' || debug_info.error === null) debug_info.error = { message: event.message };
+
+        // It gets worse. Errors in Chrome have basically no information at all, not even a code or error type.
+        // TODO: Since the Chrome debug info contains practically no information at all, we should probably include a note that users would need to manually copy the stack trace from the console in order for us to be able to do anything.
+        if(typeof debug_info.error !== 'object' || debug_info.error === null) debug_info.error = { code: 999, message: event.message };
         debug_info.code_version = CODE_VERSION;
         debug_info.user_agent = window.navigator.userAgent;
         debug_info.url = window.location;
@@ -31,7 +34,8 @@ try {
         let github_issue_url = 'https://github.com/datenanfragen/website/issues/new?title=' + report_title + '&body=' + report_body;
         let mailto_url = 'mailto:dev@datenanfragen.de?' + 'subject=' + report_title + '&body=' + report_body;
 
-        if(event.error.code <= 3 || debugging_enabled) {
+        // Note: Unless debugging_enabled is set, this will never happen for Chrome. But considering what I mentioned above, this is probably a good thing.
+        if(debug_info.error.code <= 3 || debugging_enabled) {
             let dismiss = () => { preact.render('', document.body, modal) };
             let modal = preact.render((
                 <Modal onDismiss={dismiss}>
