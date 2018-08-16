@@ -91,6 +91,36 @@ select {
     }
 }
 
+/* Radio Buttons */
+.radio-label {
+    input.form-element {
+        display: none;
+    }
+
+    display: inline-block;
+    border: 2px solid $primary-color;
+    padding: 10px;
+    border-radius: 0;
+    background-color: $bg-color;
+    color: $primary-color;
+    border-left: none;
+    margin-bottom: 5px;
+
+    &:first-child {
+        border-radius: 2px 0 0 2px;
+        border-left: 2px solid $primary-color;
+    }
+
+    &:last-child {
+        border-radius: 0 2px 2px 0;
+    }
+
+    &:hover, &.active {
+        background-color: $primary-color;
+        color: $bg-color;
+    }
+}
+
 /* Adapted after: https://www.algolia.com/doc/tutorials/search-ui/autocomplete/auto-complete */
 .aa-input-container {
     display: inline-block;
