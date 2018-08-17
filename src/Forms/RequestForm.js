@@ -51,7 +51,7 @@ export default class RequestForm extends preact.Component {
                 break;
         }
 
-        if(this.props.request_data['transport_medium'] !== 'email') body.push(<SignatureInput id="signature" width={400} height={200} onChange={this.props.onChange}/>);
+        if(this.props.request_data['transport_medium'] !== 'email') body.push(<SignatureInput id="signature" width={450} height={200} onChange={this.props.onChange}/>);
 
         return (
             <div className="request-form">
