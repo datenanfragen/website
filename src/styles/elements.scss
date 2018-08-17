@@ -71,17 +71,17 @@ input::placeholder, textarea::placeholder {
     padding: 20px;
 }
 
-select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding-right: 30px;
-    width: 100%;
-}
-
 .select-container {
     position: relative;
     width: 200px;
+
+    select {
+        appearance: none; /* TODO: This is actually a little debatable, since appearance is as of now not supported in every browser (especially IE 11, Edge does though with -webkit- prefix weirdly enough). But it is not breaking, so I think it is ok this way */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-right: 30px;
+        width: 100%;
+    }
 
     .icon {
         position: absolute;
@@ -118,6 +118,25 @@ select {
     &:hover, &.active {
         background-color: $primary-color;
         color: $bg-color;
+    }
+}
+
+/* Checkboxes */
+
+input[type="checkbox"].form-element {
+    border: 2px solid $primary-color;
+    appearance: none; /* TODO: This is actually a little debatable, since appearance is as of now not supported in every browser (especially IE 11, Edge does though with -webkit- prefix weirdly enough). But it is not breaking, so I think it is ok this way */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px;
+    margin: 0;
+    margin-right: 10px;
+    float: left;
+
+    &:checked {
+        background: linear-gradient($primary-color, $primary-color) 50% 50% / 15px 15px;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 }
 
