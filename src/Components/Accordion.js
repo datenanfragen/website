@@ -11,10 +11,10 @@ export default class Accordion extends preact.Component {
 
     render() {
         return <div className="accordion" id={this.props.id} style={this.props.style}>
-            <h3 className="accordion-title"><a href="" onClick={e => {
+            <a href="" onClick={e => {
                 e.preventDefault();
                 this.setState({expanded: !this.state.expanded});
-            }}>{this.props.title}<span className={'icon' + (this.state.expanded ? ' icon-arrow-up' : ' icon-arrow-down')} /></a></h3>
+            }} className="accordion-title-link"><h3 className="accordion-title">{this.props.title}<span className={'icon' + (this.state.expanded ? ' icon-arrow-up' : ' icon-arrow-down')} /></h3></a>
             {this.state.expanded ? this.props.children : ''}
         </div>;
     }

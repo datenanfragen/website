@@ -8,6 +8,7 @@ import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
 import {ErrorException, rethrow} from "./Utility/errors";
+import CompanyWidget from "./Components/CompanyWidget";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -110,38 +111,15 @@ class Generator extends preact.Component {
     }
 
     render() {
-        let company_info = '';
-        let comments = '';
+        let company_widget = '';
         let new_request_text = 'new-request';
         if(this.state.batch && this.state.batch.length > 0) new_request_text = 'next-request';
         if(this.state.suggestion !== null) {
-            company_info =
-                (<div id="company-info">
-                    <fieldset>
-                        <legend><Text id="current-company" /></legend>
-                        <span id="company-name" style="font-size: 15pt">{this.state.suggestion['name']}</span>
-                        {this.state.suggestion['fax'] ?  [<br />, t('fax', 'generator') + ': ' + this.state.suggestion['fax']] : []}
-                        {this.state.suggestion['email'] ? [<br />, t('email', 'generator') + ': ' + this.state.suggestion['email']] : []}
-                        <br /><a href="#" onClick={e => {
-                        e.preventDefault();
-                        this.setState(prev => {
-                            prev['suggestion'] = null;
-                            prev.request_data['recipient_runs'] = [];
-                            return prev;
-                        })
-                    }}><Text id="deselect-company" /></a>
-                    </fieldset>
-                </div>);
-            if(this.state.suggestion['comments']) {
-                let comment_list = [];
-                this.state.suggestion['comments'].forEach(comment => {
-                    comment_list.push(<div className="company-comments">{comment}</div>);
-                });
-                comments = <fieldset id="comment-container">
-                    <legend><Text id="current-company-comments" /></legend>
-                    {comment_list}
-                </fieldset>;
-            }
+            company_widget = <CompanyWidget company={this.state.suggestion} onRemove={() => this.setState(prev => {
+                prev['suggestion'] = null;
+                prev.request_data['recipient_runs'] = [];
+                return prev;
+            })} />
         }
 
         let generate_text = 'generate-pdf';
@@ -171,18 +149,19 @@ class Generator extends preact.Component {
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
-                    <div className="col50 box">
+                    <div id="form-container" className="col50 box">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}/>
                     </div>
-                    <div className="col50 box" style="min-height: 500px; float: right;">
-                        {company_info}
-                        <div id="pdf-controls">
-                            {action_button}
-                            <button id="generate-button" className="button-secondary" onClick={this.renderRequest}><Text id={generate_text} /></button>
-                            <div className="clearfix" />
+                    <div className="col50">
+                        {company_widget}
+                        <div id="content-container" className="box">
+                            <div id="pdf-controls">
+                                {action_button}
+                                <button id="generate-button" className="button-secondary" onClick={this.renderRequest}><Text id={generate_text} /></button>
+                                <div className="clearfix" />
+                            </div>
+                            <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
                         </div>
-                        <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
-                        {comments}
                     </div>
                 </div>
                 <div className="clearfix" />

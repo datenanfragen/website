@@ -222,17 +222,20 @@ input[type="checkbox"].form-element {
 
 /* Accordion */
 
-.accordion-title {
-    margin-top: 15px;
-    font-size: $font-size;
-    font-weight: bold;
-
-    a {
-        color: $text-color;
+.accordion {
+    .accordion-title {
+        margin-top: 15px;
+        font-size: $font-size;
+        font-weight: bold;
 
         .icon {
             float: right;
         }
+
+    }
+
+    a.accordion-title-link {
+        color: $text-color;
     }
 }
 

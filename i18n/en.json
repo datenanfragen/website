@@ -103,7 +103,8 @@
         "request-date": "Request date",
         "request-transport-medium": "How do you want to send your request?",
         "by-fax": "By fax: ",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "company-read-more": "More information"
     },
     "privacy-controls": {
         "title": "Privacy controls",

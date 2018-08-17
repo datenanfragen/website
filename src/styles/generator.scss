@@ -50,6 +50,54 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
 }
 
 /* PDF Viewer */
+
+.company-info {
+    margin-bottom: 20px;
+    position: relative;
+
+    h1 {
+        padding-right: 30px;
+        margin-left: 25px;
+        position: relative;
+        font-size: 20px;
+
+        .icon {
+            font-size: 23px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    a.company-name-link {
+        color: $text-color !important;
+    }
+
+    .company-info-label {
+        font-weight: bold;
+    }
+
+    button.company-remove {
+        position: absolute;
+        top: -4px;
+        left: -4px;
+    }
+
+    .company-read-more {
+        margin-top: 15px;
+        float: left;
+    }
+}
+
+#form-container {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#content-container {
+    min-height: 500px;
+}
+
 #pdf-viewer {
     border: 0;
     width: 100%;
