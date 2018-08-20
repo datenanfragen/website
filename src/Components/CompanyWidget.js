@@ -27,7 +27,7 @@ export default class CompanyWidget extends preact.Component {
                     {this.props.company['email'] ? [<br />, <span className="company-info-label"><Text id="email" />:&nbsp;</span>, this.props.company['email']] : []}
                 </div>
                 {comments.length > 0 ? [<br />, <span className="company-info-label"><Text id="current-company-comments" />:</span>, <br />, comments] : [] }
-                <a href={CompanyWidget.companyLink(this.props.company['slug'])} className="button button-secondary button-small company-read-more"><Text id="company-read-more"/>&nbsp;<span className="icon icon-arrow-right" /></a>
+                <a href={CompanyWidget.companyLink(this.props.company['slug'])} target="_blank" className="button button-secondary button-small company-read-more"><Text id="company-read-more"/>&nbsp;<span className="icon icon-arrow-right" /></a>
                 <div class="clearfix" />
             </div>
         );
@@ -48,11 +48,3 @@ export default class CompanyWidget extends preact.Component {
         return BASE_URL + '/company/' + slug;
     }
 }
-
-/*
-this.setState(prev => {
-                        prev['suggestion'] = null;
-                        prev.request_data['recipient_runs'] = [];
-                        return prev;
-                    })
- */

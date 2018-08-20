@@ -155,11 +155,7 @@ class Generator extends preact.Component {
                     <div className="col50">
                         {company_widget}
                         <div id="content-container" className="box">
-                            <div id="pdf-controls">
-                                {action_button}
-                                <button id="generate-button" className="button-secondary" onClick={this.renderRequest}><Text id={generate_text} /></button>
-                                <div className="clearfix" />
-                            </div>
+                            {action_button}
                             <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
                         </div>
                     </div>

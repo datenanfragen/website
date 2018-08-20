@@ -120,52 +120,52 @@ other = "Some companies will answer your requests very well. Others, well… the
 other = "How it works"
 
 [home-how-it-works-parameters-title]
-other = "Enter your Parameters"
+other = "Enter your parameters"
 
 [home-how-it-works-parameters]
-other = "Choose companies you would like to send a request to. Enter your data, just enough in order for the companies to uniquely identify you. To make it easier for you we already prepared the forms for you. And no worries: All data stays on your computer and is processed. That ensures that your data will never even reach us."
+other = "Choose companies you would like to send a request to. Enter your data, just enough in order for the companies to uniquely identify you. To make it easier for you we already prepared the forms for you. And no worries: All data stays on your computer and is only processed there. That ensures that your data will never even reach us."
 
 [home-how-it-works-generator-title]
-other = "Generate a Request"
+other = "Generate a request"
 
 [home-how-it-works-generator]
 other = "From the data you entered and the data we collected on the companies we will generate the actual request on your computer. You can choose how you want to send it to the company: via email, fax or even via mail. We will generate a request for every medium."
 
 [home-how-it-works-send-title]
-other = "Send it to Companies"
+other = "Send it to companies"
 
 [home-how-it-works-send]
-other = "The completed request only needs to be send away. You are in charge of doing that. This way, your data stay between you and the company. After you sent the request, you'll have to wait for a reply. The first ones should come rather quickly. The companies don't have that much time after all. Still, if they take too long, you can also easily generate an adminition or even lodge a complaint with a supervisory authority."
+other = "The completed request only needs to be sent away. You are in charge of doing that. This way, your data stay between you and the company. After you sent the request, you'll have to wait for a reply. The first ones should come rather quickly. The companies don't have that much time after all. Still, if they take too long, you can also easily generate an adminition or even lodge a complaint with a supervisory authority."
 
 [home-how-it-works-get-started]
 other = "Get Started!"
 
 [home-feature-your-rights-access-title]
-other = "Right to Access"
+other = "Right to access"
 
 [home-feature-your-rights-access]
 other = "You have a right to know what data a company has stored on you. In addition, you can, for example, ask what the purpose for storing the data was or which source it was obtained from. If the company employs scoring, they have to tell you your score and explain in detail how it is calculated."
 
 [home-feature-your-rights-rectification-title]
-other = "Right to Rectification"
+other = "Right to rectification"
 
 [home-feature-your-rights-rectification]
 other = "If a company is storing incorrect information on you, they have to correct it immediately upon receiving a notice from you."
 
 [home-feature-your-rights-erasure-title]
-other = "Right to Be Forgotten"
+other = "Right to be forgotten"
 
 [home-feature-your-rights-erasure]
 other = "As soon as the data a company has stored about you is no longer necessary for the purpose for which it was collected, you can demand they delete this data. If the data was passed on to third companies, they must even be informed about your deletion request."
 
 [home-feature-your-rights-object-title]
-other = "Right to Object"
+other = "Right to object"
 
 [home-feature-your-rights-object]
 other = "Even if you have given your consent to the use of your data at some point, you may revoke it at any time. The company cannot make the revocation of consent more difficult than the original approval."
 
 [home-feature-your-rights-portabillity-title]
-other = "Right to Data Portabillity"
+other = "Right to data portabillity"
 
 [home-feature-your-rights-portabillity]
 other = "The information you provide to a company is yours. You have the right to receive this information from them in a common machine-readable format so that you can easily transfer it to another company."
