@@ -7,6 +7,8 @@ mkdir -p static/db
 cp tmp/companies/* static/db
 mv tmp/companies/* content/company
 mv tmp/templates/* static/templates
+# TODO: The merge conflicts with !23 are getting more and more ugly.
+mv tmp/schema.json tmp/schema-supervisory-authorities.json static
 rm -rf tmp
 # Unfortunately, Hugo only accepts .md files as posts, so we have to rename our JSONs, see https://stackoverflow.com/a/27285610
 cd content/company

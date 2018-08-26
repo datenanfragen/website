@@ -124,6 +124,40 @@
         "report-on-github": "Über GitHub melden",
         "report-via-email": "Per E-Mail melden"
     },
+    "error-msg": {
+        "company-not-found": "Das gewünschte Unternehmen wurde nicht gefunden."
+    },
+    "suggest": {
+        "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank noch einmal! Wir werden ihn jetzt schnellstmöglich überprüfen.",
+        "ok": "Ok"
+    },
+    "schema": {
+        "relevant-countries": "Relevant in Ländern",
+        "categories": "Kategorien",
+        "name": "Name",
+        "runs": "Betreibt auch",
+        "address": "Adresse",
+        "phone": "Telefon",
+        "fax": "Fax",
+        "email": "E-Mail",
+        "letter": "Brief",
+        "website": "Webseite",
+        "sources": "Quellen",
+        "required-elements": "Erforderliche Elemente",
+        "request-language": "Sprache für Anfragen",
+        "needs-id-document": "Identitätsnachweis erforderlich?",
+        "suggested-transport-medium": "Empfohlenes Medium für Anfragen",
+        "comments": "Kommentare",
+        "add-item": "Element hinzufügen",
+        "true": "ja",
+        "false": "nein",
+        "description": "Beschreibung",
+        "type": "Typ",
+        "optional": "Optional?",
+        "input": "Eingabefeld",
+        "textarea": "Textbox",
+        "birthdate": "Geburtsdatum"
+    },
     "categories": {
         "addresses": "Adressen",
         "ads": "Werbung",

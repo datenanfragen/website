@@ -124,6 +124,40 @@
         "report-on-github": "Report on GitHub",
         "report-via-email": "Report via email"
     },
+    "error-msg": {
+        "company-not-found": "The company you were looking for could not be found."
+    },
+    "suggest": {
+        "success": "Your contribution has been sent successfully. Thank you once again! We will now review it as soon as possible.",
+        "ok": "Ok"
+    },
+    "schema": {
+        "relevant-countries": "Relevant countries",
+        "categories": "Categories",
+        "name": "Name",
+        "runs": "Also runs",
+        "address": "Address",
+        "phone": "Phone",
+        "fax": "Fax",
+        "email": "Email",
+        "letter": "Letter",
+        "website": "Website",
+        "sources": "Sources",
+        "required-elements": "Required elements",
+        "request-language": "Language for requests",
+        "needs-id-document": "ID document necessary for requests?",
+        "suggested-transport-medium": "Suggested transport medium",
+        "comments": "Comments",
+        "add-item": "Add element",
+        "true": "yes",
+        "false": "no",
+        "description": "Description",
+        "type": "Type",
+        "optional": "Optional?",
+        "input": "Input",
+        "textarea": "Textarea",
+        "birthdate": "Birth date"
+    },
     "categories": {
         "addresses": "addresses",
         "ads": "ads",

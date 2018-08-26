@@ -162,7 +162,7 @@ other = "Quellen:"
 other = "Hinweise:"
 
 [cdb-help-needed]
-other = "Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Wir freuen uns über Deine <a href=\"https://github.com/datenanfragen/data\">Mithilfe</a>!"
+other = "Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Schlag <a href='{{ .editUrl }}'>eine Änderung für dieses Unternehmen</a> oder <a href='{{ .newUrl }}'>ein ganz neues</a> vor. Vielen Dank für Deine Mithilfe!"
 
 # Blog
 

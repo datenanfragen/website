@@ -18,7 +18,8 @@ try {
         logError(event);
 
         // This is horrendous. It is however the easiest (and worryingly cleanest) way I see to achieve the intended result here as the (interesting) properties of the `Error` object are not enumerable and JSON.stringify() only encodes enumerable properties.
-        let debug_info = JSON.parse(JSON.stringify(event, [ 'code', 'message', 'description', 'arguments', 'type', 'name', 'colno', 'filename', 'lineno', 'error', 'stack' ]));
+        let debug_info = JSON.parse(JSON.stringify(event, [ 'code', 'message', 'description', 'arguments', 'type', 'name', 'colno', 'filename', 'lineno', 'error', 'stack', 'enduser_message' ]));
+        debug_info.code_version = CODE_VERSION;
         debug_info.error.context = event.error.context;
 
         let report_title = encodeURIComponent('JS error (' + event.message + ')');
@@ -31,6 +32,7 @@ try {
             let dismiss = () => { preact.render('', document.body, modal) };
             let modal = preact.render((
                 <Modal onDismiss={dismiss}>
+                    { event.error.enduser_message ? <p>{ event.error.enduser_message }</p> : '' }
                     <p>{t('explanation', 'error-handler')}</p>
                     <a href={github_issue_url} className="button button-small" style="margin-right: 10px;" target="_blank">{t('report-on-github', 'error-handler')}</a>
                     <a href={mailto_url} className="button button-small">{t('report-via-email', 'error-handler')}</a>
