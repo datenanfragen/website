@@ -10,7 +10,9 @@
     "search": {
         "also-runs": "Also runs: ",
         "categories": "Categories: ",
-        "search-disabled": "You have disabled the search feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>."
+        "search-disabled": "You have disabled the search feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>.",
+        "no-results": "Unfortunately, there were no results for your query.",
+        "suggest-a-company": "Suggest a new company"
     },
     "cdb": {
         "title": "Company database",

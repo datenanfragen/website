@@ -40,7 +40,7 @@ function renderForm(schema, company = undefined) {
     }
   });
   bf = BrutusinForms.create(schema);
-  bf.render(document.getElementById('suggest-form'), company || {});
+  bf.render(document.getElementById('suggest-form'), company || ( url_params.get('name') ? { name: url_params.get('name') } : {}));
 }
 
 document.getElementById('submit-suggest-form').onclick = () => {
