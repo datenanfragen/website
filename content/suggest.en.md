@@ -8,7 +8,7 @@ Just enter the desired information in the form below and click *Submit*. If poss
 
 If you have any suggestions that cannot be handled through this form or that you don't want to submit through this form for whatever reasons, feel free to contact us through [our GitHub issue tracker](https://github.com/datenanfragen/data/issues) or via [email](mailto:data@datarequests.org).
 
-<div class="box box-warning">After you submit the form, the data you entered into the form below, will be publicly visible in our <a href="https://github.com/datenanfragen/data/issues">issue tracker</a>. So, please <strong>do not</strong> enter any personal data here.<br>For more information, please refer to our <a href="/privacy/#user-content-in-our-company-database">privacy policy</a>.</div>
+<div class="box box-warning">After you submit the form, the data you entered below, will be publicly visible in our <a href="https://github.com/datenanfragen/data/issues">issue tracker</a>. So, please <strong>do not</strong> enter any personal data here.<br>For more information, please refer to our <a href="/privacy/#user-content-in-our-company-database">privacy policy</a>.</div>
 
 <div id="suggest-form"></div>
 
