@@ -34,7 +34,6 @@
         "email": "E-Mail",
         "letter": "Brief",
         "delete-all-btn": "Alle Anfragen löschen",
-        "delete-all-confirm": "Wirklich alle Daten löschen? Das kann *nicht* rückgängig gemacht werden.",
         "export-btn": "Als CSV exportieren",
         "feature-disabled": "Du hast diese Funktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun."
     },

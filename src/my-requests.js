@@ -106,7 +106,7 @@ class RequestList extends preact.Component {
     }
 
     clearRequests() {
-        if(window.confirm(t('delete-all-confirm', 'my-requests'))) {
+        if(window.confirm(t('modal-clear-requests', 'privacy-controls'))) {
             this.user_requests.clearRequests()
                 .then(() => {
                     this.setState({requests: []})
