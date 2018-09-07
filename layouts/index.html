@@ -4,7 +4,7 @@
         <div id="home-hero-content">
             <div id="home-hero-line-1">{{ T "home-hero-line-1" }} </div>
             <div id="home-hero-line-2"><span id="home-hero-word">{{ T "home-hero-word" }}</span></div>
-            <a class="button button-primary icon icon-pencil" href="{{ "generator" | absURL }}">{{ T "home-hero-line-2" }}</a>
+            <a class="button button-primary icon icon-pencil" href="#wizard-anchor">{{ T "home-hero-line-2" }}</a>
         </div>
     </div>
 
@@ -12,6 +12,7 @@
         {{ T "home-main-copy" }}
     </div>
 
+    <a name="wizard-anchor" id="wizard-anchor"></a>
     <div id="home-wizard"></div>
 
     <div id="home-features">
@@ -99,38 +100,5 @@
             <a href="{{ "/blog/your-gdpr-rights" | absURL }}" class="button button-primary">{{ T "blog-read-more" }}&nbsp;<span class="icon icon-arrow-right"></span></a>
 
         </section>
-        <!--<div class="home-feature">
-            <div class="col40">
-                &lt;!&ndash; TODO: Credit photographer (https://unsplash.com/photos/ilSnKT1IMxE). &ndash;&gt;
-                <img src="{{ "img/home-your-rights.jpg" | absURL }}">
-            </div>
-            <div class="col60">
-                <h2>{{ T "home-feature-your-rights-title" }}</h2>
-                <p>{{ T "home-feature-your-rights" (dict "articleUrl" ("blog/your-gdpr-rights" | absURL) ) | safeHTML }}</p>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="home-feature">
-            <div class="col60">
-                <h2>{{ T "home-feature-easy-requests-title" }}</h2>
-                <p>{{ (T "home-feature-easy-requests" (dict "companyUrl" ("company" | absURL) "generatorUrl" ("generator" | absURL))) | safeHTML }}</p>
-            </div>
-            <div class="col40">
-                &lt;!&ndash; TODO: Make sure to update image with the interface. &ndash;&gt;
-                <img src="{{ "img/home-send-requests.png" | absURL }}">
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="home-feature">
-            <div class="col40">
-                <img src="{{ "img/home-get-answers.jpg" | absURL }}">
-            </div>
-            <div class="col60">
-                <h2>{{ T "home-feature-answers-title" }}</h2>
-                <p>{{ T "home-feature-answers" | safeHTML }}&lt;!&ndash; TODO: Write and link article. &ndash;&gt;</p>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>-->
 </main>
 {{ end }}
