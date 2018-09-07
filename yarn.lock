@@ -7198,6 +7198,14 @@ react-instantsearch@^5.0.1:
     react-instantsearch-dom "^5.2.3"
     react-instantsearch-native "^5.2.3"
 
+react-scrollspy@^3.3.5:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/react-scrollspy/-/react-scrollspy-3.3.5.tgz#e3e605bfc153a23f5fdf1279dd9f397d6e76e228"
+  dependencies:
+    babel-runtime "^6.26.0"
+    classnames "^2.2.5"
+    prop-types "^15.5.10"
+
 read-all-stream@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/read-all-stream/-/read-all-stream-3.1.0.tgz#35c3e177f2078ef789ee4bfafa4373074eaef4fa"

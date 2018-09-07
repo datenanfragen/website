@@ -1,9 +1,9 @@
 <article class="list-article">
     {{ if .Params.featured_image }}
-    <a href="{{ .Permalink }}"><img class="image" src="{{ .Params.featured_image }}" alt="{{ .Title }}"></a>
+    <div class="col25 article-featured-image"><a href="{{ .Permalink }}"><img class="image" src="{{ .Params.featured_image }}" alt="{{ .Title }}"></a></div>
     {{ end }}
-    <div class="padded">
-        <a href="{{ .Permalink }}"><h2>{{ .Title }}</h2></a>
+    <div class="padded {{ if .Params.featured_image }}col75{{end}}">
+        <a href="{{ .Permalink }}"><h1>{{ .Title }}</h1></a>
         <aside class="list-article-meta">{{ if not .Params.static }}{{ T "blog-published" }}<span class="meta-date"><time>{{ .Date.Format "2006-01-02T15:04" }}</time></span>{{ end }}</aside>
         <p class="description">
             {{ if .Description }}
@@ -16,4 +16,6 @@
             {{ end }}
         </p>
     </div>
+    <div class="clearfix"></div>
+    <a class="button button-primary read-more-button" href="{{ .Permalink }}">{{ T "blog-read-more" }}&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>

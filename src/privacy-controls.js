@@ -3,6 +3,7 @@ import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import Privacy, {PRIVACY_ACTIONS} from "Utility/Privacy";
 import UserRequests from "./my-requests";
+import Modal from "./Components/Modal";
 
 class PrivacyControl extends preact.Component {
     constructor(props) {
@@ -26,7 +27,14 @@ class PrivacyControl extends preact.Component {
         Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
 
         if(this.props.privacy_action === 'SAVE_MY_REQUESTS' && this.state.enabled === false) {
-            if(confirm(t('confirm-delete-my-requests', 'privacy-controls'))) (new UserRequests()).clearRequests();
+            this.props.showModal(
+                <Modal positiveText={t('confirm-clear-requests', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
+                       onNegativeFeedback={this.props.hideModal} onPositiveFeedback={e => {
+                    this.props.hideModal();
+                    PrivacyControls.clearRequests();
+                }} positiveDefault={true} onDismiss={this.props.hideModal}>
+                    <Text id='confirm-delete-my-requests' />
+                </Modal>);
         }
     }
 
@@ -42,29 +50,60 @@ class PrivacyControl extends preact.Component {
 }
 
 class PrivacyControls extends preact.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            modal: ''
+        };
+
+        this.clearRequestsButton = this.clearRequestsButton.bind(this);
+        this.hideModal = this.hideModal.bind(this);
+        this.showModal = this.showModal.bind(this);
+    }
+
     render() {
         let controls = [];
         Object.keys(PRIVACY_ACTIONS).forEach(action => {
-            controls.push(<PrivacyControl privacy_action={action} />);
+            controls.push(<PrivacyControl privacy_action={action} showModal={this.showModal} hideModal={this.hideModal} />);
         });
 
         return (
             <main>
+                {this.state.modal}
                 <MarkupText id="explanation" />
 
                 <table>
                     {controls}
                 </table>
                 <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
-                <button id="clear-requests-button" className="button-secondary" onClick={PrivacyControls.clearRequests} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
+                <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
                 <div className="clearfix" />
             </main>
         );
     }
 
+    clearRequestsButton() {
+        this.showModal(
+            <Modal positiveText={t('confirm-clear-requests', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
+                   onNegativeFeedback={this.hideModal} onPositiveFeedback={e => {
+                this.hideModal();
+                PrivacyControls.clearRequests();
+            }} positiveDefault={true} onDismiss={this.hideModal}>
+                <Text id='modal-clear-requests' />
+            </Modal>);
+    }
+
     static clearRequests() {
-        /* TODO: Indicate success. */
         (new UserRequests()).clearRequests();
+    }
+
+    showModal(modal) {
+        this.setState({'modal': modal});
+    }
+
+    hideModal() {
+        this.setState({'modal': ''});
     }
 
     static clearCookies() {

@@ -18,28 +18,27 @@ In dieser Datenschutzerklärung möchten wir Dir erklären, welche Daten wir erf
 
 ### Geltungsbereich
 
-Diese Datenschutzerklärung gilt für die Webseiten [Datenanfragen.de](https://www.datenanfragen.de) und [datarequests.org](https://www.datarequests.org). Beachte bitte, dass es für die Aktivitäten des Datenanfragen.de e.&nbsp;V. eine separate Datenschutzerklärung gibt. <!-- TODO: Link once ready. -->
+Diese Datenschutzerklärung gilt für die Webseiten [Datenanfragen.de](https://www.datenanfragen.de) und [datarequests.org](https://www.datarequests.org). Beachte bitte, dass es für die Aktivitäten des Datenanfragen.de e.&nbsp;V. eine [separate Datenschutzerklärung](https://verein.datenanfragen.de/datenschutz) gibt.
 
 Mit Datenanfragen.de wollen wir Dir helfen, Deine Datenschutzrechte einfacher auszuüben. Dazu bieten wir Dir einen Generator, mit dem Du automatisch Anfragen erstellen kannst, eine Datenbank mit Kontaktdaten für datenschutzspezifische Anfragen an viele Unternehmen und Informationsmaterialien zum Datenschutz und verwandten Themen.
 
 ### Verantwortlicher und Kontakt
 
-Verantwortlicher für die im Abschnitt „Geltungsbereich“ genannten Angebote im Sinne des Art. 4 Nr. 7 DSGVO ist:
+Verantwortlicher für die im Abschnitt „Geltungsbereich“ genannten Angebote im Sinne des Art. 4 Nr. 7 DSGVO ist der:
 
-<!-- TODO: Nach Vereinsgründung anpassen. -->
-Verein Datenanfragen.de (in Gründung)  
+Datenanfragen.de e.&nbsp;V.  
 c/o Benjamin Altpeter  
 Schreinerweg 6  
 38126 Braunschweig  
 Deutschland
 
-Vertreten durch: Benjamin Altpeter und Lorenz Sieben  
-Eintragung in das Vereinsregister des Amtsgerichts Braunschweig ist geplant.
+Vertreten durch den Vorstand: Benjamin Altpeter und Lorenz Sieben  
+Der Datenanfragen.de e. V. ist im Vereinsregister des Amtsgerichts Braunschweig unter der Registernummer VR 201732 eingetragen und per Bescheid vom 21. Juni 2018 vom Finanzamt Braunschweig-Wilhelmstraße als gemeinnützig anerkannt.
 
-Telefon (mobil): +49 176 913 77 604  
-Telefax: +49 531 615 4 288  
+Telefon: +49 531 209299 35  
+Telefax: +49 531 209299 36  
 E-Mail: [datenschutz@datenanfragen.de](mailto:datenschutz@datenanfragen.de) ([PGP-Key](https://www.datenanfragen.de/pgp/CF2CBB2E.asc) `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`)  
-Web: [www.datenanfragen.de](https://www.datenanfragen.de)
+Web: [verein.datenanfragen.de](https://verein.datenanfragen.de)
 
 Falls Du irgendwelche Fragen zu unserer Datenschutzerklärung hast, der Meinung bist, dass wir gegen Datenschutzrecht verstoßen oder Deine Rechte geltend machen möchtest, kannst Du Dich gerne jederzeit an uns wenden.
 

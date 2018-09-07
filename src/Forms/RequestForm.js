@@ -4,16 +4,10 @@ import SignatureInput from "./SignatureInput";
 import { MarkupText, Text } from 'preact-i18n';
 import t from '../Utility/i18n';
 import {AddressControl} from "./DynamicInput";
+import Accordion from "../Components/Accordion";
+import Radio from "../Components/Radio";
 
 export default class RequestForm extends preact.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            information_block: false
-        }
-    }
-
     render() {
         let body = [];
         switch(this.props.request_data['type']) {
@@ -57,22 +51,7 @@ export default class RequestForm extends preact.Component {
                 break;
         }
 
-        if(this.props.request_data['transport_medium'] !== 'email') body.push(<SignatureInput id="signature" width={400} height={200} onChange={this.props.onChange}/>);
-
-        let information_block = [];
-        if(this.state.information_block) {
-            information_block =
-                (<div id="information-block-form">
-                    <div className="form-group">
-                        <label for="request-date"><Text id='request-date'/></label>
-                        <input name="request-date" type="date" id="request-date" className="form-element"
-                               onChange={e => this.props.onChange({'date': e.target.value})} value={this.props.request_data['date']} />
-                    </div>
-                    <textarea id="information-block" className="form-element" placeholder={t('information-block', 'generator')}
-                              rows="4" spellcheck="true" onChange={e => this.props.onChange({'information_block': e.target.value})}
-                              value={this.props.request_data['information_block']} />
-                </div>);
-        }
+        if(this.props.request_data['transport_medium'] !== 'email') body.push(<SignatureInput id="signature" width={450} height={200} onChange={this.props.onChange}/>);
 
         return (
             <div className="request-form">
@@ -81,14 +60,16 @@ export default class RequestForm extends preact.Component {
 
                     <div className="request-type-chooser">
                         <Text id="request-type" /><br />
-                        <input type="radio" id="request-type-choice-access" name="request-type" value="access" className="form-element" checked={this.props.request_data['type'] === 'access'}
-                               onChange={this.props.onTypeChange} /> <label for="request-type-choice-access"><Text id="access-request"/></label>
-                        <input type="radio" id="request-type-choice-erasure" name="request-type" value="erasure" className="form-element" checked={this.props.request_data['type'] === 'erasure'}
-                               onChange={this.props.onTypeChange} /> <label for="request-type-choice-erasure"><Text id="erasure-request"/></label>
-                        <input type="radio" id="request-type-choice-rectification" name="request-type" value="rectification" className="form-element" checked={this.props.request_data['type'] === 'rectification'}
-                               onChange={this.props.onTypeChange} /> <label for="request-type-choice-rectification"><Text id="rectification-request"/></label>
-                        <input type="radio" id="request-type-choice-custom" name="request-type" value="custom" className="form-element" checked={this.props.request_data['type'] === 'custom'}
-                               onChange={this.props.onTypeChange} /> <label for="request-type-choice-custom"><Text id="own-request"/></label>
+                        <div className="radio-group">
+                            <Radio id="request-type-choice-access" radio_variable={this.props.request_data['type']} value="access" name="request-type"
+                                   onChange={this.props.onTypeChange} label={t('access-request', 'generator')}/>
+                            <Radio id="request-type-choice-erasure" radio_variable={this.props.request_data['type']} value="erasure" name="request-type"
+                                   onChange={this.props.onTypeChange} label={t('erasure-request', 'generator')}/>
+                            <Radio id="request-type-choice-rectification" radio_variable={this.props.request_data['type']} value="rectification" name="request-type"
+                                   onChange={this.props.onTypeChange} label={t('rectification-request', 'generator')}/>
+                            <Radio id="request-type-choice-custom" radio_variable={this.props.request_data['type']} value="custom" name="request-type"
+                                   onChange={this.props.onTypeChange} label={t('own-request', 'generator')}/>
+                        </div>
                     </div>
 
                     <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
@@ -102,12 +83,14 @@ export default class RequestForm extends preact.Component {
 
                     <div className="request-transport-medium-chooser">
                         <Text id="request-transport-medium" /><br />
-                        <input type="radio" id="request-transport-medium-choice-fax" name="transport-medium" value="fax" className="form-element" checked={this.props.request_data['transport_medium'] === 'fax'}
-                               onChange={this.props.onTransportMediumChange} /> <label for="request-transport-medium-choice-fax"><Text id="fax"/></label>
-                        <input type="radio" id="request-transport-medium-choice-email" name="transport-medium" value="email" className="form-element" checked={this.props.request_data['transport_medium'] === 'email'}
-                               onChange={this.props.onTransportMediumChange} /> <label for="request-transport-medium-choice-email"><Text id="email"/></label>
-                        <input type="radio" id="request-transport-medium-choice-letter" name="transport-medium" value="letter" className="form-element" checked={this.props.request_data['transport_medium'] === 'letter'}
-                               onChange={this.props.onTransportMediumChange} /> <label for="request-transport-medium-choice-letter"><Text id="letter"/></label>
+                        <div className="radio-group">
+                            <Radio id="request-transport-medium-choice-fax" radio_variable={this.props.request_data['transport_medium']} value="fax" name="transport-medium"
+                                   onChange={this.props.onTransportMediumChange} label={t('fax', 'generator')}/>
+                            <Radio id="request-transport-medium-choice-email" radio_variable={this.props.request_data['transport_medium']} value="email" name="transport-medium"
+                                   onChange={this.props.onTransportMediumChange} label={t('email', 'generator')}/>
+                            <Radio id="request-transport-medium-choice-letter" radio_variable={this.props.request_data['transport_medium']} value="letter" name="transport-medium"
+                                   onChange={this.props.onTransportMediumChange} label={t('letter', 'generator')}/>
+                        </div>
                     </div>
 
                     {this.renderFlags()}
@@ -116,13 +99,19 @@ export default class RequestForm extends preact.Component {
 
                 {body}
 
-                <fieldset>
-                    <legend><a href="" onClick={e => {
-                        e.preventDefault();
-                        this.setState({information_block: !this.state.information_block});
-                    }}><Text id='information-block'/></a></legend>
-                    {information_block}
-                </fieldset>
+
+                <Accordion title={t('information-block', 'generator')} id="advanced-information">
+                    <div id="information-block-form">
+                        <div className="form-group">
+                            <label for="request-date"><Text id='request-date'/></label>
+                            <input name="request-date" type="date" id="request-date" className="form-element"
+                                   onChange={e => this.props.onChange({'date': e.target.value})} value={this.props.request_data['date']} />
+                        </div>
+                        <textarea id="information-block" className="form-element" placeholder={t('information-block', 'generator')}
+                                  rows="4" spellcheck="true" onChange={e => this.props.onChange({'information_block': e.target.value})}
+                                  value={this.props.request_data['information_block']} />
+                    </div>
+                </Accordion>
             </div>
         );
     }
