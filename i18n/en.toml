@@ -72,7 +72,7 @@ other = "Contact"
 # Footer
 
 [footer-about-us]
-other = "We are Datenanfragen.de e.&nbsp;V., a registered non-profit from Germany. We have made it our mission to help you exercise your right to privacy. <a>Learn more.</a>"
+other = "We are Datenanfragen.de e.&nbsp;V., a registered non-profit from Germany. We have made it our mission to help you exercise your right to privacy. <a href='https://verein.datenanfragen.de'>Learn more.</a>"
 
 [footer-other-langs]
 other = "Also available in: "
