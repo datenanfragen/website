@@ -311,15 +311,6 @@ class Generator extends preact.Component {
         this.renderRequest();
     }
 
-    fetchCompanyDataBySlug(slug, callback) {
-        try {
-            fetch(this.database_url + slug + '.json')
-                .then(res => res.json()).then(json => {callback(json)});
-        } catch(error) {
-            rethrow(error, 'Fetching company data by slug failed.');
-        }
-    }
-
     newRequest() {
         this.setState(prev => {
             prev['request_data'] = {
