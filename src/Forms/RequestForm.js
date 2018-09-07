@@ -72,6 +72,15 @@ export default class RequestForm extends preact.Component {
                         </div>
                     </div>
 
+                    <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
+                        <Text id="recipient-explanation"/><br />
+                        <textarea id="request-recipient" className="form-element" placeholder={t('recipient', 'generator')} rows="4" spellcheck="false" onChange={event => {
+                            this.props.onChange({'recipient_address': event.target.value});
+                        }} value={this.props.request_data['recipient_address']} />
+                        <label className="sr-only" for="request-recipient"><Text id="recipient"/></label>
+                        <input type="hidden" id="request-template" value="default" />
+                    </div>
+
                     <div className="request-transport-medium-chooser">
                         <Text id="request-transport-medium" /><br />
                         <div className="radio-group">
@@ -82,15 +91,6 @@ export default class RequestForm extends preact.Component {
                             <Radio id="request-transport-medium-choice-letter" radio_variable={this.props.request_data['transport_medium']} value="letter" name="transport-medium"
                                    onChange={this.props.onTransportMediumChange} label={t('letter', 'generator')}/>
                         </div>
-                    </div>
-
-                    <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
-                        <Text id="recipient-explanation"/><br />
-                        <textarea id="request-recipient" className="form-element" placeholder={t('recipient', 'generator')} rows="4" spellcheck="false" onChange={event => {
-                            this.props.onChange({'recipient_address': event.target.value});
-                        }} value={this.props.request_data['recipient_address']} />
-                        <label className="sr-only" for="request-recipient"><Text id="recipient"/></label>
-                        <input type="hidden" id="request-template" value="default" />
                     </div>
 
                     {this.renderFlags()}
