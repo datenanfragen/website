@@ -1,18 +1,17 @@
 import preact from 'preact';
-import { SearchBar } from "./Components/SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'Utility/i18n';
+import Wizard from "Components/Wizard";
+
 
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
 const hero_rights = [ t("data-access", "home"), t("data-erasure", "home"), t("data-rectification", "home"), t("objection", "home"), t("privacy", "home") ];
-/* TODO: Create a proper repository of suggested companies and use that here. */
-const search_suggested_companies = [ "Schufa", "Amazon", "Creditreform Boniversum", "infoscore", "ARD ZDF Deutschlandradio Beitragsservice", "CRIF Bürgel", "PayPal" ];
 
 preact.render((
-        <IntlProvider scope="home" definition={I18N_DEFINITION}>
-            {/* TODO: Wizard. */}
+        <IntlProvider scope="wizard" definition={I18N_DEFINITION}>
+            <Wizard/>
         </IntlProvider>
-    ), null, document.getElementById('home-search'));
+    ), null, document.getElementById('home-wizard'));
 
 function typewriter(text, i, fnCallback) {
     if (text && i < (text.length)) {

@@ -95,8 +95,8 @@ other = "data access"
 [home-hero-line-2]
 other = "Use it."
 
-[home-hero-copy]
-other = "Every company in the EU is required by law to grant access to your personal data, the ability to have it corrected or even deleted and more. Here at datarequests.org, we want to help you exercise these rights.<br>Why don't you try it right now? Go ahead and send a request!"
+[home-main-copy]
+other = "Every company in the EU is required by law to grant you access to your personal data, the ability to have it corrected or even deleted and more. Here at datarequests.org, we want to help you exercise these rights."
 
 [home-feature-your-rights-title]
 other = "Your rights"
