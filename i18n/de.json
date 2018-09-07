@@ -117,7 +117,10 @@
         "save_my_requests": "„Meine Anfragen“",
         "save_my_requests-description": "Um Dir die Verwaltung Deiner bisherigen Anfragen zu erleichtern, bieten wir Dir die „Meine Anfragen“-Funktion an. Wenn du diese aktivierst, werden alle Deine Anfragen auf Deinem Computer (über die „local storage“-Schnittstelle Deines Browsers) gespeichert und Du kannst sie Dir später <a href='/my-requests'>hier</a> anschauen. Dort kannst Du auch jederzeit alle gespeicherten Anfragen löschen oder sie als CSV-Datei exportieren.",
         "save_id_data": "Identifikationsdaten speichern",
-        "save_id_data-description": "Um Dir das Senden neuer Anfragen zu erleichern, können wir Deine Identifikationsdaten für Dich speichern. TODO: Explain how this works and how to delete the data afterwards."
+        "save_id_data-description": "Um Dir das Senden neuer Anfragen zu erleichern, können wir Deine Identifikationsdaten für Dich speichern. TODO: Explain how this works and how to delete the data afterwards.",
+        "confirm-clear-requests": "Anfragen löschen",
+        "cancel": "Abbrechen",
+        "modal-clear-requests": "Damit werden alle gespeicherten Anfragen unwiderruflich von Deinem Computer gelöscht. Bist Du sicher?"
     },
     "error-handler": {
         "explanation": "Es ist leider ein unerwarteter Fehler aufgetreten. Wir wären Dir sehr dankbar, wenn Du Dir die Zeit nehmen würdest, uns eine Fehlermeldung über GitHub oder per E-Mail zu senden, sodass wir das Problem diagnostizieren können. Vielen Dank schon einmal!",
