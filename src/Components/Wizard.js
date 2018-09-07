@@ -38,6 +38,10 @@ export default class Wizard extends preact.Component {
         this.setState({ current_tab: next >= CATEGORIES.length ? 0 : next });
     }
 
+    isLastTab() {
+        return this.state.current_tab === CATEGORIES.length - 1;
+    }
+
     addCompany(slug, name) {
         this.setState(prev => {
             prev.selected_companies[slug] = name;
@@ -58,6 +62,10 @@ export default class Wizard extends preact.Component {
         CATEGORIES.forEach((category, i) => {
             tabs.push(<WizardTab desc={t(category, 'categories')} index={i} isCurrent={this.state.current_tab === i} clickCallback={this.changeTab} />);
         });
+        let next_button = [];
+        if(!this.isLastTab()) {
+            next_button = <button className="button-primary" onClick={() => { this.changeTab(this.state.current_tab + 1)} }><Text id="next"/></button>;
+        }
         return (
             <div id="wizard" className="box">
                 <div id="wizard-tabs">
@@ -77,7 +85,8 @@ export default class Wizard extends preact.Component {
                         {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
                         <MarkupText id={CATEGORIES[this.state.current_tab]}/>
                         <div id="wizard-buttons">
-                            <button className="button-primary button-small" onClick={() => { this.changeTab(this.state.current_tab + 1)} }><Text id="next"/></button> <button className="button-secondary button-small" onClick={() => { location.href = BASE_URL + '/generator?companies=' + Object.keys(this.state.selected_companies).join(',') }}><Text id="finish"/></button>
+                            <button className={"button-" + (this.isLastTab() ? "primary" : "secondary")} onClick={() => { location.href = BASE_URL + '/generator?companies=' + Object.keys(this.state.selected_companies).join(',') }}><Text id="finish"/></button>
+                            {next_button}
                         </div>
                         <div className="clearfix" />
                     </div>
@@ -93,7 +102,7 @@ export default class Wizard extends preact.Component {
 
 class WizardTab extends preact.Component {
     render() {
-        return <a onClick={() => {this.props.clickCallback(this.props.index)}}><span className={'wizard-tab' + (this.props.isCurrent ? ' wizard-tab-current' : '')}>{this.props.desc}</span></a>;
+        return <a onClick={() => {this.props.clickCallback(this.props.index)}} className={'wizard-tab' + (this.props.isCurrent ? ' wizard-tab-current' : '')}>{this.props.desc}</a>;
     }
 }
 

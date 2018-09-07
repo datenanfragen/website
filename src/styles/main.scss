@@ -80,22 +80,53 @@ a #logo {
 }
 
 /* Wizard */
-#wizard-tabs { margin-bottom: 10px; }
-.wizard-tab {
-    display: inline-block;
-    margin-right: 10px;
+#wizard-tabs {
     margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid $gray-color;
-    border-radius: 5px;
-    background-color: $bg-accent-color;
-    color: $text-color;
-    font-size: 0.9em;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: absolute;
+    top: -4px;
+    left: 0;
+
+    .wizard-tab {
+        display: inline-block;
+        flex: 1;
+
+        margin-bottom: 10px;
+
+        border: 4px solid $primary-color;
+        border-radius: 0;
+        border-left: none;
+        color: $primary-color;
+        font-size: 0.9em;
+        text-align: center;
+        padding: 10px 5px;
+
+        cursor: pointer;
+
+        &:last-of-type {
+            border-right: none;
+        }
+
+        &.wizard-tab-current {
+            background-color: $primary-color;
+            color: $bg-color;
+        }
+    }
 }
-.wizard-tab-current { background-color: $accent-lighter-color; }
-#wizard-buttons { float: right; }
+
+#wizard-buttons {
+    float: right;
+
+    button {
+        margin-left: 15px;
+    }
+}
 #wizard {
     margin: 50px 0;
+    position: relative;
+    padding-top: 60px;
 }
 #wizard-inner {
     position: relative;
