@@ -13,7 +13,7 @@ If the personal data that companies or other organisations (so-called controller
 
 If the controller has forwarded your data to other companies, they also have to inform them about your request for deletion.
 
-If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "blog/your-gdpr-rights" >}}).
+If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
 
 ## How do I exercise this right?
 

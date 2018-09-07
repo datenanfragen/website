@@ -10,7 +10,7 @@
 
 In our increasingly digital world, data protection plays a more important role every day. With the new **General Data Protection Regulation** (**GDPR**), the European Union significantly strengthens your rights with regard to the careful handling of your personal data.
 
-In this article, we want to give you a detailed overview of the rights you have thanks to the GDPR. If you are looking for a short summary instead, have a look at [this article]({{< ref "blog/a-quick-overview" >}}).
+In this article, we want to give you a detailed overview of the rights you have thanks to the GDPR. If you are looking for a short summary instead, have a look at [this article]({{< ref "/blog/a-quick-overview" >}}).
 
 ## What is the GDPR?
 
@@ -88,6 +88,6 @@ Art. 19 GDPR also applies to requests concerning the deletion of data and theref
 
 ## How do I exercise these rights?
 
-In general, you can assert all of the above rights towards a company by means of an informal request. You can also use [our generator]({{< ref "generator" >}}) to generate requests automatically and at the same time make use of our extensive company database.
+In general, you can assert all of the above rights towards a company by means of an informal request. You can also use [our generator]({{< ref "/generator" >}}) to generate requests automatically and at the same time make use of our extensive company database.
 
 <!-- TODO: Write and link article. -->

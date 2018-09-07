@@ -13,7 +13,7 @@ Nach der Datenschutz-Grundverordnung (DSGVO) hast Du ein Recht darüber Auskunft
 
 Diese Auskunft umfasst zunächst einmal eine Bestätigung darüber, ob Deine personenbezogene Daten verarbeitet werden. Falls dem so ist, kannst Du eine Kopie eben dieser Daten verlangen. Doch nicht nur das: Darüber hinaus hast Du auch das Recht auf etliche weitere Informationen, wie z.&nbsp;B. die Zwecke der Verarbeitung, die Empfänger, an welche die Daten weitergeben werden und die Dauer der Speicherung.
 
-Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "blog/your-gdpr-rights" >}}) an.
+Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "/blog/your-gdpr-rights" >}}) an.
 
 ## Wie nutze ich dieses Recht?
 

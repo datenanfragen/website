@@ -3,6 +3,7 @@ import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "Utility/Privacy";
+import {rethrow} from "./Utility/errors";
 
 export default class UserRequests {
     constructor() {
@@ -22,9 +23,8 @@ export default class UserRequests {
                 .then(() => {
                     resolve(requests);
                 })
-                .catch(() => {
-                    console.log('Could not get requests.');
-                    /* TODO: Proper error handling. */
+                .catch((error) => {
+                    rethrow(error, 'Could not get requests');
                     reject();
                 });
         });
@@ -111,9 +111,8 @@ class RequestList extends preact.Component {
                 .then(() => {
                     this.setState({requests: []})
                 })
-                .catch((err) => {
-                    console.log('Could not clear requests: ' + err);
-                    /* TODO: Proper error handling. */
+                .catch((error) => {
+                    rethrow(error, 'Could not clear requests.');
                 });
         }
     }
