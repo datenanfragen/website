@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # --- Fetch companies data ---
-git clone --depth 1 https://github.com/datenanfragen/companies tmp
+git clone --depth 1 https://github.com/datenanfragen/data tmp
 mkdir -p content/company
 mkdir -p static/templates
 mkdir -p static/db
 mkdir -p static/db/suggested-companies
-cp tmp/data/* static/db
+cp tmp/companies/* static/db
 cp tmp/suggested-companies/* static/db/suggested-companies
-cp tmp/data/* content/company
+cp tmp/companies/* content/company
 cp -r tmp/templates/* static/templates
 mv tmp/schema.json tmp/schema-supervisory-authorities.json static
 rm -rf tmp

@@ -68,6 +68,9 @@ function renderForm(schema, company = undefined) {
           element.onmouseout = (ev) => {
               ev.target.removeChild(ev.target.lastChild);
           };
+      } else if (tagName === "td") {
+        if (element.className === "item-action") element.style = 'padding-left: 0;';
+        if (element.className === "item-value") element.style = 'padding-right: 0;';
       }
     }
   });
