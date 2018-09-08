@@ -3,8 +3,6 @@ import { fetchCompanyDataBySlug } from './Utility/companies';
 require('brutusin-json-forms');
 import {ErrorException, rethrow} from "./Utility/errors";
 
-// TODO: Style properly (i.e. at all). I'll leave that for !29.
-
 let bf;
 let submit_url = 'https://z374s4qgtc.execute-api.eu-central-1.amazonaws.com/prod/suggest';
 let url_params = new URLSearchParams(window.location.search);
@@ -15,7 +13,7 @@ window.onload = () => {
   .then(res => res.json())
   .then(out => { prepareForm(out); })
   .catch(err => { rethrow(ErrorException.fromError(err), 'Could not get `schema.json` for cdb suggestion form.', { schema_url: schema_url }); });
-}
+};
 
 function prepareForm(schema) {
   if(url_params.has('slug')) fetchCompanyDataBySlug(url_params.get('slug'), company => { renderForm(schema, company) });
@@ -26,7 +24,6 @@ function renderForm(schema, company = undefined) {
   let BrutusinForms = brutusin['json-forms'];
   BrutusinForms.addDecorator((element, schema) => {
     element.placeholder = '';
-
     let to_hide = [ 'slug', 'custom-access-template', 'custom-erasure-template', 'custom-rectification-template' ];
 
     if(!element.tagName) {
@@ -36,6 +33,41 @@ function renderForm(schema, company = undefined) {
       if(to_hide.includes(sanitizedText)) {
         // We are currently in the scope of some promise or something like that. `setTimeout` brings us back to the scope of the content process.
         setTimeout((el) => { document.getElementById(el).parentElement.parentElement.remove(); }, 0, element.parentElement.attributes.for.value);
+      }
+    } else {
+      var tagName = element.tagName.toLowerCase();
+      if (tagName === "input" || tagName === "textarea") {
+          element.className += " form-element";
+          if(tagName === "textarea") element.setAttribute('rows', '5');
+      } else if (tagName === "select") {
+          let select_container = document.createElement('div');
+          let icon  = document.createElement('div');
+          select_container.className = 'select-container';
+          icon.className = 'icon icon-arrow-down';
+          element.parentElement.appendChild(select_container);
+          select_container.appendChild(element);
+          select_container.appendChild(icon);
+      } else if (tagName === "button") {
+          if (element.className === "remove") {
+              while (element.firstChild) {
+                  element.removeChild(element.firstChild);
+              }
+              let icon = document.createElement('span');
+              icon.className = 'icon icon-trash';
+              element.appendChild(icon);
+          }
+          element.className += ' button-small button-primary';
+      } else if (tagName === "label") {
+          element.onmouseover = (ev) => {
+              let tooltip = document.createTextNode(ev.target.title);
+              let tip_container = document.createElement('div');
+              tip_container.className = 'label-tooltip';
+              tip_container.appendChild(tooltip);
+              ev.target.appendChild(tip_container);
+          };
+          element.onmouseout = (ev) => {
+              ev.target.removeChild(ev.target.lastChild);
+          };
       }
     }
   });
