@@ -52,7 +52,7 @@
     </div>
     <div id="companies-help-needed">
         <!-- TODO: Style properly. -->
-        {{ T "cdb-help-needed" | safeHTML }}
+        {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "?type=new&for=cdb")) | safeHTML }}
     </div>
 </main>
 {{ end }}

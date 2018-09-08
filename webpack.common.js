@@ -13,6 +13,7 @@ module.exports = {
         'company-list': './src/company-list.js',
         'my-requests': './src/my-requests.js',
         'privacy-controls': './src/privacy-controls.js',
+        'suggest-edit': './src/suggest-edit.js',
         'pdfworker': './src/PdfWorker.js',
         'style': './src/styles/main.scss'
     },
@@ -89,7 +90,12 @@ module.exports = {
             filename: 'css/[name].gen.css'
         }),
 
-        new webpack.BannerPlugin('[file]\nThis code is part of the Datenanfragen.de project. We want to help you exercise your rights under the GDPR.\n\n@license MIT\n@author the Datenanfragen.de project\n@version ' + process.env.npm_package_version + '\n@updated ' + new Date().toISOString() + '\n@see {@link https://github.com/datenanfragen/website|Code repository}\n@see {@link https://www.datenanfragen.de|German website}\n@see {@link https://datarequests.org|English website}')
+        new webpack.BannerPlugin('[file]\nThis code is part of the Datenanfragen.de project. We want to help you exercise your rights under the GDPR.\n\n@license MIT\n@author the Datenanfragen.de project\n@version ' + process.env.npm_package_version + '\n@updated ' + new Date().toISOString() + '\n@see {@link https://github.com/datenanfragen/website|Code repository}\n@see {@link https://www.datenanfragen.de|German website}\n@see {@link https://datarequests.org|English website}'),
+
+        // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
+        new webpack.DefinePlugin({
+          CODE_VERSION: JSON.stringify(process.env.npm_package_version)
+        }),
     ],
     resolve: {
         modules: [ 'src', 'node_modules', 'i18n', 'res/icons' ],

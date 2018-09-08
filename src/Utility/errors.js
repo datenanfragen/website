@@ -1,7 +1,10 @@
 export function rethrow(error, description, context) {
-    error.description = description;
-    error.context = context;
-    throw error;
+    // allow throwing from inside promise `catch` functions, see https://stackoverflow.com/a/30741722
+    setTimeout(() => {
+        error.description = description;
+        error.context = context;
+        throw error;
+    }, 0);
 }
 
 class GenericException extends Error {
@@ -10,6 +13,10 @@ class GenericException extends Error {
         this.name = 'Exception';
         this.message = message;
         this.context = context;
+    }
+
+    static fromError(error) {
+        return Object.assign(error, new this());
     }
 
     toString() {

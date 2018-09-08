@@ -325,6 +325,58 @@ body.sticky-offset {
     }
 }
 
+/* Company Suggestions */
+
+.item-index { display: none; }
+
+#suggest-form {
+    margin-top: 25px;
+    border: 4px solid $primary-color;
+    border-radius: 2px;
+    padding: 25px;
+    position: relative;
+    padding-bottom: 45px;
+
+    #submit-suggest-form {
+        position: absolute;
+        bottom: -4px;
+        right: -4px;
+    }
+}
+
+.brutusin-form {
+    table.object { width: 100%; }
+    table.array { width: 100%; }
+
+    .select-container {
+        width: 100%;
+
+        .icon {
+            top: 7px;
+        }
+    }
+
+    td {
+        padding: 5px;
+        vertical-align: top;
+
+        &.prop-name { width: 300px; }
+        &.item-action { width: 35px; }
+    }
+
+    label { cursor: help; }
+    .label-tooltip {
+        position: absolute;
+        border: 2px solid $primary-color;
+        border-radius: 2px;
+        font-size: $font-size - 5px;
+        width: 250px;
+        z-index: 999;
+        padding: 5px;
+        background: $bg-color;
+    }
+}
+
 /* Footer */
 footer {
     background-color: $bg-accent-color;

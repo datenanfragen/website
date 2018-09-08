@@ -213,7 +213,7 @@ other = "Sources:"
 other = "Notes:"
 
 [cdb-help-needed]
-other = "Is this data inaccurate or the company you were looking for not in our database? We would love to have you <a href=\"https://github.com/datenanfragen/data\">help us</a>!"
+other = "Is this data inaccurate or the company you were looking for not in our database? Suggest <a href='{{ .editUrl }}'>an edit to this company</a> or <a href='{{ .newUrl }}'>a new one</a>. Thanks for your help!"
 
 # Blog
 

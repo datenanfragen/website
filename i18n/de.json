@@ -10,7 +10,9 @@
     "search": {
         "also-runs": "Betreibt auch: ",
         "categories": "Kategorie(n): ",
-        "search-disabled": "Du hast die Suchfunktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun."
+        "search-disabled": "Du hast die Suchfunktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun.",
+        "no-results": "Wir haben leider keine Ergebnisse für Deine Anfrage gefunden.",
+        "suggest-a-company": "Ein neues Unternehmen vorschlagen"
     },
     "cdb": {
         "title": "Unternehmensdatenbank",
@@ -123,9 +125,44 @@
     },
     "error-handler": {
         "explanation": "Es ist leider ein unerwarteter Fehler aufgetreten. Wir wären Dir sehr dankbar, wenn Du Dir die Zeit nehmen würdest, uns eine Fehlermeldung über GitHub oder per E-Mail zu senden, sodass wir das Problem diagnostizieren können. Vielen Dank schon einmal!",
+        "privacy": "Für weitere Informationen dazu, welche Daten Fehlermeldungen enthalten und wie wir diese verarbeiten, schau Dir bitte unsere <a href='/privacy#fehlermeldungen' target='_blank'>Datenschutzerklärung</a> an.",
         "explain-context": "Bitte gib uns wenn möglich ein bisschen Kontext für Deine Fehlermeldung. Beschreib also z. B., was Du getan hast, bevor der Fehler aufgetreten ist. Bitte entferne auch alle privaten Daten aus den Debuginformationen weiter unten.",
         "report-on-github": "Über GitHub melden",
         "report-via-email": "Per E-Mail melden"
+    },
+    "error-msg": {
+        "company-not-found": "Das gewünschte Unternehmen wurde nicht gefunden."
+    },
+    "suggest": {
+        "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank noch einmal! Wir werden ihn jetzt schnellstmöglich überprüfen.",
+        "ok": "Ok"
+    },
+    "schema": {
+        "relevant-countries": "Relevant in Ländern",
+        "categories": "Kategorien",
+        "name": "Name",
+        "runs": "Betreibt auch",
+        "address": "Adresse",
+        "phone": "Telefon",
+        "fax": "Fax",
+        "email": "E-Mail",
+        "letter": "Brief",
+        "website": "Webseite",
+        "sources": "Quellen",
+        "required-elements": "Erforderliche Elemente",
+        "request-language": "Sprache für Anfragen",
+        "needs-id-document": "Identitätsnachweis erforderlich?",
+        "suggested-transport-medium": "Empfohlenes Medium für Anfragen",
+        "comments": "Kommentare",
+        "add-item": "Element hinzufügen",
+        "true": "ja",
+        "false": "nein",
+        "description": "Beschreibung",
+        "type": "Typ",
+        "optional": "Optional?",
+        "input": "Eingabefeld",
+        "textarea": "Textbox",
+        "birthdate": "Geburtsdatum"
     },
     "categories": {
         "addresses": "Adressen",

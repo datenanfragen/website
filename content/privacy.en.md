@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on May 21, 2018.
+Our privacy policy was last changed on August 30, 2018.
 
 ## General remarks
 
@@ -87,6 +87,16 @@ If you post content in our company database, it may contain personal data. The d
 - Lawful basis: The basis of the storage is our legitimate interest to display the user contributions on our website in accordance with Art. 6(1) lit. a GDPR.
 - Duration of storage: indefinitely
 - Data disclosure: User content is publicly accessible via our website.
+
+#### Error reports
+If you report an error to us, your report may contain personal data. The disclosure of this data is entirely voluntary for you. Not providing it has no influence on your use of our website.
+
+- Affected data: information about the error that occurred, information about your browser and operating system (the so-called “user-agent string”), the complete URL of the specific page you were visiting when the error occurred and potentially data you entered on that page  
+We will always display all the information included in the report to you before you send it and give you the ability to alter or remove information from it.
+- Lawful basis: The basis of the storage is our legitimate interest to improve the stability and functionality of our website in accordance with Art. 6(1) lit. a GDPR.
+- Duration of storage: indefinitely
+- Data disclosure: The content of error reports may be publicly accessible via our [GitHub issue tracker](https://github.com/datenanfragen/website/issues).  
+GitHub is operated by GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA or their subsidiary GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. For more information on how GitHub processes your data, please refer to [their privacy policy](https://help.github.com/articles/github-privacy-statement/). [GitHub, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI) is certified under the US-European “Privacy Shield” framework, which ensures that the EU data protection level is maintained.
 
 ## External services
 

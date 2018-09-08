@@ -64,12 +64,18 @@ input::placeholder, textarea::placeholder {
 }
 
 .box {
+    border: 4px solid #003bff;
+    border-radius: 2px;
     box-sizing: border-box;
     /*box-shadow: 0 3px 40px rgba(0, 0, 0, 0.2);*/
     border: 4px solid $primary-color;
     border-radius: 2px;
     padding: 20px;
 }
+.box-error { border-color: #d8000c; }
+.box-warning { border-color: #ffc107; }
+.box-info { border-color: #bde5f8; }
+.box-success { border-color: #28a745; }
 
 .select-container {
     position: relative;

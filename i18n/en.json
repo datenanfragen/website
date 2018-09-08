@@ -10,7 +10,9 @@
     "search": {
         "also-runs": "Also runs: ",
         "categories": "Categories: ",
-        "search-disabled": "You have disabled the search feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>."
+        "search-disabled": "You have disabled the search feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>.",
+        "no-results": "Unfortunately, there were no results for your query.",
+        "suggest-a-company": "Suggest a new company"
     },
     "cdb": {
         "title": "Company database",
@@ -124,9 +126,44 @@
     },
     "error-handler": {
         "explanation": "Unfortunately, an unexpected error just occurred. We would really appreciate if you took the time to send us an error report via GitHub or email, so we can diagnose the problem. Huge thanks in advance!",
+        "privacy": "For details on how what data error reports contain and how we process said data, please refer to our <a href='/privacy#error-reports' target='_blank'>privacy policy</a>.",
         "explain-context": "If applicable, please provide some context for the error, i.e. describe what you did before the error occurred. Please also remove any sensitive information from the debug information below.",
         "report-on-github": "Report on GitHub",
         "report-via-email": "Report via email"
+    },
+    "error-msg": {
+        "company-not-found": "The company you were looking for could not be found."
+    },
+    "suggest": {
+        "success": "Your contribution has been sent successfully. Thank you once again! We will now review it as soon as possible.",
+        "ok": "Ok"
+    },
+    "schema": {
+        "relevant-countries": "Relevant countries",
+        "categories": "Categories",
+        "name": "Name",
+        "runs": "Also runs",
+        "address": "Address",
+        "phone": "Phone",
+        "fax": "Fax",
+        "email": "Email",
+        "letter": "Letter",
+        "website": "Website",
+        "sources": "Sources",
+        "required-elements": "Required elements",
+        "request-language": "Language for requests",
+        "needs-id-document": "ID document necessary for requests?",
+        "suggested-transport-medium": "Suggested transport medium",
+        "comments": "Comments",
+        "add-item": "Add element",
+        "true": "yes",
+        "false": "no",
+        "description": "Description",
+        "type": "Type",
+        "optional": "Optional?",
+        "input": "Input",
+        "textarea": "Textarea",
+        "birthdate": "Birth date"
     },
     "categories": {
         "addresses": "addresses",

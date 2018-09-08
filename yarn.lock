@@ -1891,6 +1891,10 @@ browserslist@^4.0.0, browserslist@^4.1.0:
     electron-to-chromium "^1.3.61"
     node-releases "^1.0.0-alpha.11"
 
+"brutusin-json-forms@https://github.com/brutusin/json-forms":
+  version "0.0.0"
+  resolved "https://github.com/brutusin/json-forms#f37276e9509bc6375c5196ce0b3118e3740bf1e4"
+
 buffer-alloc-unsafe@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz#bd7dc26ae2972d0eda253be061dba992349c19f0"
