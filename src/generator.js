@@ -4,10 +4,12 @@ import Letter from 'Utility/Letter';
 import { SearchBar } from "./Components/SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'Utility/i18n';
+import { fetchCompanyDataBySlug } from 'Utility/companies';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
 import {ErrorException, rethrow} from "./Utility/errors";
+import CompanyWidget from "./Components/CompanyWidget";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -101,7 +103,7 @@ class Generator extends preact.Component {
         if(batch_companies) {
             this.setState({batch: batch_companies.split(',')});
             if(this.state.batch && this.state.batch.length > 0) {
-                this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+                fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
             }
         }
 
@@ -110,38 +112,15 @@ class Generator extends preact.Component {
     }
 
     render() {
-        let company_info = '';
-        let comments = '';
+        let company_widget = '';
         let new_request_text = 'new-request';
         if(this.state.batch && this.state.batch.length > 0) new_request_text = 'next-request';
         if(this.state.suggestion !== null) {
-            company_info =
-                (<div id="company-info">
-                    <fieldset>
-                        <legend><Text id="current-company" /></legend>
-                        <span id="company-name" style="font-size: 15pt">{this.state.suggestion['name']}</span>
-                        {this.state.suggestion['fax'] ?  [<br />, t('fax', 'generator') + ': ' + this.state.suggestion['fax']] : []}
-                        {this.state.suggestion['email'] ? [<br />, t('email', 'generator') + ': ' + this.state.suggestion['email']] : []}
-                        <br /><a href="#" onClick={e => {
-                        e.preventDefault();
-                        this.setState(prev => {
-                            prev['suggestion'] = null;
-                            prev.request_data['recipient_runs'] = [];
-                            return prev;
-                        })
-                    }}><Text id="deselect-company" /></a>
-                    </fieldset>
-                </div>);
-            if(this.state.suggestion['comments']) {
-                let comment_list = [];
-                this.state.suggestion['comments'].forEach(comment => {
-                    comment_list.push(<div className="company-comments">{comment}</div>);
-                });
-                comments = <fieldset id="comment-container">
-                    <legend><Text id="current-company-comments" /></legend>
-                    {comment_list}
-                </fieldset>;
-            }
+            company_widget = <CompanyWidget company={this.state.suggestion} onRemove={() => this.setState(prev => {
+                prev['suggestion'] = null;
+                prev.request_data['recipient_runs'] = [];
+                return prev;
+            })} />
         }
 
         let generate_text = 'generate-pdf';
@@ -160,27 +139,26 @@ class Generator extends preact.Component {
         return (
             <main>
                 {this.state.modal_showing}
-                <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
-                <div id="generator-controls">
-                    <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
-                </div>
+                <header id="generator-header">
+                    <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
+                    <div id="generator-controls">
+                        <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
+                    </div>
+                </header>
                 <div className="clearfix" />
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
-                    <div className="col50 box">
+                    <div id="form-container" className="col50 box">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}/>
                     </div>
-                    <div className="col50 box" style="min-height: 500px; float: right;">
-                        {company_info}
-                        <div id="pdf-controls">
+                    <div className="col50">
+                        {company_widget}
+                        <div id="content-container" className="box">
                             {action_button}
-                            <button id="generate-button" className="button-secondary" onClick={this.renderRequest}><Text id={generate_text} /></button>
-                            <div className="clearfix" />
+                            <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
                         </div>
-                        <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
-                        {comments}
                     </div>
                 </div>
                 <div className="clearfix" />
@@ -333,15 +311,6 @@ class Generator extends preact.Component {
         this.renderRequest();
     }
 
-    fetchCompanyDataBySlug(slug, callback) {
-        try {
-            fetch(this.database_url + slug + '.json')
-                .then(res => res.json()).then(json => {callback(json)});
-        } catch(error) {
-            rethrow(error, 'Fetching company data by slug failed.');
-        }
-    }
-
     newRequest() {
         this.setState(prev => {
             prev['request_data'] = {
@@ -375,7 +344,7 @@ class Generator extends preact.Component {
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
 
         if(this.state.batch && this.state.batch.length > 0) {
-            this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+            fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
         }
     }
 

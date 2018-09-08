@@ -6,18 +6,19 @@
 ## Information according to § 5 of German Telemedia Act (TMG)
 
 **Mail address** (no office hours):  
-Verein Datenanfragen.de (in formation)  
+Datenanfragen.de e.&nbsp;V.  
 c/o Benjamin Altpeter  
 Schreinerweg 6  
 38126 Braunschweig  
 Germany
 
-**Phone (mobile):** +49 176 913 77 604  
-**Fax:** +49 531 615 4 288  
-**Email:** contact@datenanfragen.de ([PGP key](/pgp/62A7EC35.asc) `B64A 852D F7DF 855C A058  0A00 FC74 1754 62A7 EC35`)
+**Phone:** +49 531 209299 35  
+**Fax:** +49 531 209299 36  
+**Email:** contact@datenanfragen.de ([PGP key](/pgp/62A7EC35.asc) `B64A 852D F7DF 855C A058  0A00 FC74 1754 62A7 EC35`)  
+**Web:** [verein.datenanfragen.de](https://verein.datenanfragen.de)
 
-**Legally represented by:** Benjamin Altpeter und Lorenz Sieben  
-Entry into the register of associations of the local court Braunschweig is planned.
+**Legally represented by:** Benjamin Altpeter and Lorenz Sieben  
+Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associations of the district court of Braunschweig, under the registration number VR&nbsp;201732, and recognized as a charitable organisation by the Braunschweig-Wilhelmstraße tax office.
 
 **Responsible for the content according to § 55(2) of German Interstate Broadcasting Treaty (RStV):**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
@@ -29,13 +30,13 @@ Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
 		"name": "Datenanfragen.de e. V.",
 		"address": {
 			"@type": "PostalAddress",
-			"streetAddress": "c/o  Benjamin Altpeter, Schreinerweg 6",
+			"streetAddress": "c/o Benjamin Altpeter, Schreinerweg 6",
 			"postalCode": "38126",
 			"addressLocality": "Braunschweig",
 			"addressCountry": "DE"
 		},
-		"telephone": "+49 176 913 77 604",
-		"faxNumber": "+49 531 615 4 288",
+		"telephone": "+49 209299 35",
+		"faxNumber": "+49 209299 36",
 		"email": "contact@datenanfragen.de",
 		"url": "https://verein.datenanfragen.de",
 		"logo": "https://www.datenanfragen.de/img/logo-datenanfragen-ev.png"

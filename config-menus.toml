@@ -15,31 +15,31 @@
     url = "/blog"
     weight = 40
 
-[[languages.de.menu.footercenter]]
-    name = "Features"
-    url = "#"
-    weight = 10
-[[languages.de.menu.footercenter]]
-    name = "Fragen und Antworten"
-    url = "#"
-    weight = 20
-[[languages.de.menu.footercenter]]
-    name = "Mitmachen"
-    url = "#"
-    weight = 30
-[[languages.de.menu.footercenter]]
-    name = "Spenden"
-    url = "https://verein.datenanfragen.de/spenden"
-    weight = 40
-    post = "<br>"
+# [[languages.de.menu.footercenter]]
+#     name = "Features"
+#     url = "#"
+#     weight = 10
+# [[languages.de.menu.footercenter]]
+#     name = "Fragen und Antworten"
+#     url = "#"
+#     weight = 20
+# [[languages.de.menu.footercenter]]
+#     name = "Mitmachen"
+#     url = "#"
+#     weight = 30
+# [[languages.de.menu.footercenter]]
+#     name = "Spenden"
+#     url = "https://verein.datenanfragen.de/spenden"
+#     weight = 40
+#     post = "<br>"
 [[languages.de.menu.footercenter]]
     name = "Deine DSGVO-Rechte"
     url = "/blog/deine-dsgvo-rechte"
     weight = 50
-[[languages.de.menu.footercenter]]
-    name = "Musterschreiben"
-    url = "#"
-    weight = 60
+# [[languages.de.menu.footercenter]]
+#     name = "Musterschreiben"
+#     url = "#"
+#     weight = 60
 
 [[languages.de.menu.footerright]]
     name = "Impressum"
@@ -73,31 +73,31 @@
     url = "/blog"
     weight = 40
 
-[[languages.en.menu.footercenter]]
-    name = "Features"
-    url = "#"
-    weight = 10
-[[languages.en.menu.footercenter]]
-    name = "Q&A"
-    url = "#"
-    weight = 20
-[[languages.en.menu.footercenter]]
-    name = "Contribute"
-    url = "#"
-    weight = 30
-[[languages.en.menu.footercenter]]
-    name = "Donate"
-    url = "https://verein.datenanfragen.de/spenden"
-    weight = 40
-    post = "<br>"
+# [[languages.en.menu.footercenter]]
+#     name = "Features"
+#     url = "#"
+#     weight = 10
+# [[languages.en.menu.footercenter]]
+#     name = "Q&A"
+#     url = "#"
+#     weight = 20
+# [[languages.en.menu.footercenter]]
+#     name = "Contribute"
+#     url = "#"
+#     weight = 30
+# [[languages.en.menu.footercenter]]
+#     name = "Donate"
+#     url = "https://verein.datenanfragen.de/spenden"
+#     weight = 40
+#     post = "<br>"
 [[languages.en.menu.footercenter]]
     name = "Your GDPR rights"
     url = "/blog/your-gdpr-rights"
     weight = 50
-[[languages.en.menu.footercenter]]
-    name = "Letter templates"
-    url = "#"
-    weight = 60
+# [[languages.en.menu.footercenter]]
+#     name = "Letter templates"
+#     url = "#"
+#     weight = 60
 
 [[languages.en.menu.footerright]]
     name = "Legal notice and contact data"

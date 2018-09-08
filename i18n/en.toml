@@ -72,7 +72,7 @@ other = "Contact"
 # Footer
 
 [footer-about-us]
-other = "We are Datenanfragen.de e.&nbsp;V., a registered non-profit from Germany. We have made it our mission to help you exercise your right to privacy. <a>Learn more.</a>"
+other = "We are Datenanfragen.de e.&nbsp;V., a registered non-profit from Germany. We have made it our mission to help you exercise your right to privacy. <a href='https://verein.datenanfragen.de'>Learn more.</a>"
 
 [footer-other-langs]
 other = "Also available in: "
@@ -95,8 +95,8 @@ other = "data access"
 [home-hero-line-2]
 other = "Use it."
 
-[home-hero-copy]
-other = "Every company in the EU is required by law to grant access to your personal data, the ability to have it corrected or even deleted and more. Here at datarequests.org, we want to help you exercise these rights.<br>Why don't you try it right now? Go ahead and send a request!"
+[home-main-copy]
+other = "Every company in the EU is required by law to grant you access to your personal data, the ability to have it corrected or even deleted and more. Here at datarequests.org, we want to help you exercise these rights."
 
 [home-feature-your-rights-title]
 other = "Your rights"
@@ -116,13 +116,64 @@ other = "Get answers"
 [home-feature-answers]
 other = "Some companies will answer your requests very well. Others, well… they might need a little more convincing. That's not an issue, though: Our generator will allow you to very easily create warnings and complaints."
 
+[home-how-it-works-title]
+other = "How it works"
+
+[home-how-it-works-parameters-title]
+other = "Enter your parameters"
+
+[home-how-it-works-parameters]
+other = "Choose companies you would like to send a request to. Enter your data, just enough in order for the companies to uniquely identify you. To make it easier for you we already prepared the forms for you. And no worries: All data stays on your computer and is only processed there. That ensures that your data will never even reach us."
+
+[home-how-it-works-generator-title]
+other = "Generate a request"
+
+[home-how-it-works-generator]
+other = "From the data you entered and the data we collected on the companies we will generate the actual request on your computer. You can choose how you want to send it to the company: via email, fax or even via mail. We will generate a request for every medium."
+
+[home-how-it-works-send-title]
+other = "Send it to companies"
+
+[home-how-it-works-send]
+other = "The completed request only needs to be sent away. You are in charge of doing that. This way, your data stay between you and the company. After you sent the request, you'll have to wait for a reply. The first ones should come rather quickly. The companies don't have that much time after all. Still, if they take too long, you can also easily generate an adminition or even lodge a complaint with a supervisory authority."
+
+[home-how-it-works-get-started]
+other = "Get Started!"
+
+[home-feature-your-rights-access-title]
+other = "Right to access"
+
+[home-feature-your-rights-access]
+other = "You have a right to know what data a company has stored on you. In addition, you can, for example, ask what the purpose for storing the data was or which source it was obtained from. If the company employs scoring, they have to tell you your score and explain in detail how it is calculated."
+
+[home-feature-your-rights-rectification-title]
+other = "Right to rectification"
+
+[home-feature-your-rights-rectification]
+other = "If a company is storing incorrect information on you, they have to correct it immediately upon receiving a notice from you."
+
+[home-feature-your-rights-erasure-title]
+other = "Right to be forgotten"
+
+[home-feature-your-rights-erasure]
+other = "As soon as the data a company has stored about you is no longer necessary for the purpose for which it was collected, you can demand they delete this data. If the data was passed on to third companies, they must even be informed about your deletion request."
+
+[home-feature-your-rights-object-title]
+other = "Right to object"
+
+[home-feature-your-rights-object]
+other = "Even if you have given your consent to the use of your data at some point, you may revoke it at any time. The company cannot make the revocation of consent more difficult than the original approval."
+
+[home-feature-your-rights-portabillity-title]
+other = "Right to data portabillity"
+
+[home-feature-your-rights-portabillity]
+other = "The information you provide to a company is yours. You have the right to receive this information from them in a common machine-readable format so that you can easily transfer it to another company."
+
 # Company database
 
 [cdb-title]
 other = "Company database"
-
-[cdb-search-bar-placeholder]
-other = "Look up another company…"
 
 [cdb-company-title]
 other = "{{ .Params.name }}: Contact information for privacy-related requests"
@@ -192,3 +243,12 @@ other = "Read more…"
 
 [blog-tags-list]
 other = "Posts tagged: "
+
+[noscript-generator]
+other = "The generator runs only on your computer and is therefore completely written in JavaScript. The code won't send any data to any servers if you do not consent. If you want to use the generator, please activate JavaScript in your browser or add an exception to your blocker. If it still doesn't work after that, send us an email at <a href=\"mailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>."
+
+[noscript-my-requests]
+other = "All requests are saved and shown on your computer using JavaScript (of course only if it is activated). The code won't send any data to any servers if you do not consent. If you want to save and see your requests on your computer, please activate JavaScript in your browser or add an exception to your blocker. If it still doesn't work after that, send us an email at <a href=\"mailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>."
+
+[noscript-wizard]
+other = "Here would have been a wizard that is generated by JavaScript, which helps you creating your requests. Creating requests only on your computer needs JavaScript. You can use the website without JavaScript but you only have limited functionality. The code won't send any data to any servers if you do not consent. If you want to use the website and all its features, please activate JavaScript in your browser or add an exception to your blocker. If it still doesn't work after that, send us an email at <a href=\"mailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>."

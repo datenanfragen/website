@@ -1,5 +1,6 @@
 <script>
     const LOCALE = {{ .Site.Language.Lang }};
+    var country = 'de'; // TODO: Country selection (#61)
     const I18N_DEFINITION = {{ readFile (delimit (slice "i18n/" .Site.Language.Lang ".json") "") | safeJS }};
     const BASE_URL = {{ "/" | absURL }};
 </script>
