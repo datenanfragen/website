@@ -76,6 +76,9 @@ other = "Artikel"
 [header-contact]
 other = "Impressum"
 
+[header-privacy-controls]
+other = "Datenschutzeinstellungen"
+
 # Footer
 
 [footer-about-us]

@@ -37,8 +37,15 @@
     font-icon: url('arrow-right.svg');
     vertical-align: -3px;
 }
+
 .icon-arrow-left:before {
     @extend %icon;
     font-icon: url('arrow-left.svg');
+    vertical-align: -3px;
+}
+
+.icon-menu:before {
+    @extend %icon;
+    font-icon: url('menu.svg');
     vertical-align: -3px;
 }

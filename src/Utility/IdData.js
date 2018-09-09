@@ -25,6 +25,13 @@ export default class IdData {
         });
     }
 
+    // objects that behave like arrays
+    storeArrayLike(array_like) {
+        for(let key in array_like) {
+            this.store(array_like[key]);
+        }
+    }
+
     // returns Promise
     getByDesc(desc) {
         return this.localforage_instance.getItem(desc).catch((error) => {
@@ -35,7 +42,7 @@ export default class IdData {
     getAll() {
         let id_data = [];
         return new Promise((resolve, reject) => {
-            localforage.iterate((data, desc) => {
+            this.localforage_instance.iterate((data, desc) => {
                 id_data.push(data);
             })
                 .then(() => {

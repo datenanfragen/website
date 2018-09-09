@@ -274,3 +274,21 @@ input[type="checkbox"].form-element {
         }
     }
 }
+
+/* Dropdown */
+
+.dropdown-container {
+    position: relative;
+
+    &:hover {
+        .dropdown {
+            display: block;
+            position: absolute;
+            z-index: 999;
+        }
+    }
+
+    .dropdown {
+        display: none;
+    }
+}

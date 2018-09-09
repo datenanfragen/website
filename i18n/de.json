@@ -194,5 +194,9 @@
         "next": "Weiter",
         "finish": "Fertig",
         "search-company": "Nach Unternehmen aus der Kategorie „{{category}}“ suchen…"
+    },
+    "id-data-controls": {
+        "id-data-deactivated": "Das Speichern von Identifikationsdaten ist deaktiviert. Wenn Du die den Erstellvorgang der Anfragen beschleunigen und Identifikationsdaten auf Deinem Computer speichern möchtest, kannst du das in den <a href=\"/privacy-controls/\">Datenschutzeinstellungen</a> tun.",
+        "always-fill-in": "Bekannte Felder immer direkt ausfüllen?"
     }
 }

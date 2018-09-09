@@ -22,12 +22,56 @@ a #logo {
 #main-nav {
     float: right;
 }
-#menu-items a, #menu-items a:visited {
-    color: $primary-lighter-color;
-    margin-left: 20px;
-}
-#menu-items a:hover, #menu-items a:focus, #menu-items a:active {
-    color: $primary-color;
+
+#menu-items {
+    .dropdown-container {
+        display: inline-block;
+
+        .dropdown#personal-menu {
+            border: 2px solid $primary-color;
+            border-radius: 2px;
+            background: $bg-color;
+            width: 400px;
+            right: 0;
+            top: 33px;
+            padding: 0;
+
+            a {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 15px;
+                border-bottom: 2px solid $primary-color;
+                box-sizing: border-box;
+
+                &:hover {
+                    background: $primary-color;
+                    color: $bg-color;
+                }
+            }
+
+            #id-data-controls-container {
+                padding: 15px;
+
+                .select-container {
+                    width: 190px;
+                }
+            }
+        }
+    }
+
+    a {
+        color: $primary-lighter-color;
+        margin-left: 20px;
+
+        &:visited {
+            color: $primary-lighter-color;
+        }
+
+        &:hover, &:focus, &:active {
+            color: $primary-color;
+        }
+    }
 }
 
 #heading-bg {

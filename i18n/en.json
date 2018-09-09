@@ -195,5 +195,9 @@
         "next": "Next",
         "finish": "Finish",
         "search-company": "Search for “{{category}}” companies…"
+    },
+    "id-data-controls": {
+        "id-data-deactivated": "Saving of identification data is deactivated. If you want to speed up the generation process and save identification data, please activate id data saving in the <a href=\"/privacy-controls/\">privacy controls</a>.",
+        "always-fill-in": "Always fill in known fields?"
     }
 }
