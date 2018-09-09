@@ -10,6 +10,7 @@ import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
 import {ErrorException, rethrow} from "./Utility/errors";
 import CompanyWidget from "./Components/CompanyWidget";
+import IdData, {deepCopyObject} from "./Utility/IdData";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -37,7 +38,7 @@ class Generator extends preact.Component {
             request_data: {
                 type: 'access',
                 transport_medium: 'fax',
-                id_data: JSON.parse(JSON.stringify(this.default_fields)), // This is hideous but the only way to deep copy this array...
+                id_data: deepCopyObject(this.default_fields),
                 reference: Letter.generateReference(today),
                 date: today.toISOString().substring(0, 10),
                 recipient_address: '',
@@ -71,11 +72,13 @@ class Generator extends preact.Component {
 
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             // TODO: Is there a better place for this?
-            localforage.config({
+            this.request_store = localforage.createInstance({
                 'name': 'Datenanfragen.de',
                 'storeName': 'my-requests'
             });
         }
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.idData = new IdData();
+
         this.renderRequest = this.renderRequest.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
@@ -198,7 +201,7 @@ class Generator extends preact.Component {
         this.setState(prev => {
             prev.request_data['transport_medium'] = company['suggested-transport-medium'] ? company['suggested-transport-medium'] : company['fax'] ? 'fax' : 'letter';
             prev.request_data['recipient_address'] = company.name + '\n' + company.address + (prev.request_data['transport_medium'] === 'fax' ?'\n' + t('by-fax', 'generator') + company['fax'] : '');
-            prev.request_data['id_data'] = this.mergeIdDataFields(prev.request_data['id_data'], company['required-elements'] || this.default_fields);
+            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], company['required-elements'] || this.default_fields);
             prev.request_data['recipient_runs'] = company.runs || [];
             prev.suggestion = company;
             prev['request_data']['data_portability'] = company['suggested-transport-medium'] === 'email';
@@ -227,28 +230,6 @@ class Generator extends preact.Component {
         }
     }
 
-    mergeIdDataFields(fields_to_add_to, fields_to_merge) {
-        let new_fields = fields_to_merge.slice();
-        let old_fields = fields_to_add_to.slice();
-        let merged_fields = [];
-        let has_primary_address = 0;
-        old_fields.forEach((field, i) => { // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
-            let j = new_fields.findIndex(new_field => {
-                return new_field['type'] === field['type'] && new_field['desc'] === field['desc']; // Is it a good idea to also check for desc?
-            });
-            if(typeof j !== 'undefined' && j >= 0) {
-                field['optional'] = 'optional' in new_fields[j] ? new_fields[j]['optional'] : false;
-                if(field['type'] === 'address') field['value']['primary'] = ++has_primary_address === 1;
-                merged_fields.push(field);
-                new_fields.splice(j, 1);
-            }
-        });
-        return merged_fields.concat(new_fields.map(field => {
-            field['value'] = field['value'] || (field['type'] === 'address' ? {"primary": ++has_primary_address === 1} : '');
-            return field;
-        }));
-    }
-
     handleTypeChange(event) {
         this.handleInputChange({type: event.target.value});
         if(event.target.value === 'custom') {
@@ -266,6 +247,7 @@ class Generator extends preact.Component {
         this.setState(prev => {
             for(let key in changed_data) {
                 if(key === 'type') should_render = false;
+                if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'id_data') this.idData.storeArray(changed_data[key]);
                 prev['request_data'][key] = changed_data[key];
             }
             return prev;
@@ -384,7 +366,7 @@ class Generator extends preact.Component {
 
     storeRequest() {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            localforage.setItem(this.state.request_data['reference'], {
+            this.request_store.setItem(this.state.request_data['reference'], {
                 date: this.state.request_data.date,
                 type: this.state.request_data.type,
                 slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
