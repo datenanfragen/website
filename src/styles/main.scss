@@ -41,16 +41,21 @@ a #logo {
                 width: 100%;
                 margin: 0;
                 padding: 15px;
-                border-bottom: 2px solid $primary-color;
+                border-top: 2px solid $primary-color;
                 box-sizing: border-box;
 
                 &:hover {
                     background: $primary-color;
                     color: $bg-color;
                 }
+
+                &:first-child {
+                    border-top: none;
+                }
             }
 
             #id-data-controls-container {
+                border-top: 2px solid $primary-color;
                 padding: 15px;
 
                 .select-container {
