@@ -49,3 +49,9 @@
     font-icon: url('menu.svg');
     vertical-align: -3px;
 }
+
+.icon-fill:before {
+    @extend %icon;
+    font-icon: url('fill.svg');
+    vertical-align: -3px;
+}

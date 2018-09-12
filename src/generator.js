@@ -10,7 +10,7 @@ import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
 import {ErrorException, rethrow} from "./Utility/errors";
 import CompanyWidget from "./Components/CompanyWidget";
-import IdData, {deepCopyObject} from "./Utility/IdData";
+import IdData, {deepCopyObject, ID_DATA_CHANGE_EVENT} from "./Utility/IdData";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -63,7 +63,8 @@ class Generator extends preact.Component {
             download_filename: '',
             batch: [],
             batch_position: 0,
-            modal_showing: ''
+            modal_showing: '',
+            fill_fields: []
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
@@ -102,6 +103,8 @@ class Generator extends preact.Component {
             rethrow(error, 'PdfWorker error');
         };
 
+        this.idData.getAll().then(fill_fields => this.setState({fill_fields: fill_fields}));
+
         let batch_companies = findGetParamter('companies');
         if(batch_companies) {
             this.setState({batch: batch_companies.split(',')});
@@ -138,12 +141,10 @@ class Generator extends preact.Component {
             })} />
         }
 
-        let generate_text = 'generate-pdf';
         let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
                                onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>;
 
         if(this.state.request_data.transport_medium === 'email') {
-            generate_text = 'generate-email';
             let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
                 'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t('my-reference', 'generator') + ': ' + this.state.request_data['reference'] + ')' +
                 '&body=' + encodeURIComponent(this.letter.toEmailString());
@@ -166,7 +167,10 @@ class Generator extends preact.Component {
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div id="form-container" className="col50 box">
-                        <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange} onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}/>
+                        <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange}
+                                     onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}
+                                     fillFields={this.state.fill_fields}
+                        />
                     </div>
                     <div className="col50">
                         {company_widget}
@@ -178,6 +182,12 @@ class Generator extends preact.Component {
                 </div>
                 <div className="clearfix" />
             </main>);
+    }
+
+    componentDidMount() {
+        window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
+            this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
+        });
     }
 
     /**

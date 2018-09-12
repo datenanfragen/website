@@ -1,13 +1,16 @@
-import localforage from 'localforage';
 import {rethrow} from "./errors";
 import Cookie from "js-cookie";
+import localforage from "localforage";
+
+export const ID_DATA_CHANGE_EVENT = 'saved_data-change';
+export const ID_DATA_CLEAR_EVENT = 'saved_data-clear';
 
 export default class IdData {
     constructor() {
         this.localforage_instance = localforage.createInstance({
             'name': 'Datenanfragen.de',
             'storeName': 'id-data'
-        })
+        });
     }
 
     store(data) {
@@ -17,6 +20,8 @@ export default class IdData {
         if(typeof to_store['value'] === 'object') delete to_store['value']['primary'];
         this.localforage_instance.setItem(data['desc'], to_store).catch((error) => {
             rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
+        }).then(() => {
+            window.dispatchEvent(new CustomEvent(ID_DATA_CHANGE_EVENT, {data: data}));
         });
     }
 
@@ -57,7 +62,9 @@ export default class IdData {
     }
 
     clear() {
-        this.localforage_instance.clear();
+        this.localforage_instance.clear().then(() => {
+            window.dispatchEvent(new CustomEvent(ID_DATA_CLEAR_EVENT));
+        });
     }
 
     static mergeFields(fields_to_add_to, fields_to_merge, keep = false, override_values = false) {

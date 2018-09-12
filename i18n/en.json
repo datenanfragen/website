@@ -57,7 +57,7 @@
         "recipient": "Recipient",
         "id-data": "My data",
         "id-data-explanation": "The data you specify here will help the company identify you. Feel free to err on the side of entering less—the company will contact you if they need more details.<br />Those fields, we know from experience definitely have to be filled in, are marked with an *.",
-        "add-dynamic-input-explanation": "Want to add more data? No problem: Just select the type of input you want to add.",
+        "add-dynamic-input-explanation": "Want to add more data? No problem: Just select the type of input you want to add. You can also add your saved inputs.",
         "name": "Name",
         "birthdate": "Date of birth",
         "address": "Address",
@@ -198,6 +198,19 @@
     },
     "id-data-controls": {
         "id-data-deactivated": "Saving of identification data is deactivated. If you want to speed up the generation process and save identification data, please activate id data saving in the <a href=\"/privacy-controls/\">privacy controls</a>.",
-        "always-fill-in": "Always fill in known fields?"
+        "always-fill-in": "Always fill in known fields?",
+        "saved-data": "Saved data",
+        "add-dynamic-input-explanation": "Add data by selecting the field type.",
+        "input-single-line": "Text (single line)",
+        "input-multi-line": "Text (multi line)",
+        "input-address": "Address",
+        "add-input": "Add input",
+        "description": "Description",
+        "value": "Value",
+        "address-line-1": "Address line 1",
+        "address-line-2": "Address line 2",
+        "address-place": "Place",
+        "address-country": "Country",
+        "saved-data-explanation": "We saved this data for you <strong>on your computer</strong>. For more information on that, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>."
     }
 }

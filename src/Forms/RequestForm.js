@@ -20,7 +20,7 @@ export default class RequestForm extends preact.Component {
             case 'erasure':
             case 'access':
                 body.push(
-                    <DynamicInputContainer key="id_data" id="id_data" onChange={this.props.onChange} fields={this.props.request_data['id_data']} title={t('id-data', 'generator')} hasPrimary={true}>
+                    <DynamicInputContainer key="id_data" id="id_data" onChange={this.props.onChange} fields={this.props.request_data['id_data']} title={t('id-data', 'generator')} hasPrimary={true} fillFields={this.props.fillFields}>
                         <MarkupText id="id-data-explanation" />
                     </DynamicInputContainer>
                 );

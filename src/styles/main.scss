@@ -36,7 +36,7 @@ a #logo {
             top: 33px;
             padding: 0;
 
-            a {
+            a.menu-link {
                 display: block;
                 width: 100%;
                 margin: 0;
@@ -65,7 +65,7 @@ a #logo {
         }
     }
 
-    a {
+    a.menu-link {
         color: $primary-lighter-color;
         margin-left: 20px;
 

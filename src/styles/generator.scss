@@ -57,6 +57,37 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
         margin-left: 10px;
         float: left;
     }
+
+    .dropdown-container {
+        .button-primary {
+            padding: 8px 15px;
+            position: absolute;
+            right: 0;
+        }
+
+        .dropdown {
+            width: 300px;
+            top: 43px;
+            right: 0;
+            padding: 15px;
+            background: $bg-color;
+            border: 2px solid $primary-color;
+            border-radius: 2px;
+
+            .fill-field {
+                display: table-row;
+
+                .fill-field-value {
+                    color: $gray-darker-color;
+                }
+
+                button {
+                    float: none;
+                    position: relative;
+                }
+            }
+        }
+    }
 }
 
 /* PDF Viewer */

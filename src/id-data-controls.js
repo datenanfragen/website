@@ -1,12 +1,13 @@
 import preact from 'preact';
-import IdData from "./Utility/IdData";
+import IdData, {ID_DATA_CHANGE_EVENT} from "./Utility/IdData";
 import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import t from 'Utility/i18n';
-import {IntlProvider, Text} from "preact-i18n";
+import {IntlProvider, MarkupText, Text} from "preact-i18n";
 import DynamicInputContainer from "./Forms/DynamicInputContainer";
 
 // TODO: Better explanation text
 // TODO: field adder for generator
+// TODO: Delete all data button in privacy controls
 
 class IdDataControls extends preact.Component {
     constructor(props) {
@@ -22,28 +23,29 @@ class IdDataControls extends preact.Component {
     }
 
     render() {
-        this.idData.getAll().then((id_data) => this.setState({id_data: id_data}));
-
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             return (
                 <div id="id-data-controls-container">
-                    <IntlProvider scope="generator" definition={I18N_DEFINITION}>
-                        <DynamicInputContainer key="id-data-controls" id="id-data-controls" onChange={this.handleChange} fields={this.state.id_data} title={t('id-data', 'generator')} hasPrimary={false}>
-                            <IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}>
-                                <div className="form-group">
-                                    <input type="checkbox" id="always-fill-in" className="form-element" checked={IdData.shouldAlwaysFill()} onChange={event => {
-                                        IdData.setAlwaysFill(!IdData.shouldAlwaysFill());
-                                    }}/>
-                                    <label for="always-fill-in"><Text id="always-fill-in" /></label>
-                                </div>
-                            </IntlProvider>
-                        </DynamicInputContainer>
-                    </IntlProvider>
+                    <DynamicInputContainer key="id-data-controls" id="id-data-controls" onChange={this.handleChange} fields={this.state.id_data} title={t('saved-data', 'id-data-controls')} hasPrimary={false}>
+                        <MarkupText id="saved-data-explanation" />
+                        <div className="form-group">
+                            <input type="checkbox" id="always-fill-in" className="form-element" checked={IdData.shouldAlwaysFill()} onChange={event => {
+                                IdData.setAlwaysFill(!IdData.shouldAlwaysFill());
+                            }}/>
+                            <label for="always-fill-in"><Text id="always-fill-in" /></label>
+                        </div>
+                    </DynamicInputContainer>
                 </div>
             );
         } else {
             return <div><MarkupText id="id-data-deactivated" /></div>;
         }
+    }
+
+    componentDidMount() {
+        window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
+            this.idData.getAll().then((id_data) => this.setState({id_data: id_data}));
+        });
     }
 
     handleChange(data) {
