@@ -1,5 +1,6 @@
 import localforage from 'localforage';
 import {rethrow} from "./errors";
+import Cookie from "js-cookie";
 
 export default class IdData {
     constructor() {
@@ -10,7 +11,7 @@ export default class IdData {
     }
 
     store(data) {
-        if(!data['desc']) return;
+        //if(!data['desc']) return;
         let to_store = deepCopyObject(data);
         delete to_store['optional'];
         if(typeof to_store['value'] === 'object') delete to_store['value']['primary'];
@@ -59,7 +60,7 @@ export default class IdData {
         this.localforage_instance.clear();
     }
 
-    static mergeFields(fields_to_add_to, fields_to_merge) {
+    static mergeFields(fields_to_add_to, fields_to_merge, keep = false, override_values = false) {
         let new_fields = fields_to_merge.slice();
         let old_fields = fields_to_add_to.slice();
         let merged_fields = [];
@@ -71,14 +72,26 @@ export default class IdData {
             if(typeof j !== 'undefined' && j >= 0) {
                 field['optional'] = 'optional' in new_fields[j] ? new_fields[j]['optional'] : false;
                 if(field['type'] === 'address') field['value']['primary'] = ++has_primary_address === 1;
+                if(override_values) field['value'] = new_fields[j]['value'];
                 merged_fields.push(field);
                 new_fields.splice(j, 1);
+            } else if(keep) {
+                merged_fields.push(field);
             }
         });
         return merged_fields.concat(new_fields.map(field => {
             field['value'] = field['value'] || (field['type'] === 'address' ? {"primary": ++has_primary_address === 1} : '');
             return field;
         }));
+    }
+
+    static setAlwaysFill(value) {
+        Cookie.set('general_setting-always_fill_in', value, { expires: 365 });
+    }
+
+    static shouldAlwaysFill() {
+        let value = Cookie.get('general_setting-always_fill_in');
+        return value === undefined || value === 'true';
     }
 }
 

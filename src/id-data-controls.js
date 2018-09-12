@@ -5,6 +5,8 @@ import t from 'Utility/i18n';
 import {IntlProvider, Text} from "preact-i18n";
 import DynamicInputContainer from "./Forms/DynamicInputContainer";
 
+// TODO: Better explanation text
+// TODO: field adder for generator
 
 class IdDataControls extends preact.Component {
     constructor(props) {
@@ -13,7 +15,6 @@ class IdDataControls extends preact.Component {
         this.idData = new IdData();
         this.state = {
             id_data: [],
-            always_fill_in: true
         };
         this.idData.getAll().then((id_data) => this.setState({id_data: id_data}));
 
@@ -30,8 +31,8 @@ class IdDataControls extends preact.Component {
                         <DynamicInputContainer key="id-data-controls" id="id-data-controls" onChange={this.handleChange} fields={this.state.id_data} title={t('id-data', 'generator')} hasPrimary={false}>
                             <IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}>
                                 <div className="form-group">
-                                    <input type="checkbox" id="always-fill-in" className="form-element" checked={this.state.always_fill_in} onChange={event => {
-                                        this.setState({'always_fill_in': !this.state.always_fill_in});
+                                    <input type="checkbox" id="always-fill-in" className="form-element" checked={IdData.shouldAlwaysFill()} onChange={event => {
+                                        IdData.setAlwaysFill(!IdData.shouldAlwaysFill());
                                     }}/>
                                     <label for="always-fill-in"><Text id="always-fill-in" /></label>
                                 </div>

@@ -105,13 +105,25 @@ class Generator extends preact.Component {
         let batch_companies = findGetParamter('companies');
         if(batch_companies) {
             this.setState({batch: batch_companies.split(',')});
-            if(this.state.batch && this.state.batch.length > 0) {
-                fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
-            }
+        }
+
+        this.resetInitalConditions();
+    }
+
+    resetInitalConditions() {
+        if(this.state.batch && this.state.batch.length > 0) {
+            fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
         }
 
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
+
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
+            this.idData.getAll().then((fill_data) => this.setState((prev) => {
+                prev.request_data['id_data'] = IdData.mergeFields(fill_data, prev.request_data['id_data']); // the order seems unintuitive but this way we add data conservatively
+                return prev;
+            }));
+        }
     }
 
     render() {
@@ -322,12 +334,8 @@ class Generator extends preact.Component {
             prev['download_filename'] = '';
             return prev;
         });
-        fetch(this.template_url + 'access-default.txt')
-            .then(res => res.text()).then(text => {this.setState({template_text: text})});
 
-        if(this.state.batch && this.state.batch.length > 0) {
-            fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
-        }
+        this.resetInitalConditions();
     }
 
     renderRequest() {

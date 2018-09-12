@@ -45,7 +45,7 @@ export default class DynamicInputContainer extends preact.Component {
             let field = this.state.fields[i];
             input_elements.push(<DynamicInput key={i} id={i} suffix={this.props.id} type={field.type} desc={field.desc} optional={field.optional}
                                               removeHandler={this.removeDynamicInput} onChange={this.handleInputChange}
-                                              hasPrimary={this.props.hasPrimary} onPrimaryChange={this.handleInputChange} value={field.value}/>);
+                                              hasPrimary={this.props.hasPrimary} onPrimaryChange={this.handleInputChange} value={field.value} onAction={this.props.onAction}/>);
         }
         return (
             <div>
