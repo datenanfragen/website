@@ -119,7 +119,9 @@
         "save_my_requests": "“My requests” feature",
         "save_my_requests-description": "To make managing your previous requests easier, we offer the “My requests” feature. If you enable it, all requests you generate will be saved on your own computer (using the local storage feature of your browser) and you can later browse through them <a href='/my-requests'>here</a>. There, you can also delete all saved request data at any time or export it as a CSV file.",
         "save_id_data": "Remember identification data",
-        "save_id_data-description": "To make sending new requests easier, we can save your identification data for you. TODO: Explain how this works and how to delete the data afterwards.",
+        "save_id_data-description": "To make sending new requests easier, we can save your identification data for you. The data will only be saved on your computer (using the local storage feature of your browser) and never be send to any servers, including ours. You can easily control the data that is saved about you in the dropdown in the navigation. You can always delete all of your data here or in your browser.",
+        "clear-id_data": "Delete all identification data",
+        "confirm-delete-id_data": "You deactivated the saving of identification data. Do you also want to delete the currently saved data?",
         "confirm-clear-requests": "Delete requests",
         "cancel": "Cancel",
         "modal-clear-requests": "This will delete all saved requests and cannot be undone. Are you sure?"

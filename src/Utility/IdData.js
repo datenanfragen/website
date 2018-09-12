@@ -61,9 +61,9 @@ export default class IdData {
         });
     }
 
-    clear() {
+    clear(silent = true) {
         this.localforage_instance.clear().then(() => {
-            window.dispatchEvent(new CustomEvent(ID_DATA_CLEAR_EVENT));
+            if(!silent) window.dispatchEvent(new CustomEvent(ID_DATA_CLEAR_EVENT));
         });
     }
 
@@ -93,7 +93,7 @@ export default class IdData {
     }
 
     static setAlwaysFill(value) {
-        Cookie.set('general_setting-always_fill_in', value, { expires: 365 });
+        Cookie.set('general-always_fill_in', value, { expires: 365 });
     }
 
     static shouldAlwaysFill() {

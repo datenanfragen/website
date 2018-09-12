@@ -1,13 +1,9 @@
 import preact from 'preact';
-import IdData, {ID_DATA_CHANGE_EVENT} from "./Utility/IdData";
+import IdData, {ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT} from "./Utility/IdData";
 import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import t from 'Utility/i18n';
 import {IntlProvider, MarkupText, Text} from "preact-i18n";
 import DynamicInputContainer from "./Forms/DynamicInputContainer";
-
-// TODO: Better explanation text
-// TODO: field adder for generator
-// TODO: Delete all data button in privacy controls
 
 class IdDataControls extends preact.Component {
     constructor(props) {
@@ -44,6 +40,9 @@ class IdDataControls extends preact.Component {
 
     componentDidMount() {
         window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
+            this.idData.getAll().then((id_data) => this.setState({id_data: id_data}));
+        });
+        window.addEventListener(ID_DATA_CLEAR_EVENT, (event) => {
             this.idData.getAll().then((id_data) => this.setState({id_data: id_data}));
         });
     }

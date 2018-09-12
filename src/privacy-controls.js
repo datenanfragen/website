@@ -4,6 +4,7 @@ import t from 'Utility/i18n';
 import Privacy, {PRIVACY_ACTIONS} from "Utility/Privacy";
 import UserRequests from "./my-requests";
 import Modal from "./Components/Modal";
+import IdData from "./Utility/IdData";
 
 class PrivacyControl extends preact.Component {
     constructor(props) {
@@ -34,6 +35,15 @@ class PrivacyControl extends preact.Component {
                     PrivacyControls.clearRequests();
                 }} positiveDefault={true} onDismiss={this.props.hideModal}>
                     <Text id='confirm-delete-my-requests' />
+                </Modal>);
+        } else if(this.props.privacy_action === 'SAVE_ID_DATA' && this.state.enabled === false) {
+            this.props.showModal(
+                <Modal positiveText={t('clear-id_data', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
+                       onNegativeFeedback={this.props.hideModal} onPositiveFeedback={e => {
+                    this.props.hideModal();
+                    PrivacyControls.clearIdData();
+                }} positiveDefault={true} onDismiss={this.props.hideModal}>
+                    <Text id='confirm-delete-id_data' />
                 </Modal>);
         }
     }
@@ -78,6 +88,7 @@ class PrivacyControls extends preact.Component {
                 </table>
                 <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
                 <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
+                <button id="clear-id_data-button" className="button-secondary" onClick={() => {PrivacyControls.clearIdData}} style="float: right; margin-right: 10px;"><Text id="clear-id_data" /></button>
                 <div className="clearfix" />
             </main>
         );
@@ -96,6 +107,10 @@ class PrivacyControls extends preact.Component {
 
     static clearRequests() {
         (new UserRequests()).clearRequests();
+    }
+
+    static clearIdData() {
+        (new IdData()).clear(false);
     }
 
     showModal(modal) {

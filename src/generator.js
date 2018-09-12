@@ -10,7 +10,7 @@ import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
 import {ErrorException, rethrow} from "./Utility/errors";
 import CompanyWidget from "./Components/CompanyWidget";
-import IdData, {deepCopyObject, ID_DATA_CHANGE_EVENT} from "./Utility/IdData";
+import IdData, {deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT} from "./Utility/IdData";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -186,6 +186,9 @@ class Generator extends preact.Component {
 
     componentDidMount() {
         window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
+            this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
+        });
+        window.addEventListener(ID_DATA_CLEAR_EVENT, (event) => {
             this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
         });
     }
