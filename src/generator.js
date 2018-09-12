@@ -78,7 +78,10 @@ class Generator extends preact.Component {
                 'storeName': 'my-requests'
             });
         }
-        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.idData = new IdData();
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            this.idData = new IdData();
+            this.idData.getAll().then(fill_fields => this.setState({fill_fields: fill_fields}));
+        }
 
         this.renderRequest = this.renderRequest.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -102,8 +105,6 @@ class Generator extends preact.Component {
         this.pdfWorker.onerror = (error) => {
             rethrow(error, 'PdfWorker error');
         };
-
-        this.idData.getAll().then(fill_fields => this.setState({fill_fields: fill_fields}));
 
         let batch_companies = findGetParamter('companies');
         if(batch_companies) {
@@ -185,12 +186,14 @@ class Generator extends preact.Component {
     }
 
     componentDidMount() {
-        window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
-            this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
-        });
-        window.addEventListener(ID_DATA_CLEAR_EVENT, (event) => {
-            this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
-        });
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
+                this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
+            });
+            window.addEventListener(ID_DATA_CLEAR_EVENT, (event) => {
+                this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
+            });
+        }
     }
 
     /**
