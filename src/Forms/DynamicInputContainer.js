@@ -12,6 +12,7 @@ export default class DynamicInputContainer extends preact.Component {
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.removeDynamicInput = this.removeDynamicInput.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.addFillField = this.addFillField.bind(this);
     }
 
     // This is not yet implemented in preact but componentWillReceiveProps is going to be deprecated in React, so we will use this workaround to simulate the future. How exciting O.o
@@ -45,8 +46,18 @@ export default class DynamicInputContainer extends preact.Component {
             let field = this.state.fields[i];
             input_elements.push(<DynamicInput key={i} id={i} suffix={this.props.id} type={field.type} desc={field.desc} optional={field.optional}
                                               removeHandler={this.removeDynamicInput} onChange={this.handleInputChange}
-                                              hasPrimary={this.props.hasPrimary} onPrimaryChange={this.handleInputChange} value={field.value}/>);
+                                              hasPrimary={this.props.hasPrimary} onPrimaryChange={this.handleInputChange} value={field.value} onAction={this.props.onAction}/>);
         }
+        let fill_fields = [];
+        if(this.props.fillFields) this.props.fillFields.forEach((field) => {
+            fill_fields.push(
+                <div className="fill-field">
+                    <div style="display: table-cell">{field.desc}: <span class="fill-field-value">{field.type === 'address' ? (field.value['street_1'] ? field.value['street_1'] + " …" : "") : field.value}</span></div>
+                    <div style="display: table-cell; width: 60px;"><button style="float: none;" className="button-small button-primary icon-arrow-right" onClick={() => {
+                        this.addFillField(field);
+                    }} title={t('add-input', 'generator')}/></div>
+                </div>);
+        });
         return (
             <div>
                 <h2>{this.props.title}</h2>
@@ -65,6 +76,15 @@ export default class DynamicInputContainer extends preact.Component {
                         <div className="icon icon-arrow-down" />
                     </div>
                     <button className="button-secondary" id={"add-dynamic-inputs-" + this.props.id} onClick={this.addDynamicInput}><Text id="add-input" /></button>
+                    {this.props.fillFields && fill_fields.length > 0 ?
+                        <div class="dropdown-container">
+                            <a class="button button-primary" href="javascript:void(0)"><span class="icon icon-fill"></span></a>
+                            <div class="dropdown">
+                                <div style="display: table; border-spacing: 5px; width: 100%;">
+                                    {fill_fields}
+                                </div>
+                            </div>
+                        </div> : []}
                     <div className="clearfix" />
                 </div>
             </div>
@@ -105,6 +125,15 @@ export default class DynamicInputContainer extends preact.Component {
             optional: true,
             value: this.state['dynamic-input-type'] === 'address' ? {} : ''
         };
+        this.setState(prev => {
+            prev.fields_counter = prev.fields_counter + 1;
+            prev.fields[prev.fields_counter] = field;
+            return prev;
+        });
+        this.pushStateUp();
+    }
+
+    addFillField(field) {
         this.setState(prev => {
             prev.fields_counter = prev.fields_counter + 1;
             prev.fields[prev.fields_counter] = field;

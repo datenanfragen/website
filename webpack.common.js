@@ -14,6 +14,7 @@ module.exports = {
         'my-requests': './src/my-requests.js',
         'privacy-controls': './src/privacy-controls.js',
         'suggest-edit': './src/suggest-edit.js',
+        'id-data-controls': './src/id-data-controls.js',
         'pdfworker': './src/PdfWorker.js',
         'style': './src/styles/main.scss'
     },

@@ -56,7 +56,7 @@
         "recipient": "Empfänger",
         "id-data": "Meine Daten",
         "id-data-explanation": "Die Daten, die Du hier eingibst, helfen dem Unternehmen Dich zu identifizieren. Gib ruhig erst einmal zu wenig als zu viel an – im Zweifelsfall wird das Unternehmen schon nachfragen.<br/>Wenn wir Erfahrungswerte zu Daten haben, die definitiv angegeben werden müssen, sind diese mit einem * gekennzeichnet.",
-        "add-dynamic-input-explanation": "Du möchtest weitere Daten ergänzen? Kein Problem: Wähle einfach den passenden Feldtyp.",
+        "add-dynamic-input-explanation": "Du möchtest weitere Daten ergänzen? Kein Problem: Wähle einfach den passenden Feldtyp. Du kannst auch Deine gespeicherten Daten hinzufügen.",
         "name": "Name",
         "birthdate": "Geburtsdatum",
         "address": "Adresse",
@@ -116,9 +116,11 @@
         "algolia_search": "Unternehmenssuche über Algolia",
         "algolia_search-description": "Unsere Unternehmensdatenbank enthält für zahlreiche Unternehmen die Kontaktdaten für datenschutzbezogene Anfragen, was das Stellen von solchen Anfragen deutlich erleichert. Um das Unternehmen, das Du suchst, zu finden, kannst Du unsere Suchfunktion verwenden. Diese wird von Algolia bereitgestellt. Sobald Du etwas in die Suchzeile eingibst, emfängt Algolia einige Daten (darunter Deine IP-Adresse und die genauen Suchanfragen). Um mehr darüber zu erfahren, wie Algolia Deine Daten verwendet, kannst Du Dir deren <a href='https://www.algolia.com/policies/privacy'>Datenschutzerklärung</a> anschauen.",
         "save_my_requests": "„Meine Anfragen“",
-        "save_my_requests-description": "Um Dir die Verwaltung Deiner bisherigen Anfragen zu erleichtern, bieten wir Dir die „Meine Anfragen“-Funktion an. Wenn du diese aktivierst, werden alle Deine Anfragen auf Deinem Computer (über die „local storage“-Schnittstelle Deines Browsers) gespeichert und Du kannst sie Dir später <a href='/my-requests'>hier</a> anschauen. Dort kannst Du auch jederzeit alle gespeicherten Anfragen löschen oder sie als CSV-Datei exportieren.",
+        "save_my_requests-description": "Um Dir die Verwaltung Deiner bisherigen Anfragen zu erleichtern, bieten wir Dir die „Meine Anfragen“-Funktion an. Wenn du diese aktivierst, werden alle Deine Anfragen auf Deinem Computer (über eine Lokalspeicher-Schnittstelle Deines Browsers) gespeichert und Du kannst sie Dir später <a href='/my-requests'>hier</a> anschauen. Dort kannst Du auch jederzeit alle gespeicherten Anfragen löschen oder sie als CSV-Datei exportieren.",
         "save_id_data": "Identifikationsdaten speichern",
-        "save_id_data-description": "Um Dir das Senden neuer Anfragen zu erleichern, können wir Deine Identifikationsdaten für Dich speichern. TODO: Explain how this works and how to delete the data afterwards.",
+        "save_id_data-description": "Um Dir das Senden neuer Anfragen zu erleichern, können wir Deine Identifikationsdaten für Dich speichern. Diese Daten werden nur auf Deinem Computer (über eine Lokalspeicher-Schnittstelle Deines Browsers) gespeichert und niemals an andere Server, unsere eingeschlossen, versendet. Du kannst die Daten, die über dich gespeichert wurden ganz einfach über das Dropdown in der Navigation verwalten. Wenn du die Daten löschen möchtest, kannst du das hier oder in deinem Browser tun.",
+        "clear-id_data": "Alle Identifikationsdaten löschen",
+        "confirm-delete-id_data": "Du hast das Speichern von Identifikationsdaten deaktiviert. Möchtest Du die zur Zeit gespeicherten Daten auch löschen?",
         "confirm-clear-requests": "Anfragen löschen",
         "cancel": "Abbrechen",
         "modal-clear-requests": "Damit werden alle gespeicherten Anfragen unwiderruflich von Deinem Computer gelöscht. Bist Du sicher?"
@@ -194,5 +196,22 @@
         "next": "Weiter",
         "finish": "Fertig",
         "search-company": "Nach Unternehmen aus der Kategorie „{{category}}“ suchen…"
+    },
+    "id-data-controls": {
+        "id-data-deactivated": "Das Speichern von Identifikationsdaten ist deaktiviert. Wenn Du die den Erstellvorgang der Anfragen beschleunigen und Identifikationsdaten auf Deinem Computer speichern möchtest, kannst du das in den <a href=\"/privacy-controls/\">Datenschutzeinstellungen</a> tun.",
+        "always-fill-in": "Bekannte Felder immer direkt ausfüllen?",
+        "saved-data": "Gespeicherte Daten",
+        "add-dynamic-input-explanation": "Du kannst Daten ergänzen, wenn du einen passenden Feldtypen auswählst.",
+        "input-single-line": "Freitext (einzeilig)",
+        "input-multi-line": "Freitext (mehrzeilig)",
+        "input-address": "Adresse",
+        "add-input": "Feld hinzufügen",
+        "description": "Beschreibung",
+        "value": "Wert",
+        "address-line-1": "Adresszeile 1",
+        "address-line-2": "Adresszeile 2",
+        "address-place": "Ort",
+        "address-country": "Land",
+        "saved-data-explanation": "Diese Daten haben wir aus den letzten Anfragen für Dich <strong>auf deinem Computer</strong> gespeichert. Mehr Informationen in den <a href=\"/privacy-controls/\">Datenschutzeinstellungen</a>."
     }
 }

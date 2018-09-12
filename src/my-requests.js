@@ -8,7 +8,7 @@ import {rethrow} from "./Utility/errors";
 export default class UserRequests {
     constructor() {
         // TODO: Is there a better place for this?
-        localforage.config({
+        this.localforage_instance = localforage.createInstance({
             'name': 'Datenanfragen.de', // TODO: Use the actual domain here?
             'storeName': 'my-requests'
         });
@@ -17,7 +17,7 @@ export default class UserRequests {
     getRequests() {
         let requests = {};
         return new Promise((resolve, reject) => {
-            localforage.iterate((data, reference) => {
+            this.localforage_instance.iterate((data, reference) => {
                 requests[reference] = data;
             })
                 .then(() => {
@@ -31,7 +31,7 @@ export default class UserRequests {
     }
 
     clearRequests() {
-        return localforage.clear();
+        return this.localforage_instance.clear();
     }
 }
 

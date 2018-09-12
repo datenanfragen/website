@@ -29,11 +29,18 @@
         <a href="{{ "/" | absURL }}"><img id="logo" src="{{ T "logo" . | absURL }}"></a>
         <nav id="main-nav">
             <div id="menu-items">
-                <a href="{{ "company" | absURL }}">{{ T "header-cdb" }}</a>
-                <a href="{{ "my-requests" | absURL }}">{{ T "header-my-requests" }}</a>
-                <a href="{{ "blog" | absURL }}">{{ T "header-blog" }}</a>
+                <a href="{{ "company" | absURL }}" class="menu-link">{{ T "header-cdb" }}</a>
+                <a href="{{ "blog" | absURL }}" class="menu-link">{{ T "header-blog" }}</a>
 
-                <a class="button button-primary icon icon-letter" href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
+                <a class="button button-primary icon icon-letter menu-link" href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
+                <div class="dropdown-container">
+                    <a class="button button-secondary menu-link" href="javascript:void(0)"><span class="icon icon-menu"></span></a>
+                    <div class="dropdown" id="personal-menu">
+                        <a href="{{ "my-requests" | absURL }}" class="menu-link">{{ T "header-my-requests" }}</a>
+                        <a href="{{ "privacy-controls" | absURL }}" class="menu-link">{{ T "header-privacy-controls" }}</a>
+                        <div id="id-data-controls"></div>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>

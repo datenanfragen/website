@@ -57,7 +57,7 @@
         "recipient": "Recipient",
         "id-data": "My data",
         "id-data-explanation": "The data you specify here will help the company identify you. Feel free to err on the side of entering less—the company will contact you if they need more details.<br />Those fields, we know from experience definitely have to be filled in, are marked with an *.",
-        "add-dynamic-input-explanation": "Want to add more data? No problem: Just select the type of input you want to add.",
+        "add-dynamic-input-explanation": "Want to add more data? No problem: Just select the type of input you want to add. You can also add your saved inputs.",
         "name": "Name",
         "birthdate": "Date of birth",
         "address": "Address",
@@ -119,7 +119,9 @@
         "save_my_requests": "“My requests” feature",
         "save_my_requests-description": "To make managing your previous requests easier, we offer the “My requests” feature. If you enable it, all requests you generate will be saved on your own computer (using the local storage feature of your browser) and you can later browse through them <a href='/my-requests'>here</a>. There, you can also delete all saved request data at any time or export it as a CSV file.",
         "save_id_data": "Remember identification data",
-        "save_id_data-description": "To make sending new requests easier, we can save your identification data for you. TODO: Explain how this works and how to delete the data afterwards.",
+        "save_id_data-description": "To make sending new requests easier, we can save your identification data for you. The data will only be saved on your computer (using the local storage feature of your browser) and never be send to any servers, including ours. You can easily control the data that is saved about you in the dropdown in the navigation. You can always delete all of your data here or in your browser.",
+        "clear-id_data": "Delete all identification data",
+        "confirm-delete-id_data": "You deactivated the saving of identification data. Do you also want to delete the currently saved data?",
         "confirm-clear-requests": "Delete requests",
         "cancel": "Cancel",
         "modal-clear-requests": "This will delete all saved requests and cannot be undone. Are you sure?"
@@ -195,5 +197,22 @@
         "next": "Next",
         "finish": "Finish",
         "search-company": "Search for “{{category}}” companies…"
+    },
+    "id-data-controls": {
+        "id-data-deactivated": "Saving of identification data is deactivated. If you want to speed up the generation process and save identification data, please activate id data saving in the <a href=\"/privacy-controls/\">privacy controls</a>.",
+        "always-fill-in": "Always fill in known fields?",
+        "saved-data": "Saved data",
+        "add-dynamic-input-explanation": "Add data by selecting the field type.",
+        "input-single-line": "Text (single line)",
+        "input-multi-line": "Text (multi line)",
+        "input-address": "Address",
+        "add-input": "Add input",
+        "description": "Description",
+        "value": "Value",
+        "address-line-1": "Address line 1",
+        "address-line-2": "Address line 2",
+        "address-place": "Place",
+        "address-country": "Country",
+        "saved-data-explanation": "We saved this data for you <strong>on your computer</strong>. For more information on that, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>."
     }
 }
