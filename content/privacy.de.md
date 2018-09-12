@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "datenschutz", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 21. Mai 2018 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
+Unsere Datenschutzerklärung wurde zuletzt am 30. August 2018 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
 
 ## Allgemeine Hinweise
 
@@ -18,28 +18,27 @@ In dieser Datenschutzerklärung möchten wir Dir erklären, welche Daten wir erf
 
 ### Geltungsbereich
 
-Diese Datenschutzerklärung gilt für die Webseiten [Datenanfragen.de](https://www.datenanfragen.de) und [datarequests.org](https://www.datarequests.org). Beachte bitte, dass es für die Aktivitäten des Datenanfragen.de e.&nbsp;V. eine separate Datenschutzerklärung gibt. <!-- TODO: Link once ready. -->
+Diese Datenschutzerklärung gilt für die Webseiten [Datenanfragen.de](https://www.datenanfragen.de) und [datarequests.org](https://www.datarequests.org). Beachte bitte, dass es für die Aktivitäten des Datenanfragen.de e.&nbsp;V. eine [separate Datenschutzerklärung](https://verein.datenanfragen.de/datenschutz) gibt.
 
 Mit Datenanfragen.de wollen wir Dir helfen, Deine Datenschutzrechte einfacher auszuüben. Dazu bieten wir Dir einen Generator, mit dem Du automatisch Anfragen erstellen kannst, eine Datenbank mit Kontaktdaten für datenschutzspezifische Anfragen an viele Unternehmen und Informationsmaterialien zum Datenschutz und verwandten Themen.
 
 ### Verantwortlicher und Kontakt
 
-Verantwortlicher für die im Abschnitt „Geltungsbereich“ genannten Angebote im Sinne des Art. 4 Nr. 7 DSGVO ist:
+Verantwortlicher für die im Abschnitt „Geltungsbereich“ genannten Angebote im Sinne des Art. 4 Nr. 7 DSGVO ist der:
 
-<!-- TODO: Nach Vereinsgründung anpassen. -->
-Verein Datenanfragen.de (in Gründung)  
+Datenanfragen.de e.&nbsp;V.  
 c/o Benjamin Altpeter  
 Schreinerweg 6  
 38126 Braunschweig  
 Deutschland
 
-Vertreten durch: Benjamin Altpeter und Lorenz Sieben  
-Eintragung in das Vereinsregister des Amtsgerichts Braunschweig ist geplant.
+Vertreten durch den Vorstand: Benjamin Altpeter und Lorenz Sieben  
+Der Datenanfragen.de e. V. ist im Vereinsregister des Amtsgerichts Braunschweig unter der Registernummer VR 201732 eingetragen und per Bescheid vom 21. Juni 2018 vom Finanzamt Braunschweig-Wilhelmstraße als gemeinnützig anerkannt.
 
-Telefon (mobil): +49 176 913 77 604  
-Telefax: +49 531 615 4 288  
+Telefon: +49 531 209299 35  
+Telefax: +49 531 209299 36  
 E-Mail: [datenschutz@datenanfragen.de](mailto:datenschutz@datenanfragen.de) ([PGP-Key](https://www.datenanfragen.de/pgp/CF2CBB2E.asc) `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`)  
-Web: [www.datenanfragen.de](https://www.datenanfragen.de)
+Web: [verein.datenanfragen.de](https://verein.datenanfragen.de)
 
 Falls Du irgendwelche Fragen zu unserer Datenschutzerklärung hast, der Meinung bist, dass wir gegen Datenschutzrecht verstoßen oder Deine Rechte geltend machen möchtest, kannst Du Dich gerne jederzeit an uns wenden.
 
@@ -88,6 +87,16 @@ Wenn Du Inhalte in unserer Unternehmensdatenbank veröffentlichst, enthalten die
 - Rechtsgrundlage: Die Grundlage der Speicherung ist unser rechtmäßiges Interesse, die Nutzer_innenbeiträge auf unserer Webseite anzuzeigen im Sinne des Art. 6 Abs. 1 lit. a DSGVO.
 - Dauer der Speicherung: unbeschränkt
 - Weitergabe der Daten: Die Nutzer_inneninhalte sind öffentlich auf unserer Webseite einsehbar.
+
+#### Fehlermeldungen
+Wenn Du uns eine Fehlermeldung schickst, enthält diese u.&nbsp;U. personenbezogene Daten. Die Bereitstellung dieser Daten ist vollkommen freiwillig für Dich. Es ergeben sich keinerlei Konsequenzen aus einer Nichtbereitstellung.
+
+- Betroffene Daten: Informationen zum aufgetretenen Fehler, Informationen zu Deinem Browser und Betriebssystem (der sogenannte „User-Agent-String“), die vollständige URL der Unterseite, auf der Du Dich beim Auftreten des Fehlers befunden hast und evtl. Daten, die Du auf der entsprechenden Unterseite angegeben hast  
+Vor dem Absenden der Fehlermeldung werden Dir sämliche betroffenen Daten angezeigt und Du hast die Möglichkeit, diese anzupassen und zu entfernen.
+- Rechtsgrundlage: Die Grundlage der Speicherung ist unser rechtmäßiges Interesse, die Stabilität und Funktionalität unserer Webseite zu verbessern im Sinne des Art. 6 Abs. 1 lit. a DSGVO.
+- Dauer der Speicherung: unbeschränkt
+- Weitergabe der Daten: Der Inhalt von Fehlermeldungen ist ggf. über unseren [Issue-Tracker auf GitHub](https://github.com/datenanfragen/website/issues) öffentlich einsehbar.  
+GitHub wird betrieben von der GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV,  	Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/). Die [GitHub, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI) ist über das US-europäische Datenschutzabkommen „Privacy Shield“ zertifiziert, welches die Wahrung des EU-Datenschutzniveaus sicherstellt.
 
 ## Externe Dienste
 

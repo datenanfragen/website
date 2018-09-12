@@ -13,7 +13,7 @@ Wenn die personenbezogenen Daten, die Unternehmen oder andere Organisationen (so
 
 Wenn der Verantwortliche Deine Daten an andere Unternehmen weitergeleitet hat, muss er diese darüber hinaus auch über deinen Löschantrag informieren.
 
-Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "blog/your-gdpr-rights" >}}) an.
+Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "/blog/your-gdpr-rights" >}}) an.
 
 ## Wie nutze ich dieses Recht?
 

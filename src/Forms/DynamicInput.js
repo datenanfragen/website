@@ -60,7 +60,12 @@ export default class DynamicInput extends preact.Component {
                     {control}
                 </div>
                 <div className="col60">
-                    <div style="padding-left: 10px;">{input}</div>
+                    <div style="padding-left: 10px;" className={"form-group" + (this.props.onAction ? " action-button-container" : "")}>
+                        {input}
+                        {this.props.onAction ? <button id={this.props.id + '-action-' + this.props.suffix} rel={this.props.id}
+                                className="dynamic-input-action button-primary button-small icon-arrow-right" onClick={this.props.onAction}/> : []}
+                    </div>
+
                 </div>
                 <div className="clearfix" />
             </div>

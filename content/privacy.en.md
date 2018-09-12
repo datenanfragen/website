@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on May 21, 2018.
+Our privacy policy was last changed on August 30, 2018.
 
 ## General remarks
 
@@ -18,7 +18,7 @@ In this privacy policy, we would like to explain to you what data we collect and
 
 ### Scope
 
-This privacy policy applies to the websites [Datenanfragen.de](https://www.datenanfragen.de) and [datarequests.org](https://www.datarequests.org). Please note that we have a separate privacy policy for the Datenanfragen.de e.&nbsp;V. (in formation).
+This privacy policy applies to the websites [Datenanfragen.de](https://www.datenanfragen.de) and [datarequests.org](https://www.datarequests.org). Please note that there is a [separate privacy policy](https://verein.datenanfragen.de/datenschutz) for the activites of the Datenanfragen.de e.&nbsp;V.
 
 With datarequests.org, we want to help you exercise your right to privacy. In order to do so, we offer a generator that helps you automatically generate requests, a company database with contact data for privacy-related requests to many companies and educational material on subjects related to privacy and data protection.
 
@@ -26,19 +26,19 @@ With datarequests.org, we want to help you exercise your right to privacy. In or
 
 The controller as defined in Art. 4(7) GDPR for the services mentioned under “Scope” is:
 
-Verein Datenanfragen.de (in formation)  
+Datenanfragen.de e.&nbsp;V.  
 c/o Benjamin Altpeter  
 Schreinerweg 6  
 38126 Braunschweig  
 Germany
 
 Legally represented by: Benjamin Altpeter and Lorenz Sieben  
-Entry into the register of associations of the local court Braunschweig is planned.
+Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associations of the district court of Braunschweig, under the registration number VR&nbsp;201732, and recognized as a charitable organisation by the Braunschweig-Wilhelmstraße tax office.
 
-Phone (mobile): +49 176 913 77 604  
-Fax: +49 531 615 4 288  
+Phone: +49 531 209299 35  
+Fax: +49 531 209299 36  
 Email: [privacy@datenanfragen.de](mailto:privacy@datenanfragen.de) ([PGP key](https://www.datenanfragen.de/pgp/CF2CBB2E.asc) `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`)  
-Web: [www.datenanfragen.de](https://www.datenanfragen.de)
+Web: [verein.datenanfragen.de](https://verein.datenanfragen.de)
 
 If you have any questions about our privacy policy, believe that we are in violation of data protection laws or wish to assert your rights, please feel free to contact us at any time.
 
@@ -87,6 +87,16 @@ If you post content in our company database, it may contain personal data. The d
 - Lawful basis: The basis of the storage is our legitimate interest to display the user contributions on our website in accordance with Art. 6(1) lit. a GDPR.
 - Duration of storage: indefinitely
 - Data disclosure: User content is publicly accessible via our website.
+
+#### Error reports
+If you report an error to us, your report may contain personal data. The disclosure of this data is entirely voluntary for you. Not providing it has no influence on your use of our website.
+
+- Affected data: information about the error that occurred, information about your browser and operating system (the so-called “user-agent string”), the complete URL of the specific page you were visiting when the error occurred and potentially data you entered on that page  
+We will always display all the information included in the report to you before you send it and give you the ability to alter or remove information from it.
+- Lawful basis: The basis of the storage is our legitimate interest to improve the stability and functionality of our website in accordance with Art. 6(1) lit. a GDPR.
+- Duration of storage: indefinitely
+- Data disclosure: The content of error reports may be publicly accessible via our [GitHub issue tracker](https://github.com/datenanfragen/website/issues).  
+GitHub is operated by GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA or their subsidiary GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. For more information on how GitHub processes your data, please refer to [their privacy policy](https://help.github.com/articles/github-privacy-statement/). [GitHub, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI) is certified under the US-European “Privacy Shield” framework, which ensures that the EU data protection level is maintained.
 
 ## External services
 

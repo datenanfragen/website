@@ -13,7 +13,7 @@ If a company or other organization (a so-called controller) has stored false (or
 
 This allows you to defend yourself against credit agencies (such as Experian or Equifax), for example, if they rate your creditworthiness or your payment history negatively due to incorrect entries.
 
-If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "blog/your-gdpr-rights" >}}).
+If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
 
 ## How do I exercise this right?
 

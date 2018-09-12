@@ -1,5 +1,5 @@
-<article class="company-article">
-	<h2><a href="{{ .Permalink }}">{{ .Params.name }}</a></h2>
+<article class="company-article company-summary">
+	<h1><a href="{{ .Permalink }}">{{ .Params.name }}</a></h1>
 	{{ with .Params.categories }}<div><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ( apply . "T" "." ) ) ", " }}</div>{{ end }}
 	{{ with .Params.runs }}<div><strong>{{ T "cdb-runs" }}</strong> {{ delimit . ", " }}</div>{{ end }}
 </article>

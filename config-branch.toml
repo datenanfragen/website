@@ -3,7 +3,11 @@ pluralizeListTitles = false
 preserveTaxonomyNames = true
 
 # Ignore the preact translation files which would otherwise cause Hugo to fail
-ignoreFiles = [ "i18n/.+\\.json$" ]
+ignoreFiles = [ "en.json$", "de.json$" ]
+
+[Author]
+    name = "Datenanfragen.de e. V."
+    email = "kontakt@datenanfragen.de"
 
 [languages]
     [languages.de]

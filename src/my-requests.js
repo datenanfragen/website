@@ -3,11 +3,12 @@ import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "Utility/Privacy";
+import {rethrow} from "./Utility/errors";
 
 export default class UserRequests {
     constructor() {
         // TODO: Is there a better place for this?
-        localforage.config({
+        this.localforage_instance = localforage.createInstance({
             'name': 'Datenanfragen.de', // TODO: Use the actual domain here?
             'storeName': 'my-requests'
         });
@@ -16,22 +17,21 @@ export default class UserRequests {
     getRequests() {
         let requests = {};
         return new Promise((resolve, reject) => {
-            localforage.iterate((data, reference) => {
+            this.localforage_instance.iterate((data, reference) => {
                 requests[reference] = data;
             })
                 .then(() => {
                     resolve(requests);
                 })
-                .catch(() => {
-                    console.log('Could not get requests.');
-                    /* TODO: Proper error handling. */
+                .catch((error) => {
+                    rethrow(error, 'Could not get requests');
                     reject();
                 });
         });
     }
 
     clearRequests() {
-        return localforage.clear();
+        return this.localforage_instance.clear();
     }
 }
 
@@ -106,14 +106,13 @@ class RequestList extends preact.Component {
     }
 
     clearRequests() {
-        if(window.confirm(t('delete-all-confirm', 'my-requests'))) {
+        if(window.confirm(t('modal-clear-requests', 'privacy-controls'))) {
             this.user_requests.clearRequests()
                 .then(() => {
                     this.setState({requests: []})
                 })
-                .catch((err) => {
-                    console.log('Could not clear requests: ' + err);
-                    /* TODO: Proper error handling. */
+                .catch((error) => {
+                    rethrow(error, 'Could not clear requests.');
                 });
         }
     }

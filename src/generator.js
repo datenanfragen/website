@@ -4,9 +4,13 @@ import Letter from 'Utility/Letter';
 import { SearchBar } from "./Components/SearchBar";
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'Utility/i18n';
+import { fetchCompanyDataBySlug } from 'Utility/companies';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
+import {ErrorException, rethrow} from "./Utility/errors";
+import CompanyWidget from "./Components/CompanyWidget";
+import IdData, {deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT} from "./Utility/IdData";
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -34,7 +38,7 @@ class Generator extends preact.Component {
             request_data: {
                 type: 'access',
                 transport_medium: 'fax',
-                id_data: JSON.parse(JSON.stringify(this.default_fields)), // This is hideous but the only way to deep copy this array...
+                id_data: deepCopyObject(this.default_fields),
                 reference: Letter.generateReference(today),
                 date: today.toISOString().substring(0, 10),
                 recipient_address: '',
@@ -61,7 +65,8 @@ class Generator extends preact.Component {
             batch_position: 0,
             modal_showing: '',
             response_type: '',
-            complaint_authority: null
+            complaint_authority: null,
+            fill_fields: []
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
@@ -70,11 +75,16 @@ class Generator extends preact.Component {
 
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             // TODO: Is there a better place for this?
-            localforage.config({
+            this.request_store = localforage.createInstance({
                 'name': 'Datenanfragen.de',
                 'storeName': 'my-requests'
             });
         }
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            this.idData = new IdData();
+            this.idData.getAll().then(fill_fields => this.setState({fill_fields: fill_fields}));
+        }
+
         this.renderRequest = this.renderRequest.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
@@ -96,15 +106,20 @@ class Generator extends preact.Component {
             });
         };
         this.pdfWorker.onerror = (error) => {
-            console.log('Worker Error', error); // TODO: Proper error handling
+            rethrow(error, 'PdfWorker error');
         };
 
         let batch_companies = findGetParamter('companies');
         if(batch_companies) {
             this.setState({batch: batch_companies.split(',')});
-            if(this.state.batch && this.state.batch.length > 0) {
-                this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
-            }
+        }
+
+        this.resetInitalConditions();
+    }
+
+    resetInitalConditions() {
+        if(this.state.batch && this.state.batch.length > 0) {
+            fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
         }
 
         const request_articles = {'access': 15, 'erasure': 17, 'rectification': 16};
@@ -141,49 +156,31 @@ class Generator extends preact.Component {
 
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {this.setState({template_text: text})});
+
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
+            this.idData.getAll().then((fill_data) => this.setState((prev) => {
+                prev.request_data['id_data'] = IdData.mergeFields(fill_data, prev.request_data['id_data']); // the order seems unintuitive but this way we add data conservatively
+                return prev;
+            }));
+        }
     }
 
     render() {
-        let company_info = '';
-        let comments = '';
+        let company_widget = '';
         let new_request_text = 'new-request';
         if(this.state.batch && this.state.batch.length > 0) new_request_text = 'next-request';
         if(this.state.suggestion !== null) {
-            company_info =
-                (<div id="company-info">
-                    <fieldset>
-                        <legend><Text id="current-company" /></legend>
-                        <span id="company-name" style="font-size: 15pt">{this.state.suggestion['name']}</span>
-                        {this.state.suggestion['fax'] ?  [<br />, t('fax', 'generator') + ': ' + this.state.suggestion['fax']] : []}
-                        {this.state.suggestion['email'] ? [<br />, t('email', 'generator') + ': ' + this.state.suggestion['email']] : []}
-                        <br /><a href="#" onClick={e => {
-                        e.preventDefault();
-                        this.setState(prev => {
-                            prev['suggestion'] = null;
-                            prev.request_data['recipient_runs'] = [];
-                            return prev;
-                        })
-                    }}><Text id="deselect-company" /></a>
-                    </fieldset>
-                </div>);
-            if(this.state.suggestion['comments']) {
-                let comment_list = [];
-                this.state.suggestion['comments'].forEach(comment => {
-                    comment_list.push(<div className="company-comments">{comment}</div>);
-                });
-                comments = <fieldset id="comment-container">
-                    <legend><Text id="current-company-comments" /></legend>
-                    {comment_list}
-                </fieldset>;
-            }
+            company_widget = <CompanyWidget company={this.state.suggestion} onRemove={() => this.setState(prev => {
+                prev['suggestion'] = null;
+                prev.request_data['recipient_runs'] = [];
+                return prev;
+            })} />
         }
 
-        let generate_text = 'generate-pdf';
         let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
                                onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>;
 
         if(this.state.request_data.transport_medium === 'email') {
-            generate_text = 'generate-email';
             let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
                 'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t('my-reference', 'generator') + ': ' + this.state.request_data['reference'] + ')' +
                 '&body=' + encodeURIComponent(this.letter.toEmailString());
@@ -194,33 +191,44 @@ class Generator extends preact.Component {
         return (
             <main>
                 {this.state.modal_showing}
-                <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
-                <div id="generator-controls">
-                    <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
-                </div>
+                <header id="generator-header">
+                    <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
+                    <div id="generator-controls">
+                        <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
+                    </div>
+                </header>
                 <div className="clearfix" />
                 <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
                            index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
-                    <div className="col50 box">
+                    <div id="form-container" className="col50 box">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange}
-                                     onTransportMediumChange={this.handleTransportMediumChange} onLetterTemplateChange={this.handleLetterTemplateChange}
-                                     request_data={this.state.request_data}/>
+                                     onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}
+                                     fillFields={this.state.fill_fields} onLetterTemplateChange={this.handleLetterTemplateChange}
+                        />
                     </div>
-                    <div className="col50 box" style="min-height: 500px; float: right;">
-                        {company_info}
-                        <div id="pdf-controls">
+                    <div className="col50">
+                        {company_widget}
+                        <div id="content-container" className="box">
                             {action_button}
-                            <button id="generate-button" className="button-secondary" onClick={this.renderRequest}><Text id={generate_text} /></button>
-                            <div className="clearfix" />
+                            <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
                         </div>
-                        <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
-                        {comments}
                     </div>
                 </div>
                 <div className="clearfix" />
             </main>);
+    }
+
+    componentDidMount() {
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
+                this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
+            });
+            window.addEventListener(ID_DATA_CLEAR_EVENT, (event) => {
+                this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
+            });
+        }
     }
 
     /**
@@ -274,7 +282,7 @@ class Generator extends preact.Component {
         this.setState(prev => {
             prev.request_data['transport_medium'] = company['suggested-transport-medium'] ? company['suggested-transport-medium'] : company['fax'] ? 'fax' : 'letter';
             prev.request_data['recipient_address'] = company.name + '\n' + company.address + (prev.request_data['transport_medium'] === 'fax' ?'\n' + t('by-fax', 'generator') + company['fax'] : '');
-            prev.request_data['id_data'] = this.mergeIdDataFields(prev.request_data['id_data'], company['required-elements'] || this.default_fields);
+            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], company['required-elements'] || this.default_fields);
             prev.request_data['recipient_runs'] = company.runs || [];
             prev.suggestion = company;
             prev['request_data']['data_portability'] = company['suggested-transport-medium'] === 'email';
@@ -303,28 +311,6 @@ class Generator extends preact.Component {
         }
     }
 
-    mergeIdDataFields(fields_to_add_to, fields_to_merge) {
-        let new_fields = fields_to_merge.slice();
-        let old_fields = fields_to_add_to.slice();
-        let merged_fields = [];
-        let has_primary_address = 0;
-        old_fields.forEach((field, i) => { // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
-            let j = new_fields.findIndex(new_field => {
-                return new_field['type'] === field['type'] && new_field['desc'] === field['desc']; // Is it a good idea to also check for desc?
-            });
-            if(typeof j !== 'undefined' && j >= 0) {
-                field['optional'] = 'optional' in new_fields[j] ? new_fields[j]['optional'] : false;
-                if(field['type'] === 'address') field['value']['primary'] = ++has_primary_address === 1;
-                merged_fields.push(field);
-                new_fields.splice(j, 1);
-            }
-        });
-        return merged_fields.concat(new_fields.map(field => {
-            field['value'] = field['value'] || (field['type'] === 'address' ? {"primary": ++has_primary_address === 1} : '');
-            return field;
-        }));
-    }
-
     handleTypeChange(event) {
         this.handleInputChange({type: event.target.value});
         if(event.target.value === 'custom') {
@@ -342,6 +328,7 @@ class Generator extends preact.Component {
         this.setState(prev => {
             for(let key in changed_data) {
                 if(key === 'type') should_render = false;
+                if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'id_data') this.idData.storeArray(changed_data[key]);
                 prev['request_data'][key] = changed_data[key];
             }
             return prev;
@@ -400,15 +387,6 @@ class Generator extends preact.Component {
         this.renderRequest();
     }
 
-    fetchCompanyDataBySlug(slug, callback) {
-        try {
-            fetch(this.database_url + slug + '.json')
-                .then(res => res.json()).then(json => {callback(json)});
-        } catch(error) {
-            console.error(error.message); // TODO: Proper Error Handling
-        }
-    }
-
     newRequest() {
         this.setState(prev => {
             prev['request_data'] = {
@@ -439,12 +417,8 @@ class Generator extends preact.Component {
             prev['download_filename'] = '';
             return prev;
         });
-        fetch(this.template_url + 'access-default.txt')
-            .then(res => res.text()).then(text => {this.setState({template_text: text})});
 
-        if(this.state.batch && this.state.batch.length > 0) {
-            this.fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
-        }
+        this.resetInitalConditions();
     }
 
     renderRequest() {
@@ -483,13 +457,15 @@ class Generator extends preact.Component {
 
     storeRequest() {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            localforage.setItem(this.state.request_data['reference'], {
+            this.request_store.setItem(this.state.request_data['reference'], {
                 date: this.state.request_data.date,
                 type: this.state.request_data.type,
                 slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
                 recipient: this.state.request_data.recipient_address,
                 via: this.state.request_data.transport_medium
-            }).catch(() => { console.log('Failed to save request with reference ' + this.state.request_data['reference']); /* TODO: Proper error handling. */ });
+            }).catch((error) => {
+                rethrow(error, 'Saving request failed.', { reference: this.state.request_data['reference'] });
+            });
         }
     }
 }

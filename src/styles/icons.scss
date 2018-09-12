@@ -19,3 +19,39 @@
     font-icon: url('trash.svg');
     vertical-align: -3px;
 }
+
+.icon-arrow-down:before {
+    @extend %icon;
+    font-icon: url('arrow-down.svg');
+    vertical-align: -3px;
+}
+
+.icon-arrow-up:before {
+    @extend %icon;
+    font-icon: url('arrow-up.svg');
+    vertical-align: -3px;
+}
+
+.icon-arrow-right:before {
+    @extend %icon;
+    font-icon: url('arrow-right.svg');
+    vertical-align: -3px;
+}
+
+.icon-arrow-left:before {
+    @extend %icon;
+    font-icon: url('arrow-left.svg');
+    vertical-align: -3px;
+}
+
+.icon-menu:before {
+    @extend %icon;
+    font-icon: url('menu.svg');
+    vertical-align: -3px;
+}
+
+.icon-fill:before {
+    @extend %icon;
+    font-icon: url('fill.svg');
+    vertical-align: -3px;
+}

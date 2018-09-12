@@ -3,13 +3,13 @@ publish = "public"
 command = "./deploy.sh"
 
 [context.production.environment]
-HUGO_VERSION = "0.42.1"
-YARN_VERSION = "1.7.0"
+HUGO_VERSION = "0.46"
+YARN_VERSION = "1.9.4"
 
 # Netlify branch deploys only get a single subdomain which doesn't work with the production i18n Hugo config
 [context.branch-deploy]
 command = "./deploy-branch.sh"
 
 [context.branch-deploy.environment]
-HUGO_VERSION = "0.42.1"
-YARN_VERSION = "1.7.0"
+HUGO_VERSION = "0.46"
+YARN_VERSION = "1.9.4"

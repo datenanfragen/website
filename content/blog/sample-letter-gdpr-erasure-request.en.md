@@ -4,7 +4,7 @@
     "date": "2018-05-16T22:06:12+02:00",
     "last_edited": "2018-05-20T01:16:18",
 	"type": "blog",
-	"description": "Thanks to the GDPRVO, you have the right to have your personal data deleted if a controller no longer needs it for its original purpose. We offer you a sample letter with which you can exercise such a right.",
+	"description": "Thanks to the GDPR, you have the right to have your personal data deleted if a controller no longer needs it for its original purpose. We offer you a sample letter with which you can exercise such a right.",
 	"featured_image": "/img/gdpr-erasure-request-letter.jpg",
     "tags": [ "gdpr", "erasure request", "letter", "sample", "article 17" ]
 }
@@ -13,7 +13,7 @@ If the personal data that companies or other organisations (so-called controller
 
 If the controller has forwarded your data to other companies, they also have to inform them about your request for deletion.
 
-If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "blog/your-gdpr-rights" >}}).
+If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
 
 ## How do I exercise this right?
 

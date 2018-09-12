@@ -10,10 +10,10 @@ export const PRIVACY_ACTIONS = Object.freeze({
         'id': 'save_my_requests',
         'suggested': true
     },
-    // SAVE_ID_DATA: {
-    //     'id': 'save_id_data',
-    //     'suggested': true
-    // },
+    SAVE_ID_DATA: {
+        'id': 'save_id_data',
+        'suggested': true
+    },
 });
 
 export default class Privacy {

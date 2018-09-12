@@ -1,8 +1,11 @@
 <script>
     const LOCALE = {{ .Site.Language.Lang }};
+    var country = 'de'; // TODO: Country selection (#61)
     const I18N_DEFINITION = {{ readFile (delimit (slice "i18n/" .Site.Language.Lang ".json") "") | safeJS }};
     const BASE_URL = {{ "/" | absURL }};
 </script>
+<script src="{{ "js/error-handler.gen.js" | absURL }}"></script>
+<script src="{{ "js/id-data-controls.gen.js" | absURL }}"></script>
 
 {{ if eq .Type "generator" }}
 <script src="{{ "js/generator.gen.js" | absURL }}"></script>
@@ -18,6 +21,10 @@
 
 {{ if eq .Type "privacy-controls" }}
 <script src="{{ "js/privacy-controls.gen.js" | absURL }}"></script>
+{{ end }}
+
+{{ if eq .Type "suggest" }}
+<script src="{{ "js/suggest-edit.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{ if .IsHome }}
