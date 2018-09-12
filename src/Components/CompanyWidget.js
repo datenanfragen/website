@@ -8,7 +8,7 @@ export default class CompanyWidget extends preact.Component {
         super(props);
 
         this.state = {
-            expanded: false
+            expanded: true
         }
     }
     
