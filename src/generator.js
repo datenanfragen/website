@@ -128,7 +128,7 @@ class Generator extends preact.Component {
             let response_to = findGetParamter('response_to');
             let response_type = findGetParamter('response_type');
             if(response_to && response_type) {
-                localforage.getItem(response_to)
+                this.request_store.getItem(response_to)
                     .then(request => {
                         fetch(this.template_url + response_type + '.txt')
                             .then(res => res.text()).then(text => {
@@ -142,7 +142,7 @@ class Generator extends preact.Component {
                                     prev.request_data['via'] = request.via;
                                     prev.request_data['recipient_address'] = request.recipient;
                                 }
-                                //prev.request_data['reference'] = response_to; // TODO: Reference to information block
+                                prev.request_data['reference'] = request.reference; // TODO: Reference to information block
                                 prev.response_type = response_type;
                                 prev.request_data['type'] = 'custom';
                                 return prev;
@@ -179,22 +179,14 @@ class Generator extends preact.Component {
             })} />
         }
 
-        let action_button = [<a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
+        let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
                                onClick={e => {
                                    if(!this.state.download_active) {
                                        e.preventDefault();
                                    } else {
                                        this.storeRequest();
                                    }
-                               }}><Text id="download-pdf"/></a>,
-            <button id="print-button" className={'button button-secondary icon-print' + (this.state.download_active ? '' : ' disabled')} onClick={() => {
-                if(!this.state.download_active) {
-                    e.preventDefault();
-                } else {
-                    this.storeRequest();
-                    this.printRequest();
-                }
-            }} title={t('print-pdf', 'generator')}/>];
+                               }}><Text id="download-pdf"/>&nbsp;&nbsp;<span className="icon icon-download" /></a>;
 
         if(this.state.request_data.transport_medium === 'email') {
             let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
@@ -207,7 +199,7 @@ class Generator extends preact.Component {
                                    } else {
                                        this.storeRequest();
                                    }
-                               }}><Text id="send-email"/></a>
+                               }}><Text id="send-email"/>&nbsp;&nbsp;<span className="icon icon-email" /></a>
         }
 
         return (
@@ -492,10 +484,6 @@ class Generator extends preact.Component {
                 rethrow(error, 'Saving request failed.', { database_id: db_id });
             });
         }
-    }
-
-    printRequest() {
-
     }
 }
 

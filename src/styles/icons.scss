@@ -61,3 +61,15 @@
     font-icon: url('print.svg');
     vertical-align: -3px;
 }
+
+.icon-download:before {
+    @extend %icon;
+    font-icon: url('download.svg');
+    vertical-align: -3px;
+}
+
+.icon-email:before {
+    @extend %icon;
+    font-icon: url('email.svg');
+    vertical-align: -3px;
+}
