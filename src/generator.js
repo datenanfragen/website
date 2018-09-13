@@ -8,7 +8,7 @@ import { fetchCompanyDataBySlug } from 'Utility/companies';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
-import {ErrorException, rethrow} from "./Utility/errors";
+import {ErrorException, isDebugMode, rethrow} from "./Utility/errors";
 import CompanyWidget from "./Components/CompanyWidget";
 import IdData, {deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT} from "./Utility/IdData";
 
@@ -163,6 +163,8 @@ class Generator extends preact.Component {
                 return prev;
             }));
         }
+
+        this.renderRequest();
     }
 
     render() {
@@ -177,15 +179,35 @@ class Generator extends preact.Component {
             })} />
         }
 
-        let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
-                               onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>;
+        let action_button = [<a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
+                               onClick={e => {
+                                   if(!this.state.download_active) {
+                                       e.preventDefault();
+                                   } else {
+                                       this.storeRequest();
+                                   }
+                               }}><Text id="download-pdf"/></a>,
+            <button id="print-button" className={'button button-secondary icon-print' + (this.state.download_active ? '' : ' disabled')} onClick={() => {
+                if(!this.state.download_active) {
+                    e.preventDefault();
+                } else {
+                    this.storeRequest();
+                    this.printRequest();
+                }
+            }} title={t('print-pdf', 'generator')}/>];
 
         if(this.state.request_data.transport_medium === 'email') {
             let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
                 'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t('my-reference', 'generator') + ': ' + this.state.request_data['reference'] + ')' +
                 '&body=' + encodeURIComponent(this.letter.toEmailString());
             action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled') + ' button-primary'} href={mailto_link}
-                               onClick={e => {if(!this.state.blob_url) e.preventDefault();}}><Text id="send-email"/></a>
+                               onClick={e => {
+                                   if(!this.state.blob_url) {
+                                       e.preventDefault();
+                                   } else {
+                                       this.storeRequest();
+                                   }
+                               }}><Text id="send-email"/></a>
         }
 
         return (
@@ -194,7 +216,8 @@ class Generator extends preact.Component {
                 <header id="generator-header">
                     <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
                     <div id="generator-controls">
-                        <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
+                        {action_button}
+                        <button className="button-secondary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
                     </div>
                 </header>
                 <div className="clearfix" />
@@ -210,10 +233,7 @@ class Generator extends preact.Component {
                     </div>
                     <div className="col50">
                         {company_widget}
-                        <div id="content-container" className="box">
-                            {action_button}
-                            <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
-                        </div>
+                        {isDebugMode() ? <div id="content-container" className="box"><iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} /></div> : [] }
                     </div>
                 </div>
                 <div className="clearfix" />
@@ -451,8 +471,6 @@ class Generator extends preact.Component {
                 this.setState({blob_url: URL.createObjectURL(email_blob)});
                 break;
         }
-
-        this.storeRequest();
     }
 
     storeRequest() {
@@ -467,6 +485,10 @@ class Generator extends preact.Component {
                 rethrow(error, 'Saving request failed.', { reference: this.state.request_data['reference'] });
             });
         }
+    }
+
+    printRequest() {
+
     }
 }
 

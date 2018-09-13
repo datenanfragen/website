@@ -55,3 +55,9 @@
     font-icon: url('fill.svg');
     vertical-align: -3px;
 }
+
+.icon-print:before {
+    @extend %icon;
+    font-icon: url('print.svg');
+    vertical-align: -3px;
+}

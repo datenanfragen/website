@@ -5,6 +5,8 @@ import Privacy, {PRIVACY_ACTIONS} from "Utility/Privacy";
 import UserRequests from "./my-requests";
 import Modal from "./Components/Modal";
 import IdData from "./Utility/IdData";
+import Cookie from "js-cookie";
+import {isDebugMode} from "./Utility/errors";
 
 class PrivacyControl extends preact.Component {
     constructor(props) {
@@ -89,6 +91,9 @@ class PrivacyControls extends preact.Component {
                 <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
                 <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
                 <button id="clear-id_data-button" className="button-secondary" onClick={() => {PrivacyControls.clearIdData}} style="float: right; margin-right: 10px;"><Text id="clear-id_data" /></button>
+                {!!Cookie.get('debugging_enabled') ? <button id="debugging-button" className="button-secondary" onClick={() => {
+                    Cookie.set('debugging_enabled', (isDebugMode() ? 'false' : 'true'));
+                }} style="float: right; margin-right: 10px;">Toggle Debugging</button> : [] }
                 <div className="clearfix" />
             </main>
         );
