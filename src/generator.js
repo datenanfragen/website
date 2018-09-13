@@ -213,8 +213,7 @@ class Generator extends preact.Component {
                     </div>
                 </header>
                 <div className="clearfix" />
-                <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
-                           index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
+                <SearchBar id="aa-search-input" index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div id="form-container" className="col50 box">
@@ -272,10 +271,15 @@ class Generator extends preact.Component {
                                     }}
                                     positiveDefault={true} onDismiss={() => {this.hideModal(); this.setState({complaint_authority: null});}}>
                         <Text id='modal-select-authority' />
-                        <SearchBar id="aa-authority-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='supervisory-authorities'
+                        <SearchBar id="aa-authority-search-input" index='supervisory-authorities' query_by="name"
                                    onAutocompleteSelected={(event, suggestion, dataset) => {
                                         this.setState({complaint_authority: suggestion});
-                                   }} placeholder={t('select-authority', 'generator')} debug={true} style="margin-top: 15px;" /> {/* TODO: Only show relevant countries */}
+                                   }} placeholder={t('select-authority', 'generator')} debug={true} style="margin-top: 15px;"
+                                   suggestion_template={(suggestion) => {
+                                       let name_hs = suggestion.highlights.filter(a => a.field === 'name');
+                                       return '<span><strong>' + (name_hs.length === 1 ? name_hs[0].snippet : suggestion.document.name) + '</strong></span>';
+                                   }}
+                        /> {/* TODO: Only show relevant countries */}
                     </Modal>);
             }
         }
@@ -307,18 +311,18 @@ class Generator extends preact.Component {
             this.showModal(<Modal positiveText={t('new-request', 'generator')} negativeText={t('override-request', 'generator')}
                                   onNegativeFeedback={e => {
                                       this.hideModal();
-                                      this.setCompany(suggestion);
+                                      this.setCompany(suggestion.document);
                                       this.renderRequest();
                                   }} onPositiveFeedback={e => {
                 this.hideModal();
                 this.newRequest();
-                this.setCompany(suggestion);
+                this.setCompany(suggestion.document);
                 this.renderRequest();
             }} positiveDefault={true} onDismiss={this.hideModal}>
                 <Text id='modal-autocomplete-new-request' />
             </Modal>);
         } else {
-            this.setCompany(suggestion);
+            this.setCompany(suggestion.document);
             this.renderRequest();
         }
     }

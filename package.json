@@ -41,7 +41,6 @@
         "@babel/core": "^7.0.0",
         "@babel/plugin-transform-react-jsx": "^7.0.0",
         "@babel/preset-env": "^7.0.0",
-        "algoliasearch": "^3.26.0",
         "autocomplete.js": "^0.31.0",
         "babel-loader": "^8.0.0",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
@@ -61,6 +60,7 @@
         "react-scrollspy": "^3.3.5",
         "sass-loader": "^7.0.1",
         "svg-url-loader": "^2.3.2",
+        "typesense": "^0.2.0",
         "webpack": "^4.2.0",
         "webpack-cli": "^3.0.8",
         "webpack-merge": "^4.1.2"

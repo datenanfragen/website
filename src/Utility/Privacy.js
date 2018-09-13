@@ -2,8 +2,8 @@ import preact from 'preact';
 import Cookie from 'js-cookie';
 
 export const PRIVACY_ACTIONS = Object.freeze({
-    ALGOLIA_SEARCH: {
-        'id': 'algolia_search',
+    SEARCH: {
+        'id': 'search',
         'suggested': true
     },
     SAVE_MY_REQUESTS: {

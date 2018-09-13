@@ -98,17 +98,6 @@ Vor dem Absenden der Fehlermeldung werden Dir sämliche betroffenen Daten angeze
 - Weitergabe der Daten: Der Inhalt von Fehlermeldungen ist ggf. über unseren [Issue-Tracker auf GitHub](https://github.com/datenanfragen/website/issues) öffentlich einsehbar.  
 GitHub wird betrieben von der GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV,  	Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/). Die [GitHub, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI) ist über das US-europäische Datenschutzabkommen „Privacy Shield“ zertifiziert, welches die Wahrung des EU-Datenschutzniveaus sicherstellt.
 
-## Externe Dienste
-
-Um unsere Webseiten interessanter und lebendiger für Dich zu machen, haben wir einige externe Dienste eingebunden.
-
-### Algolia
-
-Die Suche, die wir Dir auf unserer Webseite anbieten, wird technisch von der Algolia, Inc., 589 Howard Street, Suite 5, San Francisco, CA 94105, USA (oder deren Tochterunternehmen Algolia SAS, 55 Rue d'Amsterdam, 75008 Paris, Frankreich und Algolia Ltd., 1 Primrose St, London, EC2A 2EX, UK) bereitgestellt. Dazu müssen die Suchbegriffe, die Du in unserer Suche eingibst, an Algolia übermittelt werden. Algolia speichert jedes Zeichen, das Du in die Suchleiste eingibst in Verbindung mit Deiner IP-Adresse und den Daten, die Dein Browser an Algolia sendet (die sogenannten „Header“). Diese Daten werden für die letzten 1000 Suchanfragen (aller Nutzer_innen unserer Webseiten) gespeichert und anschließend gelöscht.  
-Weitere Informationen dazu, wie die Daten verarbeitet werden, findest du in [der Datenschutzerklärung von Algolia](https://www.algolia.com/policies/privacy).
-
-Über unsere [Datenschutzeinstellungen](https://www.datenanfragen.de/privacy-controls) kannst Du jederzeit selbst entscheiden, ob Du die Suche aktivieren möchtest.
-
 ## Deine Rechte
 
 Die DSGVO gewährt Dir umfassende Rechte im Bezug auf den Datenschutz. Wir sind stark überzeugt davon, dass das Recht auf Datenschutz ein Grundrecht ist und stehen daher voll hinter diesen Rechten. Du kannst sie uns gegenüber jederzeit formlos unter den im Abschnitt „Verantwortlicher“ angegebenen Kontaktdaten geltend machen.  
