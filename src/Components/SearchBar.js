@@ -7,7 +7,6 @@ import {rethrow} from "../Utility/errors";
 
 export let SearchBar;
 
-// TODO: Do we even need this to be controllable anymore?
 if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
     let autocomplete = require('autocomplete.js');
 

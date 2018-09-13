@@ -16,6 +16,8 @@ import {t_r} from "./Utility/i18n";
 
 const request_articles = {'access': 15, 'erasure': 17, 'rectification': 16};
 
+const HIDE_IN_WIZARD_MODE = [ '.search', '.request-type-chooser', '#data-portability', '#advanced-information', '.company-remove' ];
+
 class Generator extends preact.Component {
     constructor(props) {
         super(props);
@@ -230,7 +232,7 @@ class Generator extends preact.Component {
             <main>
                 {this.state.modal_showing}
                 <header id="generator-header">
-                    <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
+                    <h2 id="generator-heading"><Text id="reference"/>: {this.state.request_data['reference']} </h2>
                     <div id="generator-controls">
                         {action_button}
                         <button className="button-secondary" id="new-request-button" onClick={() => {
@@ -240,8 +242,11 @@ class Generator extends preact.Component {
                     </div>
                 </header>
                 <div className="clearfix" />
-                <SearchBar id="aa-search-input" index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
-                           placeholder={t('select-company', 'generator')} debug={false}/>
+                <div class="search">
+                    <SearchBar id="aa-search-input" index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
+                                               placeholder={t('select-company', 'generator')} debug={false}/>
+                    &#0; {/* For some reason, autocomplete.js completely freaks out if it is wrapped in any tag at all and there isn't *anything at all* after it (only in the generator, though). As a workaround, we just use a nullbyte. We are counting on #24 anyway… */}
+                </div>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div id="form-container">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange}
@@ -256,7 +261,21 @@ class Generator extends preact.Component {
             </main>);
     }
 
+    prepareForWizardMode() {
+        if(findGetParamter('from') === 'wizard') {
+            HIDE_IN_WIZARD_MODE.forEach(selector => { document.querySelectorAll(selector).forEach(el => { el.classList.add('hidden'); }) });
+
+            document.querySelector('.company-info h1').style.marginLeft = "0";
+        }
+    }
+
+    componentDidUpdate() {
+        this.prepareForWizardMode();
+    }
+
     componentDidMount() {
+        this.prepareForWizardMode();
+
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
                 this.idData.getAll(false).then((fill_fields) => this.setState({fill_fields: fill_fields}));

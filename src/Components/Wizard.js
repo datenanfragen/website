@@ -92,8 +92,10 @@ export default class Wizard extends preact.Component {
                         {
                             this.state.current_tab === 0 ? '' :
                                 <SearchBar id='aa-search-input' index='companies'
-                                           onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.document.slug, suggestion.document.name) }} placeholder={t('search-company', 'wizard', { category: t(CATEGORIES[this.state.current_tab], 'categories') })}
+                                           onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.document.slug, suggestion.document.name) }}
+                                           placeholder={t('search-company', 'wizard', { category: t(CATEGORIES[this.state.current_tab], 'categories') })}
                                            filters={this.state.current_tab === CATEGORIES.length - 1 ? [] : [ 'categories:' + CATEGORIES[this.state.current_tab] ]}
+                                           empty_template={this.isLastTab() ? null : '<p style="margin-left: 10px;">' + t('no-results', 'search') + '</p>'}
                                 />
                         }
 

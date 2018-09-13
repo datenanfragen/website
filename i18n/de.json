@@ -41,6 +41,7 @@
     },
     "generator": {
         "generate-request": "Anfrage generieren",
+        "reference": "Zeichen",
         "download-pdf": "PDF herunterladen",
         "generate-pdf": "PDF generieren",
         "send-email": "E-Mail senden",
@@ -71,7 +72,7 @@
         "address-place": "Ort",
         "address-country": "Land",
         "signature": "Unterschrift",
-        "primary-address": "Hauptadresse",
+        "primary-address": "Absenderadresse",
         "signature-explanation": "Wenn Du möchtest, kannst Du Deine Anfrage hier unterschreiben. Zeichne dafür einfach mit gedrückter Maustaste in das Feld.",
         "reset": "Zurücksetzen",
         "fill-signature": "Gespeicherte Unterschrift",
@@ -205,9 +206,9 @@
         "insurance": "<p>Diese Kategorie sollte ziemlich eindeutig sein. Aber vergiss nicht, dass Unternehmen oft Versicherungen für Sachen verkaufen, die nicht gerade offensichtlich sind, wie z.&nbsp;B. Reisen oder kleine Elektroartikel.</p>",
         "telecommunication": "<p>Deine Telefon- und Internetanbieter führen wahrscheinlich einen Einzelverbindungsnachweis, der eine Auflistung aller Deiner Anrufe enthält. Wir empfehlen Dir auch, bei Deinem E-Mail-Anbieter nachzufragen – hoffen wir, dass der nicht Deine E-Mails mitliest!<br>Wenn Du eine Webseite betreibst, frag auch bei Deinem Hoster und Domainanbieter an.</p>",
         "utility": "<p>Tapfer bleiben, gleich haben wir es geschafft. Mit Versorgungsunternehmen meinen wir Gas, Strom, Wasser, Abwasser und so weiter, aber auch beispielsweise öffentlichen Personennahverkehr.</p>",
-        "other": "<p>Puh, Du hast es bis in die letzte Kategorie geschafft. Danke, dass Du dabei geblieben bist!</p><p>Es gibt natürlich so viele unterschiedliche Unternehmen, dass wir die niemals alle in Kategorien einsortieren könnten. In diesem letzten Schritt kannst Du noch einmal unsere gesamte Datenbank nach Unternehmen und anderen Organisationen durchsuchen, die wir in den vorherigen Schritten vergessen haben.</p><p>Sobald Du damit fertig bist, klicke auf den „Fertig“-Button und dann generieren wir die tatsächlichen Anfragen für die Unternehmen, die Du ausgewählt hast.</p>",
+        "other": "<p>Puh, Du hast es bis in die letzte Kategorie geschafft. Danke, dass Du dabei geblieben bist!</p><p>Es gibt natürlich so viele unterschiedliche Unternehmen, dass wir die niemals alle in Kategorien einsortieren könnten. In diesem letzten Schritt kannst Du noch einmal unsere gesamte Datenbank nach Unternehmen und anderen Organisationen durchsuchen, die wir in den vorherigen Schritten vergessen haben.</p><p>Sobald Du damit fertig bist, klicke auf den Button und dann generieren wir die tatsächlichen Anfragen für die Unternehmen, die Du ausgewählt hast.</p>",
         "next": "Weiter",
-        "finish": "Fertig",
+        "finish": "Auswahl fertig",
         "search-company": "Nach Unternehmen aus der Kategorie „{{category}}“ suchen…"
     },
     "id-data-controls": {

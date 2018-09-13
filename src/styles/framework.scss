@@ -14,7 +14,7 @@
 .col10 { width: 10%; flex: 0.1; float: left; }
 .clearfix { clear: both; }
 .after-absolute { width: 100%; position: relative; float: left; }
-.hidden { display: none; }
+.hidden { display: none !important; }
 
 body {
     margin: 0;

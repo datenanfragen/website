@@ -134,7 +134,7 @@ export default class RequestForm extends preact.Component {
         let flags = [];
         switch(this.props.request_data['type']) {
             case 'access':
-                flags.push(<div className="form-group">
+                flags.push(<div id="data-portability" className="form-group">
                     <input type="checkbox" id="request-flags-data-portability" className="request-flags form-element" checked={this.props.request_data['data_portability']} onChange={event => {
                         this.props.onChange({'data_portability': event.target.checked});
                     }}/>
