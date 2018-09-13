@@ -194,6 +194,9 @@ other = "Betreibt auch:"
 [cdb-intro]
 other = "Zu {{ .Params.name }} sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Fragen zum Datenschutz stellen möchtest:"
 
+[adb-intro]
+other = "Zu {{ .Params.name }} sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Beschwerden über Organisationen einreichen möchtest:"
+
 [cdb-address]
 other = "Adresse:"
 
@@ -208,6 +211,12 @@ other = "E-Mail:"
 
 [cdb-web]
 other = "Webseite:"
+
+[cdb-pgp-fingerprint]
+other = "PGP-Fingerprint:"
+
+[cdb-pgp-url]
+other = "PGP-Download:"
 
 [cdb-sources]
 other = "Quellen:"

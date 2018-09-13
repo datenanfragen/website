@@ -179,6 +179,7 @@ $RECYCLE.BIN/
 # Hugo
 public/
 content/company/*
+content/supervisory-authority/*
 static/templates/*
 static/db/*
 static/schema.json

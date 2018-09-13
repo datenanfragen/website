@@ -194,6 +194,9 @@ other = "Also runs:"
 [cdb-intro]
 other = "We have to following contact information on {{ .Params.name }} for you to use for privacy-related requests:"
 
+[adb-intro]
+other = "We have to following contact information on {{ .Params.name }} for you to use to lodge complaints:"
+
 [cdb-address]
 other = "Address:"
 
@@ -208,6 +211,12 @@ other = "Email:"
 
 [cdb-web]
 other = "Website:"
+
+[cdb-pgp-fingerprint]
+other = "PGP-Fingerprint:"
+
+[cdb-pgp-url]
+other = "PGP-Download:"
 
 [cdb-sources]
 other = "Sources:"

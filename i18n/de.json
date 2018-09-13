@@ -113,7 +113,8 @@
         "select-authority": "Datenschutzaufsichtsbehörde auswählen…",
         "modal-select-authority": "Hier kannst eine Datenschutzaufsichtsbehörde auswählen, an die du deine Anfrage senden möchtest. Es gilt das One-Stop-Shop-Prinzip, das heißt, dass du nur mit einer beliebigen Behörde in der EU kommunizieren musst, um deine Beschwerde einzureichen. Damit du allerdings schneller zu einer Antwort kommst, empfiehlt es sich, die vermutlich zuständige Behörde direkt anzuschreiben.",
         "company-read-more": "Weitere Informationen",
-        "print-pdf": "PDF drucken"
+        "print-pdf": "PDF drucken",
+        "pgp-fingerprint": "PGP-Fingerprint"
     },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",

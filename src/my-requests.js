@@ -63,8 +63,8 @@ class RequestList extends preact.Component {
             Object.keys(this.state.requests).forEach((reference) => {
                 let request = this.state.requests[reference];
                 if(!request) return;
-                let recipient = request.recipient.split('\n', 1)[0];
-                request_rows.push(<tr><td>{request.date}</td><td>{request.slug ? <a href={BASE_URL + 'company/' + request.slug}>{recipient}</a> : recipient}</td><td>{request.reference}</td><td>{request.type === 'custom' && request.response_type ? t(request.response_type, 'generator') : t(request.type, 'my-requests')}</td><td>{t(request.via, 'my-requests')}</td>
+                let recipient = request.recipient.split('\n', 1)[0]; // TODO: Proper authority pages and links
+                request_rows.push(<tr><td>{request.date}</td><td>{request.slug ? <a href={BASE_URL + (request.response_type === 'complaint' ? 'supervisory-authority/' : 'company/') + request.slug}>{recipient}</a> : recipient}</td><td>{request.reference}</td><td>{request.type === 'custom' && request.response_type ? t(request.response_type, 'generator') : t(request.type, 'my-requests')}</td><td>{t(request.via, 'my-requests')}</td>
                     <td>{!request.response_type ? [<a href={BASE_URL + 'generator/?response_type=admonition&response_to=' + reference} className="button button-small button-secondary" style="margin-right: 10px;">{t('admonition', 'generator')}</a>, <a href={BASE_URL + 'generator/?response_type=complaint&response_to=' + reference} className="button button-small button-secondary">{t('complaint', 'generator')}</a>] : []}</td></tr>);
             });
 

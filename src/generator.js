@@ -65,7 +65,6 @@ class Generator extends preact.Component {
             batch_position: 0,
             modal_showing: '',
             response_type: '',
-            complaint_authority: null,
             fill_fields: []
         };
 
@@ -259,21 +258,17 @@ class Generator extends preact.Component {
                         <Text id='modal-new-request' />
                     </Modal>);
                      break;
-                case 'choose_authority': // TODO: Logic
-                    modal = (<Modal positiveText={t('select', 'generator')} negativeText={t('cancel', 'generator')}
-                                    onNegativeFeedback={() => {this.hideModal(); this.setState({complaint_authority: null});}} onPositiveFeedback={() => {
-                                        this.hideModal();
-                                        this.setState(prev => {
-                                            let authority = this.state['complaint_authority'];
-                                            this.setCompany(authority);
-                                            this.renderRequest();
-                                        }); // TODO: Show other authority information (e.g. PGP Key) somewhere
-                                    }}
+                case 'choose_authority':
+                    modal = (<Modal negativeText={t('cancel', 'generator')}
+                                    onNegativeFeedback={() => {this.hideModal(); this.setState({complaint_authority: null});}}
                                     positiveDefault={true} onDismiss={() => {this.hideModal(); this.setState({complaint_authority: null});}}>
                         <Text id='modal-select-authority' />
                         <SearchBar id="aa-authority-search-input" index='supervisory-authorities' query_by="name"
                                    onAutocompleteSelected={(event, suggestion, dataset) => {
-                                        this.setState({complaint_authority: suggestion});
+                                       this.setCompany(suggestion.document);
+                                       console.log(suggestion);
+                                       this.renderRequest();
+                                       this.hideModal();
                                    }} placeholder={t('select-authority', 'generator')} debug={true} style="margin-top: 15px;"
                                    suggestion_template={(suggestion) => {
                                        let name_hs = suggestion.highlights.filter(a => a.field === 'name');

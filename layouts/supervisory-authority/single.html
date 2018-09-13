@@ -1,0 +1,70 @@
+{{ define "title" }}
+{{ T "cdb-company-title" . }} &middot; {{ .Site.Title }}
+{{ end }}
+
+{{ define "heading" }}
+{{ T "cdb-company-heading" . | safeHTML }}
+{{ end }}
+
+{{ define "main" }}
+<main>
+    <div id="company-details">
+        <p>{{ T "adb-intro" . }}</p>
+
+        {{ with .Params.address}}<p><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</p>{{ end }}
+        {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
+        <table class="contact-table">
+            {{ with .Params.phone }}<tr><td>{{ T "cdb-phone" }}</td><td>{{ . }}</td></tr>{{ end }}
+            {{ with .Params.fax }}<tr><td>{{ T "cdb-fax" }}</td><td>{{ . }}</td></tr>{{ end }}
+            {{ with .Params.email }}<tr><td>{{ T "cdb-email" }}</td><td><a href="mailto:{{ . }}">{{ . }}</a></td></tr>{{ end }}
+            {{ with (index .Params "pgp-fingerprint") }}<tr><td>{{ T "cdb-pgp-fingerprint" }}</td><td><code>{{ . }}</code></td></tr>{{ end }}
+            {{ with (index .Params "pgp-url") }}<tr><td>{{ T "cdb-pgp-url" }}</td><td><a href="{{ . }}">{{ . }}</a></td></tr>{{ end }}
+            {{ with .Params.web }}<tr><td>{{ T "cdb-web" }}</td><td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td></tr>{{ end }}
+        </table>
+        {{ end }}
+
+        {{ with .Params.sources }}
+            <p><strong>{{ T "cdb-sources" }}</strong></p>
+            <ul>
+                {{ range . }}
+                    <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
+
+        {{ with .Params.comments }}
+            <p><strong>{{ T "cdb-notes" }}</strong></p>
+            <ul>
+                {{ range . }}
+                    <li>{{ replace . "\n" "<br>" | safeHTML }}</li>
+                {{ end }}
+            </ul>
+        {{ end }}
+    </div>
+</main>
+{{ end }}
+
+{{ define "scripts" }}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Supervisory Authority",
+  "identifier": "{{ .Params.slug }}",
+  "name": "{{ .Params.name }}",
+  {{ with .Params.address}}"address": "{{ replace . "\n" ", " }}",{{ end }}
+  {{ with .Params.web }}"url": "{{ . }}",{{ end }}
+  {{ with (index .Params "pgp-fingerprint") }}"pgp-fingerprint": "{{ . }}",{{ end }}
+  {{ with (index .Params "pgp-url") }}"pgp-url": "{{ . }}",{{ end }}
+  {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
+  "contactPoint": {
+    "@type": "ContactPoint",
+    {{ with .Params.phone }}"telephone": "{{ . | safeHTML }}",{{ end }}
+    {{ with .Params.fax }}"faxNumber": "{{ . | safeHTML }}",{{ end }}
+    {{ with .Params.web }}"url": "{{ . }}",{{ end }}
+    {{ with .Params.email }}"email": "{{ . }}",{{ end }}
+    "contactType": "customer support"
+  }
+  {{ end }}
+}
+</script>
+{{ end }}
