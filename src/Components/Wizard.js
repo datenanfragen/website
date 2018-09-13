@@ -1,8 +1,8 @@
 import preact from "preact";
 import t from '../Utility/i18n';
-import { fetchCompanyNameBySlug } from '../Utility/companies';
 import { Text, MarkupText } from 'preact-i18n';
 import { SearchBar } from "../Components/SearchBar";
+import {rethrow} from "../Utility/errors";
 
 const CATEGORIES = [ 'suggested', 'commerce', 'entertainment', 'social media', 'finance', 'insurance', 'telecommunication', 'utility', /*'public body',*/ 'other' ];
 
@@ -14,23 +14,18 @@ export default class Wizard extends preact.Component {
 
         this.state = {
             current_tab: 0,
-            selected_companies: [],
+            selected_companies: {},
             country: globals.country // Don't ever update `this.state.country` directly but rather use `globals.country`.
         };
 
-        /* TODO: This is ridiculous. Best course of action is probably to generate that object in the deploy script. */
-        fetch(BASE_URL + 'db/suggested-companies/' + globals.country + '.json')
+        fetch(BASE_URL + 'db/suggested-companies/' + country + '_wizard.json')
             .then(res => res.json()).then(json => {
-                json.forEach((slug) => {
-                    fetchCompanyNameBySlug(slug, (name) => {
-                        this.setState(prev => {
-                            prev.selected_companies[slug] = name;
-                            return prev;
-                        });
-                    });
-                })
-            }
-        );
+                this.setState(prev => {
+                    prev.selected_companies = json;
+                    return prev;
+                });
+            })
+        .catch(err => rethrow(err));
 
         this.changeTab = this.changeTab.bind(this);
         this.addCompany = this.addCompany.bind(this);
@@ -112,7 +107,7 @@ class WizardTab extends preact.Component {
 class SelectedCompaniesList {
     render() {
         let selected_companies = [];
-        Object.keys(this.props.companies).forEach(slug => {
+        Object.keys(this.props.companies).sort().forEach(slug => {
             selected_companies.push(<p>
                 <button className="button-primary button-small icon-trash" onClick={() => {this.props.removeCallback(slug)}} />
                 <SelectedCompany slug={slug} name={this.props.companies[slug]}/>
