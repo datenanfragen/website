@@ -3,6 +3,8 @@ import t from '../Utility/i18n';
 import { Text, MarkupText } from 'preact-i18n';
 import { SearchBar } from "../Components/SearchBar";
 import {rethrow} from "../Utility/errors";
+import localforage from "localforage";
+import Privacy, {PRIVACY_ACTIONS} from "../Utility/Privacy";
 
 const CATEGORIES = [ 'suggested', 'commerce', 'entertainment', 'social media', 'finance', 'insurance', 'telecommunication', 'utility', /*'public body',*/ 'other' ];
 
@@ -18,14 +20,28 @@ export default class Wizard extends preact.Component {
             country: globals.country // Don't ever update `this.state.country` directly but rather use `globals.country`.
         };
 
-        fetch(BASE_URL + 'db/suggested-companies/' + country + '_wizard.json')
-            .then(res => res.json()).then(json => {
-                this.setState(prev => {
-                    prev.selected_companies = json;
-                    return prev;
-                });
-            })
-        .catch(err => rethrow(err));
+        this.saved_companies = new SavedCompanies();
+
+        this.saved_companies.length()
+            .then(length => {
+                if(!Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) || length === 0) {
+                    fetch(BASE_URL + 'db/suggested-companies/' + this.state.country + '_wizard.json')
+                        .then(res => res.json()).then(companies => {
+                            this.setState(prev => {
+                                prev.selected_companies = companies;
+                                return prev;
+                            });
+                            if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies.addMultiple(companies);
+                        })
+                        .catch(err => rethrow(err));
+                }
+                else {
+                    this.saved_companies.getAll()
+                        .then(companies => {
+                            this.setState({ selected_companies: companies });
+                        });
+                }
+            });
 
         this.changeTab = this.changeTab.bind(this);
         this.addCompany = this.addCompany.bind(this);
@@ -45,14 +61,15 @@ export default class Wizard extends preact.Component {
             prev.selected_companies[slug] = name;
             return prev;
         });
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies.add(slug, name);
     }
 
     removeCompany(slug) {
         this.setState(prev => {
-
             delete prev.selected_companies[slug];
             return prev;
         });
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies.remove(slug);
     }
 
     render() {
@@ -83,7 +100,7 @@ export default class Wizard extends preact.Component {
                         {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
                         <MarkupText id={CATEGORIES[this.state.current_tab]} fields={{ country: t('country-' + this.state.country, 'i18n-widget') }} />
                         <div id="wizard-buttons">
-                            <button className={"button-" + (this.isLastTab() ? "primary" : "secondary")} onClick={() => { location.href = BASE_URL + '/generator?companies=' + Object.keys(this.state.selected_companies).join(',') }}><Text id="finish"/></button>
+                            <button className={"button-" + (this.isLastTab() ? "primary" : "secondary")} onClick={() => { location.href = BASE_URL + '/generator?from=wizard' + (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) ? '' : ('&companies=' + Object.keys(this.state.selected_companies).join(','))) }}><Text id="finish"/></button>
                             {next_button}
                         </div>
                         <div className="clearfix" />
@@ -95,6 +112,35 @@ export default class Wizard extends preact.Component {
                 </div>
             </div>
         );
+    }
+}
+
+export class SavedCompanies {
+    constructor() {
+        this.localforage_instance = localforage.createInstance({
+            'name': 'Datenanfragen.de',
+            'storeName': 'wizard-companies'
+        });
+    }
+
+    length() { return this.localforage_instance.length(); }
+
+    add(slug, name) { return this.localforage_instance.setItem(slug, name).catch((err) => { rethrow(err, 'Could not save company for the wizard', { slug: slug, name: name }) }); }
+    addMultiple(companies) { for(let slug in companies) this.add(slug, companies[slug]); }
+
+    remove(slug) { if(slug) return this.localforage_instance.removeItem(slug); }
+    clearAll() { return this.localforage_instance.clear(); }
+
+    getAll() {
+        let companies = {};
+
+        return new Promise((resolve, reject) => {
+            this.localforage_instance.iterate((name, slug) => {
+                companies[slug] = name;
+            })
+                .then(() => { resolve(companies); })
+                .catch((err) => { rethrow(err, 'Could not get saved companies for the wizard'); reject(); });
+        });
     }
 }
 

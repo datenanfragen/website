@@ -11,6 +11,7 @@ import Modal from "./Components/Modal";
 import {ErrorException, isDebugMode, rethrow} from "./Utility/errors";
 import CompanyWidget from "./Components/CompanyWidget";
 import IdData, {deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT} from "./Utility/IdData";
+import {SavedCompanies} from "./Components/Wizard";
 import {t_r} from "./Utility/i18n";
 
 const request_articles = {'access': 15, 'erasure': 17, 'rectification': 16};
@@ -76,9 +77,21 @@ class Generator extends preact.Component {
             rethrow(error, 'PdfWorker error');
         };
 
-        let batch_companies = findGetParamter('companies');
-        if(batch_companies) {
-            this.setState({batch: batch_companies.split(',')});
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies = new SavedCompanies();
+        if(findGetParamter('from') === 'wizard') {
+            if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
+                this.saved_companies.getAll()
+                    .then(companies => {
+                        this.setState({ batch: Object.keys(companies) });
+                        this.resetInitalConditions();
+                    });
+            }
+            else {
+                let batch_companies = findGetParamter('companies');
+                if(batch_companies) {
+                    this.setState({batch: batch_companies.split(',')});
+                }
+            }
         }
 
         this.resetInitalConditions();
@@ -315,6 +328,7 @@ class Generator extends preact.Component {
             .then(res => res.text()).then(text => {this.setState({template_text: text}); this.renderRequest();});
 
         this.setState(prev => {
+            prev['slug'] = company['slug'];
             prev.request_data['transport_medium'] = company['suggested-transport-medium'] ? company['suggested-transport-medium'] : company['fax'] ? 'fax' : 'letter';
             prev.request_data['recipient_address'] = company.name + '\n' + company.address + (prev.request_data['transport_medium'] === 'fax' ?'\n' + t('by-fax', 'generator') + company['fax'] : '');
             prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], !!company['required-elements'] && company['required-elements'].length > 0 ? company['required-elements'] : defaultFields(company['request-language']));
@@ -424,6 +438,9 @@ class Generator extends preact.Component {
     }
 
     newRequest() {
+        // TODO: Make sure this ends up in the new canonical place for completed requests, as per #90 (i.e. when the request is saved to 'My requests').
+        if(this.state.request_data.type === 'access' && Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies.remove(this.state.slug);
+
         this.setState(prev => {
             prev['request_data'] = this.freshRequestData();
             prev['suggestion'] = null;
