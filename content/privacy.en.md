@@ -98,17 +98,6 @@ We will always display all the information included in the report to you before 
 - Data disclosure: The content of error reports may be publicly accessible via our [GitHub issue tracker](https://github.com/datenanfragen/website/issues).  
 GitHub is operated by GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA or their subsidiary GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. For more information on how GitHub processes your data, please refer to [their privacy policy](https://help.github.com/articles/github-privacy-statement/). [GitHub, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI) is certified under the US-European “Privacy Shield” framework, which ensures that the EU data protection level is maintained.
 
-## External services
-
-In order to make our websites more interesting and dynamic for you, we have integrated some external services.
-
-### Algolia
-
-The search engine we offer on our website is operated by Algolia, Inc., 589 Howard Street, Suite 5, San Francisco, CA 94105, USA (or its subsidiaries Algolia SAS, 55 Rue d'Amsterdam, 75008 Paris, France and Algolia Ltd., 1 Primrose St, London, EC2A 2EX, UK). To do this, the search terms you enter in our search engine have to be sent to Algolia. Algolia saves every character you enter into the search bar in connection with your IP address and the data your browser sends to Algolia (the so-called “headers”). This data is saved for the last 1000 search requests (of all users of our websites) and deleted afterwards.  
-For more information on how the data will be processed, please refer to [Algolia's privacy policy](https://www.algolia.com/policies/privacy).
-
-You can decide yourself whether you want to enable the search engine at any time via our [privacy controls](https://www.datarequests.org/privacy-controls).
-
 ## Your rights
 
 The GDPR grants you comprehensive rights with regard to data protection. We are strongly convinced that the right to data protection is a fundamental right and therefore we fully stand behind these rights. You can exercise these rights at any time in an informal manner using the contact details given in the “Controller and contact information” section.  

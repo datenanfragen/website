@@ -76,9 +76,9 @@ export default class Wizard extends preact.Component {
                     <div id="wizard-selector" className="col50">
                         {
                             this.state.current_tab === 0 ? '' :
-                                <SearchBar id='aa-search-input' algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed' index='companies'
-                                           onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.slug, suggestion.name) }} placeholder={t('search-company', 'wizard', { category: t(CATEGORIES[this.state.current_tab], 'categories') })}
-                                           facetFilters={this.state.current_tab === CATEGORIES.length - 1 ? [] : [ 'categories:' + CATEGORIES[this.state.current_tab] ]}
+                                <SearchBar id='aa-search-input' index='companies'
+                                           onAutocompleteSelected={(event, suggestion, dataset) => { this.addCompany(suggestion.document.slug, suggestion.document.name) }} placeholder={t('search-company', 'wizard', { category: t(CATEGORIES[this.state.current_tab], 'categories') })}
+                                           filters={this.state.current_tab === CATEGORIES.length - 1 ? [] : [ 'categories:' + CATEGORIES[this.state.current_tab] ]}
                                 />
                         }
 
