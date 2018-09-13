@@ -163,8 +163,7 @@ class Generator extends preact.Component {
                     </div>
                 </header>
                 <div className="clearfix" />
-                <SearchBar id="aa-search-input" algolia_appId='M90RBUHW3U' algolia_apiKey='a306a2fc33ccc9aaf8cbe34948cf97ed'
-                           index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
+                <SearchBar id="aa-search-input" index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div id="form-container" className="col50 box">
@@ -242,18 +241,18 @@ class Generator extends preact.Component {
             this.showModal(<Modal positiveText={t('new-request', 'generator')} negativeText={t('override-request', 'generator')}
                                   onNegativeFeedback={e => {
                                       this.hideModal();
-                                      this.setCompany(suggestion);
+                                      this.setCompany(suggestion.document);
                                       this.renderRequest();
                                   }} onPositiveFeedback={e => {
                 this.hideModal();
                 this.newRequest();
-                this.setCompany(suggestion);
+                this.setCompany(suggestion.document);
                 this.renderRequest();
             }} positiveDefault={true} onDismiss={this.hideModal}>
                 <Text id='modal-autocomplete-new-request' />
             </Modal>);
         } else {
-            this.setCompany(suggestion);
+            this.setCompany(suggestion.document);
             this.renderRequest();
         }
     }

@@ -2,19 +2,28 @@ import preact from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
 import Privacy, {PRIVACY_ACTIONS} from "../Utility/Privacy";
+import * as Typesense from 'typesense';
+import {rethrow} from "../Utility/errors";
 
 export let SearchBar;
 
-if(Privacy.isAllowed(PRIVACY_ACTIONS.ALGOLIA_SEARCH)) {
-    let algoliasearch = require('algoliasearch');
+// TODO: Do we even need this to be controllable anymore?
+if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
     let autocomplete = require('autocomplete.js');
 
     SearchBar = class SearchBar extends preact.Component {
         constructor(props) {
             super(props);
 
-            this.client = algoliasearch(this.props.algolia_appId, this.props.algolia_apiKey);
-            this.index = this.client.initIndex(this.props.index);
+            this.client = new Typesense.Client({
+                masterNode: {
+                    host: 'search.datenanfragen.de',
+                    port: '443',
+                    protocol: 'https',
+                    apiKey: '981da30f2e80463cadf8a91bc2db4cf5'
+                },
+                timeoutSeconds: 2
+            });
 
             this.algolia_autocomplete = null;
             this.input_element = null;
@@ -22,33 +31,41 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.ALGOLIA_SEARCH)) {
 
         componentDidMount() {
             let options = {
-                hitsPerPage: this.props.numberOfHits || 5
+                query_by: 'name, runs, categories, web, slug, address, comments',
+                sort_by: 'sort-index:asc',
+                num_typos: 4,
+                per_page: this.props.numberOfHits || 5
             };
             if(!this.props.disableCountryFiltering) {
-                if(!this.props.facetFilters) this.props.facetFilters = [];
-                this.props.facetFilters.push([ 'relevant-countries:' + country, 'relevant-countries:all' ]);
+                if(!this.props.filters) this.props.filters = [];
+                this.props.filters.push('relevant-countries:[' + country + ', all]');
             }
-            if(this.props.facetFilters) options['facetFilters'] = this.props.facetFilters;
+            if(this.props.filters) options['filter_by'] = this.props.filters.join(' && ');
 
             this.algolia_autocomplete = autocomplete('#' + this.props.id, { hint: false }, {
                 source: (query, callback) => {
-                    this.index.search(query, options)
-                        .then(
-                            answer => {
-                                callback(answer.hits);
-                            },
-                            () => { /* TODO: Error handling. */ });
+                    options['q'] = query;
+
+                    this.client.collections(this.props.index).documents().search(options)
+                        .then((res) => { callback(res.hits); })
+                        .catch((e) => { rethrow(e); });
                 },
                 displayKey: 'name',
                 templates: {
                     suggestion: this.props.suggestion_template || function (suggestion) {
-                        return '<span><strong>' + suggestion._highlightResult.name.value + '</strong></span>'
-                            + (suggestion._highlightResult.runs ? '<br><span>' + t('also-runs', 'search') + suggestion._highlightResult.runs.map(e => e.value).join(', ') + '</span>' : '')
-                            + (suggestion._highlightResult.categories ? '<br><span>' + t('categories', 'search') + suggestion._highlightResult.categories.map(e => t(e.value, 'categories')).join(', ') + '</span>' : '');
+                        let d = suggestion.document;
+
+                        let name_hs = suggestion.highlights.filter(a => a.field === 'name');
+                        let runs_hs = suggestion.highlights.filter(a => a.field === 'runs');
+                        let cats_hs = suggestion.highlights.filter(a => a.field === 'categories');
+
+                        return '<span><strong>' + (name_hs.length === 1 ? name_hs[0].snippet : d.name)+ '</strong></span>'
+                            + ((d.runs && d.runs.length) ? '<br><span>' + t('also-runs', 'search') + (runs_hs.length === 1 ? runs_hs[0].snippets : d.runs).join(', ') + '</span>' : '')
+                            + ((d.categories &&d.categories.length) ? '<br><span>' + t('categories', 'search') + (cats_hs.length === 1 ? cats_hs[0].snippets : d.categories).join(', ') + '</span>' : '');
                     },
                     empty: this.props.empty_template || function(query) { return '<p style="margin-left: 10px;">' + t('no-results', 'search') + '<br><a href="' + BASE_URL + 'suggest?type=new&for=cdb&name=' + query.query + '" target="_blank">' + t('suggest-a-company', 'search') + '</a></p>'; },
                     header: this.props.header_template,
-                    footer: '<div class="algolia-branding"><a href="https://www.algolia.com"><img src="/img/search-by-algolia.svg"></a></div>'
+                    footer: this.props.footer_template
                 },
                 debug: this.props.debug || false
             });
@@ -68,6 +85,3 @@ else {
         }
     }
 }
-
-
-
