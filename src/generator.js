@@ -159,6 +159,8 @@ class Generator extends preact.Component {
         fetch(this.template_url + 'access-default.txt')
             .then(res => res.text()).then(text => {
                 this.setState({template_text: text});
+                this.renderRequest();
+
                 if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
                     this.idData.getAll().then((fill_data) => {
                         this.setState((prev) => {
