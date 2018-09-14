@@ -23,6 +23,10 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
 
     #generator-controls {
         float: right;
+
+        button, .button {
+            margin-left: 10px;
+        }
     }
 
     #generator-heading {
@@ -131,19 +135,12 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
 }
 
 #form-container {
-    margin-right: 20px;
     margin-bottom: 20px;
 }
 
 #content-container {
     min-height: 500px;
     position: relative;
-
-    #download-button {
-        position: absolute;
-        top: -4px;
-        left: -4px;
-    }
 }
 
 #pdf-viewer {

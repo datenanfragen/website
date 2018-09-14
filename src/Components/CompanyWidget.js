@@ -25,9 +25,10 @@ export default class CompanyWidget extends preact.Component {
                 <div class="company-info-params">
                     {this.props.company['fax'] ?  [<br />, <span className="company-info-label"><Text id="fax" />:&nbsp;</span>, this.props.company['fax']] : []}
                     {this.props.company['email'] ? [<br />, <span className="company-info-label"><Text id="email" />:&nbsp;</span>, this.props.company['email']] : []}
+                    {this.props.company['pgp-fingerprint'] ? [<br />, <span className="company-info-label"><Text id="pgp-fingerprint" />:&nbsp;</span>, <code>{(this.props.company['pgp-url'] ? <a href={this.props.company['pgp-url']}>{this.props.company['pgp-fingerprint']}</a> : this.props.company['pgp-fingerprint'])}</code>] : []}
                 </div>
                 {comments.length > 0 ? [<br />, <span className="company-info-label"><Text id="current-company-comments" />:</span>, <br />, comments] : [] }
-                <a href={CompanyWidget.companyLink(this.props.company['slug'])} target="_blank" className="button button-secondary button-small company-read-more"><Text id="company-read-more"/>&nbsp;<span className="icon icon-arrow-right" /></a>
+                <a href={BASE_URL + (this.props.company['complaint-language'] ? 'supervisory-authority/' : 'company/') + this.props.company['slug']} target="_blank" className="button button-secondary button-small company-read-more"><Text id="company-read-more"/>&nbsp;<span className="icon icon-arrow-right" /></a>
                 <div class="clearfix" />
             </div>
         );
@@ -42,9 +43,5 @@ export default class CompanyWidget extends preact.Component {
                 {this.state.expanded ? content : ''}
             </aside>
         );
-    }
-
-    static companyLink(slug) {
-        return BASE_URL + '/company/' + slug;
     }
 }

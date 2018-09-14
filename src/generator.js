@@ -8,7 +8,7 @@ import { fetchCompanyDataBySlug } from 'Utility/companies';
 import localforage from 'localforage';
 import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 import Modal from "./Components/Modal";
-import {ErrorException, rethrow} from "./Utility/errors";
+import {ErrorException, isDebugMode, rethrow} from "./Utility/errors";
 import CompanyWidget from "./Components/CompanyWidget";
 import IdData, {deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT} from "./Utility/IdData";
 
@@ -64,6 +64,7 @@ class Generator extends preact.Component {
             batch: [],
             batch_position: 0,
             modal_showing: '',
+            response_type: '',
             fill_fields: []
         };
 
@@ -88,6 +89,7 @@ class Generator extends preact.Component {
         this.handleAutocompleteSelected = this.handleAutocompleteSelected.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLetterChange = this.handleLetterChange.bind(this);
+        this.handleLetterTemplateChange = this.handleLetterTemplateChange.bind(this);
         this.handleTransportMediumChange = this.handleTransportMediumChange.bind(this);
         this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
@@ -116,18 +118,57 @@ class Generator extends preact.Component {
 
     resetInitalConditions() {
         if(this.state.batch && this.state.batch.length > 0) {
-            fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+            fetchCompanyDataBySlug(this.state.batch.shift(), company => {
+                this.setCompany(company);
+            });
+        }
+
+        const request_articles = {'access': 15, 'erasure': 17, 'rectification': 16};
+
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
+            let response_to = findGetParamter('response_to');
+            let response_type = findGetParamter('response_type');
+            if(response_to && response_type) {
+                this.request_store.getItem(response_to)
+                    .then(request => {
+                        fetch(this.template_url + response_type + '.txt')
+                            .then(res => res.text()).then(text => {
+                            this.setState(prev => {
+                                prev.request_data.custom_data['content'] = Letter.handleTemplate(text, [], {
+                                    request_article: request_articles[request.type],
+                                    request_date: request.date,
+                                    request_recepient_address: request.recipient
+                                });
+                                if (response_type === 'admonition') {
+                                    prev.request_data['via'] = request.via;
+                                    prev.request_data['recipient_address'] = request.recipient;
+                                }
+                                prev.request_data['reference'] = request.reference;
+                                prev.response_type = response_type;
+                                prev.request_data['type'] = 'custom';
+                                return prev;
+                            });
+                            if(response_type === 'admonition' && request.slug) fetchCompanyDataBySlug(request.slug, company => {this.setCompany(company)});
+                            this.renderRequest();
+                        });
+                    });
+                if (response_type === 'complaint') this.showModal('choose_authority');
+            }
         }
 
         fetch(this.template_url + 'access-default.txt')
-            .then(res => res.text()).then(text => {this.setState({template_text: text})});
-
-        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
-            this.idData.getAll().then((fill_data) => this.setState((prev) => {
-                prev.request_data['id_data'] = IdData.mergeFields(fill_data, prev.request_data['id_data']); // the order seems unintuitive but this way we add data conservatively
-                return prev;
-            }));
-        }
+            .then(res => res.text()).then(text => {
+                this.setState({template_text: text});
+                if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
+                    this.idData.getAll().then((fill_data) => {
+                        this.setState((prev) => {
+                            prev.request_data['id_data'] = IdData.mergeFields(fill_data, prev.request_data['id_data']); // the order seems unintuitive but this way we add data conservatively
+                            return prev;
+                        });
+                        this.renderRequest();
+                    });
+                }
+            });
     }
 
     render() {
@@ -143,14 +184,26 @@ class Generator extends preact.Component {
         }
 
         let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
-                               onClick={e => {if(!this.state.download_active) e.preventDefault();}}><Text id="download-pdf"/></a>;
+                               onClick={e => {
+                                   if(!this.state.download_active) {
+                                       e.preventDefault();
+                                   } else {
+                                       this.storeRequest();
+                                   }
+                               }}><Text id="download-pdf"/>&nbsp;&nbsp;<span className="icon icon-download" /></a>;
 
         if(this.state.request_data.transport_medium === 'email') {
             let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
                 'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t('my-reference', 'generator') + ': ' + this.state.request_data['reference'] + ')' +
                 '&body=' + encodeURIComponent(this.letter.toEmailString());
             action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled') + ' button-primary'} href={mailto_link}
-                               onClick={e => {if(!this.state.blob_url) e.preventDefault();}}><Text id="send-email"/></a>
+                               onClick={e => {
+                                   if(!this.state.blob_url) {
+                                       e.preventDefault();
+                                   } else {
+                                       this.storeRequest();
+                                   }
+                               }}><Text id="send-email"/>&nbsp;&nbsp;<span className="icon icon-email" /></a>
         }
 
         return (
@@ -159,26 +212,22 @@ class Generator extends preact.Component {
                 <header id="generator-header">
                     <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
                     <div id="generator-controls">
-                        <button className="button-primary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
+                        {action_button}
+                        <button className="button-secondary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
                     </div>
                 </header>
                 <div className="clearfix" />
                 <SearchBar id="aa-search-input" index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
-                    <div id="form-container" className="col50 box">
+                    <div id="form-container">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange}
                                      onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}
-                                     fillFields={this.state.fill_fields}
-                        />
+                                     fillFields={this.state.fill_fields} onLetterTemplateChange={this.handleLetterTemplateChange}>
+                            {company_widget}
+                            </RequestForm>
                     </div>
-                    <div className="col50">
-                        {company_widget}
-                        <div id="content-container" className="box">
-                            {action_button}
-                            <iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} />
-                        </div>
-                    </div>
+                    {isDebugMode() ? <div id="content-container" className="box"><iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} /></div> : [] }
                 </div>
                 <div className="clearfix" />
             </main>);
@@ -210,6 +259,24 @@ class Generator extends preact.Component {
                         this.newRequest();
                     }} positiveDefault={true} onDismiss={this.hideModal}>
                         <Text id='modal-new-request' />
+                    </Modal>);
+                     break;
+                case 'choose_authority':
+                    modal = (<Modal negativeText={t('cancel', 'generator')}
+                                    onNegativeFeedback={() => {this.hideModal(); this.setState({complaint_authority: null});}}
+                                    positiveDefault={true} onDismiss={() => {this.hideModal(); this.setState({complaint_authority: null});}}>
+                        <Text id='modal-select-authority' />
+                        <SearchBar id="aa-authority-search-input" index='supervisory-authorities' query_by="name"
+                                   onAutocompleteSelected={(event, suggestion, dataset) => {
+                                       this.setCompany(suggestion.document);
+                                       this.renderRequest();
+                                       this.hideModal();
+                                   }} placeholder={t('select-authority', 'generator')} debug={true} style="margin-top: 15px;"
+                                   suggestion_template={(suggestion) => {
+                                       let name_hs = suggestion.highlights.filter(a => a.field === 'name');
+                                       return '<span><strong>' + (name_hs.length === 1 ? name_hs[0].snippet : suggestion.document.name) + '</strong></span>';
+                                   }}
+                        /> {/* TODO: Only show relevant countries */}
                     </Modal>);
             }
         }
@@ -270,16 +337,14 @@ class Generator extends preact.Component {
     }
 
     handleInputChange(changed_data) {
-        let should_render = true;
         this.setState(prev => {
             for(let key in changed_data) {
-                if(key === 'type') should_render = false;
                 if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'id_data') this.idData.storeArray(changed_data[key]);
                 prev['request_data'][key] = changed_data[key];
             }
             return prev;
         });
-        if(should_render) this.renderRequest();
+        this.renderRequest();
     }
 
     handleLetterChange(event, address_change = false) {
@@ -297,6 +362,22 @@ class Generator extends preact.Component {
             });
         }
         this.renderRequest();
+    }
+
+    handleLetterTemplateChange(event) {
+        if(event.target.value && event.target.value !== "no-template") {
+            fetch(this.template_url + event.target.value + '.txt')
+                .then(res => res.text()).then(text => {
+                    this.setState(prev => {
+                        prev.request_data.custom_data['content'] = text;
+                        prev.response_type = event.target.value;
+                        return prev;
+                    });
+                    this.renderRequest();
+                });
+        } else if(event.target.value === "no-template") {
+            this.setState({response_type: ''})
+        }
     }
 
     handleTransportMediumChange(event) {
@@ -341,12 +422,13 @@ class Generator extends preact.Component {
                     subject: '',
                     sender_address: prev['request_data']['custom_data']['sender_address'],
                     name: prev['request_data']['custom_data']['name']
-                }
+                },
             };
             prev['suggestion'] = null;
             prev['download_active'] = false;
             prev['blob_url'] = '';
             prev['download_filename'] = '';
+            prev['response_type'] = '';
             return prev;
         });
 
@@ -383,20 +465,22 @@ class Generator extends preact.Component {
                 this.setState({blob_url: URL.createObjectURL(email_blob)});
                 break;
         }
-
-        this.storeRequest();
     }
 
     storeRequest() {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            this.request_store.setItem(this.state.request_data['reference'], {
-                date: this.state.request_data.date,
-                type: this.state.request_data.type,
+            let request = this.state.request_data;
+            let db_id = request.reference + '-' + request.type + (request.type === 'custom' && this.state.response_type ? '-' + this.state.response_type : '');
+            this.request_store.setItem(db_id, {
+                reference: request.reference,
+                date: request.date,
+                type: request.type,
+                response_type: this.state.response_type,
                 slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
-                recipient: this.state.request_data.recipient_address,
-                via: this.state.request_data.transport_medium
+                recipient: request.recipient_address,
+                via: request.transport_medium
             }).catch((error) => {
-                rethrow(error, 'Saving request failed.', { reference: this.state.request_data['reference'] });
+                rethrow(error, 'Saving request failed.', { database_id: db_id });
             });
         }
     }

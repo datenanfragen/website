@@ -178,6 +178,9 @@ other = "The information you provide to a company is yours. You have the right t
 [cdb-title]
 other = "Company database"
 
+[adb-title]
+other = "Supervisory authority database"
+
 [cdb-company-title]
 other = "{{ .Params.name }}: Contact information for privacy-related requests"
 
@@ -194,6 +197,9 @@ other = "Also runs:"
 [cdb-intro]
 other = "We have to following contact information on {{ .Params.name }} for you to use for privacy-related requests:"
 
+[adb-intro]
+other = "We have to following contact information on {{ .Params.name }} for you to use to lodge complaints:"
+
 [cdb-address]
 other = "Address:"
 
@@ -208,6 +214,12 @@ other = "Email:"
 
 [cdb-web]
 other = "Website:"
+
+[cdb-pgp-fingerprint]
+other = "PGP-Fingerprint:"
+
+[cdb-pgp-url]
+other = "PGP-Download:"
 
 [cdb-sources]
 other = "Sources:"

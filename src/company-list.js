@@ -34,6 +34,22 @@ class CompanyList extends preact.Component {
             </IntlProvider>
         );
     }
+
+    componentDidMount() {
+        window.onscroll = () => {
+            let controls = document.getElementById('company-list-controls');
+            if(controls) {
+                if(window.pageYOffset > controls.offsetTop) {
+                    controls.classList.add("sticky");
+                    document.body.classList.add("sticky-offset");
+                }
+                if(window.pageYOffset < controls.offsetTop + 200) {
+                    controls.classList.remove("sticky");
+                    document.body.classList.remove("sticky-offset");
+                }
+            }
+        };
+    }
 }
 
 class CompanySearch extends preact.Component {
@@ -48,19 +64,6 @@ class CompanySearch extends preact.Component {
         );
     }
 }
-
-// TODO: Enable only for list view.
-window.onscroll = () => {
-    let controls = document.getElementById('company-list-controls');
-    if(window.pageYOffset > controls.offsetTop) {
-        controls.classList.add("sticky");
-        document.body.classList.add("sticky-offset");
-    }
-    if(window.pageYOffset < controls.offsetTop + 200) {
-        controls.classList.remove("sticky");
-        document.body.classList.remove("sticky-offset");
-    }
-};
 
 preact.render((<CompanyList/>), null, document.getElementById('company-list'));
 preact.render((<CompanySearch/>), null, document.getElementById('company-search'));

@@ -31,7 +31,7 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
 
         componentDidMount() {
             let options = {
-                query_by: 'name, runs, categories, web, slug, address, comments',
+                query_by: this.props.query_by || 'name, runs, categories, web, slug, address, comments',
                 sort_by: 'sort-index:asc',
                 num_typos: 4,
                 per_page: this.props.numberOfHits || 5
