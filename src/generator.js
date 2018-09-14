@@ -118,7 +118,9 @@ class Generator extends preact.Component {
 
     resetInitalConditions() {
         if(this.state.batch && this.state.batch.length > 0) {
-            fetchCompanyDataBySlug(this.state.batch.shift(), company => {this.setCompany(company)});
+            fetchCompanyDataBySlug(this.state.batch.shift(), company => {
+                this.setCompany(company);
+            });
         }
 
         const request_articles = {'access': 15, 'erasure': 17, 'rectification': 16};
@@ -155,16 +157,18 @@ class Generator extends preact.Component {
         }
 
         fetch(this.template_url + 'access-default.txt')
-            .then(res => res.text()).then(text => {this.setState({template_text: text})});
-
-        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
-            this.idData.getAll().then((fill_data) => this.setState((prev) => {
-                prev.request_data['id_data'] = IdData.mergeFields(fill_data, prev.request_data['id_data']); // the order seems unintuitive but this way we add data conservatively
-                return prev;
-            }));
-        }
-
-        this.renderRequest();
+            .then(res => res.text()).then(text => {
+                this.setState({template_text: text});
+                if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
+                    this.idData.getAll().then((fill_data) => {
+                        this.setState((prev) => {
+                            prev.request_data['id_data'] = IdData.mergeFields(fill_data, prev.request_data['id_data']); // the order seems unintuitive but this way we add data conservatively
+                            return prev;
+                        });
+                        this.renderRequest();
+                    });
+                }
+            });
     }
 
     render() {
@@ -333,16 +337,14 @@ class Generator extends preact.Component {
     }
 
     handleInputChange(changed_data) {
-        let should_render = true;
         this.setState(prev => {
             for(let key in changed_data) {
-                if(key === 'type') should_render = false;
                 if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'id_data') this.idData.storeArray(changed_data[key]);
                 prev['request_data'][key] = changed_data[key];
             }
             return prev;
         });
-        if(should_render) this.renderRequest();
+        this.renderRequest();
     }
 
     handleLetterChange(event, address_change = false) {
