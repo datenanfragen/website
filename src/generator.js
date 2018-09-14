@@ -215,16 +215,14 @@ class Generator extends preact.Component {
                 <SearchBar id="aa-search-input" index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
                            placeholder={t('select-company', 'generator')} debug={false}/>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
-                    <div id="form-container" className="col50 box">
+                    <div id="form-container">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange}
                                      onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}
-                                     fillFields={this.state.fill_fields} onLetterTemplateChange={this.handleLetterTemplateChange}
-                        />
+                                     fillFields={this.state.fill_fields} onLetterTemplateChange={this.handleLetterTemplateChange}>
+                            {company_widget}
+                            </RequestForm>
                     </div>
-                    <div className="col50">
-                        {company_widget}
-                        {isDebugMode() ? <div id="content-container" className="box"><iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} /></div> : [] }
-                    </div>
+                    {isDebugMode() ? <div id="content-container" className="box"><iframe id="pdf-viewer" src={this.state.blob_url} className={this.state.blob_url ? '' : 'empty'} /></div> : [] }
                 </div>
                 <div className="clearfix" />
             </main>);
