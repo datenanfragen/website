@@ -178,6 +178,9 @@ other = "The information you provide to a company is yours. You have the right t
 [cdb-title]
 other = "Company database"
 
+[adb-title]
+other = "Supervisory authority database"
+
 [cdb-company-title]
 other = "{{ .Params.name }}: Contact information for privacy-related requests"
 

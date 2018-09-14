@@ -18,10 +18,23 @@
         color: #fff !important;
         border: 2px solid $primary-darker-color;
     }
+
+    &.disabled {
+        background-color: $gray-color;
+        border: 2px solid $gray-darker-color;
+        color: $gray-darker-color !important;
+        cursor: not-allowed;
+    }
 }
 .button-primary, a.button-primary {
     background-color: $primary-color;
     color: #fff !important;
+
+    &.disabled {
+        background-color: $gray-color;
+        border: 2px solid $gray-darker-color;
+        color: $gray-darker-color !important;
+    }
 }
 .button-secondary, a.button-secondary {
     background-color: $bg-color;

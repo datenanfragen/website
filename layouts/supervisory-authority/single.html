@@ -48,13 +48,11 @@
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
-  "@type": "Supervisory Authority",
+  "@type": "Organization",
   "identifier": "{{ .Params.slug }}",
   "name": "{{ .Params.name }}",
   {{ with .Params.address}}"address": "{{ replace . "\n" ", " }}",{{ end }}
   {{ with .Params.web }}"url": "{{ . }}",{{ end }}
-  {{ with (index .Params "pgp-fingerprint") }}"pgp-fingerprint": "{{ . }}",{{ end }}
-  {{ with (index .Params "pgp-url") }}"pgp-url": "{{ . }}",{{ end }}
   {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
   "contactPoint": {
     "@type": "ContactPoint",

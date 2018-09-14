@@ -1,0 +1,41 @@
+{{ define "title" }}
+{{ T "adb-title" }} &middot; {{ .Site.Title }}
+{{ end }}
+
+{{ define "heading" }}
+{{ T "adb-title" }}
+{{ end }}
+
+{{ define "main" }}
+
+<!-- All of this only to make case-insensitive sorting possible. I hate you hugo -->
+{{ $pages := (.Data.Pages.ByParam "name")}}
+{{ range $pages }}
+    {{ $.Scratch.SetInMap "upper_title" (upper .Params.name) .Params.slug }}
+{{ end }}
+
+<div id="company-overview">
+    {{ .Scratch.Set "letter" " " }}
+    {{ .Scratch.Set "numbers_done" false }}
+    {{ .Scratch.Set "first_entry" true }}
+    {{ range (.Scratch.GetSortedMapValues "upper_title") }}
+        {{ with $.Site.GetPage (printf "supervisory-authority/%s" .) }}
+            {{ if not (in "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ" (upper (substr .Params.name 0 1))) }}
+                {{ if (not ($.Scratch.Get "numbers_done")) }}
+                    {{ $.Scratch.Set "numbers_done" true }}
+                    {{ if not ($.Scratch.Get "first_entry") }}</div>{{ end }}
+                    <div id="numbers-container" class="sorting-container"><a class="letter-anchor" href="#numbers"><h2>#</h2></a><a class="stickyproof-anchor" name="numbers"></a>
+                    {{ $.Scratch.Set "first_entry" false }}
+                {{ end }}
+            {{ else if lt ($.Scratch.Get "letter") (upper (substr .Params.name 0 1))}}
+                {{ $.Scratch.Set "letter" (upper (substr .Params.name 0 1))}}
+                {{ if not ($.Scratch.Get "first_entry") }}</div>{{ end }}
+                <div id="{{ $.Scratch.Get "letter" }}-container" class="sorting-container"><a class="letter-anchor"  href="#{{ $.Scratch.Get "letter" }}"><h2>{{ $.Scratch.Get "letter" }}</h2></a><a class="stickyproof-anchor" name="{{ $.Scratch.Get "letter" }}"></a>
+                {{ $.Scratch.Set "first_entry" false }}
+            {{ end }}
+            {{ partial "summary-sva.html" . }}
+        {{ end }}
+    {{ end }}
+    {{ if gt (len (.Scratch.GetSortedMapValues "upper_title")) 0}}</div>{{ end }}
+</div>
+{{ end }}

@@ -135,17 +135,18 @@ class Generator extends preact.Component {
                                 prev.request_data.custom_data['content'] = Letter.handleTemplate(text, [], {
                                     request_article: request_articles[request.type],
                                     request_date: request.date,
-                                    request_recepient_address: request.recipient // TODO: Fix typo in template
+                                    request_recepient_address: request.recipient
                                 });
                                 if (response_type === 'admonition') {
                                     prev.request_data['via'] = request.via;
                                     prev.request_data['recipient_address'] = request.recipient;
                                 }
-                                prev.request_data['reference'] = request.reference; // TODO: Reference to information block
+                                prev.request_data['reference'] = request.reference;
                                 prev.response_type = response_type;
                                 prev.request_data['type'] = 'custom';
                                 return prev;
                             });
+                            if(response_type === 'admonition' && request.slug) fetchCompanyDataBySlug(request.slug, company => {this.setCompany(company)});
                             this.renderRequest();
                         });
                     });
@@ -264,7 +265,6 @@ class Generator extends preact.Component {
                         <SearchBar id="aa-authority-search-input" index='supervisory-authorities' query_by="name"
                                    onAutocompleteSelected={(event, suggestion, dataset) => {
                                        this.setCompany(suggestion.document);
-                                       console.log(suggestion);
                                        this.renderRequest();
                                        this.hideModal();
                                    }} placeholder={t('select-authority', 'generator')} debug={true} style="margin-top: 15px;"

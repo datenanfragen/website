@@ -73,7 +73,7 @@ class RequestList extends preact.Component {
             content = <div><p><MarkupText id="explanation" /></p>
                 <p><MarkupText id="explanation-saving" /></p>
                 <table className='table'>
-                    <thead><th><Text id="date" /></th><th><Text id="recipient" /></th><th><Text id="reference" /></th><th><Text id="type" /></th><th><Text id="via" /></th></thead>
+                    <thead><th><Text id="date" /></th><th><Text id="recipient" /></th><th><Text id="reference" /></th><th><Text id="type" /></th><th><Text id="via" /></th><th></th></thead>
                     <tbody>{request_rows}</tbody>
                 </table>
                 { /* TODO: Style differently once we have a design. */ }

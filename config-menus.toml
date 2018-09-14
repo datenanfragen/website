@@ -11,9 +11,13 @@
     url = "/company"
     weight = 30
 [[languages.de.menu.footerleft]]
+    name = "Aufsichtsbehördendatenbank"
+    url = "/supervisory-authority"
+    weight = 40
+[[languages.de.menu.footerleft]]
     name = "Artikel"
     url = "/blog"
-    weight = 40
+    weight = 50
 
 # [[languages.de.menu.footercenter]]
 #     name = "Features"
@@ -69,9 +73,13 @@
     url = "/company"
     weight = 30
 [[languages.en.menu.footerleft]]
+    name = "Supervisory authority database"
+    url = "/supervisory-authority"
+    weight = 40
+[[languages.en.menu.footerleft]]
     name = "Posts"
     url = "/blog"
-    weight = 40
+    weight = 50
 
 # [[languages.en.menu.footercenter]]
 #     name = "Features"

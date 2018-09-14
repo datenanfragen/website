@@ -178,6 +178,9 @@ other = "Die Daten, die Du einen Unternehmen zu Dir mitgeteilt hast, gehören Di
 [cdb-title]
 other = "Unternehmensdatenbank"
 
+[adb-title]
+other = "Aufsichtsbehördendatenbank"
+
 [cdb-company-title]
 other = "{{ .Params.name }}: Datenschutz-Kontaktdaten"
 
