@@ -38,7 +38,7 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
             };
             if(!this.props.disableCountryFiltering) {
                 if(!this.props.filters) this.props.filters = [];
-                this.props.filters.push('relevant-countries:[' + country + ', all]');
+                this.props.filters.push('relevant-countries:[' + globals.country + ', all]');
             }
             if(this.props.filters) options['filter_by'] = this.props.filters.join(' && ');
 

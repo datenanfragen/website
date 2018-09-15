@@ -1,4 +1,3 @@
-import preact from 'preact';
 import Cookie from 'js-cookie';
 
 export const PRIVACY_ACTIONS = Object.freeze({

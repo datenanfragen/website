@@ -10,13 +10,16 @@ export default class Wizard extends preact.Component {
     constructor(props) {
         super(props);
 
+        globals._country_listeners.push(value => { this.setState({ country: value }); });
+
         this.state = {
             current_tab: 0,
-            selected_companies: []
+            selected_companies: [],
+            country: globals.country // Don't ever update `this.state.country` directly but rather use `globals.country`.
         };
 
         /* TODO: This is ridiculous. Best course of action is probably to generate that object in the deploy script. */
-        fetch(BASE_URL + 'db/suggested-companies/' + country + '.json')
+        fetch(BASE_URL + 'db/suggested-companies/' + globals.country + '.json')
             .then(res => res.json()).then(json => {
                 json.forEach((slug) => {
                     fetchCompanyNameBySlug(slug, (name) => {
@@ -83,7 +86,7 @@ export default class Wizard extends preact.Component {
                         }
 
                         {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
-                        <MarkupText id={CATEGORIES[this.state.current_tab]}/>
+                        <MarkupText id={CATEGORIES[this.state.current_tab]} fields={{ country: t('country-' + this.state.country, 'i18n-widget') }} />
                         <div id="wizard-buttons">
                             <button className={"button-" + (this.isLastTab() ? "primary" : "secondary")} onClick={() => { location.href = BASE_URL + '/generator?companies=' + Object.keys(this.state.selected_companies).join(',') }}><Text id="finish"/></button>
                             {next_button}

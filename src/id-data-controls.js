@@ -55,5 +55,5 @@ class IdDataControls extends preact.Component {
 }
 
 if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-    preact.render(<IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}><IdDataControls/></IntlProvider>, null, document.getElementById('id-data-controls'))
+    preact.render(<IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}><IdDataControls/></IntlProvider>, null, document.getElementById('id-data-controls'));
 }
