@@ -104,8 +104,8 @@
         "request-transport-medium": "Wie möchtest du die Anfrage versenden?",
         "by-fax": "Via Fax: ",
         "cancel": "Abbrechen",
-        "template": "Template",
-        "no-template": "Kein Template",
+        "template": "Vorlage",
+        "no-template": "Keine Vorlage",
         "admonition": "Mahnung",
         "complaint": "Beschwerde",
         "select": "Auswählen",
@@ -113,7 +113,9 @@
         "modal-select-authority": "Hier kannst die Datenschutzaufsichtsbehörde auswählen, an die du deine Anfrage senden möchtest. Du musst dabei nicht mit der Behörde kommunizieren, die für das Unternehmen zuständig ist, sondern kannst auch die an Deinem Wohnort wählen (vgl. dazu Art. 77 Abs. 1 DSGVO).",
         "company-read-more": "Weitere Informationen",
         "print-pdf": "PDF drucken",
-        "pgp-fingerprint": "PGP-Fingerprint"
+        "pgp-fingerprint": "PGP-Fingerprint",
+        "ok": "Ok",
+        "wizard-done-modal": "Das war's auch schon! Du bist mit allen Unternehmen, die Du im Anfrageassistenten ausgewählt hast, durch. Wenn du möchtest, kannst Du jetzt noch weitere (umfangreichere) Anfragen stellen."
     },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",

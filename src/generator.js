@@ -30,7 +30,6 @@ class Generator extends preact.Component {
             blob_url: '',
             download_filename: '',
             batch: [],
-            batch_position: 0,
             modal_showing: '',
             response_type: '',
             fill_fields: [],
@@ -80,7 +79,7 @@ class Generator extends preact.Component {
         };
 
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies = new SavedCompanies();
-        if(findGetParamter('from') === 'wizard') {
+        if(findGetParameter('from') === 'wizard') {
             if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
                 this.saved_companies.getAll()
                     .then(companies => {
@@ -89,7 +88,7 @@ class Generator extends preact.Component {
                     });
             }
             else {
-                let batch_companies = findGetParamter('companies');
+                let batch_companies = findGetParameter('companies');
                 if(batch_companies) {
                     this.setState({batch: batch_companies.split(',')});
                 }
@@ -134,8 +133,8 @@ class Generator extends preact.Component {
         }
 
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            let response_to = findGetParamter('response_to');
-            let response_type = findGetParamter('response_type');
+            let response_to = findGetParameter('response_to');
+            let response_type = findGetParameter('response_type');
             if(response_to && response_type) {
                 this.request_store.getItem(response_to)
                     .then(request => {
@@ -261,20 +260,19 @@ class Generator extends preact.Component {
             </main>);
     }
 
-    prepareForWizardMode() {
-        if(findGetParamter('from') === 'wizard') {
-            HIDE_IN_WIZARD_MODE.forEach(selector => { document.querySelectorAll(selector).forEach(el => { el.classList.add('hidden'); }) });
+    adjustAccordingToWizardMode() {
+        let wizard = findGetParameter('from') === 'wizard';
 
-            document.querySelector('.company-info h1').style.marginLeft = "0";
-        }
+        HIDE_IN_WIZARD_MODE.forEach(selector => { document.querySelectorAll(selector).forEach(el => { if(wizard) el.classList.add('hidden'); else el.classList.remove('hidden'); }) });
+        document.querySelectorAll('.company-info h1').forEach(selector => { selector.style.marginLeft = wizard ? "0" : "" });
     }
 
     componentDidUpdate() {
-        this.prepareForWizardMode();
+        this.adjustAccordingToWizardMode();
     }
 
     componentDidMount() {
-        this.prepareForWizardMode();
+        this.adjustAccordingToWizardMode();
 
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
@@ -460,6 +458,17 @@ class Generator extends preact.Component {
         // TODO: Make sure this ends up in the new canonical place for completed requests, as per #90 (i.e. when the request is saved to 'My requests').
         if(this.state.request_data.type === 'access' && Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies.remove(this.state.slug);
 
+        // TODO: Same for this.
+        if(findGetParameter('from') === 'wizard' && this.state.batch && this.state.batch.length === 0) {
+            // Remove the GET parameters from the URL so this doesn't get triggered again on the next new request and get the generator out of wizard-mode.
+            window.history.pushState({}, document.title, BASE_URL + 'generator');
+            this.adjustAccordingToWizardMode();
+            this.showModal(
+                <Modal positiveText={t('ok', 'generator')} onPositiveFeedback={this.hideModal} positiveDefault={true} onDismiss={this.hideModal}>
+                    <Text id='wizard-done-modal'/>
+                </Modal>);
+        }
+
         this.setState(prev => {
             prev['request_data'] = this.freshRequestData();
             prev['suggestion'] = null;
@@ -538,7 +547,7 @@ function slugify(text) {
         .replace(/-+$/, '');            // Trim - from end of text
 }
 
-function findGetParamter(param){
+function findGetParameter(param){
     let tmp = [];
     let result = null;
     location.search.substr(1).split('&').forEach(item => {

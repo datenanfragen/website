@@ -114,7 +114,9 @@
         "modal-select-authority": "Select a data protection supervisory authority you want to lodge your complaint with. You don't necessarily need to lodge your complaint with the authority that is responsible for the company you want to complain about but can also go with the one from where you live (see Art. 77(1) GDPR).",
         "company-read-more": "More information",
         "print-pdf": "Print PDF",
-        "pgp-fingerprint": "PGP-Fingerprint"
+        "pgp-fingerprint": "PGP-Fingerprint",
+        "ok": "Ok",
+        "wizard-done-modal": "And that's it already! You have completed the requests for all companies you selected in the wizard. If you want to, you can now generate additional (more complex) requests."
     },
     "privacy-controls": {
         "title": "Privacy controls",
