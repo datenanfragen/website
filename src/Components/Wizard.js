@@ -20,32 +20,37 @@ export default class Wizard extends preact.Component {
             country: globals.country // Don't ever update `this.state.country` directly but rather use `globals.country`.
         };
 
-        this.saved_companies = new SavedCompanies();
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
+            this.saved_companies = new SavedCompanies();
 
-        this.saved_companies.length()
-            .then(length => {
-                if(!Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) || length === 0) {
-                    fetch(BASE_URL + 'db/suggested-companies/' + this.state.country + '_wizard.json')
-                        .then(res => res.json()).then(companies => {
-                            this.setState(prev => {
-                                prev.selected_companies = companies;
-                                return prev;
+            this.saved_companies.length()
+                .then(length => {
+                    if(length === 0) this.loadSuggestedCompanies();
+                    else {
+                        this.saved_companies.getAll()
+                            .then(companies => {
+                                this.setState({ selected_companies: companies });
                             });
-                            if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies.addMultiple(companies);
-                        })
-                        .catch(err => rethrow(err));
-                }
-                else {
-                    this.saved_companies.getAll()
-                        .then(companies => {
-                            this.setState({ selected_companies: companies });
-                        });
-                }
-            });
+                    }
+                });
+        }
+        else this.loadSuggestedCompanies();
 
         this.changeTab = this.changeTab.bind(this);
         this.addCompany = this.addCompany.bind(this);
         this.removeCompany = this.removeCompany.bind(this);
+    }
+
+    loadSuggestedCompanies() {
+        fetch(BASE_URL + 'db/suggested-companies/' + this.state.country + '_wizard.json')
+            .then(res => res.json()).then(companies => {
+            this.setState(prev => {
+                prev.selected_companies = companies;
+                return prev;
+            });
+            if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies.addMultiple(companies);
+        })
+            .catch(err => rethrow(err));
     }
 
     changeTab(next) {
@@ -131,7 +136,7 @@ export class SavedCompanies {
     addMultiple(companies) { for(let slug in companies) this.add(slug, companies[slug]); }
 
     remove(slug) { if(slug) return this.localforage_instance.removeItem(slug); }
-    clearAll() { return this.localforage_instance.clear(); }
+    clearAll() { return this.localforage_instance.clear().catch((err) => { rethrow(err, 'Could clear saved companies.'); }); }
 
     getAll() {
         let companies = {};

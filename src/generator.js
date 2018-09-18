@@ -84,7 +84,9 @@ class Generator extends preact.Component {
                 this.saved_companies.getAll()
                     .then(companies => {
                         this.setState({ batch: Object.keys(companies) });
-                        this.resetInitalConditions();
+                        if(this.state.batch && this.state.batch.length > 0) {
+                            fetchCompanyDataBySlug(this.state.batch.shift(), company => { this.setCompany(company); });
+                        }
                     });
             }
             else {
@@ -95,7 +97,7 @@ class Generator extends preact.Component {
             }
         }
 
-        this.resetInitalConditions();
+        this.resetInitialConditions();
     }
 
     freshRequestData() {
@@ -125,7 +127,7 @@ class Generator extends preact.Component {
         }
     }
 
-    resetInitalConditions() {
+    resetInitialConditions() {
         if(this.state.batch && this.state.batch.length > 0) {
             fetchCompanyDataBySlug(this.state.batch.shift(), company => {
                 this.setCompany(company);
@@ -479,7 +481,7 @@ class Generator extends preact.Component {
             return prev;
         });
 
-        this.resetInitalConditions();
+        this.resetInitialConditions();
     }
 
     renderRequest() {
