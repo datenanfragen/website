@@ -1,4 +1,4 @@
-import {rethrow} from "./errors";
+import {rethrow, WarningException} from "./errors";
 import Cookie from "js-cookie";
 import localforage from "localforage";
 
@@ -14,42 +14,87 @@ export default class IdData {
     }
 
     store(data) {
-        //if(!data['desc']) return;
+        if(data['desc'] === '') return;
         let to_store = deepCopyObject(data);
         delete to_store['optional'];
         if(typeof to_store['value'] === 'object') delete to_store['value']['primary'];
-        this.localforage_instance.setItem(data['desc'], to_store).catch((error) => {
+        this.localforage_instance.setItem(data['desc'].replace('::', '__'), to_store).catch((error) => { // '::' is a special character and disallowed in the database for user inputs. The user will not encounter that as the description will be saved in the original state with the data object.
             rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
         }).then(() => {
             window.dispatchEvent(new CustomEvent(ID_DATA_CHANGE_EVENT, {data: data}));
         });
     }
 
-    storeArray(array) {
+    storeFixed(data) {
+        let to_store = deepCopyObject(data);
+        switch (data.type) {
+            case 'name':
+            case 'birthdate':
+                break;
+            case 'address':
+                to_store['value']['primary'] = true;
+                break;
+            default:
+                throw new WarningException('storeFixed only stores special data types.', this);
+        }
+        this.localforage_instance.setItem(data.type + '::fixed', to_store).catch((error) => {
+            rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
+        }).then(() => {
+            window.dispatchEvent(new CustomEvent(ID_DATA_CHANGE_EVENT, {data: data}));
+        });
+    }
+
+    storeArray(array, fixed_only = true) {
         array.forEach((item) => {
-            this.store(item);
+            if(['name', 'birthdate'].includes(item.type) || (item.type === 'address' && item.value.primary)) { this.storeFixed(item); }
+            else if(!fixed_only) { this.store(item); }
         });
     }
 
     // objects that behave like arrays
-    storeArrayLike(array_like) {
+    storeArrayLike(array_like, fixed_only = true) {
         for(let key in array_like) {
-            this.store(array_like[key]);
+            let item = array_like[key];
+            if(['name', 'birthdate'].includes(item.type) || (item.type === 'address' && item.value.primary)) this.storeFixed(item);
+            else if(!fixed_only) this.store(item);
         }
     }
 
     // returns Promise
     getByDesc(desc) {
-        return this.localforage_instance.getItem(desc).catch((error) => {
+        return this.localforage_instance.getItem(desc.replace('::', '__')).catch((error) => {
             rethrow(error, 'Could not retrieve id_data.', { desc: desc });
         });
     }
 
-    getAll() {
+    // returns Promise
+    getFixed(type) {
+        return this.localforage_instance.getItem(type + '::fixed').catch((error) => {
+            rethrow(error, 'Could not retrieve fixed id_data.', { type: type });
+        });
+    }
+
+    getAllFixed() {
         let id_data = [];
         return new Promise((resolve, reject) => {
             this.localforage_instance.iterate((data, desc) => {
-                id_data.push(data);
+                if(desc.match(/.*?::fixed$/)) id_data.push(data);
+            })
+                .then(() => {
+                    resolve(id_data);
+                })
+                .catch((error) => {
+                    rethrow(error, 'Could not retrieve all fixed id_data');
+                    reject();
+                });
+        });
+    }
+
+    getAll(exclude_fixed = true) {
+        let id_data = [];
+        return new Promise((resolve, reject) => {
+            this.localforage_instance.iterate((data, desc) => {
+                if(!desc.match(/.*?::fixed$/) || !exclude_fixed) id_data.push(data);
             })
                 .then(() => {
                     resolve(id_data);

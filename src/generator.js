@@ -81,7 +81,7 @@ class Generator extends preact.Component {
         }
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             this.idData = new IdData();
-            this.idData.getAll().then(fill_fields => this.setState({fill_fields: fill_fields}));
+            this.idData.getAll(false).then(fill_fields => this.setState({fill_fields: fill_fields}));
         }
 
         this.renderRequest = this.renderRequest.bind(this);
@@ -162,9 +162,9 @@ class Generator extends preact.Component {
                 this.renderRequest();
 
                 if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
-                    this.idData.getAll().then((fill_data) => {
+                    this.idData.getAllFixed().then((fill_data) => {
                         this.setState((prev) => {
-                            prev.request_data['id_data'] = IdData.mergeFields(fill_data, prev.request_data['id_data']); // the order seems unintuitive but this way we add data conservatively
+                            prev.request_data['id_data'] = IdData.mergeFields( prev.request_data['id_data'], fill_data, true, true);
                             return prev;
                         });
                         this.renderRequest();
@@ -238,10 +238,10 @@ class Generator extends preact.Component {
     componentDidMount() {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
-                this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
+                this.idData.getAll(false).then((fill_fields) => this.setState({fill_fields: fill_fields}));
             });
             window.addEventListener(ID_DATA_CLEAR_EVENT, (event) => {
-                this.idData.getAll().then((fill_fields) => this.setState({fill_fields: fill_fields}));
+                this.idData.getAll(false).then((fill_fields) => this.setState({fill_fields: fill_fields}));
             });
         }
     }
@@ -341,7 +341,7 @@ class Generator extends preact.Component {
     handleInputChange(changed_data) {
         this.setState(prev => {
             for(let key in changed_data) {
-                if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'id_data') this.idData.storeArray(changed_data[key]);
+                if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'id_data') this.idData.storeArray(changed_data[key]); // TODO: Is this supposed to happen here or only when a request is done?
                 prev['request_data'][key] = changed_data[key];
             }
             return prev;
