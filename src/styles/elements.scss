@@ -218,6 +218,7 @@ input[type="checkbox"].form-element {
 
 .modal > .inner {
     position: fixed;
+    z-index: 999;
     box-sizing: border-box;
     left: 50%;
     top: 50%;
@@ -297,7 +298,8 @@ input[type="checkbox"].form-element {
     background: $bg-color;
     width: 400px;
     left: 0;
-    bottom: 56px;
+    bottom: 100%;
+    margin-bottom: -2px;
     padding: 10px;
 }
 .i18n-widget {
@@ -320,7 +322,7 @@ input[type="checkbox"].form-element {
         .dropdown, .dropup {
             display: block;
             position: absolute;
-            z-index: 999;
+            z-index: 998;
         }
     }
 
