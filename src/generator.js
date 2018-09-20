@@ -32,30 +32,8 @@ class Generator extends preact.Component {
             "value": {"primary": true}
         }];
 
-        let today = new Date();
-
         this.state = {
-            request_data: {
-                type: 'access',
-                transport_medium: 'fax',
-                id_data: deepCopyObject(this.default_fields),
-                reference: Letter.generateReference(today),
-                date: today.toISOString().substring(0, 10),
-                recipient_address: '',
-                signature: {type: 'text', value: ''},
-                erase_all: true,
-                erasure_data: '',
-                data_portability: false,
-                recipient_runs: [],
-                rectification_data: [],
-                information_block: '',
-                custom_data: {
-                    content: '',
-                    subject: '',
-                    sender_address: {},
-                    name: ''
-                }
-            },
+            request_data: this.freshRequestData(),
             template_text: '',
             suggestion: null,
             download_active: false,
@@ -65,7 +43,8 @@ class Generator extends preact.Component {
             batch_position: 0,
             modal_showing: '',
             response_type: '',
-            fill_fields: []
+            fill_fields: [],
+            fill_signature: null
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
@@ -82,6 +61,7 @@ class Generator extends preact.Component {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             this.idData = new IdData();
             this.idData.getAll(false).then(fill_fields => this.setState({fill_fields: fill_fields}));
+            this.idData.getSignature().then(fill_signature => this.setState({fill_signature: fill_signature}));
         }
 
         this.renderRequest = this.renderRequest.bind(this);
@@ -114,6 +94,32 @@ class Generator extends preact.Component {
         }
 
         this.resetInitalConditions();
+    }
+
+    freshRequestData() {
+        let today = new Date();
+
+        return {
+            type: 'access',
+            transport_medium: 'fax',
+            id_data: deepCopyObject(this.default_fields),
+            reference: Letter.generateReference(today),
+            date: today.toISOString().substring(0, 10),
+            recipient_address: '',
+            signature: {type: 'text', value: ''},
+            erase_all: true,
+            erasure_data: '',
+            data_portability: false,
+            recipient_runs: [],
+            rectification_data: [],
+            information_block: '',
+            custom_data: {
+                content: '',
+                subject: '',
+                sender_address: {},
+                name: ''
+            }
+        }
     }
 
     resetInitalConditions() {
@@ -164,11 +170,17 @@ class Generator extends preact.Component {
                 if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
                     this.idData.getAllFixed().then((fill_data) => {
                         this.setState((prev) => {
-                            prev.request_data['id_data'] = IdData.mergeFields( prev.request_data['id_data'], fill_data, true, true);
+                            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], fill_data, true, true);
                             return prev;
                         });
                         this.renderRequest();
                     });
+                    this.idData.getSignature().then((signature) => {
+                        if(signature) {
+                            this.setState(prev => {prev.request_data['signature'] = signature; return prev;});
+                            this.renderRequest();
+                        }
+                    })
                 }
             });
     }
@@ -225,7 +237,7 @@ class Generator extends preact.Component {
                     <div id="form-container">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange}
                                      onTransportMediumChange={this.handleTransportMediumChange} request_data={this.state.request_data}
-                                     fillFields={this.state.fill_fields} onLetterTemplateChange={this.handleLetterTemplateChange}>
+                                     fillFields={this.state.fill_fields} fillSignature={this.state.fill_signature} onLetterTemplateChange={this.handleLetterTemplateChange}>
                             {company_widget}
                             </RequestForm>
                     </div>
@@ -239,9 +251,11 @@ class Generator extends preact.Component {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
                 this.idData.getAll(false).then((fill_fields) => this.setState({fill_fields: fill_fields}));
+                this.idData.getSignature().then(fill_signature => this.setState({fill_signature: fill_signature}));
             });
             window.addEventListener(ID_DATA_CLEAR_EVENT, (event) => {
                 this.idData.getAll(false).then((fill_fields) => this.setState({fill_fields: fill_fields}));
+                this.idData.getSignature().then(fill_signature => this.setState({fill_signature: fill_signature}));
             });
         }
     }
@@ -297,7 +311,7 @@ class Generator extends preact.Component {
         this.setState(prev => {
             prev.request_data['transport_medium'] = company['suggested-transport-medium'] ? company['suggested-transport-medium'] : company['fax'] ? 'fax' : 'letter';
             prev.request_data['recipient_address'] = company.name + '\n' + company.address + (prev.request_data['transport_medium'] === 'fax' ?'\n' + t('by-fax', 'generator') + company['fax'] : '');
-            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], company['required-elements'] || this.default_fields);
+            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], !!company['required-elements'] && company['required-elements'].length > 0 ? company['required-elements'] : this.default_fields);
             prev.request_data['recipient_runs'] = company.runs || [];
             prev.suggestion = company;
             prev['request_data']['data_portability'] = company['suggested-transport-medium'] === 'email';
@@ -342,6 +356,7 @@ class Generator extends preact.Component {
         this.setState(prev => {
             for(let key in changed_data) {
                 if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'id_data') this.idData.storeArray(changed_data[key]); // TODO: Is this supposed to happen here or only when a request is done?
+                else if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'signature') this.idData.storeSignature(changed_data[key]);
                 prev['request_data'][key] = changed_data[key];
             }
             return prev;
@@ -405,27 +420,7 @@ class Generator extends preact.Component {
 
     newRequest() {
         this.setState(prev => {
-            prev['request_data'] = {
-                type: 'access',
-                transport_medium: 'fax',
-                id_data: prev['request_data']['id_data'],
-                reference: Letter.generateReference(new Date()),
-                date: prev['request_data']['date'],
-                recipient_address: '',
-                signature: prev['request_data']['signature'],
-                erase_all: true,
-                erasure_data: '',
-                data_portability: false,
-                recipient_runs: [],
-                rectification_data: [],
-                information_block: '',
-                custom_data: {
-                    content: '',
-                    subject: '',
-                    sender_address: prev['request_data']['custom_data']['sender_address'],
-                    name: prev['request_data']['custom_data']['name']
-                },
-            };
+            prev['request_data'] = this.freshRequestData();
             prev['suggestion'] = null;
             prev['download_active'] = false;
             prev['blob_url'] = '';

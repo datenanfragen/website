@@ -60,6 +60,14 @@ export default class IdData {
         }
     }
 
+    storeSignature(signature) {
+        this.localforage_instance.setItem('::signature', signature).catch((error) => {
+            rethrow(error, 'Saving signature failed.', { signature: signature });
+        }).then(() => {
+            window.dispatchEvent(new CustomEvent(ID_DATA_CHANGE_EVENT));
+        });
+    }
+
     // returns Promise
     getByDesc(desc) {
         return this.localforage_instance.getItem(desc.replace('::', '__')).catch((error) => {
@@ -71,6 +79,13 @@ export default class IdData {
     getFixed(type) {
         return this.localforage_instance.getItem(type + '::fixed').catch((error) => {
             rethrow(error, 'Could not retrieve fixed id_data.', { type: type });
+        });
+    }
+
+    // returns Promise
+    getSignature() {
+        return this.localforage_instance.getItem('::signature').catch((error) => {
+            rethrow(error, 'Could not retrieve signature.');
         });
     }
 
@@ -94,7 +109,7 @@ export default class IdData {
         let id_data = [];
         return new Promise((resolve, reject) => {
             this.localforage_instance.iterate((data, desc) => {
-                if(!desc.match(/.*?::fixed$/) || !exclude_fixed) id_data.push(data);
+                if((!desc.match(/.*?::fixed$/) || !exclude_fixed) && !desc.match(/.*?::signature$/)) id_data.push(data);
             })
                 .then(() => {
                     resolve(id_data);
@@ -142,7 +157,7 @@ export default class IdData {
     }
 
     static shouldAlwaysFill() {
-        let value = Cookie.get('general_setting-always_fill_in');
+        let value = Cookie.get('general-always_fill_in');
         return value === undefined || value === 'true';
     }
 }

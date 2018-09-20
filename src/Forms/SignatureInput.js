@@ -20,21 +20,35 @@ export default class SignatureInput extends preact.Component {
         };
 
         this.handleMouse = this.handleMouse.bind(this);
+        this.handleFillSignature = this.handleFillSignature.bind(this);
         this.clear = this.clear.bind(this);
     }
 
     componentDidMount() {
         this.context = this.canvas.getContext('2d');
+        this.drawSignature(this.props.value);
     }
 
     componentDidUpdate() {
         this.context = this.canvas.getContext('2d');
+        this.drawSignature(this.props.value);
     }
 
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps !== this.props;
     }
 
+    drawSignature(signature) {
+        if(!!signature && signature.type === 'image' && !!signature.value) {
+            // see https://stackoverflow.com/a/4776378
+            let img = new Image;
+            img.onload = () => {
+                this.context.drawImage(img,0,0);
+                this.setState({isEmpty: false})
+            };
+            img.src = signature.value;
+        }
+    }
 
     drawCircle(x, y, radius, fillColor) {
         this.context.fillStyle = fillColor;
@@ -68,9 +82,14 @@ export default class SignatureInput extends preact.Component {
                 <h2><Text id="signature" /></h2>
                 <Text id="signature-explanation" />
                 <div><canvas id={this.props.id} style={'background-color: ' + this.state.backgroundColor } ref={el => this.canvas = el} width={this.state.width} height={this.state.height} onMouseMove={this.handleMouse} onMouseDown={this.handleMouse} onMouseUp={this.handleMouse} onMouseOut={this.handleMouse} /></div>
-                <button className="button-secondary" onClick={this.clear}><Text id="reset" /></button>
+                <button className="button-secondary" onClick={this.clear}><Text id="reset" /></button>{!!this.props.fillSignature && this.props.fillSignature.type === 'image' ? <button style="float: right" className="button-secondary" onClick={this.handleFillSignature}><Text id="fill-signature" /></button> : [] }
             </div>
         );
+    }
+
+    handleFillSignature() {
+        this.drawSignature(this.props.fillSignature);
+        this.handleChange();
     }
 
     handleMouse(event) {
@@ -92,6 +111,7 @@ export default class SignatureInput extends preact.Component {
                 x = event.pageX - this.canvas.offsetLeft;
                 y = event.pageY - this.canvas.offsetTop;
 
+                console.log(event);
                 this.drawCircle(x, y, 1, this.state.strokeColor);
 
                 this.setState({

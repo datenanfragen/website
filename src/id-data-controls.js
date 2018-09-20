@@ -5,6 +5,7 @@ import t from 'Utility/i18n';
 import {IntlProvider, MarkupText, Text} from "preact-i18n";
 import DynamicInputContainer from "./Forms/DynamicInputContainer";
 import {AddressControl, DateControl, InputControl} from "./Forms/DynamicInput";
+import SignatureInput from "./Forms/SignatureInput";
 
 class IdDataControls extends preact.Component {
     constructor(props) {
@@ -23,12 +24,14 @@ class IdDataControls extends preact.Component {
                     'country': '',
                     'primary': true
                 }
-            }
+            },
+            signature: {type: 'text', value: ''}
         };
         this.resetIdData();
 
         this.handleCustomChange = this.handleCustomChange.bind(this);
         this.handleFixedChange = this.handleFixedChange.bind(this);
+        this.handleSignatureChange = this.handleSignatureChange.bind(this);
     }
 
     render() {
@@ -45,11 +48,11 @@ class IdDataControls extends preact.Component {
                         </div>
                         <div className="form-group" style="width: 100%; border-spacing: 5px; display: table;">
                             <div style="display: table-row"><div style="display: table-cell"><strong>{t('name', 'generator')}</strong></div>
-                            <div style="display: table-cell"><InputControl id="name-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('name', e.target.value)} value={this.state.fixed_id_data['name']} /></div></div>
+                            <div style="display: table-cell"><InputControl id="name-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('name', e)} value={this.state.fixed_id_data['name']} /></div></div>
                             <div style="display: table-row"><div style="display: table-cell"><strong>{t('birthdate', 'generator')}</strong></div>
-                            <div style="display: table-cell"><DateControl id="birthdate-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('birthdate', e.target.value)} value={this.state.fixed_id_data['birthdate']} /></div></div>
+                            <div style="display: table-cell"><DateControl id="birthdate-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('birthdate', e)} value={this.state.fixed_id_data['birthdate']} /></div></div>
                             <div style="display: table-row"><div style="display: table-cell"><strong>{t('address', 'generator')}</strong></div>
-                            <div style="display: table-cell"><AddressControl id="main-address-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('address', e.target.value)} value={this.state.fixed_id_data['address']} /></div></div>
+                            <div style="display: table-cell"><AddressControl id="main-address-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('address', e)} value={this.state.fixed_id_data['address']} /></div></div>
                         </div>
                     </DynamicInputContainer>
                 </div>
@@ -67,9 +70,19 @@ class IdDataControls extends preact.Component {
         this.setState({custom_id_data: data['id-data-controls']});
     }
 
-    handleFixedChange(type, value) {
-        this.setState(prev => {prev.fixed_id_data[type] = value; return prev;});
+    handleFixedChange(type, e) {
+        let name = e.target.getAttribute('name');
+        this.setState(prev => {
+            if(type === 'address') prev.fixed_id_data[type][name] = e.target.value;
+            else prev.fixed_id_data[type] = e.target.value;
+            return prev;
+        });
         this.idData.storeArray(IdDataControls.fieldsArrayFromFixedData(this.state.fixed_id_data));
+    }
+
+    handleSignatureChange(data) {
+        this.idData.storeSignature(data);
+        this.setState({signature: data});
     }
 
     static fieldsArrayFromFixedData(data) {
@@ -99,7 +112,8 @@ class IdDataControls extends preact.Component {
                 }
                 return prev;
             });
-        })
+        });
+        this.idData.getSignature().then(signature => this.setState({signature: signature}));
     }
 
     componentDidMount() {
