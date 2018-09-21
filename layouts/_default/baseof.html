@@ -6,10 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>
-        {{ block "title" . }}
+        {{- block "title" . -}}
         {{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}
-        {{ end }}
+        {{- end -}}
     </title>
+
+    {{ if .IsTranslated -}}
+        {{ range .Translations -}}
+            <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+        {{ end -}}
+    {{- end }}
+    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
 
     <link rel="preconnect" href="https://static.dacdn.de">
     <link rel="preload" as="font" crossorigin type="font/woff2" href="https://static.dacdn.de/fonts/fira-sans/fira-sans-v8-latin-regular.woff2">
@@ -39,7 +46,9 @@
                         <a href="{{ "my-requests" | absURL }}" class="menu-link">{{ T "header-my-requests" }}</a>
                         <a href="{{ "id-data-controls" | absURL }}" class="menu-link">{{ T "header-id-data-controls" }}</a>
                         <a href="{{ "privacy-controls" | absURL }}" class="menu-link">{{ T "header-privacy-controls" }}</a>
-                        <div id="id-data-controls"></div>
+
+                        <div id="personal-menu-i18n-widget" class="i18n-widget-container"></div>
+                        <div id="id-data-controls"></div> <!-- TODO: Are we sure we want to keep this here? It is getting quite crowded. -->
                     </div>
                 </div>
             </div>
@@ -59,15 +68,9 @@
 </div>
 <footer>
     <div class="container">
-        <div class="col33 footer-col">
-            {{ T "footer-about-us" | safeHTML }}
-            <!-- TODO: Proper styling, will maybe be placed somewhere else (see #61). -->
-            {{ if .IsTranslated }}
-            <p>{{ T "footer-other-langs" }}
-                {{ range .Translations }}
-                <a rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">{{ T .Lang }}</a>
-                {{ end}}</p>
-            {{ end }}
+        <div class="col33 footer-col" style="padding-right: 20px;">
+            <p style="margin-top: 0;">{{ T "footer-about-us" | safeHTML }}</p>
+            <div class="i18n-button-container"></div>
         </div>
         <div class="col22 footer-col">
             <ul>

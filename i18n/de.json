@@ -194,7 +194,7 @@
         "other": "Sonstige"
     },
     "wizard": {
-        "suggested": "<p>Der erste Schritt, um die Kontrolle über Deine Daten zurückzugewinnen, ist zu wissen, welche Daten Unternehmen zu Dir gespeichert haben. Unser Assistent hilft Dir, Unternehmen zu finden, die potentiell Deine persönlichen Daten speichern, um diesen dann Selbstauskunftsanfragen nach der DSGVO zu schicken.</p><p>Auf der rechten Seite, haben wir schon einmal ein paar solche Unternehmen für Dich vorausgewählt. Sieht nach einer ganzen Menge aus und die meisten davon kennst Du überhaupt nicht? Wem sagst Du das! Nach unserer Erfahrung speichern diese Unternehmen Daten zu praktischen allen Menschen in Deinem Land. Wir sind daher der Überzeugung, dass es umso wichtiger ist, sie nach Deinen persönlichen Daten zu fragen.</p><p>Neben diesen Unternehmen, werden wir Dir in den nächsten Schritten einige Kategorien mit Unternehmen vorschlagen, mit denen Du vielleicht in Kontakt gekommen bist. Du kannst dann die Unternehmen aus diesen Kategorien zu Deiner Liste hinzufügen und natürlich auch jederzeit Unternehmen wieder aus der Liste herausnehmen, wenn Du Dich umentscheidest.</p><p>Sobald Du mit Deiner Auswahl zufrieden bist, klicke auf „Weiter“, um zur ersten Kategorie zu gelangen.</p>",
+        "suggested": "<p>Der erste Schritt, um die Kontrolle über Deine Daten zurückzugewinnen, ist zu wissen, welche Daten Unternehmen zu Dir gespeichert haben. Unser Assistent hilft Dir, Unternehmen zu finden, die potentiell Deine persönlichen Daten speichern, um diesen dann Selbstauskunftsanfragen nach der DSGVO zu schicken.</p><p>Auf der rechten Seite, haben wir schon einmal ein paar solche Unternehmen für Dich vorausgewählt. Sieht nach einer ganzen Menge aus und die meisten davon kennst Du überhaupt nicht? Wem sagst Du das! Nach unserer Erfahrung speichern diese Unternehmen Daten zu praktischen allen Menschen in Deinem Land (falls Du nicht in {{country}} bist, kannst Du diese Einstellung ganz unten auf der Seite ändern). Wir sind daher der Überzeugung, dass es umso wichtiger ist, sie nach Deinen persönlichen Daten zu fragen.</p><p>Neben diesen Unternehmen, werden wir Dir in den nächsten Schritten einige Kategorien mit Unternehmen vorschlagen, mit denen Du vielleicht in Kontakt gekommen bist. Du kannst dann die Unternehmen aus diesen Kategorien zu Deiner Liste hinzufügen und natürlich auch jederzeit Unternehmen wieder aus der Liste herausnehmen, wenn Du Dich umentscheidest.</p><p>Sobald Du mit Deiner Auswahl zufrieden bist, klicke auf „Weiter“, um zur ersten Kategorie zu gelangen.</p>",
         "commerce": "<p>Lass uns mit Händlern anfangen. Kaufst Du viel bei Amazon oder eBay ein? Du weißt wahrscheinlich schon, dass Online-Händler es lieben, alle möglichen Daten zu ihren Nutzer_innen zu sammeln, also füg die, die Du nutzt oder in der Vergangenheit genutzt hast, auf jeden Fall zur Liste hinzu.</p><p>Bedenklicherweise fangen aber mittlerweile auch konventionelle Läden (wir meinen die in der echten Welt) an, Profile zu ihren Kund_innen zu erstellen, von daher empfehlen wir Dir, zumindest jene auch hinzuzufügen, die Du regelmäßig besuchst oder die Dich aktiv nach Deinen Daten gefragt haben.</p><p>Um ein Unternehmen hinzuzufügen, such einfach in der Suchleiste oben nach dessen Namen.</p>",
         "entertainment": "<p>Weißt Du noch, welchen Film Du zuletzt bei Netflix angeschaut hast, welches Lied Du Dir am häufigsten über Spotify angehört hast oder wie lange Du Dein Lieblingsspiel über Steam gespielt hast? Viele Unternehmen aus der Unterhaltungsbranche tun das auf jeden Fall.</p>",
         "social media": "<p>Falls Du Mitglied in einem sozialen Netzwerk (wie Facebook, WhatsApp, Twitter oder Google+) bist, vergiss auch diese nicht.</p>",
@@ -227,5 +227,25 @@
         "signature-explanation": "Wenn Du möchtest, kannst Du Deine Unterschrift hier hinterlegen. Wenn Du das automatische Ausfüllen gewählt hast, wird sie dann an alle Anfragen automatisch angehängt, du kannst sie aber auch beim Schreiben der Anfragen auswählen. Zeichne dafür einfach mit gedrückter Maustaste in das Feld.",
         "reset": "Zurücksetzen",
         "fill-signature": "Gespeicherte Unterschrift"
+    },
+    "i18n-widget": {
+        "country": "Land",
+        "language": "Sprache",
+
+        "country-desc-de": "Deutschland",
+        "country-desc-gb": "United Kingdom (Vereinigtes Königreich)",
+
+        "country-de": "Deutschland",
+        "country-gb": "Vereinigtes Königreich",
+
+        "language-desc-de": "Deutsch",
+        "language-desc-en": "English (Englisch)",
+
+        "language-de": "Deutsch",
+        "language-en": "Englisch",
+
+        "language-change-modal": "Wenn Du die Sprache wechelst, wirst Du zu einer anderen Domain weitergeleitet. Deine Einstellungen und gespeicherten Daten werden nicht übernommen.<br>Insbesondere bedeutet das, dass z.&nbsp;B. Deine Datenschutzeinstellungen und gespeicherten Anfragen nicht in der neuen Sprache verfügbar sein werden. Du kannst diese natürlich trotzdem jederzeit in dieser Sprache verwenden, aber Einstellungen und Daten können leider nicht zwischen verschiedenen Sprachen geteilt werden.",
+        "change-lang": "Trotzdem wechseln",
+        "stay": "Hier bleiben"
     }
 }

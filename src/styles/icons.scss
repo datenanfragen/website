@@ -73,3 +73,9 @@
     font-icon: url('email.svg');
     vertical-align: -3px;
 }
+
+.icon-i18n:before {
+    @extend %icon;
+    font-icon: 200% url('i18n.svg');
+    vertical-align: -10px;
+}
