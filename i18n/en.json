@@ -75,6 +75,7 @@
         "signature": "Signature",
         "signature-explanation": "If you want, you can sign your request. Just keep your mouse pressed and draw into the canvas.",
         "reset": "Reset",
+        "fill-signature": "Saved signature",
         "tagxplanation": "You can use the tags <code>&lt;italic&gt;&lt;/italic&gt;</code> and <code>&lt;bold&gt;&lt;/bold&gt;</code> in your text. Nested tags are not supported.",
         "subject": "Subject",
         "content": "Content",
@@ -209,9 +210,10 @@
     },
     "id-data-controls": {
         "id-data-deactivated": "Saving of identification data is deactivated. If you want to speed up the generation process and save identification data, please activate id data saving in the <a href=\"/privacy-controls/\">privacy controls</a>.",
+        "always-fill-in-explain": "The saved data can be filled automatically in the fields of new requests.",
         "always-fill-in": "Always fill in known fields?",
         "saved-data": "Saved data",
-        "add-dynamic-input-explanation": "Add data by selecting the field type.",
+        "add-dynamic-input-explanation": "The data above is usually used to identify you. But if you want, you can always add more data here that you also need regularly. You can then add it manually in the generator. Add data by selecting the field type.",
         "input-single-line": "Text (single line)",
         "input-multi-line": "Text (multi line)",
         "input-address": "Address",
@@ -222,7 +224,11 @@
         "address-line-2": "Address line 2",
         "address-place": "Place",
         "address-country": "Country",
-        "saved-data-explanation": "We saved this data for you <strong>on your computer</strong>. For more information on that, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>."
+        "saved-data-explanation": "This data is the information you entered in the generator in your requests to identify yourself to a company. You can fill it into new requests now, which comes in handy especially when you want to generate many requests at once. We saved this data for you <strong>on your computer</strong>, it was never and will never be sent to us. You can choose to fill all requests automatically so that generating a request is merely a click on the download button. Just check the checkbox below. For more information on your data, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>.",
+        "signature": "Signature",
+        "signature-explanation": "If you want, you can save your signature here. If you activated the automatic fill in, we will always add it to your request or you can simply add it manually. Just keep your mouse pressed and draw into the canvas.",
+        "reset": "Reset",
+        "fill-signature": "Saved signature"
     },
     "i18n-widget": {
         "country": "Country",

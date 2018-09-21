@@ -7,6 +7,10 @@
     url = "/my-requests"
     weight = 20
 [[languages.de.menu.footerleft]]
+    name = "Meine gespeicherten Daten"
+    url = "/id-data-controls"
+    weight = 25
+[[languages.de.menu.footerleft]]
     name = "Unternehmensdatenbank"
     url = "/company"
     weight = 30
@@ -68,6 +72,10 @@
     name = "My requests"
     url = "/my-requests"
     weight = 20
+[[languages.en.menu.footerleft]]
+    name = "My saved data"
+    url = "/id-data-controls"
+    weight = 25
 [[languages.en.menu.footerleft]]
     name = "Company database"
     url = "/company"

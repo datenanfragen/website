@@ -19,7 +19,6 @@
 </script>
 <script src="{{ "js/error-handler.gen.js" | absURL }}"></script>
 <script src="{{ "js/general.gen.js" | absURL }}"></script>
-<script src="{{ "js/id-data-controls.gen.js" | absURL }}"></script>
 
 {{ if eq .Type "generator" }}
 <script src="{{ "js/generator.gen.js" | absURL }}"></script>
@@ -35,6 +34,10 @@
 
 {{ if eq .Type "privacy-controls" }}
 <script src="{{ "js/privacy-controls.gen.js" | absURL }}"></script>
+{{ end }}
+
+{{ if eq .Type "id-data-controls" }}
+<script src="{{ "js/id-data-controls.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{ if eq .Type "suggest" }}

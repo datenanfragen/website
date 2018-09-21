@@ -134,6 +134,13 @@ export default class DynamicInputContainer extends preact.Component {
     }
 
     addFillField(field) {
+        for(let key in this.state.fields) {
+            if(['name', 'birthdate'].includes(this.state.fields[key].type) && this.state.fields[key].type === field.type) {
+                this.setState(prev => {prev.fields[key].value = field.value; return prev; });
+                this.pushStateUp();
+                return;
+            } // TODO: Also check for desc while I am at it?
+        }
         this.setState(prev => {
             prev.fields_counter = prev.fields_counter + 1;
             prev.fields[prev.fields_counter] = field;
