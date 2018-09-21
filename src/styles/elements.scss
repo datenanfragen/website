@@ -218,6 +218,7 @@ input[type="checkbox"].form-element {
 
 .modal > .inner {
     position: fixed;
+    z-index: 999;
     box-sizing: border-box;
     left: 50%;
     top: 50%;
@@ -285,20 +286,47 @@ input[type="checkbox"].form-element {
     }
 }
 
-/* Dropdown */
+/* i18n */
+.i18n-button {
+    display: block;
+    width: 100%
+}
 
-.dropdown-container {
+.dropup.i18n-widget-container {
+    border: 2px solid $primary-color;
+    border-radius: 2px;
+    background: $bg-color;
+    width: 400px;
+    left: 0;
+    bottom: 100%;
+    margin-bottom: -2px;
+    padding: 10px;
+}
+.i18n-widget {
+    .select-container {
+        width: 100%;
+    }
+}
+
+#personal-menu-i18n-widget {
+    padding: 15px;
+    border-top: 2px solid $primary-color;
+}
+
+/* Dropdown and -up */
+
+.dropdown-container, .dropup-container {
     position: relative;
 
     &:hover, &:focus, &:focus-within {
-        .dropdown {
+        .dropdown, .dropup {
             display: block;
             position: absolute;
-            z-index: 999;
+            z-index: 998;
         }
     }
 
-    .dropdown {
+    .dropdown, .dropup {
         display: none;
     }
 }

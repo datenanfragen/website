@@ -194,7 +194,7 @@
         "other": "other"
     },
     "wizard": {
-        "suggested": "<p>The first step to taking back control over your data is knowing what data companies have stored on you. Our wizard helps you identify companies that may store personal data on you and then send GDPR access requests to them.</p><p>On the right, we have kickstarted your list with some companies. Looks like a lot and you don't recognize most of them? Tell us about it! From our experience, these companies hold data on pretty much everyone in your country. We believe it is thus all the more important to ask them about your personal data.</p><p>In addition to those, we will suggest categories of companies to you that you may have actually interacted with in the next few steps. You can then add more companies from those categories and of course always remove previously added companies if you decide differently.</p><p>Once you're happy with the selection, click ‘Next’ to head to the first category.</p>",
+        "suggested": "<p>The first step to taking back control over your data is knowing what data companies have stored on you. Our wizard helps you identify companies that may store personal data on you and then send GDPR access requests to them.</p><p>On the right, we have kickstarted your list with some companies. Looks like a lot and you don't recognize most of them? Tell us about it! From our experience, these companies hold data on pretty much everyone in your country (if you aren't in {{country}}, you can change this setting down at the very bottom of the page). We believe it is thus all the more important to ask them about your personal data.</p><p>In addition to those, we will suggest categories of companies to you that you may have actually interacted with in the next few steps. You can then add more companies from those categories and of course always remove previously added companies if you decide differently.</p><p>Once you're happy with the selection, click ‘Next’ to head to the first category.</p>",
         "commerce": "<p>Let's start with commerce. Shopping a lot on Amazon or Ebay? You probably know already that online shops like to collect plenty of personal data on their users, so be sure to add the ones you use or have used in the past.</p><p>Worryingly, brick-and-mortar stores are also increasingly profiling their customers and we suggest at least adding the ones you visit regularly or where they have actively asked you for your data.</p><p>To add a company, just use the search bar above.</p>",
         "entertainment": "<p>Do you remember what movie you last watched on Netflix, what the song with the most plays on your Spotify account is or how many hours you have spent playing your favorite steam game? Those companies certainly do.</p>",
         "social media": "<p>If you are a member of any social network (like Facebook, WhatsApp, Twitter and Google+), don't forget to add those.</p>",
@@ -223,5 +223,25 @@
         "address-place": "Place",
         "address-country": "Country",
         "saved-data-explanation": "We saved this data for you <strong>on your computer</strong>. For more information on that, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>."
+    },
+    "i18n-widget": {
+        "country": "Country",
+        "language": "Language",
+
+        "country-desc-de": "Deutschland (Germany)",
+        "country-desc-gb": "United Kingdom",
+
+        "country-de": "Germany",
+        "country-gb": "United Kingdom",
+
+        "language-desc-de": "Deutsch (German)",
+        "language-desc-en": "English",
+
+        "language-de": "German",
+        "language-en": "English",
+
+        "language-change-modal": "Changing the language will redirect you to another domain. Your settings and saved data from this domain will not carry over.<br>In particular, this means that things like your privacy settings and saved requests will not be available in the new language. You can still always go back to this language and view them here but you cannot share settings and saved data between different languages.",
+        "change-lang": "Change language",
+        "stay": "Stay here"
     }
 }
