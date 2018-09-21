@@ -188,7 +188,7 @@ other = "Aufsichtsbehördendatenbank"
 other = "{{ .Params.name }}: Datenschutz-Kontaktdaten"
 
 [cdb-company-heading]
-other = "Datenschutz-Kontaktdaten für <span style='white-space: nowrap'>{{ .Params.name }}</span>"
+other = "Datenschutz-Kontaktdaten für „{{ .Params.name }}“"
 
 [cdb-categories]
 one = "Kategorie:"
@@ -198,10 +198,10 @@ other = "Kategorien:"
 other = "Betreibt auch:"
 
 [cdb-intro]
-other = "Zu {{ .Params.name }} sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Fragen zum Datenschutz stellen möchtest:"
+other = "Zu „{{ .Params.name }}“ sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Fragen zum Datenschutz stellen möchtest:"
 
 [adb-intro]
-other = "Zu {{ .Params.name }} sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Beschwerden über Organisationen einreichen möchtest:"
+other = "Zu „{{ .Params.name }}“ sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Beschwerden über Organisationen einreichen möchtest:"
 
 [cdb-address]
 other = "Adresse:"
