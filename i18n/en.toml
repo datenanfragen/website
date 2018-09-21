@@ -185,7 +185,7 @@ other = "Supervisory authority database"
 other = "{{ .Params.name }}: Contact information for privacy-related requests"
 
 [cdb-company-heading]
-other = "Contact information for privacy-related requests to <span style='white-space: nowrap'>{{ .Params.name }}</span>"
+other = "Contact information for privacy-related requests to “{{ .Params.name }}”"
 
 [cdb-categories]
 one = "Category:"
@@ -195,10 +195,10 @@ other = "Categories:"
 other = "Also runs:"
 
 [cdb-intro]
-other = "We have to following contact information on {{ .Params.name }} for you to use for privacy-related requests:"
+other = "We have to following contact information on “{{ .Params.name }}” for you to use for privacy-related requests:"
 
 [adb-intro]
-other = "We have to following contact information on {{ .Params.name }} for you to use to lodge complaints:"
+other = "We have to following contact information on “{{ .Params.name }}” for you to use to lodge complaints:"
 
 [cdb-address]
 other = "Address:"
