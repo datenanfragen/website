@@ -284,7 +284,7 @@ class Generator extends preact.Component {
                                     onNegativeFeedback={() => {this.hideModal(); this.setState({complaint_authority: null});}}
                                     positiveDefault={true} onDismiss={() => {this.hideModal(); this.setState({complaint_authority: null});}}>
                         <Text id='modal-select-authority' />
-                        <SearchBar id="aa-authority-search-input" index='supervisory-authorities' query_by="name"
+                        <SearchBar id="aa-authority-search-input" index='supervisory-authorities' query_by="name" disableCountryFiltering={true}
                                    onAutocompleteSelected={(event, suggestion, dataset) => {
                                        this.setCompany(suggestion.document);
                                        this.renderRequest();
@@ -294,7 +294,8 @@ class Generator extends preact.Component {
                                        let name_hs = suggestion.highlights.filter(a => a.field === 'name');
                                        return '<span><strong>' + (name_hs.length === 1 ? name_hs[0].snippet : suggestion.document.name) + '</strong></span>';
                                    }}
-                        /> {/* TODO: Only show relevant countries */}
+                                   empty_template={'<p style="margin-left: 10px;">' + t('no-results', 'search') + '</p>'}
+                /> {/* TODO: Only show relevant countries */}
                     </Modal>);
             }
         }
