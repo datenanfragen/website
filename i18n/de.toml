@@ -79,6 +79,9 @@ other = "Impressum"
 [header-privacy-controls]
 other = "Datenschutzeinstellungen"
 
+[header-id-data-controls]
+other = "Meine ID Daten"
+
 # Footer
 
 [footer-about-us]

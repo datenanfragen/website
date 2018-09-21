@@ -72,6 +72,9 @@ other = "Contact"
 [header-privacy-controls]
 other = "Privacy Controls"
 
+[header-id-data-controls]
+other = "My ID data"
+
 # Footer
 
 [footer-about-us]

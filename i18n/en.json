@@ -75,6 +75,7 @@
         "signature": "Signature",
         "signature-explanation": "If you want, you can sign your request. Just keep your mouse pressed and draw into the canvas.",
         "reset": "Reset",
+        "fill-signature": "Saved signature",
         "tagxplanation": "You can use the tags <code>&lt;italic&gt;&lt;/italic&gt;</code> and <code>&lt;bold&gt;&lt;/bold&gt;</code> in your text. Nested tags are not supported.",
         "subject": "Subject",
         "content": "Content",
@@ -115,8 +116,7 @@
         "modal-select-authority": "Select a data protection supervisory authority you want to lodge your complaint with. Because the GDPR guarantees the one-stop-shop priciple, you only need to lodge your complaint with one supervisory authority in the EU. In order to receive your answer more quickly, though, we recommend to select an authority that seems to be responsible for your complaint.",
         "company-read-more": "More information",
         "print-pdf": "Print PDF",
-        "pgp-fingerprint": "PGP-Fingerprint",
-        "fill-signature": "Saved signature"
+        "pgp-fingerprint": "PGP-Fingerprint"
     },
     "privacy-controls": {
         "title": "Privacy controls",
@@ -212,7 +212,7 @@
         "id-data-deactivated": "Saving of identification data is deactivated. If you want to speed up the generation process and save identification data, please activate id data saving in the <a href=\"/privacy-controls/\">privacy controls</a>.",
         "always-fill-in": "Always fill in known fields?",
         "saved-data": "Saved data",
-        "add-dynamic-input-explanation": "Add data by selecting the field type.",
+        "add-dynamic-input-explanation": "The upper data is usually used to identify you. But if you want, you can always add more data here that you also need regularly. You can then add it manually in the generator. Add data by selecting the field type.",
         "input-single-line": "Text (single line)",
         "input-multi-line": "Text (multi line)",
         "input-address": "Address",
@@ -223,6 +223,10 @@
         "address-line-2": "Address line 2",
         "address-place": "Place",
         "address-country": "Country",
-        "saved-data-explanation": "We saved this data for you <strong>on your computer</strong>. For more information on that, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>."
+        "saved-data-explanation": "We saved this data for you <strong>on your computer</strong>, it was never and will never be sent to us. This data is very useful for you, especially when you want to generate many requests at once. You can choose to fill all requests automatically so that generating a request is merely a click on the download button. Just check the checkbox below. For more information on your data, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>.",
+        "signature": "Signature",
+        "signature-explanation": "If you want, you can save your signature here. If you activated the automatic fill in, we will always add it to your request or you can simply add it manually. Just keep your mouse pressed and draw into the canvas.",
+        "reset": "Reset",
+        "fill-signature": "Saved signature"
     }
 }

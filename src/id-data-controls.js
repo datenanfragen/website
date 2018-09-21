@@ -55,6 +55,7 @@ class IdDataControls extends preact.Component {
                             <div style="display: table-cell"><AddressControl id="main-address-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('address', e)} value={this.state.fixed_id_data['address']} /></div></div>
                         </div>
                     </DynamicInputContainer>
+                    <SignatureInput id="id-data-controls-signature" width={450} height={200} onChange={this.handleSignatureChange} value={this.state.signature}/>
                 </div>
             );
         } else {
@@ -66,6 +67,7 @@ class IdDataControls extends preact.Component {
         if(data['id-data-controls'].length <= this.state.custom_id_data.length) { // no new fields were added
             this.idData.clear();
             this.idData.storeArray(data['id-data-controls'].concat(IdDataControls.fieldsArrayFromFixedData(this.state.fixed_id_data)), false);
+            this.idData.storeSignature(this.state.signature);
         }
         this.setState({custom_id_data: data['id-data-controls']});
     }
@@ -81,8 +83,8 @@ class IdDataControls extends preact.Component {
     }
 
     handleSignatureChange(data) {
-        this.idData.storeSignature(data);
-        this.setState({signature: data});
+        this.setState({signature: data['signature']});
+        this.idData.storeSignature(data['signature']);
     }
 
     static fieldsArrayFromFixedData(data) {
@@ -126,6 +128,5 @@ class IdDataControls extends preact.Component {
     }
 }
 
-if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-    preact.render(<IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}><IdDataControls/></IntlProvider>, null, document.getElementById('id-data-controls'))
-}
+preact.render(<IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}><IdDataControls/></IntlProvider>, null, document.querySelector('main'))
+

@@ -111,7 +111,6 @@ export default class SignatureInput extends preact.Component {
                 x = event.pageX - this.canvas.offsetLeft;
                 y = event.pageY - this.canvas.offsetTop;
 
-                console.log(event);
                 this.drawCircle(x, y, 1, this.state.strokeColor);
 
                 this.setState({
