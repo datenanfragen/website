@@ -180,7 +180,9 @@ class Generator extends preact.Component {
                             this.setState(prev => {prev.request_data['signature'] = signature; return prev;});
                             this.renderRequest();
                         }
-                    })
+                    });
+                    this.idData.getFixed('name').then(name => this.setState(prev => {if(name) prev.request_data['custom_data']['name'] = name.value; return prev;}));
+                    this.idData.getFixed('address').then(address => this.setState(prev => {if(address) prev.request_data['custom_data']['sender_address'] = address.value; return prev;}));
                 }
             });
     }
