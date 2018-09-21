@@ -210,6 +210,7 @@
     "id-data-controls": {
         "id-data-deactivated": "Das Speichern von Identifikationsdaten ist deaktiviert. Wenn Du die den Erstellvorgang der Anfragen beschleunigen und Identifikationsdaten auf Deinem Computer speichern möchtest, kannst du das in den <a href=\"/privacy-controls/\">Datenschutzeinstellungen</a> tun.",
         "always-fill-in": "Bekannte Felder immer direkt ausfüllen?",
+        "always-fill-in-explain": "Die gespeicherten Daten können automatisch in jeder neuen Anfrage ausgefüllt werden.",
         "saved-data": "Gespeicherte Daten",
         "add-dynamic-input-explanation": "Die oberen Daten sind die gebräuchlichsten, um Dich zu identifizieren. Du kannst aber gerne Daten ergänzen, die du auch häufig brauchst. Diese kannst du im Generator dann manuell hinzufügen. Zum Ergänzen wähle einfach einen Feldtypen.",
         "input-single-line": "Freitext (einzeilig)",

@@ -210,6 +210,7 @@
     },
     "id-data-controls": {
         "id-data-deactivated": "Saving of identification data is deactivated. If you want to speed up the generation process and save identification data, please activate id data saving in the <a href=\"/privacy-controls/\">privacy controls</a>.",
+        "always-fill-in-explain": "The saved data can be filled automatically in the fields of new requests.",
         "always-fill-in": "Always fill in known fields?",
         "saved-data": "Saved data",
         "add-dynamic-input-explanation": "The upper data is usually used to identify you. But if you want, you can always add more data here that you also need regularly. You can then add it manually in the generator. Add data by selecting the field type.",
@@ -228,7 +229,6 @@
         "signature-explanation": "If you want, you can save your signature here. If you activated the automatic fill in, we will always add it to your request or you can simply add it manually. Just keep your mouse pressed and draw into the canvas.",
         "reset": "Reset",
         "fill-signature": "Saved signature"
-        "saved-data-explanation": "We saved this data for you <strong>on your computer</strong>. For more information on that, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>."
     },
     "i18n-widget": {
         "country": "Country",

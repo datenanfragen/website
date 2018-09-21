@@ -54,13 +54,9 @@ a #logo {
                 }
             }
 
-            #id-data-controls-container {
+            .id-controls-fill-container {
                 border-top: 2px solid $primary-color;
                 padding: 15px;
-
-                .select-container {
-                    width: 190px;
-                }
             }
         }
     }

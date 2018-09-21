@@ -1,6 +1,10 @@
 import preact from 'preact';
 import I18nWidget, {I18nButton} from "./Components/I18nWidget";
 import Cookie from 'js-cookie';
+import IdData from "./Utility/IdData";
+import {Text} from "preact-i18n";
+import t from "./Utility/i18n";
+import Privacy, {PRIVACY_ACTIONS} from "./Utility/Privacy";
 
 Object.defineProperty(globals, 'country', {
     set: function(country) {
@@ -14,6 +18,17 @@ if(!globals.country) globals.country = guessUserCountry();
 
 document.querySelectorAll('.i18n-button-container').forEach(el => { preact.render(<I18nButton />, el); });
 preact.render(<I18nWidget />, document.getElementById('personal-menu-i18n-widget'));
+
+if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+    preact.render(
+        <div className="form-group id-controls-fill-container">
+            <p>{t('always-fill-in-explain', 'id-data-controls')}</p>
+            <input type="checkbox" id="always-fill-in" className="form-element" checked={IdData.shouldAlwaysFill()} onChange={event => {
+                IdData.setAlwaysFill(!IdData.shouldAlwaysFill());
+            }}/>
+            <label for="always-fill-in">{t('always-fill-in', 'id-data-controls')}</label>
+        </div>, document.getElementById('id-data-controls'));
+}
 
 // This uses the `navigator.language` property (similar-ish to the `Accept-Language`header which we cannot access from JS) which may not necessarily represent the user's country (or even include region-information at all).
 // The more reliable way would be to feed the user's IP into a geolocation service but that is not an option, so we have to stick with this.
