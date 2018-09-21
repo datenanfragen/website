@@ -46,12 +46,12 @@ class IdDataControls extends preact.Component {
                             }}/>
                             <label for="always-fill-in"><Text id="always-fill-in" /></label>
                         </div>
-                        <div className="form-group" style="width: 100%; border-spacing: 5px; display: table;">
-                            <div style="display: table-row"><div style="display: table-cell"><strong>{t('name', 'generator')}</strong></div>
+                        <div className="form-group" style="width: 100%; display: table;">
+                            <div style="display: table-row"><div style="display: table-cell"><strong>{t('name', 'generator')}</strong></div><div style="display: table-cell"><div style="width: 27px"/></div>
                             <div style="display: table-cell"><InputControl id="name-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('name', e)} value={this.state.fixed_id_data['name']} /></div></div>
-                            <div style="display: table-row"><div style="display: table-cell"><strong>{t('birthdate', 'generator')}</strong></div>
+                            <div style="display: table-row"><div style="display: table-cell"><strong>{t('birthdate', 'generator')}</strong></div><div style="display: table-cell"><div style="width: 27px"/></div>
                             <div style="display: table-cell"><DateControl id="birthdate-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('birthdate', e)} value={this.state.fixed_id_data['birthdate']} /></div></div>
-                            <div style="display: table-row"><div style="display: table-cell"><strong>{t('address', 'generator')}</strong></div>
+                            <div style="display: table-row"><div style="display: table-cell"><strong>{t('address', 'generator')}</strong></div><div style="display: table-cell"><div style="width: 27px"/></div>
                             <div style="display: table-cell"><AddressControl id="main-address-input" suffix="fixed-id-data" onChange={(e) => this.handleFixedChange('address', e)} value={this.state.fixed_id_data['address']} /></div></div>
                         </div>
                     </DynamicInputContainer>

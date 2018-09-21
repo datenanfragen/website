@@ -11,7 +11,7 @@ export default class SignatureInput extends preact.Component {
             width: props.width || 100,
             height: props.height || 100,
             hasBeenDrawnOn: false,
-            isEmpty: false,
+            isEmpty: true,
             backgroundColor: props.backgroundColor || '#fff',
             strokeColor: props.strokeColor || '#000',
             isDrawing: false,
@@ -26,12 +26,11 @@ export default class SignatureInput extends preact.Component {
 
     componentDidMount() {
         this.context = this.canvas.getContext('2d');
-        this.drawSignature(this.props.value);
     }
 
     componentDidUpdate() {
         this.context = this.canvas.getContext('2d');
-        this.drawSignature(this.props.value);
+        if(this.state.isEmpty) this.drawSignature(this.props.value);
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -43,8 +42,10 @@ export default class SignatureInput extends preact.Component {
             // see https://stackoverflow.com/a/4776378
             let img = new Image;
             img.onload = () => {
+                this.clear();
                 this.context.drawImage(img,0,0);
-                this.setState({isEmpty: false})
+                this.setState({isEmpty: false});
+                this.handleChange();
             };
             img.src = signature.value;
         }

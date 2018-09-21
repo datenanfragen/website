@@ -7,7 +7,7 @@
     url = "/my-requests"
     weight = 20
 [[languages.de.menu.footerleft]]
-    name = "Meine ID Daten"
+    name = "Meine gespeicherten Daten"
     url = "/id-data-controls"
     weight = 25
 [[languages.de.menu.footerleft]]
@@ -73,7 +73,7 @@
     url = "/my-requests"
     weight = 20
 [[languages.en.menu.footerleft]]
-    name = "My ID data"
+    name = "My saved data"
     url = "/id-data-controls"
     weight = 25
 [[languages.en.menu.footerleft]]

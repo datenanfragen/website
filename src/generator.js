@@ -357,8 +357,6 @@ class Generator extends preact.Component {
     handleInputChange(changed_data) {
         this.setState(prev => {
             for(let key in changed_data) {
-                if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'id_data') this.idData.storeArray(changed_data[key]); // TODO: Is this supposed to happen here or only when a request is done?
-                else if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && key === 'signature') this.idData.storeSignature(changed_data[key]);
                 prev['request_data'][key] = changed_data[key];
             }
             return prev;
@@ -467,6 +465,10 @@ class Generator extends preact.Component {
     }
 
     storeRequest() {
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            this.idData.storeArray(this.state.request_data['id_data']);
+            this.idData.storeSignature(this.state.request_data['signature']);
+        }
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             let request = this.state.request_data;
             let db_id = request.reference + '-' + request.type + (request.type === 'custom' && this.state.response_type ? '-' + this.state.response_type : '');

@@ -18,7 +18,7 @@ export default class IdData {
         let to_store = deepCopyObject(data);
         delete to_store['optional'];
         if(typeof to_store['value'] === 'object') delete to_store['value']['primary'];
-        this.localforage_instance.setItem(data['desc'].replace('::', '__'), to_store).catch((error) => { // '::' is a special character and disallowed in the database for user inputs. The user will not encounter that as the description will be saved in the original state with the data object.
+        this.localforage_instance.setItem(data['desc'].replace('/::/g', '__'), to_store).catch((error) => { // '::' is a special character and disallowed in the database for user inputs. The user will not encounter that as the description will be saved in the original state with the data object.
             rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
         }).then(() => {
             window.dispatchEvent(new CustomEvent(ID_DATA_CHANGE_EVENT, {data: data}));
@@ -70,7 +70,7 @@ export default class IdData {
 
     // returns Promise
     getByDesc(desc) {
-        return this.localforage_instance.getItem(desc.replace('::', '__')).catch((error) => {
+        return this.localforage_instance.getItem(desc.replace('/::/g', '__')).catch((error) => {
             rethrow(error, 'Could not retrieve id_data.', { desc: desc });
         });
     }
