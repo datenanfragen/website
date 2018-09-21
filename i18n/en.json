@@ -112,7 +112,7 @@
         "complaint": "Complaint",
         "select": "Select",
         "select-authority": "Select supervisory authority…",
-        "modal-select-authority": "Select a data protection supervisory authority you want to lodge your complaint with. Because the GDPR guarantees the one-stop-shop priciple, you only need to lodge your complaint with one supervisory authority in the EU. In order to receive your answer more quickly, though, we recommend to select an authority that seems to be responsible for your complaint.",
+        "modal-select-authority": "Select a data protection supervisory authority you want to lodge your complaint with. You don't necessarily need to lodge your complaint with the authority that is responsible for the company you want to complain about but can also go with the one from where you live (see Art. 77(1) GDPR).",
         "company-read-more": "More information",
         "print-pdf": "Print PDF",
         "pgp-fingerprint": "PGP-Fingerprint"
