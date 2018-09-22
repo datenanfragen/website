@@ -77,6 +77,8 @@ input::placeholder, textarea::placeholder {
 }
 input:required {
     background: #ffffff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='rgba(0, 59, 255, 0.9)' font-size='20' font-family='Fira Sans'>*</text></svg>") no-repeat right;
+    padding-right: 20px;
+    box-shadow: none !important;
 }
 
 
