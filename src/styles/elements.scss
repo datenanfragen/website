@@ -75,6 +75,12 @@ textarea.form-element {
 input::placeholder, textarea::placeholder {
     color: $gray-darker-color;
 }
+input:required {
+    background: #ffffff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='rgb(111, 221, 204)' font-size='20' font-family='Fira Sans'>*</text></svg>") no-repeat right;
+    padding-right: 20px;
+    box-shadow: none !important;
+}
+
 
 .box {
     border: 4px solid #003bff;
@@ -100,6 +106,7 @@ input::placeholder, textarea::placeholder {
         -moz-appearance: none;
         padding-right: 30px;
         width: 100%;
+        background-color: #ffffff;
     }
 
     .icon {
