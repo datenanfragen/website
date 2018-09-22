@@ -1,3 +1,6 @@
+# This file contains a list of libraries and other external contributions used in this repository (that end up in the release build in some way or another). When including new dependencies, be sure to include them here. Please try to stick to the format used by the other entries.
+# The direct contributors to this repository are listed in the AUTHORS file.
+
 pdfmake by bpampuch (MIT License)
 https://github.com/bpampuch/pdfmake
 
