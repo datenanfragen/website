@@ -29,24 +29,15 @@ class PrivacyControl extends preact.Component {
         /* TODO: I think we need some kind of 'feedback' here to confirm to the user that the setting has indeed been saved. */
         Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
 
-        if(this.props.privacy_action === 'SAVE_MY_REQUESTS' && this.state.enabled === false) {
-            this.props.showModal(
-                <Modal positiveText={t('confirm-clear-requests', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
-                       onNegativeFeedback={this.props.hideModal} onPositiveFeedback={e => {
-                    this.props.hideModal();
-                    PrivacyControls.clearRequests();
-                }} positiveDefault={true} onDismiss={this.props.hideModal}>
-                    <Text id='confirm-delete-my-requests' />
-                </Modal>);
-        } else if(this.props.privacy_action === 'SAVE_ID_DATA' && this.state.enabled === false) {
-            this.props.showModal(
-                <Modal positiveText={t('clear-id_data', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
-                       onNegativeFeedback={this.props.hideModal} onPositiveFeedback={e => {
-                    this.props.hideModal();
-                    PrivacyControls.clearIdData();
-                }} positiveDefault={true} onDismiss={this.props.hideModal}>
-                    <Text id='confirm-delete-id_data' />
-                </Modal>);
+        if(this.state.enabled === false) {
+            switch(this.props.privacy_action) {
+                case 'SAVE_ID_DATA':
+                    this.clearModal('clear-id_data', 'confirm-delete-id_data', PrivacyControls.clearIdData);
+                    break;
+                case 'SAVE_MY_REQUESTS':
+                    this.clearModal('confirm-clear-requests', 'confirm-delete-my-requests', PrivacyControls.clearRequests);
+                    break;
+            }
         }
     }
 
@@ -58,6 +49,17 @@ class PrivacyControl extends preact.Component {
                     <MarkupText id={this.meta.id + '-description'}/></td>
             </trow>
         </div>;
+    }
+
+    clearModal(button_text_id, body_text_id, clear_function) {
+        this.props.showModal(
+            <Modal positiveText={t(button_text_id, 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
+                   onNegativeFeedback={this.props.hideModal} onPositiveFeedback={e => {
+                this.props.hideModal();
+                clear_function();
+            }} positiveDefault={true} onDismiss={this.props.hideModal}>
+                <Text id={body_text_id} />
+            </Modal>);
     }
 }
 
@@ -90,7 +92,7 @@ class PrivacyControls extends preact.Component {
                 </table>
                 <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
                 <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
-                <button id="clear-id_data-button" className="button-secondary" onClick={() => {PrivacyControls.clearIdData}} style="float: right; margin-right: 10px;"><Text id="clear-id_data" /></button>
+                <button id="clear-id_data-button" className="button-secondary" onClick={PrivacyControls.clearIdData} style="float: right; margin-right: 10px;"><Text id="clear-id_data" /></button>
                 {!!Cookie.get('debugging_enabled') ? <button id="debugging-button" className="button-secondary" onClick={() => {
                     Cookie.set('debugging_enabled', (isDebugMode() ? 'false' : 'true'));
                 }} style="float: right; margin-right: 10px;">Toggle Debugging</button> : [] }

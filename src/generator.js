@@ -44,7 +44,8 @@ class Generator extends preact.Component {
             modal_showing: '',
             response_type: '',
             fill_fields: [],
-            fill_signature: null
+            fill_signature: null,
+            request_done: false // TODO: Maybe change according to #98
         };
 
         this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
@@ -205,6 +206,7 @@ class Generator extends preact.Component {
                                        e.preventDefault();
                                    } else {
                                        this.storeRequest();
+                                       this.setState({request_done: true});
                                    }
                                }}><Text id="download-pdf"/>&nbsp;&nbsp;<span className="icon icon-download" /></a>;
 
@@ -218,6 +220,7 @@ class Generator extends preact.Component {
                                        e.preventDefault();
                                    } else {
                                        this.storeRequest();
+                                       this.setState({request_done: true});
                                    }
                                }}><Text id="send-email"/>&nbsp;&nbsp;<span className="icon icon-email" /></a>
         }
@@ -229,7 +232,10 @@ class Generator extends preact.Component {
                     <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
                     <div id="generator-controls">
                         {action_button}
-                        <button className="button-secondary" id="new-request-button" onClick={() => this.showModal('new_request')}><Text id={new_request_text}/></button>
+                        <button className="button-secondary" id="new-request-button" onClick={() => {
+                            if(!this.state.request_done) this.showModal('new_request');
+                            else this.newRequest();
+                        }}><Text id={new_request_text}/></button>
                     </div>
                 </header>
                 <div className="clearfix" />
