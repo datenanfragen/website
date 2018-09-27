@@ -16,6 +16,7 @@
     const SUPPORTED_COUNTRIES = [ 'de', 'gb' ];
     const I18N_DEFINITION = {{ readFile (delimit (slice "i18n/" .Site.Language.Lang ".json") "") | safeJS }};
     const BASE_URL = {{ "/" | absURL }};
+    const I18N_DEFINITION_REQUESTS = {{ readFile "i18n/requests.json" | safeJS }}; // such ugliness
 </script>
 <script src="{{ "js/error-handler.gen.js" | absURL }}"></script>
 <script src="{{ "js/general.gen.js" | absURL }}"></script>

@@ -11,26 +11,13 @@ import Modal from "./Components/Modal";
 import {ErrorException, isDebugMode, rethrow} from "./Utility/errors";
 import CompanyWidget from "./Components/CompanyWidget";
 import IdData, {deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT} from "./Utility/IdData";
+import {t_r} from "./Utility/i18n";
+
+const request_articles = {'access': 15, 'erasure': 17, 'rectification': 16};
 
 class Generator extends preact.Component {
     constructor(props) {
         super(props);
-        this.default_fields = [{
-            "desc": t('name', 'generator'),
-            "type": "name",
-            "optional": true,
-            "value": ""
-        }, {
-            "desc": t('birthdate', 'generator'),
-            "type": "birthdate",
-            "optional": true,
-            "value": ""
-        }, {
-            "desc": t('address', 'generator'),
-            "type": "address",
-            "optional": true,
-            "value": {"primary": true}
-        }];
 
         this.state = {
             request_data: this.freshRequestData(),
@@ -45,10 +32,10 @@ class Generator extends preact.Component {
             response_type: '',
             fill_fields: [],
             fill_signature: null,
+            response_request: {}
             request_done: false // TODO: Maybe change according to #98
         };
 
-        this.template_url = BASE_URL + 'templates/' + LOCALE + '/';
         this.database_url = BASE_URL + 'db/';
         this.letter = new Letter({});
 
@@ -103,7 +90,7 @@ class Generator extends preact.Component {
         return {
             type: 'access',
             transport_medium: 'fax',
-            id_data: deepCopyObject(this.default_fields),
+            id_data: deepCopyObject(defaultFields(LOCALE)),
             reference: Letter.generateReference(today),
             date: today.toISOString().substring(0, 10),
             recipient_address: '',
@@ -119,7 +106,8 @@ class Generator extends preact.Component {
                 subject: '',
                 sender_address: {},
                 name: ''
-            }
+            },
+            language: LOCALE
         }
     }
 
@@ -130,21 +118,19 @@ class Generator extends preact.Component {
             });
         }
 
-        const request_articles = {'access': 15, 'erasure': 17, 'rectification': 16};
-
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             let response_to = findGetParamter('response_to');
             let response_type = findGetParamter('response_type');
             if(response_to && response_type) {
                 this.request_store.getItem(response_to)
                     .then(request => {
-                        fetch(this.template_url + response_type + '.txt')
+                        fetch(templateURL(this.state.request_data.language) + response_type + '.txt')
                             .then(res => res.text()).then(text => {
                             this.setState(prev => {
                                 prev.request_data.custom_data['content'] = Letter.handleTemplate(text, [], {
                                     request_article: request_articles[request.type],
                                     request_date: request.date,
-                                    request_recepient_address: request.recipient
+                                    request_recipient_address: request.recipient
                                 });
                                 if (response_type === 'admonition') {
                                     prev.request_data['via'] = request.via;
@@ -153,6 +139,7 @@ class Generator extends preact.Component {
                                 prev.request_data['reference'] = request.reference;
                                 prev.response_type = response_type;
                                 prev.request_data['type'] = 'custom';
+                                prev.response_request = request;
                                 return prev;
                             });
                             if(response_type === 'admonition' && request.slug) fetchCompanyDataBySlug(request.slug, company => {this.setCompany(company)});
@@ -163,7 +150,7 @@ class Generator extends preact.Component {
             }
         }
 
-        fetch(this.template_url + 'access-default.txt')
+        fetch(templateURL(this.state.request_data.language) + 'access-default.txt')
             .then(res => res.text()).then(text => {
                 this.setState({template_text: text});
                 this.renderRequest();
@@ -171,7 +158,7 @@ class Generator extends preact.Component {
                 if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
                     this.idData.getAllFixed().then((fill_data) => {
                         this.setState((prev) => {
-                            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], fill_data, true, true);
+                            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], fill_data, true, true, true);
                             return prev;
                         });
                         this.renderRequest();
@@ -196,6 +183,7 @@ class Generator extends preact.Component {
             company_widget = <CompanyWidget company={this.state.suggestion} onRemove={() => this.setState(prev => {
                 prev['suggestion'] = null;
                 prev.request_data['recipient_runs'] = [];
+                prev.request_data['language'] = LOCALE;
                 return prev;
             })} />
         }
@@ -212,7 +200,7 @@ class Generator extends preact.Component {
 
         if(this.state.request_data.transport_medium === 'email') {
             let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
-                'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t('my-reference', 'generator') + ': ' + this.state.request_data['reference'] + ')' +
+                'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t_r('my-reference', this.letter.props.language) + ': ' + this.letter.props.reference + ')' +
                 '&body=' + encodeURIComponent(this.letter.toEmailString());
             action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled') + ' button-primary'} href={mailto_link}
                                onClick={e => {
@@ -287,13 +275,22 @@ class Generator extends preact.Component {
                      break;
                 case 'choose_authority':
                     modal = (<Modal negativeText={t('cancel', 'generator')}
-                                    onNegativeFeedback={() => {this.hideModal(); this.setState({complaint_authority: null});}}
-                                    positiveDefault={true} onDismiss={() => {this.hideModal(); this.setState({complaint_authority: null});}}>
+                                    onNegativeFeedback={() => this.hideModal()}
+                                    positiveDefault={true} onDismiss={() => this.hideModal()}>
                         <Text id='modal-select-authority' />
                         <SearchBar id="aa-authority-search-input" index='supervisory-authorities' query_by="name" disableCountryFiltering={true}
                                    onAutocompleteSelected={(event, suggestion, dataset) => {
                                        this.setCompany(suggestion.document);
-                                       this.renderRequest();
+                                       fetch(templateURL(suggestion.document['complaint-language']) + 'complaint.txt').then(res => res.text()).then(text => {
+                                           this.setState(prev => {
+                                               prev.request_data.custom_data['content'] = Letter.handleTemplate(text, [], {
+                                                   request_article: request_articles[this.state.response_request.type],
+                                                   request_date: this.state.response_request.date,
+                                                   request_recipient_address: this.state.response_request.recipient
+                                               });
+                                           });
+                                           this.renderRequest();
+                                       });
                                        this.hideModal();
                                    }} placeholder={t('select-authority', 'generator')} debug={true} style="margin-top: 15px;"
                                    suggestion_template={(suggestion) => {
@@ -314,16 +311,17 @@ class Generator extends preact.Component {
 
     setCompany(company) {
         let template_file = company['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt';
-        fetch(this.template_url + template_file)
-            .then(res => res.text()).then(text => {this.setState({template_text: text})});
+        fetch(templateURL(company['request-language']) + template_file)
+            .then(res => res.text()).then(text => {this.setState({template_text: text}); this.renderRequest();});
 
         this.setState(prev => {
             prev.request_data['transport_medium'] = company['suggested-transport-medium'] ? company['suggested-transport-medium'] : company['fax'] ? 'fax' : 'letter';
             prev.request_data['recipient_address'] = company.name + '\n' + company.address + (prev.request_data['transport_medium'] === 'fax' ?'\n' + t('by-fax', 'generator') + company['fax'] : '');
-            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], !!company['required-elements'] && company['required-elements'].length > 0 ? company['required-elements'] : this.default_fields);
+            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], !!company['required-elements'] && company['required-elements'].length > 0 ? company['required-elements'] : defaultFields(company['request-language']));
             prev.request_data['recipient_runs'] = company.runs || [];
             prev.suggestion = company;
-            prev['request_data']['data_portability'] = company['suggested-transport-medium'] === 'email';
+            prev.request_data['data_portability'] = company['suggested-transport-medium'] === 'email';
+            prev.request_data['language'] = company['request-language'] || LOCALE;
             return prev;
         });
     }
@@ -357,7 +355,7 @@ class Generator extends preact.Component {
             return;
         }
         let template_file = this.state.suggestion ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] || this.state.request_data.type + '-default.txt' : this.state.request_data.type + '-default.txt';
-        fetch(this.template_url + template_file)
+        fetch(templateURL(this.state.request_data.language) + template_file)
             .then(res => res.text()).then(text => {this.setState({template_text: text}); this.renderRequest();});
     }
 
@@ -390,7 +388,7 @@ class Generator extends preact.Component {
 
     handleLetterTemplateChange(event) {
         if(event.target.value && event.target.value !== "no-template") {
-            fetch(this.template_url + event.target.value + '.txt')
+            fetch(templateURL(this.state.request_data.language) + event.target.value + '.txt')
                 .then(res => res.text()).then(text => {
                     this.setState(prev => {
                         prev.request_data.custom_data['content'] = text;
@@ -512,6 +510,30 @@ function findGetParamter(param){
         if(tmp[0] === param) return result = decodeURIComponent(tmp[1]);
     });
     return result;
+}
+
+function templateURL(locale = LOCALE) {
+    if(!Object.keys(I18N_DEFINITION_REQUESTS).includes(locale)) locale = LOCALE;
+    return BASE_URL + 'templates/' + (locale || LOCALE) + '/';
+}
+
+function defaultFields(locale = LOCALE) {
+    return [{
+        "desc": t_r('name', locale),
+        "type": "name",
+        "optional": true,
+        "value": ""
+    }, {
+        "desc": t_r('birthdate', locale),
+        "type": "birthdate",
+        "optional": true,
+        "value": ""
+    }, {
+        "desc": t_r('address', locale),
+        "type": "address",
+        "optional": true,
+        "value": {"primary": true}
+    }];
 }
 
 preact.render((<IntlProvider scope="generator" definition={I18N_DEFINITION}><Generator/></IntlProvider>), null, document.getElementById('generator'));

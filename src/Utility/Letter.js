@@ -1,4 +1,5 @@
-import t from '../Utility/i18n';
+import {t_r} from "./i18n";
+import t from "./i18n";
 
 /**
  * {number} mm2pt({number}):
@@ -20,7 +21,8 @@ export default class Letter {
             content: props.content || '',
             signature: props.signature || {type: 'text', value: '', name: ''},
             reference_barcode: props.reference_barcode || {},
-            reference: props.reference || ''
+            reference: props.reference || '',
+            language: !!props.language ? props.language : LOCALE
         };
         this.doc = {};
         this.updateDoc();
@@ -28,7 +30,7 @@ export default class Letter {
 
     setProps(props) {
         for(let i in props) {
-            if(this.props.hasOwnProperty(i)) this.props[i] = props[i];;
+            if(this.props.hasOwnProperty(i)) this.props[i] = props[i];
         }
         this.updateDoc();
     }
@@ -42,7 +44,8 @@ export default class Letter {
             content: '',
             signature: {type: 'text', value: '', name: ''},
             reference_barcode: {},
-            reference: ''
+            reference: '',
+            language: ''
         };
     }
 
@@ -115,19 +118,13 @@ export default class Letter {
     }
 
     toEmailString(include_subject = false) {
-        let email = include_subject ? t('subject', 'generator') + ': ' + this.props.subject +  (this.props.reference ? ' (' + t('my-reference', 'generator') + ': ' + this.props.reference + ')' : '') + '\n\n' : '';
+        let email = include_subject ? t('subject', 'generator') + ': ' + this.props.subject +  (this.props.reference ? ' (' + t_r('my-reference', this.props.language) + ': ' + this.props.reference + ')' : '') + '\n\n' : '';
         email += this.props.information_block + '\n'
             + Letter.stripTags(this.props.content) + '\n' + this.props.signature['name'];
         return email;
     }
 
     static propsFromRequest(request_object, template, flags = {}) {
-        let subjects = { // TODO: Find a more appropriate place for this.
-            'erasure': t('letter-subject-erasure', 'generator'),
-            'access': t('letter-subject-access', 'generator'),
-            'rectification': t('letter-subject-rectification', 'generator')
-        };
-
         let id_data = Letter.formatData(request_object.id_data);
         let rectification_data = Letter.formatData(request_object.rectification_data);
         request_object.signature['name'] = id_data.name;
@@ -150,11 +147,12 @@ export default class Letter {
             reference: request_object.reference,
             reference_barcode: Letter.barcodeFromText(request_object.reference),
             information_block: Letter.makeInformationBlock(request_object),
-            subject: subjects[request_object.type],
+            subject: t_r('letter-subject-' + request_object.type, request_object.language),
             recipient_address: request_object.recipient_address,
             sender_oneline: Letter.formatAddress(id_data.primary_address, ' • ', id_data.name),
             signature: request_object.signature,
-            content: Letter.handleTemplate(template, flags, variables)
+            content: Letter.handleTemplate(template, flags, variables),
+            language: request_object.language
         };
     }
 
@@ -277,8 +275,8 @@ export default class Letter {
     }
 
     static makeInformationBlock(request_object) {
-        return t('my-reference', 'generator') + ': ' + request_object.reference + '\n' +
-        t('date', 'generator') + ': ' + request_object.date + '\n' +
+        return t_r('my-reference', request_object.language) + ': ' + request_object.reference + '\n' +
+        t_r('date', request_object.language) + ': ' + request_object.date + '\n' +
         request_object.information_block;
     }
 }

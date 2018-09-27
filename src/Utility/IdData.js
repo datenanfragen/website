@@ -127,26 +127,32 @@ export default class IdData {
         });
     }
 
-    static mergeFields(fields_to_add_to, fields_to_merge, keep = false, override_values = false) {
+    static mergeFields(fields_to_add_to, fields_to_merge, keep = false, override_values = false, protect_desc = false) {
         let new_fields = fields_to_merge.slice();
         let old_fields = fields_to_add_to.slice();
         let merged_fields = [];
         let has_primary_address = 0;
         old_fields.forEach((field, i) => { // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
             let j = new_fields.findIndex(new_field => {
-                return new_field['type'] === field['type'] && new_field['desc'] === field['desc']; // Is it a good idea to also check for desc?
+                return new_field['type'] === field['type'] // Merge if type are equal and
+                    && (new_field['desc'] === field['desc']  // descriptions are equal or
+                    || ['name', 'birthdate'].includes(field['type']) // field is of fixed type or
+                    || (field['type'] === 'address' && !!new_field['value'] && !!field['value'] && new_field['value']['primary'] && field['value']['primary'])); // both fields are primary addresses
             });
             if(typeof j !== 'undefined' && j >= 0) {
+                if(!protect_desc) field['desc'] = new_fields[j]['desc']; // should only matter for fixed types
                 field['optional'] = 'optional' in new_fields[j] ? new_fields[j]['optional'] : false;
                 if(field['type'] === 'address') field['value']['primary'] = ++has_primary_address === 1;
                 if(override_values) field['value'] = new_fields[j]['value'];
                 merged_fields.push(field);
                 new_fields.splice(j, 1);
             } else if(keep) {
+                if(field['type'] === 'address') field['value']['primary'] = ++has_primary_address === 1;
                 merged_fields.push(field);
             }
         });
         return merged_fields.concat(new_fields.map(field => {
+            if(!!field['value'] && field['type'] === 'address') field['value']['primary'] = ++has_primary_address === 1;
             field['value'] = field['value'] || (field['type'] === 'address' ? {"primary": ++has_primary_address === 1} : '');
             return field;
         }));
