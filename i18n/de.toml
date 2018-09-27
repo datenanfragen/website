@@ -270,3 +270,11 @@ other = "Alle Anfragen werden mithilfe von JavaScript auf deinem Computer gespei
 
 [noscript-wizard]
 other = "An dieser Stelle befände sich ein mit JavaScript generierter Wizard, zur Erstellung von Anfragen auf Datenauskunft. Die Erstellung der Anfragen benötigt JavaScript. Du kannst die Seite benutzen, ohne JavaScript zu aktiveren, hast dann aber leider nur Zugriff auf eingeschränkte Funktionen. Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchtest. Wenn Du die Webseite im vollem Umfang nutzen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a href=\"mailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>."
+
+# 404
+
+[404-title]
+other="Fehler 404: Seite nicht gefunden"
+
+[404-body]
+other = "Leider existiert die gesuchte Seite auf diesem Server nicht. Vielleicht hast du dich ja einfach in der URL vertippt? Falls der Fehler wieder auftritt, hinterlasse uns doch einen Hinweis auf unserer E-Mail-Adresse <a href=\"mailto:dev@datenanfragen.de\">dev@datenanfragen.de</a> oder schreib in unseren <a href=\"https://github.com/datenanfragen/website/issues/new\">Issue-Tracker</a>."
