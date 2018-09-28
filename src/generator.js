@@ -32,7 +32,7 @@ class Generator extends preact.Component {
             response_type: '',
             fill_fields: [],
             fill_signature: null,
-            response_request: {}
+            response_request: {},
             request_done: false // TODO: Maybe change according to #98
         };
 
