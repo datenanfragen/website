@@ -4,15 +4,18 @@ import { Text, MarkupText } from 'preact-i18n';
 import { SearchBar } from "../Components/SearchBar";
 import {rethrow} from "../Utility/errors";
 import localforage from "localforage";
+import Cookie from 'js-cookie';
 import Privacy, {PRIVACY_ACTIONS} from "../Utility/Privacy";
 
 const CATEGORIES = [ 'suggested', 'commerce', 'entertainment', 'social media', 'finance', 'insurance', 'telecommunication', 'utility', /*'public body',*/ 'other' ];
+const USER_CHANGED_COOKIE = 'changed_saved_companies';
 
 export default class Wizard extends preact.Component {
     constructor(props) {
         super(props);
 
         globals._country_listeners.push(value => { this.setState({ country: value }); });
+        globals._country_listeners.push(() => { this.prepareWizard(); });
 
         this.state = {
             current_tab: 0,
@@ -20,12 +23,20 @@ export default class Wizard extends preact.Component {
             country: globals.country // Don't ever update `this.state.country` directly but rather use `globals.country`.
         };
 
+        this.prepareWizard();
+
+        this.changeTab = this.changeTab.bind(this);
+        this.addCompany = this.addCompany.bind(this);
+        this.removeCompany = this.removeCompany.bind(this);
+    }
+
+    prepareWizard() {
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
             this.saved_companies = new SavedCompanies();
 
             this.saved_companies.length()
                 .then(length => {
-                    if(length === 0) this.loadSuggestedCompanies();
+                    if(length === 0 || !this.saved_companies.getUserChanged()) this.loadSuggestedCompanies();
                     else {
                         this.saved_companies.getAll()
                             .then(companies => {
@@ -35,10 +46,6 @@ export default class Wizard extends preact.Component {
                 });
         }
         else this.loadSuggestedCompanies();
-
-        this.changeTab = this.changeTab.bind(this);
-        this.addCompany = this.addCompany.bind(this);
-        this.removeCompany = this.removeCompany.bind(this);
     }
 
     loadSuggestedCompanies() {
@@ -48,7 +55,13 @@ export default class Wizard extends preact.Component {
                 prev.selected_companies = companies;
                 return prev;
             });
-            if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies.addMultiple(companies);
+            if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
+                this.saved_companies.clearAll()
+                    .then(() => {
+                        this.saved_companies.addMultiple(companies, false);
+                        this.saved_companies.setUserChanged(false);
+                    });
+            }
         })
             .catch(err => rethrow(err));
     }
@@ -132,11 +145,26 @@ export class SavedCompanies {
 
     length() { return this.localforage_instance.length(); }
 
-    add(slug, name) { return this.localforage_instance.setItem(slug, name).catch((err) => { rethrow(err, 'Could not save company for the wizard', { slug: slug, name: name }) }); }
-    addMultiple(companies) { for(let slug in companies) this.add(slug, companies[slug]); }
+    add(slug, name, by_user = true) {
+        if(by_user) this.setUserChanged();
+        return this.localforage_instance.setItem(slug, name).catch((err) => { rethrow(err, 'Could not save company for the wizard', { slug: slug, name: name }); });
+    }
+    addMultiple(companies, by_user = true) {
+        if(by_user) this.setUserChanged();
+        for(let slug in companies) this.add(slug, companies[slug], by_user);
+    }
 
-    remove(slug) { if(slug) return this.localforage_instance.removeItem(slug); }
-    clearAll() { return this.localforage_instance.clear().catch((err) => { rethrow(err, 'Could clear saved companies.'); }); }
+    remove(slug, by_user = true) {
+        if(by_user) this.setUserChanged();
+        if(slug) return this.localforage_instance.removeItem(slug);
+    }
+    clearAll() {
+        this.setUserChanged(false);
+        return this.localforage_instance.clear().catch((err) => { rethrow(err, 'Could clear saved companies.'); });
+    }
+
+    getUserChanged() { return Cookie.get(USER_CHANGED_COOKIE) === 'true'; }
+    setUserChanged(value = true) { Cookie.set(USER_CHANGED_COOKIE, value ? 'true' : 'false', { expires: 365 }); }
 
     getAll() {
         let companies = {};
