@@ -35,15 +35,14 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 num_typos: 4,
                 per_page: this.props.numberOfHits || 5
             };
-            if(!this.props.disableCountryFiltering) {
-                if(!this.props.filters) this.props.filters = [];
-                this.props.filters.push('relevant-countries:[' + globals.country + ', all]');
-            }
-            if(this.props.filters) options['filter_by'] = this.props.filters.join(' && ');
+            if(!this.props.disableCountryFiltering) if(!this.props.filters) this.props.filters = [];
 
             this.algolia_autocomplete = autocomplete('#' + this.props.id, { hint: false }, {
                 source: (query, callback) => {
                     options['q'] = query;
+                    if(this.props.filters) {
+                        options['filter_by'] = (this.props.filters.concat(this.props.disableCountryFiltering ? [] : [ 'relevant-countries:[' + globals.country + ', all]' ])).join(' && ');
+                    }
 
                     this.client.collections(this.props.index).documents().search(options)
                         .then((res) => { callback(res.hits); })

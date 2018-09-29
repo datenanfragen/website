@@ -457,7 +457,7 @@ class Generator extends preact.Component {
 
     newRequest() {
         // TODO: Make sure this ends up in the new canonical place for completed requests, as per #90 (i.e. when the request is saved to 'My requests').
-        if(this.state.request_data.type === 'access' && Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies.remove(this.state.suggestion['slug']);
+        if(this.state.request_data.type === 'access' && Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) && this.state.suggestion && this.state.suggestion['slug']) this.saved_companies.remove(this.state.suggestion['slug']);
 
         // TODO: Same for this.
         if(findGetParameter('from') === 'wizard' && this.state.batch && this.state.batch.length === 0) {
