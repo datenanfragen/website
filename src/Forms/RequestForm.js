@@ -111,6 +111,11 @@ export default class RequestForm extends preact.Component {
                                     <input name="request-date" type="date" id="request-date" className="form-element"
                                            onChange={e => this.props.onChange({'date': e.target.value})} value={this.props.request_data['date']} />
                                 </div>
+                                <div className="form-group">
+                                    <label for="reference"><Text id="reference" /></label>
+                                    <input name="reference" type="text" id="reference" className="form-element readonly"
+                                        value={this.props.request_data['reference']} readonly />
+                                </div>
                                 <textarea id="information-block" className="form-element" placeholder={t('information-block', 'generator')}
                                           rows="4" spellcheck="true" onChange={e => this.props.onChange({'information_block': e.target.value})}
                                           value={this.props.request_data['information_block']} />

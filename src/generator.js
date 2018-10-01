@@ -233,8 +233,7 @@ class Generator extends preact.Component {
             <main>
                 {this.state.modal_showing}
                 <header id="generator-header">
-                    <h2 id="generator-heading"><Text id="reference"/>: {this.state.request_data['reference']} </h2>
-                    <div id="generator-controls">
+                    <div id="generator-controls" style="margin-bottom: 10px;">
                         {action_button}
                         <button className="button-secondary" id="new-request-button" onClick={() => {
                             if(!this.state.request_done) this.showModal('new_request');
