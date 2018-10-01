@@ -41,7 +41,6 @@
         "feature-disabled": "You have disabled this feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>."
     },
     "generator": {
-        "generate-request": "Request generator",
         "reference": "Reference",
         "download-pdf": "Download PDF",
         "generate-pdf": "Generate PDF",
