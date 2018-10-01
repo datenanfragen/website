@@ -120,7 +120,7 @@ export default class Wizard extends preact.Component {
                         {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
                         <MarkupText id={CATEGORIES[this.state.current_tab]} fields={{ country: t('country-' + this.state.country, 'i18n-widget') }} />
                         <div id="wizard-buttons">
-                            <button className={"button-" + (this.isLastTab() ? "primary" : "secondary")} onClick={() => { location.href = BASE_URL + '/generator?from=wizard' + (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) ? '' : ('&companies=' + Object.keys(this.state.selected_companies).join(','))) }}><Text id="finish"/></button>
+                            <button className={"button-" + (this.isLastTab() ? "primary" : "secondary")} onClick={() => { location.href = BASE_URL + '/generator?from=wizard' + (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) ? '' : ('&companies=' + Object.keys(this.state.selected_companies).join(','))) }} disabled={Object.values(this.state.selected_companies).length === 0}><Text id="finish"/></button>
                             {next_button}
                         </div>
                         <div className="clearfix" />

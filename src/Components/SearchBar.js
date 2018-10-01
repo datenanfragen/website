@@ -35,7 +35,7 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 num_typos: 4,
                 per_page: this.props.numberOfHits || 5
             };
-            if(!this.props.disableCountryFiltering) if(!this.props.filters) this.props.filters = [];
+            if(!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
 
             this.algolia_autocomplete = autocomplete('#' + this.props.id, { hint: false }, {
                 source: (query, callback) => {
