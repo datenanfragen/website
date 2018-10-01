@@ -19,7 +19,7 @@
         border: 2px solid $primary-darker-color;
     }
 
-    &.disabled {
+    &.disabled, &:disabled {
         background-color: $gray-color;
         border: 2px solid $gray-darker-color;
         color: $gray-darker-color !important;
@@ -30,7 +30,7 @@
     background-color: $primary-color;
     color: #fff !important;
 
-    &.disabled {
+    &.disabled, &:disabled {
         background-color: $gray-color;
         border: 2px solid $gray-darker-color;
         color: $gray-darker-color !important;

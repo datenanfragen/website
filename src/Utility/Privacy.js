@@ -16,6 +16,11 @@ export const PRIVACY_ACTIONS = Object.freeze({
         'default': true,
         'dnt': true
     },
+    SAVE_WIZARD_ENTRIES: {
+        'id': 'save_wizard_entries',
+        'default': true,
+        'dnt': true
+    },
     // TELEMETRY: {
     //     'id': 'telemetry',
     //     'default': false,

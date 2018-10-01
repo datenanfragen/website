@@ -42,6 +42,7 @@
     },
     "generator": {
         "generate-request": "Request generator",
+        "reference": "Reference",
         "download-pdf": "Download PDF",
         "generate-pdf": "Generate PDF",
         "send-email": "Send email",
@@ -71,7 +72,7 @@
         "address-line-2": "Address line 2",
         "address-place": "Place",
         "address-country": "Country",
-        "primary-address": "Primary address",
+        "primary-address": "Sender address",
         "signature": "Signature",
         "signature-explanation": "If you want, you can sign your request. Just keep your mouse pressed and draw into the canvas.",
         "reset": "Reset",
@@ -113,7 +114,9 @@
         "modal-select-authority": "Select a data protection supervisory authority you want to lodge your complaint with. You don't necessarily need to lodge your complaint with the authority that is responsible for the company you want to complain about but can also go with the one from where you live (see Art. 77(1) GDPR).",
         "company-read-more": "More information",
         "print-pdf": "Print PDF",
-        "pgp-fingerprint": "PGP-Fingerprint"
+        "pgp-fingerprint": "PGP-Fingerprint",
+        "ok": "Ok",
+        "wizard-done-modal": "And that's it already! You have completed the requests for all companies you selected in the wizard. If you want to, you can now generate additional (more complex) requests."
     },
     "privacy-controls": {
         "title": "Privacy controls",
@@ -126,7 +129,13 @@
         "save_my_requests": "“My requests” feature",
         "save_my_requests-description": "To make managing your previous requests easier, we offer the “My requests” feature. If you enable it, all requests you generate will be saved on your own computer (using the local storage feature of your browser) and you can later browse through them <a href='/my-requests'>here</a>. There, you can also delete all saved request data at any time or export it as a CSV file.",
         "save_id_data": "Remember identification data",
-        "save_id_data-description": "To make sending new requests easier, we can save your identification data for you. The data will only be saved on your computer (using the local storage feature of your browser) and never be send to any servers, including ours. You can easily control the data that is saved about you in the dropdown in the navigation. You can always delete all of your data here or in your browser.",
+        "save_id_data-description": "To make sending new requests easier, we can save your identification data for you. The data will only be saved on your computer (using the local storage feature of your browser) and never be send to any servers, including ours. You can easily control the data that is saved about you via the “<a href='/id-data-controls'>My saved data</a>” feature. You can always delete all of your data here or in your browser.",
+        "save_wizard_entries": "Save selected companies in the wizard",
+        "save_wizard_entries-description": "Our wizard allows you to easily send access requests to companies. In order to preserve the companies you selected between browser reloads, we can store them. The data will only be saved on your computer (using the local storage feature of your browser) and never be send to any servers, including ours.",
+        "clear-save_wizard_entries": "Clear selected companies",
+        "modal-clear-save_wizard_entries": "This will delete all selected companies from the wizard and cannot be undone. Are you sure?",
+        "confirm-clear-save_wizard_entries": "Delete saved companies",
+        "confirm-delete-save_wizard_entries": "You have disabled saving selected companies in the wizard. Do you also want to clear all previously saved companies? This cannot be undone.",
         "clear-id_data": "Delete all identification data",
         "confirm-delete-id_data": "You deactivated the saving of identification data. Do you also want to delete the currently saved data?",
         "confirm-clear-requests": "Delete requests",
@@ -200,9 +209,9 @@
         "insurance": "<p>This category should be fairly obvious. Just don't forget that companies will often sell you insurances for non-obvious things these days, including travel and small electronic device purchases.</p>",
         "telecommunication": "<p>Your phone provider and ISP may remember all your calls for billing purposes. We also recommend asking your email provider for what data they save on you—let's hope they don't scan your emails!<br>If you run a website, also ask your hoster and domain registrar.</p>",
         "utility": "<p>Hang in there, we are almost done. By utilities, we mean gas, power, water, sewage etc. but also things like public transport.</p>",
-        "other": "<p>Phew, you have reached the last category. Thanks for sticking with us!</p><p>Of course, there are way too many diverse companies out there for us to fit them all into a category. In this last step, you can search through our entire database to catch all companies we've missed in the previous steps.</p><p>Once you've added all companies you want, click the ‘Finish’ button to go to the generator where we will actually generate the requests to the companies you have selected.</p>",
+        "other": "<p>Phew, you have reached the last category. Thanks for sticking with us!</p><p>Of course, there are way too many diverse companies out there for us to fit them all into a category. In this last step, you can search through our entire database to catch all companies we've missed in the previous steps.</p><p>Once you've added all companies you want, click the button to go to the generator where we will actually generate the requests to the companies you have selected.</p>",
         "next": "Next",
-        "finish": "Finish",
+        "finish": "Done adding companies",
         "search-company": "Search for “{{category}}” companies…"
     },
     "id-data-controls": {

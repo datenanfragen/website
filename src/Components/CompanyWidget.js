@@ -11,7 +11,7 @@ export default class CompanyWidget extends preact.Component {
             expanded: true
         }
     }
-    
+
     render() {
         let comments = [];
         if(this.props.company['comments']) {
@@ -32,7 +32,7 @@ export default class CompanyWidget extends preact.Component {
                 <div class="clearfix" />
             </div>
         );
-        
+
         return (
             <aside className="company-info box">
                 <button className="company-remove button-primary button-small icon-trash" onClick={this.props.onRemove} title={t('deselect-company', 'generator')}/>

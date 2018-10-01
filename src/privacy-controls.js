@@ -7,6 +7,7 @@ import Modal from "./Components/Modal";
 import IdData from "./Utility/IdData";
 import Cookie from "js-cookie";
 import {isDebugMode} from "./Utility/errors";
+import {SavedCompanies} from "./Components/Wizard";
 
 class PrivacyControl extends preact.Component {
     constructor(props) {
@@ -36,6 +37,8 @@ class PrivacyControl extends preact.Component {
                     break;
                 case 'SAVE_MY_REQUESTS':
                     this.clearModal('confirm-clear-requests', 'confirm-delete-my-requests', PrivacyControls.clearRequests);
+                case 'SAVE_WIZARD_ENTRIES':
+                    this.clearModal('confirm-clear-save_wizard_entries', 'confirm-delete-save_wizard_entries', PrivacyControls.clearSavedCompanies);
                     break;
             }
         }
@@ -72,6 +75,7 @@ class PrivacyControls extends preact.Component {
         };
 
         this.clearRequestsButton = this.clearRequestsButton.bind(this);
+        this.clearSavedCompaniesButton = this.clearSavedCompaniesButton.bind(this);
         this.hideModal = this.hideModal.bind(this);
         this.showModal = this.showModal.bind(this);
     }
@@ -93,6 +97,7 @@ class PrivacyControls extends preact.Component {
                 <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
                 <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
                 <button id="clear-id_data-button" className="button-secondary" onClick={PrivacyControls.clearIdData} style="float: right; margin-right: 10px;"><Text id="clear-id_data" /></button>
+                <button id="clear-saved_wizard_entries-button" className="button-secondary" onClick={this.clearSavedCompaniesButton} style="float: right; margin-right: 10px;"><Text id="clear-save_wizard_entries" /></button>
                 {!!Cookie.get('debugging_enabled') ? <button id="debugging-button" className="button-secondary" onClick={() => {
                     Cookie.set('debugging_enabled', (isDebugMode() ? 'false' : 'true'));
                 }} style="float: right; margin-right: 10px;">Toggle Debugging</button> : [] }
@@ -112,12 +117,27 @@ class PrivacyControls extends preact.Component {
             </Modal>);
     }
 
+    clearSavedCompaniesButton() {
+        this.showModal(
+            <Modal positiveText={t('confirm-clear-save_wizard_entries', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
+                   onNegativeFeedback={this.hideModal} onPositiveFeedback={e => {
+                this.hideModal();
+                PrivacyControls.clearSavedCompanies();
+            }} positiveDefault={true} onDismiss={this.hideModal}>
+                <Text id='modal-clear-save_wizard_entries' />
+            </Modal>);
+    }
+
     static clearRequests() {
         (new UserRequests()).clearRequests();
     }
 
     static clearIdData() {
         (new IdData()).clear(false);
+    }
+
+    static clearSavedCompanies() {
+        (new SavedCompanies()).clearAll();
     }
 
     showModal(modal) {

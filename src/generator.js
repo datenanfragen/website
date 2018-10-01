@@ -11,9 +11,12 @@ import Modal from "./Components/Modal";
 import {ErrorException, isDebugMode, rethrow} from "./Utility/errors";
 import CompanyWidget from "./Components/CompanyWidget";
 import IdData, {deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT} from "./Utility/IdData";
+import {SavedCompanies} from "./Components/Wizard";
 import {t_r} from "./Utility/i18n";
 
 const request_articles = {'access': 15, 'erasure': 17, 'rectification': 16};
+
+const HIDE_IN_WIZARD_MODE = [ '.search', '.request-type-chooser', '#data-portability', '#advanced-information', '.company-remove' ];
 
 class Generator extends preact.Component {
     constructor(props) {
@@ -27,7 +30,6 @@ class Generator extends preact.Component {
             blob_url: '',
             download_filename: '',
             batch: [],
-            batch_position: 0,
             modal_showing: '',
             response_type: '',
             fill_fields: [],
@@ -76,12 +78,26 @@ class Generator extends preact.Component {
             rethrow(error, 'PdfWorker error');
         };
 
-        let batch_companies = findGetParamter('companies');
-        if(batch_companies) {
-            this.setState({batch: batch_companies.split(',')});
+        if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies = new SavedCompanies();
+        if(findGetParameter('from') === 'wizard') {
+            if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
+                this.saved_companies.getAll()
+                    .then(companies => {
+                        this.setState({ batch: Object.keys(companies) });
+                        if(this.state.batch && this.state.batch.length > 0) {
+                            fetchCompanyDataBySlug(this.state.batch.shift(), company => { this.setCompany(company); });
+                        }
+                    });
+            }
+            else {
+                let batch_companies = findGetParameter('companies');
+                if(batch_companies) {
+                    this.setState({batch: batch_companies.split(',')});
+                }
+            }
         }
 
-        this.resetInitalConditions();
+        this.resetInitialConditions();
     }
 
     freshRequestData() {
@@ -111,7 +127,7 @@ class Generator extends preact.Component {
         }
     }
 
-    resetInitalConditions() {
+    resetInitialConditions() {
         if(this.state.batch && this.state.batch.length > 0) {
             fetchCompanyDataBySlug(this.state.batch.shift(), company => {
                 this.setCompany(company);
@@ -119,8 +135,8 @@ class Generator extends preact.Component {
         }
 
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            let response_to = findGetParamter('response_to');
-            let response_type = findGetParamter('response_type');
+            let response_to = findGetParameter('response_to');
+            let response_type = findGetParameter('response_type');
             if(response_to && response_type) {
                 this.request_store.getItem(response_to)
                     .then(request => {
@@ -217,7 +233,7 @@ class Generator extends preact.Component {
             <main>
                 {this.state.modal_showing}
                 <header id="generator-header">
-                    <h2 id="generator-heading"><Text id="generate-request"/>: {this.state.request_data['reference']} </h2>
+                    <h2 id="generator-heading"><Text id="reference"/>: {this.state.request_data['reference']} </h2>
                     <div id="generator-controls">
                         {action_button}
                         <button className="button-secondary" id="new-request-button" onClick={() => {
@@ -227,8 +243,11 @@ class Generator extends preact.Component {
                     </div>
                 </header>
                 <div className="clearfix" />
-                <SearchBar id="aa-search-input" index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
-                           placeholder={t('select-company', 'generator')} debug={false}/>
+                <div class="search">
+                    <SearchBar id="aa-search-input" index='companies' onAutocompleteSelected={this.handleAutocompleteSelected}
+                                               placeholder={t('select-company', 'generator')} debug={false}/>
+                    &#0; {/* For some reason, autocomplete.js completely freaks out if it is wrapped in any tag at all and there isn't *anything at all* after it (only in the generator, though). As a workaround, we just use a nullbyte. We are counting on #24 anyway… */}
+                </div>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div id="form-container">
                         <RequestForm onChange={this.handleInputChange} onTypeChange={this.handleTypeChange} onLetterChange={this.handleLetterChange}
@@ -243,7 +262,20 @@ class Generator extends preact.Component {
             </main>);
     }
 
+    adjustAccordingToWizardMode() {
+        let wizard = findGetParameter('from') === 'wizard';
+
+        HIDE_IN_WIZARD_MODE.forEach(selector => { document.querySelectorAll(selector).forEach(el => { if(wizard) el.classList.add('hidden'); else el.classList.remove('hidden'); }) });
+        document.querySelectorAll('.company-info h1').forEach(selector => { selector.style.marginLeft = wizard ? "0" : "" });
+    }
+
+    componentDidUpdate() {
+        this.adjustAccordingToWizardMode();
+    }
+
     componentDidMount() {
+        this.adjustAccordingToWizardMode();
+
         if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
                 this.idData.getAll(false).then((fill_fields) => this.setState({fill_fields: fill_fields}));
@@ -424,6 +456,20 @@ class Generator extends preact.Component {
     }
 
     newRequest() {
+        // TODO: Make sure this ends up in the new canonical place for completed requests, as per #90 (i.e. when the request is saved to 'My requests').
+        if(this.state.request_data.type === 'access' && Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) && this.state.suggestion && this.state.suggestion['slug']) this.saved_companies.remove(this.state.suggestion['slug']);
+
+        // TODO: Same for this.
+        if(findGetParameter('from') === 'wizard' && this.state.batch && this.state.batch.length === 0) {
+            // Remove the GET parameters from the URL so this doesn't get triggered again on the next new request and get the generator out of wizard-mode.
+            window.history.pushState({}, document.title, BASE_URL + 'generator');
+            this.adjustAccordingToWizardMode();
+            this.showModal(
+                <Modal positiveText={t('ok', 'generator')} onPositiveFeedback={this.hideModal} positiveDefault={true} onDismiss={this.hideModal}>
+                    <Text id='wizard-done-modal'/>
+                </Modal>);
+        }
+
         this.setState(prev => {
             prev['request_data'] = this.freshRequestData();
             prev['suggestion'] = null;
@@ -434,7 +480,7 @@ class Generator extends preact.Component {
             return prev;
         });
 
-        this.resetInitalConditions();
+        this.resetInitialConditions();
     }
 
     renderRequest() {
@@ -502,7 +548,7 @@ function slugify(text) {
         .replace(/-+$/, '');            // Trim - from end of text
 }
 
-function findGetParamter(param){
+function findGetParameter(param){
     let tmp = [];
     let result = null;
     location.search.substr(1).split('&').forEach(item => {
