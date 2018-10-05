@@ -28,7 +28,13 @@ module.exports = {
             new UglifyJsPlugin({
                 cache: true,
                 parallel: true,
-                sourceMap: true
+                sourceMap: true,
+                uglifyOptions: {
+                    ie8: false,
+                    mangle: {
+                        safari10: true
+                    }
+                }
             }),
             new OptimizeCSSAssetsPlugin({})
         ],

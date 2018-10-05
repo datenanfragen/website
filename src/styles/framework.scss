@@ -12,9 +12,12 @@
 .col16 { width: 16.666666%; flex: 0.16666666; float: left; }
 .col15 { width: 15%; flex: 0.15; float: left; }
 .col10 { width: 10%; flex: 0.1; float: left; }
+
 .clearfix { clear: both; }
 .after-absolute { width: 100%; position: relative; float: left; }
 .hidden { display: none !important; }
+.mobile-only { @include desktop { display: none !important; } }
+.desktop-only { @include mobile { display: none !important; } }
 
 body {
     margin: 0;
@@ -28,8 +31,12 @@ body {
 
 .container {
     width: 80vw;
-    max-width: 1024px;
+    max-width: $max-width;
     margin: auto;
+
+    @include mobile {
+        width: 90vw;
+    }
 }
 
 h1, h2, h3 {

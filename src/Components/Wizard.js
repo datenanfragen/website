@@ -100,12 +100,11 @@ export default class Wizard extends preact.Component {
             next_button = <button className="button-primary" onClick={() => { this.changeTab(this.state.current_tab + 1)} }><Text id="next"/></button>;
         }
         return (
-            <div id="wizard" className="box">
+            <div>
                 <div id="wizard-tabs">
                     {tabs}
                 </div>
-
-                <div id="wizard-inner">
+                <div id="wizard" className="box">
                     <div id="wizard-selector" className="col50">
                         {
                             this.state.current_tab === 0 ? '' :
