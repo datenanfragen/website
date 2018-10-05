@@ -42,7 +42,7 @@ export default class DynamicInput extends preact.Component {
                 break;
         }
         return (
-            <div className="dynamic-input dynamic-input-textarea" id={'dynamic-input-' + this.props.id + '-' + this.props.suffix}>
+            <div className={"dynamic-input dynamic-input-" + this.props.type} id={'dynamic-input-' + this.props.id + '-' + this.props.suffix}>
                 <div className="col40">
                     <div className="form-group" style="width: 100%; display: table;">
                         <div style="display: table-cell; width: 27px;">

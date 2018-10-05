@@ -174,4 +174,13 @@ export default class DynamicInputContainer extends preact.Component {
         d[this.props.id] = this.getDataArray();
         this.props.onChange(d);
     }
+
+    componentDidUpdate() {DynamicInputContainer.togglePrimaryAddressButton();}
+    componentDidMount() {DynamicInputContainer.togglePrimaryAddressButton();}
+
+    static togglePrimaryAddressButton() {
+        let buttons = document.querySelectorAll('.dynamic-input-address .dynamic-input-primaryButton');
+        if(buttons.length === 1) buttons[0].style.display='none';
+        else buttons[0].style.display='initial';
+    }
 }
