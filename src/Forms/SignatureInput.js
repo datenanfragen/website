@@ -79,7 +79,7 @@ export default class SignatureInput extends preact.Component {
 
     render() {
         return (
-            <div>
+            <div className="signature-input">
                 <h2><Text id="signature" /></h2>
                 <Text id="signature-explanation" />
                 <div><canvas id={this.props.id} style={'background-color: ' + this.state.backgroundColor } ref={el => this.canvas = el} width={this.state.width} height={this.state.height} onMouseMove={this.handleMouse} onMouseDown={this.handleMouse} onMouseUp={this.handleMouse} onMouseOut={this.handleMouse} /></div>

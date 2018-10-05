@@ -39,6 +39,7 @@
     "homepage": "https://www.datenanfragen.de",
     "dependencies": {
         "@babel/core": "^7.0.0",
+        "@babel/plugin-transform-block-scoping": "^7.0.0",
         "@babel/plugin-transform-react-jsx": "^7.0.0",
         "@babel/preset-env": "^7.0.0",
         "autocomplete.js": "^0.31.0",

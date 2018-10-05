@@ -38,6 +38,7 @@
         "delete-all-btn": "Delete all requests",
         "delete-all-confirm": "Do you really want to clear all data? This *cannot* be undone.",
         "export-btn": "Export as CSV",
+        "no-requests": "There are currently no requests. As soon as you start generating ones, they will appear here.",
         "feature-disabled": "You have disabled this feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>."
     },
     "generator": {

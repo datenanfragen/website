@@ -8,6 +8,7 @@
             {
                 "pragma": "preact.h"
             }
-        ]
+        ],
+        ["@babel/plugin-transform-block-scoping"]
     ]
 }

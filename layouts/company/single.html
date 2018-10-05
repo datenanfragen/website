@@ -50,7 +50,7 @@
             </ul>
         {{ end }}
     </div>
-    <div id="companies-help-needed">
+    <div id="companies-help-needed" class="box box-info">
         <!-- TODO: Style properly. -->
         {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "?type=new&for=cdb")) | safeHTML }}
     </div>

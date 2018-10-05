@@ -94,13 +94,14 @@ class PrivacyControls extends preact.Component {
                 <table>
                     {controls}
                 </table>
-                <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies} style="float: right;"><Text id="clear-cookies" /></button>
-                <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton} style="float: right; margin-right: 10px;"><Text id="clear-my-requests" /></button>
-                <button id="clear-id_data-button" className="button-secondary" onClick={PrivacyControls.clearIdData} style="float: right; margin-right: 10px;"><Text id="clear-id_data" /></button>
-                <button id="clear-saved_wizard_entries-button" className="button-secondary" onClick={this.clearSavedCompaniesButton} style="float: right; margin-right: 10px;"><Text id="clear-save_wizard_entries" /></button>
-                {!!Cookie.get('debugging_enabled') ? <button id="debugging-button" className="button-secondary" onClick={() => {
-                    Cookie.set('debugging_enabled', (isDebugMode() ? 'false' : 'true'));
-                }} style="float: right; margin-right: 10px;">Toggle Debugging</button> : [] }
+                <div id="privacy-controls-buttons">
+                    <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies}><Text id="clear-cookies" /></button>
+                    <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton}><Text id="clear-my-requests" /></button>
+                    <button id="clear-id_data-button" className="button-secondary" onClick={PrivacyControls.clearIdData}><Text id="clear-id_data" /></button>
+                    {!!Cookie.get('debugging_enabled') ? <button id="debugging-button" className="button-secondary" onClick={() => {
+                        Cookie.set('debugging_enabled', (isDebugMode() ? 'false' : 'true'));
+                    }}>Toggle Debugging</button> : [] }
+                </div>
                 <div className="clearfix" />
             </main>
         );

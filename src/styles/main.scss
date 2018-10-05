@@ -18,6 +18,12 @@ header#nav-header {
 }
 a #logo {
     height: 32px;
+
+    @include mobile {
+        max-width: 55vw;
+        margin-top: -3px;
+        float: left;
+    }
 }
 #main-nav {
     float: right;
@@ -36,6 +42,14 @@ a #logo {
             top: 33px;
             padding: 0;
 
+            @include mobile {
+                width: 90vw;
+
+                .mobile-only {
+                    border-bottom: 2px solid $primary-color;
+                }
+            }
+
             a.menu-link {
                 display: block;
                 width: 100%;
@@ -49,7 +63,7 @@ a #logo {
                     color: $bg-color;
                 }
 
-                &:first-child {
+                &:first-of-type {
                     border-top: none;
                 }
             }
@@ -84,6 +98,11 @@ a #logo {
     text-align: center;
     font-size: 2.4em;
     color: $primary-color;
+
+    @include mobile {
+        font-size: 2em;
+        hyphens: auto;
+    }
 }
 
 /* Home */
@@ -101,6 +120,10 @@ a #logo {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: $bg-accent-color;
+
+    @include mobile {
+        background-image: none; // TODO: I really don't know how to make this work, so let's skip it for now.
+    }
 }
 
 #home-hero {
@@ -111,6 +134,10 @@ a #logo {
     font-family: $heading-font;
     color: $primary-color;
     font-size: 3em;
+
+    @include mobile {
+        font-size: 2em;
+    }
 }
 #home-hero-content {
     position: absolute;
@@ -122,37 +149,37 @@ a #logo {
     text-align: center;
     font-weight: 200;
     font-size: 1.8em;
+    margin-bottom: 50px;
+
+    @include mobile {
+        font-size: 1.3em;
+    }
 }
 
 /* Wizard */
 #wizard-tabs {
-    margin-bottom: 10px;
+    $tab-border: 4px;
+
     display: flex;
     flex-direction: row;
-    width: 100%;
-    position: absolute;
-    top: -4px;
-    left: 0;
+    width: calc(100% - #{$tab-border});
+
+    @include mobile {
+        flex-wrap: wrap;
+    }
 
     .wizard-tab {
         display: inline-block;
         flex: 1;
 
-        margin-bottom: 10px;
+        @include fake-border($primary-color, $tab-border, $tab-border, $tab-border, $tab-border);
 
-        border: 4px solid $primary-color;
-        border-radius: 0;
-        border-left: none;
         color: $primary-color;
         font-size: 0.9em;
         text-align: center;
-        padding: 10px 5px;
+        padding: (10px + $tab-border) 5px 10px (5px + $tab-border);
 
         cursor: pointer;
-
-        &:last-of-type {
-            border-right: none;
-        }
 
         &.wizard-tab-current {
             background-color: $primary-color;
@@ -169,14 +196,16 @@ a #logo {
     }
 }
 #wizard {
-    margin: 50px 0;
+    margin: 0;
     position: relative;
-    padding-top: 60px;
-}
-#wizard-inner {
-    position: relative;
-    overflow: hidden;
+    padding: 20px;
     min-height: 450px;
+    overflow: hidden;
+}
+#wizard-selector {
+    @include mobile {
+        width: 100%;
+    }
 }
 #wizard-selected {
     position: absolute;
@@ -185,6 +214,11 @@ a #logo {
     overflow-x: hidden;
     top: 0;
     right: 0;
+
+    @include mobile {
+        position: relative;
+        width: 100%; // TODO: The explanation text in the first tab is now wrong but I am too lazy to fix that right now.
+    }
 }
 #wizard-selected button { margin-right: 5px; }
 
@@ -193,8 +227,22 @@ a #logo {
     margin-bottom: 50px;
     display: flex;
 
+    @include mobile {
+        display: block;
+        margin-top: 0;
+    }
+
     .col40 {
         position: relative;
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+    .col60 {
+        @include mobile {
+            width: 100%;
+        }
     }
 
     .feature-image {
@@ -204,6 +252,14 @@ a #logo {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        @include mobile {
+            height: 75px;
+            position: relative;
+            transform: none;
+            left: 0;
+            margin: 10px auto;
+        }
     }
 }
 
@@ -246,6 +302,62 @@ a #logo {
     display: block;
 }
 
+/* My requests */
+
+#my-requests-buttons {
+    float: right;
+    @include mobile {
+        float: none;
+    }
+}
+
+// Inspired by https://codepen.io/AllThingsSmitty/pen/MyqmdM
+table#my-requests-table {
+    border: 4px solid #003bff;
+    border-collapse: collapse;
+
+    margin-bottom: 20px;
+
+    thead {
+        border-bottom: 4px solid #003bff;
+    }
+
+    tr {
+        background-color: $bg-accent-color;
+        border: 1px solid $gray-color;
+
+        &:nth-child(even) {
+            background-color: $bg-color;
+        }
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+
+        &:nth-child(1), &:nth-child(3) {
+            white-space: nowrap;
+        }
+    }
+
+    @include mobile {
+        thead {
+            display: none;
+        }
+
+        tr, td {
+            display: block;
+            text-align: right;
+        }
+
+        td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+        }
+    }
+}
+
 /* Blog */
 
 .blog-letter {
@@ -253,6 +365,10 @@ a #logo {
     background-color: #fff;
     padding: 20px 60px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    @include mobile {
+        padding: 10px 20px;
+    }
 }
 .blog-letter-fill-in:before, .blog-letter-fill-in:after {
     font-weight: bold;
@@ -270,9 +386,18 @@ a #logo {
     flex-direction: row;
     position: relative;
 
+    @include mobile {
+        display: block;
+        padding: 0;
+    }
+
     .article-featured-image {
         max-height: 300px;
         overflow: hidden;
+
+        @include mobile {
+            width: 100%;
+        }
 
         a {
             display: inline;
@@ -282,10 +407,20 @@ a #logo {
             height: 100%;
             width: auto;
             object-fit: cover;
+
+            @include mobile {
+                height: auto;
+            }
         }
     }
 
     .padded {
+        @include mobile {
+            width: auto;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+
         &.col75 {
             padding-left: 15px;
         }
@@ -312,7 +447,18 @@ a #logo {
     }
 }
 
-/* Company List */
+#privacy-controls-buttons {
+    & > button, & > .button {
+        float: right;
+        margin-right: 10px;
+
+        @include mobile {
+            margin: 10px 0 0 0;
+        }
+    }
+}
+
+/* Company list */
 
 $sticky-controls-height: 200px;
 
@@ -320,6 +466,10 @@ $sticky-controls-height: 200px;
     background-color: $bg-color;
     height: $sticky-controls-height;
     z-index: 100;
+
+    @include mobile {
+        height: auto; // TODO: @zner0L No way, I am repairing that…
+    }
 
     &.sticky {
         position: fixed;
@@ -370,7 +520,7 @@ body.sticky-offset {
     }
 }
 
-/* Company Suggestions */
+/* Company suggestions */
 
 .item-index { display: none; }
 
@@ -432,6 +582,11 @@ footer {
     .footer-col {
         box-sizing: border-box;
         padding: 5px;
+
+        @include mobile {
+            width: 100%;
+            float: none;
+        }
     }
 
     ul {
@@ -450,19 +605,5 @@ footer {
         &:active, &:focus, &:hover {
             color: $primary-color;
         }
-    }
-}
-
-@media (max-width: 768px) {
-    .footer-col {
-        width: 100%;
-        float: none;
-    }
-
-    #main-nav { float: none; }
-    #menu-items .button {
-        margin: 0;
-        display: block;
-        text-align: center;
     }
 }
