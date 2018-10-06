@@ -174,7 +174,7 @@ class Generator extends preact.Component {
                 if(Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
                     this.idData.getAllFixed().then((fill_data) => {
                         this.setState((prev) => {
-                            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], fill_data, true, true, true);
+                            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], fill_data, true, true, true, true);
                             return prev;
                         });
                         this.renderRequest();
@@ -348,7 +348,8 @@ class Generator extends preact.Component {
         this.setState(prev => {
             prev.request_data['transport_medium'] = company['suggested-transport-medium'] ? company['suggested-transport-medium'] : company['fax'] ? 'fax' : 'letter';
             prev.request_data['recipient_address'] = company.name + '\n' + company.address + (prev.request_data['transport_medium'] === 'fax' ?'\n' + t('by-fax', 'generator') + company['fax'] : '');
-            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], !!company['required-elements'] && company['required-elements'].length > 0 ? company['required-elements'] : defaultFields(company['request-language']));
+            prev.request_data['id_data'] = IdData.mergeFields(prev.request_data['id_data'], !!company['required-elements'] && company['required-elements'].length > 0 ?
+                company['required-elements'] : defaultFields(!!company['request-language'] && company['request-language'] !== '' ? company['request-language'] : LOCALE));
             prev.request_data['recipient_runs'] = company.runs || [];
             prev.suggestion = company;
             prev.request_data['data_portability'] = company['suggested-transport-medium'] === 'email';
@@ -476,6 +477,7 @@ class Generator extends preact.Component {
             prev['blob_url'] = '';
             prev['download_filename'] = '';
             prev['response_type'] = '';
+            prev['request_done'] = false;
             return prev;
         });
 
