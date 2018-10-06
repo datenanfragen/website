@@ -10,3 +10,7 @@ http://www.datarequests.org/*  https://www.datarequests.org/:splat 301!
 # Configure language rewrites
 https://www.datenanfragen.de/*  /de/:splat 200
 https://www.datarequests.org/*  /en/:splat 200
+
+# Set 404 pages
+https://www.datenanfragen.de/* /de/404.html 404
+https://www.datarequests.org/* /en/404.html 404
