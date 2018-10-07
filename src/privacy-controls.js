@@ -98,6 +98,7 @@ class PrivacyControls extends preact.Component {
                     <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies}><Text id="clear-cookies" /></button>
                     <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton}><Text id="clear-my-requests" /></button>
                     <button id="clear-id_data-button" className="button-secondary" onClick={PrivacyControls.clearIdData}><Text id="clear-id_data" /></button>
+                    <button id="clear-saved-companies-button" className="button-secondary" onClick={PrivacyControls.clearSavedCompanies}><Text id="clear-save_wizard_entries" /></button>
                     {!!Cookie.get('debugging_enabled') ? <button id="debugging-button" className="button-secondary" onClick={() => {
                         Cookie.set('debugging_enabled', (isDebugMode() ? 'false' : 'true'));
                     }}>Toggle Debugging</button> : [] }

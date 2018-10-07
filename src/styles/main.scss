@@ -30,6 +30,10 @@ a #logo {
 }
 
 #menu-items {
+    #{$button} {
+        display: inline;
+    }
+
     .dropdown-container {
         display: inline-block;
 
@@ -450,11 +454,8 @@ table#my-requests-table {
 #privacy-controls-buttons {
     & > button, & > .button {
         float: right;
-        margin-right: 10px;
-
-        @include mobile {
-            margin: 10px 0 0 0;
-        }
+        margin-left: 10px;
+        margin-top: 10px;
     }
 }
 

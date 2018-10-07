@@ -12,6 +12,8 @@
     appearance: none;
     background-color: $bg-color;
     color: $primary-color;
+    display: inline-block;
+    line-height: 1.2;
 
     &:hover {
         background-color: $primary-darker-color;
