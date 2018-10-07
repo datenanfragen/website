@@ -1,17 +1,24 @@
 cache:
   paths:
-  - node_modules/
+    - node_modules/
 
 variables:
   HUGO_VERSION: '0.46'
   HUGO_BINARY: hugo_${HUGO_VERSION}_linux-64bit
+  GLIBC_VERSION: '2.28-r0'
 
-build:
+test:
   stage: build
   image: node:10-alpine
   before_script:
     - apk update
-    - apk add bash git wget py-pygments
+    - apk add bash git wget py-pygments ca-certificates
+
+    # Needed for BrowserStackLocal, see https://github.com/browserstack/browserstack-local-nodejs/issues/32, https://github.com/browserstack/browserstack-local-nodejs/issues/20 and https://github.com/sgerrand/alpine-pkg-glibc
+    - wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
+    - wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk
+    - apk add glibc-${GLIBC_VERSION}.apk glibc-bin-${GLIBC_VERSION}.apk
+
     - rm -rf /var/cache/apk/*
     - mkdir /usr/local/hugo
     - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz -O /usr/local/hugo/${HUGO_BINARY}.tar.gz
@@ -21,26 +28,11 @@ build:
     - rm -rf /tmp/* /var/cache/apk/*
   script:
     - yarn
-    - export DEPLOY_PRIME_URL="http://localhost:8080"
-    - chmod +x deploy-branch.sh
-    - ./deploy-branch.sh
+    - chmod +x deploy.sh
+    - ./deploy.sh
+    - hugo server --baseURL "http://localhost" --config config.toml,config-dev.toml,config-menus.toml > /dev/null &
+    - yarn test
   artifacts:
     paths:
       - public/
-
-test:
-  image: node:10-alpine
-  stage: test
-  dependencies:
-    - build
-  script:
-    - echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
-    - apk update
-    - apk add libexif udev chromium chromium-chromedriver xvfb dbus-x11 ttf-freefont firefox
-    - export CHROME_BIN=/usr/bin/chromium-browser
-    - export CHROME_PATH=/usr/lib/chromium/
-    - rm -rf /var/cache/apk/*
-    - yarn global add geckodriver
-    - yarn http-server ./public -s &
-    - yarn test
-    - exit 0
+      - test/reports/

@@ -176,6 +176,9 @@ $RECYCLE.BIN/
 *.lnk
 
 
+# Nightwatch
+test/reports/
+
 # Hugo
 public/
 content/company/*
