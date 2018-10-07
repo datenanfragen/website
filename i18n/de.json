@@ -141,7 +141,8 @@
         "confirm-delete-id_data": "Du hast das Speichern von Identifikationsdaten deaktiviert. Möchtest Du die zur Zeit gespeicherten Daten auch löschen?",
         "confirm-clear-requests": "Anfragen löschen",
         "cancel": "Abbrechen",
-        "modal-clear-requests": "Damit werden alle gespeicherten Anfragen unwiderruflich von Deinem Computer gelöscht. Bist Du sicher?"
+        "modal-clear-requests": "Damit werden alle gespeicherten Anfragen unwiderruflich von Deinem Computer gelöscht. Bist Du sicher?",
+        "modal-clear-id_data": "Damit werden Deine gespeicherten Identifikationsdaten gelöscht. Bist Du sicher?"
     },
     "error-handler": {
         "explanation": "Es ist leider ein unerwarteter Fehler aufgetreten. Wir wären Dir sehr dankbar, wenn Du Dir die Zeit nehmen würdest, uns eine Fehlermeldung über GitHub oder per E-Mail zu senden, sodass wir das Problem diagnostizieren können. Vielen Dank schon einmal!",
