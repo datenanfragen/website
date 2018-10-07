@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "datenschutz", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 30. August 2018 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
+Unsere Datenschutzerklärung wurde zuletzt am 8. Oktober 2018 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
 
 ## Allgemeine Hinweise
 
@@ -63,11 +63,14 @@ In diesem Abschnitt möchten wir Dir genau erklären, unter welchen Umständen w
 ### Informationen, die wir automatisch sammeln
 
 #### Server-Logdateien
-Wenn Du unsere Webseite aufrufst, baut Dein Browser automatisch eine Verbindung zu einem Server von Netlify, 610 22nd Street, Suite 315, San Francisco CA 94107, USA auf. Dieser speichert dabei einige Informationen über die Verbindung in einer sogenannten Logdatei. Wir haben keinen Zugriff auf diese Logdateien. Mehr Informationen dazu, wie Netlify Deine Daten verarbeitet, kannst Du [deren Datenschutzerklärung](https://www.netlify.com/privacy/) entnehmen.
+Wenn Du unsere Webseite aufrufst, baut Dein Browser automatisch eine Verbindung zu einem Server von Netlify, Inc., 610 22nd Street, Suite 315, San Francisco, CA 94107, USA auf. Dieser speichert dabei einige Informationen über die Verbindung in einer sogenannten Logdatei. Wir haben keinen Zugriff auf diese Logdateien. Mehr Informationen dazu, wie Netlify Deine Daten verarbeitet, kannst Du [deren Datenschutzerklärung](https://www.netlify.com/privacy/) entnehmen.
 
-- Betroffene Daten: die konkrete Unterseite, die Du besucht hast, das Datum und die Uhrzeit Deines Zugriffs, die Herkunft Deiner Anfrage (der sogenannte „Referrer“), Informationen zu Deinem Browser und Betriebssystem (der sogenannte „User-Agent-String“) und Deine IP-Adresse
-- Rechtsgrundlage: Die Speicherung erfolgt auf Grundlage Netlifys berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität ihrer Server im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
-- Dauer der Speicherung: 30 Tage
+Darüber hinaus werden bestimmte Dateien auf unserer Webseite von Servern von Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxemburg, Luxemburg (der autorisierten Vertreterin der Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA im europäischen Wirtschaftsraum) abgerufen. Diese Server legen u.&nbsp;U. kumulierte Statistiken dazu an, wie die Dienste genutzt werden. Wir haben Einblick in diese Statistiken, aber keine Kontrolle darüber, ob und wie sie erhoben werden.  
+Die Amazon Web Services, Inc. ist über die [Amazon.com, Inc.](https://www.privacyshield.gov/participant?id=a2zt0000000TOWQAA4) für das US-europäische Datenschutzabkommen „Privacy Shield“ zertifiziert, welches die Wahrung des EU-Datenschutzniveaus sicherstellt. Mehr Informationen dazu, wie Amazon Web Services Deine Daten verarbeitet, kannst Du [deren Datenschutz-FAQs](https://aws.amazon.com/de/compliance/data-privacy-faq/) entnehmen.
+
+- Betroffene Daten: die konkrete Unterseite, die Du besucht hast, das Datum und die Uhrzeit Deines Zugriffs, die Herkunft Deiner Anfrage (der sogenannte „Referrer“), Informationen zu Deinem Browser und Betriebssystem (der sogenannte „User-Agent-String“), dein Land und Deine IP-Adresse
+- Rechtsgrundlage: Die Speicherung erfolgt auf Grundlage unseres (sowie des unserer Hostinganbieter) berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität der benutzten Server im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
+- Dauer der Speicherung: 30 Tage bei Netlify bzw. 60 Tage bei Amazon Web Services
 
 ### Informationen, die Du uns zur Verfügung stellst
 

@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on August 30, 2018.
+Our privacy policy was last changed on October 8, 2018.
 
 ## General remarks
 
@@ -63,11 +63,14 @@ In this section we would like to explain to you exactly under which circumstance
 ### Data we collect automatically
 
 #### Server log files
-When you visit our website, your browser automatically connects to a server run by Netlify, 610 22nd Street, Suite 315, San Francisco CA 94107, USA. This server will store some information about the connection in a so-called log file. We have no access to these log files. To find out more about how Netlify processes your data, have a look at their [privacy policy](https://www.netlify.com/privacy/).
+When you visit our website, your browser automatically connects to a server run by Netlify, Inc., 610 22nd Street, Suite 315, San Francisco, CA 94107, USA. This server will store some information about the connection in a so-called log file. We have no access to these log files. To find out more about how Netlify processes your data, have a look at their [privacy policy](https://www.netlify.com/privacy/).
 
-- Affected data: the specific page you visited, the date and time of your visit, the origin of your request (the so-called “referrer”), information about your browser and operating system (the so-called “user-agent string”) and your IP address
-- Lawful basis: The data is stored on the basis of Netlify's legitimate interest in improving the stability and functionality of their servers in accordance with Art. 6(1) lit. f GDPR.
-- Duration of storage: 30 days
+In addition to that, some of the files on our website are requested from servers run by Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxembourg, Luxembourg (the authorized representative of Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA in the European economic area). These servers may collect aggregated statistics on how the services are used. While have have access to these statistics, we cannot influence whether or how they are collected.  
+Amazon Web Services, Inc. is certified under the US-European “Privacy Shield” framework, which ensures that the EU data protection level is maintained, through [Amazon.com, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI). For more information on how Amazon Web Services processes your data, please refer to [their data privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).
+
+- Affected data: the specific page you visited, the date and time of your visit, the origin of your request (the so-called “referrer”), information about your browser and operating system (the so-called “user-agent string”), your country and your IP address
+- Lawful basis: The data is stored on the basis of our (and our hosting partners’) legitimate interest in improving the stability and functionality of the servers in use in accordance with Art. 6(1) lit. f GDPR.
+- Duration of storage: 30 days for Netlify; 60 days for Amazon Web Services
 
 ### Data you provide to us
 
