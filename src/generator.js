@@ -204,37 +204,12 @@ class Generator extends preact.Component {
             })} />
         }
 
-        let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
-                               onClick={e => {
-                                   if(!this.state.download_active) {
-                                       e.preventDefault();
-                                   } else {
-                                       this.storeRequest();
-                                       this.setState({request_done: true});
-                                   }
-                               }}><Text id="download-pdf"/>&nbsp;&nbsp;<span className="icon icon-download" /></a>;
-
-        if(this.state.request_data.transport_medium === 'email') {
-            let mailto_link = 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
-                'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t_r('my-reference', this.letter.props.language) + ': ' + this.letter.props.reference + ')' +
-                '&body=' + encodeURIComponent(this.letter.toEmailString());
-            action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled') + ' button-primary'} href={mailto_link}
-                               onClick={e => {
-                                   if(!this.state.blob_url) {
-                                       e.preventDefault();
-                                   } else {
-                                       this.storeRequest();
-                                       this.setState({request_done: true});
-                                   }
-                               }}><Text id="send-email"/>&nbsp;&nbsp;<span className="icon icon-email" /></a>
-        }
-
         return (
             <main>
                 {this.state.modal_showing}
                 <header id="generator-header">
                     <div id="generator-controls" style="margin-bottom: 10px;">
-                        {action_button}
+                        {this.getActionButton()}
                         <button className="button-secondary" id="new-request-button" onClick={() => {
                             if(!this.state.request_done) this.showModal('new_request');
                             else this.newRequest();
@@ -296,11 +271,19 @@ class Generator extends preact.Component {
             let modal_id = modal;
             switch(modal_id) {
                 case 'new_request': // TODO: Logic
-                     modal = (<Modal positiveText={t('new-request', 'generator')} negativeText={t('cancel', 'generator')}
-                                   onNegativeFeedback={this.hideModal} onPositiveFeedback={e => {
-                        this.hideModal();
-                        this.newRequest();
-                    }} positiveDefault={true} onDismiss={this.hideModal}>
+                     modal = (<Modal positiveText={[t(this.state.request_data.transport_medium === 'email' ? 'send-email-first' : 'download-pdf-first', 'generator'),
+                         <span style="margin-left: 10px;" className={"icon " + (this.state.request_data.transport_medium === 'email' ? "icon-email" : "icon-download")} />]} negativeText={t('new-request', 'generator')}
+                                   onNegativeFeedback={e => {
+                                       this.hideModal();
+                                       this.newRequest();
+                                   }} onPositiveFeedback={e => {
+                                       if(this.state.blob_url) {
+                                           this.hideModal();
+                                           this.storeRequest();
+                                           download(this.state.request_data.transport_medium === 'email' ? this.getMailtoLink() : this.state.blob_url, this.state.request_data.transport_medium === 'email' ? null : this.state.download_filename);
+                                           this.newRequest();
+                                       }
+                                   }} positiveDefault={true} onDismiss={this.hideModal}>
                         <Text id='modal-new-request' />
                     </Modal>);
                      break;
@@ -338,6 +321,38 @@ class Generator extends preact.Component {
 
     hideModal() {
         this.setState({'modal_showing': ''});
+    }
+
+    getActionButton() {
+        let action_button = <a id="download-button" className={"button" + (this.state.download_active ? '' : ' disabled') + ' button-primary'} href={this.state.blob_url} download={this.state.download_filename}
+                               onClick={e => {
+                                   if(!this.state.download_active) {
+                                       e.preventDefault();
+                                   } else {
+                                       this.storeRequest();
+                                       this.setState({request_done: true});
+                                   }
+                               }}><Text id="download-pdf"/>&nbsp;&nbsp;<span className="icon icon-download" /></a>;
+
+        if(this.state.request_data.transport_medium === 'email') {
+            action_button = <a id="sendmail-button" className={"button" + (this.state.blob_url ? '' : ' disabled') + ' button-primary'} href={this.getMailtoLink()}
+                               onClick={e => {
+                                   if(!this.state.blob_url) {
+                                       e.preventDefault();
+                                   } else {
+                                       this.storeRequest();
+                                       this.setState({request_done: true});
+                                   }
+                               }}><Text id="send-email"/>&nbsp;&nbsp;<span className="icon icon-email" /></a>
+        }
+
+        return action_button;
+    }
+
+    getMailtoLink() {
+        return 'mailto:' + (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') + '?' +
+        'subject=' + encodeURIComponent(this.letter.props.subject) + ' (' + t_r('my-reference', this.letter.props.language) + ': ' + this.letter.props.reference + ')' +
+        '&body=' + encodeURIComponent(this.letter.toEmailString());
     }
 
     setCompany(company) {
@@ -581,6 +596,21 @@ function defaultFields(locale = LOCALE) {
         "optional": true,
         "value": {"primary": true}
     }];
+}
+
+// Apparently, triggering a download in JavaScript is very hard
+// inspired by: https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
+function download(url, filename) {
+    let element = document.createElement('a');
+    element.setAttribute('href', url);
+    if(filename) element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
 }
 
 preact.render((<IntlProvider scope="generator" definition={I18N_DEFINITION}><Generator/></IntlProvider>), null, document.getElementById('generator'));

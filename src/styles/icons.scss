@@ -79,3 +79,9 @@
     font-icon: 200% url('i18n.svg');
     vertical-align: -10px;
 }
+
+.icon-close:before {
+    @extend %icon;
+    font-icon: 200% url('close.svg');
+    vertical-align: -3px;
+}
