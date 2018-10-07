@@ -250,10 +250,24 @@ input[type="checkbox"].form-element {
     top: 50%;
     width: 500px;
     padding: 20px;
+    padding-top: 35px;
     transform: translate(-50%, -50%);
     background: #FFF;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     animation: in 300ms ease forwards 1;
+    overflow-y: auto;
+    max-height: 95vh;
+
+    a.close-button {
+        color: $primary-color;
+        font-size: 8px;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        cursor: pointer;
+
+        &:hover { color: $primary-darker-color; }
+    }
 
     .button, button {
         @include mobile {
