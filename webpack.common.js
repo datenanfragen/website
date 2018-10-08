@@ -17,7 +17,8 @@ module.exports = {
         'suggest-edit': './src/suggest-edit.js',
         'id-data-controls': './src/id-data-controls.js',
         'pdfworker': './src/PdfWorker.js',
-        'style': './src/styles/main.scss'
+        'style': './src/styles/main.scss',
+        'test-interface': './src/test-interface.js'
     },
     output: {
         filename: 'js/[name].gen.js',

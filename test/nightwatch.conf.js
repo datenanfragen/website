@@ -76,6 +76,7 @@ nightwatch_config = {
     'browserstack.local': true,
     'browserstack.localIdentifier': require('os').hostname(),
     'browserstack.debug': true,
+    'browserstack.console': 'info',
     project: 'datenanfragen/website',
     build: require('child_process')
       .execSync('echo "$(git log -1 --pretty=%B) : $(git rev-parse --short HEAD)"')

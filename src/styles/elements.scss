@@ -397,7 +397,7 @@ input[type="checkbox"].form-element {
     right: 20px;
     z-index: 999;
     width: 350px;
-    height: 90vh;
+    max-height: 90vh;
     overflow: auto;
 
     @include mobile {
