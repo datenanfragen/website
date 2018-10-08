@@ -6,14 +6,16 @@ export default class FlashMessage extends preact.Component {
     constructor(props) {
         super(props);
 
-        if(!this.props.duration) this.props.duration = 5000;
-        if(!this.props.type) this.props.type = 'info';
+        if (!this.props.duration) this.props.duration = 5000;
+        if (!this.props.type) this.props.type = 'info';
         this.state = {
             shown: true,
             fading_out: false
         };
         this.dismiss = this.dismiss.bind(this);
+    }
 
+    componentDidMount() {
         setTimeout(this.dismiss, this.props.duration);
     }
 
@@ -22,7 +24,6 @@ export default class FlashMessage extends preact.Component {
         setTimeout(() => {
             this.setState({ shown: false });
         }, 290);
-
     }
 
     render() {

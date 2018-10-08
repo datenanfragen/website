@@ -13,13 +13,15 @@ module.exports = {
 							browser
 								.elementIdClick(id)
 								.pause(500)
+								.clickAllJs('.flash-message.flash-success a.close-button') // The checkboxes produce a flash—dismiss that. Won't fail if there is no matching element.
 								.assert.visible('.modal', 'Modal shown before clearing via "#' + res.value + '".')
 								.click('.modal .button-primary')
 								.pause(750)
 								.verify.visible(
 									'.flash-message.flash-success',
 									'Flash message shown after clearing via "#' + res.value + '".'
-								);
+								)
+								.clickAllJs('.flash-message.flash-success a.close-button');
 						}
 					});
 				});
@@ -42,6 +44,10 @@ module.exports = {
 							'.flash-message.flash-success',
 							'Flash message shown changing privacy control via "#' + res.value + '".'
 						);
+
+					if (!['search-checkbox'].includes(res.value)) {
+						browser.pause(500).click('.modal .button-primary');
+					}
 				});
 			});
 		});

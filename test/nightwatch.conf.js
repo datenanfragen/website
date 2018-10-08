@@ -97,7 +97,7 @@ nightwatch_config = {
 Object.keys(BROWSERS).forEach(browser => {
   Object.keys(LANGUAGES).forEach(lang => {
     let key = browser + '_' + lang;
-    nightwatch_config['test_settings'][key] = BROWSERS[browser];
+    nightwatch_config['test_settings'][key] = Object.assign({}, BROWSERS[browser]);
     nightwatch_config['test_settings'][key]['launch_url'] = LANGUAGES[lang];
   });
 });
