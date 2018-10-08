@@ -91,3 +91,12 @@ select {
     white-space: nowrap;
     border: 0;
 } /* With thanks to Bootstrap. */
+
+.fade-in { animation: fadeIn 300ms ease forwards 1; }
+@keyframes fadeIn {
+    0% { opacity: 0; }
+}
+.fade-out { animation: fadeOut 300ms ease backwards 1; }
+@keyframes fadeOut {
+    100% { opacity: 0; }
+}

@@ -8,6 +8,7 @@ import IdData from "./Utility/IdData";
 import Cookie from "js-cookie";
 import {isDebugMode} from "./Utility/errors";
 import {SavedCompanies} from "./Components/Wizard";
+import FlashMessage, {flash} from "Components/FlashMessage";
 
 class PrivacyControl extends preact.Component {
     constructor(props) {
@@ -27,8 +28,8 @@ class PrivacyControl extends preact.Component {
             enabled: event.target.checked
         });
 
-        /* TODO: I think we need some kind of 'feedback' here to confirm to the user that the setting has indeed been saved. */
         Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
+        flash(<FlashMessage type="success">{t('cookie-change-success', 'privacy-controls')}</FlashMessage>);
 
         if(this.state.enabled === false) {
             switch(this.props.privacy_action) {
@@ -109,6 +110,10 @@ class PrivacyControls extends preact.Component {
         );
     }
 
+    static successFlash() {
+        flash(<FlashMessage type="success">{t('clear-success', 'privacy-controls')}</FlashMessage>);
+    }
+
     clearRequestsButton() {
         this.showModal(
             <Modal positiveText={t('confirm-clear-requests', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
@@ -144,14 +149,17 @@ class PrivacyControls extends preact.Component {
 
     static clearRequests() {
         (new UserRequests()).clearRequests();
+        PrivacyControls.successFlash();
     }
 
     static clearIdData() {
         (new IdData()).clear(false);
+        PrivacyControls.successFlash();
     }
 
     static clearSavedCompanies() {
         (new SavedCompanies()).clearAll();
+        PrivacyControls.successFlash();
     }
 
     showModal(modal) {
