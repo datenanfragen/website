@@ -37,7 +37,7 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
             };
             if(!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
 
-            this.algolia_autocomplete = autocomplete('#' + this.props.id, { hint: false }, {
+            this.algolia_autocomplete = autocomplete('#' + this.props.id, { hint: false, debug: this.props.debug || false }, {
                 source: (query, callback) => {
                     options['q'] = query;
                     if(this.props.filters) {
@@ -48,7 +48,6 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                         .then((res) => { callback(res.hits); })
                         .catch((e) => { rethrow(e); });
                 },
-                displayKey: 'name',
                 templates: {
                     suggestion: this.props.suggestion_template || function (suggestion) {
                         let d = suggestion.document;
@@ -64,8 +63,7 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     empty: this.props.empty_template || function(query) { return '<p style="margin-left: 10px;">' + t('no-results', 'search') + '<br><a href="' + BASE_URL + 'suggest?type=new&for=cdb&name=' + query.query + '" target="_blank">' + t('suggest-a-company', 'search') + '</a></p>'; },
                     header: this.props.header_template,
                     footer: this.props.footer_template
-                },
-                debug: this.props.debug || false
+                }
             });
             this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
             if (typeof this.props.setupPlaceholderChange === 'function') this.props.setupPlaceholderChange(this.input_element);

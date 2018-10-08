@@ -3,14 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "description": "The Datenanfragen.de website. We want to help you exercise your rights under the GDPR.",
-    "keywords": [
-        "privacy",
-        "gdpr",
-        "eu-gdpr",
-        "hugo",
-        "pdf-generation",
-        "preact"
-    ],
+    "keywords": ["privacy", "gdpr", "eu-gdpr", "hugo", "pdf-generation", "preact"],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/datenanfragen/website.git"
@@ -31,7 +24,9 @@
     "license": "MIT",
     "scripts": {
         "build": "BABEL_ENV=production; webpack --mode=production --config webpack.prod.js",
-        "dev": "webpack --watch --mode=development --config webpack.dev.js"
+        "dev": "webpack --watch --mode=development --config webpack.dev.js",
+        "bs-local": "node -e \"(new (require('browserstack-local')).Local()).start({key: process.env.BROWSERSTACK_ACCESS_KEY, force: 'true', localIdentifier: require('os').hostname()}, ()=>{})\"",
+        "test": "yarn bs-local && test/runner.js"
     },
     "bugs": {
         "url": "https://github.com/datenanfragen/website/issues"
@@ -44,11 +39,13 @@
         "@babel/preset-env": "^7.0.0",
         "autocomplete.js": "^0.31.0",
         "babel-loader": "^8.0.0",
+        "browserstack-local": "^1.3.4",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
         "iconfont-webpack-plugin": "^3.0.0",
         "js-cookie": "^2.2.0",
         "localforage": "^1.7.1",
         "mini-css-extract-plugin": "^0.4.0",
+        "nightwatch": "^0.9.21",
         "node-sass": "^4.9.0",
         "optimize-css-assets-webpack-plugin": "^5.0.0",
         "postcss-loader": "^3.0.0",
@@ -60,7 +57,9 @@
         "react-instantsearch": "^5.0.1",
         "react-scrollspy": "^3.3.5",
         "sass-loader": "^7.0.1",
+        "svg-pathdata": "^5.0.2",
         "svg-url-loader": "^2.3.2",
+        "svgicons2svgfont": "^9.0.3",
         "typesense": "^0.2.0",
         "webpack": "^4.2.0",
         "webpack-cli": "^3.0.8",
