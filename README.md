@@ -11,7 +11,7 @@ Live versions of the website are currently available in [German](https://www.dat
 
 ## Development
 
-[![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=<badge_key>)](https://www.browserstack.com/automate/public-build/<badge_key>) <!-- Still working on the Testing CI in !30 -->
+[![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=TmJoNzBKZm1IMjRyWVRWT2RpbDRtcGhqc3lOa0hXQVdvd1hqT1dsZlhlQT0tLW9TT3ZZNDNiNVBuSU9aQStVU3MzU1E9PQ==--4e6977336bc1f79c108463e38b35cf0b3dc54b66)](https://www.browserstack.com/automate/public-build/TmJoNzBKZm1IMjRyWVRWT2RpbDRtcGhqc3lOa0hXQVdvd1hqT1dsZlhlQT0tLW9TT3ZZNDNiNVBuSU9aQStVU3MzU1E9PQ==--4e6977336bc1f79c108463e38b35cf0b3dc54b66)
 
 Datenanfragen.de is designed as a static website, running on [Hugo](https://gohugo.io/). For the JavaScript and (S)CSS, we use [webpack](https://webpack.js.org/).
 
