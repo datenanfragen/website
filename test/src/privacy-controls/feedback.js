@@ -43,10 +43,14 @@ module.exports = {
 						.assert.visible(
 							'.flash-message.flash-success',
 							'Flash message shown changing privacy control via "#' + res.value + '".'
-						);
+						)
+						.clickAllJs('.flash-message.flash-success a.close-button');
 
 					if (!['search-checkbox'].includes(res.value)) {
-						browser.pause(500).click('.modal .button-primary');
+						browser
+							.pause(500)
+							.click('.modal .button-primary')
+							.clickAllJs('.flash-message.flash-success a.close-button');
 					}
 				});
 			});

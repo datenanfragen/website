@@ -1,5 +1,19 @@
+const child_process = require('child_process');
+
 const MAC_VERSIONS = ['Yosemite', 'El Capitan', 'Sierra', 'High Sierra'];
 const WIN_VERSIONS = ['7', '8', '8.1', '10'];
+
+let branch;
+try {
+  branch =
+    process.env.CI_COMMIT_REF_SLUG ||
+    child_process
+      .execSync('git symbolic-ref --short HEAD')
+      .toString()
+      .trim();
+} catch (e) {
+  branch = 'unknown_branch';
+}
 
 const BROWSERS = {
   win_chrome: {
@@ -77,8 +91,8 @@ nightwatch_config = {
     'browserstack.localIdentifier': require('os').hostname(),
     'browserstack.debug': true,
     'browserstack.console': 'info',
-    project: 'datenanfragen/website',
-    build: require('child_process')
+    project: 'datenanfragen/website' + (branch == 'master' ? '' : '/' + branch),
+    build: child_process
       .execSync('echo "$(git log -1 --pretty=%B) : $(git rev-parse --short HEAD)"')
       .toString()
       .trim()
