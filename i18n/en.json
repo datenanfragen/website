@@ -142,7 +142,10 @@
         "confirm-delete-id_data": "You deactivated the saving of identification data. Do you also want to delete the currently saved data?",
         "confirm-clear-requests": "Delete requests",
         "cancel": "Cancel",
-        "modal-clear-requests": "This will delete all saved requests and cannot be undone. Are you sure?"
+        "modal-clear-requests": "This will delete all saved requests and cannot be undone. Are you sure?",
+        "modal-clear-id_data": "This will delete your saved identification data. Are you sure?",
+        "clear-success": "Cleared successfully.",
+        "cookie-change-success": "Setting saved."
     },
     "error-handler": {
         "explanation": "Unfortunately, an unexpected error just occurred. We would really appreciate if you took the time to send us an error report via GitHub or email, so we can diagnose the problem. Huge thanks in advance!",

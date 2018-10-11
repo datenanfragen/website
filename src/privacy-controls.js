@@ -8,6 +8,7 @@ import IdData from "./Utility/IdData";
 import Cookie from "js-cookie";
 import {isDebugMode} from "./Utility/errors";
 import {SavedCompanies} from "./Components/Wizard";
+import FlashMessage, {flash} from "Components/FlashMessage";
 
 class PrivacyControl extends preact.Component {
     constructor(props) {
@@ -27,8 +28,8 @@ class PrivacyControl extends preact.Component {
             enabled: event.target.checked
         });
 
-        /* TODO: I think we need some kind of 'feedback' here to confirm to the user that the setting has indeed been saved. */
         Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
+        flash(<FlashMessage type="success">{t('cookie-change-success', 'privacy-controls')}</FlashMessage>);
 
         if(this.state.enabled === false) {
             switch(this.props.privacy_action) {
@@ -76,6 +77,7 @@ class PrivacyControls extends preact.Component {
 
         this.clearRequestsButton = this.clearRequestsButton.bind(this);
         this.clearSavedCompaniesButton = this.clearSavedCompaniesButton.bind(this);
+        this.clearIdDataButton = this.clearIdDataButton.bind(this);
         this.hideModal = this.hideModal.bind(this);
         this.showModal = this.showModal.bind(this);
     }
@@ -95,17 +97,21 @@ class PrivacyControls extends preact.Component {
                     {controls}
                 </table>
                 <div id="privacy-controls-buttons">
-                    <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies}><Text id="clear-cookies" /></button>
                     <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton}><Text id="clear-my-requests" /></button>
-                    <button id="clear-id_data-button" className="button-secondary" onClick={PrivacyControls.clearIdData}><Text id="clear-id_data" /></button>
-                    <button id="clear-saved-companies-button" className="button-secondary" onClick={PrivacyControls.clearSavedCompanies}><Text id="clear-save_wizard_entries" /></button>
+                    <button id="clear-id_data-button" className="button-secondary" onClick={this.clearIdDataButton}><Text id="clear-id_data" /></button>
+                    <button id="clear-saved_wizard_entries-button" className="button-secondary" onClick={this.clearSavedCompaniesButton}><Text id="clear-save_wizard_entries" /></button>
                     {!!Cookie.get('debugging_enabled') ? <button id="debugging-button" className="button-secondary" onClick={() => {
                         Cookie.set('debugging_enabled', (isDebugMode() ? 'false' : 'true'));
                     }}>Toggle Debugging</button> : [] }
+                    <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies}><Text id="clear-cookies" /></button>
                 </div>
                 <div className="clearfix" />
             </main>
         );
+    }
+
+    static successFlash() {
+        flash(<FlashMessage type="success">{t('clear-success', 'privacy-controls')}</FlashMessage>);
     }
 
     clearRequestsButton() {
@@ -116,6 +122,17 @@ class PrivacyControls extends preact.Component {
                 PrivacyControls.clearRequests();
             }} positiveDefault={true} onDismiss={this.hideModal}>
                 <Text id='modal-clear-requests' />
+            </Modal>);
+    }
+
+    clearIdDataButton() {
+        this.showModal(
+            <Modal positiveText={t('clear-id_data', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
+                   onNegativeFeedback={this.hideModal} onPositiveFeedback={e => {
+                this.hideModal();
+                PrivacyControls.clearIdData();
+            }} positiveDefault={true} onDismiss={this.hideModal}>
+                <Text id='modal-clear-id_data' />
             </Modal>);
     }
 
@@ -132,14 +149,17 @@ class PrivacyControls extends preact.Component {
 
     static clearRequests() {
         (new UserRequests()).clearRequests();
+        PrivacyControls.successFlash();
     }
 
     static clearIdData() {
         (new IdData()).clear(false);
+        PrivacyControls.successFlash();
     }
 
     static clearSavedCompanies() {
         (new SavedCompanies()).clearAll();
+        PrivacyControls.successFlash();
     }
 
     showModal(modal) {

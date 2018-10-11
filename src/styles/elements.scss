@@ -106,10 +106,10 @@ input:-moz-read-only {
     border-radius: 2px;
     padding: 20px;
 }
-.box-error { border-color: #d8000c; }
-.box-warning { border-color: #ffc107; }
-.box-info { border-color: #bde5f8; }
-.box-success { border-color: #28a745; }
+.box-error { border-color: $error-color; }
+.box-warning { border-color: $warning-color; }
+.box-info { border-color: $info-color; }
+.box-success { border-color: $success-color; }
 
 .select-container {
     position: relative;
@@ -237,11 +237,9 @@ input[type="checkbox"].form-element {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-    animation: fadeIn 300ms ease forwards 1;
     cursor: no-drop;
-}
-@keyframes fadeIn {
-    0% { opacity: 0; }
+
+    @extend .fade-in;
 }
 
 .modal > .inner {
@@ -390,4 +388,56 @@ input[type="checkbox"].form-element {
     .dropdown, .dropup {
         display: none;
     }
+}
+
+/* Flash messages */
+#flash-messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    width: 350px;
+    max-height: 90vh;
+    overflow: auto;
+
+    @include mobile {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+.flash-message {
+    @extend .box;
+    background-color: $bg-color;
+    position: relative;
+    margin-bottom: 10px;
+    padding-right: 45px;
+
+    @extend .fade-in;
+
+    a.close-button {
+        color: $primary-color;
+        font-size: 8px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+    }
+}
+
+.flash-error {
+    border-color: $error-color;
+    a.close-button { color: $error-color; }
+}
+.flash-warning {
+    border-color: $warning-color;
+    a.close-button { color: $warning-color; }
+}
+.flash-info {
+    border-color: $info-color;
+    a.close-button { color: $info-color; }
+}
+.flash-success {
+    border-color: $success-color;
+    a.close-button { color: $success-color; }
 }

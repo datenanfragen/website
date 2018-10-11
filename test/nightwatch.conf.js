@@ -76,6 +76,7 @@ nightwatch_config = {
     'browserstack.local': true,
     'browserstack.localIdentifier': require('os').hostname(),
     'browserstack.debug': true,
+    'browserstack.console': 'info',
     project: 'datenanfragen/website',
     build: require('child_process')
       .execSync('echo "$(git log -1 --pretty=%B) : $(git rev-parse --short HEAD)"')
@@ -96,7 +97,7 @@ nightwatch_config = {
 Object.keys(BROWSERS).forEach(browser => {
   Object.keys(LANGUAGES).forEach(lang => {
     let key = browser + '_' + lang;
-    nightwatch_config['test_settings'][key] = BROWSERS[browser];
+    nightwatch_config['test_settings'][key] = Object.assign({}, BROWSERS[browser]);
     nightwatch_config['test_settings'][key]['launch_url'] = LANGUAGES[lang];
   });
 });
