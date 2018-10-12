@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 #{$button} {
     padding: 11px 24px;
@@ -21,28 +21,33 @@
         border: 2px solid $primary-darker-color;
     }
 
-    &.disabled, &:disabled {
+    &.disabled,
+    &:disabled {
         background-color: $gray-color;
         border: 2px solid $gray-darker-color;
         color: $gray-darker-color !important;
         cursor: not-allowed;
     }
 }
-.button-primary, a.button-primary {
+.button-primary,
+a.button-primary {
     background-color: $primary-color;
     color: #fff !important;
 
-    &.disabled, &:disabled {
+    &.disabled,
+    &:disabled {
         background-color: $gray-color;
         border: 2px solid $gray-darker-color;
         color: $gray-darker-color !important;
     }
 }
-.button-secondary, a.button-secondary {
+.button-secondary,
+a.button-secondary {
     background-color: $bg-color;
     color: $primary-color !important;
 }
-.button.icon:before, button.icon:before {
+.button.icon:before,
+button.icon:before {
     margin-right: 12px;
 }
 .button-small {
@@ -74,11 +79,14 @@ textarea.form-element {
     min-width: 100%;
     line-height: 1.6;
 }
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: $gray-darker-color;
 }
 input:required {
-    background: #ffffff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='rgb(111, 221, 204)' font-size='20' font-family='Fira Sans'>*</text></svg>") no-repeat right;
+    background: #ffffff
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='rgb(111, 221, 204)' font-size='20' font-family='Fira Sans'>*</text></svg>")
+        no-repeat right;
     padding-right: 20px;
     box-shadow: none !important;
 }
@@ -89,13 +97,16 @@ input:required {
     color: $gray-darker-color !important;
     cursor: not-allowed;
 }
-input.readonly, input:disabled, input:read-only { @include disabled-input; }
+input.readonly,
+input:disabled,
+input:read-only {
+    @include disabled-input;
+}
 input:-moz-read-only {
     @include disabled-input;
     // DO NOT REMOVE THIS COMMENT
     // These comments are needed because firefox is unable to sensibly parse CSS. Therefore this has to be a very special snowflake.
 }
-
 
 .box {
     border: 4px solid #003bff;
@@ -106,10 +117,22 @@ input:-moz-read-only {
     border-radius: 2px;
     padding: 20px;
 }
-.box-error { border-color: $error-color; }
-.box-warning { border-color: $warning-color; }
-.box-info { border-color: $info-color; }
-.box-success { border-color: $success-color; }
+.box-error {
+    border-color: $error-color;
+}
+.box-warning {
+    border-color: $warning-color;
+}
+.box-info {
+    border-color: $info-color;
+}
+.box-success {
+    border-color: $success-color;
+}
+
+.box-compact {
+    padding: 10px;
+}
 
 .select-container {
     position: relative;
@@ -156,7 +179,8 @@ input:-moz-read-only {
         border-radius: 0 2px 2px 0;
     }
 
-    &:hover, &.active {
+    &:hover,
+    &.active {
         background-color: $primary-color;
         color: $bg-color;
     }
@@ -164,7 +188,7 @@ input:-moz-read-only {
 
 /* Checkboxes */
 
-input[type="checkbox"].form-element {
+input[type='checkbox'].form-element {
     border: 2px solid $primary-color;
     appearance: none; /* TODO: This is actually a little debatable, since appearance is as of now not supported in every browser (especially IE 11, Edge does though with -webkit- prefix weirdly enough). But it is not breaking, so I think it is ok this way */
     -webkit-appearance: none;
@@ -186,11 +210,14 @@ input[type="checkbox"].form-element {
     display: inline-block;
     position: relative;
 }
-.algolia-autocomplete { width: 100%; }
-.aa-input-search, input[type="search"].aa-input-search {
+.algolia-autocomplete {
+    width: 100%;
+}
+.aa-input-search,
+input[type='search'].aa-input-search {
     padding: 12px 28px 12px 12px;
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     /* box-shadow: $shadow; */
     border: 4px solid $primary-color;
     border-radius: 2px;
@@ -211,9 +238,14 @@ input[type="checkbox"].form-element {
     padding: 12px;
     cursor: pointer;
 }
-.aa-suggestion + .aa-suggestion { border-top: 1px solid rgba(228, 228, 228, 0.6); }
-.aa-suggestion:last-of-type { border-bottom: 1px solid rgba(228, 228, 228, 0.6); }
-.aa-suggestion:hover, .aa-suggestion.aa-cursor {
+.aa-suggestion + .aa-suggestion {
+    border-top: 1px solid rgba(228, 228, 228, 0.6);
+}
+.aa-suggestion:last-of-type {
+    border-bottom: 1px solid rgba(228, 228, 228, 0.6);
+}
+.aa-suggestion:hover,
+.aa-suggestion.aa-cursor {
     background-color: rgba(241, 241, 241, 0.35);
 }
 
@@ -236,7 +268,7 @@ input[type="checkbox"].form-element {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     cursor: no-drop;
 
     @extend .fade-in;
@@ -252,8 +284,8 @@ input[type="checkbox"].form-element {
     padding: 20px;
     padding-top: 35px;
     transform: translate(-50%, -50%);
-    background: #FFF;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     animation: in 300ms ease forwards 1;
     overflow-y: auto;
     max-height: 95vh;
@@ -266,10 +298,13 @@ input[type="checkbox"].form-element {
         right: 20px;
         cursor: pointer;
 
-        &:hover { color: $primary-darker-color; }
+        &:hover {
+            color: $primary-darker-color;
+        }
     }
 
-    .button, button {
+    .button,
+    button {
         @include mobile {
             width: 100%;
             margin-bottom: 10px;
@@ -281,7 +316,10 @@ input[type="checkbox"].form-element {
     }
 }
 @keyframes in {
-    0% { opacity:0; transform:translate(-50%, 0%) scale(0.7); }
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0%) scale(0.7);
+    }
 }
 
 .modal .button-group {
@@ -299,7 +337,6 @@ input[type="checkbox"].form-element {
         .icon {
             float: right;
         }
-
     }
 
     a.accordion-title-link {
@@ -344,7 +381,7 @@ input[type="checkbox"].form-element {
 /* i18n */
 .i18n-button {
     display: block;
-    width: 100%
+    width: 100%;
 }
 
 .dropup.i18n-widget-container {
@@ -374,18 +411,23 @@ input[type="checkbox"].form-element {
 
 /* Dropdown and -up */
 
-.dropdown-container, .dropup-container {
+.dropdown-container,
+.dropup-container {
     position: relative;
 
-    &:hover, &:focus, &:focus-within {
-        .dropdown, .dropup {
+    &:hover,
+    &:focus,
+    &:focus-within {
+        .dropdown,
+        .dropup {
             display: block;
             position: absolute;
             z-index: 998;
         }
     }
 
-    .dropdown, .dropup {
+    .dropdown,
+    .dropup {
         display: none;
     }
 }
@@ -427,17 +469,25 @@ input[type="checkbox"].form-element {
 
 .flash-error {
     border-color: $error-color;
-    a.close-button { color: $error-color; }
+    a.close-button {
+        color: $error-color;
+    }
 }
 .flash-warning {
     border-color: $warning-color;
-    a.close-button { color: $warning-color; }
+    a.close-button {
+        color: $warning-color;
+    }
 }
 .flash-info {
     border-color: $info-color;
-    a.close-button { color: $info-color; }
+    a.close-button {
+        color: $info-color;
+    }
 }
 .flash-success {
     border-color: $success-color;
-    a.close-button { color: $success-color; }
+    a.close-button {
+        color: $success-color;
+    }
 }

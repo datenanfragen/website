@@ -22,7 +22,7 @@
     "my-requests": {
         "title": "My requests",
         "explanation": "Here is a list of all requests you have generated so far with this browser. This can for example be useful to check whether a company answers within the timeframe you set.",
-        "explanation-saving": "This data is saved <strong>exclusively</strong> on your own computer and will never be sent to us. It will remain saved until you use your browser's <em>Clear Browsing Data</em> feature or delete all requests below. You can also export all data as a CSV file.",
+        "explanation-saving": "This data is saved <strong>exclusively</strong> on your own computer and will never be sent to us. It will remain saved until you use your browser’s <em>Clear Browsing Data</em> feature or delete all requests below. You can also export all data as a CSV file.",
         "date": "Date",
         "recipient": "Recipient",
         "reference": "Reference",
@@ -113,16 +113,16 @@
         "complaint": "Complaint",
         "select": "Select",
         "select-authority": "Select supervisory authority…",
-        "modal-select-authority": "Select a data protection supervisory authority you want to lodge your complaint with. You don't necessarily need to lodge your complaint with the authority that is responsible for the company you want to complain about but can also go with the one from where you live (see Art. 77(1) GDPR).",
+        "modal-select-authority": "Select a data protection supervisory authority you want to lodge your complaint with. You don’t necessarily need to lodge your complaint with the authority that is responsible for the company you want to complain about but can also go with the one from where you live (see Art. 77(1) GDPR).",
         "company-read-more": "More information",
         "print-pdf": "Print PDF",
-        "pgp-fingerprint": "PGP-Fingerprint",
+        "pgp-fingerprint": "PGP fingerprint",
         "ok": "Ok",
-        "wizard-done-modal": "And that's it already! You have completed the requests for all companies you selected in the wizard. If you want to, you can now generate additional (more complex) requests."
+        "wizard-done-modal": "And that’s it already! You have completed the requests for all companies you selected in the wizard. If you want to, you can now generate additional (more complex) requests."
     },
     "privacy-controls": {
         "title": "Privacy controls",
-        "explanation": "<p>We deeply value your right to privacy and try to limit data collection and processing as much as possible. Most of the features on datarequests.org will be run directly on your computer and the data you enter will never even reach our servers. There are however some features we cannot offer without collecting some data (most settings even on this page <strong>do not</strong> require that, though).<br>Here, you have the option to decide yourself which features you want to enable.</p><p>When you set any of the options below, your choice will be saved in a cookie. If we don't find a cookie for an option, we use a default value which we have decided on.</p>",
+        "explanation": "<p>We deeply value your right to privacy and try to limit data collection and processing as much as possible. Most of the features on datarequests.org will be run directly on your computer and the data you enter will never even reach our servers. There are however some features we cannot offer without collecting some data (most settings even on this page <strong>do not</strong> require that, though).<br>Here, you have the option to decide yourself which features you want to enable.</p><p>When you set any of the options below, your choice will be saved in a cookie. If we don’t find a cookie for an option, we use a default value which we have decided on.</p>",
         "clear-cookies": "Clear all cookies",
         "clear-my-requests": "Clear all saved requests",
         "confirm-delete-my-requests": "You have disabled the “my requests” feature. Do you also want to delete all saved requests?",
@@ -206,15 +206,15 @@
         "other": "other"
     },
     "wizard": {
-        "suggested": "<p>The first step to taking back control over your data is knowing what data companies have stored on you. Our wizard helps you identify companies that may store personal data on you and then send GDPR access requests to them.</p><p>On the right, we have kickstarted your list with some companies. Looks like a lot and you don't recognize most of them? Tell us about it! From our experience, these companies hold data on pretty much everyone in your country (if you aren't in {{country}}, you can change this setting down at the very bottom of the page). We believe it is thus all the more important to ask them about your personal data.</p><p>In addition to those, we will suggest categories of companies to you that you may have actually interacted with in the next few steps. You can then add more companies from those categories and of course always remove previously added companies if you decide differently.</p><p>Once you're happy with the selection, click ‘Next’ to head to the first category.</p>",
-        "commerce": "<p>Let's start with commerce. Shopping a lot on Amazon or Ebay? You probably know already that online shops like to collect plenty of personal data on their users, so be sure to add the ones you use or have used in the past.</p><p>Worryingly, brick-and-mortar stores are also increasingly profiling their customers and we suggest at least adding the ones you visit regularly or where they have actively asked you for your data.</p><p>To add a company, just use the search bar above.</p>",
+        "suggested": "<p>The first step to taking back control over your data is knowing what data companies have stored on you. Our wizard helps you identify companies that may store personal data on you and then send GDPR access requests to them.</p><p>On the right, we have kickstarted your list with some companies. Looks like a lot and you don’t recognize most of them? Tell us about it! From our experience, these companies hold data on pretty much everyone in your country (if you aren’t in {{country}}, you can change this setting down at the very bottom of the page). We believe it is thus all the more important to ask them about your personal data.</p><p>In addition to those, we will suggest categories of companies to you that you may have actually interacted with in the next few steps. You can then add more companies from those categories and of course always remove previously added companies if you decide differently.</p><p>Once you’re happy with the selection, click ‘Next’ to head to the first category.</p>",
+        "commerce": "<p>Let’s start with commerce. Shopping a lot on Amazon or Ebay? You probably know already that online shops like to collect plenty of personal data on their users, so be sure to add the ones you use or have used in the past.</p><p>Worryingly, brick-and-mortar stores are also increasingly profiling their customers and we suggest at least adding the ones you visit regularly or where they have actively asked you for your data.</p><p>To add a company, just use the search bar above.</p>",
         "entertainment": "<p>Do you remember what movie you last watched on Netflix, what the song with the most plays on your Spotify account is or how many hours you have spent playing your favorite steam game? Those companies certainly do.</p>",
-        "social media": "<p>If you are a member of any social network (like Facebook, WhatsApp, Twitter and Google+), don't forget to add those.</p>",
+        "social media": "<p>If you are a member of any social network (like Facebook, WhatsApp, Twitter and Google+), don’t forget to add those.</p>",
         "finance": "<p>You likely have at least a bank account and maybe a separate credit card. But this category also includes payment providers like PayPal and Patreon.<br>Or maybe you have traded in crypto currency at some exchange?</p>",
-        "insurance": "<p>This category should be fairly obvious. Just don't forget that companies will often sell you insurances for non-obvious things these days, including travel and small electronic device purchases.</p>",
-        "telecommunication": "<p>Your phone provider and ISP may remember all your calls for billing purposes. We also recommend asking your email provider for what data they save on you—let's hope they don't scan your emails!<br>If you run a website, also ask your hoster and domain registrar.</p>",
+        "insurance": "<p>This category should be fairly obvious. Just don’t forget that companies will often sell you insurances for non-obvious things these days, including travel and small electronic device purchases.</p>",
+        "telecommunication": "<p>Your phone provider and ISP may remember all your calls for billing purposes. We also recommend asking your email provider for what data they save on you—let’s hope they don’t scan your emails!<br>If you run a website, also ask your hoster and domain registrar.</p>",
         "utility": "<p>Hang in there, we are almost done. By utilities, we mean gas, power, water, sewage etc. but also things like public transport.</p>",
-        "other": "<p>Phew, you have reached the last category. Thanks for sticking with us!</p><p>Of course, there are way too many diverse companies out there for us to fit them all into a category. In this last step, you can search through our entire database to catch all companies we've missed in the previous steps.</p><p>Once you've added all companies you want, click the button to go to the generator where we will actually generate the requests to the companies you have selected.</p>",
+        "other": "<p>Phew, you have reached the last category. Thanks for sticking with us!</p><p>Of course, there are way too many diverse companies out there for us to fit them all into a category. In this last step, you can search through our entire database to catch all companies we’ve missed in the previous steps.</p><p>Once you’ve added all companies you want, click the button to go to the generator where we will actually generate the requests to the companies you have selected.</p>",
         "next": "Next",
         "finish": "Done adding companies",
         "search-company": "Search for “{{category}}” companies…"
@@ -260,5 +260,16 @@
         "language-change-modal": "Changing the language will redirect you to another domain. Your settings and saved data from this domain will not carry over.<br>In particular, this means that things like your privacy settings and saved requests will not be available in the new language. You can still always go back to this language and view them here but you cannot share settings and saved data between different languages.",
         "change-lang": "Change language",
         "stay": "Stay here"
+    },
+    "comments": {
+        "comments": "Comments",
+        "comment": "Comment",
+        "author": "Autor",
+        "submit": "Submit",
+        "send-success": "Comment sent successfully. It will have to be accepted by an administrator first before it is shown here.",
+        "send-error": "Bitte versuche es später erneut. An error occurred while sending your comment. Please try again later.",
+        "error-no-message": "Please enter a comment to send.",
+        "no-comments": "No comments here yet. Why don’t you leave one?",
+        "leave-comment": "Leave a comment"
     }
 }

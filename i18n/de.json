@@ -259,5 +259,16 @@
         "language-change-modal": "Wenn Du die Sprache wechelst, wirst Du zu einer anderen Domain weitergeleitet. Deine Einstellungen und gespeicherten Daten werden nicht übernommen.<br>Insbesondere bedeutet das, dass z.&nbsp;B. Deine Datenschutzeinstellungen und gespeicherten Anfragen nicht in der neuen Sprache verfügbar sein werden. Du kannst diese natürlich trotzdem jederzeit in dieser Sprache verwenden, aber Einstellungen und Daten können leider nicht zwischen verschiedenen Sprachen geteilt werden.",
         "change-lang": "Trotzdem wechseln",
         "stay": "Hier bleiben"
+    },
+    "comments": {
+        "comments": "Kommentare",
+        "comment": "Kommentar",
+        "author": "Autor",
+        "submit": "Absenden",
+        "send-success": "Kommentar erfolgreich abgesendet. Der Kommentar wird erst angezeigt, wenn er von einer Administrator_in überprüft wurde.",
+        "send-error": "Fehler beim Absenden des Kommentars. Bitte versuche es später erneut.",
+        "error-no-message": "Bitte gib einen Kommentar zum Absenden ein.",
+        "no-comments": "Noch keine Kommentare vorhanden. Hinterlass’ doch einen!",
+        "leave-comment": "Kommentar hinterlassen"
     }
 }
