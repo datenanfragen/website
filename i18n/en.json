@@ -264,10 +264,10 @@
     "comments": {
         "comments": "Comments",
         "comment": "Comment",
-        "author": "Autor",
+        "author": "Author",
         "submit": "Submit",
         "send-success": "Comment sent successfully. It will have to be accepted by an administrator first before it is shown here.",
-        "send-error": "Bitte versuche es später erneut. An error occurred while sending your comment. Please try again later.",
+        "send-error": "An error occurred while sending your comment. Please try again later.",
         "error-no-message": "Please enter a comment to send.",
         "no-comments": "No comments here yet. Why don’t you leave one?",
         "leave-comment": "Leave a comment"

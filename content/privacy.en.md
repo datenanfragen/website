@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on October 8, 2018.
+Our privacy policy was last changed on October 12, 2018.
 
 ## General remarks
 
@@ -83,8 +83,8 @@ You do not have to provide any data to contact us, so the disclosure of this dat
 - Lawful basis: The storage is based on our legitimate interest in replying to your message in accordance with Art. 6(1) lit. f GDPR.
 - Duration of storage: as long as there are legal storage obligations
 
-#### User content in our company database
-If you post content in our company database, it may contain personal data. The disclosure of this data is entirely voluntary for you. Not providing it has no influence on your use of our website.
+#### User content (like comments and contributions to our company database)
+If you post content on datarequests.org (like comments or contributions to our company database), it may contain personal data. The disclosure of this data is entirely voluntary for you. Not providing it has no influence on your use of our website.
 
 - Affected data: the data you provide in your contribution
 - Lawful basis: The basis of the storage is our legitimate interest to display the user contributions on our website in accordance with Art. 6(1) lit. a GDPR.

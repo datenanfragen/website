@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "datenschutz", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 8. Oktober 2018 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
+Unsere Datenschutzerklärung wurde zuletzt am 12. Oktober 2018 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
 
 ## Allgemeine Hinweise
 
@@ -83,8 +83,8 @@ Zur Kontaktaufnahme musst Du selbstverständlich keinerlei Daten angeben, von da
 - Rechtsgrundlage: Die Speicherung beruht auf unserem berechtigten Interesse an der Beantwortung Deiner Nachricht im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
 - Dauer der Speicherung: solange gesetzliche Aufbewahrungspflichten vorliegen
 
-#### Nutzer_inneninhalte zur Unternehmensdatenbank
-Wenn Du Inhalte in unserer Unternehmensdatenbank veröffentlichst, enthalten diese u.&nbsp;U. personenbezogene Daten. Die Bereitstellung dieser Daten ist vollkommen freiwillig für Dich. Es ergeben sich keinerlei Konsequenzen aus einer Nichtbereitstellung.
+#### Nutzer_inneninhalte (z.&nbsp;B. Kommentare und Beiträge zur Unternehmensdatenbank)
+Wenn Du Inhalte auf Datenanfragen.de veröffentlichst (z.&nbsp;B. in Form von Kommentaren oder Beiträgen zu unserer Unternehmensdatenbank), enthalten diese u.&nbsp;U. personenbezogene Daten. Die Bereitstellung dieser Daten ist vollkommen freiwillig für Dich. Es ergeben sich keinerlei Konsequenzen aus einer Nichtbereitstellung.
 
 - Betroffene Daten: die Daten, die Du in Deinem Beitrag angibst
 - Rechtsgrundlage: Die Grundlage der Speicherung ist unser rechtmäßiges Interesse, die Nutzer_innenbeiträge auf unserer Webseite anzuzeigen im Sinne des Art. 6 Abs. 1 lit. a DSGVO.
