@@ -35,7 +35,13 @@ export default class CommentsWidget extends preact.Component {
                     <h2>
                         <Text id="comments" />
                     </h2>
-                    {!comment_elements || comment_elements.length === 0 ? <Text id="no-comments" /> : comment_elements}
+                    {!comment_elements || comment_elements.length === 0 ? (
+                        <p>
+                            <Text id="no-comments" />
+                        </p>
+                    ) : (
+                        comment_elements
+                    )}
                     <CommentForm />
                 </div>
             </IntlProvider>
@@ -152,9 +158,11 @@ export class CommentForm extends preact.Component {
                 target: TARGET
             })
         })
-            .then(() => {
+            .then(response => {
+                if (!response.ok) throw new Error('Unexpected response from comments server.');
+
                 flash(<FlashMessage type="success">{t('send-success', 'comments')}</FlashMessage>);
-                this.setState({ author: '', message: '' });
+                this.setState({ message: '' });
             })
             .catch(err => {
                 rethrow(err);
