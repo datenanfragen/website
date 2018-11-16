@@ -4,6 +4,10 @@
         <div id="page-content">
             {{ .Content }}
         </div>
+
+        {{ if and (eq .Type "blog") (not .Params.disable_comments) }}
+        	<div id="comments-widget"></div>
+        {{ end }}
     </article>
 </main>
 {{ end }}
