@@ -206,7 +206,6 @@ a #logo {
     position: relative;
     padding: 20px;
     min-height: 450px;
-    overflow: hidden;
 }
 #wizard-selector {
     @include mobile {
@@ -215,11 +214,20 @@ a #logo {
 }
 #wizard-selected {
     position: absolute;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    top: 0;
+    height: calc(100% - 35px);
+    top: 20px;
     right: 0;
+    overflow: hidden;
+
+    .wizard-selected-list {
+        height: 90%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        p:first-of-type {
+            margin-top: 0;
+        }
+    }
 
     @include mobile {
         position: relative;
