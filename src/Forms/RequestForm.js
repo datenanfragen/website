@@ -144,7 +144,7 @@ export default class RequestForm extends preact.Component {
         return (
             <div className="request-form">
                 <div className="col50" style="margin-right: 20px;">
-                    <div className="box" style="margin-bottom: 20px;">
+                    <div className="request-parameters box" style="margin-bottom: 20px;">
                         <h2>
                             <Text id="request-parameters" />
                         </h2>

@@ -13,6 +13,9 @@ import CompanyWidget from './Components/CompanyWidget';
 import IdData, { deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/IdData';
 import { SavedCompanies } from './Components/Wizard';
 import { t_r } from './Utility/i18n';
+import Joyride from 'react-joyride';
+import { tutorial_steps } from './wizard-tutorial.js';
+import Cookie from 'js-cookie';
 
 const request_articles = { access: 15, erasure: 17, rectification: 16 };
 
@@ -41,7 +44,8 @@ class Generator extends preact.Component {
             fill_fields: [],
             fill_signature: null,
             response_request: {},
-            request_done: false // TODO: Maybe change according to #98
+            request_done: false, // TODO: Maybe change according to #98
+            run_wizard_tutorial: false
         };
 
         this.database_url = BASE_URL + 'db/';
@@ -70,6 +74,7 @@ class Generator extends preact.Component {
         this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
         this.hideModal = this.hideModal.bind(this);
+        this.tutorialCallback = this.tutorialCallback.bind(this);
 
         this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
         this.pdfWorker.onmessage = message => {
@@ -93,6 +98,8 @@ class Generator extends preact.Component {
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies = new SavedCompanies();
         if (findGetParameter('from') === 'wizard') {
+            if (Cookie.get('finished_wizard_tutorial') !== 'true') this.state.run_wizard_tutorial = true;
+
             if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
                 this.saved_companies.getAll().then(companies => {
                     this.setState({ batch: Object.keys(companies) });
@@ -228,6 +235,10 @@ class Generator extends preact.Component {
             });
     }
 
+    tutorialCallback(data) {
+        if (data.type == 'finished') Cookie.set('finished_wizard_tutorial', 'true', { expires: 365 });
+    }
+
     render() {
         let company_widget = '';
         let new_request_text = 'new-request';
@@ -250,6 +261,25 @@ class Generator extends preact.Component {
 
         return (
             <main>
+                <Joyride
+                    ref={c => (this.tutorial = c)}
+                    callback={this.tutorialCallback}
+                    steps={tutorial_steps}
+                    type="continuous"
+                    run={this.state.run_wizard_tutorial}
+                    autoStart={true}
+                    locale={{
+                        back: t('back', 'wizard_tutorial'),
+                        close: t('close', 'wizard_tutorial'),
+                        last: t('finish', 'wizard_tutorial'),
+                        next: t('next', 'wizard_tutorial'),
+                        skip: t('skip', 'wizard_tutorial')
+                    }}
+                    showSkipButton={true}
+                    showStepsProgress={true}
+                    showOverlay={false}
+                />
+
                 {this.state.modal_showing}
                 <header id="generator-header">
                     <div id="generator-controls" style="margin-bottom: 10px;">
@@ -274,8 +304,7 @@ class Generator extends preact.Component {
                         placeholder={t('select-company', 'generator')}
                         debug={false}
                     />
-                    &#0;{' '}
-                    {/* For some reason, autocomplete.js completely freaks out if it is wrapped in any tag at all and there isn't *anything at all* after it (only in the generator, though). As a workaround, we just use a nullbyte. We are counting on #24 anyway… */}
+                    {/* For some reason, autocomplete.js completely freaks out if it is wrapped in any tag at all and there isn't *anything at all* after it (only in the generator, though). As a workaround, we just use a space. We are counting on #24 anyway… */}{' '}
                 </div>
                 <div id="request-generator" className="grid" style="margin-top: 10px;">
                     <div id="form-container">

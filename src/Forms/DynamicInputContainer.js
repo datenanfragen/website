@@ -90,7 +90,7 @@ export default class DynamicInputContainer extends preact.Component {
                 );
             });
         return (
-            <div>
+            <div class="dynamic-input-container">
                 <h2>{this.props.title}</h2>
                 {this.props.children}
                 <div id={'request-dynamic-input-' + this.props.id}>{input_elements}</div>

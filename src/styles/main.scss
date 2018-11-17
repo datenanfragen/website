@@ -635,3 +635,27 @@ footer {
         }
     }
 }
+
+/* Tutorial */
+$joyride-color: $primary-color;
+@import '~react-joyride/lib/react-joyride';
+button.joyride-tooltip__button {
+    &:hover {
+        border: none;
+        background-color: inherit;
+        color: $primary-darker-color !important;
+    }
+}
+button.joyride-tooltip__button--primary {
+    border-radius: 2px;
+
+    &:hover {
+        background-color: $primary-darker-color;
+        color: $bg-color !important;
+    }
+}
+button.joyride-tooltip__button--skip {
+    &:hover {
+        color: $gray-darker-color !important;
+    }
+}
