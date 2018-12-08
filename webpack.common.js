@@ -1,23 +1,23 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 module.exports = {
     entry: {
         'error-handler': './src/error-handler.js',
-        'general': './src/general.js',
-        'home': './src/home.js',
-        'generator': './src/generator.js',
+        general: './src/general.js',
+        home: './src/home.js',
+        generator: './src/generator.js',
         'company-list': './src/company-list.js',
         'my-requests': './src/my-requests.js',
         'privacy-controls': './src/privacy-controls.js',
         'suggest-edit': './src/suggest-edit.js',
         'id-data-controls': './src/id-data-controls.js',
-        'pdfworker': './src/PdfWorker.js',
-        'style': './src/styles/main.scss',
+        pdfworker: './src/PdfWorker.js',
+        style: './src/styles/main.scss',
         'test-interface': './src/test-interface.js'
     },
     output: {
@@ -25,20 +25,7 @@ module.exports = {
         path: path.resolve(__dirname, 'static')
     },
     optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true,
-                uglifyOptions: {
-                    ie8: false,
-                    mangle: {
-                        safari10: true
-                    }
-                }
-            }),
-            new OptimizeCSSAssetsPlugin({})
-        ],
+        minimizer: [new OptimizeCSSAssetsPlugin({})],
         splitChunks: {
             cacheGroups: {
                 styles: {
@@ -70,9 +57,7 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: (loader) => [
-                                new IconfontWebpackPlugin(loader)
-                            ]
+                            plugins: loader => [new IconfontWebpackPlugin(loader)]
                         }
                     },
                     'sass-loader'
@@ -86,30 +71,38 @@ module.exports = {
                 }
             },
             {
-			    test: /\.svg/,
-			    use: {
-			        loader: 'svg-url-loader',
-			        options: {}
-			    }
-			}
+                test: /\.svg/,
+                use: {
+                    loader: 'svg-url-loader',
+                    options: {}
+                }
+            }
         ]
     },
     plugins: [
+        new MinifyPlugin(),
+
         new MiniCssExtractPlugin({
             filename: 'css/[name].gen.css'
         }),
 
-        new webpack.BannerPlugin('[file]\nThis code is part of the Datenanfragen.de project. We want to help you exercise your rights under the GDPR.\n\n@license MIT\n@author the Datenanfragen.de project\n@version ' + process.env.npm_package_version + '\n@updated ' + new Date().toISOString() + '\n@see {@link https://github.com/datenanfragen/website|Code repository}\n@see {@link https://www.datenanfragen.de|German website}\n@see {@link https://datarequests.org|English website}'),
+        new webpack.BannerPlugin(
+            '[file]\nThis code is part of the Datenanfragen.de project. We want to help you exercise your rights under the GDPR.\n\n@license MIT\n@author the Datenanfragen.de project\n@version ' +
+                process.env.npm_package_version +
+                '\n@updated ' +
+                new Date().toISOString() +
+                '\n@see {@link https://github.com/datenanfragen/website|Code repository}\n@see {@link https://www.datenanfragen.de|German website}\n@see {@link https://datarequests.org|English website}'
+        ),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
         new webpack.DefinePlugin({
-          CODE_VERSION: JSON.stringify(process.env.npm_package_version)
-        }),
+            CODE_VERSION: JSON.stringify(process.env.npm_package_version)
+        })
     ],
     resolve: {
-        modules: [ 'src', 'node_modules', 'i18n', 'res/icons' ],
+        modules: ['src', 'node_modules', 'i18n', 'res/icons'],
         alias: {
-            'react': 'preact-compat',
+            react: 'preact-compat',
             'react-dom': 'preact-compat',
             // Not necessary unless you consume a module using `createClass`
             'create-react-class': 'preact-compat/lib/create-react-class'
