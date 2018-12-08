@@ -74,7 +74,6 @@ class Generator extends preact.Component {
         this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
         this.hideModal = this.hideModal.bind(this);
-        this.tutorialCallback = this.tutorialCallback.bind(this);
 
         this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
         this.pdfWorker.onmessage = message => {
@@ -560,8 +559,8 @@ class Generator extends preact.Component {
             prev.request_data['transport_medium'] = company['suggested-transport-medium']
                 ? company['suggested-transport-medium']
                 : company['fax']
-                    ? 'fax'
-                    : 'letter';
+                ? 'fax'
+                : 'letter';
             prev.request_data['recipient_address'] =
                 company.name +
                 '\n' +
