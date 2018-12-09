@@ -1,5 +1,5 @@
 import preact from 'preact';
-import DynamicInput from "./DynamicInput";
+import DynamicInput from './DynamicInput';
 import { Text, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
 
@@ -19,10 +19,10 @@ export default class DynamicInputContainer extends preact.Component {
     // Relevant issue: https://github.com/developit/preact/issues/1047
     static getDerivedStateFromProps(nextProps, prevState) {
         let fields_object = {};
-        let primary_address = prevState['primary_address'] || "0";
+        let primary_address = prevState['primary_address'] || '0';
         nextProps.fields.forEach((field, i) => {
-            if(field['value']) {
-                if(field.type === 'address' && field.value['primary']) primary_address = "" + (i + 1);
+            if (field['value']) {
+                if (field.type === 'address' && field.value['primary']) primary_address = '' + (i + 1);
             } else field['value'] = field['type'] === 'address' ? {} : '';
             fields_object[i + 1] = field;
         });
@@ -35,56 +35,100 @@ export default class DynamicInputContainer extends preact.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(this.props !== nextProps) {
+        if (this.props !== nextProps) {
             this.setState(DynamicInputContainer.getDerivedStateFromProps(nextProps, this.state));
         }
     }
 
     render() {
         let input_elements = [];
-        for(let i in this.state.fields) {
+        for (let i in this.state.fields) {
             let field = this.state.fields[i];
-            input_elements.push(<DynamicInput key={i} id={i} suffix={this.props.id} type={field.type} desc={field.desc} optional={field.optional}
-                                              removeHandler={this.removeDynamicInput} onChange={this.handleInputChange}
-                                              hasPrimary={this.props.hasPrimary} onPrimaryChange={this.handleInputChange} value={field.value} onAction={this.props.onAction}/>);
+            input_elements.push(
+                <DynamicInput
+                    key={i}
+                    id={i}
+                    suffix={this.props.id}
+                    type={field.type}
+                    desc={field.desc}
+                    optional={field.optional}
+                    removeHandler={this.removeDynamicInput}
+                    onChange={this.handleInputChange}
+                    hasPrimary={this.props.hasPrimary}
+                    onPrimaryChange={this.handleInputChange}
+                    value={field.value}
+                    onAction={this.props.onAction}
+                />
+            );
         }
         let fill_fields = [];
-        if(this.props.fillFields) this.props.fillFields.forEach((field) => {
-            fill_fields.push(
-                <div className="fill-field">
-                    <div style="display: table-cell">{field.desc}: <span class="fill-field-value">{field.type === 'address' ? (field.value['street_1'] ? field.value['street_1'] + " …" : "") : field.value}</span></div>
-                    <div style="display: table-cell; width: 60px;"><button style="float: none;" className="button-small button-primary icon-arrow-right" onClick={() => {
-                        this.addFillField(field);
-                    }} title={t('add-input', 'generator')}/></div>
-                </div>);
-        });
+        if (this.props.fillFields)
+            this.props.fillFields.forEach(field => {
+                fill_fields.push(
+                    <div className="fill-field">
+                        <div style="display: table-cell">
+                            {field.desc}:{' '}
+                            <span class="fill-field-value">
+                                {field.type === 'address'
+                                    ? field.value['street_1']
+                                        ? field.value['street_1'] + ' …'
+                                        : ''
+                                    : field.value}
+                            </span>
+                        </div>
+                        <div style="display: table-cell; width: 60px;">
+                            <button
+                                style="float: none;"
+                                className="button-small button-primary icon-arrow-right"
+                                onClick={() => {
+                                    this.addFillField(field);
+                                }}
+                                title={t('add-input', 'generator')}
+                            />
+                        </div>
+                    </div>
+                );
+            });
         return (
-            <div>
+            <div class="dynamic-input-container">
                 <h2>{this.props.title}</h2>
                 {this.props.children}
-                <div id={"request-dynamic-input-" + this.props.id}>
-                    {input_elements}
-                </div>
+                <div id={'request-dynamic-input-' + this.props.id}>{input_elements}</div>
                 <div className="dynamic-input-controls">
-                    <Text id="add-dynamic-input-explanation" /><br />
+                    <Text id="add-dynamic-input-explanation" />
+                    <br />
                     <div className="select-container">
-                        <select id={"dynamic-input-type-" + this.props.id} onChange={this.handleTypeChange}>
-                            <option value="input" selected><Text id="input-single-line" /></option>
-                            <option value="textarea"><Text id="input-multi-line" /></option>
-                            <option value="address"><Text id="input-address" /></option>
+                        <select id={'dynamic-input-type-' + this.props.id} onChange={this.handleTypeChange}>
+                            <option value="input" selected>
+                                <Text id="input-single-line" />
+                            </option>
+                            <option value="textarea">
+                                <Text id="input-multi-line" />
+                            </option>
+                            <option value="address">
+                                <Text id="input-address" />
+                            </option>
                         </select>
                         <div className="icon icon-arrow-down" />
                     </div>
-                    <button className="button-secondary" id={"add-dynamic-inputs-" + this.props.id} onClick={this.addDynamicInput}><Text id="add-input" /></button>
-                    {this.props.fillFields && fill_fields.length > 0 ?
+                    <button
+                        className="button-secondary"
+                        id={'add-dynamic-inputs-' + this.props.id}
+                        onClick={this.addDynamicInput}>
+                        <Text id="add-input" />
+                    </button>
+                    {this.props.fillFields && fill_fields.length > 0 ? (
                         <div class="dropdown-container">
-                            <a class="button button-primary" href="javascript:void(0)"><span class="icon icon-fill"></span></a>
+                            <a class="button button-primary" href="javascript:void(0)">
+                                <span class="icon icon-fill" />
+                            </a>
                             <div class="dropdown">
-                                <div style="display: table; border-spacing: 5px; width: 100%;">
-                                    {fill_fields}
-                                </div>
+                                <div style="display: table; border-spacing: 5px; width: 100%;">{fill_fields}</div>
                             </div>
-                        </div> : []}
+                        </div>
+                    ) : (
+                        []
+                    )}
                     <div className="clearfix" />
                 </div>
             </div>
@@ -95,13 +139,13 @@ export default class DynamicInputContainer extends preact.Component {
         let rel = event.target.getAttribute('rel');
         let name = event.target.getAttribute('name');
         this.setState(prev => {
-            switch(name) {
+            switch (name) {
                 case 'desc':
                 case 'value':
                     prev.fields[rel][name] = event.target.value;
                     break;
                 case 'primary_button':
-                    prev['primary_address'] = "" + rel;
+                    prev['primary_address'] = '' + rel;
                     break;
                 default:
                     prev.fields[rel].value[name] = event.target.value;
@@ -118,7 +162,8 @@ export default class DynamicInputContainer extends preact.Component {
         });
     }
 
-    addDynamicInput() { // TODO: Maybe move the fields completely up and remove these methods…
+    addDynamicInput() {
+        // TODO: Maybe move the fields completely up and remove these methods…
         let field = {
             desc: '',
             type: this.state['dynamic-input-type'],
@@ -134,9 +179,15 @@ export default class DynamicInputContainer extends preact.Component {
     }
 
     addFillField(field) {
-        for(let key in this.state.fields) {
-            if(['name', 'birthdate'].includes(this.state.fields[key].type) && this.state.fields[key].type === field.type) {
-                this.setState(prev => {prev.fields[key].value = field.value; return prev; });
+        for (let key in this.state.fields) {
+            if (
+                ['name', 'birthdate'].includes(this.state.fields[key].type) &&
+                this.state.fields[key].type === field.type
+            ) {
+                this.setState(prev => {
+                    prev.fields[key].value = field.value;
+                    return prev;
+                });
                 this.pushStateUp();
                 return;
             } // TODO: Also check for desc while I am at it?
@@ -150,7 +201,7 @@ export default class DynamicInputContainer extends preact.Component {
     }
 
     removeDynamicInput(event) {
-        if(window.confirm(t('confirm-input-remove', 'generator'))) {
+        if (window.confirm(t('confirm-input-remove', 'generator'))) {
             this.setState(prev => {
                 delete prev.fields[event.target.getAttribute('rel')];
                 return prev;
@@ -161,9 +212,9 @@ export default class DynamicInputContainer extends preact.Component {
 
     getDataArray() {
         let data = [];
-        for(let i in this.state.fields) {
+        for (let i in this.state.fields) {
             let field = this.state.fields[i];
-            if(field['type'] === 'address') field.value['primary'] = (this.state.primary_address === ("" + i));
+            if (field['type'] === 'address') field.value['primary'] = this.state.primary_address === '' + i;
             data.push(field);
         }
         return data;
@@ -175,12 +226,16 @@ export default class DynamicInputContainer extends preact.Component {
         this.props.onChange(d);
     }
 
-    componentDidUpdate() {DynamicInputContainer.togglePrimaryAddressButton();}
-    componentDidMount() {DynamicInputContainer.togglePrimaryAddressButton();}
+    componentDidUpdate() {
+        DynamicInputContainer.togglePrimaryAddressButton();
+    }
+    componentDidMount() {
+        DynamicInputContainer.togglePrimaryAddressButton();
+    }
 
     static togglePrimaryAddressButton() {
         let buttons = document.querySelectorAll('.dynamic-input-address .dynamic-input-primaryButton');
-        if(buttons.length === 1) buttons[0].style.display='none';
-        else buttons[0].style.display='initial';
+        if (buttons.length === 1) buttons[0].style.display = 'none';
+        else buttons[0].style.display = 'initial';
     }
 }

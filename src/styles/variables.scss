@@ -1,13 +1,13 @@
-$primary-color: #003BFF;
+$primary-color: #003bff;
 $primary-lighter-color: #009dff;
 $primary-darker-color: #002cc0;
-$accent-color: #01DDBB;
+$accent-color: #01ddbb;
 $accent-lighter-color: #66ffe6;
-$accent-darker-color: #01DDBB;
-$bg-color: #FFFFFF;
-$bg-accent-color: #F0F7FF;
+$accent-darker-color: #00b095;
+$bg-color: #ffffff;
+$bg-accent-color: #f0f7ff;
 $gray-color: #f0f0f0;
-$gray-lighter-color: #F9F9F9;
+$gray-lighter-color: #f9f9f9;
 $gray-darker-color: #696969;
 
 $error-color: #d8000c;
@@ -17,8 +17,8 @@ $success-color: #bcf421;
 
 $text-color: #333;
 
-$heading-font: "League Spartan", Helvetica, sans-serif;
-$body-font: "Fira Sans", Helvetica, sans-serif;
+$heading-font: 'League Spartan', Helvetica, sans-serif;
+$body-font: 'Fira Sans', Helvetica, sans-serif;
 
 $font-size: 16px;
 
@@ -32,14 +32,15 @@ $button-height: 45px;
 
 /* Selector variables */
 
-$button: ".button, button";
-$text-inputs: "input[type=search], input[type=text], input[type=email], input[type=password], input[type=tel], input[type=url], input[type=number], input[type=date], textarea, select";
+$button: '.button, button';
+$text-inputs: 'input[type=search], input[type=text], input[type=email], input[type=password], input[type=tel], input[type=url], input[type=number], input[type=date], textarea, select';
 
 /* Mixins */
 
 // Fake a collapsible border using `box-shadow`, taken from https://codepen.io/Hawkun/pen/rsIEp
 @mixin fake-border($color, $top, $right, $bottom, $left) {
-	box-shadow:
+    /* prettier-ignore */
+    box-shadow:
             $right 0 0 0 $primary-color,
             0 $bottom 0 0 $primary-color,
             $right $right 0 0 $primary-color, // to fix the corner
@@ -48,8 +49,12 @@ $text-inputs: "input[type=search], input[type=text], input[type=email], input[ty
 }
 
 @mixin mobile() {
-	@media (max-width: $max-width - 1px) { @content; }
+    @media (max-width: $max-width - 1px) {
+        @content;
+    }
 }
 @mixin desktop() {
-	@media (min-width: $max-width) { @content; }
+    @media (min-width: $max-width) {
+        @content;
+    }
 }
