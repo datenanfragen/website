@@ -69,6 +69,7 @@ canvas {
     color: $primary-color;
     font-family: $body-font;
     font-size: $font-size - 2px;
+    cursor: auto; // Normalize value for the tests.
 
     &.form-element {
         width: 100%;
@@ -97,15 +98,11 @@ input:required {
     color: $gray-darker-color !important;
     cursor: not-allowed;
 }
+// We can (unfortunately) neither use `:read-only` nor `:moz-read-only`, since the implementations vary wildly and tend to match way too many things.
+// Thus, always add the class `readonly` to readonly inputs.
 input.readonly,
-input:disabled,
-input:read-only {
+input:disabled {
     @include disabled-input;
-}
-input:-moz-read-only {
-    @include disabled-input;
-    // DO NOT REMOVE THIS COMMENT
-    // These comments are needed because firefox is unable to sensibly parse CSS. Therefore this has to be a very special snowflake.
 }
 
 .box {
@@ -197,6 +194,7 @@ input[type='checkbox'].form-element {
     margin: 0;
     margin-right: 10px;
     float: left;
+    cursor: auto; // Normalize value for the tests.
 
     &:checked {
         background: linear-gradient($primary-color, $primary-color) 50% 50% / 16px 16px;
