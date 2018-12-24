@@ -39,7 +39,6 @@
         "export-btn": "Als CSV exportieren",
         "no-requests-heading": "Noch keine Anfragen",
         "no-requests": "Du hast bisher noch keine Anfragen gestellt. Sobald Du das tust, werden diese hier erscheinen.",
-        "feature-disabled": "Du hast diese Funktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun.",
         "generate-request": "Eine Anfrage generieren"
     },
     "generator": {
@@ -146,7 +145,8 @@
         "modal-clear-requests": "Damit werden alle gespeicherten Anfragen unwiderruflich von Deinem Computer gelöscht. Bist Du sicher?",
         "modal-clear-id_data": "Damit werden Deine gespeicherten Identifikationsdaten gelöscht. Bist Du sicher?",
         "clear-success": "Löschen abgeschlossen.",
-        "cookie-change-success": "Einstellung geändert."
+        "cookie-change-success": "Einstellung geändert.",
+        "feature-disabled": "Du hast diese Funktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun."
     },
     "error-handler": {
         "explanation": "Es ist leider ein unerwarteter Fehler aufgetreten. Wir wären Dir sehr dankbar, wenn Du Dir die Zeit nehmen würdest, uns eine Fehlermeldung über GitHub oder per E-Mail zu senden, sodass wir das Problem diagnostizieren können. Vielen Dank schon einmal!",
@@ -222,7 +222,7 @@
         "selected-companies": "Aktuell ausgewählte Unternehmen"
     },
     "id-data-controls": {
-        "id-data-deactivated": "Das Speichern von Identifikationsdaten ist deaktiviert. Wenn Du die den Erstellvorgang der Anfragen beschleunigen und Identifikationsdaten auf Deinem Computer speichern möchtest, kannst du das in den <a href=\"/privacy-controls/\">Datenschutzeinstellungen</a> tun.",
+        "id-data-deactivated": "Das Speichern von Identifikationsdaten ist deaktiviert. Wenn Du den Erstellvorgang der Anfragen beschleunigen und Identifikationsdaten auf Deinem Computer speichern möchtest, kannst du das in den <a href=\"/privacy-controls/\">Datenschutzeinstellungen</a> tun.",
         "always-fill-in": "Bekannte Felder immer direkt ausfüllen?",
         "always-fill-in-explain": "Die gespeicherten Daten können automatisch in jeder neuen Anfrage ausgefüllt werden.",
         "saved-data": "Gespeicherte Daten",

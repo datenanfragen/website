@@ -1,13 +1,14 @@
 import preact from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
-import Privacy, {PRIVACY_ACTIONS} from "../Utility/Privacy";
+import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import * as Typesense from 'typesense';
-import {rethrow} from "../Utility/errors";
+import { rethrow } from '../Utility/errors';
+import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
 
 export let SearchBar;
 
-if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
+if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
     let autocomplete = require('autocomplete.js');
 
     SearchBar = class SearchBar extends preact.Component {
@@ -35,49 +36,111 @@ if(Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 num_typos: 4,
                 per_page: this.props.numberOfHits || 5
             };
-            if(!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
+            if (!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
 
-            this.algolia_autocomplete = autocomplete('#' + this.props.id, { hint: false, debug: this.props.debug || false }, {
-                source: (query, callback) => {
-                    options['q'] = query;
-                    if(this.props.filters) {
-                        options['filter_by'] = (this.props.filters.concat(this.props.disableCountryFiltering ? [] : [ 'relevant-countries:[' + globals.country + ', all]' ])).join(' && ');
-                    }
+            this.algolia_autocomplete = autocomplete(
+                '#' + this.props.id,
+                { hint: false, debug: this.props.debug || false },
+                {
+                    source: (query, callback) => {
+                        options['q'] = query;
+                        if (this.props.filters) {
+                            options['filter_by'] = this.props.filters
+                                .concat(
+                                    this.props.disableCountryFiltering
+                                        ? []
+                                        : ['relevant-countries:[' + globals.country + ', all]']
+                                )
+                                .join(' && ');
+                        }
 
-                    this.client.collections(this.props.index).documents().search(options)
-                        .then((res) => { callback(res.hits); })
-                        .catch((e) => { rethrow(e); });
-                },
-                templates: {
-                    suggestion: this.props.suggestion_template || function (suggestion) {
-                        let d = suggestion.document;
-
-                        let name_hs = suggestion.highlights.filter(a => a.field === 'name');
-                        let runs_hs = suggestion.highlights.filter(a => a.field === 'runs');
-                        let cats_hs = suggestion.highlights.filter(a => a.field === 'categories');
-
-                        return '<span><strong>' + (name_hs.length === 1 ? name_hs[0].snippet : d.name)+ '</strong></span>'
-                            + ((d.runs && d.runs.length) ? '<br><span>' + t('also-runs', 'search') + (runs_hs.length === 1 ? runs_hs[0].snippets : d.runs).join(', ') + '</span>' : '')
-                            + ((d.categories &&d.categories.length) ? '<br><span>' + t('categories', 'search') + (cats_hs.length === 1 ? cats_hs[0].snippets : d.categories).join(', ') + '</span>' : '');
+                        this.client
+                            .collections(this.props.index)
+                            .documents()
+                            .search(options)
+                            .then(res => {
+                                callback(res.hits);
+                            })
+                            .catch(e => {
+                                rethrow(e);
+                            });
                     },
-                    empty: this.props.empty_template || function(query) { return '<p style="margin-left: 10px;">' + t('no-results', 'search') + '<br><a href="' + BASE_URL + 'suggest?type=new&for=cdb&name=' + query.query + '" target="_blank">' + t('suggest-a-company', 'search') + '</a></p>'; },
-                    header: this.props.header_template,
-                    footer: this.props.footer_template
+                    templates: {
+                        suggestion:
+                            this.props.suggestion_template ||
+                            function(suggestion) {
+                                let d = suggestion.document;
+
+                                let name_hs = suggestion.highlights.filter(a => a.field === 'name');
+                                let runs_hs = suggestion.highlights.filter(a => a.field === 'runs');
+                                let cats_hs = suggestion.highlights.filter(a => a.field === 'categories');
+
+                                return (
+                                    '<span><strong>' +
+                                    (name_hs.length === 1 ? name_hs[0].snippet : d.name) +
+                                    '</strong></span>' +
+                                    (d.runs && d.runs.length
+                                        ? '<br><span>' +
+                                          t('also-runs', 'search') +
+                                          (runs_hs.length === 1 ? runs_hs[0].snippets : d.runs).join(', ') +
+                                          '</span>'
+                                        : '') +
+                                    (d.categories && d.categories.length
+                                        ? '<br><span>' +
+                                          t('categories', 'search') +
+                                          (cats_hs.length === 1 ? cats_hs[0].snippets : d.categories).join(', ') +
+                                          '</span>'
+                                        : '')
+                                );
+                            },
+                        empty:
+                            this.props.empty_template ||
+                            function(query) {
+                                return (
+                                    '<p style="margin-left: 10px;">' +
+                                    t('no-results', 'search') +
+                                    '<br><a href="' +
+                                    BASE_URL +
+                                    'suggest?type=new&for=cdb&name=' +
+                                    query.query +
+                                    '" target="_blank">' +
+                                    t('suggest-a-company', 'search') +
+                                    '</a></p>'
+                                );
+                            },
+                        header: this.props.header_template,
+                        footer: this.props.footer_template
+                    }
                 }
-            });
+            );
             this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
-            if (typeof this.props.setupPlaceholderChange === 'function') this.props.setupPlaceholderChange(this.input_element);
+            if (typeof this.props.setupPlaceholderChange === 'function')
+                this.props.setupPlaceholderChange(this.input_element);
         }
 
         render() {
-            return (<input id={this.props.id} className="aa-input-search" placeholder={this.props.placeholder} type="search" style={this.props.style} ref={el => this.input_element = el} />);
+            return (
+                <input
+                    id={this.props.id}
+                    className="aa-input-search"
+                    placeholder={this.props.placeholder}
+                    type="search"
+                    style={this.props.style}
+                    ref={el => (this.input_element = el)}
+                />
+            );
         }
     };
-}
-else {
+} else {
     SearchBar = class SearchBar extends preact.Component {
         render() {
-            return <IntlProvider scope="search" definition={I18N_DEFINITION}><p><MarkupText id="search-disabled"/></p></IntlProvider>;
+            return (
+                <IntlProvider scope="search" definition={I18N_DEFINITION}>
+                    <FeatureDisabledWidget includeImage={false}>
+                        <MarkupText id="search-disabled" />
+                    </FeatureDisabledWidget>
+                </IntlProvider>
+            );
         }
-    }
+    };
 }

@@ -4,6 +4,7 @@ import t from 'Utility/i18n';
 import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
 import { rethrow } from './Utility/errors';
+import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
 
 export default class UserRequests {
     constructor() {
@@ -192,7 +193,7 @@ class RequestList extends preact.Component {
         } else {
             content = (
                 <main>
-                    <MarkupText id="feature-disabled" />
+                    <FeatureDisabledWidget />
                 </main>
             );
         }
