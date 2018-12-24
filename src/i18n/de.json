@@ -38,8 +38,9 @@
         "delete-all-btn": "Alle Anfragen löschen",
         "export-btn": "Als CSV exportieren",
         "no-requests-heading": "Noch keine Anfragen",
-        "no-requests": "Bisher sind noch keine Anfragen vorhanden. Sobald Du welche gestellt hast, werden diese hier erscheinen.",
-        "feature-disabled": "Du hast diese Funktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun."
+        "no-requests": "Du hast bisher noch keine Anfragen gestellt. Sobald Du das tust, werden diese hier erscheinen.",
+        "feature-disabled": "Du hast diese Funktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun.",
+        "generate-request": "Eine Anfrage generieren"
     },
     "generator": {
         "reference": "Zeichen",
