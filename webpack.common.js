@@ -22,6 +22,7 @@ module.exports = {
     },
     output: {
         filename: 'js/[name].gen.js',
+        chunkFilename: 'js/[name].bundle.gen.js',
         path: path.resolve(__dirname, 'static')
     },
     optimization: {
