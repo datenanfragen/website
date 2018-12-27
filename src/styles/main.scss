@@ -670,7 +670,8 @@ button.joyride-tooltip__button--skip {
 }
 
 // tmp before we get chitin
-article.page {
+article.page,
+.narrow-page {
     width: 80%;
     margin: auto;
     @include mobile {

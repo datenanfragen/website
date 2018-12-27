@@ -17,7 +17,8 @@
     "cdb": {
         "title": "Unternehmensdatenbank",
         "explanation": "In unserer Unternehmensdatenbank findest Du zahlreiche Unternehmen (bzw. andere Organisationen) und ihre jeweiligen Kontaktdaten für datenschutzspezifische Anfragen.",
-        "select-company": "Unternehmen auswählen…"
+        "select-company": "Nach einem Unternehmen suchen…",
+        "suggest-new": "Neues Unternehmen vorschlagen"
     },
     "my-requests": {
         "title": "Meine Anfragen",

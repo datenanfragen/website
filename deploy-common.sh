@@ -7,8 +7,10 @@ mkdir -p content/supervisory-authority
 mkdir -p static/templates
 mkdir -p static/db
 mkdir -p static/db/suggested-companies
+mkdir -p static/db/sva
 cp tmp/companies/* static/db
 cp tmp/suggested-companies/* static/db/suggested-companies
+cp tmp/supervisory-authorities/* static/db/sva
 cp tmp/companies/* content/company
 cp tmp/supervisory-authorities/* content/supervisory-authority
 cp -r tmp/templates/* static/templates

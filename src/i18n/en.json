@@ -17,7 +17,8 @@
     "cdb": {
         "title": "Company database",
         "explanation": "Our company database holds the contact information of many companies (as well as other organisations) for your privacy-related requests.",
-        "select-company": "View a different company…"
+        "select-company": "Search for a company…",
+        "suggest-new": "Suggest a new company"
     },
     "my-requests": {
         "title": "My requests",
