@@ -79,6 +79,7 @@
         "primary-address": "Absenderadresse",
         "signature-explanation": "Wenn Du möchtest, kannst Du Deine Anfrage hier unterschreiben. Zeichne dafür einfach mit gedrückter Maustaste in das Feld.",
         "reset": "Zurücksetzen",
+        "reset-signature": "Unterschrift zurücksetzen",
         "fill-signature": "Gespeicherte Unterschrift",
         "tagxplanation": "Im Text können die Tags <code>&lt;italic&gt;&lt;/italic&gt;</code> sowie <code>&lt;bold&gt;&lt;/bold&gt;</code> verwendet werden. Geschachtelte Tags werden nicht unterstützt.",
         "subject": "Betreff",

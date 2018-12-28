@@ -80,6 +80,7 @@
         "signature": "Signature",
         "signature-explanation": "If you want, you can sign your request. Just keep your mouse pressed and draw into the canvas.",
         "reset": "Reset",
+        "reset-signature": "Reset signature",
         "fill-signature": "Saved signature",
         "tagxplanation": "You can use the tags <code>&lt;italic&gt;&lt;/italic&gt;</code> and <code>&lt;bold&gt;&lt;/bold&gt;</code> in your text. Nested tags are not supported.",
         "subject": "Subject",

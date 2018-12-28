@@ -181,6 +181,27 @@ input:disabled {
         background-color: $primary-color;
         color: $bg-color;
     }
+    &:hover {
+        background-color: $primary-darker-color;
+    }
+}
+
+/* yet another backport from chitin */
+.radio-group-vertical .radio-label {
+    display: block;
+    margin-bottom: 0;
+    border-left: 2px solid $primary-color;
+    border-bottom: 0;
+
+    padding-left: 15px;
+
+    &:first-child {
+        border-radius: 2px 2px 0 0;
+    }
+    &:last-child {
+        border-radius: 0 0 2px 2px;
+        border-bottom: 2px solid $primary-color;
+    }
 }
 
 /* Checkboxes */
