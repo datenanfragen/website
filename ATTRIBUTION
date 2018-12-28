@@ -1,14 +1,29 @@
-# This file contains a list of libraries and other external contributions used in this repository (that end up in the release build in some way or another). When including new dependencies, be sure to include them here. Please try to stick to the format used by the other entries.
+# This file contains a list of libraries and other external contributions used in this repository (that end up in the release build in some way or another). When including new dependencies, be sure to include them here. Please try to stick to the format used by the other entries. The list is sorted alphabetically by the name of the dependency.
 # The direct contributors to this repository are listed in the AUTHORS file.
-
-pdfmake by bpampuch (MIT License)
-https://github.com/bpampuch/pdfmake
-
-typesense-js by Wreally Studios (Apache License 2.0)
-https://github.com/typesense/typesense-js
 
 Autocomplete.js by Algolia, Inc. (MIT License)
 https://github.com/algolia/autocomplete.js
+
+Free 3 of 9 font by Matthew Welch (MIT License)
+http://www.squaregear.net/fonts/free3of9.shtml
+
+Humaaans by Pablo Stanley (CC BY 4.0)
+https://www.humaaans.com/
+
+iconmonstr Icons by Alexander Kahlkopf (https://iconmonstr.com/license/)
+https://iconmonstr.com
+
+JavaScript Cookie by Klaus Hartl, Fagner Brack and GitHub Contributors (MIT License)
+https://github.com/js-cookie/js-cookie
+
+json-forms by Ignacio del Valle Alles (Apache License 2.0)
+https://github.com/brutusin/json-forms
+
+localForage by Mozilla (Apache License 2.0)
+https://github.com/localForage/localForage
+
+pdfmake by bpampuch (MIT License)
+https://github.com/bpampuch/pdfmake
 
 Preact by Jason Miller (MIT License)
 https://github.com/developit/preact
@@ -22,29 +37,14 @@ https://github.com/synacor/preact-i18n
 preact-portal by Jason Miller (MIT License)
 https://github.com/developit/preact-portal
 
-Roboto font by Christian Robertson (Apache License 2.0)
-https://github.com/google/roboto/
-
-Free 3 of 9 font by Matthew Welch (MIT License)
-http://www.squaregear.net/fonts/free3of9.shtml
-
-localForage by Mozilla (Apache License 2.0)
-https://github.com/localForage/localForage
-
-JavaScript Cookie by Klaus Hartl, Fagner Brack and GitHub Contributors (MIT License)
-https://github.com/js-cookie/js-cookie
-
-iconmonstr Icons by Alexander Kahlkopf (https://iconmonstr.com/license/)
-https://iconmonstr.com
-
-json-forms by Ignacio del Valle Alles (Apache License 2.0)
-https://github.com/brutusin/json-forms
+React Joyride by Gil Barbara (MIT License)
+https://github.com/gilbarbara/react-joyride
 
 react-scrollspy by makotot (MIT License)
 https://github.com/makotot/react-scrollspy
 
-React Joyride by Gil Barbara (MIT License)
-https://github.com/gilbarbara/react-joyride
+Roboto font by Christian Robertson (Apache License 2.0)
+https://github.com/google/roboto/
 
-Humaaans by Pablo Stanley (CC BY 4.0)
-https://www.humaaans.com/
+typesense-js by Wreally Studios (Apache License 2.0)
+https://github.com/typesense/typesense-js
