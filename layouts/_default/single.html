@@ -11,3 +11,11 @@
     </article>
 </main>
 {{ end }}
+
+{{ define "heading" }}
+{{ if .Params.heading }}
+	{{ .Params.heading | markdownify }}
+{{ else }}
+	{{ .Title }}
+{{ end }}
+{{ end }}

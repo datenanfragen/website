@@ -61,6 +61,11 @@
     name = "Datenschutzeinstellungen"
     url = "/privacy-controls"
     weight = 30
+    post = "<br>"
+[[languages.de.menu.footerright]]
+    name = "Open Source"
+    url = "/open-source"
+    weight = 40
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -127,3 +132,8 @@
     name = "Privacy controls "
     url = "/privacy-controls"
     weight = 30
+    post = "<br>"
+[[languages.en.menu.footerright]]
+    name = "Open Source"
+    url = "/open-source"
+    weight = 40
