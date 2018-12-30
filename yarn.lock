@@ -792,11 +792,6 @@ agent-base@^4.1.0:
   dependencies:
     es6-promisify "^5.0.0"
 
-agentkeepalive@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/agentkeepalive/-/agentkeepalive-2.2.0.tgz#c5d1bd4b129008f1163f236f86e5faea2026e2ef"
-  integrity sha1-xdG9SxKQCPEWPyNvhuX66iAm4u8=
-
 ajv-errors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.0.tgz#ecf021fa108fd17dfb5e6b383f2dd233e31ffc59"
@@ -816,37 +811,6 @@ ajv@^6.1.0, ajv@^6.5.5:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
-
-algoliasearch-helper@^2.26.0:
-  version "2.26.1"
-  resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-2.26.1.tgz#75bd34f095e852d1bda483b8ebfb83c3c6e2852c"
-  integrity sha512-fQBZZXC3rac4wadRj5wA/gxy88Twb+GQF3n8foew8SAsqe9Q59PFq1y3j08pr6eNSRYkZJV7qMpe7ox5D27KOw==
-  dependencies:
-    events "^1.1.1"
-    lodash "^4.17.5"
-    qs "^6.5.1"
-    util "^0.10.3"
-
-algoliasearch@^3.27.1:
-  version "3.32.0"
-  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.32.0.tgz#5818168c26ff921bd0346a919071bac928b747ce"
-  integrity sha512-C8oQnPTf0wPuyD2jSZwtBAPvz+lHOE7zRIPpgXGBuNt6ZNcC4omsbytG26318rT77a8h4759vmIp6n9p8iw4NA==
-  dependencies:
-    agentkeepalive "^2.2.0"
-    debug "^2.6.8"
-    envify "^4.0.0"
-    es6-promise "^4.1.0"
-    events "^1.1.0"
-    foreach "^2.0.5"
-    global "^4.3.2"
-    inherits "^2.0.1"
-    isarray "^2.0.1"
-    load-script "^1.0.0"
-    object-keys "^1.0.11"
-    querystring-es3 "^0.2.1"
-    reduce "^1.0.1"
-    semver "^5.1.0"
-    tunnel-agent "^0.6.0"
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
@@ -2521,14 +2485,6 @@ entities@~1.1.1:
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
   integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
 
-envify@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/envify/-/envify-4.1.0.tgz#f39ad3db9d6801b4e6b478b61028d3f0b6819f7e"
-  integrity sha512-IKRVVoAYr4pIx4yIWNsz9mOsboxlNXiu7TNBnem/K/uTHdkyzXWDzHCK7UTolqBbgaBz0tQHsD3YNls0uIIjiw==
-  dependencies:
-    esprima "^4.0.0"
-    through "~2.3.4"
-
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/errno/-/errno-0.1.7.tgz#4684d71779ad39af177e3f007996f7c67c852618"
@@ -2563,7 +2519,7 @@ es-to-primitive@^1.1.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-es6-promise@^4.0.3, es6-promise@^4.1.0:
+es6-promise@^4.0.3:
   version "4.2.5"
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.5.tgz#da6d0d5692efb461e082c14817fe2427d8f5d054"
   integrity sha512-n6wvpdE43VFtJq+lUDYDBFUwV8TZbuGXLV4D6wKafg13ldznKsyEvatubnmUe31zcvelSzOHF+XbaT+Bl9ObDg==
@@ -2640,7 +2596,7 @@ event-stream@=3.3.4:
     stream-combiner "~0.0.4"
     through "~2.3.1"
 
-events@^1.0.0, events@^1.1.0, events@^1.1.1:
+events@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
   integrity sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=
@@ -2869,11 +2825,6 @@ for-own@^1.0.0:
   dependencies:
     for-in "^1.0.1"
 
-foreach@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/foreach/-/foreach-2.0.5.tgz#0bee005018aeb260d0a3af3ae658dd0136ec1b99"
-  integrity sha1-C+4AUBiusmDQo6865ljdATbsG5k=
-
 forever-agent@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
@@ -3081,7 +3032,7 @@ global-modules-path@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/global-modules-path/-/global-modules-path-2.3.0.tgz#b0e2bac6beac39745f7db5c59d26a36a0b94f7dc"
 
-global@^4.3.2, global@~4.3.0:
+global@~4.3.0:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/global/-/global-4.3.2.tgz#e76989268a6c74c38908b1305b10fc0e394e9d0f"
   dependencies:
@@ -3757,11 +3708,6 @@ isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
 
-isarray@^2.0.1:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/isarray/-/isarray-2.0.4.tgz#38e7bcbb0f3ba1b7933c86ba1894ddfc3781bbb7"
-  integrity sha512-GMxXOiUirWg1xTKRipM0Ek07rX+ubx4nNVElTJdNLYmNO/2YrDkgJGw9CljXn+r4EWiDQg/8lsRdHyg2PJuUaA==
-
 isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
@@ -3955,11 +3901,6 @@ load-json-file@^1.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
-
-load-script@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
-  integrity sha1-BJGTngvuVkPuSUp+PaPSuscMbKQ=
 
 loader-runner@^2.3.0:
   version "2.3.1"
@@ -4777,7 +4718,7 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-keys@^1.0.11, object-keys@^1.0.12, object-keys@~1.0.0:
+object-keys@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.0.12.tgz#09c53855377575310cca62f55bb334abff7b3ed2"
   integrity sha512-FTMyFUm2wBcGHnH2eXmz7tC6IwlqQZ6mVZ+6dm6vZ4IQIHjs6FdNsQBuKGPuUUUY6NfJw2PshC08Tn6LzLDOag==
@@ -5665,17 +5606,12 @@ q@^1.1.2:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-qs@^6.5.1:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.6.0.tgz#a99c0f69a8d26bf7ef012f871cdabb0aee4424c2"
-  integrity sha512-KIJqT9jQJDQx5h5uAVPimw6yVg2SekOKu959OCtktD3FjzbpvaPr8i4zzg07DOMz+igA4W/aNM7OV8H37pFYfA==
-
 qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-querystring-es3@^0.2.0, querystring-es3@^0.2.1:
+querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
   integrity sha1-nsYfeQSYdXB9aUFFlv2Qek1xHnM=
@@ -5725,40 +5661,6 @@ rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
-
-react-instantsearch-core@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-core/-/react-instantsearch-core-5.3.1.tgz#06da53c2e88d5af5cbf642d4e6dc4f3efa11f71e"
-  dependencies:
-    algoliasearch-helper "^2.26.0"
-    lodash "^4.17.4"
-    prop-types "^15.5.10"
-
-react-instantsearch-dom@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-dom/-/react-instantsearch-dom-5.3.1.tgz#49ac502bc12f765451670011881ba0e7ae4e5150"
-  dependencies:
-    algoliasearch "^3.27.1"
-    algoliasearch-helper "^2.26.0"
-    classnames "^2.2.5"
-    lodash "^4.17.4"
-    prop-types "^15.5.10"
-    react-instantsearch-core "^5.3.1"
-
-react-instantsearch-native@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-native/-/react-instantsearch-native-5.3.1.tgz#b69e3631696639d73a68d26cb402a04141e4f188"
-  dependencies:
-    algoliasearch "^3.27.1"
-    react-instantsearch-core "^5.3.1"
-
-react-instantsearch@^5.0.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-5.3.1.tgz#07487ba68f55ff161c77f3d1c2f8a102b795a02b"
-  dependencies:
-    react-instantsearch-core "^5.3.1"
-    react-instantsearch-dom "^5.3.1"
-    react-instantsearch-native "^5.3.1"
 
 react-joyride@^1.11.4:
   version "1.11.4"
@@ -5842,13 +5744,6 @@ redent@^1.0.0:
   dependencies:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
-
-reduce@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/reduce/-/reduce-1.0.1.tgz#14fa2e5ff1fc560703a020cbb5fbaab691565804"
-  integrity sha1-FPouX/H8VgcDoCDLtfuqtpFWWAQ=
-  dependencies:
-    object-keys "~1.0.0"
 
 regenerate-unicode-properties@^7.0.0:
   version "7.0.0"
@@ -6154,7 +6049,7 @@ semver-compare@^1.0.0:
   resolved "https://registry.yarnpkg.com/semver-compare/-/semver-compare-1.0.0.tgz#0dee216a1c941ab37e9efb1788f6afc5ff5537fc"
   integrity sha1-De4hahyUGrN+nvsXiPavxf9VN/w=
 
-"semver@2 || 3 || 4 || 5", semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0:
+"semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.4.1, semver@^5.5.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
   integrity sha512-RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==
@@ -6770,7 +6665,7 @@ through2@^2.0.0:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-through@2, through@~2.3, through@~2.3.1, through@~2.3.4:
+through@2, through@~2.3, through@~2.3.1:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
