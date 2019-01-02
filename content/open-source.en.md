@@ -30,6 +30,9 @@ Some of the development work is currently done on a private GitLab instance. We 
             The website you are currently on. This repository not only contains the content but also the code for the generator, the privacy controls and more.
             <br>The site is designed to be primarily static and runs on Hugo and Preact.
         </p>
+        <p class="description">
+            The website for Datenanfragen.de e.&nbsp;V., the non-profit behind this project, is managed through the separate <a href="https://github.com/datenanfragen/verein-website"><code>verein-website</code></a> repository.
+        </p>
     </div>
     <div class="clearfix"></div>
     <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">View repository&nbsp;<span class="icon icon-arrow-right"></span></a>

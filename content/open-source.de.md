@@ -30,6 +30,9 @@ Ein Teil der Entwicklungsarbeit findet momentan über eine private GitLab-Instan
             Die Webseite, auf der Du gerade bist. In diesem Repository findest Du nicht nur den gesamten Inhalt, sondern auch den Code für die Generator, die Datenschutzeinstellungen und vieles mehr.
             <br>Die Seite ist überwiegend statisch ausgelegt und basiert auf Hugo und Preact.
         </p>
+        <p class="description">
+            Die Vereinswebseite wird separat über das Repository <a href="https://github.com/datenanfragen/verein-website"><code>verein-website</code></a> verwaltet.
+        </p>
     </div>
     <div class="clearfix"></div>
     <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">Zum Repository&nbsp;<span class="icon icon-arrow-right"></span></a>
