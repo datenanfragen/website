@@ -259,7 +259,10 @@
 
         "language-change-modal": "Wenn Du die Sprache wechelst, wirst Du zu einer anderen Domain weitergeleitet. Deine Einstellungen und gespeicherten Daten werden nicht übernommen.<br>Insbesondere bedeutet das, dass z.&nbsp;B. Deine Datenschutzeinstellungen und gespeicherten Anfragen nicht in der neuen Sprache verfügbar sein werden. Du kannst diese natürlich trotzdem jederzeit in dieser Sprache verwenden, aber Einstellungen und Daten können leider nicht zwischen verschiedenen Sprachen geteilt werden.",
         "change-lang": "Trotzdem wechseln",
-        "stay": "Hier bleiben"
+        "stay": "Hier bleiben",
+
+        "not-supported-prompt": "Deine Sprache oder Dein Land wird noch nicht unterstützt?",
+        "not-supported-cta": "Hilf uns dabei!"
     },
     "comments": {
         "comments": "Kommentare",

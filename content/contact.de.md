@@ -1,6 +1,7 @@
 {
 	"title": "Impressum",
-	"type": "page"
+	"type": "page",
+	"aliases": ["impressum", "kontakt"]
 }
 
 ## Angaben gemäß § 5 TMG

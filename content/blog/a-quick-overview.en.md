@@ -47,7 +47,4 @@ And the best part? All this happens entirely on **your** computer. We never get 
 
 There are many areas at datarequests.org in which you can participate—regardless of your previous experience with data privacy law, programming and the like. We are grateful for every helping hand!
 
-As already mentioned, we maintain a company database. We also make this data freely available to other projects.  
-Such a database is of course very time-consuming to maintain: Sometimes a company's contact data changes, other times a company is dissolved and is therefore no longer relevant. And of course, many companies are founded every day and we would like to include all of them. Obviously, we can't do this on our own. If you notice, for instance, that a company's data is no longer up to date or that a company is not in the database yet, we look forward to your contribution. For more information, see the [GitHub repository](https://github.com/datenanfragen/companies).
-
-We also want to make our website as easy to use and at the same time as powerful as possible. Our website and software are of course completely open source. If you want to help us, take a look at the [corresponding GitHub repository](https://github.com/datenanfragen/website).
+To learn more on how to participate in the project, have a look at the [“Contribute” page]({{< ref "/contribute" >}}).

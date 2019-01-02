@@ -1,5 +1,5 @@
 {
-    "title": "Sample letter for erasure requests as per Art. 17 GDPR (“Right to be forgotten”)",
+    "title": "Sample letter for erasure requests as per Art. 17 GDPR (“right to be forgotten”)",
     "slug": "sample-letter-gdpr-erasure-request",
     "date": "2018-05-16T22:06:12+02:00",
     "last_edited": "2018-05-20T01:16:18",

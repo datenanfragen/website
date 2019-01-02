@@ -429,6 +429,7 @@ table#my-requests-table {
             height: 100%;
             width: auto;
             object-fit: cover;
+            margin-top: 6px;
 
             @include mobile {
                 height: auto;
@@ -447,7 +448,7 @@ table#my-requests-table {
             padding-left: 15px;
         }
 
-        h1 {
+        a h1 {
             color: $primary-color;
 
             &:hover {
@@ -666,4 +667,20 @@ button.joyride-tooltip__button--skip {
     &:hover {
         color: $gray-darker-color !important;
     }
+}
+
+// tmp before we get chitin
+article.page {
+    width: 80%;
+    margin: auto;
+    @include mobile {
+        width: inherit;
+        margin: unset;
+    }
+}
+
+.icon-list-article .article-featured-image img {
+    object-fit: contain;
+    width: 80%;
+    height: auto;
 }

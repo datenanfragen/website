@@ -24,7 +24,7 @@ if (!globals.country) globals.country = guessUserCountry();
 document.querySelectorAll('.i18n-button-container').forEach(el => {
     preact.render(<I18nButton />, el);
 });
-preact.render(<I18nWidget />, document.getElementById('personal-menu-i18n-widget'));
+preact.render(<I18nWidget minimal={true} />, document.getElementById('personal-menu-i18n-widget'));
 
 preact.render(<CommentsWidget />, null, document.getElementById('comments-widget'));
 
