@@ -260,7 +260,10 @@
 
         "language-change-modal": "Changing the language will redirect you to another domain. Your settings and saved data from this domain will not carry over.<br>In particular, this means that things like your privacy settings and saved requests will not be available in the new language. You can still always go back to this language and view them here but you cannot share settings and saved data between different languages.",
         "change-lang": "Change language",
-        "stay": "Stay here"
+        "stay": "Stay here",
+
+        "not-supported-prompt": "Your language or country is not supported yet?",
+        "not-supported-cta": "Help us support it!"
     },
     "comments": {
         "comments": "Comments",

@@ -47,7 +47,4 @@ Und das Beste? All das passiert vollständig auf **Deinem** Rechner. Wir erhalte
 
 Es gibt bei Datenanfragen.de viele Stellen, an denen Du Dich beteiligen kannst – unabhängig von Deiner bisherigen Erfahrung mit Datenschutzrecht, Programmierung o.&nbsp;Ä. Wir sind dankbar für jede helfende Hand!
 
-Wie schon erwähnt, führen wir eine Unternehmensdatenbank. Diese stellen wir vollkommen frei auch anderen Projekten zur Verfügung.  
-So eine Datenbank ist natürlich sehr wartungsaufwendig: Mal ändern sich die Kontaktdaten eines Unternehmens, mal wird ein Unternehmen aufgelöst und ist damit nicht mehr relevant. Und jeden Tag werden natürlich etliche Unternehmen gegründet, die wir am liebsten alle aufnehmen würden. Klar, dass wir das nicht alleine schaffen. Wenn Dir z.&nbsp;B. auffällt, dass die Daten eines Unternehmens nicht mehr aktuell sind oder ein Unternehmen noch fehlt, freuen wir uns über Deinen Beitrag. Mehr Informationen hierzu findest Du in dem [zugehörigen GitHub-Repository](https://github.com/datenanfragen/companies).
-
-Darüber hinaus wollen wir unsere Webseite so einfach zu bedienen und gleichzeitig mächtig gestalten, wie möglich. Unsere Webseite und Software sind selbstverständlich vollständig Open Source. Wenn Du uns dabei helfen willst, wirf auch einen Blick in das [entsprechende GitHub-Repository](https://github.com/datenanfragen/website).
+Um mehr zu erfahren, wie Du bei dem Projekt mithelfen kannst, schau Dir die [„Mitmachen“-Seite]({{< ref "/contribute" >}}) an.
