@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ .Params.target_url }}</title>
+    <link rel="canonical" href="{{ .Params.target_url }}"/>
+    <meta name="robots" content="noindex">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="refresh" content="0; url={{ .Params.target_url }}"/>
+  </head>
+  <body>{{ .Content }}</body>
+</html>

@@ -55,7 +55,7 @@
     weight = 10
 [[languages.de.menu.footerright]]
     name = "Datenschutzerklärung"
-    url = "/privacy"
+    url = "https://verein.datenanfragen.de/datenschutz"
     weight = 20
 [[languages.de.menu.footerright]]
     name = "Datenschutzeinstellungen"
@@ -126,7 +126,7 @@
     weight = 10
 [[languages.en.menu.footerright]]
     name = "Privacy policy"
-    url = "/privacy"
+    url = "https://verein.datenanfragen.de/en/privacy"
     weight = 20
 [[languages.en.menu.footerright]]
     name = "Privacy controls "
