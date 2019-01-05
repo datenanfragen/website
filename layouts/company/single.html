@@ -7,36 +7,45 @@
 {{ end }}
 
 {{ define "main" }}
-<main>
+<main class="narrow-page" style="overflow-wrap: break-word;">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <a href="{{ "company" | absURL }}"><span class="icon inline-icon inline-icon-left icon-arrow-left"></span> {{ T "cdb-back-to-overview" }}</a>
+        <span>
+            <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.{{ .Lang }}" title="{{ T "cdb-cc0-explanation" }}"><img src="{{ "img/cc-zero-button.svg" | absURL }}"></a>
+            <!-- This is not exactly obvious. But I think that a) the interface is cluttered enough and b) not too many people are going to be interested in a machine-readable representation of this data. -->
+            <a href="{{ "db" | absURL }}/{{ .Params.slug }}.json" title="{{ T "cdb-json-download" }}"><span class="icon inline-icon inline-icon-right icon-json-document" style="color: initial;"></a>
+        </span>
+    </div>
     <div id="company-search"></div>
     <div id="company-details">
-        {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ( apply . "T" "." ) ) ", " }}</p>{{ end }}
-        {{ with .Params.runs }}
-            <p><strong>{{ T "cdb-runs" }}</strong></p>
-            <ul>
-                {{ range . }}
-                    <li>{{ . }}</li>
-                {{ end }}
-            </ul>
-        {{ end }}
+        <div style="float: right; text-align: right; padding: 0 0 15px 15px;">
+            <!-- TODO: This clashes with the primary button in the nav. We might want to restyle that one anyway, since we have quite a few pages with more than one primary button due to it. -->
+            <a class="button button-primary icon icon-pencil" href="{{ print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug }}">{{ T "cdb-suggest-change" }}</a>
+        </div>
 
         <p>{{ T "cdb-intro" . }}</p>
 
-        {{ with .Params.address}}<p><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</p>{{ end }}
-        {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
-        <table class="contact-table">
-            {{ with .Params.phone }}<tr><td>{{ T "cdb-phone" }}</td><td>{{ . }}</td></tr>{{ end }}
-            {{ with .Params.fax }}<tr><td>{{ T "cdb-fax" }}</td><td>{{ . }}</td></tr>{{ end }}
-            {{ with .Params.email }}<tr><td>{{ T "cdb-email" }}</td><td><a href="mailto:{{ . }}">{{ . }}</a></td></tr>{{ end }}
-            {{ with .Params.web }}<tr><td>{{ T "cdb-web" }}</td><td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td></tr>{{ end }}
-        </table>
+        {{ with .Params.address }}
+            <div class="col50"><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</div>
         {{ end }}
+        {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
+            <div class="col50">
+                <table class="contact-table narrow-table">
+                    {{ with .Params.phone }}<tr><td><strong>{{ T "cdb-phone" }}</strong></td><td>{{ . }}</td></tr>{{ end }}
+                    {{ with .Params.fax }}<tr><td><strong>{{ T "cdb-fax" }}</strong></td><td>{{ . }}</td></tr>{{ end }}
+                    {{ with .Params.email }}<tr><td><strong>{{ T "cdb-email" }}</strong></td><td><a href="mailto:{{ . }}">{{ . }}</a></td></tr>{{ end }}
+                    {{ with .Params.web }}<tr><td><strong>{{ T "cdb-web" }}</strong></td><td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td></tr>{{ end }}
+                </table>
+            </div>
+        {{ end }}
+        <div class="clearfix"></div>
 
-        {{ with .Params.sources }}
-            <p><strong>{{ T "cdb-sources" }}</strong></p>
-            <ul>
+        {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ( apply . "T" "." ) ) ", " }}</p>{{ end }}
+        {{ with .Params.runs }}
+            <p>{{ T "cdb-runs-extended" $ }}</p>
+            <ul style="columns: 2;">
                 {{ range . }}
-                    <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
+                    <li>{{ . }}</li>
                 {{ end }}
             </ul>
         {{ end }}
@@ -46,6 +55,15 @@
             <ul>
                 {{ range . }}
                     <li>{{ replace . "\n" "<br>" | safeHTML }}</li>
+                {{ end }}
+            </ul>
+        {{ end }}
+
+        {{ with .Params.sources }}
+            <p><strong>{{ T "cdb-sources" }}</strong></p>
+            <ul>
+                {{ range . }}
+                    <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
                 {{ end }}
             </ul>
         {{ end }}

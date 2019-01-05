@@ -1,0 +1,1 @@
+{{ replace (trim (replace (replaceRE "(?m)^#.+?$" "" (readFile "ATTRIBUTION")) " by " (printf "%s%s%s" " " (index .Params 0) " ")) "\n") "\n" "<br>" | markdownify }}

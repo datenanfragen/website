@@ -2,6 +2,13 @@
     vertical-align: middle;
 }
 
+.inline-icon.inline-icon-left {
+    padding-right: 5px;
+}
+.inline-icon.inline-icon-right {
+    padding-left: 5px;
+}
+
 .icon-letter:before {
     @extend %icon;
     font-icon: 150% url('letter.svg');
@@ -84,4 +91,10 @@
     @extend %icon;
     font-icon: 200% url('close.svg');
     vertical-align: -3px;
+}
+
+.icon-json-document:before {
+    @extend %icon;
+    font-icon: 120% url('json-document.svg');
+    vertical-align: -2px;
 }

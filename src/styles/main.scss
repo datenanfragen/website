@@ -102,7 +102,7 @@ a #logo {
     margin: 0 0 30px 0;
     padding: 30px 0;
     text-align: center;
-    font-size: 2.4em;
+    font-size: 2em;
     color: $primary-color;
 
     @include mobile {
@@ -670,7 +670,8 @@ button.joyride-tooltip__button--skip {
 }
 
 // tmp before we get chitin
-article.page {
+article.page,
+.narrow-page {
     width: 80%;
     margin: auto;
     @include mobile {

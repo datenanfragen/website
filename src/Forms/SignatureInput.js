@@ -30,7 +30,7 @@ export default class SignatureInput extends preact.Component {
 
     componentDidUpdate() {
         this.context = this.canvas.getContext('2d');
-        if(this.state.isEmpty) this.drawSignature(this.props.value);
+        if (this.state.isEmpty) this.drawSignature(this.props.value);
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -38,13 +38,13 @@ export default class SignatureInput extends preact.Component {
     }
 
     drawSignature(signature) {
-        if(!!signature && signature.type === 'image' && !!signature.value) {
+        if (!!signature && signature.type === 'image' && !!signature.value) {
             // see https://stackoverflow.com/a/4776378
-            let img = new Image;
+            let img = new Image();
             img.onload = () => {
                 this.clear();
-                this.context.drawImage(img,0,0);
-                this.setState({isEmpty: false});
+                this.context.drawImage(img, 0, 0);
+                this.setState({ isEmpty: false });
                 this.handleChange();
             };
             img.src = signature.value;
@@ -55,10 +55,10 @@ export default class SignatureInput extends preact.Component {
         this.context.fillStyle = fillColor;
         this.context.beginPath();
         this.context.moveTo(x, y);
-        this.context.arc(x, y, radius, 0, Math.PI*2, false);
+        this.context.arc(x, y, radius, 0, Math.PI * 2, false);
         this.context.fill();
         this.context.closePath();
-    };
+    }
 
     drawPath(x, y, strokeStyle, lineWidth = 1) {
         this.context.beginPath();
@@ -68,22 +68,47 @@ export default class SignatureInput extends preact.Component {
         this.context.lineWidth = lineWidth;
         this.context.stroke();
         this.context.closePath();
-    };
+    }
 
     clear() {
-        if(this.state.isEmpty) return;
+        if (this.state.isEmpty) return;
         this.context.clearRect(0, 0, this.state.width, this.state.height);
-        this.setState({isEmpty: true});
+        this.setState({ isEmpty: true });
         this.handleChange();
-    };
+    }
 
     render() {
         return (
             <div className="signature-input">
-                <h2><Text id="signature" /></h2>
+                <h2>
+                    <Text id="signature" />
+                </h2>
                 <Text id="signature-explanation" />
-                <div><canvas id={this.props.id} style={'background-color: ' + this.state.backgroundColor } ref={el => this.canvas = el} width={this.state.width} height={this.state.height} onMouseMove={this.handleMouse} onMouseDown={this.handleMouse} onMouseUp={this.handleMouse} onMouseOut={this.handleMouse} /></div>
-                <button className="button-secondary" onClick={this.clear}><Text id="reset" /></button>{!!this.props.fillSignature && this.props.fillSignature.type === 'image' ? <button style="float: right" className="button-secondary" onClick={this.handleFillSignature}><Text id="fill-signature" /></button> : [] }
+                <div>
+                    <canvas
+                        id={this.props.id}
+                        style={'background-color: ' + this.state.backgroundColor}
+                        ref={el => (this.canvas = el)}
+                        width={this.state.width}
+                        height={this.state.height}
+                        onMouseMove={this.handleMouse}
+                        onMouseDown={this.handleMouse}
+                        onMouseUp={this.handleMouse}
+                        onMouseOut={this.handleMouse}
+                        style="max-width: 100%; box-sizing: border-box;"
+                    />
+                </div>
+                <button className="button button-small button-secondary" onClick={this.clear} style="float: right;">
+                    <Text id="reset-signature" />
+                </button>
+                <div className="clearfix" />
+                {!!this.props.fillSignature && this.props.fillSignature.type === 'image' ? (
+                    <button style="float: right" className="button-secondary" onClick={this.handleFillSignature}>
+                        <Text id="fill-signature" />
+                    </button>
+                ) : (
+                    []
+                )}
             </div>
         );
     }
@@ -96,7 +121,7 @@ export default class SignatureInput extends preact.Component {
     handleMouse(event) {
         let x; // Apparently JS linting ignores breaks…
         let y;
-        switch(event.type) {
+        switch (event.type) {
             case 'mousemove':
                 if (this.state.isDrawing) {
                     x = event.pageX - this.canvas.offsetLeft;
@@ -123,15 +148,14 @@ export default class SignatureInput extends preact.Component {
                 });
                 break;
             case 'mouseout':
-                if(this.state.hasBeenDrawnOn) {
+                if (this.state.hasBeenDrawnOn) {
                     this.handleChange();
                 }
-                this.setState({hasBeenDrawnOn: false});
+                this.setState({ hasBeenDrawnOn: false });
             case 'mouseup':
-                this.setState({isDrawing: false});
+                this.setState({ isDrawing: false });
                 break;
         }
-
     }
 
     handleChange() {
@@ -142,5 +166,4 @@ export default class SignatureInput extends preact.Component {
             }
         });
     }
-
 }

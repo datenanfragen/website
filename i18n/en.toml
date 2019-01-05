@@ -78,7 +78,7 @@ other = "My saved data"
 # Footer
 
 [footer-about-us]
-other = "We are Datenanfragen.de e.&nbsp;V., a registered non-profit from Germany. We have made it our mission to help you exercise your right to privacy. <a href='https://verein.datenanfragen.de'>Learn more.</a>"
+other = "We are Datenanfragen.de e.&nbsp;V., a registered non-profit from Germany. We have made it our mission to help you exercise your right to privacy. <a href='https://verein.datenanfragen.de/en'>Learn more.</a>"
 
 [footer-other-langs]
 other = "Also available in: "
@@ -184,6 +184,9 @@ other = "Company database"
 [adb-title]
 other = "Supervisory authority database"
 
+[adb-explanation]
+other = "Our supervisory authority database holds the contact details for the data protection supervisory authorities in the EU. If you think that a company hasn't correctly responded to your requests or is processing your data illegally, you can always submit a complaint with them at no cost."
+
 [cdb-company-title]
 other = "{{ .Params.name }}: Contact information for privacy-related requests"
 
@@ -196,6 +199,9 @@ other = "Categories:"
 
 [cdb-runs]
 other = "Also runs:"
+
+[cdb-runs-extended]
+other = "“{{ .Params.name }}” is also responsible for the following entities and services:"
 
 [cdb-intro]
 other = "We have to following contact information on “{{ .Params.name }}” for you to use for privacy-related requests:"
@@ -219,10 +225,10 @@ other = "Email:"
 other = "Website:"
 
 [cdb-pgp-fingerprint]
-other = "PGP-Fingerprint:"
+other = "PGP fingerprint:"
 
 [cdb-pgp-url]
-other = "PGP-Download:"
+other = "PGP key download:"
 
 [cdb-sources]
 other = "Sources:"
@@ -232,6 +238,21 @@ other = "Notes:"
 
 [cdb-help-needed]
 other = "Is this data inaccurate or the company you were looking for not in our database? Suggest <a href='{{ .editUrl }}'>an edit to this company</a> or <a href='{{ .newUrl }}'>a new one</a>. Thanks for your help!"
+
+[cdb-suggest-change]
+other = "Suggest a change"
+
+[cdb-suggest-new]
+other = "Suggest a new company"
+
+[cdb-back-to-overview]
+other = "Back to the overview"
+
+[cdb-cc0-explanation]
+other = "This database is licensed under a CC0 1.0 Universal license."
+
+[cdb-json-download]
+other = "View as machine-readable JSON"
 
 # Blog
 

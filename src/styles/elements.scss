@@ -181,6 +181,27 @@ input:disabled {
         background-color: $primary-color;
         color: $bg-color;
     }
+    &:hover {
+        background-color: $primary-darker-color;
+    }
+}
+
+/* yet another backport from chitin */
+.radio-group-vertical .radio-label {
+    display: block;
+    margin-bottom: 0;
+    border-left: 2px solid $primary-color;
+    border-bottom: 0;
+
+    padding-left: 15px;
+
+    &:first-child {
+        border-radius: 2px 2px 0 0;
+    }
+    &:last-child {
+        border-radius: 0 0 2px 2px;
+        border-bottom: 2px solid $primary-color;
+    }
 }
 
 /* Checkboxes */
@@ -488,4 +509,25 @@ input[type='search'].aa-input-search {
     a.close-button {
         color: $success-color;
     }
+}
+
+.top-right-humaaan,
+.top-left-humaaan {
+    height: 350px;
+    margin-top: -100px;
+
+    @include mobile {
+        margin: 0;
+        float: none;
+        width: 80vw;
+        height: auto;
+    }
+}
+.top-right-humaaan {
+    float: right;
+    margin-right: -250px;
+}
+.top-left-humaaan {
+    float: left;
+    margin-left: -250px;
 }

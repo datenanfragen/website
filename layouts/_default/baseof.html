@@ -7,7 +7,7 @@
 
     <title>
         {{- block "title" . -}}
-        {{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}
+        {{ if .Title }}{{ .Title }}{{ else if .Params.name }}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}
         {{- end -}}
     </title>
 
@@ -40,7 +40,7 @@
                 <a href="{{ "company" | absURL }}" class="menu-link desktop-only">{{ T "header-cdb" }}</a>
                 <a href="{{ "blog" | absURL }}" class="menu-link desktop-only">{{ T "header-blog" }}</a>
 
-                <a class="button button-primary icon icon-letter menu-link desktop-only" href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
+                <a class="{{ if .IsHome }}button button-primary icon icon-letter {{ end }}menu-link desktop-only" href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
                 <div class="dropdown-container">
                     <a class="button button-secondary menu-link" href="javascript:void(0)"><span class="icon icon-menu"></span></a>
                     <div class="dropdown" id="personal-menu">

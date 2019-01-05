@@ -17,7 +17,8 @@
     "cdb": {
         "title": "Company database",
         "explanation": "Our company database holds the contact information of many companies (as well as other organisations) for your privacy-related requests.",
-        "select-company": "View a different company…"
+        "select-company": "Search for a company…",
+        "suggest-new": "Suggest a new company"
     },
     "my-requests": {
         "title": "My requests",
@@ -38,8 +39,9 @@
         "delete-all-btn": "Delete all requests",
         "delete-all-confirm": "Do you really want to clear all data? This *cannot* be undone.",
         "export-btn": "Export as CSV",
-        "no-requests": "There are currently no requests. As soon as you start generating ones, they will appear here.",
-        "feature-disabled": "You have disabled this feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>."
+        "no-requests-heading": "No requests yet",
+        "no-requests": "You haven't generated any requests yet. As soon as you start doing that, they will appear here.",
+        "generate-request": "Generate a request"
     },
     "generator": {
         "reference": "Reference",
@@ -78,6 +80,7 @@
         "signature": "Signature",
         "signature-explanation": "If you want, you can sign your request. Just keep your mouse pressed and draw into the canvas.",
         "reset": "Reset",
+        "reset-signature": "Reset signature",
         "fill-signature": "Saved signature",
         "tagxplanation": "You can use the tags <code>&lt;italic&gt;&lt;/italic&gt;</code> and <code>&lt;bold&gt;&lt;/bold&gt;</code> in your text. Nested tags are not supported.",
         "subject": "Subject",
@@ -145,7 +148,8 @@
         "modal-clear-requests": "This will delete all saved requests and cannot be undone. Are you sure?",
         "modal-clear-id_data": "This will delete your saved identification data. Are you sure?",
         "clear-success": "Cleared successfully.",
-        "cookie-change-success": "Setting saved."
+        "cookie-change-success": "Setting saved.",
+        "feature-disabled": "You have disabled this feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>."
     },
     "error-handler": {
         "explanation": "Unfortunately, an unexpected error just occurred. We would really appreciate if you took the time to send us an error report via GitHub or email, so we can diagnose the problem. Huge thanks in advance!",
@@ -221,7 +225,7 @@
         "selected-companies": "Currently selected companies"
     },
     "id-data-controls": {
-        "id-data-deactivated": "Saving of identification data is deactivated. If you want to speed up the generation process and save identification data, please activate id data saving in the <a href=\"/privacy-controls/\">privacy controls</a>.",
+        "id-data-deactivated": "Saving of identification data is deactivated. If you want to speed up the generation process and save identification data, please activate ID data saving in the <a href=\"/privacy-controls/\">privacy controls</a>.",
         "always-fill-in-explain": "The saved data can be filled automatically in the fields of new requests.",
         "always-fill-in": "Always fill in known fields?",
         "saved-data": "Saved data",

@@ -184,6 +184,9 @@ other = "Unternehmensdatenbank"
 [adb-title]
 other = "Aufsichtsbehördendatenbank"
 
+[adb-explanation]
+other = "In unserer Aufsichtsbehördendatenbank findest Du die Kontaktdaten der Datenschutzaufsichtsbehörden in der EU. Wenn Du der Meinung bist, dass ein Unternehmen Deine Anfragen nicht korrekt beantwortet oder Deine Daten widerrechtlich verarbeitet, kannst Du Dich bei diesen Stellen jederzeit kostenlos beschweren."
+
 [cdb-company-title]
 other = "{{ .Params.name }}: Datenschutz-Kontaktdaten"
 
@@ -196,6 +199,9 @@ other = "Kategorien:"
 
 [cdb-runs]
 other = "Betreibt auch:"
+
+[cdb-runs-extended]
+other = "„{{ .Params.name }}“ ist auch für die folgenden Entitäten und Dienste verantwortlich:"
 
 [cdb-intro]
 other = "Zu „{{ .Params.name }}“ sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Fragen zum Datenschutz stellen möchtest:"
@@ -222,7 +228,7 @@ other = "Webseite:"
 other = "PGP-Fingerprint:"
 
 [cdb-pgp-url]
-other = "PGP-Download:"
+other = "PGP-Key-Download:"
 
 [cdb-sources]
 other = "Quellen:"
@@ -232,6 +238,21 @@ other = "Hinweise:"
 
 [cdb-help-needed]
 other = "Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Schlag <a href='{{ .editUrl }}'>eine Änderung für dieses Unternehmen</a> oder <a href='{{ .newUrl }}'>ein ganz neues</a> vor. Vielen Dank für Deine Mithilfe!"
+
+[cdb-suggest-change]
+other = "Änderung vorschlagen"
+
+[cdb-suggest-new]
+other = "Neues Unternehmen vorschlagen"
+
+[cdb-back-to-overview]
+other = "Zurück zur Übersicht"
+
+[cdb-cc0-explanation]
+other = "Wir stellen diese Datenbank unter der CC0 1.0 Universell-Lizenz zur Verfügung."
+
+[cdb-json-download]
+other = "Als maschinenlesbares JSON ansehen"
 
 # Blog
 

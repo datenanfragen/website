@@ -7,6 +7,9 @@ import { Text } from 'preact-i18n';
 import t from './Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 
+window.I18N_DEFINITION = require('i18n/' + LOCALE + '.json');
+window.I18N_DEFINITION_REQUESTS = require('i18n/requests.json');
+
 Object.defineProperty(globals, 'country', {
     set: function(country) {
         Cookie.set('country', country, { expires: 365 });
@@ -26,7 +29,8 @@ document.querySelectorAll('.i18n-button-container').forEach(el => {
 });
 preact.render(<I18nWidget minimal={true} />, document.getElementById('personal-menu-i18n-widget'));
 
-preact.render(<CommentsWidget />, null, document.getElementById('comments-widget'));
+let comments_div = document.getElementById('comments-widget');
+if (comments_div) preact.render(<CommentsWidget />, null, comments_div);
 
 if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
     preact.render(

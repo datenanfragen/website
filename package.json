@@ -1,5 +1,5 @@
 {
-    "name": "datenanfragen.de",
+    "name": "Datenanfragen.de",
     "version": "1.0.0",
     "private": true,
     "description": "The Datenanfragen.de website. We want to help you exercise your rights under the GDPR.",
@@ -48,7 +48,6 @@
         "preact-compat": "^3.18.0",
         "preact-i18n": "^1.2.0",
         "preact-portal": "^1.1.3",
-        "react-instantsearch": "^5.0.1",
         "react-joyride": "^1.11.4",
         "react-scrollspy": "^3.3.5",
         "typesense": "^0.2.0"

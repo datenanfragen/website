@@ -48,23 +48,26 @@ export default class RequestForm extends preact.Component {
                             <label for="custom-template-select" className="sr-only">
                                 <Text id="template" />
                             </label>
-                            <select
-                                type="text"
-                                id="custom-template-select"
-                                name="template"
-                                className="form-element"
-                                placeholder={t('template', 'generator')}
-                                onChange={this.props.onLetterTemplateChange}>
-                                <option value="no-template" checked={true}>
-                                    <Text id="no-template" />
-                                </option>
-                                <option value="admonition">
-                                    <Text id="admonition" />
-                                </option>
-                                <option value="complaint">
-                                    <Text id="complaint" />
-                                </option>
-                            </select>
+                            <div className="select-container" style="width: initial;">
+                                <select
+                                    type="text"
+                                    id="custom-template-select"
+                                    name="template"
+                                    className="form-element"
+                                    placeholder={t('template', 'generator')}
+                                    onChange={this.props.onLetterTemplateChange}>
+                                    <option value="no-template" checked={true}>
+                                        <Text id="no-template" />
+                                    </option>
+                                    <option value="admonition">
+                                        <Text id="admonition" />
+                                    </option>
+                                    <option value="complaint">
+                                        <Text id="complaint" />
+                                    </option>
+                                </select>
+                                <div class="icon icon-arrow-down" style="top: 6px;" />
+                            </div>
                         </div>
                         <div className="form-group">
                             <label for="custom-subject-input" className="sr-only">
@@ -152,7 +155,7 @@ export default class RequestForm extends preact.Component {
                         <div className="request-type-chooser">
                             <Text id="request-type" />
                             <br />
-                            <div className="radio-group">
+                            <div className="radio-group radio-group-vertical">
                                 <Radio
                                     id="request-type-choice-access"
                                     radio_variable={this.props.request_data['type']}
