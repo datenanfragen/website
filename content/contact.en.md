@@ -7,7 +7,6 @@
 
 **Mail address** (no office hours):  
 Datenanfragen.de e.&nbsp;V.  
-c/o Benjamin Altpeter  
 Schreinerweg 6  
 38126 Braunschweig  
 Germany
