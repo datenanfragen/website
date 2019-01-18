@@ -531,3 +531,65 @@ input[type='search'].aa-input-search {
     float: left;
     margin-left: -250px;
 }
+
+/* Star Widget, adapted after https://jsfiddle.net/leaverou/CGP87/ */
+fieldset.rating {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rating {
+    float: left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+    clip: rect(0, 0, 0, 0);
+}
+
+.rating:not(:checked) > label {
+    float: right;
+    width: 1em;
+    padding: 0 0.1em;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 200%;
+    line-height: 1.2;
+    color: #ddd;
+
+    &.editable {
+        cursor: pointer;
+    }
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: $primary-color;
+}
+
+.rating:not(:checked) > label.editable:hover,
+.rating:not(:checked) > label.editable:hover ~ label {
+    color: $primary-lighter-color;
+}
+
+.rating > input:checked + label.editable:hover,
+.rating > input:checked + label.editable:hover ~ label,
+.rating > input:checked ~ label.editable:hover,
+.rating > input:checked ~ label.editable:hover ~ label,
+.rating > label.editable:hover ~ input:checked ~ label {
+    color: $primary-darker-color;
+}
+
+.rating > label.editable:active {
+    position: relative;
+    top: 2px;
+    left: 2px;
+}

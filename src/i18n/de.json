@@ -277,7 +277,9 @@
         "send-error": "Fehler beim Absenden des Kommentars. Bitte versuche es später erneut.",
         "error-no-message": "Bitte gib einen Kommentar zum Absenden ein.",
         "no-comments": "Noch keine Kommentare vorhanden. Schreib’ doch einen!",
-        "leave-comment": "Kommentar hinterlassen"
+        "leave-comment": "Kommentar hinterlassen",
+        "optional": "(optional)",
+        "rating": "Bewertung"
     },
     "wizard_tutorial": {
         "back": "Zurück",

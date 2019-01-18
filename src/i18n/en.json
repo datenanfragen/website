@@ -278,7 +278,9 @@
         "send-error": "An error occurred while sending your comment. Please try again later.",
         "error-no-message": "Please enter a comment to send.",
         "no-comments": "No comments here yet. Why don’t you leave one?",
-        "leave-comment": "Leave a comment"
+        "leave-comment": "Leave a comment",
+        "optional": "(optional)",
+        "rating": "Rating"
     },
     "wizard_tutorial": {
         "back": "Back",

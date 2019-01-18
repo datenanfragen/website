@@ -72,6 +72,8 @@
         <!-- TODO: Style properly. -->
         {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "?type=new&for=cdb")) | safeHTML }}
     </div>
+
+    <div id="comments-widget" data-rating-enabled="1"></div>
 </main>
 {{ end }}
 
