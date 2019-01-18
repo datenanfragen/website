@@ -254,6 +254,9 @@ other = "Wir stellen diese Datenbank unter der CC0 1.0 Universell-Lizenz zur Ver
 [cdb-json-download]
 other = "Als maschinenlesbares JSON ansehen"
 
+[cdb-send-request]
+other = "Anfrage stellen"
+
 # Blog
 
 [blog-published]

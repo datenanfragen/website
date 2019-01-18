@@ -256,6 +256,9 @@ other = "This database is licensed under a CC0 1.0 Universal license."
 [cdb-json-download]
 other = "View as machine-readable JSON"
 
+[cdb-send-request]
+other = "Send a request"
+
 # Blog
 
 [blog-published]
