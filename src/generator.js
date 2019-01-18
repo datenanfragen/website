@@ -114,6 +114,10 @@ class Generator extends preact.Component {
                     this.setState({ batch: batch_companies.split(',') });
                 }
             }
+        } else if (findGetParameter('company')) {
+            fetchCompanyDataBySlug(findGetParameter('company'), company => {
+                this.setCompany(company);
+            });
         }
 
         this.resetInitialConditions();
@@ -732,6 +736,9 @@ class Generator extends preact.Component {
                 </Modal>
             );
         }
+
+        // Remove GET parameter-selected company from the URL after the request is finished
+        if (findGetParameter('company')) window.history.pushState({}, document.title, BASE_URL + 'generator');
 
         this.setState(prev => {
             prev['request_data'] = this.freshRequestData();
