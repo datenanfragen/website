@@ -40,7 +40,12 @@
         {{ end }}
         <div class="clearfix"></div>
 
-        {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ( apply . "T" "." ) ) ", " }}</p>{{ end }}
+        <!-- Ugly workaround since `(apply .Params.categories "T" ".")` stopped working at some point (see #135). -->
+        {{ .Scratch.Set "categories" slice }}
+        {{ range .Params.categories }}
+            {{ $.Scratch.Add "categories" (T .) }}
+        {{ end }}
+        {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ($.Scratch.Get "categories")) ", " }}</p>{{ end }}
         {{ with .Params.runs }}
             <p>{{ T "cdb-runs-extended" $ }}</p>
             <ul style="columns: 2;">
