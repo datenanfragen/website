@@ -411,6 +411,10 @@ table#my-requests-table {
     @include mobile {
         display: block;
         padding: 0;
+
+        h1 {
+            hyphens: auto;
+        }
     }
 
     .article-featured-image {
@@ -429,7 +433,6 @@ table#my-requests-table {
             height: 100%;
             width: auto;
             object-fit: cover;
-            margin-top: 6px;
 
             @include mobile {
                 height: auto;
@@ -680,8 +683,19 @@ article.page,
     }
 }
 
-.icon-list-article .article-featured-image img {
-    object-fit: contain;
-    width: 80%;
-    height: auto;
+.icon-list-article {
+    h1 {
+        margin-top: 6px;
+    }
+
+    .article-featured-image img {
+        object-fit: contain;
+        width: 80%;
+        height: auto;
+
+        @include mobile {
+            max-width: 50%;
+            padding-top: 15px;
+        }
+    }
 }

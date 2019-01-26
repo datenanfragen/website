@@ -32,7 +32,7 @@ Vielen Dank, dass Du Dich über die Möglichkeiten zum Mitmachen informierst!
     <div class="padded col75">
         <h1>Internationalisierung</h1>
 
-        <p>Unser Ziel ist es, Datenanfragen.de so vielen Menschen wie möglich zur Verfügung zu stellen. Dazu müssen wir das Projekt übersetzten und die Inhalte auf unterschiedliche Länder anpassen.</p>
+        <p>Unser Ziel ist es, Datenanfragen.de so vielen Menschen wie möglich zur Verfügung zu stellen. Dazu müssen wir das Projekt übersetzen und die Inhalte auf unterschiedliche Länder anpassen.</p>
         <p>Du sprichst eine Sprache, die wir bisher noch nicht unterstützen und hast Lust, uns beim Übersetzen zu helfen? Super! Bisher haben wir dafür leider noch keine fertige Infrastruktur, von daher melde Dich einfach über den Button unten per Mail bei uns.</p>
         <p>Ebenso wichtig wie das Übersetzen ist es aber auch, dass wir Unternehmen aus möglichst vielen Ländern in unserer Datenbank haben. Wie Du beim Hinzufügen neuer Einträge helfen kannst, erfährst Du <a href="#cdb">etwas weiter oben</a> auf der Seite.
         <br>Sobald wir eine ausreichende Anzahl von Unternehmen aus einem neuen Land und eine Liste der Unternehmen, bei denen Menschen aus diesem Land auf jeden Fall anfragen sollten, haben, können wir das Land dann offiziell unterstützen.</p>
