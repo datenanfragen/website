@@ -18,7 +18,7 @@
     </div>
     <div id="company-search"></div>
     <div id="company-details">
-        <div style="float: right; text-align: right; padding: 0 0 15px 15px;">
+        <div class="col100-mobile" style="float: right; text-align: right; padding: 0 0 15px 15px;">
             <a class="button button-primary button-small icon icon-letter" href="{{ print ("generator" | absURL) "?company=" .Params.slug }}" style="margin-bottom: 5px;">{{ T "cdb-send-request" }}</a><br>
             <a class="button button-secondary button-small icon icon-pencil" href="{{ print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug }}">{{ T "cdb-suggest-change" }}</a>
         </div>
@@ -26,10 +26,10 @@
         <p>{{ T "cdb-intro" . }}</p>
 
         {{ with .Params.address }}
-            <div class="col50"><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</div>
+            <div class="col50 col100-mobile"><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</div>
         {{ end }}
         {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
-            <div class="col50">
+            <div class="col50 col100-mobile">
                 <table class="contact-table narrow-table">
                     {{ with .Params.phone }}<tr><td><strong>{{ T "cdb-phone" }}</strong></td><td>{{ . }}</td></tr>{{ end }}
                     {{ with .Params.fax }}<tr><td><strong>{{ T "cdb-fax" }}</strong></td><td>{{ . }}</td></tr>{{ end }}

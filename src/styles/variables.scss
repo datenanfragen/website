@@ -48,6 +48,7 @@ $text-inputs: 'input[type=search], input[type=text], input[type=email], input[ty
             0 $top 0 0 $primary-color inset;
 }
 
+// TODO: Add a tablet breakpoint
 @mixin mobile() {
     @media (max-width: $max-width - 1px) {
         @content;

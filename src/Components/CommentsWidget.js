@@ -105,14 +105,14 @@ export class CommentForm extends preact.Component {
                     <Text id="leave-comment" />
                 </h3>
 
-                <div className="col25">
+                <div className="col25 col100-mobile">
                     <strong>
                         <Text id="author" />
                     </strong>{' '}
                     <Text id="optional" />
                 </div>
-                <div className="col75">
-                    <div className="form-group">
+                <div className="col75 col100-mobile">
+                    <div className="form-group form-group-vertical">
                         <label for="new-comment-author" className="sr-only">
                             <Text id="author" />
                         </label>
@@ -126,14 +126,15 @@ export class CommentForm extends preact.Component {
                         />
                     </div>
                 </div>
+                <div className="clearfix" />
 
-                <div className="col25">
+                <div className="col25 col100-mobile">
                     <strong>
                         <Text id="comment" />
                     </strong>
                 </div>
-                <div className="col75">
-                    <div className="form-group">
+                <div className="col75 col100-mobile">
+                    <div className="form-group form-group-vertical">
                         <label for="new-comment-message" className="sr-only">
                             <Text id="comment" />
                         </label>
@@ -148,23 +149,25 @@ export class CommentForm extends preact.Component {
                         />
                     </div>
                 </div>
+                <div className="clearfix" />
 
                 {this.props.allow_rating
                     ? [
-                          <div className="col25">
+                          <div className="col25 col100-mobile">
                               <strong>
                                   <Text id="rating" />
                               </strong>{' '}
                               <Text id="optional" />
                           </div>,
-                          <div className="col75">
-                              <div className="form-group">
+                          <div className="col75 col100-mobile">
+                              <div className="form-group form-group-vertical">
                                   <label for="star-widget" className="sr-only">
                                       <Text id="rating" />
                                   </label>
                                   <StarWidget id="star-widget" onChange={rating => this.setState({ rating: rating })} />
                               </div>
-                          </div>
+                          </div>,
+                          <div className="clearfix" />
                       ]
                     : []}
 

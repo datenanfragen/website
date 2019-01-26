@@ -60,6 +60,13 @@
     flex: 0.1;
     float: left;
 }
+.col100-mobile {
+    @include mobile {
+        width: 100%;
+        flex: 1;
+        float: none;
+    }
+}
 
 .clearfix {
     clear: both;
@@ -175,6 +182,9 @@ pre {
     position: relative;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+.form-group-vertical {
+    margin-top: 0;
 }
 select {
     appearance: menulist;
