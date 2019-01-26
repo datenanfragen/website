@@ -514,11 +514,12 @@ input[type='search'].aa-input-search {
 .top-right-humaaan,
 .top-left-humaaan {
     height: 350px;
-    margin-top: -100px;
+    margin-top: -70px;
 
     @include mobile {
-        margin: 0;
-        float: none;
+        display: block;
+        margin: auto !important;
+        float: none !important;
         width: 80vw;
         height: auto;
     }

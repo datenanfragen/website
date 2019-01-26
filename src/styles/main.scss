@@ -672,6 +672,18 @@ button.joyride-tooltip__button--skip {
     }
 }
 
+#suggest-company-btn {
+    float: right;
+    text-align: right;
+    padding: 0 0 15px 15px;
+
+    @include mobile {
+        width: 100%;
+        float: none;
+        padding: initial;
+    }
+}
+
 // tmp before we get chitin
 article.page,
 .narrow-page {
@@ -695,6 +707,7 @@ article.page,
 
         @include mobile {
             max-width: 50%;
+            max-height: 150px;
             padding-top: 15px;
         }
     }

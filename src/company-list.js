@@ -54,8 +54,7 @@ class CompanyList extends preact.Component {
             <IntlProvider scope="cdb" definition={I18N_DEFINITION}>
                 <div id="company-list-controls">
                     <div className="container">
-                        <div style="float: right; text-align: right; padding: 0 0 15px 15px;">
-                            {/* TODO: The same problem as on the single page applies here, too. Especially since this also uses the same icon. */}
+                        <div id="suggest-company-btn">
                             <a
                                 class="button button-primary icon icon-letter"
                                 href={BASE_URL + 'suggest/?type=new&for=cdb'}>
