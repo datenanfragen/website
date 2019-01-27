@@ -259,6 +259,9 @@ other = "View as machine-readable JSON"
 [cdb-send-request]
 other = "Send a request"
 
+[cdb-category-title]
+other = "Companies in the “{{ .c }}” category"
+
 # Blog
 
 [blog-published]

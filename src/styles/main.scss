@@ -106,7 +106,7 @@ a #logo {
     color: $primary-color;
 
     @include mobile {
-        font-size: 2em;
+        font-size: 1.5em;
         hyphens: auto;
     }
 }
@@ -681,6 +681,14 @@ button.joyride-tooltip__button--skip {
         width: 100%;
         float: none;
         padding: initial;
+    }
+}
+
+.cdb-runs-list {
+    columns: 2;
+
+    @include mobile {
+        columns: initial;
     }
 }
 

@@ -43,12 +43,16 @@
         <!-- Ugly workaround since `(apply .Params.categories "T" ".")` stopped working at some point (see #135). -->
         {{ .Scratch.Set "categories" slice }}
         {{ range .Params.categories }}
-            {{ $.Scratch.Add "categories" (T .) }}
+            {{ $title := . }}
+            <!-- Yes, that is actually the *recommend* way to do this (https://gohugo.io/templates/taxonomy-templates/#example-list-tags-in-a-single-page-template)… *sigh* -->
+            {{ with $.Site.GetPage (printf "/categories/%s" .) }}
+                {{ $.Scratch.Add "categories" (printf "<a href='%s'>%s</a>" .Permalink (T $title)) }}
+            {{ end }}
         {{ end }}
         {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ($.Scratch.Get "categories")) ", " }}</p>{{ end }}
         {{ with .Params.runs }}
             <p>{{ T "cdb-runs-extended" $ }}</p>
-            <ul style="columns: 2;">
+            <ul class="cdb-runs-list">
                 {{ range . }}
                     <li>{{ . }}</li>
                 {{ end }}

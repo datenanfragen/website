@@ -257,6 +257,9 @@ other = "Als maschinenlesbares JSON ansehen"
 [cdb-send-request]
 other = "Anfrage stellen"
 
+[cdb-category-title]
+other = "Unternehmen aus der Kategorie „{{ .c }}“"
+
 # Blog
 
 [blog-published]

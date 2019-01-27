@@ -104,6 +104,7 @@ class CompanySearch extends preact.Component {
     render() {
         return (
             <IntlProvider scope="cdb" definition={I18N_DEFINITION}>
+                {/* TODO: I am not sure if I realized that before but all instances of this `CompanySearch` are actually filtering by the user's country currently. I am not sure whether we want that. If we decide to keep it, we should also filter the Hugo-generated list pages. */}
                 <SearchBar
                     id="aa-search-input"
                     index="companies"
@@ -113,6 +114,7 @@ class CompanySearch extends preact.Component {
                     placeholder={t('select-company', 'cdb')}
                     debug={true}
                     style="margin-top: 15px;"
+                    filters={this.props.filters}
                 />
             </IntlProvider>
         );
@@ -120,4 +122,10 @@ class CompanySearch extends preact.Component {
 }
 
 preact.render(<CompanyList />, null, document.getElementById('company-list'));
-preact.render(<CompanySearch />, null, document.getElementById('company-search'));
+let search_div = document.getElementById('company-search');
+let search_filters = search_div.dataset.filterCategory;
+preact.render(
+    <CompanySearch filters={search_filters ? ['categories:' + search_filters] : undefined} />,
+    null,
+    search_div
+);
