@@ -262,6 +262,9 @@ other = "Send a request"
 [cdb-category-title]
 other = "Companies in the “{{ .c }}” category"
 
+[cdb-related-companies]
+other = "Related companies"
+
 # Blog
 
 [blog-published]

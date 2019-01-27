@@ -77,10 +77,23 @@
             </ul>
         {{ end }}
     </div>
-    <div id="companies-help-needed" class="box box-info">
-        <!-- TODO: Style properly. -->
+    <div id="companies-help-needed" class="box box-info" style="margin-bottom: 20px;">
         {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "?type=new&for=cdb")) | safeHTML }}
     </div>
+
+    <!-- TODO: This is currently a very naive approach, mostly since we don't exactly have any data to do this better. We will want to improve this in the future. Also, this has the unfortunate side effect of being very CPU intensive, so we may want to disable this feature for development. Oh yeah, and this feature seems to be very 'non-deterministic', at least under our parameters. Not sure if that is a good or a bad thing. -->
+    {{ $related := (where (.Site.RegularPages.Related .) "Type" "company") | first 5 }}
+    {{ with $related }}
+    <div id="related-companies">
+        <h2>{{ T "cdb-related-companies" }}</h2>
+        <!-- TODO: Nicer styling -->
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .Permalink }}">{{ .Param "name" }}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
 
     <div id="comments-widget" data-rating-enabled="1"></div>
 </main>

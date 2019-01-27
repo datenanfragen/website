@@ -260,6 +260,9 @@ other = "Anfrage stellen"
 [cdb-category-title]
 other = "Unternehmen aus der Kategorie „{{ .c }}“"
 
+[cdb-related-companies]
+other = "Ähnliche Unternehmen"
+
 # Blog
 
 [blog-published]

@@ -21,3 +21,14 @@ preserveTaxonomyNames = true
         baseURL = "https://www.datarequests.org/"
         title = "datarequests.org"
         copyright = "This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License."
+
+[related]
+    threshold = 100
+    includeNewer = true
+    toLower = true
+[[related.indices]]
+    name = "categories"
+    weight = 40
+[[related.indices]]
+    name = "relevant-countries"
+    weight = 40

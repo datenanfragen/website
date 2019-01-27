@@ -19,3 +19,14 @@ preserveTaxonomyNames = true
         weight = 20
         title = "datarequests.org—You have a right to privacy, we help you use it"
         copyright = "This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License."
+
+[related]
+    threshold = 100
+    includeNewer = true
+    toLower = true
+[[related.indices]]
+    name = "categories"
+    weight = 40
+[[related.indices]]
+    name = "relevant-countries"
+    weight = 40
