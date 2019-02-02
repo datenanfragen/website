@@ -4,7 +4,13 @@
     {{ end }}
     <div class="padded {{ if .Params.featured_image }}col75{{end}}">
         <a href="{{ .Permalink }}"><h1>{{ .Title }}</h1></a>
-        <aside class="list-article-meta">{{ if not .Params.static }}{{ T "blog-published" }}<span class="meta-date"><time>{{ .Date.Format "2006-01-02T15:04" }}</time></span>{{ end }}</aside>
+        <aside class="list-article-meta">
+            {{ if not .Params.static }}
+                {{ T "blog-published" }}<span class="meta-date">{{ with .Params.date }}<time pubdate datetime="{{ .Format "2006-01-02T15:04" }}">{{ .Format "2006-01-02" }} {{ T "blog-time-at" }} {{ .Format "15:04" }}</time>{{- end -}}
+                    {{ with .Params.last_edited }}{{T "blog-last-edited" }} <time datetime="{{ dateFormat "2006-01-02T15:04" . }}">{{ dateFormat "2006-01-02" . }} {{ T "blog-time-at" }} {{ dateFormat "15:04" . }}</time>{{ end }}</span><br>
+                {{ with .Params.short_author }}{{ T "blog-author" }}<span class="meta-author">{{ . }}</span>{{ end }}
+            {{ end }}
+        </aside>
         <p class="description">
             {{ if .Description }}
             {{ .Description }}
