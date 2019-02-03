@@ -548,19 +548,17 @@ fieldset.rating {
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
 .rating:not(:checked) > input {
-    position: absolute;
-    top: -9999px;
-    clip: rect(0, 0, 0, 0);
+    display: none;
 }
 
 .rating:not(:checked) > label {
     float: right;
-    width: 1em;
-    padding: 0 0.1em;
+    width: 0.8em;
+    padding: 0 0.1em 0 0;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 200%;
-    line-height: 1.2;
+    font-size: 250%;
+    line-height: 0.7;
     color: #ddd;
 
     &.editable {
@@ -569,7 +567,7 @@ fieldset.rating {
 }
 
 .rating:not(:checked) > label:before {
-    content: '★ ';
+    content: '◆ ';
 }
 
 .rating > input:checked ~ label {

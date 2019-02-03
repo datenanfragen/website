@@ -60,7 +60,7 @@ export class Comment extends preact.Component {
                     <strong>{this.props.author}</strong> ({new Date(this.props.date).toLocaleString()})
                 </span>
                 {this.props.additional.rating ? (
-                    <div style="position: absolute; top: 0; right: 0; margin: 5px 5px 0 0;">
+                    <div style="position: absolute; top: 0; right: 0; margin-top: 5px;">
                         <StarWidget
                             id={'stars-' + this.props.id}
                             initial={this.props.additional.rating}
@@ -160,7 +160,7 @@ export class CommentForm extends preact.Component {
                               <Text id="optional" />
                           </div>,
                           <div className="col75 col100-mobile">
-                              <div className="form-group form-group-vertical">
+                              <div className="form-group form-group-vertical" style="margin-bottom: 0;">
                                   <label for="star-widget" className="sr-only">
                                       <Text id="rating" />
                                   </label>
