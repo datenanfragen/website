@@ -12,12 +12,23 @@ preserveTaxonomyNames = true
         languageName = "Deutsch"
         weight = 10
         baseURL = "https://www.datenanfragen.de/"
-        title = "Datenanfragen.de – Du hast ein Recht auf Datenschutz, wir helfen Dir es zu nutzen"
+        title = "Datenanfragen.de"
         copyright = "Dieses Werk ist unter einer Creative Commons Attribution-NoDerviatives 4.0 International-Lizenz lizensiert."
     [languages.en]
         languageCode = "en-us"
         languageName = "English"
         weight = 20
         baseURL = "https://www.datarequests.org/"
-        title = "datarequests.org—You have a right to privacy, we help you use it"
+        title = "datarequests.org"
         copyright = "This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License."
+
+[related]
+    threshold = 100
+    includeNewer = true
+    toLower = true
+[[related.indices]]
+    name = "categories"
+    weight = 40
+[[related.indices]]
+    name = "relevant-countries"
+    weight = 40

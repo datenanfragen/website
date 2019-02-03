@@ -88,7 +88,9 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                     (d.categories && d.categories.length
                                         ? '<br><span>' +
                                           t('categories', 'search') +
-                                          (cats_hs.length === 1 ? cats_hs[0].snippets : d.categories).join(', ') +
+                                          (cats_hs.length === 1 ? cats_hs[0].snippets : d.categories)
+                                              .map(c => t(c, 'categories'))
+                                              .join(', ') +
                                           '</span>'
                                         : '')
                                 );

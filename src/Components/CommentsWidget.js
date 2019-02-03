@@ -2,6 +2,7 @@ import preact from 'preact';
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'Utility/i18n';
 import FlashMessage, { flash } from 'Components/FlashMessage';
+import StarWidget from 'Components/StarWidget';
 import { rethrow } from '../Utility/errors';
 
 const API_URL = 'https://comments.datenanfragen.de';
@@ -26,7 +27,9 @@ export default class CommentsWidget extends preact.Component {
         let comment_elements = [];
 
         this.state.comments.forEach(c => {
-            comment_elements.push(<Comment author={c.author} message={c.message} date={c.added_at} />);
+            comment_elements.push(
+                <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
+            );
         });
 
         return (
@@ -42,7 +45,7 @@ export default class CommentsWidget extends preact.Component {
                     ) : (
                         comment_elements
                     )}
-                    <CommentForm />
+                    <CommentForm allow_rating={this.props.allow_rating} />
                 </div>
             </IntlProvider>
         );
@@ -52,10 +55,21 @@ export default class CommentsWidget extends preact.Component {
 export class Comment extends preact.Component {
     render() {
         return (
-            <div className="comment box box-compact" style="margin-bottom: 15px;">
+            <div className="comment box box-compact" style="margin-bottom: 15px; position: relative;">
                 <span>
                     <strong>{this.props.author}</strong> ({new Date(this.props.date).toLocaleString()})
                 </span>
+                {this.props.additional.rating ? (
+                    <div style="position: absolute; top: 0; right: 0; margin-top: 5px;">
+                        <StarWidget
+                            id={'stars-' + this.props.id}
+                            initial={this.props.additional.rating}
+                            readonly={true}
+                        />
+                    </div>
+                ) : (
+                    []
+                )}
                 <p>
                     {this.props.message.split('\n').map((item, key) => {
                         return (
@@ -77,7 +91,8 @@ export class CommentForm extends preact.Component {
 
         this.state = {
             author: '',
-            message: ''
+            message: '',
+            rating: 0
         };
 
         this.submitComment = this.submitComment.bind(this);
@@ -90,13 +105,14 @@ export class CommentForm extends preact.Component {
                     <Text id="leave-comment" />
                 </h3>
 
-                <div className="col25">
+                <div className="col25 col100-mobile">
                     <strong>
                         <Text id="author" />
-                    </strong>
+                    </strong>{' '}
+                    <Text id="optional" />
                 </div>
-                <div className="col75">
-                    <div className="form-group">
+                <div className="col75 col100-mobile">
+                    <div className="form-group form-group-vertical">
                         <label for="new-comment-author" className="sr-only">
                             <Text id="author" />
                         </label>
@@ -110,14 +126,15 @@ export class CommentForm extends preact.Component {
                         />
                     </div>
                 </div>
+                <div className="clearfix" />
 
-                <div className="col25">
+                <div className="col25 col100-mobile">
                     <strong>
                         <Text id="comment" />
                     </strong>
                 </div>
-                <div className="col75">
-                    <div className="form-group">
+                <div className="col75 col100-mobile">
+                    <div className="form-group form-group-vertical">
                         <label for="new-comment-message" className="sr-only">
                             <Text id="comment" />
                         </label>
@@ -132,6 +149,27 @@ export class CommentForm extends preact.Component {
                         />
                     </div>
                 </div>
+                <div className="clearfix" />
+
+                {this.props.allow_rating
+                    ? [
+                          <div className="col25 col100-mobile">
+                              <strong>
+                                  <Text id="rating" />
+                              </strong>{' '}
+                              <Text id="optional" />
+                          </div>,
+                          <div className="col75 col100-mobile">
+                              <div className="form-group form-group-vertical" style="margin-bottom: 0;">
+                                  <label for="star-widget" className="sr-only">
+                                      <Text id="rating" />
+                                  </label>
+                                  <StarWidget id="star-widget" onChange={rating => this.setState({ rating: rating })} />
+                              </div>
+                          </div>,
+                          <div className="clearfix" />
+                      ]
+                    : []}
 
                 <button id="submit-comment" onClick={this.submitComment} style="float: right;">
                     <Text id="submit" />
@@ -149,14 +187,17 @@ export class CommentForm extends preact.Component {
             return false;
         }
 
+        let body = {
+            author: this.state.author,
+            message: this.state.message,
+            target: TARGET
+        };
+        if (this.props.allow_rating && this.state.rating) body['additional'] = { rating: this.state.rating };
+
         fetch(API_URL, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                author: this.state.author,
-                message: this.state.message,
-                target: TARGET
-            })
+            body: JSON.stringify(body)
         })
             .then(response => {
                 if (!response.ok) throw new Error('Unexpected response from comments server.');

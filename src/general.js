@@ -30,7 +30,9 @@ document.querySelectorAll('.i18n-button-container').forEach(el => {
 preact.render(<I18nWidget minimal={true} />, document.getElementById('personal-menu-i18n-widget'));
 
 let comments_div = document.getElementById('comments-widget');
-if (comments_div) preact.render(<CommentsWidget />, null, comments_div);
+if (comments_div) {
+    preact.render(<CommentsWidget allow_rating={comments_div.dataset.ratingEnabled == 1} />, null, comments_div);
+}
 
 if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
     preact.render(

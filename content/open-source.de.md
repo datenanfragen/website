@@ -5,7 +5,7 @@
 	"heading": "<span style='text-align: center; font-family: monospace;'>Datenanfragen.de <span style='color: #d8000c;' title='liebt'>❤</span> Open Source</span>"
 }
 
-<img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg">
+<img id="open-source-humaaan" class="top-left-humaaan" src="/img/humaaans/open-source.svg">
 
 Open Source steht im Kern von Datenanfragen.de. Wir haben das Projekt von Grund auf konzipiert, so offen wie möglich zu sein. So verpflichtet uns nicht zuletzt unsere [Satzung](https://verein.datenanfragen.de/satzung), unsere Inhalte unter freien Lizenzen zur Verfügung zu stellen.
 

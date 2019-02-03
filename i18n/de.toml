@@ -27,6 +27,9 @@ other = "Finanzen"
 [insurance]
 other = "Versicherung"
 
+["non-profit"]
+other = "Gemeinnützige Organisation"
+
 ["public body"]
 other = "Öffentliche Stelle"
 
@@ -253,6 +256,15 @@ other = "Wir stellen diese Datenbank unter der CC0 1.0 Universell-Lizenz zur Ver
 
 [cdb-json-download]
 other = "Als maschinenlesbares JSON ansehen"
+
+[cdb-send-request]
+other = "Anfrage stellen"
+
+[cdb-category-title]
+other = "Unternehmen aus der Kategorie „{{ .c }}“"
+
+[cdb-related-companies]
+other = "Ähnliche Unternehmen"
 
 # Blog
 

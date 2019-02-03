@@ -23,7 +23,7 @@
 <script src="{{ "js/generator.gen.js" | absURL }}"></script>
 {{ end }}
 
-{{ if eq .Type "company" }}
+{{ if or (eq .Type "company") (eq .Type "categories") }}
 <script src="{{ "js/company-list.gen.js" | absURL }}"></script>
 {{ end }}
 
