@@ -44,7 +44,7 @@
         {{ .Scratch.Set "categories" slice }}
         {{ range .Params.categories }}
             {{ $title := . }}
-+            <!-- Yes, that is actually the *recommended* way to do this (https://gohugo.io/templates/taxonomy-templates/#example-list-tags-in-a-single-page-template)… *sigh* -->
+            <!-- Yes, that is actually the *recommended* way to do this (https://gohugo.io/templates/taxonomy-templates/#example-list-tags-in-a-single-page-template)… *sigh* -->
             {{ with $.Site.GetPage (printf "/categories/%s" .) }}
                 {{ $.Scratch.Add "categories" (printf "<a href='%s'>%s</a>" .Permalink (T $title)) }}
             {{ end }}
