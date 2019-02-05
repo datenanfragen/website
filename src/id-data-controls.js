@@ -38,7 +38,7 @@ class IdDataControls extends preact.Component {
     render() {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             return (
-                <div id="id-data-controls-container">
+                <div id="id-data-controls-container" className="narrow-page">
                     <DynamicInputContainer
                         key="id-data-controls"
                         id="id-data-controls"
