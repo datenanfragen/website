@@ -27,7 +27,7 @@ other = "finance"
 [insurance]
 other = "insurance"
 
-["non-profit"]
+[nonprofit]
 other = "non-profit organisation"
 
 ["public body"]
