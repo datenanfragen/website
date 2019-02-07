@@ -1,6 +1,6 @@
 import preact from 'preact';
 import t from 'Utility/i18n';
-import { fetchCompanyDataBySlug } from 'Utility/companies';
+import { fetchSvaDataBySlug } from 'Utility/companies';
 
 const STEPS = {
     country: {
@@ -104,6 +104,14 @@ export default class SvaFinder extends preact.Component {
         let content;
 
         if (this.state.result) {
+            if (typeof this.props.callback === 'function') {
+                fetchSvaDataBySlug(this.state.result, sva => {
+                    this.props.callback(sva);
+                });
+
+                return <p>{t('loading-sva', 'sva-finder')}</p>;
+            }
+
             content = (
                 <p>
                     {t('result', 'sva-finder')}
@@ -141,16 +149,18 @@ export default class SvaFinder extends preact.Component {
             });
 
             content = [
-                <p>{this.state.question}</p>,
-                <div className="radio-group radio-group-vertical" style="max-height: 60vh; overflow: auto;">
+                <p style="margin-top: 0;">{this.state.question}</p>,
+                <div className="radio-group radio-group-vertical" style="max-height: 40vh; overflow: auto;">
                     {options}
                 </div>
             ];
         }
 
+        let heading = this.props.callback ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>;
+
         return (
-            <div className="sva-finder box box-info">
-                <h2>{t('sva-finder', 'sva-finder')}</h2>
+            <div className="sva-finder box box-info" style={this.props.style}>
+                {heading}
                 {content}
                 <div style="float: right; margin-top: 20px;">
                     <button

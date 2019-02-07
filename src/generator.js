@@ -2,7 +2,7 @@ import preact from 'preact';
 import RequestForm from 'Forms/RequestForm';
 import Letter from 'Utility/Letter';
 import { SearchBar } from './Components/SearchBar';
-import { IntlProvider, Text } from 'preact-i18n';
+import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from 'Utility/companies';
 import localforage from 'localforage';
@@ -16,6 +16,7 @@ import { t_r } from './Utility/i18n';
 import Joyride from 'react-joyride';
 import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
+import SvaFinder from './Components/SvaFinder';
 
 const request_articles = { access: 15, erasure: 17, rectification: 16 };
 
@@ -434,15 +435,11 @@ class Generator extends preact.Component {
                             onNegativeFeedback={() => this.hideModal()}
                             positiveDefault={true}
                             onDismiss={() => this.hideModal()}>
-                            <Text id="modal-select-authority" />
-                            <SearchBar
-                                id="aa-authority-search-input"
-                                index="supervisory-authorities"
-                                query_by="name"
-                                disableCountryFiltering={true}
-                                onAutocompleteSelected={(event, suggestion, dataset) => {
-                                    this.setCompany(suggestion.document);
-                                    fetch(templateURL(suggestion.document['complaint-language']) + 'complaint.txt')
+                            <MarkupText id="modal-select-authority" />
+                            <SvaFinder
+                                callback={sva => {
+                                    this.setCompany(sva);
+                                    fetch(templateURL(sva['complaint-language']) + 'complaint.txt')
                                         .then(res => res.text())
                                         .then(text => {
                                             this.setState(prev => {
@@ -461,20 +458,8 @@ class Generator extends preact.Component {
                                         });
                                     this.hideModal();
                                 }}
-                                placeholder={t('select-authority', 'generator')}
-                                debug={true}
                                 style="margin-top: 15px;"
-                                suggestion_template={suggestion => {
-                                    let name_hs = suggestion.highlights.filter(a => a.field === 'name');
-                                    return (
-                                        '<span><strong>' +
-                                        (name_hs.length === 1 ? name_hs[0].snippet : suggestion.document.name) +
-                                        '</strong></span>'
-                                    );
-                                }}
-                                empty_template={'<p style="margin-left: 10px;">' + t('no-results', 'search') + '</p>'}
-                            />{' '}
-                            {/* TODO: Only show relevant countries */}
+                            />
                         </Modal>
                     );
             }

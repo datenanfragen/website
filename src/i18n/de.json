@@ -114,7 +114,7 @@
         "complaint": "Beschwerde",
         "select": "Auswählen",
         "select-authority": "Datenschutzaufsichtsbehörde auswählen…",
-        "modal-select-authority": "Hier kannst die Datenschutzaufsichtsbehörde auswählen, an die du deine Anfrage senden möchtest. Du musst dabei nicht mit der Behörde kommunizieren, die für das Unternehmen zuständig ist, sondern kannst auch die an Deinem Wohnort wählen (vgl. dazu Art. 77 Abs. 1 DSGVO).",
+        "modal-select-authority": "Der Assistent hilft Dir, die Datenschutzaufsichtsbehörde auszuwählen, an die du deine Beschwerde sendest. Du musst nicht die Behörden wählen, die für das Unternehmen zuständig ist, sondern solltest die an Deinem Wohnort wählen. <a href=\"/datenschutz-aufsichtsbehoerden\" target=\"_blank\">Mehr dazu</a>",
         "company-read-more": "Weitere Informationen",
         "print-pdf": "PDF drucken",
         "pgp-fingerprint": "PGP-Fingerprint",
@@ -298,6 +298,7 @@
     "sva-finder": {
         "sva-finder": "Datenschutz-Aufsichtsbehörden-Finder",
         "reset": "Angaben zurücksetzen",
+        "loading-sva": "Lade Angaben zur gewählten Behörde…",
         "result": "Aufgrund Deiner Angaben empfehlen wir Dir, Dich an die folgende Datenschutz-Aufsichtsbehörde zu wenden:",
 
         "country": "In welchem Land lebst Du?",

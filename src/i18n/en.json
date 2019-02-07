@@ -115,7 +115,7 @@
         "complaint": "Complaint",
         "select": "Select",
         "select-authority": "Select supervisory authority…",
-        "modal-select-authority": "Select a data protection supervisory authority you want to lodge your complaint with. You don’t necessarily need to lodge your complaint with the authority that is responsible for the company you want to complain about but can also go with the one from where you live (see Art. 77(1) GDPR).",
+        "modal-select-authority": "This assistant will help you select the supervisory data protection authority to lodge your complaint with. You don’t need to lodge your complaint with the authority that is responsible for the company you want to complain about but should go with the one from where you live. <a href=\"/supervisory-authorities\" target=\"_blank\">Learn more</a>",
         "company-read-more": "More information",
         "print-pdf": "Print PDF",
         "pgp-fingerprint": "PGP fingerprint",
@@ -299,6 +299,7 @@
     "sva-finder": {
         "sva-finder": "Supervisory authority finder",
         "reset": "Reset choices",
+        "loading-sva": "Loading data on the selected authority…",
         "result": "According to what you selected, we recommend you contact the following data protection authority:",
 
         "country": "Where do you live?",
