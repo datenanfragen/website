@@ -10,18 +10,15 @@
     name = "Meine gespeicherten Daten"
     url = "/id-data-controls"
     weight = 25
+    post = "<br>"
 [[languages.de.menu.footerleft]]
     name = "Unternehmensdatenbank"
     url = "/company"
     weight = 30
 [[languages.de.menu.footerleft]]
-    name = "Aufsichtsbehördendatenbank"
-    url = "/supervisory-authority"
-    weight = 40
-[[languages.de.menu.footerleft]]
     name = "Artikel"
     url = "/blog"
-    weight = 50
+    weight = 40
 
 # [[languages.de.menu.footercenter]]
 #     name = "Features"
@@ -48,6 +45,10 @@
     name = "Musterschreiben"
     url = "/sample-letters"
     weight = 60
+[[languages.de.menu.footercenter]]
+    name = "Aufsichtsbehörden"
+    url = "/datenschutz-aufsichtsbehoerden"
+    weight = 70
 
 [[languages.de.menu.footerright]]
     name = "Impressum"
@@ -81,18 +82,15 @@
     name = "My saved data"
     url = "/id-data-controls"
     weight = 25
+    post = "<br>"
 [[languages.en.menu.footerleft]]
     name = "Company database"
     url = "/company"
     weight = 30
 [[languages.en.menu.footerleft]]
-    name = "Supervisory authority database"
-    url = "/supervisory-authority"
-    weight = 40
-[[languages.en.menu.footerleft]]
     name = "Posts"
     url = "/blog"
-    weight = 50
+    weight = 40
 
 # [[languages.en.menu.footercenter]]
 #     name = "Features"
@@ -119,6 +117,10 @@
     name = "Letter templates"
     url = "/sample-letters"
     weight = 60
+[[languages.en.menu.footercenter]]
+    name = "Supervisory authorities"
+    url = "/supervisory-authorities"
+    weight = 70
 
 [[languages.en.menu.footerright]]
     name = "Legal notice and contact"

@@ -6,7 +6,9 @@
 	"type": "blog",
 	"description": "According to the GDPR, you have a right to access the personal data stored on you by companies. We offer you a sample letter that allows you to assert such claims.",
 	"featured_image": "/img/gdpr-access-request-letter.jpg",
-    "tags": [ "gdpr", "access request", "letter", "sample", "article 15" ]
+    "tags": [ "gdpr", "access request", "letter", "sample", "article 15" ],
+    "byline": "**Benjamin Altpeter** (Chairperson of Datenanfragen.de e. V.)",
+    "short_author": "Benni"
 }
 
 According to the GDPR, you have a right to access the personal data stored and processed on you by companies and other organisations (so-called controllers).

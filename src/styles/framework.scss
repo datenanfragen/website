@@ -65,6 +65,8 @@
         width: 100%;
         flex: 1;
         float: none;
+
+        hyphens: auto;
     }
 }
 
@@ -119,6 +121,10 @@ h6 {
     line-height: 1.2;
     margin: 0;
     font-family: $heading-font;
+
+    @include mobile {
+        hyphens: auto;
+    }
 }
 h1 {
     font-size: 1.7em;
@@ -188,6 +194,19 @@ pre {
 }
 select {
     appearance: menulist;
+}
+
+figcaption {
+    font-size: 0.9em;
+}
+figure {
+    margin: 0;
+
+    & > * {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
 }
 
 .sr-only {

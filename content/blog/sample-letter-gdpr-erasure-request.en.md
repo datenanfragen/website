@@ -6,7 +6,9 @@
 	"type": "blog",
 	"description": "Thanks to the GDPR, you have the right to have your personal data deleted if a controller no longer needs it for its original purpose. We offer you a sample letter with which you can exercise such a right.",
 	"featured_image": "/img/gdpr-erasure-request-letter.jpg",
-    "tags": [ "gdpr", "erasure request", "letter", "sample", "article 17" ]
+    "tags": [ "gdpr", "erasure request", "letter", "sample", "article 17" ],
+    "byline": "**Benjamin Altpeter** (Chairperson of Datenanfragen.de e. V.)",
+    "short_author": "Benni"
 }
 
 If the personal data that companies or other organisations (so-called controllers) have stored on you is no longer necessary for its original purpose, you have a "right to be forgotten" according to the General Data Protection Regulation. This means that you can ask the controller to delete said data.

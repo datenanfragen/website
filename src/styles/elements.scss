@@ -542,6 +542,27 @@ input[type='search'].aa-input-search {
     margin-left: -250px;
 }
 
+.offset-image {
+    padding: 0 20px;
+
+    @include mobile {
+        display: block;
+        margin: auto !important;
+        float: none !important;
+        max-width: 80vw;
+        height: auto;
+    }
+
+    &.offset-image-left {
+        float: left;
+        margin-left: -150px;
+    }
+    &.offset-image-right {
+        float: right;
+        margin-right: -150px;
+    }
+}
+
 /* Star Widget, adapted after https://jsfiddle.net/leaverou/CGP87/ */
 fieldset.rating {
     border: none;
