@@ -33,6 +33,9 @@ other = "non-profit organisation"
 ["public body"]
 other = "public body"
 
+[school]
+other = "school"
+
 ["social media"]
 other = "social media"
 
