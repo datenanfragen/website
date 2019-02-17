@@ -7,7 +7,8 @@
         "date": "Datum",
         "name": "Name",
         "birthdate": "Geburtsdatum",
-        "address": "Adresse"
+        "address": "Adresse",
+        "attn": "Datenschutzbeauftragte_r"
     },
     "en": {
         "letter-subject-erasure": "Request for erasure of personal data according to Art. 17 GDPR",
@@ -17,6 +18,7 @@
         "date": "Date",
         "name": "Name",
         "birthdate": "Date of birth",
-        "address": "Address"
+        "address": "Address",
+        "attn": "Attn: Data Protection Officer"
     }
 }

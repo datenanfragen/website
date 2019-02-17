@@ -26,7 +26,7 @@
         <p>{{ T "cdb-intro" . }}</p>
 
         {{ with .Params.address }}
-            <div class="col50 col100-mobile"><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</div>
+            <div class="col50 col100-mobile"><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ T "cdb-attn" }}<br>{{ replace . "\n" "<br>" | safeHTML }}</div>
         {{ end }}
         {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
             <div class="col50 col100-mobile">

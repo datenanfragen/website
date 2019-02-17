@@ -567,6 +567,9 @@ class Generator extends preact.Component {
                 : 'letter';
             prev.request_data['recipient_address'] =
                 company.name +
+                (findGetParameter('response_type') !== 'complaint'
+                    ? '\n' + t_r('attn', company['request-language'] || LOCALE)
+                    : '') +
                 '\n' +
                 company.address +
                 (prev.request_data['transport_medium'] === 'fax'
