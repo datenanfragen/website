@@ -573,7 +573,7 @@ class Generator extends preact.Component {
                 '\n' +
                 company.address +
                 (prev.request_data['transport_medium'] === 'fax'
-                    ? '\n' + t('by-fax', 'generator') + company['fax']
+                    ? '\n' + t_r('by-fax', company['request-language'] || LOCALE) + company['fax']
                     : '');
             prev.request_data['id_data'] = IdData.mergeFields(
                 prev.request_data['id_data'],
@@ -693,15 +693,20 @@ class Generator extends preact.Component {
                 case 'fax':
                     if (
                         prev['suggestion'] &&
-                        !prev['request_data']['recipient_address'].includes(t('by-fax', 'generator'))
+                        !prev['request_data']['recipient_address'].includes(
+                            t_r('by-fax', this.state.request_data.language)
+                        )
                     )
                         prev['request_data']['recipient_address'] +=
-                            '\n' + t('by-fax', 'generator') + (prev['suggestion']['fax'] || '');
+                            '\n' + t_r('by-fax', this.state.request_data.language) + (prev['suggestion']['fax'] || '');
                     break;
                 case 'letter':
                 case 'email':
                     prev['request_data']['recipient_address'] = prev['request_data']['recipient_address'].replace(
-                        new RegExp('(?:\\r\\n|\\r|\\n)' + t('by-fax', 'generator') + '\\+?[0-9\\s]*', 'gm'),
+                        new RegExp(
+                            '(?:\\r\\n|\\r|\\n)' + t_r('by-fax', this.state.request_data.language) + '\\+?[0-9\\s]*',
+                            'gm'
+                        ),
                         ''
                     );
                     break;
