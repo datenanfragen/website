@@ -745,8 +745,11 @@ class Generator extends preact.Component {
             );
         }
 
-        // Remove GET parameter-selected company from the URL after the request is finished
-        if (findGetParameter('company')) window.history.pushState({}, document.title, BASE_URL + 'generator');
+        // Remove GET parameter-selected company from the URL after the request is finished.
+        // Also remove warning and complaint GET parameters from the URL after the request is finished.
+        if (findGetParameter('company') || findGetParameter('response_type') || findGetParameter('response_to')) {
+            window.history.pushState({}, document.title, BASE_URL + 'generator');
+        }
 
         this.setState(prev => {
             prev['request_data'] = this.freshRequestData();
