@@ -218,6 +218,9 @@ other = "Zu „{{ .Params.name }}“ sind uns die folgenden Kontaktdaten bekannt
 [cdb-address]
 other = "Adresse:"
 
+[cdb-attn]
+other = "Datenschutzbeauftragte_r"
+
 [cdb-phone]
 other = "Telefon:"
 

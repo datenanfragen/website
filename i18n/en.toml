@@ -220,6 +220,9 @@ other = "We have to following contact information on “{{ .Params.name }}” fo
 [cdb-address]
 other = "Address:"
 
+[cdb-attn]
+other = "Attn: Data Protection Officer"
+
 [cdb-phone]
 other = "Phone:"
 
