@@ -22,6 +22,9 @@
     <link rel="preload" as="font" crossorigin type="font/woff2" href="https://static.dacdn.de/fonts/fira-sans/fira-sans-v8-latin-regular.woff2">
     <link rel="preload" as="font" crossorigin type="font/woff2" href="https://static.dacdn.de/fonts/fira-sans/fira-sans-v8-latin-600.woff2">
     <link rel="preload" as="font" crossorigin type="font/woff2" href="https://static.dacdn.de/fonts/league-spartan/league-spartan-600.woff2">
+    {{ if eq .Type "generator" -}}
+    <link rel="preload" as="script" href="{{ "js/pdfworker.gen.js" | absURL }}">
+    {{- end }}
     <link rel="stylesheet" href="https://static.dacdn.de/fonts/fira-sans.css">
     <link rel="stylesheet" href="https://static.dacdn.de/fonts/league-spartan.css">
     <link rel="stylesheet" href="{{ "css/style.gen.css" | absURL }}"/>
