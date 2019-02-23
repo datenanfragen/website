@@ -246,6 +246,7 @@
         "saved-data-explanation": "This data is the information you entered in the generator in your requests to identify yourself to a company. You can fill it into new requests now, which comes in handy especially when you want to generate many requests at once. We saved this data for you <strong>on your computer</strong>, it was never and will never be sent to us. You can choose to fill all requests automatically so that generating a request is merely a click on the download button. Just check the checkbox below. For more information on your data, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>.",
         "signature": "Signature",
         "signature-explanation": "If you want, you can save your signature here. If you activated the automatic fill in, we will always add it to your request or you can simply add it manually. Just keep your mouse pressed and draw into the canvas.",
+        "reset": "Reset",
         "reset-signature": "Reset signature",
         "fill-signature": "Saved signature"
     },
