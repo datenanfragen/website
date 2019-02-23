@@ -27,6 +27,7 @@ Stellt die Behörde ein Fehlverhalten des Verantwortlichen fest, wird sie ihn zu
 Dir als Verbraucher_in bieten die Datenschutz-Aufsichtsbehörden in erster Linie unkomplizierte Hilfe, wenn Du Dich gegen ein Unternehmen oder eine sonstige Stelle wehren möchtest, die Deine Daten falsch verarbeitet. Wenn Du der Meinung bist, dass ein Verantwortlicher Deine Datenschutzrechte verletzt, kannst Du Dich jederzeit an sie wenden und sie bitten, sich Deines Anliegens anzunehmen.  
 Das ist für Dich deutlich einfacher als die Alternative, gerichtlich gegen den Verantwortlichen vorzugehen. Die Arbeit der Behörde ist sogar kostenlos für Dich (s. dazu Art. 57 Abs. 3 DSGVO).
 
+<a id="one-stop-shop"></a>
 ## Das One-Stop-Shop-Prinzip und die Zuständigkeit der Aufsichtsbehörden
 
 Vor Einführung der DSGVO gab es teilweise Unklarheiten, welche Aufsichtsbehörde in einem bestimmten Fall zuständig ist. Dieses Problem wird aber mit der DSGVO gelöst.
@@ -38,6 +39,7 @@ Art. 77 Abs. 1 DSGVO legt nun aber fest, dass sich eine betroffene Person insbes
 
 Dabei ist zu beachten, dass dieser Grundsatz nur regelt, mit welcher Behörde Du in Kontakt trittst. Die Aufsichtsbehörde in Deinem Land wird sich dann mit der im Land des Verantwortlichen in Verbindung setzen und diese zur Bearbeitung Deines Falles auffordern. Kontaktperson für Dich bleibt aber in jedem Fall die Behörde in Deinem Land, sodass Du keine Sorgen haben musst, Beschwerden gegen Unternehmen aus anderen Ländern einzureichen.
 
+<a id="finder"></a>
 ## An welche Datenschutz-Aufsichtsbehörde sollte ich mich wenden?
 
 <img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;">
