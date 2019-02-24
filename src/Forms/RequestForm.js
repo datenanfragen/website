@@ -31,10 +31,19 @@ export default class RequestForm extends preact.Component {
                         id="id_data"
                         onChange={this.props.onChange}
                         fields={this.props.request_data['id_data']}
-                        title={t('id-data', 'generator')}
+                        title={t(
+                            this.props.request_data.is_tracking_request ? 'id-data-tracking' : 'id-data',
+                            'generator'
+                        )}
                         hasPrimary={true}
                         fillFields={this.props.fillFields}>
-                        <MarkupText id="id-data-explanation" />
+                        <MarkupText
+                            id={
+                                this.props.request_data.is_tracking_request
+                                    ? 'id-data-tracking-explanation'
+                                    : 'id-data-explanation'
+                            }
+                        />
                     </DynamicInputContainer>
                 );
                 break;

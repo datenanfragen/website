@@ -147,7 +147,8 @@ class Generator extends preact.Component {
                 sender_address: {},
                 name: ''
             },
-            language: LOCALE
+            language: LOCALE,
+            is_tracking_request: false
         };
     }
 
@@ -560,20 +561,33 @@ class Generator extends preact.Component {
                 (prev.request_data['transport_medium'] === 'fax'
                     ? '\n' + t_r('by-fax', company['request-language'] || LOCALE) + company['fax']
                     : '');
-            prev.request_data['id_data'] = IdData.mergeFields(
-                prev.request_data['id_data'],
-                !!company['required-elements'] && company['required-elements'].length > 0
-                    ? company['required-elements']
-                    : defaultFields(
-                          !!company['request-language'] && company['request-language'] !== ''
-                              ? company['request-language']
-                              : LOCALE
-                      )
-            );
+
+            let language =
+                !!company['request-language'] && company['request-language'] !== ''
+                    ? company['request-language']
+                    : LOCALE;
+
+            if (template_file !== 'access-tracking.txt') {
+                prev.request_data['id_data'] = IdData.mergeFields(
+                    prev.request_data['id_data'],
+                    !!company['required-elements'] && company['required-elements'].length > 0
+                        ? company['required-elements']
+                        : defaultFields(language)
+                );
+            } else {
+                prev.request_data['id_data'] = IdData.mergeFields(
+                    prev.request_data['id_data'],
+                    trackingFields(language)
+                );
+
+                prev.request_data.is_tracking_request = true;
+            }
+
             prev.request_data['recipient_runs'] = company.runs || [];
             prev.suggestion = company;
             prev.request_data['data_portability'] = company['suggested-transport-medium'] === 'email';
             prev.request_data['language'] = company['request-language'] || LOCALE;
+
             return prev;
         });
     }
@@ -869,6 +883,23 @@ function defaultFields(locale = LOCALE) {
             type: 'address',
             optional: true,
             value: { primary: true }
+        }
+    ];
+}
+
+function trackingFields(locale = LOCALE) {
+    return [
+        {
+            desc: t_r('name', locale),
+            type: 'name',
+            optional: false,
+            value: ''
+        },
+        {
+            desc: t_r('email', locale),
+            type: 'input',
+            optional: true,
+            value: ''
         }
     ];
 }
