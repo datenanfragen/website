@@ -72,3 +72,11 @@ function guessUserCountry() {
 
     return bcp47_country && SUPPORTED_COUNTRIES.includes(bcp47_country) ? bcp47_country : FALLBACK_COUNTRIES[LOCALE];
 }
+
+window.enableReactDevTools = function() {
+    if (process.env.NODE_ENV === 'development') {
+        require.ensure([], function(require) {
+            require('preact/debug');
+        });
+    }
+};
