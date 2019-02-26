@@ -286,7 +286,8 @@
         "no-comments": "No comments here yet. Why don’t you leave one?",
         "leave-comment": "Leave a comment",
         "optional": "(optional)",
-        "rating": "Rating"
+        "rating": "Rating",
+        "rss-link": "Subscribe to the comments on this post using your RSS/Atom feed reader."
     },
     "wizard_tutorial": {
         "back": "Back",

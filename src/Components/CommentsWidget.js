@@ -35,8 +35,17 @@ export default class CommentsWidget extends preact.Component {
         return (
             <IntlProvider scope="comments" definition={I18N_DEFINITION}>
                 <div id="comments-widget">
-                    <h2>
+                    <h2 style="position: relative;">
                         <Text id="comments" />
+                        <a
+                            href={API_URL + '/feed/' + TARGET}
+                            class="icon icon-rss"
+                            style="position: absolute; right: 0;"
+                            title={t('rss-link', 'comments')}>
+                            <span className="sr-only">
+                                <Text id="rss-link" />
+                            </span>
+                        </a>
                     </h2>
                     {!comment_elements || comment_elements.length === 0 ? (
                         <p>

@@ -285,7 +285,8 @@
         "no-comments": "Noch keine Kommentare vorhanden. Schreib’ doch einen!",
         "leave-comment": "Kommentar hinterlassen",
         "optional": "(optional)",
-        "rating": "Bewertung"
+        "rating": "Bewertung",
+        "rss-link": "Abonniere die Kommentare zu diesem Artikel mit Deinem RSS-/Atom-Feed-Reader."
     },
     "wizard_tutorial": {
         "back": "Zurück",

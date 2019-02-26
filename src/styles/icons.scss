@@ -98,3 +98,8 @@
     font-icon: 120% url('json-document.svg');
     vertical-align: -2px;
 }
+
+.icon-rss:before {
+    @extend %icon;
+    font-icon: url('rss.svg');
+}
