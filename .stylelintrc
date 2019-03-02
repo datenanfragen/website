@@ -1,0 +1,7 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "rules": {
+  	"no-descending-specificity": null,
+  	"property-no-unknown": [true, { "ignoreProperties": ["font-icon"], "checkPrefixed": true }]
+  }
+}
