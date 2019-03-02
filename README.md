@@ -29,10 +29,11 @@ The primary development is done on a private GitLab instance, with all commits b
 
 Please be aware that by contributing, you agree for your work to be released under the MIT license, as specified in the `LICENSE` file.
 
+If you are interested in contributing in other ways besides coding, we can also really use your help. Have a look at our [contribute page](https://www.datarequests.org/contribute) for more details.
+
 <!-- 
 TODO:
 
-* Link the 'Contribute' page for other ways to contribute, once that exists
 * Explain the i18n
 * Outsource the part about contributions to a separate `CONTRIUTING`, once there is enough content to justify that
 -->

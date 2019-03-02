@@ -3,7 +3,7 @@ cache:
         - node_modules/
 
 variables:
-    HUGO_VERSION: '0.52'
+    HUGO_VERSION: '0.54.0'
     HUGO_BINARY: hugo_${HUGO_VERSION}_linux-64bit
     GLIBC_VERSION: '2.28-r0'
 
