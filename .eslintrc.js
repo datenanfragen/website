@@ -17,7 +17,7 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module'
     },
-    plugins: ['react'],
+    plugins: ['react', 'preact-i18n'],
     rules: {
         'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
         'no-empty': ['error', { allowEmptyCatch: true }],
@@ -55,6 +55,18 @@ module.exports = {
         react: {
             pragma: 'h',
             version: 'latest'
+        },
+        'preact-i18n': {
+            languageFiles: [
+                {
+                    name: 'en',
+                    path: 'src/i18n/en.json'
+                },
+                {
+                    name: 'de',
+                    path: 'src/i18n/de.json'
+                }
+            ]
         }
     }
 };

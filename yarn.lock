@@ -2687,6 +2687,13 @@ escodegen@1.x.x:
   optionalDependencies:
     source-map "~0.6.1"
 
+eslint-plugin-preact-i18n@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-preact-i18n/-/eslint-plugin-preact-i18n-1.0.1.tgz#032313493fb670a49afb40e40eff840b7eb4285b"
+  integrity sha512-xFinuAbSHf54d5Ch6ogV4G53ynQwaVGUYo12Sx3qff0tN3BCGY+Gpn3hg01EoiElDmHxTjVhJjTt3+HCx80b3Q==
+  dependencies:
+    minimatch "3.0.4"
+
 eslint-plugin-react@^7.12.4:
   version "7.12.4"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.12.4.tgz#b1ecf26479d61aee650da612e425c53a99f48c8c"
