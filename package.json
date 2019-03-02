@@ -85,6 +85,7 @@
         "stylelint": "^9.10.1",
         "stylelint-config-recommended-scss": "^3.2.0",
         "stylelint-scss": "^3.5.4",
+        "stylelint-use-nesting": "^1.2.1",
         "svg-pathdata": "^5.0.2",
         "svg-url-loader": "^2.3.2",
         "svgicons2svgfont": "^9.0.3",

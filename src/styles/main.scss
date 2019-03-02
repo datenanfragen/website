@@ -233,9 +233,9 @@ a #logo {
         position: relative;
         width: 100%; // TODO: The explanation text in the first tab is now wrong but I am too lazy to fix that right now.
     }
-}
-#wizard-selected button {
-    margin-right: 5px;
+    & button {
+        margin-right: 5px;
+    }
 }
 
 .home-feature {
