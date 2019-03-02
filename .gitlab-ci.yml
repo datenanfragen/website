@@ -27,6 +27,7 @@ test:
         - rm /usr/local/hugo/${HUGO_BINARY}.tar.gz
         - rm -rf /tmp/* /var/cache/apk/*
     script:
+        - export CONTEXT="production"
         - yarn
         - chmod +x deploy.sh
         - ./deploy.sh
