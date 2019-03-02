@@ -158,6 +158,7 @@ export default class SignatureInput extends preact.Component {
                     this.handleChange();
                 }
                 this.setState({ hasBeenDrawnOn: false });
+            // fallthrough intentional
             case 'mouseup':
                 this.setState({ isDrawing: false });
                 break;

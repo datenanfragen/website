@@ -789,7 +789,7 @@ class Generator extends preact.Component {
                 this.setState({ download_active: false });
                 this.pdfWorker.postMessage(this.letter.toPdfDoc());
                 break;
-            case 'email':
+            case 'email': {
                 let email_blob = new Blob(
                     [
                         '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre style="white-space: pre-line;">' +
@@ -802,6 +802,7 @@ class Generator extends preact.Component {
                 );
                 this.setState({ blob_url: URL.createObjectURL(email_blob) });
                 break;
+            }
         }
     }
 
@@ -840,8 +841,8 @@ function slugify(text) {
         .toString()
         .toLowerCase()
         .replace(/\s+/g, '-') // Replace spaces with -
-        .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-        .replace(/\-\-+/g, '-') // Replace multiple - with single -
+        .replace(/[^\w-]+/g, '') // Remove all non-word chars
+        .replace(/--+/g, '-') // Replace multiple - with single -
         .replace(/^-+/, '') // Trim - from start of text
         .replace(/-+$/, ''); // Trim - from end of text
 }

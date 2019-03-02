@@ -1,14 +1,14 @@
 import preact from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
-import Privacy, {PRIVACY_ACTIONS} from "Utility/Privacy";
-import UserRequests from "./my-requests";
-import Modal from "./Components/Modal";
-import IdData from "./Utility/IdData";
-import Cookie from "js-cookie";
-import {isDebugMode} from "./Utility/errors";
-import {SavedCompanies} from "./Components/Wizard";
-import FlashMessage, {flash} from "Components/FlashMessage";
+import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
+import UserRequests from './my-requests';
+import Modal from './Components/Modal';
+import IdData from './Utility/IdData';
+import Cookie from 'js-cookie';
+import { isDebugMode } from './Utility/errors';
+import { SavedCompanies } from './Components/Wizard';
+import FlashMessage, { flash } from 'Components/FlashMessage';
 
 class PrivacyControl extends preact.Component {
     constructor(props) {
@@ -31,39 +31,68 @@ class PrivacyControl extends preact.Component {
         Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
         flash(<FlashMessage type="success">{t('cookie-change-success', 'privacy-controls')}</FlashMessage>);
 
-        if(this.state.enabled === false) {
-            switch(this.props.privacy_action) {
+        if (this.state.enabled === false) {
+            switch (this.props.privacy_action) {
                 case 'SAVE_ID_DATA':
                     this.clearModal('clear-id_data', 'confirm-delete-id_data', PrivacyControls.clearIdData);
                     break;
                 case 'SAVE_MY_REQUESTS':
-                    this.clearModal('confirm-clear-requests', 'confirm-delete-my-requests', PrivacyControls.clearRequests);
+                    this.clearModal(
+                        'confirm-clear-requests',
+                        'confirm-delete-my-requests',
+                        PrivacyControls.clearRequests
+                    );
+                    break;
                 case 'SAVE_WIZARD_ENTRIES':
-                    this.clearModal('confirm-clear-save_wizard_entries', 'confirm-delete-save_wizard_entries', PrivacyControls.clearSavedCompanies);
+                    this.clearModal(
+                        'confirm-clear-save_wizard_entries',
+                        'confirm-delete-save_wizard_entries',
+                        PrivacyControls.clearSavedCompanies
+                    );
                     break;
             }
         }
     }
 
     render() {
-        return <div className="privacy-control">
-            <trow>
-                <td><input id={this.meta.id + '-checkbox'} checked={this.state.enabled} type="checkbox" onChange={this.onChange} /></td>
-                <td><label for="this.meta.id + '-checkbox'"><Text id={this.meta.id}/></label><br/>
-                    <MarkupText id={this.meta.id + '-description'}/></td>
-            </trow>
-        </div>;
+        return (
+            <div className="privacy-control">
+                <trow>
+                    <td>
+                        <input
+                            id={this.meta.id + '-checkbox'}
+                            checked={this.state.enabled}
+                            type="checkbox"
+                            onChange={this.onChange}
+                        />
+                    </td>
+                    <td>
+                        <label for="this.meta.id + '-checkbox'">
+                            <Text id={this.meta.id} />
+                        </label>
+                        <br />
+                        <MarkupText id={this.meta.id + '-description'} />
+                    </td>
+                </trow>
+            </div>
+        );
     }
 
     clearModal(button_text_id, body_text_id, clear_function) {
         this.props.showModal(
-            <Modal positiveText={t(button_text_id, 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
-                   onNegativeFeedback={this.props.hideModal} onPositiveFeedback={e => {
-                this.props.hideModal();
-                clear_function();
-            }} positiveDefault={true} onDismiss={this.props.hideModal}>
+            <Modal
+                positiveText={t(button_text_id, 'privacy-controls')}
+                negativeText={t('cancel', 'privacy-controls')}
+                onNegativeFeedback={this.props.hideModal}
+                onPositiveFeedback={e => {
+                    this.props.hideModal();
+                    clear_function();
+                }}
+                positiveDefault={true}
+                onDismiss={this.props.hideModal}>
                 <Text id={body_text_id} />
-            </Modal>);
+            </Modal>
+        );
     }
 }
 
@@ -85,7 +114,9 @@ class PrivacyControls extends preact.Component {
     render() {
         let controls = [];
         Object.keys(PRIVACY_ACTIONS).forEach(action => {
-            controls.push(<PrivacyControl privacy_action={action} showModal={this.showModal} hideModal={this.hideModal} />);
+            controls.push(
+                <PrivacyControl privacy_action={action} showModal={this.showModal} hideModal={this.hideModal} />
+            );
         });
 
         return (
@@ -93,17 +124,38 @@ class PrivacyControls extends preact.Component {
                 {this.state.modal}
                 <MarkupText id="explanation" />
 
-                <table>
-                    {controls}
-                </table>
+                <table>{controls}</table>
                 <div id="privacy-controls-buttons">
-                    <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton}><Text id="clear-my-requests" /></button>
-                    <button id="clear-id_data-button" className="button-secondary" onClick={this.clearIdDataButton}><Text id="clear-id_data" /></button>
-                    <button id="clear-saved_wizard_entries-button" className="button-secondary" onClick={this.clearSavedCompaniesButton}><Text id="clear-save_wizard_entries" /></button>
-                    {!!Cookie.get('debugging_enabled') ? <button id="debugging-button" className="button-secondary" onClick={() => {
-                        Cookie.set('debugging_enabled', (isDebugMode() ? 'false' : 'true'));
-                    }}>Toggle Debugging</button> : [] }
-                    <button id="clear-cookies-button" className="button-secondary" onClick={PrivacyControls.clearCookies}><Text id="clear-cookies" /></button>
+                    <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton}>
+                        <Text id="clear-my-requests" />
+                    </button>
+                    <button id="clear-id_data-button" className="button-secondary" onClick={this.clearIdDataButton}>
+                        <Text id="clear-id_data" />
+                    </button>
+                    <button
+                        id="clear-saved_wizard_entries-button"
+                        className="button-secondary"
+                        onClick={this.clearSavedCompaniesButton}>
+                        <Text id="clear-save_wizard_entries" />
+                    </button>
+                    {Cookie.get('debugging_enabled') ? (
+                        <button
+                            id="debugging-button"
+                            className="button-secondary"
+                            onClick={() => {
+                                Cookie.set('debugging_enabled', isDebugMode() ? 'false' : 'true');
+                            }}>
+                            Toggle Debugging
+                        </button>
+                    ) : (
+                        []
+                    )}
+                    <button
+                        id="clear-cookies-button"
+                        className="button-secondary"
+                        onClick={PrivacyControls.clearCookies}>
+                        <Text id="clear-cookies" />
+                    </button>
                 </div>
                 <div className="clearfix" />
             </main>
@@ -116,58 +168,76 @@ class PrivacyControls extends preact.Component {
 
     clearRequestsButton() {
         this.showModal(
-            <Modal positiveText={t('confirm-clear-requests', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
-                   onNegativeFeedback={this.hideModal} onPositiveFeedback={e => {
-                this.hideModal();
-                PrivacyControls.clearRequests();
-            }} positiveDefault={true} onDismiss={this.hideModal}>
-                <Text id='modal-clear-requests' />
-            </Modal>);
+            <Modal
+                positiveText={t('confirm-clear-requests', 'privacy-controls')}
+                negativeText={t('cancel', 'privacy-controls')}
+                onNegativeFeedback={this.hideModal}
+                onPositiveFeedback={e => {
+                    this.hideModal();
+                    PrivacyControls.clearRequests();
+                }}
+                positiveDefault={true}
+                onDismiss={this.hideModal}>
+                <Text id="modal-clear-requests" />
+            </Modal>
+        );
     }
 
     clearIdDataButton() {
         this.showModal(
-            <Modal positiveText={t('clear-id_data', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
-                   onNegativeFeedback={this.hideModal} onPositiveFeedback={e => {
-                this.hideModal();
-                PrivacyControls.clearIdData();
-            }} positiveDefault={true} onDismiss={this.hideModal}>
-                <Text id='modal-clear-id_data' />
-            </Modal>);
+            <Modal
+                positiveText={t('clear-id_data', 'privacy-controls')}
+                negativeText={t('cancel', 'privacy-controls')}
+                onNegativeFeedback={this.hideModal}
+                onPositiveFeedback={e => {
+                    this.hideModal();
+                    PrivacyControls.clearIdData();
+                }}
+                positiveDefault={true}
+                onDismiss={this.hideModal}>
+                <Text id="modal-clear-id_data" />
+            </Modal>
+        );
     }
 
     clearSavedCompaniesButton() {
         this.showModal(
-            <Modal positiveText={t('confirm-clear-save_wizard_entries', 'privacy-controls')} negativeText={t('cancel', 'privacy-controls')}
-                   onNegativeFeedback={this.hideModal} onPositiveFeedback={e => {
-                this.hideModal();
-                PrivacyControls.clearSavedCompanies();
-            }} positiveDefault={true} onDismiss={this.hideModal}>
-                <Text id='modal-clear-save_wizard_entries' />
-            </Modal>);
+            <Modal
+                positiveText={t('confirm-clear-save_wizard_entries', 'privacy-controls')}
+                negativeText={t('cancel', 'privacy-controls')}
+                onNegativeFeedback={this.hideModal}
+                onPositiveFeedback={e => {
+                    this.hideModal();
+                    PrivacyControls.clearSavedCompanies();
+                }}
+                positiveDefault={true}
+                onDismiss={this.hideModal}>
+                <Text id="modal-clear-save_wizard_entries" />
+            </Modal>
+        );
     }
 
     static clearRequests() {
-        (new UserRequests()).clearRequests();
+        new UserRequests().clearRequests();
         PrivacyControls.successFlash();
     }
 
     static clearIdData() {
-        (new IdData()).clear(false);
+        new IdData().clear(false);
         PrivacyControls.successFlash();
     }
 
     static clearSavedCompanies() {
-        (new SavedCompanies()).clearAll();
+        new SavedCompanies().clearAll();
         PrivacyControls.successFlash();
     }
 
     showModal(modal) {
-        this.setState({'modal': modal});
+        this.setState({ modal: modal });
     }
 
     hideModal() {
-        this.setState({'modal': ''});
+        this.setState({ modal: '' });
     }
 
     static clearCookies() {
@@ -176,4 +246,10 @@ class PrivacyControls extends preact.Component {
     }
 }
 
-preact.render((<IntlProvider scope="privacy-controls" definition={I18N_DEFINITION}><PrivacyControls/></IntlProvider>), null, document.querySelector('main'));
+preact.render(
+    <IntlProvider scope="privacy-controls" definition={I18N_DEFINITION}>
+        <PrivacyControls />
+    </IntlProvider>,
+    null,
+    document.querySelector('main')
+);

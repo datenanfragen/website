@@ -23,6 +23,7 @@ export default class RequestForm extends preact.Component {
                         <MarkupText id="rectification-data-explanation" />
                     </DynamicInputContainer>
                 );
+            // fallthrough intentional
             case 'erasure':
             case 'access':
                 body.push(
