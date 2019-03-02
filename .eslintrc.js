@@ -21,7 +21,7 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module'
     },
-    plugins: ['react', 'preact-i18n', 'import', 'babel', 'html'],
+    plugins: ['react', 'preact-i18n', 'import', 'babel', 'html', 'optimize-regex'],
     rules: {
         'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
         'no-empty': ['error', { allowEmptyCatch: true }],
@@ -38,7 +38,9 @@ module.exports = {
         ],
         'react/react-in-jsx-scope': 'off',
         'react/jsx-key': 'off',
-        'react/no-unknown-property': ['error', { ignore: ['for'] }]
+        'react/no-unknown-property': ['error', { ignore: ['for'] }],
+
+        'optimize-regex/optimize-regex': 'warn'
     },
     globals: {
         // defined in `layouts/partials/scripts.html`

@@ -39,7 +39,7 @@ function renderForm(schema, company = undefined) {
         if (!element.tagName) {
             let sanitizedText = element.textContent
                 .toLowerCase()
-                .replace(/[^a-z0-9* ]/g, '')
+                .replace(/[^\d *a-z]/g, '')
                 .replace(/ /g, '-');
             element.textContent = t(
                 sanitizedText,

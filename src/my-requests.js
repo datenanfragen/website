@@ -213,7 +213,7 @@ class RequestList extends preact.Component {
                 [
                     request.date,
                     request.slug,
-                    request.recipient.replace(/[\r\n]+/g, ', '),
+                    request.recipient.replace(/[\n\r]+/g, ', '),
                     reference,
                     request.type,
                     request.via

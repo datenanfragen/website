@@ -201,7 +201,7 @@ export default class Letter {
      * TODO: Documentation of "tags"
      */
     static parseContent(content) {
-        const regex = /<(.+?>)([\s\S]*?)<\/\1/gmu;
+        const regex = /<(.+?>)([\S\s]*?)<\/\1/gmu;
         let text_array = content.split(regex);
 
         let content_array = [];
