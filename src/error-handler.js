@@ -77,7 +77,8 @@ try {
                         href={github_issue_url}
                         className="button button-small"
                         style="margin-right: 10px;"
-                        target="_blank">
+                        target="_blank"
+                        rel="noopener noreferrer">
                         {t('report-on-github', 'error-handler')}
                     </a>
                     <a href={mailto_url} className="button button-small">

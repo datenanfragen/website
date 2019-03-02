@@ -8,7 +8,7 @@ import { fetchCompanyDataBySlug } from 'Utility/companies';
 import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import Modal from './Components/Modal';
-import { ErrorException, isDebugMode, rethrow } from './Utility/errors';
+import { isDebugMode, rethrow } from './Utility/errors';
 import CompanyWidget from './Components/CompanyWidget';
 import IdData, { deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/IdData';
 import { SavedCompanies } from './Components/Wizard';
@@ -301,7 +301,7 @@ class Generator extends preact.Component {
                     </div>
                 </header>
                 <div className="clearfix" />
-                <div class="search">
+                <div className="search">
                     <SearchBar
                         id="aa-search-input"
                         index="companies"

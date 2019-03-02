@@ -3,7 +3,6 @@ import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
 import Cookie from 'js-cookie';
 import IdData from './Utility/IdData';
-import { Text } from 'preact-i18n';
 import t from './Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 

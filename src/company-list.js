@@ -56,7 +56,7 @@ class CompanyList extends preact.Component {
                     <div className="container">
                         <div id="suggest-company-btn">
                             <a
-                                class="button button-primary icon icon-letter"
+                                className="button button-primary icon icon-letter"
                                 href={BASE_URL + 'suggest/?type=new&for=cdb'}>
                                 <Text id="suggest-new" />
                             </a>

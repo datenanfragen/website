@@ -19,7 +19,7 @@ module.exports = {
     },
     plugins: ['react'],
     rules: {
-        'no-unused-vars': 'warn',
+        'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
         'no-empty': ['error', { allowEmptyCatch: true }],
 
         'react/no-did-update-set-state': 'warn',
@@ -33,7 +33,8 @@ module.exports = {
             }
         ],
         'react/react-in-jsx-scope': 'off',
-        'react/jsx-key': 'off'
+        'react/jsx-key': 'off',
+        'react/no-unknown-property': ['error', { ignore: ['for'] }]
     },
     globals: {
         // defined in `layouts/partials/scripts.html`

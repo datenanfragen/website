@@ -38,7 +38,7 @@ export default class StarWidget extends preact.Component {
             ]);
 
         return (
-            <fieldset id={this.props.id} class="rating">
+            <fieldset id={this.props.id} className="rating">
                 {/* TODO: No idea why the page jumps (in Chrome) when clicking on a star. */}
                 {radios}
             </fieldset>

@@ -133,10 +133,10 @@ class RequestList extends preact.Component {
                         <Text id="no-requests" />
                         <br />
 
-                        <a class="button button-primary" href={BASE_URL + 'generator'} style="float: right;">
+                        <a className="button button-primary" href={BASE_URL + 'generator'} style="float: right;">
                             <Text id="generate-request" />
                         </a>
-                        <div class="clearfix" />
+                        <div className="clearfix" />
                     </div>
                 );
             } else {

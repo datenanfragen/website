@@ -1,27 +1,34 @@
 import preact from 'preact';
-import { IntlProvider, Text } from 'preact-i18n';
+import { IntlProvider } from 'preact-i18n';
 import t from 'Utility/i18n';
-import Wizard from "Components/Wizard";
-
+import Wizard from 'Components/Wizard';
 
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
-const hero_rights = [ t("data-access", "home"), t("data-erasure", "home"), t("data-rectification", "home"), t("objection", "home"), t("privacy", "home") ];
+const hero_rights = [
+    t('data-access', 'home'),
+    t('data-erasure', 'home'),
+    t('data-rectification', 'home'),
+    t('objection', 'home'),
+    t('privacy', 'home')
+];
 
-preact.render((
-        <IntlProvider scope="wizard" definition={I18N_DEFINITION}>
-            <Wizard/>
-        </IntlProvider>
-    ), null, document.getElementById('home-wizard'));
+preact.render(
+    <IntlProvider scope="wizard" definition={I18N_DEFINITION}>
+        <Wizard />
+    </IntlProvider>,
+    null,
+    document.getElementById('home-wizard')
+);
 
 function typewriter(text, i, fnCallback) {
-    if (text && i < (text.length)) {
-        document.getElementById("home-hero-word").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+    if (text && i < text.length) {
+        document.getElementById('home-hero-word').innerHTML =
+            text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
 
         setTimeout(function() {
-            typewriter(text, i + 1, fnCallback)
+            typewriter(text, i + 1, fnCallback);
         }, 150);
-    }
-    else if (typeof fnCallback == 'function') {
+    } else if (typeof fnCallback == 'function') {
         setTimeout(fnCallback, 700);
     }
 }
