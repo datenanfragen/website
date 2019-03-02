@@ -30,7 +30,7 @@ test:
         - yarn
         - chmod +x deploy.sh
         - ./deploy.sh
-        - hugo server --baseURL "http://localhost" --config config.toml,config-dev.toml,config-menus.toml > /dev/null &
+        - hugo server --baseURL "http://localhost" --disableFastRender --minify > /dev/null &
         - yarn test
     artifacts:
         paths:

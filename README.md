@@ -16,7 +16,7 @@ Live versions of the website are currently available in [German](https://www.dat
 Datenanfragen.de is designed as a static website, running on [Hugo](https://gohugo.io/). For the JavaScript and (S)CSS, we use [webpack](https://webpack.js.org/).
 
 To build the project, first install Hugo and [Yarn](https://yarnpkg.com). Then clone the repository and run `yarn` in the root directory to fetch all required dependencies. Then run the deploy script (`./deploy.sh`) to fetch the required resources from our data repository.  
-For development, use `yarn dev` to start the webpack file watcher which will automatically build the JS and (S)CSS files. For Hugo, use `hugo server --baseURL "http://localhost" --disableFastRender --config config.toml,config-dev.toml,config-menus.toml`.  
+For development, use `yarn dev` to start the webpack file watcher which will automatically build the JS and (S)CSS files. For Hugo, use `hugo server  --disableFastRender`.  
 The production builds are automatically done by [Netlify](https://www.netlify.com/) using the `deploy.sh` script.
 
 For testing, we use GitLab CI in combination with BrowserStack who kindly let us use their services.
