@@ -1,5 +1,4 @@
-import { t_r } from './i18n';
-import t from './i18n';
+import t, { t_r } from './i18n';
 
 /**
  * {number} mm2pt({number}):

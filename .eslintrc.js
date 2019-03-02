@@ -1,11 +1,14 @@
+const path = require('path');
+
 module.exports = {
     env: {
         browser: true,
         es6: true,
         amd: true,
-        worker: true
+        worker: true,
+        node: true
     },
-    extends: ['eslint:recommended', 'plugin:react/recommended'],
+    extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:import/errors', 'plugin:import/warnings'],
     globals: {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly'
@@ -17,7 +20,7 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module'
     },
-    plugins: ['react', 'preact-i18n'],
+    plugins: ['react', 'preact-i18n', 'import'],
     rules: {
         'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
         'no-empty': ['error', { allowEmptyCatch: true }],
@@ -67,6 +70,7 @@ module.exports = {
                     path: 'src/i18n/de.json'
                 }
             ]
-        }
+        },
+        'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } }
     }
 };
