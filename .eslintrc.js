@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+    parser: 'babel-eslint',
     env: {
         browser: true,
         es6: true,
@@ -20,7 +21,7 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module'
     },
-    plugins: ['react', 'preact-i18n', 'import'],
+    plugins: ['react', 'preact-i18n', 'import', 'babel'],
     rules: {
         'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
         'no-empty': ['error', { allowEmptyCatch: true }],
