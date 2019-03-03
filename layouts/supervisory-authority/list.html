@@ -9,8 +9,7 @@
 {{ define "main" }}
 
 <main class="narrow-page">
-    <!-- TODO: Explain more in an actual blog post. -->
-    <p>{{ T "adb-explanation" }}</p>
+    <p>{{ T "adb-explanation" | safeHTML }}</p>
 
     <!-- All of this only to make case-insensitive sorting possible. I hate you hugo -->
     {{ $pages := (.Data.Pages.ByParam "name")}}

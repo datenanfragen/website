@@ -20,11 +20,11 @@
         <p>{{ T "adb-intro" . }}</p>
 
         {{ with .Params.address}}
-            <div class="col50"><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</div>
+            <div class="col50 col100-mobile"><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</div>
         {{ end }}
 
         {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
-            <div class="col50">
+            <div class="col50 col100-mobile">
                 <table class="contact-table narrow-table">
                     {{ with .Params.phone }}<tr><td><strong>{{ T "cdb-phone" }}</strong></td><td>{{ . }}</td></tr>{{ end }}
                     {{ with .Params.fax }}<tr><td><strong>{{ T "cdb-fax" }}</strong></td><td>{{ . }}</td></tr>{{ end }}

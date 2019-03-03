@@ -5,7 +5,8 @@
             {{ .Content }}
         </div>
 
-        {{ if and (eq .Type "blog") }}
+        <!-- `.Params.blog_like` is a stupid workaround but I don't see how we could inject scripts into blog posts without a custom `type` for each one. -->
+        {{ if or (eq .Type "blog") .Params.blog_like }}
             {{ if isset .Params "byline" }}
             <header id="page-meta">
                 <address class="author">

@@ -6,7 +6,9 @@
 	"type": "blog",
 	"description": "If a company has stored false (or incomplete) personal data on you, then under the GDPR you have a right to demand immediate correction of said incorrect data. We offer you a sample letter with which you can exercise said right.",
 	"featured_image": "/img/gdpr-rectification-request-letter.jpg",
-    "tags": [ "gdpr", "erasure request", "letter", "sample", "article 17" ]
+    "tags": [ "gdpr", "erasure request", "letter", "sample", "article 17" ],
+    "byline": "**Benjamin Altpeter** (Chairperson of Datenanfragen.de e. V.)",
+    "short_author": "Benni"
 }
 
 If a company or other organization (a so-called controller) has stored false (or incomplete) personal data on you, then under the General Data Protection Regulation (GDPRVO) you have a right to demand immediate correction of said incorrect data.

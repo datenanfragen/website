@@ -188,10 +188,13 @@ other = "Die Daten, die Du einen Unternehmen zu Dir mitgeteilt hast, gehören Di
 other = "Unternehmensdatenbank"
 
 [adb-title]
-other = "Aufsichtsbehördendatenbank"
+other = "Liste der Datenschutz-Aufsichtsbehörden"
 
 [adb-explanation]
-other = "In unserer Aufsichtsbehördendatenbank findest Du die Kontaktdaten der Datenschutzaufsichtsbehörden in der EU. Wenn Du der Meinung bist, dass ein Unternehmen Deine Anfragen nicht korrekt beantwortet oder Deine Daten widerrechtlich verarbeitet, kannst Du Dich bei diesen Stellen jederzeit kostenlos beschweren."
+other = "<p>Hier in unserer Aufsichtsbehördendatenbank findest Du die Kontaktdaten der Datenschutz-Aufsichtsbehörden in der EU.</p><p>Die Aufsichtsbehörden sind unabhängige Stellen, welche die Einhaltung der Datenschutzgesetze sicherstellen sollen. Wenn Du der Meinung bist, dass ein Unternehmen Deine Anfragen nicht korrekt beantwortet oder Deine Daten widerrechtlich verarbeitet, kannst Du Dich bei diesen Stellen jederzeit kostenlos beschweren. Mehr darüber erfährst Du in unserem <a href=\"/datenschutz-aufsichtsbehoerden\">Artikel zu den Datenschutz-Aufsichtsbehörden</a>.</p>"
+
+[adb-more-details]
+other = "Weitere Informationen"
 
 [cdb-company-title]
 other = "{{ .Params.name }}: Datenschutz-Kontaktdaten"

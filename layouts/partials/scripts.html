@@ -43,6 +43,11 @@
 <script src="{{ "js/suggest-edit.gen.js" | absURL }}"></script>
 {{ end }}
 
+{{ if eq .Type "supervisory-authorities" }}
+<script src="{{ "js/sva-finder.gen.js" | absURL }}"></script>
+<script>renderSvaFinder();</script>
+{{ end }}
+
 {{ if .IsHome }}
 <script src="{{ "js/home.gen.js" | absURL }}"></script>
 {{ end }}

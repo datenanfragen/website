@@ -113,6 +113,15 @@ input:disabled {
     border: 4px solid $primary-color;
     border-radius: 2px;
     padding: 20px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 0;
+    }
 }
 .box-error {
     border-color: $error-color;
@@ -531,6 +540,27 @@ input[type='search'].aa-input-search {
 .top-left-humaaan {
     float: left;
     margin-left: -250px;
+}
+
+.offset-image {
+    padding: 0 20px;
+
+    @include mobile {
+        display: block;
+        margin: auto !important;
+        float: none !important;
+        max-width: 80vw;
+        height: auto;
+    }
+
+    &.offset-image-left {
+        float: left;
+        margin-left: -150px;
+    }
+    &.offset-image-right {
+        float: right;
+        margin-right: -150px;
+    }
 }
 
 /* Star Widget, adapted after https://jsfiddle.net/leaverou/CGP87/ */

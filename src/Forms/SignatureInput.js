@@ -80,7 +80,7 @@ export default class SignatureInput extends preact.Component {
     render() {
         return (
             <div className="signature-input">
-                <h2>
+                <h2 style="margin-top: 1em;">
                     <Text id="signature" />
                 </h2>
                 <Text id="signature-explanation" />

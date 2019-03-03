@@ -418,7 +418,6 @@ table#my-requests-table {
     }
 
     .article-featured-image {
-        max-height: 300px;
         overflow: hidden;
 
         @include mobile {
@@ -430,6 +429,7 @@ table#my-requests-table {
         }
 
         img {
+            max-height: 200px;
             height: 100%;
             width: auto;
             object-fit: cover;
@@ -690,6 +690,10 @@ button.joyride-tooltip__button--skip {
     @include mobile {
         columns: initial;
     }
+}
+
+#page-meta {
+    margin-top: 20px;
 }
 
 // tmp before we get chitin

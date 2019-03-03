@@ -1,3 +1,13 @@
+{{ $date := .Date }}
+{{ with .Params.date }}
+	{{ $date := . }}
+{{ end }}
+
+{{ $updated_date := $date }}
+{{ with .Params.last_edited }}
+	{{ $updated_date := . }}
+{{ end }}
+
 {{ if .Site.RSSLink -}}
 <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 <link href="{{ .Site.RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
@@ -15,17 +25,17 @@
 {{ with .Params.tags }}<meta itemprop="keywords" content="{{ delimit (first 6 .) ", " }}" />{{ end }}
 {{ with .Params.featuredImage }}<meta itemprop="image" content="{{ . | absURL }}">{{ end }}
 {{ with .Params.author }}<meta itemprop="author" content="{{ . }}">{{ end }}
-<meta itemprop="datePublished" content="{{ .Date.Format "2006-01-02 15:04:05" }}">
+<meta itemprop="datePublished" content="{{ dateFormat "2006-01-02" $date }}">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="{{ .Site.LanguageCode }}">
 <meta property="og:title" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
 <meta property="og:type" content="article">
-<meta property="og:updated_time" content="{{ .Date }}">
+<meta property="og:updated_time" content="{{ dateFormat "2006-01-02T15:04:05" $updated_date }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="article:modified_time" content="{{ .Date }}" />
+<meta property="article:modified_time" content="{{ dateFormat "2006-01-02T15:04:05" $updated_date }}" />
 {{ with .Params.categories }}<meta property="article:section" content="{{ index . 0}}">{{ end }}
 {{ with .Params.tags }}{{ range first 6 . -}}
 <meta property="article:tag" content="{{ . }}" />

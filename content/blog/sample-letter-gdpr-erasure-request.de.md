@@ -6,7 +6,9 @@
 	"type": "blog",
 	"description": "Dank der DSGVO hast Du ein Recht auf Löschung Deiner personenbezogenen Daten, wenn ein Verantwortlicher sie für ihren ursprünglichen Zweck nicht mehr benötigt. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
 	"featured_image": "/img/dsgvo-anfrage-loeschung-brief.jpg",
-    "tags": [ "dsgvo", "gdpr", "löschantrag", "brief", "schreiben", "muster", "artikel 17" ]
+    "tags": [ "dsgvo", "gdpr", "löschantrag", "brief", "schreiben", "muster", "artikel 17" ],
+    "byline": "**Benjamin Altpeter** (Vorsitzender des Datenanfragen.de e. V.)",
+    "short_author": "Benni"
 }
 
 Wenn die personenbezogenen Daten, die Unternehmen oder andere Organisationen (sogenannte Verantwortliche) zu Deiner Person gespeichert haben, für ihren ursprünglichen Zweck nicht mehr nötig sind, hast Du nach der Datenschutz-Grundverordnung ein „Recht auf Vergessenwerden“. Das bedeutet, dass Du vom Verantwortlichen verlangen kannst, dass eben diese Daten wieder gelöscht werden.
