@@ -33,7 +33,7 @@
         "build": "BABEL_ENV=production; webpack --mode=production --config webpack.prod.js",
         "dev": "webpack --watch --mode=development --config webpack.dev.js",
         "bs-local": "node -e \"(new (require('browserstack-local')).Local()).start({key: process.env.BROWSERSTACK_ACCESS_KEY, force: 'true', localIdentifier: require('os').hostname()}, ()=>{})\"",
-        "test": "yarn bs-local && test/runner.js",
+        "test": "yarn lint # && yarn bs-local && test/runner.js",
         "lint": "yarn eslint src && yarn stylelint src/styles",
         "fix": "yarn eslint src --fix && yarn stylelint src/styles --fix"
     },

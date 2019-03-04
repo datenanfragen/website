@@ -165,7 +165,7 @@ export default class SvaFinder extends preact.Component {
                 <div style="float: right; margin-top: 20px;">
                     <button
                         className="button button-secondary button-small"
-                        onclick={() => {
+                        onClick={() => {
                             this.setState(initial_state);
                         }}>
                         {t('reset', 'sva-finder')}
