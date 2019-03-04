@@ -33,8 +33,9 @@ yarn run build
 if [ "$CONTEXT" = "production" ]
 then
 	hugo -e production --minify
-	# The Netlify _redirect config has to be in /public
+	# Copy files for Netlify
 	cp _redirects public/_redirects
+	cp static/404.html public/404.html
 else
 	hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
 fi
