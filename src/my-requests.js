@@ -42,13 +42,31 @@ class RequestList extends preact.Component {
         super(props);
 
         this.state = {
-            requests: []
+            requests: [],
+            sorted_request_ids: []
         };
 
         this.user_requests = new UserRequests();
         this.user_requests.getRequests().then(requests => {
             this.setState({
-                requests: requests
+                requests: requests,
+                sorted_request_ids: Object.keys(requests).sort((a, b) => {
+                    a = requests[a];
+                    b = requests[b];
+
+                    // Someone *please* tell me there is a less ugly way to do this.
+                    if (a.date < b.date) return -1;
+                    else if (a.date == b.date) {
+                        if (a.slug < b.slug) return -1;
+                        else if (a.slug == b.slug) {
+                            if (a.reference < b.reference) return -1;
+                            else if (a.reference == b.reference) return 0;
+                            return 1;
+                        }
+                        return 1;
+                    }
+                    return 1;
+                })
             });
         });
 
@@ -61,7 +79,7 @@ class RequestList extends preact.Component {
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             let request_rows = [];
-            Object.keys(this.state.requests).forEach(reference => {
+            this.state.sorted_request_ids.forEach(reference => {
                 let request = this.state.requests[reference];
                 if (!request) return;
                 let recipient = request.recipient.split('\n', 1)[0]; // TODO: Proper authority pages and links
@@ -99,7 +117,7 @@ class RequestList extends preact.Component {
                                               BASE_URL + 'generator/?response_type=admonition&response_to=' + reference
                                           }
                                           className="button button-small button-secondary"
-                                          style="margin-right: 10px;">
+                                          style="margin-bottom: 5px;">
                                           {t('admonition', 'generator')}
                                       </a>,
                                       <a
