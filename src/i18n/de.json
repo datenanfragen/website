@@ -37,10 +37,11 @@
         "email": "E-Mail",
         "letter": "Brief",
         "delete-all-btn": "Alle Anfragen löschen",
-        "export-btn": "Als CSV exportieren",
+        "export-btn": "Ausgewählte als CSV exportieren",
         "no-requests-heading": "Noch keine Anfragen",
         "no-requests": "Du hast bisher noch keine Anfragen gestellt. Sobald Du das tust, werden diese hier erscheinen.",
-        "generate-request": "Eine Anfrage generieren"
+        "generate-request": "Eine Anfrage generieren",
+        "toggle-all": "Alle an-/abwählen"
     },
     "generator": {
         "reference": "Zeichen",

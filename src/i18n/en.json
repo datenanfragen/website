@@ -38,10 +38,11 @@
         "letter": "letter",
         "delete-all-btn": "Delete all requests",
         "delete-all-confirm": "Do you really want to clear all data? This *cannot* be undone.",
-        "export-btn": "Export as CSV",
+        "export-btn": "Export selected requests as CSV",
         "no-requests-heading": "No requests yet",
         "no-requests": "You haven't generated any requests yet. As soon as you start doing that, they will appear here.",
-        "generate-request": "Generate a request"
+        "generate-request": "Generate a request",
+        "toggle-all": "Toggle all"
     },
     "generator": {
         "reference": "Reference",

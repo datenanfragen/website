@@ -43,14 +43,15 @@ class RequestList extends preact.Component {
 
         this.state = {
             requests: [],
-            sorted_request_ids: []
+            sorted_request_ids: [],
+            selected_requests: []
         };
 
         this.user_requests = new UserRequests();
         this.user_requests.getRequests().then(requests => {
-            this.setState({
-                requests: requests,
-                sorted_request_ids: Object.keys(requests).sort((a, b) => {
+            this.setState(prev => {
+                prev.requests = requests;
+                let sorted_request_ids = Object.keys(requests).sort((a, b) => {
                     a = requests[a];
                     b = requests[b];
 
@@ -66,12 +67,26 @@ class RequestList extends preact.Component {
                         return 1;
                     }
                     return 1;
-                })
+                });
+
+                prev.sorted_request_ids = sorted_request_ids;
+                prev.selected_requests = sorted_request_ids.slice();
+
+                return prev;
             });
         });
 
         this.clearRequests = this.clearRequests.bind(this);
         this.buildCsv = this.buildCsv.bind(this);
+        this.onCheckboxChange = this.onCheckboxChange.bind(this);
+    }
+
+    onCheckboxChange(e) {
+        this.setState(prev => {
+            if (e.target.checked) prev.selected_requests.push(e.target.dataset.dbId);
+            else prev.selected_requests.splice(prev.selected_requests.indexOf(e.target.dataset.dbId), 1);
+            return prev;
+        });
     }
 
     render() {
@@ -79,12 +94,22 @@ class RequestList extends preact.Component {
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             let request_rows = [];
-            this.state.sorted_request_ids.forEach(reference => {
-                let request = this.state.requests[reference];
+            this.state.sorted_request_ids.forEach(id => {
+                let request = this.state.requests[id];
                 if (!request) return;
                 let recipient = request.recipient.split('\n', 1)[0]; // TODO: Proper authority pages and links
                 request_rows.push(
                     <tr>
+                        <td>
+                            <input
+                                id={'request-' + id + '-checkbox'}
+                                checked={this.state.selected_requests.includes(id)}
+                                type="checkbox"
+                                className="form-element"
+                                onChange={this.onCheckboxChange}
+                                data-db-id={id}
+                            />
+                        </td>
                         <td data-label={t('date', 'my-requests')}>{request.date}</td>
                         <td data-label={t('recipient', 'my-requests')}>
                             {request.slug ? (
@@ -113,17 +138,13 @@ class RequestList extends preact.Component {
                             {!request.response_type
                                 ? [
                                       <a
-                                          href={
-                                              BASE_URL + 'generator/?response_type=admonition&response_to=' + reference
-                                          }
+                                          href={BASE_URL + 'generator/?response_type=admonition&response_to=' + id}
                                           className="button button-small button-secondary"
                                           style="margin-bottom: 5px;">
                                           {t('admonition', 'generator')}
                                       </a>,
                                       <a
-                                          href={
-                                              BASE_URL + 'generator/?response_type=complaint&response_to=' + reference
-                                          }
+                                          href={BASE_URL + 'generator/?response_type=complaint&response_to=' + id}
                                           className="button button-small button-secondary">
                                           {t('complaint', 'generator')}
                                       </a>
@@ -161,6 +182,24 @@ class RequestList extends preact.Component {
                 table = [
                     <table id="my-requests-table" className="table">
                         <thead>
+                            <th>
+                                <input
+                                    id="toggle-all-checkbox"
+                                    checked={
+                                        this.state.selected_requests.length != this.state.sorted_request_ids.length
+                                    }
+                                    type="checkbox"
+                                    className="form-element"
+                                    title={t('toggle-all', 'my-requests')}
+                                    onChange={e => {
+                                        let selected = [];
+                                        if (this.state.selected_requests.length != this.state.sorted_request_ids.length)
+                                            selected = this.state.sorted_request_ids.slice();
+
+                                        this.setState({ selected_requests: selected });
+                                    }}
+                                />
+                            </th>
                             <th>
                                 <Text id="date" />
                             </th>
@@ -225,18 +264,20 @@ class RequestList extends preact.Component {
 
     buildCsv() {
         let csv = 'date;slug;recipient;reference;type;via\r\n';
-        Object.keys(this.state.requests).forEach(id => {
-            let request = this.state.requests[id];
-            csv +=
-                [
-                    request.date,
-                    request.slug,
-                    request.recipient.replace(/[\n\r]+/g, ', '),
-                    request.reference,
-                    request.type,
-                    request.via
-                ].join(';') + '\r\n';
-        });
+        this.state.sorted_request_ids
+            .filter(a => this.state.selected_requests.includes(a))
+            .forEach(id => {
+                let request = this.state.requests[id];
+                csv +=
+                    [
+                        request.date,
+                        request.slug,
+                        request.recipient.replace(/[\n\r]+/g, ', '),
+                        request.reference,
+                        request.type,
+                        request.via
+                    ].join(';') + '\r\n';
+            });
 
         return new Blob([csv], { type: 'text/csv;charset=utf-8' });
     }
