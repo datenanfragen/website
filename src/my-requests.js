@@ -207,14 +207,14 @@ class RequestList extends preact.Component {
 
     buildCsv() {
         let csv = 'date;slug;recipient;reference;type;via\r\n';
-        Object.keys(this.state.requests).forEach(reference => {
-            let request = this.state.requests[reference];
+        Object.keys(this.state.requests).forEach(id => {
+            let request = this.state.requests[id];
             csv +=
                 [
                     request.date,
                     request.slug,
                     request.recipient.replace(/[\n\r]+/g, ', '),
-                    reference,
+                    request.reference,
                     request.type,
                     request.via
                 ].join(';') + '\r\n';
