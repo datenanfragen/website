@@ -78,6 +78,7 @@ class RequestList extends preact.Component {
 
         this.clearRequests = this.clearRequests.bind(this);
         this.buildCsv = this.buildCsv.bind(this);
+        this.buildIcs = this.buildIcs.bind(this);
         this.onCheckboxChange = this.onCheckboxChange.bind(this);
     }
 
@@ -155,11 +156,16 @@ class RequestList extends preact.Component {
                 );
             });
 
-            let download_filename =
+            let csv_download_filename =
                 new URL(BASE_URL).hostname.replace('www.', '') +
                 '_export_' +
                 new Date().toISOString().substring(0, 10) +
                 '.csv';
+            let ics_download_filename =
+                new URL(BASE_URL).hostname.replace('www.', '') +
+                '_' +
+                new Date().toISOString().substring(0, 10) +
+                '.ics';
 
             let table;
             if (Object.values(this.state.requests).length === 0) {
@@ -224,9 +230,17 @@ class RequestList extends preact.Component {
                             id="download-button"
                             className="button button-secondary"
                             href={URL.createObjectURL(this.buildCsv())}
-                            download={download_filename}
+                            download={csv_download_filename}
                             style="margin-right: 10px;">
                             <Text id="export-btn" />
+                        </a>
+                        <a
+                            id="export-ics-button"
+                            className="button button-secondary"
+                            href={URL.createObjectURL(this.buildIcs())}
+                            download={ics_download_filename}
+                            style="margin-right: 10px;">
+                            <Text id="export-ics" />
                         </a>
                         <button id="clear-button" className="button-secondary" onClick={this.clearRequests}>
                             <Text id="delete-all-btn" />
@@ -282,6 +296,64 @@ class RequestList extends preact.Component {
         return new Blob([csv], { type: 'text/csv;charset=utf-8' });
     }
 
+    buildIcs() {
+        let now =
+            new Date()
+                .toISOString()
+                .replace(/[-:]/g, '')
+                .substring(0, 15) + 'Z';
+
+        let grouped_requests = this.state.selected_requests.reduce((accumulator, id) => {
+            if (!accumulator[this.state.requests[id].date]) accumulator[this.state.requests[id].date] = [];
+            accumulator[this.state.requests[id].date].push(id);
+            return accumulator;
+        }, {});
+
+        let events = '';
+        Object.keys(grouped_requests).forEach(group => {
+            let items = [];
+            grouped_requests[group].forEach(id => {
+                let request = this.state.requests[id];
+                items.push(
+                    `* ${request.recipient.split('\n', 1)[0]} (${
+                        request.type === 'custom' && request.response_type
+                            ? t(request.response_type, 'generator')
+                            : t(request.type, 'my-requests')
+                    } – ${request.reference})`
+                );
+            });
+
+            let reminder_date = new Date(group);
+            reminder_date.setDate(reminder_date.getDate() + 32);
+
+            events += `
+BEGIN:VEVENT
+UID:${hash(items.join(','))}@ics.datenanfragen.de
+DTSTAMP:${now}
+DTSTART:${reminder_date
+                .toISOString()
+                .replace(/-/g, '')
+                .substring(0, 8)}
+SUMMARY:${t('ics-summary', 'my-requests')}
+DESCRIPTION:${t('ics-desc', 'my-requests')}\\n\\n\n ${items.join('\\n\n ')}
+BEGIN:VALARM
+TRIGGER:+PT720M
+ACTION:DISPLAY
+DESCRIPTION:${t('ics-summary', 'my-requests')}
+END:VALARM
+URL;VALUE=URI:${t('ics-url', 'my-requests')}
+END:VEVENT`;
+        });
+
+        let ics = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Datenanfragen.de e. V.//${t('ics-title', 'my-requests')}//${t('ics-lang', 'my-requests')}
+X-WR-CALNAME:${t('ics-title', 'my-requests')} (${new Date().toISOString().substring(0, 10)})${events}
+END:VCALENDAR`;
+
+        return new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    }
+
     clearRequests() {
         if (window.confirm(t('modal-clear-requests', 'privacy-controls'))) {
             this.user_requests
@@ -297,3 +369,13 @@ class RequestList extends preact.Component {
 }
 
 preact.render(<RequestList />, null, document.getElementById('my-requests'));
+
+// Adapted after: https://stackoverflow.com/a/15710692
+function hash(s) {
+    return window.btoa(
+        s.split('').reduce(function(a, b) {
+            a = (a << 5) - a + b.charCodeAt(0);
+            return a & a;
+        }, 0)
+    );
+}
