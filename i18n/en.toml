@@ -24,6 +24,9 @@ other = "entertainment"
 [finance]
 other = "finance"
 
+[health]
+other = "health"
+
 [insurance]
 other = "insurance"
 
@@ -34,7 +37,7 @@ other = "non-profit organisation"
 other = "public body"
 
 [school]
-other = "school"
+other = "education"
 
 ["social media"]
 other = "social media"

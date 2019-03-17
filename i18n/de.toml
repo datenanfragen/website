@@ -24,6 +24,9 @@ other = "Unterhaltung"
 [finance]
 other = "Finanzen"
 
+[health]
+other = "Gesundheit"
+
 [insurance]
 other = "Versicherung"
 
@@ -34,7 +37,7 @@ other = "Gemeinnützige Organisation"
 other = "Öffentliche Stelle"
 
 [school]
-other = "Schule"
+other = "Bildung"
 
 ["social media"]
 other = "Social Media"
