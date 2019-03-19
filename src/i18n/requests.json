@@ -8,6 +8,7 @@
         "name": "Name",
         "birthdate": "Geburtsdatum",
         "address": "Adresse",
+        "email": "E-Mail-Adresse",
         "attn": "Datenschutzbeauftragte_r",
         "by-fax": "Per Fax: "
     },
@@ -20,6 +21,7 @@
         "name": "Name",
         "birthdate": "Date of birth",
         "address": "Address",
+        "email": "Email address",
         "attn": "Attn: Data Protection Officer",
         "by-fax": "By Fax: "
     }

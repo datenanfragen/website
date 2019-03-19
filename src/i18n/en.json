@@ -61,7 +61,9 @@
         "recipient-explanation": "Who is the recipient?",
         "recipient": "Recipient",
         "id-data": "My data",
+        "id-data-tracking": "My contact details",
         "id-data-explanation": "The data you specify here will help the company identify you. Feel free to err on the side of entering less—the company will contact you if they need more details.<br />Those fields, we know from experience definitely have to be filled in, are marked with an *.",
+        "id-data-tracking-explanation": "You have selected an adtech company. After your request, the company will respond with an explanation on how you can collect the data they need to identify you.<br/>Please specify how you want the company to contact you here. We recommend giving them your email address.",
         "add-dynamic-input-explanation": "Want to add more data? No problem: Just select the type of input you want to add. You can also add your saved inputs.",
         "name": "Name",
         "birthdate": "Date of birth",
@@ -246,6 +248,7 @@
         "saved-data-explanation": "This data is the information you entered in the generator in your requests to identify yourself to a company. You can fill it into new requests now, which comes in handy especially when you want to generate many requests at once. We saved this data for you <strong>on your computer</strong>, it was never and will never be sent to us. You can choose to fill all requests automatically so that generating a request is merely a click on the download button. Just check the checkbox below. For more information on your data, take a look at the <a href=\"/privacy-controls/\">privacy controls</a>.",
         "signature": "Signature",
         "signature-explanation": "If you want, you can save your signature here. If you activated the automatic fill in, we will always add it to your request or you can simply add it manually. Just keep your mouse pressed and draw into the canvas.",
+        "reset": "Reset",
         "reset-signature": "Reset signature",
         "fill-signature": "Saved signature"
     },
@@ -283,7 +286,8 @@
         "no-comments": "No comments here yet. Why don’t you leave one?",
         "leave-comment": "Leave a comment",
         "optional": "(optional)",
-        "rating": "Rating"
+        "rating": "Rating",
+        "rss-link": "Subscribe to the comments on this post using your RSS/Atom feed reader."
     },
     "wizard_tutorial": {
         "back": "Back",

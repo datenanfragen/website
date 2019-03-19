@@ -51,3 +51,7 @@
 {{ if .IsHome }}
 <script src="{{ "js/home.gen.js" | absURL }}"></script>
 {{ end }}
+
+{{ if .Site.Params.devMode }}
+<script>window.enableReactDevTools();</script>
+{{ end }}

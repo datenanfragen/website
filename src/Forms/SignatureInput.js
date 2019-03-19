@@ -98,17 +98,23 @@ export default class SignatureInput extends preact.Component {
                         style="max-width: 100%; box-sizing: border-box;"
                     />
                 </div>
-                <button className="button button-small button-secondary" onClick={this.clear} style="float: right;">
+                <button
+                    className="button button-small button-secondary"
+                    onClick={this.clear}
+                    style="float: right; margin: 0 0 5px 5px;">
                     <Text id="reset-signature" />
                 </button>
-                <div className="clearfix" />
                 {!!this.props.fillSignature && this.props.fillSignature.type === 'image' ? (
-                    <button style="float: right" className="button-secondary" onClick={this.handleFillSignature}>
+                    <button
+                        style="float: right;"
+                        className="button button-small button-secondary"
+                        onClick={this.handleFillSignature}>
                         <Text id="fill-signature" />
                     </button>
                 ) : (
                     []
                 )}
+                <div className="clearfix" />
             </div>
         );
     }

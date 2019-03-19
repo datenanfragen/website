@@ -236,6 +236,6 @@ export default class DynamicInputContainer extends preact.Component {
     static togglePrimaryAddressButton() {
         let buttons = document.querySelectorAll('.dynamic-input-address .dynamic-input-primaryButton');
         if (buttons.length === 1) buttons[0].style.display = 'none';
-        else buttons[0].style.display = 'initial';
+        else if (buttons.length) buttons[0].style.display = 'initial';
     }
 }
