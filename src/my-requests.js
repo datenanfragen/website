@@ -192,7 +192,7 @@ class RequestList extends preact.Component {
                                 <input
                                     id="toggle-all-checkbox"
                                     checked={
-                                        this.state.selected_requests.length != this.state.sorted_request_ids.length
+                                        this.state.selected_requests.length == this.state.sorted_request_ids.length
                                     }
                                     type="checkbox"
                                     className="form-element"

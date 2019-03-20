@@ -152,7 +152,6 @@ export default class Letter {
         let id_data = Letter.formatData(request_object.id_data);
         let rectification_data = Letter.formatData(request_object.rectification_data);
         request_object.signature['name'] = id_data.name;
-        let today = new Date(); // TODO: Can this be removed, @zner0L?
 
         flags = {
             erase_some: !request_object.erase_all,
