@@ -39,7 +39,7 @@ export default class CommentsWidget extends preact.Component {
                         <Text id="comments" />
                         <a
                             href={API_URL + '/feed/' + TARGET}
-                            class="icon icon-rss"
+                            className="icon icon-rss"
                             style="position: absolute; right: 0;"
                             title={t('rss-link', 'comments')}>
                             <span className="sr-only">
