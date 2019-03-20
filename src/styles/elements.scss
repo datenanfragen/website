@@ -106,8 +106,6 @@ input:disabled {
 }
 
 .box {
-    border: 4px solid #003bff;
-    border-radius: 2px;
     box-sizing: border-box;
     /*box-shadow: 0 3px 40px rgba(0, 0, 0, 0.2);*/
     border: 4px solid $primary-color;
@@ -265,22 +263,22 @@ input[type='search'].aa-input-search {
 .aa-suggestion {
     padding: 12px;
     cursor: pointer;
-}
-.aa-suggestion + .aa-suggestion {
-    border-top: 1px solid rgba(228, 228, 228, 0.6);
-}
-.aa-suggestion:last-of-type {
-    border-bottom: 1px solid rgba(228, 228, 228, 0.6);
-}
-.aa-suggestion:hover,
-.aa-suggestion.aa-cursor {
-    background-color: rgba(241, 241, 241, 0.35);
-}
+    & + .aa-suggestion {
+        border-top: 1px solid rgba(228, 228, 228, 0.6);
+    }
+    &:last-of-type {
+        border-bottom: 1px solid rgba(228, 228, 228, 0.6);
+    }
+    &:hover,
+    &.aa-cursor {
+        background-color: rgba(241, 241, 241, 0.35);
+    }
 
-.aa-suggestion mark {
-    background: inherit;
-    color: inherit;
-    font-style: italic;
+    & mark {
+        background: inherit;
+        color: inherit;
+        font-style: italic;
+    }
 }
 
 /* Modal */
@@ -288,59 +286,59 @@ input[type='search'].aa-input-search {
 
 .modal {
     display: block;
-}
 
-.modal > .backdrop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    cursor: no-drop;
+    & > .backdrop {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        cursor: no-drop;
 
-    @extend .fade-in;
-}
-
-.modal > .inner {
-    position: fixed;
-    z-index: 999;
-    box-sizing: border-box;
-    left: 50%;
-    top: 50%;
-    width: 500px;
-    padding: 20px;
-    padding-top: 35px;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: in 300ms ease forwards 1;
-    overflow-y: auto;
-    max-height: 95vh;
-
-    a.close-button {
-        color: $primary-color;
-        font-size: 8px;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        cursor: pointer;
-
-        &:hover {
-            color: $primary-darker-color;
-        }
+        @extend .fade-in;
     }
 
-    .button,
-    button {
+    & > .inner {
+        position: fixed;
+        z-index: 999;
+        box-sizing: border-box;
+        left: 50%;
+        top: 50%;
+        width: 500px;
+        padding: 20px;
+        padding-top: 35px;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: in 300ms ease forwards 1;
+        overflow-y: auto;
+        max-height: 95vh;
+
+        a.close-button {
+            color: $primary-color;
+            font-size: 8px;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+
+            &:hover {
+                color: $primary-darker-color;
+            }
+        }
+
+        .button,
+        button {
+            @include mobile {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
         @include mobile {
-            width: 100%;
-            margin-bottom: 10px;
+            max-width: 90vw;
         }
-    }
-
-    @include mobile {
-        max-width: 90vw;
     }
 }
 @keyframes in {
@@ -594,10 +592,10 @@ fieldset.rating {
     &.editable {
         cursor: pointer;
     }
-}
 
-.rating:not(:checked) > label:before {
-    content: '◆ ';
+    &:before {
+        content: '◆ ';
+    }
 }
 
 .rating > input:checked ~ label {

@@ -1,6 +1,8 @@
 importScripts('pdfmake.min.js');
 importScripts('vfs_fonts.js');
 
+/* global pdfMake */
+
 pdfMake.fonts = {
     Roboto: {
         normal: 'Roboto-Regular.ttf',
@@ -12,8 +14,8 @@ pdfMake.fonts = {
     }
 };
 
-onmessage = (e) => {
-    pdfMake.createPdf(e.data).getBlob((blob) => {
+onmessage = e => {
+    pdfMake.createPdf(e.data).getBlob(blob => {
         postMessage(URL.createObjectURL(blob));
-    })
+    });
 };

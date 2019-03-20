@@ -37,10 +37,18 @@
         "email": "E-Mail",
         "letter": "Brief",
         "delete-all-btn": "Alle Anfragen löschen",
-        "export-btn": "Als CSV exportieren",
+        "export-btn": "Ausgewählte als CSV exportieren",
+        "export-ics": "Ausgewählte in Kalender übernehmen",
         "no-requests-heading": "Noch keine Anfragen",
         "no-requests": "Du hast bisher noch keine Anfragen gestellt. Sobald Du das tust, werden diese hier erscheinen.",
-        "generate-request": "Eine Anfrage generieren"
+        "generate-request": "Eine Anfrage generieren",
+        "toggle-all": "Alle an-/abwählen",
+
+        "ics-summary": "Fällige DSGVO-Anfrage(n)",
+        "ics-desc": "Du hast über Datenanfragen.de DSGVO-Anfragen bei den unten \n genannten Unternehmen gestellt. Die Frist für diese Anfragen ist \n mittlerweile abgelaufen. Falls Du noch keine Antwort auf eine oder \n mehrere der Anfragen erhalten hast, kannst Du jetzt Mahnungen erstellen: \n https://www.datenanfragen.de/my-requests",
+        "ics-url": "https://www.datenanfragen.de/my-requests",
+        "ics-title": "Meine Anfragen bei Datenanfragen.de",
+        "ics-lang": "DE"
     },
     "generator": {
         "reference": "Zeichen",

@@ -21,7 +21,7 @@ export default class CompanyWidget extends preact.Component {
 
         let content = (
             <div className="company-info-content">
-                <div class="company-info-params">
+                <div className="company-info-params">
                     {this.props.company['fax']
                         ? [
                               <br />,
@@ -78,12 +78,13 @@ export default class CompanyWidget extends preact.Component {
                         this.props.company['slug']
                     }
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="button button-secondary button-small company-read-more">
                     <Text id="company-read-more" />
                     &nbsp;
                     <span className="icon icon-arrow-right" />
                 </a>
-                <div class="clearfix" />
+                <div className="clearfix" />
             </div>
         );
 

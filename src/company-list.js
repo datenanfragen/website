@@ -56,7 +56,7 @@ class CompanyList extends preact.Component {
                     <div className="container">
                         <div id="suggest-company-btn">
                             <a
-                                class="button button-primary icon icon-letter"
+                                className="button button-primary icon icon-letter"
                                 href={BASE_URL + 'suggest/?type=new&for=cdb'}>
                                 <Text id="suggest-new" />
                             </a>
@@ -123,9 +123,11 @@ class CompanySearch extends preact.Component {
 
 preact.render(<CompanyList />, null, document.getElementById('company-list'));
 let search_div = document.getElementById('company-search');
-let search_filters = search_div.dataset.filterCategory;
-preact.render(
-    <CompanySearch filters={search_filters ? ['categories:' + search_filters] : undefined} />,
-    null,
-    search_div
-);
+if (search_div) {
+    let search_filters = search_div.dataset.filterCategory;
+    preact.render(
+        <CompanySearch filters={search_filters ? ['categories:' + search_filters] : undefined} />,
+        null,
+        search_div
+    );
+}

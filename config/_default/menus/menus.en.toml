@@ -1,0 +1,69 @@
+[[footerleft]]
+    name = "Request generator"
+    url = "/generator"
+    weight = 10
+[[footerleft]]
+    name = "My requests"
+    url = "/my-requests"
+    weight = 20
+[[footerleft]]
+    name = "My saved data"
+    url = "/id-data-controls"
+    weight = 25
+    post = "<br>"
+[[footerleft]]
+    name = "Company database"
+    url = "/company"
+    weight = 30
+[[footerleft]]
+    name = "Posts"
+    url = "/blog"
+    weight = 40
+
+# [[footercenter]]
+#     name = "Features"
+#     url = "#"
+#     weight = 10
+# [[footercenter]]
+#     name = "Q&A"
+#     url = "#"
+#     weight = 20
+[[footercenter]]
+    name = "Contribute"
+    url = "/contribute"
+    weight = 30
+[[footercenter]]
+    name = "Donate"
+    url = "https://verein.datenanfragen.de/en/donate"
+    weight = 40
+    post = "<br>"
+[[footercenter]]
+    name = "Your GDPR rights"
+    url = "/blog/your-gdpr-rights"
+    weight = 50
+[[footercenter]]
+    name = "Letter templates"
+    url = "/sample-letters"
+    weight = 60
+[[footercenter]]
+    name = "Supervisory authorities"
+    url = "/supervisory-authorities"
+    weight = 70
+
+[[footerright]]
+    name = "Legal notice and contact"
+    url = "/contact"
+    weight = 10
+[[footerright]]
+    name = "Privacy policy"
+    url = "https://verein.datenanfragen.de/en/privacy"
+    weight = 20
+[[footerright]]
+    name = "Privacy controls "
+    url = "/privacy-controls"
+    weight = 30
+    post = "<br>"
+[[footerright]]
+    name = "Open Source"
+    url = "/open-source"
+    weight = 40

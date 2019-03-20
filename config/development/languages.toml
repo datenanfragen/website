@@ -1,0 +1,5 @@
+[de]
+	baseURL = "http://datenanfragen.test"
+
+[en]
+	baseURL = "http://datenanfragen.test"

@@ -2,8 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
+const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
     entry: {
@@ -60,7 +61,11 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: loader => [new IconfontWebpackPlugin(loader)]
+                            plugins: loader => [
+                                new IconfontWebpackPlugin(loader),
+                                postcssPresetEnv(),
+                                require('cssnano')
+                            ]
                         }
                     },
                     'sass-loader'

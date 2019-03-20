@@ -3,16 +3,15 @@ import RequestForm from 'Forms/RequestForm';
 import Letter from 'Utility/Letter';
 import { SearchBar } from './Components/SearchBar';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
-import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from 'Utility/companies';
 import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import Modal from './Components/Modal';
-import { ErrorException, isDebugMode, rethrow } from './Utility/errors';
+import { isDebugMode, rethrow } from './Utility/errors';
 import CompanyWidget from './Components/CompanyWidget';
 import IdData, { deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/IdData';
 import { SavedCompanies } from './Components/Wizard';
-import { t_r } from './Utility/i18n';
+import t, { t_r } from './Utility/i18n';
 import Joyride from 'react-joyride';
 import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
@@ -301,7 +300,7 @@ class Generator extends preact.Component {
                     </div>
                 </header>
                 <div className="clearfix" />
-                <div class="search">
+                <div className="search">
                     <SearchBar
                         id="aa-search-input"
                         index="companies"
@@ -789,7 +788,7 @@ class Generator extends preact.Component {
                 this.setState({ download_active: false });
                 this.pdfWorker.postMessage(this.letter.toPdfDoc());
                 break;
-            case 'email':
+            case 'email': {
                 let email_blob = new Blob(
                     [
                         '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre style="white-space: pre-line;">' +
@@ -802,6 +801,7 @@ class Generator extends preact.Component {
                 );
                 this.setState({ blob_url: URL.createObjectURL(email_blob) });
                 break;
+            }
         }
     }
 
@@ -840,8 +840,8 @@ function slugify(text) {
         .toString()
         .toLowerCase()
         .replace(/\s+/g, '-') // Replace spaces with -
-        .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-        .replace(/\-\-+/g, '-') // Replace multiple - with single -
+        .replace(/[^\w-]+/g, '') // Remove all non-word chars
+        .replace(/--+/g, '-') // Replace multiple - with single -
         .replace(/^-+/, '') // Trim - from start of text
         .replace(/-+$/, ''); // Trim - from end of text
 }

@@ -1,0 +1,5 @@
+[de]
+	baseURL = "https://www.datenanfragen.de/"
+
+[en]
+	baseURL = "https://www.datarequests.org/"

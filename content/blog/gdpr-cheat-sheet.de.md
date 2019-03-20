@@ -31,14 +31,14 @@ Als EU-Verordnung muss die DSGVO nicht erst von den Mitgliedsstaaten umgesetzt w
 
 Die [Datenschutz-Aufsichtsbehörden]({{< ref "supervisory-authorities" >}}) sind unabhängige Stellen in jedem EU-Land, deren Aufgabe es ist, die Einhaltung der Datenschutzgesetze, insbesondere natürlich der DSGVO, sicherzustellen.
 
-Dafür dürfen sie [Verantworliche](#verantwortlicher) kontrollieren, sie ggf. zur Einhaltung der Datenschutzgesetze auffordern und wenn nötig sogar Bußgelder verhängen.  
+Dafür dürfen sie [Verantwortliche](#verantwortlicher) kontrollieren, sie ggf. zur Einhaltung der Datenschutzgesetze auffordern und wenn nötig sogar Bußgelder verhängen.  
 Dir als Verbraucher_in stehen sie als unkomplizierte Hilfe zur Seite: Wenn Du meinst, dass ein Verantwortlicher Deine Daten nicht richtig verarbeitet, kannst Du Dich jederzeit kostenlos an die Datenschutz-Aufsichtsbehörden wenden.
 
 Falls Du Dir nicht sicher bist, an welche Behörde Du Dich wenden solltest, schau Dir doch einmal unseren [Datenschutz-Aufsichtsbehörden-Finder]({{< ref "supervisory-authorities" >}}#finder) an.
 
 ### Auftragsverarbeiter
 
-Ein Auftragsverarbeiter ist – wie der Name schon andeutet – ein Unternehmen, das im Auftrag eines [Verantworlichen](#verantwortlicher) personenbezogene Daten verarbeitet. Lässt ein Unternehmen bspw. seinen E-Mail-Server von einem externen Hoster betreiben, so tritt dieser als Auftragsverarbeiter auf.
+Ein Auftragsverarbeiter ist – wie der Name schon andeutet – ein Unternehmen, das im Auftrag eines [Verantwortlichen](#verantwortlicher) personenbezogene Daten verarbeitet. Lässt ein Unternehmen bspw. seinen E-Mail-Server von einem externen Hoster betreiben, so tritt dieser als Auftragsverarbeiter auf.
 
 Verantwortlicher und Auftragsverarbeiter schließen einen sogenannten „Auftragsdatenverarbeitungs-Vertrag“ (ADV-Vertrag) ab, der genau regeln soll, wie die Daten verarbeitet werden.  
 Für Dich als Verbraucher_in wichtig: In aller Regel ist der Auftragsverarbeiter nicht der Ansprechpartner, wenn Du Deine [Rechte](#rechte) ausüben möchtest. Wende Dich stattdessen direkt an den Verantwortlichen.
@@ -72,7 +72,7 @@ Wichtig ist dieses Konzept nicht zuletzt aus Gründen der Sicherheit. Wir leben 
 
 Ein Datenschutzbeauftragter hat die Aufgabe sicherzustellen, dass ein Unternehmen (oder eine sonstige Organisation, z.&nbsp;B. auch eine Behörde) sich an das Datenschutzrecht hält. Er wird von dem Unternehmen selbst bestellt und muss eine gewisse Unabhängigkeit haben, um seine Aufgabe ausüben zu können.
 
-Wenn ein [Verantworlicher](#verantwortlicher) einen Datenschutzbeauftragten bestellt hat, sollte dieser Dein Ansprechpartner für datenschutzbezogene Anfragen sein, etwa wenn Du Deine [Rechte](#rechte) ausüben möchtest.
+Wenn ein [Verantwortlicher](#verantwortlicher) einen Datenschutzbeauftragten bestellt hat, sollte dieser Dein Ansprechpartner für datenschutzbezogene Anfragen sein, etwa wenn Du Deine [Rechte](#rechte) ausüben möchtest.
 
 ### One-Stop-Shop-Prinzip
 
@@ -88,7 +88,7 @@ Die Information, dass die IP-Adresse 31.41.59.26 am 25. Mai 2018 unseren [Genera
 
 ### Profiling
 
-Profiling ist eine Form der automatisierten Entscheidungsfindung, bei der der [Verantworliche](#verantwortlicher) Deine [personenbezogenen Daten](#personenbezogene-daten) nutzt, um automatisch ohne Eingriff eines Menschen bestimmte persönliche Aspekte von Dir zu bewerten. Häufig geht es darum, Aspekte wie die folgenden über Dich zu analyisieren und vorherzusagen:
+Profiling ist eine Form der automatisierten Entscheidungsfindung, bei der der [Verantwortliche](#verantwortlicher) Deine [personenbezogenen Daten](#personenbezogene-daten) nutzt, um automatisch ohne Eingriff eines Menschen bestimmte persönliche Aspekte von Dir zu bewerten. Häufig geht es darum, Aspekte wie die folgenden über Dich zu analyisieren und vorherzusagen:
 
 * Arbeitsleistung
 * wirtschaftliche Lage
@@ -115,7 +115,7 @@ Der Verantwortliche ist die Stelle, welche die [Verarbeitung](#verarbeitung) von
 
 ### Verarbeitung
 
-Als eine Verarbeitung bezeichnet die DSGVO quasi alles, das ein [Verantworlicher](#verantwortlicher) mit [personenbezogenen Daten](#personenbezogene-daten) tun kann. Dazu zählen insbesondere:
+Als eine Verarbeitung bezeichnet die DSGVO quasi alles, das ein [Verantwortlicher](#verantwortlicher) mit [personenbezogenen Daten](#personenbezogene-daten) tun kann. Dazu zählen insbesondere:
 
 * das Erheben
 * das Erfassen

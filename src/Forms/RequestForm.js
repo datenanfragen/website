@@ -23,6 +23,7 @@ export default class RequestForm extends preact.Component {
                         <MarkupText id="rectification-data-explanation" />
                     </DynamicInputContainer>
                 );
+            // fallthrough intentional
             case 'erasure':
             case 'access':
                 body.push(
@@ -75,7 +76,7 @@ export default class RequestForm extends preact.Component {
                                         <Text id="complaint" />
                                     </option>
                                 </select>
-                                <div class="icon icon-arrow-down" style="top: 6px;" />
+                                <div className="icon icon-arrow-down" style="top: 6px;" />
                             </div>
                         </div>
                         <div className="form-group">
@@ -208,7 +209,7 @@ export default class RequestForm extends preact.Component {
                                 className="form-element"
                                 placeholder={t('recipient', 'generator')}
                                 rows="4"
-                                spellcheck="false"
+                                spellCheck="false"
                                 onChange={event => {
                                     this.props.onChange({ recipient_address: event.target.value });
                                 }}
@@ -278,7 +279,7 @@ export default class RequestForm extends preact.Component {
                                         id="reference"
                                         className="form-element readonly"
                                         value={this.props.request_data['reference']}
-                                        readonly
+                                        readOnly
                                     />
                                 </div>
                                 <textarea
@@ -286,7 +287,7 @@ export default class RequestForm extends preact.Component {
                                     className="form-element"
                                     placeholder={t('information-block', 'generator')}
                                     rows="4"
-                                    spellcheck="true"
+                                    spellCheck="true"
                                     onChange={e => this.props.onChange({ information_block: e.target.value })}
                                     value={this.props.request_data['information_block']}
                                 />

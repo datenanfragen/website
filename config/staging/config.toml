@@ -1,0 +1,4 @@
+enableMissingTranslationPlaceholders = true
+
+[params]
+devMode = true

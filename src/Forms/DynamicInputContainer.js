@@ -1,6 +1,6 @@
 import preact from 'preact';
 import DynamicInput from './DynamicInput';
-import { Text, MarkupText } from 'preact-i18n';
+import { Text } from 'preact-i18n';
 import t from '../Utility/i18n';
 
 export default class DynamicInputContainer extends preact.Component {
@@ -68,7 +68,7 @@ export default class DynamicInputContainer extends preact.Component {
                     <div className="fill-field">
                         <div style="display: table-cell">
                             {field.desc}:{' '}
-                            <span class="fill-field-value">
+                            <span className="fill-field-value">
                                 {field.type === 'address'
                                     ? field.value['street_1']
                                         ? field.value['street_1'] + ' …'
@@ -90,7 +90,7 @@ export default class DynamicInputContainer extends preact.Component {
                 );
             });
         return (
-            <div class="dynamic-input-container">
+            <div className="dynamic-input-container">
                 <h2>{this.props.title}</h2>
                 {this.props.children}
                 <div id={'request-dynamic-input-' + this.props.id}>{input_elements}</div>
@@ -118,11 +118,11 @@ export default class DynamicInputContainer extends preact.Component {
                         <Text id="add-input" />
                     </button>
                     {this.props.fillFields && fill_fields.length > 0 ? (
-                        <div class="dropdown-container">
-                            <a class="button button-primary" href="javascript:void(0)">
-                                <span class="icon icon-fill" />
+                        <div className="dropdown-container">
+                            <a className="button button-primary" href="javascript:void(0)">
+                                <span className="icon icon-fill" />
                             </a>
-                            <div class="dropdown">
+                            <div className="dropdown">
                                 <div style="display: table; border-spacing: 5px; width: 100%;">{fill_fields}</div>
                             </div>
                         </div>

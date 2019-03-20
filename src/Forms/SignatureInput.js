@@ -87,7 +87,9 @@ export default class SignatureInput extends preact.Component {
                 <div>
                     <canvas
                         id={this.props.id}
-                        style={'background-color: ' + this.state.backgroundColor}
+                        style={
+                            'max-width: 100%; box-sizing: border-box; background-color: ' + this.state.backgroundColor
+                        }
                         ref={el => (this.canvas = el)}
                         width={this.state.width}
                         height={this.state.height}
@@ -95,7 +97,6 @@ export default class SignatureInput extends preact.Component {
                         onMouseDown={this.handleMouse}
                         onMouseUp={this.handleMouse}
                         onMouseOut={this.handleMouse}
-                        style="max-width: 100%; box-sizing: border-box;"
                     />
                 </div>
                 <button
@@ -158,6 +159,7 @@ export default class SignatureInput extends preact.Component {
                     this.handleChange();
                 }
                 this.setState({ hasBeenDrawnOn: false });
+            // fallthrough intentional
             case 'mouseup':
                 this.setState({ isDrawing: false });
                 break;
