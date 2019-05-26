@@ -3,7 +3,7 @@ import { fetchCompanyDataBySlug } from './Utility/companies';
 require('brutusin-json-forms');
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
-
+import FlashMessage, { flash } from 'Components/FlashMessage';
 let bf;
 let submit_url = 'https://z374s4qgtc.execute-api.eu-central-1.amazonaws.com/prod/suggest';
 let url_params = new URLSearchParams(window.location.search);
@@ -23,11 +23,11 @@ window.onload = () => {
 };
 
 function prepareForm(schema) {
-    if (url_params.has('slug'))
+    if (url_params.has('slug')) {
         fetchCompanyDataBySlug(url_params.get('slug'), company => {
             renderForm(schema, company);
         });
-    else renderForm(schema);
+    } else renderForm(schema);
 }
 
 function renderForm(schema, company = undefined) {
@@ -121,7 +121,8 @@ document.getElementById('submit-suggest-form').onclick = () => {
             displaySuccessModal();
         })
         .catch(err => {
-            displaySuccessModal();
+            let preact = require('preact');
+            flash(<FlashMessage type="error">{t('error', 'suggest')}</FlashMessage>);
         });
 };
 
@@ -131,6 +132,8 @@ function displaySuccessModal() {
 
     let dismiss = () => {
         preact.render('', document.body, modal);
+
+        window.location = BASE_URL + 'company/' + (url_params.get('slug') || '');
     };
     let modal = preact.render(
         <Modal onDismiss={dismiss} positiveText={t('ok', 'suggest')} onPositiveFeedback={dismiss}>
