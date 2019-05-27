@@ -29,6 +29,19 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
             this.input_element = null;
         }
 
+        static countryFilter(country) {
+            let items = ['all', country];
+
+            /* Our records often simply specify Germany for companies that are also relevant for Austria and/or Switzerland.
+               Thus, we explicitly include results from Germany for these countries.
+
+               Ideally, we would rank those additional results lower but as far as I am aware, Typesense doesn't support that.
+            */
+            if (['at', 'ch'].includes(country)) items.push('de');
+
+            return 'relevant-countries:[' + items.join(', ') + ']';
+        }
+
         componentDidMount() {
             let options = {
                 query_by: this.props.query_by || 'name, runs, categories, web, slug, address, comments',
@@ -49,7 +62,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                 .concat(
                                     this.props.disableCountryFiltering || globals.country === 'all'
                                         ? []
-                                        : ['relevant-countries:[' + globals.country + ', all]']
+                                        : [SearchBar.countryFilter(globals.country)]
                                 )
                                 .join(' && ');
                         }
