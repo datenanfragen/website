@@ -1,6 +1,7 @@
 import preact from 'preact';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import Modal from './Modal';
+import t from 'Utility/i18n';
 
 export default class I18nWidget extends preact.Component {
     constructor(props) {
@@ -50,11 +51,7 @@ export default class I18nWidget extends preact.Component {
 
         let country_options = [];
         SUPPORTED_COUNTRIES.forEach(country => {
-            country_options.push(
-                <option value={country}>
-                    <Text id={'country-desc-' + country} />
-                </option>
-            );
+            country_options.push(<option value={country}>{t(country, 'countries')}</option>);
         });
 
         return (
@@ -123,7 +120,7 @@ export class I18nButton extends preact.Component {
                     <a
                         className="i18n-button button button-secondary icon icon-i18n menu-link"
                         href="javascript:void(0)">
-                        <Text id={'language-' + LOCALE} /> / <Text id={'country-' + this.state.country} />
+                        <Text id={'language-' + LOCALE} /> / {t(this.state.country, 'countries')}
                     </a>
                     <div className="dropup i18n-widget-container">
                         <I18nWidget />

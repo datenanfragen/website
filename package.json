@@ -111,7 +111,7 @@
                 "prettier --write",
                 "git add"
             ],
-            "*.{js,html}": [
+            "*.{js}": [
                 "eslint"
             ],
             "*.{css,scss}": "stylelint",

@@ -49,6 +49,7 @@ module.exports = {
         LOCALE: 'readonly',
         SUPPORTED_LANGUAGES: 'readonly',
         SUPPORTED_COUNTRIES: 'readonly',
+        COUNTRIES_WITH_SUGGESTED_COMPANIES: 'readonly',
 
         // defined in `src/general.js`
         I18N_DEFINITION: 'readonly',

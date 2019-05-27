@@ -1,3 +1,15 @@
+<!-- Sooo, this is the easiest way *I* found to collect all countries with more than n records. If there's a better way, *please* implement that instead! -->
+{{ $.Scratch.Set "country_counts" (dict) }}
+{{ range where $.Site.Pages "Type" "company" }}
+    {{ range .Param "relevant-countries" }}
+        {{ if not (isset ($.Scratch.Get "country_counts") .) }}
+            {{ $.Scratch.SetInMap "country_counts" . 1 }}
+        {{ else }}
+            {{ $.Scratch.SetInMap "country_counts" . (add (index ($.Scratch.Get "country_counts") .) 1) }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
 <script>
     const LOCALE = {{ .Site.Language.Lang }};
     // (p)react needs to be notified on changes of `country`, so we use a getter and setter (added in `general.js`. Not exactly pretty but oh well. See: https://stackoverflow.com/a/37403125
@@ -13,7 +25,14 @@
             {{- end -}}
         {{- end -}}
     };
-    const SUPPORTED_COUNTRIES = [ 'de', 'gb' ];
+    const SUPPORTED_COUNTRIES = [
+        {{ range $key, $val := ($.Scratch.Get "country_counts") }}
+            {{ if ge $val 10 }}
+                '{{ $key }}',
+            {{ end }}
+        {{ end }}
+    ];
+    const COUNTRIES_WITH_SUGGESTED_COMPANIES = ['de', 'gb'];
     const BASE_URL = {{ "/" | absURL }};
 </script>
 <script src="{{ "js/error-handler.gen.js" | absURL }}"></script>

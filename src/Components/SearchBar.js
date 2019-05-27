@@ -47,7 +47,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                         if (this.props.filters) {
                             options['filter_by'] = this.props.filters
                                 .concat(
-                                    this.props.disableCountryFiltering
+                                    this.props.disableCountryFiltering || globals.country === 'all'
                                         ? []
                                         : ['relevant-countries:[' + globals.country + ', all]']
                                 )
