@@ -10,7 +10,8 @@
         "address": "Adresse",
         "email": "E-Mail-Adresse",
         "attn": "Datenschutzbeauftragte_r",
-        "by-fax": "Per Fax: "
+        "by-fax": "Per Fax: ",
+        "concerns": "Betrifft"
     },
     "en": {
         "letter-subject-erasure": "Request for erasure of personal data according to Art. 17 GDPR",
@@ -23,6 +24,7 @@
         "address": "Address",
         "email": "Email address",
         "attn": "Attn: Data Protection Officer",
-        "by-fax": "By Fax: "
+        "by-fax": "By Fax: ",
+        "concerns": "Concerns"
     }
 }

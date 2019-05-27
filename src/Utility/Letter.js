@@ -140,6 +140,9 @@ export default class Letter {
               '\n\n'
             : '';
         email +=
+            (this.props.recipient_address
+                ? t_r('concerns', this.props.language) + ': ' + this.props.recipient_address.split('\n')[0] + '\n'
+                : '') +
             this.props.information_block +
             '\n' +
             Letter.stripTags(this.props.content) +
