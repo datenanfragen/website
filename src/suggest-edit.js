@@ -53,7 +53,13 @@ function renderForm(schema, company = undefined) {
                 'schema',
                 null,
                 null,
-                t(sanitizedText.replace(/-/g, ' '), 'categories', null, null, sanitizedText)
+                t(
+                    sanitizedText.replace(/-/g, ' '),
+                    'categories',
+                    null,
+                    null,
+                    t(sanitizedText, 'countries', null, null, sanitizedText)
+                )
             );
 
             if (TO_HIDE.includes(sanitizedText)) {
