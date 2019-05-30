@@ -33,6 +33,9 @@ other = "Versicherung"
 [nonprofit]
 other = "Gemeinnützige Organisation"
 
+["political party"]
+other = "Partei"
+
 ["public body"]
 other = "Öffentliche Stelle"
 

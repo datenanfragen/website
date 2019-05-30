@@ -33,6 +33,9 @@ other = "insurance"
 [nonprofit]
 other = "non-profit organisation"
 
+["political party"]
+other = "political party"
+
 ["public body"]
 other = "public body"
 
