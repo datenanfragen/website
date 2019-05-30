@@ -32,9 +32,16 @@ function prepareForm(schema) {
 
 function renderForm(schema, company = undefined) {
     let BrutusinForms = brutusin['json-forms'];
+
+    const TO_HIDE = [
+        'slug',
+        'custom-access-template',
+        'custom-erasure-template',
+        'custom-rectification-template',
+        'request-language'
+    ];
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
-        let to_hide = ['slug', 'custom-access-template', 'custom-erasure-template', 'custom-rectification-template'];
 
         if (!element.tagName) {
             let sanitizedText = element.textContent
@@ -49,7 +56,7 @@ function renderForm(schema, company = undefined) {
                 t(sanitizedText.replace(/-/g, ' '), 'categories', null, null, sanitizedText)
             );
 
-            if (to_hide.includes(sanitizedText)) {
+            if (TO_HIDE.includes(sanitizedText)) {
                 // We are currently in the scope of some promise or something like that. `setTimeout` brings us back to the scope of the content process.
                 setTimeout(
                     el => {
