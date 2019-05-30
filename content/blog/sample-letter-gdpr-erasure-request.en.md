@@ -2,7 +2,7 @@
     "title": "Sample letter for erasure requests as per Art. 17 GDPR (“right to be forgotten”)",
     "slug": "sample-letter-gdpr-erasure-request",
     "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2018-05-20T01:16:18",
+    "last_edited": "2019-05-30T13:21:06",
 	"type": "blog",
 	"description": "Thanks to the GDPR, you have the right to have your personal data deleted if a controller no longer needs it for its original purpose. We offer you a sample letter with which you can exercise such a right.",
 	"featured_image": "/img/gdpr-erasure-request-letter.jpg",
@@ -32,7 +32,7 @@ Here is our sample letter for requests for erasure according to Art. 17 GDPR. Yo
 <div class="blog-letter">
 <p>To Whom It May Concern:</p>
 
-<p>I am hereby requesting immediate erasure of personal data concerning me according to Article 15 GDPR.</p>
+<p>I am hereby requesting immediate erasure of personal data concerning me according to Article 17 GDPR.</p>
 
 <p>[Please erase all personal data concerning me as defined by Article 4(1) GDPR.]<br>
 [Please delete the following personal data concerning me:
