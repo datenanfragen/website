@@ -125,6 +125,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
     let data = bf.getData();
 
     if (!data.slug) data.slug = slugify(domainFromUrl(data.web) || data.name);
+    if (!data['relevant-countries']) data['relevant-countries'] = ['all'];
 
     fetch(submit_url, {
         method: 'POST',
