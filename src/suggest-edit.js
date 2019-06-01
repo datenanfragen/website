@@ -139,7 +139,8 @@ document.getElementById('submit-suggest-form').onclick = () => {
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify({
             for: 'cdb',
-            data: data
+            data: data,
+            new: !url_params.has('slug')
         })
     })
         .then(res => {
