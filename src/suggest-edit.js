@@ -1,11 +1,13 @@
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
+import { slugify, domainFromUrl } from './Utility/common';
 require('brutusin-json-forms');
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 let bf;
 let submit_url = 'https://z374s4qgtc.execute-api.eu-central-1.amazonaws.com/prod/suggest';
+
 let url_params = new URLSearchParams(window.location.search);
 
 window.onload = () => {
@@ -121,6 +123,8 @@ function renderForm(schema, company = undefined) {
 
 document.getElementById('submit-suggest-form').onclick = () => {
     let data = bf.getData();
+
+    if (!data.slug) data.slug = slugify(domainFromUrl(data.web) || data.name);
 
     fetch(submit_url, {
         method: 'POST',
