@@ -129,7 +129,10 @@ document.getElementById('submit-suggest-form').onclick = () => {
     let data = bf.getData();
 
     // Do some post-processing on the user-submitted data to make the review easier.
-    if (!data.slug) data.slug = slugify(domainFromUrl(data.web) || data.name);
+    if (!data.slug) {
+        let domain = domainFromUrl(data.web);
+        data.slug = slugify(domain ? domain.replace('www.', '') : data.name);
+    }
     if (!data['relevant-countries']) data['relevant-countries'] = ['all'];
     if (data.phone) data.phone = formatPhoneNumber(data.phone);
     if (data.fax) data.fax = formatPhoneNumber(data.fax);
@@ -144,7 +147,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
         })
     })
         .then(res => {
-            displaySuccessModal();
+            displaySuccessModal(res.data);
         })
         .catch(err => {
             let preact = require('preact');
@@ -157,7 +160,7 @@ function formatPhoneNumber(number) {
     return res ? res.formatInternational() : number;
 }
 
-function displaySuccessModal() {
+function displaySuccessModal(data) {
     let preact = require('preact');
     let Modal = require('Components/Modal').default;
 
@@ -169,6 +172,9 @@ function displaySuccessModal() {
     let modal = preact.render(
         <Modal onDismiss={dismiss} positiveText={t('ok', 'suggest')} onPositiveFeedback={dismiss}>
             <p>{t('success', 'suggest')}</p>
+            <p>
+                <a href={data.issue_url}>{t('view-on-github', 'suggest')}</a>
+            </p>
         </Modal>,
         document.body
     );
