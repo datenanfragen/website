@@ -1,5 +1,7 @@
 // Taken from: https://gist.github.com/mathewbyrne/1280286
 export function slugify(text) {
+    if (!text) return '';
+
     return text
         .toString()
         .toLowerCase()
