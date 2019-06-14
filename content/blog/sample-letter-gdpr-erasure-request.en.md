@@ -27,7 +27,7 @@ In most cases, however, you should use the written form, if only to be able to p
 
 Don't worry, you don't have to write this letter yourself. We have prepared a sample letter for you to copy and adapt for your purposes.
 
-Here is our sample letter for requests for erasure according to Art. 17 GDPR. You still have to fill in the data in <span class="blog-letter-fill-in">curly braces</span>. You can decided whether you want all personal data concerning you to be deleted or just some. Depending on your choice, include one of the sections in [square brackets].
+Here is our sample letter for requests for erasure according to Art. 17 GDPR. You still have to fill in the data in <span class="blog-letter-fill-in">curly braces</span>. You can decide whether you want all personal data concerning you to be deleted or just some. Depending on your choice, include one of the sections in [square brackets].
 
 <div class="blog-letter">
 <p>To Whom It May Concern:</p>

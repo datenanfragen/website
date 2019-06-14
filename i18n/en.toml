@@ -221,10 +221,10 @@ other = "Also runs:"
 other = "“{{ .Params.name }}” is also responsible for the following entities and services:"
 
 [cdb-intro]
-other = "We have to following contact information on “{{ .Params.name }}” for you to use for privacy-related requests:"
+other = "We have the following contact information on “{{ .Params.name }}” for you to use for privacy-related requests:"
 
 [adb-intro]
-other = "We have to following contact information on “{{ .Params.name }}” for you to use to lodge complaints:"
+other = "We have the following contact information on “{{ .Params.name }}” for you to use to lodge complaints:"
 
 [cdb-address]
 other = "Address:"
