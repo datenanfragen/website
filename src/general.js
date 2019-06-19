@@ -30,7 +30,14 @@ preact.render(<I18nWidget minimal={true} />, document.getElementById('personal-m
 
 let comments_div = document.getElementById('comments-widget');
 if (comments_div) {
-    preact.render(<CommentsWidget allow_rating={comments_div.dataset.ratingEnabled == 1} />, null, comments_div);
+    preact.render(
+        <CommentsWidget
+            allow_rating={comments_div.dataset.ratingEnabled === '1'}
+            displayWarning={comments_div.dataset.displayWarning === '1'}
+        />,
+        null,
+        comments_div
+    );
 }
 
 if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {

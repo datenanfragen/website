@@ -22,6 +22,11 @@ Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associatio
 **Responsible for the content according to § 55(2) of German Interstate Broadcasting Treaty (RStV):**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
 
+<div class="box box-warning">
+	Please note that we are an <em>independent non-profit</em> and not affiliated with the companies listed in our <a href="/company">company database</a>.<br>
+	If you need support or want to send a request, please contact the respective company directly. We <strong>cannot</strong> help you in such cases. Thanks for your understanding.
+</div>
+
 <script type="application/ld+json">
 	{
 		"@context": "http://schema.org",
