@@ -269,6 +269,11 @@
         "reset-signature": "Reset signature",
         "fill-signature": "Saved signature"
     },
+    "signature": {
+        "overlay-text": "You have enabled your browser’s fingerprinting protection. For us to be able to access your signature, you need to allow that first.",
+        "overlay-learn-more": "Learn more",
+        "overlay-allow": "Allow"
+    },
     "i18n-widget": {
         "country": "Country",
         "language": "Language",

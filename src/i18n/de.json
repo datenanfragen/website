@@ -268,6 +268,11 @@
         "reset-signature": "Unterschrift zurücksetzen",
         "fill-signature": "Gespeicherte Unterschrift"
     },
+    "signature": {
+        "overlay-text": "Du hast den Fingerprinting-Schutz in Deinem Browser aktiviert. Damit wir auf Deine Unterschrift zugreifen können, musst Du uns das erst erlauben.",
+        "overlay-learn-more": "Mehr erfahren",
+        "overlay-allow": "Erlauben"
+    },
     "i18n-widget": {
         "country": "Land",
         "language": "Sprache",
