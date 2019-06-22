@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,110 +8,124 @@
 
     <title>
         {{- block "title" . -}}
-        {{ if .Title }}{{ .Title }}{{ else if .Params.name }}{{ .Params.name }}{{ end }}{{ if not .IsHome }} &middot; {{ .Site.Title }}{{ end }}
+        {{ if .Title }}{{ .Title }}{{ else if .Params.name }}{{ .Params.name }}{{ end }}{{ if not .IsHome }} &middot;
+        {{ .Site.Title }}{{ end }}
         {{- end -}}
     </title>
 
     {{ if .IsTranslated -}}
-        {{ range .Translations -}}
-            <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
-        {{ end -}}
+    {{ range .Translations -}}
+    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+    {{ end -}}
     {{- end }}
     <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
 
     <link rel="preconnect" href="https://static.dacdn.de">
-    <link rel="preload" as="font" crossorigin type="font/woff2" href="https://static.dacdn.de/fonts/fira-sans/fira-sans-v8-latin-regular.woff2">
-    <link rel="preload" as="font" crossorigin type="font/woff2" href="https://static.dacdn.de/fonts/fira-sans/fira-sans-v8-latin-600.woff2">
-    <link rel="preload" as="font" crossorigin type="font/woff2" href="https://static.dacdn.de/fonts/league-spartan/league-spartan-600.woff2">
+    <link rel="preload" as="font" crossorigin type="font/woff2"
+        href="https://static.dacdn.de/fonts/fira-sans/fira-sans-v8-latin-regular.woff2">
+    <link rel="preload" as="font" crossorigin type="font/woff2"
+        href="https://static.dacdn.de/fonts/fira-sans/fira-sans-v8-latin-600.woff2">
+    <link rel="preload" as="font" crossorigin type="font/woff2"
+        href="https://static.dacdn.de/fonts/league-spartan/league-spartan-600.woff2">
     {{ if eq .Type "generator" -}}
     <!-- TODO: Implement this correctly! <link rel="preload" as="script" href="{{ "js/pdfworker.gen.js" | absURL }}"> -->
     {{- end }}
     <link rel="stylesheet" href="https://static.dacdn.de/fonts/fira-sans.css">
     <link rel="stylesheet" href="https://static.dacdn.de/fonts/league-spartan.css">
-    <link rel="stylesheet" href="{{ "css/style.gen.css" | absURL }}"/>
+    <link rel="stylesheet" href="{{ "css/style.gen.css" | absURL }}" />
 
     {{ partial "head/meta.html" . }}
     {{ partial "head/favicons.html" . }}
 </head>
+
 <body>
-<div id="flash-messages"></div>
-<header id="nav-header">
-    <div id="nav-header-bg"></div>
-    <div id="header-main" class="container">
-        <a href="{{ "/" | absURL }}"><img id="logo" src="{{ T "logo" . | absURL }}"></a>
-        <nav id="main-nav">
-            <div id="menu-items">
-                <a href="{{ "company" | absURL }}" class="menu-link desktop-only">{{ T "header-cdb" }}</a>
-                <a href="{{ "blog" | absURL }}" class="menu-link desktop-only">{{ T "header-blog" }}</a>
+    <div id="flash-messages"></div>
+    <header id="nav-header">
+        <div id="nav-header-bg"></div>
+        <div id="header-main" class="container">
+            <a href="{{ "/" | absURL }}"><img id="logo" src="{{ T "logo" . | absURL }}"></a>
+            <nav id="main-nav">
+                <div id="menu-items">
+                    <a href="{{ "company" | absURL }}" class="menu-link desktop-only">{{ T "header-cdb" }}</a>
+                    <a href="{{ "blog" | absURL }}" class="menu-link desktop-only">{{ T "header-blog" }}</a>
 
-                <a class="{{ if .IsHome }}button button-primary icon icon-letter {{ end }}menu-link desktop-only" href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
-                <div class="dropdown-container">
-                    <a class="button button-secondary menu-link" href="javascript:void(0)"><span class="icon icon-menu"></span></a>
-                    <div class="dropdown" id="personal-menu">
-                        <div class="mobile-only">
-                            <a class="button button-primary icon icon-letter menu-link" href="{{ "generator" | absURL }}" style="border-radius: 0;">{{ T "header-generator" }}</a>
-                            <a href="{{ "company" | absURL }}" class="menu-link">{{ T "header-cdb" }}</a>
-                            <a href="{{ "blog" | absURL }}" class="menu-link">{{ T "header-blog" }}</a>
+                    <a class="{{ if .IsHome }}button button-primary icon icon-letter {{ end }}menu-link desktop-only"
+                        href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
+                    <div class="dropdown-container">
+                        <a class="button button-secondary menu-link" href="javascript:void(0)"><span
+                                class="icon icon-menu"></span></a>
+                        <div class="dropdown" id="personal-menu">
+                            <div class="mobile-only">
+                                <a class="button button-primary icon icon-letter menu-link"
+                                    href="{{ "generator" | absURL }}"
+                                    style="border-radius: 0;">{{ T "header-generator" }}</a>
+                                <a href="{{ "company" | absURL }}" class="menu-link">{{ T "header-cdb" }}</a>
+                                <a href="{{ "blog" | absURL }}" class="menu-link">{{ T "header-blog" }}</a>
+                            </div>
+                            <a href="{{ "my-requests" | absURL }}" class="menu-link">{{ T "header-my-requests" }}</a>
+                            <a href="{{ "id-data-controls" | absURL }}"
+                                class="menu-link">{{ T "header-id-data-controls" }}</a>
+                            <a href="{{ "privacy-controls" | absURL }}"
+                                class="menu-link">{{ T "header-privacy-controls" }}</a>
+
+                            <div id="personal-menu-i18n-widget" class="i18n-widget-container"></div>
+                            <div id="id-data-controls"></div>
                         </div>
-                        <a href="{{ "my-requests" | absURL }}" class="menu-link">{{ T "header-my-requests" }}</a>
-                        <a href="{{ "id-data-controls" | absURL }}" class="menu-link">{{ T "header-id-data-controls" }}</a>
-                        <a href="{{ "privacy-controls" | absURL }}" class="menu-link">{{ T "header-privacy-controls" }}</a>
-
-                        <div id="personal-menu-i18n-widget" class="i18n-widget-container"></div>
-                        <div id="id-data-controls"></div>
                     </div>
                 </div>
-            </div>
-        </nav>
-        <div class="clearfix"></div>
+            </nav>
+            <div class="clearfix"></div>
+        </div>
+    </header>
+    {{ if .IsHome }}
+    <div id="home-hero-bg"></div>
+    {{ else }}
+    <div id="heading-bg">
+        <div id="heading" class="container">
+            <h1>{{ block "heading" . }}{{ .Title }}{{ end }}</h1>
+        </div>
     </div>
-</header>
-{{ if .IsHome }}
-<div id="home-hero-bg"></div>
-{{ else }}
-<div id="heading-bg">
-    <div id="heading" class="container"><h1>{{ block "heading" . }}{{ .Title }}{{ end }}</h1></div>
-</div>
-{{ end }}
-<div class="container">
-    {{ block "main" . }}
     {{ end }}
-</div>
-<footer id="footer">
     <div class="container">
-        <div class="col33 footer-col" style="padding-right: 20px;">
-            <p style="margin-top: 0;">{{ T "footer-about-us" | safeHTML }}</p>
-            <div class="i18n-button-container"></div>
-        </div>
-        <div class="col22 footer-col">
-            <ul>
-                {{ range .Site.Menus.footerleft }}
-                <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
-                {{ .Post }}
-                {{ end }}
-            </ul>
-        </div>
-        <div class="col22 footer-col">
-            <ul>
-                {{ range .Site.Menus.footercenter }}
-                <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
-                {{ .Post }}
-                {{ end }}
-            </ul>
-        </div>
-        <div class="col22 footer-col">
-            <ul>
-                {{ range .Site.Menus.footerright }}
-                <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
-                {{ .Post }}
-                {{ end }}
-            </ul>
-        </div>
-        <div class="clearfix"></div>
+        {{ block "main" . }}
+        {{ end }}
     </div>
-</footer>
-{{ partial "scripts" . }}
-{{ block "scripts" . }}
-{{ end }}
+    <footer id="footer">
+        <div class="container">
+            <div class="col33 footer-col" style="padding-right: 20px;">
+                <p style="margin-top: 0;">{{ T "footer-about-us" | safeHTML }}</p>
+                <div class="i18n-button-container"></div>
+            </div>
+            <div class="col22 footer-col">
+                <ul>
+                    {{ range .Site.Menus.footerleft }}
+                    <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+                    {{ .Post }}
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="col22 footer-col">
+                <ul>
+                    {{ range .Site.Menus.footercenter }}
+                    <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+                    {{ .Post }}
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="col22 footer-col">
+                <ul>
+                    {{ range .Site.Menus.footerright }}
+                    <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+                    {{ .Post }}
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </footer>
+    {{ partial "scripts" . }}
+    {{ block "scripts" . }}
+    {{ end }}
 </body>
+
 </html>
