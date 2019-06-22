@@ -1,0 +1,8 @@
+[authors.baltpeter]
+byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://benjamin-altpeter.de/' property='cc:attributionName' rel='cc:attributionURL'>Benjamin Altpeter</a>"
+short_name = "Benni"
+
+# Sorry but there was no way to preserve the capitalization. :(
+[authors.zner0l]
+byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://lorenz-sieben.com/' property='cc:attributionName' rel='cc:attributionURL'>Lorenz Sieben</a>"
+short_name = "Lorenz"

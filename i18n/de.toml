@@ -287,7 +287,7 @@ other = "Ähnliche Unternehmen"
 other = "Veröffentlicht: "
 
 [blog-author]
-other = "Autor: "
+other = "von: "
 
 [blog-last-edited]
 other = ", zuletzt geändert: "
@@ -322,6 +322,12 @@ other = "am"
 [blog-time-at]
 other = "um"
 
+[blog-and]
+other = " und "
+
+[blog-licensed-under]
+other = "veröffentlicht unter:"
+
 [noscript-generator]
 other = "Der Generator läuft vollständig auf Deinem Computer und verwendet deshalb ausschließlich JavaScript. Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchstest. Wenn Du den Generator benutzen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a href=\"mailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>."
 
@@ -338,3 +344,25 @@ other="Fehler 404: Seite nicht gefunden"
 
 [404-body]
 other = "Leider existiert die gesuchte Seite auf diesem Server nicht. Vielleicht hast du dich ja einfach in der URL vertippt? Falls der Fehler wieder auftritt, hinterlasse uns doch einen Hinweis auf unserer E-Mail-Adresse <a href=\"mailto:dev@datenanfragen.de\">dev@datenanfragen.de</a> oder schreib in unseren <a href=\"https://github.com/datenanfragen/website/issues/new\">Issue-Tracker</a>."
+
+# Licenses
+
+["license-cc-by-4.0"]
+other = "Creative Commons Namensnennung 4.0 International Lizenz"
+["license-url-cc-by-4.0"]
+other = "https://creativecommons.org/licenses/by/4.0/deed.de"
+
+["license-cc-by-nd-4.0"]
+other = "Creative Commons Namensnennung - Keine Bearbeitungen 4.0 International Lizenz"
+["license-url-cc-by-nd-4.0"]
+other = "https://creativecommons.org/licenses/by-nd/4.0/deed.de"
+
+["license-cc-by-sa-4.0"]
+other = "Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz"
+["license-url-cc-by-sa-4.0"]
+other = "https://creativecommons.org/licenses/by-sa/4.0/deed.de"
+
+["license-cc0-1.0"]
+other = "CC0 1.0 Universell Public Domain Dedication"
+["license-url-cc0-1.0"]
+other = "https://creativecommons.org/publicdomain/zero/1.0/deed.de"

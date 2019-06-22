@@ -293,7 +293,7 @@
     "comments": {
         "comments": "Kommentare",
         "comment": "Kommentar",
-        "author": "Autor",
+        "author": "Autor_in",
         "submit": "Absenden",
         "send-success": "Kommentar erfolgreich abgesendet. Der Kommentar wird erst angezeigt, wenn er von einer Administrator_in überprüft wurde.",
         "send-error": "Fehler beim Absenden des Kommentars. Bitte versuche es später erneut.",
