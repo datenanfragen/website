@@ -1,5 +1,5 @@
 import preact from 'preact';
-import { IntlProvider, Text } from 'preact-i18n';
+import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 import StarWidget from 'Components/StarWidget';
@@ -54,7 +54,7 @@ export default class CommentsWidget extends preact.Component {
                     ) : (
                         comment_elements
                     )}
-                    <CommentForm allow_rating={this.props.allow_rating} />
+                    <CommentForm allow_rating={this.props.allow_rating} displayWarning={this.props.displayWarning} />
                 </div>
             </IntlProvider>
         );
@@ -113,6 +113,14 @@ export class CommentForm extends preact.Component {
                 <h3 style="margin-bottom: 15px;">
                     <Text id="leave-comment" />
                 </h3>
+
+                {this.props.displayWarning && TARGET.indexOf('datenanfragen') === -1 ? (
+                    <div className="box box-warning" style="margin-bottom: 15px;">
+                        <MarkupText id="warning" />
+                    </div>
+                ) : (
+                    []
+                )}
 
                 <div className="col25 col100-mobile">
                     <strong>

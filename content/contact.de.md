@@ -23,6 +23,11 @@ Der Datenanfragen.de e.&nbsp;V. ist im Vereinsregister des Amtsgerichts Braunsch
 **Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Deutschland
 
+<div class="box box-warning">
+	Beachte bitte, dass wir ein <em>unabhängiger Datenschutzverein</em> sind und nicht zu den in unserer <a href="/company">Unternehmensdatenbank</a> aufgeführten Unternehmen gehören.<br>
+	Solltest Du also Support benötigen oder eine Anfrage stellen wollen, wende Dich bitte direkt an das jeweilige Unternehmen. Wir können Dir hierbei <strong>nicht</strong> helfen. Danke für Dein Verständnis.
+</div>
+
 <script type="application/ld+json">
 	{
 		"@context": "http://schema.org",

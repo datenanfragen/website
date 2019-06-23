@@ -61,7 +61,7 @@ export default class Wizard extends preact.Component {
 
     loadSuggestedCompanies() {
         fetch(BASE_URL + 'db/suggested-companies/' + this.state.country + '_wizard.json')
-            .then(res => res.json())
+            .then(res => (res.status === 200 ? res.json() : {}))
             .then(companies => {
                 this.setState(prev => {
                     prev.selected_companies = companies;
@@ -102,17 +102,14 @@ export default class Wizard extends preact.Component {
     }
 
     render() {
-        let tabs = [];
-        CATEGORIES.forEach((category, i) => {
-            tabs.push(
-                <WizardTab
-                    desc={t(category, 'categories')}
-                    index={i}
-                    isCurrent={this.state.current_tab === i}
-                    clickCallback={this.changeTab}
-                />
-            );
-        });
+        let tabs = CATEGORIES.map((category, i) => (
+            <WizardTab
+                desc={t(category, 'categories')}
+                index={i}
+                isCurrent={this.state.current_tab === i}
+                clickCallback={this.changeTab}
+            />
+        ));
         let next_button = [];
         if (!this.isLastTab()) {
             next_button = (
@@ -159,7 +156,15 @@ export default class Wizard extends preact.Component {
                         {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
                         <MarkupText
                             id={CATEGORIES[this.state.current_tab]}
-                            fields={{ country: t('country-' + this.state.country, 'i18n-widget') }}
+                            fields={{
+                                suggested: t(
+                                    COUNTRIES_WITH_SUGGESTED_COMPANIES.includes(globals.country)
+                                        ? 'suggestions'
+                                        : 'no-suggestions',
+                                    'wizard',
+                                    { country: t(this.state.country, 'countries') }
+                                )
+                            }}
                         />
                         <div id="wizard-buttons">
                             <button
@@ -288,7 +293,11 @@ class SelectedCompaniesList {
                 );
             });
 
-        return <div className="wizard-selected-list">{selected_companies}</div>;
+        return (
+            <div className="wizard-selected-list">
+                {selected_companies.length > 0 ? selected_companies : t('none-selected', 'wizard')}
+            </div>
+        );
     }
 }
 

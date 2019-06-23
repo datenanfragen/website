@@ -121,7 +121,8 @@ export default class SvaFinder extends preact.Component {
             );
         } else {
             let entries = Object.keys(this.state.step).reduce((acc, val) => {
-                acc[val] = t(val, 'sva-finder');
+                // This is a little ugly conceptually but I really don't like storing the country names multiple times.
+                acc[val] = t(val, 'sva-finder') || t(val, 'countries');
                 return acc;
             }, {});
             let sorted_keys = Object.keys(entries).sort((a, b) => {

@@ -1,11 +1,17 @@
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
+import { slugify, domainFromUrl } from './Utility/common';
+import { parsePhoneNumberFromString } from 'libphonenumber-js';
 require('brutusin-json-forms');
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 let bf;
-let submit_url = 'https://z374s4qgtc.execute-api.eu-central-1.amazonaws.com/prod/suggest';
+let submit_url =
+    process.env.NODE_ENV === 'development'
+        ? 'https://datenanfragen-test.free.beeceptor.com'
+        : 'https://z374s4qgtc.execute-api.eu-central-1.amazonaws.com/prod/suggest';
+
 let url_params = new URLSearchParams(window.location.search);
 
 window.onload = () => {
@@ -32,9 +38,16 @@ function prepareForm(schema) {
 
 function renderForm(schema, company = undefined) {
     let BrutusinForms = brutusin['json-forms'];
+
+    const TO_HIDE = [
+        'slug',
+        'custom-access-template',
+        'custom-erasure-template',
+        'custom-rectification-template',
+        'request-language'
+    ];
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
-        let to_hide = ['slug', 'custom-access-template', 'custom-erasure-template', 'custom-rectification-template'];
 
         if (!element.tagName) {
             let sanitizedText = element.textContent
@@ -46,10 +59,16 @@ function renderForm(schema, company = undefined) {
                 'schema',
                 null,
                 null,
-                t(sanitizedText.replace(/-/g, ' '), 'categories', null, null, sanitizedText)
+                t(
+                    sanitizedText.replace(/-/g, ' '),
+                    'categories',
+                    null,
+                    null,
+                    t(sanitizedText, 'countries', null, null, sanitizedText)
+                )
             );
 
-            if (to_hide.includes(sanitizedText)) {
+            if (TO_HIDE.includes(sanitizedText)) {
                 // We are currently in the scope of some promise or something like that. `setTimeout` brings us back to the scope of the content process.
                 setTimeout(
                     el => {
@@ -109,16 +128,26 @@ function renderForm(schema, company = undefined) {
 document.getElementById('submit-suggest-form').onclick = () => {
     let data = bf.getData();
 
+    // Do some post-processing on the user-submitted data to make the review easier.
+    if (!data.slug) {
+        let domain = domainFromUrl(data.web);
+        data.slug = slugify(domain ? domain.replace('www.', '') : data.name);
+    }
+    if (!data['relevant-countries']) data['relevant-countries'] = ['all'];
+    if (data.phone) data.phone = formatPhoneNumber(data.phone);
+    if (data.fax) data.fax = formatPhoneNumber(data.fax);
+
     fetch(submit_url, {
         method: 'POST',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify({
             for: 'cdb',
-            data: data
+            data: data,
+            new: !url_params.has('slug')
         })
     })
         .then(res => {
-            displaySuccessModal();
+            displaySuccessModal(res.data);
         })
         .catch(err => {
             let preact = require('preact');
@@ -126,7 +155,12 @@ document.getElementById('submit-suggest-form').onclick = () => {
         });
 };
 
-function displaySuccessModal() {
+function formatPhoneNumber(number) {
+    let res = parsePhoneNumberFromString(number);
+    return res ? res.formatInternational() : number;
+}
+
+function displaySuccessModal(data) {
     let preact = require('preact');
     let Modal = require('Components/Modal').default;
 
@@ -138,6 +172,9 @@ function displaySuccessModal() {
     let modal = preact.render(
         <Modal onDismiss={dismiss} positiveText={t('ok', 'suggest')} onPositiveFeedback={dismiss}>
             <p>{t('success', 'suggest')}</p>
+            <p>
+                <a href={data.issue_url}>{t('view-on-github', 'suggest')}</a>
+            </p>
         </Modal>,
         document.body
     );
