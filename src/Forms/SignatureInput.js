@@ -189,7 +189,6 @@ export default class SignatureInput extends preact.Component {
         let y;
         switch (event.type) {
             case 'mousemove':
-                this.canvas.toDataURL();
 
                 if (this.state.isDrawing) {
                     x = event.pageX - this.canvas.offsetLeft;
