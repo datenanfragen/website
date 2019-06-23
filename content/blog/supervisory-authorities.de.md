@@ -12,8 +12,7 @@
     "description": "Die Datenschutz-Aufsichtsbehörden sind unabhängige Instanzen, die die Einhaltung der Datenschutzgesetze sicherstellen. Wenn ein Unternehmen Deine Rechte verletzt, kannst Du Dich kostenlos an sie wenden. In diesem Artikel erklären wir Dir mehr zu ihnen und helfen Dir bei der Wahl der korrekten Aufsichtsbehörde, falls Du eine Beschwerde einreichen möchtest.",
     "featured_image": "/card-icons/authority.svg",
     "tags": [ "one stop shop", "beschwerde", "zuständigkeit" ],
-    "byline": "**Benjamin Altpeter** (Vorsitzender des Datenanfragen.de e. V.)",
-    "short_author": "Benni",
+    "authors": [ "baltpeter" ],
     "blog_like": true
 }
 

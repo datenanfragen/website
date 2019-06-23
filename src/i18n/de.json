@@ -172,7 +172,10 @@
     },
     "suggest": {
         "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank noch einmal! Wir werden ihn jetzt schnellstmöglich überprüfen.",
+<<<<<<< HEAD
         "error": "Beim Absenden deines Vorschlags ist leider ein Fehler aufgetreten. Bitte stelle sicher, dass Du mit dem Internet verbunden bist und Anfragen an externe Server nicht mit einem Add-On wie uMatrix oder NoScript blockierst.",
+=======
+>>>>>>> Suggest edit: Include issue URL in success modal
         "view-on-github": "Hier kannst Du den Fortschritt auf GitHub verfolgen",
         "ok": "Ok"
     },
@@ -265,6 +268,11 @@
         "reset-signature": "Unterschrift zurücksetzen",
         "fill-signature": "Gespeicherte Unterschrift"
     },
+    "signature": {
+        "overlay-text": "Du hast den Fingerprinting-Schutz in Deinem Browser aktiviert. Damit wir auf Deine Unterschrift zugreifen können, musst Du uns das erst erlauben.",
+        "overlay-learn-more": "Mehr erfahren",
+        "overlay-allow": "Erlauben"
+    },
     "i18n-widget": {
         "country": "Land",
         "language": "Sprache",
@@ -285,7 +293,7 @@
     "comments": {
         "comments": "Kommentare",
         "comment": "Kommentar",
-        "author": "Autor",
+        "author": "Autor_in",
         "submit": "Absenden",
         "send-success": "Kommentar erfolgreich abgesendet. Der Kommentar wird erst angezeigt, wenn er von einer Administrator_in überprüft wurde.",
         "send-error": "Fehler beim Absenden des Kommentars. Bitte versuche es später erneut.",

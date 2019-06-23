@@ -289,7 +289,7 @@ other = "Related companies"
 other = "Published: "
 
 [blog-author]
-other = "Author: "
+other = "by: "
 
 [blog-last-edited]
 other = ", last edited: "
@@ -324,6 +324,12 @@ other = "on"
 [blog-time-at]
 other = "at"
 
+[blog-and]
+other = " and "
+
+[blog-licensed-under]
+other = "licensed under:"
+
 [noscript-generator]
 other = "The generator runs only on your computer and is therefore completely written in JavaScript. The code won't send any data to any servers if you do not consent. If you want to use the generator, please activate JavaScript in your browser or add an exception to your blocker. If it still doesn't work after that, send us an email at <a href=\"mailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>."
 
@@ -340,3 +346,25 @@ other="Error 404: Page not found"
 
 [404-body]
 other = "The page you were looking for sadly doesn't exist on this server. Maybe you just have a typo in the URL? If the error persists, perhaps notify us via our email <a href=\"mailto:dev@datenanfragen.de\">dev@datenanfragen.de</a> or submit an issue in our <a href=\"https://github.com/datenanfragen/website/issues/new\">issue tracker</a>."
+
+# Licenses
+
+["license-cc-by-4.0"]
+other = "Creative Commons Attribution 4.0 International License"
+["license-url-cc-by-4.0"]
+other = "https://creativecommons.org/licenses/by/4.0/deed.en"
+
+["license-cc-by-nd-4.0"]
+other = "Creative Commons Attribution-NoDerivatives 4.0 International License"
+["license-url-cc-by-nd-4.0"]
+other = "https://creativecommons.org/licenses/by-nd/4.0/deed.en"
+
+["license-cc-by-sa-4.0"]
+other = "Creative Commons Attribution-ShareAlike 4.0 International License"
+["license-url-cc-by-sa-4.0"]
+other = "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+
+["license-cc0-1.0"]
+other = "CC0 1.0 Universal Public Domain Dedication"
+["license-url-cc0-1.0"]
+other = "https://creativecommons.org/publicdomain/zero/1.0/deed.en"

@@ -146,8 +146,8 @@ export default class RequestForm extends preact.Component {
             body.push(
                 <SignatureInput
                     id="signature"
-                    width={450}
-                    height={200}
+                    width={428}
+                    height={190}
                     onChange={this.props.onChange}
                     value={this.props.request_data['signature']}
                     fillSignature={this.props.fillSignature}

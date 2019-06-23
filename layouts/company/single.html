@@ -9,79 +9,101 @@
 {{ define "main" }}
 <main class="narrow-page" style="overflow-wrap: break-word;">
     <div style="display: flex; align-items: center; justify-content: space-between;">
-        <a href="{{ "company" | absURL }}"><span class="icon inline-icon inline-icon-left icon-arrow-left"></span> {{ T "cdb-back-to-overview" }}</a>
+        <a href="{{ "company" | absURL }}"><span class="icon inline-icon inline-icon-left icon-arrow-left"></span>
+            {{ T "cdb-back-to-overview" }}</a>
         <span>
-            <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.{{ .Lang }}" title="{{ T "cdb-cc0-explanation" }}"><img src="{{ "img/cc-zero-button.svg" | absURL }}"></a>
+            <a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/deed.{{ .Lang }}"
+                title="{{ T "cdb-cc0-explanation" }}"><img src="{{ "img/cc-zero-button.svg" | absURL }}"></a>
             <!-- This is not exactly obvious. But I think that a) the interface is cluttered enough and b) not too many people are going to be interested in a machine-readable representation of this data. -->
-            <a href="{{ "db" | absURL }}/{{ .Params.slug }}.json" title="{{ T "cdb-json-download" }}"><span class="icon inline-icon inline-icon-right icon-json-document" style="color: initial;"></a>
+            <a href="{{ "db" | absURL }}/{{ .Params.slug }}.json" title="{{ T "cdb-json-download" }}"><span
+                    class="icon inline-icon inline-icon-right icon-json-document" style="color: initial;"></a>
         </span>
     </div>
     <div id="company-search"></div>
     <div id="company-details">
         <div class="col100-mobile" style="float: right; text-align: right; padding: 0 0 15px 15px;">
-            <a class="button button-primary button-small icon icon-letter" href="{{ print ("generator" | absURL) "?company=" .Params.slug }}" style="margin-bottom: 5px;">{{ T "cdb-send-request" }}</a><br>
-            <a class="button button-secondary button-small icon icon-pencil" href="{{ print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug }}">{{ T "cdb-suggest-change" }}</a>
+            <a class="button button-primary button-small icon icon-letter"
+                href="{{ print ("generator" | absURL) "?company=" .Params.slug }}"
+                style="margin-bottom: 5px;">{{ T "cdb-send-request" }}</a><br>
+            <a class="button button-secondary button-small icon icon-pencil"
+                href="{{ print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug }}">{{ T "cdb-suggest-change" }}</a>
         </div>
 
         <p>{{ T "cdb-intro" . }}</p>
 
         {{ with .Params.address }}
-            <div class="col50 col100-mobile"><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ T "cdb-attn" }}<br>{{ replace . "\n" "<br>" | safeHTML }}</div>
+        <div class="col50 col100-mobile">
+            <strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ T "cdb-attn" }}<br>{{ replace . "\n" "<br>" | safeHTML }}
+        </div>
         {{ end }}
         {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
-            <div class="col50 col100-mobile">
-                <table class="contact-table narrow-table">
-                    {{ with .Params.phone }}<tr><td><strong>{{ T "cdb-phone" }}</strong></td><td>{{ . }}</td></tr>{{ end }}
-                    {{ with .Params.fax }}<tr><td><strong>{{ T "cdb-fax" }}</strong></td><td>{{ . }}</td></tr>{{ end }}
-                    {{ with .Params.email }}<tr><td><strong>{{ T "cdb-email" }}</strong></td><td><a href="mailto:{{ . }}">{{ . }}</a></td></tr>{{ end }}
-                    {{ with .Params.web }}<tr><td><strong>{{ T "cdb-web" }}</strong></td><td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td></tr>{{ end }}
-                </table>
-            </div>
+        <div class="col50 col100-mobile">
+            <table class="contact-table narrow-table">
+                {{ with .Params.phone }}<tr>
+                    <td><strong>{{ T "cdb-phone" }}</strong></td>
+                    <td>{{ . }}</td>
+                </tr>{{ end }}
+                {{ with .Params.fax }}<tr>
+                    <td><strong>{{ T "cdb-fax" }}</strong></td>
+                    <td>{{ . }}</td>
+                </tr>{{ end }}
+                {{ with .Params.email }}<tr>
+                    <td><strong>{{ T "cdb-email" }}</strong></td>
+                    <td><a href="mailto:{{ . }}">{{ . }}</a></td>
+                </tr>{{ end }}
+                {{ with .Params.web }}<tr>
+                    <td><strong>{{ T "cdb-web" }}</strong></td>
+                    <td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td>
+                </tr>{{ end }}
+            </table>
+        </div>
         {{ end }}
         <div class="clearfix"></div>
 
         <!-- Ugly workaround since `(apply .Params.categories "T" ".")` stopped working at some point (see #135). -->
         {{ .Scratch.Set "categories" slice }}
         {{ range .Params.categories }}
-            {{ $title := . }}
-            <!-- Yes, that is actually the *recommended* way to do this (https://gohugo.io/templates/taxonomy-templates/#example-list-tags-in-a-single-page-template)… *sigh* -->
-            {{ with $.Site.GetPage (printf "/categories/%s" .) }}
-                {{ $.Scratch.Add "categories" (printf "<a href='%s'>%s</a>" .Permalink (T $title)) }}
-            {{ end }}
+        {{ $title := . }}
+        <!-- Yes, that is actually the *recommended* way to do this (https://gohugo.io/templates/taxonomy-templates/#example-list-tags-in-a-single-page-template)… *sigh* -->
+        {{ with $.Site.GetPage (printf "/categories/%s" .) }}
+        {{ $.Scratch.Add "categories" (printf "<a href='%s'>%s</a>" .Permalink (T $title)) }}
         {{ end }}
-        {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ($.Scratch.Get "categories")) ", " }}</p>{{ end }}
+        {{ end }}
+        {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong>
+            {{ delimit (sort ($.Scratch.Get "categories")) ", " }}</p>{{ end }}
         {{ with .Params.runs }}
-            <p>{{ T "cdb-runs-extended" $ }}</p>
-            <ul class="cdb-runs-list">
-                {{ range . }}
-                    <li>{{ . }}</li>
-                {{ end }}
-            </ul>
+        <p>{{ T "cdb-runs-extended" $ }}</p>
+        <ul class="cdb-runs-list">
+            {{ range . }}
+            <li>{{ . }}</li>
+            {{ end }}
+        </ul>
         {{ end }}
 
         {{ with .Params.comments }}
-            <p><strong>{{ T "cdb-notes" }}</strong></p>
-            <ul>
-                {{ range . }}
-                    <li>{{ replace . "\n" "<br>" | safeHTML }}</li>
-                {{ end }}
-            </ul>
+        <p><strong>{{ T "cdb-notes" }}</strong></p>
+        <ul>
+            {{ range . }}
+            <li>{{ replace . "\n" "<br>" | safeHTML }}</li>
+            {{ end }}
+        </ul>
         {{ end }}
 
         {{ with .Params.sources }}
-            <p><strong>{{ T "cdb-sources" }}</strong></p>
-            <ul>
-                {{ range . }}
-                    <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
-                {{ end }}
-            </ul>
+        <p><strong>{{ T "cdb-sources" }}</strong></p>
+        <ul>
+            {{ range . }}
+            <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
+            {{ end }}
+        </ul>
         {{ end }}
     </div>
     <div id="companies-help-needed" class="box box-info" style="margin-bottom: 20px;">
         {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "?type=new&for=cdb")) | safeHTML }}
     </div>
 
-    <!-- TODO: This is currently a very naive approach, mostly since we don't exactly have any data to do this better. We will want to improve this in the future. Also, this has the unfortunate side effect of being very CPU intensive, so we may want to disable this feature for development. Oh yeah, and this feature seems to be very 'non-deterministic', at least under our parameters. Not sure if that is a good or a bad thing. -->
+    <!-- TODO: This is currently a very naive approach, mostly since we don't exactly have any data to do this better. We will want to improve this in the future. Oh yeah, and this feature seems to be very 'non-deterministic', at least under our parameters. Not sure if that is a good or a bad thing. -->
+    {{ if not .Site.Params.devMode }}
     {{ $related := (where (.Site.RegularPages.Related .) "Type" "company") | first 5 }}
     {{ with $related }}
     <div id="related-companies">
@@ -93,6 +115,7 @@
             {{ end }}
         </ul>
     </div>
+    {{ end }}
     {{ end }}
 
     <div id="comments-widget" data-rating-enabled="1" data-display-warning="1"></div>

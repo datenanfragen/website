@@ -3,10 +3,10 @@
     languageName = "Deutsch"
     weight = 10
     title = "Datenanfragen.de"
-    copyright = "Dieses Werk ist unter einer Creative Commons Attribution-NoDerviatives 4.0 International-Lizenz lizensiert."
+    copyright = "Sofern nicht anders angegeben, ist dieses Werk unter einer Creative Commons Attribution 4.0 International-Lizenz lizensiert."
 [en]
     languageCode = "en-us"
     languageName = "English"
     weight = 20
     title = "datarequests.org"
-    copyright = "This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License."
+    copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."

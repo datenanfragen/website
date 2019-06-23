@@ -7,8 +7,8 @@
 	"description": "Gemäß der DSGVO hast Du ein Recht auf Auskunft über die personenbezogenen Daten, die Verantwortliche zu Dir speichern. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
 	"featured_image": "/img/dsgvo-anfrage-auskunft-brief.jpg",
     "tags": [ "dsgvo", "gdpr", "selbstauskunft", "brief", "schreiben", "muster", "artikel 15" ],
-    "byline": "**Benjamin Altpeter** (Vorsitzender des Datenanfragen.de e. V.)",
-    "short_author": "Benni"
+    "authors": [ "baltpeter" ],
+    "license": "cc0-1.0"
 }
 
 Nach der Datenschutz-Grundverordnung (DSGVO) hast Du ein Recht darüber Auskunft über die personenbezogenen Daten zu erhalten, die Unternehmen und sonstige Organisationen (sogenannte Verantwortliche) zu Dir speichern und verarbeiten.

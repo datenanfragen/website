@@ -7,8 +7,7 @@
     "description": "Wie jedes rechtliche Thema kann auch die DSGVO auf den ersten Blick ziemlich kompliziert wirken. In diesem Artikel erklären wir die wichtigsten Begriffe und Konzepte rund um die DSGVO kurz, sodass Du leicht den Überblick behältst.",
     "featured_image": "/card-icons/book-info.svg",
     "tags": [ "dsgvo", "glossar", "begriffe", "konzepte" ],
-    "byline": "**Benjamin Altpeter** (Vorsitzender des Datenanfragen.de e. V.)",
-    "short_author": "Benni"
+    "authors": [ "baltpeter" ]
 }
 
 <img class="offset-image offset-image-left" src="/card-icons/book-info.svg" style="height: 200px;">

@@ -173,7 +173,10 @@
     },
     "suggest": {
         "success": "Your contribution has been sent successfully. Thank you once again! We will now review it as soon as possible.",
+<<<<<<< HEAD
         "error": "Unfortunately, sending your contribution has failed. Please make sure that you are connected to the internet and not blocking requests to external servers through an add-on like uMatrix or NoScript.",
+=======
+>>>>>>> Suggest edit: Include issue URL in success modal
         "view-on-github": "You can follow the progress on GitHub",
         "ok": "Ok"
     },
@@ -265,6 +268,11 @@
         "reset": "Reset",
         "reset-signature": "Reset signature",
         "fill-signature": "Saved signature"
+    },
+    "signature": {
+        "overlay-text": "You have enabled your browser’s fingerprinting protection. For us to be able to access your signature, you need to allow that first.",
+        "overlay-learn-more": "Learn more",
+        "overlay-allow": "Allow"
     },
     "i18n-widget": {
         "country": "Country",

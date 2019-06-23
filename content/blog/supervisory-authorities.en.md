@@ -11,8 +11,7 @@
     "description": "The data protection supervisory authorities are independent bodies whose task it is to make sure that data protection laws are followed. If you believe a company infringes on your rights, you can contact them at no cost. In this, we explain the supervisory authorities and help you find to correct one to contact if you want to lodge a complaint.",
     "featured_image": "/card-icons/authority.svg",
     "tags": [ "one stop shop", "complaint", "competence" ],
-    "byline": "**Benjamin Altpeter** (Chairperson of Datenanfragen.de e. V.)",
-    "short_author": "Benni",
+    "authors": [ "baltpeter" ],
     "blog_like": true
 }
 
