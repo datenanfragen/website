@@ -12,7 +12,7 @@
 <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 <link href="{{ .Site.RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
 {{- end }}
-{{ .Hugo.Generator }}
+{{ hugo.Generator }}
 
 <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
 {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
