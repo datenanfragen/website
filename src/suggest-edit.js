@@ -8,7 +8,7 @@ import { ErrorException, rethrow } from './Utility/errors';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 let bf;
 let submit_url =
-    process.env.NODE_ENV === 'development'
+    process.env.NODE_ENV !== 'development'
         ? 'https://datenanfragen-test.free.beeceptor.com'
         : 'https://z374s4qgtc.execute-api.eu-central-1.amazonaws.com/prod/suggest';
 
@@ -146,10 +146,12 @@ document.getElementById('submit-suggest-form').onclick = () => {
             new: !url_params.has('slug')
         })
     })
+        .then(res => res.json())
         .then(res => {
-            displaySuccessModal(res.data);
+            displaySuccessModal(res);
         })
         .catch(err => {
+            rethrow(err);
             let preact = require('preact');
             flash(<FlashMessage type="error">{t('error', 'suggest')}</FlashMessage>);
         });
