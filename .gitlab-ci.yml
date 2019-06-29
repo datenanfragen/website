@@ -12,7 +12,7 @@ test:
     image: node:10-alpine
     before_script:
         - apk update
-        - apk add bash git wget py-pygments ca-certificates
+        - apk add bash git wget py-pygments ca-certificates autoconf automake build-base
 
         # Needed for BrowserStackLocal, see https://github.com/browserstack/browserstack-local-nodejs/issues/32, https://github.com/browserstack/browserstack-local-nodejs/issues/20 and https://github.com/sgerrand/alpine-pkg-glibc
         # - wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
