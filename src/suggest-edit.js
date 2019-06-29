@@ -152,7 +152,9 @@ document.getElementById('submit-suggest-form').onclick = () => {
         })
         .catch(err => {
             rethrow(err);
+            /* eslint-disable no-unused-vars */
             let preact = require('preact');
+            /* eslint-enable no-unused-vars */
             flash(<FlashMessage type="error">{t('error', 'suggest')}</FlashMessage>);
         });
 };
