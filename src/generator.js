@@ -659,7 +659,7 @@ class Generator extends preact.Component {
         } else {
             this.setState(prev => {
                 let att = event.target.getAttribute('name');
-                if (prev.request_data.custom_data.hasOwnProperty(att))
+                if (Object.prototype.hasOwnProperty.call(prev.request_data.custom_data, att))
                     prev.request_data.custom_data[att] = event.target.value;
                 return prev;
             });
