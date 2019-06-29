@@ -33,8 +33,9 @@
         "build": "BABEL_ENV=production; webpack --mode=production --config webpack.prod.js",
         "dev": "webpack --watch --mode=development --config webpack.dev.js",
         "bs-local": "node -e \"(new (require('browserstack-local')).Local()).start({key: process.env.BROWSERSTACK_ACCESS_KEY, force: 'true', localIdentifier: require('os').hostname()}, ()=>{})\"",
+        "sanity-check": "grep -E '^[><=]{7}( |$)' -H -I --line-number -r --exclude-dir=node_modules && exit 1 || exit 0 # Check for merge conflict artifacts, inspired by: https://stackoverflow.com/a/42584779",
         "test": "yarn lint # && yarn bs-local && test/runner.js",
-        "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint src/styles",
+        "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint src/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint src/styles --fix"
     },
     "bugs": {
@@ -104,7 +105,7 @@
     ],
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "yarn sanity-check && lint-staged"
         }
     },
     "lint-staged": {
