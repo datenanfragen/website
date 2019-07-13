@@ -10,6 +10,8 @@ If you have any suggestions that cannot be handled through this form or that you
 
 <div class="box box-warning">After you submit the form, the data you entered below will be publicly visible in our <a href="https://github.com/datenanfragen/data/issues">issue tracker</a>. So, please <strong>do not</strong> enter any personal data here.<br>For more information, please refer to our <a href="/privacy/#user-content-in-our-company-database">privacy policy</a>.</div>
 
+{{< loadingIndicator >}}
+
 <div id="suggest-form">
 <button id="submit-suggest-form" class="button button-primary">Submit <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
 </div>

@@ -143,6 +143,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
     if (data.phone) data.phone = formatPhoneNumber(data.phone);
     if (data.fax) data.fax = formatPhoneNumber(data.fax);
 
+    document.getElementById('loading-indicator').classList.remove('hidden');
     fetch(SUBMIT_URL, {
         method: 'POST',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
@@ -154,9 +155,11 @@ document.getElementById('submit-suggest-form').onclick = () => {
     })
         .then(res => res.json())
         .then(res => {
+            document.getElementById('loading-indicator').classList.add('hidden');
             displaySuccessModal(res);
         })
         .catch(err => {
+            document.getElementById('loading-indicator').classList.add('hidden');
             rethrow(err);
             /* eslint-disable no-unused-vars */
             let preact = require('preact');
