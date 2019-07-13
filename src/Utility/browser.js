@@ -23,3 +23,18 @@ export function detectBlockedCanvasImageExtraction(ctx = undefined) {
 
     return px.reduce((acc, cur) => acc && cur === 255, true);
 }
+
+// Apparently, triggering a download in JavaScript is very hard
+// inspired by: https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
+export function download(url, filename) {
+    let element = document.createElement('a');
+    element.setAttribute('href', url);
+    if (filename) element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
