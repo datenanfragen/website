@@ -1,36 +1,35 @@
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
-import { slugify, domainFromUrl } from './Utility/common';
+import { slugify, domainFromUrl, PARAMETERS } from './Utility/common';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 require('brutusin-json-forms');
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 let bf;
-let submit_url =
+// The requests to the dev endpoint can be viewed here: https://beeceptor.com/console/datenanfragen-test
+const SUBMIT_URL =
     process.env.NODE_ENV === 'development'
-        ? 'https://datenanfragen-test.free.beeceptor.com'
+        ? 'https://datenanfragen-test.free.beeceptor.com/suggest'
         : 'https://z374s4qgtc.execute-api.eu-central-1.amazonaws.com/prod/suggest';
 
-let url_params = new URLSearchParams(window.location.search);
-
 window.onload = () => {
-    let schema_url = BASE_URL + 'schema.json';
-    fetch(schema_url)
+    const SCHEMA_URL = BASE_URL + 'schema.json';
+    fetch(SCHEMA_URL)
         .then(res => res.json())
         .then(out => {
             prepareForm(out);
         })
         .catch(err => {
             rethrow(ErrorException.fromError(err), 'Could not get `schema.json` for cdb suggestion form.', {
-                schema_url: schema_url
+                schema_url: SCHEMA_URL
             });
         });
 };
 
 function prepareForm(schema) {
-    if (url_params.has('slug')) {
-        fetchCompanyDataBySlug(url_params.get('slug'), company => {
+    if (PARAMETERS['slug']) {
+        fetchCompanyDataBySlug(PARAMETERS['slug'], company => {
             renderForm(schema, company);
         });
     } else renderForm(schema);
@@ -50,25 +49,25 @@ function renderForm(schema, company = undefined) {
         element.placeholder = '';
 
         if (!element.tagName) {
-            let sanitizedText = element.textContent
+            const SANITIZED_TEXT = element.textContent
                 .toLowerCase()
                 .replace(/[^\d *a-z]/g, '')
                 .replace(/ /g, '-');
             element.textContent = t(
-                sanitizedText,
+                SANITIZED_TEXT,
                 'schema',
                 null,
                 null,
                 t(
-                    sanitizedText.replace(/-/g, ' '),
+                    SANITIZED_TEXT.replace(/-/g, ' '),
                     'categories',
                     null,
                     null,
-                    t(sanitizedText, 'countries', null, null, sanitizedText)
+                    t(SANITIZED_TEXT, 'countries', null, null, SANITIZED_TEXT)
                 )
             );
 
-            if (TO_HIDE.includes(sanitizedText)) {
+            if (TO_HIDE.includes(SANITIZED_TEXT)) {
                 // We are currently in the scope of some promise or something like that. `setTimeout` brings us back to the scope of the content process.
                 setTimeout(
                     el => {
@@ -121,29 +120,36 @@ function renderForm(schema, company = undefined) {
     bf = BrutusinForms.create(schema);
     bf.render(
         document.getElementById('suggest-form'),
-        company || (url_params.get('name') ? { name: url_params.get('name') } : {})
+        company || (PARAMETERS['name'] ? { name: PARAMETERS['name'] } : {})
     );
 }
 
 document.getElementById('submit-suggest-form').onclick = () => {
     let data = bf.getData();
+    if (!data) {
+        /* eslint-disable no-unused-vars */
+        let preact = require('preact');
+        /* eslint-enable no-unused-vars */
+        flash(<FlashMessage type="warning">{t('no-input', 'suggest')}</FlashMessage>);
+        return;
+    }
 
     // Do some post-processing on the user-submitted data to make the review easier.
     if (!data.slug) {
-        let domain = domainFromUrl(data.web);
-        data.slug = slugify(domain ? domain.replace('www.', '') : data.name);
+        const DOMAIN = domainFromUrl(data.web);
+        data.slug = slugify(DOMAIN ? DOMAIN.replace('www.', '') : data.name);
     }
     if (!data['relevant-countries']) data['relevant-countries'] = ['all'];
     if (data.phone) data.phone = formatPhoneNumber(data.phone);
     if (data.fax) data.fax = formatPhoneNumber(data.fax);
 
-    fetch(submit_url, {
+    fetch(SUBMIT_URL, {
         method: 'POST',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify({
             for: 'cdb',
             data: data,
-            new: !url_params.has('slug')
+            new: !PARAMETERS['slug']
         })
     })
         .then(res => res.json())
@@ -160,8 +166,8 @@ document.getElementById('submit-suggest-form').onclick = () => {
 };
 
 function formatPhoneNumber(number) {
-    let res = parsePhoneNumberFromString(number);
-    return res ? res.formatInternational() : number;
+    const RES = parsePhoneNumberFromString(number);
+    return RES ? RES.formatInternational() : number;
 }
 
 function displaySuccessModal(data) {
@@ -171,7 +177,7 @@ function displaySuccessModal(data) {
     let dismiss = () => {
         preact.render('', document.body, modal);
 
-        window.location = BASE_URL + 'company/' + (url_params.get('slug') || '');
+        window.location = BASE_URL + 'company/' + (PARAMETERS['slug'] || '');
     };
     let modal = preact.render(
         <Modal onDismiss={dismiss} positiveText={t('ok', 'suggest')} onPositiveFeedback={dismiss}>

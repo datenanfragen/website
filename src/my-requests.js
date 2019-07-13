@@ -139,13 +139,13 @@ class RequestList extends preact.Component {
                             {!request.response_type
                                 ? [
                                       <a
-                                          href={BASE_URL + 'generator/?response_type=admonition&response_to=' + id}
+                                          href={BASE_URL + 'generator/#!response_type=admonition&response_to=' + id}
                                           className="button button-small button-secondary"
                                           style="margin-bottom: 5px;">
                                           {t('admonition', 'generator')}
                                       </a>,
                                       <a
-                                          href={BASE_URL + 'generator/?response_type=complaint&response_to=' + id}
+                                          href={BASE_URL + 'generator/#!response_type=complaint&response_to=' + id}
                                           className="button button-small button-secondary">
                                           {t('complaint', 'generator')}
                                       </a>

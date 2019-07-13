@@ -116,7 +116,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                     t('no-results', 'search') +
                                     '<br><a href="' +
                                     BASE_URL +
-                                    'suggest?type=new&for=cdb&name=' +
+                                    'suggest#!type=new&for=cdb&name=' +
                                     query.query +
                                     '" target="_blank">' +
                                     t('suggest-a-company', 'search') +

@@ -173,6 +173,7 @@
     "suggest": {
         "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank noch einmal! Wir werden ihn jetzt schnellstmöglich überprüfen.",
         "error": "Beim Absenden deines Vorschlags ist leider ein Fehler aufgetreten. Bitte stelle sicher, dass Du mit dem Internet verbunden bist und Anfragen an externe Server nicht mit einem Add-On wie uMatrix oder NoScript blockierst.",
+        "no-input": "Bitte gib etwas ein, um Deinen Vorschlag abzusenden.",
         "view-on-github": "Hier kannst Du den Fortschritt auf GitHub verfolgen",
         "ok": "Ok"
     },
