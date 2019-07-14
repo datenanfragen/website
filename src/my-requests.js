@@ -174,7 +174,11 @@ class RequestList extends preact.Component {
                         <h2>
                             <Text id="no-requests-heading" />
                         </h2>
-                        <img style="display: block; margin: 20px auto; width: 40%;" src="/img/humaaans/empty.svg" />
+                        <img
+                            alt={t('no-requests-heading', 'my-requests')}
+                            style="display: block; margin: 20px auto; width: 40%;"
+                            src="/img/humaaans/empty.svg"
+                        />
                         <Text id="no-requests" />
                         <br />
 

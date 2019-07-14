@@ -7,6 +7,7 @@ export default class FeatureDisabledWidget extends preact.Component {
             <div className="box box-warning">
                 {this.props.includeImage ? (
                     <img
+                        alt={t('feature-disabled-alt', 'privacy-controls')}
                         style="display: block; margin: 0 auto 40px auto; width: 200px; max-width: 30%;"
                         src="/card-icons/warning.svg"
                     />
