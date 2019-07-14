@@ -30,8 +30,8 @@ export default class Modal extends preact.Component {
                     <div className="backdrop" onClick={this.props.onDismiss} />
                     <div className="inner">
                         {this.props.onDismiss ? (
-                            <a
-                                className="close-button icon-close"
+                            <button
+                                className="button-unstyled close-button icon-close"
                                 onClick={this.props.onDismiss}
                                 title={t('cancel', 'generator')}
                             />

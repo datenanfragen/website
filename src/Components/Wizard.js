@@ -263,13 +263,13 @@ export class SavedCompanies {
 class WizardTab extends preact.Component {
     render() {
         return (
-            <a
+            <button
                 onClick={() => {
                     this.props.clickCallback(this.props.index);
                 }}
-                className={'wizard-tab' + (this.props.isCurrent ? ' wizard-tab-current' : '')}>
+                className={'button-unstyled wizard-tab' + (this.props.isCurrent ? ' wizard-tab-current' : '')}>
                 {this.props.desc}
-            </a>
+            </button>
         );
     }
 }

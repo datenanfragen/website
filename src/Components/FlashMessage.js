@@ -30,7 +30,11 @@ export default class FlashMessage extends preact.Component {
         return this.state.shown ? (
             <Portal into="#flash-messages">
                 <div className={'flash-message flash-' + this.props.type + (this.state.fading_out ? ' fade-out' : '')}>
-                    <a className="close-button icon-close" onClick={this.dismiss} title={t('cancel', 'generator')} />
+                    <button
+                        className="button-unstyled close-button icon-close"
+                        onClick={this.dismiss}
+                        title={t('cancel', 'generator')}
+                    />
                     <div className="inner">{this.props.children}</div>
                 </div>
             </Portal>

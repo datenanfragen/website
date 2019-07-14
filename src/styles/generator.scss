@@ -138,9 +138,9 @@ textarea:placeholder-shown + label.fancy-label {
     margin-bottom: 20px;
     position: relative;
 
-    h1 {
+    .accordion-title {
         padding-right: 30px;
-        margin-left: 25px;
+        margin: 0 0 0 25px;
         position: relative;
         font-size: 20px;
 
@@ -150,10 +150,6 @@ textarea:placeholder-shown + label.fancy-label {
             right: 0;
             top: 0;
         }
-    }
-
-    a.company-name-link {
-        color: $text-color !important;
     }
 
     .company-info-label {

@@ -340,7 +340,7 @@ input[type='search'].aa-input-search {
             animation: none;
         }
 
-        a.close-button {
+        button.close-button {
             color: $primary-color;
             font-size: 8px;
             position: absolute;
@@ -510,7 +510,7 @@ input[type='search'].aa-input-search {
 
     @extend .fade-in;
 
-    a.close-button {
+    button.close-button {
         color: $primary-color;
         font-size: 8px;
         position: absolute;
@@ -522,25 +522,25 @@ input[type='search'].aa-input-search {
 
 .flash-error {
     border-color: $error-color;
-    a.close-button {
+    button.close-button {
         color: $error-color;
     }
 }
 .flash-warning {
     border-color: $warning-color;
-    a.close-button {
+    button.close-button {
         color: $warning-color;
     }
 }
 .flash-info {
     border-color: $info-color;
-    a.close-button {
+    button.close-button {
         color: $info-color;
     }
 }
 .flash-success {
     border-color: $success-color;
-    a.close-button {
+    button.close-button {
         color: $success-color;
     }
 }
