@@ -202,7 +202,8 @@ class Generator extends preact.Component {
                                 true,
                                 true,
                                 true,
-                                true
+                                true,
+                                false
                             );
                             return prev;
                         });
