@@ -67,7 +67,7 @@ class PrivacyControl extends preact.Component {
                         />
                     </td>
                     <td>
-                        <label for="this.meta.id + '-checkbox'">
+                        <label htmlFor="this.meta.id + '-checkbox'">
                             <Text id={this.meta.id} />
                         </label>
                         <br />

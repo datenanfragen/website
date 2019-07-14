@@ -53,7 +53,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
                     IdData.setAlwaysFill(!IdData.shouldAlwaysFill());
                 }}
             />
-            <label for="always-fill-in">{t('always-fill-in', 'id-data-controls')}</label>
+            <label htmlFor="always-fill-in">{t('always-fill-in', 'id-data-controls')}</label>
         </div>,
         document.getElementById('id-data-controls')
     );

@@ -57,7 +57,7 @@ class IdDataControls extends preact.Component {
                                     IdData.setAlwaysFill(!IdData.shouldAlwaysFill());
                                 }}
                             />
-                            <label for="always-fill-in">
+                            <label htmlFor="always-fill-in">
                                 <Text id="always-fill-in" />
                             </label>
                         </div>
