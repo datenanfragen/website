@@ -484,15 +484,26 @@ table#my-requests-table {
 
 /* Company list */
 
-$sticky-controls-height: 200px;
+$sticky-controls-height: 275px;
+$sticky-controls-height-mobile: 340px;
 
 #company-list-controls {
     background-color: $bg-color;
     height: $sticky-controls-height;
     z-index: 100;
+    padding-top: 30px;
+    margin-top: -30px;
+
+    .narrow-page {
+        margin-top: 0;
+
+        @include mobile {
+            margin-top: 30px;
+        }
+    }
 
     @include mobile {
-        height: auto; // TODO: @zner0L No way, I am repairing that…
+        height: $sticky-controls-height-mobile; // TODO: More than one breakpoint would be great…
     }
 
     &.sticky {
@@ -500,6 +511,10 @@ $sticky-controls-height: 200px;
         top: 0;
         right: 0;
         width: 100%;
+
+        .narrow-page {
+            margin-top: 30px;
+        }
     }
 }
 
@@ -511,7 +526,21 @@ $sticky-controls-height: 200px;
 }
 
 body.sticky-offset {
-    padding-top: $sticky-controls-height;
+    #heading-bg {
+        background-color: $bg-color;
+
+        &::after {
+            display: block;
+            width: 100%;
+            background-color: $bg-color;
+            height: $sticky-controls-height;
+            content: ' ';
+
+            @include mobile {
+                height: $sticky-controls-height-mobile;
+            }
+        }
+    }
 }
 
 .sorting-container {

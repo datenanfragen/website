@@ -80,16 +80,8 @@ class Generator extends preact.Component {
         this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
         this.pdfWorker.onmessage = message => {
             this.setState({
-                blob_url: message.data,
-                download_filename:
-                    (this.state.suggestion !== null
-                        ? this.state.suggestion['slug']
-                        : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient')) +
-                    '_' +
-                    this.state.request_data['type'] +
-                    '_' +
-                    this.state.request_data['reference'] +
-                    '.pdf',
+                blob_url: message.data.blob_url,
+                download_filename: message.data.filename,
                 download_active: true
             });
         };
@@ -210,7 +202,8 @@ class Generator extends preact.Component {
                                 true,
                                 true,
                                 true,
-                                true
+                                true,
+                                false
                             );
                             return prev;
                         });
@@ -326,6 +319,7 @@ class Generator extends preact.Component {
                             {company_widget}
                         </RequestForm>
                     </div>
+                    <div className="clearfix" />
                     {isDebugMode() ? (
                         <div id="content-container" className="box">
                             <iframe
@@ -788,7 +782,20 @@ class Generator extends preact.Component {
             case 'fax':
             case 'letter':
                 this.setState({ download_active: false });
-                this.pdfWorker.postMessage(this.letter.toPdfDoc());
+                this.pdfWorker.postMessage({
+                    pdfdoc: this.letter.toPdfDoc(),
+                    filename:
+                        (this.state.suggestion !== null
+                            ? this.state.suggestion['slug']
+                            : slugify(
+                                  this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'
+                              )) +
+                        '_' +
+                        this.state.request_data['type'] +
+                        '_' +
+                        this.state.request_data['reference'] +
+                        '.pdf'
+                });
                 break;
             case 'email': {
                 let email_blob = new Blob(

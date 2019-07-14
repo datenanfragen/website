@@ -50,7 +50,7 @@
         "localforage": "^1.7.1",
         "preact": "^8.2.1",
         "preact-compat": "^3.19.0",
-        "preact-i18n": "^1.3.0",
+        "preact-i18n": "~1.3.0",
         "preact-portal": "^1.1.3",
         "react-joyride": "^1.11.4",
         "react-scrollspy": "^3.4.0",
@@ -61,6 +61,7 @@
         "@babel/plugin-transform-block-scoping": "^7.4.4",
         "@babel/plugin-transform-react-jsx": "^7.3.0",
         "@babel/preset-env": "^7.4.5",
+        "@babel/runtime": "^7.3.4",
         "babel-eslint": "^10.0.2",
         "babel-loader": "^8.0.6",
         "babel-minify-webpack-plugin": "^0.3.1",
@@ -108,17 +109,15 @@
         }
     },
     "lint-staged": {
-        "linters": {
-            "*.{js,css,scss,json}": [
-                "prettier --write",
-                "git add"
-            ],
-            "*.{js,json}": "eslint --ext .json --ext .js",
-            "*.{css,scss}": "stylelint",
-            "*.{png,jpeg,jpg,gif,svg,PNG,JPEG,JPG,GIF,SVG}": [
-                "imagemin-lint-staged",
-                "git add"
-            ]
-        }
+        "*.{js,css,scss,json}": [
+            "prettier --write",
+            "git add"
+        ],
+        "*.{js,json}": "eslint --ext .json --ext .js",
+        "*.{css,scss}": "stylelint",
+        "*.{png,jpeg,jpg,gif,svg,PNG,JPEG,JPG,GIF,SVG}": [
+            "imagemin-lint-staged",
+            "git add"
+        ]
     }
 }
