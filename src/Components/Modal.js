@@ -27,7 +27,13 @@ export default class Modal extends preact.Component {
         return (
             <Portal into="body">
                 <div className="modal">
-                    <div className="backdrop" onClick={this.props.onDismiss} />
+                    <div
+                        className="backdrop"
+                        onClick={this.props.onDismiss}
+                        onKeyDown={e => {
+                            if (e.key === 'Escape') this.props.onDismiss();
+                        }}
+                    />
                     <div className="inner">
                         {this.props.onDismiss ? (
                             <button
