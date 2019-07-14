@@ -331,6 +331,7 @@ class Generator extends preact.Component {
                     {isDebugMode() ? (
                         <div id="content-container" className="box">
                             <iframe
+                                title="Debug preview"
                                 id="pdf-viewer"
                                 src={this.state.blob_url}
                                 className={this.state.blob_url ? '' : 'empty'}

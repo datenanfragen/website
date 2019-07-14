@@ -97,6 +97,8 @@ export default class SignatureInput extends preact.Component {
     }
 
     render() {
+        // As much as I would like it, adding keyboard events ain't gun make this accessible…
+        /* eslint-disable jsx-a11y/mouse-events-have-key-events */
         return (
             <div className="signature-input">
                 <h2 style="margin-top: 1em;">
@@ -177,6 +179,7 @@ export default class SignatureInput extends preact.Component {
                 <div className="clearfix" />
             </div>
         );
+        /* eslint-enable */
     }
 
     handleFillSignature() {
