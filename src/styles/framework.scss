@@ -222,14 +222,23 @@ figure {
 
 .fade-in {
     animation: fadeIn 300ms ease forwards 1;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
 }
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
 }
+
 .fade-out {
     animation: fadeOut 300ms ease backwards 1;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
 }
 @keyframes fadeOut {
     100% {

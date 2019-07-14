@@ -62,7 +62,8 @@ a #logo {
                 border-top: 2px solid $primary-color;
                 box-sizing: border-box;
 
-                &:hover {
+                &:hover,
+                &:focus {
                     background: $primary-color;
                     color: $bg-color;
                 }
@@ -454,7 +455,8 @@ table#my-requests-table {
         a h1 {
             color: $primary-color;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 color: $primary-darker-color;
             }
         }
@@ -534,7 +536,8 @@ body.sticky-offset {
         text-decoration: underline;
         display: inline-block;
 
-        &:hover {
+        &:hover,
+        &:focus {
             text-decoration: none;
         }
 
@@ -652,7 +655,8 @@ footer {
 $joyride-color: $primary-color;
 @import '~react-joyride/lib/react-joyride';
 button.joyride-tooltip__button {
-    &:hover {
+    &:hover,
+    &:focus {
         border: none;
         background-color: inherit;
         color: $primary-darker-color !important;
@@ -661,13 +665,15 @@ button.joyride-tooltip__button {
 button.joyride-tooltip__button--primary {
     border-radius: 2px;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $primary-darker-color;
         color: $bg-color !important;
     }
 }
 button.joyride-tooltip__button--skip {
-    &:hover {
+    &:hover,
+    &:focus {
         color: $gray-darker-color !important;
     }
 }

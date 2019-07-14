@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 /* Fancy placeholder labels, see https://jonathan-harrell.com/advanced-css-form-styling/ */
 label.fancy-label {
@@ -9,9 +9,16 @@ label.fancy-label {
     opacity: 1;
     transform: translateY(0);
     transition: all 0.2s ease-out;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
 }
-.form-group.fancy-fg { padding-bottom: 13px; }
-input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.fancy-label {
+.form-group.fancy-fg {
+    padding-bottom: 13px;
+}
+input:placeholder-shown + label.fancy-label,
+textarea:placeholder-shown + label.fancy-label {
     opacity: 0;
     transform: translateY(-1rem);
 }
@@ -28,7 +35,8 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
             float: none;
         }
 
-        button, .button {
+        button,
+        .button {
             margin-right: 10px;
 
             &:last-child {
@@ -174,7 +182,6 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
     position: relative;
 }
 
-
 /* Miscellaneous */
 
 .dynamic-input-primaryButton {
@@ -183,7 +190,7 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
     }
 }
 
-.dynamic-input-primaryButton[data-isprimary="true"] {
+.dynamic-input-primaryButton[data-isprimary='true'] {
     background: $primary-color;
     color: $gray-color;
 }
