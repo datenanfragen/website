@@ -287,6 +287,7 @@ class SelectedCompaniesList {
                             onClick={() => {
                                 this.props.removeCallback(slug);
                             }}
+                            title={t('remove-company', 'wizard')}
                         />
                         <SelectedCompany slug={slug} name={this.props.companies[slug]} />
                     </p>

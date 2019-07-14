@@ -58,6 +58,12 @@ other = "Versorgung"
 [logo]
 other = "img/logo-datenanfragen.svg"
 
+[logo-title]
+other = "Datenanfragen.de-Logo"
+
+[logo-a-title]
+other = "Zur Startseite"
+
 # Languages
 [de]
 other = "Deutsch"
@@ -93,6 +99,9 @@ other = "Datenschutzeinstellungen"
 
 [header-id-data-controls]
 other = "Meine gespeicherten Daten"
+
+[header-open-menu]
+other = "Menü öffnen"
 
 # Footer
 

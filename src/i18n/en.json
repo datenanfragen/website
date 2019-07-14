@@ -239,6 +239,7 @@
         "telecommunication": "<p>Your phone provider and ISP may remember all your calls for billing purposes. We also recommend asking your email provider for what data they save on you—let’s hope they don’t scan your emails!<br>If you run a website, also ask your hoster and domain registrar.</p>",
         "utility": "<p>Hang in there, we are almost done. By utilities, we mean gas, power, water, sewage etc. but also things like public transport.</p>",
         "other": "<p>Phew, you have reached the last category. Thanks for sticking with us!</p><p>Of course, there are way too many diverse companies out there for us to fit them all into a category. In this last step, you can search through our entire database to catch all companies we’ve missed in the previous steps.</p><p>Once you’ve added all companies you want, click the button to go to the generator where we will actually generate the requests to the companies you have selected.</p>",
+        "remove-company": "Remove company",
         "next": "Next",
         "finish": "Done adding companies",
         "search-company": "Search for “{{category}}” companies…",

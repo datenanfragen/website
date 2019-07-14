@@ -39,11 +39,12 @@
 </head>
 
 <body>
-    <div id="flash-messages"></div>
+    <aside id="flash-messages"></aside>
     <header id="nav-header">
         <div id="nav-header-bg"></div>
         <div id="header-main" class="container">
-            <a href="{{ "/" | absURL }}"><img id="logo" src="{{ T "logo" . | absURL }}"></a>
+            <a href="{{ "/" | absURL }}" title="{{ T "logo-a-title" . }}"><img id="logo" src="{{ T "logo" . | absURL }}"
+                    title="{{ T "logo-title" . }}"></a>
             <nav id="main-nav">
                 <div id="menu-items">
                     <a href="{{ "company" | absURL }}" class="menu-link desktop-only">{{ T "header-cdb" }}</a>
@@ -53,7 +54,7 @@
                         href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
                     <div class="dropdown-container">
                         <a class="button button-secondary menu-link" href="javascript:void(0)"><span
-                                class="icon icon-menu"></span></a>
+                                class="icon icon-menu" title="{{ T "header-open-menu" . }}"></span></a>
                         <div class="dropdown" id="personal-menu">
                             <div class="mobile-only">
                                 <a class="button button-primary icon icon-letter menu-link"
@@ -76,16 +77,17 @@
             </nav>
             <div class="clearfix"></div>
         </div>
-    </header>
-    {{ if .IsHome }}
-    <div id="home-hero-bg"></div>
-    {{ else }}
-    <div id="heading-bg">
-        <div id="heading" class="container">
-            <h1>{{ block "heading" . }}{{ .Title }}{{ end }}</h1>
+        {{ if .IsHome }}
+        <div id="home-hero-bg"></div>
+        {{ else }}
+        <div id="heading-bg">
+            <div id="heading" class="container">
+                <h1>{{ block "heading" . }}{{ .Title }}{{ end }}</h1>
+            </div>
         </div>
-    </div>
-    {{ end }}
+        {{ end }}
+    </header>
+
     <div class="container">
         {{ block "main" . }}
         {{ end }}

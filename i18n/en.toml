@@ -59,6 +59,12 @@ other = "utility"
 [logo]
 other = "img/logo-datarequests.svg"
 
+[logo-title]
+other = "datarequests.org logo"
+
+[logo-a-title]
+other = "Back to the homepage"
+
 # Header
 
 [header-name]
@@ -87,6 +93,9 @@ other = "Privacy controls"
 
 [header-id-data-controls]
 other = "My saved data"
+
+[header-open-menu]
+other = "Open menu"
 
 # Footer
 

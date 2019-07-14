@@ -1,5 +1,6 @@
 {{ define "title" }}
-{{ if not (eq (.Title | lower) "categories") }}{{ T "cdb-category-title" (dict "c" (T (.Title | lower))) }}{{ else }}{{ T (.Title | lower) }}{{ end }} &middot; {{ .Site.Title }}
+{{ if not (eq (.Title | lower) "categories") }}{{ T "cdb-category-title" (dict "c" (T (.Title | lower))) }}{{ else }}{{ T (.Title | lower) }}{{ end }}
+&middot; {{ .Site.Title }}
 {{ end }}
 
 {{ define "heading" }}
@@ -7,20 +8,19 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="narrow-page">
+<main class="narrow-page">
 	<div id="company-search" data-filter-category="{{ .Title | lower }}"></div>
 
 	<div style="margin-top: 20px;">
 		{{ range .Paginator.Pages }}
-			{{ if eq .Kind "taxonomy" }}
-		    	<h2><a href="{{ .Permalink }}">{{ T (.Title | lower) }}</a></h2>
-		    {{ else if and (eq .Kind "page") (eq .Type "company") }}
-		    	{{ partial "summary-company.html" . }}
-		    {{ end }}
+		{{ if eq .Kind "taxonomy" }}
+		<h2><a href="{{ .Permalink }}">{{ T (.Title | lower) }}</a></h2>
+		{{ else if and (eq .Kind "page") (eq .Type "company") }}
+		{{ partial "summary-company.html" . }}
+		{{ end }}
 		{{ end }}
 	</div>
-</div>
 
-{{ partial "pagination.html" . }}
-
+	{{ partial "pagination.html" . }}
+</main>
 {{ end }}
