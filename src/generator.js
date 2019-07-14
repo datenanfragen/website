@@ -291,7 +291,7 @@ class Generator extends preact.Component {
                     <div id="generator-controls" style="margin-bottom: 10px;">
                         {this.getActionButton()}
                         <button
-                            className="button-secondary"
+                            className="button button-secondary"
                             id="new-request-button"
                             onClick={() => {
                                 if (!this.state.request_done) this.showModal('new_request');

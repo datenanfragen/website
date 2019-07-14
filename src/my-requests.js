@@ -242,7 +242,7 @@ class RequestList extends preact.Component {
                             style="margin-right: 10px;">
                             <Text id="export-ics" />
                         </a>
-                        <button id="clear-button" className="button-secondary" onClick={this.clearRequests}>
+                        <button id="clear-button" className="button button-secondary" onClick={this.clearRequests}>
                             <Text id="delete-all-btn" />
                         </button>
                     </div>

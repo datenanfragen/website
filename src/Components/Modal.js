@@ -6,7 +6,7 @@ export default class Modal extends preact.Component {
     render() {
         let positiveButton = this.props.positiveText ? (
             <button
-                className={this.props.positiveDefault ? 'button-primary' : 'button-secondary'}
+                className={'button ' + (this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
                 onClick={this.props.onPositiveFeedback}
                 style={'float: right'}>
                 {this.props.positiveText}
@@ -16,7 +16,7 @@ export default class Modal extends preact.Component {
         );
         let negativeButton = this.props.negativeText ? (
             <button
-                className={!this.props.positiveDefault ? 'button-primary' : 'button-secondary'}
+                className={'button ' + (!this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
                 onClick={this.props.onNegativeFeedback}
                 style={'float: left'}>
                 {this.props.negativeText}

@@ -35,7 +35,6 @@ textarea:placeholder-shown + label.fancy-label {
             float: none;
         }
 
-        button,
         .button {
             margin-right: 10px;
 
@@ -82,7 +81,7 @@ textarea:placeholder-shown + label.fancy-label {
         }
     }
 
-    button {
+    .button {
         float: left;
     }
 
@@ -109,7 +108,7 @@ textarea:placeholder-shown + label.fancy-label {
                     color: $gray-darker-color;
                 }
 
-                button {
+                .button {
                     float: none;
                     position: relative;
                 }
@@ -161,7 +160,7 @@ textarea:placeholder-shown + label.fancy-label {
         font-weight: bold;
     }
 
-    button.company-remove {
+    .button.company-remove {
         position: absolute;
         top: -4px;
         left: -4px;
@@ -190,9 +189,9 @@ textarea:placeholder-shown + label.fancy-label {
     }
 }
 
-.dynamic-input-primaryButton[data-isprimary='true'] {
+.button.button-secondary.dynamic-input-primaryButton[data-isprimary='true'] {
     background: $primary-color;
-    color: $gray-color;
+    color: $gray-color !important;
 }
 
 #tagxplanation {

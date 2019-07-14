@@ -99,7 +99,7 @@ function renderForm(schema, company = undefined) {
                     icon.className = 'icon icon-trash';
                     element.appendChild(icon);
                 }
-                element.className += ' button-small button-primary';
+                element.className += ' button button-small button-primary';
             } else if (tagName === 'label') {
                 element.onmouseover = ev => {
                     let tooltip = document.createTextNode(ev.target.title);

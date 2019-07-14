@@ -79,7 +79,7 @@ export default class DynamicInputContainer extends preact.Component {
                         <div style="display: table-cell; width: 60px;">
                             <button
                                 style="float: none;"
-                                className="button-small button-primary icon-arrow-right"
+                                className="button button-small button-primary icon-arrow-right"
                                 onClick={() => {
                                     this.addFillField(field);
                                 }}
@@ -112,7 +112,7 @@ export default class DynamicInputContainer extends preact.Component {
                         <div className="icon icon-arrow-down" />
                     </div>
                     <button
-                        className="button-secondary"
+                        className="button button-secondary"
                         id={'add-dynamic-inputs-' + this.props.id}
                         onClick={this.addDynamicInput}>
                         <Text id="add-input" />

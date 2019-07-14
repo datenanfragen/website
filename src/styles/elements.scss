@@ -1,6 +1,6 @@
 @import 'variables';
 
-#{$button} {
+.button {
     padding: 11px 24px;
     border: 2px solid $primary-color;
     border-radius: 2px;
@@ -13,7 +13,7 @@
     background-color: $bg-color;
     color: $primary-color;
     display: inline-block;
-    line-height: 1.5;
+    line-height: 1.2;
 
     &:hover,
     &:focus {
@@ -29,6 +29,16 @@
         color: $gray-darker-color !important;
         cursor: not-allowed;
     }
+}
+.button-unstyled {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 .button-primary,
 a.button-primary {
@@ -47,8 +57,7 @@ a.button-secondary {
     background-color: $bg-color;
     color: $primary-color !important;
 }
-.button.icon:before,
-button.icon:before {
+.button.icon:before {
     margin-right: 12px;
 }
 .button-small {
@@ -345,8 +354,7 @@ input[type='search'].aa-input-search {
             }
         }
 
-        .button,
-        button {
+        .button {
             @include mobile {
                 width: 100%;
                 margin-bottom: 10px;
@@ -382,8 +390,9 @@ input[type='search'].aa-input-search {
         }
     }
 
-    a.accordion-title-link {
+    .accordion-title-link {
         color: $text-color;
+        width: 100%;
     }
 }
 
@@ -425,6 +434,7 @@ input[type='search'].aa-input-search {
 .i18n-button {
     display: block;
     width: 100%;
+    text-align: left;
 }
 
 .dropup.i18n-widget-container {

@@ -91,7 +91,7 @@ export default class CompanyWidget extends preact.Component {
         return (
             <aside className="company-info box">
                 <button
-                    className="company-remove button-primary button-small icon-trash"
+                    className="company-remove button button-primary button-small icon-trash"
                     onClick={this.props.onRemove}
                     title={t('deselect-company', 'generator')}
                 />

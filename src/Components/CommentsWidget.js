@@ -191,7 +191,11 @@ export class CommentForm extends preact.Component {
                       ]
                     : []}
 
-                <button id="submit-comment" onClick={this.submitComment} style="float: right;">
+                <button
+                    id="submit-comment"
+                    className="button button-secondary"
+                    onClick={this.submitComment}
+                    style="float: right;">
                     <Text id="submit" />
                 </button>
                 <div className="clearfix" />

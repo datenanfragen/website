@@ -117,11 +117,11 @@ export class I18nButton extends preact.Component {
         return (
             <IntlProvider scope="i18n-widget" definition={I18N_DEFINITION}>
                 <div className="dropup-container">
-                    <a
+                    <button
                         className="i18n-button button button-secondary icon icon-i18n menu-link"
                         href="javascript:void(0)">
                         <Text id={'language-' + LOCALE} /> / {t(this.state.country, 'countries')}
-                    </a>
+                    </button>
                     <div className="dropup i18n-widget-container">
                         <I18nWidget />
                     </div>
