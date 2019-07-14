@@ -16,7 +16,7 @@
 {{ end }}
 
 <!-- TODO: @zner0L I would prefer this to be `.narrow-page` as well but if I set the same class for the header thingy, it breaks as soon as I scroll. Any idea on how to fix that? -->
-<div id="company-overview">
+<div id="company-overview" class="narrow-page">
     <!-- TODO: Only include those companies that are relevant to the user's selected country. -->
     <!-- TODO: Ideally, these would be sorted by their relevance but we need #40 for that. -->
     {{ .Scratch.Set "letter" " " }}

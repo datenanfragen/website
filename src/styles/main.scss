@@ -484,15 +484,22 @@ table#my-requests-table {
 
 /* Company list */
 
-$sticky-controls-height: 200px;
+$sticky-controls-height: 230px;
+$sticky-controls-height-mobile: 340px;
 
 #company-list-controls {
     background-color: $bg-color;
     height: $sticky-controls-height;
     z-index: 100;
+    padding-top: 30px;
+    margin-top: -30px;
 
     @include mobile {
-        height: auto; // TODO: @zner0L No way, I am repairing that…
+        height: $sticky-controls-height-mobile; // TODO: More than one breakpoint would be great…
+    }
+
+    .narrow-page {
+        margin-top: 15px;
     }
 
     &.sticky {
@@ -512,6 +519,10 @@ $sticky-controls-height: 200px;
 
 body.sticky-offset {
     padding-top: $sticky-controls-height;
+
+    @include mobile {
+        padding-top: $sticky-controls-height-mobile + 15px;
+    }
 }
 
 .sorting-container {
