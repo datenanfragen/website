@@ -24,6 +24,7 @@ export default class Modal extends preact.Component {
         ) : (
             ''
         );
+        /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
         return (
             <Portal into="body">
                 <div className="modal">
@@ -33,6 +34,8 @@ export default class Modal extends preact.Component {
                         onKeyDown={e => {
                             if (e.key === 'Escape') this.props.onDismiss();
                         }}
+                        role="presentation"
+                        tabIndex="0"
                     />
                     <div className="inner">
                         {this.props.onDismiss ? (
@@ -53,5 +56,6 @@ export default class Modal extends preact.Component {
                 </div>
             </Portal>
         );
+        /* eslint-enable */
     }
 }
