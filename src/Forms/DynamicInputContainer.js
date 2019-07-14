@@ -98,7 +98,10 @@ export default class DynamicInputContainer extends preact.Component {
                     <Text id="add-dynamic-input-explanation" />
                     <br />
                     <div className="select-container">
-                        <select id={'dynamic-input-type-' + this.props.id} onChange={this.handleTypeChange}>
+                        <select
+                            id={'dynamic-input-type-' + this.props.id}
+                            onBlur={this.handleTypeChange}
+                            onChange={this.handleTypeChange}>
                             <option value="input" selected>
                                 <Text id="input-single-line" />
                             </option>

@@ -39,6 +39,10 @@ export default class I18nWidget extends preact.Component {
         );
     }
 
+    static changeCountry() {
+        globals.country = event.target.value;
+    }
+
     render() {
         let language_options = [];
         for (let lang in SUPPORTED_LANGUAGES) {
@@ -62,7 +66,10 @@ export default class I18nWidget extends preact.Component {
                             <Text id="language" />
                         </h2>
                         <div className="select-container">
-                            <select value={LOCALE} onChange={I18nWidget.showLanguageChangeModal}>
+                            <select
+                                value={LOCALE}
+                                onChange={I18nWidget.showLanguageChangeModal}
+                                onBlur={I18nWidget.showLanguageChangeModal}>
                                 <option value={LOCALE}>
                                     <Text id={'language-desc-' + LOCALE} />
                                 </option>
@@ -78,9 +85,8 @@ export default class I18nWidget extends preact.Component {
                         <div className="select-container">
                             <select
                                 value={this.state.country}
-                                onChange={event => {
-                                    globals.country = event.target.value;
-                                }}>
+                                onChange={I18nWidget.changeCountry}
+                                onBlur={I18nWidget.changeCountry}>
                                 {country_options}
                             </select>
                             <div className="icon icon-arrow-down" />

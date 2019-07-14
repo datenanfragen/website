@@ -65,6 +65,7 @@ export default class RequestForm extends preact.Component {
                                     name="template"
                                     className="form-element"
                                     placeholder={t('template', 'generator')}
+                                    onBlur={this.props.onLetterTemplateChange}
                                     onChange={this.props.onLetterTemplateChange}>
                                     <option value="no-template" checked={true}>
                                         <Text id="no-template" />
