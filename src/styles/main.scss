@@ -484,7 +484,7 @@ table#my-requests-table {
 
 /* Company list */
 
-$sticky-controls-height: 230px;
+$sticky-controls-height: 275px;
 $sticky-controls-height-mobile: 340px;
 
 #company-list-controls {
@@ -494,12 +494,16 @@ $sticky-controls-height-mobile: 340px;
     padding-top: 30px;
     margin-top: -30px;
 
-    @include mobile {
-        height: $sticky-controls-height-mobile; // TODO: More than one breakpoint would be great…
+    .narrow-page {
+        margin-top: 0;
+
+        @include mobile {
+            margin-top: 30px;
+        }
     }
 
-    .narrow-page {
-        margin-top: 15px;
+    @include mobile {
+        height: $sticky-controls-height-mobile; // TODO: More than one breakpoint would be great…
     }
 
     &.sticky {
@@ -507,6 +511,10 @@ $sticky-controls-height-mobile: 340px;
         top: 0;
         right: 0;
         width: 100%;
+
+        .narrow-page {
+            margin-top: 30px;
+        }
     }
 }
 
@@ -518,10 +526,20 @@ $sticky-controls-height-mobile: 340px;
 }
 
 body.sticky-offset {
-    padding-top: $sticky-controls-height;
+    #heading-bg {
+        background-color: $bg-color;
 
-    @include mobile {
-        padding-top: $sticky-controls-height-mobile + 15px;
+        &::after {
+            display: block;
+            width: 100%;
+            background-color: $bg-color;
+            height: $sticky-controls-height;
+            content: ' ';
+
+            @include mobile {
+                height: $sticky-controls-height-mobile;
+            }
+        }
     }
 }
 
