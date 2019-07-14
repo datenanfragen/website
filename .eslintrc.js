@@ -9,7 +9,13 @@ module.exports = {
         worker: true,
         node: true
     },
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:import/errors', 'plugin:import/warnings'],
+    extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        'plugin:jsx-a11y/recommended'
+    ],
     globals: {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly'
@@ -21,7 +27,7 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module'
     },
-    plugins: ['react', 'preact-i18n', 'import', 'babel', 'html', 'optimize-regex', 'json'],
+    plugins: ['react', 'preact-i18n', 'import', 'babel', 'html', 'optimize-regex', 'json', 'jsx-a11y'],
     rules: {
         'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
         'no-empty': ['error', { allowEmptyCatch: true }],
