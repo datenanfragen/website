@@ -174,6 +174,7 @@
     "suggest": {
         "success": "Your contribution has been sent successfully. Thank you once again! We will now review it as soon as possible.",
         "error": "Unfortunately, sending your contribution has failed. Please make sure that you are connected to the internet and not blocking requests to external servers through an add-on like uMatrix or NoScript.",
+        "no-input": "You need to enter something to submit a suggestion.",
         "view-on-github": "You can follow the progress on GitHub",
         "ok": "Ok"
     },
@@ -293,6 +294,7 @@
         "comment": "Comment",
         "author": "Author",
         "submit": "Submit",
+        "sending": "Submitting your comment…",
         "send-success": "Comment sent successfully. It will have to be accepted by an administrator first before it is shown here.",
         "send-error": "An error occurred while sending your comment. Please try again later.",
         "error-no-message": "Please enter a comment to send.",

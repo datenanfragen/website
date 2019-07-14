@@ -10,6 +10,8 @@ Falls Du irgendeinen Vorschlag haben solltest, der sich nicht über dieses Formu
 
 <div class="box box-warning">Nach dem Absenden werden die Daten, die Du in das Formular unten eingegeben hast, öffentlich in unserem <a href="https://github.com/datenanfragen/data/issues">Issue-Tracker</a> angezeigt. Gib hier also <strong>auf keinen Fall</strong> persönliche Daten an.<br>Weitere Informationen dazu findest du in <a href="/privacy/#nutzer-inneninhalte-zur-unternehmensdatenbank">unserer Datenschutzerklärung</a>.</div>
 
+{{< loadingIndicator >}}
+
 <div id="suggest-form">
 <button id="submit-suggest-form" class="button button-primary">Absenden <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
 </div>

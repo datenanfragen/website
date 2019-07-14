@@ -5,7 +5,10 @@ import FlashMessage, { flash } from 'Components/FlashMessage';
 import StarWidget from 'Components/StarWidget';
 import { rethrow } from '../Utility/errors';
 
-const API_URL = 'https://comments.datenanfragen.de';
+const API_URL =
+    process.env.NODE_ENV === 'development'
+        ? 'https://datenanfragen-test.free.beeceptor.com/comments'
+        : 'https://comments.datenanfragen.de';
 const TARGET = LOCALE + '/' + document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '');
 
 export default class CommentsWidget extends preact.Component {
@@ -211,6 +214,7 @@ export class CommentForm extends preact.Component {
         };
         if (this.props.allow_rating && this.state.rating) body['additional'] = { rating: this.state.rating };
 
+        flash(<FlashMessage type="info">{t('sending', 'comments')}</FlashMessage>);
         fetch(API_URL, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },

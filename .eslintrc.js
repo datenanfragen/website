@@ -21,7 +21,7 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module'
     },
-    plugins: ['react', 'preact-i18n', 'import', 'babel', 'html', 'optimize-regex'],
+    plugins: ['react', 'preact-i18n', 'import', 'babel', 'html', 'optimize-regex', 'json'],
     rules: {
         'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
         'no-empty': ['error', { allowEmptyCatch: true }],

@@ -30,7 +30,7 @@ export default class Letter {
 
     setProps(props) {
         for (let i in props) {
-            if (this.props.hasOwnProperty(i)) this.props[i] = props[i];
+            if (Object.prototype.hasOwnProperty.call(this.props, i)) this.props[i] = props[i];
         }
         this.updateDoc();
     }

@@ -4,7 +4,7 @@ import Letter from 'Utility/Letter';
 import { SearchBar } from './Components/SearchBar';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { fetchCompanyDataBySlug } from 'Utility/companies';
-import { slugify } from 'Utility/common';
+import { slugify, PARAMETERS } from 'Utility/common';
 import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import Modal from './Components/Modal';
@@ -17,6 +17,7 @@ import Joyride from 'react-joyride';
 import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
 import SvaFinder from './Components/SvaFinder';
+import { download } from './Utility/browser';
 
 const request_articles = { access: 15, erasure: 17, rectification: 16 };
 
@@ -97,7 +98,7 @@ class Generator extends preact.Component {
         };
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies = new SavedCompanies();
-        if (findGetParameter('from') === 'wizard') {
+        if (PARAMETERS['from'] === 'wizard') {
             if (Cookie.get('finished_wizard_tutorial') !== 'true') this.state.run_wizard_tutorial = true;
 
             if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
@@ -110,13 +111,13 @@ class Generator extends preact.Component {
                     }
                 });
             } else {
-                let batch_companies = findGetParameter('companies');
+                let batch_companies = PARAMETERS['companies'];
                 if (batch_companies) {
                     this.setState({ batch: batch_companies.split(',') });
                 }
             }
-        } else if (findGetParameter('company')) {
-            fetchCompanyDataBySlug(findGetParameter('company'), company => {
+        } else if (PARAMETERS['company']) {
+            fetchCompanyDataBySlug(PARAMETERS['company'], company => {
                 this.setCompany(company);
             });
         }
@@ -160,8 +161,8 @@ class Generator extends preact.Component {
         }
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            let response_to = findGetParameter('response_to');
-            let response_type = findGetParameter('response_type');
+            let response_to = PARAMETERS['response_to'];
+            let response_type = PARAMETERS['response_type'];
             if (response_to && response_type) {
                 this.request_store.getItem(response_to).then(request => {
                     fetch(templateURL(this.state.request_data.language) + response_type + '.txt')
@@ -343,7 +344,7 @@ class Generator extends preact.Component {
     }
 
     adjustAccordingToWizardMode() {
-        let wizard = findGetParameter('from') === 'wizard';
+        let wizard = PARAMETERS['from'] === 'wizard';
 
         HIDE_IN_WIZARD_MODE.forEach(selector => {
             document.querySelectorAll(selector).forEach(el => {
@@ -553,7 +554,7 @@ class Generator extends preact.Component {
                 : 'letter';
             prev.request_data['recipient_address'] =
                 company.name +
-                (findGetParameter('response_type') !== 'complaint'
+                (PARAMETERS['response_type'] !== 'complaint'
                     ? '\n' + t_r('attn', company['request-language'] || LOCALE)
                     : '') +
                 '\n' +
@@ -659,7 +660,7 @@ class Generator extends preact.Component {
         } else {
             this.setState(prev => {
                 let att = event.target.getAttribute('name');
-                if (prev.request_data.custom_data.hasOwnProperty(att))
+                if (Object.prototype.hasOwnProperty.call(prev.request_data.custom_data, att))
                     prev.request_data.custom_data[att] = event.target.value;
                 return prev;
             });
@@ -729,7 +730,7 @@ class Generator extends preact.Component {
             this.saved_companies.remove(this.state.suggestion['slug']);
 
         // TODO: Same for this.
-        if (findGetParameter('from') === 'wizard' && this.state.batch && this.state.batch.length === 0) {
+        if (PARAMETERS['from'] === 'wizard' && this.state.batch && this.state.batch.length === 0) {
             // Remove the GET parameters from the URL so this doesn't get triggered again on the next new request and get the generator out of wizard-mode.
             window.history.pushState({}, document.title, BASE_URL + 'generator');
             this.adjustAccordingToWizardMode();
@@ -746,7 +747,7 @@ class Generator extends preact.Component {
 
         // Remove GET parameter-selected company from the URL after the request is finished.
         // Also remove warning and complaint GET parameters from the URL after the request is finished.
-        if (findGetParameter('company') || findGetParameter('response_type') || findGetParameter('response_to')) {
+        if (PARAMETERS['company'] || PARAMETERS['response_type'] || PARAMETERS['response_to']) {
             window.history.pushState({}, document.title, BASE_URL + 'generator');
         }
 
@@ -835,19 +836,6 @@ class Generator extends preact.Component {
     }
 }
 
-function findGetParameter(param) {
-    let tmp = [];
-    let result = null;
-    location.search
-        .substr(1)
-        .split('&')
-        .forEach(item => {
-            tmp = item.split('=');
-            if (tmp[0] === param) return (result = decodeURIComponent(tmp[1]));
-        });
-    return result;
-}
-
 function templateURL(locale = LOCALE) {
     if (!Object.keys(I18N_DEFINITION_REQUESTS).includes(locale)) locale = LOCALE;
     return BASE_URL + 'templates/' + (locale || LOCALE) + '/';
@@ -891,21 +879,6 @@ function trackingFields(locale = LOCALE) {
             value: ''
         }
     ];
-}
-
-// Apparently, triggering a download in JavaScript is very hard
-// inspired by: https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
-function download(url, filename) {
-    let element = document.createElement('a');
-    element.setAttribute('href', url);
-    if (filename) element.setAttribute('download', filename);
-
-    element.style.display = 'none';
-    document.body.appendChild(element);
-
-    element.click();
-
-    document.body.removeChild(element);
 }
 
 preact.render(

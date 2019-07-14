@@ -172,7 +172,7 @@ export default class Wizard extends preact.Component {
                                 onClick={() => {
                                     location.href =
                                         BASE_URL +
-                                        '/generator?from=wizard' +
+                                        '/generator#!from=wizard' +
                                         (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)
                                             ? ''
                                             : '&companies=' + Object.keys(this.state.selected_companies).join(','));
