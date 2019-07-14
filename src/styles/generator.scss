@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 /* Fancy placeholder labels, see https://jonathan-harrell.com/advanced-css-form-styling/ */
 label.fancy-label {
@@ -10,8 +10,11 @@ label.fancy-label {
     transform: translateY(0);
     transition: all 0.2s ease-out;
 }
-.form-group.fancy-fg { padding-bottom: 13px; }
-input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.fancy-label {
+.form-group.fancy-fg {
+    padding-bottom: 13px;
+}
+input:placeholder-shown + label.fancy-label,
+textarea:placeholder-shown + label.fancy-label {
     opacity: 0;
     transform: translateY(-1rem);
 }
@@ -28,7 +31,8 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
             float: none;
         }
 
-        button, .button {
+        button,
+        .button {
             margin-right: 10px;
 
             &:last-child {
@@ -169,11 +173,18 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
     margin-bottom: 20px;
 }
 
+// Debugging View
 #content-container {
     min-height: 500px;
     position: relative;
-}
+    margin-top: 25px;
 
+    #pdf-viewer {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+    }
+}
 
 /* Miscellaneous */
 
@@ -183,7 +194,7 @@ input:placeholder-shown + label.fancy-label, textarea:placeholder-shown + label.
     }
 }
 
-.dynamic-input-primaryButton[data-isprimary="true"] {
+.dynamic-input-primaryButton[data-isprimary='true'] {
     background: $primary-color;
     color: $gray-color;
 }

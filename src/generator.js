@@ -326,6 +326,7 @@ class Generator extends preact.Component {
                             {company_widget}
                         </RequestForm>
                     </div>
+                    <div className="clearfix" />
                     {isDebugMode() ? (
                         <div id="content-container" className="box">
                             <iframe
