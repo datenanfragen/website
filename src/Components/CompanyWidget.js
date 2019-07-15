@@ -1,6 +1,7 @@
 import preact from 'preact';
 import t from '../Utility/i18n';
 import { Text } from 'preact-i18n';
+import Accordion from '../Components/Accordion';
 
 export default class CompanyWidget extends preact.Component {
     constructor(props) {
@@ -91,23 +92,13 @@ export default class CompanyWidget extends preact.Component {
         return (
             <aside className="company-info box">
                 <button
-                    className="company-remove button-primary button-small icon-trash"
+                    className="company-remove button button-primary button-small icon-trash"
                     onClick={this.props.onRemove}
                     title={t('deselect-company', 'generator')}
                 />
-                <a
-                    href=""
-                    onClick={e => {
-                        e.preventDefault();
-                        this.setState({ expanded: !this.state.expanded });
-                    }}
-                    className="company-name-link">
-                    <h1 className="company-name">
-                        {this.props.company['name']}
-                        <span className={'icon' + (this.state.expanded ? ' icon-arrow-up' : ' icon-arrow-down')} />
-                    </h1>
-                </a>
-                {this.state.expanded ? content : ''}
+                <Accordion title={this.props.company['name']} id="company-info">
+                    {content}
+                </Accordion>
             </aside>
         );
     }

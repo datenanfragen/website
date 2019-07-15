@@ -6,7 +6,7 @@ export default class Modal extends preact.Component {
     render() {
         let positiveButton = this.props.positiveText ? (
             <button
-                className={this.props.positiveDefault ? 'button-primary' : 'button-secondary'}
+                className={'button ' + (this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
                 onClick={this.props.onPositiveFeedback}
                 style={'float: right'}>
                 {this.props.positiveText}
@@ -16,7 +16,7 @@ export default class Modal extends preact.Component {
         );
         let negativeButton = this.props.negativeText ? (
             <button
-                className={!this.props.positiveDefault ? 'button-primary' : 'button-secondary'}
+                className={'button ' + (!this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
                 onClick={this.props.onNegativeFeedback}
                 style={'float: left'}>
                 {this.props.negativeText}
@@ -24,14 +24,23 @@ export default class Modal extends preact.Component {
         ) : (
             ''
         );
+        /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
         return (
             <Portal into="body">
                 <div className="modal">
-                    <div className="backdrop" onClick={this.props.onDismiss} />
+                    <div
+                        className="backdrop"
+                        onClick={this.props.onDismiss}
+                        onKeyDown={e => {
+                            if (e.key === 'Escape') this.props.onDismiss();
+                        }}
+                        role="presentation"
+                        tabIndex="0"
+                    />
                     <div className="inner">
                         {this.props.onDismiss ? (
-                            <a
-                                className="close-button icon-close"
+                            <button
+                                className="button-unstyled close-button icon-close"
                                 onClick={this.props.onDismiss}
                                 title={t('cancel', 'generator')}
                             />
@@ -47,5 +56,6 @@ export default class Modal extends preact.Component {
                 </div>
             </Portal>
         );
+        /* eslint-enable */
     }
 }

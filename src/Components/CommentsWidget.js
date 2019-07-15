@@ -133,7 +133,7 @@ export class CommentForm extends preact.Component {
                 </div>
                 <div className="col75 col100-mobile">
                     <div className="form-group form-group-vertical">
-                        <label for="new-comment-author" className="sr-only">
+                        <label htmlFor="new-comment-author" className="sr-only">
                             <Text id="author" />
                         </label>
                         <input
@@ -155,7 +155,7 @@ export class CommentForm extends preact.Component {
                 </div>
                 <div className="col75 col100-mobile">
                     <div className="form-group form-group-vertical">
-                        <label for="new-comment-message" className="sr-only">
+                        <label htmlFor="new-comment-message" className="sr-only">
                             <Text id="comment" />
                         </label>
                         <textarea
@@ -181,7 +181,7 @@ export class CommentForm extends preact.Component {
                           </div>,
                           <div className="col75 col100-mobile">
                               <div className="form-group form-group-vertical" style="margin-bottom: 0;">
-                                  <label for="star-widget" className="sr-only">
+                                  <label htmlFor="star-widget" className="sr-only">
                                       <Text id="rating" />
                                   </label>
                                   <StarWidget id="star-widget" onChange={rating => this.setState({ rating: rating })} />
@@ -191,7 +191,11 @@ export class CommentForm extends preact.Component {
                       ]
                     : []}
 
-                <button id="submit-comment" onClick={this.submitComment} style="float: right;">
+                <button
+                    id="submit-comment"
+                    className="button button-secondary"
+                    onClick={this.submitComment}
+                    style="float: right;">
                     <Text id="submit" />
                 </button>
                 <div className="clearfix" />

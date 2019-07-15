@@ -67,7 +67,7 @@ class PrivacyControl extends preact.Component {
                         />
                     </td>
                     <td>
-                        <label for="this.meta.id + '-checkbox'">
+                        <label htmlFor="this.meta.id + '-checkbox'">
                             <Text id={this.meta.id} />
                         </label>
                         <br />
@@ -126,22 +126,28 @@ class PrivacyControls extends preact.Component {
 
                 <table>{controls}</table>
                 <div id="privacy-controls-buttons">
-                    <button id="clear-requests-button" className="button-secondary" onClick={this.clearRequestsButton}>
+                    <button
+                        id="clear-requests-button"
+                        className="button button-secondary"
+                        onClick={this.clearRequestsButton}>
                         <Text id="clear-my-requests" />
                     </button>
-                    <button id="clear-id_data-button" className="button-secondary" onClick={this.clearIdDataButton}>
+                    <button
+                        id="clear-id_data-button"
+                        className="button button-secondary"
+                        onClick={this.clearIdDataButton}>
                         <Text id="clear-id_data" />
                     </button>
                     <button
                         id="clear-saved_wizard_entries-button"
-                        className="button-secondary"
+                        className="button button-secondary"
                         onClick={this.clearSavedCompaniesButton}>
                         <Text id="clear-save_wizard_entries" />
                     </button>
                     {Cookie.get('debugging_enabled') ? (
                         <button
                             id="debugging-button"
-                            className="button-secondary"
+                            className="button button-secondary"
                             onClick={() => {
                                 Cookie.set('debugging_enabled', isDebugMode() ? 'false' : 'true');
                             }}>
@@ -152,7 +158,7 @@ class PrivacyControls extends preact.Component {
                     )}
                     <button
                         id="clear-cookies-button"
-                        className="button-secondary"
+                        className="button button-secondary"
                         onClick={PrivacyControls.clearCookies}>
                         <Text id="clear-cookies" />
                     </button>

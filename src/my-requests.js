@@ -174,7 +174,11 @@ class RequestList extends preact.Component {
                         <h2>
                             <Text id="no-requests-heading" />
                         </h2>
-                        <img style="display: block; margin: 20px auto; width: 40%;" src="/img/humaaans/empty.svg" />
+                        <img
+                            alt={t('no-requests-heading', 'my-requests')}
+                            style="display: block; margin: 20px auto; width: 40%;"
+                            src="/img/humaaans/empty.svg"
+                        />
                         <Text id="no-requests" />
                         <br />
 
@@ -242,7 +246,7 @@ class RequestList extends preact.Component {
                             style="margin-right: 10px;">
                             <Text id="export-ics" />
                         </a>
-                        <button id="clear-button" className="button-secondary" onClick={this.clearRequests}>
+                        <button id="clear-button" className="button button-secondary" onClick={this.clearRequests}>
                             <Text id="delete-all-btn" />
                         </button>
                     </div>

@@ -1,6 +1,6 @@
 @import 'variables';
 
-#{$button} {
+.button {
     padding: 11px 24px;
     border: 2px solid $primary-color;
     border-radius: 2px;
@@ -15,7 +15,8 @@
     display: inline-block;
     line-height: 1.2;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $primary-darker-color;
         color: #fff !important;
         border: 2px solid $primary-darker-color;
@@ -28,6 +29,16 @@
         color: $gray-darker-color !important;
         cursor: not-allowed;
     }
+}
+.button-unstyled {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 .button-primary,
 a.button-primary {
@@ -46,8 +57,7 @@ a.button-secondary {
     background-color: $bg-color;
     color: $primary-color !important;
 }
-.button.icon:before,
-button.icon:before {
+.button.icon:before {
     margin-right: 12px;
 }
 .button-small {
@@ -192,11 +202,13 @@ input:disabled {
     }
 
     &:hover,
+    &:focus,
     &.active {
         background-color: $primary-color;
         color: $bg-color;
     }
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $primary-darker-color;
     }
 }
@@ -278,6 +290,7 @@ input[type='search'].aa-input-search {
         border-bottom: 1px solid rgba(228, 228, 228, 0.6);
     }
     &:hover,
+    &:focus,
     &.aa-cursor {
         background-color: rgba(241, 241, 241, 0.35);
     }
@@ -323,7 +336,11 @@ input[type='search'].aa-input-search {
         overflow-y: auto;
         max-height: 95vh;
 
-        a.close-button {
+        @media screen and (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
+
+        button.close-button {
             color: $primary-color;
             font-size: 8px;
             position: absolute;
@@ -331,13 +348,13 @@ input[type='search'].aa-input-search {
             right: 20px;
             cursor: pointer;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 color: $primary-darker-color;
             }
         }
 
-        .button,
-        button {
+        .button {
             @include mobile {
                 width: 100%;
                 margin-bottom: 10px;
@@ -373,8 +390,9 @@ input[type='search'].aa-input-search {
         }
     }
 
-    a.accordion-title-link {
+    .accordion-title-link {
         color: $text-color;
+        width: 100%;
     }
 }
 
@@ -416,6 +434,7 @@ input[type='search'].aa-input-search {
 .i18n-button {
     display: block;
     width: 100%;
+    text-align: left;
 }
 
 .dropup.i18n-widget-container {
@@ -491,7 +510,7 @@ input[type='search'].aa-input-search {
 
     @extend .fade-in;
 
-    a.close-button {
+    button.close-button {
         color: $primary-color;
         font-size: 8px;
         position: absolute;
@@ -503,25 +522,25 @@ input[type='search'].aa-input-search {
 
 .flash-error {
     border-color: $error-color;
-    a.close-button {
+    button.close-button {
         color: $error-color;
     }
 }
 .flash-warning {
     border-color: $warning-color;
-    a.close-button {
+    button.close-button {
         color: $warning-color;
     }
 }
 .flash-info {
     border-color: $info-color;
-    a.close-button {
+    button.close-button {
         color: $info-color;
     }
 }
 .flash-success {
     border-color: $success-color;
-    a.close-button {
+    button.close-button {
         color: $success-color;
     }
 }
@@ -594,7 +613,7 @@ fieldset.rating {
     overflow: hidden;
     white-space: nowrap;
     font-size: 250%;
-    line-height: 0.7;
+    margin-top: -15px;
     color: #ddd;
 
     &.editable {
@@ -611,7 +630,9 @@ fieldset.rating {
 }
 
 .rating:not(:checked) > label.editable:hover,
-.rating:not(:checked) > label.editable:hover ~ label {
+.rating:not(:checked) > label.editable:focus,
+.rating:not(:checked) > label.editable:hover ~ label,
+.rating:not(:checked) > label.editable:focus ~ label {
     color: $primary-lighter-color;
 }
 
@@ -619,7 +640,8 @@ fieldset.rating {
 .rating > input:checked + label.editable:hover ~ label,
 .rating > input:checked ~ label.editable:hover,
 .rating > input:checked ~ label.editable:hover ~ label,
-.rating > label.editable:hover ~ input:checked ~ label {
+.rating > label.editable:hover ~ input:checked ~ label,
+.rating > label.editable:focus ~ input:checked ~ label {
     color: $primary-darker-color;
 }
 

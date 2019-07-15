@@ -114,7 +114,7 @@ export default class Wizard extends preact.Component {
         if (!this.isLastTab()) {
             next_button = (
                 <button
-                    className="button-primary"
+                    className="button button-primary"
                     onClick={() => {
                         this.changeTab(this.state.current_tab + 1);
                     }}>
@@ -168,7 +168,7 @@ export default class Wizard extends preact.Component {
                         />
                         <div id="wizard-buttons">
                             <button
-                                className={'button-' + (this.isLastTab() ? 'primary' : 'secondary')}
+                                className={'button ' + 'button-' + (this.isLastTab() ? 'primary' : 'secondary')}
                                 onClick={() => {
                                     location.href =
                                         BASE_URL +
@@ -263,13 +263,13 @@ export class SavedCompanies {
 class WizardTab extends preact.Component {
     render() {
         return (
-            <a
+            <button
                 onClick={() => {
                     this.props.clickCallback(this.props.index);
                 }}
-                className={'wizard-tab' + (this.props.isCurrent ? ' wizard-tab-current' : '')}>
+                className={'button-unstyled wizard-tab' + (this.props.isCurrent ? ' wizard-tab-current' : '')}>
                 {this.props.desc}
-            </a>
+            </button>
         );
     }
 }
@@ -283,10 +283,11 @@ class SelectedCompaniesList {
                 selected_companies.push(
                     <p>
                         <button
-                            className="button-primary button-small icon-trash"
+                            className="button button-primary button-small icon-trash"
                             onClick={() => {
                                 this.props.removeCallback(slug);
                             }}
+                            title={t('remove-company', 'wizard')}
                         />
                         <SelectedCompany slug={slug} name={this.props.companies[slug]} />
                     </p>

@@ -9,10 +9,15 @@ label.fancy-label {
     opacity: 1;
     transform: translateY(0);
     transition: all 0.2s ease-out;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
 }
 .form-group.fancy-fg {
     padding-bottom: 13px;
 }
+
 input:placeholder-shown + label.fancy-label,
 textarea:placeholder-shown + label.fancy-label {
     opacity: 0;
@@ -31,7 +36,6 @@ textarea:placeholder-shown + label.fancy-label {
             float: none;
         }
 
-        button,
         .button {
             margin-right: 10px;
 
@@ -78,7 +82,7 @@ textarea:placeholder-shown + label.fancy-label {
         }
     }
 
-    button {
+    .button {
         float: left;
     }
 
@@ -105,7 +109,7 @@ textarea:placeholder-shown + label.fancy-label {
                     color: $gray-darker-color;
                 }
 
-                button {
+                .button {
                     float: none;
                     position: relative;
                 }
@@ -135,9 +139,9 @@ textarea:placeholder-shown + label.fancy-label {
     margin-bottom: 20px;
     position: relative;
 
-    h1 {
+    .accordion-title {
         padding-right: 30px;
-        margin-left: 25px;
+        margin: 0 0 0 25px;
         position: relative;
         font-size: 20px;
 
@@ -149,15 +153,11 @@ textarea:placeholder-shown + label.fancy-label {
         }
     }
 
-    a.company-name-link {
-        color: $text-color !important;
-    }
-
     .company-info-label {
         font-weight: bold;
     }
 
-    button.company-remove {
+    .button.company-remove {
         position: absolute;
         top: -4px;
         left: -4px;
@@ -194,9 +194,9 @@ textarea:placeholder-shown + label.fancy-label {
     }
 }
 
-.dynamic-input-primaryButton[data-isprimary='true'] {
+.button.button-secondary.dynamic-input-primaryButton[data-isprimary='true'] {
     background: $primary-color;
-    color: $gray-color;
+    color: $gray-color !important;
 }
 
 #tagxplanation {

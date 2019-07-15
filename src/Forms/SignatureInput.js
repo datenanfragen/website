@@ -97,6 +97,8 @@ export default class SignatureInput extends preact.Component {
     }
 
     render() {
+        // As much as I would like it, adding keyboard events ain't gun make this accessible…
+        /* eslint-disable jsx-a11y/mouse-events-have-key-events */
         return (
             <div className="signature-input">
                 <h2 style="margin-top: 1em;">
@@ -132,7 +134,7 @@ export default class SignatureInput extends preact.Component {
                                 {/* <br />
                                 <a href="#">{t('overlay-learn-more', 'signature')}</a> */}
                             </p>
-                            <a
+                            <button
                                 onClick={() => {
                                     // This doesn't cause a prompt if the user has previously denied one for us. I however
                                     // also am not aware of a way to force a prompt in that case (or even to detect that
@@ -152,7 +154,7 @@ export default class SignatureInput extends preact.Component {
                                 }}
                                 className="button button-primary button-small">
                                 {t('overlay-allow', 'signature')}
-                            </a>
+                            </button>
                         </div>
                     ) : (
                         []
@@ -177,6 +179,7 @@ export default class SignatureInput extends preact.Component {
                 <div className="clearfix" />
             </div>
         );
+        /* eslint-enable */
     }
 
     handleFillSignature() {
@@ -189,7 +192,6 @@ export default class SignatureInput extends preact.Component {
         let y;
         switch (event.type) {
             case 'mousemove':
-
                 if (this.state.isDrawing) {
                     x = event.pageX - this.canvas.offsetLeft;
                     y = event.pageY - this.canvas.offsetTop;

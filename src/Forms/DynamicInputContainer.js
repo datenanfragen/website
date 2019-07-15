@@ -79,7 +79,7 @@ export default class DynamicInputContainer extends preact.Component {
                         <div style="display: table-cell; width: 60px;">
                             <button
                                 style="float: none;"
-                                className="button-small button-primary icon-arrow-right"
+                                className="button button-small button-primary icon-arrow-right"
                                 onClick={() => {
                                     this.addFillField(field);
                                 }}
@@ -98,7 +98,10 @@ export default class DynamicInputContainer extends preact.Component {
                     <Text id="add-dynamic-input-explanation" />
                     <br />
                     <div className="select-container">
-                        <select id={'dynamic-input-type-' + this.props.id} onChange={this.handleTypeChange}>
+                        <select
+                            id={'dynamic-input-type-' + this.props.id}
+                            onBlur={this.handleTypeChange}
+                            onChange={this.handleTypeChange}>
                             <option value="input" selected>
                                 <Text id="input-single-line" />
                             </option>
@@ -112,16 +115,16 @@ export default class DynamicInputContainer extends preact.Component {
                         <div className="icon icon-arrow-down" />
                     </div>
                     <button
-                        className="button-secondary"
+                        className="button button-secondary"
                         id={'add-dynamic-inputs-' + this.props.id}
                         onClick={this.addDynamicInput}>
                         <Text id="add-input" />
                     </button>
                     {this.props.fillFields && fill_fields.length > 0 ? (
                         <div className="dropdown-container">
-                            <a className="button button-primary" href="javascript:void(0)">
+                            <button className="button button-primary" href="javascript:void(0)">
                                 <span className="icon icon-fill" />
-                            </a>
+                            </button>
                             <div className="dropdown">
                                 <div style="display: table; border-spacing: 5px; width: 100%;">{fill_fields}</div>
                             </div>

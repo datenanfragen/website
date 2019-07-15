@@ -6,16 +6,28 @@ export default class Accordion extends preact.Component {
 
         this.state = {
             expanded: false
-        }
+        };
     }
 
     render() {
-        return <div className="accordion" id={this.props.id} style={this.props.style}>
-            <a href="" onClick={e => {
-                e.preventDefault();
-                this.setState({expanded: !this.state.expanded});
-            }} className="accordion-title-link"><h3 className="accordion-title">{this.props.title}<span className={'icon' + (this.state.expanded ? ' icon-arrow-up' : ' icon-arrow-down')} /></h3></a>
-            {this.state.expanded ? this.props.children : ''}
-        </div>;
+        // TODO: Consider using `<details>` (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) instead.
+        return (
+            <div className="accordion" id={this.props.id} style={this.props.style}>
+                <button
+                    onClick={e => {
+                        e.preventDefault();
+                        this.setState({ expanded: !this.state.expanded });
+                    }}
+                    className="accordion-title-link button-unstyled"
+                    aria-expanded={this.state.expanded}
+                    aria-controls={'accordion-content-' + this.props.id}>
+                    <h3 className="accordion-title">
+                        {this.props.title}
+                        <span className={'icon' + (this.state.expanded ? ' icon-arrow-up' : ' icon-arrow-down')} />
+                    </h3>
+                </button>
+                <div id={'accordion-content-' + this.props.id}>{this.state.expanded ? this.props.children : ''}</div>
+            </div>
+        );
     }
 }

@@ -34,7 +34,7 @@ export default class DynamicInput extends preact.Component {
                                 id={this.props.id + '-primaryButton'}
                                 name="primary_button"
                                 rel={this.props.id}
-                                className="dynamic-input-primaryButton"
+                                className="button button-secondary dynamic-input-primaryButton"
                                 data-isprimary={this.props.value['primary']}
                                 onClick={this.props.onPrimaryChange}>
                                 <Text id="primary-address" />
@@ -91,12 +91,12 @@ export default class DynamicInput extends preact.Component {
                             <button
                                 id={this.props.id + '-delete-' + this.props.suffix}
                                 rel={this.props.id}
-                                className="dynamic-input-delete button-primary button-small icon-trash"
+                                className="dynamic-input-delete button button-primary button-small icon-trash"
                                 onClick={this.props.removeHandler}
                             />
                         </div>
                         <div style="display: table-cell;">
-                            <label for={this.props.id + '-desc-' + this.props.suffix} className="sr-only">
+                            <label htmlFor={this.props.id + '-desc-' + this.props.suffix} className="sr-only">
                                 <Text id="description" />
                             </label>
                             <input
@@ -131,7 +131,7 @@ export default class DynamicInput extends preact.Component {
                             <button
                                 id={this.props.id + '-action-' + this.props.suffix}
                                 rel={this.props.id}
-                                className="dynamic-input-action button-primary button-small icon-arrow-right"
+                                className="dynamic-input-action button button-primary button-small icon-arrow-right"
                                 onClick={this.props.onAction}
                             />
                         ) : (
@@ -293,7 +293,7 @@ export class AddressControl extends preact.Component {
                         }}
                         value={this.props.value['street_1']}
                     />
-                    <label className="fancy-label" for={this.props.id + '-street_1-' + this.props.suffix}>
+                    <label className="fancy-label" htmlFor={this.props.id + '-street_1-' + this.props.suffix}>
                         <Text id="address-line-1" />
                     </label>
                 </div>
@@ -315,7 +315,7 @@ export class AddressControl extends preact.Component {
                         }}
                         value={this.props.value['street_2']}
                     />
-                    <label className="fancy-label" for={this.props.id + '-street_2-' + this.props.suffix}>
+                    <label className="fancy-label" htmlFor={this.props.id + '-street_2-' + this.props.suffix}>
                         <Text id="address-line-2" />
                     </label>
                 </div>
@@ -338,7 +338,7 @@ export class AddressControl extends preact.Component {
                         }}
                         value={this.props.value['place']}
                     />
-                    <label className="fancy-label" for={this.props.id + '-place-' + this.props.suffix}>
+                    <label className="fancy-label" htmlFor={this.props.id + '-place-' + this.props.suffix}>
                         <Text id="address-place" />
                     </label>
                 </div>
@@ -360,7 +360,7 @@ export class AddressControl extends preact.Component {
                         }}
                         value={this.props.value['country']}
                     />
-                    <label className="fancy-label" for={this.props.id + '-country-' + this.props.suffix}>
+                    <label className="fancy-label" htmlFor={this.props.id + '-country-' + this.props.suffix}>
                         <Text id="address-country" />
                     </label>
                 </div>

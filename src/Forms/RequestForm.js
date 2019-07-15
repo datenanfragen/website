@@ -55,7 +55,7 @@ export default class RequestForm extends preact.Component {
                             <Text id="own-request" />
                         </h2>
                         <div className="form-group">
-                            <label for="custom-template-select" className="sr-only">
+                            <label htmlFor="custom-template-select" className="sr-only">
                                 <Text id="template" />
                             </label>
                             <div className="select-container" style="width: initial;">
@@ -65,6 +65,7 @@ export default class RequestForm extends preact.Component {
                                     name="template"
                                     className="form-element"
                                     placeholder={t('template', 'generator')}
+                                    onBlur={this.props.onLetterTemplateChange}
                                     onChange={this.props.onLetterTemplateChange}>
                                     <option value="no-template" checked={true}>
                                         <Text id="no-template" />
@@ -80,7 +81,7 @@ export default class RequestForm extends preact.Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <label for="custom-subject-input" className="sr-only">
+                            <label htmlFor="custom-subject-input" className="sr-only">
                                 <Text id="subject" />
                             </label>
                             <input
@@ -94,7 +95,7 @@ export default class RequestForm extends preact.Component {
                             />
                         </div>
                         <div className="form-group">
-                            <label for="custom-content-input" className="sr-only">
+                            <label htmlFor="custom-content-input" className="sr-only">
                                 <Text id="content" />
                             </label>
                             <textarea
@@ -126,7 +127,7 @@ export default class RequestForm extends preact.Component {
                                 onChange={this.props.onLetterChange}
                                 value={this.props.request_data.custom_data['name']}
                             />
-                            <label className="fancy-label" for="custom-sender-name">
+                            <label className="fancy-label" htmlFor="custom-sender-name">
                                 <Text id="name" />
                             </label>
                         </div>
@@ -215,7 +216,7 @@ export default class RequestForm extends preact.Component {
                                 }}
                                 value={this.props.request_data['recipient_address']}
                             />
-                            <label className="sr-only" for="request-recipient">
+                            <label className="sr-only" htmlFor="request-recipient">
                                 <Text id="recipient" />
                             </label>
                             <input type="hidden" id="request-template" value="default" />
@@ -257,7 +258,7 @@ export default class RequestForm extends preact.Component {
                         <Accordion title={t('information-block', 'generator')} id="advanced-information">
                             <div id="information-block-form">
                                 <div className="form-group">
-                                    <label for="request-date">
+                                    <label htmlFor="request-date">
                                         <Text id="request-date" />
                                     </label>
                                     <input
@@ -270,7 +271,7 @@ export default class RequestForm extends preact.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="reference">
+                                    <label htmlFor="reference">
                                         <Text id="reference" />
                                     </label>
                                     <input
@@ -319,7 +320,7 @@ export default class RequestForm extends preact.Component {
                                 this.props.onChange({ data_portability: event.target.checked });
                             }}
                         />
-                        <label for="request-flags-data-portability">
+                        <label htmlFor="request-flags-data-portability">
                             <Text id="data-portability" />
                         </label>
                     </div>
@@ -337,7 +338,7 @@ export default class RequestForm extends preact.Component {
                                 this.props.onChange({ erase_all: event.target.checked });
                             }}
                         />
-                        <label for="request-flags-erase-all">
+                        <label htmlFor="request-flags-erase-all">
                             <Text id="erase-all" />
                         </label>
                     </div>
@@ -354,7 +355,7 @@ export default class RequestForm extends preact.Component {
                                 placeholder={t('erasure-data', 'generator')}>
                                 {this.props.request_data['erasure_data']}
                             </textarea>
-                            <label for="request-erasure-data" className="sr-only">
+                            <label htmlFor="request-erasure-data" className="sr-only">
                                 <Text id="erasure-data" />
                             </label>
                         </div>

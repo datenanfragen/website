@@ -246,14 +246,16 @@ class Generator extends preact.Component {
             company_widget = (
                 <CompanyWidget
                     company={this.state.suggestion}
-                    onRemove={() =>
+                    onRemove={() => {
                         this.setState(prev => {
                             prev['suggestion'] = null;
                             prev.request_data['recipient_runs'] = [];
                             prev.request_data['language'] = LOCALE;
+
                             return prev;
-                        })
-                    }
+                        });
+                        Generator.clearUrl();
+                    }}
                 />
             );
         }
@@ -284,7 +286,7 @@ class Generator extends preact.Component {
                     <div id="generator-controls" style="margin-bottom: 10px;">
                         {this.getActionButton()}
                         <button
-                            className="button-secondary"
+                            className="button button-secondary"
                             id="new-request-button"
                             onClick={() => {
                                 if (!this.state.request_done) this.showModal('new_request');
@@ -323,6 +325,7 @@ class Generator extends preact.Component {
                     {isDebugMode() ? (
                         <div id="content-container" className="box">
                             <iframe
+                                title="Debug preview"
                                 id="pdf-viewer"
                                 src={this.state.blob_url}
                                 className={this.state.blob_url ? '' : 'empty'}
@@ -713,6 +716,10 @@ class Generator extends preact.Component {
         this.renderRequest();
     }
 
+    static clearUrl() {
+        window.history.pushState({}, document.title, BASE_URL + 'generator');
+    }
+
     newRequest() {
         // TODO: Make sure this ends up in the new canonical place for completed requests, as per #90 (i.e. when the request is saved to 'My requests').
         if (
@@ -726,7 +733,7 @@ class Generator extends preact.Component {
         // TODO: Same for this.
         if (PARAMETERS['from'] === 'wizard' && this.state.batch && this.state.batch.length === 0) {
             // Remove the GET parameters from the URL so this doesn't get triggered again on the next new request and get the generator out of wizard-mode.
-            window.history.pushState({}, document.title, BASE_URL + 'generator');
+            Generator.clearUrl();
             this.adjustAccordingToWizardMode();
             this.showModal(
                 <Modal
@@ -742,7 +749,7 @@ class Generator extends preact.Component {
         // Remove GET parameter-selected company from the URL after the request is finished.
         // Also remove warning and complaint GET parameters from the URL after the request is finished.
         if (PARAMETERS['company'] || PARAMETERS['response_type'] || PARAMETERS['response_to']) {
-            window.history.pushState({}, document.title, BASE_URL + 'generator');
+            Generator.clearUrl();
         }
 
         this.setState(prev => {
