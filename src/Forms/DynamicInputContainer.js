@@ -122,7 +122,7 @@ export default class DynamicInputContainer extends preact.Component {
                     </button>
                     {this.props.fillFields && fill_fields.length > 0 ? (
                         <div className="dropdown-container">
-                            <button className="button button-primary" href="javascript:void(0)">
+                            <button className="button button-primary">
                                 <span className="icon icon-fill" />
                             </button>
                             <div className="dropdown">

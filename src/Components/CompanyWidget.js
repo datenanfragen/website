@@ -4,14 +4,6 @@ import { Text } from 'preact-i18n';
 import Accordion from '../Components/Accordion';
 
 export default class CompanyWidget extends preact.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            expanded: true
-        };
-    }
-
     render() {
         let comments = [];
         if (this.props.company['comments']) {
@@ -96,7 +88,7 @@ export default class CompanyWidget extends preact.Component {
                     onClick={this.props.onRemove}
                     title={t('deselect-company', 'generator')}
                 />
-                <Accordion title={this.props.company['name']} id="company-info">
+                <Accordion title={this.props.company['name']} id="company-info" expanded={true}>
                     {content}
                 </Accordion>
             </aside>
