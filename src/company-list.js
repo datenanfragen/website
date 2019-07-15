@@ -54,29 +54,35 @@ class CompanyList extends preact.Component {
             <IntlProvider scope="cdb" definition={I18N_DEFINITION}>
                 <div id="company-list-controls">
                     <div className="container">
-                        <div id="suggest-company-btn">
-                            <a
-                                className="button button-primary icon icon-letter"
-                                href={BASE_URL + 'suggest/#!type=new&for=cdb'}>
-                                <Text id="suggest-new" />
-                            </a>
+                        <div className="narrow-page">
+                            <div id="suggest-company-btn">
+                                <a
+                                    className="button button-primary icon icon-letter"
+                                    href={BASE_URL + 'suggest/#!type=new&for=cdb'}>
+                                    <Text id="suggest-new" />
+                                </a>
+                            </div>
+                            <p>
+                                <Text id="explanation" />
+                            </p>
+                            <SearchBar
+                                id="aa-search-input"
+                                index="companies"
+                                onAutocompleteSelected={(event, suggestion, dataset) => {
+                                    location.href = '/company/' + suggestion.document.slug;
+                                }}
+                                placeholder={t('select-company', 'cdb')}
+                                debug={true}
+                                style="margin-top: 15px;"
+                            />
+                            <Scrollspy
+                                items={anchor_ids}
+                                currentClassName="active"
+                                className="textscroll"
+                                offset={-205}>
+                                {anchor_links}
+                            </Scrollspy>
                         </div>
-                        <p>
-                            <Text id="explanation" />
-                        </p>
-                        <SearchBar
-                            id="aa-search-input"
-                            index="companies"
-                            onAutocompleteSelected={(event, suggestion, dataset) => {
-                                location.href = '/company/' + suggestion.document.slug;
-                            }}
-                            placeholder={t('select-company', 'cdb')}
-                            debug={true}
-                            style="margin-top: 15px;"
-                        />
-                        <Scrollspy items={anchor_ids} currentClassName="active" className="textscroll" offset={-205}>
-                            {anchor_links}
-                        </Scrollspy>
                     </div>
                 </div>
             </IntlProvider>

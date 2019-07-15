@@ -15,7 +15,10 @@ pdfMake.fonts = {
 };
 
 onmessage = e => {
-    pdfMake.createPdf(e.data).getBlob(blob => {
-        postMessage(URL.createObjectURL(blob));
+    pdfMake.createPdf(e.data.pdfdoc).getBlob(blob => {
+        postMessage({
+            blob_url: URL.createObjectURL(blob),
+            filename: e.data.filename
+        });
     });
 };
