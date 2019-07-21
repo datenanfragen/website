@@ -5,7 +5,7 @@ export default class Accordion extends preact.Component {
         super(props);
 
         this.state = {
-            expanded: false
+            expanded: props.expanded
         };
     }
 

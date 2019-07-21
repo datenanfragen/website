@@ -39,8 +39,8 @@ export default class I18nWidget extends preact.Component {
         );
     }
 
-    static changeCountry() {
-        globals.country = event.target.value;
+    static changeCountry(e) {
+        globals.country = e.target.value;
     }
 
     render() {
@@ -83,12 +83,11 @@ export default class I18nWidget extends preact.Component {
                             <Text id="country" />
                         </h2>
                         <div className="select-container">
-                            <select
-                                value={this.state.country}
-                                onChange={I18nWidget.changeCountry}
-                                onBlur={I18nWidget.changeCountry}>
+                            {/* eslint-disable jsx-a11y/no-onchange */}
+                            <select value={this.state.country} onChange={I18nWidget.changeCountry}>
                                 {country_options}
                             </select>
+                            {/* eslint-enable */}
                             <div className="icon icon-arrow-down" />
                         </div>
                     </div>
