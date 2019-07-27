@@ -1,6 +1,6 @@
 import preact from 'preact';
 import RequestForm from 'Forms/RequestForm';
-import Letter from 'Utility/Letter';
+import RequestLetter from 'Utility/RequestLetter';
 import { SearchBar } from './Components/SearchBar';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { fetchCompanyDataBySlug } from 'Utility/companies';
@@ -18,6 +18,8 @@ import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
 import SvaFinder from './Components/SvaFinder';
 import { download } from './Utility/browser';
+import { generateReference } from './letter-generator/utility';
+import Template from './letter-generator/Template';
 
 const request_articles = { access: 15, erasure: 17, rectification: 16 };
 
@@ -51,7 +53,7 @@ class Generator extends preact.Component {
         };
 
         this.database_url = BASE_URL + 'db/';
-        this.letter = new Letter({});
+        this.letter = new RequestLetter({});
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             // TODO: Is there a better place for this?
@@ -124,7 +126,7 @@ class Generator extends preact.Component {
             type: 'access',
             transport_medium: 'fax',
             id_data: deepCopyObject(defaultFields(LOCALE)),
-            reference: Letter.generateReference(today),
+            reference: generateReference(today),
             date: today.toISOString().substring(0, 10),
             recipient_address: '',
             signature: { type: 'text', value: '' },
@@ -161,11 +163,11 @@ class Generator extends preact.Component {
                         .then(res => res.text())
                         .then(text => {
                             this.setState(prev => {
-                                prev.request_data.custom_data['content'] = Letter.handleTemplate(text, [], {
+                                prev.request_data.custom_data['content'] = new Template(text, [], {
                                     request_article: request_articles[request.type],
                                     request_date: request.date,
                                     request_recipient_address: request.recipient
-                                });
+                                }).getText();
                                 if (response_type === 'admonition') {
                                     prev.request_data['via'] = request.via;
                                     prev.request_data['recipient_address'] = request.recipient;
@@ -442,16 +444,11 @@ class Generator extends preact.Component {
                                         .then(res => res.text())
                                         .then(text => {
                                             this.setState(prev => {
-                                                prev.request_data.custom_data['content'] = Letter.handleTemplate(
-                                                    text,
-                                                    [],
-                                                    {
-                                                        request_article:
-                                                            request_articles[this.state.response_request.type],
-                                                        request_date: this.state.response_request.date,
-                                                        request_recipient_address: this.state.response_request.recipient
-                                                    }
-                                                );
+                                                prev.request_data.custom_data['content'] = new Template(text, [], {
+                                                    request_article: request_articles[this.state.response_request.type],
+                                                    request_date: this.state.response_request.date,
+                                                    request_recipient_address: this.state.response_request.recipient
+                                                }).getText();
                                             });
                                             this.renderRequest();
                                         });
@@ -622,7 +619,6 @@ class Generator extends preact.Component {
         this.handleInputChange({ type: event.target.value });
         if (event.target.value === 'custom') {
             this.letter.clearProps();
-            this.letter.updateDoc();
             return;
         }
         let template_file = this.state.suggestion
@@ -767,6 +763,14 @@ class Generator extends preact.Component {
     }
 
     renderRequest() {
+        const sender = this.state.request_data.custom_data['sender_address'];
+        const sender_address = [
+            this.state.request_data.custom_data['name'],
+            sender.street_1,
+            sender.street_2,
+            sender.place,
+            sender.country
+        ];
         if (this.state.request_data['type'] === 'custom') {
             let signature = this.state.request_data['signature'];
             signature['name'] = this.state.request_data.custom_data['name'];
@@ -775,22 +779,18 @@ class Generator extends preact.Component {
                 content: this.state.request_data.custom_data['content'],
                 signature: signature,
                 recipient_address: this.state.request_data['recipient_address'],
-                sender_oneline: Letter.formatAddress(
-                    this.state.request_data.custom_data['sender_address'],
-                    ' • ',
-                    this.state.request_data.custom_data['name']
-                ),
-                information_block: Letter.makeInformationBlock(this.state.request_data),
-                reference_barcode: Letter.barcodeFromText(this.state.request_data.reference)
+                sender_address: sender_address,
+                information_block: RequestLetter.makeInformationBlock(this.state.request_data),
+                reference_barcode: RequestLetter.barcodeFromText(this.state.request_data.reference)
             });
-        } else this.letter.setProps(Letter.propsFromRequest(this.state.request_data, this.state.template_text));
+        } else this.letter.setProps(RequestLetter.propsFromRequest(this.state.request_data, this.state.template_text));
 
         switch (this.state.request_data['transport_medium']) {
             case 'fax':
             case 'letter':
                 this.setState({ download_active: false });
                 this.pdfWorker.postMessage({
-                    pdfdoc: this.letter.toPdfDoc(),
+                    pdfdoc: { doc: this.letter.toPdfDoc() },
                     filename:
                         (this.state.suggestion !== null
                             ? this.state.suggestion['slug']

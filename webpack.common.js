@@ -18,7 +18,7 @@ module.exports = {
         'suggest-edit': './src/suggest-edit.js',
         'id-data-controls': './src/id-data-controls.js',
         'sva-finder': './src/Components/SvaFinder.js',
-        pdfworker: './src/PdfWorker.js',
+        pdfworker: './src/letter-generator/PdfWorker.js',
         style: './src/styles/main.scss',
         'test-interface': './src/test-interface.js'
     },
