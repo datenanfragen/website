@@ -1,4 +1,4 @@
-import PdfRenderer from './PdfRenderer';
+import PdfRenderer from 'letter-generator/PdfRenderer';
 
 onmessage = e => {
     const pdf_renderer = new PdfRenderer(e.data.pdfdoc);

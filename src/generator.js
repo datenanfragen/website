@@ -18,8 +18,8 @@ import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
 import SvaFinder from './Components/SvaFinder';
 import { download } from './Utility/browser';
-import { generateReference } from './letter-generator/utility';
-import Template from './letter-generator/Template';
+import { generateReference } from 'letter-generator/utility';
+import Template from 'letter-generator';
 
 const request_articles = { access: 15, erasure: 17, rectification: 16 };
 

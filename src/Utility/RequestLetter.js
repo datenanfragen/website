@@ -1,7 +1,7 @@
 import t, { t_r } from './i18n';
-import { formatAddress, stripTags } from '../letter-generator/utility';
-import Letter from '../letter-generator/Letter';
-import Template from '../letter-generator/Template';
+import { formatAddress, stripTags } from 'letter-generator/utility';
+import Letter from 'letter-generator/Letter';
+import Template from 'letter-generator/Template';
 
 export default class RequestLetter {
     constructor(props) {
