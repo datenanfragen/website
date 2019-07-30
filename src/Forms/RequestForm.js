@@ -6,6 +6,7 @@ import t from '../Utility/i18n';
 import { AddressControl } from './DynamicInput';
 import Accordion from '../Components/Accordion';
 import Radio from '../Components/Radio';
+import RequestTypeChooser from '../Components/RequestTypeChooser';
 
 export default class RequestForm extends preact.Component {
     render() {
@@ -163,44 +164,10 @@ export default class RequestForm extends preact.Component {
                             <Text id="request-parameters" />
                         </h2>
 
-                        <div className="request-type-chooser">
-                            <Text id="request-type" />
-                            <br />
-                            <div className="radio-group radio-group-vertical">
-                                <Radio
-                                    id="request-type-choice-access"
-                                    radio_variable={this.props.request_data['type']}
-                                    value="access"
-                                    name="request-type"
-                                    onChange={this.props.onTypeChange}
-                                    label={t('access-request', 'generator')}
-                                />
-                                <Radio
-                                    id="request-type-choice-erasure"
-                                    radio_variable={this.props.request_data['type']}
-                                    value="erasure"
-                                    name="request-type"
-                                    onChange={this.props.onTypeChange}
-                                    label={t('erasure-request', 'generator')}
-                                />
-                                <Radio
-                                    id="request-type-choice-rectification"
-                                    radio_variable={this.props.request_data['type']}
-                                    value="rectification"
-                                    name="request-type"
-                                    onChange={this.props.onTypeChange}
-                                    label={t('rectification-request', 'generator')}
-                                />
-                                <Radio
-                                    id="request-type-choice-custom"
-                                    radio_variable={this.props.request_data['type']}
-                                    value="custom"
-                                    name="request-type"
-                                    onChange={this.props.onTypeChange}
-                                    label={t('own-request', 'generator')}
-                                />
-                            </div>
-                        </div>
+                        <RequestTypeChooser
+                            onTypeChange={this.props.onTypeChange}
+                            current={this.props.request_data['type']}
+                        />
 
                         <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
                             <Text id="recipient-explanation" />
