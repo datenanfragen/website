@@ -65,7 +65,7 @@
         "access-request": "Access request",
         "erasure-request": "Erasure request",
         "rectification-request": "Rectification request",
-        "own-request": "Your own text",
+        "custom-request": "Your own text",
         "recipient-explanation": "Who is the recipient?",
         "recipient": "Recipient",
         "id-data": "My data",

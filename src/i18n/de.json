@@ -64,7 +64,7 @@
         "access-request": "Selbstauskunft",
         "erasure-request": "Löschantrag",
         "rectification-request": "Berichtigungsantrag",
-        "own-request": "Eigener Text",
+        "custom-request": "Eigener Text",
         "recipient-explanation": "An wen geht Deine Anfrage?",
         "recipient": "Empfänger",
         "id-data": "Meine Daten",
