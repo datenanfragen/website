@@ -562,7 +562,7 @@ class Generator extends preact.Component {
                     ? company['request-language']
                     : LOCALE;
 
-            if (template_file !== 'access-tracking.txt') {
+            if (!['access-tracking.txt'].includes(template_file)) {
                 prev.request_data['id_data'] = IdData.mergeFields(
                     prev.request_data['id_data'],
                     !!company['required-elements'] && company['required-elements'].length > 0
@@ -575,6 +575,13 @@ class Generator extends preact.Component {
                     trackingFields(language)
                 );
 
+                // This is not the most elegant thing in the world, but we need to support 'no ID data' requests for
+                // more than adtech companies. Ideally, this would be another bool in the schema but we can't really
+                // change that right now because of Typesense. Thus, we have to stick to matching the template for now.
+                // And I have realized that our current adtech case also applies to pretty much all other 'no ID data'
+                // requests anyway in that they are either also to tracking companies or those companies at least
+                // identify the user by the same details (i.e. cookie IDs, device IDs, etc.)
+                // I couldn't come up with a better name, so we'll just leave them as tracking requests, I guess…
                 prev.request_data.is_tracking_request = true;
             }
 

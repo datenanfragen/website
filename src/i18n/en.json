@@ -71,7 +71,7 @@
         "id-data": "My data",
         "id-data-tracking": "My contact details",
         "id-data-explanation": "The data you specify here will help the company identify you. Feel free to err on the side of entering less—the company will contact you if they need more details.<br />Those fields, we know from experience definitely have to be filled in, are marked with an *.",
-        "id-data-tracking-explanation": "You have selected an adtech company. After your request, the company will respond with an explanation on how you can collect the data they need to identify you.<br/>Please specify how you want the company to contact you here. We recommend giving them your email address.",
+        "id-data-tracking-explanation": "We cannot tell you which data the company you selected needs to identify you. After your request, the company will respond with an explanation on how you can collect this data.<br/>Please specify how you want the company to contact you here. We recommend giving them your email address.",
         "add-dynamic-input-explanation": "Want to add more data? No problem: Just select the type of input you want to add. You can also add your saved inputs.",
         "name": "Name",
         "birthdate": "Date of birth",
