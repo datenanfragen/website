@@ -10,7 +10,7 @@ import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import Modal from './Components/Modal';
 import { isDebugMode, rethrow } from './Utility/errors';
 import CompanyWidget from './Components/CompanyWidget';
-import IdData, { deepCopyObject, ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/IdData';
+import IdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/IdData';
 import { SavedCompanies } from './Components/Wizard';
 import t, { t_r } from './Utility/i18n';
 import Joyride from 'react-joyride';
@@ -20,6 +20,7 @@ import SvaFinder from './Components/SvaFinder';
 import { download } from './Utility/browser';
 import { generateReference } from 'letter-generator/utility';
 import Template from 'letter-generator';
+import { deepCopyObject } from './Utility/common';
 
 const request_articles = { access: 15, erasure: 17, rectification: 16 };
 

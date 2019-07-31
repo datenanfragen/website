@@ -20,6 +20,11 @@ export function domainFromUrl(url) {
     return matches && matches[1];
 }
 
+// This is hideous but the only way to deep copy objects or arrays…
+export function deepCopyObject(object) {
+    return JSON.parse(JSON.stringify(object));
+}
+
 export const PARAMETERS = (() => {
     // `URLSearchParams` only offers an iterator to get all values. We can deconstruct that using `Array.from()` but
     // then we get a structure like this: `[ ['key1', 'val1'], ['key2', 'val2'] ]` which we need to transform to an
