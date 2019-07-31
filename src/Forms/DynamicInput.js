@@ -88,14 +88,18 @@ export default class DynamicInput extends preact.Component {
                     id={'dynamic-input-' + this.props.id + '-' + this.props.suffix}>
                     <div className="col40">
                         <div className="form-group" style="width: 100%; display: table;">
-                            <div style="display: table-cell; width: 27px;">
-                                <button
-                                    id={this.props.id + '-delete-' + this.props.suffix}
-                                    rel={this.props.id}
-                                    className="dynamic-input-delete button button-primary button-small icon-trash"
-                                    onClick={this.props.removeHandler}
-                                />
-                            </div>
+                            {this.props.allowRemoving ? (
+                                <div style="display: table-cell; width: 27px;">
+                                    <button
+                                        id={this.props.id + '-delete-' + this.props.suffix}
+                                        rel={this.props.id}
+                                        className="dynamic-input-delete button button-primary button-small icon-trash"
+                                        onClick={this.props.removeHandler}
+                                    />
+                                </div>
+                            ) : (
+                                []
+                            )}
                             <div style="display: table-cell;">
                                 <label htmlFor={this.props.id + '-desc-' + this.props.suffix} className="sr-only">
                                     <Text id="description" />
@@ -106,7 +110,7 @@ export default class DynamicInput extends preact.Component {
                                     type="text"
                                     id={this.props.id + '-desc-' + this.props.suffix}
                                     rel={this.props.id}
-                                    className="form-element"
+                                    className={'form-element' + (this.props.allowChangingDescription ? '' : ' hidden')}
                                     value={this.props.desc}
                                     placeholder={t('description', 'generator')}
                                     style="margin-left: 5px;"
@@ -119,6 +123,7 @@ export default class DynamicInput extends preact.Component {
                                         this.setState({ focus: false });
                                     }}
                                 />
+                                {this.props.allowChangingDescription ? '' : <span>{this.props.desc}:</span>}
                             </div>
                         </div>
                         {control}
