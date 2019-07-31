@@ -18,11 +18,8 @@ import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
 import SvaFinder from './Components/SvaFinder';
 import { download } from './Utility/browser';
-import { generateReference } from 'letter-generator/utility';
 import Template from 'letter-generator';
-import { deepCopyObject } from './Utility/common';
-
-const request_articles = { access: 15, erasure: 17, rectification: 16 };
+import { freshRequestData, defaultFields, trackingFields, templateURL, REQUEST_ARTICLES } from './Utility/requests';
 
 const HIDE_IN_WIZARD_MODE = [
     '.search',
@@ -37,7 +34,7 @@ class Generator extends preact.Component {
         super(props);
 
         this.state = {
-            request_data: this.freshRequestData(),
+            request_data: freshRequestData(),
             template_text: '',
             suggestion: null,
             download_active: false,
@@ -120,34 +117,6 @@ class Generator extends preact.Component {
         this.resetInitialConditions();
     }
 
-    freshRequestData() {
-        let today = new Date();
-
-        return {
-            type: 'access',
-            transport_medium: 'fax',
-            id_data: deepCopyObject(defaultFields(LOCALE)),
-            reference: generateReference(today),
-            date: today.toISOString().substring(0, 10),
-            recipient_address: '',
-            signature: { type: 'text', value: '' },
-            erase_all: true,
-            erasure_data: '',
-            data_portability: false,
-            recipient_runs: [],
-            rectification_data: [],
-            information_block: '',
-            custom_data: {
-                content: '',
-                subject: '',
-                sender_address: {},
-                name: ''
-            },
-            language: LOCALE,
-            is_tracking_request: false
-        };
-    }
-
     resetInitialConditions() {
         if (this.state.batch && this.state.batch.length > 0) {
             fetchCompanyDataBySlug(this.state.batch.shift(), company => {
@@ -165,7 +134,7 @@ class Generator extends preact.Component {
                         .then(text => {
                             this.setState(prev => {
                                 prev.request_data.custom_data['content'] = new Template(text, [], {
-                                    request_article: request_articles[request.type],
+                                    request_article: REQUEST_ARTICLES[request.type],
                                     request_date: request.date,
                                     request_recipient_address: request.recipient
                                 }).getText();
@@ -446,7 +415,7 @@ class Generator extends preact.Component {
                                         .then(text => {
                                             this.setState(prev => {
                                                 prev.request_data.custom_data['content'] = new Template(text, [], {
-                                                    request_article: request_articles[this.state.response_request.type],
+                                                    request_article: REQUEST_ARTICLES[this.state.response_request.type],
                                                     request_date: this.state.response_request.date,
                                                     request_recipient_address: this.state.response_request.recipient
                                                 }).getText();
@@ -757,7 +726,7 @@ class Generator extends preact.Component {
         }
 
         this.setState(prev => {
-            prev['request_data'] = this.freshRequestData();
+            prev['request_data'] = freshRequestData();
             prev['suggestion'] = null;
             prev['download_active'] = false;
             prev['blob_url'] = '';
@@ -856,51 +825,6 @@ class Generator extends preact.Component {
                 });
         }
     }
-}
-
-function templateURL(locale = LOCALE) {
-    if (!Object.keys(I18N_DEFINITION_REQUESTS).includes(locale)) locale = LOCALE;
-    return BASE_URL + 'templates/' + (locale || LOCALE) + '/';
-}
-
-function defaultFields(locale = LOCALE) {
-    return [
-        {
-            desc: t_r('name', locale),
-            type: 'name',
-            optional: true,
-            value: ''
-        },
-        {
-            desc: t_r('birthdate', locale),
-            type: 'birthdate',
-            optional: true,
-            value: ''
-        },
-        {
-            desc: t_r('address', locale),
-            type: 'address',
-            optional: true,
-            value: { primary: true }
-        }
-    ];
-}
-
-function trackingFields(locale = LOCALE) {
-    return [
-        {
-            desc: t_r('name', locale),
-            type: 'name',
-            optional: false,
-            value: ''
-        },
-        {
-            desc: t_r('email', locale),
-            type: 'input',
-            optional: true,
-            value: ''
-        }
-    ];
 }
 
 preact.render(
