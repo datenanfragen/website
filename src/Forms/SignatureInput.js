@@ -1,5 +1,5 @@
 import preact from 'preact';
-import { Text } from 'preact-i18n';
+import { Text, IntlProvider } from 'preact-i18n';
 import t from '../Utility/i18n';
 import { detectBlockedCanvasImageExtraction } from '../Utility/browser';
 
@@ -100,84 +100,88 @@ export default class SignatureInput extends preact.Component {
         // As much as I would like it, adding keyboard events ain't gun make this accessible…
         /* eslint-disable jsx-a11y/mouse-events-have-key-events */
         return (
-            <div className="signature-input">
-                <h2 style="margin-top: 1em;">
-                    <Text id="signature" />
-                </h2>
-                <Text id="signature-explanation" />
-                <div style={this.state.canvasImageExtractionBlocked ? 'position: relative;' : ''}>
-                    <canvas
-                        id={this.props.id}
-                        style={
-                            'max-width: 100%; box-sizing: border-box; background-color: ' + this.state.backgroundColor
-                        }
-                        ref={el => (this.canvas = el)}
-                        width={this.state.width}
-                        height={this.state.height}
-                        onMouseMove={this.handleMouse}
-                        onMouseDown={this.handleMouse}
-                        onMouseUp={this.handleMouse}
-                        onMouseOut={this.handleMouse}
-                    />
-                    {this.state.canvasImageExtractionBlocked ? (
-                        <div
-                            className="canvas-blocked-overlay"
+            <IntlProvider scope="signature" definition={I18N_DEFINITION}>
+                <div className="signature-input">
+                    <h2 style="margin-top: 1em;">
+                        <Text id="signature" />
+                    </h2>
+                    <Text id={this.props.isForIdData ? 'signature-explanation-id-data' : 'signature-explanation'} />
+                    <div style={this.state.canvasImageExtractionBlocked ? 'position: relative;' : ''}>
+                        <canvas
+                            id={this.props.id}
                             style={
-                                'position: absolute; top: 2px; left: 2px; background-color: rgba(10, 10, 10, 0.6); box-sizing: border-box; max-width: 100%; width: ' +
-                                this.state.width +
-                                'px; height: ' +
-                                this.state.height +
-                                'px; padding: 10px; color: #f0f7ff;'
-                            }>
-                            <p>
-                                {t('overlay-text', 'signature')}
-                                {/* <br />
-                                <a href="#">{t('overlay-learn-more', 'signature')}</a> */}
-                            </p>
-                            <button
-                                onClick={() => {
-                                    // This doesn't cause a prompt if the user has previously denied one for us. I however
-                                    // also am not aware of a way to force a prompt in that case (or even to detect that
-                                    // this has happened), so I don't think there's anything else we can do here.
-                                    this.context.getImageData(0, 0, 1, 1);
+                                'max-width: 100%; box-sizing: border-box; background-color: ' +
+                                this.state.backgroundColor
+                            }
+                            ref={el => (this.canvas = el)}
+                            width={this.state.width}
+                            height={this.state.height}
+                            onMouseMove={this.handleMouse}
+                            onMouseDown={this.handleMouse}
+                            onMouseUp={this.handleMouse}
+                            onMouseOut={this.handleMouse}
+                        />
+                        {this.state.canvasImageExtractionBlocked ? (
+                            <div
+                                className="canvas-blocked-overlay"
+                                style={
+                                    'position: absolute; top: 2px; left: 2px; background-color: rgba(10, 10, 10, 0.6); box-sizing: border-box; max-width: 100%; width: ' +
+                                    this.state.width +
+                                    'px; height: ' +
+                                    this.state.height +
+                                    'px; padding: 10px; color: #f0f7ff;'
+                                }>
+                                <p>
+                                    <Text id="overlay-text" />
+                                    {/* <br />
+                                     <a href="#"><Text id="overlay-learn-more" /></a> */}
+                                </p>
+                                <button
+                                    onClick={() => {
+                                        // This doesn't cause a prompt if the user has previously denied one for us. I however
+                                        // also am not aware of a way to force a prompt in that case (or even to detect that
+                                        // this has happened), so I don't think there's anything else we can do here.
+                                        this.context.getImageData(0, 0, 1, 1);
 
-                                    // This is ugly. There is no way to be notified of the result of the permission prompt,
-                                    // so we just have to try.
-                                    // TODO: Is this even necessary? The check will be triggered anyway in the `onmouseout`
-                                    // event.
-                                    let tries = 50;
-                                    let f = () => {
-                                        this.handleBlockedCanvasImageDetection();
-                                        if (tries-- > 0 && this.state.canvasImageExtractionBlocked) setTimeout(f, 500);
-                                    };
-                                    f();
-                                }}
-                                className="button button-primary button-small">
-                                {t('overlay-allow', 'signature')}
-                            </button>
-                        </div>
+                                        // This is ugly. There is no way to be notified of the result of the permission prompt,
+                                        // so we just have to try.
+                                        // TODO: Is this even necessary? The check will be triggered anyway in the `onmouseout`
+                                        // event.
+                                        let tries = 50;
+                                        let f = () => {
+                                            this.handleBlockedCanvasImageDetection();
+                                            if (tries-- > 0 && this.state.canvasImageExtractionBlocked)
+                                                setTimeout(f, 500);
+                                        };
+                                        f();
+                                    }}
+                                    className="button button-primary button-small">
+                                    <Text id="overlay-allow" />
+                                </button>
+                            </div>
+                        ) : (
+                            []
+                        )}
+                    </div>
+                    <button
+                        className="button button-small button-secondary"
+                        onClick={this.clear}
+                        style="float: right; margin: 0 0 5px 5px;">
+                        <Text id="reset-signature" />
+                    </button>
+                    {!!this.props.fillSignature && this.props.fillSignature.type === 'image' ? (
+                        <button
+                            style="float: right;"
+                            className="button button-small button-secondary"
+                            onClick={this.handleFillSignature}>
+                            <Text id="fill-signature" />
+                        </button>
                     ) : (
                         []
                     )}
+                    <div className="clearfix" />
                 </div>
-                <button
-                    className="button button-small button-secondary"
-                    onClick={this.clear}
-                    style="float: right; margin: 0 0 5px 5px;">
-                    <Text id="reset-signature" />
-                </button>
-                {!!this.props.fillSignature && this.props.fillSignature.type === 'image' ? (
-                    <button
-                        style="float: right;"
-                        className="button button-small button-secondary"
-                        onClick={this.handleFillSignature}>
-                        <Text id="fill-signature" />
-                    </button>
-                ) : (
-                    []
-                )}
-                <div className="clearfix" />
-            </div>
+            </IntlProvider>
         );
         /* eslint-enable */
     }
