@@ -19,7 +19,8 @@ import Cookie from 'js-cookie';
 import SvaFinder from './Components/SvaFinder';
 import { download } from './Utility/browser';
 import Template from 'letter-generator';
-import { freshRequestData, defaultFields, trackingFields, templateURL, REQUEST_ARTICLES } from './Utility/requests';
+import { defaultFields, trackingFields, templateURL, REQUEST_ARTICLES } from './Utility/requests';
+import Request from './DataType/Request';
 
 const HIDE_IN_WIZARD_MODE = [
     '.search',
@@ -34,7 +35,7 @@ class Generator extends preact.Component {
         super(props);
 
         this.state = {
-            request_data: freshRequestData(),
+            request_data: new Request(),
             template_text: '',
             suggestion: null,
             download_active: false,
@@ -726,7 +727,7 @@ class Generator extends preact.Component {
         }
 
         this.setState(prev => {
-            prev['request_data'] = freshRequestData();
+            prev['request_data'] = new Request();
             prev['suggestion'] = null;
             prev['download_active'] = false;
             prev['blob_url'] = '';

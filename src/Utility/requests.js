@@ -1,6 +1,4 @@
 import { t_r } from './i18n';
-import { generateReference } from 'letter-generator/utility';
-import { deepCopyObject } from './common';
 
 export const REQUEST_ARTICLES = { access: 15, erasure: 17, rectification: 16 };
 
@@ -42,34 +40,6 @@ export function trackingFields(locale = LOCALE) {
             value: ''
         }
     ];
-}
-
-export function freshRequestData() {
-    let today = new Date();
-
-    return {
-        type: 'access',
-        transport_medium: 'fax',
-        id_data: deepCopyObject(defaultFields(LOCALE)),
-        reference: generateReference(today),
-        date: today.toISOString().substring(0, 10),
-        recipient_address: '',
-        signature: { type: 'text', value: '' },
-        erase_all: true,
-        erasure_data: '',
-        data_portability: false,
-        recipient_runs: [],
-        rectification_data: [],
-        information_block: '',
-        custom_data: {
-            content: '',
-            subject: '',
-            sender_address: {},
-            name: ''
-        },
-        language: LOCALE,
-        is_tracking_request: false
-    };
 }
 
 export function templateURL(locale = LOCALE) {
