@@ -18,7 +18,7 @@ import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
 import SvaFinder from './Components/SvaFinder';
 import { download } from './Utility/browser';
-import Template from 'letter-generator';
+import Template from 'letter-generator/Template';
 import { defaultFields, trackingFields, templateURL, REQUEST_ARTICLES } from './Utility/requests';
 import Request from './DataType/Request';
 
