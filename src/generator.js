@@ -140,6 +140,7 @@ class Generator extends preact.Component {
                                     request_recipient_address: request.recipient
                                 }).getText();
                                 if (response_type === 'admonition') {
+                                    // TODO @zner0L: I don't think this is used anywhere.
                                     prev.request_data['via'] = request.via;
                                     prev.request_data['recipient_address'] = request.recipient;
                                 }
@@ -439,7 +440,24 @@ class Generator extends preact.Component {
     }
 
     getActionButton() {
-        let action_button = (
+        return this.state.request_data.transport_medium === 'email' ? (
+            <a
+                id="sendmail-button"
+                className={'button' + (this.state.blob_url ? '' : ' disabled') + ' button-primary'}
+                href={this.getMailtoLink()}
+                onClick={e => {
+                    if (!this.state.blob_url) {
+                        e.preventDefault();
+                    } else {
+                        this.storeRequest();
+                        this.setState({ request_done: true });
+                    }
+                }}>
+                <Text id="send-email" />
+                &nbsp;&nbsp;
+                <span className="icon icon-email" />
+            </a>
+        ) : (
             <a
                 id="download-button"
                 className={'button' + (this.state.download_active ? '' : ' disabled') + ' button-primary'}
@@ -458,29 +476,6 @@ class Generator extends preact.Component {
                 <span className="icon icon-download" />
             </a>
         );
-
-        if (this.state.request_data.transport_medium === 'email') {
-            action_button = (
-                <a
-                    id="sendmail-button"
-                    className={'button' + (this.state.blob_url ? '' : ' disabled') + ' button-primary'}
-                    href={this.getMailtoLink()}
-                    onClick={e => {
-                        if (!this.state.blob_url) {
-                            e.preventDefault();
-                        } else {
-                            this.storeRequest();
-                            this.setState({ request_done: true });
-                        }
-                    }}>
-                    <Text id="send-email" />
-                    &nbsp;&nbsp;
-                    <span className="icon icon-email" />
-                </a>
-            );
-        }
-
-        return action_button;
     }
 
     getMailtoLink() {
