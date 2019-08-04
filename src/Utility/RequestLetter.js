@@ -2,11 +2,36 @@ import t, { t_r } from './i18n';
 import { formatAddress, stripTags } from 'letter-generator/utility';
 import Letter from 'letter-generator/Letter';
 import Template from 'letter-generator/Template';
+import { rethrow } from './errors';
+
+/**
+ * Callback with the generated PDF letter.
+ *
+ * @typedef {function(String, String)} PdfCallback
+ * @callback PdfCallback
+ * @param {String} blob_url
+ * @param {String} filename
+ */
 
 export default class RequestLetter {
-    constructor(props) {
+    /**
+     * @param {Object} props
+     * @param {PdfCallback} pdf_callback A function to call when a PDF has successfully been generated after calling
+     *     `this.initiatePdfGeneration()`.
+     */
+    constructor(props, pdf_callback) {
+        this.pdf_callback = pdf_callback;
+
         this.clearProps();
         this.setProps(props);
+
+        this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
+        this.pdfWorker.onmessage = message => {
+            if (this.pdf_callback) this.pdf_callback(message.data.blob_url, message.data.filename);
+        };
+        this.pdfWorker.onerror = error => {
+            rethrow(error, 'PdfWorker error');
+        };
     }
 
     setProps(props) {
@@ -44,6 +69,19 @@ export default class RequestLetter {
 
     toPdfDoc() {
         return this.letter.doc;
+    }
+
+    /**
+     * Start generating the PDF through the PdfWorker. This process is asynchronous and will take some time.  Once the
+     * PDF is generated, `this.pdf_callback()` will be called with the result.
+     *
+     * @param {String} filename
+     */
+    initiatePdfGeneration(filename) {
+        this.pdfWorker.postMessage({
+            pdfdoc: { doc: this.toPdfDoc() },
+            filename: filename
+        });
     }
 
     toEmailString(include_subject = false) {

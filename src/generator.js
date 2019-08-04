@@ -52,7 +52,13 @@ class Generator extends preact.Component {
         };
 
         this.database_url = BASE_URL + 'db/';
-        this.letter = new RequestLetter({});
+        this.letter = new RequestLetter({}, (blob_url, filename) => {
+            this.setState({
+                blob_url: blob_url,
+                download_filename: filename,
+                download_active: true
+            });
+        });
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             this.request_store = localforage.createInstance({
@@ -76,18 +82,6 @@ class Generator extends preact.Component {
         this.storeRequest = this.storeRequest.bind(this);
         this.newRequest = this.newRequest.bind(this);
         this.hideModal = this.hideModal.bind(this);
-
-        this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
-        this.pdfWorker.onmessage = message => {
-            this.setState({
-                blob_url: message.data.blob_url,
-                download_filename: message.data.filename,
-                download_active: true
-            });
-        };
-        this.pdfWorker.onerror = error => {
-            rethrow(error, 'PdfWorker error');
-        };
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies = new SavedCompanies();
         if (PARAMETERS['from'] === 'wizard') {
@@ -746,20 +740,16 @@ class Generator extends preact.Component {
             case 'fax':
             case 'letter':
                 this.setState({ download_active: false });
-                this.pdfWorker.postMessage({
-                    pdfdoc: { doc: this.letter.toPdfDoc() },
-                    filename:
-                        (this.state.suggestion !== null
-                            ? this.state.suggestion['slug']
-                            : slugify(
-                                  this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient'
-                              )) +
+                this.letter.initiatePdfGeneration(
+                    (this.state.suggestion !== null
+                        ? this.state.suggestion['slug']
+                        : slugify(this.state.request_data.recipient_address.split('\n', 1)[0] || 'custom-recipient')) +
                         '_' +
                         this.state.request_data['type'] +
                         '_' +
                         this.state.request_data['reference'] +
                         '.pdf'
-                });
+                );
                 break;
             case 'email': {
                 let email_blob = new Blob(
