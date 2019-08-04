@@ -8,7 +8,7 @@ import { slugify, PARAMETERS } from 'Utility/common';
 import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import Modal from './Components/Modal';
-import { isDebugMode, rethrow } from './Utility/errors';
+import { isDebugMode } from './Utility/errors';
 import CompanyWidget from './Components/CompanyWidget';
 import IdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/IdData';
 import { SavedCompanies } from './Components/Wizard';
@@ -51,7 +51,6 @@ class Generator extends preact.Component {
             run_wizard_tutorial: false
         };
 
-        this.database_url = BASE_URL + 'db/';
         this.letter = new RequestLetter({}, (blob_url, filename) => {
             this.setState({
                 blob_url: blob_url,
@@ -97,7 +96,7 @@ class Generator extends preact.Component {
                     }
                 });
             } else {
-                let batch_companies = PARAMETERS['companies'];
+                const batch_companies = PARAMETERS['companies'];
                 if (batch_companies) {
                     this.setState({ batch: batch_companies.split(',') });
                 }
@@ -119,8 +118,8 @@ class Generator extends preact.Component {
         }
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            let response_to = PARAMETERS['response_to'];
-            let response_type = PARAMETERS['response_type'];
+            const response_to = PARAMETERS['response_to'];
+            const response_type = PARAMETERS['response_type'];
             if (response_to && response_type) {
                 this.request_store.getItem(response_to).then(request => {
                     fetch(templateURL(this.state.request_data.language) + response_type + '.txt')
@@ -143,10 +142,11 @@ class Generator extends preact.Component {
                                 prev.response_request = request;
                                 return prev;
                             });
-                            if (response_type === 'admonition' && request.slug)
+                            if (response_type === 'admonition' && request.slug) {
                                 fetchCompanyDataBySlug(request.slug, company => {
                                     this.setCompany(company);
                                 });
+                            }
                             this.renderRequest();
                         });
                 });
@@ -206,26 +206,24 @@ class Generator extends preact.Component {
     }
 
     render() {
-        let company_widget = '';
-        let new_request_text = 'new-request';
-        if (this.state.batch && this.state.batch.length > 0) new_request_text = 'next-request';
-        if (this.state.suggestion !== null) {
-            company_widget = (
-                <CompanyWidget
-                    company={this.state.suggestion}
-                    onRemove={() => {
-                        this.setState(prev => {
-                            prev['suggestion'] = null;
-                            prev.request_data['recipient_runs'] = [];
-                            prev.request_data['language'] = LOCALE;
+        const company_widget = this.state.suggestion ? (
+            <CompanyWidget
+                company={this.state.suggestion}
+                onRemove={() => {
+                    this.setState(prev => {
+                        prev['suggestion'] = null;
+                        prev.request_data['recipient_runs'] = [];
+                        prev.request_data['language'] = LOCALE;
 
-                            return prev;
-                        });
-                        Generator.clearUrl();
-                    }}
-                />
-            );
-        }
+                        return prev;
+                    });
+                    Generator.clearUrl();
+                }}
+            />
+        ) : (
+            ''
+        );
+        const new_request_text = this.state.batch && this.state.batch.length > 0 ? 'next-request' : 'new-request';
 
         return (
             <main>
@@ -308,7 +306,7 @@ class Generator extends preact.Component {
     }
 
     adjustAccordingToWizardMode() {
-        let wizard = PARAMETERS['from'] === 'wizard';
+        const wizard = PARAMETERS['from'] === 'wizard';
 
         HIDE_IN_WIZARD_MODE.forEach(selector => {
             document.querySelectorAll(selector).forEach(el => {
@@ -329,25 +327,22 @@ class Generator extends preact.Component {
         this.adjustAccordingToWizardMode();
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-            window.addEventListener(ID_DATA_CHANGE_EVENT, event => {
+            const callback = () => {
                 this.idData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
                 this.idData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
-            });
-            window.addEventListener(ID_DATA_CLEAR_EVENT, event => {
-                this.idData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
-                this.idData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
-            });
+            };
+
+            window.addEventListener(ID_DATA_CHANGE_EVENT, callback);
+            window.addEventListener(ID_DATA_CLEAR_EVENT, callback);
         }
     }
 
     /**
-     *
      * @param modal {string|Component} if it is a string, modal will be interpreted as modal_id
      */
     showModal(modal) {
         if (typeof modal === 'string') {
-            let modal_id = modal;
-            switch (modal_id) {
+            switch (modal) {
                 case 'new_request': // TODO: Logic
                     modal = (
                         <Modal
@@ -474,7 +469,7 @@ class Generator extends preact.Component {
     }
 
     setCompany(company) {
-        let template_file =
+        const template_file =
             company['custom-' + this.state.request_data.type + '-template'] ||
             this.state.request_data.type + '-default.txt';
         fetch(templateURL(company['request-language']) + template_file)
@@ -484,6 +479,8 @@ class Generator extends preact.Component {
                 this.renderRequest();
             });
 
+        // I would love to have `Request` handle this. But unfortunately that won't work as Preact won't notice the
+        // state has changed. :(
         this.setState(prev => {
             prev.request_data['transport_medium'] = company['suggested-transport-medium']
                 ? company['suggested-transport-medium']
@@ -501,7 +498,7 @@ class Generator extends preact.Component {
                     ? '\n' + t_r('by-fax', company['request-language'] || LOCALE) + company['fax']
                     : '');
 
-            let language =
+            const language =
                 !!company['request-language'] && company['request-language'] !== ''
                     ? company['request-language']
                     : LOCALE;
@@ -572,7 +569,7 @@ class Generator extends preact.Component {
             this.letter.clearProps();
             return;
         }
-        let template_file = this.state.suggestion
+        const template_file = this.state.suggestion
             ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] ||
               this.state.request_data.type + '-default.txt'
             : this.state.request_data.type + '-default.txt';
@@ -597,13 +594,13 @@ class Generator extends preact.Component {
     handleLetterChange(event, address_change = false) {
         if (address_change) {
             this.setState(prev => {
-                let att = event.target.getAttribute('name');
+                const att = event.target.getAttribute('name');
                 prev.request_data.custom_data['sender_address'][att] = event.target.value;
                 return prev;
             });
         } else {
             this.setState(prev => {
-                let att = event.target.getAttribute('name');
+                const att = event.target.getAttribute('name');
                 if (Object.prototype.hasOwnProperty.call(prev.request_data.custom_data, att))
                     prev.request_data.custom_data[att] = event.target.value;
                 return prev;
@@ -630,7 +627,6 @@ class Generator extends preact.Component {
     }
 
     handleTransportMediumChange(event) {
-        // TODO: Warning when sending via email
         this.setState(prev => {
             prev['request_data']['transport_medium'] = event.target.value;
             switch (event.target.value) {
@@ -640,9 +636,10 @@ class Generator extends preact.Component {
                         !prev['request_data']['recipient_address'].includes(
                             t_r('by-fax', this.state.request_data.language)
                         )
-                    )
+                    ) {
                         prev['request_data']['recipient_address'] +=
                             '\n' + t_r('by-fax', this.state.request_data.language) + (prev['suggestion']['fax'] || '');
+                    }
                     break;
                 case 'letter':
                 case 'email':
@@ -668,16 +665,15 @@ class Generator extends preact.Component {
     }
 
     newRequest() {
-        // TODO: Make sure this ends up in the new canonical place for completed requests, as per #90 (i.e. when the request is saved to 'My requests').
         if (
             this.state.request_data.type === 'access' &&
             Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) &&
             this.state.suggestion &&
             this.state.suggestion['slug']
-        )
+        ) {
             this.saved_companies.remove(this.state.suggestion['slug']);
+        }
 
-        // TODO: Same for this.
         if (PARAMETERS['from'] === 'wizard' && this.state.batch && this.state.batch.length === 0) {
             // Remove the GET parameters from the URL so this doesn't get triggered again on the next new request and get the generator out of wizard-mode.
             Generator.clearUrl();
@@ -723,7 +719,7 @@ class Generator extends preact.Component {
             sender.country
         ];
         if (this.state.request_data['type'] === 'custom') {
-            let signature = this.state.request_data['signature'];
+            const signature = this.state.request_data['signature'];
             signature['name'] = this.state.request_data.custom_data['name'];
             this.letter.setProps({
                 subject: this.state.request_data.custom_data['subject'],
@@ -752,17 +748,13 @@ class Generator extends preact.Component {
                 );
                 break;
             case 'email': {
-                let email_blob = new Blob(
-                    [
-                        '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre style="white-space: pre-line;">' +
-                            this.letter.toEmailString(true) +
-                            '</pre></body>'
-                    ],
-                    {
-                        type: 'text/html'
-                    }
-                );
-                this.setState({ blob_url: URL.createObjectURL(email_blob) });
+                this.setState({
+                    blob_url: URL.createObjectURL(
+                        new Blob([this.letter.toEmailString(true)], {
+                            type: 'text/plain'
+                        })
+                    )
+                });
                 break;
             }
         }

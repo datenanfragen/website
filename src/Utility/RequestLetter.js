@@ -128,9 +128,14 @@ export default class RequestLetter {
         );
     }
 
+    /**
+     * @param {Request} request_object
+     * @param {String} template
+     * @param {Object} flags
+     */
     static propsFromRequest(request_object, template, flags = {}) {
-        let id_data = RequestLetter.formatData(request_object.id_data);
-        let rectification_data = RequestLetter.formatData(request_object.rectification_data);
+        const id_data = RequestLetter.formatData(request_object.id_data);
+        const rectification_data = RequestLetter.formatData(request_object.rectification_data);
         request_object.signature['name'] = id_data.name;
 
         flags = {
@@ -139,7 +144,7 @@ export default class RequestLetter {
             data_portability: request_object.data_portability,
             runs: request_object.recipient_runs ? request_object.recipient_runs.length > 0 : false
         };
-        let variables = {
+        const variables = {
             id_data: id_data.formatted,
             rectification_data: rectification_data.formatted,
             erasure_data: '<italic>' + request_object.erasure_data + '</italic>',
