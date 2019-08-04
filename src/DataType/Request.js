@@ -1,6 +1,9 @@
 import { generateReference } from 'letter-generator/utility';
+import localforage from 'localforage';
 import { deepCopyObject } from '../Utility/common';
 import { defaultFields } from '../Utility/requests';
+import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { rethrow } from '../Utility/errors';
 
 /**
  * @typedef {"access" | "erasure" | "rectification" | "custom"} RequestType
@@ -25,7 +28,7 @@ import { defaultFields } from '../Utility/requests';
  */
 
 export default class Request {
-    constructor(props) {
+    constructor() {
         const today = new Date();
 
         /**
@@ -117,5 +120,43 @@ export default class Request {
          * @type {boolean}
          */
         this.is_tracking_request = false;
+
+        // TODO: Not really sure if this should be here. But apparently we are manually reading 'My requests' data in
+        // various places…
+        // We should probably compute the object to be stored here but then do the actual saving in `UserRequests`.
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
+            this.request_store = localforage.createInstance({
+                name: 'Datenanfragen.de',
+                storeName: 'my-requests'
+            });
+        }
+    }
+
+    /**
+     * Save this request in the 'My requests' feature.
+     *
+     * TODO @zner0L: Maybe we want to move these parameters into the `Request` object as well?
+     *
+     * @param {String} [slug] The slug of the company this request is addressed to (if applicable).
+     * @param {"admonition" | "complaint"} [response_type] The response type if this request is a warning or complaint.
+     */
+    store(slug, response_type) {
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
+            const db_id =
+                this.reference + '-' + this.type + (this.type === 'custom' && response_type ? '-' + response_type : '');
+            this.request_store
+                .setItem(db_id, {
+                    reference: this.reference,
+                    date: this.date,
+                    type: this.type,
+                    response_type: response_type,
+                    slug: slug,
+                    recipient: this.recipient_address,
+                    via: this.transport_medium
+                })
+                .catch(error => {
+                    rethrow(error, 'Saving request failed.', { database_id: db_id });
+                });
+        }
     }
 }

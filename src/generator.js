@@ -55,7 +55,6 @@ class Generator extends preact.Component {
         this.letter = new RequestLetter({});
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            // TODO: Is there a better place for this?
             this.request_store = localforage.createInstance({
                 name: 'Datenanfragen.de',
                 storeName: 'my-requests'
@@ -799,27 +798,10 @@ class Generator extends preact.Component {
             this.idData.storeArray(this.state.request_data['id_data']);
             this.idData.storeSignature(this.state.request_data['signature']);
         }
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            let request = this.state.request_data;
-            let db_id =
-                request.reference +
-                '-' +
-                request.type +
-                (request.type === 'custom' && this.state.response_type ? '-' + this.state.response_type : '');
-            this.request_store
-                .setItem(db_id, {
-                    reference: request.reference,
-                    date: request.date,
-                    type: request.type,
-                    response_type: this.state.response_type,
-                    slug: this.state.suggestion ? this.state.suggestion['slug'] : null,
-                    recipient: request.recipient_address,
-                    via: request.transport_medium
-                })
-                .catch(error => {
-                    rethrow(error, 'Saving request failed.', { database_id: db_id });
-                });
-        }
+        this.state.request_data.store(
+            this.state.suggestion ? this.state.suggestion['slug'] : undefined,
+            this.state.response_type
+        );
     }
 }
 
