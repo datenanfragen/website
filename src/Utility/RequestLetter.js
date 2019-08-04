@@ -68,6 +68,28 @@ export default class RequestLetter {
         return email;
     }
 
+    /**
+     * Generate a `mailto:` link for this letter.
+     *
+     * @param {String} [email=''] The recipient's email address.
+     */
+    toMailtoLink(email = '') {
+        return (
+            'mailto:' +
+            email +
+            '?' +
+            'subject=' +
+            encodeURIComponent(this.props.subject) +
+            ' (' +
+            t_r('my-reference', this.props.language) +
+            ': ' +
+            this.props.reference +
+            ')' +
+            '&body=' +
+            encodeURIComponent(this.toEmailString())
+        );
+    }
+
     static propsFromRequest(request_object, template, flags = {}) {
         let id_data = RequestLetter.formatData(request_object.id_data);
         let rectification_data = RequestLetter.formatData(request_object.rectification_data);

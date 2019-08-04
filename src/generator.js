@@ -385,7 +385,9 @@ class Generator extends preact.Component {
                                     this.storeRequest();
                                     download(
                                         this.state.request_data.transport_medium === 'email'
-                                            ? this.getMailtoLink()
+                                            ? this.letter.toMailtoLink(
+                                                  this.state.suggestion ? this.state.suggestion['email'] : ''
+                                              )
                                             : this.state.blob_url,
                                         this.state.request_data.transport_medium === 'email'
                                             ? null
@@ -443,7 +445,7 @@ class Generator extends preact.Component {
             <a
                 id="sendmail-button"
                 className={'button' + (this.state.blob_url ? '' : ' disabled') + ' button-primary'}
-                href={this.getMailtoLink()}
+                href={this.letter.toMailtoLink(this.state.suggestion ? this.state.suggestion['email'] : '')}
                 onClick={e => {
                     if (!this.state.blob_url) {
                         e.preventDefault();
@@ -474,23 +476,6 @@ class Generator extends preact.Component {
                 &nbsp;&nbsp;
                 <span className="icon icon-download" />
             </a>
-        );
-    }
-
-    getMailtoLink() {
-        return (
-            'mailto:' +
-            (this.state.suggestion && this.state.suggestion['email'] ? this.state.suggestion['email'] : '') +
-            '?' +
-            'subject=' +
-            encodeURIComponent(this.letter.props.subject) +
-            ' (' +
-            t_r('my-reference', this.letter.props.language) +
-            ': ' +
-            this.letter.props.reference +
-            ')' +
-            '&body=' +
-            encodeURIComponent(this.letter.toEmailString())
         );
     }
 
