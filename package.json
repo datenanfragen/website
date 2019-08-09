@@ -48,7 +48,7 @@
         "js-cookie": "^2.2.0",
         "libphonenumber-js": "^1.7.21",
         "localforage": "^1.7.1",
-        "preact": "^8.2.1",
+        "preact": "^8.5.1",
         "preact-compat": "^3.19.0",
         "preact-i18n": "~1.3.0",
         "preact-portal": "^1.1.3",
