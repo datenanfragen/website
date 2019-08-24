@@ -19,7 +19,7 @@ import Cookie from 'js-cookie';
 import SvaFinder from './Components/SvaFinder';
 import { download } from './Utility/browser';
 import Template from 'letter-generator/Template';
-import { defaultFields, trackingFields, templateURL, REQUEST_ARTICLES } from './Utility/requests';
+import { defaultFields, trackingFields, templateURL, REQUEST_ARTICLES, initializeFields } from './Utility/requests';
 import Request from './DataType/Request';
 
 const HIDE_IN_WIZARD_MODE = [
@@ -160,44 +160,17 @@ class Generator extends preact.Component {
                 this.setState({ template_text: text });
                 this.renderRequest();
 
-                if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
-                    this.idData.getAllFixed().then(fill_data => {
-                        this.setState(prev => {
-                            prev.request_data['id_data'] = IdData.mergeFields(
-                                prev.request_data['id_data'],
-                                fill_data,
-                                true,
-                                true,
-                                true,
-                                true,
-                                false
-                            );
-                            return prev;
-                        });
-                        this.renderRequest();
+                initializeFields(this.state.request_data.id_data).then(res => {
+                    this.setState(prev => {
+                        prev.request_data.id_data = res.new_fields;
+                        prev.request_data.signature = res.signature;
+
+                        if (res.new_fields.name) prev.request_data.custom_data.name = name.value;
+                        if (res.new_fields.address) prev.request_data.custom_data.sender_address = res.new_fields.value;
+
+                        return prev;
                     });
-                    this.idData.getSignature().then(signature => {
-                        if (signature) {
-                            this.setState(prev => {
-                                prev.request_data['signature'] = signature;
-                                return prev;
-                            });
-                            this.renderRequest();
-                        }
-                    });
-                    this.idData.getFixed('name').then(name =>
-                        this.setState(prev => {
-                            if (name) prev.request_data['custom_data']['name'] = name.value;
-                            return prev;
-                        })
-                    );
-                    this.idData.getFixed('address').then(address =>
-                        this.setState(prev => {
-                            if (address) prev.request_data['custom_data']['sender_address'] = address.value;
-                            return prev;
-                        })
-                    );
-                }
+                });
             });
     }
 
