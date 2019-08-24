@@ -1,5 +1,5 @@
 import preact from 'preact';
-import RequestForm from 'Forms/RequestForm';
+import RequestForm from './Components/Generator/RequestForm';
 import RequestLetter from 'Utility/RequestLetter';
 import { SearchBar } from './Components/SearchBar';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
@@ -9,7 +9,7 @@ import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import Modal from './Components/Modal';
 import { isDebugMode } from './Utility/errors';
-import CompanyWidget from './Components/CompanyWidget';
+import CompanyWidget from './Components/Generator/CompanyWidget';
 import IdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/IdData';
 import { SavedCompanies } from './Components/Wizard';
 import t, { t_r } from './Utility/i18n';

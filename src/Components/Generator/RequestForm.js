@@ -2,11 +2,11 @@ import preact from 'preact';
 import DynamicInputContainer from './DynamicInputContainer';
 import SignatureInput from './SignatureInput';
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';
-import t from '../Utility/i18n';
+import t from '../../Utility/i18n';
 import { AddressControl } from './DynamicInput';
-import Accordion from '../Components/Accordion';
-import Radio from '../Components/Radio';
-import RequestTypeChooser from '../Components/RequestTypeChooser';
+import Accordion from '../Accordion';
+import Radio from '../Radio';
+import RequestTypeChooser from './RequestTypeChooser';
 
 export default class RequestForm extends preact.Component {
     render() {

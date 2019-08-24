@@ -1,7 +1,7 @@
 import preact from 'preact';
-import t from '../Utility/i18n';
+import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
-import Accordion from '../Components/Accordion';
+import Accordion from '../Accordion';
 
 export default class CompanyWidget extends preact.Component {
     render() {

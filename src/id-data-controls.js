@@ -3,9 +3,9 @@ import IdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/IdD
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import t from 'Utility/i18n';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
-import DynamicInputContainer from './Forms/DynamicInputContainer';
-import { AddressControl, DateControl, InputControl } from './Forms/DynamicInput';
-import SignatureInput from './Forms/SignatureInput';
+import DynamicInputContainer from './Components/Generator/DynamicInputContainer';
+import { AddressControl, DateControl, InputControl } from './Components/Generator/DynamicInput';
+import SignatureInput from './Components/Generator/SignatureInput';
 import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
 
 class IdDataControls extends preact.Component {

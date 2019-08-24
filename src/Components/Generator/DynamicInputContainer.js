@@ -1,7 +1,7 @@
 import preact from 'preact';
 import DynamicInput from './DynamicInput';
 import { Text, IntlProvider } from 'preact-i18n';
-import t from '../Utility/i18n';
+import t from '../../Utility/i18n';
 
 export default class DynamicInputContainer extends preact.Component {
     constructor(props) {

@@ -1,6 +1,6 @@
 import preact from 'preact';
 import t from 'Utility/i18n';
-import Radio from './Radio';
+import Radio from '../Radio';
 
 const VALID_REQUEST_TYPES = ['access', 'erasure', 'rectification', 'custom'];
 
