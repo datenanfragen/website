@@ -5449,10 +5449,10 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libphonenumber-js@^1.7.21:
-  version "1.7.21"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.21.tgz#70576a6bc63822b2d441c58ad25bf0819036b3d6"
-  integrity sha512-kE5l5NyUdJLwA9EgqtRAMb7jEVTm9u/cfAA2TUdqKlOKnwNFKcTUrD9J850FzYQ2uMJoyoxlj+br092KfGiCvQ==
+libphonenumber-js@^1.7.23:
+  version "1.7.23"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.23.tgz#7263e5eaed0c8b3340cdc7af08f664efb8c8479e"
+  integrity sha512-PoL4q+VyljlBE5VBC0GegDYnBAYPAvoa6uihi5GmqlKGAC3bf4ha4KXiHOl3+6VvClgTnmiqHQUZcj/+SswnCQ==
   dependencies:
     minimist "^1.2.0"
     xml2js "^0.4.17"
