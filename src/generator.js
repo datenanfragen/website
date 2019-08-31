@@ -21,6 +21,7 @@ import { download } from './Utility/browser';
 import Template from 'letter-generator/Template';
 import { defaultFields, trackingFields, templateURL, REQUEST_ARTICLES, initializeFields } from './Utility/requests';
 import Request from './DataType/Request';
+import ActionButton from './Components/Generator/ActionButton';
 
 const HIDE_IN_WIZARD_MODE = [
     '.search',
@@ -403,41 +404,18 @@ class Generator extends preact.Component {
     }
 
     getActionButton() {
-        return this.state.request_data.transport_medium === 'email' ? (
-            <a
-                id="sendmail-button"
-                className={'button' + (this.state.blob_url ? '' : ' disabled') + ' button-primary'}
-                href={this.letter.toMailtoLink(this.state.suggestion ? this.state.suggestion['email'] : '')}
-                onClick={e => {
-                    if (!this.state.blob_url) {
-                        e.preventDefault();
-                    } else {
-                        this.storeRequest();
-                        this.setState({ request_done: true });
-                    }
-                }}>
-                <Text id="send-email" />
-                &nbsp;&nbsp;
-                <span className="icon icon-email" />
-            </a>
-        ) : (
-            <a
-                id="download-button"
-                className={'button' + (this.state.download_active ? '' : ' disabled') + ' button-primary'}
-                href={this.state.blob_url}
-                download={this.state.download_filename}
-                onClick={e => {
-                    if (!this.state.download_active) {
-                        e.preventDefault();
-                    } else {
-                        this.storeRequest();
-                        this.setState({ request_done: true });
-                    }
-                }}>
-                <Text id="download-pdf" />
-                &nbsp;&nbsp;
-                <span className="icon icon-download" />
-            </a>
+        return (
+            <ActionButton
+                transport_medium={this.state.request_data.transport_medium}
+                blob_url={this.state.blob_url}
+                mailto_link={this.letter.toMailtoLink((this.state.suggestion && this.state.suggestion.email) || '')}
+                download_filename={this.state.download_filename}
+                download_active={this.state.download_active}
+                onSuccess={() => {
+                    this.storeRequest();
+                    this.setState({ request_done: true });
+                }}
+            />
         );
     }
 
