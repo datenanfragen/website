@@ -45,7 +45,7 @@
     "dependencies": {
         "autocomplete.js": "^0.36.0",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
-        "js-cookie": "^2.2.0",
+        "js-cookie": "^2.2.1",
         "libphonenumber-js": "^1.7.23",
         "localforage": "^1.7.1",
         "preact": "^8.5.2",
