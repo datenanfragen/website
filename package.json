@@ -99,7 +99,7 @@
         "svgicons2svgfont": "^9.1.1",
         "webpack": "^4.39.3",
         "webpack-cli": "^3.3.5",
-        "webpack-merge": "^4.2.1"
+        "webpack-merge": "^4.2.2"
     },
     "browserslist": [
         "last 2 versions",
