@@ -121,6 +121,15 @@ export default class Request {
          */
         this.is_tracking_request = false;
 
+        /**
+         * Whether we consider the request to be 'done', i.e. whether the user has downloaded the PDF or sent the email.
+         *
+         * This is mainly used to check if we need to warn the user to finish the current request before starting a new
+         * one.
+         * @type {boolean}
+         */
+        this.done = false;
+
         // TODO: Not really sure if this should be here. But apparently we are manually reading 'My requests' data in
         // various places…
         // We should probably compute the object to be stored here but then do the actual saving in `UserRequests`.

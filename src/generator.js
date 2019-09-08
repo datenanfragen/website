@@ -48,7 +48,6 @@ class Generator extends preact.Component {
             fill_fields: [],
             fill_signature: null,
             response_request: {},
-            request_done: false, // TODO: Maybe change according to #98
             run_wizard_tutorial: false
         };
 
@@ -228,7 +227,7 @@ class Generator extends preact.Component {
                             className="button button-secondary"
                             id="new-request-button"
                             onClick={() => {
-                                if (!this.state.request_done) this.showModal('new_request');
+                                if (!this.state.request_data.done) this.showModal('new_request');
                                 else this.newRequest();
                             }}>
                             <Text id={new_request_text} />
@@ -413,7 +412,10 @@ class Generator extends preact.Component {
                 download_active={this.state.download_active}
                 onSuccess={() => {
                     this.storeRequest();
-                    this.setState({ request_done: true });
+                    this.setState(prev => {
+                        prev.request_data.done = true;
+                        return prev;
+                    });
                 }}
             />
         );
@@ -648,12 +650,12 @@ class Generator extends preact.Component {
 
         this.setState(prev => {
             prev['request_data'] = new Request();
+            prev['request_data'].done = false;
             prev['suggestion'] = null;
             prev['download_active'] = false;
             prev['blob_url'] = '';
             prev['download_filename'] = '';
             prev['response_type'] = '';
-            prev['request_done'] = false;
             return prev;
         });
 
