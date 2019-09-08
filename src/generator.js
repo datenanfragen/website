@@ -122,7 +122,7 @@ class Generator extends preact.Component {
             const response_type = PARAMETERS['response_type'];
             if (response_to && response_type) {
                 this.request_store.getItem(response_to).then(request => {
-                    fetch(templateURL(this.state.request_data.language) + response_type + '.txt')
+                    fetch(templateURL(this.state.request_data.language, response_type))
                         .then(res => res.text())
                         .then(text => {
                             this.setState(prev => {
@@ -154,7 +154,7 @@ class Generator extends preact.Component {
             }
         }
 
-        fetch(templateURL(this.state.request_data.language) + 'access-default.txt')
+        fetch(templateURL(this.state.request_data.language, 'access-default'))
             .then(res => res.text())
             .then(text => {
                 this.setState({ template_text: text });
@@ -375,7 +375,7 @@ class Generator extends preact.Component {
                             <SvaFinder
                                 callback={sva => {
                                     this.setCompany(sva);
-                                    fetch(templateURL(sva['complaint-language']) + 'complaint.txt')
+                                    fetch(templateURL(sva['complaint-language'], 'complaint'))
                                         .then(res => res.text())
                                         .then(text => {
                                             this.setState(prev => {
@@ -422,10 +422,11 @@ class Generator extends preact.Component {
     }
 
     setCompany(company) {
+        // TODO: Get rid of the `.txt` replacement.
         const template_file =
-            company['custom-' + this.state.request_data.type + '-template'] ||
-            this.state.request_data.type + '-default.txt';
-        fetch(templateURL(company['request-language']) + template_file)
+            company['custom-' + this.state.request_data.type + '-template'].replace(/\.txt$/, '') ||
+            this.state.request_data.type + '-default';
+        fetch(templateURL(company['request-language'], template_file))
             .then(res => res.text())
             .then(text => {
                 this.setState({ template_text: text });
@@ -456,7 +457,7 @@ class Generator extends preact.Component {
                     ? company['request-language']
                     : LOCALE;
 
-            if (!['access-tracking.txt'].includes(template_file)) {
+            if (!['access-tracking'].includes(template_file)) {
                 prev.request_data['id_data'] = IdData.mergeFields(
                     prev.request_data['id_data'],
                     !!company['required-elements'] && company['required-elements'].length > 0
@@ -524,9 +525,9 @@ class Generator extends preact.Component {
         }
         const template_file = this.state.suggestion
             ? this.state.suggestion['custom-' + this.state.request_data.type + '-template'] ||
-              this.state.request_data.type + '-default.txt'
-            : this.state.request_data.type + '-default.txt';
-        fetch(templateURL(this.state.request_data.language) + template_file)
+              this.state.request_data.type + '-default'
+            : this.state.request_data.type + '-default';
+        fetch(templateURL(this.state.request_data.language, template_file))
             .then(res => res.text())
             .then(text => {
                 this.setState({ template_text: text });
@@ -564,7 +565,7 @@ class Generator extends preact.Component {
 
     handleLetterTemplateChange(event) {
         if (event.target.value && event.target.value !== 'no-template') {
-            fetch(templateURL(this.state.request_data.language) + event.target.value + '.txt')
+            fetch(templateURL(this.state.request_data.language, event.target.value))
                 .then(res => res.text())
                 .then(text => {
                     this.setState(prev => {

@@ -54,9 +54,20 @@ export function trackingFields(locale = LOCALE) {
     ];
 }
 
-export function templateURL(locale = LOCALE) {
+/**
+ * Get the URL of a specific request template or the template directory.
+ *
+ * @param {String} locale The desired language of the template. Defaults to the user's language if left blank.
+ * @param {String} template The name of the desired template.
+ * @returns {String} If a template name is provided, the URL to that specific template in the given language. Otherwise,
+ *     the URL to the template folder for the given language.
+ */
+export function templateURL(locale = LOCALE, template = undefined) {
     if (!Object.keys(I18N_DEFINITION_REQUESTS).includes(locale)) locale = LOCALE;
-    return BASE_URL + 'templates/' + (locale || LOCALE) + '/';
+    // TODO: Once this is merged, remove the `.txt` in custom template declarations in the DB. That is just silly.
+    return (
+        BASE_URL + 'templates/' + (locale || LOCALE) + '/' + (template ? template.replace(/\.txt$/, '') + '.txt' : '')
+    );
 }
 
 /**
