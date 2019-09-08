@@ -17,7 +17,7 @@ import Joyride from 'react-joyride';
 import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
 import SvaFinder from './Components/SvaFinder';
-import { download } from './Utility/browser';
+import { download, clearUrlParameters } from './Utility/browser';
 import Template from 'letter-generator/Template';
 import { defaultFields, trackingFields, templateURL, REQUEST_ARTICLES, initializeFields } from './Utility/requests';
 import Request from './DataType/Request';
@@ -190,7 +190,7 @@ class Generator extends preact.Component {
 
                         return prev;
                     });
-                    Generator.clearUrl();
+                    clearUrlParameters();
                 }}
             />
         ) : (
@@ -613,10 +613,6 @@ class Generator extends preact.Component {
         this.renderRequest();
     }
 
-    static clearUrl() {
-        window.history.pushState({}, document.title, BASE_URL + 'generator');
-    }
-
     newRequest() {
         if (
             this.state.request_data.type === 'access' &&
@@ -629,7 +625,7 @@ class Generator extends preact.Component {
 
         if (PARAMETERS['from'] === 'wizard' && this.state.batch && this.state.batch.length === 0) {
             // Remove the GET parameters from the URL so this doesn't get triggered again on the next new request and get the generator out of wizard-mode.
-            Generator.clearUrl();
+            clearUrlParameters();
             this.adjustAccordingToWizardMode();
             this.showModal(
                 <Modal
@@ -645,7 +641,7 @@ class Generator extends preact.Component {
         // Remove GET parameter-selected company from the URL after the request is finished.
         // Also remove warning and complaint GET parameters from the URL after the request is finished.
         if (PARAMETERS['company'] || PARAMETERS['response_type'] || PARAMETERS['response_to']) {
-            Generator.clearUrl();
+            clearUrlParameters();
         }
 
         this.setState(prev => {

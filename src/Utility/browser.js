@@ -1,3 +1,7 @@
+export function clearUrlParameters() {
+    window.history.pushState({}, document.title, BASE_URL + 'generator');
+}
+
 // Returns `true` if canvas image extraction is blocked.
 // Inspired by: https://estada.ch/2018/12/22/firefox-privacy-enhancement-renders-every-off-screen-canvas-white/
 export function detectBlockedCanvasImageExtraction(ctx = undefined) {
