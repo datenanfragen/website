@@ -5,9 +5,9 @@ import { MarkupText, Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { AddressControl } from './DynamicInput';
 import Accordion from '../Accordion';
-import Radio from '../Radio';
 import RequestTypeChooser from './RequestTypeChooser';
 import RecipientInput from './RecipientInput';
+import TransportMediumChooser from './TransportMediumChooser';
 
 export default class RequestForm extends preact.Component {
     render() {
@@ -175,36 +175,11 @@ export default class RequestForm extends preact.Component {
                                 recipientAddress={this.props.request_data.recipient_address}
                             />
 
-                            <div className="request-transport-medium-chooser">
-                                <Text id="request-transport-medium" />
-                                <br />
-                                <div className="radio-group">
-                                    <Radio
-                                        id="request-transport-medium-choice-fax"
-                                        radio_variable={this.props.request_data['transport_medium']}
-                                        value="fax"
-                                        name="transport-medium"
-                                        onChange={this.props.onTransportMediumChange}
-                                        label={t('fax', 'generator')}
-                                    />
-                                    <Radio
-                                        id="request-transport-medium-choice-email"
-                                        radio_variable={this.props.request_data['transport_medium']}
-                                        value="email"
-                                        name="transport-medium"
-                                        onChange={this.props.onTransportMediumChange}
-                                        label={t('email', 'generator')}
-                                    />
-                                    <Radio
-                                        id="request-transport-medium-choice-letter"
-                                        radio_variable={this.props.request_data['transport_medium']}
-                                        value="letter"
-                                        name="transport-medium"
-                                        onChange={this.props.onTransportMediumChange}
-                                        label={t('letter', 'generator')}
-                                    />
-                                </div>
-                            </div>
+                            <TransportMediumChooser
+                                transportMedium={this.props.request_data.transport_medium}
+                                onChange={this.props.onTransportMediumChange}
+                            />
+
                             {this.renderFlags()}
                             <Accordion title={t('information-block', 'generator')} id="advanced-information">
                                 <div id="information-block-form">
