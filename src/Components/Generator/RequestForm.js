@@ -187,7 +187,6 @@ export default class RequestForm extends preact.Component {
                                 <label className="sr-only" htmlFor="request-recipient">
                                     <Text id="recipient" />
                                 </label>
-                                <input type="hidden" id="request-template" value="default" />
                             </div>
 
                             <div className="request-transport-medium-chooser">
