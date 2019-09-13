@@ -59,3 +59,10 @@ export default class Modal extends preact.Component {
         /* eslint-enable */
     }
 }
+
+export function showModal(modal) {
+    return preact.render(modal, null);
+}
+export function dismissModal(node) {
+    preact.render('', null, node);
+}
