@@ -7,6 +7,7 @@ import { AddressControl } from './DynamicInput';
 import Accordion from '../Accordion';
 import Radio from '../Radio';
 import RequestTypeChooser from './RequestTypeChooser';
+import RecipientInput from './RecipientInput';
 
 export default class RequestForm extends preact.Component {
     render() {
@@ -164,30 +165,15 @@ export default class RequestForm extends preact.Component {
                             <h2>
                                 <Text id="request-parameters" />
                             </h2>
-
                             <RequestTypeChooser
                                 onTypeChange={this.props.onTypeChange}
                                 current={this.props.request_data['type']}
                             />
 
-                            <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
-                                <Text id="recipient-explanation" />
-                                <br />
-                                <textarea
-                                    id="request-recipient"
-                                    className="form-element"
-                                    placeholder={t('recipient', 'generator')}
-                                    rows="4"
-                                    spellCheck="false"
-                                    onChange={event => {
-                                        this.props.onChange({ recipient_address: event.target.value });
-                                    }}
-                                    value={this.props.request_data['recipient_address']}
-                                />
-                                <label className="sr-only" htmlFor="request-recipient">
-                                    <Text id="recipient" />
-                                </label>
-                            </div>
+                            <RecipientInput
+                                onChange={e => this.props.onChange({ recipient_address: e.target.value })}
+                                recipientAddress={this.props.request_data.recipient_address}
+                            />
 
                             <div className="request-transport-medium-chooser">
                                 <Text id="request-transport-medium" />
@@ -219,9 +205,7 @@ export default class RequestForm extends preact.Component {
                                     />
                                 </div>
                             </div>
-
                             {this.renderFlags()}
-
                             <Accordion title={t('information-block', 'generator')} id="advanced-information">
                                 <div id="information-block-form">
                                     <div className="form-group">
