@@ -31,6 +31,7 @@
 
 {{ if eq .Type "my-requests" }}
 <script src="{{ "js/my-requests.gen.js" | absURL }}"></script>
+<script>renderMyRequestsWidget();</script>
 {{ end }}
 
 {{ if eq .Type "privacy-controls" }}

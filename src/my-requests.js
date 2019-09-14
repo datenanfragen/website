@@ -11,7 +11,7 @@ export default class UserRequests {
     constructor() {
         // TODO: Is there a better place for this?
         this.localforage_instance = localforage.createInstance({
-            name: 'Datenanfragen.de', // TODO: Use the actual domain here?
+            name: 'Datenanfragen.de',
             storeName: 'my-requests'
         });
     }
@@ -375,4 +375,6 @@ END:VCALENDAR`;
     }
 }
 
-preact.render(<RequestList />, null, document.getElementById('my-requests'));
+window.renderMyRequestsWidget = function() {
+    preact.render(<RequestList />, null, document.getElementById('my-requests'));
+};
