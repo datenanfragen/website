@@ -53,81 +53,75 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.idData = new IdData();
 
+        this.resetInitialConditions();
+    }
+
+    resetInitialConditions = () => {
+        // We always need to initialize the fields…
         initializeFields(this.state.request.id_data).then(res => {
             this.setState(prev => {
-                prev.request.id_data = res.new_fields;
-                prev.request.signature = res.signature;
+                // …if they haven't already been initialized elsewhere.
+                if (!this.state.request.id_data) {
+                    prev.request.id_data = res.new_fields;
+                    prev.request.signature = res.signature;
+                }
+
+                const name = res.new_fields.filter(i => i.type === 'name')[0];
+                const address = res.new_fields.filter(i => i.type === 'address')[0];
+                if (name) prev.request.custom_data.name = name.value;
+                if (address) prev.request.custom_data.sender_address = address.value;
 
                 return prev;
             });
         });
 
-        this.resetInitialConditions();
-    }
+        const response_to = PARAMETERS['response_to'];
+        const response_type = PARAMETERS['response_type'];
 
-    resetInitialConditions = () => {
-        // If we are in batch mode, move to the next company.
+        // We are in batch mode, move to the next company.
         if (this.state.batch && this.state.batch.length > 0) this.setCompanyBySlug(this.state.batch.shift());
+        // This is a response to a previous request (warning or complaint).
+        else if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) && response_to && response_type) {
+            new UserRequests().getRequest(response_to).then(request => {
+                fetch(templateURL(this.state.request.language, response_type))
+                    .then(res => res.text())
+                    .then(text => {
+                        this.setState(prev => {
+                            prev.request.custom_data.content = new Template(text, [], {
+                                request_article: REQUEST_ARTICLES[request.type],
+                                request_date: request.date,
+                                request_recipient_address: request.recipient
+                            }).getText();
 
-        // If this is a response to a previous request (warning or complaint).
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            const response_to = PARAMETERS['response_to'];
-            const response_type = PARAMETERS['response_type'];
-            if (response_to && response_type) {
-                new UserRequests().getRequest(response_to).then(request => {
-                    fetch(templateURL(this.state.request.language, response_type))
-                        .then(res => res.text())
-                        .then(text => {
-                            this.setState(prev => {
-                                prev.request.custom_data.content = new Template(text, [], {
-                                    request_article: REQUEST_ARTICLES[request.type],
-                                    request_date: request.date,
-                                    request_recipient_address: request.recipient
-                                }).getText();
+                            if (response_type === 'admonition') {
+                                // TODO @zner0L: I don't think this is used anywhere.
+                                prev.request.via = request.via;
+                                prev.request.recipient_address = request.recipient;
+                            }
 
-                                if (response_type === 'admonition') {
-                                    // TODO @zner0L: I don't think this is used anywhere.
-                                    prev.request.via = request.via;
-                                    prev.request.recipient_address = request.recipient;
-                                }
+                            prev.request.reference = request.reference;
+                            prev.response_type = response_type;
+                            prev.request.type = 'custom';
+                            prev.response_request = request;
 
-                                prev.request.reference = request.reference;
-                                prev.response_type = response_type;
-                                prev.request.type = 'custom';
-                                prev.response_request = request;
-
-                                return prev;
-                            });
-                            if (response_type === 'admonition' && request.slug) this.setCompanyBySlug(request.slug);
-                            this.renderLetter();
+                            return prev;
                         });
-                });
-
-                if (response_type === 'complaint') this.showAuthorityChooser();
-            }
-        }
-
-        // TODO @zner0L: Shouldn't this be in some kind of `else` block?
-        fetch(templateURL(this.state.request.language, 'access-default'))
-            .then(res => res.text())
-            .then(text => {
-                this.setState({ template_text: text });
-                this.renderLetter();
-
-                initializeFields(this.state.request.id_data).then(res => {
-                    this.setState(prev => {
-                        prev.request.id_data = res.new_fields;
-                        prev.request.signature = res.signature;
-
-                        const name = res.new_fields.filter(i => i.type === 'name')[0];
-                        const address = res.new_fields.filter(i => i.type === 'address')[0];
-                        if (name) prev.request.custom_data.name = name.value;
-                        if (address) prev.request.custom_data.sender_address = address.value;
-
-                        return prev;
+                        if (response_type === 'admonition' && request.slug) this.setCompanyBySlug(request.slug);
+                        this.renderLetter();
                     });
-                });
             });
+
+            if (response_type === 'complaint') this.showAuthorityChooser();
+        }
+        // This is just a regular ol' request.
+        else {
+            fetch(templateURL(this.state.request.language, 'access-default'))
+                .then(res => res.text())
+                .then(text => {
+                    this.setState({ template_text: text });
+                    this.renderLetter();
+                });
+        }
     };
 
     componentDidMount() {
