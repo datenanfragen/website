@@ -1,5 +1,5 @@
 import preact from 'preact';
-import { IntlProvider, Text, MarkupText } from 'preact-i18n';
+import { IntlProvider, MarkupText } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import Request from '../DataType/Request';
 import { defaultFields, trackingFields, templateURL, REQUEST_ARTICLES, initializeFields } from '../Utility/requests';
@@ -11,18 +11,9 @@ import { fetchCompanyDataBySlug } from '../Utility/companies';
 import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import Modal, { showModal, dismissModal } from './Modal';
-import { SavedCompanies } from './Wizard';
 import SvaFinder from './SvaFinder';
 import { download, clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
-
-const HIDE_IN_WIZARD_MODE = [
-    '.search',
-    '.request-type-chooser',
-    '#data-portability',
-    '#advanced-information',
-    '.company-remove'
-];
 
 export default class RequestGeneratorBuilder extends preact.Component {
     constructor(props) {
@@ -46,6 +37,12 @@ export default class RequestGeneratorBuilder extends preact.Component {
             fill_signature: null
         };
 
+        // If specified in the URL, load a single company…
+        if (PARAMETERS['company']) this.setCompanyBySlug(PARAMETERS['company']);
+        // …or multiple ones.
+        const batch_companies = PARAMETERS['companies'];
+        if (batch_companies) this.state.batch = batch_companies.split(',');
+
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             this.request_store = localforage.createInstance({
                 name: 'Datenanfragen.de',
@@ -62,17 +59,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
         });
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.idData = new IdData();
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) this.saved_companies = new SavedCompanies();
-        if (PARAMETERS['from'] === 'wizard') {
-            if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
-                this.saved_companies.getAll().then(companies => {
-                    this.setBatchCompanies(Object.keys(companies));
-                });
-            } else {
-                const batch_companies = PARAMETERS['companies'];
-                if (batch_companies) this.setBatchCompanies(batch_companies.split(','));
-            }
-        }
 
         initializeFields(this.state.request.id_data).then(res => {
             this.setState(prev => {
@@ -82,8 +68,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 return prev;
             });
         });
-
-        if (PARAMETERS['company']) this.setCompanyBySlug(PARAMETERS['company']);
 
         this.resetInitialConditions();
     }
@@ -153,27 +137,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             });
     };
 
-    adjustAccordingToWizardMode() {
-        const is_in_wizard_mode = PARAMETERS['from'] === 'wizard';
-
-        HIDE_IN_WIZARD_MODE.forEach(selector => {
-            document.querySelectorAll(selector).forEach(el => {
-                if (is_in_wizard_mode) el.classList.add('hidden');
-                else el.classList.remove('hidden');
-            });
-        });
-        document.querySelectorAll('.company-info h1').forEach(selector => {
-            selector.style.marginLeft = is_in_wizard_mode ? '0' : '';
-        });
-    }
-
-    componentDidUpdate() {
-        this.adjustAccordingToWizardMode();
-    }
-
     componentDidMount() {
-        this.adjustAccordingToWizardMode();
-
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             const callback = () => {
                 this.idData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
@@ -202,10 +166,11 @@ export default class RequestGeneratorBuilder extends preact.Component {
         );
     }
 
-    setBatchCompanies = companies => {
+    startBatch = companies => {
         this.setState({ batch: companies });
         if (this.state.batch && this.state.batch.length > 0) this.setCompanyBySlug(this.state.batch.shift());
     };
+
     setCompanyBySlug = slug => {
         fetchCompanyDataBySlug(slug, company => {
             this.setCompany(company);
@@ -481,32 +446,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
     };
 
     newRequest() {
-        if (
-            this.state.request.type === 'access' &&
-            Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) &&
-            this.state.suggestion &&
-            this.state.suggestion.slug
-        ) {
-            this.saved_companies.remove(this.state.suggestion.slug);
-        }
-
-        if (PARAMETERS['from'] === 'wizard' && this.state.batch && this.state.batch.length === 0) {
-            // Remove the GET parameters from the URL so this doesn't get triggered again on the next new request and
-            // get the generator out of wizard-mode.
-            clearUrlParameters();
-
-            this.adjustAccordingToWizardMode();
-
-            const modal = showModal(
-                <Modal
-                    positiveText={t('ok', 'generator')}
-                    onPositiveFeedback={() => dismissModal(modal)}
-                    positiveDefault={true}
-                    onDismiss={() => dismissModal(modal)}>
-                    <Text id="wizard-done-modal" />
-                </Modal>
-            );
-        }
+        if (this.props.newRequestHook) this.props.newRequestHook(this);
 
         // Remove GET parameter-selected company from the URL after the request is finished.
         // Also remove warning and complaint GET parameters from the URL after the request is finished.
