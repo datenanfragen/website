@@ -4,6 +4,7 @@ import t from 'Utility/i18n';
 import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
 import { rethrow } from './Utility/errors';
+import { hash } from './Utility/common';
 import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
 
 export default class UserRequests {
@@ -373,13 +374,3 @@ END:VCALENDAR`;
 }
 
 preact.render(<RequestList />, null, document.getElementById('my-requests'));
-
-// Adapted after: https://stackoverflow.com/a/15710692
-function hash(s) {
-    return window.btoa(
-        s.split('').reduce(function(a, b) {
-            a = (a << 5) - a + b.charCodeAt(0);
-            return a & a;
-        }, 0)
-    );
-}
