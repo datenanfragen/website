@@ -340,7 +340,9 @@ DTSTART:${reminder_date
                 .replace(/-/g, '')
                 .substring(0, 8)}
 SUMMARY:${t('ics-summary', 'my-requests')}
-DESCRIPTION:${t('ics-desc', 'my-requests')}\\n\\n\n ${items.join('\\n\n ')}
+DESCRIPTION:${t('ics-desc', 'my-requests').replace(/([,;])/g, '\\$1')}\\n\\n\n ${items
+                .join('\\n\n ')
+                .replace(/([,;])/g, '\\$1')}
 BEGIN:VALARM
 TRIGGER:+PT720M
 ACTION:DISPLAY
@@ -356,7 +358,7 @@ PRODID:-//Datenanfragen.de e. V.//${t('ics-title', 'my-requests')}//${t('ics-lan
 X-WR-CALNAME:${t('ics-title', 'my-requests')} (${new Date().toISOString().substring(0, 10)})${events}
 END:VCALENDAR`;
 
-        return new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        return new Blob([ics.split('\n').join('\r\n')], { type: 'text/calendar;charset=utf-8' });
     }
 
     clearRequests() {
