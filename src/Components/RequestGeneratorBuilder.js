@@ -8,12 +8,12 @@ import { slugify, PARAMETERS } from '../Utility/common';
 import IdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utility/IdData';
 import replacer_factory from '../Utility/request-generator-replacers';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
-import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import Modal, { showModal, dismissModal } from './Modal';
 import SvaFinder from './SvaFinder';
 import { download, clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
+import UserRequests from '../my-requests';
 
 export default class RequestGeneratorBuilder extends preact.Component {
     constructor(props) {
@@ -42,13 +42,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
         // …or multiple ones.
         const batch_companies = PARAMETERS['companies'];
         if (batch_companies) this.state.batch = batch_companies.split(',');
-
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            this.request_store = localforage.createInstance({
-                name: 'Datenanfragen.de',
-                storeName: 'my-requests'
-            });
-        }
 
         this.letter = new RequestLetter({}, (blob_url, filename) => {
             this.setState({
@@ -81,7 +74,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             const response_to = PARAMETERS['response_to'];
             const response_type = PARAMETERS['response_type'];
             if (response_to && response_type) {
-                this.request_store.getItem(response_to).then(request => {
+                new UserRequests().getRequest(response_to).then(request => {
                     fetch(templateURL(this.state.request.language, response_type))
                         .then(res => res.text())
                         .then(text => {

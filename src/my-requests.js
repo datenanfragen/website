@@ -16,6 +16,10 @@ export default class UserRequests {
         });
     }
 
+    getRequest(db_id) {
+        return this.localforage_instance.getItem(db_id);
+    }
+
     getRequests() {
         let requests = {};
         return new Promise((resolve, reject) => {
