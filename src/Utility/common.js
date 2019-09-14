@@ -12,6 +12,10 @@ export function slugify(text) {
         .replace(/-+$/, ''); // Trim - from end of text
 }
 
+export function fakeEvt(value) {
+    return { target: { value } };
+}
+
 // Adapted after: https://stackoverflow.com/a/8498629
 export function domainFromUrl(url) {
     if (!url) return;
