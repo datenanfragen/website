@@ -51,6 +51,11 @@
 <script>renderSvaFinder();</script>
 {{ end }}
 
+{{ if eq .Type "act" }}
+<script src="{{ "js/act-widget.gen.js" | absURL }}"></script>
+<script>renderActWidget();</script>
+{{ end }}
+
 {{ if .IsHome }}
 <script src="{{ "js/home.gen.js" | absURL }}"></script>
 {{ end }}
