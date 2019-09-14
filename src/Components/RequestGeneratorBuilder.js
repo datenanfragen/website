@@ -404,12 +404,10 @@ export default class RequestGeneratorBuilder extends preact.Component {
             sender.country
         ];
         if (this.state.request.type === 'custom') {
-            const signature = this.state.request.signature;
-            signature.name = this.state.request.custom_data.name;
             this.letter.setProps({
                 subject: this.state.request.custom_data.subject,
                 content: this.state.request.custom_data.content,
-                signature: signature,
+                signature: { ...this.state.request.signature, name: this.state.request.custom_data.name },
                 recipient_address: this.state.request.recipient_address,
                 sender_address: sender_address,
                 information_block: RequestLetter.makeInformationBlock(this.state.request),

@@ -99,9 +99,12 @@ export default class IdData {
 
     // returns Promise
     getSignature() {
-        return this.localforage_instance.getItem('::signature').catch(error => {
-            rethrow(error, 'Could not retrieve signature.');
-        });
+        return this.localforage_instance
+            .getItem('::signature')
+            .then(s => s || { type: 'text', value: '' })
+            .catch(error => {
+                rethrow(error, 'Could not retrieve signature.');
+            });
     }
 
     getAllFixed() {
