@@ -8,6 +8,20 @@
     {{ $updated_date = . }}
 {{ end }}
 
+<!-- Much elegance. Such wow. -->
+{{ $title := "" }}
+{{ if .Params._title }}
+    {{ $title = .Params._title }}
+{{ else }}
+    {{ if .Title }}
+		{{ $title = .Title }}
+	{{ else if .Params.name }}
+		{{ $title = .Params.name }}
+	{{ end }}
+	{{ $title = (printf "%s%s%s" $title " · " .Site.Title) }}
+{{ end }}
+
+
 {{ if .Site.RSSLink -}}
 <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 <link href="{{ .Site.RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
@@ -20,7 +34,7 @@
 <link rel="canonical" href="{{ .Permalink }}">
 
 <!-- Schema.org -->
-<meta itemprop="name" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
+<meta itemprop="name" content="{{ $title }}">
 <meta itemprop="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
 {{ with .Params.tags }}<meta itemprop="keywords" content="{{ delimit (first 6 .) ", " }}" />{{ end }}
 {{ with .Params.featuredImage }}<meta itemprop="image" content="{{ . | absURL }}">{{ end }}
@@ -29,7 +43,7 @@
 
 <!-- Open Graph -->
 <meta property="og:locale" content="{{ .Site.LanguageCode }}">
-<meta property="og:title" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
+<meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
 <meta property="og:type" content="article">
 <meta property="og:updated_time" content="{{ dateFormat "2006-01-02T15:04:05" $updated_date }}">
@@ -53,7 +67,7 @@
 <meta name="twitter:card" content="summary">
 {{- end }}
 
-<meta name="twitter:title" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
+<meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
 <meta name="twitter:site" content="@Datenanfragen">
 <meta name="twitter:creator" content="@Datenanfragen">
