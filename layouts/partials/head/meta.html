@@ -21,6 +21,11 @@
 	{{ $title = (printf "%s%s%s" $title " · " .Site.Title) }}
 {{ end }}
 
+{{ $authors := "" }}
+{{ with .Params.authors }}
+	{{ $authors = delimit (apply (apply . "index" $.Site.Params.authors ".") "index" "." "byline") ", " (T "blog-and") }}
+{{ end }}
+
 
 {{ if .Site.RSSLink -}}
 <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
@@ -29,7 +34,7 @@
 {{ hugo.Generator }}
 
 <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
-{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+{{ if .Site.Params.authors }}<meta name="author" content="{{ $authors }}">{{ end }}
 
 <link rel="canonical" href="{{ .Permalink }}">
 
@@ -38,7 +43,7 @@
 <meta itemprop="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
 {{ with .Params.tags }}<meta itemprop="keywords" content="{{ delimit (first 6 .) ", " }}" />{{ end }}
 {{ with .Params.featuredImage }}<meta itemprop="image" content="{{ . | absURL }}">{{ end }}
-{{ with .Params.author }}<meta itemprop="author" content="{{ . }}">{{ end }}
+{{ if .Params.authors }}<meta itemprop="author" content="{{ $authors }}">{{ end }}
 <meta itemprop="datePublished" content="{{ dateFormat "2006-01-02" $date }}">
 
 <!-- Open Graph -->
