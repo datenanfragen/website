@@ -1,12 +1,31 @@
 {{ $date := .Date }}
 {{ with .Params.date }}
-	{{ $date := . }}
+    {{ $date := . }}
 {{ end }}
 
 {{ $updated_date := $date }}
 {{ with .Params.last_edited }}
-	{{ $updated_date := . }}
+    {{ $updated_date = . }}
 {{ end }}
+
+<!-- Much elegance. Such wow. -->
+{{ $title := "" }}
+{{ if .Params._title }}
+    {{ $title = .Params._title }}
+{{ else }}
+    {{ if .Title }}
+		{{ $title = .Title }}
+	{{ else if .Params.name }}
+		{{ $title = .Params.name }}
+	{{ end }}
+	{{ $title = (printf "%s%s%s" $title " · " .Site.Title) }}
+{{ end }}
+
+{{ $authors := "" }}
+{{ with .Params.authors }}
+	{{ $authors = delimit (apply (apply . "index" $.Site.Params.authors ".") "index" "." "byline") ", " (T "blog-and") }}
+{{ end }}
+
 
 {{ if .Site.RSSLink -}}
 <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
@@ -15,21 +34,21 @@
 {{ hugo.Generator }}
 
 <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
-{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+{{ if .Site.Params.authors }}<meta name="author" content="{{ $authors }}">{{ end }}
 
 <link rel="canonical" href="{{ .Permalink }}">
 
 <!-- Schema.org -->
-<meta itemprop="name" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
+<meta itemprop="name" content="{{ $title }}">
 <meta itemprop="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
 {{ with .Params.tags }}<meta itemprop="keywords" content="{{ delimit (first 6 .) ", " }}" />{{ end }}
 {{ with .Params.featuredImage }}<meta itemprop="image" content="{{ . | absURL }}">{{ end }}
-{{ with .Params.author }}<meta itemprop="author" content="{{ . }}">{{ end }}
+{{ if .Params.authors }}<meta itemprop="author" content="{{ $authors }}">{{ end }}
 <meta itemprop="datePublished" content="{{ dateFormat "2006-01-02" $date }}">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="{{ .Site.LanguageCode }}">
-<meta property="og:title" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
+<meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
 <meta property="og:type" content="article">
 <meta property="og:updated_time" content="{{ dateFormat "2006-01-02T15:04:05" $updated_date }}">
@@ -41,19 +60,17 @@
 <meta property="article:tag" content="{{ . }}" />
 {{ end }}{{ end }}
 {{ with .Params.featured_image }}<meta property="og:image" content="{{ . | absURL }}">
-<meta property="og:image:width" content="833">
-<meta property="og:image:height" content="436"> <!-- not the real values unfortunately but we don't seem to have a way to get that easily -->
 {{ end }}
 
 <!-- Twitter cards -->
-{{- with .Params.featuredImage }}
+{{- with .Params.featured_image }}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- else }}
 <meta name="twitter:card" content="summary">
 {{- end }}
 
-<meta name="twitter:title" content="{{ if .Title}}{{ .Title }}{{ else if .Params.name}}{{ .Params.name }}{{ end }} &middot; {{ .Site.Title }}">
+<meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
 <meta name="twitter:site" content="@Datenanfragen">
 <meta name="twitter:creator" content="@Datenanfragen">

@@ -8,8 +8,8 @@
 
     <title>
         {{- block "title" . -}}
-        {{ if .Title }}{{ .Title }}{{ else if .Params.name }}{{ .Params.name }}{{ end }}{{ if not .IsHome }} &middot;
-        {{ .Site.Title }}{{ end }}
+        {{ if .Params._title }}{{ .Params._title }}{{ else }}{{ if .Title }}{{ .Title }}{{ else if .Params.name }}{{ .Params.name }}{{ end }}
+        · {{ .Site.Title }}{{ end }}
         {{- end -}}
     </title>
 
@@ -36,6 +36,7 @@
 
     {{ partial "head/meta.html" . }}
     {{ partial "head/favicons.html" . }}
+    {{ block "head" . }}{{ end }}
 </head>
 
 <body>
