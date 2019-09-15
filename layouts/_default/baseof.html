@@ -36,6 +36,7 @@
 
     {{ partial "head/meta.html" . }}
     {{ partial "head/favicons.html" . }}
+    {{ block "head" . }}{{ end }}
 </head>
 
 <body>
