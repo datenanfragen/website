@@ -1,11 +1,11 @@
 {{ $date := .Date }}
 {{ with .Params.date }}
-	{{ $date := . }}
+    {{ $date := . }}
 {{ end }}
 
 {{ $updated_date := $date }}
 {{ with .Params.last_edited }}
-	{{ $updated_date := . }}
+    {{ $updated_date = . }}
 {{ end }}
 
 {{ if .Site.RSSLink -}}
