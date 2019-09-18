@@ -128,8 +128,8 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "identifier": "{{ .Params.slug }}",
-  "name": "{{ .Params.name }}",
-  {{ with .Params.address}}"address": "{{ replace . "\n" ", " }}",{{ end }}
+  "name": {{ .Params.name }},
+  {{ with .Params.address}}"address": {{ replace . "\n" ", " }},{{ end }}
   {{ with .Params.runs }}
   "brand": [
     {{- /* see https://discourse.gohugo.io/t/howto-delimiter-separated-tags/146 */ -}}
@@ -137,19 +137,19 @@
         {{ if $i }}, {{ end }}
         {
             "@type": "Brand",
-            "name": "{{ . }}"
+            "name": {{ . }}
         }
     {{ end }}
   ],
   {{ end }}
-  {{ with .Params.web }}"url": "{{ . }}",{{ end }}
+  {{ with .Params.web }}"url": {{ . }},{{ end }}
   {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
   "contactPoint": {
     "@type": "ContactPoint",
-    {{ with .Params.phone }}"telephone": "{{ . | safeHTML }}",{{ end }}
-    {{ with .Params.fax }}"faxNumber": "{{ . | safeHTML }}",{{ end }}
-    {{ with .Params.web }}"url": "{{ . }}",{{ end }}
-    {{ with .Params.email }}"email": "{{ . }}",{{ end }}
+    {{ with .Params.phone }}"telephone": {{ . }},{{ end }}
+    {{ with .Params.fax }}"faxNumber": {{ .  }},{{ end }}
+    {{ with .Params.web }}"url": {{ . }},{{ end }}
+    {{ with .Params.email }}"email": {{ . }},{{ end }}
     "contactType": "customer support"
   }
   {{ end }}
