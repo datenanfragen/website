@@ -1,28 +1,28 @@
-$primary-color: #003bff;
-$primary-lighter-color: #009dff;
-$primary-darker-color: #002cc0;
-$accent-color: #01ddbb;
-$accent-lighter-color: #66ffe6;
-$accent-darker-color: #00b095;
-$bg-color: #ffffff;
-$bg-accent-color: #f0f7ff;
-$gray-color: #f0f0f0;
-$gray-lighter-color: #f9f9f9;
-$gray-darker-color: #696969;
+@import 'color-palette';
 
-$error-color: #d8000c;
-$warning-color: #ffc107;
-$info-color: #bde5f8;
-$success-color: #bcf421;
+$primary-color: $blue-700;
+$primary-lighter-color: $blue-500;
+$primary-darker-color: $blue-900;
+$accent-color: $teal-700;
+$accent-lighter-color: $teal-500;
+$accent-darker-color: $teal-900;
+$bg-color: $gray-100;
+$bg-accent-color: $blue-100;
+$gray-color: $gray-400;
+$gray-lighter-color: $gray-200;
+$gray-darker-color: $gray-600;
 
-$text-color: #333;
+$error-color: $red-600;
+$warning-color: $orange-400;
+$info-color: $blue-200;
+$success-color: $green-300;
+
+$text-color: $gray-800;
 
 $heading-font: 'League Spartan', Helvetica, sans-serif;
 $body-font: 'Fira Sans', Helvetica, sans-serif;
 
 $font-size: 16px;
-
-$shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
 $max-width: 980px;
 
@@ -58,4 +58,25 @@ $text-inputs: 'input[type=search], input[type=text], input[type=email], input[ty
     @media (min-width: $max-width) {
         @content;
     }
+}
+
+// Taken from: https://www.sitepoint.com/hsb-colors-with-sass/
+@function hsb($h-hsb, $s-hsb, $b-hsb, $a: 1) {
+    @if $b-hsb == 0 {
+        @return hsla(0, 0, 0, $a);
+    } @else {
+        $l-hsl: ($b-hsb/2) * (2 - ($s-hsb/100));
+        $s-hsl: ($b-hsb * $s-hsb) / if($l-hsl < 50, $l-hsl * 2, 200 - $l-hsl * 2);
+        @return hsla($h-hsb, $s-hsl, $l-hsl, $a);
+    }
+}
+
+// Taken from: http://www.sassmeister.com/gist/1b4f2da5527830088e4d
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
 }

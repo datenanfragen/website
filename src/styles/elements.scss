@@ -18,7 +18,7 @@
     &:hover,
     &:focus {
         background-color: $primary-darker-color;
-        color: #fff !important;
+        color: $gray-lighter-color !important;
         border: 2px solid $primary-darker-color;
     }
 
@@ -43,7 +43,7 @@
 .button-primary,
 a.button-primary {
     background-color: $primary-color;
-    color: #fff !important;
+    color: $gray-lighter-color !important;
 
     &.disabled,
     &:disabled {
@@ -95,17 +95,25 @@ input::placeholder,
 textarea::placeholder {
     color: $gray-darker-color;
 }
+// On the off chance that this might not *immediately* be obvious to everyone: Our colors are defined as HSB and run
+// through a function that converts them to HSL. Sass then (not so) helpfully converts them to hex for us.
+// Unfortunately, we are using a data URL here and a `#` in a URL is a fragment identifier. Now, most browsers
+// apparently still produce the expected result—except Firefox (see: https://codepen.io/gunnarbittersmann/pen/BoovjR). I
+// mean, good on you for adhering to the spec. But still. Come on.
+// Anyway, that is why we are URL-encoding the `#` here (inspired by: https://codepen.io/kevinweber/pen/dXWoRw).
+$required-asterisk-svg: str-replace(
+    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='" +
+        $accent-color + "' font-size='20' font-family='Fira Sans'>*</text></svg>",
+    '#',
+    '%23'
+);
 input:required {
-    background: #ffffff
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='rgb(111, 221, 204)' font-size='20' font-family='Fira Sans'>*</text></svg>")
-        no-repeat right;
+    background: $bg-color url($required-asterisk-svg) no-repeat right;
     padding-right: 20px;
     box-shadow: none !important;
 }
 textarea:required {
-    background: #ffffff
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='rgb(111, 221, 204)' font-size='20' font-family='Fira Sans'>*</text></svg>")
-        no-repeat;
+    background: $bg-color url($required-asterisk-svg) no-repeat;
     background-position: top 12px right 0;
     box-shadow: none !important;
 }
@@ -125,7 +133,6 @@ input:disabled {
 
 .box {
     box-sizing: border-box;
-    /*box-shadow: 0 3px 40px rgba(0, 0, 0, 0.2);*/
     border: 4px solid $primary-color;
     border-radius: 2px;
     padding: 20px;
@@ -166,7 +173,7 @@ input:disabled {
         -moz-appearance: none;
         padding-right: 30px;
         width: 100%;
-        background-color: #ffffff;
+        background-color: $bg-color;
     }
 
     .icon {
@@ -263,8 +270,7 @@ input[type='checkbox'].form-element {
 input[type='search'].aa-input-search {
     padding: 12px 28px 12px 12px;
     width: 100%;
-    background-color: #ffffff;
-    /* box-shadow: $shadow; */
+    background-color: $bg-color;
     border: 4px solid $primary-color;
     border-radius: 2px;
 
@@ -275,8 +281,8 @@ input[type='search'].aa-input-search {
     }
 }
 .aa-dropdown-menu {
-    background-color: #fff;
-    border: 1px solid rgba(228, 228, 228, 0.6);
+    background-color: $bg-color;
+    border: 1px solid $gray-300;
     width: 100%;
     box-sizing: border-box;
 }
@@ -284,15 +290,15 @@ input[type='search'].aa-input-search {
     padding: 12px;
     cursor: pointer;
     & + .aa-suggestion {
-        border-top: 1px solid rgba(228, 228, 228, 0.6);
+        border-top: 1px solid $gray-300;
     }
     &:last-of-type {
-        border-bottom: 1px solid rgba(228, 228, 228, 0.6);
+        border-bottom: 1px solid $gray-300;
     }
     &:hover,
     &:focus,
     &.aa-cursor {
-        background-color: rgba(241, 241, 241, 0.35);
+        background-color: $blue-100;
     }
 
     & mark {
@@ -330,8 +336,8 @@ input[type='search'].aa-input-search {
         padding: 20px;
         padding-top: 35px;
         transform: translate(-50%, -50%);
-        background: #fff;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        background: $bg-color;
+        box-shadow: 0 10px 30px $gray-700;
         animation: in 300ms ease forwards 1;
         overflow-y: auto;
         max-height: 95vh;
@@ -614,7 +620,7 @@ fieldset.rating {
     white-space: nowrap;
     font-size: 250%;
     margin-top: -15px;
-    color: #ddd;
+    color: $gray-400;
 
     &.editable {
         cursor: pointer;

@@ -1,0 +1,21 @@
+@import 'variables';
+
+/* stylelint-disable */
+:export {
+    primary-color: $primary-color;
+    primary-lighter-color: $primary-lighter-color;
+    primary-darker-color: $primary-darker-color;
+    accent-color: $accent-color;
+    accent-lighter-color: $accent-lighter-color;
+    accent-darker-color: $accent-darker-color;
+    bg-color: $bg-color;
+    bg-accent-color: $bg-accent-color;
+    gray-color: $gray-color;
+    gray-lighter-color: $gray-lighter-color;
+    gray-darker-color: $gray-darker-color;
+    error-color: $error-color;
+    warning-color: $warning-color;
+    info-color: $info-color;
+    success-color: $success-color;
+    text-color: $text-color;
+}

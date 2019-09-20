@@ -131,6 +131,11 @@ textarea:placeholder-shown + label.fancy-label {
         display: none;
         width: 100% !important;
     }
+
+    .canvas-blocked-overlay {
+        background-color: $gray-700;
+        color: $gray-200;
+    }
 }
 
 /* PDF viewer (not exactly accurate anymore, is it? :D) */
