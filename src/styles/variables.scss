@@ -1,23 +1,16 @@
 @import 'color-palette';
 
-$primary-color: $blue-700;
-$primary-lighter-color: $blue-500;
-$primary-darker-color: $blue-900;
-$accent-color: $teal-700;
-$accent-lighter-color: $teal-500;
-$accent-darker-color: $teal-900;
 $bg-color: $gray-100;
+$text-color: $gray-800;
+
+$primary-color: $blue-700;
+$accent-color: $teal-700;
 $bg-accent-color: $blue-100;
-$gray-color: $gray-400;
-$gray-lighter-color: $gray-200;
-$gray-darker-color: $gray-600;
 
 $error-color: $red-600;
 $warning-color: $orange-400;
 $info-color: $blue-200;
 $success-color: $green-300;
-
-$text-color: $gray-800;
 
 $heading-font: 'League Spartan', Helvetica, sans-serif;
 $body-font: 'Fira Sans', Helvetica, sans-serif;

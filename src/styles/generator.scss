@@ -106,7 +106,7 @@ textarea:placeholder-shown + label.fancy-label {
                 display: table-row;
 
                 .fill-field-value {
-                    color: $gray-darker-color;
+                    color: $gray-700;
                 }
 
                 .button {
@@ -201,7 +201,7 @@ textarea:placeholder-shown + label.fancy-label {
 
 .button.button-secondary.dynamic-input-primaryButton[data-isprimary='true'] {
     background: $primary-color;
-    color: $gray-color !important;
+    color: $bg-color !important;
 }
 
 #tagxplanation {

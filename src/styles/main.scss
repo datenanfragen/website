@@ -80,18 +80,15 @@ a #logo {
         }
     }
 
-    a.menu-link {
-        color: $primary-lighter-color;
+    a.menu-link,
+    a.menu-link:visited {
+        color: $blue-600;
         margin-left: 20px;
-
-        &:visited {
-            color: $primary-lighter-color;
-        }
 
         &:hover,
         &:focus,
         &:active {
-            color: $primary-color;
+            color: $blue-800;
         }
     }
 }
@@ -341,7 +338,6 @@ table#my-requests-table {
 
     tr {
         background-color: $bg-accent-color;
-        border: 1px solid $gray-color;
 
         &:nth-child(even) {
             background-color: $bg-color;
@@ -457,12 +453,12 @@ table#my-requests-table {
 
             &:hover,
             &:focus {
-                color: $primary-darker-color;
+                color: $blue-900;
             }
         }
 
         aside {
-            color: $gray-darker-color;
+            color: $gray-700;
         }
     }
 
@@ -558,7 +554,7 @@ body.sticky-offset {
 }
 
 .company-summary {
-    color: $gray-darker-color;
+    color: $gray-700;
 
     h1 {
         font-size: 23px;
@@ -666,16 +662,14 @@ footer {
         }
     }
 
-    a {
-        color: $primary-lighter-color;
-        &:visited {
-            color: $primary-lighter-color;
-        }
+    a,
+    a:visited {
+        color: $blue-600;
 
         &:active,
         &:focus,
         &:hover {
-            color: $primary-color;
+            color: $blue-800;
         }
     }
 }
@@ -688,7 +682,7 @@ button.joyride-tooltip__button {
     &:focus {
         border: none;
         background-color: inherit;
-        color: $primary-darker-color !important;
+        color: $blue-900 !important;
     }
 }
 button.joyride-tooltip__button--primary {
@@ -696,14 +690,14 @@ button.joyride-tooltip__button--primary {
 
     &:hover,
     &:focus {
-        background-color: $primary-darker-color;
+        background-color: $blue-900;
         color: $bg-color !important;
     }
 }
 button.joyride-tooltip__button--skip {
     &:hover,
     &:focus {
-        color: $gray-darker-color !important;
+        color: $gray-600 !important;
     }
 }
 
