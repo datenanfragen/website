@@ -506,6 +506,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
     }
 }
 
+// If we need to add more placeholders in the future, their names also need to be added to the Webpack MinifyPlugin's
+// mangle exclude list.
 export class ActionButtonPlaceholder extends preact.Component {}
 export class NewRequestButtonPlaceholder extends preact.Component {}
 export class CompanySelectorPlaceholder extends preact.Component {}

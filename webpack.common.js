@@ -89,7 +89,21 @@ module.exports = {
         ]
     },
     plugins: [
-        new MinifyPlugin(),
+        new MinifyPlugin({
+            mangle: {
+                exclude: {
+                    ActionButtonPlaceholder: true,
+                    NewRequestButtonPlaceholder: true,
+                    CompanySelectorPlaceholder: true,
+                    RequestFormPlaceholder: true,
+                    DynamicInputContainerPlaceholder: true,
+                    SignatureInputPlaceholder: true,
+                    RequestTypeChooserPlaceholder: true,
+                    RecipientInputPlaceholder: true,
+                    TransportMediumChooserPlaceholder: true
+                }
+            }
+        }),
 
         new MiniCssExtractPlugin({
             filename: 'css/[name].gen.css'
