@@ -37,7 +37,7 @@ export default class TransportMediumChooser extends preact.Component {
                             label={t('letter', 'generator')}
                         />
                     </div>
-                </div>{' '}
+                </div>
             </IntlProvider>
         );
     }
