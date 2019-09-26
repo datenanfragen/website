@@ -1,11 +1,13 @@
 import preact from 'preact';
 import DynamicInputContainer from './DynamicInputContainer';
 import SignatureInput from './SignatureInput';
-import { MarkupText, Text } from 'preact-i18n';
-import t from '../Utility/i18n';
+import { MarkupText, Text, IntlProvider } from 'preact-i18n';
+import t from '../../Utility/i18n';
 import { AddressControl } from './DynamicInput';
-import Accordion from '../Components/Accordion';
-import Radio from '../Components/Radio';
+import Accordion from '../Accordion';
+import RequestTypeChooser from './RequestTypeChooser';
+import RecipientInput from './RecipientInput';
+import TransportMediumChooser from './TransportMediumChooser';
 
 export default class RequestForm extends preact.Component {
     render() {
@@ -156,152 +158,77 @@ export default class RequestForm extends preact.Component {
             );
 
         return (
-            <div className="request-form">
-                <div className="col50" style="margin-right: 20px;">
-                    <div className="request-parameters box" style="margin-bottom: 20px;">
-                        <h2>
-                            <Text id="request-parameters" />
-                        </h2>
-
-                        <div className="request-type-chooser">
-                            <Text id="request-type" />
-                            <br />
-                            <div className="radio-group radio-group-vertical">
-                                <Radio
-                                    id="request-type-choice-access"
-                                    radio_variable={this.props.request_data['type']}
-                                    value="access"
-                                    name="request-type"
-                                    onChange={this.props.onTypeChange}
-                                    label={t('access-request', 'generator')}
-                                />
-                                <Radio
-                                    id="request-type-choice-erasure"
-                                    radio_variable={this.props.request_data['type']}
-                                    value="erasure"
-                                    name="request-type"
-                                    onChange={this.props.onTypeChange}
-                                    label={t('erasure-request', 'generator')}
-                                />
-                                <Radio
-                                    id="request-type-choice-rectification"
-                                    radio_variable={this.props.request_data['type']}
-                                    value="rectification"
-                                    name="request-type"
-                                    onChange={this.props.onTypeChange}
-                                    label={t('rectification-request', 'generator')}
-                                />
-                                <Radio
-                                    id="request-type-choice-custom"
-                                    radio_variable={this.props.request_data['type']}
-                                    value="custom"
-                                    name="request-type"
-                                    onChange={this.props.onTypeChange}
-                                    label={t('own-request', 'generator')}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
-                            <Text id="recipient-explanation" />
-                            <br />
-                            <textarea
-                                id="request-recipient"
-                                className="form-element"
-                                placeholder={t('recipient', 'generator')}
-                                rows="4"
-                                spellCheck="false"
-                                onChange={event => {
-                                    this.props.onChange({ recipient_address: event.target.value });
-                                }}
-                                value={this.props.request_data['recipient_address']}
+            <IntlProvider scope="generator" definition={I18N_DEFINITION}>
+                <div className="request-form">
+                    <div className="col50" style="margin-right: 20px;">
+                        <div className="request-parameters box" style="margin-bottom: 20px;">
+                            <h2>
+                                <Text id="request-parameters" />
+                            </h2>
+                            <RequestTypeChooser
+                                onTypeChange={this.props.onTypeChange}
+                                current={this.props.request_data['type']}
                             />
-                            <label className="sr-only" htmlFor="request-recipient">
-                                <Text id="recipient" />
-                            </label>
-                            <input type="hidden" id="request-template" value="default" />
-                        </div>
 
-                        <div className="request-transport-medium-chooser">
-                            <Text id="request-transport-medium" />
-                            <br />
-                            <div className="radio-group">
-                                <Radio
-                                    id="request-transport-medium-choice-fax"
-                                    radio_variable={this.props.request_data['transport_medium']}
-                                    value="fax"
-                                    name="transport-medium"
-                                    onChange={this.props.onTransportMediumChange}
-                                    label={t('fax', 'generator')}
-                                />
-                                <Radio
-                                    id="request-transport-medium-choice-email"
-                                    radio_variable={this.props.request_data['transport_medium']}
-                                    value="email"
-                                    name="transport-medium"
-                                    onChange={this.props.onTransportMediumChange}
-                                    label={t('email', 'generator')}
-                                />
-                                <Radio
-                                    id="request-transport-medium-choice-letter"
-                                    radio_variable={this.props.request_data['transport_medium']}
-                                    value="letter"
-                                    name="transport-medium"
-                                    onChange={this.props.onTransportMediumChange}
-                                    label={t('letter', 'generator')}
-                                />
-                            </div>
-                        </div>
+                            <RecipientInput
+                                onChange={e => this.props.onChange({ recipient_address: e.target.value })}
+                                recipientAddress={this.props.request_data.recipient_address}
+                            />
 
-                        {this.renderFlags()}
+                            <TransportMediumChooser
+                                transportMedium={this.props.request_data.transport_medium}
+                                onChange={this.props.onTransportMediumChange}
+                            />
 
-                        <Accordion title={t('information-block', 'generator')} id="advanced-information">
-                            <div id="information-block-form">
-                                <div className="form-group">
-                                    <label htmlFor="request-date">
-                                        <Text id="request-date" />
-                                    </label>
-                                    <input
-                                        name="request-date"
-                                        type="date"
-                                        id="request-date"
+                            {this.renderFlags()}
+                            <Accordion title={t('information-block', 'generator')} id="advanced-information">
+                                <div id="information-block-form">
+                                    <div className="form-group">
+                                        <label htmlFor="request-date">
+                                            <Text id="request-date" />
+                                        </label>
+                                        <input
+                                            name="request-date"
+                                            type="date"
+                                            id="request-date"
+                                            className="form-element"
+                                            onChange={e => this.props.onChange({ date: e.target.value })}
+                                            value={this.props.request_data['date']}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="reference">
+                                            <Text id="reference" />
+                                        </label>
+                                        <input
+                                            name="reference"
+                                            type="text"
+                                            id="reference"
+                                            className="form-element readonly"
+                                            value={this.props.request_data['reference']}
+                                            readOnly
+                                        />
+                                    </div>
+                                    <textarea
+                                        id="information-block"
                                         className="form-element"
-                                        onChange={e => this.props.onChange({ date: e.target.value })}
-                                        value={this.props.request_data['date']}
+                                        placeholder={t('information-block', 'generator')}
+                                        rows="4"
+                                        spellCheck="true"
+                                        onChange={e => this.props.onChange({ information_block: e.target.value })}
+                                        value={this.props.request_data['information_block']}
                                     />
                                 </div>
-                                <div className="form-group">
-                                    <label htmlFor="reference">
-                                        <Text id="reference" />
-                                    </label>
-                                    <input
-                                        name="reference"
-                                        type="text"
-                                        id="reference"
-                                        className="form-element readonly"
-                                        value={this.props.request_data['reference']}
-                                        readOnly
-                                    />
-                                </div>
-                                <textarea
-                                    id="information-block"
-                                    className="form-element"
-                                    placeholder={t('information-block', 'generator')}
-                                    rows="4"
-                                    spellCheck="true"
-                                    onChange={e => this.props.onChange({ information_block: e.target.value })}
-                                    value={this.props.request_data['information_block']}
-                                />
-                            </div>
-                        </Accordion>
+                            </Accordion>
+                        </div>
+                        {this.props.children}
                     </div>
-                    {this.props.children}
-                </div>
 
-                <div className="col50">
-                    <div className="box">{body}</div>
+                    <div className="col50">
+                        <div className="box">{body}</div>
+                    </div>
                 </div>
-            </div>
+            </IntlProvider>
         );
     }
 

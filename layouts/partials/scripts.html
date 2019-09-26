@@ -31,6 +31,7 @@
 
 {{ if eq .Type "my-requests" }}
 <script src="{{ "js/my-requests.gen.js" | absURL }}"></script>
+<script>renderMyRequestsWidget();</script>
 {{ end }}
 
 {{ if eq .Type "privacy-controls" }}
@@ -48,6 +49,11 @@
 {{ if eq .Type "supervisory-authorities" }}
 <script src="{{ "js/sva-finder.gen.js" | absURL }}"></script>
 <script>renderSvaFinder();</script>
+{{ end }}
+
+{{ if eq .Type "act" }}
+<script src="{{ "js/act-widget.gen.js" | absURL }}"></script>
+<script>renderActWidget();</script>
 {{ end }}
 
 {{ if .IsHome }}

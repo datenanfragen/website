@@ -1,7 +1,7 @@
 import preact from 'preact';
 import DynamicInput from './DynamicInput';
-import { Text } from 'preact-i18n';
-import t from '../Utility/i18n';
+import { Text, IntlProvider } from 'preact-i18n';
+import t from '../../Utility/i18n';
 
 export default class DynamicInputContainer extends preact.Component {
     constructor(props) {
@@ -58,9 +58,13 @@ export default class DynamicInputContainer extends preact.Component {
                     onPrimaryChange={this.handleInputChange}
                     value={field.value}
                     onAction={this.props.onAction}
+                    allowRemoving={this.props.allowRemovingFields}
+                    allowChangingDescription={this.props.allowChangingFieldDescriptions}
                 />
             );
         }
+        // As this is at least the second time I have struggled to remember this: This is the button next to the 'add
+        // new field' menu which allows you to add fields you have defined in the 'My saved data' section.
         let fill_fields = [];
         if (this.props.fillFields)
             this.props.fillFields.forEach(field => {
@@ -90,51 +94,59 @@ export default class DynamicInputContainer extends preact.Component {
                 );
             });
         return (
-            <div className="dynamic-input-container">
-                <h2>{this.props.title}</h2>
-                {this.props.children}
-                <div id={'request-dynamic-input-' + this.props.id}>{input_elements}</div>
-                <div className="dynamic-input-controls">
-                    <Text id="add-dynamic-input-explanation" />
-                    <br />
-                    <div className="select-container">
-                        <select
-                            id={'dynamic-input-type-' + this.props.id}
-                            onBlur={this.handleTypeChange}
-                            onChange={this.handleTypeChange}>
-                            <option value="input" selected>
-                                <Text id="input-single-line" />
-                            </option>
-                            <option value="textarea">
-                                <Text id="input-multi-line" />
-                            </option>
-                            <option value="address">
-                                <Text id="input-address" />
-                            </option>
-                        </select>
-                        <div className="icon icon-arrow-down" />
-                    </div>
-                    <button
-                        className="button button-secondary"
-                        id={'add-dynamic-inputs-' + this.props.id}
-                        onClick={this.addDynamicInput}>
-                        <Text id="add-input" />
-                    </button>
-                    {this.props.fillFields && fill_fields.length > 0 ? (
-                        <div className="dropdown-container">
-                            <button className="button button-primary">
-                                <span className="icon icon-fill" />
-                            </button>
-                            <div className="dropdown">
-                                <div style="display: table; border-spacing: 5px; width: 100%;">{fill_fields}</div>
+            <IntlProvider scope="generator" definition={I18N_DEFINITION}>
+                <div className="dynamic-input-container">
+                    <h2>{this.props.title}</h2>
+                    {this.props.children}
+                    <div id={'request-dynamic-input-' + this.props.id}>{input_elements}</div>
+                    {this.props.allowAddingFields ? (
+                        <div className="dynamic-input-controls">
+                            <Text id="add-dynamic-input-explanation" />
+                            <br />
+                            <div className="select-container">
+                                <select
+                                    id={'dynamic-input-type-' + this.props.id}
+                                    onBlur={this.handleTypeChange}
+                                    onChange={this.handleTypeChange}>
+                                    <option value="input" selected>
+                                        <Text id="input-single-line" />
+                                    </option>
+                                    <option value="textarea">
+                                        <Text id="input-multi-line" />
+                                    </option>
+                                    <option value="address">
+                                        <Text id="input-address" />
+                                    </option>
+                                </select>
+                                <div className="icon icon-arrow-down" />
                             </div>
+                            <button
+                                className="button button-secondary"
+                                id={'add-dynamic-inputs-' + this.props.id}
+                                onClick={this.addDynamicInput}>
+                                <Text id="add-input" />
+                            </button>
+                            {this.props.fillFields && fill_fields.length > 0 ? (
+                                <div className="dropdown-container">
+                                    <button className="button button-primary">
+                                        <span className="icon icon-fill" />
+                                    </button>
+                                    <div className="dropdown">
+                                        <div style="display: table; border-spacing: 5px; width: 100%;">
+                                            {fill_fields}
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                []
+                            )}
+                            <div className="clearfix" />
                         </div>
                     ) : (
                         []
                     )}
-                    <div className="clearfix" />
                 </div>
-            </div>
+            </IntlProvider>
         );
     }
 
@@ -240,5 +252,13 @@ export default class DynamicInputContainer extends preact.Component {
         let buttons = document.querySelectorAll('.dynamic-input-address .dynamic-input-primaryButton');
         if (buttons.length === 1) buttons[0].style.display = 'none';
         else if (buttons.length) buttons[0].style.display = 'initial';
+    }
+
+    static get defaultProps() {
+        return {
+            allowAddingFields: true,
+            allowRemovingFields: true,
+            allowChangingFieldDescriptions: true
+        };
     }
 }

@@ -1,6 +1,6 @@
 import preact from 'preact';
-import { Text } from 'preact-i18n';
-import t from '../Utility/i18n';
+import { Text, IntlProvider } from 'preact-i18n';
+import t from '../../Utility/i18n';
 
 export default class DynamicInput extends preact.Component {
     constructor(props) {
@@ -82,65 +82,72 @@ export default class DynamicInput extends preact.Component {
                 break;
         }
         return (
-            <div
-                className={'dynamic-input dynamic-input-' + this.props.type}
-                id={'dynamic-input-' + this.props.id + '-' + this.props.suffix}>
-                <div className="col40">
-                    <div className="form-group" style="width: 100%; display: table;">
-                        <div style="display: table-cell; width: 27px;">
-                            <button
-                                id={this.props.id + '-delete-' + this.props.suffix}
-                                rel={this.props.id}
-                                className="dynamic-input-delete button button-primary button-small icon-trash"
-                                onClick={this.props.removeHandler}
-                            />
+            <IntlProvider scope="generator" definition={I18N_DEFINITION}>
+                <div
+                    className={'dynamic-input dynamic-input-' + this.props.type}
+                    id={'dynamic-input-' + this.props.id + '-' + this.props.suffix}>
+                    <div className="col40">
+                        <div className="form-group" style="width: 100%; display: table;">
+                            {this.props.allowRemoving ? (
+                                <div style="display: table-cell; width: 27px;">
+                                    <button
+                                        id={this.props.id + '-delete-' + this.props.suffix}
+                                        rel={this.props.id}
+                                        className="dynamic-input-delete button button-primary button-small icon-trash"
+                                        onClick={this.props.removeHandler}
+                                    />
+                                </div>
+                            ) : (
+                                []
+                            )}
+                            <div style="display: table-cell;">
+                                <label htmlFor={this.props.id + '-desc-' + this.props.suffix} className="sr-only">
+                                    <Text id="description" />
+                                </label>
+                                <input
+                                    key={this.props.id + this.props.suffix}
+                                    name="desc"
+                                    type="text"
+                                    id={this.props.id + '-desc-' + this.props.suffix}
+                                    rel={this.props.id}
+                                    className={'form-element' + (this.props.allowChangingDescription ? '' : ' hidden')}
+                                    value={this.props.desc}
+                                    placeholder={t('description', 'generator')}
+                                    style="margin-left: 5px;"
+                                    required={!this.props.optional}
+                                    onChange={this.props.onChange}
+                                    onFocus={e => {
+                                        this.setState({ focus: true });
+                                    }}
+                                    onBlur={e => {
+                                        this.setState({ focus: false });
+                                    }}
+                                />
+                                {this.props.allowChangingDescription ? '' : <span>{this.props.desc}:</span>}
+                            </div>
                         </div>
-                        <div style="display: table-cell;">
-                            <label htmlFor={this.props.id + '-desc-' + this.props.suffix} className="sr-only">
-                                <Text id="description" />
-                            </label>
-                            <input
-                                key={this.props.id + this.props.suffix}
-                                name="desc"
-                                type="text"
-                                id={this.props.id + '-desc-' + this.props.suffix}
-                                rel={this.props.id}
-                                className="form-element"
-                                value={this.props.desc}
-                                placeholder={t('description', 'generator')}
-                                style="margin-left: 5px;"
-                                required={!this.props.optional}
-                                onChange={this.props.onChange}
-                                onFocus={e => {
-                                    this.setState({ focus: true });
-                                }}
-                                onBlur={e => {
-                                    this.setState({ focus: false });
-                                }}
-                            />
+                        {control}
+                    </div>
+                    <div className="col60">
+                        <div
+                            style="padding-left: 10px;"
+                            className={'form-group' + (this.props.onAction ? ' action-button-container' : '')}>
+                            {input}
+                            {this.props.onAction ? (
+                                <button
+                                    id={this.props.id + '-action-' + this.props.suffix}
+                                    rel={this.props.id}
+                                    className="dynamic-input-action button button-primary button-small icon-arrow-right"
+                                    onClick={this.props.onAction}
+                                />
+                            ) : (
+                                []
+                            )}
                         </div>
                     </div>
-                    {control}
+                    <div className="clearfix" />
                 </div>
-                <div className="col60">
-                    <div
-                        style="padding-left: 10px;"
-                        className={'form-group' + (this.props.onAction ? ' action-button-container' : '')}>
-                        {input}
-                        {this.props.onAction ? (
-                            <button
-                                id={this.props.id + '-action-' + this.props.suffix}
-                                rel={this.props.id}
-                                className="dynamic-input-action button button-primary button-small icon-arrow-right"
-                                onClick={this.props.onAction}
-                            />
-                        ) : (
-                            []
-                        )}
-                    </div>
-                </div>
-                <div className="clearfix" />
-            </div>
+            </IntlProvider>
         );
     }
 }

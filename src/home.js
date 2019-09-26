@@ -1,5 +1,4 @@
 import preact from 'preact';
-import { IntlProvider } from 'preact-i18n';
 import t from 'Utility/i18n';
 import Wizard from 'Components/Wizard';
 
@@ -12,13 +11,7 @@ const hero_rights = [
     t('privacy', 'home')
 ];
 
-preact.render(
-    <IntlProvider scope="wizard" definition={I18N_DEFINITION}>
-        <Wizard />
-    </IntlProvider>,
-    null,
-    document.getElementById('home-wizard')
-);
+preact.render(<Wizard />, null, document.getElementById('home-wizard'));
 
 function typewriter(text, i, fnCallback) {
     if (text && i < text.length) {

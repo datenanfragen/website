@@ -1,6 +1,7 @@
 import { rethrow, WarningException } from './errors';
 import Cookie from 'js-cookie';
 import localforage from 'localforage';
+import { deepCopyObject } from './common';
 
 export const ID_DATA_CHANGE_EVENT = 'saved_data-change';
 export const ID_DATA_CLEAR_EVENT = 'saved_data-clear';
@@ -98,9 +99,12 @@ export default class IdData {
 
     // returns Promise
     getSignature() {
-        return this.localforage_instance.getItem('::signature').catch(error => {
-            rethrow(error, 'Could not retrieve signature.');
-        });
+        return this.localforage_instance
+            .getItem('::signature')
+            .then(s => s || { type: 'text', value: '' })
+            .catch(error => {
+                rethrow(error, 'Could not retrieve signature.');
+            });
     }
 
     getAllFixed() {
@@ -208,9 +212,4 @@ export default class IdData {
         let value = Cookie.get('general-always_fill_in');
         return value === undefined || value === 'true';
     }
-}
-
-// This is hideous but the only way to deep copy objects or arrays…
-export function deepCopyObject(object) {
-    return JSON.parse(JSON.stringify(object));
 }

@@ -4,15 +4,20 @@ import t from 'Utility/i18n';
 import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
 import { rethrow } from './Utility/errors';
+import { hash } from './Utility/common';
 import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
 
 export default class UserRequests {
     constructor() {
         // TODO: Is there a better place for this?
         this.localforage_instance = localforage.createInstance({
-            name: 'Datenanfragen.de', // TODO: Use the actual domain here?
+            name: 'Datenanfragen.de',
             storeName: 'my-requests'
         });
+    }
+
+    getRequest(db_id) {
+        return this.localforage_instance.getItem(db_id);
     }
 
     getRequests() {
@@ -339,7 +344,9 @@ DTSTART:${reminder_date
                 .replace(/-/g, '')
                 .substring(0, 8)}
 SUMMARY:${t('ics-summary', 'my-requests')}
-DESCRIPTION:${t('ics-desc', 'my-requests')}\\n\\n\n ${items.join('\\n\n ')}
+DESCRIPTION:${t('ics-desc', 'my-requests').replace(/([,;])/g, '\\$1')}\\n\\n\n ${items
+                .join('\\n\n ')
+                .replace(/([,;])/g, '\\$1')}
 BEGIN:VALARM
 TRIGGER:+PT720M
 ACTION:DISPLAY
@@ -355,7 +362,7 @@ PRODID:-//Datenanfragen.de e. V.//${t('ics-title', 'my-requests')}//${t('ics-lan
 X-WR-CALNAME:${t('ics-title', 'my-requests')} (${new Date().toISOString().substring(0, 10)})${events}
 END:VCALENDAR`;
 
-        return new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        return new Blob([ics.split('\n').join('\r\n')], { type: 'text/calendar;charset=utf-8' });
     }
 
     clearRequests() {
@@ -372,14 +379,6 @@ END:VCALENDAR`;
     }
 }
 
-preact.render(<RequestList />, null, document.getElementById('my-requests'));
-
-// Adapted after: https://stackoverflow.com/a/15710692
-function hash(s) {
-    return window.btoa(
-        s.split('').reduce(function(a, b) {
-            a = (a << 5) - a + b.charCodeAt(0);
-            return a & a;
-        }, 0)
-    );
-}
+window.renderMyRequestsWidget = function() {
+    preact.render(<RequestList />, null, document.getElementById('my-requests'));
+};

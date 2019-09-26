@@ -18,7 +18,8 @@ module.exports = {
         'suggest-edit': './src/suggest-edit.js',
         'id-data-controls': './src/id-data-controls.js',
         'sva-finder': './src/Components/SvaFinder.js',
-        pdfworker: './src/PdfWorker.js',
+        'act-widget': './src/Components/ActWidget.js',
+        pdfworker: './src/Utility/PdfWorker.js',
         style: './src/styles/main.scss',
         'test-interface': './src/test-interface.js'
     },
@@ -88,7 +89,21 @@ module.exports = {
         ]
     },
     plugins: [
-        new MinifyPlugin(),
+        new MinifyPlugin({
+            mangle: {
+                exclude: {
+                    ActionButtonPlaceholder: true,
+                    NewRequestButtonPlaceholder: true,
+                    CompanySelectorPlaceholder: true,
+                    RequestFormPlaceholder: true,
+                    DynamicInputContainerPlaceholder: true,
+                    SignatureInputPlaceholder: true,
+                    RequestTypeChooserPlaceholder: true,
+                    RecipientInputPlaceholder: true,
+                    TransportMediumChooserPlaceholder: true
+                }
+            }
+        }),
 
         new MiniCssExtractPlugin({
             filename: 'css/[name].gen.css'

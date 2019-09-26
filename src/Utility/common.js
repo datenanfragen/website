@@ -12,12 +12,31 @@ export function slugify(text) {
         .replace(/-+$/, ''); // Trim - from end of text
 }
 
+export function fakeEvt(value) {
+    return { target: { value } };
+}
+
 // Adapted after: https://stackoverflow.com/a/8498629
 export function domainFromUrl(url) {
     if (!url) return;
 
     let matches = url.match(/^https?:\/\/([^#/:?]+)(?:[#/:?]|$)/i);
     return matches && matches[1];
+}
+
+// This is hideous but the only way to deep copy objects or arrays…
+export function deepCopyObject(object) {
+    return JSON.parse(JSON.stringify(object));
+}
+
+// Adapted after: https://stackoverflow.com/a/15710692
+export function hash(s) {
+    return window.btoa(
+        s.split('').reduce(function(a, b) {
+            a = (a << 5) - a + b.charCodeAt(0);
+            return a & a;
+        }, 0)
+    );
 }
 
 export const PARAMETERS = (() => {

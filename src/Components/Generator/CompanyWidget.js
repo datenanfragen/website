@@ -1,7 +1,7 @@
 import preact from 'preact';
-import t from '../Utility/i18n';
-import { Text } from 'preact-i18n';
-import Accordion from '../Components/Accordion';
+import t from '../../Utility/i18n';
+import { Text, IntlProvider } from 'preact-i18n';
+import Accordion from '../Accordion';
 
 export default class CompanyWidget extends preact.Component {
     render() {
@@ -82,16 +82,18 @@ export default class CompanyWidget extends preact.Component {
         );
 
         return (
-            <aside className="company-info box">
-                <button
-                    className="company-remove button button-primary button-small icon-trash"
-                    onClick={this.props.onRemove}
-                    title={t('deselect-company', 'generator')}
-                />
-                <Accordion title={this.props.company['name']} id="company-info" expanded={true}>
-                    {content}
-                </Accordion>
-            </aside>
+            <IntlProvider scope="generator" definition={I18N_DEFINITION}>
+                <aside className="company-info box">
+                    <button
+                        className="company-remove button button-primary button-small icon-trash"
+                        onClick={this.props.onRemove}
+                        title={t('deselect-company', 'generator')}
+                    />
+                    <Accordion title={this.props.company['name']} id="company-info" expanded={true}>
+                        {content}
+                    </Accordion>
+                </aside>
+            </IntlProvider>
         );
     }
 }
