@@ -82,13 +82,13 @@ a #logo {
 
     a.menu-link,
     a.menu-link:visited {
-        color: $blue-600;
+        color: color('blue', 600);
         margin-left: 20px;
 
         &:hover,
         &:focus,
         &:active {
-            color: $blue-800;
+            color: color('gray', 800);
         }
     }
 }
@@ -377,10 +377,10 @@ table#my-requests-table {
 /* Blog */
 
 .blog-letter {
-    border: 1px solid $gray-400;
+    border: 1px solid color('gray', 400);
     background-color: $bg-color;
     padding: 20px 60px;
-    box-shadow: 0 0 5px $gray-400;
+    box-shadow: 0 0 5px color('gray', 400);
 
     @include mobile {
         padding: 10px 20px;
@@ -453,12 +453,12 @@ table#my-requests-table {
 
             &:hover,
             &:focus {
-                color: $blue-900;
+                color: color('blue', 900);
             }
         }
 
         aside {
-            color: $gray-700;
+            color: color('gray', 700);
         }
     }
 
@@ -554,7 +554,7 @@ body.sticky-offset {
 }
 
 .company-summary {
-    color: $gray-700;
+    color: color('gray', 700);
 
     h1 {
         font-size: 23px;
@@ -665,12 +665,12 @@ footer {
 
     a,
     a:visited {
-        color: $blue-600;
+        color: color('blue', 600);
 
         &:active,
         &:focus,
         &:hover {
-            color: $blue-800;
+            color: color('blue', 800);
         }
     }
 }
@@ -683,7 +683,7 @@ button.joyride-tooltip__button {
     &:focus {
         border: none;
         background-color: inherit;
-        color: $blue-900 !important;
+        color: color('blue', 900) !important;
     }
 }
 button.joyride-tooltip__button--primary {
@@ -691,14 +691,14 @@ button.joyride-tooltip__button--primary {
 
     &:hover,
     &:focus {
-        background-color: $blue-900;
+        background-color: color('blue', 900);
         color: $bg-color !important;
     }
 }
 button.joyride-tooltip__button--skip {
     &:hover,
     &:focus {
-        color: $gray-600 !important;
+        color: color('gray', 600) !important;
     }
 }
 

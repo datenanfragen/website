@@ -17,16 +17,16 @@
 
     &:hover,
     &:focus {
-        background-color: $blue-900;
-        color: $gray-200 !important;
-        border: 2px solid $blue-900;
+        background-color: color('blue', 900);
+        color: color('gray', 200) !important;
+        border: 2px solid color('blue', 900);
     }
 
     &.disabled,
     &:disabled {
-        background-color: $gray-400;
-        border: 2px solid $gray-900;
-        color: $gray-900 !important;
+        background-color: color('gray', 400);
+        border: 2px solid color('gray', 900);
+        color: color('gray', 900) !important;
         cursor: not-allowed;
     }
 }
@@ -47,9 +47,9 @@ a.button-primary {
 
     &.disabled,
     &:disabled {
-        background-color: $gray-400;
-        border: 2px solid $gray-900;
-        color: $gray-900 !important;
+        background-color: color('gray', 400);
+        border: 2px solid color('gray', 900);
+        color: color('gray', 900) !important;
     }
 }
 .button-secondary,
@@ -93,7 +93,7 @@ textarea.form-element {
 }
 input::placeholder,
 textarea::placeholder {
-    color: $black; // This is dimmed down by the browser anyway.
+    color: color('black'); // This is dimmed down by the browser anyway.
 }
 // On the off chance that this might not *immediately* be obvious to everyone: Our colors are defined as HSB and run
 // through a function that converts them to HSL. Sass then (not so) helpfully converts them to hex for us.
@@ -119,9 +119,9 @@ textarea:required {
 }
 
 @mixin disabled-input {
-    background-color: $gray-400;
-    border: 2px solid $gray-900;
-    color: $gray-900 !important;
+    background-color: color('gray', 400);
+    border: 2px solid color('gray', 400);
+    color: color('gray', 400) !important;
     cursor: not-allowed;
 }
 // We can (unfortunately) neither use `:read-only` nor `:moz-read-only`, since the implementations vary wildly and tend to match way too many things.
@@ -214,7 +214,7 @@ input:disabled {
     }
     &:hover,
     &:focus {
-        background-color: $blue-900;
+        background-color: color('blue', 900);
         color: $bg-color;
     }
 }
@@ -281,7 +281,7 @@ input[type='search'].aa-input-search {
 }
 .aa-dropdown-menu {
     background-color: $bg-color;
-    border: 1px solid $gray-300;
+    border: 1px solid color('gray', 300);
     width: 100%;
     box-sizing: border-box;
 }
@@ -289,15 +289,15 @@ input[type='search'].aa-input-search {
     padding: 12px;
     cursor: pointer;
     & + .aa-suggestion {
-        border-top: 1px solid $gray-300;
+        border-top: 1px solid color('gray', 300);
     }
     &:last-of-type {
-        border-bottom: 1px solid $gray-300;
+        border-bottom: 1px solid color('gray', 300);
     }
     &:hover,
     &:focus,
     &.aa-cursor {
-        background-color: $blue-100;
+        background-color: color('blue', 100);
     }
 
     & mark {
@@ -336,7 +336,7 @@ input[type='search'].aa-input-search {
         padding-top: 35px;
         transform: translate(-50%, -50%);
         background: $bg-color;
-        box-shadow: 0 10px 30px $gray-700;
+        box-shadow: 0 10px 30px color('gray', 700);
         animation: in 300ms ease forwards 1;
         overflow-y: auto;
         max-height: 95vh;
@@ -355,7 +355,7 @@ input[type='search'].aa-input-search {
 
             &:hover,
             &:focus {
-                color: $blue-900;
+                color: color('blue', 900);
             }
         }
 
@@ -619,7 +619,7 @@ fieldset.rating {
     white-space: nowrap;
     font-size: 250%;
     margin-top: -15px;
-    color: $gray-400;
+    color: color('gray', 400);
 
     &.editable {
         cursor: pointer;
@@ -638,7 +638,7 @@ fieldset.rating {
 .rating:not(:checked) > label.editable:focus,
 .rating:not(:checked) > label.editable:hover ~ label,
 .rating:not(:checked) > label.editable:focus ~ label {
-    color: $blue-400;
+    color: color('blue', 400);
 }
 
 .rating > input:checked + label.editable:hover,
@@ -647,7 +647,7 @@ fieldset.rating {
 .rating > input:checked ~ label.editable:hover ~ label,
 .rating > label.editable:hover ~ input:checked ~ label,
 .rating > label.editable:focus ~ input:checked ~ label {
-    color: $blue-900;
+    color: color('blue', 900);
 }
 
 .rating > label.editable:active {

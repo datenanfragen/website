@@ -106,7 +106,7 @@ textarea:placeholder-shown + label.fancy-label {
                 display: table-row;
 
                 .fill-field-value {
-                    color: $gray-700;
+                    color: color('gray', 700);
                 }
 
                 .button {
@@ -133,8 +133,8 @@ textarea:placeholder-shown + label.fancy-label {
     }
 
     .canvas-blocked-overlay {
-        background-color: $gray-700;
-        color: $gray-200;
+        background-color: color('gray', 700);
+        color: color('gray', 200);
     }
 }
 
