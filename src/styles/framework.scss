@@ -70,6 +70,29 @@
     }
 }
 
+.bg-black {
+    background-color: color('black');
+}
+.color-black {
+    color: color('black');
+}
+.bg-white {
+    background-color: color('white');
+}
+.color-white {
+    color: color('white');
+}
+@each $hue in map-keys($colors) {
+    @each $shade in map-keys(map-get($colors, $hue)) {
+        .bg-#{$hue}-#{$shade} {
+            background-color: color($hue, $shade);
+        }
+        .color-#{$hue}-#{$shade} {
+            color: color($hue, $shade);
+        }
+    }
+}
+
 .clearfix {
     clear: both;
 }
