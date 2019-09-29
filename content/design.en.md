@@ -19,6 +19,8 @@ Due to that, this document is currently available in English only.
 
 We have defined a main and an extended color palette. Combined with pure black and pure white, these two palettes make up the conclusive selection of colors used for Datenanfragen.de. No other colors may be used (not even for illustrations).
 
+For convenience, the color palette is available as an [Adobe Swatch Exchange (ASE) file](/downloads/datenanfragen.ase) and an [Adobe Creative Cloud library](https://shared-assets.adobe.com/link/4a911d28-c227-4821-475f-4c7efe2039d1).
+
 ### Main palette
 
 The main palette consists of our primary color (blue) and our accent color (teal), each in nine different shades.
