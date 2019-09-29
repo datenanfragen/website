@@ -195,7 +195,7 @@ class RequestList extends preact.Component {
                 );
             } else {
                 table = [
-                    <table id="my-requests-table" className="table">
+                    <table id="my-requests-table" className="table fancy-table fancy-table-mobile">
                         <thead>
                             <th>
                                 <input
