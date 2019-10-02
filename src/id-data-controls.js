@@ -48,7 +48,9 @@ class IdDataControls extends preact.Component {
                         hasPrimary={false}>
                         <IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}>
                             <div>
-                                <MarkupText id="saved-data-explanation" />
+                                <p>
+                                    <MarkupText id="saved-data-explanation" />
+                                </p>
                                 <div className="form-group">
                                     <input
                                         type="checkbox"
