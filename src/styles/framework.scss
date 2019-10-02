@@ -177,6 +177,14 @@ a:focus {
     color: color('teal', 800);
 }
 
+p a,
+span a,
+.box a {
+    &:not(.button) {
+        text-decoration: underline dashed;
+    }
+}
+
 img {
     max-width: 100%;
     &.image {
