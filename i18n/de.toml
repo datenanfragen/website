@@ -106,7 +106,7 @@ other = "Menü öffnen"
 # Footer
 
 [footer-about-us]
-other = "Wir sind der Datenanfragen.de e.&nbsp;V., ein gemeinnütziger Verein, der es sich zur Aufgabe gemacht hat, Dir bei der Ausübung Deines Rechts auf Datenschutz zu helfen. <a href='https://verein.datenanfragen.de'>Erfahre mehr.</a>"
+other = "Wir sind der Datenanfragen.de e.&nbsp;V., ein gemeinnütziger Verein, der es sich zur Aufgabe gemacht hat, Dir bei der Ausübung Deines Rechts auf Datenschutz zu helfen. <a href='https://verein.datenanfragen.de' class='no-link-decoration'>Erfahre mehr.</a>"
 
 [footer-other-langs]
 other = "Auch verfügbar auf: "

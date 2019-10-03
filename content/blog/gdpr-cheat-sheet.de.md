@@ -1,6 +1,6 @@
 {
     "title": "Kleines Glossar zur DSGVO – wichtige Begriffe und Konzepte erklärt",
-    "heading": "Kleines Glossar zur DSGVO<br><span style='font-size: 0.75em; color: #333;'>Wichtige Begriffe und Konzepte erklärt.</span>",
+    "heading": "Kleines Glossar zur DSGVO<br><span class='color-gray-800' style='font-size: 0.75em;'>Wichtige Begriffe und Konzepte erklärt.</span>",
     "type": "blog",
     "slug": "dsgvo-glossar",
     "date": "2019-02-16T16:44:39+02:00",

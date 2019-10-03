@@ -1,0 +1,16 @@
+@import 'variables';
+
+/* stylelint-disable */
+:export {
+    text-color: $text-color;
+    bg-color: $bg-color;
+
+    primary-color: $primary-color;
+    accent-color: $accent-color;
+    bg-accent-color: $bg-accent-color;
+
+    error-color: $error-color;
+    warning-color: $warning-color;
+    info-color: $info-color;
+    success-color: $success-color;
+}

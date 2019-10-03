@@ -2,7 +2,7 @@
 	"title": "Open Source",
 	"type": "page",
 	"aliases": ["opensource", "oss", "foss"],
-	"heading": "<span style='text-align: center; font-family: monospace;'>Datenanfragen.de <span style='color: #d8000c;' title='liebt'>❤</span> Open Source</span>"
+	"heading": "<span style='text-align: center; font-family: monospace;'>Datenanfragen.de <span class='color-red-600' title='liebt'>❤</span> Open Source</span>"
 }
 
 <img id="open-source-humaaan" class="top-left-humaaan" src="/img/humaaans/open-source.svg">

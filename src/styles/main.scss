@@ -80,18 +80,15 @@ a #logo {
         }
     }
 
-    a.menu-link {
-        color: $primary-lighter-color;
+    a.menu-link,
+    a.menu-link:visited {
+        color: color('blue', 600);
         margin-left: 20px;
-
-        &:visited {
-            color: $primary-lighter-color;
-        }
 
         &:hover,
         &:focus,
         &:active {
-            color: $primary-color;
+            color: color('gray', 800);
         }
     }
 }
@@ -330,61 +327,16 @@ a #logo {
 
 // Inspired by https://codepen.io/AllThingsSmitty/pen/MyqmdM
 table#my-requests-table {
-    border: 4px solid #003bff;
-    border-collapse: collapse;
-
     margin-bottom: 20px;
-
-    thead {
-        border-bottom: 4px solid #003bff;
-    }
-
-    tr {
-        background-color: $bg-accent-color;
-        border: 1px solid $gray-color;
-
-        &:nth-child(even) {
-            background-color: $bg-color;
-        }
-    }
-
-    th,
-    td {
-        padding: 15px;
-        text-align: center;
-
-        &:nth-child(2),
-        &:nth-child(4) {
-            white-space: nowrap;
-        }
-    }
-
-    @include mobile {
-        thead {
-            display: none;
-        }
-
-        tr,
-        td {
-            display: block;
-            text-align: right;
-        }
-
-        td::before {
-            content: attr(data-label);
-            float: left;
-            font-weight: bold;
-        }
-    }
 }
 
 /* Blog */
 
 .blog-letter {
-    border: 1px solid rgba(170, 170, 170, 0.51);
-    background-color: #fff;
+    border: 1px solid color('gray', 400);
+    background-color: $bg-color;
     padding: 20px 60px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px color('gray', 400);
 
     @include mobile {
         padding: 10px 20px;
@@ -457,12 +409,12 @@ table#my-requests-table {
 
             &:hover,
             &:focus {
-                color: $primary-darker-color;
+                color: color('blue', 900);
             }
         }
 
         aside {
-            color: $gray-darker-color;
+            color: color('gray', 700);
         }
     }
 
@@ -558,7 +510,7 @@ body.sticky-offset {
 }
 
 .company-summary {
-    color: $gray-darker-color;
+    color: color('gray', 700);
 
     h1 {
         font-size: 23px;
@@ -646,6 +598,7 @@ footer {
     color: $text-color;
     padding: 25px 0;
     margin-top: 25px;
+    hyphens: auto;
 
     .footer-col {
         box-sizing: border-box;
@@ -666,16 +619,14 @@ footer {
         }
     }
 
-    a {
-        color: $primary-lighter-color;
-        &:visited {
-            color: $primary-lighter-color;
-        }
+    a,
+    a:visited {
+        color: color('blue', 600);
 
         &:active,
         &:focus,
         &:hover {
-            color: $primary-color;
+            color: color('blue', 800);
         }
     }
 }
@@ -688,7 +639,7 @@ button.joyride-tooltip__button {
     &:focus {
         border: none;
         background-color: inherit;
-        color: $primary-darker-color !important;
+        color: color('blue', 900) !important;
     }
 }
 button.joyride-tooltip__button--primary {
@@ -696,14 +647,14 @@ button.joyride-tooltip__button--primary {
 
     &:hover,
     &:focus {
-        background-color: $primary-darker-color;
+        background-color: color('blue', 900);
         color: $bg-color !important;
     }
 }
 button.joyride-tooltip__button--skip {
     &:hover,
     &:focus {
-        color: $gray-darker-color !important;
+        color: color('gray', 600) !important;
     }
 }
 

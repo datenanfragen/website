@@ -70,6 +70,29 @@
     }
 }
 
+.bg-black {
+    background-color: color('black');
+}
+.color-black {
+    color: color('black');
+}
+.bg-white {
+    background-color: color('white');
+}
+.color-white {
+    color: color('white');
+}
+@each $hue in map-keys($colors) {
+    @each $shade in map-keys(map-get($colors, $hue)) {
+        .bg-#{$hue}-#{$shade} {
+            background-color: color($hue, $shade);
+        }
+        .color-#{$hue}-#{$shade} {
+            color: color($hue, $shade);
+        }
+    }
+}
+
 .clearfix {
     clear: both;
 }
@@ -151,7 +174,44 @@ a:visited {
 a:hover,
 a:active,
 a:focus {
-    color: $accent-darker-color;
+    color: color('teal', 800);
+}
+
+p > a,
+span > a,
+.box a {
+    &:not(.button):not(.no-link-decoration) {
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+        padding: 0 0px;
+        @media (prefers-reduced-motion: no-preference) {
+            transition: color ease 0.3s;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 2px;
+            left: 0;
+            bottom: 0;
+            background-color: $accent-color;
+            @media (prefers-reduced-motion: no-preference) {
+                transition: all ease 0.3s;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            color: color('white');
+
+            &::after {
+                height: 100%;
+            }
+        }
+    }
 }
 
 img {
@@ -170,6 +230,53 @@ table {
         & thead th,
         & tbody td {
             padding: 10px;
+        }
+    }
+
+    &.fancy-table {
+        border: 4px solid $primary-color;
+        border-collapse: collapse;
+
+        thead {
+            border-bottom: 4px solid $primary-color;
+        }
+
+        tr {
+            background-color: $bg-accent-color;
+
+            &:nth-child(even) {
+                background-color: $bg-color;
+            }
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+
+            &:nth-child(2),
+            &:nth-child(4) {
+                white-space: nowrap;
+            }
+        }
+    }
+    &.fancy-table-mobile {
+        @include mobile {
+            thead {
+                display: none;
+            }
+
+            tr,
+            td {
+                display: block;
+                text-align: right;
+            }
+
+            td::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+            }
         }
     }
 

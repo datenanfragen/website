@@ -1,7 +1,7 @@
 import preact from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
-import t from '../../Utility/i18n';
 import { detectBlockedCanvasImageExtraction } from '../../Utility/browser';
+import { colorVar } from '../../Utility/common';
 
 export default class SignatureInput extends preact.Component {
     constructor(props) {
@@ -14,8 +14,8 @@ export default class SignatureInput extends preact.Component {
             height: props.height || 100,
             hasBeenDrawnOn: false,
             isEmpty: true,
-            backgroundColor: props.backgroundColor || '#fff',
-            strokeColor: props.strokeColor || '#000',
+            backgroundColor: props.backgroundColor || colorVar('bg-color'),
+            strokeColor: props.strokeColor || colorVar('text-color'),
             isDrawing: false,
             lastX: 0,
             lastY: 0,
@@ -124,13 +124,7 @@ export default class SignatureInput extends preact.Component {
                         {this.state.canvasImageExtractionBlocked ? (
                             <div
                                 className="canvas-blocked-overlay"
-                                style={
-                                    'position: absolute; top: 2px; left: 2px; background-color: rgba(10, 10, 10, 0.6); box-sizing: border-box; max-width: 100%; width: ' +
-                                    this.state.width +
-                                    'px; height: ' +
-                                    this.state.height +
-                                    'px; padding: 10px; color: #f0f7ff;'
-                                }>
+                                style={`position: absolute; top: 2px; left: 2px; box-sizing: border-box; max-width: 100%; width: ${this.state.width}px; height: ${this.state.height}px; padding: 10px;`}>
                                 <p>
                                     <Text id="overlay-text" />
                                     {/* <br />

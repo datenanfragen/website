@@ -17,16 +17,16 @@
 
     &:hover,
     &:focus {
-        background-color: $primary-darker-color;
-        color: #fff !important;
-        border: 2px solid $primary-darker-color;
+        background-color: color('blue', 900);
+        color: color('gray', 200) !important;
+        border: 2px solid color('blue', 900);
     }
 
     &.disabled,
     &:disabled {
-        background-color: $gray-color;
-        border: 2px solid $gray-darker-color;
-        color: $gray-darker-color !important;
+        background-color: color('gray', 400);
+        border: 2px solid color('gray', 900);
+        color: color('gray', 900) !important;
         cursor: not-allowed;
     }
 }
@@ -43,13 +43,13 @@
 .button-primary,
 a.button-primary {
     background-color: $primary-color;
-    color: #fff !important;
+    color: $bg-color !important;
 
     &.disabled,
     &:disabled {
-        background-color: $gray-color;
-        border: 2px solid $gray-darker-color;
-        color: $gray-darker-color !important;
+        background-color: color('gray', 400);
+        border: 2px solid color('gray', 900);
+        color: color('gray', 900) !important;
     }
 }
 .button-secondary,
@@ -75,8 +75,8 @@ canvas {
     padding: 7px;
     box-sizing: border-box;
     appearance: none;
-    /*background-color: $gray-color;*/
     color: $primary-color;
+    background-color: $bg-color;
     font-family: $body-font;
     font-size: $font-size - 2px;
     cursor: auto; // Normalize value for the tests.
@@ -93,27 +93,35 @@ textarea.form-element {
 }
 input::placeholder,
 textarea::placeholder {
-    color: $gray-darker-color;
+    color: color('black'); // This is dimmed down by the browser anyway.
 }
+// On the off chance that this might not *immediately* be obvious to everyone: Our colors are defined as HSB and run
+// through a function that converts them to HSL. Sass then (not so) helpfully converts them to hex for us.
+// Unfortunately, we are using a data URL here and a `#` in a URL is a fragment identifier. Now, most browsers
+// apparently still produce the expected result—except Firefox (see: https://codepen.io/gunnarbittersmann/pen/BoovjR). I
+// mean, good on you for adhering to the spec. But still. Come on.
+// Anyway, that is why we are URL-encoding the `#` here (inspired by: https://codepen.io/kevinweber/pen/dXWoRw).
+$required-asterisk-svg: str-replace(
+    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='" +
+        $accent-color + "' font-size='20' font-family='Fira Sans'>*</text></svg>",
+    '#',
+    '%23'
+);
 input:required {
-    background: #ffffff
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='rgb(111, 221, 204)' font-size='20' font-family='Fira Sans'>*</text></svg>")
-        no-repeat right;
+    background: $bg-color url($required-asterisk-svg) no-repeat right;
     padding-right: 20px;
     box-shadow: none !important;
 }
 textarea:required {
-    background: #ffffff
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='rgb(111, 221, 204)' font-size='20' font-family='Fira Sans'>*</text></svg>")
-        no-repeat;
+    background: $bg-color url($required-asterisk-svg) no-repeat;
     background-position: top 12px right 0;
     box-shadow: none !important;
 }
 
 @mixin disabled-input {
-    background-color: $gray-color;
-    border: 2px solid $gray-darker-color;
-    color: $gray-darker-color !important;
+    background-color: color('gray', 400);
+    border: 2px solid color('gray', 400);
+    color: color('gray', 800) !important;
     cursor: not-allowed;
 }
 // We can (unfortunately) neither use `:read-only` nor `:moz-read-only`, since the implementations vary wildly and tend to match way too many things.
@@ -125,7 +133,6 @@ input:disabled {
 
 .box {
     box-sizing: border-box;
-    /*box-shadow: 0 3px 40px rgba(0, 0, 0, 0.2);*/
     border: 4px solid $primary-color;
     border-radius: 2px;
     padding: 20px;
@@ -166,7 +173,7 @@ input:disabled {
         -moz-appearance: none;
         padding-right: 30px;
         width: 100%;
-        background-color: #ffffff;
+        background-color: $bg-color;
     }
 
     .icon {
@@ -201,15 +208,14 @@ input:disabled {
         border-radius: 0 2px 2px 0;
     }
 
-    &:hover,
-    &:focus,
     &.active {
         background-color: $primary-color;
         color: $bg-color;
     }
     &:hover,
     &:focus {
-        background-color: $primary-darker-color;
+        background-color: color('blue', 900);
+        color: $bg-color;
     }
 }
 
@@ -263,8 +269,7 @@ input[type='checkbox'].form-element {
 input[type='search'].aa-input-search {
     padding: 12px 28px 12px 12px;
     width: 100%;
-    background-color: #ffffff;
-    /* box-shadow: $shadow; */
+    background-color: $bg-color;
     border: 4px solid $primary-color;
     border-radius: 2px;
 
@@ -275,8 +280,8 @@ input[type='search'].aa-input-search {
     }
 }
 .aa-dropdown-menu {
-    background-color: #fff;
-    border: 1px solid rgba(228, 228, 228, 0.6);
+    background-color: $bg-color;
+    border: 1px solid color('gray', 300);
     width: 100%;
     box-sizing: border-box;
 }
@@ -284,15 +289,15 @@ input[type='search'].aa-input-search {
     padding: 12px;
     cursor: pointer;
     & + .aa-suggestion {
-        border-top: 1px solid rgba(228, 228, 228, 0.6);
+        border-top: 1px solid color('gray', 300);
     }
     &:last-of-type {
-        border-bottom: 1px solid rgba(228, 228, 228, 0.6);
+        border-bottom: 1px solid color('gray', 300);
     }
     &:hover,
     &:focus,
     &.aa-cursor {
-        background-color: rgba(241, 241, 241, 0.35);
+        background-color: color('blue', 100);
     }
 
     & mark {
@@ -330,8 +335,8 @@ input[type='search'].aa-input-search {
         padding: 20px;
         padding-top: 35px;
         transform: translate(-50%, -50%);
-        background: #fff;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        background: $bg-color;
+        box-shadow: 0 10px 30px color('gray', 700);
         animation: in 300ms ease forwards 1;
         overflow-y: auto;
         max-height: 95vh;
@@ -350,7 +355,7 @@ input[type='search'].aa-input-search {
 
             &:hover,
             &:focus {
-                color: $primary-darker-color;
+                color: color('blue', 900);
             }
         }
 
@@ -614,7 +619,7 @@ fieldset.rating {
     white-space: nowrap;
     font-size: 250%;
     margin-top: -15px;
-    color: #ddd;
+    color: color('gray', 400);
 
     &.editable {
         cursor: pointer;
@@ -633,7 +638,7 @@ fieldset.rating {
 .rating:not(:checked) > label.editable:focus,
 .rating:not(:checked) > label.editable:hover ~ label,
 .rating:not(:checked) > label.editable:focus ~ label {
-    color: $primary-lighter-color;
+    color: color('blue', 400);
 }
 
 .rating > input:checked + label.editable:hover,
@@ -642,7 +647,7 @@ fieldset.rating {
 .rating > input:checked ~ label.editable:hover ~ label,
 .rating > label.editable:hover ~ input:checked ~ label,
 .rating > label.editable:focus ~ input:checked ~ label {
-    color: $primary-darker-color;
+    color: color('blue', 900);
 }
 
 .rating > label.editable:active {
