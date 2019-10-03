@@ -96,7 +96,7 @@ export default class I18nWidget extends preact.Component {
                     ) : (
                         <p>
                             <Text id="not-supported-prompt" />{' '}
-                            <a href="/contribute#i18n">
+                            <a href="/contribute#i18n" className="no-link-decoration">
                                 <Text id="not-supported-cta" />
                             </a>
                         </p>
