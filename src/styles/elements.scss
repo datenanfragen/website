@@ -121,7 +121,7 @@ textarea:required {
 @mixin disabled-input {
     background-color: color('gray', 400);
     border: 2px solid color('gray', 400);
-    color: color('gray', 400) !important;
+    color: color('gray', 800) !important;
     cursor: not-allowed;
 }
 // We can (unfortunately) neither use `:read-only` nor `:moz-read-only`, since the implementations vary wildly and tend to match way too many things.
