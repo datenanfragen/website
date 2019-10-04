@@ -83,7 +83,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
         // This is a response to a previous request (warning or complaint).
         else if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) && response_to && response_type) {
             new UserRequests().getRequest(response_to).then(request => {
-                fetchTemplate(this.state.request.language, response_type).then(text => {
+                fetchTemplate(this.state.request.language, response_type, null, '').then(text => {
                     this.setState(prev => {
                         prev.request.custom_data.content = new Template(text, [], {
                             request_article: REQUEST_ARTICLES[request.type],
@@ -113,7 +113,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
         }
         // This is just a regular ol' request.
         else {
-            fetchTemplate(this.state.request.language, 'access-default').then(text => {
+            fetchTemplate(this.state.request.language, 'access').then(text => {
                 this.setState({ template_text: text });
                 this.renderLetter();
             });
@@ -160,12 +160,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
         });
     };
     setCompany = company => {
-        // TODO: This code is mostly duplicated in `this.handleTypeChange(e)`.
-        // TODO: Get rid of the `.txt` replacement.
-        const template_file = (
-            company['custom-' + this.state.request.type + '-template'] || this.state.request.type + '-default'
-        ).replace(/\.txt$/, '');
-        fetchTemplate(company['request-language'], template_file).then(text => {
+        fetchTemplate(company['request-language'], this.state.request.type, company).then(text => {
             this.setState({ template_text: text });
             this.renderLetter();
         });
@@ -201,7 +196,10 @@ export default class RequestGeneratorBuilder extends preact.Component {
             // requests anyway in that they are either also to tracking companies or those companies at least
             // identify the user by the same details (i.e. cookie IDs, device IDs, etc.)
             // I couldn't come up with a better name, so we'll just leave them as tracking requests, I guess…
-            prev.request.is_tracking_request = ['access-tracking'].includes(template_file);
+            // TODO: Get rid of the `.txt` replacement.
+            prev.request.is_tracking_request = ['access-tracking'].includes(
+                company['custom-' + this.state.request.type + '-template'].replace(/\.txt$/, '')
+            );
 
             prev.request.id_data = IdData.mergeFields(
                 prev.request.id_data,
@@ -228,12 +226,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             return;
         }
 
-        const template_file = this.state.suggestion
-            ? this.state.suggestion['custom-' + this.state.request.type + '-template'] ||
-              this.state.request.type + '-default'
-            : this.state.request.type + '-default';
-
-        fetchTemplate(this.state.request.language, template_file).then(text => {
+        fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then(text => {
             this.setState({ template_text: text });
             this.renderLetter();
         });
@@ -298,7 +291,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
     handleCustomLetterTemplateChange = e => {
         const new_template = e.target.value;
         if (new_template !== 'no-template') {
-            fetchTemplate(this.state.request.language, new_template).then(text => {
+            fetchTemplate(this.state.request.language, new_template, null, '').then(text => {
                 this.setState(prev => {
                     prev.request.custom_data.content = text;
                     prev.response_type = new_template;
@@ -350,7 +343,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 <SvaFinder
                     callback={sva => {
                         this.setCompany(sva);
-                        fetchTemplate(sva['complaint-language'], 'complaint').then(text => {
+                        fetchTemplate(sva['complaint-language'], 'complaint', null, '').then(text => {
                             this.setState(prev => {
                                 prev.request.custom_data.content = new Template(text, [], {
                                     request_article: REQUEST_ARTICLES[this.state.response_request.type],
