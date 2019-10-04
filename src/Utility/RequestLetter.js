@@ -140,7 +140,7 @@ export default class RequestLetter {
 
         flags = {
             erase_some: !request_object.erase_all,
-            all_fields_empty: !id_data.formatted,
+            has_fields: !!id_data.formatted,
             erase_all: request_object.erase_all,
             data_portability: request_object.data_portability,
             runs: request_object.recipient_runs ? request_object.recipient_runs.length > 0 : false
