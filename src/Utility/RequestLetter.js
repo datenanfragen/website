@@ -140,6 +140,7 @@ export default class RequestLetter {
 
         flags = {
             erase_some: !request_object.erase_all,
+            all_fields_empty: !id_data.formatted,
             erase_all: request_object.erase_all,
             data_portability: request_object.data_portability,
             runs: request_object.recipient_runs ? request_object.recipient_runs.length > 0 : false
@@ -173,30 +174,33 @@ export default class RequestLetter {
         let name = '';
 
         request_data.forEach(item => {
-            formatted += '<bold>' + item.desc + ':</bold> ';
-            switch (item.type) {
-                case 'address':
-                    formatted +=
-                        '\n' +
-                        formatAddress(
-                            [item.value.street_1, item.value.street_2, item.value.place, item.value.country],
-                            ', '
-                        );
-                    if (item.value.primary) primary_address = item.value;
-                    break;
-                case 'textarea':
-                    formatted += '\n' + item.value;
-                    break;
-                case 'name':
-                    name = item.value;
-                // fallthrough intentional
-                case 'birthdate':
-                case 'input':
-                default:
-                    formatted += item.value;
-                    break;
+            if ((item.type !== 'address' && item.value !== '') || (item.type === 'address' && item.value.street_1)) {
+                formatted += '<bold>' + item.desc + ':</bold> ';
+
+                switch (item.type) {
+                    case 'address':
+                        formatted +=
+                            '\n' +
+                            formatAddress(
+                                [item.value.street_1, item.value.street_2, item.value.place, item.value.country],
+                                ', '
+                            );
+                        if (item.value.primary) primary_address = item.value;
+                        break;
+                    case 'textarea':
+                        formatted += '\n' + item.value;
+                        break;
+                    case 'name':
+                        name = item.value;
+                    // fallthrough intentional
+                    case 'birthdate':
+                    case 'input':
+                    default:
+                        formatted += item.value;
+                        break;
+                }
+                formatted += '\n';
             }
-            formatted += '\n';
         });
         return { formatted: formatted, name: name, primary_address: primary_address };
     }
