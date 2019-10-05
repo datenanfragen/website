@@ -127,7 +127,9 @@
         "print-pdf": "Print PDF",
         "pgp-fingerprint": "PGP fingerprint",
         "ok": "Ok",
-        "wizard-done-modal": "And that’s it already! You have completed the requests for all companies you selected in the wizard. If you want to, you can now generate additional (more complex) requests."
+        "wizard-done-modal": "And that’s it already! You have completed the requests for all companies you selected in the wizard. If you want to, you can now generate additional (more complex) requests.",
+        "error-template-not-found": "The request template could not be found.",
+        "error-template-fetch-failed": "Fetching the request template failed with an unknown error."
     },
     "privacy-controls": {
         "title": "Privacy controls",

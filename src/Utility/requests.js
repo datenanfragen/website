@@ -1,4 +1,4 @@
-import { t_r } from './i18n';
+import t, { t_r } from './i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Privacy';
 import IdData from './IdData';
 import { CriticalException, rethrow } from './errors';
@@ -63,7 +63,7 @@ export function trackingFields(locale = LOCALE) {
  * @param {string} request_type The request type to fetch a template for.
  * @param {Object} [company] A company object to extract the template
  * @param {string} [suffix=default] The suffix to append to the request type. No trailing dash is needed.
- * @returns {string} A template string which may contain variable placeholders.
+ * @returns {Promise} A Promise to be resolved as as string of the template.
  */
 export function fetchTemplate(locale, request_type, company = null, suffix = 'default') {
     const template = company
@@ -90,7 +90,7 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
                             template_url: template_url,
                             response: response
                         },
-                        'Request template could not be found.'
+                        t('error-template-not-found', 'generator')
                     );
                 default:
                     throw new CriticalException(
@@ -101,7 +101,7 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
                             template_url: template_url,
                             response: response
                         },
-                        'Fetching the request template failed.'
+                        t('error-template-fetch-failed', 'generator')
                     );
             }
         })
