@@ -225,16 +225,18 @@ export default class DynamicInputContainer extends preact.Component {
                 return prev;
             });
             this.pushStateUp();
-        } 
+        }
     }
 
     // returns boolean whether the field has value based on its type
     static isFieldEmpty(field_value) {
-        if((typeof field_value == 'string') && (field_value)){
-           return false;  
-        } else if(typeof field_value == 'object') {
+        if (typeof field_value == 'string' && field_value) {
+            return false;
+        } else if (typeof field_value == 'object') {
             for (let [key, value] of Object.entries(field_value)) {
-                if((key != 'primary') && (value)) { return false; }
+                if (key != 'primary' && value) {
+                    return false;
+                }
             }
         }
         return true;
