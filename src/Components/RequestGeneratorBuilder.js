@@ -201,7 +201,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 'access-tracking',
                 'erasure-tracking',
                 'rectification-tracking'
-            ].includes(company['custom-' + this.state.request.type + '-template'].replace(/\.txt$/, ''));
+            ].includes((company['custom-' + this.state.request.type + '-template'] || '').replace(/\.txt$/, ''));
 
             prev.request.id_data = IdData.mergeFields(
                 prev.request.id_data,
