@@ -216,13 +216,30 @@ export default class DynamicInputContainer extends preact.Component {
     }
 
     removeDynamicInput(event) {
-        if (window.confirm(t('confirm-input-remove', 'generator'))) {
+        // prompt only if respective field has value entered while removing
+        const field = event.target.getAttribute('rel');
+        const field_value = this.state.fields[field].value;
+        if (DynamicInputContainer.isFieldEmpty(field_value) || window.confirm(t('confirm-input-remove', 'generator'))) {
             this.setState(prev => {
                 delete prev.fields[event.target.getAttribute('rel')];
                 return prev;
             });
             this.pushStateUp();
         }
+    }
+
+    // returns boolean whether the field has value based on its type
+    static isFieldEmpty(field_value) {
+        if (typeof field_value == 'string' && field_value) {
+            return false;
+        } else if (typeof field_value == 'object') {
+            for (let [key, value] of Object.entries(field_value)) {
+                if (key != 'primary' && value) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     getDataArray() {
