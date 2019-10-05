@@ -44,7 +44,7 @@
     "homepage": "https://www.datenanfragen.de",
     "dependencies": {
         "@babel/plugin-proposal-class-properties": "^7.5.5",
-        "autocomplete.js": "^0.36.0",
+        "autocomplete.js": "^0.37.0",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
         "js-cookie": "^2.2.1",
         "letter-generator": "^1.0.0",
