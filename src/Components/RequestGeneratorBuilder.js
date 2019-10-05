@@ -92,7 +92,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                         }).getText();
 
                         if (response_type === 'admonition') {
-                            // TODO @zner0L: I don't think this is used anywhere.
+                            // This might be useful in the future event though it is not used now. Looking forward to a conversations feature!
                             prev.request.via = request.via;
                             prev.request.recipient_address = request.recipient;
                         }
@@ -197,9 +197,11 @@ export default class RequestGeneratorBuilder extends preact.Component {
             // identify the user by the same details (i.e. cookie IDs, device IDs, etc.)
             // I couldn't come up with a better name, so we'll just leave them as tracking requests, I guess…
             // TODO: Get rid of the `.txt` replacement.
-            prev.request.is_tracking_request = ['access-tracking'].includes(
-                company['custom-' + this.state.request.type + '-template'].replace(/\.txt$/, '')
-            );
+            prev.request.is_tracking_request = [
+                'access-tracking',
+                'erasure-tracking',
+                'rectification-tracking'
+            ].includes(company['custom-' + this.state.request.type + '-template'].replace(/\.txt$/, ''));
 
             prev.request.id_data = IdData.mergeFields(
                 prev.request.id_data,
