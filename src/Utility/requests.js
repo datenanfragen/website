@@ -82,19 +82,27 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
                     return response.text();
                 case 404:
                     if (locale !== REQUEST_FALLBACK_LANGUAGE) return fetchTemplate(REQUEST_FALLBACK_LANGUAGE, template);
-                    throw new CriticalException('Request template cold not be found', {
-                        locale: locale,
-                        template: template,
-                        template_url: template_url,
-                        response: response
-                    });
+                    throw new CriticalException(
+                        'Request template could not be found.',
+                        {
+                            locale: locale,
+                            template: template,
+                            template_url: template_url,
+                            response: response
+                        },
+                        'Request template could not be found.'
+                    );
                 default:
-                    throw new CriticalException('Fetching the request template failed.', {
-                        locale: locale,
-                        template: template,
-                        template_url: template_url,
-                        response: response
-                    });
+                    throw new CriticalException(
+                        'Fetching the request template failed.',
+                        {
+                            locale: locale,
+                            template: template,
+                            template_url: template_url,
+                            response: response
+                        },
+                        'Fetching the request template failed.'
+                    );
             }
         })
         .catch(error => rethrow(error));
