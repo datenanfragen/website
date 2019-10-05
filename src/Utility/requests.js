@@ -60,7 +60,7 @@ export function trackingFields(locale = LOCALE) {
  * Get a request template.
  *
  * @param {string} [locale=LOCALE] The desired language of the template. Defaults to the user's language if left blank. If no template can be found for the specified language it defaults to English.
- * @param {string} request_type] The request type to fetch a template for.
+ * @param {string} request_type The request type to fetch a template for.
  * @param {Object} [company] A company object to extract the template
  * @param {string} [suffix=default] The suffix to append to the request type. No trailing dash is needed.
  * @returns {string} A template string which may contain variable placeholders.
