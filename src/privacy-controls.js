@@ -4,7 +4,7 @@ import t from 'Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
 import UserRequests from './my-requests';
 import Modal from './Components/Modal';
-import IdData from './Utility/IdData';
+import SavedIdData from './Utility/SavedIdData';
 import Cookie from 'js-cookie';
 import { isDebugMode } from './Utility/errors';
 import { SavedCompanies } from './Components/Wizard';
@@ -229,7 +229,7 @@ class PrivacyControls extends preact.Component {
     }
 
     static clearIdData() {
-        new IdData().clear(false);
+        new SavedIdData().clear(false);
         PrivacyControls.successFlash();
     }
 

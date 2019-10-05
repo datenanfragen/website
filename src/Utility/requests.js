@@ -1,6 +1,6 @@
 import t, { t_r } from './i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Privacy';
-import IdData from './IdData';
+import SavedIdData from './SavedIdData';
 import { CriticalException, rethrow } from './errors';
 
 /**
@@ -120,7 +120,7 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
  */
 export function initializeFields(fields) {
     if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
-        const id_data = new IdData();
+        const id_data = new SavedIdData();
 
         return id_data
             .getAllFixed()

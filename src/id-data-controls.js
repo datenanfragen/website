@@ -1,5 +1,5 @@
 import preact from 'preact';
-import IdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/IdData';
+import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/SavedIdData';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import t from 'Utility/i18n';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
@@ -12,7 +12,7 @@ class IdDataControls extends preact.Component {
     constructor(props) {
         super(props);
 
-        this.idData = new IdData();
+        this.idData = new SavedIdData();
         this.state = {
             custom_id_data: [],
             fixed_id_data: {
