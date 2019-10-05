@@ -12,7 +12,7 @@ class IdDataControls extends preact.Component {
     constructor(props) {
         super(props);
 
-        this.idData = new SavedIdData();
+        this.savedIdData = new SavedIdData();
         this.state = {
             custom_id_data: [],
             fixed_id_data: {
@@ -28,7 +28,7 @@ class IdDataControls extends preact.Component {
             },
             signature: { type: 'text', value: '' }
         };
-        this.resetIdData();
+        this.resetSavedIdData();
 
         this.handleCustomChange = this.handleCustomChange.bind(this);
         this.handleFixedChange = this.handleFixedChange.bind(this);
@@ -56,9 +56,9 @@ class IdDataControls extends preact.Component {
                                         type="checkbox"
                                         id="always-fill-in"
                                         className="form-element"
-                                        checked={IdData.shouldAlwaysFill()}
+                                        checked={SavedIdData.shouldAlwaysFill()}
                                         onChange={event => {
-                                            IdData.setAlwaysFill(!IdData.shouldAlwaysFill());
+                                            SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill());
                                         }}
                                     />
                                     <label htmlFor="always-fill-in">
@@ -129,12 +129,12 @@ class IdDataControls extends preact.Component {
     handleCustomChange(data) {
         if (data['id-data-controls'].length <= this.state.custom_id_data.length) {
             // no new fields were added
-            this.idData.clear();
-            this.idData.storeArray(
+            this.savedIdData.clear();
+            this.savedIdData.storeArray(
                 data['id-data-controls'].concat(IdDataControls.fieldsArrayFromFixedData(this.state.fixed_id_data)),
                 false
             );
-            this.idData.storeSignature(this.state.signature);
+            this.savedIdData.storeSignature(this.state.signature);
         }
         this.setState({ custom_id_data: data['id-data-controls'] });
     }
@@ -146,12 +146,12 @@ class IdDataControls extends preact.Component {
             else prev.fixed_id_data[type] = e.target.value;
             return prev;
         });
-        this.idData.storeArray(IdDataControls.fieldsArrayFromFixedData(this.state.fixed_id_data));
+        this.savedIdData.storeArray(IdDataControls.fieldsArrayFromFixedData(this.state.fixed_id_data));
     }
 
     handleSignatureChange(data) {
         this.setState({ signature: data['signature'] });
-        this.idData.storeSignature(data['signature']);
+        this.savedIdData.storeSignature(data['signature']);
     }
 
     static fieldsArrayFromFixedData(data) {
@@ -174,9 +174,9 @@ class IdDataControls extends preact.Component {
         ];
     }
 
-    resetIdData() {
-        this.idData.getAll().then(id_data => this.setState({ custom_id_data: id_data }));
-        this.idData.getAllFixed().then(fixed_data => {
+    resetSavedIdData() {
+        this.savedIdData.getAll().then(id_data => this.setState({ custom_id_data: id_data }));
+        this.savedIdData.getAllFixed().then(fixed_data => {
             this.setState(prev => {
                 for (let i in fixed_data) {
                     prev.fixed_id_data[fixed_data[i].type] = fixed_data[i].value;
@@ -184,15 +184,15 @@ class IdDataControls extends preact.Component {
                 return prev;
             });
         });
-        this.idData.getSignature().then(signature => this.setState({ signature: signature }));
+        this.savedIdData.getSignature().then(signature => this.setState({ signature: signature }));
     }
 
     componentDidMount() {
         window.addEventListener(ID_DATA_CHANGE_EVENT, event => {
-            this.resetIdData();
+            this.resetSavedIdData();
         });
         window.addEventListener(ID_DATA_CLEAR_EVENT, event => {
-            this.resetIdData();
+            this.resetSavedIdData();
         });
     }
 }

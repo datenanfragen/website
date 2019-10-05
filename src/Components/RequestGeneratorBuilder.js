@@ -51,7 +51,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             });
         });
 
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.idData = new SavedIdData();
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.savedIdData = new SavedIdData();
 
         this.resetInitialConditions();
     }
@@ -123,8 +123,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
     componentDidMount() {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             const callback = () => {
-                this.idData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
-                this.idData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
+                this.savedIdData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
+                this.savedIdData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
             };
 
             window.addEventListener(ID_DATA_CHANGE_EVENT, callback);
@@ -203,8 +203,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 'rectification-tracking'
             ].includes((company['custom-' + this.state.request.type + '-template'] || '').replace(/\.txt$/, ''));
 
-            prev.request.id_data = IdData.mergeFields(
-                prev.request.id_data,
+            prev.request.saved_id_data = SavedIdData.mergeFields(
+                prev.request.saved_id_data,
                 !!company['required-elements'] && company['required-elements'].length > 0
                     ? company['required-elements']
                     : prev.request.is_tracking_request
@@ -475,8 +475,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
     storeRequest = () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-            this.idData.storeArray(this.state.request.id_data);
-            this.idData.storeSignature(this.state.request.signature);
+            this.savedIdData.storeArray(this.state.request.saved_id_data);
+            this.savedIdData.storeSignature(this.state.request.signature);
         }
 
         this.state.request.store(

@@ -48,9 +48,9 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
                 type="checkbox"
                 id="always-fill-in"
                 className="form-element"
-                checked={IdData.shouldAlwaysFill()}
+                checked={SavedIdData.shouldAlwaysFill()}
                 onChange={event => {
-                    IdData.setAlwaysFill(!IdData.shouldAlwaysFill());
+                    SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill());
                 }}
             />
             <label htmlFor="always-fill-in">{t('always-fill-in', 'id-data-controls')}</label>

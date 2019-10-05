@@ -34,7 +34,7 @@ class PrivacyControl extends preact.Component {
         if (this.state.enabled === false) {
             switch (this.props.privacy_action) {
                 case 'SAVE_ID_DATA':
-                    this.clearModal('clear-id_data', 'confirm-delete-id_data', PrivacyControls.clearIdData);
+                    this.clearModal('clear-id_data', 'confirm-delete-id_data', PrivacyControls.clearSavedIdData);
                     break;
                 case 'SAVE_MY_REQUESTS':
                     this.clearModal(
@@ -106,7 +106,7 @@ class PrivacyControls extends preact.Component {
 
         this.clearRequestsButton = this.clearRequestsButton.bind(this);
         this.clearSavedCompaniesButton = this.clearSavedCompaniesButton.bind(this);
-        this.clearIdDataButton = this.clearIdDataButton.bind(this);
+        this.clearSavedIdDataButton = this.clearSavedIdDataButton.bind(this);
         this.hideModal = this.hideModal.bind(this);
         this.showModal = this.showModal.bind(this);
     }
@@ -135,7 +135,7 @@ class PrivacyControls extends preact.Component {
                     <button
                         id="clear-id_data-button"
                         className="button button-secondary"
-                        onClick={this.clearIdDataButton}>
+                        onClick={this.clearSavedIdDataButton}>
                         <Text id="clear-id_data" />
                     </button>
                     <button
@@ -189,7 +189,7 @@ class PrivacyControls extends preact.Component {
         );
     }
 
-    clearIdDataButton() {
+    clearSavedIdDataButton() {
         this.showModal(
             <Modal
                 positiveText={t('clear-id_data', 'privacy-controls')}
@@ -197,7 +197,7 @@ class PrivacyControls extends preact.Component {
                 onNegativeFeedback={this.hideModal}
                 onPositiveFeedback={e => {
                     this.hideModal();
-                    PrivacyControls.clearIdData();
+                    PrivacyControls.clearSavedIdData();
                 }}
                 positiveDefault={true}
                 onDismiss={this.hideModal}>
@@ -228,7 +228,7 @@ class PrivacyControls extends preact.Component {
         PrivacyControls.successFlash();
     }
 
-    static clearIdData() {
+    static clearSavedIdData() {
         new SavedIdData().clear(false);
         PrivacyControls.successFlash();
     }
