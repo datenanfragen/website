@@ -203,8 +203,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 'rectification-tracking'
             ].includes((company['custom-' + this.state.request.type + '-template'] || '').replace(/\.txt$/, ''));
 
-            prev.request.saved_id_data = SavedIdData.mergeFields(
-                prev.request.saved_id_data,
+            prev.request.id_data = SavedIdData.mergeFields(
+                prev.request.id_data,
                 !!company['required-elements'] && company['required-elements'].length > 0
                     ? company['required-elements']
                     : prev.request.is_tracking_request
@@ -475,7 +475,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
     storeRequest = () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-            this.savedIdData.storeArray(this.state.request.saved_id_data);
+            this.savedIdData.storeArray(this.state.request.id_data);
             this.savedIdData.storeSignature(this.state.request.signature);
         }
 
