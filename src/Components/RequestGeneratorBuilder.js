@@ -37,12 +37,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
             fill_signature: null
         };
 
-        // If specified in the URL, load a single company…
-        if (PARAMETERS['company']) this.setCompanyBySlug(PARAMETERS['company']);
-        // …or multiple ones.
-        const batch_companies = PARAMETERS['companies'];
-        if (batch_companies) this.state.batch = batch_companies.split(',');
-
         this.letter = new RequestLetter({}, (blob_url, filename) => {
             this.setState({
                 blob_url: blob_url,
@@ -57,18 +51,32 @@ export default class RequestGeneratorBuilder extends preact.Component {
             this.savedIdData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
         }
 
-        this.resetInitialConditions();
+        this.resetInitialConditions().then(() => {
+            if (
+                !(
+                    Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) &&
+                    PARAMETERS['response_to'] &&
+                    PARAMETERS['response_type']
+                )
+            ) {
+                // If specified in the URL, load a single company…
+                if (PARAMETERS['company']) this.setCompanyBySlug(PARAMETERS['company']).then(this.renderLetter);
+                // …or multiple ones.
+                const batch_companies = PARAMETERS['companies'];
+                if (batch_companies) this.state.batch = batch_companies.split(',');
+                // We are in batch mode, move to the next company.
+                if (this.state.batch && this.state.batch.length > 0)
+                    this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
+            }
+            this.renderLetter();
+        });
     }
 
-    resetInitialConditions = () => {
-        // We always need to initialize the fields…
-        initializeFields(this.state.request.id_data).then(res => {
+    resetInitialConditions = async () => {
+        await initializeFields(this.state.request.id_data).then(res => {
             this.setState(prev => {
-                // …if they haven't already been initialized elsewhere.
-                if (!this.state.request.id_data) {
-                    prev.request.id_data = res.new_fields;
-                    prev.request.signature = res.signature;
-                }
+                prev.request.id_data = res.new_fields;
+                prev.request.signature = res.signature;
 
                 const name = res.new_fields.filter(i => i.type === 'name')[0];
                 const address = res.new_fields.filter(i => i.type === 'address')[0];
@@ -82,44 +90,51 @@ export default class RequestGeneratorBuilder extends preact.Component {
         const response_to = PARAMETERS['response_to'];
         const response_type = PARAMETERS['response_type'];
 
-        // We are in batch mode, move to the next company.
-        if (this.state.batch && this.state.batch.length > 0) this.setCompanyBySlug(this.state.batch.shift());
         // This is a response to a previous request (warning or complaint).
-        else if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) && response_to && response_type) {
-            new UserRequests().getRequest(response_to).then(request => {
-                fetchTemplate(this.state.request.language, response_type, null, '').then(text => {
-                    this.setState(prev => {
-                        prev.request.custom_data.content = new Template(text, [], {
-                            request_article: REQUEST_ARTICLES[request.type],
-                            request_date: request.date,
-                            request_recipient_address: request.recipient
-                        }).getText();
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) && response_to && response_type) {
+            // Just for the looks: Switch the view before fetching the template
+            this.setState(prev => {
+                prev.request.type = 'custom';
+                return prev;
+            });
 
-                        if (response_type === 'admonition') {
-                            // This might be useful in the future event though it is not used now. Looking forward to a conversations feature!
-                            prev.request.via = request.via;
-                            prev.request.recipient_address = request.recipient;
-                        }
+            await Promise.all([
+                new UserRequests().getRequest(response_to),
+                fetchTemplate(this.state.request.language, response_type, null, '')
+            ]).then(results => {
+                const request = results[0];
+                const text = results[1];
 
-                        prev.request.reference = request.reference;
-                        prev.response_type = response_type;
-                        prev.request.type = 'custom';
-                        prev.response_request = request;
+                this.setState(prev => {
+                    prev.request.custom_data.content = new Template(text, [], {
+                        request_article: REQUEST_ARTICLES[request.type],
+                        request_date: request.date,
+                        request_recipient_address: request.recipient
+                    }).getText();
 
-                        return prev;
-                    });
-                    if (response_type === 'admonition' && request.slug) this.setCompanyBySlug(request.slug);
-                    this.renderLetter();
+                    if (response_type === 'admonition') {
+                        // This might be useful in the future event though it is not used now. Looking forward to a conversations feature!
+                        prev.request.via = request.via;
+                        prev.request.recipient_address = request.recipient;
+                    }
+
+                    prev.request.reference = request.reference;
+                    prev.response_type = response_type;
+                    prev.request.type = 'custom';
+                    prev.response_request = request;
+
+                    return prev;
                 });
+                if (response_type === 'admonition' && request.slug)
+                    this.setCompanyBySlug(request.slug).then(this.renderLetter);
             });
 
             if (response_type === 'complaint') this.showAuthorityChooser();
         }
         // This is just a regular ol' request.
         else {
-            fetchTemplate(this.state.request.language, 'access').then(text => {
+            await fetchTemplate(this.state.request.language, 'access').then(text => {
                 this.setState({ template_text: text });
-                this.renderLetter();
             });
         }
     };
@@ -160,16 +175,19 @@ export default class RequestGeneratorBuilder extends preact.Component {
         if (this.state.batch && this.state.batch.length > 0) this.setCompanyBySlug(this.state.batch.shift());
     };
 
-    setCompanyBySlug = slug => {
-        fetchCompanyDataBySlug(slug, company => {
+    setCompanyBySlug = async slug => {
+        await fetchCompanyDataBySlug(slug).then(company => {
             this.setCompany(company);
         });
     };
+
     setCompany = company => {
-        fetchTemplate(company['request-language'], this.state.request.type, company).then(text => {
-            this.setState({ template_text: text });
-            this.renderLetter();
-        });
+        if (this.state.request.type !== 'custom') {
+            fetchTemplate(company['request-language'], this.state.request.type, company).then(text => {
+                this.setState({ template_text: text });
+                this.renderLetter();
+            });
+        }
 
         // I would love to have `Request` handle this. But unfortunately that won't work as Preact won't notice the
         // state has changed. :(
@@ -323,9 +341,10 @@ export default class RequestGeneratorBuilder extends preact.Component {
                     }}
                     onPositiveFeedback={e => {
                         dismissModal(modal);
-                        this.newRequest();
-                        this.setCompany(suggestion.document);
-                        this.renderLetter();
+                        this.newRequest().then(() => {
+                            this.setCompany(suggestion.document);
+                            this.renderLetter();
+                        });
                     }}
                     positiveDefault={true}
                     onDismiss={() => dismissModal(modal)}>
@@ -418,9 +437,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
         }
     };
 
-    newRequest() {
-        if (this.props.newRequestHook) this.props.newRequestHook(this);
-
+    newRequest = async () => {
         // Remove GET parameter-selected company from the URL after the request is finished.
         // Also remove warning and complaint GET parameters from the URL after the request is finished.
         if (PARAMETERS['company'] || PARAMETERS['response_type'] || PARAMETERS['response_to']) {
@@ -439,8 +456,10 @@ export default class RequestGeneratorBuilder extends preact.Component {
             return prev;
         });
 
-        this.resetInitialConditions();
-    }
+        if (this.props.newRequestHook) this.props.newRequestHook(this);
+
+        await this.resetInitialConditions();
+    };
 
     confirmNewRequest = () => {
         const medium = this.state.request.transport_medium;
@@ -457,7 +476,12 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 negativeText={t('new-request', 'generator')}
                 onNegativeFeedback={e => {
                     dismissModal(modal);
-                    this.newRequest();
+                    this.newRequest().then(() => {
+                        // We are in batch mode, move to the next company.
+                        if (this.state.batch && this.state.batch.length > 0)
+                            this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
+                        else this.renderLetter();
+                    });
                 }}
                 onPositiveFeedback={e => {
                     if (this.state.blob_url) {
@@ -469,7 +493,12 @@ export default class RequestGeneratorBuilder extends preact.Component {
                                 : this.state.blob_url,
                             this.state.download_filename
                         );
-                        this.newRequest();
+                        this.newRequest().then(() => {
+                            // We are in batch mode, move to the next company.
+                            if (this.state.batch && this.state.batch.length > 0)
+                                this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
+                            else this.renderLetter();
+                        });
                     }
                 }}
                 positiveDefault={true}

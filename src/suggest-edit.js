@@ -29,7 +29,7 @@ window.onload = () => {
 
 function prepareForm(schema) {
     if (PARAMETERS['slug']) {
-        fetchCompanyDataBySlug(PARAMETERS['slug'], company => {
+        fetchCompanyDataBySlug(PARAMETERS['slug']).then(company => {
             renderForm(schema, company);
         });
     } else renderForm(schema);
