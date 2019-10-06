@@ -40,6 +40,18 @@ export default class UserRequests {
     clearRequests() {
         return this.localforage_instance.clear();
     }
+
+    storeRequest() {
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            this.savedIdData.storeArray(this.state.request.id_data);
+            this.savedIdData.storeSignature(this.state.request.signature);
+        }
+
+        this.state.request.store(
+            this.state.suggestion ? this.state.suggestion.slug : undefined,
+            this.state.response_type
+        );
+    }
 }
 
 class RequestList extends preact.Component {

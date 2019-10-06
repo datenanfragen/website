@@ -124,7 +124,9 @@ export default class RequestGeneratorBuilder extends preact.Component {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             const callback = () => {
                 this.savedIdData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
-                this.savedIdData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
+                this.savedIdData
+                    .getSignature()
+                    .then(fill_signature => this.setState({ fill_signature: fill_signature }));
             };
 
             window.addEventListener(ID_DATA_CHANGE_EVENT, callback);
@@ -474,15 +476,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
     };
 
     storeRequest = () => {
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-            this.savedIdData.storeArray(this.state.request.id_data);
-            this.savedIdData.storeSignature(this.state.request.signature);
-        }
-
-        this.state.request.store(
-            this.state.suggestion ? this.state.suggestion.slug : undefined,
-            this.state.response_type
-        );
+        new UserRequests().storeRequest();
     };
 
     static get defaultProps() {
