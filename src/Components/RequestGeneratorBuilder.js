@@ -51,7 +51,11 @@ export default class RequestGeneratorBuilder extends preact.Component {
             });
         });
 
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.savedIdData = new SavedIdData();
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            this.savedIdData = new SavedIdData();
+            this.savedIdData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
+            this.savedIdData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
+        }
 
         this.resetInitialConditions();
     }
@@ -124,7 +128,9 @@ export default class RequestGeneratorBuilder extends preact.Component {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             const callback = () => {
                 this.savedIdData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
-                this.savedIdData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
+                this.savedIdData
+                    .getSignature()
+                    .then(fill_signature => this.setState({ fill_signature: fill_signature }));
             };
 
             window.addEventListener(ID_DATA_CHANGE_EVENT, callback);
