@@ -1,6 +1,6 @@
 import t, { t_r } from './i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Privacy';
-import IdData from './IdData';
+import SavedIdData from './SavedIdData';
 import { CriticalException, rethrow } from './errors';
 
 /**
@@ -119,16 +119,16 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
  *     signature.
  */
 export function initializeFields(fields) {
-    if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && IdData.shouldAlwaysFill()) {
-        const id_data = new IdData();
+    if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && SavedIdData.shouldAlwaysFill()) {
+        const saved_id_data = new SavedIdData();
 
-        return id_data
+        return saved_id_data
             .getAllFixed()
-            .then(fill_data => IdData.mergeFields(fields, fill_data, true, true, true, true, false))
+            .then(fill_data => SavedIdData.mergeFields(fields, fill_data, true, true, true, true, false))
             .then(
                 new_fields =>
                     new Promise(resolve => {
-                        id_data.getSignature().then(signature => {
+                        saved_id_data.getSignature().then(signature => {
                             resolve({ new_fields, signature });
                         });
                     })

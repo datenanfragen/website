@@ -5,7 +5,7 @@ import Request from '../DataType/Request';
 import { defaultFields, trackingFields, REQUEST_ARTICLES, initializeFields, fetchTemplate } from '../Utility/requests';
 import RequestLetter from '../Utility/RequestLetter';
 import { slugify, PARAMETERS } from '../Utility/common';
-import IdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utility/IdData';
+import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utility/SavedIdData';
 import replacer_factory from '../Utility/request-generator-replacers';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
@@ -51,7 +51,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             });
         });
 
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.idData = new IdData();
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.savedIdData = new SavedIdData();
 
         this.resetInitialConditions();
     }
@@ -123,8 +123,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
     componentDidMount() {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             const callback = () => {
-                this.idData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
-                this.idData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
+                this.savedIdData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
+                this.savedIdData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
             };
 
             window.addEventListener(ID_DATA_CHANGE_EVENT, callback);
@@ -203,7 +203,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 'rectification-tracking'
             ].includes((company['custom-' + this.state.request.type + '-template'] || '').replace(/\.txt$/, ''));
 
-            prev.request.id_data = IdData.mergeFields(
+            prev.request.id_data = SavedIdData.mergeFields(
                 prev.request.id_data,
                 !!company['required-elements'] && company['required-elements'].length > 0
                     ? company['required-elements']
@@ -475,8 +475,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
     storeRequest = () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-            this.idData.storeArray(this.state.request.id_data);
-            this.idData.storeSignature(this.state.request.signature);
+            this.savedIdData.storeArray(this.state.request.id_data);
+            this.savedIdData.storeSignature(this.state.request.signature);
         }
 
         this.state.request.store(

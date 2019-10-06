@@ -2,7 +2,7 @@ import preact from 'preact';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
 import Cookie from 'js-cookie';
-import IdData from './Utility/IdData';
+import SavedIdData from './Utility/SavedIdData';
 import t from './Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 
@@ -48,9 +48,9 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
                 type="checkbox"
                 id="always-fill-in"
                 className="form-element"
-                checked={IdData.shouldAlwaysFill()}
+                checked={SavedIdData.shouldAlwaysFill()}
                 onChange={event => {
-                    IdData.setAlwaysFill(!IdData.shouldAlwaysFill());
+                    SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill());
                 }}
             />
             <label htmlFor="always-fill-in">{t('always-fill-in', 'id-data-controls')}</label>
