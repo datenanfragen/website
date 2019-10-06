@@ -3,7 +3,7 @@ cache:
         - node_modules/
 
 variables:
-    HUGO_VERSION: '0.55.6'
+    HUGO_VERSION: '0.58.3'
     HUGO_BINARY: hugo_${HUGO_VERSION}_linux-64bit
     GLIBC_VERSION: '2.28-r0'
 
@@ -15,9 +15,9 @@ test:
         - apk add bash git wget py-pygments ca-certificates autoconf automake build-base
 
         # Needed for BrowserStackLocal, see https://github.com/browserstack/browserstack-local-nodejs/issues/32, https://github.com/browserstack/browserstack-local-nodejs/issues/20 and https://github.com/sgerrand/alpine-pkg-glibc
-        # - wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
-        # - wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk
-        # - apk add glibc-${GLIBC_VERSION}.apk glibc-bin-${GLIBC_VERSION}.apk
+        - wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
+        - wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk
+        - apk add glibc-${GLIBC_VERSION}.apk glibc-bin-${GLIBC_VERSION}.apk
 
         - rm -rf /var/cache/apk/*
         - mkdir /usr/local/hugo
@@ -36,4 +36,4 @@ test:
     artifacts:
         paths:
             - public/
-            # - test/reports/
+            - test/reports/
