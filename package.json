@@ -35,6 +35,7 @@
         "bs-local": "node -e \"(new (require('browserstack-local')).Local()).start({key: process.env.BROWSERSTACK_ACCESS_KEY, force: 'true', localIdentifier: require('os').hostname()}, ()=>{})\"",
         "sanity-check": "grep -E '^[><=]{7}( |$)' -H -I --line-number -r --exclude-dir=node_modules && exit 1 || exit 0 # Check for merge conflict artifacts, inspired by: https://stackoverflow.com/a/42584779",
         "btest": "yarn nightwatch -c test/nightwatch.conf.js",
+        "run-test": "yarn nightwatch -c test/nightwatch.conf.js -t",
         "test": "yarn lint && yarn bs-local && yarn btest",
         "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint src/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint src/styles --fix"
