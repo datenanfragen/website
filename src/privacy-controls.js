@@ -63,6 +63,7 @@ class PrivacyControl extends preact.Component {
                             id={this.meta.id + '-checkbox'}
                             checked={this.state.enabled}
                             type="checkbox"
+                            className="form-element"
                             onChange={this.onChange}
                         />
                     </td>
