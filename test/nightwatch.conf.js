@@ -12,6 +12,17 @@ try {
     branch = 'unknown_branch';
 }
 
+const commit = child_process
+    .execSync('echo "$(git log -1 --pretty=%B) : $(git rev-parse --short HEAD)"')
+    .toString()
+    .trim();
+const has_uncommitted_changes =
+    child_process
+        .execSync('git diff-index --quiet HEAD -- || echo  1')
+        .toString()
+        .trim() === '1';
+const build_name = has_uncommitted_changes ? '[local testing]' : commit;
+
 const LANGUAGES = { en: 'http://localhost:1314', de: 'http://localhost:1313' };
 
 let nightwatch_config = {
@@ -44,10 +55,7 @@ let nightwatch_config = {
                 'browserstack.console': 'info',
 
                 project: 'datenanfragen/website' + (branch == 'master' ? '' : '/' + branch),
-                build: child_process
-                    .execSync('echo "$(git log -1 --pretty=%B) : $(git rev-parse --short HEAD)"')
-                    .toString()
-                    .trim()
+                build: build_name
             }
         }
     }
