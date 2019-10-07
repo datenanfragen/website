@@ -23,7 +23,9 @@ const has_uncommitted_changes =
         .trim() === '1';
 const build_name = has_uncommitted_changes ? '[local testing]' : commit;
 
-const LANGUAGES = { en: 'http://localhost:1314', de: 'http://localhost:1313' };
+const LANGUAGES = process.env.NW_LANGUAGE_URLS
+    ? JSON.parse(process.env.NW_LANGUAGE_URLS)
+    : { en: 'http://localhost:1314', de: 'http://localhost:1313' };
 
 let nightwatch_config = {
     src_folders: ['test/src'],

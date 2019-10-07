@@ -9,6 +9,9 @@ To trigger them from your local machine, you need to have access to the BrowserS
 ```sh
 export BROWSERSTACK_USER=myuser
 export BROWSERSTACK_ACCESS_KEY=myaccesskey
+
+# If you want to, you can override the launch URLs.
+export NW_LANGUAGE_URLS='{"en": "http://localhost:1314", "de": "http://localhost:1313"}'
 ```
 
 There are multiple options:
