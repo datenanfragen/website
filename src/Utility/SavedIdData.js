@@ -6,7 +6,7 @@ import { deepCopyObject } from './common';
 export const ID_DATA_CHANGE_EVENT = 'saved_data-change';
 export const ID_DATA_CLEAR_EVENT = 'saved_data-clear';
 
-export default class IdData {
+export default class SavedIdData {
     constructor() {
         this.localforage_instance = localforage.createInstance({
             name: 'Datenanfragen.de',

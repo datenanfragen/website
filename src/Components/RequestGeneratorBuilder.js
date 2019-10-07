@@ -2,10 +2,10 @@ import preact from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import Request from '../DataType/Request';
-import { defaultFields, trackingFields, templateURL, REQUEST_ARTICLES, initializeFields } from '../Utility/requests';
+import { defaultFields, trackingFields, REQUEST_ARTICLES, initializeFields, fetchTemplate } from '../Utility/requests';
 import RequestLetter from '../Utility/RequestLetter';
 import { slugify, PARAMETERS } from '../Utility/common';
-import IdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utility/IdData';
+import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utility/SavedIdData';
 import replacer_factory from '../Utility/request-generator-replacers';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
@@ -51,7 +51,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             });
         });
 
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.idData = new IdData();
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) this.savedIdData = new SavedIdData();
 
         this.resetInitialConditions();
     }
@@ -83,52 +83,48 @@ export default class RequestGeneratorBuilder extends preact.Component {
         // This is a response to a previous request (warning or complaint).
         else if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) && response_to && response_type) {
             new UserRequests().getRequest(response_to).then(request => {
-                fetch(templateURL(this.state.request.language, response_type))
-                    .then(res => res.text())
-                    .then(text => {
-                        this.setState(prev => {
-                            prev.request.custom_data.content = new Template(text, [], {
-                                request_article: REQUEST_ARTICLES[request.type],
-                                request_date: request.date,
-                                request_recipient_address: request.recipient
-                            }).getText();
+                fetchTemplate(this.state.request.language, response_type, null, '').then(text => {
+                    this.setState(prev => {
+                        prev.request.custom_data.content = new Template(text, [], {
+                            request_article: REQUEST_ARTICLES[request.type],
+                            request_date: request.date,
+                            request_recipient_address: request.recipient
+                        }).getText();
 
-                            if (response_type === 'admonition') {
-                                // TODO @zner0L: I don't think this is used anywhere.
-                                prev.request.via = request.via;
-                                prev.request.recipient_address = request.recipient;
-                            }
+                        if (response_type === 'admonition') {
+                            // This might be useful in the future event though it is not used now. Looking forward to a conversations feature!
+                            prev.request.via = request.via;
+                            prev.request.recipient_address = request.recipient;
+                        }
 
-                            prev.request.reference = request.reference;
-                            prev.response_type = response_type;
-                            prev.request.type = 'custom';
-                            prev.response_request = request;
+                        prev.request.reference = request.reference;
+                        prev.response_type = response_type;
+                        prev.request.type = 'custom';
+                        prev.response_request = request;
 
-                            return prev;
-                        });
-                        if (response_type === 'admonition' && request.slug) this.setCompanyBySlug(request.slug);
-                        this.renderLetter();
+                        return prev;
                     });
+                    if (response_type === 'admonition' && request.slug) this.setCompanyBySlug(request.slug);
+                    this.renderLetter();
+                });
             });
 
             if (response_type === 'complaint') this.showAuthorityChooser();
         }
         // This is just a regular ol' request.
         else {
-            fetch(templateURL(this.state.request.language, 'access-default'))
-                .then(res => res.text())
-                .then(text => {
-                    this.setState({ template_text: text });
-                    this.renderLetter();
-                });
+            fetchTemplate(this.state.request.language, 'access').then(text => {
+                this.setState({ template_text: text });
+                this.renderLetter();
+            });
         }
     };
 
     componentDidMount() {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             const callback = () => {
-                this.idData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
-                this.idData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
+                this.savedIdData.getAll(false).then(fill_fields => this.setState({ fill_fields: fill_fields }));
+                this.savedIdData.getSignature().then(fill_signature => this.setState({ fill_signature: fill_signature }));
             };
 
             window.addEventListener(ID_DATA_CHANGE_EVENT, callback);
@@ -164,17 +160,10 @@ export default class RequestGeneratorBuilder extends preact.Component {
         });
     };
     setCompany = company => {
-        // TODO: This code is mostly duplicated in `this.handleTypeChange(e)`.
-        // TODO: Get rid of the `.txt` replacement.
-        const template_file = (
-            company['custom-' + this.state.request.type + '-template'] || this.state.request.type + '-default'
-        ).replace(/\.txt$/, '');
-        fetch(templateURL(company['request-language'], template_file))
-            .then(res => res.text())
-            .then(text => {
-                this.setState({ template_text: text });
-                this.renderLetter();
-            });
+        fetchTemplate(company['request-language'], this.state.request.type, company).then(text => {
+            this.setState({ template_text: text });
+            this.renderLetter();
+        });
 
         // I would love to have `Request` handle this. But unfortunately that won't work as Preact won't notice the
         // state has changed. :(
@@ -207,9 +196,14 @@ export default class RequestGeneratorBuilder extends preact.Component {
             // requests anyway in that they are either also to tracking companies or those companies at least
             // identify the user by the same details (i.e. cookie IDs, device IDs, etc.)
             // I couldn't come up with a better name, so we'll just leave them as tracking requests, I guess…
-            prev.request.is_tracking_request = ['access-tracking'].includes(template_file);
+            // TODO: Get rid of the `.txt` replacement.
+            prev.request.is_tracking_request = [
+                'access-tracking',
+                'erasure-tracking',
+                'rectification-tracking'
+            ].includes((company['custom-' + this.state.request.type + '-template'] || '').replace(/\.txt$/, ''));
 
-            prev.request.id_data = IdData.mergeFields(
+            prev.request.id_data = SavedIdData.mergeFields(
                 prev.request.id_data,
                 !!company['required-elements'] && company['required-elements'].length > 0
                     ? company['required-elements']
@@ -234,16 +228,10 @@ export default class RequestGeneratorBuilder extends preact.Component {
             return;
         }
 
-        const template_file = this.state.suggestion
-            ? this.state.suggestion['custom-' + this.state.request.type + '-template'] ||
-              this.state.request.type + '-default'
-            : this.state.request.type + '-default';
-        fetch(templateURL(this.state.request.language, template_file))
-            .then(res => res.text())
-            .then(text => {
-                this.setState({ template_text: text });
-                this.renderLetter();
-            });
+        fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then(text => {
+            this.setState({ template_text: text });
+            this.renderLetter();
+        });
     };
 
     handleInputChange = changed_data => {
@@ -305,16 +293,14 @@ export default class RequestGeneratorBuilder extends preact.Component {
     handleCustomLetterTemplateChange = e => {
         const new_template = e.target.value;
         if (new_template !== 'no-template') {
-            fetch(templateURL(this.state.request.language, new_template))
-                .then(res => res.text())
-                .then(text => {
-                    this.setState(prev => {
-                        prev.request.custom_data.content = text;
-                        prev.response_type = new_template;
-                        return prev;
-                    });
-                    this.renderLetter();
+            fetchTemplate(this.state.request.language, new_template, null, '').then(text => {
+                this.setState(prev => {
+                    prev.request.custom_data.content = text;
+                    prev.response_type = new_template;
+                    return prev;
                 });
+                this.renderLetter();
+            });
         } else this.setState({ response_type: '' });
     };
 
@@ -359,18 +345,16 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 <SvaFinder
                     callback={sva => {
                         this.setCompany(sva);
-                        fetch(templateURL(sva['complaint-language'], 'complaint'))
-                            .then(res => res.text())
-                            .then(text => {
-                                this.setState(prev => {
-                                    prev.request.custom_data.content = new Template(text, [], {
-                                        request_article: REQUEST_ARTICLES[this.state.response_request.type],
-                                        request_date: this.state.response_request.date,
-                                        request_recipient_address: this.state.response_request.recipient
-                                    }).getText();
-                                });
-                                this.renderLetter();
+                        fetchTemplate(sva['complaint-language'], 'complaint', null, '').then(text => {
+                            this.setState(prev => {
+                                prev.request.custom_data.content = new Template(text, [], {
+                                    request_article: REQUEST_ARTICLES[this.state.response_request.type],
+                                    request_date: this.state.response_request.date,
+                                    request_recipient_address: this.state.response_request.recipient
+                                }).getText();
                             });
+                            this.renderLetter();
+                        });
                         dismissModal(modal);
                     }}
                     style="margin-top: 15px;"
@@ -491,8 +475,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
     storeRequest = () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-            this.idData.storeArray(this.state.request.id_data);
-            this.idData.storeSignature(this.state.request.signature);
+            this.savedIdData.storeArray(this.state.request.id_data);
+            this.savedIdData.storeSignature(this.state.request.signature);
         }
 
         this.state.request.store(

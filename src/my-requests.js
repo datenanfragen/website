@@ -97,13 +97,16 @@ class RequestList extends preact.Component {
 
     render() {
         let content;
-
+        const date_options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const locale_country = globals.country.toUpperCase();
+        const date_locale = locale_country === 'ALL' ? LOCALE : `${LOCALE}-${locale_country}`;
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             let request_rows = [];
             this.state.sorted_request_ids.forEach(id => {
                 let request = this.state.requests[id];
                 if (!request) return;
                 let recipient = request.recipient.split('\n', 1)[0]; // TODO: Proper authority pages and links
+                const date = new Date(request.date).toLocaleDateString(date_locale, date_options);
                 request_rows.push(
                     <tr>
                         <td>
@@ -116,7 +119,7 @@ class RequestList extends preact.Component {
                                 data-db-id={id}
                             />
                         </td>
-                        <td data-label={t('date', 'my-requests')}>{request.date}</td>
+                        <td data-label={t('date', 'my-requests')}>{date}</td>
                         <td data-label={t('recipient', 'my-requests')}>
                             {request.slug ? (
                                 <a
