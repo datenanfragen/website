@@ -2,7 +2,7 @@ import { PARAMETERS } from './common';
 
 export function clearUrlParameters() {
     window.history.pushState({}, document.title, BASE_URL + 'generator');
-    for (let param in PARAMETERS) if (Object.prototype.hasOwnProperty.call(PARAMETERS, param)) delete PARAMETERS[param];
+    for (const p in PARAMETERS) if (Object.prototype.hasOwnProperty.call(PARAMETERS, p)) delete PARAMETERS[p];
 }
 
 // Returns `true` if canvas image extraction is blocked.

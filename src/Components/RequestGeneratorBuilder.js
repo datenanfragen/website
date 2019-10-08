@@ -87,8 +87,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             });
         });
 
-        const response_to = PARAMETERS['response_to'];
-        const response_type = PARAMETERS['response_type'];
+        const { response_to, response_type } = PARAMETERS;
 
         // This is a response to a previous request (warning or complaint).
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) && response_to && response_type) {
@@ -102,8 +101,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 new UserRequests().getRequest(response_to),
                 fetchTemplate(this.state.request.language, response_type, null, '')
             ]).then(results => {
-                const request = results[0];
-                const text = results[1];
+                const [request, text] = results;
 
                 this.setState(prev => {
                     prev.request.custom_data.content = new Template(text, [], {
@@ -125,8 +123,9 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
                     return prev;
                 });
-                if (response_type === 'admonition' && request.slug)
+                if (response_type === 'admonition' && request.slug) {
                     this.setCompanyBySlug(request.slug).then(this.renderLetter);
+                }
             });
 
             if (response_type === 'complaint') this.showAuthorityChooser();
@@ -478,9 +477,9 @@ export default class RequestGeneratorBuilder extends preact.Component {
                     dismissModal(modal);
                     this.newRequest().then(() => {
                         // We are in batch mode, move to the next company.
-                        if (this.state.batch && this.state.batch.length > 0)
+                        if (this.state.batch && this.state.batch.length > 0) {
                             this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
-                        else this.renderLetter();
+                        } else this.renderLetter();
                     });
                 }}
                 onPositiveFeedback={e => {
@@ -495,9 +494,9 @@ export default class RequestGeneratorBuilder extends preact.Component {
                         );
                         this.newRequest().then(() => {
                             // We are in batch mode, move to the next company.
-                            if (this.state.batch && this.state.batch.length > 0)
+                            if (this.state.batch && this.state.batch.length > 0) {
                                 this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
-                            else this.renderLetter();
+                            } else this.renderLetter();
                         });
                     }
                 }}
