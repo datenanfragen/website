@@ -427,6 +427,13 @@ table#my-requests-table {
     }
 }
 
+.privacy-control {
+    input[type='checkbox'] {
+        top: 10px;
+        position: relative;
+    }
+}
+
 #privacy-controls-buttons {
     & > button,
     & > .button {
