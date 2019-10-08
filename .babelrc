@@ -1,12 +1,5 @@
 {
-    "presets": [
-        ["@babel/preset-env",
-        {
-            "targets": {
-                "node": "10"
-            }
-        }]
-    ],
+    "presets": ["@babel/preset-env"],
     "plugins": [
         [
             "@babel/plugin-transform-react-jsx",
@@ -15,6 +8,7 @@
             }
         ],
         ["@babel/plugin-transform-block-scoping"],
-        ["@babel/plugin-proposal-class-properties"]
+        ["@babel/plugin-proposal-class-properties"],
+        ["@babel/plugin-transform-runtime"]
     ]
 }

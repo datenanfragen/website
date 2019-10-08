@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # --- Fetch companies data ---
 git clone --depth 1 https://github.com/datenanfragen/data tmp
