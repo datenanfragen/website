@@ -1,6 +1,6 @@
 import preact from 'preact';
 import t from 'Utility/i18n';
-import { fetchSvaDataBySlug } from 'Utility/companies';
+import { fetchSvaDataBySlug } from '../Utility/companies';
 
 const STEPS = {
     country: {
@@ -105,7 +105,7 @@ export default class SvaFinder extends preact.Component {
 
         if (this.state.result) {
             if (typeof this.props.callback === 'function') {
-                fetchSvaDataBySlug(this.state.result, sva => {
+                fetchSvaDataBySlug(this.state.result).then(sva => {
                     this.props.callback(sva);
                 });
 
