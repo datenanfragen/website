@@ -109,17 +109,14 @@ export default class SignatureInput extends preact.Component {
                     <div style={this.state.canvasImageExtractionBlocked ? 'position: relative;' : ''}>
                         <canvas
                             id={this.props.id}
-                            style={
-                                'max-width: 100%; box-sizing: border-box; background-color: ' +
-                                this.state.backgroundColor
-                            }
+                            style={`width: 100%; height: ${this.state.height}px; box-sizing: border-box; background-color: %{this.state.backgroundColor};`}
                             ref={el => (this.canvas = el)}
                             width={this.state.width}
                             height={this.state.height}
-                            onMouseMove={this.handleMouse}
-                            onMouseDown={this.handleMouse}
-                            onMouseUp={this.handleMouse}
-                            onMouseOut={this.handleMouse}
+                            onPointerMove={this.handleMouse}
+                            onPointerDown={this.handleMouse}
+                            onPointerUp={this.handleMouse}
+                            onPointerOut={this.handleMouse}
                         />
                         {this.state.canvasImageExtractionBlocked ? (
                             <div
@@ -189,7 +186,7 @@ export default class SignatureInput extends preact.Component {
         let x; // Apparently JS linting ignores breaks…
         let y;
         switch (event.type) {
-            case 'mousemove':
+            case 'pointermove':
                 if (this.state.isDrawing) {
                     x = event.pageX - this.canvas.offsetLeft;
                     y = event.pageY - this.canvas.offsetTop;
@@ -200,7 +197,11 @@ export default class SignatureInput extends preact.Component {
                     });
                 }
                 break;
-            case 'mousedown':
+            case 'pointerdown':
+                if (this.canvas.width !== this.canvas.parentElement.scrollWidth) {
+                    this.canvas.width = this.canvas.parentElement.scrollWidth;
+                }
+
                 x = event.pageX - this.canvas.offsetLeft;
                 y = event.pageY - this.canvas.offsetTop;
 
@@ -214,13 +215,13 @@ export default class SignatureInput extends preact.Component {
                     lastY: y
                 });
                 break;
-            case 'mouseout':
+            case 'pointerout':
                 if (this.state.hasBeenDrawnOn) this.handleChange();
                 this.setState({ hasBeenDrawnOn: false });
 
                 this.handleBlockedCanvasImageDetection();
             // fallthrough intentional
-            case 'mouseup':
+            case 'pointerup':
                 this.setState({ isDrawing: false });
                 break;
         }

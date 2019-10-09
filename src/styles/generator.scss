@@ -126,15 +126,14 @@ textarea:placeholder-shown + label.fancy-label {
 }
 
 .signature-input {
-    // TODO: This doesn't exactly work on mobile, anyway. If we don't want to optimize for that, it might be better to just hide it.
-    @include mobile {
-        display: none;
-        width: 100% !important;
-    }
-
     .canvas-blocked-overlay {
         background-color: color('gray', 700);
         color: color('gray', 200);
+    }
+
+    canvas#signature {
+        user-select: none;
+        touch-action: none;
     }
 }
 
