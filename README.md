@@ -1,4 +1,5 @@
 # The Datenanfragen.de website
+[![MIT license](https://img.shields.io/github/license/datenanfragen/website)](https://github.com/datenanfragen/website/blob/master/LICENSE)
 
 > This repository contains the source code for the Datenanfragen.de website.
 
