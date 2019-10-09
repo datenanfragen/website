@@ -1,41 +1,35 @@
 import preact from 'preact';
 import PropTypes from 'prop-types';
 import { Text, IntlProvider } from 'preact-i18n';
+import MailtoDropdown from '../MailtoDropdown';
 
 export default class ActionButton extends preact.Component {
-    render() {
+    render(props) {
         const class_name =
-            'button' +
-            (this.props.blob_url ? '' : ' disabled') +
-            (this.props.done ? ' button-secondary' : ' button-primary');
+            'button' + (props.blob_url ? '' : ' disabled') + (props.done ? ' button-secondary' : ' button-primary');
 
         const button =
-            this.props.transport_medium === 'email' ? (
-                <a
-                    id="sendmail-button"
+            props.transport_medium === 'email' ? (
+                <MailtoDropdown
+                    letter={props.letter}
+                    onSuccess={props.onSuccess}
+                    email={props.email}
+                    done={props.done}
                     className={class_name}
-                    href={this.props.mailto_link}
-                    onClick={e => {
-                        if (!this.props.blob_url) e.preventDefault();
-                        else this.props.onSuccess();
-                    }}>
-                    <Text id={this.props.done ? 'send-email-again' : 'send-email'} />
-                    &nbsp;&nbsp;
-                    <span className={'icon ' + (this.props.done ? 'icon-paper-plane' : 'icon-email')} />
-                </a>
+                />
             ) : (
                 <a
                     id="download-button"
                     className={class_name}
-                    href={this.props.blob_url}
-                    download={this.props.download_filename}
+                    href={props.blob_url}
+                    download={props.download_filename}
                     onClick={e => {
-                        if (!this.props.download_active) e.preventDefault();
-                        else this.props.onSuccess();
+                        if (!props.download_active) e.preventDefault();
+                        else props.onSuccess();
                     }}>
-                    <Text id={this.props.done ? 'download-pdf-again' : 'download-pdf'} />
+                    <Text id={props.done ? 'download-pdf-again' : 'download-pdf'} />
                     &nbsp;&nbsp;
-                    <span className={'icon ' + (this.props.done ? 'icon-delivery-truck' : 'icon-download')} />
+                    <span className={'icon ' + (props.done ? 'icon-delivery-truck' : 'icon-download')} />
                 </a>
             );
 
@@ -49,8 +43,9 @@ export default class ActionButton extends preact.Component {
     static get defaultProps() {
         return {
             transport_medium: 'email',
+            email: '',
+            letter: undefined,
             blob_url: undefined,
-            mailto_link: '',
             download_filename: '',
             download_active: false,
             done: false
@@ -59,6 +54,13 @@ export default class ActionButton extends preact.Component {
 
     // Note: This is not currently being checked but will be starting with Preact X.
     static propTypes = {
-        onSuccess: PropTypes.func.isRequired
+        transport_medium: PropTypes.oneOf(['fax', 'email', 'letter', 'custom']),
+        email: PropTypes.string,
+        letter: PropTypes.object,
+        blob_url: PropTypes.string,
+        download_filename: PropTypes.string,
+        download_active: PropTypes.bool,
+        onSuccess: PropTypes.func.isRequired,
+        done: PropTypes.bool
     };
 }

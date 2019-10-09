@@ -38,12 +38,9 @@ a #logo {
         display: inline-block;
 
         .dropdown#personal-menu {
-            border: 2px solid $primary-color;
-            border-radius: 2px;
-            background: $bg-color;
             width: 400px;
-            right: 0;
             top: 33px;
+            right: 0;
             padding: 0;
 
             @include mobile {
