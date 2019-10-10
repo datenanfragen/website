@@ -106,10 +106,17 @@ export default class SignatureInput extends preact.Component {
                         <Text id="signature" />
                     </h2>
                     <Text id={this.props.isForIdData ? 'signature-explanation-id-data' : 'signature-explanation'} />
-                    <div style={this.state.canvasImageExtractionBlocked ? 'position: relative;' : ''}>
+                    <div
+                        style={
+                            (this.state.canvasImageExtractionBlocked ? 'position: relative;' : '') +
+                            `width: 100%; max-width: ${this.state.width}px;`
+                        }>
                         <canvas
                             id={this.props.id}
-                            style={`width: 100%; height: ${this.state.height}px; box-sizing: border-box; background-color: %{this.state.backgroundColor};`}
+                            style={`width: 100%;
+                                height: ${this.state.height}px;
+                                box-sizing: border-box;
+                                background-color: %{this.state.backgroundColor};`}
                             ref={el => (this.canvas = el)}
                             width={this.state.width}
                             height={this.state.height}
@@ -121,7 +128,7 @@ export default class SignatureInput extends preact.Component {
                         {this.state.canvasImageExtractionBlocked ? (
                             <div
                                 className="canvas-blocked-overlay"
-                                style={`position: absolute; top: 2px; left: 2px; box-sizing: border-box; max-width: 100%; width: ${this.state.width}px; height: ${this.state.height}px; padding: 10px;`}>
+                                style={`position: absolute; top: 0; left: 0; box-sizing: border-box; max-width: 100%; width: ${this.state.width}px; height: ${this.state.height}px; padding: 10px;`}>
                                 <p>
                                     <Text id="overlay-text" />
                                     {/* <br />
