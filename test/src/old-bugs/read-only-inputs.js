@@ -20,7 +20,6 @@ module.exports = {
             .scrollToJs('.accordion', 0, 0)
             .clickJs('.accordion > .accordion-title-link')
             .waitForElementPresent('#reference')
-            .assert.computedCssProperty('#reference', 'cursor', 'not-allowed')
-            .end();
+            .assert.computedCssProperty('#reference', 'cursor', 'not-allowed');
     }
 };
