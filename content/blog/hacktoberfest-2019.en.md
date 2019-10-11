@@ -8,7 +8,7 @@
     "authors": [ "baltpeter" ]
 }
 
-The hosting provider DigitalOcean is once again hosting the [Hacktoberfest](https://hacktoberfest.digitalocean.com/) to celebrate open soruce. The Hacktoberfest invites you to submit pull requests to open source projects. People who submit four or more pull requests, get a free t-shirt from DigitalOcean.
+The hosting provider DigitalOcean is once again hosting the [Hacktoberfest](https://hacktoberfest.digitalocean.com/) to celebrate open source. The Hacktoberfest invites you to submit pull requests to open source projects. People who submit four or more pull requests, get a free t-shirt from DigitalOcean.
 
 <img src="/img/blog/hacktoberfest-2019.png">
 
