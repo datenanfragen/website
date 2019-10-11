@@ -40,6 +40,10 @@ export default class UserRequests {
     clearRequests() {
         return this.localforage_instance.clear();
     }
+
+    removeRequest(db_id) {
+        return this.localforage_instance.removeItem(db_id);
+    }
 }
 
 class RequestList extends preact.Component {
@@ -390,13 +394,20 @@ END:VCALENDAR`;
 
     removeRequest(request_id) {
         if (window.confirm(t('modal-delete-single-request', 'privacy-controls'))) {
-            this.setState(prev => {
-                delete prev.requests[request_id];
-                prev.sorted_request_ids = prev.sorted_request_ids.filter(id => id !== request_id);
-                prev.selected_requests = prev.selected_requests.filter(id => id !== request_id);
+            this.user_requests
+                .removeRequest(request_id)
+                .then(() => {
+                    this.setState(prev => {
+                        delete prev.requests[request_id];
+                        prev.sorted_request_ids = prev.sorted_request_ids.filter(id => id !== request_id);
+                        prev.selected_requests = prev.selected_requests.filter(id => id !== request_id);
 
-                return prev;
-            });
+                        return prev;
+                    });
+                })
+                .catch(error => {
+                    rethrow(error, 'Could not remove request', { db_id: request_id });
+                });
         }
     }
 }
