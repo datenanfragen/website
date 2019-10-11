@@ -154,6 +154,7 @@
         "cancel": "Abbrechen",
         "modal-clear-requests": "Damit werden alle gespeicherten Anfragen unwiderruflich von Deinem Computer gelöscht. Bist Du sicher?",
         "modal-clear-id_data": "Damit werden Deine gespeicherten Identifikationsdaten gelöscht. Bist Du sicher?",
+        "modal-delete-single-request": "Damit wird diese Anfrage unwiderruflich von Deinem Computer gelöscht. Bist Du sicher?",
         "clear-success": "Löschen abgeschlossen.",
         "cookie-change-success": "Einstellung geändert.",
         "feature-disabled": "Du hast diese Funktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun.",
