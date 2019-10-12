@@ -206,6 +206,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 (prev.request.transport_medium === 'fax'
                     ? '\n' + t_r('by-fax', company['request-language'] || LOCALE) + company['fax']
                     : '');
+            prev.request.email = company.email;
 
             const language =
                 !!company['request-language'] && company['request-language'] !== ''
