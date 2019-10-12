@@ -57,7 +57,7 @@ There are many areas where you can contribute—regardless of your previous expe
   We will gladly take new posts. Please submit them to the [website repository](https://github.com/datenanfragen/website).
 
 * **Helping with the code**  
-  The core of the project is of course the [webseite](https://github.com/datenanfragen/website). You have a feature you want to implement or a bug you want to fix? We are looking forward to your contribution!  
+  The core of the project is of course the [website](https://github.com/datenanfragen/website). You have a feature you want to implement or a bug you want to fix? We are looking forward to your contribution!  
   If you need some inspiration, we have collected [some issues over at GitHub](https://github.com/datenanfragen/website/issues).
 
 ## Questions?
