@@ -16,6 +16,14 @@ export default class UserRequests {
         });
     }
 
+    storeRequest(db_id, item) {
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
+            this.localforage_instance.setItem(db_id, item).catch(error => {
+                rethrow(error, 'Saving request failed.', { db_id: db_id });
+            });
+        }
+    }
+
     getRequest(db_id) {
         return this.localforage_instance.getItem(db_id);
     }
