@@ -39,4 +39,5 @@ then
     cp static/404.html public/404.html
 else
     hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
+    cp robots.txt public/robots.txt
 fi
