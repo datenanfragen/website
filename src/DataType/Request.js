@@ -1,9 +1,7 @@
 import { generateReference } from 'letter-generator/utility';
-import localforage from 'localforage';
 import { deepCopyObject } from '../Utility/common';
 import { defaultFields } from '../Utility/requests';
-import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { rethrow } from '../Utility/errors';
+import UserRequests from '../my-requests';
 
 /**
  * @typedef {"access" | "erasure" | "rectification" | "custom"} RequestType
@@ -129,16 +127,6 @@ export default class Request {
          * @type {boolean}
          */
         this.done = false;
-
-        // TODO: Not really sure if this should be here. But apparently we are manually reading 'My requests' data in
-        // various places…
-        // We should probably compute the object to be stored here but then do the actual saving in `UserRequests`.
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            this.request_store = localforage.createInstance({
-                name: 'Datenanfragen.de',
-                storeName: 'my-requests'
-            });
-        }
     }
 
     /**
@@ -150,22 +138,17 @@ export default class Request {
      * @param {"admonition" | "complaint"} [response_type] The response type if this request is a warning or complaint.
      */
     store(slug, response_type) {
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            const db_id =
-                this.reference + '-' + this.type + (this.type === 'custom' && response_type ? '-' + response_type : '');
-            this.request_store
-                .setItem(db_id, {
-                    reference: this.reference,
-                    date: this.date,
-                    type: this.type,
-                    response_type: response_type,
-                    slug: slug,
-                    recipient: this.recipient_address,
-                    via: this.transport_medium
-                })
-                .catch(error => {
-                    rethrow(error, 'Saving request failed.', { database_id: db_id });
-                });
-        }
+        const db_id =
+            this.reference + '-' + this.type + (this.type === 'custom' && response_type ? '-' + response_type : '');
+        const item = {
+            reference: this.reference,
+            date: this.date,
+            type: this.type,
+            response_type: response_type,
+            slug: slug,
+            recipient: this.recipient_address,
+            via: this.transport_medium
+        };
+        new UserRequests().storeRequest(db_id, item);
     }
 }
