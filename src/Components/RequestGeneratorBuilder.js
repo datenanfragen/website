@@ -488,7 +488,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                         this.storeRequest();
                         download(
                             medium === 'email'
-                                ? this.letter.toMailtoLink(this.state.suggestion && this.state.suggestion.email)
+                                ? this.letter.toMailtoLink(this.state.request.email)
                                 : this.state.blob_url,
                             this.state.download_filename
                         );
