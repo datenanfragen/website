@@ -1,0 +1,366 @@
+{
+    "categories": {
+        "other": "Kategorien"
+    },
+    "addresses": {
+        "other": "Adressen"
+    },
+    "ads": {
+        "other": "Werbung"
+    },
+    "collection agency": {
+        "other": "Inkasso"
+    },
+    "commerce": {
+        "other": "Handel"
+    },
+    "credit agency": {
+        "other": "Auskunftei"
+    },
+    "entertainment": {
+        "other": "Unterhaltung"
+    },
+    "finance": {
+        "other": "Finanzen"
+    },
+    "health": {
+        "other": "Gesundheit"
+    },
+    "insurance": {
+        "other": "Versicherung"
+    },
+    "nonprofit": {
+        "other": "Gemeinnützige Organisation"
+    },
+    "political party": {
+        "other": "Partei"
+    },
+    "public body": {
+        "other": "Öffentliche Stelle"
+    },
+    "school": {
+        "other": "Bildung"
+    },
+    "social media": {
+        "other": "Social Media"
+    },
+    "telecommunication": {
+        "other": "Telekommunikation"
+    },
+    "travel": {
+        "other": "Reise"
+    },
+    "utility": {
+        "other": "Versorgung"
+    },
+    "logo": {
+        "other": "img/logo-datenanfragen.svg"
+    },
+    "logo-title": {
+        "other": "Datenanfragen.de-Logo"
+    },
+    "logo-a-title": {
+        "other": "Zur Startseite"
+    },
+    "de": {
+        "other": "Deutsch"
+    },
+    "en": {
+        "other": "Englisch (English)"
+    },
+    "header-name": {
+        "other": "Datenanfragen.de"
+    },
+    "header-home": {
+        "other": "Startseite"
+    },
+    "header-generator": {
+        "other": "Anfrage generieren"
+    },
+    "header-cdb": {
+        "other": "Unternehmensdatenbank"
+    },
+    "header-my-requests": {
+        "other": "Meine Anfragen"
+    },
+    "header-blog": {
+        "other": "Artikel"
+    },
+    "header-contact": {
+        "other": "Impressum"
+    },
+    "header-privacy-controls": {
+        "other": "Datenschutzeinstellungen"
+    },
+    "header-id-data-controls": {
+        "other": "Meine gespeicherten Daten"
+    },
+    "header-open-menu": {
+        "other": "Menü öffnen"
+    },
+    "footer-about-us": {
+        "other": "Wir sind der Datenanfragen.de e.&nbsp;V., ein gemeinnütziger Verein, der es sich zur Aufgabe gemacht hat, Dir bei der Ausübung Deines Rechts auf Datenschutz zu helfen. <a href='https://verein.datenanfragen.de' class='no-link-decoration'>Erfahre mehr.</a>"
+    },
+    "footer-other-langs": {
+        "other": "Auch verfügbar auf: "
+    },
+    "home-hero-line-1": {
+        "other": "Du hast ein Recht auf"
+    },
+    "home-hero-word": {
+        "other": "Datenauskunft"
+    },
+    "home-hero-line-2": {
+        "other": "Nutze es."
+    },
+    "home-main-copy": {
+        "other": "Jedes Unternehmen in der EU ist verpflichtet Dir Rechte auf Datenauskunft, -berichtigung, -löschung usw. zu gewähren. Mit Datenanfragen.de wollen wir Dir helfen diese Rechte auszuüben."
+    },
+    "home-feature-your-rights-title": {
+        "other": "Deine Rechte"
+    },
+    "home-feature-your-rights": {
+        "other": "Die DSGVO gewährt Dir umfassende Rechte im Bezug auf den Datenschutz. So muss Dir z.&nbsp;B. jedes Unternehmen in der EU mitteilen, welche personenbezogenen Daten es zu Dir gespeichert hat. Wenn die Daten falsch sind, muss es sie berichtigen. Du darfst sogar verlangen, dass die Daten wieder gelöscht werden.<br>Mehr zu Deinen Rechten erfährst Du <a href{{ .articleUrl }}\">in diesem Artikel</a>."
+    },
+    "home-feature-easy-requests-title": {
+        "other": "Einfach Anfragen stellen"
+    },
+    "home-feature-easy-requests": {
+        "other": "Unser Generator nimmt Dir die Arbeit des Anfragenstellens ab. Wähle einfach ein Unternehmen aus, gib Deine persönlichen Daten ein und schon erhältst Du ein fertiges Schreiben, das Du nur noch abschicken musst. Ach ja: In unserer <a href{{ .companyUrl }}\">Unternehmensdatenbank</a> haben wir übrigens auch schon die passenden Kontaktdaten für Dich bereitgelegt.<br><a href{{ .generatorUrl }}\">Jetzt eine Anfrage stellen</a>"
+    },
+    "home-feature-answers-title": {
+        "other": "Antworten erhalten"
+    },
+    "home-feature-answers": {
+        "other": "Manche Unternehmen antworten sehr vorbildlich auf Anfragen, anderen brauchen etwas mehr… Überzeugungsarbeit. Doch auch das ist kein Problem: Mit unserem Generator wirst Du Dir auch problemslos Mahnungen und Beschwerden erstellen lassen können."
+    },
+    "home-how-it-works-title": {
+        "other": "So geht's"
+    },
+    "home-how-it-works-parameters-title": {
+        "other": "Parameter eingeben"
+    },
+    "home-how-it-works-parameters": {
+        "other": "Such Dir Unternehmen und Organisationen, bei denen Du anfragen möchtest. Gib ausreichend Daten an, damit dich die Unternehmen auch eindeutig identifizieren können. Damit es für Dich möglichst einfach wird, haben wir die Formulare schon für Dich vorbereitet. Keine Sorge: Alle Daten bleiben auf Deinem Computer und werden dort verarbeitet, sodass sie bei uns gar nicht erst ankommen."
+    },
+    "home-how-it-works-generator-title": {
+        "other": "Anfrage generieren"
+    },
+    "home-how-it-works-generator": {
+        "other": "Aus Deinen Angaben und den Daten, die wir zu den Unternehmen gespeichert haben generieren wir auf Deinem Computer die eigentlichen Anfragen. Du kannst dir aussuchen, wie du die Unternehmen kontaktieren möchtest: per E-Mail, per Fax oder auch per Post. Für jeden Weg generieren wir dir eine Anfrage."
+    },
+    "home-how-it-works-send-title": {
+        "other": "An Unternehmen schicken"
+    },
+    "home-how-it-works-send": {
+        "other": "Die fertige Anfrage muss nur noch auf den Weg. Um den Versand kümmerst Du Dich. So bleiben Deinen Daten zwischen Dir und den Unternehmen. Nach dem Abschicken heißt es dann warten. Die ersten Antworten sollten bald schon eintrudeln. Zuviel Zeit lassen dürfen sich die Unternehmen auch nicht. Wenn Du zu lange warten musst, kannst Du auch direkt eine Mahnung generieren oder dich sogar bei einer Aufsichtsbehörde beschweren."
+    },
+    "home-how-it-works-get-started": {
+        "other": "Los geht's!"
+    },
+    "home-feature-your-rights-access-title": {
+        "other": "Auskunftsrecht"
+    },
+    "home-feature-your-rights-access": {
+        "other": "Du hast ein Recht zu erfahren, welche Daten ein Unternehmen zu Deiner Person gespeichert hat. Darüber hinaus kannst Du z. B. erfragen, zu welchem Zwecke die Daten gespeichert wurden und aus welcher Quelle sie kommen. Wenn das Unternehmen Scorewerte berechnet, muss es Dir Deinen Score mitteilen und Dich aufklären, wie dieser Score zustandekommt."
+    },
+    "home-feature-your-rights-rectification-title": {
+        "other": "Recht auf Berichtigung"
+    },
+    "home-feature-your-rights-rectification": {
+        "other": "Wenn ein Unternehmen falsche Daten zu Dir gespeichert hat, muss es diese auf Deinen Hinweis unverzüglich korrigieren."
+    },
+    "home-feature-your-rights-erasure-title": {
+        "other": "Recht auf Vergessenwerden"
+    },
+    "home-feature-your-rights-erasure": {
+        "other": "Sobald die Daten, die ein Unternehmen zu Dir gespeichert hat, für den Zweck, für den sie erhoben wurden, nicht mehr notwendig sind, kannst Du von Unternehmen verlangen, dass sie diese Daten löschen. Wenn die Daten an Drittunternehmen weitergegeben wurden, müssen diese sogar über Deinen Löschwunsch informiert werden."
+    },
+    "home-feature-your-rights-object-title": {
+        "other": "Recht auf Widerspruch"
+    },
+    "home-feature-your-rights-object": {
+        "other": "Auch wenn Du einmal eine Einwilligung zur Verwendung Deiner Daten gegeben hast, darfst Du diese jederzeit widerrufen. Dabei darf das Unternehmen den Widerruf nicht schwieriger gestalten als die ursprüngliche Zustimmung."
+    },
+    "home-feature-your-rights-portabillity-title": {
+        "other": "Recht auf Datenübertragbarkeit"
+    },
+    "home-feature-your-rights-portabillity": {
+        "other": "Die Daten, die Du einen Unternehmen zu Dir mitgeteilt hast, gehören Dir. Du hast ein Recht, diese Daten von dem Unternehmen in einem gängigen Format zu erhalten, sodass Du sie zu einem anderen Unternehmen übertragen kannst."
+    },
+    "cdb-title": {
+        "other": "Unternehmensdatenbank"
+    },
+    "adb-title": {
+        "other": "Liste der Datenschutz-Aufsichtsbehörden"
+    },
+    "adb-explanation": {
+        "other": "<p>Hier in unserer Aufsichtsbehördendatenbank findest Du die Kontaktdaten der Datenschutz-Aufsichtsbehörden in der EU.</p><p>Die Aufsichtsbehörden sind unabhängige Stellen, welche die Einhaltung der Datenschutzgesetze sicherstellen sollen. Wenn Du der Meinung bist, dass ein Unternehmen Deine Anfragen nicht korrekt beantwortet oder Deine Daten widerrechtlich verarbeitet, kannst Du Dich bei diesen Stellen jederzeit kostenlos beschweren. Mehr darüber erfährst Du in unserem <a href/datenschutz-aufsichtsbehoerden\">Artikel zu den Datenschutz-Aufsichtsbehörden</a>.</p>"
+    },
+    "adb-more-details": {
+        "other": "Weitere Informationen"
+    },
+    "cdb-company-title": {
+        "other": "{{ .Params.name }}: Datenschutz-Kontaktdaten"
+    },
+    "cdb-company-heading": {
+        "other": "Datenschutz-Kontaktdaten für „{{ .Params.name }}“"
+    },
+    "cdb-categories": {
+        "one": "Kategorie:",
+        "other": "Kategorien:"
+    },
+    "cdb-runs": {
+        "other": "Betreibt auch:"
+    },
+    "cdb-runs-extended": {
+        "other": "„{{ .Params.name }}“ ist auch für die folgenden Entitäten und Dienste verantwortlich:"
+    },
+    "cdb-intro": {
+        "other": "Zu „{{ .Params.name }}“ sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Fragen zum Datenschutz stellen möchtest:"
+    },
+    "adb-intro": {
+        "other": "Zu „{{ .Params.name }}“ sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Beschwerden über Organisationen einreichen möchtest:"
+    },
+    "cdb-address": {
+        "other": "Adresse:"
+    },
+    "cdb-attn": {
+        "other": "Datenschutzbeauftragte_r"
+    },
+    "cdb-phone": {
+        "other": "Telefon:"
+    },
+    "cdb-fax": {
+        "other": "Fax:"
+    },
+    "cdb-email": {
+        "other": "E-Mail:"
+    },
+    "cdb-web": {
+        "other": "Webseite:"
+    },
+    "cdb-pgp-fingerprint": {
+        "other": "PGP-Fingerprint:"
+    },
+    "cdb-pgp-url": {
+        "other": "PGP-Key-Download:"
+    },
+    "cdb-sources": {
+        "other": "Quellen:"
+    },
+    "cdb-notes": {
+        "other": "Hinweise:"
+    },
+    "cdb-help-needed": {
+        "other": "Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Schlag <a href='{{ .editUrl }}'>eine Änderung für dieses Unternehmen</a> oder <a href='{{ .newUrl }}'>ein ganz neues</a> vor. Vielen Dank für Deine Mithilfe!"
+    },
+    "cdb-suggest-change": {
+        "other": "Änderung vorschlagen"
+    },
+    "cdb-suggest-new": {
+        "other": "Neues Unternehmen vorschlagen"
+    },
+    "cdb-back-to-overview": {
+        "other": "Zurück zur Übersicht"
+    },
+    "cdb-cc0-explanation": {
+        "other": "Wir stellen diese Datenbank unter der CC0 1.0 Universell-Lizenz zur Verfügung."
+    },
+    "cdb-json-download": {
+        "other": "Als maschinenlesbares JSON ansehen"
+    },
+    "cdb-send-request": {
+        "other": "Anfrage stellen"
+    },
+    "cdb-category-title": {
+        "other": "Unternehmen aus der Kategorie „{{ .c }}“"
+    },
+    "cdb-related-companies": {
+        "other": "Ähnliche Unternehmen"
+    },
+    "blog-published": {
+        "other": "Veröffentlicht: "
+    },
+    "blog-author": {
+        "other": "von: "
+    },
+    "blog-last-edited": {
+        "other": ", zuletzt geändert: "
+    },
+    "blog-post": {
+        "other": "Artikel"
+    },
+    "blog-prev-page": {
+        "other": "Vorherige Seite"
+    },
+    "blog-next-page": {
+        "other": "Nächste Seite"
+    },
+    "blog-page": {
+        "other": "Seite "
+    },
+    "blog-of": {
+        "other": " von "
+    },
+    "blog-read-more": {
+        "other": "Weiterlesen…"
+    },
+    "blog-tags-list": {
+        "other": "Artikel zum Tag: "
+    },
+    "blog-written-by": {
+        "other": "geschrieben von"
+    },
+    "blog-written-on": {
+        "other": "am"
+    },
+    "blog-time-at": {
+        "other": "um"
+    },
+    "blog-and": {
+        "other": " und "
+    },
+    "blog-licensed-under": {
+        "other": "veröffentlicht unter:"
+    },
+    "noscript-generator": {
+        "other": "Der Generator läuft vollständig auf Deinem Computer und verwendet deshalb ausschließlich JavaScript. Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchstest. Wenn Du den Generator benutzen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a hrefmailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>."
+    },
+    "noscript-my-requests": {
+        "other": "Alle Anfragen werden mithilfe von JavaScript auf deinem Computer gespeichert (außer natürlich JavaScript ist deaktiviert). Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchstest. Wenn Du Anfragen speichern und ansehen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a hrefmailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>."
+    },
+    "noscript-wizard": {
+        "other": "An dieser Stelle befände sich ein mit JavaScript generierter Wizard, zur Erstellung von Anfragen auf Datenauskunft. Die Erstellung der Anfragen benötigt JavaScript. Du kannst die Seite benutzen, ohne JavaScript zu aktiveren, hast dann aber leider nur Zugriff auf eingeschränkte Funktionen. Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchtest. Wenn Du die Webseite im vollem Umfang nutzen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a hrefmailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>."
+    },
+    "404-title": {
+        "other": "Fehler 404: Seite nicht gefunden"
+    },
+    "404-body": {
+        "other": "Leider existiert die gesuchte Seite auf diesem Server nicht. Vielleicht hast du dich ja einfach in der URL vertippt? Falls der Fehler wieder auftritt, hinterlasse uns doch einen Hinweis auf unserer E-Mail-Adresse <a hrefmailto:dev@datenanfragen.de\">dev@datenanfragen.de</a> oder schreib in unseren <a hrefhttps://github.com/datenanfragen/website/issues/new\">Issue-Tracker</a>."
+    },
+    "license-cc-by-4.0": {
+        "other": "Creative Commons Namensnennung 4.0 International Lizenz"
+    },
+    "license-url-cc-by-4.0": {
+        "other": "https://creativecommons.org/licenses/by/4.0/deed.de"
+    },
+    "license-cc-by-nd-4.0": {
+        "other": "Creative Commons Namensnennung - Keine Bearbeitungen 4.0 International Lizenz"
+    },
+    "license-url-cc-by-nd-4.0": {
+        "other": "https://creativecommons.org/licenses/by-nd/4.0/deed.de"
+    },
+    "license-cc-by-sa-4.0": {
+        "other": "Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz"
+    },
+    "license-url-cc-by-sa-4.0": {
+        "other": "https://creativecommons.org/licenses/by-sa/4.0/deed.de"
+    },
+    "license-cc0-1.0": {
+        "other": "CC0 1.0 Universell Public Domain Dedication"
+    },
+    "license-url-cc0-1.0": {
+        "other": "https://creativecommons.org/publicdomain/zero/1.0/deed.de"
+    }
+}
