@@ -48,6 +48,10 @@ export default class UserRequests {
     clearRequests() {
         return this.localforage_instance.clear();
     }
+
+    removeRequest(db_id) {
+        return this.localforage_instance.removeItem(db_id);
+    }
 }
 
 class RequestList extends preact.Component {
@@ -90,6 +94,7 @@ class RequestList extends preact.Component {
         });
 
         this.clearRequests = this.clearRequests.bind(this);
+        this.removeRequest = this.removeRequest.bind(this);
         this.buildCsv = this.buildCsv.bind(this);
         this.buildIcs = this.buildIcs.bind(this);
         this.onCheckboxChange = this.onCheckboxChange.bind(this);
@@ -164,7 +169,13 @@ class RequestList extends preact.Component {
                                           href={BASE_URL + 'generator/#!response_type=complaint&response_to=' + id}
                                           className="button button-small button-secondary">
                                           {t('complaint', 'generator')}
-                                      </a>
+                                      </a>,
+                                      <button
+                                          className="button button-primary button-small icon-trash"
+                                          onClick={() => {
+                                              this.removeRequest(id);
+                                          }}
+                                      />
                                   ]
                                 : []}
                         </td>
@@ -385,6 +396,25 @@ END:VCALENDAR`;
                 })
                 .catch(error => {
                     rethrow(error, 'Could not clear requests.');
+                });
+        }
+    }
+
+    removeRequest(request_id) {
+        if (window.confirm(t('modal-delete-single-request', 'privacy-controls'))) {
+            this.user_requests
+                .removeRequest(request_id)
+                .then(() => {
+                    this.setState(prev => {
+                        delete prev.requests[request_id];
+                        prev.sorted_request_ids = prev.sorted_request_ids.filter(id => id !== request_id);
+                        prev.selected_requests = prev.selected_requests.filter(id => id !== request_id);
+
+                        return prev;
+                    });
+                })
+                .catch(error => {
+                    rethrow(error, 'Could not remove request', { db_id: request_id });
                 });
         }
     }

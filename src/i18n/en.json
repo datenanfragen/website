@@ -155,6 +155,7 @@
         "cancel": "Cancel",
         "modal-clear-requests": "This will delete all saved requests and cannot be undone. Are you sure?",
         "modal-clear-id_data": "This will delete your saved identification data. Are you sure?",
+        "modal-delete-single-request": "Are you sure you want to delete this request? This cannot be undone.",
         "clear-success": "Cleared successfully.",
         "cookie-change-success": "Setting saved.",
         "feature-disabled": "You have disabled this feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>.",
