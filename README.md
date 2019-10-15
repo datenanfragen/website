@@ -2,7 +2,7 @@
 
 > This repository contains the source code for the Datenanfragen.de website.
 
-Datenanfragen.de is an open source project by [Datenanfragen.de e.&nbsp;V.](https://verein.datenanfragen.de), a registered non-profit from Germany. We have made it our mission to help you exercise your right to privacy.  
+Datenanfragen.de is an open source project by [Datenanfragen.de e.&nbsp;V.](https://verein.datenanfragen.de), a registered non-profit in Germany. We have made it our mission to help you exercise your right to privacy.  
 Through our website, we offer a generator for GDPR requests as well as access to our company and supervisory authority database (see [this repository](https://github.com/datenanfragen/data/) for the source behind this data) and comprehensive articles on the GDPR and privacy in general.
 
 ![A screenshot of the datarequests.org homepage](https://static.dacdn.de/other/screenshot-datarequests-home.png)
@@ -19,7 +19,7 @@ To build the project, first install Hugo and [Yarn](https://yarnpkg.com). Then c
 For development, use `yarn dev` to start the webpack file watcher which will automatically build the JS and (S)CSS files. For Hugo, use `hugo server  --disableFastRender`.  
 The production builds are automatically done by [Netlify](https://www.netlify.com/) using the `deploy.sh` script.
 
-For testing, we use GitLab CI in combination with BrowserStack who kindly let us use their services.
+For testing, we use GitLab CI in combination with BrowserStack, they kindly let us use their services.
 
 ## Contributing
 
