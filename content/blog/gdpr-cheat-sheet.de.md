@@ -3,6 +3,7 @@
     "heading": "Kleines Glossar zur DSGVO<br><span class='color-gray-800' style='font-size: 0.75em;'>Wichtige Begriffe und Konzepte erklärt.</span>",
     "type": "blog",
     "slug": "dsgvo-glossar",
+    "aliases": [ "blog/gdpr-cheat-sheet" ],
     "date": "2019-02-16T16:44:39+02:00",
     "description": "Wie jedes rechtliche Thema kann auch die DSGVO auf den ersten Blick ziemlich kompliziert wirken. In diesem Artikel erklären wir die wichtigsten Begriffe und Konzepte rund um die DSGVO kurz, sodass Du leicht den Überblick behältst.",
     "featured_image": "/card-icons/book-info.svg",
