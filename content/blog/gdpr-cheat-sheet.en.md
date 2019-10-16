@@ -47,7 +47,7 @@ What is important for you as a consumer: As a rule, the data processor is not th
 
 ### Data protection officer
 
-A data protection officer's task is to ensure that a company (or another organisation, such as a public authority) complies with data protection law. He is appointed by the company itself and must have a certain degree of independence in order to perform his duties.
+A data protection officer's task is to ensure that a company (or another organisation, such as a government agency) complies with data protection law. He is appointed by the company itself and must have a certain degree of independence in order to perform his duties.
 
 If a [controller](#data-controller) has appointed a data protection officer, this person should be your contact person for data protection-related enquiries, for example if you want to exercise your [rights](#rights).
 
@@ -110,7 +110,7 @@ You will find a comprehensive overview and a detailed explanation on this subjec
 
 ### Special categories of personal data
 
-Some data is more sensitive than others. While you may have no qualms about giving your name to a new app, it doesn't have to know your religious beliefs. The GDPR recognizes that these so-called "special categories of personal data" deserve and need special protection. Therefore, the [processing](#processing) of such data is only allowed under certain circumstances.
+Some data is more sensitive than others. While you may have no qualms about giving your name to a new app, it doesn't have to know your religious beliefs. The GDPR recognises that these so-called "special categories of personal data" deserve and need special protection. Therefore, the [processing](#processing) of such data is only allowed under certain circumstances.
 
 Concretely, this concerns the following data:
 
