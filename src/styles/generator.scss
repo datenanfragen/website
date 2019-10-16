@@ -211,27 +211,3 @@ h2 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-/*Displaying wizard text based on screen size*/
-.p-wizard-desktop {
-    display: none;
-}
-
-@media screen and (max-width: 980px) {
-    .p-wizard-desktop {
-        display: none;
-    }
-    .p-wizard-mobile {
-        display: block;
-    }
-}
-@media screen and (min-width : 981px) {
-    .p-wizard-desktop {
-        display: block;
-    }
-
-    .p-wizard-mobile {
-        display: none;
-    }
-}
-
