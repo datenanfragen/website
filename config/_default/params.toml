@@ -6,3 +6,7 @@ short_name = "Benni"
 [authors.zner0l]
 byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://lorenz-sieben.com/' property='cc:attributionName' rel='cc:attributionURL'>Lorenz Sieben</a>"
 short_name = "Lorenz"
+
+[authors.xeluna]
+byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://github.com/xeluna' property='cc:attributionName' rel='cc:attributionURL'>WL</a>"
+short_name = "WL"
