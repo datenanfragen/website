@@ -85,6 +85,14 @@ module.exports = {
                     loader: 'svg-url-loader',
                     options: {}
                 }
+            },
+            // Hugo doesn't support nested translations but we want to have both the Hugo and Preact translations in a
+            // single file.
+            // This loader simply extracts the Hugo translations, prepares them for Hugo and outputs them to a separate
+            // file.
+            {
+                test: /src\/i18n\/[a-z]{2}\.json/,
+                loader: path.resolve('src/Utility/webpack-hugo-i18n-loader.js')
             }
         ]
     },
