@@ -309,18 +309,18 @@
         "rss-link": "Subscribe to the comments on this post using your RSS/Atom feed reader.",
         "warning": "Please note that we are an <em>independent non-profit</em> and not affiliated with the company listed here.<br>If you need support or want to send a request, please contact the company directly. We <strong>cannot</strong> help you in such cases. Thanks for your understanding."
     },
-    "wizard_tutorial": {
-        "back": "Back",
-        "close": "Close",
-        "finish": "Finish",
-        "next": "Next",
-        "skip": "Skip tutorial",
+  "wizard_tutorial": {
+    "back": "Back",
+    "close": "Close",
+    "finish": "Finish",
+    "next": "Next",
+    "skip": "Skip tutorial",
 
-        "request-parameters": "<p>Alright, let’s start generating your requests. We will try our best to make this as easy as possible for you.</p><p>On the right, we have already prefilled the contact details for the first company.</p>",
-        "company-info": "<p>Down here, you can see more details about the current company. Sometimes, we also have some important notes about certain companies. These would also be displayed here.</p>",
-        "id-data": "<p>Now it’s your turn. In order to give you access to your data, the company needs to be able to identify you. Here, you can provide them the necessary details. That could be your name, account number, email address or something completely different. If you don’t know, just stick to the default fields.<br>And always remember: It’s better to err on the side of providing less data—the company will contact you if they need more.</p><p>We will save the data you enter here, so you don’t have to reenter it for the next request. Don’t worry: All this happens exclusively on <strong>your</strong> computer though, we will never see your data. Of course, you can still always <a href=\"/privacy-controls\" target=\"_blank\">turn that feature off</a> if you don’t like it.</p>",
-        "next-request": "<p>And that’s it already for this request!</p><p>Depending on the transport medium, here you can either send your request as an email or download the PDF for it. After that, let us head to the next request.</p>"
-    },
+    "request-parameters": "<p>Alright, let’s start generating your requests. We will try our best to make this as easy as possible for you.</p><p class='desktop-only'>On the left, we have already prefilled the contact details for the first company.</p><p class='mobile-only'>On top, we have already prefilled the contact details for the first company.</p>",
+    "company-info": "<p>Down here, you can see more details about the current company. Sometimes, we also have some important notes about certain companies. These would also be displayed here.</p>",
+    "id-data": "<p>Now it’s your turn. In order to give you access to your data, the company needs to be able to identify you. Here, you can provide them the necessary details. That could be your name, account number, email address or something completely different. If you don’t know, just stick to the default fields.<br>And always remember: It’s better to err on the side of providing less data—the company will contact you if they need more.</p><p>We will save the data you enter here, so you don’t have to reenter it for the next request. Don’t worry: All this happens exclusively on <strong>your</strong> computer though, we will never see your data. Of course, you can still always <a href=\"/privacy-controls\" target=\"_blank\">turn that feature off</a> if you don’t like it.</p>",
+    "next-request": "<p>And that’s it already for this request!</p><p>Depending on the transport medium, here you can either send your request as an email or download the PDF for it. After that, let us head to the next request.</p>"
+  },
     "sva-finder": {
         "sva-finder": "Supervisory authority finder",
         "reset": "Reset choices",
