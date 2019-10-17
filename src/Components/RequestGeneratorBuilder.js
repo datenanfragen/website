@@ -193,8 +193,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
         this.setState(prev => {
             prev.request.transport_medium = company['suggested-transport-medium']
                 ? company['suggested-transport-medium']
-                : company.fax
-                ? 'fax'
+                : company.email
+                ? 'email'
                 : 'letter';
             prev.request.recipient_address =
                 company.name +
