@@ -166,15 +166,18 @@ export default class SavedIdData {
             // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
             let j = new_fields.findIndex(new_field => {
                 return (
-                    new_field['type'] === field['type'] && // Merge if type are equal and
-                    (new_field['desc'] === field['desc'] || // descriptions are equal or
-                    ['name', 'birthdate', 'email'].includes(field['type']) || // field is of fixed type or
-                        (field['type'] === 'address' &&
-                            !!new_field['value'] &&
-                            !!field['value'] &&
-                            new_field['value']['primary'] &&
-                            field['value']['primary']))
-                ); // both fields are primary addresses
+                    (new_field['type'] === field['type'] &&
+                        // type and descriptions are equal
+                        (new_field['desc'] === field['desc'] ||
+                            // type is equal and field is of fixed type
+                            ['name', 'birthdate', 'email'].includes(field['type']))) ||
+                    // both fields are primary addresses
+                    (field['type'] === 'address' &&
+                        !!new_field['value'] &&
+                        !!field['value'] &&
+                        new_field['value']['primary'] &&
+                        field['value']['primary'])
+                );
             });
             if (typeof j !== 'undefined' && j >= 0) {
                 if (!protect_desc) field['desc'] = new_fields[j]['desc']; // should only matter for fixed types
