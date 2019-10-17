@@ -191,22 +191,26 @@ class IdDataControls extends preact.Component {
             {
                 desc: t('name', 'generator'),
                 type: 'name',
-                value: data['name']
+                value: data['name'],
+                optional: true
             },
             {
                 desc: t('birthdate', 'generator'),
                 type: 'birthdate',
-                value: data['birthdate']
+                value: data['birthdate'],
+                optional: true
             },
             {
                 desc: t('address', 'generator'),
                 type: 'address',
-                value: data['address']
+                value: data['address'],
+                optional: true
             },
             {
                 desc: t('email-address', 'generator'),
                 type: 'email',
-                value: data['email']
+                value: data['email'],
+                optional: true
             }
         ];
     }
