@@ -219,12 +219,11 @@ export default class RequestGeneratorBuilder extends preact.Component {
             // requests anyway in that they are either also to tracking companies or those companies at least
             // identify the user by the same details (i.e. cookie IDs, device IDs, etc.)
             // I couldn't come up with a better name, so we'll just leave them as tracking requests, I guess…
-            // TODO: Get rid of the `.txt` replacement.
             prev.request.is_tracking_request = [
                 'access-tracking',
                 'erasure-tracking',
                 'rectification-tracking'
-            ].includes((company['custom-' + this.state.request.type + '-template'] || '').replace(/\.txt$/, ''));
+            ].includes((company['custom-' + this.state.request.type + '-template'] || ''));
 
             prev.request.id_data = SavedIdData.mergeFields(
                 prev.request.id_data,
