@@ -187,6 +187,7 @@ static/templates/*
 static/db/*
 static/schema.json
 static/schema-supervisory-authorities.json
+i18n/*.json
 
 # Generated JS and CSS
 static/*/*.gen.js
