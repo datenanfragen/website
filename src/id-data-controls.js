@@ -85,22 +85,6 @@ class IdDataControls extends preact.Component {
                                     <div className="clearfix" />
                                     <div className="col40">
                                         <strong>
-                                            <label htmlFor="birthdate-input-value-fixed-id-data">
-                                                {t('birthdate', 'generator')}
-                                            </label>
-                                        </strong>
-                                    </div>
-                                    <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                        <DateControl
-                                            id="birthdate-input"
-                                            suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('birthdate', e)}
-                                            value={this.state.fixed_id_data['birthdate']}
-                                        />
-                                    </div>
-                                    <div className="clearfix" />
-                                    <div className="col40">
-                                        <strong>
                                             <label htmlFor="main-address-input-container-fixed-id-data">
                                                 {t('address', 'generator')}
                                             </label>
@@ -112,6 +96,22 @@ class IdDataControls extends preact.Component {
                                             suffix="fixed-id-data"
                                             onChange={e => this.handleFixedChange('address', e)}
                                             value={this.state.fixed_id_data['address']}
+                                        />
+                                    </div>
+                                    <div className="clearfix" />
+                                    <div className="col40">
+                                        <strong>
+                                            <label htmlFor="birthdate-input-value-fixed-id-data">
+                                                {t('birthdate', 'generator')}
+                                            </label>
+                                        </strong>
+                                    </div>
+                                    <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
+                                        <DateControl
+                                            id="birthdate-input"
+                                            suffix="fixed-id-data"
+                                            onChange={e => this.handleFixedChange('birthdate', e)}
+                                            value={this.state.fixed_id_data['birthdate']}
                                         />
                                     </div>
                                     <div className="clearfix" />
