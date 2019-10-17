@@ -71,9 +71,8 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
         : request_type + (suffix ? '-' + suffix : '');
 
     if (!Object.keys(I18N_DEFINITION_REQUESTS).includes(locale)) locale = LOCALE;
-    // TODO: Once this is merged, remove the `.txt` in custom template declarations in the DB. That is just silly.
     const template_url =
-        BASE_URL + 'templates/' + (locale || LOCALE) + '/' + (template ? template.replace(/\.txt$/, '') + '.txt' : '');
+        BASE_URL + 'templates/' + (locale || LOCALE) + '/' + template + '.txt';
 
     return fetch(template_url)
         .then(response => {
