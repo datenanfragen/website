@@ -72,7 +72,7 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
 
     if (!Object.keys(I18N_DEFINITION_REQUESTS).includes(locale)) locale = LOCALE;
     const template_url =
-        BASE_URL + 'templates/' + (locale || LOCALE) + '/' + template;
+        BASE_URL + 'templates/' + (locale || LOCALE) + '/' + template + '.txt';
 
     return fetch(template_url)
         .then(response => {
