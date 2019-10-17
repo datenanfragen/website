@@ -68,7 +68,11 @@ class IdDataControls extends preact.Component {
 
                                 <div className="form-group" style="width: 100%; display: table;">
                                     <div className="col40">
-                                        <strong>{t('name', 'generator')}</strong>
+                                        <strong>
+                                            <label htmlFor="name-input-value-fixed-id-data">
+                                                {t('name', 'generator')}
+                                            </label>
+                                        </strong>
                                     </div>
                                     <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
                                         <InputControl
@@ -80,7 +84,11 @@ class IdDataControls extends preact.Component {
                                     </div>
                                     <div className="clearfix" />
                                     <div className="col40">
-                                        <strong>{t('birthdate', 'generator')}</strong>
+                                        <strong>
+                                            <label htmlFor="birthdate-input-value-fixed-id-data">
+                                                {t('birthdate', 'generator')}
+                                            </label>
+                                        </strong>
                                     </div>
                                     <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
                                         <DateControl
@@ -92,7 +100,11 @@ class IdDataControls extends preact.Component {
                                     </div>
                                     <div className="clearfix" />
                                     <div className="col40">
-                                        <strong>{t('address', 'generator')}</strong>
+                                        <strong>
+                                            <label htmlFor="main-address-input-container-fixed-id-data">
+                                                {t('address', 'generator')}
+                                            </label>
+                                        </strong>
                                     </div>
                                     <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
                                         <AddressControl
