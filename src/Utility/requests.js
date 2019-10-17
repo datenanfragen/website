@@ -25,8 +25,8 @@ export function defaultFields(locale = LOCALE) {
             value: ''
         },
         {
-            desc: t_r('birthdate', locale),
-            type: 'birthdate',
+            desc: t_r('email', locale),
+            type: 'email',
             optional: true,
             value: ''
         },
@@ -71,8 +71,7 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
         : request_type + (suffix ? '-' + suffix : '');
 
     if (!Object.keys(I18N_DEFINITION_REQUESTS).includes(locale)) locale = LOCALE;
-    const template_url =
-        BASE_URL + 'templates/' + (locale || LOCALE) + '/' + template + '.txt';
+    const template_url = BASE_URL + 'templates/' + (locale || LOCALE) + '/' + template + '.txt';
 
     return fetch(template_url)
         .then(response => {

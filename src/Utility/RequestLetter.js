@@ -194,6 +194,7 @@ export default class RequestLetter {
                         name = item.value;
                     // fallthrough intentional
                     case 'birthdate':
+                    case 'email':
                     case 'input':
                     default:
                         formatted += item.value;
