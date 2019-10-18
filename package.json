@@ -106,7 +106,8 @@
         "svgicons2svgfont": "^9.1.1",
         "webpack": "^4.39.3",
         "webpack-cli": "^3.3.5",
-        "webpack-merge": "^4.2.1"
+        "webpack-merge": "^4.2.1",
+        "svgo": "^1.3.0"
     },
     "browserslist": [
         "last 2 versions",
@@ -126,6 +127,10 @@
         "*.{css,scss}": "stylelint",
         "*.{png,jpeg,jpg,gif,PNG,JPEG,JPG,GIF}": [
             "imagemin-lint-staged",
+            "git add"
+        ],
+        "*.{svg,SVG}": [
+            "svgo --disable=removeViewBox,convertPathData",
             "git add"
         ]
     }
