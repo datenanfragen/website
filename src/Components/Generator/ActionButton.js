@@ -35,7 +35,7 @@ export default class ActionButton extends preact.Component {
                     }}>
                     <Text id={this.props.done ? 'download-pdf-again' : 'download-pdf'} />
                     &nbsp;&nbsp;
-                    <span className={'icon ' + (this.props.done ? 'icon-delivery-truck' : 'icon-email')} />
+                    <span className={'icon ' + (this.props.done ? 'icon-delivery-truck' : 'icon-download')} />
                 </a>
             );
 
