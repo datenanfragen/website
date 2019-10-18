@@ -24,6 +24,7 @@ const replacer_factory = that => ({
             mailto_link={that.letter.toMailtoLink((that.state.suggestion && that.state.suggestion.email) || '')}
             download_filename={that.state.download_filename}
             download_active={that.state.download_active}
+            done={that.state.request.done}
             onSuccess={() => {
                 that.storeRequest();
                 that.setState(prev => {

@@ -179,9 +179,11 @@
     "generator": {
         "reference": "Reference",
         "download-pdf": "Download PDF",
+        "download-pdf-again": "Download PDF again",
         "download-pdf-first": "Download PDF first",
         "generate-pdf": "Generate PDF",
         "send-email": "Send email",
+        "send-email-again": "Send email again",
         "send-email-first": "Send email first",
         "generate-email": "Generate email",
         "select-company": "Select company…",
