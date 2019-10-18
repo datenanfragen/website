@@ -53,9 +53,11 @@
     "generator": {
         "reference": "Zeichen",
         "download-pdf": "PDF herunterladen",
+        "download-pdf-again": "PDF erneut herunterladen",
         "download-pdf-first": "Zuerst PDF herunterladen",
         "generate-pdf": "PDF generieren",
         "send-email": "E-Mail senden",
+        "send-email-again": "E-Mail erneut senden",
         "send-email-first": "Zuerst E-Mail senden",
         "generate-email": "E-Mail generieren",
         "select-company": "Unternehmen auswählen…",

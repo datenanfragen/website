@@ -81,6 +81,18 @@
     vertical-align: -3px;
 }
 
+.icon-paper-plane:before {
+    @extend %icon;
+    font-icon: url('paper-plane.svg');
+    vertical-align: -3px;
+}
+
+.icon-delivery-truck:before {
+    @extend %icon;
+    font-icon: url('delivery-truck.svg');
+    vertical-align: -3px;
+}
+
 .icon-i18n:before {
     @extend %icon;
     font-icon: 200% url('i18n.svg');

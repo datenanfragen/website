@@ -4,7 +4,10 @@ import { Text, IntlProvider } from 'preact-i18n';
 
 export default class ActionButton extends preact.Component {
     render() {
-        const class_name = 'button' + (this.props.blob_url ? '' : ' disabled') + ' button-primary';
+        const class_name =
+            'button' +
+            (this.props.blob_url ? '' : ' disabled') +
+            (this.props.done ? ' button-secondary' : ' button-primary');
 
         const button =
             this.props.transport_medium === 'email' ? (
@@ -16,9 +19,9 @@ export default class ActionButton extends preact.Component {
                         if (!this.props.blob_url) e.preventDefault();
                         else this.props.onSuccess();
                     }}>
-                    <Text id="send-email" />
+                    <Text id={this.props.done ? 'send-email-again' : 'send-email'} />
                     &nbsp;&nbsp;
-                    <span className="icon icon-email" />
+                    <span className={'icon ' + (this.props.done ? 'icon-paper-plane' : 'icon-email')} />
                 </a>
             ) : (
                 <a
@@ -30,9 +33,9 @@ export default class ActionButton extends preact.Component {
                         if (!this.props.download_active) e.preventDefault();
                         else this.props.onSuccess();
                     }}>
-                    <Text id="download-pdf" />
+                    <Text id={this.props.done ? 'download-pdf-again' : 'download-pdf'} />
                     &nbsp;&nbsp;
-                    <span className="icon icon-download" />
+                    <span className={'icon ' + (this.props.done ? 'icon-delivery-truck' : 'icon-email')} />
                 </a>
             );
 
@@ -49,7 +52,8 @@ export default class ActionButton extends preact.Component {
             blob_url: undefined,
             mailto_link: '',
             download_filename: '',
-            download_active: false
+            download_active: false,
+            done: false
         };
     }
 

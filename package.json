@@ -124,7 +124,7 @@
         ],
         "*.{js,json}": "eslint --ext .json --ext .js",
         "*.{css,scss}": "stylelint",
-        "*.{png,jpeg,jpg,gif,svg,PNG,JPEG,JPG,GIF,SVG}": [
+        "*.{png,jpeg,jpg,gif,PNG,JPEG,JPG,GIF}": [
             "imagemin-lint-staged",
             "git add"
         ]
