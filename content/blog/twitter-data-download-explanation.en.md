@@ -892,9 +892,14 @@ A more indepth description can be found in the README.txt of the downloaded file
 
 ## Usage and Analysis of the data
 
-The data received will be quite extensive, especially if the user is quite regular on Twitter. This data can be ported to other sites that accept such type of data or can be used for personal analysis.
-It can be used to make a fun graph plotting the number of DM's shared between loved ones or just as a way of getting to know how extensively Twitter collects data. 
+The data received will be quite extensive, especially if the user is quite regular on Twitter. This data can be ported to other sites that accept such types of data or can be used for personal analysis.
+It can be used to make a fun graph plotting the number of DM's shared between loved ones or just as a way of getting to know how Twitter collects data. 
 
-Hope you learnt and got something useful from this blog post. Cheers! 
+Hope you learnt and got something useful from this blog post. Cheers!
+
+
+TWITTER, TWEET, RETWEET and
+the Twitter logo are trademarks of Twitter, Inc.
+or its affiliates. 
 
 
