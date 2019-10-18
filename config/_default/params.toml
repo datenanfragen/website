@@ -10,3 +10,7 @@ short_name = "Lorenz"
 [authors.xeluna]
 byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://github.com/xeluna' property='cc:attributionName' rel='cc:attributionURL'>WL</a>"
 short_name = "WL"
+
+[authors.xndr]
+byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://github.com/Xndr7' property='cc:attributionName' rel='cc:attributionURL'>Xander</a>"
+short_name = "Xander"
