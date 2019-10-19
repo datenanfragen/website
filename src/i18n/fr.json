@@ -1,0 +1,9 @@
+{
+    "search": {
+        "no-results": "Malheureusement, il n'y a pas eu de résultats pour ton requête.",
+        "suggest-a-company": "Suggérer une nouvelle entreprise"
+    },
+    "cdb": {
+        "select-company": "Rechercher une entreprise…"
+    }
+}
