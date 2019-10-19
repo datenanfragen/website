@@ -55,13 +55,13 @@ You should now have a .zip file downloaded. Extract and Save it. This file conta
 ## What does this data mean?
 
 <img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;">
-<style> table , td, th{
+<style>
+table, td, th {
     border-collapse: collapse;
     border-spacing: 0;
-    border:2px solid #000000;
-    text-align: center
+    border: 2px solid #000000;
+    text-align: center;
 }
-
 </style>
 <table>
  <thead>
@@ -901,5 +901,3 @@ Hope you learnt and got something useful from this blog post. Cheers!
 TWITTER, TWEET, RETWEET and
 the Twitter logo are trademarks of Twitter, Inc.
 or its affiliates. 
-
-
