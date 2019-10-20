@@ -1,0 +1,26 @@
+[
+    {
+        "description": "Company search",
+        "checkbox_id": "search-checkbox",
+        "cookie_name": "privacy_control-search",
+        "default_value": true
+    },
+    {
+        "description": "“My requests” feature",
+        "checkbox_id": "save_my_requests-checkbox",
+        "cookie_name": "privacy_control-save_my_requests",
+        "default_value": true
+    },
+    {
+        "description": "“Save ID data” feature",
+        "checkbox_id": "save_id_data-checkbox",
+        "cookie_name": "privacy_control-save_id_data",
+        "default_value": true
+    },
+    {
+        "description": "“Save wizard entries” feature",
+        "checkbox_id": "save_wizard_entries-checkbox",
+        "cookie_name": "privacy_control-save_wizard_entries",
+        "default_value": true
+    }
+]

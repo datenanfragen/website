@@ -11,21 +11,19 @@ Live versions of the website are currently available in [German](https://www.dat
 
 ## Development
 
-[![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=TmJoNzBKZm1IMjRyWVRWT2RpbDRtcGhqc3lOa0hXQVdvd1hqT1dsZlhlQT0tLW9TT3ZZNDNiNVBuSU9aQStVU3MzU1E9PQ==--4e6977336bc1f79c108463e38b35cf0b3dc54b66)](https://www.browserstack.com/automate/public-build/TmJoNzBKZm1IMjRyWVRWT2RpbDRtcGhqc3lOa0hXQVdvd1hqT1dsZlhlQT0tLW9TT3ZZNDNiNVBuSU9aQStVU3MzU1E9PQ==--4e6977336bc1f79c108463e38b35cf0b3dc54b66)
-
-Datenanfragen.de is designed as a static website, running on [Hugo](https://gohugo.io/). For the JavaScript and (S)CSS, we use [webpack](https://webpack.js.org/).
+Datenanfragen.de is designed as a static website, running on [Hugo](https://gohugo.io/) and [Preact](https://preactjs.com/).
 
 To build the project, first install Hugo and [Yarn](https://yarnpkg.com). Then clone the repository and run `yarn` in the root directory to fetch all required dependencies. Then run the deploy script (`./deploy.sh`) to fetch the required resources from our data repository.  
-For development, use `yarn dev` to start the webpack file watcher which will automatically build the JS and (S)CSS files. For Hugo, use `hugo server  --disableFastRender`.  
+For development, use `yarn dev` to start the webpack file watcher which will automatically build the JS and (S)CSS files. For Hugo, use `hugo server`.  
 The production builds are automatically done by [Netlify](https://www.netlify.com/) using the `deploy.sh` script.
 
-For testing, we use GitLab CI in combination with BrowserStack who kindly let us use their services.
+For testing, we use CircleCI in combination with Cypress (see [more on our browser tests here](/cypress/README.md)). We previously used BrowserStack who kindly let us use their services.
 
 ## Contributing
 
 First of all, thank you very much for taking the time to contribute! Contributions are incredibly valuable for a project like ours.
 
-The primary development is done on a private GitLab instance, with all commits being mirrored to the GitHub repository. We still welcome issues and pull requests through GitHub—thanks to the distributed nature of Git, it is easy for us to incorporate those.
+We warmly welcome issues and pull requests through GitHub.
 
 Please be aware that by contributing, you agree for your work to be released under the MIT license, as specified in the `LICENSE` file.
 
