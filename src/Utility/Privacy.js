@@ -4,7 +4,7 @@ export const PRIVACY_ACTIONS = Object.freeze({
     SEARCH: {
         'id': 'search',
         'default': true,
-        'dnt': true // I have to decided to enable the search by default even for users with DNT enabled because the [DNT draft](https://tools.ietf.org/html/draft-mayer-do-not-track-00) explicitly focusses on actual tracking, not mere necessary processing by a server. As someone who has enabled DNT themselves, I would personally not see a reason why a website should disable this feature for me.
+        'dnt': true // I have to decided to enable the search by default even for users with DNT enabled because the [DNT draft](https://tools.ietf.org/html/draft-mayer-do-not-track-00) explicitly focuses on actual tracking, not mere necessary processing by a server. As someone who has enabled DNT themselves, I would personally not see a reason why a website should disable this feature for me.
     },
     SAVE_MY_REQUESTS: {
         'id': 'save_my_requests',
