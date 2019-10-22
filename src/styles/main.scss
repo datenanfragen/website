@@ -315,6 +315,12 @@ a #logo {
 
 /* My requests */
 
+.my-requests-button-column {
+    .button {
+        margin: 2px;
+    }
+}
+
 #my-requests-buttons {
     float: right;
     @include mobile {

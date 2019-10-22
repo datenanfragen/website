@@ -156,13 +156,12 @@ class RequestList extends preact.Component {
                                 : t(request.type, 'my-requests')}
                         </td>
                         <td data-label={t('via', 'my-requests')}>{t(request.via, 'my-requests')}</td>
-                        <td>
+                        <td className="my-requests-button-column">
                             {!request.response_type
                                 ? [
                                       <a
                                           href={BASE_URL + 'generator/#!response_type=admonition&response_to=' + id}
-                                          className="button button-small button-secondary"
-                                          style="margin-bottom: 5px;">
+                                          className="button button-small button-secondary">
                                           {t('admonition', 'generator')}
                                       </a>,
                                       <a
