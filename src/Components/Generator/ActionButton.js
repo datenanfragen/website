@@ -5,8 +5,9 @@ import MailtoDropdown from '../MailtoDropdown';
 
 export default class ActionButton extends preact.Component {
     render(props) {
+        const enabled = props.transport_medium === 'email' ? !!props.letter : props.download_active;
         const class_name =
-            'button' + (props.blob_url ? '' : ' disabled') + (props.done ? ' button-secondary' : ' button-primary');
+            'button' + (enabled ? '' : ' disabled') + (props.done ? ' button-secondary' : ' button-primary');
 
         const button =
             props.transport_medium === 'email' ? (
