@@ -168,15 +168,15 @@ class RequestList extends preact.Component {
                                           href={BASE_URL + 'generator/#!response_type=complaint&response_to=' + id}
                                           className="button button-small button-secondary">
                                           {t('complaint', 'generator')}
-                                      </a>,
-                                      <button
-                                          className="button button-primary button-small icon-trash"
-                                          onClick={() => {
-                                              this.removeRequest(id);
-                                          }}
-                                      />
+                                      </a>
                                   ]
                                 : []}
+                            <button
+                                className="button button-primary button-small icon-trash"
+                                onClick={() => {
+                                    this.removeRequest(id);
+                                }}
+                            />
                         </td>
                     </tr>
                 );
