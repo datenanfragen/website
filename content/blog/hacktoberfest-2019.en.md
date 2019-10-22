@@ -50,7 +50,7 @@ There are many areas where you can contribute—regardless of your previous expe
   We would love to support other languages than English and German in the future. To do so, we first need to translate our request templates. Learn more in the [corresponding GitHub issue](https://github.com/datenanfragen/data/issues/229).
 
 * **Listing suggested companies for more countries**  
-  The request wizard on our hompage suggests—depending on the country—a list of companies that users should definitely send requests to. We would like to offer those lists for more countries. Learn more in the [corresponding GitHub issue](https://github.com/datenanfragen/data/issues/230).
+  The request wizard on our homepage suggests—depending on the country—a list of companies that users should definitely send requests to. We would like to offer those lists for more countries. Learn more in the [corresponding GitHub issue](https://github.com/datenanfragen/data/issues/230).
 
 * **Writing content**  
   We are also offering comprehensive posts about all topics relating to privacy and data protection. That includes things like explanations on an individuals rights under the GDPR and how to use them, comments on current news about data protection and tutorials on how to use the download features offered by some websites, among others.  
