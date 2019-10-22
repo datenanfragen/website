@@ -7,7 +7,10 @@ import t from './Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 
 window.I18N_DEFINITION = require('i18n/' + LOCALE + '.json');
-window.I18N_DEFINITION_REQUESTS = require('i18n/requests.json');
+window.I18N_DEFINITION_REQUESTS = ['de', 'en'].reduce(
+    (acc, cur) => ({ ...acc, [cur]: require(`i18n/${cur}.json`).requests }),
+    {}
+);
 
 Object.defineProperty(globals, 'country', {
     set: function(country) {

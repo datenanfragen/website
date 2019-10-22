@@ -258,6 +258,20 @@
         "error-template-not-found": "The request template could not be found.",
         "error-template-fetch-failed": "Fetching the request template failed with an unknown error."
     },
+    "requests": {
+        "letter-subject-erasure": "Request for erasure of personal data according to Art. 17 GDPR",
+        "letter-subject-access": "Request to access to personal data according to Art. 15 GDPR",
+        "letter-subject-rectification": "Request for rectification of personal data according to Art. 16 GDPR",
+        "my-reference": "My reference",
+        "date": "Date",
+        "name": "Name",
+        "birthdate": "Date of birth",
+        "address": "Address",
+        "email": "Email address",
+        "attn": "Attn: Data Protection Officer",
+        "by-fax": "By Fax: ",
+        "concerns": "Concerns"
+    },
     "privacy-controls": {
         "title": "Privacy controls",
         "explanation": "<p>We deeply value your right to privacy and try to limit data collection and processing as much as possible. Most of the features on datarequests.org will be run directly on your computer and the data you enter will never even reach our servers. There are however some features we cannot offer without collecting some data (most settings even on this page <strong>do not</strong> require that, though).<br>Here, you have the option to decide yourself which features you want to enable.</p><p>When you set any of the options below, your choice will be saved in a cookie. If we don’t find a cookie for an option, we use a default value which we have decided on.</p>",

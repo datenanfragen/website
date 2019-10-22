@@ -257,6 +257,20 @@
         "error-template-not-found": "Das gesuchte Template konnte leider nicht gefunden werden.",
         "error-template-fetch-failed": "Beim Laden des Templates ist ein unbekannter Fehler passiert."
     },
+    "requests": {
+        "letter-subject-erasure": "Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO",
+        "letter-subject-access": "Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO",
+        "letter-subject-rectification": "Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO",
+        "my-reference": "Mein Zeichen",
+        "date": "Datum",
+        "name": "Name",
+        "birthdate": "Geburtsdatum",
+        "address": "Adresse",
+        "email": "E-Mail-Adresse",
+        "attn": "Datenschutzbeauftragte_r",
+        "by-fax": "Per Fax: ",
+        "concerns": "Betrifft"
+    },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",
         "explanation": "<p>Uns ist Dein Recht auf Datenschutz sehr wichtig, deshalb geben wir uns Mühe, unsere Datenerhebung und -verarbeitung so weit wie möglich zu beschränken. Die allermeisten Funktionen auf Datenanfragen.de werden direkt auf Deinem Computer ausgeführt und die Daten, die Du eingibst, erreichen überhaupt nie unsere Server. Es gibt allerdings auch einige Funktionen, die wir leider nicht anbieten können, ohne einige Daten zu erheben (das trifft aber selbst auf die meisten Funktionen auf dieser Seite <strong>nicht</strong> zu).<br>Hier hast Du die Möglichkeit, selbst zu entscheiden, welche Funktionen Du aktivieren möchtest.</p><p>Wenn Du eine der folgenden Optionen setzt, wird Deine Entscheidung in einem Cookie gespeichert. Sollten wir für eine Option keinen entsprechenden Cookie finden, nutzen wir einen Standardwert, der unserer Meinung nach sinnvoll ist.</p>",
