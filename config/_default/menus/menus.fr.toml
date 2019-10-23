@@ -33,7 +33,7 @@
 #     url = "/contribute"
 #     weight = 30
 [[footercenter]]
-    name = "Donner"
+    name = "Faire un don"
     url = "https://verein.datenanfragen.de/en/spenden"
     weight = 40
     post = "<br>"
