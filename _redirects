@@ -7,6 +7,11 @@ https://datarequests.org/*  https://www.datarequests.org/:splat 301!
 http://datarequests.org/*  https://www.datarequests.org/:splat 301!
 http://www.datarequests.org/*  https://www.datarequests.org/:splat 301!
 
+https://demandetesdonnees.fr/*  https://www.demandetesdonnees.fr/:splat 301!
+http://demandetesdonnees.fr/*  https://www.demandetesdonnees.fr/:splat 301!
+http://www.demandetesdonnees.fr/*  https://www.demandetesdonnees.fr/:splat 301!
+
 # Configure language rewrites
 https://www.datenanfragen.de/*  /de/:splat 200!
 https://www.datarequests.org/*  /en/:splat 200!
+https://www.demandetesdonnees.fr/*  /fr/:splat 200!

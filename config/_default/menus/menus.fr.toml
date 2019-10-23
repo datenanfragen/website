@@ -1,0 +1,69 @@
+[[footerleft]]
+    name = "Générateur de demande"
+    url = "/generator"
+    weight = 10
+[[footerleft]]
+    name = "Mes demandes"
+    url = "/my-requests"
+    weight = 20
+[[footerleft]]
+    name = "Mes données sauvegardées"
+    url = "/id-data-controls"
+    weight = 25
+    post = "<br>"
+[[footerleft]]
+    name = "Base de données des entreprises"
+    url = "/company"
+    weight = 30
+# [[footerleft]]
+#     name = "Artikel"
+#     url = "/blog"
+#     weight = 40
+
+# [[footercenter]]
+#     name = "Features"
+#     url = "#"
+#     weight = 10
+# [[footercenter]]
+#     name = "Fragen und Antworten"
+#     url = "#"
+#     weight = 20
+# [[footercenter]]
+#     name = "Mitmachen"
+#     url = "/contribute"
+#     weight = 30
+[[footercenter]]
+    name = "Donner"
+    url = "https://verein.datenanfragen.de/en/spenden"
+    weight = 40
+    post = "<br>"
+# [[footercenter]]
+#     name = "Deine DSGVO-Rechte"
+#     url = "/blog/deine-dsgvo-rechte"
+#     weight = 50
+# [[footercenter]]
+#     name = "Musterschreiben"
+#     url = "/sample-letters"
+#     weight = 60
+# [[footercenter]]
+#     name = "Aufsichtsbehörden"
+#     url = "/datenschutz-aufsichtsbehoerden"
+#     weight = 70
+
+[[footerright]]
+    name = "Mentions légales"
+    url = "/contact"
+    weight = 10
+[[footerright]]
+    name = "Politique de confidentialité"
+    url = "https://verein.datenanfragen.de/en/privacy"
+    weight = 20
+[[footerright]]
+    name = "Paramètres de confidentialité"
+    url = "/privacy-controls"
+    weight = 30
+    post = "<br>"
+[[footerright]]
+    name = "Open Source"
+    url = "/open-source"
+    weight = 40

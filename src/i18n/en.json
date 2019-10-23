@@ -35,6 +35,7 @@
         "footer-other-langs": "Also available in: ",
         "de": "German (Deutsch)",
         "en": "English",
+        "fr": "French (Français)",
         "home-hero-line-1": "You have a right to",
         "home-hero-word": "data access",
         "home-hero-line-2": "Use it.",
@@ -416,11 +417,13 @@
         "country": "Country",
         "language": "Language",
 
-        "language-desc-de": "Deutsch (German)",
+        "language-desc-de": "German (Deutsch)",
         "language-desc-en": "English",
+        "language-desc-fr": "French (Français)",
 
         "language-de": "German",
         "language-en": "English",
+        "language-fr": "French",
 
         "language-change-modal": "Changing the language will redirect you to another domain. Your settings and saved data from this domain will not carry over.<br>In particular, this means that things like your privacy settings and saved requests will not be available in the new language. You can still always go back to this language and view them here but you cannot share settings and saved data between different languages.",
         "change-lang": "Change language",

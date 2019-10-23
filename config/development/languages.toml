@@ -3,3 +3,6 @@
 
 [en]
 	baseURL = "http://datenanfragen.test"
+
+[fr]
+	baseURL = "http://datenanfragen.test"

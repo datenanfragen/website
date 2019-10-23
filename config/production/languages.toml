@@ -3,3 +3,6 @@
 
 [en]
 	baseURL = "https://www.datarequests.org/"
+
+[fr]
+	baseURL = "https://www.demande-tes-donnees.fr/"
