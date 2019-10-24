@@ -1,65 +1,72 @@
 {
     "title": "Explaining Twitter's Data Download Feature.",
     "type": "blog",
-    "url": "twitter-data-download-explanation",
-    "aliases": [
-    	"twitter-data",
-    	"gdpr-request"
-    ],
+    "slug": "twitter-data-download-explanation",
     "date": "2019-10-17T16:58:19+02:00",
-    "description": "Twitter provides the option to download the user's personal data from their settings . This feature gives easier access to the user. In this, we explain the process to get the data as well as the meaning of the data provided.",
-    "featured_image": "/card-icons/Twitter_Logo_Blue.svg",
-    "tags": [ "twiiter", "gdpr", "data", "download","export" ],
-    "authors": [ "xndr" ],
-    "blog_like": true
+    "description": "Twitter provides the option to download the user's personal data from their settings. This post explains the process to get the data as well as the meaning of the data provided.",
+    "featured_image": "/card-icons/Twitter_Black.svg",
+    "tags": [ "twitter", "gdpr", "data", "download", "export" ],
+    "authors": [ "xndr" ]
 }
 
-<img class="offset-image offset-image-left" src="/card-icons/Twitter_Logo_Blue.svg" style="height: 200px;">
+<img class="offset-image offset-image-left" src="/card-icons/Twitter_Black.svg" style="height: 200px;">
 
-Twitter is one of the top social media sites of our time. It has a high number of daily users and popular celebrities, sportstars and politicians use it as a method of communication with their fan base. It also serves as the source of daily news and entertainment for a lot of users. Using the insights from the world of hashtags, Twitter along with other brands and influencers have created an entirely new field of marketing. 
+Twitter is one of the top social media sites of our time. It has a high number of daily users and popular celebrities, sportstars and politicians use it as a method of communication with their fan base. It also serves as the source of daily news and entertainment for a lot of users. Using the insights from the world of hashtags, Twitter along with other brands and influencers have created an entirely new field of marketing. These insights are driven by the data collected by Twitter, which is quite extensive. 
 
-Twitter collects the users personal data to create and serve ads to them. For this purpose, it collects relevant user data and stores it to determine user interest and likes. This data can be a treasure trove of information on any frequent user. If the user opts in, the data is also shared with Twiiter also stores a profile on any non logged-in user as well to serve ads based on their browsing habits. This is done on the device only and this data changes once the user logs in. The data stored is used to infer identity and serve ads as well as can be shared with other partners of Twitter.
-
-If you go to [Twitter's settings page](https://twitter.com/settings/your_twitter_data) for user data without any user being logged in, you'll see a page that looks a bit like this.
-
-<img class="offset-image offset-image-left" src="/img/blog/twitter-data-explanation/non-login-twitter-data-1.png" style="height: 500px; margin-top: 50px; margin-bottom: 100px;"> <img class="offset-image offset-image-right" src="/img/blog/twitter-data-explanation/non-login-twitter-data-2.png" style="height: 500px; margin-top: 50px; margin-bottom: 100px;"> 
+Twitter collects the users personal data to create and serve ads to them. For this purpose, it collects relevant user data and stores it to determine user interest and likes. This data can be a treasure trove of information on any frequent user. If the user opts in, the data is also shared with other partners as well. Twitter also stores a profile on any non logged-in user as well to serve ads based on their browsing habits. This is done on the device only and this data changes once the user logs in. The data stored is used to infer identity and serve ads as well as can be shared with other partners of Twitter.
+This data can be viewed by the user thanks to Article 15 GDPR which gives the right to data access. Know more about your rights in [this article]({{< ref "/blog/your-gdpr-rights" >}}). The method to access user data from such sites usually is to use the [generator]({{< ref "/generator" >}}). 
 
 
-<a id="twitter-logged-in-procedure">     
-## The Procedure to get the Data Download from Twitter(Logged in user)
+If you go to [Twitter's settings page](https://twitter.com/settings/your_twitter_data) for user data without any user being logged in, you'll see a page that looks a bit like this.      
+  
+  
+  
+  
+
+
+{{< img src="/img/blog/twitter-data-explanation/non-login-twitter.png" caption="" >}}  
+
+
+<a id="twitter-logged-in-procedure"></a>
+## The Procedure to get the Data Download from Twitter (Logged in user)
 </a>
 
-1. Go to your Account settings by clicking on the more icon in the navigation bar, and selecting Settings and privacy from the menu.
+1. Go to your Account settings by clicking on the *More* icon in the navigation bar, and selecting *Settings and privacy* from the menu.
    Or go to [Twitter's settings page](https://twitter.com/settings/your_twitter_data) for user data after logging in.
 
-2. Under the Account section, click Your Twitter data.
+2. Under the *Account* section, click *Your Twitter data*.
 
-3. Enter your password under Download your Twitter data, then click Confirm.
+3. Enter your password under *Download your Twitter data*, then click *Confirm*.
    {{< img src="/img/blog/twitter-data-explanation/login-twitter-1.png" caption="Enter password to proceed. Ensure that your email address is verified earlier." >}}  
-4. Click the Request data button. If your Twitter account is connected to Periscope, the option to Request data from Periscope will show up as well.
+4. Click the *Request data* button. If your Twitter account is connected to Periscope, the option to Request data from Periscope will show up as well.
    {{< img src="/img/blog/twitter-data-explanation/login-twitter-2.png" caption="Click Request archive on whichever option you want." >}}  
-5. When your download is ready, Twitter will send an email to your email account. When you recieve it, from the link or from [settings](https://twitter.com/settings/your_twitter_data), you can go to the same earlier options and find the ready archive.
+5. When your download is ready, Twitter will send an email to your email account. When you recieve it, from the link or from *[Settings](https://twitter.com/settings/your_twitter_data)*, you can go to the same earlier options and find the ready archive. Click on *Download archive*.
    {{< img src="/img/blog/twitter-data-explanation/login-twitter-3.png" caption="Click on Download Archive." >}}  
-6. Click the Download data.
+6. Click the *Download data*.
    {{< img src="/img/blog/twitter-data-explanation/login-twitter-4.png" caption="Click the Request archive button depending on whichever option you want." >}}  
-   If you do this process from an iOS or Android device, the options are found in the top menu, where you will either see a navigation menu icon/profile icon. From there go to Settings and privacy, then Account, then under Data and permissions, select Your Twitter data and continue from Step 3 onwards.  
+   If you do this process from an iOS or Android device, the options are found in the top menu, where you will either see a navigation menu icon/profile icon. From there go to *Settings and privacy*, then *Account*, then under *Data and permissions*, select *Your Twitter data* and continue from Step 3 onwards.  
 
 
 
 
-You should now have a .zip file downloaded. Extract and Save it. This file contains all your Twitter user data.
+You should now have a .zip file downloaded. Extract and Save it. This file contains your Twitter user data.
 
 
 
 <a id="twitter-data-meaning"></a>
 ## What does this data mean?
 
-<img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;">
-<style> table , td, th{
+The data is divided into many files and data fields. The data points that are interesting are in the ad related files viz. ad-engagements.js, ad-impressions.js, ad-mobile-conversions-attributed.js, ad-mobile-conversions-unattributed.js, ad-online-conversions-attributed.js and ad-online-conversions-unattributed.js as well as ni-devices.js and tweets.js.
+
+
+
+
+<style> 
+table , td, th{
     border-collapse: collapse;
     border-spacing: 0;
     border:2px solid #000000;
-    text-align: center
+    text-align: center;
 }
 
 </style>
@@ -868,7 +875,7 @@ For devices marked as “messagingDevice”, the field will indicate “Auth” 
   </tr>
   <tr>
    <td>tweet.js</td>
-   <td colspan=2>This JSON file contains all the Tweets posted and not deleted..</td>
+   <td colspan=2>This JSON file contains all the Tweets posted and not deleted.</td>
   </tr>
   <tr>
    <td>tweet_media</td>
@@ -892,14 +899,10 @@ A more indepth description can be found in the README.txt of the downloaded file
 
 ## Usage and Analysis of the data
 
-The data received will be quite extensive, especially if the user is quite regular on Twitter. This data can be ported to other sites that accept such types of data or can be used for personal analysis.
-It can be used to make a fun graph plotting the number of DM's shared between loved ones or just as a way of getting to know how Twitter collects data. 
+The data received will be quite extensive, especially if the user is quite regular on Twitter. This data can be used for personal analysis. Another purpose of going through this data is to understand the extent and danger of the personal data collected and be aware.  
+It can also be used to make a fun graph plotting the number of DM's shared between loved ones or just as a way of getting to know how Twitter collects data. 
 
 Hope you learnt and got something useful from this blog post. Cheers!
 
-
-TWITTER, TWEET, RETWEET and
-the Twitter logo are trademarks of Twitter, Inc.
-or its affiliates. 
 
 
