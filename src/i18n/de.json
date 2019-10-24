@@ -65,7 +65,7 @@
         "home-feature-your-rights-portabillity": "Die Daten, die Du einen Unternehmen zu Dir mitgeteilt hast, gehören Dir. Du hast ein Recht, diese Daten von dem Unternehmen in einem gängigen Format zu erhalten, sodass Du sie zu einem anderen Unternehmen übertragen kannst.",
         "cdb-title": "Unternehmensdatenbank",
         "adb-title": "Liste der Datenschutz-Aufsichtsbehörden",
-        "adb-explanation": "<p>Hier in unserer Aufsichtsbehördendatenbank findest Du die Kontaktdaten der Datenschutz-Aufsichtsbehörden in der EU.</p><p>Die Aufsichtsbehörden sind unabhängige Stellen, welche die Einhaltung der Datenschutzgesetze sicherstellen sollen. Wenn Du der Meinung bist, dass ein Unternehmen Deine Anfragen nicht korrekt beantwortet oder Deine Daten widerrechtlich verarbeitet, kannst Du Dich bei diesen Stellen jederzeit kostenlos beschweren. Mehr darüber erfährst Du in unserem <a href/datenschutz-aufsichtsbehoerden\">Artikel zu den Datenschutz-Aufsichtsbehörden</a>.</p>",
+        "adb-explanation": "<p>Hier in unserer Aufsichtsbehördendatenbank findest Du die Kontaktdaten der Datenschutz-Aufsichtsbehörden in der EU.</p><p>Die Aufsichtsbehörden sind unabhängige Stellen, welche die Einhaltung der Datenschutzgesetze sicherstellen sollen. Wenn Du der Meinung bist, dass ein Unternehmen Deine Anfragen nicht korrekt beantwortet oder Deine Daten widerrechtlich verarbeitet, kannst Du Dich bei diesen Stellen jederzeit kostenlos beschweren. Mehr darüber erfährst Du in unserem <a href='/datenschutz-aufsichtsbehoerden'>Artikel zu den Datenschutz-Aufsichtsbehörden</a>.</p>",
         "adb-more-details": "Weitere Informationen",
         "cdb-company-title": "{{ .Params.name }}: Datenschutz-Kontaktdaten",
         "cdb-company-heading": "Datenschutz-Kontaktdaten für „{{ .Params.name }}“",
@@ -111,11 +111,11 @@
         "blog-time-at": "um",
         "blog-and": " und ",
         "blog-licensed-under": "veröffentlicht unter:",
-        "noscript-generator": "Der Generator läuft vollständig auf Deinem Computer und verwendet deshalb ausschließlich JavaScript. Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchstest. Wenn Du den Generator benutzen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a hrefmailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>.",
-        "noscript-my-requests": "Alle Anfragen werden mithilfe von JavaScript auf deinem Computer gespeichert (außer natürlich JavaScript ist deaktiviert). Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchstest. Wenn Du Anfragen speichern und ansehen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a hrefmailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>.",
-        "noscript-wizard": "An dieser Stelle befände sich ein mit JavaScript generierter Wizard, zur Erstellung von Anfragen auf Datenauskunft. Die Erstellung der Anfragen benötigt JavaScript. Du kannst die Seite benutzen, ohne JavaScript zu aktiveren, hast dann aber leider nur Zugriff auf eingeschränkte Funktionen. Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchtest. Wenn Du die Webseite im vollem Umfang nutzen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a hrefmailto:dev@datenanfragen.de\">dev@datenanfragen.de</a>.",
+        "noscript-generator": "Der Generator läuft vollständig auf Deinem Computer und verwendet deshalb ausschließlich JavaScript. Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchstest. Wenn Du den Generator benutzen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
+        "noscript-my-requests": "Alle Anfragen werden mithilfe von JavaScript auf deinem Computer gespeichert (außer natürlich JavaScript ist deaktiviert). Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchstest. Wenn Du Anfragen speichern und ansehen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
+        "noscript-wizard": "An dieser Stelle befände sich ein mit JavaScript generierter Wizard, zur Erstellung von Anfragen auf Datenauskunft. Die Erstellung der Anfragen benötigt JavaScript. Du kannst die Seite benutzen, ohne JavaScript zu aktiveren, hast dann aber leider nur Zugriff auf eingeschränkte Funktionen. Der Code wird keine Daten an andere Server weiterleiten, wenn Du das nicht möchtest. Wenn Du die Webseite im vollem Umfang nutzen möchtest musst du JavaScript im Browser aktivieren oder eine Ausnahme in Deine Blocker hinzufügen. Sollte es dann immer noch nicht funktionieren, schreib uns eine E-Mail an <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "404-title": "Fehler 404: Seite nicht gefunden",
-        "404-body": "Leider existiert die gesuchte Seite auf diesem Server nicht. Vielleicht hast du dich ja einfach in der URL vertippt? Falls der Fehler wieder auftritt, hinterlasse uns doch einen Hinweis auf unserer E-Mail-Adresse <a hrefmailto:dev@datenanfragen.de\">dev@datenanfragen.de</a> oder schreib in unseren <a hrefhttps://github.com/datenanfragen/website/issues/new\">Issue-Tracker</a>.",
+        "404-body": "Leider existiert die gesuchte Seite auf diesem Server nicht. Vielleicht hast du dich ja einfach in der URL vertippt? Falls der Fehler wieder auftritt, hinterlasse uns doch einen Hinweis auf unserer E-Mail-Adresse <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> oder schreib in unseren <a href='https://github.com/datenanfragen/website/issues/new'>Issue-Tracker</a>.",
         "license-cc-by-4.0": "Creative Commons Namensnennung 4.0 International Lizenz",
         "license-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.de",
         "license-cc-by-nd-4.0": "Creative Commons Namensnennung - Keine Bearbeitungen 4.0 International Lizenz",
@@ -169,7 +169,6 @@
         "no-requests": "Du hast bisher noch keine Anfragen gestellt. Sobald Du das tust, werden diese hier erscheinen.",
         "generate-request": "Eine Anfrage generieren",
         "toggle-all": "Alle an-/abwählen",
-
         "ics-summary": "Fällige DSGVO-Anfrage(n)",
         "ics-desc": "Du hast über Datenanfragen.de DSGVO-Anfragen bei den unten \n genannten Unternehmen gestellt. Die Frist für diese Anfragen ist \n mittlerweile abgelaufen. Falls Du noch keine Antwort auf eine oder \n mehrere der Anfragen erhalten hast, kannst Du jetzt Mahnungen erstellen: \n https://www.datenanfragen.de/my-requests",
         "ics-url": "https://www.datenanfragen.de/my-requests",
@@ -179,9 +178,11 @@
     "generator": {
         "reference": "Zeichen",
         "download-pdf": "PDF herunterladen",
+        "download-pdf-again": "PDF erneut herunterladen",
         "download-pdf-first": "Zuerst PDF herunterladen",
         "generate-pdf": "PDF generieren",
         "send-email": "E-Mail senden",
+        "send-email-again": "E-Mail erneut senden",
         "send-email-first": "Zuerst E-Mail senden",
         "generate-email": "E-Mail generieren",
         "select-company": "Unternehmen auswählen…",
@@ -355,10 +356,10 @@
     "wizard": {
         "suggested": "<p>Der erste Schritt, um die Kontrolle über Deine Daten zurückzugewinnen, ist zu wissen, welche Daten Unternehmen zu Dir gespeichert haben. Unser Assistent hilft Dir, Unternehmen zu finden, die potentiell Deine persönlichen Daten speichern, um diesen dann Selbstauskunftsanfragen nach der DSGVO zu schicken.</p>{{suggested}}<p>In den nächsten Schritten werden wir Dir einige Kategorien mit Unternehmen vorschlagen, mit denen Du vielleicht in Kontakt gekommen bist. Du kannst dann die Unternehmen aus diesen Kategorien zu Deiner Liste hinzufügen und natürlich auch jederzeit Unternehmen wieder aus der Liste herausnehmen, wenn Du Dich umentscheidest.</p><p>Sobald Du mit Deiner Auswahl zufrieden bist, klicke auf „Weiter“, um zur ersten Kategorie zu gelangen.</p>",
         "suggestions": "<p>Auf der rechten Seite haben wir schon einmal ein paar solcher Unternehmen für Dich vorausgewählt. Sieht nach einer ganzen Menge aus und die meisten davon kennst Du überhaupt nicht? Wem sagst Du das! Nach unserer Erfahrung speichern diese Unternehmen Daten zu praktisch allen Menschen in Deinem Land (falls Du nicht in <em id='wizard-user-country'>{{country}}</em> bist, kannst Du diese Einstellung ganz unten auf der Seite <a href='#footer'>ändern</a>). Wir sind daher der Überzeugung, dass es umso wichtiger ist, sie nach Deinen persönlichen Daten zu fragen.</p>",
-        "no-suggestions": "Leider haben wir noch keine Unternehmen, die wir in Deinem Land (<em id='wizard-user-country'>{{country}}</em>) vorschlagen können. Falls Du in einem anderen Land sein solltest, kannst Du diese Einstellung ganz unten auf der Seite <a href='#footer'>ändern</a>.</p>",
+        "no-suggestions": "<p>Leider haben wir noch keine Unternehmen, die wir in Deinem Land (<em id='wizard-user-country'>{{country}}</em>) vorschlagen können. Falls Du in einem anderen Land sein solltest, kannst Du diese Einstellung ganz unten auf der Seite <a href='#footer'>ändern</a>.</p>",
         "commerce": "<p>Lass uns mit Händlern anfangen. Kaufst Du viel bei Amazon oder eBay ein? Du weißt wahrscheinlich schon, dass Online-Händler es lieben, alle möglichen Daten zu ihren Nutzer_innen zu sammeln, also füg die, die Du nutzt oder in der Vergangenheit genutzt hast, auf jeden Fall zur Liste hinzu.</p><p>Bedenklicherweise fangen aber mittlerweile auch konventionelle Läden (wir meinen die in der echten Welt) an, Profile zu ihren Kund_innen zu erstellen, von daher empfehlen wir Dir, zumindest jene auch hinzuzufügen, die Du regelmäßig besuchst oder die Dich aktiv nach Deinen Daten gefragt haben.</p><p>Um ein Unternehmen hinzuzufügen, such einfach in der Suchleiste oben nach dessen Namen.<br>Die Suche ist dabei nach Kategorien gefiltert. Aktuell findest Du also z.&nbsp;B. nur Handelsunternehmen, im nächsten Schritt Unternehmen aus der Unterhaltungsbranche und so weiter.</p>",
         "entertainment": "<p>Weißt Du noch, welchen Film Du zuletzt bei Netflix angeschaut hast, welches Lied Du Dir am häufigsten über Spotify angehört hast oder wie lange Du Dein Lieblingsspiel über Steam gespielt hast? Viele Unternehmen aus der Unterhaltungsbranche tun das auf jeden Fall.</p><p>Übrigens: Wir merken uns die Unternehmen, die Du schon ausgewählt hast. Wenn Du also die Seite neulädst oder später erst weitermachen möchtest, brauchst Du nicht von vorne zu beginnen.<br>Die Speicherung erfolgt natürlich ausschließlich auf <strong>Deinem</strong> Rechner. Falls Du das trotzdem abschalten willst, schau einmal in die <a href=\"/privacy-controls\">Datenschutzeinstellungen</a>.</p>",
-        "social media": "<p>Falls Du Mitglied in einem sozialen Netzwerk (wie Facebook, WhatsApp, Twitter oder Google+) bist, vergiss auch diese nicht.</p>",
+        "social media": "<p>Falls Du Mitglied in einem sozialen Netzwerk (wie Facebook, WhatsApp, Twitter oder Instagram) bist, vergiss auch diese nicht.</p>",
         "finance": "<p>Du hast aller Wahrscheinlichkeit nach mindestens ein Bankkonto (und vielleicht ja sogar eine Kreditkarte). Aber im Finanzsektor sind schon lange nicht mehr nur Banken unterwegs. Denk auch an Zahlungsdienstleister wie PayPal und Patreon oder die Kredite, die Reiseanbieter und sogar Preisvergleichsportale anbieten.<br>Vielleicht handelst Du auch mit Wertpapieren oder Cryptowährungen?</p>",
         "insurance": "<p>Diese Kategorie sollte ziemlich eindeutig sein. Aber vergiss nicht, dass Unternehmen oft Versicherungen für Sachen verkaufen, die nicht gerade offensichtlich sind, wie z.&nbsp;B. Reisen oder kleine Elektroartikel.</p>",
         "telecommunication": "<p>Deine Telefon- und Internetanbieter führen wahrscheinlich einen Einzelverbindungsnachweis, der eine Auflistung aller Deiner Anrufe enthält. Wir empfehlen Dir auch, bei Deinem E-Mail-Anbieter nachzufragen – hoffen wir, dass der nicht Deine E-Mails mitliest!<br>Wenn Du eine Webseite betreibst, frag auch bei Deinem Hoster und Domainanbieter an.</p>",
@@ -396,7 +397,6 @@
         "signature-explanation-id-data": "Wenn Du möchtest, kannst Du Deine Unterschrift hier hinterlegen. Wenn Du das automatische Ausfüllen gewählt hast, wird sie dann an alle Anfragen automatisch angehängt, du kannst sie aber auch beim Schreiben der Anfragen auswählen. Zeichne dafür einfach mit gedrückter Maustaste in das Feld.",
         "reset-signature": "Unterschrift zurücksetzen",
         "fill-signature": "Gespeicherte Unterschrift",
-
         "overlay-text": "Du hast den Fingerprinting-Schutz in Deinem Browser aktiviert. Damit wir auf Deine Unterschrift zugreifen können, musst Du uns das erst erlauben.",
         "overlay-learn-more": "Mehr erfahren",
         "overlay-allow": "Erlauben"
@@ -404,17 +404,13 @@
     "i18n-widget": {
         "country": "Land",
         "language": "Sprache",
-
         "language-desc-de": "Deutsch",
         "language-desc-en": "English (Englisch)",
-
         "language-de": "Deutsch",
         "language-en": "Englisch",
-
         "language-change-modal": "Wenn Du die Sprache wechelst, wirst Du zu einer anderen Domain weitergeleitet. Deine Einstellungen und gespeicherten Daten werden nicht übernommen.<br>Insbesondere bedeutet das, dass z.&nbsp;B. Deine Datenschutzeinstellungen und gespeicherten Anfragen nicht in der neuen Sprache verfügbar sein werden. Du kannst diese natürlich trotzdem jederzeit in dieser Sprache verwenden, aber Einstellungen und Daten können leider nicht zwischen verschiedenen Sprachen geteilt werden.",
         "change-lang": "Trotzdem wechseln",
         "stay": "Hier bleiben",
-
         "not-supported-prompt": "Deine Sprache oder Dein Land wird noch nicht unterstützt?",
         "not-supported-cta": "Hilf uns dabei!"
     },
@@ -451,12 +447,10 @@
         "reset": "Angaben zurücksetzen",
         "loading-sva": "Lade Angaben zur gewählten Behörde…",
         "result": "Aufgrund Deiner Angaben empfehlen wir Dir, Dich an die folgende Datenschutz-Aufsichtsbehörde zu wenden:",
-
         "country": "In welchem Land lebst Du?",
-
         "de-q": "Auf welchen dieser Bereiche bezieht sich Dein Anliegen?",
         "land": "Öffentliche oder private Stelle (z. B. Unternehmen, Vereine, Landes- und Kommunalbehörden)",
-        "land-q": "In welchem Bundesland lebst Du?",
+        "land-q": "In welchem Bundesland sitzt die Stelle, auf die sich Dein Anliegen bezieht?",
         "bund": "Bundesbehörde",
         "kirche": "Kirchliche Stelle",
         "kirche-q": "Zu welcher Religion/Konfession gehört die kirchliche Stelle, auf die sich Dein Anliegen bezieht?",
@@ -491,9 +485,7 @@
     },
     "countries": {
         "__taken_from": "https://github.com/stefangabos/world_countries",
-
         "all": "alle",
-
         "af": "Afghanistan",
         "eg": "Ägypten",
         "al": "Albanien",

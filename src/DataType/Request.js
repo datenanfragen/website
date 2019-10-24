@@ -36,7 +36,7 @@ export default class Request {
         /**
          * @type {TransportMedium}
          */
-        this.transport_medium = 'fax';
+        this.transport_medium = 'email';
         /**
          * @type {String}
          */

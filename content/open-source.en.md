@@ -103,7 +103,7 @@ Some of the development work is currently done on a private GitLab instance. We 
 
 In keeping with the spirit of Open Source, we not only maintain our own Open Source projects but also make heavy use of others for our work.
 
-We are proud to be able to use the following projects for this website. Huge thanks to the authors who have decided to enable others to use their valuabe work!
+We are proud to be able to use the following projects for this website. Huge thanks to the authors who have decided to enable others to use their valuable work!
 
 <div class="box box-info">
 	{{< attribution "by" >}}

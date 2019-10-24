@@ -13,20 +13,20 @@ export default class TransportMediumChooser extends preact.Component {
                     <br />
                     <div className="radio-group">
                         <Radio
-                            id="request-transport-medium-choice-fax"
-                            radio_variable={this.props.transportMedium}
-                            value="fax"
-                            name="transport-medium"
-                            onChange={this.props.onChange}
-                            label={t('fax', 'generator')}
-                        />
-                        <Radio
                             id="request-transport-medium-choice-email"
                             radio_variable={this.props.transportMedium}
                             value="email"
                             name="transport-medium"
                             onChange={this.props.onChange}
                             label={t('email', 'generator')}
+                        />
+                        <Radio
+                            id="request-transport-medium-choice-fax"
+                            radio_variable={this.props.transportMedium}
+                            value="fax"
+                            name="transport-medium"
+                            onChange={this.props.onChange}
+                            label={t('fax', 'generator')}
                         />
                         <Radio
                             id="request-transport-medium-choice-letter"
@@ -44,7 +44,7 @@ export default class TransportMediumChooser extends preact.Component {
 
     static get defaultProps() {
         return {
-            transportMedium: 'fax'
+            transportMedium: 'email'
         };
     }
 
