@@ -54,6 +54,20 @@ There's a letter template for each request type, of course. We support the most 
     <a class="button button-primary read-more-button" href="/blog/sample-letter-gdpr-erasure-request/">View sample letter&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
+<article class="list-article icon-list-article">
+    <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-direct-marketing-objection/"><img class="image" src="/card-icons/warning.svg" alt="Objection against direct marketing as per Art. 21(2) GDPR"></a></div>
+
+    <div class="padded col75">
+        <a href="/blog/sample-letter-gdpr-direct-marketing-objection/"><h1>Objection to direct marketing as per Art. 21(2) GDPR</h1></a>
+        
+        <p class="description">
+            According to Art. 21(2) GDPR, you have a right to object to your personal data being used for direct marketing purposes.
+        </p>
+    </div>
+    <div class="clearfix"></div>
+    <a class="button button-primary read-more-button" href="/blog/sample-letter-gdpr-direct-marketing-objection/">View sample letter&nbsp;<span class="icon icon-arrow-right"></span></a>
+</article>
+
 ## There is an easier way!
 
 The sample letters above are a good start but we strongly believe there should be an even easier way to send GDPR requests.
