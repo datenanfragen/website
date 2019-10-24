@@ -2,7 +2,7 @@ import preact from 'preact';
 import t from 'Utility/i18n';
 import Radio from '../Radio';
 
-const VALID_REQUEST_TYPES = ['access', 'erasure', 'rectification', 'custom'];
+const VALID_REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'];
 
 export default class RequestTypeChooser extends preact.Component {
     render() {

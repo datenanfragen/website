@@ -51,7 +51,8 @@ export default class ActWidget extends preact.Component {
     };
 
     static propTypes = {
-        request_types: PropTypes.arrayOf(PropTypes.oneOf(['access', 'rectification', 'erasure', 'custom'])).isRequired,
+        request_types: PropTypes.arrayOf(PropTypes.oneOf(['access', 'rectification', 'erasure', 'objection', 'custom']))
+            .isRequired,
         transport_medium: PropTypes.oneOf(['fax', 'email', 'letter']).isRequired,
         company: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
         text_before_dynamic_input_container: PropTypes.string
