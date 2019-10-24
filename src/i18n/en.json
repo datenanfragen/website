@@ -458,7 +458,7 @@
 
         "de-q": "Which of the following areas does your request concern?",
         "land": "Public or private entity (e. g. company, non-profit, state or local authority)",
-        "land-q": "Which state do you live in?",
+        "land-q": "In which state is the entity your request concerns based?",
         "bund": "Federal authority",
         "kirche": "Religious body",
         "kirche-q": "Which religion/denomination does your request concern?",
