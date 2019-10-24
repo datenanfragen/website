@@ -56,6 +56,7 @@ You should now have a .zip file downloaded. Extract and Save it. This file conta
 <a id="twitter-data-meaning"></a>
 ## What does this data mean?
 
+
 The data is divided into many files and data fields. The data points that are interesting are in the ad related files viz. ad-engagements.js, ad-impressions.js, ad-mobile-conversions-attributed.js, ad-mobile-conversions-unattributed.js, ad-online-conversions-attributed.js and ad-online-conversions-unattributed.js as well as ni-devices.js and tweets.js.
 
 
@@ -68,7 +69,6 @@ table , td, th{
     border:2px solid #000000;
     text-align: center;
 }
-
 </style>
 <table>
  <thead>
@@ -903,6 +903,4 @@ The data received will be quite extensive, especially if the user is quite regul
 It can also be used to make a fun graph plotting the number of DM's shared between loved ones or just as a way of getting to know how Twitter collects data. 
 
 Hope you learnt and got something useful from this blog post. Cheers!
-
-
 
