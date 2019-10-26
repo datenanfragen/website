@@ -136,15 +136,6 @@ input:disabled {
     border: 4px solid $primary-color;
     border-radius: 2px;
     padding: 20px;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-top: 0;
-    }
 }
 .box-error {
     border-color: $error-color;
