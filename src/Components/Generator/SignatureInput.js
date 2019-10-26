@@ -9,6 +9,12 @@ export default class SignatureInput extends preact.Component {
 
         this.canvas = null;
         this.context = null;
+        this.initialCropArea = {
+            top: props.height || 100,
+            bottom: 0,
+            left: props.width || 100,
+            right: 0
+        };
         this.state = {
             width: props.width || 100,
             height: props.height || 100,
@@ -19,7 +25,8 @@ export default class SignatureInput extends preact.Component {
             isDrawing: false,
             lastX: 0,
             lastY: 0,
-            canvasImageExtractionBlocked: false
+            canvasImageExtractionBlocked: false,
+            cropArea: this.initialCropArea
         };
 
         this.handleMouse = this.handleMouse.bind(this);
@@ -61,8 +68,10 @@ export default class SignatureInput extends preact.Component {
             // see https://stackoverflow.com/a/4776378
             let img = new Image();
             img.onload = () => {
+                const left = (this.canvas.width - img.width) / 2;
+                const top = (this.canvas.height - img.height) / 2;
                 this.clear();
-                this.context.drawImage(img, 0, 0);
+                this.context.drawImage(img, left, top);
                 this.setState({ isEmpty: false });
                 this.handleChange();
             };
@@ -93,6 +102,7 @@ export default class SignatureInput extends preact.Component {
         if (this.state.isEmpty) return;
         this.context.clearRect(0, 0, this.state.width, this.state.height);
         this.setState({ isEmpty: true });
+        this.setState({ cropArea: this.initialCropArea });
         this.handleChange();
     }
 
@@ -202,6 +212,7 @@ export default class SignatureInput extends preact.Component {
                         lastX: x,
                         lastY: y
                     });
+                    this.setNewCropArea(x, y);
                 }
                 break;
             case 'pointerdown':
@@ -213,6 +224,7 @@ export default class SignatureInput extends preact.Component {
                 y = event.pageY - this.canvas.offsetTop;
 
                 this.drawCircle(x, y, 1, this.state.strokeColor);
+                this.setNewCropArea(x, y);
 
                 this.setState({
                     isDrawing: true,
@@ -234,6 +246,38 @@ export default class SignatureInput extends preact.Component {
         }
     }
 
+    setNewCropArea(x, y) {
+        const newCropArea = { ...this.state.cropArea };
+        const { top, bottom, left, right } = newCropArea;
+        if (x > right) {
+            newCropArea.right = x;
+        }
+        if (x < left) {
+            newCropArea.left = x;
+        }
+        if (y > bottom) {
+            newCropArea.bottom = y;
+        }
+        if (y < top) {
+            newCropArea.top = y;
+        }
+
+        this.setState({ cropArea: newCropArea });
+    }
+
+    get croppedCanvas() {
+        const { bottom, top, left, right } = this.state.cropArea;
+        const height = bottom - top + 4;
+        const width = right - left + 4;
+        const croppedCanvas = document.createElement('canvas');
+        croppedCanvas.width = width;
+        croppedCanvas.height = height;
+        croppedCanvas
+            .getContext('2d')
+            .drawImage(this.context.canvas, left - 2, top - 2, width, height, 0, 0, width, height);
+        return croppedCanvas;
+    }
+
     handleChange() {
         /*
            Canvas data cannot be extracted in Firefox with `privacy.resistFingerprinting` enabled or Tor Browser by
@@ -251,7 +295,7 @@ export default class SignatureInput extends preact.Component {
         this.props.onChange({
             signature: {
                 type: this.state.isEmpty ? 'text' : 'image',
-                value: !this.state.isEmpty ? this.canvas.toDataURL() : ''
+                value: !this.state.isEmpty ? this.croppedCanvas.toDataURL() : ''
             }
         });
     }
