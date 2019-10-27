@@ -21,20 +21,19 @@ function typewriter(text, i, fnCallback) {
         setTimeout(function() {
             typewriter(text, i + 1, fnCallback);
         }, 150);
-    } else if (typeof fnCallback == 'function') {
+    } else if (typeof fnCallback == 'function')
         setTimeout(fnCallback, 700);
-    }
 }
 function startTextAnimation(i) {
-    if (i < hero_rights.length) {
+    if (i < hero_rights.length)
         typewriter(hero_rights[i], 0, () => {
             startTextAnimation(i + 1);
         });
-    } else {
+    else 
         setTimeout(function() {
             startTextAnimation(0);
         }, 20000);
-    }
+    
 }
 
 window.onload = () => {
