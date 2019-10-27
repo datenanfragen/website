@@ -3,7 +3,6 @@
     "type": "blog",
     "date": "2019-10-21T21:11:25+00:00",
     "description": "Installing security-focused browser extensions that block pop-up advertisements and completely encrypt website traffic from being monitored or tracked will, definitely increase your privacy—and may even speed up your browser.",
-    "featured_image": "/img/blog/online-privacy/online-privacy.jpg",
     "tags": [ "privacy", "online", "ads", "cookies", "https" ],
     "authors": [ "nishantwrp" ]
 }
@@ -26,26 +25,34 @@ Privacy Badger is available for Chrome, Opera, Firefox, and even Firefox on Andr
 
 <img src="/img/blog/online-privacy/ublock-origin.png">
 
-[uBlock Origin](https://ublock.org/) is one of the most popular ad and content blocker extensions. It prevents pesky popups and widgets from sending your data to advertisers. uBlock Origin lets you create personalized lists which gives you more control over what ads to block and what ads to allow. It has also been found to effectively block more ads than others while using less memory, so it doesn’t slow down your browsing experience.
+uBlock Origin is one of the most popular ad and content blocker extensions. It prevents pesky popups and widgets from sending your data to advertisers. uBlock Origin lets you create personalized lists which gives you more control over what ads to block and what ads to allow. It has also been found to effectively block more ads than others while using less memory, so it doesn’t slow down your browsing experience.
 
 uBlock Origin is available for Chrome, Opera, Firefox, and Safari.
+
+Downloads links
+
+- [Chrome Extension](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
+- [Mozilla Extension](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+- [Opera Extension](https://addons.opera.com/en/extensions/details/ublock/)
 
 ## HTTPS Everywhere
 
 <img src="/img/blog/online-privacy/https.png">
 
-Secure websites use the HTTPS (Hyper Text Transfer Protocol Secure) protocol, which encrypts your credit card details, personal information, and other sensitive data. However, not all websites are HTTPS-enabled, so it redirects you to the HTTPS version of the site if it has one.
+Secure websites use the HTTPS (Hyper Text Transfer Protocol Secure) protocol, which encrypts your credit card details, personal information, and other sensitive data. However, not all websites are HTTPS-enabled.
 
 [HTTPS Everywhere](https://www.eff.org/https-everywhere) add-on is a joint venture project of Tor browser and EFF. When you install the extension, it automatically rewrites the requests, establishes a connection to SSL, then locates and directs you to the most secure versions of the websites you visit. In case your browser connects you to unsecured websites, HTTPS Everywhere will keep your data private and secure from leaking by redirecting it to an encrypted HTTPS.
-
-## Firefox Content Blocking
-
-<img src="/img/blog/online-privacy/content-blocking.jpg">
-
-[Content blocking](https://support.mozilla.org/en-US/kb/content-blocking) is a collection of Firefox privacy features that protect you from threats and annoyances on the Web. The default includes protections against trackers that collect your browsing data across multiple websites and cryptominers. Firefox also offers protections against harmful scripts, such as malware that drains your battery. These privacy protections are mostly invisible; you’ll know they’re working when you see a shield icon on the left within your address bar. 
 
 ## Decentraleyes
 
 <img src="/img/blog/online-privacy/decentraleyes.png">
 
-[Decentraleyes](https://decentraleyes.org/) protects you against tracking through "free", centralized, content delivery. It prevents a lot of requests from reaching networks like Google Hosted Libraries, and serves local files to keep sites from breaking. Complements regular content blockers.
+[Decentraleyes](https://decentraleyes.org/) protects you against tracking through "free", centralized, content delivery. It prevents a lot of requests from reaching networks like Google Hosted Libraries, and serves local files to keep sites from breaking.
+
+## Other browser settings you can use
+
+### Firefox Content Blocking
+
+<img src="/img/blog/online-privacy/content-blocking.jpg">
+
+[Content blocking](https://support.mozilla.org/en-US/kb/content-blocking) is a collection of Firefox privacy features that protect you from threats and annoyances on the Web. The default includes protections against trackers that collect your browsing data across multiple websites and cryptominers. Firefox also offers protections against harmful scripts, such as malware that drains your battery. These privacy protections are mostly invisible; you’ll know they’re working when you see a shield icon on the left within your address bar. 
