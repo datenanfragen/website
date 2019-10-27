@@ -28,11 +28,12 @@ window.onload = () => {
 };
 
 function prepareForm(schema) {
-    if (PARAMETERS['slug']) {
+    if (PARAMETERS['slug'])
         fetchCompanyDataBySlug(PARAMETERS['slug']).then(company => {
             renderForm(schema, company);
         });
-    } else renderForm(schema);
+    else
+        renderForm(schema);
 }
 
 function renderForm(schema, company = undefined) {
@@ -81,7 +82,8 @@ function renderForm(schema, company = undefined) {
             var tagName = element.tagName.toLowerCase();
             if (tagName === 'input' || tagName === 'textarea') {
                 element.className += ' form-element';
-                if (tagName === 'textarea') element.setAttribute('rows', '5');
+                if (tagName === 'textarea')
+                    element.setAttribute('rows', '5');
             } else if (tagName === 'select') {
                 let select_container = document.createElement('div');
                 let icon = document.createElement('div');
@@ -112,8 +114,10 @@ function renderForm(schema, company = undefined) {
                     ev.target.removeChild(ev.target.lastChild);
                 };
             } else if (tagName === 'td') {
-                if (element.className === 'item-action') element.style = 'padding-left: 0;';
-                if (element.className === 'item-value') element.style = 'padding-right: 0;';
+                if (element.className === 'item-action')
+                    element.style = 'padding-left: 0;';
+                if (element.className === 'item-value')
+                    element.style = 'padding-right: 0;';
             }
         }
     });
