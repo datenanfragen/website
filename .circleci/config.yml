@@ -1,8 +1,76 @@
-  version: 2.1
-  jobs:
-    build:
-      docker: 
-        - image: circleci/node:4.8.2
+version: 2.1
+
+executors:
+  docker_hugo_node:
+    docker:
+      - image: node:10-alpine
+
+jobs:
+  build:
+    executor: docker_hugo_node
+    environment:
+        - HUGO_VERSION: '0.58.3'
+        - HUGO_BINARY: hugo_0.58.3_linux-64bit
+        - GLIBC_VERSION: 2.28-r0
+    steps:
+      - run:
+          command: |
+            apk update
+            apk add bash git wget ca-certificates autoconf automake build-base
+
+            rm -rf /var/cache/apk/*
+            mkdir /usr/local/hugo
+            wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz -O /usr/local/hugo/${HUGO_BINARY}.tar.gz
+            tar xzf /usr/local/hugo/${HUGO_BINARY}.tar.gz -C /usr/local/hugo/
+            ln -s /usr/local/hugo/hugo /usr/local/bin/hugo
+            rm /usr/local/hugo/${HUGO_BINARY}.tar.gz
+            rm -rf /tmp/* /var/cache/apk/*
+
+      - checkout
+
+      - run:
+          command: |
+            export CONTEXT="production"
+            yarn install
+            chmod +x deploy.sh
+            ./deploy.sh
+
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project/
+            - .cache
+
+  test:
+      docker:
+        - image: cypress/base:10
+      environment:
+        - HUGO_VERSION: '0.58.3'
+        - HUGO_BINARY: hugo_0.58.3_linux-64bit
       steps:
-        - checkout
-        - run: echo "TODO"
+        - run:
+            command: |
+              mkdir /usr/local/hugo
+              wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz -O /usr/local/hugo/${HUGO_BINARY}.tar.gz
+              tar xzf /usr/local/hugo/${HUGO_BINARY}.tar.gz -C /usr/local/hugo/
+              ln -s /usr/local/hugo/hugo /usr/local/bin/hugo
+              rm /usr/local/hugo/${HUGO_BINARY}.tar.gz
+
+        - attach_workspace:
+            at: ~/
+
+        - run:
+            command: |
+              yarn
+              yarn cypress verify
+              hugo server --baseURL "http://localhost" --disableFastRender --minify > /dev/null &
+              yarn cypress run --record
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+              - build
