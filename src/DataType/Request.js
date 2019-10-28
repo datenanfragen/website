@@ -51,6 +51,11 @@ export default class Request {
          */
         this.recipient_address = '';
         /**
+         * The email address of the request recipient.
+         * @type {String}
+         */
+        this.email = '';
+        /**
          * The signature to be included after the content in pdfmake format. If not left blank, this can be:
          *     - `{ type: 'text', name: 'Name' }` to just add the name
          *     - `{ type: 'image', name: 'Name', value: 'base64-encoded image' }` to include an image and the name
@@ -147,6 +152,7 @@ export default class Request {
             response_type: response_type,
             slug: slug,
             recipient: this.recipient_address,
+            email: this.email,
             via: this.transport_medium
         };
         new UserRequests().storeRequest(db_id, item);

@@ -10,15 +10,26 @@ export default class RecipientInput extends preact.Component {
                 <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
                     <Text id="recipient-explanation" />
                     <br />
-                    <textarea
-                        id="request-recipient"
-                        className="form-element"
-                        placeholder={t('recipient', 'generator')}
-                        rows="4"
-                        spellCheck="false"
-                        onChange={this.props.onChange}
-                        value={this.props.recipientAddress}
-                    />
+                    {this.props.transportMedium === 'email' ? (
+                        <input
+                            type="email"
+                            id="request-recipient"
+                            className="form-element"
+                            placeholder={t('recipient', 'generator')}
+                            onChange={this.props.onEmailChange}
+                            value={this.props.email}
+                        />
+                    ) : (
+                        <textarea
+                            id="request-recipient"
+                            className="form-element"
+                            placeholder={t('recipient', 'generator')}
+                            rows="4"
+                            spellCheck="false"
+                            onChange={this.props.onAddressChange}
+                            value={this.props.recipientAddress}
+                        />
+                    )}
                     <label className="sr-only" htmlFor="request-recipient">
                         <Text id="recipient" />
                     </label>
@@ -35,6 +46,9 @@ export default class RecipientInput extends preact.Component {
 
     static propTypes = {
         recipientAddress: PropTypes.string,
-        onChange: PropTypes.func.isRequired
+        email: PropTypes.string,
+        transportMedium: PropTypes.oneOf(['fax', 'email', 'letter']).isRequired,
+        onAddressChange: PropTypes.func.isRequired,
+        onEmailChange: PropTypes.func.isRequired
     };
 }

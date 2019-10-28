@@ -206,6 +206,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 (prev.request.transport_medium === 'fax'
                     ? '\n' + t_r('by-fax', company['request-language'] || LOCALE) + company['fax']
                     : '');
+            prev.request.email = company.email;
 
             const language =
                 !!company['request-language'] && company['request-language'] !== ''
@@ -487,7 +488,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                         this.storeRequest();
                         download(
                             medium === 'email'
-                                ? this.letter.toMailtoLink(this.state.suggestion && this.state.suggestion.email)
+                                ? this.letter.toMailtoLink(this.state.request.email)
                                 : this.state.blob_url,
                             this.state.download_filename
                         );
