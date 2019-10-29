@@ -3,7 +3,9 @@
     "type": "act",
     "date": "2019-10-23T15:05:26+02:00",
     "tags": [ "ada health", "gesundheitsdaten", "app", "datenlöschung", "vergessenwerden" ],
-    "authors": [ "baltpeter" ]
+    "featured_image": "/img/act/ada-health.de.jpg",
+    "authors": [ "baltpeter" ],
+    "notices": "Titelfoto angepasst nach: „[assorted-color syringes on clear glass rack](https://unsplash.com/photos/zsKFQs2kDpM)“ von [Ibrahim Boran](https://unsplash.com/@ibrahimboran) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 
 Die App *Ada Health* stellt sich auf ihrer [Webseite](https://ada.com/de/) als „Deine Gesundheitshelferin” vor. Per interaktivem Chat können Nutzer_innen der App die Symptome ihrer Krankheiten mitteilen, welche diese dann verwendet um mögliche Ursachen zu vermuten und Ratschläge für die nächsten Schritte zu geben. Die Diagnose kann sogar direkt an die eigene Ärzt_in weitergeleitet werden.
