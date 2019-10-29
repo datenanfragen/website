@@ -17,32 +17,32 @@ Germany
 **Web:** [verein.datenanfragen.de](https://verein.datenanfragen.de)
 
 **Legally represented by:** Benjamin Altpeter and Lorenz Sieben  
-Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associations of the district court of Braunschweig, under the registration number VR&nbsp;201732, and recognized as a charitable organisation by the Braunschweig-Wilhelmstraße tax office.
+Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associations of the district court of Braunschweig, under the registration number VR&nbsp;201732, and recognized as a charitable organization by the Braunschweig-Wilhelmstraße tax office.
 
 **Responsible for the content according to § 55(2) of German Interstate Broadcasting Treaty (RStV):**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
 
 <div class="box box-warning">
-	Please note that we are an <em>independent non-profit</em> and not affiliated with the companies listed in our <a href="/company">company database</a>.<br>
-	If you need support or want to send a request, please contact the respective company directly. We <strong>cannot</strong> help you in such cases. Thanks for your understanding.
+    Please note that we are an <em>independent non-profit</em> and not affiliated with the companies listed in our <a href="/company">company database</a>.<br>
+    If you need support or want to send a request, please contact the respective company directly. We <strong>cannot</strong> help you in such cases. Thanks for your understanding.
 </div>
 
 <script type="application/ld+json">
-	{
-		"@context": "http://schema.org",
-		"@type": "NGO",
-		"name": "Datenanfragen.de e. V.",
-		"address": {
-			"@type": "PostalAddress",
-			"streetAddress": "c/o Benjamin Altpeter, Schreinerweg 6",
-			"postalCode": "38126",
-			"addressLocality": "Braunschweig",
-			"addressCountry": "DE"
-		},
-		"telephone": "+49 209299 35",
-		"faxNumber": "+49 209299 36",
-		"email": "contact@datenanfragen.de",
-		"url": "https://verein.datenanfragen.de",
-		"logo": "https://www.datenanfragen.de/img/logo-datenanfragen-ev.png"
-	}
+    {
+        "@context": "http://schema.org",
+        "@type": "NGO",
+        "name": "Datenanfragen.de e. V.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "c/o Benjamin Altpeter, Schreinerweg 6",
+            "postalCode": "38126",
+            "addressLocality": "Braunschweig",
+            "addressCountry": "DE"
+        },
+        "telephone": "+49 209299 35",
+        "faxNumber": "+49 209299 36",
+        "email": "contact@datenanfragen.de",
+        "url": "https://verein.datenanfragen.de",
+        "logo": "https://www.datenanfragen.de/img/logo-datenanfragen-ev.png"
+    }
 </script>
