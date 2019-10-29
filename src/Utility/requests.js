@@ -26,8 +26,8 @@ export function defaultFields(locale = LOCALE) {
             value: ''
         },
         {
-            desc: t_r('birthdate', locale),
-            type: 'birthdate',
+            desc: t_r('email', locale),
+            type: 'email',
             optional: true,
             value: ''
         },

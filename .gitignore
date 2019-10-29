@@ -176,8 +176,8 @@ $RECYCLE.BIN/
 *.lnk
 
 
-# Nightwatch
-test/reports/
+# Cypress
+cypress/videos/
 
 # Hugo
 public/
