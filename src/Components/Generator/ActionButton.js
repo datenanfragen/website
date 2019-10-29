@@ -25,7 +25,7 @@ export default class ActionButton extends preact.Component {
                     href={props.blob_url}
                     download={props.download_filename}
                     onClick={e => {
-                        if (!props.download_active) e.preventDefault();
+                        if (!enabled) e.preventDefault();
                         else props.onSuccess();
                     }}>
                     <Text id={props.done ? 'download-pdf-again' : 'download-pdf'} />
