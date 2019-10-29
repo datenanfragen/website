@@ -203,9 +203,13 @@ export class InputControl extends preact.Component {
     render() {
         return (
             <div className="form-group">
-                <label for={this.props.id + '-value-' + this.props.suffix} className="sr-only">
-                    {this.props.desc}
-                </label>
+                {this.props.desc ? (
+                    <label htmlFor={this.props.id + '-value-' + this.props.suffix} className="sr-only">
+                        {this.props.desc}
+                    </label>
+                ) : (
+                    []
+                )}
                 <input
                     key={this.props.id + this.props.suffix}
                     name="value"
@@ -242,9 +246,13 @@ export class DateControl extends preact.Component {
     render() {
         return (
             <div className="form-group">
-                <label for={this.props.id + '-value-' + this.props.suffix} className="sr-only">
-                    {this.props.desc}
-                </label>
+                {this.props.desc ? (
+                    <label htmlFor={this.props.id + '-value-' + this.props.suffix} className="sr-only">
+                        {this.props.desc}
+                    </label>
+                ) : (
+                    []
+                )}
                 <input
                     key={this.props.id + this.props.suffix}
                     name="value"
@@ -280,7 +288,7 @@ export class AddressControl extends preact.Component {
 
     render() {
         return (
-            <div>
+            <div id={this.props.id + '-container-' + this.props.suffix}>
                 <div className="form-group fancy-fg">
                     <input
                         key={this.props.id + '-street_1-' + this.props.suffix}

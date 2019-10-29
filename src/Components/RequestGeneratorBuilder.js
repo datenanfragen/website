@@ -224,15 +224,25 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 'access-tracking',
                 'erasure-tracking',
                 'rectification-tracking'
-            ].includes((company['custom-' + this.state.request.type + '-template'] || ''));
+            ].includes(company['custom-' + this.state.request.type + '-template'] || '');
 
-            prev.request.id_data = SavedIdData.mergeFields(
+            const intermediate_id_data = SavedIdData.mergeFields(
                 prev.request.id_data,
                 !!company['required-elements'] && company['required-elements'].length > 0
                     ? company['required-elements']
                     : prev.request.is_tracking_request
                     ? trackingFields(language)
                     : defaultFields(language)
+            );
+
+            prev.request.id_data = SavedIdData.mergeFields(
+                intermediate_id_data,
+                prev.fill_fields,
+                true,
+                true,
+                true,
+                true,
+                false
             );
 
             prev.request.recipient_runs = company.runs || [];

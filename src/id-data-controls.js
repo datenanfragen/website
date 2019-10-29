@@ -18,6 +18,7 @@ class IdDataControls extends preact.Component {
             fixed_id_data: {
                 name: '',
                 birthdate: '',
+                email: '',
                 address: {
                     street_1: '',
                     street_2: '',
@@ -68,7 +69,11 @@ class IdDataControls extends preact.Component {
 
                                 <div className="form-group" style="width: 100%; display: table;">
                                     <div className="col40">
-                                        <strong>{t('name', 'generator')}</strong>
+                                        <strong>
+                                            <label htmlFor="name-input-value-fixed-id-data">
+                                                {t('name', 'generator')}
+                                            </label>
+                                        </strong>
                                     </div>
                                     <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
                                         <InputControl
@@ -79,20 +84,30 @@ class IdDataControls extends preact.Component {
                                         />
                                     </div>
                                     <div className="clearfix" />
+
                                     <div className="col40">
-                                        <strong>{t('birthdate', 'generator')}</strong>
+                                        <strong>
+                                            <label htmlFor="email-input-value-fixed-id-data">
+                                                {t('email-address', 'generator')}
+                                            </label>
+                                        </strong>
                                     </div>
                                     <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                        <DateControl
-                                            id="birthdate-input"
+                                        <InputControl
+                                            id="email-input"
                                             suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('birthdate', e)}
-                                            value={this.state.fixed_id_data['birthdate']}
+                                            onChange={e => this.handleFixedChange('email', e)}
+                                            value={this.state.fixed_id_data['email']}
                                         />
                                     </div>
                                     <div className="clearfix" />
+
                                     <div className="col40">
-                                        <strong>{t('address', 'generator')}</strong>
+                                        <strong>
+                                            <label htmlFor="main-address-input-container-fixed-id-data">
+                                                {t('address', 'generator')}
+                                            </label>
+                                        </strong>
                                     </div>
                                     <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
                                         <AddressControl
@@ -100,6 +115,23 @@ class IdDataControls extends preact.Component {
                                             suffix="fixed-id-data"
                                             onChange={e => this.handleFixedChange('address', e)}
                                             value={this.state.fixed_id_data['address']}
+                                        />
+                                    </div>
+                                    <div className="clearfix" />
+
+                                    <div className="col40">
+                                        <strong>
+                                            <label htmlFor="birthdate-input-value-fixed-id-data">
+                                                {t('birthdate', 'generator')}
+                                            </label>
+                                        </strong>
+                                    </div>
+                                    <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
+                                        <DateControl
+                                            id="birthdate-input"
+                                            suffix="fixed-id-data"
+                                            onChange={e => this.handleFixedChange('birthdate', e)}
+                                            value={this.state.fixed_id_data['birthdate']}
                                         />
                                     </div>
                                     <div className="clearfix" />
@@ -159,17 +191,26 @@ class IdDataControls extends preact.Component {
             {
                 desc: t('name', 'generator'),
                 type: 'name',
-                value: data['name']
+                value: data['name'],
+                optional: true
             },
             {
                 desc: t('birthdate', 'generator'),
                 type: 'birthdate',
-                value: data['birthdate']
+                value: data['birthdate'],
+                optional: true
             },
             {
                 desc: t('address', 'generator'),
                 type: 'address',
-                value: data['address']
+                value: data['address'],
+                optional: true
+            },
+            {
+                desc: t('email-address', 'generator'),
+                type: 'email',
+                value: data['email'],
+                optional: true
             }
         ];
     }
