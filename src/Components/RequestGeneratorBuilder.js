@@ -225,7 +225,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 'rectification-tracking'
             ].includes(company['custom-' + this.state.request.type + '-template'] || '');
 
-            let intermediate_id_data = SavedIdData.mergeFields(
+            const intermediate_id_data = SavedIdData.mergeFields(
                 prev.request.id_data,
                 !!company['required-elements'] && company['required-elements'].length > 0
                     ? company['required-elements']
