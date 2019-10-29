@@ -192,7 +192,7 @@
         "request-type": "What kind of request do you want to generate?",
         "access-request": "Access request",
         "erasure-request": "Erasure request",
-        "objection-request": "Objection against direct marketing",
+        "objection-request": "Direct marketing objection",
         "rectification-request": "Rectification request",
         "custom-request": "Your own text",
         "recipient-explanation": "Who is the recipient?",
