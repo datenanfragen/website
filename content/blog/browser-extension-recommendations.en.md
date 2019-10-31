@@ -31,11 +31,13 @@ uBlock Origin is available for [Firefox](https://addons.mozilla.org/en-US/firefo
 
 ## HTTPS Everywhere
 
-<img src="/img/blog/online-privacy/https.png">
+<img src="/img/blog/online-privacy/https.jpg">
 
 Secure websites use the HTTPS (Hyper Text Transfer Protocol Secure) protocol, which encrypts your credit card details, personal information, and other sensitive data. However, not all websites are HTTPS-enabled.
 
 [HTTPS Everywhere](https://www.eff.org/https-everywhere) add-on is a joint venture project of Tor browser and EFF. When you install the extension, it automatically rewrites the requests, establishes a connection to SSL, then locates and directs you to the most secure versions of the websites you visit. In case your browser connects you to unsecured websites, HTTPS Everywhere will keep your data private and secure from leaking by redirecting it to an encrypted HTTPS.
+
+HTTPS Everywhere is available for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/https-everywhere/), Chrome and Opera.
 
 ## Decentraleyes
 
@@ -43,7 +45,9 @@ Secure websites use the HTTPS (Hyper Text Transfer Protocol Secure) protocol, wh
 
 [Decentraleyes](https://decentraleyes.org/) protects you against tracking through "free", centralized, content delivery. It prevents a lot of requests from reaching networks like Google Hosted Libraries, and serves local files to keep sites from breaking.
 
-# Switch to firefox
+Decentraleyes is available for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/), Chrome and Opera.
+
+## Switch to firefox
 
 ### *Firefox actually cares about your privacy*
 
