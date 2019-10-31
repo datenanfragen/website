@@ -19,6 +19,7 @@ export default class RequestForm extends preact.Component {
                         key="rectification_data"
                         id="rectification_data"
                         title={t('rectification-data', 'generator')}
+                        margin="margin-top: 0;"
                         fields={this.props.request_data['rectification_data']}
                         hasPrimary={false}
                         onChange={this.props.onChange}>
@@ -38,6 +39,7 @@ export default class RequestForm extends preact.Component {
                             this.props.request_data.is_tracking_request ? 'id-data-tracking' : 'id-data',
                             'generator'
                         )}
+                        margin={(this.props.request_data['type'] === 'rectification') ? 'margin-top: 1em;' : 'margin-top: 0;'}
                         hasPrimary={true}
                         fillFields={this.props.fillFields}>
                         <MarkupText
