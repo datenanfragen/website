@@ -223,7 +223,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
             prev.request.is_tracking_request = [
                 'access-tracking',
                 'erasure-tracking',
-                'rectification-tracking'
+                'rectification-tracking',
+                'objection-tracking'
             ].includes(company['custom-' + this.state.request.type + '-template'] || '');
 
             const intermediate_id_data = SavedIdData.mergeFields(

@@ -1,7 +1,7 @@
 {
     "title": "Ein kurzer Überblick über Datenanfragen.de",
     "slug": "ein-kurzer-ueberblick-datenanfragen-de",
-    "aliases": [ "blog/a-quick-overview" ],
+    "aliases": [ "a-quick-overview" ],
     "date": "2018-03-23T03:25:12+02:00",
     "last_edited": "2018-05-09T01:23:34",
     "type": "blog",

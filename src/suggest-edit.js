@@ -43,6 +43,7 @@ function renderForm(schema, company = undefined) {
         'custom-access-template',
         'custom-erasure-template',
         'custom-rectification-template',
+        'custom-objection-template',
         'request-language'
     ];
     BrutusinForms.addDecorator((element, schema) => {

@@ -27,6 +27,7 @@ export default class RequestForm extends preact.Component {
                 );
             // fallthrough intentional
             case 'erasure':
+            case 'objection':
             case 'access':
                 body.push(
                     <DynamicInputContainer

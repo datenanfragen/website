@@ -13,8 +13,9 @@ import { CriticalException, rethrow } from './errors';
  * @property {Object} signature
  */
 
-export const REQUEST_ARTICLES = { access: 15, erasure: 17, rectification: 16 };
+export const REQUEST_ARTICLES = { access: 15, erasure: 17, rectification: 16, objection: '21(2)' };
 export const REQUEST_FALLBACK_LANGUAGE = 'en'; // We'll use English as hardcoded fallback language
+export const VALID_REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'];
 
 export function defaultFields(locale = LOCALE) {
     return [

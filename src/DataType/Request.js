@@ -4,7 +4,7 @@ import { defaultFields } from '../Utility/requests';
 import UserRequests from '../my-requests';
 
 /**
- * @typedef {"access" | "erasure" | "rectification" | "custom"} RequestType
+ * @typedef {"access" | "erasure" | "rectification" | "objection" | "custom"} RequestType
  */
 
 /**
