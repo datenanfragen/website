@@ -27,8 +27,8 @@
 {{ end }}
 
 
-<link href="{{ .Site.BaseURL }}blog/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-<link href="{{ .Site.BaseURL }}blog/index.xml" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+<link href="{{ "blog/index.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+<link href="{{ "blog/index.xml" | absURL }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
 {{ hugo.Generator }}
 
 <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
