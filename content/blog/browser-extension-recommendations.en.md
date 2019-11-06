@@ -17,7 +17,7 @@ Tools like Google Analytics, they register everything from your geographical loc
 
 <img src="/img/blog/online-privacy/privacy-badger.png">
 
-[Privacy Badger](https://www.eff.org/privacybadger) is arguably the best anti-tracking web browser extension. Launched by Electronic Frontier Foundation (EFF), it’s a lightweight add-on with a user-friendly toolbar button that shows the detected trackers on the page. The “green/yellow/red” block-list system shows which webpages are tracking you and gives you the ability to block any or all of it at any point. The one feature that sets Privacy Badger apart is that it doesn’t block all content, just the tracking scripts that follow you from one site to another. If the content tracking you is essential to a page’s functionality, Privacy Badger will allow it to load with the tracking capabilities blocked.
+[Privacy Badger](https://www.eff.org/privacybadger) is arguably the best anti-tracking web browser extension. Launched by the Electronic Frontier Foundation (EFF), it’s a lightweight add-on with a user-friendly toolbar button that shows the detected trackers on the page. The “green/yellow/red” block-list system shows which webpages are tracking you and gives you the ability to block any or all of it at any point. The one feature that sets Privacy Badger apart is that it doesn’t block all content, just the tracking scripts that follow you from one site to another. If the content tracking you is essential to a page’s functionality, Privacy Badger will allow it to load with the tracking capabilities blocked.
 
 Privacy Badger is available for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/), Chrome, Opera and even Firefox on Android phones.
 
@@ -27,6 +27,8 @@ Privacy Badger is available for [Firefox](https://addons.mozilla.org/en-US/firef
 
 uBlock Origin is one of the most popular ad and content blocker extensions. It prevents pesky popups and widgets from sending your data to advertisers. uBlock Origin lets you create personalized lists which gives you more control over what ads to block and what ads to allow. It has also been found to effectively block more ads than others while using less memory, so it doesn’t slow down your browsing experience.
 
+It is not backed by any company or business model and rather community developed and open-source. That makes it more trustworthy over other blockers who are known to collect your data.
+
 uBlock Origin is available for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/), Chrome, Opera and Safari.
 
 ## HTTPS Everywhere
@@ -35,7 +37,7 @@ uBlock Origin is available for [Firefox](https://addons.mozilla.org/en-US/firefo
 
 Secure websites use the HTTPS (Hyper Text Transfer Protocol Secure) protocol, which encrypts your credit card details, personal information, and other sensitive data. However, not all websites are HTTPS-enabled.
 
-[HTTPS Everywhere](https://www.eff.org/https-everywhere) add-on is a joint venture project of Tor browser and EFF. When you install the extension, it automatically rewrites the requests, establishes a connection to SSL, then locates and directs you to the most secure versions of the websites you visit. In case your browser connects you to unsecured websites, HTTPS Everywhere will keep your data private and secure from leaking by redirecting it to an encrypted HTTPS.
+[HTTPS Everywhere](https://www.eff.org/https-everywhere) add-on is a joint venture project of the Tor browser and EFF. When you install the extension, it automatically rewrites the requests, establishes a connection via TLS, then locates and directs you to the most secure versions of the websites you visit. In case your browser connects you to unsecured websites, HTTPS Everywhere will keep your data private and secure from leaking by redirecting it to an encrypted HTTPS.
 
 HTTPS Everywhere is available for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/https-everywhere/), Chrome and Opera.
 
@@ -49,7 +51,7 @@ Decentraleyes is available for [Firefox](https://addons.mozilla.org/en-US/firefo
 
 ## Switch to firefox
 
-### *Firefox actually cares about your privacy*
+### Firefox actually cares about your privacy
 
 In 2014, Mozilla released a call-to-arms for users in an effort to promote online privacy, stating that “fighting for data privacy—making sure people know who has access to their data, where it goes or could go, and that they have a choice in all of it—is part of Mozilla’s DNA.”
 
@@ -59,7 +61,7 @@ You can even consult the Firefox privacy policy to learn more about the browser,
 
 But the real win here is that Mozilla isn’t Google. The one thing we know to be true is that Google is a gargantuan data collection company. Google already knows too much. Do you want it to know every aspect of your browsing habits, too?
 
-### *Firefox Content Blocking*
+### Firefox Content Blocking
 
 <img src="/img/blog/online-privacy/content-blocking.jpg">
 
