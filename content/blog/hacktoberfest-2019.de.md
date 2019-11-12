@@ -13,7 +13,7 @@ Auch in diesem Jahr richtet der Hosting-Anbieter DigitalOcean wieder das [Hackto
 <img src="/img/blog/hacktoberfest-2019.png">
 
 Nebem diesem offiziellen Ereignis nutzen jedes Jahr auch zahlreiche weitere Unternehmen und Organisationen die Gelegenheit, sich am Hacktoberfest zu beteiligen und zusätzlich weitere Belohnungen für bestimmte Beiträge anzubieten.  
-Wir bei Datenanfragen.de [lieben Open Source]({{< ref "open-source" >}}), unser Projekt ist von Grund auf konzipiert, so offen wie möglich zu sein. Daher freut es uns umso mehr zu verkünden, dass Datenanfragen.de dieses Jahr beim Hacktoberfest mitmacht! Wir belohnen Beiträge zum Projekt, die während des Oktobers 2019 als Pull Request über [GitHub](https://github.com/) eingereicht wurden, mit einem exklusiven Sticker-Set.
+Wir bei Datenanfragen.de [lieben Open Source]({{< ref "/open-source" >}}), unser Projekt ist von Grund auf konzipiert, so offen wie möglich zu sein. Daher freut es uns umso mehr zu verkünden, dass Datenanfragen.de dieses Jahr beim Hacktoberfest mitmacht! Wir belohnen Beiträge zum Projekt, die während des Oktobers 2019 als Pull Request über [GitHub](https://github.com/) eingereicht wurden, mit einem exklusiven Sticker-Set.
 
 ## Was gibt es für Belohnungen?
 
@@ -37,13 +37,13 @@ Wenn Du zusätzlich beim offiziellen Hacktoberfest teilnehmen möchtest, musst D
 
 <img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;">
 
-Wir werten Pull Requests in allen Repositories in der [Datenanfragen.de-Organisation auf GitHub](https://github.com/datenanfragen) sowie denen, die auf unserer [Open Source-Seite]({{< ref "open-source" >}}) als unsere Repositories aufgeführt sind, als gültige Beiträge für die Aktion.  
+Wir werten Pull Requests in allen Repositories in der [Datenanfragen.de-Organisation auf GitHub](https://github.com/datenanfragen) sowie denen, die auf unserer [Open Source-Seite]({{< ref "/open-source" >}}) als unsere Repositories aufgeführt sind, als gültige Beiträge für die Aktion.  
 Wenn Du meinst, dass Dein Beitrag in einem anderen Repository dem Projekt hilft, frag bitte kurz per E-Mail an [hacktoberfest@datenanfragen.de](mailto:hacktoberfest@datenanfragen.de) nach, ob wir diesen Beitrag auch werten können.
 
 Es gibt bei uns zahlreiche Bereiche, in denen Du mitmachen kannst – ganz unabhängig davon, ob Du Erfahrung mit Programmierung und Datenschutz hast oder nicht. Um Dir das Mitmachen möglichst einfach zu machen, haben wir einige Vorschläge für Beiträge zusammengestellt:
 
 * **Wartung der Unternehmensdatenbank**  
-  In unserer [Unternehmensdatenbank]({{< ref "company" >}}) sammeln wir die Kontaktdaten von zahlreichen Unternehmen und anderen Organisationen für Fragen zum Datenschutz. Wenn Du ein Unternehmen entdeckst, das noch fehlt oder bei dem die Daten nicht mehr aktuell sind, kannst Du dafür eine Pull Request erstellen.  
+  In unserer [Unternehmensdatenbank]({{< ref "/company" >}}) sammeln wir die Kontaktdaten von zahlreichen Unternehmen und anderen Organisationen für Fragen zum Datenschutz. Wenn Du ein Unternehmen entdeckst, das noch fehlt oder bei dem die Daten nicht mehr aktuell sind, kannst Du dafür eine Pull Request erstellen.  
   Dafür kannst Du unseren [Unternehmens-JSON-Generator](https://company-json.netlify.com/) verwenden. Lies Dir auch unsere [Hinweise dazu](https://github.com/datenanfragen/data#data-format-guidelines-and-resources-for-company-records) durch.  
   Beachte bitte, dass wir hier nur Beiträge zählen können, die Du selbst in dem [GitHub-Repository](https://github.com/datenanfragen/data) eingereicht hast. Vorschläge über unsere Webseite zählen nicht.
 

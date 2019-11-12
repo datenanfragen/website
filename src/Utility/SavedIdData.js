@@ -35,6 +35,7 @@ export default class SavedIdData {
         switch (data.type) {
             case 'name':
             case 'birthdate':
+            case 'email':
                 break;
             case 'address':
                 to_store['value']['primary'] = true;
@@ -54,7 +55,7 @@ export default class SavedIdData {
 
     storeArray(array, fixed_only = true) {
         array.forEach(item => {
-            if (['name', 'birthdate'].includes(item.type) || (item.type === 'address' && item.value.primary)) {
+            if (['name', 'birthdate', 'email'].includes(item.type) || (item.type === 'address' && item.value.primary)) {
                 this.storeFixed(item);
             } else if (!fixed_only) {
                 this.store(item);
@@ -66,7 +67,7 @@ export default class SavedIdData {
     storeArrayLike(array_like, fixed_only = true) {
         for (let key in array_like) {
             let item = array_like[key];
-            if (['name', 'birthdate'].includes(item.type) || (item.type === 'address' && item.value.primary))
+            if (['name', 'birthdate', 'email'].includes(item.type) || (item.type === 'address' && item.value.primary))
                 this.storeFixed(item);
             else if (!fixed_only) this.store(item);
         }
@@ -165,15 +166,18 @@ export default class SavedIdData {
             // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
             let j = new_fields.findIndex(new_field => {
                 return (
-                    new_field['type'] === field['type'] && // Merge if type are equal and
-                    (new_field['desc'] === field['desc'] || // descriptions are equal or
-                    ['name', 'birthdate'].includes(field['type']) || // field is of fixed type or
-                        (field['type'] === 'address' &&
-                            !!new_field['value'] &&
-                            !!field['value'] &&
-                            new_field['value']['primary'] &&
-                            field['value']['primary']))
-                ); // both fields are primary addresses
+                    (new_field['type'] === field['type'] &&
+                        // type and descriptions are equal
+                        (new_field['desc'] === field['desc'] ||
+                            // type is equal and field is of fixed type
+                            ['name', 'birthdate', 'email'].includes(field['type']))) ||
+                    // both fields are primary addresses
+                    (field['type'] === 'address' &&
+                        !!new_field['value'] &&
+                        !!field['value'] &&
+                        new_field['value']['primary'] &&
+                        field['value']['primary'])
+                );
             });
             if (typeof j !== 'undefined' && j >= 0) {
                 if (!protect_desc) field['desc'] = new_fields[j]['desc']; // should only matter for fixed types

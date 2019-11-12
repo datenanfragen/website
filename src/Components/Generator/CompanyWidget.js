@@ -15,6 +15,16 @@ export default class CompanyWidget extends preact.Component {
         let content = (
             <div className="company-info-content">
                 <div className="company-info-params">
+                    {this.props.company['address']
+                        ? [
+                              <br />,
+                              <span className="company-info-label">
+                                  <Text id="address" />
+                                  :&nbsp;
+                              </span>,
+                              <span>{this.props.company['address'].split('\n').join(', ')}</span>
+                          ]
+                        : []}
                     {this.props.company['fax']
                         ? [
                               <br />,

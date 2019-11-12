@@ -1,7 +1,7 @@
 {
     "title": "Deine Rechte nach der Datenschutz-Grundverordnung (DSGVO)",
     "slug": "deine-dsgvo-rechte",
-    "aliases": [ "blog/your-gdpr-rights" ],
+    "aliases": [ "your-gdpr-rights" ],
     "date": "2018-05-07T08:22:36+02:00",
     "type": "blog",
     "description": "Die DSGVO gewährt Dir umfassende Rechte im Bezug auf den Datenschutz. So muss Dir bspw. jedes Unternehmen in der EU mitteilen, welche personenbezogenen Daten es zu Dir gespeichert hat. Wenn die Daten falsch sind, muss es sie berichtigen. Du darfst sogar verlangen, dass die Daten wieder gelöscht werden. Mehr dazu erfährst Du in diesem Artikel.",

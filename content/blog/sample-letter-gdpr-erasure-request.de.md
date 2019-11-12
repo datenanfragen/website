@@ -1,7 +1,7 @@
 {
     "title": "Musterbrief für Anträge auf Löschung nach Art. 17 DSGVO („Recht auf Vergessenwerden“)",
     "slug": "musterbrief-dsgvo-anfrage-loeschung",
-    "aliases": [ "blog/sample-letter-gdpr-erasure-request" ],
+    "aliases": [ "sample-letter-gdpr-erasure-request" ],
     "date": "2018-05-17T17:58:23+02:00",
 	"type": "blog",
 	"description": "Dank der DSGVO hast Du ein Recht auf Löschung Deiner personenbezogenen Daten, wenn ein Verantwortlicher sie für ihren ursprünglichen Zweck nicht mehr benötigt. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
