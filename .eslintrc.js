@@ -79,6 +79,10 @@ module.exports = {
                 {
                     name: 'de',
                     path: 'src/i18n/de.json'
+                },
+                {
+                    name: 'fr',
+                    path: 'src/i18n/fr.json'
                 }
             ]
         },
