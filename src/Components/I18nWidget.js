@@ -66,10 +66,7 @@ export default class I18nWidget extends preact.Component {
                             <Text id="language" />
                         </h2>
                         <div className="select-container">
-                            <select
-                                value={LOCALE}
-                                onChange={I18nWidget.showLanguageChangeModal}
-                                onBlur={I18nWidget.showLanguageChangeModal}>
+                            <select value={LOCALE} onBlur={I18nWidget.showLanguageChangeModal}>
                                 <option value={LOCALE}>
                                     <Text id={'language-desc-' + LOCALE} />
                                 </option>
