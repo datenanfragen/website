@@ -270,6 +270,7 @@
         "letter-subject-erasure": "Request for erasure of personal data according to Art. 17 GDPR",
         "letter-subject-access": "Request to access to personal data according to Art. 15 GDPR",
         "letter-subject-rectification": "Request for rectification of personal data according to Art. 16 GDPR",
+        "letter-subject-objection": "Objection to data processing for direct marketing purposes according to Article 21(2) GDPR",
         "my-reference": "My reference",
         "date": "Date",
         "name": "Name",
