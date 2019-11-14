@@ -10,3 +10,9 @@
     weight = 20
     title = "datarequests.org"
     copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."
+[fr]
+    languageCode = "fr-fr"
+    languageName = "Français"
+    weight = 30
+    title = "demandetesdonnees.fr"
+    copyright = "Sauf indication contraire, ce(tte) œuvre est mise à disposition selon les termes de la Licence Creative Commons Attribution 4.0 International."

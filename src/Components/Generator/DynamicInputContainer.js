@@ -196,7 +196,7 @@ export default class DynamicInputContainer extends preact.Component {
     addFillField(field) {
         for (let key in this.state.fields) {
             if (
-                ['name', 'birthdate'].includes(this.state.fields[key].type) &&
+                ['name', 'birthdate', 'email'].includes(this.state.fields[key].type) &&
                 this.state.fields[key].type === field.type
             ) {
                 this.setState(prev => {

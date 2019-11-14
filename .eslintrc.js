@@ -14,7 +14,8 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:import/errors',
         'plugin:import/warnings',
-        'plugin:jsx-a11y/recommended'
+        'plugin:jsx-a11y/recommended',
+        'plugin:cypress/recommended'
     ],
     globals: {
         Atomics: 'readonly',
@@ -78,6 +79,10 @@ module.exports = {
                 {
                     name: 'de',
                     path: 'src/i18n/de.json'
+                },
+                {
+                    name: 'fr',
+                    path: 'src/i18n/fr.json'
                 }
             ]
         },

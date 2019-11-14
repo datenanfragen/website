@@ -21,7 +21,7 @@ const replacer_factory = that => ({
         <ActionButton
             transport_medium={that.state.request.transport_medium}
             blob_url={that.state.blob_url}
-            email={(that.state.suggestion && that.state.suggestion.email) || ''}
+            email={that.state.request.email}
             letter={that.letter}
             download_filename={that.state.download_filename}
             download_active={that.state.download_active}
@@ -115,8 +115,11 @@ const replacer_factory = that => ({
     ),
     RecipientInputPlaceholder: el => (
         <RecipientInput
-            onChange={e => that.handleInputChange({ recipient_address: e.target.value })}
+            onAddressChange={e => that.handleInputChange({ recipient_address: e.target.value })}
+            onEmailChange={e => that.handleInputChange({ email: e.target.value })}
+            transportMedium={that.state.request.transport_medium}
             recipientAddress={that.state.request.recipient_address}
+            email={that.state.request.email}
             {...el.attributes}
         />
     ),

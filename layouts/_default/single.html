@@ -28,6 +28,7 @@
                     href="{{ T (printf "license-url-%s" ($.Scratch.Get "license")) }}">{{ T (printf "license-%s" ($.Scratch.Get "license")) }}</a>
                 <span class="hidden" xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset"
                     property="dct:title" rel="dct:type">{{ .Title }}</span>
+                    {{ with .Params.notices }}<p>{{ . | markdownify }}</p>{{ end }}
             </address>
         </header>
         {{ end }}

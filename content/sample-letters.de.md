@@ -54,6 +54,20 @@ Die Mustertexte unterscheiden sich natürlich bei den unterschiedlichen Anfraget
     <a class="button button-primary read-more-button" href="/blog/musterbrief-dsgvo-anfrage-loeschung/">Zum Musterbrief&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
+<article class="list-article icon-list-article">
+    <div class="col25 article-featured-image"><a href="/blog/musterbrief-dsgvo-werbewiderspruch/"><img class="image" src="/card-icons/warning.svg" alt="Widerspruch gegen Direktwerbung nach Art. 21 Abs. 2 DSGVO"></a></div>
+
+    <div class="padded col75">
+        <a href="/blog/musterbrief-dsgvo-werbewiderspruch/"><h1>Widerspruch gegen Direktwerbung nach Art. 21 Abs. 2 DSGVO</h1></a>
+
+        <p class="description">
+            Nach Art. 21 Abs. 2 DSGVO hast Du ein Recht, der Nutzung Deiner personenbezogenen Daten für Direktwerbung zu widersprechen.
+        </p>
+    </div>
+    <div class="clearfix"></div>
+    <a class="button button-primary read-more-button" href="/blog/musterbrief-dsgvo-werbewiderspruch/">Zum Musterbrief&nbsp;<span class="icon icon-arrow-right"></span></a>
+</article>
+
 ## Das geht auch einfacher!
 
 Die Musterschreiben oben sind schon ein guter Schritt, aber wir sind der Überzeugung, dass das Stellen von DSGVO-Anfragen noch einfacher sein sollte.

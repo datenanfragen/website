@@ -307,7 +307,7 @@ class RequestList extends preact.Component {
     }
 
     buildCsv() {
-        let csv = 'date;slug;recipient;reference;type;via\r\n';
+        let csv = 'date;slug;recipient;email;reference;type;via\r\n';
         this.state.sorted_request_ids
             .filter(a => this.state.selected_requests.includes(a))
             .forEach(id => {
@@ -317,6 +317,7 @@ class RequestList extends preact.Component {
                         request.date,
                         request.slug,
                         request.recipient.replace(/[\n\r]+/g, ', '),
+                        request.email,
                         request.reference,
                         request.type,
                         request.via

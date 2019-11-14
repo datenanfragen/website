@@ -4,7 +4,7 @@ import { defaultFields } from '../Utility/requests';
 import UserRequests from '../my-requests';
 
 /**
- * @typedef {"access" | "erasure" | "rectification" | "custom"} RequestType
+ * @typedef {"access" | "erasure" | "rectification" | "objection" | "custom"} RequestType
  */
 
 /**
@@ -50,6 +50,11 @@ export default class Request {
          * @type {String}
          */
         this.recipient_address = '';
+        /**
+         * The email address of the request recipient.
+         * @type {String}
+         */
+        this.email = '';
         /**
          * The signature to be included after the content in pdfmake format. If not left blank, this can be:
          *     - `{ type: 'text', name: 'Name' }` to just add the name
@@ -147,6 +152,7 @@ export default class Request {
             response_type: response_type,
             slug: slug,
             recipient: this.recipient_address,
+            email: this.email,
             via: this.transport_medium
         };
         new UserRequests().storeRequest(db_id, item);

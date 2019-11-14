@@ -7,7 +7,10 @@ import t from './Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 
 window.I18N_DEFINITION = require('i18n/' + LOCALE + '.json');
-window.I18N_DEFINITION_REQUESTS = require('i18n/requests.json');
+window.I18N_DEFINITION_REQUESTS = ['de', 'en', 'fr'].reduce(
+    (acc, cur) => ({ ...acc, [cur]: require(`i18n/${cur}.json`).requests }),
+    {}
+);
 
 Object.defineProperty(globals, 'country', {
     set: function(country) {
@@ -63,7 +66,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
 // The more reliable way would be to feed the user's IP into a geolocation service but that is not an option, so we have to stick with this.
 function guessUserCountry() {
     // maps from language to country
-    const FALLBACK_COUNTRIES = { de: 'de', en: 'gb' };
+    const FALLBACK_COUNTRIES = { de: 'de', en: 'gb', fr: 'fr' };
 
     // see https://stackoverflow.com/a/52112155/3211062
     let navigator_lang =

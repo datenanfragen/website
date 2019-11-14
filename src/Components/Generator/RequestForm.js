@@ -27,6 +27,7 @@ export default class RequestForm extends preact.Component {
                 );
             // fallthrough intentional
             case 'erasure':
+            case 'objection':
             case 'access':
                 body.push(
                     <DynamicInputContainer
@@ -170,14 +171,17 @@ export default class RequestForm extends preact.Component {
                                 current={this.props.request_data['type']}
                             />
 
-                            <RecipientInput
-                                onChange={e => this.props.onChange({ recipient_address: e.target.value })}
-                                recipientAddress={this.props.request_data.recipient_address}
-                            />
-
                             <TransportMediumChooser
                                 transportMedium={this.props.request_data.transport_medium}
                                 onChange={this.props.onTransportMediumChange}
+                            />
+
+                            <RecipientInput
+                                onAddressChange={e => this.props.onChange({ recipient_address: e.target.value })}
+                                onEmailChange={e => this.props.onChange({ email: e.target.value })}
+                                transportMedium={this.props.request_data.transport_medium}
+                                recipientAddress={this.props.request_data.recipient_address}
+                                email={this.props.request_data.email}
                             />
 
                             {this.renderFlags()}

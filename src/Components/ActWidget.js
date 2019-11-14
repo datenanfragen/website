@@ -7,6 +7,7 @@ import RequestGeneratorBuilder, {
     DynamicInputContainerPlaceholder
 } from './RequestGeneratorBuilder';
 import { fakeEvt } from '../Utility/common';
+import { VALID_REQUEST_TYPES } from '../Utility/requests';
 
 export default class ActWidget extends preact.Component {
     render() {
@@ -51,7 +52,7 @@ export default class ActWidget extends preact.Component {
     };
 
     static propTypes = {
-        request_types: PropTypes.arrayOf(PropTypes.oneOf(['access', 'rectification', 'erasure', 'custom'])).isRequired,
+        request_types: PropTypes.arrayOf(PropTypes.oneOf(VALID_REQUEST_TYPES)).isRequired,
         transport_medium: PropTypes.oneOf(['fax', 'email', 'letter']).isRequired,
         company: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
         text_before_dynamic_input_container: PropTypes.string

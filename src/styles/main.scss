@@ -386,12 +386,10 @@ table#my-requests-table {
 
         img {
             max-height: 200px;
-            height: 100%;
-            width: auto;
             object-fit: cover;
 
             @include mobile {
-                height: auto;
+                width: 100%;
             }
         }
     }

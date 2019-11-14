@@ -79,7 +79,7 @@ class CompanyList extends preact.Component {
                                 items={anchor_ids}
                                 currentClassName="active"
                                 className="textscroll"
-                                offset={-205}>
+                                offset={-280}>
                                 {anchor_links}
                             </Scrollspy>
                         </div>
