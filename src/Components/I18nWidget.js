@@ -17,7 +17,7 @@ export default class I18nWidget extends preact.Component {
 
     static alreadyShowingModal = false;
     static showLanguageChangeModal(event) {
-        if (I18nWidget.alreadyShowingModal) return;
+        if (I18nWidget.alreadyShowingModal || event.target.value === LOCALE) return;
 
         const dismiss = () => {
             preact.render('', document.body, modal);
