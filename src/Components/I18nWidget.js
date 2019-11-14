@@ -15,12 +15,16 @@ export default class I18nWidget extends preact.Component {
         });
     }
 
+    static alreadyShowingModal = false;
     static showLanguageChangeModal(event) {
-        let dismiss = () => {
+        if (I18nWidget.alreadyShowingModal) return;
+
+        const dismiss = () => {
             preact.render('', document.body, modal);
+            I18nWidget.alreadyShowingModal = false;
             event.target.value = LOCALE;
         };
-        let modal = preact.render(
+        const modal = preact.render(
             <IntlProvider scope="i18n-widget" definition={I18N_DEFINITION}>
                 <Modal
                     positiveText={<Text id="change-lang" />}
@@ -37,6 +41,7 @@ export default class I18nWidget extends preact.Component {
             </IntlProvider>,
             document.body
         );
+        I18nWidget.alreadyShowingModal = true;
     }
 
     static changeCountry(e) {
@@ -66,7 +71,10 @@ export default class I18nWidget extends preact.Component {
                             <Text id="language" />
                         </h2>
                         <div className="select-container">
-                            <select value={LOCALE} onBlur={I18nWidget.showLanguageChangeModal}>
+                            <select
+                                value={LOCALE}
+                                onBlur={I18nWidget.showLanguageChangeModal}
+                                onChange={I18nWidget.showLanguageChangeModal}>
                                 <option value={LOCALE}>
                                     <Text id={'language-desc-' + LOCALE} />
                                 </option>
