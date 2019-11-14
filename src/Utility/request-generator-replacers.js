@@ -21,7 +21,8 @@ const replacer_factory = that => ({
         <ActionButton
             transport_medium={that.state.request.transport_medium}
             blob_url={that.state.blob_url}
-            mailto_link={that.letter.toMailtoLink(that.state.request.email)}
+            email={that.state.request.email}
+            letter={that.letter}
             download_filename={that.state.download_filename}
             download_active={that.state.download_active}
             done={that.state.request.done}

@@ -40,6 +40,9 @@
     padding: 0;
     text-align: left;
 }
+.button-full-width {
+    width: 100%;
+}
 .button-primary,
 a.button-primary {
     background-color: $primary-color;
@@ -486,6 +489,10 @@ input[type='search'].aa-input-search {
 
     .dropdown,
     .dropup {
+        background-color: $bg-color;
+        border: 2px solid $primary-color;
+        border-radius: 2px;
+
         display: none;
     }
 }

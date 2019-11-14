@@ -254,7 +254,16 @@
         "wizard-done-modal": "Das war's auch schon! Du bist mit allen Unternehmen, die Du im Anfrageassistenten ausgewählt hast, durch. Wenn du möchtest, kannst Du jetzt noch weitere (umfangreichere) Anfragen stellen.",
         "error-template-not-found": "Das gesuchte Template konnte leider nicht gefunden werden.",
         "error-template-fetch-failed": "Beim Laden des Templates ist ein unbekannter Fehler passiert.",
-        "email-address": "E-Mail-Adresse"
+        "email-address": "E-Mail-Adresse",
+
+        "mailto-dropdown-explanation": "Wie möchtest Du die E-Mail verschicken?",
+        "mailto-dropdown-warning": "*Dadurch werden die Daten Deiner Anfrage an den jeweiligen Anbieter weitergegeben."
+    },
+    "mailto": {
+        "mailto": "Standard-E-Mail-Programm",
+        "gmail": "Google Mail (Gmail)*",
+        "outlook": "Outlook (Hotmail)*",
+        "yahoo": "Yahoo! Mail*"
     },
     "requests": {
         "letter-subject-erasure": "Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO",
