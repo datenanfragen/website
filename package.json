@@ -50,7 +50,7 @@
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
         "js-cookie": "^2.2.1",
         "letter-generator": "^1.0.0",
-        "libphonenumber-js": "^1.7.23",
+        "libphonenumber-js": "^1.7.26",
         "localforage": "^1.7.1",
         "pdfmake": "^0.1.58",
         "preact": "^8.5.2",
