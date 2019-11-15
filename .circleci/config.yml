@@ -62,6 +62,7 @@ jobs:
         - run:
             command: |
               yarn
+              yarn lint
               yarn cypress verify
               hugo server --baseURL "http://localhost" --disableFastRender --minify > /dev/null &
               yarn cypress run --record
