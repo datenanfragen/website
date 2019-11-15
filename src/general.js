@@ -69,19 +69,20 @@ function guessUserCountry() {
     const FALLBACK_COUNTRIES = { de: 'de', en: 'gb', fr: 'fr' };
 
     // see https://stackoverflow.com/a/52112155/3211062
-    let navigator_lang =
+    const navigator_lang =
         navigator.languages && navigator.languages.length
             ? navigator.languages[0]
             : navigator.language || navigator.browserLanguage;
-    // If we cannot guess the user's country, it makes sense to fallback to the language.
-    if (!navigator_lang) return FALLBACK_COUNTRIES[LOCALE];
 
     // taken from https://github.com/gagle/node-bcp47/blob/master/lib/index.js#L4
     const bcp47_regex = /^(?:(en-gb-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-be-fr|sgn-be-nl|sgn-ch-de)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))$|^((?:[a-z]{2,3}(?:(?:-[a-z]{3}){1,3})?)|[a-z]{4}|[a-z]{5,8})(?:-([a-z]{4}))?(?:-([a-z]{2}|\d{3}))?((?:-(?:[\da-z]{5,8}|\d[\da-z]{3}))*)?((?:-[\da-wyz](?:-[\da-z]{2,8})+)*)?(-x(?:-[\da-z]{1,8})+)?$|^(x(?:-[\da-z]{1,8})+)$/i;
-    let bcp47_country = bcp47_regex.exec(navigator_lang)[5].toLowerCase();
+    const bcp47_country = (bcp47_regex.exec(navigator_lang)[5] || '').toLowerCase();
+
+    // If we cannot guess the user's country, it makes sense to fallback to the language.
+    if (!navigator_lang || !bcp47_country) return FALLBACK_COUNTRIES[LOCALE];
 
     // If however we *can* guess the country but just don't support it, we show all companies.
-    return bcp47_country && SUPPORTED_COUNTRIES.includes(bcp47_country) ? bcp47_country : 'all';
+    return SUPPORTED_COUNTRIES.includes(bcp47_country) ? bcp47_country : 'all';
 }
 
 window.enableReactDevTools = function() {
