@@ -52,7 +52,7 @@
             <nav id="main-nav">
                 <div id="menu-items">
                     <a href="{{ "company" | absURL }}" class="menu-link desktop-only">{{ T "header-cdb" }}</a>
-                    <a href="{{ "blog" | absURL }}" class="menu-link desktop-only">{{ T "header-blog" }}</a>
+                    {{ if not (eq .Lang "fr") }}<a href="{{ "blog" | absURL }}" class="menu-link desktop-only">{{ T "header-blog" }}</a>{{ end }}
 
                     <a class="{{ if .IsHome }}button button-primary icon icon-letter {{ end }}menu-link desktop-only"
                         href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
