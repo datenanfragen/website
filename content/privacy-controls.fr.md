@@ -4,4 +4,4 @@
     "static": true
 }
  
-<noscript class="noscript noscript-privacy-policy">Having JavaScript deactivated, no data (except for connection data) will be collected. If you activate JavaScript or add an exception to your blocker here you will have some finer control over which data will be saved on your computer. For more information, take a look at the <a href="/privacy">privacy policy</a>.</noscript>
+<noscript class="noscript noscript-privacy-policy">Si JavaScript est désactivé, aucune donnée (à l'exception des données de connexion) ne sera collectée. Si tu actives JavaScript ou si tu ajoutes une exception à ton bloqueur, tu auras un meilleur contrôle sur les données qui seront enregistrées sur ton ordinateur. Pour plus d'informations, consulte la <a href="/privacy">politique de confidentialité</a>.</noscript>
