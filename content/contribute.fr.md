@@ -33,7 +33,7 @@ Merci beaucoup d'avoir cherché à contribuer à demandetesdonnees.fr !
 
         <p>Notre objectif est que demandetesdonnees.fr soit accessible au plus grand nombre de personnes possible. Pour y parvenir, nous devons traduire le projet et en adapter le contenu aux différents pays.</p>
         <p>Tu connais une langue que nous ne prenons pas encore en charge et tu aimerais nous aider à traduire ? Super ! Pour l'instant, nous n'avons malheureusement pas encore d'infrastructure prête pour cela, alors n'hésitez pas à nous contacter en cliquant sur le bouton ci-dessous.</p>
-        <p>Une tâche tout aussi importante consiste à ajouter des entreprises du plus grand nombre de pays possible à la base de données. Se reporter à l'information <a href="#cdbc">ci-dessus</a> pour savoir comment soumettre de nouvelles entrées.
+        <p>Une tâche tout aussi importante consiste à ajouter des entreprises du plus grand nombre de pays possible à la base de données. Se reporter à l'information <a href="#cdb">ci-dessus</a> pour savoir comment soumettre de nouvelles entrées.
         <br>Nous pouvons commencer à soutenir officiellement un nouveau pays dès que nous avons un nombre suffisant d'entreprises de ce pays dans notre base de données et une fois que nous avons établit une liste d'entreprises suggérées auxquelles chaque personne dans ce pays devrait envoyer une demande.</p>
     </div>
     <div class="clearfix"></div>
