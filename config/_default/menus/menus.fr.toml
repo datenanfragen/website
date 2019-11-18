@@ -12,24 +12,24 @@
     weight = 25
     post = "<br>"
 [[footerleft]]
-    name = "Base de données des entreprises"
+    name = "Base de données d'entreprises"
     url = "/company"
     weight = 30
 # [[footerleft]]
-#     name = "Artikel"
+#     name = "Articles"
 #     url = "/blog"
 #     weight = 40
 
 # [[footercenter]]
-#     name = "Features"
+#     name = "Fonctionnalités"
 #     url = "#"
 #     weight = 10
 # [[footercenter]]
-#     name = "Fragen und Antworten"
+#     name = "Questions et réponses"
 #     url = "#"
 #     weight = 20
 # [[footercenter]]
-#     name = "Mitmachen"
+#     name = "Contribuer"
 #     url = "/contribute"
 #     weight = 30
 [[footercenter]]
@@ -38,16 +38,16 @@
     weight = 40
     post = "<br>"
 # [[footercenter]]
-#     name = "Deine DSGVO-Rechte"
+#     name = "Tes droits RGPD"
 #     url = "/blog/deine-dsgvo-rechte"
 #     weight = 50
 # [[footercenter]]
-#     name = "Musterschreiben"
+#     name = "Modèles de lettres"
 #     url = "/sample-letters"
 #     weight = 60
 # [[footercenter]]
-#     name = "Aufsichtsbehörden"
-#     url = "/datenschutz-aufsichtsbehoerden"
+#     name = "Autorités de contrôle"
+#     url = "/supervisory-authorities"
 #     weight = 70
 
 [[footerright]]
