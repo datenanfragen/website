@@ -18,7 +18,6 @@ Ce guide n'en est qu'à ses débuts. Ni notre charte de conception ni la documen
 
 Nous avons défini une palette de couleurs principale et une palette étendue. Combinées au noir pur et au blanc pur, ces deux palettes constituent la sélection concluante des couleurs utilisées pour demandetesdonnees.fr. Aucune autre couleur ne peut être utilisée (pas même pour les illustrations).
 
-For convenience, the color palette is available as an [Adobe Swatch Exchange (ASE) file](/downloads/datenanfragen.ase) and an [Adobe Creative Cloud library](https://shared-assets.adobe.com/link/4a911d28-c227-4821-475f-4c7efe2039d1).
 Pour faciliter la tâche, la palette de couleurs est disponible sous forme de [fichier Adobe Swatch Exchange (ASE)](/downloads/datenanfragen.ase) et de [bibliothèque Adobe Creative Cloud](https://shared-assets.adobe.com/link/4a911d28-c227-4821-475f-4c7efe2039d1).
 
 ### Palette principale
