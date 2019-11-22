@@ -13,11 +13,11 @@
         "suggest-new": "Suggérer une nouvelle entreprise"
     },
     "home": {
-        "data-access": "accès de données.",
-        "data-erasure": "à la suppression de données.",
-        "data-rectification": "à la rectification de données.",
-        "objection": "à l'opposition.",
-        "privacy": "à la confidentialité !",
+        "data-access": "l'accès aux données.",
+        "data-erasure": "la suppression de données.",
+        "data-rectification": "la rectification de données.",
+        "objection": "l'opposition.",
+        "privacy": "la confidentialité !",
         "how-about": "Que penses-tu de « {{name}} » ?"
     },
     "my-requests": {
@@ -596,9 +596,9 @@
         "de": "Allemand (Deutsch)",
         "en": "Anglais (English)",
         "fr": "Français",
-        "home-hero-line-1": "Tu as droit",
-        "home-hero-word": "d'accéder à tes données",
-        "home-hero-line-2": "Utilise-le.",
+        "home-hero-line-1": "Tu as droit à",
+        "home-hero-word": "l'accès aux données",
+        "home-hero-line-2": "Utiliser.",
         "home-main-copy": "Toutes les entreprises de l'UE sont tenues par la loi de te donner accès à tes données personnelles, de te permettre de les faire rectifier ou même supprimer, etc. Ici sur demandetesdonnees.fr, nous voulons t'aider à exercer ces droits.",
         "home-how-it-works-title": "Comment ça marche",
         "home-how-it-works-parameters-title": "Entre tes paramètres",
