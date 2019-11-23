@@ -13,59 +13,59 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 Évidemment, il y a un modèle de lettre pour chaque type de demande. Nous prenons en charge les plus courantes.
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-access-request/"><img class="image" src="/card-icons/view.svg" alt="Demande d'accès conformément à l'Art. 15 du RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-acces/"><img class="image" src="/card-icons/view.svg" alt="Demande d'accès conformément à l'Art. 15 du RGPD"></a></div>
 
     <div class="padded col75">
-        <a href="/blog/sample-letter-gdpr-access-request/"><h1>Demande d'accès conformément à l'Art. 15 du RGPD</h1></a>
+        <a href="/blog/modele-lettre-rgpd-acces/"><h1>Demande d'accès conformément à l'Art. 15 du RGPD</h1></a>
         
         <p class="description">
           Conformément à l'Art. 15 du RGPD, tu as un droit d'accès aux données personnelles qu'une entreprise stocke sur toi.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="/blog/sample-letter-gdpr-access-request/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="/blog/modele-lettre-rgpd-acces/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-rectification-request/"><img class="image" src="/card-icons/edit.svg" alt="Demande de rectification conformément à l'Art. 16 du RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-rectification/"><img class="image" src="/card-icons/edit.svg" alt="Demande de rectification conformément à l'Art. 16 du RGPD"></a></div>
 
     <div class="padded col75">
-        <a href="/blog/sample-letter-gdpr-rectification-request/"><h1>Demande de rectification conformément à l'Art. 16 du RGPD</h1></a>
+        <a href="/blog/modele-lettre-rgpd-rectification/"><h1>Demande de rectification conformément à l'Art. 16 du RGPD</h1></a>
        
         <p class="description">
           Conformément à l'Art. 16 du RGPD, tu as le droit de demander une correction immédiate des données personnelles incorrectes (ou incomplètes) qu'une entreprise stocke sur toi.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="/blog/sample-letter-gdpr-rectification-request/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="/blog/modele-lettre-rgpd-rectification/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-erasure-request/"><img class="image" src="/card-icons/erase.svg" alt="Demande de suppression conformément à l'Art. 17 du RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-suppression/"><img class="image" src="/card-icons/erase.svg" alt="Demande de suppression conformément à l'Art. 17 du RGPD"></a></div>
 
     <div class="padded col75">
-        <a href="/blog/sample-letter-gdpr-erasure-request/"><h1>Demande de suppression conformément à l'Art. 17 du RGPD</h1></a>
+        <a href="/blog/modele-lettre-rgpd-suppression/"><h1>Demande de suppression conformément à l'Art. 17 du RGPD</h1></a>
         
         <p class="description">
           Conformément à l'Art. 17 du RGPD, tu as le droit de demander la suppression de tes données personnelles si elles ne sont plus nécessaires à leur traitement initial (aussi appellé « droit à l'oubli »).
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="/blog/sample-letter-gdpr-erasure-request/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="/blog/modele-lettre-rgpd-suppression/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-direct-marketing-objection/"><img class="image" src="/card-icons/warning.svg" alt="Opposition à la prospection conformément à l'Art. 21(2) du RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-opposition-prospection-conformement/"><img class="image" src="/card-icons/warning.svg" alt="Opposition à la prospection conformément à l'Art. 21(2) du RGPD"></a></div>
 
     <div class="padded col75">
-        <a href="/blog/sample-letter-gdpr-direct-marketing-objection/"><h1>Opposition à la prospection conformément à l'Art. 21(2) du RGPD</h1></a>
+        <a href="/blog/modele-lettre-rgpd-opposition-prospection-conformement/"><h1>Opposition à la prospection conformément à l'Art. 21(2) du RGPD</h1></a>
         
         <p class="description">
             Conformément à l'Art. 21(2) du RGPD, tu as le droit de t'opposer à l'utilisation de tes données personnelles à des fins de prospection.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="/blog/sample-letter-gdpr-direct-marketing-objection/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="/blog/modele-lettre-rgpd-opposition-prospection-conformement/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 ## Il y a un meilleur moyen !
