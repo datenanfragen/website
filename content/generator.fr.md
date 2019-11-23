@@ -1,9 +1,9 @@
 {
     "title": "Générateur de demande",
     "type": "generator",
-    "description": "Use our request generator to easily generate GDPR requests for free. Your data stays on your computer—we never even get to see it.",
-    "featured_image": "/img/card/generator-en.png",
-    "tags": [ "datarequests", "gdpr", "general data protection regulation", "request generator", "privacy" ]
+    "description": "Utilise notre générateur de demandes pour générer facilement et gratuitement des demandes RGPD. Les données restent sur ton ordinateur - nous ne les connaissons même pas.",
+    "featured_image": "/img/card/generator-fr.png",
+    "tags": [ "demandes de données", "rgpd", "réglement général sur la protection des données", "générateur de demande", "confidentialité" ]
 }
  
-Generator
+Générateur
