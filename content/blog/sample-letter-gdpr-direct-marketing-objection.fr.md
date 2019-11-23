@@ -1,6 +1,6 @@
 {
-    "title": "Modèle de lettre pour l'opposition à la prospection conformément à l'Art. 21(2) du RGPD",
-    "slug": "modele-lettre-rgpd-opposition-prospection-conformement",
+    "title": "Modèle de lettre pour l'opposition à la prospection conformément à l'Art. 21, alinéa 2 du RGPD",
+    "slug": "modele-lettre-rgpd-opposition-prospection",
     "aliases": [ "sample-letter-gdpr-direct-marketing-objection" ],
     "date": "2019-11-23T12:38:20+02:00",
     "type": "blog",
@@ -9,7 +9,7 @@
     "license": "cc0-1.0"
 }
 
-Conformément à l'Art. 21(2) du RGPD, tu as le droit de t'opposer à l'utilisation de tes données personnelles à des fins de prospection.
+Conformément à l'Art. 21, alinéa 2 du RGPD, tu as le droit de t'opposer à l'utilisation de tes données personnelles à des fins de prospection.
 
 <div class="blog-letter">
 <p>À qui de droit :</p>
@@ -23,7 +23,7 @@ Conformément à l'Art. 21(2) du RGPD, tu as le droit de t'opposer à l'utilisat
 <p>Conformément à l'Article 12, alinéa 3 du RGPD, vous devez me fournir les informations demandées dans les meilleurs délais et, dans tout les cas, dans un délai d'un mois après réception de la demande. Conformément à l'Article 15, alinéa 3 du RGPD, vous devez répondre à cette demande sans frais de ma part.</p>
 
 <p>J'inclus les informations suivantes nécessaires pour m'identifier :<br>
-<span class="blog-letter-fill-in">Insére ici tes données pour identification. Ce sont souvent des détails comme ton nom, date de naissance, adresse, adresse e-mail, etc.</span></p>
+<span class="blog-letter-fill-in">Insère ici tes données pour l'identification. Ce sont souvent des informations telles que ton nom, ta date de naissance, ton adresse, ton adresse e-mail, etc.</span></p>
 
 <p>Si vous ne répondez pas à ma demande dans le délai imparti, je me réserve le droit d'intenter une action en justice contre vous et d'introduire une plainte auprès de l'autorité de contrôle compétente.</p>
 

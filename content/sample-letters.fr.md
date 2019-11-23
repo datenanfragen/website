@@ -55,17 +55,17 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-opposition-prospection-conformement/"><img class="image" src="/card-icons/warning.svg" alt="Opposition à la prospection conformément à l'Art. 21(2) du RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-opposition-prospection/"><img class="image" src="/card-icons/warning.svg" alt="Opposition à la prospection conformément à l'Art. 21, alinéa 2 du RGPD"></a></div>
 
     <div class="padded col75">
-        <a href="/blog/modele-lettre-rgpd-opposition-prospection-conformement/"><h1>Opposition à la prospection conformément à l'Art. 21(2) du RGPD</h1></a>
+        <a href="/blog/modele-lettre-rgpd-opposition-prospection/"><h1>Opposition à la prospection conformément à l'Art. 21, alinéa 2 du RGPD</h1></a>
         
         <p class="description">
-            Conformément à l'Art. 21(2) du RGPD, tu as le droit de t'opposer à l'utilisation de tes données personnelles à des fins de prospection.
+            Conformément à l'Art. 21, alinéa 2 du RGPD, tu as le droit de t'opposer à l'utilisation de tes données personnelles à des fins de prospection.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="/blog/modele-lettre-rgpd-opposition-prospection-conformement/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="/blog/modele-lettre-rgpd-opposition-prospection/">Voir le modèle de lettre&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 ## Il y a un meilleur moyen !
