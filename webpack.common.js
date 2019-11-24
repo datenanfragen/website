@@ -100,6 +100,8 @@ module.exports = {
         new TerserPlugin({
             sourceMap: true,
             extractComments: false,
+            cache: true,
+            parallel: true,
             terserOptions: {
                 mangle: {
                     reserved: [
