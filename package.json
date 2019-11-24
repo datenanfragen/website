@@ -32,11 +32,7 @@
     "scripts": {
         "build": "BABEL_ENV=production; webpack --mode=production --config webpack.prod.js",
         "dev": "webpack --watch --mode=development --config webpack.dev.js",
-        "bs-local": "node -e \"(new (require('browserstack-local')).Local()).start({key: process.env.BROWSERSTACK_ACCESS_KEY, force: 'true', localIdentifier: require('os').hostname()}, ()=>{})\"",
         "sanity-check": "grep -E '^[><=]{7}( |$)' -H -I --line-number -r --exclude-dir=node_modules && exit 1 || exit 0 # Check for merge conflict artifacts, inspired by: https://stackoverflow.com/a/42584779",
-        "btest": "yarn nightwatch -c test/nightwatch.conf.js",
-        "run-test": "yarn nightwatch -c test/nightwatch.conf.js -t",
-        "test": "yarn lint && yarn bs-local && yarn btest",
         "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint src/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint src/styles --fix"
     },
@@ -71,7 +67,6 @@
         "babel-eslint": "^10.0.2",
         "babel-loader": "^8.0.6",
         "babel-minify-webpack-plugin": "^0.3.1",
-        "browserstack-local": "^1.4.2",
         "css-loader": "^3.2.0",
         "cssnano": "^4.1.10",
         "cypress": "^3.4.1",
@@ -92,7 +87,6 @@
         "imagemin-lint-staged": "^0.4.0",
         "lint-staged": ">=9.4.3",
         "mini-css-extract-plugin": "^0.8.0",
-        "nightwatch": "^1.2.4",
         "node-sass": "^4.12.0",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
         "postcss-loader": "^3.0.0",
