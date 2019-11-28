@@ -3,9 +3,9 @@
     "type": "page"
 }
  
-## Informations relatives au § 5 de la loi allemande sur les télémédias (TMG)
+## Informations relatives au paragraphe 5 de la loi allemande sur les télémédias (TMG)
 
-**Adresse e-mail** (pas d'horaires de bureau)&nbsp;:  
+**Adresse postale** (pas d'horaires de bureau)&nbsp;:  
 Datenanfragen.de e.&nbsp;V.  
 Schreinerweg 6  
 38126 Braunschweig  
@@ -19,11 +19,11 @@ Allemagne
 **Légalement représenté par&nbsp;:** Benjamin Altpeter et Lorenz Sieben  
 Datenanfragen.de e.&nbsp;V. est une association à but non lucratif enregistrée au registre des associations du tribunal de la circonscription de Braunschweig, sous le numéro VR&nbsp;201732, et reconnue comme une organisation caritative par les services fiscaux du Braunschweig-Wilhelmstraße.
 
-**Responsable de la publication relatif au § 55(2) du traité allemand sur la radiodiffusion (RStV) :**
+**Responsable de la publication, conformément au paragraphe 55, alinéa 2 du traité allemand sur la radiodiffusion (RStV) :**
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Allemagne
 
 <div class="box box-warning">
-	Note que nous sommes une organisation<em>indépendante et à but non lucratif</em> et que nous ne sommes pas affiliés aux entreprises listées dans notre <a href="/company">base de données d'entreprises</a>.<br>
+	Note que nous sommes une organisation <em>indépendante et à but non lucratif</em> et que nous ne sommes pas affiliés aux entreprises listées dans notre <a href="/company">base de données d'entreprises</a>.<br>
 	Si tu as besoin d'aide, contacte l'entreprise directement. Nous <strong>ne pouvons pas</strong> t'aider dans ce cas. Merci pour ta compréhension.
 </div>
 
