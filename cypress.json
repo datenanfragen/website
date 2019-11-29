@@ -1,4 +1,7 @@
 {
     "baseUrl": "http://localhost:1314",
-    "projectId": "nug7wk"
+    "projectId": "nug7wk",
+
+    "viewportWidth": 1920,
+    "viewportHeight": 1080
 }

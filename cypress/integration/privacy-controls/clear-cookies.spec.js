@@ -19,7 +19,7 @@ describe('Clear all cookies button', () => {
         cy.get('#save_wizard_entries-checkbox').click();
         cy.get('.modal .inner .close-button').click();
 
-        cy.get('#clear-cookies-button').click();
+        cy.get('#clear-cookies-button').click({ force: true });
 
         PRIVACY_CONTROLS.forEach(c => {
             cy.getCookie(c.cookie_name).should('not.exist');
