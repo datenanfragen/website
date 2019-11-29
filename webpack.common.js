@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const MinifyPlugin = require('babel-minify-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
 
@@ -97,18 +97,24 @@ module.exports = {
         ]
     },
     plugins: [
-        new MinifyPlugin({
-            mangle: {
-                exclude: {
-                    ActionButtonPlaceholder: true,
-                    NewRequestButtonPlaceholder: true,
-                    CompanySelectorPlaceholder: true,
-                    RequestFormPlaceholder: true,
-                    DynamicInputContainerPlaceholder: true,
-                    SignatureInputPlaceholder: true,
-                    RequestTypeChooserPlaceholder: true,
-                    RecipientInputPlaceholder: true,
-                    TransportMediumChooserPlaceholder: true
+        new TerserPlugin({
+            sourceMap: true,
+            extractComments: false,
+            cache: true,
+            parallel: true,
+            terserOptions: {
+                mangle: {
+                    reserved: [
+                        'ActionButtonPlaceholder',
+                        'NewRequestButtonPlaceholder',
+                        'CompanySelectorPlaceholder',
+                        'RequestFormPlaceholder',
+                        'DynamicInputContainerPlaceholder',
+                        'SignatureInputPlaceholder',
+                        'RequestTypeChooserPlaceholder',
+                        'RecipientInputPlaceholder',
+                        'TransportMediumChooserPlaceholder'
+                    ]
                 }
             }
         }),
