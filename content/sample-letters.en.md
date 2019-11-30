@@ -14,12 +14,10 @@ There's a letter template for each request type, of course. We support the most 
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-access-request/"><img class="image" src="/card-icons/view.svg" alt="Request for access as per Art. 15 GDPR"></a></div>
-
     <div class="padded col75">
         <a href="/blog/sample-letter-gdpr-access-request/"><h1>Request for access as per Art. 15 GDPR</h1></a>
-        
         <p class="description">
-        	According to Art. 15 GDPR, you have a right to access to the personal data a company stores on you.
+            According to Art. 15 GDPR, you have a right to access to the personal data a company stores on you.
         </p>
     </div>
     <div class="clearfix"></div>
@@ -28,12 +26,10 @@ There's a letter template for each request type, of course. We support the most 
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-rectification-request/"><img class="image" src="/card-icons/edit.svg" alt="Request for rectification as per Art. 16 GDPR"></a></div>
-
     <div class="padded col75">
         <a href="/blog/sample-letter-gdpr-rectification-request/"><h1>Request for rectification as per Art. 16 GDPR</h1></a>
-       
         <p class="description">
-        	According to Art. 16 GDPR, you have a right to demand immediate correction of false (or incomplete) personal data that a company stores on you.
+            According to Art. 16 GDPR, you have a right to demand immediate correction of false (or incomplete) personal data that a company stores on you.
         </p>
     </div>
     <div class="clearfix"></div>
@@ -42,12 +38,10 @@ There's a letter template for each request type, of course. We support the most 
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-erasure-request/"><img class="image" src="/card-icons/erase.svg" alt="Request for erasure as per Art. 17 GDPR"></a></div>
-
     <div class="padded col75">
         <a href="/blog/sample-letter-gdpr-erasure-request/"><h1>Request for erasure as per Art. 17 GDPR</h1></a>
-        
         <p class="description">
-        	According to Art. 17 GDPR, you have a right to have your personal data deleted if a controller no longer needs it for its original purpose (the so-called “right to be forgotten”).
+            According to Art. 17 GDPR, you have a right to have your personal data deleted if a controller no longer needs it for its original purpose (the so-called “right to be forgotten”).
         </p>
     </div>
     <div class="clearfix"></div>
@@ -56,10 +50,8 @@ There's a letter template for each request type, of course. We support the most 
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-direct-marketing-objection/"><img class="image" src="/card-icons/warning.svg" alt="Objection against direct marketing as per Art. 21(2) GDPR"></a></div>
-
     <div class="padded col75">
         <a href="/blog/sample-letter-gdpr-direct-marketing-objection/"><h1>Objection to direct marketing as per Art. 21(2) GDPR</h1></a>
-        
         <p class="description">
             According to Art. 21(2) GDPR, you have a right to object to your personal data being used for direct marketing purposes.
         </p>

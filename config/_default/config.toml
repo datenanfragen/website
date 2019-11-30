@@ -16,3 +16,8 @@ preserveTaxonomyNames = true
 [[related.indices]]
     name = "relevant-countries"
     weight = 40
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
