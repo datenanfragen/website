@@ -82,13 +82,15 @@
             <div class="clearfix"></div>
         </div>
         {{ if .IsHome }}
-        <div id="home-hero-bg"></div>
+            <div id="home-hero-bg"></div>
         {{ else }}
-        <div id="heading-bg">
-            <div id="heading" class="container">
-                <h1>{{ block "heading" . }}{{ .Title }}{{ end }}</h1>
+            <div id="heading-bg">
+                {{ block "header-with-bg" . }}
+                    <div id="heading" class="container">
+                        <h1>{{ block "heading" . }}{{ .Title }}{{ end }}</h1>
+                    </div>
+                {{ end }}
             </div>
-        </div>
         {{ end }}
     </header>
 

@@ -34,7 +34,7 @@
     weight = 30
 [[footercenter]]
     name = "Faire un don"
-    url = "https://verein.datenanfragen.de/en/spenden"
+    url = "https://www.datarequests.org/donate"
     weight = 40
     post = "<br>"
 # [[footercenter]]
@@ -56,7 +56,7 @@
     weight = 10
 [[footerright]]
     name = "Politique de confidentialité"
-    url = "https://verein.datenanfragen.de/en/privacy"
+    url = "https://www.datarequests.org/privacy"
     weight = 20
 [[footerright]]
     name = "Paramètres de confidentialité"

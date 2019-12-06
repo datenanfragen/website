@@ -34,7 +34,7 @@
     weight = 30
 [[footercenter]]
     name = "Donate"
-    url = "https://verein.datenanfragen.de/en/donate"
+    url = "/donate"
     weight = 40
     post = "<br>"
 [[footercenter]]
@@ -56,7 +56,7 @@
     weight = 10
 [[footerright]]
     name = "Privacy policy"
-    url = "https://verein.datenanfragen.de/en/privacy"
+    url = "/privacy"
     weight = 20
 [[footerright]]
     name = "Privacy controls "

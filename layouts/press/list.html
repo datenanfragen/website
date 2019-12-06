@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main>
+    {{ .Content }}
+    <div class="press-releases">
+        {{ if .Paginator.Pages }}
+            {{ range .Paginator.Pages }}
+            {{ partial "summary.html" . }}
+            {{ end }}
+            {{ partial "pagination.html" . }}
+        {{ else }}
+            <p>{{ T "press-no-releases" }}</p>
+        {{ end }}
+    </div>
+</main>
+{{ end }}
