@@ -115,7 +115,7 @@
     ],
     "husky": {
         "hooks": {
-            "pre-commit": "yarn sanity-check && lint-staged"
+            "pre-commit": "yarn sanity-check && lint-staged && yarn licenses generate-disclaimer > NOTICES"
         }
     },
     "lint-staged": {
