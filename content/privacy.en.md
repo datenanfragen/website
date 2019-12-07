@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on Febuary 23, 2019.
+Our privacy policy was last changed on December 7, 2019.
 
 ## General remarks
 
@@ -23,12 +23,11 @@ This privacy policy applies to all activities of Datenanfragen.de e.&nbsp;V. (�
 
 This includes the data we collect and process from our member but also the data that is incurred from donations and the like.
 
-In addition, this includes the websites [Datenanfragen.de](https://www.datenanfragen.de) and [datarequests.org](https://www.datarequests.org), as well as [verein.datenanfragen.de](https://verein.datenanfragen.de).
+In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org) and [demandetesdonnees.fr](https://www.demandetesdonnees.fr).
 
 The association's purpose is to support the general public in excercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our constitution <!-- TODO: link once translation is publicly available --> in all our activities.
 
-With our websites Datenanfragen.de and datarequests.org, we want to help you exercise your right to privacy. In order to do so, we offer a generator that helps you automatically generate requests, a company database with contact data for privacy-related requests to many companies and educational material on subjects related to privacy and data protection.  
-Finally, the website verein.datenanfragen.de has information on the association and allows you to join or donate among other things.
+With our website datarequests.org (as well as their German and French translations, Datenanfragen.de and demandetesdonnees.fr), we want to help you exercise your right to privacy. In order to do so, we offer a generator that helps you automatically generate requests, a company database with contact data for privacy-related requests to many companies and educational material on subjects related to privacy and data protection. Finally, it has information on the association and allows you to join or donate among other things.
 
 ### Controller and contact information
 
@@ -45,7 +44,7 @@ Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associatio
 Phone: +49 531 209299 35  
 Fax: +49 531 209299 36  
 Email: [privacy@datenanfragen.de](mailto:privacy@datenanfragen.de) ([PGP key](https://www.datenanfragen.de/pgp/CF2CBB2E.asc) `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`)  
-Web: [verein.datenanfragen.de](https://verein.datenanfragen.de)
+Web: [www.datarequests.org/verein](https://www.datarequests.org/verein)
 
 If you have any questions about our privacy policy, believe that we are in violation of data protection laws or wish to assert your rights, please feel free to contact us at any time.
 

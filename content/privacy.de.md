@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 23. Februar 2019 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
+Unsere Datenschutzerklärung wurde zuletzt am 7. Dezember 2019 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
 
 ## Allgemeine Hinweise
 
@@ -23,12 +23,11 @@ Diese Datenschutzerklärung gilt für alle Aktivitäten des Datenanfragen.de e.&
 
 Dazu zählen zunächst die Daten, die wir von unseren Mitgliedern erheben und verarbeiten, aber auch jene die anfallen, wenn Du z.&nbsp;B. an uns spendest.
 
-Weiterhin gilt die Datenschutzerklärung für die Webseiten [Datenanfragen.de](https://www.datenanfragen.de) und [datarequests.org](https://www.datarequests.org) sowie [verein.datenanfragen.de](https://verein.datenanfragen.de).
+Weiterhin gilt die Datenschutzerklärung für unsere Webseiten [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org) und [demandetesdonnees.fr](https://www.demandetesdonnees.fr).
 
 Zweck des Datenanfragen.de e.&nbsp;V. ist es, die Bürger_innen durch Aufklärung und Beratung in allen mit dem Datenschutz im Zusammenhang stehenden Fragen in der Ausübung ihres Rechts auf informationelle Selbstbestimmung zu stärken. Wir sind in allen unseren Tätigkeiten an unsere [Satzung]({{< ref "verein/constitution" >}}) gebunden.
 
-Mit unseren Webseiten Datenanfragen.de und datarequests.org wollen wir Dir helfen, Deine Datenschutzrechte einfacher auszuüben. Dazu bieten wir Dir einen Generator, mit dem Du automatisch Anfragen erstellen kannst, eine Datenbank mit Kontaktdaten für datenschutzspezifische Anfragen an viele Unternehmen und Informationsmaterialien zum Datenschutz und verwandten Themen.  
-Die Webseite verein.datenanfragen.de informiert schließlich über den Verein und bietet Dir unter anderem die Möglichkeit zu spenden oder Mitglied zu werden.
+Mit unserer Webseite Datenanfragen.de (sowie deren englischen und französischen Übersetzungen, datarequests.org und demandetesdonnees.fr) wollen wir Dir helfen, Deine Datenschutzrechte einfacher auszuüben. Dazu bieten wir Dir einen Generator, mit dem Du automatisch Anfragen erstellen kannst, eine Datenbank mit Kontaktdaten für datenschutzspezifische Anfragen an viele Unternehmen und Informationsmaterialien zum Datenschutz und verwandten Themen. Schließlich informiert sie über den Verein und bieten Dir unter anderem die Möglichkeit zu spenden oder Mitglied zu werden.
 
 ### Verantwortlicher und Kontakt
 
@@ -45,7 +44,7 @@ Der Datenanfragen.de e. V. ist im Vereinsregister des Amtsgerichts Braunschweig 
 Telefon: +49 531 209299 35  
 Telefax: +49 531 209299 36  
 E-Mail: [datenschutz@datenanfragen.de](mailto:datenschutz@datenanfragen.de) ([PGP-Key](https://www.datenanfragen.de/pgp/CF2CBB2E.asc) `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`)  
-Web: [verein.datenanfragen.de](https://verein.datenanfragen.de)
+Web: [www.datenanfragen.de/verein](https://www.datenanfragen.de/verein)
 
 Falls Du irgendwelche Fragen zu unserer Datenschutzerklärung hast, der Meinung bist, dass wir gegen Datenschutzrecht verstoßen oder Deine Rechte geltend machen möchtest, kannst Du Dich gerne jederzeit an uns wenden.
 
