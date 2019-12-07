@@ -25,7 +25,7 @@ This includes the data we collect and process from our member but also the data 
 
 In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org) and [demandetesdonnees.fr](https://www.demandetesdonnees.fr).
 
-The association's purpose is to support the general public in excercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our constitution <!-- TODO: link once translation is publicly available --> in all our activities.
+The association's purpose is to support the general public in excercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our [constitution]({{< ref "verein/constitution" >}}) in all our activities.
 
 With our website datarequests.org (as well as their German and French translations, Datenanfragen.de and demandetesdonnees.fr), we want to help you exercise your right to privacy. In order to do so, we offer a generator that helps you automatically generate requests, a company database with contact data for privacy-related requests to many companies and educational material on subjects related to privacy and data protection. Finally, it has information on the association and allows you to join or donate among other things.
 
