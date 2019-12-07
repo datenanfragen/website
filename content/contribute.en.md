@@ -76,11 +76,11 @@ Thank you so much for looking into contributing to datarequests.org!
         <h1>Donations</h1>
         <p>datarequests.org will always be offered for free. But running a project like this obviously costs money. And the more money we have available, the more projects relating to data protection we can start and continue.
         <br>As such, we are incredibly grateful for all donations.</p>
-        <p>The project is run by <a href="https://verein.datenanfragen.de/en">Datenanfragen.de e.&nbsp;V.</a>, a public-benefit non-profit from Germany. That means that donations donations from individuals and companies from Germany are eligible for tax deduction. There’s more details on that on the donation page.</p>
-        <p>If you want to support us long-term, you can also <a href="https://verein.datenanfragen.de/en/become-a-member/">become a member</a>.</p>
+        <p>The project is run by <a href="https://www.datarequests.org/verein">Datenanfragen.de e.&nbsp;V.</a>, a public-benefit non-profit from Germany. That means that donations donations from individuals and companies from Germany are eligible for tax deduction. There’s more details on that on the donation page.</p>
+        <p>If you want to support us long-term, you can also <a href="https://www.datarequests.org/verein/become-a-member/">become a member</a>.</p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://verein.datenanfragen.de/en/donate">Donate now&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://www.datarequests.org/donate">Donate now&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 You have another idea on how to contribute? Shoot us an [email](mailto:contact@datarequests.org)!

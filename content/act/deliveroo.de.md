@@ -16,7 +16,7 @@ Hast Du den Lieferdienst in der Vergangenheit genutzt und Essen bestellt oder Di
 
 Hier kommt Dir die **DSGVO** (**Datenschutz-Grundverordnung**) zu Hilfe. Die gibt Dir nämlich eine ganze Reihe an [Rechten im Bezug auf Deine personenbezogenen Daten]({{< ref "your-gdpr-rights" >}}), darunter auch das Rechte, Deine Daten löschen zu lassen – das sogenannte [**Recht auf Vergessenwerden**]({{< ref "your-gdpr-rights" >}}#recht-auf-vergessenwerden).
 
-Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt](https://verein.datenanfragen.de/ziele/). Wir haben das entsprechende Schreiben an Deliveroo schon einmal vorbereitet. Du musst nur noch Deinen Namen und die E-Mail-Adresse, mit der Du Dich registriert hast, eintragen und schon kannst Du Deinen Löschantrag einfach per E-Mail verschicken – natürlich kostenlos.
+Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben das entsprechende Schreiben an Deliveroo schon einmal vorbereitet. Du musst nur noch Deinen Namen und die E-Mail-Adresse, mit der Du Dich registriert hast, eintragen und schon kannst Du Deinen Löschantrag einfach per E-Mail verschicken – natürlich kostenlos.
 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< script >}}

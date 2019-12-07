@@ -77,11 +77,11 @@ Vielen Dank, dass Du Dich über die Möglichkeiten zum Mitmachen informierst!
         <h1>Spenden</h1>
         <p>Datenanfragen.de wird immer kostenlos zur Verfügung stehen. Aber ein solches Projekt zu betreiben, kostet natürlich Geld. Und je mehr wir davon zur Verfügung haben, desto mehr Projekte zum Datenschutz können wir starten und weiterführen.
         <br>Von daher sind wir Dir sehr dankbar über jede Spende.</p>
-        <p>Hinter dem Projekt steht der <a href="https://verein.datenanfragen.de">Datenanfragen.de e.&nbsp;V.</a>, ein gemeinnütziger Verein. Das bedeutet, dass Du Deine Spende sogar von der Steuer absetzen kannst. Weitere Informationen dazu findest Du auf unserer Spendenseite.</p>
-        <p>Wenn Du den Verein langfristig unterstützen möchtest, kannst Du natürlich auch <a href="https://verein.datenanfragen.de/mitglied-werden">Fördermitglied werden</a>.</p>
+        <p>Hinter dem Projekt steht der <a href="https://www.datenanfragen.de/verein">Datenanfragen.de e.&nbsp;V.</a>, ein gemeinnütziger Verein. Das bedeutet, dass Du Deine Spende sogar von der Steuer absetzen kannst. Weitere Informationen dazu findest Du auf unserer Spendenseite.</p>
+        <p>Wenn Du den Verein langfristig unterstützen möchtest, kannst Du natürlich auch <a href="https://www.datenanfragen.de/verein/mitglied-werden">Fördermitglied werden</a>.</p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://verein.datenanfragen.de/spenden">Jetzt spenden&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://www.datenanfragen.de/spenden">Jetzt spenden&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 Du hast noch eine andere Idee, wie Du helfen kannst? Wir freuen uns über Deine [E-Mail](mailto:kontakt@datenanfragen.de)!

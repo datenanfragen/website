@@ -76,11 +76,11 @@ Merci beaucoup d'avoir cherché à contribuer à demandetesdonnees.fr !
         <h1>Dons</h1>
         <p>demandetesdonnees.fr sera toujours proposé gratuitement. Mais mener un tel projet coûte évidemment de l'argent. Et plus nous avons d'argent disponible, plus nous pouvons lancer et poursuivre de projets liés à la protection des données.
         <br>C'est pourquoi nous sommes extrêmement reconnaissants de tous les dons que nous recevons.</p>
-        <p>Le projet est géré par <a href="https://verein.datenanfragen.de/en">Datenanfragen.de e.&nbsp;V.</a>, une association à but non lucratif allemande. Cela signifie que les dons de particuliers et d'entreprises d'Allemagne sont déductibles d'impôts. Vous trouverez plus de détails à ce sujet sur la page des dons.</p>
-        <p>Si vous souhaitez nous soutenir à long terme, vous pouvez également <a href="https://verein.datenanfragen.de/en/become-a-member/">devenir membre</a>.</p>
+        <p>Le projet est géré par <a href="https://www.datarequests.org/verein">Datenanfragen.de e.&nbsp;V.</a>, une association à but non lucratif allemande. Cela signifie que les dons de particuliers et d'entreprises d'Allemagne sont déductibles d'impôts. Vous trouverez plus de détails à ce sujet sur la page des dons.</p>
+        <p>Si vous souhaitez nous soutenir à long terme, vous pouvez également <a href="https://www.datarequests.org/verein/become-a-member/">devenir membre</a>.</p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://verein.datenanfragen.de/en/donate">Faire un don&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://www.datarequests.org/donate">Faire un don&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 Vous avez une autre idée de contribution ? Envoyez-nous un [e-mail](mailto:contact@datarequests.org) !

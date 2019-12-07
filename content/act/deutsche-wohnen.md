@@ -27,7 +27,7 @@ In einem [Interview mit dem Tagesspiegel](https://www.tagesspiegel.de/berlin/rek
 
 Wir schließen uns dieser Empfehlung der Berliner Datenschutzbeauftragten an. Nach der DSGVO hast Du [diverse Rechte im Bezug auf Deine personenbezogenen Daten]({{< ref "your-gdpr-rights" >}}), darunter auch das Recht Auskunft über die zu Dir gespeicherten Daten zu verlangen.
 
-Hierbei wollen wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt](https://verein.datenanfragen.de/ziele/). Wir haben die Auskunftsanfrage an die Deutsche Wohnen schon für Dich vorformuliert. Du brauchst nur noch Deinen Namen und Deine Adresse einzutragen und schon kannst Du die Selbstauskunftsanfrage einfach per E-Mail verschicken. Das ist natürlich kostenlos für Dich.
+Hierbei wollen wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben die Auskunftsanfrage an die Deutsche Wohnen schon für Dich vorformuliert. Du brauchst nur noch Deinen Namen und Deine Adresse einzutragen und schon kannst Du die Selbstauskunftsanfrage einfach per E-Mail verschicken. Das ist natürlich kostenlos für Dich.
 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< script >}}
