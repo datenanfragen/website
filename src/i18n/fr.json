@@ -712,6 +712,7 @@
         "footer-privacy-policy-url": "https://www.datarequests.org/privacy",
         "footer-privacy-controls": "Paramètres de confidentialité",
         "footer-privacy-controls-url": "/privacy-controls",
+        "footer-licenses-url": "/open-source#license-notices",
         "footer-social-rss-url": "/blog/index.xml",
         "footer-social-github-url": "https://github.com/datenanfragen/",
         "footer-social-matrix-url": "https://matrix.to/#/+datenanfragen:matrix.altpeter.me",

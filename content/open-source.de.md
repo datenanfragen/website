@@ -90,11 +90,14 @@ Ein Teil der Entwicklungsarbeit findet momentan über eine private GitLab-Instan
     <a class="button button-primary read-more-button" href="https://github.com/baltpeter/yace">Zum Repository&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
+<a id="license-notices"></a>
 ## Open Source-Projekte, die wir einsetzen
 
 Ganz im Sinne des Ganzen schaffen wir nicht nur einige eigene Open Source-Projekte, sondern setzen natürlich auch zahlreiche für unsere Arbeit ein.
 
 Wir sind stolz, die folgenden Projekte für die Webseite verwenden zu dürfen. Herzlichen Dank an jede Autor_in, die sich entschlossen hat, seine_ihre wertvolle Arbeit zur Verfügung zu stellen!
+
+Die vollständigen Lizenzinformationen für alle Projekte, die wir nutzen, findest Du [hier]({{< absURL "NOTICES.txt" >}}).
 
 <div class="box box-info">
     {{< attribution "von" >}}

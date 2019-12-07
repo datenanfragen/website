@@ -28,6 +28,8 @@ find . -name '*.json' -exec sh -c 'for lang in de fr ; do cp "$0" "${0%.json}.$l
 
 cd ../.. || exit
 
+yarn licenses generate-disclaimer --ignore-optional --ignore-platform > static/NOTICES.txt
+
 # --- Run Webpack and Hugo ---
 yarn run build
 
