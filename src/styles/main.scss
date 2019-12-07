@@ -774,6 +774,29 @@ footer {
         &:hover {
             color: color('blue', 800);
         }
+
+        img.itz-logo {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 15px;
+
+            &:active,
+            &:hover,
+            &:focus {
+                filter: brightness(80%) hue-rotate(-20deg);
+            }
+        }
+    }
+
+    .social-icons {
+        font-size: 24px;
+        padding: 5px 0 20px 0;
+
+        a.icon:active,
+        a.icon:hover,
+        a.icon:focus {
+            color: color('blue', 800);
+        }
     }
 }
 
