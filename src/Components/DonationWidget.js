@@ -5,7 +5,7 @@ import { CriticalException, rethrow } from '../Utility/errors';
 import t from '../Utility/i18n';
 import FlashMessage, { flash } from './FlashMessage';
 import Radio from './Radio';
-import { printElementById, clientPost } from '../Utility/browser';
+import { clientPost } from '../Utility/browser';
 import LoadingIndicator from './LoadingIndicator';
 
 const SERVERLESS_DONATIONS_API = 'https://donate.datenanfragen.de';
@@ -202,11 +202,11 @@ export default class DonationWidget extends preact.Component {
                 <div id="bank-transfer-qrcodes">
                     <div id="bank-transfer-epcr-qrcode" className="bank-transfer-qrcode">
                         <strong>EPCR-QR-CODE</strong>
-                        <canvas ref={el => (this.epcr_canvas_ref = el)} />
+                        <canvas id="epcr-qr-canvas" ref={el => (this.epcr_canvas_ref = el)} />
                     </div>
                     <div id="bank-transfer-bezahlcode-qrcode" className="bank-transfer-qrcode">
                         <strong>BezahlCode</strong>
-                        <canvas ref={el => (this.bezahlcode_canvas_ref = el)} />
+                        <canvas id="bezahlcode-qr-canvas" ref={el => (this.bezahlcode_canvas_ref = el)} />
                     </div>
                     <div className="clearfix"></div>
                 </div>
@@ -222,7 +222,7 @@ export default class DonationWidget extends preact.Component {
                 <button
                     id="donation-widget-print-button"
                     className="button button-secondary icon icon-print"
-                    onClick={() => printElementById('bank-transfer-info')}>
+                    onClick={() => DonationWidget.printBankTransfer(this.state.amount, this.state.donation_reference)}>
                     <Text id="print" />
                 </button>
                 <a
@@ -236,6 +236,40 @@ export default class DonationWidget extends preact.Component {
             </div>
         );
     };
+
+    // Adapted after: https://stackoverflow.com/a/12997207
+    static printBankTransfer(amount, donation_reference) {
+        const content = document.getElementById('bank-transfer-info');
+        const print_window = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+        const style = `<style>
+#bank-transfer-data-table td { border: 1px solid #000; padding: 10px; }
+.button { display: none; }
+#bank-transfer-qrcodes { margin: auto; max-width: 672px; }
+.bank-transfer-qrcode { float: left; text-align: center; margin: 40px; }
+.bank-transfer-qrcode canvas { display: block; }
+</style>`;
+        print_window.document.write(style + content.innerHTML);
+
+        // innerHTML doesn't keep the canvas content, we need to manually restore that here.
+        import(/* webpackChunkName: "bank-transfer-codes" */ '../Utility/bank-transfer-codes').then(module => {
+            module.renderEpcrQr(
+                print_window.document.getElementById('epcr-qr-canvas'),
+                amount,
+                donation_reference,
+                '#ffffff'
+            );
+            module.renderBezahlcodeQr(
+                print_window.document.getElementById('bezahlcode-qr-canvas'),
+                amount,
+                donation_reference,
+                '#ffffff'
+            );
+        });
+        print_window.document.close();
+        print_window.focus();
+        print_window.print();
+        print_window.close();
+    }
 
     handlePayment = e => {
         e.preventDefault();

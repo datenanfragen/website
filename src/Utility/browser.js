@@ -62,23 +62,6 @@ export function download(url, filename) {
     document.body.removeChild(element);
 }
 
-// Taken from: https://stackoverflow.com/a/12997207
-export function printElementById(id) {
-    const content = document.getElementById(id);
-    const print_window = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-    const style = `<style>
-#bank-transfer-data-table td { border: 1px solid #000; padding: 10px; }
-.button { display: none; }
-#bank-transfer-qrcodes { margin: auto; max-width: 672px; }
-.bank-transfer-qrcode { float: left; text-align: center; margin: 40px; }
-</style>`;
-    print_window.document.write(style + content.innerHTML);
-    print_window.document.close();
-    print_window.focus();
-    print_window.print();
-    print_window.close();
-}
-
 // Adapted after:  https://stackoverflow.com/a/133997
 export function clientPost(url, params, target) {
     const form = document.createElement('form');

@@ -20,12 +20,12 @@ export function epcrData(amount, reference) {
     ); // Information to the user
 }
 
-export function renderEpcrQr(canvas_element, amount, reference) {
+export function renderEpcrQr(canvas_element, amount, reference, light_color = null) {
     QRCode.toCanvas(canvas_element, epcrData(amount, reference), {
         errorCorrectionLevel: 'M',
         width: 256,
         height: 256,
-        color: { light: '#f7fafc' }
+        color: { light: light_color || '#f7fafc' }
     });
 }
 
@@ -48,11 +48,11 @@ export function bezahlcodeData(amount, reference) {
     );
 }
 
-export function renderBezahlcodeQr(canvas_element, amount, reference) {
+export function renderBezahlcodeQr(canvas_element, amount, reference, light_color = null) {
     QRCode.toCanvas(canvas_element, bezahlcodeData(amount, reference), {
         errorCorrectionLevel: 'M',
         width: 256,
         height: 256,
-        color: { light: '#f7fafc' }
+        color: { light: light_color || '#f7fafc' }
     });
 }
