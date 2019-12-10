@@ -1,6 +1,7 @@
 {
     "title": "Danke für Deine Spende!",
-    "type": "thanks"
+    "type": "thanks",
+    "aliases": ["verein/thanks", "danke", "verein/danke"]
 }
 
 <img class="top-right-humaaan" src="/img/humaaans/thanks.svg">
