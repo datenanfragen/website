@@ -70,7 +70,10 @@ export function almostUniqueId(length = 9) {
 }
 
 export function renderMoney(amount, currency = '') {
-    return Number(amount).toLocaleString(LOCALE, { minimumFractionDigits: 2 }) + (currency ? ' ' + currency : '');
+    return (
+        Number(amount).toLocaleString(LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
+        (currency ? ' ' + currency : '')
+    );
 }
 
 export const PARAMETERS = (() => {
