@@ -1,1 +1,37 @@
-{}
+{
+    "hugo": {
+        "categories": "Categorías",
+        "addresses": "direcciones",
+        "ads": "anuncios",
+        "commerce": "comercio",
+        "entertainment": "entretenimiento",
+        "finance": "finanzas",
+        "health": "salud",
+        "nonprofit": "organización sin fines de lucro",
+        "political party": "partido político",
+        "public body": "entidad pública",
+        "school": "educación",
+        "social media": "redes sociales",
+        "telecommunication": "telecomunicaciones",
+        "travel": "viajes",
+        "logo-a-title": "Volver a la página de inicio",
+        "header-name": "",
+        "header-home": "Inicio",
+        "header-contact": "Contacto",
+        "header-privacy-controls": "Controles de privacidad",
+        "header-id-data-controls": "Mis datos guardados",
+        "header-open-menu": "Abrir menú",
+        "footer-about-us": "Somos Datenanfragen.de e.&nbsp;V., una organización sin fines de lucro registrada en Alemania. Nuestra misión es ayudarle a ejercer su derecho a la privacidad. <a href='https://datarequests.org/verein' class='no-link-decoration'>Para saber más.</a>",
+        "footer-other-langs": "También disponible en: ",
+        "de": "Alemán (Deutsch)",
+        "en": "Inglés (English)",
+        "fr": "Francés (Français)",
+        "home-hero-line-1": "Tiene derecho a",
+        "home-hero-word": "acceder a sus datos",
+        "home-hero-line-2": "Utilícelo.",
+        "home-main-copy": "Todas las empresas de la UE están obligadas por ley a concederle acceso a sus datos personales, permitirle corregirlos y encargar que se eliminen, entre otros derechos. Aquí en datarequests.org queremos ayudarle a ejercer estos derechos.",
+        "home-how-it-works-title": "Cómo funciona",
+        "home-how-it-works-parameters-title": "Proporcione sus parámetros",
+        "home-how-it-works-parameters": "Elija las empresas a las que quiere enviar una solicitud. Proporcione solo los datos suficientes que permitan a las empresas identificarle unívocamente. Para facilitar el proceso ya le hemos preparado los formularios. No se preocupe: todos los datos permanecen en su equipo y se procesan allí únicamente. Esto garantiza que su información no nos llegue ni siquiera a nosotros."
+    }
+}
