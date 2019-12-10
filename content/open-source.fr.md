@@ -7,6 +7,9 @@
 
 <!-- TODO: Translate. -->
 
+<a id="license-notices"></a>
+Tu peux trouver les notices de licence complètes pour tous les projets que nous utilisons [ici]({{< absURL "NOTICES.txt" >}}).
+
 <div class="box box-info">
 	{{< attribution "de" >}}
 </div>

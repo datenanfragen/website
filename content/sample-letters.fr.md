@@ -14,10 +14,8 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-acces/"><img class="image" src="/card-icons/view.svg" alt="Demande d'accès conformément à l'Art. 15 du RGPD"></a></div>
-
     <div class="padded col75">
         <a href="/blog/modele-lettre-rgpd-acces/"><h1>Demande d'accès conformément à l'Art. 15 du RGPD</h1></a>
-        
         <p class="description">
           Conformément à l'Art. 15 du RGPD, tu as un droit d'accès aux données personnelles qu'une entreprise stocke sur toi.
         </p>
@@ -28,10 +26,8 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-rectification/"><img class="image" src="/card-icons/edit.svg" alt="Demande de rectification conformément à l'Art. 16 du RGPD"></a></div>
-
     <div class="padded col75">
         <a href="/blog/modele-lettre-rgpd-rectification/"><h1>Demande de rectification conformément à l'Art. 16 du RGPD</h1></a>
-       
         <p class="description">
           Conformément à l'Art. 16 du RGPD, tu as le droit de demander une correction immédiate des données personnelles incorrectes (ou incomplètes) qu'une entreprise stocke sur toi.
         </p>
@@ -42,10 +38,8 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-suppression/"><img class="image" src="/card-icons/erase.svg" alt="Demande de suppression conformément à l'Art. 17 du RGPD"></a></div>
-
     <div class="padded col75">
         <a href="/blog/modele-lettre-rgpd-suppression/"><h1>Demande de suppression conformément à l'Art. 17 du RGPD</h1></a>
-        
         <p class="description">
           Conformément à l'Art. 17 du RGPD, tu as le droit de demander la suppression de tes données personnelles si elles ne sont plus nécessaires à leur traitement initial (aussi appellé « droit à l'oubli »).
         </p>
@@ -56,10 +50,8 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-opposition-prospection/"><img class="image" src="/card-icons/warning.svg" alt="Opposition à la prospection conformément à l'Art. 21, alinéa 2 du RGPD"></a></div>
-
     <div class="padded col75">
         <a href="/blog/modele-lettre-rgpd-opposition-prospection/"><h1>Opposition à la prospection conformément à l'Art. 21, alinéa 2 du RGPD</h1></a>
-        
         <p class="description">
             Conformément à l'Art. 21, alinéa 2 du RGPD, tu as le droit de t'opposer à l'utilisation de tes données personnelles à des fins de prospection.
         </p>

@@ -121,6 +121,26 @@ textarea:required {
     box-shadow: none !important;
 }
 
+.input-addon-container {
+    display: flex;
+
+    #{$text-inputs} {
+        border-right: none;
+        // TODO: This currently works for addons on the left.
+        border-radius: 2px 0 0 2px;
+    }
+
+    .input-addon {
+        flex: 1;
+        border: 2px solid $primary-color;
+        // TODO: Same here.
+        border-radius: 0 2px 2px 0;
+        background-color: $primary-color;
+        color: $bg-color;
+        padding: 7px 10px;
+    }
+}
+
 @mixin disabled-input {
     background-color: color('gray', 400);
     border: 2px solid color('gray', 800);

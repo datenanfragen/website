@@ -14,7 +14,7 @@ Germany
 **Phone:** +49 531 209299 35  
 **Fax:** +49 531 209299 36  
 **Email:** contact@datenanfragen.de ([PGP key](/pgp/62A7EC35.asc) `B64A 852D F7DF 855C A058  0A00 FC74 1754 62A7 EC35`)  
-**Web:** [verein.datenanfragen.de](https://verein.datenanfragen.de)
+**Web:** [www.datarequests.org/verein](https://www.datarequests.org/verein)
 
 **Legally represented by:** Benjamin Altpeter and Lorenz Sieben  
 Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associations of the district court of Braunschweig, under the registration number VR&nbsp;201732, and recognized as a charitable organisation by the Braunschweig-Wilhelmstraße tax office.
@@ -42,7 +42,7 @@ Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
 		"telephone": "+49 209299 35",
 		"faxNumber": "+49 209299 36",
 		"email": "contact@datenanfragen.de",
-		"url": "https://verein.datenanfragen.de",
+		"url": "https://www.datarequests.org/verein",
 		"logo": "https://www.datenanfragen.de/img/logo-datenanfragen-ev.png"
 	}
 </script>

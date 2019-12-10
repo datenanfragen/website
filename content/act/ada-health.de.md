@@ -28,7 +28,7 @@ Angesichts dieser Erkenntnisse raten wir Dir, vor einer Nutzung der Ada Health-A
 
 Hast Du die App genutzt und warst Dir dieser Datenweitergabe vielleicht nicht bewusst? Zum Glück musst Du Dich nicht damit abfinden, dass Deine Gesundheitsdaten für immer bei diesen Anbietern bleiben. Die bereits erwähnte DSGVO gibt Dir nämlich eine ganze Reihe an [Rechten im Bezug auf Deine personenbezogenen Daten]({{< ref "your-gdpr-rights" >}}), darunter auch das Rechte, Deine Daten löschen zu lassen – das sogenannte [**Recht auf Vergessenwerden**]({{< ref "your-gdpr-rights" >}}#recht-auf-vergessenwerden).
 
-Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt](https://verein.datenanfragen.de/ziele/). Wir haben das entsprechende Schreiben an die Ada Health GmbH, mit dem Du die Löschung Deiner Daten verlangen kannst, schon einmal vorbereitet. Du musst nur noch Deinen Namen und die E-Mail-Adresse, die Du bei der ersten Benutzung der App eingegeben hast, eintragen und schon kannst Du Deinen Löschantrag einfach per E-Mail verschicken – natürlich kostenlos.
+Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben das entsprechende Schreiben an die Ada Health GmbH, mit dem Du die Löschung Deiner Daten verlangen kannst, schon einmal vorbereitet. Du musst nur noch Deinen Namen und die E-Mail-Adresse, die Du bei der ersten Benutzung der App eingegeben hast, eintragen und schon kannst Du Deinen Löschantrag einfach per E-Mail verschicken – natürlich kostenlos.
 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< script >}}

@@ -3,7 +3,7 @@
     "type": "redirect",
     "slug": "privacy",
     "aliases": [ "privacy-policy", "data-protection" ],
-    "target_url": "https://verein.datenanfragen.de/en/privacy"
+    "target_url": "https://www.datarequests.org/privacy"
 }
 
-Tu peux retrouver notre politique de confidentialité [ici](https://verein.datenanfragen.de/en/privacy) (en anglais).
+Tu peux retrouver notre politique de confidentialité [ici](https://www.datarequests.org/privacy) (en anglais).

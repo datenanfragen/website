@@ -157,6 +157,144 @@ a #logo {
     }
 }
 
+/* Home Verein */
+#verein-home-hero {
+    padding: 1px 0 30px 0;
+    margin-bottom: 30px;
+}
+
+#verein-home-top-row {
+    height: 420px;
+    margin-top: 50px;
+
+    @include mobile {
+        height: auto;
+        background-color: $bg-accent-color;
+        padding-bottom: 20px;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    .col33 {
+        padding-top: 50px;
+        height: 100%;
+        box-sizing: border-box;
+
+        @include mobile {
+            width: 100%;
+            margin-bottom: 40px;
+            float: none;
+            padding-top: 20px !important;
+        }
+    }
+}
+
+.verein-home-card {
+    position: relative;
+    border: 2px solid $primary-color;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 15px;
+    padding-top: 35px;
+    margin: 10px;
+    height: 100%;
+
+    .top-icon {
+        position: absolute;
+        text-align: center;
+        background: $bg-accent-color;
+        top: -60px;
+        font-size: 30px;
+        margin-right: -50px;
+        padding: 15px;
+        width: 70px;
+        height: 30px;
+        right: 50%;
+        color: $primary-color;
+    }
+
+    h2 {
+        text-align: center;
+        color: $primary-color;
+    }
+
+    p {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    button,
+    .button {
+        position: absolute;
+        text-align: center;
+        width: 90%;
+        bottom: 15px;
+    }
+}
+
+/* Donation widget */
+#donation-form {
+    padding-bottom: 30px;
+    h2 {
+        margin: 0 0 20px 0;
+    }
+}
+
+.donation-widget-section {
+    margin: 20px 0;
+}
+
+#donation-widget-amount-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    & > button {
+        padding: 15px;
+        margin-bottom: 10px;
+        width: 75px;
+    }
+}
+
+.donation-widget-info-column > span {
+    margin: -4px 0 0 20px;
+    display: block;
+}
+
+#bank-transfer-data-table {
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    td {
+        border: 1px dotted $primary-color;
+        padding: 7px;
+
+        &:first-child {
+            min-width: 160px;
+        }
+    }
+}
+
+#bank-transfer-qrcodes {
+    margin: auto;
+    max-width: 672px;
+
+    .bank-transfer-qrcode {
+        float: left;
+        text-align: center;
+        margin: 40px;
+
+        canvas {
+            display: block;
+            border: none;
+        }
+    }
+}
+
 /* Wizard */
 #wizard-tabs {
     $tab-border: 4px;
@@ -634,6 +772,29 @@ footer {
         &:active,
         &:focus,
         &:hover {
+            color: color('blue', 800);
+        }
+
+        img.itz-logo {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 15px;
+
+            &:active,
+            &:hover,
+            &:focus {
+                filter: brightness(80%) hue-rotate(-20deg);
+            }
+        }
+    }
+
+    .social-icons {
+        font-size: 24px;
+        padding: 5px 0 20px 0;
+
+        a.icon:active,
+        a.icon:hover,
+        a.icon:focus {
             color: color('blue', 800);
         }
     }

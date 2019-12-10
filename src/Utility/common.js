@@ -56,6 +56,26 @@ export function hash(s) {
     );
 }
 
+export function almostUniqueId(length = 9) {
+    const d = new Date();
+    return (
+        ('' + d.getUTCFullYear()).slice(-2) +
+        ('0' + (d.getUTCMonth() + 1)).slice(-2) +
+        ('0' + d.getUTCDate()).slice(-2) +
+        Math.random()
+            .toString(36)
+            .substr(2, length)
+            .toUpperCase()
+    );
+}
+
+export function renderMoney(amount, currency = '') {
+    return (
+        Number(amount).toLocaleString(LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
+        (currency ? ' ' + currency : '')
+    );
+}
+
 export const PARAMETERS = (() => {
     // `URLSearchParams` only offers an iterator to get all values. We can deconstruct that using `Array.from()` but
     // then we get a structure like this: `[ ['key1', 'val1'], ['key2', 'val2'] ]` which we need to transform to an

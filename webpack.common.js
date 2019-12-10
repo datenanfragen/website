@@ -21,6 +21,7 @@ module.exports = {
         'act-widget': './src/Components/ActWidget.js',
         pdfworker: './src/Utility/PdfWorker.js',
         style: './src/styles/main.scss',
+        loader: './src/styles/loader.scss',
         'test-interface': './src/test-interface.js'
     },
     output: {

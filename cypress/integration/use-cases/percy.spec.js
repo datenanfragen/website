@@ -10,5 +10,13 @@ describe('Visual diffs using Percy', () => {
         snap('/my-requests');
         snap('/id-data-controls');
         snap('/privacy-controls');
+
+        snap('/company/datenanfragen');
+        snap('/contribute');
+        snap('/sample-letters');
+
+        snap('/verein');
+        snap('/donate');
+        snap('/verein/transparency');
     });
 });

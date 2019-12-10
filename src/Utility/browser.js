@@ -61,3 +61,26 @@ export function download(url, filename) {
 
     document.body.removeChild(element);
 }
+
+// Adapted after:  https://stackoverflow.com/a/133997
+export function clientPost(url, params, target) {
+    const form = document.createElement('form');
+    form.setAttribute('method', 'POST');
+    form.setAttribute('action', url);
+    form.setAttribute('target', target || '_parent');
+
+    for (const key in params) {
+        if (Object.prototype.hasOwnProperty.call(params, key)) {
+            const hidden_field = document.createElement('input');
+            hidden_field.setAttribute('type', 'hidden');
+            hidden_field.setAttribute('name', key);
+            hidden_field.setAttribute('value', params[key]);
+
+            form.appendChild(hidden_field);
+        }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+}

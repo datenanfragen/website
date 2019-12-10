@@ -115,3 +115,23 @@
     @extend %icon;
     font-icon: url('rss.svg');
 }
+
+.icon-mastodon:before {
+    @extend %icon;
+    font-icon: url('mastodon.svg');
+}
+
+.icon-twitter:before {
+    @extend %icon;
+    font-icon: url('twitter.svg');
+}
+
+.icon-github:before {
+    @extend %icon;
+    font-icon: url('github.svg');
+}
+
+.icon-matrix:before {
+    @extend %icon;
+    font-icon: url('matrix.svg');
+}

@@ -179,6 +179,8 @@ $RECYCLE.BIN/
 # Cypress
 cypress/videos/
 
+static/NOTICES.txt
+
 # Hugo
 public/
 content/company/*

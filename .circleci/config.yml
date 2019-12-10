@@ -45,8 +45,8 @@ jobs:
       docker:
         - image: cypress/base:10
       environment:
-        - HUGO_VERSION: '0.58.3'
-        - HUGO_BINARY: hugo_0.58.3_linux-64bit
+        - HUGO_VERSION: '0.60.1'
+        - HUGO_BINARY: hugo_0.60.1_linux-64bit
       steps:
         - run:
             command: |

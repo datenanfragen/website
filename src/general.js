@@ -5,12 +5,16 @@ import Cookie from 'js-cookie';
 import SavedIdData from './Utility/SavedIdData';
 import t from './Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
+import { PARAMETERS } from './Utility/common';
+import DonationWidget from './Components/DonationWidget';
 
 window.I18N_DEFINITION = require('i18n/' + LOCALE + '.json');
 window.I18N_DEFINITION_REQUESTS = ['de', 'en', 'fr'].reduce(
     (acc, cur) => ({ ...acc, [cur]: require(`i18n/${cur}.json`).requests }),
     {}
 );
+
+window.PARAMETERS = PARAMETERS;
 
 Object.defineProperty(globals, 'country', {
     set: function(country) {
@@ -31,7 +35,7 @@ document.querySelectorAll('.i18n-button-container').forEach(el => {
 });
 preact.render(<I18nWidget minimal={true} />, document.getElementById('personal-menu-i18n-widget'));
 
-let comments_div = document.getElementById('comments-widget');
+const comments_div = document.getElementById('comments-widget');
 if (comments_div) {
     preact.render(
         <CommentsWidget
@@ -42,6 +46,8 @@ if (comments_div) {
         comments_div
     );
 }
+
+document.querySelectorAll('.donation-widget').forEach(el => preact.render(<DonationWidget />, null, el));
 
 if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
     preact.render(
