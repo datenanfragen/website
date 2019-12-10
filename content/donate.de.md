@@ -1,8 +1,7 @@
 {
     "title": "Spenden",
     "type": "donate",
-    "slug": "spenden",
-    "aliases": ["donate", "verein/spenden", "verein/donate"]
+    "aliases": ["spenden", "verein/spenden", "verein/donate"]
 }
 
 Vielen Dank, dass Du daran interessiert bist uns zu unterstützen! Deine Spende hilft uns dabei, unsere aktuellen und kommenden Projekte zu finanzieren, damit sie für alle kostenlos bleiben können.
