@@ -672,14 +672,30 @@
         "noscript-wizard": "Voici un assistant qui est généré par JavaScript, qui t'aide à créer tes demandes. La création de demandes uniquement sur ton ordinateur nécessite JavaScript. Tu peux utiliser le site Web sans JavaScript mais tu n'aura que des fonctionnalités limitées. Le code n'enverra aucune donnée à aucun serveur si tu n'y consent pas. Si tu veux utiliser le site et toutes ses fonctionnalités, active JavaScript dans ton navigateur ou ajoute une exception à ton bloqueur. Si cela ne fonctionne toujours pas après cela, envoie-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "404-title": "Erreur 404 : Page non trouvée",
         "404-body": "La page que tu cherches n'existe malheureusement pas sur ce serveur. Peut-être que tu as juste fait une faute de frappe dans l'URL ? Si l'erreur persiste, tu peux nous en informer par e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> ou soumettre un problème dans notre <a href='https://github.com/datenanfragen/website/issues/new'>suivi des problèmes </a>.",
-        "license-cc-by-4.0": "Licence Creative Commons Attribution 4.0 International",
-        "license-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.fr",
-        "license-cc-by-nd-4.0": "Licence Creative Commons Attribution-NoDerivatives 4.0 International",
-        "license-url-cc-by-nd-4.0": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr",
-        "license-cc-by-sa-4.0": "Licence Creative Commons Attribution-ShareAlike 4.0 International",
-        "license-url-cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr",
-        "license-cc0-1.0": "CC0 1.0 Universel Transfert dans le Domaine Public",
-        "license-url-cc0-1.0": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+        "license-cc-by-4": {
+            "0": "Licence Creative Commons Attribution 4.0 International"
+        },
+        "license-url-cc-by-4": {
+            "0": "https://creativecommons.org/licenses/by/4.0/deed.fr"
+        },
+        "license-cc-by-nd-4": {
+            "0": "Licence Creative Commons Attribution-NoDerivatives 4.0 International"
+        },
+        "license-url-cc-by-nd-4": {
+            "0": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+        },
+        "license-cc-by-sa-4": {
+            "0": "Licence Creative Commons Attribution-ShareAlike 4.0 International"
+        },
+        "license-url-cc-by-sa-4": {
+            "0": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr"
+        },
+        "license-cc0-1": {
+            "0": "CC0 1.0 Universel Transfert dans le Domaine Public"
+        },
+        "license-url-cc0-1": {
+            "0": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr"
+        },
         "ads": "publicités",
         "footer-tab-website-name": "demandetesdonnees.fr",
         "footer-request-generator": "Générateur de demande",
@@ -717,7 +733,39 @@
         "footer-social-github-url": "https://github.com/datenanfragen/",
         "footer-social-matrix-url": "https://matrix.to/#/+datenanfragen:matrix.altpeter.me",
         "footer-social-mastodon-url": "https://mastodon.social/@datarequestsORG",
-        "footer-social-twitter-url": "https://twitter.com/datarequestsORG"
+        "footer-social-twitter-url": "https://twitter.com/datarequestsORG",
+        "press-no-releases": "Pour le moment, il n'y a pas de communiqués de presse en anglais.",
+        "verein-home-card-mission-heading": {
+            "other": "Nos objectifs"
+        },
+        "verein-home-card-mission-content": "Quels sont nos objectifs, pourquoi avons-nous lancé cette organisation à but non lucratif ? Et comment comptons-nous t'aider et aider les autres ? <br>Voici quelques réponses à ces questions.",
+        "verein-home-card-mission-button": "En savoir plus sur nos objectifs",
+        "verein-home-card-donate-heading": "Faire un don",
+        "verein-home-card-donate-content": "Nous voulons garder notre projet libre et ouvert à tous. Si tu souhaites nous aider à le faire et à lancer de nouveaux projets, pense à nous faire un don. Nous sommes très reconnaissants pour chaque don.",
+        "verein-home-card-donate-button": "Je veux faire un don.",
+        "verein-home-card-join-heading": "Devenir membre",
+        "verein-home-card-join-content": "Notre projet est participatif. Que tu veuilles contribuer et aider au développement ou que tu veuilles simplement être au plus près de ce qui se passe, nous serons heureux de t'accueillir avec nous.",
+        "verein-home-card-join-button": "Je veux vous rejoindre.",
+        "footer-settings": "Paramètres",
+        "footer-tab-community": "Communauté",
+        "footer-become-a-member": "Devenir membre",
+        "footer-association-overview": "À propos de l'association",
+        "footer-association-goals": "Nos objectifs",
+        "footer-association-constitution": "Constitution",
+        "footer-association-transparency": "Transparence",
+        "footer-association-membership-fees": "Cotisations des membres",
+        "footer-tab-learn": "Apprendre",
+        "footer-your-gdpr-rights": "Tes droits RGPD",
+        "footer-supervisory-authorities": "Autorités de contrôle",
+        "footer-posts": "Blog",
+        "footer-press": "Presse",
+        "footer-tab-legal": "Mentions légales",
+        "footer-licenses": "Informations sur les licence",
+        "footer-social-rss-desc": "Abonne-toi à notre blog en utilisant ton lecteur de flux RSS.",
+        "footer-social-github-desc": "Nous trouver sur GitHub.",
+        "footer-social-matrix-desc": "Échanger avec nous via Matrix.",
+        "footer-social-mastodon-desc": "Nous suivre sur Mastodon.",
+        "footer-social-twitter-desc": "Nous suivre sur Twitter."
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
@@ -739,5 +787,38 @@
         "attn": "À l'attention de : Délégué à la protection des données",
         "by-fax": "Par Fax : ",
         "concerns": "Concerne"
+    },
+    "donation-widget": {
+        "back": "Revenir au formulaire",
+        "how-much": "Combien souhaites-tu donner ?",
+        "how": "Comment souhaites-tu payer ?",
+        "bank-transfer-heading": "Informations de paiement pour le virement bancaire",
+        "bank-transfer-recipient": "Nom du bénéficiaire",
+        "bank-transfer-financial-institution": "Établissement financier",
+        "bank-transfer-reference": "Référence",
+        "bank-transfer-amount": "Montant",
+        "bank-transfer-qrcodes": "Codes QR pour le virement",
+        "amount": "Vous serez débité de {{amount}}&nbsp;€ <em>une seule fois</em>.",
+        "next-step": "Vers l'étape suivante",
+        "thanks": "Confirmation du don",
+        "print": "Imprimer les informations sur le virement",
+        "reference-value": "Don {{reference}}",
+        "error-donation-status-malformed-response": "Réponse invalide lors de la récupération de l'état du don.",
+        "error-auth-url-malformed-response": "Réponse invalide de votre fournisseur de paiement. Veuillez réessayer plus tard.",
+        "donation-failed": "Échec du paiement. Veuillez réessayer.",
+        "donation-expired": "Paiement expiré. Veuillez réessayer.",
+        "bank-transfer": "Virement bancaire",
+        "bank-transfer-info": "Au cours de la prochaine étape, nous allons te présenter nos coordonnées bancaires afin que tu puisses nous faire parvenir ton don.",
+        "paysafecard-info": "Au cours de la prochaine étape, nous te redirigerons vers notre partenaire Mollie.",
+        "creditcard": "Carte de crédit",
+        "creditcard-info": "Au cours de la prochaine étape, nous te redirigerons vers notre partenaire Mollie.",
+        "paypal": "PayPal",
+        "paypal-info": "Au cours de la prochaine étape, nous te redirigerons vers PayPal.",
+        "cryptocurrency": "Cryptomonnaie",
+        "cryptocurrency-info": "Au cours de la prochaine étape, nous te redirigerons vers notre partenaire CoinGate.",
+        "directdebit": "Prélèvement SEPA",
+        "directdebit-info": "Au cours de la prochaine étape, nous te redirigerons vers notre partenaire Mollie. Si tu souhaites donner régulièrement, songe aussi à devenir membre.",
+        "mollie": "Autre méthodes de paiement",
+        "mollie-info": "Notre partenaire Mollie offre également plusieurs autres méthodes de paiement, incluant Sofortüberweisung, giropay, iDEAL, EPS, CDC et Bancontact."
     }
 }
