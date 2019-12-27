@@ -749,7 +749,13 @@
         "footer-social-github-desc": "Nous trouver sur GitHub.",
         "footer-social-matrix-desc": "Échanger avec nous via Matrix.",
         "footer-social-mastodon-desc": "Nous suivre sur Mastodon.",
-        "footer-social-twitter-desc": "Nous suivre sur Twitter."
+        "footer-social-twitter-desc": "Nous suivre sur Twitter.",
+        "footer-become-a-member-url": "/association/devenir-membre",
+        "footer-association-board": "Comité directeur",
+        "footer-your-gdpr-rights-url": "/blog/vos-droits-rgpd",
+        "footer-supervisory-authorities-url": "/autorites-de-controle",
+        "footer-posts-url": "/blog",
+        "footer-press-url": "/association/presse"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
@@ -803,6 +809,7 @@
         "directdebit": "Prélèvement SEPA",
         "directdebit-info": "Au cours de la prochaine étape, nous te redirigerons vers notre partenaire Mollie. Si tu souhaites donner régulièrement, songe aussi à devenir membre.",
         "mollie": "Autre méthodes de paiement",
-        "mollie-info": "Notre partenaire Mollie offre également plusieurs autres méthodes de paiement, incluant Sofortüberweisung, giropay, iDEAL, EPS, CDC et Bancontact."
+        "mollie-info": "Notre partenaire Mollie offre également plusieurs autres méthodes de paiement, incluant Sofortüberweisung, giropay, iDEAL, EPS, CDC et Bancontact.",
+        "paysafecard": "paysafecard"
     }
 }
