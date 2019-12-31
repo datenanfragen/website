@@ -866,6 +866,15 @@ article.page,
     h1 {
         margin-top: 6px;
     }
+    h2 {
+        margin-top: 0;
+        // TODO: Once we switch to Spartan MB, use a lighter weight here.
+        font-size: 1.2em;
+    }
+
+    &.no-footer {
+        padding-bottom: 15px;
+    }
 
     .article-featured-image img {
         object-fit: contain;
