@@ -152,6 +152,7 @@
                         <li><a href="{{ T "footer-supervisory-authorities-url" | absLangURL }}">{{ T "footer-supervisory-authorities" . }}</a></li>
                         <li><a href="{{ T "footer-posts-url" | absLangURL }}">{{ T "footer-posts" . }}</a></li>
                         <li><a href="{{ T "footer-press-url" | absLangURL }}">{{ T "footer-press" . }}</a></li>
+                        {{ if eq .Lang "de" }}<li><a href="{{ "/verein/material" | absLangURL }}">Material</a></li>{{ end }}
                     </ul>
                 </div>
                 <div class="col22 footer-col">
