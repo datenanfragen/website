@@ -13,9 +13,7 @@ Wir sind große Verfechter von Open Source und fest davon überzeugt.
 
 ## Unsere Open Source-Repositories
 
-Hier findest Du eine Übersicht einiger wichtiger Repositories, die direkt oder indirekt für Datenanfragen.de erstellt wurden und die selbstverständlich unter freien Lizenzen stehen. Wir laden Dich herzlich ein, hinter die Kulissen zu schauen, mitzuarbeiten und unsere Arbeit für Deine Projekte weiter zu verwenden!
-
-Ein Teil der Entwicklungsarbeit findet momentan über eine private GitLab-Instanz statt. Wir spiegeln aber alle Commits zu GitHub und freuen uns selbstverständlich auch über Issues und Pull Requests in den GitHub-Mirror-Repositories.
+Hier findest Du eine Übersicht einiger wichtiger Repositories, die direkt oder indirekt für Datenanfragen.de erstellt wurden und die selbstverständlich unter freien Lizenzen stehen. Wir laden Dich herzlich ein, hinter die Kulissen zu schauen, mitzuarbeiten und unsere Arbeit für Deine Projekte weiter zu verwenden! Wir freuen uns über Issues und Pull Requests in den Repositories.
 
 <!-- TODO: Weitere Repos hinzufügen, sobald diese soweit sind. -->
 
@@ -27,9 +25,6 @@ Ein Teil der Entwicklungsarbeit findet momentan über eine private GitLab-Instan
         <p class="description">
             Die Webseite, auf der Du gerade bist. In diesem Repository findest Du nicht nur den gesamten Inhalt, sondern auch den Code für die Generator, die Datenschutzeinstellungen und vieles mehr.
             <br>Die Seite ist überwiegend statisch ausgelegt und basiert auf Hugo und Preact.
-        </p>
-        <p class="description">
-            Die Vereinswebseite wird separat über das Repository <a href="https://github.com/datenanfragen/verein-website"><code>verein-website</code></a> verwaltet.
         </p>
     </div>
 <div class="clearfix"></div>

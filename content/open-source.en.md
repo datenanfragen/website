@@ -13,9 +13,7 @@ We are huge proponents of Open Source and believe in it.
 
 ## Our Open Source repositories
 
-Here is an overview of important repositories that we have created—directly or indirectly—for datarequests.org. They are of course published under free licenses. We invite you to take a look behind the curtain, contribute or use our work for your own projects!
-
-Some of the development work is currently done on a private GitLab instance. We do however mirror all commits to GitHub and still welcome issues and pull requests through the GitHub mirror repositories, of course.
+Here is an overview of important repositories that we have created—directly or indirectly—for datarequests.org. They are of course published under free licenses. We invite you to take a look behind the curtain, contribute or use our work for your own projects! We warmly welcome issues and pull requests through the repositories.
 
 <!-- TODO: Add new repos when applicable. -->
 
@@ -27,9 +25,6 @@ Some of the development work is currently done on a private GitLab instance. We 
         <p class="description">
             The website you are currently on. This repository not only contains the content but also the code for the generator, the privacy controls and more.
             <br>The site is designed to be primarily static and runs on Hugo and Preact.
-        </p>
-        <p class="description">
-            The website for Datenanfragen.de e.&nbsp;V., the non-profit behind this project, is managed through the separate <a href="https://github.com/datenanfragen/verein-website"><code>verein-website</code></a> repository.
         </p>
     </div>
     <div class="clearfix"></div>

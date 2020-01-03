@@ -29,9 +29,12 @@ Please be aware that by contributing, you agree for your work to be released und
 
 If you are interested in contributing in other ways besides coding, we can also really use your help. Have a look at our [contribute page](https://www.datarequests.org/contribute) for more details.
 
+### Translations
+
+While you can just contribute translations through this repository, an easier way is through the localisation platform [Weblate](https://hosted.weblate.org/engage/datenanfragen-de/). We manage our translations through them. There, you can easily help us translate—be it a couple of strings or whole components.
+
 <!-- 
 TODO:
 
-* Explain the i18n
-* Outsource the part about contributions to a separate `CONTRIUTING`, once there is enough content to justify that
+* Outsource the part about contributions to a separate `CONTRIBUTING` once there is enough content to justify that.
 -->
