@@ -719,9 +719,7 @@
         "footer-social-mastodon-url": "https://mastodon.social/@datarequestsORG",
         "footer-social-twitter-url": "https://twitter.com/datarequestsORG",
         "press-no-releases": "Pour le moment, il n'y a pas de communiqués de presse en anglais.",
-        "verein-home-card-mission-heading": {
-            "other": "Nos objectifs"
-        },
+        "verein-home-card-mission-heading": "Nos objectifs",
         "verein-home-card-mission-content": "Quels sont nos objectifs, pourquoi avons-nous lancé cette organisation à but non lucratif ? Et comment comptons-nous t'aider et aider les autres ? <br>Voici quelques réponses à ces questions.",
         "verein-home-card-mission-button": "En savoir plus sur nos objectifs",
         "verein-home-card-donate-heading": "Faire un don",
