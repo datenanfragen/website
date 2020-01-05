@@ -113,15 +113,33 @@
         "404-title": "Fehler 404: Seite nicht gefunden",
         "404-body": "Leider existiert die gesuchte Seite auf diesem Server nicht. Vielleicht hast du dich ja einfach in der URL vertippt? Falls der Fehler wieder auftritt, hinterlasse uns doch einen Hinweis auf unserer E-Mail-Adresse <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> oder schreib in unseren <a href='https://github.com/datenanfragen/website/issues/new'>Issue-Tracker</a>.",
         "press-no-releases": "Es wurden noch keine Pressemitteilungen auf Deutsch veröffentlicht.",
-        "license-cc-by-4.0": "Creative Commons Namensnennung 4.0 International Lizenz",
-        "license-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.de",
-        "license-cc-by-nd-4.0": "Creative Commons Namensnennung - Keine Bearbeitungen 4.0 International Lizenz",
-        "license-url-cc-by-nd-4.0": "https://creativecommons.org/licenses/by-nd/4.0/deed.de",
-        "license-cc-by-sa-4.0": "Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz",
-        "license-url-cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
-        "license-cc0-1.0": "CC0 1.0 Universell Public Domain Dedication",
-        "license-url-cc0-1.0": "https://creativecommons.org/publicdomain/zero/1.0/deed.de",
-        "verein-home-card-mission-heading": "Unsere Ziele?",
+        "license-cc-by-4": {
+            "0": "Creative Commons Namensnennung 4.0 International Lizenz"
+        },
+        "license-url-cc-by-4": {
+            "0": "https://creativecommons.org/licenses/by/4.0/deed.de"
+        },
+        "license-cc-by-nd-4": {
+            "0": "Creative Commons Namensnennung - Keine Bearbeitungen 4.0 International Lizenz"
+        },
+        "license-url-cc-by-nd-4": {
+            "0": "https://creativecommons.org/licenses/by-nd/4.0/deed.de"
+        },
+        "license-cc-by-sa-4": {
+            "0": "Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz"
+        },
+        "license-url-cc-by-sa-4": {
+            "0": "https://creativecommons.org/licenses/by-sa/4.0/deed.de"
+        },
+        "license-cc0-1": {
+            "0": "CC0 1.0 Universell Public Domain Dedication"
+        },
+        "license-url-cc0-1": {
+            "0": "https://creativecommons.org/publicdomain/zero/1.0/deed.de"
+        },
+        "verein-home-card-mission-heading": {
+            "other": "Unsere Ziele?"
+        },
         "verein-home-card-mission-content": "Was haben wir eigentlich vor, warum haben wir den Verein gegründet? Und wie wollen wir Dir und anderen damit helfen?<br>Hier sind ein paar Antworten.",
         "verein-home-card-mission-button": "Mehr über unsere Ziele",
         "verein-home-card-donate-heading": "Uns spenden.",
@@ -328,7 +346,6 @@
         "error-template-not-found": "Das gesuchte Template konnte leider nicht gefunden werden.",
         "error-template-fetch-failed": "Beim Laden des Templates ist ein unbekannter Fehler passiert.",
         "email-address": "E-Mail-Adresse",
-
         "mailto-dropdown-explanation": "Wie möchtest Du die E-Mail verschicken?",
         "mailto-dropdown-warning": "*Dadurch werden die Daten Deiner Anfrage an den jeweiligen Anbieter weitergegeben."
     },
@@ -534,7 +551,6 @@
         "finish": "Fertig",
         "next": "Weiter",
         "skip": "Tutorial überspringen",
-
         "request-parameters": "<p>Alles klar, lass’ uns anfangen, Deine Anfragen zu generieren. Wir geben uns Mühe, Dir so viel Arbeit wie möglich abzunehmen.</p><p class='desktop-only'>Auf der linken Seite haben wir schon einmal die Kontaktdaten des ersten Unternehmens eingetragen.</p><p class='mobile-only'>Oberhalb haben wir schon einmal die Kontaktdaten des ersten Unternehmens eingetragen.</p>",
         "company-info": "<p>Hier unten siehst Du noch einige zusätzliche Details zu dem aktuellen Unternehmen. Manchmal haben wir auch wichtige Hinweise zu einem Unternehmen. Diese würden dann auch hier angezeigt werden.</p>",
         "id-data": "<p>Jetzt bist Du an der Reihe. Um Dir Zugriff auf Deine Daten geben zu können, muss das Unternehmen Dich identifizieren können. Hier gibst Du die dafür notwendigen Informationen an. Das könnten z.&nbsp;B. Dein Name, Deine Kundennummer, Deine E-Mail-Adresse oder etwas ganz anderes sein. Wenn Du Dir nicht sicher bist, übernimm’ einfach die Standardfelder.<br>Und nie vergessen: Im Zweifelsfall lieber weniger angeben – die Unternehmen werden schon nachfragen, wenn sie mehr Daten benötigen.</p><p>Wir werden die Daten, die Du hier angibst, speichern, damit Du sie bei der nächsten Anfrage nicht nochmal eingeben musst. Keine Sorge: Das passiert alles nur auf <strong>Deinem</strong> Rechner, wir haben zu keinem Zeitpunkt Zugriff auf Deine Daten. Wenn Du das trotzdem nicht möchtest, kannst Du diese <a href=\"/privacy-controls\" target=\"_blank\">Funktion aber jederzeit deaktivieren</a>.</p>",
@@ -600,7 +616,6 @@
         "error-auth-url-malformed-response": "Ungültige Antwort von unserem Zahlungsdienstleister. Bitte versuche es erneut.",
         "donation-failed": "Zahlung fehlgeschlagen. Bitte versuche es erneut.",
         "donation-expired": "Zahlung abgelaufen. Bitte versuche es erneut.",
-
         "bank-transfer": "Banküberweisung",
         "bank-transfer-info": "Im nächsten Schritt werden Dir unsere Bankdaten angezeigt, an die Du überweisen kannst.",
         "paysafecard": "paysafecard",
