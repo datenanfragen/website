@@ -87,6 +87,18 @@ export default class Request {
          * @type {IdDataElement[]}
          */
         this.id_data = deepCopyObject(defaultFields(LOCALE));
+
+        /**
+         * The slug of the company this request is addressed to (if applicable).
+         * @type {String}
+         */
+        this.slug = '';
+
+        /**
+         * @type {"admonition" | "complaint"} The response type if this request is a warning or complaint.
+         */
+        this.response_type;
+
         /**
          * A list of other entities and services the selected company is the controller for.
          * @type {String[]}
@@ -136,21 +148,19 @@ export default class Request {
 
     /**
      * Save this request in the 'My requests' feature.
-     *
-     * TODO @zner0L: Maybe we want to move these parameters into the `Request` object as well?
-     *
-     * @param {String} [slug] The slug of the company this request is addressed to (if applicable).
-     * @param {"admonition" | "complaint"} [response_type] The response type if this request is a warning or complaint.
      */
-    store(slug, response_type) {
+    store() {
         const db_id =
-            this.reference + '-' + this.type + (this.type === 'custom' && response_type ? '-' + response_type : '');
+            this.reference +
+            '-' +
+            this.type +
+            (this.type === 'custom' && this.response_type ? '-' + this.response_type : '');
         const item = {
             reference: this.reference,
             date: this.date,
             type: this.type,
-            response_type: response_type,
-            slug: slug,
+            response_type: this.response_type,
+            slug: this.slug,
             recipient: this.recipient_address,
             email: this.email,
             via: this.transport_medium
