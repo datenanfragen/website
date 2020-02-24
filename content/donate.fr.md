@@ -16,7 +16,7 @@ En tant qu'organisation d'utilité publique, nous pouvons également te délivre
 
 * **Que va devenir mon don ?**
 
-  Nous utilisons ces dons pour payer nos frais de fonctionnement et pour lancer de nouveaux projets visant à faire progresser la sécurité des données en Europe conformément à [notre constitution]({{< ref "verein/constitution" >}}). Tu peux savoir exactement où ton argent est allé dans notre [rapport annuel]({{< ref "verein/transparence" >}}). Nous ne sommes pas autorisés à faire des bénéfices, tu peux donc être sûr que ton don est destiné à une bonne cause.
+  Nous utilisons ces dons pour payer nos frais de fonctionnement et pour lancer de nouveaux projets visant à faire progresser la sécurité des données en Europe conformément à [notre constitution]({{< ref "verein/constitution" >}}). Tu peux savoir exactement où ton argent est allé dans notre [rapport annuel]({{< ref "verein/transparency" >}}). Nous ne sommes pas autorisés à faire des bénéfices, tu peux donc être sûr que ton don est destiné à une bonne cause.
 
 * <a id="donation-receipt-howto"></a>**Comment obtenir un reçu pour mon don ?**
 
@@ -29,7 +29,7 @@ En tant qu'organisation d'utilité publique, nous pouvons également te délivre
 
 * **Qui d'autre a déjà fait des dons ?**
 
-  Les dons des personnes et des entreprises qui ont donné plus de 10% de notre budget annuel sont publiés avec le montant et, seulement avec leur consentement, leur nom. Pour les organisations, nous publierons le nom même sans consentement explicite. Tu peux consulter ces dons dans notre [rapport de transparence]({{< ref "verein/transparence" >}}).
+  Les dons des personnes et des entreprises qui ont donné plus de 10% de notre budget annuel sont publiés avec le montant et, seulement avec leur consentement, leur nom. Pour les organisations, nous publierons le nom même sans consentement explicite. Tu peux consulter ces dons dans notre [rapport de transparence]({{< ref "verein/transparency" >}}).
 
 * **Que deviennent les données que j'ai fourni pour faire un don ?**
 
