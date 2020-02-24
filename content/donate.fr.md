@@ -1,6 +1,6 @@
 {
   "title": "Faire un don",
-  "type": "faire-un-don",
+  "type": "donate",
   "aliases": ["spenden", "verein/donate", "verein/spenden"]
 }
 
@@ -48,7 +48,7 @@ En tant qu'organisation d'utilité publique, nous pouvons également te délivre
     38126 Braunschweig  
     Allemagne*
 
-  Pour les dons en espèces, nous te conseillons d'utiliser le [WERT NATIONAL](https://www.deutschepost.de/de/w/wert-national.html) du service postal allemand ou un produit similaire proposé par ton bureau de poste local. Nous ne recommandons pas d'envoyer des dons en espèces à l'étranger. Dans tous les cas, assure-toi que le contenu de ta lettre n'est pas visible de l'extérieur.
+  Nous ne recommandons pas d'envoyer des dons en espèces à l'étranger. Dans tous les cas, assure-toi que le contenu de ta lettre n'est pas visible de l'extérieur.
 
   Nous n'acceptons que les dons en espèces en euros.
 
