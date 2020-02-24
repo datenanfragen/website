@@ -3,6 +3,7 @@
     "slug": "deine-dsgvo-rechte",
     "aliases": [ "your-gdpr-rights" ],
     "date": "2018-05-07T08:22:36+02:00",
+    "last_edited": "2020-02-24T19:07:25+02:00",
     "type": "blog",
     "description": "Die DSGVO gewährt Dir umfassende Rechte im Bezug auf den Datenschutz. So muss Dir bspw. jedes Unternehmen in der EU mitteilen, welche personenbezogenen Daten es zu Dir gespeichert hat. Wenn die Daten falsch sind, muss es sie berichtigen. Du darfst sogar verlangen, dass die Daten wieder gelöscht werden. Mehr dazu erfährst Du in diesem Artikel.",
     "tags": [ "dsgvo", "gdpr", "rechte", "auskunft", "selbstauskunft", "datenauskunft", "löschung", "berichtigung" ]
@@ -14,7 +15,7 @@ In diesem Artikel wollen wir Dir einen ausführlichen Überblick über die Recht
 
 ## Was ist die DSVGO?
 
-Die DSGVO (englisch **General Data Protection Regulation** oder kurz **GDPR**) ist eine *EU-Verordnung*, die am 25. Mai 2018 in Kraft tritt. Ziel der DSGVO ist es, den Bürger_innen der EU eine bessere Kontrolle über ihre personenbezogenen Daten zu ermöglichen. Durch die EU-weit einheitliche Regelung des Datenschutzes sollen weiterhin für Bürger_innen wie Unternehmen die Rechtslage eindeutiger gemacht und Bürokratie verringert werden.
+Die DSGVO (englisch **General Data Protection Regulation** oder kurz **GDPR**) ist eine *EU-Verordnung*, die am 25. Mai 2018 in Kraft getreten ist. Ziel der DSGVO ist es, den Bürger_innen der EU eine bessere Kontrolle über ihre personenbezogenen Daten zu ermöglichen. Durch die EU-weit einheitliche Regelung des Datenschutzes sollen weiterhin für Bürger_innen wie Unternehmen die Rechtslage eindeutiger gemacht und Bürokratie verringert werden.
 
 Die DSGVO ersetzt überwiegend bisheriges nationales Recht zum Datenschutz, wie das deutsche *BDSG* (in einzelnen Aspekten erlaubt sie den Mitgliedsstaaten aber eine individuelle Ausgestaltung in nationalen Gesetzen). Als EU-Verordnung ist sie unmittelbar geltendes Recht in allen EU-Mitgliedsstaaten, ohne dass diese sie im nationalen Recht umsetzen müssen.
 
