@@ -1,8 +1,12 @@
-{ "title": "Faire un don", "type": "donate", "aliases": ["spenden", "verein/donate", "verein/spenden"] }
+{
+  "title": "Faire un don",
+  "type": "faire-un-don",
+  "aliases": ["spenden", "verein/donate", "verein/spenden"]
+}
 
-Merci beaucoup de ton intérêt pour nous soutenir ! Ton don nous aidera à financer nos projets actuels et futurs afin qu'ils restent gratuits pour tous.
+Merci beaucoup de ton soutien ! Ton don nous aidera à financer nos projets actuels et futurs afin qu'ils restent gratuits pour tous.
 
-Si tu souhaites nous soutenir de manière récurrente, tu peux également [devenir membre]({{< ref "become-a-member" >}}). De cette façon, tu peux également nous donner un mandat de prélèvement SEPA.
+Si tu souhaites nous soutenir de manière récurrente, tu peux également [devenir membre]({{< ref "become-a-member" >}}). De cette façon, tu peux également nous fournir un mandat de prélèvement SEPA.
 
 En tant qu'organisation d'utilité publique, nous pouvons également te délivrer un [reçu de don](#donation-receipt-howto).
 
@@ -12,7 +16,7 @@ En tant qu'organisation d'utilité publique, nous pouvons également te délivre
 
 * **Pourquoi devrais-je donner ?**
 
-  Les dons nous aident à maintenir le site web, la base de données et le générateur à jour et gratuits pour les années à venir. Nous utiliserons les fonds supplémentaires pour lancer de nouveaux projets en faveur de la protection des données en Europe. Nous te remercions d'envisager de faire un don.
+  Les dons nous aident à maintenir le site Web, la base de données et le générateur à jour et gratuits pour les années à venir. Nous utiliserons les fonds supplémentaires pour lancer de nouveaux projets en faveur de la protection des données en Europe. Nous te remercions d'envisager de faire un don.
 
 * **Que va devenir mon don ?**
 
