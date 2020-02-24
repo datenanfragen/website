@@ -13,9 +13,7 @@ Nous sommes de grands partisans de l'Open Source et nous y croyons.
 
 ## Nos dépôts Open Source
 
-Voici un aperçu des principaux dépôts que nous avons créés directement ou indirectement, pour demandetesdonnees.fr. Ils sont bien sûr publiés sous licence libre. Nous vous invitons à jeter un coup d'œil derrière le rideau, à contribuer ou à utiliser notre travail pour vos propres projets !
-
-Une partie du travail de développement est actuellement effectuée sur une instance privée de GitLab. Cependant, nous reflétons tous les commits sur GitHub et nous accueillons toujours les issues et les pull requests sur les dépôts de miroirs sur GitHub, évidemment.
+Voici un aperçu des principaux dépôts que nous avons créés directement ou indirectement, pour demandetesdonnees.fr. Ils sont bien sûr publiés sous licence libre. Nous vous invitons à jeter un coup d'œil derrière le rideau, à contribuer ou à utiliser notre travail pour vos propres projets ! Nous accueillons chaleureusement les issues et les pull requests sur les dépôts de miroirs sur GitHub, évidemment.
 
 <!-- TODO: Add new repos when applicable. -->
 
@@ -27,9 +25,6 @@ Une partie du travail de développement est actuellement effectuée sur une inst
         <p class="description">
             Le site Web sur lequel tu te trouves actuellement. Ce dépôt contient non seulement le contenu mais aussi le code du générateur, les contrôles de confidentialité et plus encore.
             <br>Le site est conçu pour être essentiellement statique et fonctionne avec Hugo et Preact.
-        </p>
-        <p class="description">
-            Le site web de Datenanfragen.de e.&nbsp;V., l'association à but non lucratif à l'origine de ce projet, est géré par le dépôt séparé <a href="https://github.com/datenanfragen/verein-website"><code>verein-website</code></a>.
         </p>
     </div>
     <div class="clearfix"></div>
