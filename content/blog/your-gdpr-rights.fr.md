@@ -2,7 +2,7 @@
 	"title": "Tes droits en vertu du Règlement Général sur la Protection des Données (RGPD)",
 	"slug": "vos-droits-rgpd",
 	"date": "2018-05-07T08:22:36+02:00",
-	"last_edited": "2018-05-19T00:13:15",
+	"last_edited": "2020-02-24T19:25:00",
 	"type": "blog",
 	"description": "Le RGPD t'accorde des droits étendus en matière de protection des données. Par exemple, chaque entreprise de l'UE est tenue de t'indiquer quelles données personnelles elle a stockées sur toi. Si les données sont incorrectes, elles doivent les corriger. Tu peux même demander que les données soient à nouveau effacées. Pour en savoir plus, consulte cet article.",
 	"tags": [ "rgpd", "droits", "accès aux données", "effacement", "rectification" ]
@@ -10,21 +10,19 @@
 
 Dans notre monde de plus en plus numérique, la protection des données joue chaque jour un rôle plus important. Avec le nouveau **Règlement Général sur la Protection des Données** (**RGPD**), l'Union européenne renforce considérablement tes droits en ce qui concerne le traitement minutieux de tes données personnelles.
 
-In this article, we want to give you a detailed overview of the rights you have thanks to the GDPR. If you are looking for a short summary instead, have a look at [this article]({{< ref "/blog/a-quick-overview" >}}).
-
 Dans cet article, nous voulons te donner un aperçu détaillé des droits dont tu disposes grâce au RGPD. Si tu recherches plutôt un bref résumé, consulte [cet article]({{< ref "/blog/a-quick-overview" >}}).
 
 ## Qu'est-ce que le RGPD ?
 
 Le RGPD est un *règlement de l'UE* qui entrera en vigueur le 25 mai 2018. L'objectif du RGPD est de donner aux citoyens de l'UE un meilleur contrôle sur leurs données personnelles. En uniformisant la réglementation sur la protection des données dans toute l'UE, la situation juridique des citoyens et des entreprises sera plus claire et la bureaucratie réduite.
 
-Le RGPD remplace principalement la législation nationale précédente sur la protection des données, comme la loi britannique *Data Protection Act 1998* (*DPA*) (dans certains aspects, il permet toutefois aux États membres une interprétation individuelle dans la législation nationale. En tant que règlement de l'UE, il est directement applicable dans tous les États membres de l'UE, sans que ceux-ci aient à le transposer dans leur droit national.
+Le RGPD remplace principalement la législation nationale précédente sur la protection des données, comme la *loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés* dite « Informatique et Libertés » (dans certains aspects, il permet toutefois aux États membres une interprétation individuelle dans la législation nationale). En tant que règlement de l'UE, il est directement applicable dans tous les États membres de l'UE, sans que ceux-ci aient à le transposer dans leur droit national.
 
 ## Droits des personnes concernées
 
 Le RGPD reconnaît le droit fondamental des individus à la protection de leurs données personnelles (tel que défini par l'article 8 alinéa 1 de la *Charte des droits fondamentaux de l'Union européenne*). Ce droit doit être mis en perspective avec la réalité bien établie d'un monde dans lequel l'échange et le traitement des données jouent un rôle toujours plus important dans la vie quotidienne de chaque être humain et nous procurent des avantages indispensables :
 
-> L'évolution rapide des technologies et la mondialisation ont créé de nouveaux enjeux pour la protection des données à caractère personnel. L'ampleur de la collecte et du partage de données à caractère personnel a augmenté de manière importante. Les technologies permettent tant aux entreprises privées qu'aux autorités publiques d'utiliser les données à caractère personnel comme jamais auparavant dans le cadre de leurs activités. De plus en plus, les personnes physiques rendent des informations les concernant accessibles publiquement et à un niveau mondial. Les technologies ont transformé à la fois l'économie et les rapports sociaux, et elles devraient encore faciliter le libre flux des données à caractère personnel au sein de l'Union et leur transfert vers des pays tiers et à des organisations internationales, tout en assurant un niveau élevé de protection des données à caractère personnel.
+> L'évolution rapide des technologies et la mondialisation ont créé de nouveaux enjeux pour la protection des données à caractère personnel. L'ampleur de la collecte et du partage de données à caractère personnel a augmenté de manière importante. […] De plus en plus, les personnes physiques rendent des informations les concernant accessibles publiquement et à un niveau mondial. Les technologies ont transformé à la fois l'économie et les rapports sociaux, et elles devraient encore faciliter le libre flux des données à caractère personnel au sein de l'Union et leur transfert vers des pays tiers et à des organisations internationales, tout en assurant un niveau élevé de protection des données à caractère personnel.
 > — <cite>Raison 6 du RGPD</cite>
 
 Afin de parvenir à cet équilibre, des exigences élevées sont posées à la collecte et au traitement des données à caractère personnel et des droits étendus sont garantis aux personnes concernées vis-à-vis des responsables du traitement.
