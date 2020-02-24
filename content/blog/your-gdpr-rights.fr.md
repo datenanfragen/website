@@ -25,7 +25,7 @@ Le RGPD remplace principalement la législation nationale précédente sur la pr
 Le RGPD reconnaît le droit fondamental des individus à la protection de leurs données personnelles (tel que défini par l'article 8 alinéa 1 de la *Charte des droits fondamentaux de l'Union européenne*). Ce droit doit être mis en perspective avec la réalité bien établie d'un monde dans lequel l'échange et le traitement des données jouent un rôle toujours plus important dans la vie quotidienne de chaque être humain et nous procurent des avantages indispensables :
 
 > L'évolution rapide des technologies et la mondialisation ont créé de nouveaux enjeux pour la protection des données à caractère personnel. L'ampleur de la collecte et du partage de données à caractère personnel a augmenté de manière importante. Les technologies permettent tant aux entreprises privées qu'aux autorités publiques d'utiliser les données à caractère personnel comme jamais auparavant dans le cadre de leurs activités. De plus en plus, les personnes physiques rendent des informations les concernant accessibles publiquement et à un niveau mondial. Les technologies ont transformé à la fois l'économie et les rapports sociaux, et elles devraient encore faciliter le libre flux des données à caractère personnel au sein de l'Union et leur transfert vers des pays tiers et à des organisations internationales, tout en assurant un niveau élevé de protection des données à caractère personnel.
-> —<cite>Raison 6 du RGPD</cite>
+> — <cite>Raison 6 du RGPD</cite>
 
 Afin de parvenir à cet équilibre, des exigences élevées sont posées à la collecte et au traitement des données à caractère personnel et des droits étendus sont garantis aux personnes concernées vis-à-vis des responsables du traitement.
 
@@ -35,13 +35,13 @@ La plupart de ces droits (tels que le droit d'accès aux données personnelles) 
 
 Un principe important du RGPD est la **transparence** envers toi en tant que personne concernée. Les entités qui veulent traiter tes données personnelles ont l'**obligation totale de communiquer des informations détaillées**.
 
-Ces obligations sont spécifiquement définies aux articles 12 et 13 du RGPD. Le responsable du traitement doit non seulement te fournir le nom et les coordonnées de la structure responsable du traitement, mais aussi les finalités du traitement de tes données, la durée de conservation, les destinataires auxquels elles seront transmises et s'il est prévu de les transférer vers un pays tiers (article 13, paragraphes 1 et 2 du RGPD).
+Ces obligations sont spécifiquement définies aux articles 12 et 13 du RGPD. Le responsable du traitement doit non seulement te fournir le nom et les coordonnées de la structure responsable du traitement, mais aussi les finalités du traitement de tes données, la durée de conservation, les destinataires auxquels elles seront transmises et s'il est prévu de les transférer vers un pays tiers (article 13, paragraphes 1 et 2, du RGPD).
 
 Ces informations doivent être fournies *directement au moment de la collecte des données*. Cela permet de garantir un traitement équitable et transparent dans le cadre duquel tu peux décider en connaissance de cause si tu acceptes le traitement.
 
 ## Droit d'accès aux données
 
-Un autre droit important est le **droit d'accès aux données**, qui est défini dans l'article 15 du RGPD. Il te permet tout d'abord de demander aux entreprises et autres organisations de confirmer si des données à caractère personnel te concernant sont conservées (article 15, paragraphe 1, première phrase, du RGPD). Si tel est le cas, tu peux demander une copie gratuite des données stockées à ton sujet (article 15, paragraphe 3 du RGPD).
+Un autre droit important est le **droit d'accès aux données**, qui est défini dans l'article 15 du RGPD. Il te permet tout d'abord de demander aux entreprises et autres organisations de confirmer si des données à caractère personnel te concernant sont conservées (article 15, paragraphe 1, première phrase, du RGPD). Si tel est le cas, tu peux demander une copie gratuite des données stockées à ton sujet (article 15, paragraphe 3, du RGPD).
 
 Toutefois, tu peux également demander de nombreuses informations supplémentaires concernant le traitement de tes données (article 15, paragraphes 1 et 2, du RGPD). Citons, par exemple :
 
@@ -71,7 +71,7 @@ Il est important de noter que selon I'article 19 du RGPD, le responsable du trai
 
 ## Droit à l'effacement
 
-Si tu souhaites qu'une entreprise supprime les données à caractère personnel qu'elle a stockées sur toi, tu peux utiliser le **droit à l'effacement** (ou "droit à l'oubli"), défini dans l'article 17 du RGPD. Ce droit te permet de demander la suppression immédiate des données te concernant dans certaines circonstances.
+Si tu souhaites qu'une entreprise supprime les données à caractère personnel qu'elle a stockées sur toi, tu peux utiliser le **droit à l'effacement** (ou « droit à l'oubli »), défini dans l'article 17 du RGPD. Ce droit te permet de demander la suppression immédiate des données te concernant dans certaines circonstances.
 
 Les condition requises pour cela sont données, par exemple, si
 
