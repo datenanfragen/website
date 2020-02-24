@@ -1,6 +1,6 @@
 {
     "title": "Autorités de contrôle de la protection des données",
-    "type": "autorites-de-controle",
+    "type": "supervisory-authorities",
     "url": "autorites-de-controle",
     "aliases": [
     	"supervisory-data-protection-authorities",
@@ -8,6 +8,7 @@
     	"svas"
     ],
     "date": "2019-02-07T16:58:19+02:00",
+    "last_edited": "2020-02-24T19:42:00",
     "description": "Les autorités de contrôle de la protection des données sont des structures indépendantes dont la tâche est de veiller au respect des lois sur la protection des données. Si tu penses qu'une entreprise enfreint tes droits, tu peux les contacter gratuitement. Nous t'expliquons ici quelles sont les autorités de contrôle et t'aidons à en trouver une à contacter si tu veux déposer une plainte.",
     "featured_image": "/card-icons/authority.svg",
     "tags": [ "plainte", "compétence" ],
