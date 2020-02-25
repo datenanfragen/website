@@ -6,7 +6,7 @@
 
 <a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" style="float: right; width: 40%; min-width: 200px; padding: 5px;"></a>
 
-Afin que vous puissiez nous faire confiance, nous nous sommes engagés à être aussi transparents que possible sur nos procédures, nos finances et nos décisions. C'est pourquoi nous avons adhéré à l'[Initiative for a Transparent Civil Society](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), une initiative de la branche allemande de Transparency International, qui est autorisée à nous contrôler par échantillonnage. Ils garantissent le respect de notre promesse de gestion transparente. Sur cette page, nous avons résumé toutes les informations importantes que nous publions dans le cadre de cette initiative.
+Afin que vous puissiez nous faire confiance, nous nous sommes engagés à être aussi transparents que possible sur nos procédures, nos finances et nos décisions. C'est pourquoi nous avons adhéré à l'[Initiative pour une Société Civile Transparente](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), une initiative de la branche allemande de Transparency International, qui est autorisée à nous contrôler par échantillonnage. Ils garantissent le respect de notre promesse de gestion transparente. Sur cette page, nous avons résumé toutes les informations importantes que nous publions dans le cadre de cette initiative.
 
 Ces informations ont été mises à jour pour la dernière fois le 1<sup>er</sup> août 2019.
 
@@ -36,12 +36,12 @@ Notre objectif est le même que celui énoncé dans notre constitution, mais nou
 
 Le centre des impôts de Braunschweig-Wilhelmstraße nous a agréés en tant qu'association d'intérêt général par la [déclaration du 21 juin 2018 (en allemand)](https://static.dacdn.de/docs/feststellungsbescheid_2018-06-21.pdf) pour la réalisation d'activités de conseil et de protection ainsi que pour la promotion du gouvernement démocratique. Le numéro d'identification fiscale suivant nous a été attribué : 14/209/11640
 
-## 4. Name and function of significant decision makers
+## 4. Nom et fonction des principaux décideurs
 
 L'association est gérée par le [comité directeur]({{< ref "verein/board" >}}). Elle est composée de :
 
  - Benjamin Altpeter, président associé
- - Lorenz Sieben, Président associé
+ - Lorenz Sieben, président associé
 
 Il n'y a pour le moment aucun conseiller au sein du comité directeur.
 
