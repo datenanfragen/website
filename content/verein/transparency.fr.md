@@ -40,8 +40,8 @@ Le centre des impôts de Braunschweig-Wilhelmstraße nous a agréés en tant qu'
 
 L'association est gérée par le [comité directeur]({{< ref "verein/board" >}}). Elle est composée de :
 
- - Benjamin Altpeter, président associé
- - Lorenz Sieben, président associé
+ - Benjamin Altpeter, Président associé
+ - Lorenz Sieben, Président associé
 
 Il n'y a pour le moment aucun conseiller au sein du comité directeur.
 
