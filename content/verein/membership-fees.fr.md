@@ -28,6 +28,6 @@ Les membres fondateurs peuvent choisir de ne pas payer la cotisation. Ils en son
 <div style="float: right;">
     <!-- TODO: Maybe a button with an icon here? -->
     <a href="https://static.dacdn.de/docs/gebuehrenordnung.pdf" class="button button-secondary icon icon-download">Télécharger au format PDF (en allemand)</a>
-    <a href="/verein/become-a-member" class="button button-primary">Devenir membre</a>
+    <a href="/verein/devenir-membre-de-soutien" class="button button-primary">Devenir membre</a>
 </div>
 <div class="clearfix"></div>
