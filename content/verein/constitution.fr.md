@@ -8,8 +8,7 @@
 Notre constitution fixe le cadre juridique de l'association Datenanfragen.de e.&nbsp;V. Elle explique entre autres nos objectifs et la manière dont nous voulons les atteindre, elle fixe les règles concernant l'adhésion à notre association et définit le processus décisionnel.
 
 <p class="box box-info" style="margin-bottom: 20px;">
-Comme nous sommes basés en Allemagne, seule la <a href="https://www.datenanfragen.de/verein/satzung">version allemande</a> de notre constitution est juridiquement applicable. Cette traduction n'est proposée que par souci de confort.<br>
-Dans les cas où nous pensons que la traduction française peut être ambiguë, nous avons fait référence au texte original allemand [entre crochets] pour plus de clarté.
+Comme nous sommes basés en Allemagne, seule la <a href="https://www.datenanfragen.de/verein/satzung">version allemande</a> de notre constitution est juridiquement applicable. Cette traduction n'est proposée que par souci de confort.
 </p>
 
 ## 1. Nom, siège social et exercice comptable
@@ -35,7 +34,7 @@ a) la mise en place et le développement d'un générateur de demandes conformé
 b) la fourniture et la gestion de matériel d'information (articles, guides, rapports, brochures, magazines imprimés et vidéos) pour la formation, la science et la recherche, en informant et en conseillant le grand public sur des sujets tels que les conséquences de l'utilisation des réseaux numériques sur leur vie privée, les droits et possibilités offerts par le droit fondamental à la protection des données et le RGPD en particulier, ainsi que sur la manière d'utiliser ces droits,
 c) la gestion d'une base de données sous licence libre contenant des informations sur la manière de contacter les entreprises, les organisations gouvernementales et autres pour des demandes liées à la protection de la vie privée, ainsi que des informations sur les catégories potentielles de données stockées par ces entreprises ; en outre, la modération des contributions des utilisateurs à cette base de données afin de permettre l'échange d'informations dans l'intérêt de la protection des consommateurs,  
 d) la sensibilisation du public et la réalisation de campagnes, ainsi que l'organisation ou la participation à des conférences, séminaires et autres événements destinés à conseiller le grand public sur le droit à la vie privée et à faire avancer le débat concernant un droit fondamental à la liberté d'information, et  
-e) la gestion et le développement des plates-formes en ligne ouvertes, gratuites et accessibles au public datenanfragen.de (en allemand), datarequests.org (en anglais), demandetesdonnees.fr (en français) et éventuellement dans d'autres langues, qui permettent d'accéder au générateur décrit au point a) et à la base de données décrite au point c), de rendre le matériel d'information décrit au point b) accessible au public et, enfin, de faire de la publicité pour la sensibilisation du public décrite au point d).
+e) la gestion et le développement des plates-formes en ligne ouvertes, gratuites et accessibles au public Datenanfragen.de (en allemand), datarequests.org (en anglais) et éventuellement dans d'autres langues, qui permettent d'accéder au générateur décrit au point a) et à la base de données décrite au point c), de rendre le matériel d'information décrit au point b) accessible au public et, enfin, de faire de la publicité pour la sensibilisation du public décrite au point d).
 
 **2.3** L'association agit pour le bien commun et ne poursuit pas ses objectifs dans un but lucratif.
 
