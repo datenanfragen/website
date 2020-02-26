@@ -52,7 +52,7 @@ Comme la plupart des fonctionnalités de demandetesdonnees.fr, la totalité du t
 
 <div class="sva-finder"></div>
 
-Si tu préfères effectuer ces recherches toi-même, consulte notre [liste des autorités de protection des données]({{< ref "/supervisory-autority" >}}). Le [Conseil européen de la protection des données](https://edpb.europa.eu/about-edpb/board/members_fr) dispose également d'une liste, mais il faut noter que celle-ci ne comprend que les autorités au niveau national.
+Si tu préfères effectuer ces recherches toi-même, consulte notre [liste des autorités de protection des données]({{< ref "/supervisory-authority" >}}). Le [Conseil européen de la protection des données](https://edpb.europa.eu/about-edpb/board/members_fr) dispose également d'une liste, mais il faut noter que celle-ci ne comprend que les autorités au niveau national.
 
 ## Plaintes relatives à des demandes effectuées par l'intermédiaire de demandetesdonnees.fr
 

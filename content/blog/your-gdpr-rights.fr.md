@@ -1,6 +1,6 @@
 {
 	"title": "Tes droits en vertu du Règlement Général sur la Protection des Données (RGPD)",
-	"slug": "vos-droits-rgpd",
+	"slug": "tes-droits-rgpd",
 	"date": "2018-05-07T08:22:36+02:00",
 	"last_edited": "2020-02-24T19:25:00",
 	"type": "blog",
@@ -10,7 +10,7 @@
 
 Dans notre monde de plus en plus numérique, la protection des données joue chaque jour un rôle plus important. Avec le nouveau **Règlement Général sur la Protection des Données** (**RGPD**), l'Union européenne renforce considérablement tes droits en ce qui concerne le traitement minutieux de tes données personnelles.
 
-Dans cet article, nous voulons te donner un aperçu détaillé des droits dont tu disposes grâce au RGPD. Si tu recherches plutôt un bref résumé, consulte [cet article]({{< ref "/blog/a-quick-overview" >}}).
+Dans cet article, nous voulons te donner un aperçu détaillé des droits dont tu disposes grâce au RGPD. Si tu recherches plutôt un bref résumé, consulte [cet article (en anglais)](https://www.datarequests.org/blog/a-quick-overview/).
 
 ## Qu'est-ce que le RGPD ?
 
