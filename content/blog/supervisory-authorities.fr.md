@@ -60,4 +60,4 @@ Si tu as effectué une demande à une entreprise via demandetesdonnees.fr et que
 
 Dans la fonction [« Mes demandes »]({{< ref "/my-requests" >}}, tu peux obtenir un aperçu de toutes tes demandes, à condition de ne pas les avoir désactivées. À côté de chaque demande, il y a des boutons que tu peux utiliser pour envoyer des rappels et des plaintes concernant cette demande via notre générateur.
 
-{{< img src="/img/blog/send-complaint.png" caption="Envoyer une plainte via demandetesdonnees.fr" >}}
+{{< img src="/img/blog/envoyer-une-plainte.png" caption="Envoyer une plainte via demandetesdonnees.fr" >}}
