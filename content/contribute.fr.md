@@ -14,7 +14,7 @@ Merci beaucoup d'avoir cherché à contribuer à demandetesdonnees.fr !
         <h1>Maintenir la base de données d'entreprises</h1>
         <p>La <a href="/company">base de données d'entreprises</a> est un élément important de demandetesdonnes.fr. Elle contient les coordonnées des personnes à contacter pour les demandes relatives à la protection de la vie privée adressées à de nombreuses entreprises et autres organisations.</p>
         <p>Une telle base de données nécessite bien sûr beaucoup de maintenance, c'est pourquoi nous avons vraiment besoin de ton aide ! Si tu trouves une entreprise qui manque dans notre base de données, tu peux cliquer sur le bouton ci-dessous et la proposer toi-même.
-        <brTu as remarqué que les données que nous avons sur une entreprise sont incorrectes ou incomplètes ? Au bas de chaque page de détail de l'entreprise, il y a un lien qui te permet de modifier les données actuelles.</p>
+        <br>Tu as remarqué que les données que nous avons sur une entreprise sont incorrectes ou incomplètes ? Au bas de chaque page de détail de l'entreprise, il y a un lien qui te permet de modifier les données actuelles.</p>
         <p>Si vous voulez aller encore plus loin, vous pouvez également contribuer directement au <a href="https://github.com/datenanfragen/data">dépôt GitHub</a> que nous utilisons pour gérer la base de données.</p>
     </div>
     <div class="clearfix"></div>
