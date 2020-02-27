@@ -53,11 +53,11 @@ Toutefois, tu peux également demander de nombreuses informations supplémentair
 
 ## Droit à la portabilité des données
 
-Le **droit à la portabilité des données** n'existait pas jusqu'à présent ; il est introduit par l'article 20 du RGPD. Il est censé te permettre de recevoir tes données "dans un format structuré, couramment utilisé et lisible par machine" et de les transmettre "à un autre responsable du traitement" (article 20, paragraphe 1, du RGPD).
+Le **droit à la portabilité des données** n'existait pas jusqu'à présent ; il est introduit par l'article 20 du RGPD. Il est censé te permettre de recevoir tes données « dans un format structuré, couramment utilisé et lisible par machine » et de les transmettre « à un autre responsable du traitement » (article 20, paragraphe 1, du RGPD).
 
 Ce droit s'adresse en particulier aux utilisateurs de réseaux sociaux et de services cloud. Jusqu'à présent, les fournisseurs ont souvent utilisé des systèmes propriétaires empêchant de passer à une autre plateforme dans leur propre intérêt. L'objectif est d'y mettre un terme, afin de te donner une plus grande liberté dans le choix des plateformes qui te conviennent, mais aussi d'empêcher les monopoles.
 
-Comme le droit au transfert de données est encore très récent, il y a très peu de précisions sur la manière dont il sera mis en œuvre dans la pratique. Toutefois, certaines entreprises telles que Facebook et Google proposent déjà des solutions initiales sous la forme d'outils en ligne, que tu peux utiliser pour télécharger tes données au format JSON, par exemple. Il sera intéressant de voir comment cela se passera à l'avenir.
+Comme le droit à la portabilité des données est encore très récent, il y a très peu de précisions sur la manière dont il sera mis en œuvre dans la pratique. Toutefois, certaines entreprises telles que Facebook et Google proposent déjà des solutions initiales sous la forme d'outils en ligne, que tu peux utiliser pour télécharger tes données au format JSON, par exemple. Il sera intéressant de voir comment cela se passera à l'avenir.
 
 ## Droit de rectification
 
@@ -65,7 +65,7 @@ Dans certains cas, les données qu'une entreprise a stockées à ton sujet peuve
 
 Ce droit est particulièrement intéressant en ce qui concerne les agences de crédit telles que Experian et Equifax, qui collectent des données sur tes antécédents de paiement, tes transactions bancaires, tes contrats de téléphonie mobile et bien d'autres choses afin de calculer les probabilités de paiement et ainsi de suite. Si le calcul est basé sur des données inexactes, cela peut avoir des conséquences très négatives pour toi.
 
-Il est important de noter que selon I'article 19 du RGPD, le responsable du traitement doit non seulement procéder à la rectification de tes données, mais également communiquer cette rectification à tous les destinataires, de sorte qu'ils l'effectuent également dans leurs systèmes en conséquence.
+Il est important de noter que selon I'article 19 du RGPD, le responsable de traitement doit non seulement procéder à la rectification de tes données, mais également communiquer cette rectification à tous les destinataires, de sorte qu'ils l'effectuent également dans leurs systèmes en conséquence.
 
 ## Droit à l'effacement
 
@@ -84,10 +84,10 @@ Toutefois, il existe également des cas où le droit est limité et où la suppr
 * l'utilisation à des fins d'archivage et de recherche scientifique ou historique dans l'intérêt public (article 17, paragraphe 3, point d, du RGPD),
 * pour faire valoir des droits (article 17, paragraphe 3, point e, du RGPD).
 
-L'article 19 du RGPD s'applique également aux demandes concernant la suppression de données et le responsable du traitement doit informer tous les destinataires de la suppression, afin qu'ils l'appliquent également dans leurs systèmes.
+L'article 19 du RGPD s'applique également aux demandes concernant la suppression de données et le responsable de traitement doit informer tous les destinataires de la suppression, afin qu'ils l'appliquent également dans leurs systèmes.
 
 ## Comment puis-je exercer ces droits ?
 
-En général, vous pouvez faire valoir tous les droits ci-dessus à l'égard d'une entreprise par le biais d'une demande informelle. Vous pouvez également utiliser [notre générateur]({{< ref "/generator" >}}) pour générer automatiquement des demandes et utiliser en même temps notre large base de données d'entreprises.
+En général, tu peux faire valoir tous les droits ci-dessus à l'égard d'une entreprise par le biais d'une demande informelle. Tu peux également utiliser [notre générateur]({{< ref "/generator" >}}) pour générer automatiquement des demandes et utiliser en même temps notre large base de données d'entreprises.
 
 <!-- TODO: Write and link article. -->

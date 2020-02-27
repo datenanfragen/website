@@ -8,7 +8,7 @@ Merci beaucoup de ton soutien ! Ton don nous aidera à financer nos projets actu
 
 Si tu souhaites nous soutenir de manière récurrente, tu peux également [devenir membre]({{< ref "become-a-member" >}}). De cette façon, tu peux également nous fournir un mandat de prélèvement SEPA.
 
-En tant qu'organisation d'utilité publique, nous pouvons également te délivrer un [reçu de don](#donation-receipt-howto).
+En tant qu'association reconnue d'utilité publique, nous pouvons également te délivrer un [reçu de don](#donation-receipt-howto).
 
 <div class="donation-widget"></div>
 
@@ -24,12 +24,12 @@ En tant qu'organisation d'utilité publique, nous pouvons également te délivre
 
 * <a id="donation-receipt-howto"></a>**Comment obtenir un reçu pour mon don ?**
 
-  Si tu as besoin d'un reçu de notre part pour prouver à ton administration fiscale que tu as effectué un don à un organisme d'utilité publique, nous pouvons t'en fournir un. En règle générale, nous ne délivrons des reçus que pour les paiements effectués par virement bancaire, prélèvement automatique, PayPal ou carte de crédit.
+  Si tu as besoin d'un reçu de notre part pour prouver à ton administration fiscale que tu as effectué un don à une association reconnue d'utilité publique, nous pouvons t'en fournir un. En règle générale, nous ne délivrons des reçus que pour les paiements effectués par virement bancaire, prélèvement automatique, PayPal ou carte de crédit.
 
   Après ton don, tu seras redirigé vers une page où tu pourras télécharger un reçu (en allemand) pour ton don si tu as fait un don d'un montant inférieur à 200 €.  
   Pour un don plus important, tu devras nous envoyer un e-mail à [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), et nous indiquer ton numéro de don et ton adresse, afin que nous puissions te créer un reçu détaillé.
 
-  **Note que nous ne sommes accrédités en tant qu'organisme d'utilité publique que par les autorités fiscales allemandes** Pense à vérifier ton réglement fiscal local pour savoir comment et si tu peux déduire ton don dans tes déclarations fiscales.
+  **Note que nous ne sommes accrédités en tant qu'association reconnue d'utilité publique que par les autorités fiscales allemandes** Pense à vérifier ton règlement fiscal local pour savoir comment et si tu peux déduire ton don dans tes déclarations fiscales.
 
 * **Qui d'autre a déjà fait des dons ?**
 
@@ -41,7 +41,7 @@ En tant qu'organisation d'utilité publique, nous pouvons également te délivre
 
 * **Comment puis-je donner de façon anonyme ?**
 
-  Si tu ne souhaites pas indiquer ton identité, tu peux soit utiliser une monnaie cryptée anonyme, soit nous envoyer de l'argent liquide par courrier à notre adresse :
+  Si tu ne souhaites pas indiquer ton identité, tu peux soit utiliser une cryptomonnaie de manière anonyme, soit nous envoyer de l'argent liquide par courrier à notre adresse :
 
     *Datenanfragen.de e.&thinsp;V.  
     Schreinerweg 6  

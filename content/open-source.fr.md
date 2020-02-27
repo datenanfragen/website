@@ -13,7 +13,7 @@ Nous sommes de grands partisans de l'Open Source et nous y croyons.
 
 ## Nos dépôts Open Source
 
-Voici un aperçu des principaux dépôts que nous avons créés directement ou indirectement, pour demandetesdonnees.fr. Ils sont bien sûr publiés sous licence libre. Nous vous invitons à jeter un coup d'œil derrière le rideau, à contribuer ou à utiliser notre travail pour vos propres projets ! Nous accueillons chaleureusement les issues et les pull requests sur les dépôts de miroirs sur GitHub, évidemment.
+Voici un aperçu des principaux dépôts que nous avons créés directement ou indirectement, pour demandetesdonnees.fr. Ils sont bien sûr publiés sous licence libre. Nous vous invitons à jeter un coup d'œil derrière le rideau, à contribuer ou à utiliser notre travail pour vos propres projets ! Nous accueillons chaleureusement les *issues* et les *pull requests* sur les dépôts de miroirs sur GitHub, évidemment.
 
 <!-- TODO: Add new repos when applicable. -->
 
@@ -23,7 +23,7 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
         <a href="https://github.com/datenanfragen/website"><h1><code>website</code></h1></a>
         <span class="license">Licence MIT</span>
         <p class="description">
-            Le site Web sur lequel tu te trouves actuellement. Ce dépôt contient non seulement le contenu mais aussi le code du générateur, les contrôles de confidentialité et plus encore.
+            Le site Web sur lequel tu te trouves actuellement. Ce dépôt contient non seulement le contenu mais aussi le code du générateur, des options de confidentialité et plus encore.
             <br>Le site est conçu pour être essentiellement statique et fonctionne avec Hugo et Preact.
         </p>
     </div>
@@ -37,7 +37,7 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
         <a href="https://github.com/datenanfragen/data"><h1><code>data</code></h1></a>
         <span class="license">Licence CC0</span>
         <p class="description">
-            Les données à l'origine du projet. Il s'agit notamment de nos bases de données sur les entreprises et les autorités de contrôle, mais aussi de nos modèles de lettres.
+            Les données à l'origine du projet. Il s'agit notamment de nos bases de données sur les entreprises et les autorités de contrôle, mais aussi de nos modèles de lettre.
             <br>Le dépôt est structuré comme une collection de fichiers de texte brut lisibles par l'homme et par la machine.
         </p>
     </div>

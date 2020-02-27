@@ -12,7 +12,7 @@ Ces informations ont été mises à jour pour la dernière fois le 1<sup>er</sup
 
 ## 1. Nom, siège social, adresse et date de création
 
-Ces informations sont également disponibles dans notre page de [contact]({{< ref "contact" >}}).
+Ces informations sont également disponibles sur notre page de [contact]({{< ref "contact" >}}).
 
  - Nom : Datenanfragen.de e.&thinsp;V.
  - Siège social : Braunschweig, Allemagne
@@ -28,13 +28,13 @@ Ces informations sont également disponibles dans notre page de [contact]({{< re
 
 ## 2. Constitution et objectifs
 
-Nous publions la constitution complète de notre association sur [ce site]({{< ref "verein/constitution" >}}) et sur [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
+Nous publions la constitution complète de notre association sur [cette page]({{< ref "verein/constitution" >}}) et sur [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
 
 Notre objectif est le même que celui énoncé dans notre constitution, mais nous l'avons également résumé et expliqué [ici]({{< ref "verein/mission-statement" >}}).  
 
 ## 3. Informations sur les avantages fiscaux
 
-Le centre des impôts de Braunschweig-Wilhelmstraße nous a agréés en tant qu'association d'intérêt général par la [déclaration du 21 juin 2018 (en allemand)](https://static.dacdn.de/docs/feststellungsbescheid_2018-06-21.pdf) pour la réalisation d'activités de conseil et de protection ainsi que pour la promotion du gouvernement démocratique. Le numéro d'identification fiscale suivant nous a été attribué : 14/209/11640
+Le centre des impôts de Braunschweig-Wilhelmstraße nous a agréés en tant qu'association reconnue d'intérêt général par la [déclaration du 21 juin 2018 (en allemand)](https://static.dacdn.de/docs/feststellungsbescheid_2018-06-21.pdf) pour la réalisation d'activités de conseil et de protection ainsi que pour la promotion du gouvernement démocratique. Le numéro d'identification fiscale suivant nous a été attribué : 14/209/11640
 
 ## 4. Nom et fonction des principaux décideurs
 

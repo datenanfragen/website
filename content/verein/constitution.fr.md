@@ -19,7 +19,7 @@ Comme nous sommes basés en Allemagne, seule la <a href="https://www.datenanfrag
 
 **1.3** L'exercice comptable correspond à l'année civile.
 
-**1.4** L'association poursuit exclusivement et directement des objectifs d'intérêt général conformément à la section « objectifs fiscalement privilégiés » de l'AO (code des impôts allemand).
+**1.4** L'association poursuit exclusivement et directement des objectifs d'intérêt général conformément à la section « Steuergebünstigte Zwecke » de l'AO (code des impôts allemand).
 
 ## 2. Raison d'être
 
@@ -110,7 +110,7 @@ b) un nombre arbitraire de conseillers, qui sont membres du comité directeur é
 
 **9.3** Une décision du comité directeur peut également être prise par écrit (notamment par courrier électronique) ou par téléphone, si tous les présidents expriment leur approbation quant à la disposition proposée.
 
-**9.4** Les conseillers doivent être invités aux réunions du conseil d'administration et ont accès aux procès-verbaux, mais ne peuvent pas participer aux décisions du conseil.
+**9.4** Les conseillers doivent être invités aux réunions du comité directeur et ont accès aux procès-verbaux, mais ne peuvent pas participer aux décisions du conseil.
 
 ## 10. L'assemblée générale
 
@@ -157,7 +157,7 @@ d) décider d'éventuelles modifications des status, ainsi que d'une éventuelle
 
 **16.1** La dissolution de l'association ne peut être décidée qu'en assemblée générale à la majorité des voix prévue à l'article 12. Sauf décision contraire de l'assemblée générale, les présidents sont conjointement habilités à liquider. Les dispositions ci-dessus s'appliquent en conséquence en cas de dissolution de l'association pour quelque autre raison que ce soit ou de perte de sa capacité juridique.
 
-**16.2** Si l'association est dissoute ou n'est plus éligible aux avantages fiscaux, les actifs de l'association sont transférés à une personne morale de droit public ou à une autre entité fiscalement avantagée pour être utilisés dans le développement du gouvernement démocratique conformément au paragraphe 52, alinéa 2, point 2 de l'AO (code fiscal allemand).
+**16.2** Si l'association est dissoute ou n'est plus éligible aux avantages fiscaux, les actifs de l'association sont transférés à une personne morale de droit public ou à une autre entité fiscalement avantagée pour être utilisés dans le développement du gouvernement démocratique conformément au paragraphe 52, alinéa 2, point 2, de l'AO (code fiscal allemand).
 
 ## 17. Clés OpenPGP
 
@@ -175,6 +175,6 @@ c) Questions de confidentialité : `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2
 
 ---
 
-La constitution ci-dessus a été établie lors de l'assemblée fondatrice du 14 juin 2018 et modifiée pour la dernière fois lors de la réunion du conseil d'administration du 2 août 2018.
+La constitution ci-dessus a été établie lors de l'assemblée fondatrice du 14 juin 2018 et modifiée pour la dernière fois lors de la réunion du comité directeur du 2 août 2018.
 
 Signé par les membres fondateurs à Göttingen le 14 juin 2018.

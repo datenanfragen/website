@@ -12,7 +12,7 @@ Si tu souhaites nous soutenir de manière récurrente ou bien seulement être un
 
 ## Où est mon reçu de don ?
 
-Nous serons bien entendu heureux de te délivrer un reçu pour ton don. **Toutefois, note que nous ne sommes accrédités en tant qu'organisation caritative que par les autorités fiscales allemandes.** Vérifie ton règlement fiscal local pour savoir comment et si tu peux déduire ton don dans tes déclarations de revenus.
+Nous serons bien entendu heureux de te délivrer un reçu pour ton don. **Toutefois, note que nous ne sommes accrédités en tant qu'association caritative que par les autorités fiscales allemandes.** Vérifie ton règlement fiscal local pour savoir comment et si tu peux déduire ton don dans tes déclarations de revenus.
 
 Si tu as fait un don inférieur à 200 €, les services fiscaux allemands accepteront également un [reçu de don simplifié] (https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) en combinaison avec ton reçu de paiement (relevé bancaire, relevé de carte de crédit, …) pour ta déduction fiscale.
 
