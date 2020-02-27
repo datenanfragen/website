@@ -1,5 +1,6 @@
 {
-    "title": "Paramètres de confidentialité",
+    "title": "Options de confidentialité",
+    "slug": "options-de-confidentialite",
     "type": "privacy-controls",
     "static": true
 }
