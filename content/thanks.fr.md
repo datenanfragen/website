@@ -1,6 +1,6 @@
 {
     "title": "Merci pour ton don !",
-    "type": "merci",
+    "type": "thanks",
     "aliases": ["verein/thanks"]
 }
 
