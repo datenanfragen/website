@@ -14,7 +14,7 @@ Merci beaucoup d'avoir cherché à contribuer à demandetesdonnees.fr !
         <h1>Maintenir la base de données d'entreprises</h1>
         <p>La <a href="/company">base de données d'entreprises</a> est un élément important de demandetesdonnes.fr. Elle contient les coordonnées des personnes à contacter pour les demandes relatives à la protection de la vie privée adressées à de nombreuses entreprises et autres organisations.</p>
         <p>Une telle base de données nécessite bien sûr beaucoup de maintenance, c'est pourquoi nous avons vraiment besoin de ton aide ! Si tu trouves une entreprise qui manque dans notre base de données, tu peux cliquer sur le bouton ci-dessous et la proposer toi-même.
-        <brTu as remarqué que les données que nous avons sur une entreprise sont incorrectes ou incomplètes ? Au bas de chaque page de détail de l'entreprise, il y a un lien qui te permet de modifier les données actuelles.</p>
+        <br>Tu as remarqué que les données que nous avons sur une entreprise sont incorrectes ou incomplètes ? En haut de chaque page d'informations sur une entreprise, il y a un bouton « Suggérer une modification » qui te permet de modifier les données actuelles.</p>
         <p>Si vous voulez aller encore plus loin, vous pouvez également contribuer directement au <a href="https://github.com/datenanfragen/data">dépôt GitHub</a> que nous utilisons pour gérer la base de données.</p>
     </div>
     <div class="clearfix"></div>
@@ -27,12 +27,13 @@ Merci beaucoup d'avoir cherché à contribuer à demandetesdonnees.fr !
     <div class="padded col75">
         <h1>Traduction</h1>
         <p>Notre objectif est que demandetesdonnees.fr soit accessible au plus grand nombre de personnes possible. Pour y parvenir, nous devons traduire le projet et en adapter le contenu aux différents pays.</p>
-        <p>Tu connais une langue que nous ne prenons pas encore en charge et tu aimerais nous aider à traduire ? Super ! Pour l'instant, nous n'avons malheureusement pas encore d'infrastructure prête pour cela, alors n'hésitez pas à nous contacter en cliquant sur le bouton ci-dessous.</p>
+        <p>Tu connais une langue que nous ne prenons pas encore en charge et tu aimerais nous aider à traduire ? Super ! Nous gérons nos traductions via la plateforme <em><a href="https://hosted.weblate.org/engage/datenanfragen-de/">Weblate</a></em>. Ici, tu peux facilement nous aider à traduire le site, que ce soit quelques chaînes de caractères ou bien des composants entiers.
+        <br>Pour que nous puissions officiellement prendre en charge une nouvelle langue, en plus des traductions proprement dites, nous avons également besoin d'un responsable pour cette langue, qui nous aide par exemple à trouver un nom et à vérifier les nouvelles traductions. Si cela te tente, envoie-nous un <a href="dev@datarequests.org">e-mail</a>.</p>
         <p>Une tâche tout aussi importante consiste à ajouter des entreprises du plus grand nombre de pays possible à la base de données. Se reporter à l'information <a href="#cdb">ci-dessus</a> pour savoir comment soumettre de nouvelles entrées.
-        <br>Nous pouvons commencer à soutenir officiellement un nouveau pays dès que nous avons un nombre suffisant d'entreprises de ce pays dans notre base de données et une fois que nous avons établit une liste d'entreprises suggérées auxquelles chaque personne dans ce pays devrait envoyer une demande.</p>
+        <br>Nous commençons automatiquement à prendre en charge un nouveau pays dès que nous avons un nombre suffisant d'entreprises de ce pays dans notre base de données (le seuil est actuellement fixé à dix). Nous aimerions également établir une liste d'entreprises suggérées auxquelles chaque personne dans ce pays devrait envoyer une demande.</p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="mailto:dev@datenanfragen.de">Nous aider à traduire&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://hosted.weblate.org/engage/datenanfragen-de/">Nous aider à traduire&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 <article id="content" class="list-article icon-list-article">
@@ -40,7 +41,8 @@ Merci beaucoup d'avoir cherché à contribuer à demandetesdonnees.fr !
     <div class="padded col75">
         <h1>Rédaction de contenu</h1>
         <p>En plus du générateur et de la base de données d'entreprises, nous voulons également proposer des <a href="/">articles</a> complets sur tous les sujets relatifs à la vie privée et à la protection des données. Cela comprend des explications sur les droits d'une personne en vertu du RGPD et la façon de les utiliser, des commentaires sur les dernières nouvelles concernant la protection des données et des guides sur l'utilisation des fonctions de téléchargement offertes par certains sites Web, pour ne citer que ces exemples.</p>
-        <p>Tu as un article qui pourrait intéresser nos utilisateurs ? Nous serions ravis de le publier !</p>
+        <p>Tu as un article qui pourrait intéresser nos utilisateurs ? Nous serions ravis de le publier !
+        <br>Par ailleurs, nous sommes également toujours intéressés par de nouvelles traductions pour des articles existants.</p>
     </div>
     <div class="clearfix"></div>
     <a class="button button-primary read-more-button" href="mailto:editors@datarequests.org">Contacter les éditeurs&nbsp;<span class="icon icon-arrow-right"></span></a>
@@ -64,7 +66,7 @@ Merci beaucoup d'avoir cherché à contribuer à demandetesdonnees.fr !
     <div class="padded col75">
         <h1>Participer au développement</h1>
         <p>Vous souhaitez contribuer au développement de demandetesdonnees.fr ? Bien entendu, nous nous félicitons également de toute aide en la matière. Il y a toujours un bug à résoudre ou une nouvelle fonctionnalité à implémenter.</p>
-        <p>Le projet est conçu sous la forme d'un site web statique basé sur Hugo et Preact. La plupart du développement se fait sur une instance privée de GitLab, avec tous les commits en miroir vers GitHub. Nous accueillons toujours les issues et les pull request via le dépôt GitHub. Il y a aussi plus de détails sur notre architecture.</p>
+        <p>Le projet est conçu sous la forme d'un site web statique basé sur Hugo et Preact. Le développement est réalisé sur notre dépôt <em>GitHub</em>. Nous y accueillons avec plaisir les <em>issues</em> et les <em>pull requests</em>. On peut également y trouver plus d'informations sur notre structure.</p>
     </div>
     <div class="clearfix"></div>
     <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">Voir le dépôt sur GitHub&nbsp;<span class="icon icon-arrow-right"></span></a>
