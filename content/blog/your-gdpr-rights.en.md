@@ -2,7 +2,7 @@
 	"title": "Your rights under the General Data Protection Regulation (GDPR)",
 	"slug": "your-gdpr-rights",
 	"date": "2018-05-07T08:22:36+02:00",
-	"last_edited": "2018-05-19T00:13:15",
+	"last_edited": "2020-02-24T19:07:25+02:00",
 	"type": "blog",
 	"description": "The GDPR grants you extensive rights with regard to data protection. For example, every company in the EU is required to tell you what personal data they have stored on you. If the data is incorrect, they have to correct it. You may even request that the data be deleted again. Find out more in this article.",
 	"tags": [ "gdpr", "rights", "data access", "erasure", "rectification" ]
@@ -14,7 +14,7 @@ In this article, we want to give you a detailed overview of the rights you have 
 
 ## What is the GDPR?
 
-The GDPR is an *EU regulation* that will enter into force on May 25, 2018. The aim of the GDPR is to give EU citizens better control over their personal data. As a result uniforming the regulation of data protection throughout the EU, the legal situation for both citizens and companies is to be made clearer and bureaucracy reduced.
+The GDPR is an *EU regulation* that entered into force on May 25, 2018. The aim of the GDPR is to give EU citizens better control over their personal data. As a result uniforming the regulation of data protection throughout the EU, the legal situation for both citizens and companies is to be made clearer and bureaucracy reduced.
 
 The GDPR predominantly replaces previous national data protection law, such as the British *Data Protection Act 1998* (*DPA*) (in individual aspects, however, it still allows the member states an individual interpretation in national legislation. As an EU regulation, it is directly applicable law in all EU member states, without these having to implement it in their national law.
 

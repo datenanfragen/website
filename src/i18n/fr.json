@@ -4,7 +4,7 @@
         "suggest-a-company": "Suggérer une nouvelle entreprise",
         "also-runs": "Également applicable : ",
         "categories": "Catégories : ",
-        "search-disabled": "Tu as désactivé la fonctionnalité de recherche. Si tu souhaites l'activer, jette un œil aux <a href='/privacy-controls'>paramètres de confidentialité</a>."
+        "search-disabled": "Tu as désactivé la fonctionnalité de recherche. Si tu souhaites l'activer, jette un œil aux <a href='/privacy-controls'>options de confidentialité</a>."
     },
     "cdb": {
         "select-company": "Rechercher une entreprise…",
@@ -15,7 +15,7 @@
     "home": {
         "data-access": "l'accès aux données.",
         "data-erasure": "la suppression de données.",
-        "data-rectification": "la rectification de données.",
+        "data-rectification": "la rectification des données.",
         "objection": "l'opposition.",
         "privacy": "la confidentialité !",
         "how-about": "Que penses-tu de « {{name}} » ?"
@@ -137,7 +137,7 @@
         "mailto-dropdown-warning": "*Ceci transmettra ta demande et toutes les données incluses au service correspondant."
     },
     "privacy-controls": {
-        "title": "Paramètres de confidentialité",
+        "title": "Options de confidentialité",
         "explanation": "<p>Nous attachons une grande importance à ton droit à la confidentialité et nous nous efforçons de limiter autant que possible la collecte et le traitement des données. La plupart des fonctionnalités de demandetesdonnees.fr seront exécutées directement sur ton ordinateur et les données que tu saisis ne seront même jamais transmises à nos serveurs. Il y a cependant certaines fonctionnalités que nous ne pouvons pas offrir sans collecter certaines données (cependant la plupart des paramètres, même sur cette page, ne t'y obligent pas).<br>Ici, tu as la possibilité de décider toi-même quelles fonctions tu souhaites activer.</p><p>Lorsque tu définis l'une des options ci-dessous, ton choix sera enregistré dans un cookie. Si nous ne trouvons pas de cookie pour une option, nous utilisons une valeur par défaut que nous avons choisie.</p>",
         "clear-cookies": "Supprimer tous les cookies",
         "clear-my-requests": "Supprimer toutes les demandes enregistrées",
@@ -163,8 +163,8 @@
         "modal-delete-single-request": "Es-tu sûr de vouloir supprimer cette demande ? Cela ne peut pas être annulé.",
         "clear-success": "Effacé avec succès.",
         "cookie-change-success": "Paramètres enregistrés.",
-        "feature-disabled": "Tu as désactivé cette fonction. Si tu souhaites l'activer, jette un œil aux <a href='/privacy-controls'>paramètres de confidentialité</a>.",
-        "feature-disabled-alt": "Fonction désactivée depuis les paramètres de confidentialité"
+        "feature-disabled": "Tu as désactivé cette fonction. Si tu souhaites l'activer, jette un œil aux <a href='/privacy-controls'>options de confidentialité</a>.",
+        "feature-disabled-alt": "Fonction désactivée depuis les options de confidentialité"
     },
     "error-handler": {
         "explanation": "Malheureusement, une erreur inattendue s'est produite. Nous apprécierons vraiment si tu prenais le temps de nous envoyer un rapport d'erreur via GitHub ou par e-mail, afin que nous puissions diagnostiquer le problème. Un grand merci d'avance !",
@@ -237,7 +237,7 @@
         "suggestions": "<p>Sur la droite, nous avons déjà commencé ta liste avec quelques entreprises. Ça fait beaucoup et tu ne reconnaît pas la plupart d'entre elles ? N'hésite pas à nous en parler ! D'après notre expérience, ces sociétés détiennent des données sur à peu près tout le monde dans ton pays (si tu n'es pas en <em id='wizard-user-country'>{{country}}</em>, tu peux <a href='#footer'>modifier ce paramètre</a> en bas de page). Nous pensons donc qu'il est d'autant plus important de les interroger sur tes données personnelles.</p>",
         "no-suggestions": "<p>Malheureusement, nous n'avons pas encore d'entreprises suggérées pour ton pays (<em id='wizard-user-country'>{{country}}</em>). Si tu es dans un autre pays, tu peux <a href='#footer'>modifier ce paramètre</a> en bas de la page.</p>",
         "commerce": "<p>Commençons par le commerce. Tu fais beaucoup d'achats sur Amazon ou Ebay ? Tu sais probablement déjà que les boutiques en ligne aiment collecter de nombreuses données personnelles sur leurs utilisateurs, alors n'oublie pas d'ajouter celles que tu utilises ou a utilisé par le passé.</p><p>Il est inquiétant de constater que les magasins traditionnels surveillent de plus en plus leurs clients et nous te suggérons d'ajouter au moins ceux que tu visites régulièrement ou pour lesquels ils t'ont activement demandé de fournir tes données.</p><p>Pour ajouter une entreprise, utilise simplement la barre de recherche ci-dessus.<br>Note bien que la recherche est filtrée par catégorie. Cela signifie que tu ne trouveras que des entreprises de la catégorie « commerce » dans cette étape, alors que l'étape suivante ne concerne que les entreprises de divertissement et ainsi de suite.</p>",
-        "entertainment": "<p>Te souviens-tu du dernier film que tu as regardé sur Netflix, de la chanson la plus écoutée sur ton compte Spotify ou du nombre d'heures que tu as passées à jouer à ton jeu Steam préféré ? C'est certainement le cas de ces entreprises.</p><p>À ce propos : Nous nous souviendrons des entreprises que tu as déjà sélectionnées. Alors ne t'inquiète pas : si tu recharges la page ou si tu veux continuer plus tard, tu n'auras pas à recommencer à zéro.<br>Et bien sûr, ces données ne sont sauvegardées que sur ton ordinateur. Si tu souhaites néanmoins désactiver cette fonction, consulte nos <a href=\"/privacy-controls\">paramètres de confidentialité</a>.</p>",
+        "entertainment": "<p>Te souviens-tu du dernier film que tu as regardé sur Netflix, de la chanson la plus écoutée sur ton compte Spotify ou du nombre d'heures que tu as passées à jouer à ton jeu Steam préféré ? C'est certainement le cas de ces entreprises.</p><p>À ce propos : Nous nous souviendrons des entreprises que tu as déjà sélectionnées. Alors ne t'inquiète pas : si tu recharges la page ou si tu veux continuer plus tard, tu n'auras pas à recommencer à zéro.<br>Et bien sûr, ces données ne sont sauvegardées que sur ton ordinateur. Si tu souhaites néanmoins désactiver cette fonction, consulte nos <a href=\"/privacy-controls\">options de confidentialité</a>.</p>",
         "social media": "<p>Si tu es membre d'un réseau social (comme Facebook, WhatsApp, Twitter ou Instagram), n'oublie pas de les ajouter.</p>",
         "finance": "<p>Tu as probablement au moins un compte bancaire et peut-être une carte de crédit distincte. Mais cette catégorie comprend également les services de paiement comme PayPal et Patreon.<br>Ou peut-être que tu as déjà échangé de la cryptomonnaie ?</p>",
         "insurance": "<p>Cette catégorie devrait être assez évidente. N'oublie pas que les compagnies d'assurance te vendent souvent des assurances pour des choses peu évidentes de nos jours, y compris les voyages et l'achat de petits appareils électroniques.</p>",
@@ -252,7 +252,7 @@
         "none-selected": "Aucune pour le moment."
     },
     "id-data-controls": {
-        "id-data-deactivated": "L'enregistrement des informations d'identification est désactivé. Si tu souhaites accélérer le processus de génération et enregistrer les informations d'identification, pense à activer la sauvegarde des informations d'identification dans les <a href=\"/privacy-controls/\">paramètres de confidentialité</a>.",
+        "id-data-deactivated": "L'enregistrement des informations d'identification est désactivé. Si tu souhaites accélérer le processus de génération et enregistrer les informations d'identification, pense à activer la sauvegarde des informations d'identification dans les <a href=\"/privacy-controls/\">options de confidentialité</a>.",
         "always-fill-in-explain": "Les informations enregistrées peuvent être complétées automatiquement dans les champs des nouvelles demandes.",
         "always-fill-in": "Toujours compléter les champs connus ?",
         "saved-data": "Informations enregistrées",
@@ -267,7 +267,7 @@
         "address-line-2": "Adresse ligne 2",
         "address-place": "Ville",
         "address-country": "Pays",
-        "saved-data-explanation": "Ces données correspondent aux informations que tu as saisies dans le générateur lors de tes demandes d'identification auprès d'une société. Tu peux désormais les compléter dans de nouvelles demandes, ce qui est particulièrement utile lorsque tu souhaites générer plusieurs demandes à la fois. Nous avons enregistré ces données pour toi <strong>sur ton ordinateur</strong>, elles ne nous ont jamais été et ne nous seront jamais transmises. Tu peux choisir de remplir toutes les demandes automatiquement de sorte que la génération d'une demande ne soit qu'un simple clic sur le bouton de téléchargement. Coche simplement la case ci-dessous. Pour plus d'informations sur tes données, consulte les <a href=\"/privacy-controls/\">paramètres de confidentialité</a>.",
+        "saved-data-explanation": "Ces données correspondent aux informations que tu as saisies dans le générateur lors de tes demandes d'identification auprès d'une société. Tu peux désormais les compléter dans de nouvelles demandes, ce qui est particulièrement utile lorsque tu souhaites générer plusieurs demandes à la fois. Nous avons enregistré ces données pour toi <strong>sur ton ordinateur</strong>, elles ne nous ont jamais été et ne nous seront jamais transmises. Tu peux choisir de remplir toutes les demandes automatiquement de sorte que la génération d'une demande ne soit qu'un simple clic sur le bouton de téléchargement. Coche simplement la case ci-dessous. Pour plus d'informations sur tes données, consulte les <a href=\"/privacy-controls/\">options de confidentialité</a>.",
         "reset": "Réinitialiser"
     },
     "signature": {
@@ -289,7 +289,7 @@
         "language-de": "Allemand",
         "language-en": "Anglais",
         "language-fr": "Français",
-        "language-change-modal": "Modifier la langue te redirigera vers un autre domaine. Tes paramètres et informations sauvegardées depuis ce domaine ne seront pas transférés.<br>En particulier, cela signifie que des éléments tels que tes paramètres de confidentialité et tes demandes enregistrées ne seront pas disponibles dans la nouvelle langue. Tu peux toujours revenir à cette langue et les afficher ici, mais tu ne peux pas partager les paramètres et les données enregistrées entre différentes langues.",
+        "language-change-modal": "Modifier la langue te redirigera vers un autre domaine. Tes paramètres et informations sauvegardées depuis ce domaine ne seront pas transférés.<br>En particulier, cela signifie que des éléments tels que tes options de confidentialité et tes demandes enregistrées ne seront pas disponibles dans la nouvelle langue. Tu peux toujours revenir à cette langue et les afficher ici, mais tu ne peux pas partager les paramètres et les données enregistrées entre différentes langues.",
         "change-lang": "Modifier la langue",
         "stay": "Rester ici",
         "not-supported-prompt": "Ta langue ou pays n'est pas encore pris en charge ?",
@@ -588,10 +588,10 @@
         "header-my-requests": "Mes demandes",
         "header-blog": "Articles",
         "header-contact": "Contact",
-        "header-privacy-controls": "Paramètres de confidentialité",
+        "header-privacy-controls": "Options de confidentialité",
         "header-id-data-controls": "Mes données sauvegardées",
         "header-open-menu": "Ouvrir le menu",
-        "footer-about-us": "Nous sommes Datenfragen.de e.&nbsp;V., une organisation à but non lucratif enregistrée en Allemagne. Nous nous sommes donné pour mission de t'aider à exercer ton droit à la vie privée. <a href='https://www.datarequests.org/verein' class='no-link-decoration'>En savoir plus.</a>",
+        "footer-about-us": "Nous sommes Datenfragen.de e.&nbsp;V., une organisation à but non lucratif enregistrée en Allemagne. Nous nous sommes donné pour mission de t'aider à exercer ton droit à la vie privée. <a href='https://www.demandetesdonnees.fr/verein' class='no-link-decoration'>En savoir plus.</a>",
         "footer-other-langs": "Aussi disponible en : ",
         "de": "Allemand (Deutsch)",
         "en": "Anglais (English)",
@@ -655,7 +655,7 @@
         "blog-published": "Publié : ",
         "blog-author": "par : ",
         "blog-last-edited": ", dernière modification : ",
-        "blog-post": "Article",
+        "blog-post": "Articles",
         "blog-prev-page": "Page précédente",
         "blog-next-page": "Page suivante",
         "blog-page": "Page ",
@@ -698,19 +698,19 @@
         "footer-open-source": "Open source",
         "footer-open-source-url": "/open-source",
         "footer-tab-association": "Datenanfragen.de e. V.",
-        "footer-association-overview-url": "https://www.datarequests.org/verein",
-        "footer-association-goals-url": "https://www.datarequests.org/verein/mission-statement",
-        "footer-association-constitution-url": "https://www.datarequests.org/verein/constitution",
-        "footer-association-transparency-url": "https://www.datarequests.org/verein/transparency",
-        "footer-association-board-url": "https://www.datarequests.org/verein/board",
-        "footer-association-membership-fees-url": "https://www.datarequests.org/verein/membership-fees",
+        "footer-association-overview-url": "/verein",
+        "footer-association-goals-url": "/verein/nos-objectifs",
+        "footer-association-constitution-url": "/verein/constitution",
+        "footer-association-transparency-url": "/verein/transparence",
+        "footer-association-board-url": "/verein/comite-directeur",
+        "footer-association-membership-fees-url": "/verein/frais-de-cotisation",
         "footer-sample-letters": "Modèles de lettres",
         "footer-sample-letters-url": "/sample-letters",
-        "footer-legal-notice": "Mentions légales",
+        "footer-legal-notice": "Mentions légales et contact",
         "footer-legal-notice-url": "/contact",
         "footer-privacy-policy": "Politique de confidentialité",
         "footer-privacy-policy-url": "https://www.datarequests.org/privacy",
-        "footer-privacy-controls": "Paramètres de confidentialité",
+        "footer-privacy-controls": "Options de confidentialité",
         "footer-privacy-controls-url": "/privacy-controls",
         "footer-licenses-url": "/open-source#license-notices",
         "footer-social-rss-url": "/blog/index.xml",
@@ -718,10 +718,8 @@
         "footer-social-matrix-url": "https://matrix.to/#/+datenanfragen:matrix.altpeter.me",
         "footer-social-mastodon-url": "https://mastodon.social/@datarequestsORG",
         "footer-social-twitter-url": "https://twitter.com/datarequestsORG",
-        "press-no-releases": "Pour le moment, il n'y a pas de communiqués de presse en anglais.",
-        "verein-home-card-mission-heading": {
-            "other": "Nos objectifs"
-        },
+        "press-no-releases": "Pour le moment, il n'y a pas de communiqués de presse en français.",
+        "verein-home-card-mission-heading": "Nos objectifs",
         "verein-home-card-mission-content": "Quels sont nos objectifs, pourquoi avons-nous lancé cette organisation à but non lucratif ? Et comment comptons-nous t'aider et aider les autres ? <br>Voici quelques réponses à ces questions.",
         "verein-home-card-mission-button": "En savoir plus sur nos objectifs",
         "verein-home-card-donate-heading": "Faire un don",
@@ -744,18 +742,18 @@
         "footer-posts": "Blog",
         "footer-press": "Presse",
         "footer-tab-legal": "Mentions légales",
-        "footer-licenses": "Informations sur les licence",
+        "footer-licenses": "Informations sur les licences",
         "footer-social-rss-desc": "Abonne-toi à notre blog en utilisant ton lecteur de flux RSS.",
         "footer-social-github-desc": "Nous trouver sur GitHub.",
         "footer-social-matrix-desc": "Échanger avec nous via Matrix.",
         "footer-social-mastodon-desc": "Nous suivre sur Mastodon.",
         "footer-social-twitter-desc": "Nous suivre sur Twitter.",
-        "footer-become-a-member-url": "/association/devenir-membre",
+        "footer-become-a-member-url": "/verein/devenir-membre-de-soutien",
         "footer-association-board": "Comité directeur",
-        "footer-your-gdpr-rights-url": "/blog/vos-droits-rgpd",
+        "footer-your-gdpr-rights-url": "/blog/tes-droits-rgpd",
         "footer-supervisory-authorities-url": "/autorites-de-controle",
         "footer-posts-url": "/blog",
-        "footer-press-url": "/association/presse"
+        "footer-press-url": "/verein/press"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
@@ -767,7 +765,7 @@
         "letter-subject-erasure": "Demande de suppression des données personnelles conformément à l'Art. 17 du RGPD",
         "letter-subject-access": "Demande d'accès au données personnelles conformément à l'Art. 15 du RGPD",
         "letter-subject-rectification": "Demande de rectification des données personnelles conformément à l'Art. 16 du RGPD",
-        "letter-subject-objection": "Opposition à la prospection conformément à l'Art. 21(2) du RGPD",
+        "letter-subject-objection": "Opposition à la prospection conformément à l'Art. 21, paragraphe 2, du RGPD",
         "my-reference": "Ma référence",
         "date": "Date",
         "name": "Nom",

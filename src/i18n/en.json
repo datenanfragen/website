@@ -121,9 +121,7 @@
         "license-url-cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
         "license-cc0-1.0": "CC0 1.0 Universal Public Domain Dedication",
         "license-url-cc0-1.0": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
-        "verein-home-card-mission-heading": {
-            "other": "Our goals"
-        },
+        "verein-home-card-mission-heading": "Our goals",
         "verein-home-card-mission-content": "What are our goals, why have we started this non-profit? And how do we plan on helping you and others through it?<br>Here are some answers to these questions.",
         "verein-home-card-mission-button": "Read more about our goals",
         "verein-home-card-donate-heading": "Donate",
