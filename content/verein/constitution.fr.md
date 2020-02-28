@@ -30,10 +30,14 @@ b) fournir des informations sur les pratiques de protection des données dans le
 
 **2.2** Ces objectifs sont atteints en particulier grâce à :
 
-a) la mise en place et le développement d'un générateur de demandes conformément aux articles 15 et suivants du RGPD et ainsi offrir des lettres types pour de telles demandes afin de soutenir le grand public dans l'exercice de son droit à la vie privée,  
+a) la mise en place et le développement d'un générateur de demandes conformément aux articles 15 et suivants du RGPD et ainsi offrir des lettres types pour de telles demandes afin de soutenir le grand public dans l'exercice de son droit à la vie privée,
+
 b) la fourniture et la gestion de matériel d'information (articles, guides, rapports, brochures, magazines imprimés et vidéos) pour la formation, la science et la recherche, en informant et en conseillant le grand public sur des sujets tels que les conséquences de l'utilisation des réseaux numériques sur leur vie privée, les droits et possibilités offerts par le droit fondamental à la protection des données et le RGPD en particulier, ainsi que sur la manière d'utiliser ces droits,
+
 c) la gestion d'une base de données sous licence libre contenant des informations sur la manière de contacter les entreprises, les organisations gouvernementales et autres pour des demandes liées à la protection de la vie privée, ainsi que des informations sur les catégories potentielles de données stockées par ces entreprises ; en outre, la modération des contributions des utilisateurs à cette base de données afin de permettre l'échange d'informations dans l'intérêt de la protection des consommateurs,  
-d) la sensibilisation du public et la réalisation de campagnes, ainsi que l'organisation ou la participation à des conférences, séminaires et autres événements destinés à conseiller le grand public sur le droit à la vie privée et à faire avancer le débat concernant un droit fondamental à la liberté d'information, et  
+
+d) la sensibilisation du public et la réalisation de campagnes, ainsi que l'organisation ou la participation à des conférences, séminaires et autres événements destinés à conseiller le grand public sur le droit à la vie privée et à faire avancer le débat concernant un droit fondamental à la liberté d'information, et
+
 e) la gestion et le développement des plates-formes en ligne ouvertes, gratuites et accessibles au public Datenanfragen.de (en allemand), datarequests.org (en anglais) et éventuellement dans d'autres langues, qui permettent d'accéder au générateur décrit au point a) et à la base de données décrite au point c), de rendre le matériel d'information décrit au point b) accessible au public et, enfin, de faire de la publicité pour la sensibilisation du public décrite au point d).
 
 **2.3** L'association agit pour le bien commun et ne poursuit pas ses objectifs dans un but lucratif.
@@ -164,7 +168,7 @@ d) décider d'éventuelles modifications des status, ainsi que d'une éventuelle
 **17.1** Les clés OpenPGP avec les empreintes numériques suivantes (classées par thème) doivent être utilisées pour la communication chiffrée et signée avec l'association et doivent être administrées par le comité directeur :
 
 a) Questions générales :  `B64A 852D F7DF 855C A058  0A00 FC74 1754 62A7 EC35`  
-b) Questions concernant le comité directeur : `2E72 EA5B DDE3 1730 58D7  F87D A0C1 C012 3E2B 296B`  
+b) Questions sur le comité directeur : `2E72 EA5B DDE3 1730 58D7  F87D A0C1 C012 3E2B 296B`  
 c) Questions de confidentialité : `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`
 
 **17.2** Le comité doit rendre les clés publiques mentionnées au point 17.1 disponibles par le biais de voies habituelles (par exemple, via des serveurs de clés publiques).
