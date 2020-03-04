@@ -180,6 +180,7 @@ $RECYCLE.BIN/
 cypress/videos/
 
 static/NOTICES.txt
+NOTICES
 
 # Hugo
 public/
