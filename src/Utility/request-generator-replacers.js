@@ -42,7 +42,13 @@ const replacer_factory = that => ({
             id="new-request-button"
             onClick={() => {
                 if (!that.state.request.done) that.confirmNewRequest();
-                else that.newRequest();
+                else
+                    that.newRequest().then(() => {
+                        // We are in batch mode, move to the next company.
+                        if (that.state.batch && that.state.batch.length > 0) {
+                            that.setCompanyBySlug(that.state.batch.shift()).then(that.renderLetter);
+                        } else that.renderLetter();
+                    });
             }}
             {...el.attributes}>
             <Text id={that.state.batch && that.state.batch.length > 0 ? 'next-request' : 'new-request'} />
