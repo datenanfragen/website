@@ -65,8 +65,14 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 const batch_companies = PARAMETERS['companies'];
                 if (batch_companies) this.state.batch = batch_companies.split(',');
                 // We are in batch mode, move to the next company.
-                if (this.state.batch && this.state.batch.length > 0)
+                // Note: Previously, we checked for `this.state.batch` here. This is wrong however: The `generator.js`
+                // may have already called `setBatch()` and thus set `this.state.batch` *and* shifted it.
+                // Re-calling this code (due to the async nature of the `then` block, it may well run later) would
+                // result in skipping the first company (see #253). Instead, we only want to prepare batch mode here if
+                // it was enabled through the URL (i.e. `batch_companies` is set).
+                if (batch_companies && batch_companies.length > 0) {
                     this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
+                }
             }
             this.renderLetter();
         });
@@ -454,6 +460,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
             clearUrlParameters();
         }
 
+        if (this.props.newRequestHook) this.props.newRequestHook(this);
+
         this.setState(prev => {
             prev.request = new Request();
             prev.request.done = false;
@@ -465,8 +473,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
             return prev;
         });
-
-        if (this.props.newRequestHook) this.props.newRequestHook(this);
 
         await this.resetInitialConditions();
     };
