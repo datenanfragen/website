@@ -460,6 +460,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
             clearUrlParameters();
         }
 
+        if (this.props.newRequestHook) this.props.newRequestHook(this);
+
         this.setState(prev => {
             prev.request = new Request();
             prev.request.done = false;
@@ -471,8 +473,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
             return prev;
         });
-
-        if (this.props.newRequestHook) this.props.newRequestHook(this);
 
         await this.resetInitialConditions();
     };
