@@ -1,1 +1,29 @@
-{}
+{
+    "hugo": {
+        "categories": "Categorieën",
+        "addresses": "adressen",
+        "ads": "advertenties",
+        "collection agency": "incassobureau",
+        "commerce": "handel",
+        "credit agency": "kredietbureau",
+        "entertainment": "entertainment",
+        "finance": "financiën",
+        "health": "gezondheid",
+        "insurance": "verzekering",
+        "nonprofit": "non-profit organisatie",
+        "political party": "politieke partij",
+        "school": "onderwijs",
+        "social media": "sociale media",
+        "telecommunication": "telecommunicatie",
+        "travel": "reizen",
+        "logo-a-title": "Terug naar de homepagina",
+        "header-home": "Home",
+        "header-generator": "Verzoekgenerator",
+        "header-cdb": "Bedrijvendatabase",
+        "header-my-requests": "Mijn verzoeken",
+        "header-contact": "Contact",
+        "header-id-data-controls": "Mijn opgeslagen gegevens",
+        "header-open-menu": "Open menu",
+        "footer-about-us": "Wij zijn Datenanfragen.de e.$nbsp;V., een geregistreerde non-profit organisatie uit Duitsland. Het is onze missie om te helpen met het uitoefenen van je recht tot privacy. <a href='https://www.datarequests.org/verein' class='no-link-decoration'>Leer meer.</a>"
+    }
+}
