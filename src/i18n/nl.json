@@ -24,6 +24,16 @@
         "header-contact": "Contact",
         "header-id-data-controls": "Mijn opgeslagen gegevens",
         "header-open-menu": "Open menu",
-        "footer-about-us": "Wij zijn Datenanfragen.de e.&nbsp;V., een geregistreerde non-profit organisatie uit Duitsland. Het is onze missie om te helpen met het uitoefenen van je recht tot privacy. <a href='https://www.datarequests.org/verein' class='no-link-decoration'>Leer meer.</a>"
+        "footer-about-us": "Wij zijn Datenanfragen.de e.&nbsp;V., een geregistreerde non-profit organisatie uit Duitsland. Het is onze missie om te helpen met het uitoefenen van je recht tot privacy. <a href='https://www.datarequests.org/verein' class='no-link-decoration'>Leer meer.</a>",
+        "footer-other-langs": "Ook beschikbaar in het:",
+        "de": "Duits (Deutsch)",
+        "en": "Engels (English)",
+        "fr": "Frans (Français)",
+        "home-hero-line-1": "Je hebt het recht op",
+        "home-hero-word": "gegevenstoegang",
+        "home-hero-line-2": "Gebruik het.",
+        "home-main-copy": "Elk bedrijf in de EU is door de wet verplicht om je toegang te geven tot je persoonlijke data, de mogelijkheid om die te corrigeren of zelfs te verwijderen en meer. Hier bij datarequests.org, willen we je helpen om deze rechten uit te oefenen.",
+        "home-how-it-works-title": "Hoe het werkt",
+        "home-how-it-works-generator-title": "Genereer een verzoek"
     }
 }
