@@ -375,7 +375,8 @@
         "vn": "Vietnam",
         "ye": "Yemen",
         "zm": "Zambia",
-        "zw": "Zimbabue"
+        "zw": "Zimbabue",
+        "us": "Estados Unidos de América"
     },
     "donation-widget": {
         "donation-failed": "Ha fallado el pago. Inténtelo de nuevo.",
