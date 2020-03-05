@@ -6,4 +6,4 @@
 }
 
 
-Dies ist ein toller Test
+Dies ist ein **toller** Test.
