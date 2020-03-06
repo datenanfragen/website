@@ -15,7 +15,7 @@
         "telecommunication": "telecomunicaciones",
         "travel": "viajes",
         "logo-a-title": "Volver a la página de inicio",
-        "header-name": "consultadedatos.es",
+        "header-name": "solicituddedatos.es",
         "header-home": "Inicio",
         "header-contact": "Contacto",
         "header-privacy-controls": "Controles de privacidad",
@@ -121,8 +121,8 @@
         "footer-social-matrix-desc": "Hable con nosotros por Matrix.",
         "footer-social-mastodon-desc": "Síganos en Mastodon.",
         "footer-social-twitter-desc": "Síganos en Twitter.",
-        "logo": "img/logo-consultadedatos.svg",
-        "logo-title": "consultadedatos.es -logotipo"
+        "logo": "img/logo-solicituddedatos.svg",
+        "logo-title": "solicituddedatos.es -logotipo"
     },
     "my-requests": {
         "title": "Mis solicitudes",
