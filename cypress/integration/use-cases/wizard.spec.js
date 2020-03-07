@@ -57,5 +57,28 @@ describe('Using the wizard', () => {
             .should('include', '#!from=wizard');
 
         cy.get('.joyride-tooltip__close').click();
+
+        cy.get('aside.company-info.box');
+
+        cy.get('.dynamic-input.dynamic-input-name input[name=value]').type('Kim Mustermensch');
+        cy.get('.request-transport-medium-chooser')
+            .contains('Fax')
+            .click();
+
+        cy.contains('Download PDF')
+            .should('not.have.class', 'disabled')
+            .clickLinkWithoutFollowingHref();
+
+        cy.contains('Next request').click();
+        cy.get('aside.company-info.box').get('.company-info-content');
+        cy.contains('Next request').click();
+
+        // We are prompted if we really don't want to use our request first. We don't.
+        cy.contains('New request').click();
+
+        cy.get('aside.company-info.box').get('.accordion-title');
+
+        cy.contains('Send email').click();
+        cy.contains('Default email software').clickLinkWithoutFollowingHref();
     });
 });

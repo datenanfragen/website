@@ -25,3 +25,21 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import '@percy/cypress';
+
+/**
+ * Click a link without following its `href`. This is useful for `mailto` links and file downloads as Cypress doesn't
+ * support those.
+ *
+ * Note: This will currently *not* restore the `href` after clicking!
+ */
+Cypress.Commands.add(
+    'clickLinkWithoutFollowingHref',
+    {
+        prevSubject: true
+    },
+    subject => {
+        cy.wrap(subject)
+            .invoke('removeAttr', 'href')
+            .click();
+    }
+);
