@@ -43,3 +43,50 @@ Cypress.Commands.add(
             .click();
     }
 );
+
+/**
+ * This command will add a company to the wizard by searching for `company` and clicking the result containing
+ * `result_str`.
+ *
+ * Make sure that you are on the homepage and in a tab that can find this company.
+ */
+Cypress.Commands.add('addCompanyToWizard', (company, result_str) => {
+    cy.get('#aa-search-input').type(company);
+    cy.contains(result_str).click();
+});
+
+/**
+ * This command will make sure that the company list in the wizard contains exactly the following elements:
+ *   - Datenanfragen.de e. V.
+ *   - Gabriele Altpeter, Internethandel
+ *   - SCHUFA Holding AG
+ *   - Niedersächsisches Ministerium für Inneres und Sport – Abteilung Verfassungsschutz
+ *
+ * This will cause navigation to occur.
+ */
+Cypress.Commands.add('seedWizardCompaniesWithKnownList', () => {
+    cy.visit('/contact');
+    cy.setCookie('changed_saved_companies', 'true');
+    cy.window()
+        .then(win => {
+            return win.accessLocalForageStore('wizard-companies').then(instance => {
+                const promises = [
+                    instance.clear(),
+
+                    instance.setItem('datenanfragen', 'Datenanfragen.de e. V.'),
+                    instance.setItem('gabriele-altpeter-internethandel', 'Gabriele Altpeter, Internethandel'),
+                    instance.setItem('schufa', 'SCHUFA Holding AG'),
+                    instance.setItem(
+                        'verfassungsschutz-nds',
+                        'Niedersächsisches Ministerium für Inneres und Sport – Abteilung Verfassungsschutz'
+                    )
+                ];
+                return Promise.all(promises);
+            });
+        })
+        .then(() => {
+            cy.visit('/');
+
+            cy.get('#wizard').scrollIntoView();
+        });
+});
