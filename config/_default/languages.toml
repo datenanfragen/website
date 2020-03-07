@@ -1,24 +1,28 @@
 [de]
     languageCode = "de-de"
     languageName = "Deutsch"
+    contentDir = "content/de"
     weight = 10
     title = "Datenanfragen.de"
     copyright = "Sofern nicht anders angegeben, ist dieses Werk unter einer Creative Commons Attribution 4.0 International-Lizenz lizensiert."
 [en]
     languageCode = "en-us"
     languageName = "English"
+    contentDir = "content/en"
     weight = 20
     title = "datarequests.org"
     copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."
 [fr]
     languageCode = "fr-fr"
     languageName = "Français"
+    contentDir = "content/fr"
     weight = 30
     title = "demandetesdonnees.fr"
     copyright = "Sauf indication contraire, ce(tte) œuvre est mise à disposition selon les termes de la Licence Creative Commons Attribution 4.0 International."
 [pt]
     languageCode = "pt-pt"
     languageName = "Português"
+    contentDir = "content/pt"
     weight = 40
     title = "pedidodedados.org"
     copyright = "Exceto onde indicado, esta obra está licenciada sob uma Licença Creative Commons Atribuição 4.0 Internacional."
