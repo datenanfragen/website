@@ -1,29 +1,34 @@
 import preact from 'preact';
 import Portal from 'preact-portal';
 import t from '../Utility/i18n';
+import PropTypes from 'prop-types';
 
 export default class Modal extends preact.Component {
     render() {
-        let positiveButton = this.props.positiveText ? (
-            <button
-                className={'button ' + (this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
-                onClick={this.props.onPositiveFeedback}
-                style={'float: right'}>
-                {this.props.positiveText}
-            </button>
-        ) : (
-            ''
-        );
-        let negativeButton = this.props.negativeText ? (
-            <button
-                className={'button ' + (!this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
-                onClick={this.props.onNegativeFeedback}
-                style={'float: left'}>
-                {this.props.negativeText}
-            </button>
-        ) : (
-            ''
-        );
+        const positiveButton =
+            this.props.positiveButton ||
+            (this.props.positiveText ? (
+                <button
+                    className={'button ' + (this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
+                    onClick={this.props.onPositiveFeedback}
+                    style={'float: right'}>
+                    {this.props.positiveText}
+                </button>
+            ) : (
+                ''
+            ));
+        const negativeButton =
+            this.props.negativeButton ||
+            (this.props.negativeText ? (
+                <button
+                    className={'button ' + (!this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
+                    onClick={this.props.onNegativeFeedback}
+                    style={'float: left'}>
+                    {this.props.negativeText}
+                </button>
+            ) : (
+                ''
+            ));
         /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
         return (
             <Portal into="body">
