@@ -14,6 +14,7 @@ import SvaFinder from './SvaFinder';
 import { download, clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
 import UserRequests from '../my-requests';
+import ActionButton from './Generator/ActionButton';
 
 export default class RequestGeneratorBuilder extends preact.Component {
     constructor(props) {
@@ -482,13 +483,30 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
         const modal = showModal(
             <Modal
-                positiveText={[
-                    t(medium === 'email' ? 'send-email-first' : 'download-pdf-first', 'generator'),
-                    <span
-                        style="margin-left: 10px;"
-                        className={'icon icon-' + (medium === 'email' ? 'email' : 'download')}
-                    />
-                ]}
+                positiveButton={
+                    <div style="float: right;">
+                        <ActionButton
+                            transport_medium={this.state.request.transport_medium}
+                            blob_url={this.state.blob_url}
+                            email={this.state.request.email}
+                            letter={this.letter}
+                            download_filename={this.state.download_filename}
+                            download_active={this.state.download_active}
+                            done={this.state.request.done}
+                            buttonText={t(medium === 'email' ? 'send-email-first' : 'download-pdf-first', 'generator')}
+                            onSuccess={() => {
+                                dismissModal(modal);
+                                this.storeRequest();
+                                this.newRequest().then(() => {
+                                    // We are in batch mode, move to the next company.
+                                    if (this.state.batch && this.state.batch.length > 0) {
+                                        this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
+                                    } else this.renderLetter();
+                                });
+                            }}
+                        />
+                    </div>
+                }
                 negativeText={t('new-request', 'generator')}
                 onNegativeFeedback={e => {
                     dismissModal(modal);
@@ -499,25 +517,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
                         } else this.renderLetter();
                     });
                 }}
-                onPositiveFeedback={e => {
-                    if (this.state.blob_url) {
-                        dismissModal(modal);
-                        this.storeRequest();
-                        download(
-                            medium === 'email'
-                                ? this.letter.toMailtoLink(this.state.request.email)
-                                : this.state.blob_url,
-                            this.state.download_filename
-                        );
-                        this.newRequest().then(() => {
-                            // We are in batch mode, move to the next company.
-                            if (this.state.batch && this.state.batch.length > 0) {
-                                this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
-                            } else this.renderLetter();
-                        });
-                    }
-                }}
                 positiveDefault={true}
+                innerStyle="overflow: visible;"
                 onDismiss={() => dismissModal(modal)}>
                 {t('modal-new-request', 'generator')}
             </Modal>
