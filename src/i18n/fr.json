@@ -4,7 +4,7 @@
         "suggest-a-company": "Suggérer une nouvelle entreprise",
         "also-runs": "Également applicable : ",
         "categories": "Catégories : ",
-        "search-disabled": "Tu as désactivé la fonctionnalité de recherche. Si tu souhaites l'activer, jette un œil aux <a href='/privacy-controls'>options de confidentialité</a>."
+        "search-disabled": "Tu as désactivé la fonctionnalité de recherche. Si tu souhaites l'activer, jette un œil aux <a href='/options-de-confidentialite'>options de confidentialité</a>."
     },
     "cdb": {
         "select-company": "Rechercher une entreprise…",
@@ -168,7 +168,7 @@
         "modal-delete-single-request": "Es-tu sûr de vouloir supprimer cette demande ? Cela ne peut pas être annulé.",
         "clear-success": "Effacé avec succès.",
         "cookie-change-success": "Paramètres enregistrés.",
-        "feature-disabled": "Tu as désactivé cette fonction. Si tu souhaites l'activer, jette un œil aux <a href='/privacy-controls'>options de confidentialité</a>.",
+        "feature-disabled": "Tu as désactivé cette fonction. Si tu souhaites l'activer, jette un œil aux <a href='/options-de-confidentialite'>options de confidentialité</a>.",
         "feature-disabled-alt": "Fonction désactivée depuis les options de confidentialité"
     },
     "error-handler": {
@@ -242,7 +242,7 @@
         "suggestions": "<p>Sur la droite, nous avons déjà commencé ta liste avec quelques entreprises. Ça fait beaucoup et tu ne reconnaît pas la plupart d'entre elles ? N'hésite pas à nous en parler ! D'après notre expérience, ces sociétés détiennent des données sur à peu près tout le monde dans ton pays (si tu n'es pas en <em id='wizard-user-country'>{{country}}</em>, tu peux <a href='#footer'>modifier ce paramètre</a> en bas de page). Nous pensons donc qu'il est d'autant plus important de les interroger sur tes données personnelles.</p>",
         "no-suggestions": "<p>Malheureusement, nous n'avons pas encore d'entreprises suggérées pour ton pays (<em id='wizard-user-country'>{{country}}</em>). Si tu es dans un autre pays, tu peux <a href='#footer'>modifier ce paramètre</a> en bas de la page.</p>",
         "commerce": "<p>Commençons par le commerce. Tu fais beaucoup d'achats sur Amazon ou Ebay ? Tu sais probablement déjà que les boutiques en ligne aiment collecter de nombreuses données personnelles sur leurs utilisateurs, alors n'oublie pas d'ajouter celles que tu utilises ou a utilisé par le passé.</p><p>Il est inquiétant de constater que les magasins traditionnels surveillent de plus en plus leurs clients et nous te suggérons d'ajouter au moins ceux que tu visites régulièrement ou pour lesquels ils t'ont activement demandé de fournir tes données.</p><p>Pour ajouter une entreprise, utilise simplement la barre de recherche ci-dessus.<br>Note bien que la recherche est filtrée par catégorie. Cela signifie que tu ne trouveras que des entreprises de la catégorie « commerce » dans cette étape, alors que l'étape suivante ne concerne que les entreprises de divertissement et ainsi de suite.</p>",
-        "entertainment": "<p>Te souviens-tu du dernier film que tu as regardé sur Netflix, de la chanson la plus écoutée sur ton compte Spotify ou du nombre d'heures que tu as passées à jouer à ton jeu Steam préféré ? C'est certainement le cas de ces entreprises.</p><p>À ce propos : Nous nous souviendrons des entreprises que tu as déjà sélectionnées. Alors ne t'inquiète pas : si tu recharges la page ou si tu veux continuer plus tard, tu n'auras pas à recommencer à zéro.<br>Et bien sûr, ces données ne sont sauvegardées que sur ton ordinateur. Si tu souhaites néanmoins désactiver cette fonction, consulte nos <a href=\"/privacy-controls\">options de confidentialité</a>.</p>",
+        "entertainment": "<p>Te souviens-tu du dernier film que tu as regardé sur Netflix, de la chanson la plus écoutée sur ton compte Spotify ou du nombre d'heures que tu as passées à jouer à ton jeu Steam préféré ? C'est certainement le cas de ces entreprises.</p><p>À ce propos : Nous nous souviendrons des entreprises que tu as déjà sélectionnées. Alors ne t'inquiète pas : si tu recharges la page ou si tu veux continuer plus tard, tu n'auras pas à recommencer à zéro.<br>Et bien sûr, ces données ne sont sauvegardées que sur ton ordinateur. Si tu souhaites néanmoins désactiver cette fonction, consulte nos <a href=\"/options-de-confidentialite\">options de confidentialité</a>.</p>",
         "social media": "<p>Si tu es membre d'un réseau social (comme Facebook, WhatsApp, Twitter ou Instagram), n'oublie pas de les ajouter.</p>",
         "finance": "<p>Tu as probablement au moins un compte bancaire et peut-être une carte de crédit distincte. Mais cette catégorie comprend également les services de paiement comme PayPal et Patreon.<br>Ou peut-être que tu as déjà échangé de la cryptomonnaie ?</p>",
         "insurance": "<p>Cette catégorie devrait être assez évidente. N'oublie pas que les compagnies d'assurance te vendent souvent des assurances pour des choses peu évidentes de nos jours, y compris les voyages et l'achat de petits appareils électroniques.</p>",
@@ -257,7 +257,7 @@
         "none-selected": "Aucune pour le moment."
     },
     "id-data-controls": {
-        "id-data-deactivated": "L'enregistrement des informations d'identification est désactivé. Si tu souhaites accélérer le processus de génération et enregistrer les informations d'identification, pense à activer la sauvegarde des informations d'identification dans les <a href=\"/privacy-controls/\">options de confidentialité</a>.",
+        "id-data-deactivated": "L'enregistrement des informations d'identification est désactivé. Si tu souhaites accélérer le processus de génération et enregistrer les informations d'identification, pense à activer la sauvegarde des informations d'identification dans les <a href=\"/options-de-confidentialite/\">options de confidentialité</a>.",
         "always-fill-in-explain": "Les informations enregistrées peuvent être complétées automatiquement dans les champs des nouvelles demandes.",
         "always-fill-in": "Toujours compléter les champs connus ?",
         "saved-data": "Informations enregistrées",
@@ -272,7 +272,7 @@
         "address-line-2": "Adresse ligne 2",
         "address-place": "Ville",
         "address-country": "Pays",
-        "saved-data-explanation": "Ces données correspondent aux informations que tu as saisies dans le générateur lors de tes demandes d'identification auprès d'une société. Tu peux désormais les compléter dans de nouvelles demandes, ce qui est particulièrement utile lorsque tu souhaites générer plusieurs demandes à la fois. Nous avons enregistré ces données pour toi <strong>sur ton ordinateur</strong>, elles ne nous ont jamais été et ne nous seront jamais transmises. Tu peux choisir de remplir toutes les demandes automatiquement de sorte que la génération d'une demande ne soit qu'un simple clic sur le bouton de téléchargement. Coche simplement la case ci-dessous. Pour plus d'informations sur tes données, consulte les <a href=\"/privacy-controls/\">options de confidentialité</a>.",
+        "saved-data-explanation": "Ces données correspondent aux informations que tu as saisies dans le générateur lors de tes demandes d'identification auprès d'une société. Tu peux désormais les compléter dans de nouvelles demandes, ce qui est particulièrement utile lorsque tu souhaites générer plusieurs demandes à la fois. Nous avons enregistré ces données pour toi <strong>sur ton ordinateur</strong>, elles ne nous ont jamais été et ne nous seront jamais transmises. Tu peux choisir de remplir toutes les demandes automatiquement de sorte que la génération d'une demande ne soit qu'un simple clic sur le bouton de téléchargement. Coche simplement la case ci-dessous. Pour plus d'informations sur tes données, consulte les <a href=\"/options-de-confidentialite/\">options de confidentialité</a>.",
         "reset": "Réinitialiser"
     },
     "signature": {
@@ -323,7 +323,7 @@
         "next": "Suivant",
         "skip": "Passer le didacticiel",
         "company-info": "<p>Ci-dessous, tu peux voir plus de détails sur l'entreprise courante. Parfois, nous avons aussi quelques remarques importantes sur ces entreprises. Celles-ci seront également affichées ici.</p>",
-        "id-data": "<p>Maintenant, c'est à ton tour. Afin de te donner accès à tes données, l'entreprise doit être en mesure de t'identifier. Ici, tu peux leur fournir les détails nécessaires. Il peut s'agir de ton nom, de ton numéro de compte, de ton adresse électronique ou de quelque chose de complètement différent. Si tu ne sais pas, utilise les champs par défaut.</p>Et n'oublie jamais : il vaut mieux se tromper en fournissant moins d'informations. L'entreprise te contactera si elle a besoin de plus d'informations.</p><p>Nous enregistrerons les données que tu entres ici, afin que tu n'aies pas à les entrer à nouveau pour la prochaine demande. Ne t'inquiète pas : Tout cela se passe exclusivement sur <strong>ton</strong> ordinateur, nous n'aurons jamais accès à tes données. Bien sûr, Tu peux toujours <a href=\"/privacy-controls\" target=\"_blank\">désactiver cette fonction</a> si elle ne te plaît pas.</p>",
+        "id-data": "<p>Maintenant, c'est à ton tour. Afin de te donner accès à tes données, l'entreprise doit être en mesure de t'identifier. Ici, tu peux leur fournir les détails nécessaires. Il peut s'agir de ton nom, de ton numéro de compte, de ton adresse électronique ou de quelque chose de complètement différent. Si tu ne sais pas, utilise les champs par défaut.</p>Et n'oublie jamais : il vaut mieux se tromper en fournissant moins d'informations. L'entreprise te contactera si elle a besoin de plus d'informations.</p><p>Nous enregistrerons les données que tu entres ici, afin que tu n'aies pas à les entrer à nouveau pour la prochaine demande. Ne t'inquiète pas : Tout cela se passe exclusivement sur <strong>ton</strong> ordinateur, nous n'aurons jamais accès à tes données. Bien sûr, Tu peux toujours <a href=\"/options-de-confidentialite\" target=\"_blank\">désactiver cette fonction</a> si elle ne te plaît pas.</p>",
         "next-request": "<p>Et c'est déjà tout pour cette demande !</p><p>En fonction du mode d'envoi, tu peux envoyer ta demande par e-mail ou télécharger le fichier PDF. Ensuite, nous passerons à la demande suivante.</p>",
         "request-parameters": "<p>Très bien, commençons à générer tes demandes. Nous ferons de notre mieux pour te faciliter la tâche. </p><p class='desktop-only'>A gauche, nous avons déjà pré-rempli les coordonnées de la première entreprise. </p><p class='mobile-only'>En haut, nous avons déjà pré-rempli les coordonnées de la première entreprise.</p>"
     },
@@ -678,14 +678,14 @@
         "noscript-wizard": "Voici un assistant qui est généré par JavaScript, qui t'aide à créer tes demandes. La création de demandes uniquement sur ton ordinateur nécessite JavaScript. Tu peux utiliser le site Web sans JavaScript mais tu n'aura que des fonctionnalités limitées. Le code n'enverra aucune donnée à aucun serveur si tu n'y consent pas. Si tu veux utiliser le site et toutes ses fonctionnalités, active JavaScript dans ton navigateur ou ajoute une exception à ton bloqueur. Si cela ne fonctionne toujours pas après cela, envoie-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "404-title": "Erreur 404 : Page non trouvée",
         "404-body": "La page que tu cherches n'existe malheureusement pas sur ce serveur. Peut-être que tu as juste fait une faute de frappe dans l'URL ? Si l'erreur persiste, tu peux nous en informer par e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> ou soumettre un problème dans notre <a href='https://github.com/datenanfragen/website/issues/new'>suivi des problèmes </a>.",
-        "license-cc-by-4.0": "Licence Creative Commons Attribution 4.0 International",
-        "license-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.fr",
-        "license-cc-by-nd-4.0": "Licence Creative Commons Attribution-NoDerivatives 4.0 International",
-        "license-url-cc-by-nd-4.0": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr",
-        "license-cc-by-sa-4.0": "Licence Creative Commons Attribution-ShareAlike 4.0 International",
-        "license-url-cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr",
-        "license-cc0-1.0": "CC0 1.0 Universel Transfert dans le Domaine Public",
-        "license-url-cc0-1.0": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+        "lic-cc-by-4.0": "Licence Creative Commons Attribution 4.0 International",
+        "lic-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+        "lic-cc-by-nd-4.0": "Licence Creative Commons Attribution-NoDerivatives 4.0 International",
+        "lic-url-cc-by-nd-4.0": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr",
+        "lic-cc-by-sa-4.0": "Licence Creative Commons Attribution-ShareAlike 4.0 International",
+        "lic-url-cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr",
+        "lic-cc0-1.0": "CC0 1.0 Universel Transfert dans le Domaine Public",
+        "lic-url-cc0-1.0": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
         "ads": "publicités",
         "footer-tab-website-name": "demandetesdonnees.fr",
         "footer-request-generator": "Générateur de demande",
@@ -717,7 +717,7 @@
         "footer-privacy-policy": "Politique de confidentialité",
         "footer-privacy-policy-url": "https://www.datarequests.org/privacy",
         "footer-privacy-controls": "Options de confidentialité",
-        "footer-privacy-controls-url": "/privacy-controls",
+        "footer-privacy-controls-url": "/options-de-confidentialite",
         "footer-licenses-url": "/open-source#license-notices",
         "footer-social-rss-url": "/blog/index.xml",
         "footer-social-github-url": "https://github.com/datenanfragen/",
