@@ -63,6 +63,21 @@ export default class Modal extends preact.Component {
         );
         /* eslint-enable */
     }
+
+    static propTypes = {
+        positiveButton: PropTypes.element,
+        positiveText: PropTypes.string,
+        positiveDefault: PropTypes.bool,
+        onPositiveFeedback: PropTypes.func,
+
+        negativeButton: PropTypes.element,
+        negativeText: PropTypes.string,
+        negativeDefault: PropTypes.bool,
+        onNegativeFeedback: PropTypes.func,
+
+        onDismiss: PropTypes.func,
+        children: PropTypes.arrayOf(PropTypes.element)
+    };
 }
 
 export function showModal(modal) {
