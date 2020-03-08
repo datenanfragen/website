@@ -42,7 +42,7 @@ export default class Modal extends preact.Component {
                         role="presentation"
                         tabIndex="0"
                     />
-                    <div className="inner">
+                    <div className="inner" style={this.props.innerStyle}>
                         {this.props.onDismiss ? (
                             <button
                                 className="button-unstyled close-button icon-close"
@@ -76,7 +76,8 @@ export default class Modal extends preact.Component {
         onNegativeFeedback: PropTypes.func,
 
         onDismiss: PropTypes.func,
-        children: PropTypes.arrayOf(PropTypes.element)
+        children: PropTypes.arrayOf(PropTypes.element),
+        innerStyle: PropTypes.string
     };
 }
 
