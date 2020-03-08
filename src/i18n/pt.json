@@ -113,12 +113,8 @@
         "press-no-releases": "Neste momento, não existe nenhum comunicado de imprensa em inglês.",
         "404-title": "Erro 404: Página não encontrada",
         "404-body": "Infelizmente, a página que você procura não existe no nosso servidor. Possivelmente, ocorreu um erro de digitação na URL. Se o erro persistir, deixe-nos um aviso através do nosso e-mail  <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> ou escreva no nosso <a href='https://github.com/datenanfragen/website/issues/new'>rastreador de problemas</a>.",
-        "license-cc-by-4": {
-            "0": "Licença Atribuição-CompartilhaIgual 4.0 Internacional"
-        },
-        "license-url-cc-by-4": {
-            "0": "https://creativecommons.org/licenses/by/4.0/deed.pt"
-        },
+        "lic-cc-by-4.0": "Licença Atribuição-CompartilhaIgual 4.0 Internacional",
+        "lic-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.pt",
         "home-read-more-url": "/blog/seus-rgpd-direitos"
     }
 }
