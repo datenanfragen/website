@@ -129,7 +129,7 @@ module.exports = {
                 process.env.npm_package_version +
                 '\n@updated ' +
                 new Date().toISOString() +
-                '\n@see {@link https://github.com/datenanfragen/website|Code repository}\n@see {@link https://www.datenanfragen.de|German website}\n@see {@link https://datarequests.org|English website}'
+                '\n@see {@link https://github.com/datenanfragen/website|Code repository}\n@see {@link https://www.datenanfragen.de|German website}\n@see {@link https://datarequests.org|English website}\n@see {@link https://www.demandetesdonnees.fr|French website}'
         ),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
