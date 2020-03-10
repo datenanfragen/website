@@ -86,7 +86,7 @@ Hier findest Du eine Übersicht einiger wichtiger Repositories, die direkt oder 
 </article>
 
 <a id="contributors"></a>
-## Beitragende
+## Mitwirkende
 
 Herzlichen Dank an alle, die etwas zu Datenanfragen.de beigetragen haben! Ohne Euch wäre das Projekt nicht möglich.
 
