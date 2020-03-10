@@ -30,7 +30,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
             download_filename: '',
             download_active: false,
 
-            response_type: '',
             response_request: {},
 
             fill_fields: [],
@@ -123,7 +122,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                     }
 
                     prev.request.reference = request.reference;
-                    prev.response_type = response_type;
+                    prev.request.response_type = response_type;
                     prev.request.type = 'custom';
                     prev.response_request = request;
 
@@ -254,6 +253,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
             prev.request.recipient_runs = company.runs || [];
             prev.suggestion = company;
+            prev.request.slug = company.slug;
             prev.request.data_portability = company['suggested-transport-medium'] === 'email';
             prev.request.language = company['request-language'] || LOCALE;
 
@@ -336,12 +336,16 @@ export default class RequestGeneratorBuilder extends preact.Component {
             fetchTemplate(this.state.request.language, new_template, null, '').then(text => {
                 this.setState(prev => {
                     prev.request.custom_data.content = text;
-                    prev.response_type = new_template;
+                    prev.request.response_type = new_template;
                     return prev;
                 });
                 this.renderLetter();
             });
-        } else this.setState({ response_type: '' });
+        } else
+            this.setState(prev => {
+                prev.request.response_type = '';
+                return;
+            });
     };
 
     handleAutocompleteSelected = (e, suggestion, dataset) => {
@@ -469,7 +473,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             prev.download_active = false;
             prev.blob_url = '';
             prev.download_filename = '';
-            prev.response_type = '';
+            prev.request.response_type = '';
 
             return prev;
         });
@@ -530,10 +534,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             this.savedIdData.storeSignature(this.state.request.signature);
         }
 
-        this.state.request.store(
-            this.state.suggestion ? this.state.suggestion.slug : undefined,
-            this.state.response_type
-        );
+        this.state.request.store();
     };
 
     static get defaultProps() {
