@@ -124,13 +124,17 @@ module.exports = {
             filename: 'css/[name].gen.css'
         }),
 
-        new webpack.BannerPlugin(
-            '[file]\nThis code is part of the Datenanfragen.de project. We want to help you exercise your rights under the GDPR.\n\n@license MIT\n@author the Datenanfragen.de project\n@version ' +
-                process.env.npm_package_version +
-                '\n@updated ' +
-                new Date().toISOString() +
-                '\n@see {@link https://github.com/datenanfragen/website|Code repository}\n@see {@link https://www.datenanfragen.de|German website}\n@see {@link https://datarequests.org|English website}\n@see {@link https://www.demandetesdonnees.fr|French website}'
-        ),
+        new webpack.BannerPlugin(`[file]
+This code is part of the Datenanfragen.de project. We want to help you exercise your rights under the GDPR.
+
+@license MIT
+@author the Datenanfragen.de project
+@version ${process.env.npm_package_version}
+@updated ${new Date().toISOString()}
+@see {@link https://github.com/datenanfragen/website|Code repository}
+@see {@link https://www.datenanfragen.de|German website}
+@see {@link https://datarequests.org|English website}
+@see {@link https://www.demandetesdonnees.fr|French website}`),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
         new webpack.DefinePlugin({
