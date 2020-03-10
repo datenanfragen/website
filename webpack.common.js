@@ -128,7 +128,7 @@ module.exports = {
 This code is part of the Datenanfragen.de project. We want to help you exercise your rights under the GDPR.
 
 @license MIT
-@author the Datenanfragen.de project
+@author the Datenanfragen.de project {@link https://github.com/datenanfragen/website/blob/master/AUTHORS}
 @version ${process.env.npm_package_version}
 @updated ${new Date().toISOString()}
 @see {@link https://github.com/datenanfragen/website|Code repository}
