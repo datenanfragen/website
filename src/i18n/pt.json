@@ -113,12 +113,8 @@
         "press-no-releases": "Neste momento, não existem comunicados de imprensa em inglês.",
         "404-title": "Erro 404: Página não encontrada",
         "404-body": "Infelizmente, a página que você procura não existe no nosso servidor. Possivelmente, ocorreu um erro de digitação na URL? Se o erro persistir, deixe-nos um aviso através do nosso e-mail <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> ou relate o problema no nosso <a href='https://github.com/datenanfragen/website/issues/new'>rastreador de problemas</a>.",
-        "lic-cc-by-4": {
-            "0": "Licença Internacional Creative Commons Atribuição 4.0"
-        },
-        "lic-url-cc-by-4": {
-            "0": "https://creativecommons.org/licenses/by/4.0/deed.pt"
-        },
+        "lic-cc-by-4.0": "Licença Atribuição-CompartilhaIgual 4.0 Internacional",
+        "lic-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.pt",
         "home-read-more-url": "/blog/seus-direitos-rgpd",
         "verein-home-card-mission-heading": "Nossos objetivos",
         "verein-home-card-mission-content": "Quais são nossos objetivos ?Por que fundamos essa organização sem fins lucrativos? E como nós planejamos ajudar você e outras pessoas?<br>Aqui você encontra algumas respostas para essas perguntas.",
@@ -192,24 +188,12 @@
         "footer-social-mastodon-url": "https://mastodon.social/@pedidodedadosPT",
         "footer-social-twitter-desc": "Siga-nos nos Twitter.",
         "footer-social-twitter-url": "https://twitter.com/pedidodedadosPT",
-        "lic-cc-by-nd-4": {
-            "0": "Licença internacional Creative Commons Atribuição-SemDerivações 4.0"
-        },
-        "lic-url-cc-by-nd-4": {
-            "0": "https://creativecommons.org/licenses/by-nd/4.0/deed.pt"
-        },
-        "lic-cc-by-sa-4": {
-            "0": "Licença Internacional Creative Commons Atribuição-CompartilhaIgual 4.0"
-        },
-        "lic-url-cc-by-sa-4": {
-            "0": "https://creativecommons.org/licenses/by-sa/4.0/deed.pt"
-        },
-        "lic-cc0-1": {
-            "0": "CC0 1.0 Dedicação ao Domínio Público"
-        },
-        "lic-url-cc0-1": {
-            "0": "https://creativecommons.org/publicdomain/zero/1.0/deed.pt"
-        }
+        "lic-cc-by-nd-4.0": "Licença internacional Creative Commons Atribuição-SemDerivações 4.0",
+        "lic-url-cc-by-nd-4.0": "https://creativecommons.org/licenses/by-nd/4.0/deed.pt",
+        "lic-cc-by-sa-4.0": "Licença Internacional Creative Commons Atribuição-CompartilhaIgual 4.0",
+        "lic-url-cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.pt",
+        "lic-cc0-1.0": "CC0 1.0 Dedicação ao Domínio Público",
+        "lic-url-cc0-1.0": "https://creativecommons.org/publicdomain/zero/1.0/deed.pt"
     },
     "home": {
         "data-access": "acesso aos dados.",
