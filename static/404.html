@@ -18,6 +18,7 @@
     <style>
         .translatable .translatable-de { display: none; }
         .translatable .translatable-fr { display: none; }
+        .translatable .translatable-pt { display: none; }
     </style>
 </head>
 <body>
@@ -28,6 +29,7 @@
             <img id="logo" class="translatable-en" src="/img/logo-datarequests.svg">
             <img id="logo" class="translatable-de" src="/img/logo-datenanfragen.svg">
             <img id="logo" class="translatable-fr" src="/img/logo-demandetesdonnees.svg">
+            <img id="logo" class="translatable-pt" src="/img/logo-pedidodedados.svg">
         </a>
 
         <div class="clearfix"></div>
@@ -40,6 +42,7 @@
             <span class="translatable-en">Error 404: Page not found</span>
             <span class="translatable-de">Fehler 404: Seite nicht gefunden</span>
             <span class="translatable-fr">Erreur 404: Page non trouvée</span>
+            <span class="translatable-pt">Erro 404: Página não encontrada</span>
         </h1>
     </div>
 </div>
@@ -51,6 +54,7 @@
             <span class="translatable-en">The page you were looking for sadly doesn’t exist on this server. Maybe you just have a typo in the URL? If the error persists, perhaps notify us via our email <a href="mailto:dev@datenanfragen.de">dev@datenanfragen.de</a> or submit an issue in our <a href="https://github.com/datenanfragen/website/issues/new">issue tracker</a>.</span>
             <span class="translatable-de">Leider existiert die gesuchte Seite auf diesem Server nicht. Vielleicht hast du dich ja einfach in der URL vertippt? Falls der Fehler wieder auftritt, hinterlasse uns doch einen Hinweis auf unserer E-Mail-Adresse <a href="mailto:dev@datenanfragen.de">dev@datenanfragen.de</a> oder schreib in unseren <a href="https://github.com/datenanfragen/website/issues/new">Issue-Tracker</a>.</span>
             <span class="translatable-fr">La page que tu cherchais n'existe malheureusement pas sur ce serveur. Peut-être que tu as juste une faute de frappe dans l'URL ? Si l'erreur persiste, merci de nous en informer par email <a href="mailto:dev@datenanfragen.de">dev@datenanfragen.de</a> ou de nous soumettre un problème dans notre <a href="https://github.com/datenanfragen/website/issues/new">suivi des problèmes</a>.</span>
+            <span class="translatable-pt">A página que você estava procurando infelizmente não existe neste servidor. Talvez você tenha apenas uma gralha no URL? Se o erro persistir, talvez nos avise através do nosso e-mail <a href="mailto:dev@datenanfragen.de">dev@datenanfragen.de</a> ou submeta um problema no nosso <a href="https://github.com/datenanfragen/website/issues/new">issue tracker</a>.</span>
         </div>
     </main>
 </div>
@@ -69,12 +73,13 @@ if (!String.prototype.includes) {
 }
 </script>
 <script>
-var langs = ['en', 'de', 'fr'];
+var langs = ['en', 'de', 'fr', 'pt'];
 
 var lang = 'en';
 if(window.location.host.includes('datarequests.org') || window.location.host.includes('1314')) lang = 'en';
 if(window.location.host.includes('datenanfragen.de') || window.location.host.includes('1313')) lang = 'de';
 if(window.location.host.includes('demandetesdonnees.fr') || window.location.host.includes('1315')) lang = 'fr';
+if(window.location.host.includes('pedidodedados.org') || window.location.host.includes('1316')) lang = 'pt';
 
 document.title = document.querySelector('#heading .translatable .translatable-' + lang).innerText;
 var redundant_langs = langs.filter(function(item) { return item !== lang; });

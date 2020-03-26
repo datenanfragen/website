@@ -14,6 +14,7 @@ import SvaFinder from './SvaFinder';
 import { download, clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
 import UserRequests from '../my-requests';
+import ActionButton from './Generator/ActionButton';
 
 export default class RequestGeneratorBuilder extends preact.Component {
     constructor(props) {
@@ -30,7 +31,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
             download_filename: '',
             download_active: false,
 
-            response_type: '',
             response_request: {},
 
             fill_fields: [],
@@ -123,7 +123,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                     }
 
                     prev.request.reference = request.reference;
-                    prev.response_type = response_type;
+                    prev.request.response_type = response_type;
                     prev.request.type = 'custom';
                     prev.response_request = request;
 
@@ -254,6 +254,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
             prev.request.recipient_runs = company.runs || [];
             prev.suggestion = company;
+            prev.request.slug = company.slug;
             prev.request.data_portability = company['suggested-transport-medium'] === 'email';
             prev.request.language = company['request-language'] || LOCALE;
 
@@ -336,12 +337,16 @@ export default class RequestGeneratorBuilder extends preact.Component {
             fetchTemplate(this.state.request.language, new_template, null, '').then(text => {
                 this.setState(prev => {
                     prev.request.custom_data.content = text;
-                    prev.response_type = new_template;
+                    prev.request.response_type = new_template;
                     return prev;
                 });
                 this.renderLetter();
             });
-        } else this.setState({ response_type: '' });
+        } else
+            this.setState(prev => {
+                prev.request.response_type = '';
+                return;
+            });
     };
 
     handleAutocompleteSelected = (e, suggestion, dataset) => {
@@ -469,7 +474,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             prev.download_active = false;
             prev.blob_url = '';
             prev.download_filename = '';
-            prev.response_type = '';
+            prev.request.response_type = '';
 
             return prev;
         });
@@ -482,13 +487,30 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
         const modal = showModal(
             <Modal
-                positiveText={[
-                    t(medium === 'email' ? 'send-email-first' : 'download-pdf-first', 'generator'),
-                    <span
-                        style="margin-left: 10px;"
-                        className={'icon icon-' + (medium === 'email' ? 'email' : 'download')}
-                    />
-                ]}
+                positiveButton={
+                    <div style="float: right;">
+                        <ActionButton
+                            transport_medium={this.state.request.transport_medium}
+                            blob_url={this.state.blob_url}
+                            email={this.state.request.email}
+                            letter={this.letter}
+                            download_filename={this.state.download_filename}
+                            download_active={this.state.download_active}
+                            done={this.state.request.done}
+                            buttonText={t(medium === 'email' ? 'send-email-first' : 'download-pdf-first', 'generator')}
+                            onSuccess={() => {
+                                dismissModal(modal);
+                                this.storeRequest();
+                                this.newRequest().then(() => {
+                                    // We are in batch mode, move to the next company.
+                                    if (this.state.batch && this.state.batch.length > 0) {
+                                        this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
+                                    } else this.renderLetter();
+                                });
+                            }}
+                        />
+                    </div>
+                }
                 negativeText={t('new-request', 'generator')}
                 onNegativeFeedback={e => {
                     dismissModal(modal);
@@ -499,25 +521,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
                         } else this.renderLetter();
                     });
                 }}
-                onPositiveFeedback={e => {
-                    if (this.state.blob_url) {
-                        dismissModal(modal);
-                        this.storeRequest();
-                        download(
-                            medium === 'email'
-                                ? this.letter.toMailtoLink(this.state.request.email)
-                                : this.state.blob_url,
-                            this.state.download_filename
-                        );
-                        this.newRequest().then(() => {
-                            // We are in batch mode, move to the next company.
-                            if (this.state.batch && this.state.batch.length > 0) {
-                                this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
-                            } else this.renderLetter();
-                        });
-                    }
-                }}
                 positiveDefault={true}
+                innerStyle="overflow: visible;"
                 onDismiss={() => dismissModal(modal)}>
                 {t('modal-new-request', 'generator')}
             </Modal>
@@ -530,10 +535,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             this.savedIdData.storeSignature(this.state.request.signature);
         }
 
-        this.state.request.store(
-            this.state.suggestion ? this.state.suggestion.slug : undefined,
-            this.state.response_type
-        );
+        this.state.request.store();
     };
 
     static get defaultProps() {

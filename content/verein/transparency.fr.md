@@ -28,7 +28,7 @@ Ces informations sont également disponibles sur notre page de [contact]({{< ref
 
 ## 2. Constitution et objectifs
 
-Nous publions la constitution complète de notre association sur [cette page]({{< ref "verein/constitution" >}}) et sur [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
+Nous publions la constitution complète de notre association sur [ce site]({{< ref "verein/constitution" >}}) et sur [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
 
 Notre objectif est le même que celui énoncé dans notre constitution, mais nous l'avons également résumé et expliqué [ici]({{< ref "verein/mission-statement" >}}).  
 

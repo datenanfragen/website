@@ -19,8 +19,8 @@ export default class CompanyWidget extends preact.Component {
                         ? [
                               <br />,
                               <span className="company-info-label">
-                                  <Text id="address" />
-                                  :&nbsp;
+                                  <Text id="address-colon" />
+                                  &nbsp;
                               </span>,
                               <span>{this.props.company['address'].split('\n').join(', ')}</span>
                           ]
@@ -29,8 +29,8 @@ export default class CompanyWidget extends preact.Component {
                         ? [
                               <br />,
                               <span className="company-info-label">
-                                  <Text id="fax" />
-                                  :&nbsp;
+                                  <Text id="fax-colon" />
+                                  &nbsp;
                               </span>,
                               this.props.company['fax']
                           ]
@@ -39,8 +39,8 @@ export default class CompanyWidget extends preact.Component {
                         ? [
                               <br />,
                               <span className="company-info-label">
-                                  <Text id="email" />
-                                  :&nbsp;
+                                  <Text id="email-colon" />
+                                  &nbsp;
                               </span>,
                               this.props.company['email']
                           ]
@@ -49,8 +49,8 @@ export default class CompanyWidget extends preact.Component {
                         ? [
                               <br />,
                               <span className="company-info-label">
-                                  <Text id="pgp-fingerprint" />
-                                  :&nbsp;
+                                  <Text id="pgp-fingerprint-colon" />
+                                  &nbsp;
                               </span>,
                               <code>
                                   {this.props.company['pgp-url'] ? (
@@ -68,7 +68,7 @@ export default class CompanyWidget extends preact.Component {
                     ? [
                           <br />,
                           <span className="company-info-label">
-                              <Text id="current-company-comments" />:
+                              <Text id="current-company-comments-colon" />
                           </span>,
                           <br />,
                           comments

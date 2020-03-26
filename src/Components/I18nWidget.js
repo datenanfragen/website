@@ -49,19 +49,17 @@ export default class I18nWidget extends preact.Component {
     }
 
     render() {
-        let language_options = [];
-        for (let lang in SUPPORTED_LANGUAGES) {
-            language_options.push(
-                <option value={lang}>
-                    <Text id={'language-desc-' + lang} />
-                </option>
-            );
-        }
+        const language_options = Object.keys(SUPPORTED_LANGUAGES)
+            .sort((a, b) =>
+                t('language-desc-' + a, 'i18n-widget').localeCompare(t('language-desc-' + b, 'i18n-widget'))
+            )
+            .map(lang => <option value={lang}>{t('language-desc-' + lang, 'i18n-widget')}</option>);
 
-        let country_options = [];
-        SUPPORTED_COUNTRIES.forEach(country => {
-            country_options.push(<option value={country}>{t(country, 'countries')}</option>);
-        });
+        const country_options = SUPPORTED_COUNTRIES.sort((a, b) => {
+            if (a === 'all') return -1;
+            if (b === 'all') return 1;
+            return t(a, 'countries').localeCompare(t(b, 'countries'));
+        }).map(country => <option value={country}>{t(country, 'countries')}</option>);
 
         return (
             <IntlProvider scope="i18n-widget" definition={I18N_DEFINITION}>
