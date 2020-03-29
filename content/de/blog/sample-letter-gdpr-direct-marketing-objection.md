@@ -6,7 +6,7 @@
     "date": "2019-10-24T14:59:57+02:00",
     "type": "blog",
     "description": "Direktwerbung musst Du Dir nicht gefallen lassen. Dank der DSGVO kannst Du dagegen widersprechen. Unser Musterbrief hilft Dir dabei, diesen Anspruch geltend zu machen.",
-    "featured_image": "/img/blog/sample-letter-gdpr-direct-marketing-objection.de.jpg",
+    "featured_image": "img/sample-letter-gdpr-direct-marketing-objection.jpg",
     "tags": [ "dsgvo", "gdpr", "widerspruch direktwerbung", "brief", "schreiben", "muster", "artikel 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-1.0",
@@ -17,7 +17,7 @@ Werbung wirkt heutzutage allgegenwärtig: Kaum öffnet man den Briefkasten oder 
 
 Als Rechtsgrundlage berufen sich diese Unternehmen dabei häufig auf ihr „berechtigtes Interesse“ oder auf eine Einwilligung – gerne auch weit hinten in einem Vertrag zu einem eigentlich ganz anderen Thema.
 
-<img src="/img/blog/sample-letter-gdpr-direct-marketing-objection.de.jpg">
+<img src="img/sample-letter-gdpr-direct-marketing-objection.jpg">
 
 Zum Glück musst Du Dir das nicht gefallen lassen. Nach der Datenschutz-Grundverordnung (DSGVO) hast Du ein Recht auf Widerspruch gegen Direktwerbung. Dieses Recht legt Art. 21 Abs. 2 DSGVO ganz unmissverständlich fest. Den Widerspruch darfst Du auch erheben, wenn Du in der Vergangenheit eine Einwilligung für Direktwerbung erteilt hast.  
 Sobald Du den Widerspruch erhoben hast, darf das entsprechende Unternehmen Deine personenbezogenen Daten nicht mehr für Direktwerbung verwenden.
