@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-languages=(de en fr)
+languages=(de en fr pt)
 
 echo "Fetching data…"
 git clone --depth 1 https://github.com/datenanfragen/data data_tmp
