@@ -148,17 +148,17 @@ document.getElementById('submit-suggest-form').onclick = () => {
 
     document.getElementById('loading-indicator').classList.remove('hidden');
 
-    function getAllPropertyNamesinSchema(schema_part){
+    function getAllPropertyNamesInSchema(schema_part) {
         let res = [];
         for (let key in schema_part) {
-            if (key === "items"){
-                res = res.concat(getAllPropertyNamesinSchema(schema_part[key]))
+            if (key === 'items') {
+                res = res.concat(getAllPropertyNamesInSchema(schema_part[key]));
             }
-            if (key === "properties") {
-                for ( let [property_name, property_value] of Object.entries(schema_part[key])){
+            if (key === 'properties') {
+                for (let [property_name, property_value] of Object.entries(schema_part[key])) {
                     res.push(property_name);
-                    if (property_value){
-                        res = res.concat(getAllPropertyNamesinSchema(property_value));
+                    if (property_value) {
+                        res = res.concat(getAllPropertyNamesInSchema(property_value));
                     }
                 }
             }
@@ -171,18 +171,20 @@ document.getElementById('submit-suggest-form').onclick = () => {
     // --> if we put all properties in the whitelist,
     // we can control the ordering of the JSON to fix #187
     // (see https://stackoverflow.com/questions/16167581/sort-object-properties-and-json-stringify/40646557#comment70742750_40646557)
-    let properties = getAllPropertyNamesinSchema(schema);
+    let properties = getAllPropertyNamesInSchema(schema);
 
     fetch(SUBMIT_URL, {
         method: 'POST',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
         // we use a replacer to order the JSON
-        body: JSON.stringify({
-            for: 'cdb',
-            data: data,
-            new: !PARAMETERS['slug']
-        },
-            ['for', 'data'].concat(properties, ['new']))
+        body: JSON.stringify(
+            {
+                for: 'cdb',
+                data: data,
+                new: !PARAMETERS['slug']
+            },
+            ['for', 'data'].concat(properties, ['new'])
+        )
     })
         .then(res => res.json())
         .then(res => {
