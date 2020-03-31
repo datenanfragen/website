@@ -7,6 +7,7 @@ require('brutusin-json-forms');
 import { ErrorException, rethrow } from './Utility/errors';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 let bf;
+let schema;
 // The requests to the dev endpoint can be viewed here: https://beeceptor.com/console/datenanfragen-test
 const SUBMIT_URL =
     process.env.NODE_ENV === 'development'
@@ -19,6 +20,7 @@ window.onload = () => {
         .then(res => res.json())
         .then(out => {
             prepareForm(out);
+            schema = out;
         })
         .catch(err => {
             rethrow(ErrorException.fromError(err), 'Could not get `schema.json` for cdb suggestion form.', {
@@ -145,14 +147,44 @@ document.getElementById('submit-suggest-form').onclick = () => {
     if (data.fax) data.fax = formatPhoneNumber(data.fax);
 
     document.getElementById('loading-indicator').classList.remove('hidden');
+
+    function getAllPropertyNamesInSchema(schema_part) {
+        let res = [];
+        for (let key in schema_part) {
+            if (key === 'items') {
+                res = res.concat(getAllPropertyNamesInSchema(schema_part[key]));
+            }
+            if (key === 'properties') {
+                for (let [property_name, property_value] of Object.entries(schema_part[key])) {
+                    res.push(property_name);
+                    if (property_value) {
+                        res = res.concat(getAllPropertyNamesInSchema(property_value));
+                    }
+                }
+            }
+        }
+        return res;
+    }
+    // Get all property names in the order noted in the schema.
+    // Later on we use them in the replacer part of JSON.stringify()
+    // this replacer acts as a whitelist and gives an order of elements
+    // --> if we put all properties in the whitelist,
+    // we can control the ordering of the JSON to fix #187
+    // (see https://stackoverflow.com/questions/16167581/sort-object-properties-and-json-stringify/40646557#comment70742750_40646557)
+    let properties = getAllPropertyNamesInSchema(schema);
+
     fetch(SUBMIT_URL, {
         method: 'POST',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            for: 'cdb',
-            data: data,
-            new: !PARAMETERS['slug']
-        })
+        // we use a replacer to order the JSON
+        body: JSON.stringify(
+            {
+                for: 'cdb',
+                data: data,
+                new: !PARAMETERS['slug']
+            },
+            ['for', 'data'].concat(properties, ['new'])
+        )
     })
         .then(res => res.json())
         .then(res => {
