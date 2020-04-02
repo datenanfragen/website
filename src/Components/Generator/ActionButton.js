@@ -17,6 +17,7 @@ export default class ActionButton extends preact.Component {
                     email={props.email}
                     done={props.done}
                     className={class_name}
+                    buttonText={this.props.buttonText}
                 />
             ) : (
                 <a
@@ -28,7 +29,7 @@ export default class ActionButton extends preact.Component {
                         if (!enabled) e.preventDefault();
                         else props.onSuccess();
                     }}>
-                    <Text id={props.done ? 'download-pdf-again' : 'download-pdf'} />
+                    {this.props.buttonText || <Text id={props.done ? 'download-pdf-again' : 'download-pdf'} />}
                     &nbsp;&nbsp;
                     <span className={'icon ' + (props.done ? 'icon-delivery-truck' : 'icon-download')} />
                 </a>
@@ -62,6 +63,7 @@ export default class ActionButton extends preact.Component {
         download_filename: PropTypes.string,
         download_active: PropTypes.bool,
         onSuccess: PropTypes.func.isRequired,
-        done: PropTypes.bool
+        done: PropTypes.bool,
+        buttonText: PropTypes.oneOf([PropTypes.string, PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
     };
 }

@@ -1,1 +1,16 @@
-{}
+{
+    "hugo": {
+        "categories": "Kategorie",
+        "addresses": "adresy",
+        "ads": "reklamy",
+        "entertainment": "rozrywka",
+        "finance": "finanse",
+        "health": "zdrowie",
+        "insurance": "ubezpieczenie",
+        "nonprofit": "organizacje non-profit",
+        "school": "edukacja",
+        "social media": "social media",
+        "telecommunication": "telekomunikacja",
+        "travel": "podróże"
+    }
+}

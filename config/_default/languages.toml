@@ -16,3 +16,9 @@
     weight = 30
     title = "demandetesdonnees.fr"
     copyright = "Sauf indication contraire, ce(tte) œuvre est mise à disposition selon les termes de la Licence Creative Commons Attribution 4.0 International."
+[pt]
+    languageCode = "pt-pt"
+    languageName = "Português"
+    weight = 40
+    title = "pedidodedados.org"
+    copyright = "Exceto onde indicado, esta obra está licenciada sob uma Licença Creative Commons Atribuição 4.0 Internacional."
