@@ -66,7 +66,7 @@ export default class MailtoDropdown extends preact.Component {
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                 <div className="dropdown-container" style="display: inline-block;">
                     <button className={props.className}>
-                        <Text id={props.done ? 'send-email-again' : 'send-email'} />
+                        {this.props.buttonText || <Text id={props.done ? 'send-email-again' : 'send-email'} />}
                         &nbsp;&nbsp;
                         <span className={'icon ' + (props.done ? 'icon-paper-plane' : 'icon-email')} />
                     </button>
@@ -94,6 +94,7 @@ export default class MailtoDropdown extends preact.Component {
         email: PropTypes.string.isRequired,
         onSuccess: PropTypes.func.isRequired,
         done: PropTypes.bool.isRequired,
-        className: PropTypes.string.isRequired
+        className: PropTypes.string.isRequired,
+        buttonText: PropTypes.oneOf([PropTypes.string, PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
     };
 }

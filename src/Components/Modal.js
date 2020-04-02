@@ -1,29 +1,34 @@
 import preact from 'preact';
 import Portal from 'preact-portal';
 import t from '../Utility/i18n';
+import PropTypes from 'prop-types';
 
 export default class Modal extends preact.Component {
     render() {
-        let positiveButton = this.props.positiveText ? (
-            <button
-                className={'button ' + (this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
-                onClick={this.props.onPositiveFeedback}
-                style={'float: right'}>
-                {this.props.positiveText}
-            </button>
-        ) : (
-            ''
-        );
-        let negativeButton = this.props.negativeText ? (
-            <button
-                className={'button ' + (!this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
-                onClick={this.props.onNegativeFeedback}
-                style={'float: left'}>
-                {this.props.negativeText}
-            </button>
-        ) : (
-            ''
-        );
+        const positiveButton =
+            this.props.positiveButton ||
+            (this.props.positiveText ? (
+                <button
+                    className={'button ' + (this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
+                    onClick={this.props.onPositiveFeedback}
+                    style={'float: right'}>
+                    {this.props.positiveText}
+                </button>
+            ) : (
+                ''
+            ));
+        const negativeButton =
+            this.props.negativeButton ||
+            (this.props.negativeText ? (
+                <button
+                    className={'button ' + (!this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
+                    onClick={this.props.onNegativeFeedback}
+                    style={'float: left'}>
+                    {this.props.negativeText}
+                </button>
+            ) : (
+                ''
+            ));
         /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
         return (
             <Portal into="body">
@@ -37,7 +42,7 @@ export default class Modal extends preact.Component {
                         role="presentation"
                         tabIndex="0"
                     />
-                    <div className="inner">
+                    <div className="inner" style={this.props.innerStyle}>
                         {this.props.onDismiss ? (
                             <button
                                 className="button-unstyled close-button icon-close"
@@ -58,6 +63,22 @@ export default class Modal extends preact.Component {
         );
         /* eslint-enable */
     }
+
+    static propTypes = {
+        positiveButton: PropTypes.element,
+        positiveText: PropTypes.string,
+        positiveDefault: PropTypes.bool,
+        onPositiveFeedback: PropTypes.func,
+
+        negativeButton: PropTypes.element,
+        negativeText: PropTypes.string,
+        negativeDefault: PropTypes.bool,
+        onNegativeFeedback: PropTypes.func,
+
+        onDismiss: PropTypes.func,
+        children: PropTypes.arrayOf(PropTypes.element),
+        innerStyle: PropTypes.string
+    };
 }
 
 export function showModal(modal) {

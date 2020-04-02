@@ -21,10 +21,10 @@ node prepare-deploy.js
 # Unfortunately, Hugo only accepts .md files as posts, so we have to rename our JSONs, see https://stackoverflow.com/a/27285610
 cd content/company || exit
 # Hugo doesn't fallback to the default language here, so we have to copy the files for every language
-find . -name '*.json' -exec sh -c 'for lang in de fr ; do cp "$0" "${0%.json}.$lang.md" ; done && mv "$0" "${0%.json}.en.md"' {} \;
+find . -name '*.json' -exec sh -c 'for lang in de fr pt ; do cp "$0" "${0%.json}.$lang.md" ; done && mv "$0" "${0%.json}.en.md"' {} \;
 
 cd ../supervisory-authority || exit
-find . -name '*.json' -exec sh -c 'for lang in de fr ; do cp "$0" "${0%.json}.$lang.md" ; done && mv "$0" "${0%.json}.en.md"' {} \;
+find . -name '*.json' -exec sh -c 'for lang in de fr pt ; do cp "$0" "${0%.json}.$lang.md" ; done && mv "$0" "${0%.json}.en.md"' {} \;
 
 cd ../.. || exit
 

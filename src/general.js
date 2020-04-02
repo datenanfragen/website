@@ -9,7 +9,7 @@ import { PARAMETERS } from './Utility/common';
 import DonationWidget from './Components/DonationWidget';
 
 window.I18N_DEFINITION = require('i18n/' + LOCALE + '.json');
-window.I18N_DEFINITION_REQUESTS = ['de', 'en', 'fr'].reduce(
+window.I18N_DEFINITION_REQUESTS = ['de', 'en', 'fr', 'pt'].reduce(
     (acc, cur) => ({ ...acc, [cur]: require(`i18n/${cur}.json`).requests }),
     {}
 );
@@ -72,7 +72,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
 // The more reliable way would be to feed the user's IP into a geolocation service but that is not an option, so we have to stick with this.
 function guessUserCountry() {
     // maps from language to country
-    const FALLBACK_COUNTRIES = { de: 'de', en: 'gb', fr: 'fr' };
+    const FALLBACK_COUNTRIES = { de: 'de', en: 'gb', fr: 'fr', pt: 'pt' };
 
     // see https://stackoverflow.com/a/52112155/3211062
     const navigator_lang =

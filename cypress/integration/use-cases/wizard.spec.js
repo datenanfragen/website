@@ -20,29 +20,24 @@ describe('Using the wizard', () => {
 
         cy.get('#wizard-buttons > .button-primary').click();
 
-        function addCompany(company, result_str) {
-            cy.get('#aa-search-input').type(company);
-            cy.contains(result_str).click();
-        }
-
         // Commerce
-        addCompany('amazon', 'Amazon Deutschland');
-        addCompany('ebay', 'eBay GmbH');
-        addCompany('h&m', 'H&M Hennes');
+        cy.addCompanyToWizard('amazon', 'Amazon Deutschland');
+        cy.addCompanyToWizard('ebay', 'eBay GmbH');
+        cy.addCompanyToWizard('h&m', 'H&M Hennes');
 
         cy.get('#wizard-buttons > .button-primary').click();
 
         // Entertainment
-        addCompany('netflix', 'Netflix International');
-        addCompany('spotify', 'Spotify AB');
+        cy.addCompanyToWizard('netflix', 'Netflix International');
+        cy.addCompanyToWizard('spotify', 'Spotify AB');
 
         cy.get('#wizard-buttons > .button-primary').click();
         cy.get('#wizard-buttons > .button-primary').click();
         cy.get('#wizard-buttons > .button-primary').click();
 
         // Insurance
-        addCompany('huk co', 'HUK-COBURG');
-        addCompany('allianz', 'Allianz');
+        cy.addCompanyToWizard('huk co', 'HUK-COBURG');
+        cy.addCompanyToWizard('allianz', 'Allianz');
 
         cy.contains('SCHUFA Holding AG')
             .parent()
@@ -57,5 +52,28 @@ describe('Using the wizard', () => {
             .should('include', '#!from=wizard');
 
         cy.get('.joyride-tooltip__close').click();
+
+        cy.get('aside.company-info.box');
+
+        cy.get('.dynamic-input.dynamic-input-name input[name=value]').type('Kim Mustermensch');
+        cy.get('.request-transport-medium-chooser')
+            .contains('Fax')
+            .click();
+
+        cy.contains('Download PDF')
+            .should('not.have.class', 'disabled')
+            .clickLinkWithoutFollowingHref();
+
+        cy.contains('Next request').click();
+        cy.get('aside.company-info.box').get('.company-info-content');
+        cy.contains('Next request').click();
+
+        // We are prompted if we really don't want to use our request first. We don't.
+        cy.contains('New request').click();
+
+        cy.get('aside.company-info.box').get('.accordion-title');
+
+        cy.contains('Send email').click();
+        cy.contains('Default email software').clickLinkWithoutFollowingHref();
     });
 });

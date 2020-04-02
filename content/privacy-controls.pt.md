@@ -1,8 +1,9 @@
 {
-    "title": "Options de confidentialité",
-    "slug": "options-de-confidentialite",
+    "title": "Configurações de privacidade",
+    "slug": "configuracoes-privacidade",
     "aliases": [
-        "privacy-controls"
+        "privacy-controls",
+        "configurações-privacidade"
     ],
     "type": "privacy-controls",
     "static": true
