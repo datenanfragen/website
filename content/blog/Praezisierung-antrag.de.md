@@ -27,8 +27,14 @@ Welche Datenträger unter diesen Begriff fallen, ist besonders wichtig, damit es
 
 Es sollte weiter konkretisiert werden, welche Verarbeiter von Daten zu den Big Data Verwalter gehören. Das kann nur andeutend gemacht werden, da eine ausführliche Liste riesig wäre.
 
-Zu den Big Data Verarbeitern gehören zunächst die Finanz- und Versicherungsanbieter, wie Banken und Versicherungsunternehmen, da sie umfangreiche Vertragsbeziehungen mit der betroffenen Person unterhalten.[^6] Ebenso Big Data verarbeitende Träger sind solche, die das individuelle Scoring, Tracking oder Profiling, wie z.B. die Bonität vornehmen.[^7] Weiterhin fallen darunter die Online Medien Plattformen, wie Soziale Medien, Suchmaschinen, Handelsplattformen, und verschiedene Apps (wie Dating Plattformen usw.)
+Zu den Big Data Verarbeitern gehören zunächst die Finanz- und Versicherungsanbieter, wie Banken und Versicherungsunternehmen, da sie umfangreiche Vertragsbeziehungen mit der betroffenen Person unterhalten.[^6] 
+
+Ebenso Big Data verarbeitende Träger sind solche, die das individuelle Scoring, Tracking oder Profiling, wie z.B. die Bonität vornehmen.[^7] 
+
+Weiterhin fallen darunter die Online Medien Plattformen, wie Soziale Medien, Suchmaschinen, Handelsplattformen, und verschiedene Apps (wie Dating Plattformen usw.)
+
 Daneben sind das auch Vergnügungsdienste, wie Streamingdienste für Filme oder Musik. Big Data Verarbeiter sind auch die Hersteller und Betreiber von Smart Geräten und der diese Geräte begleitenden Software. Schließlich spielt Big Data auch im Arbeitsumfeld eine Rolle, da im Rahmen von Arbeitsbeziehungen große Mengen von Daten zwischen den Parteien ausgetauscht werden.[^8]
+
 Auf jeden Fall kann unter der „Big Data“ Kategorie jeder Datenpool eingeordnet werden, dessen Daten einer konkreten Person zugeordnet werden können.[^9]
 
 ## III.	Obliegenheit der betroffenen Person
@@ -58,6 +64,7 @@ Weder in der Lehre noch in der Rechtsprechung gibt es eine einheitliche Auffassu
 ## IV.	Präzisierung
 
 Neben der juristischen Auslegung der Normen ist für die Praxis besonders wichtig, wie die betroffene Person ihren Auskunftsantrag präzisieren soll, wenn dies vom Verantwortlichen verlangt wird.
+
 Am Anfang sollte der Antragsteller klarstellen, an welchen Informationen und Verarbeitungsvorgängen er interessiert ist.[^16] Eine bestimmte Kategorie von Daten i.S.v. Art. 15 DSGVO sind üblicherweise Leistungs- und Verhaltensdaten.[^17] Der Antrag ist bestimmt genug, wenn die betroffene Person eine Auskunft der verarbeiteten und nicht der sich in ihrer Personalakte befindenden Daten begehrt. Nicht in den Antrag aufgenommen werden können oder müssen die Daten, die Antragsteller nicht kennen kann.[^18] Eine Präzisierung ist auch bestimmt genug, wenn die Datenkategorie und der Zeitraum festgelegt worden sind (z.B. E-Mails von einem bestimmten Zeitraum).[^19] Letztere Methode ist zu empfehlen.
 
 ## V.	Fazit
