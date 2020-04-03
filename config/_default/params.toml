@@ -18,3 +18,7 @@ short_name = "nishantwrp"
 [authors.nadjarode]
 byline = "Nadja Rode"
 short_name = "Nadja"
+
+[authors.lars]
+byline = "Lars"
+short_name = "Lars"
