@@ -6,3 +6,6 @@
 
 [fr]
 	baseURL = "https://www.demandetesdonnees.fr/"
+
+[pt]
+	baseURL = "https://www.pedidodedados.org/"

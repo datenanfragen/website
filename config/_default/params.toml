@@ -14,3 +14,7 @@ short_name = "WL"
 [authors.nishantwrp]
 byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://github.com/nishantwrp' property='cc:attributionName' rel='cc:attributionURL'>Nishant Mittal</a>"
 short_name = "nishantwrp"
+
+[authors.nadjarode]
+byline = "Nadja Rode"
+short_name = "Nadja"

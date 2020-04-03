@@ -80,7 +80,9 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
                 case 200:
                     return response.text();
                 case 404:
-                    if (locale !== REQUEST_FALLBACK_LANGUAGE) return fetchTemplate(REQUEST_FALLBACK_LANGUAGE, template);
+                    if (locale !== REQUEST_FALLBACK_LANGUAGE) {
+                        return fetchTemplate(REQUEST_FALLBACK_LANGUAGE, template, null, '');
+                    }
                     throw new CriticalException(
                         'Request template could not be found.',
                         {
