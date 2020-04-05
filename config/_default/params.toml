@@ -22,3 +22,7 @@ short_name = "Nadja"
 [authors.lars]
 byline = "Lars"
 short_name = "Lars"
+
+[authors.anikarini]
+byline = "Ani Karini Muniz Schiebert"
+short_name = "Ani Karini"

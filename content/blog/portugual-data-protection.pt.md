@@ -1,22 +1,21 @@
 {
     "title": "Particularidades do Direito de Proteção de Dados em Portugal",
-    "slug": "Direito de proteção de Dados em Portugal",
-    "date": "2020-04-04T01:44:30:01+02:00",
+    "slug": "direito-de-protecao-de-dados-portugal",
+    "aliases": [ "portugal-data-protection" ],
+    "date": "2020-04-05T01:44:30+02:00",
 	"type": "blog",
     "title": "Particularidades da Proteção de Dados em Portugal",
-	"description": "Uma visão geral sobre o direito de proteção de dados em Portugal.",
-    "tags": [" rgpd" , "gdpr", "Lei Nr. 58/ 2019" ,"direito de proteção de dados português", "direito de proteção de dados em Portugal","gdpr em Portugal", "rgpd Portugal", "proteção de dados Portugal", "gdpr Portugal",]
-    "authors": [ "Ani Karini M. Schiebert" ]
-    "license": "cc-by-4.0"
+	"description": "Quais são as particularidades do Direito de Proteção de Dados em Portugal? Este artigo fornece uma visão geral acerca das especificidades do Direito de Proteção de Dados em Portugal, particularmente no que concerne ao Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia. ",
+    "featured_image": "/img/blog/portugal-data-protection.pt.jpg",
+    "tags": ["rgpd" , "gdpr", "Lei Nr. 58/ 2019", "direito de proteção de dados português", "direito de proteção de dados em Portugal", "gdpr em Portugal", "rgpd Portugal", "proteção de dados Portugal", "gdpr Portugal"],
+    "authors": [ "anikarini" ],
+    "license": "cc-by-4.0",
+    "notices": "Foto da capa adaptada para: “[Portugal Flag Wind](https://pixabay.com/photos/portugal-flag-wind-sky-blue-1355102/)” por [b1-foto](https://pixabay.com/users/b1-foto-2445766/) ([licença Pixabay](https://pixabay.com/service/license/))"
 }
 
-# As particularidades do Direito de Proteção de Dados em Portugal 
-<!-- Bitte Titel als Bild zeigen-->
-
-![Portugal Flag](https://upload.wikimedia.org/wikipedia/commons/5/52/Lisbon_67_%2814679919964%29.jpg)
-<!-- Bitte Foto in Mittle zeigen -->
-
 Quais são as particularidades do Direito de Proteção de Dados em Portugal? Este artigo fornece uma visão geral acerca das especificidades do Direito de Proteção de Dados em Portugal, particularmente no que concerne ao Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia. 
+
+<img src="/img/blog/portugal-data-protection.pt.jpg">
 
 ## O que é o Regulamento Geral sobre a Proteção de Dados (RGPD)?
 
@@ -36,15 +35,16 @@ Como determinados artigos da lei de execução do RGPD 58/2019 **contradiziam o 
 
 Devido às contradições, **não se aplicam** mais os seguintes dispositivos:
 
-• Artigo 2 §§ 1 e 2: Âmbito de aplicação da lei;  
-• Artigo 20 § 1: Dever de segredo;  
-• Artigo 23: Tratamento de dados pessoais por entidades públicas para finalidades diferentes;  
-• Artigo 28 § 3 (a): Consentimento do empregador nas relações trabalhistas;  
-• Artigo 37 § 1(a) (h) (k) e § 2: Infrações e sanções aplicáveis;  
-• Artigo 38 § 1 (b) e § 2: Infrações e sanções aplicáveis;  
-• Artigo 39 §§ 1 e 3: Infrações e sanções aplicáveis;  
-• Artigo 61 § 2: Conexão entre a expiração do consentimento e a rescisão do contrato (para contratos existentes);  
-• Artigo 62 § 2: Revogação de disposições que exijam aprovação prévia ou notificação ao CNPD com efeitos a partir da data efetiva do RGPD.
+* Artigo 2 §§ 1 e 2: Âmbito de aplicação da lei;
+* Artigo 20 § 1: Dever de segredo;
+* Artigo 23: Tratamento de dados pessoais por entidades públicas para finalidades diferentes;
+* Artigo 28 § 3 (a): Consentimento do empregador nas relações trabalhistas;
+* Artigo 37 § 1(a) (h) (k) e § 2: Infrações e sanções aplicáveis;
+* Artigo 38 § 1 (b) e § 2: Infrações e sanções aplicáveis;
+* Artigo 39 §§ 1 e 3: Infrações e sanções aplicáveis;
+* Artigo 61 § 2: Conexão entre a expiração do consentimento e a rescisão do contrato (para contratos existentes);
+* Artigo 62 § 2: Revogação de disposições que exijam aprovação prévia ou notificação ao CNPD com efeitos a partir da data efetiva do RGPD.
+
 ---
 
 Disposições relevantes sobre proteção de dados relacionadas à comunicação eletrônica também podem ser encontradas na *Lei 41/2004* de 18 de agosto (Lei sobre o Tratamento de Dados Pessoais e a Proteção da Privacidade em Comunicação Eletrônica na versão da *Lei 46/2012* de 29 de agosto de 2012 e adotado em conformidade com a Diretiva 2002/58/CE (com alterações subsequentes do artigo 2.º da Diretiva 2009/136/CE) e no *Regulamento (UE) 611/2013* da Comissão, de 24 de junho de 2013, sobre as medidas de notificação à violação de dados pessoais em conformidade com a Diretiva 2002/58/CE do Parlamento Europeu e do Conselho sobre Proteção de Dados e Comunicações Eletrônicas de Privacidade, bem como a *Lei 32/2008* (que implementou a Diretiva de Retenção de Dados para preservar dados de comunicações eletrônicas) e a *Lei 5/2004* relativa à criação de um banco de dados de assinantes para devedores de serviços de comunicações eletrônicas.
@@ -54,14 +54,15 @@ Além disso, a *Lei 34/2013* sobre o uso de sistemas de videovigilância pelos s
 No contexto dos cuidados de saúde, a *Lei 12/2005* sobre informações pessoais de saúde genética é significativa.
 
 A *Lei 109/2009* sobre Cibercrimes é relevante nos termos do direito penal.
+
 ---
 
-### Fontes:
+## Fontes
 
-- http://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?nid=707&tabela=leis&so_miolo= Acesso em 23.03.2020  
-- https://dre.pt/pesquisa/-/search/174793/details/maximized Acesso em 23.03.2020  
-- https://www.anacom.pt/render.jsp?contentId=964154 Acesso em 23.03.2020  
-- https://www.cnpd.pt/home/decisoes/Delib/DEL_2019_494.pdf Acesso em 21.03.2020  
-- https://www.cnpd.pt/home/legis/leis_nacional.htm Acesso em 25.03.2020  
-- https://www.d-velop.de/blog/compliance/oeffnungsklauseln Acesso em 21.03.2020  
-- https://www.parlamento.pt/Legislacao/Paginas/ConstituicaoRepublicaPortuguesa.aspx Acesso em 23.03.2020  
+- http://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?nid=707&tabela=leis&so_miolo= (Acesso em 23.03.2020)
+- https://dre.pt/pesquisa/-/search/174793/details/maximized (Acesso em 23.03.2020)
+- https://www.anacom.pt/render.jsp?contentId=964154 (Acesso em 23.03.2020)
+- https://www.cnpd.pt/home/decisoes/Delib/DEL_2019_494.pdf (Acesso em 21.03.2020)
+- https://www.cnpd.pt/home/legis/leis_nacional.htm (Acesso em 25.03.2020)
+- https://www.d-velop.de/blog/compliance/oeffnungsklauseln (Acesso em 21.03.2020)
+- https://www.parlamento.pt/Legislacao/Paginas/ConstituicaoRepublicaPortuguesa.aspx (Acesso em 23.03.2020)
