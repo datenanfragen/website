@@ -16,13 +16,13 @@ byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://github.com/
 short_name = "nishantwrp"
 
 [authors.nadjarode]
-byline = "Nadja Rode"
+byline = "Nadja Rode (<a href=\"http://www.hlci.de/\">Humboldt Law Clinic Internetrecht</a>, Berlin)"
 short_name = "Nadja"
 
 [authors.lars]
-byline = "Lars"
+byline = "Lars (<a href=\"http://www.hlci.de/\">Humboldt Law Clinic Internetrecht</a>, Berlin)"
 short_name = "Lars"
 
 [authors.anikarini]
-byline = "Ani Karini Muniz Schiebert"
+byline = "Ani Karini Muniz Schiebert (<a href=\"http://www.hlci.de/\">Humboldt Law Clinic Internetrecht</a>, Berlin)"
 short_name = "Ani Karini"
