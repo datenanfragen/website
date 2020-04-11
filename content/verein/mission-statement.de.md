@@ -19,7 +19,7 @@ Wir möchten, dass so viele Menschen wie möglich nicht nur von ihrem Recht mit 
  
 ## Für Deine Rechte streiten
 
-In einer Demokratie ist es immer notwendig, für seinen eigenen Interessen aufzustehen und sie gemeinsam mit anderen zu erstreiten. Deswegen beteiligen wir uns am Diskurs zu neuen Datenschutzgesetzgebungen und machen Vorschläge, wie es in Zukunft besser werden kann. Dass im Internet überall mit den eigenen Daten bezahlt wird und der Staat wie Unternehmen immer mehr über uns weiß, ist bedenklich und muss in Zukunft weiter zurückgedrängt werden.
+In einer Demokratie ist es immer notwendig, für seine eigenen Interessen aufzustehen und sie gemeinsam mit anderen zu erstreiten. Deswegen beteiligen wir uns am Diskurs zu neuen Datenschutzgesetzgebungen und machen Vorschläge, wie es in Zukunft besser werden kann. Dass im Internet überall mit den eigenen Daten bezahlt wird und der Staat wie Unternehmen immer mehr über uns weiß, ist bedenklich und muss in Zukunft weiter zurückgedrängt werden.
  
 ## Vorbild sein
 
