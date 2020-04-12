@@ -1,10 +1,42 @@
-<!-- image, modified after https://gohugo.io/templates/shortcode-templates/#single-named-example-image -->
-<figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
-	{{ with .Get "link"}}<a href="{{.}}">{{ end -}}
-	<img src="{{ .Get "src" }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{ . }}{{ else }}{{ .Get "caption" }}{{ end }}" title="{{ with .Get "alt"}}{{ . }}{{ else }}{{ .Get "caption" }}{{ end }}"{{ end }} />
+<!--
+Insert an image, either from a named page resource or a URL.
+
+Use it like this (remove the `.`):
+    `{.{< img name="[name]" … >}}`
+
+With the following parameters:
+    - `[name]`: The name of the image resource to insert. If this is specified, `[url]` cannot be used.
+        - `[command]`: Commands for the image (may only be used with `[name]`).
+        - `[options]`: Options for the image command (may only be used with `[name]`).
+    - `[url]`: The URL of the image to insert. If this is specified, `[name]` cannot be used.
+    - `[class]`: A CSS class to apply to the enclosing `<figure>`.
+    - `[alt]`: The text to set for the `alt` and `title` attributes of the image. Falls back to `[caption]` if not set.
+    - `[caption]`: The caption to display underneath the image.
+    - `[link]`: The URL that the image links to.
+
+Only either `[name]` or `[url]` are required, all other commands are optional.
+
+For a description of the `[name]`, `[command]` and `[options]` parameters, see the documentation for the `imgURL`
+shortcode.
+
+Inspired by: https://gohugo.io/templates/shortcode-templates/#single-named-example-image
+-->
+{{- $img_src := "" -}}
+{{- if (.Get "name") -}}
+    {{- $img_src = (partial "functions/imgURL" (dict "page" .Page "name" (.Get "name") "command" (.Get "command") "options" (.Get "options"))) -}}
+{{- else if (.Get "url" ) -}}
+    {{ $img_src = (.Get "url") -}}
+{{- else -}}
+    {{ errorf "You need to specify either the `name` or `url` parameter: %s" .Position}}
+{{- end -}}
+
+{{- $alt_text := (cond (isset .Params "alt") (.Get "alt") (.Get "caption")) -}}
+
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+    {{ with .Get "link"}}<a href="{{.}}">{{ end -}}
+    <img src="{{ $img_src }}" alt="{{ $alt_text }}" title={{ $alt_text }} />
     {{- if .Get "link" }}</a>{{ end }}
-{{ if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
-<figcaption>{{ if isset .Params "caption" }}{{ .Get "caption" }}{{ end }}</figcaption>
-{{ end }}
+    {{ with (.Get "caption") -}}
+        <figcaption>{{ . }}</figcaption>
+    {{- end }}
 </figure>
-<!-- image -->
