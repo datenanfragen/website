@@ -5,7 +5,7 @@
     "last_edited": "2019-05-30T13:21:06",
 	"type": "blog",
 	"description": "Thanks to the GDPR, you have the right to have your personal data deleted if a controller no longer needs it for its original purpose. We offer you a sample letter with which you can exercise such a right.",
-	"featured_image": "img/gdpr-erasure-request-letter.jpg",
+	"featured_image": "/img/gdpr-erasure-request-letter.jpg",
     "tags": [ "gdpr", "erasure request", "letter", "sample", "article 17" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-1.0"

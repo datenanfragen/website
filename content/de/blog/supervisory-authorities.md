@@ -61,4 +61,4 @@ Wenn Du über Datenanfragen.de eine Anfrage an ein Unternehmen gestellt hast und
 
 Über die [„Meine Anfragen”-Funktion]({{< ref "/my-requests"  >}}) findest Du – vorausgesetzt, Du hast sie nicht ausgeschaltet – eine Übersicht aller Deiner bereits gestellten Anfragen. Neben jeder Anfrage gibt es Knöpfe, über die Du Mahnungen und Beschwerden zu eben dieser Anfrage einfach über unseren Generator verschicken kannst.
 
-{{< img src="img/mahnung-senden.png" caption="Eine Beschwerde über Datenanfragen.de verschicken" >}}
+{{< img src="/img/blog/mahnung-senden.png" caption="Eine Beschwerde über Datenanfragen.de verschicken" >}}
