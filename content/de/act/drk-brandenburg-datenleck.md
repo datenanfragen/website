@@ -3,14 +3,14 @@
     "type": "act",
     "date": "2020-02-05T18:17:07+02:00",
     "tags": [ "deutsches rotes kreuz", "drk", "gesundheitsdaten", "sensible daten", "datenleck" ],
-    "featured_image": "img/drk-brandenburg-datenleck.jpg",
+    "featured_image": "/img/act/drk-brandenburg-datenleck.de.jpg",
     "authors": [ "baltpeter" ],
     "notices": "Titelfoto angepasst nach: „[red vehicle in timelapse](https://unsplash.com/photos/vGu08RYjO-s)“ von [camilo jimenez](https://unsplash.com/@coolmilo) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 
 Das Deutsche Rote Kreuz (DRK) Brandenburg hat über mehrere Jahre sensible Gesundheitsdaten von Patient_innen kaum geschützt auf einem Server abgelegt. Hacker hätten einfach auf diese sensiblen Daten zugreifen und sie sogar manipulieren können. Betroffen sind Daten zu mehr als 111.000 Einsatzfahrten des DRK für über 30.000 Patient_innen aus den letzten 12 Jahren.
 
-<img src="img/drk-brandenburg-datenleck.jpg">
+<img src="/img/act/drk-brandenburg-datenleck.de.jpg">
 
 Entdeckt hatte ein 18-jähriger Hacker die Sicherheitslücke laut [einem Artikel von tagesschau.de](https://www.tagesschau.de/investigativ/br-recherche/datenleck-drk-101.html) schon im November 2019. Er fand die Passwörter von Administratoren und konnte damit nicht nur auf die Daten mehrerer DRK-Kreisverbände zugreifen, sondern hätte diese theoretisch auch verändern können.  
 Obwohl er die Schwachstelle an den Kreisverband meldete, sperrte dieser nur den Zugang zu einer der Seiten. Das eigentliche Problem wurde aber zunächst nicht gelöst, sodass der Zugang laut Recherchen von BR, RBB und SZ noch bis Mitte Januar 2020 offen war.

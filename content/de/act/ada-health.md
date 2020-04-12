@@ -3,7 +3,7 @@
     "type": "act",
     "date": "2019-10-23T15:05:26+02:00",
     "tags": [ "ada health", "gesundheitsdaten", "app", "datenlöschung", "vergessenwerden" ],
-    "featured_image": "img/ada-health.jpg",
+    "featured_image": "/img/act/ada-health.de.jpg",
     "authors": [ "baltpeter" ],
     "notices": "Titelfoto angepasst nach: „[assorted-color syringes on clear glass rack](https://unsplash.com/photos/zsKFQs2kDpM)“ von [Ibrahim Boran](https://unsplash.com/@ibrahimboran) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }

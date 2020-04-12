@@ -5,6 +5,7 @@
     "date": "2019-11-23T12:46:22+02:00",
     "type": "blog",
     "description": "",
+    "featured_image": "/img/dsgvo-anfrage-berichtigung-brief.jpg",
     "tags": [ ],
     "license": "cc0-1.0"
 }
