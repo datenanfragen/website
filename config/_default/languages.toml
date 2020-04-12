@@ -22,6 +22,7 @@
 [pt]
     languageCode = "pt-pt"
     languageName = "Português"
+    contentDir = "content/pt"
     weight = 40
     title = "pedidodedados.org"
     copyright = "Exceto onde indicado, esta obra está licenciada sob uma Licença Creative Commons Atribuição 4.0 Internacional."
