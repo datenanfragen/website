@@ -5,7 +5,7 @@
     "date": "2018-05-17T17:58:23+02:00",
 	"type": "blog",
 	"description": "Dank der DSGVO hast Du ein Recht auf Löschung Deiner personenbezogenen Daten, wenn ein Verantwortlicher sie für ihren ursprünglichen Zweck nicht mehr benötigt. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
-	"featured_image": "/img/dsgvo-anfrage-loeschung-brief.jpg",
+	"featured_image": "img/gdpr-erasure-request-letter.jpg",
     "tags": [ "dsgvo", "gdpr", "löschantrag", "brief", "schreiben", "muster", "artikel 17" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-1.0"

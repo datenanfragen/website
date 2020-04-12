@@ -5,7 +5,7 @@
     "date": "2020-04-05T03:19:01+02:00",
     "type": "blog",
     "description": "Was sind die Besonderheiten des Datenschutzrechts in Portugal? Dieser Artikel gibt einen Überblick über die Eigenheiten des Datenschutzrechts in Portugal, insbesondere in Bezug auf die europäische Datenschutzgrundverordnung (DSGVO).",
-    "featured_image": "/img/blog/portugal-data-protection.de.jpg",
+    "featured_image": "img/portugal-data-protection.jpg",
     "tags": ["dsgvo", "Gesetz Nr. 58/2019", "portugiesisches Datenschutzrecht", "Datenschutzrecht in Portugal", "gdpr in Portugal", "dsgvo Portugal", "datenschutzrecht Portugal", "gdpr Portugal"],
     "authors": [ "anikarini" ],
     "license": "cc-by-4.0",
@@ -14,7 +14,7 @@
 
 Was sind die Besonderheiten des Datenschutzrechts in Portugal? Dieser Artikel gibt einen Überblick über die Eigenheiten des Datenschutzrechts in Portugal, insbesondere in Bezug auf die europäische Datenschutzgrundverordnung (DSGVO).
 
-<img src="/img/blog/portugal-data-protection.de.jpg">
+<img src="/blog/img/portugal-data-protection.jpg">
 
 ## Was ist die DSGVO?
 

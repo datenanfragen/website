@@ -4,13 +4,13 @@
     "date": "2020-03-25T22:51:47+02:00",
     "type": "blog",
     "description": "Vielleicht interessiert Dich öfters, welche Daten ein bestimmtes Unternehmen von Dir hat und Du möchtest mehrere Anträge stellen. Grundsätzlich gibt die DSGVO keine konkrete Höchstanzahl an möglichen Anträgen vor, die Geltendmachung darf aber nicht exzessiv sein.",
-    "featured_image": "/img/blog/wie-oft-anfragen.de.jpg",
+    "featured_image": "img/wie-oft-anfragen.jpg",
     "notices": "Titelfoto angepasst nach: „[Letters Write Communication](https://pixabay.com/photos/letters-write-communication-1659715/)“ von [Gerhard Gellinger](https://pixabay.com/users/gellinger-201217/) ([Pixabay-Lizenz](https://pixabay.com/service/license/))",
     "authors": [ "nadjarode" ],
     "license": "cc-by-4.0"
 }
 
-<img src="/img/blog/wie-oft-anfragen.de.jpg">
+<img src="/blog/img/wie-oft-anfragen.jpg">
 
 Vielleicht interessiert Dich öfters, welche Daten ein bestimmtes Unternehmen von Dir hat und Du möchtest mehrere Anträge stellen. Grundsätzlich gibt die DSGVO keine konkrete Höchstanzahl an möglichen Anträgen vor. Art. 12 Abs. 5 S. 2 DSGVO regelt aber, dass bei exzessiven Anträgen einer Person – insbesondere im Fall häufiger Wiederholung – der Verantwortliche, also das jeweilige Unternehmen, ein angemessenes Entgelt für den erhöhten Verwaltungsaufwand der Bearbeitung der Anfragen verlangen kann (ansonsten erfolgt die Auskunftserteilung ja unentgeltlich) oder sich weigern kann, aufgrund des Antrags tätig zu werden. Ob wiederholte Antragstellungen exzessiv und damit rechtsmissbräuchlich sind richtet sich danach, welches Recht Du geltend machen möchtest.
 

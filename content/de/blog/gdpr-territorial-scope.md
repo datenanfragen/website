@@ -5,7 +5,7 @@
     "date": "2020-04-10T04:31:05+02:00",
     "type": "blog",
     "description": "Wer darf Betroffenenrechte geltend machen? Gegen wen? Ein Überblick über den räumlichen Anwendungsbereich der DSGVO.",
-    "featured_image": "/img/blog/gdpr-territorial-scope.de.jpg",
+    "featured_image": "img/gdpr-territorial-scope.jpg",
     "tags": ["dsgvo", "räumlicher Anwendungsbereich", "gdpr", "artikel 3 dsgvo" ],
     "authors": [ "anikarini" ],
     "license": "cc-by-4.0",
@@ -14,7 +14,7 @@
 
 Wer darf Betroffenenrechte geltend machen? Gegen wen? Dieser Artikel gibt einen kurzen Überblick über den räumlichen Anwendungsbereich der DSGVO.
 
-<img src="/img/blog/gdpr-territorial-scope.de.jpg">
+<img src="/blog/img/gdpr-territorial-scope.jpg">
 
 ## Was ist die DSGVO? 
 

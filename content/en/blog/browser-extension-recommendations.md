@@ -15,7 +15,7 @@ Tools like Google Analytics, they register everything from your geographical loc
 
 ## Privacy Badger
 
-<img src="/img/blog/online-privacy/privacy-badger.png">
+<img src="/blog/img/online-privacy/privacy-badger.png">
 
 [Privacy Badger](https://www.eff.org/privacybadger) is arguably the best anti-tracking web browser extension. Launched by the Electronic Frontier Foundation (EFF), it’s a lightweight add-on with a user-friendly toolbar button that shows the detected trackers on the page. The “green/yellow/red” block-list system shows which webpages are tracking you and gives you the ability to block any or all of it at any point. The one feature that sets Privacy Badger apart is that it doesn’t block all content, just the tracking scripts that follow you from one site to another. If the content tracking you is essential to a page’s functionality, Privacy Badger will allow it to load with the tracking capabilities blocked.
 
@@ -23,7 +23,7 @@ Privacy Badger is available for [Firefox](https://addons.mozilla.org/en-US/firef
 
 ## uBlock Origin
 
-<img src="/img/blog/online-privacy/ublock-origin.png">
+<img src="/blog/img/online-privacy/ublock-origin.png">
 
 uBlock Origin is one of the most popular ad and content blocker extensions. It prevents pesky popups and widgets from sending your data to advertisers. uBlock Origin lets you create personalized lists which gives you more control over what ads to block and what ads to allow. It has also been found to effectively block more ads than others while using less memory, so it doesn’t slow down your browsing experience.
 
@@ -33,7 +33,7 @@ uBlock Origin is available for [Firefox](https://addons.mozilla.org/en-US/firefo
 
 ## HTTPS Everywhere
 
-<img src="/img/blog/online-privacy/https.jpg">
+<img src="/blog/img/online-privacy/https.jpg">
 
 Secure websites use the HTTPS (Hyper Text Transfer Protocol Secure) protocol, which encrypts your credit card details, personal information, and other sensitive data. However, not all websites are HTTPS-enabled.
 
@@ -43,7 +43,7 @@ HTTPS Everywhere is available for [Firefox](https://addons.mozilla.org/en-US/fir
 
 ## Decentraleyes
 
-<img src="/img/blog/online-privacy/decentraleyes.png">
+<img src="/blog/img/online-privacy/decentraleyes.png">
 
 [Decentraleyes](https://decentraleyes.org/) protects you against tracking through "free", centralized, content delivery. It prevents a lot of requests from reaching networks like Google Hosted Libraries, and serves local files to keep sites from breaking.
 
@@ -63,6 +63,6 @@ But the real win here is that Mozilla isn’t Google. The one thing we know to b
 
 ### Firefox Content Blocking
 
-<img src="/img/blog/online-privacy/content-blocking.jpg">
+<img src="/blog/img/online-privacy/content-blocking.jpg">
 
 [Content blocking](https://support.mozilla.org/en-US/kb/content-blocking) is a collection of Firefox privacy features that protect you from threats and annoyances on the Web. The default includes protections against trackers that collect your browsing data across multiple websites and cryptominers. Firefox also offers protections against harmful scripts, such as malware that drains your battery. These privacy protections are mostly invisible; you’ll know they’re working when you see a shield icon on the left within your address bar. 

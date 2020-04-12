@@ -4,7 +4,7 @@
     "date": "2019-10-24T18:47:21+02:00",
     "type": "blog",
     "description": "You don't have to put up with direct marketing. Thanks to the GPDR, you can object to the use of your personal data for direct marketing purposes. Our sample letter helps you exercise this right.",
-    "featured_image": "/img/blog/sample-letter-gdpr-direct-marketing-objection.en.jpg",
+    "featured_image": "img/sample-letter-gdpr-direct-marketing-objection.jpg",
     "tags": [ "gdpr", "objection against direct marketing", "letter", "sample", "article 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-1.0",
@@ -15,7 +15,7 @@ Advertising seems ubiquitous today: As soon as you open your mailbox or email in
 
 As the legal basis, these companies frequently rely on their "legitimate interest" or your consent—usually buried deep in a contract on a completely different subject.
 
-<img src="/img/blog/sample-letter-gdpr-direct-marketing-objection.en.jpg">
+<img src="/blog/img/sample-letter-gdpr-direct-marketing-objection.jpg">
 
 Fortunately, you don't have to put up with that. According to the General Data Protection Regulation (GDPR), you have the right to object to direct marketing. This is clearly stated in Art. 21(2) GDPR. You may also rise this objection if you have previously given consent for direct marketing.
 

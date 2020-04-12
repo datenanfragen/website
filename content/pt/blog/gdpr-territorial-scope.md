@@ -5,7 +5,7 @@
     "date": "2020-04-10T19:00:30+02:00",
     "type": "blog",
     "description": "Quem pode exercer os direitos do titular dos dados? Contra quem? Uma visão geral sobre o âmbito de aplicação territorial do RGPD.",
-    "featured_image": "/img/blog/gdpr-territorial-scope.pt.jpg",
+    "featured_image": "img/gdpr-territorial-scope.jpg",
     "tags": [ "rgpd" , "gdpr", "âmbito de aplicação territorial", "direito de proteção de dados aplicação territorial", "escopo geográfico do RGPD", "rgpd âmbito territorial", "rgpd escopo geográfico", "gdpr âmbito territorial", "Artigo 3 RGPD", "artigo 3 GDPR"],
     "authors": [ "anikarini" ],
     "license": "cc-by-4.0",
@@ -14,7 +14,7 @@
 
 Quem pode exercer os direitos do titular dos dados? Contra quem? Este artigo fornece uma breve visão geral do escopo geográfico de aplicação do RGPD. 
 
-<img src="/img/blog/gdpr-territorial-scope.pt.jpg">
+<img src="/blog/img/gdpr-territorial-scope.jpg">
 
 ## O que é o Regulamento Geral sobre a Proteção de Dados (RGPD)?
 

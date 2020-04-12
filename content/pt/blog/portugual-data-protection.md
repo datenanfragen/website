@@ -6,7 +6,7 @@
 	"type": "blog",
     "title": "Particularidades da Proteção de Dados em Portugal",
 	"description": "Quais são as particularidades do Direito de Proteção de Dados em Portugal? Este artigo fornece uma visão geral acerca das especificidades do Direito de Proteção de Dados em Portugal, particularmente no que concerne ao Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia. ",
-    "featured_image": "/img/blog/portugal-data-protection.pt.jpg",
+    "featured_image": "img/portugal-data-protection.jpg",
     "tags": ["rgpd" , "gdpr", "Lei Nr. 58/ 2019", "direito de proteção de dados português", "direito de proteção de dados em Portugal", "gdpr em Portugal", "rgpd Portugal", "proteção de dados Portugal", "gdpr Portugal"],
     "authors": [ "anikarini" ],
     "license": "cc-by-4.0",
@@ -15,7 +15,7 @@
 
 Quais são as particularidades do Direito de Proteção de Dados em Portugal? Este artigo fornece uma visão geral acerca das especificidades do Direito de Proteção de Dados em Portugal, particularmente no que concerne ao Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia. 
 
-<img src="/img/blog/portugal-data-protection.pt.jpg">
+<img src="blog/img/portugal-data-protection.jpg">
 
 ## O que é o Regulamento Geral sobre a Proteção de Dados (RGPD)?
 

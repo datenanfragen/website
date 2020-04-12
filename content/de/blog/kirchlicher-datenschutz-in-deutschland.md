@@ -4,7 +4,7 @@
     "date": "2020-04-02T14:59:57+02:00",
     "type": "blog",
     "description": "Dieser Artikel liefert eine Einführung in die Besonderheiten des kirchlichen Datenschutzes.",
-    "featured_image": "/img/blog/kirchlicher-datenschutz-in-deutschland.de.jpg",
+    "featured_image": "img/kirchlicher-datenschutz-in-deutschland.jpg",
     "tags": [ "kirchenrecht", "datenschutz kirche", "gesetz über den kirchlichen datenschutz (kdg)", "kirchengesetz über den datenschutz der evangelischen kirche in deutschland (dsg-ekd)", "katholisch", "evangelisch" ],
     "authors": [ "lars" ],
     "notices": "Titelfoto angepasst nach: „[empty church seats](https://unsplash.com/photos/MTdtJZByP5g)“ von [Anna Gru](https://unsplash.com/@gruu) ([Unsplash-Lizenz](https://unsplash.com/license))"
@@ -12,7 +12,7 @@
 
 Mit ihren Millionen von Mitgliedern gehören die Kirchen in Deutschland traditionell zu den größten Datenverarbeitern. Neben den Daten ihrer Mitglieder verarbeiten sie auch viele weitere sensible Daten der ihnen zugehörigen Kindergärten, Krankenhäuser und anderen sozialen Einrichtungen. Nach Art. 91 DSGVO kommt den Kirchen eine datenschutzrechtliche Sonderstellung zu.  Hiernach dürfen sie ihre eigenen datenschutzrechtlichen Regeln schaffen und anwenden, solange sie mit der DSGVO **in Einklang stehen**.
 
-<img src="/img/blog/kirchlicher-datenschutz-in-deutschland.de.jpg">
+<img src="/blog/img/kirchlicher-datenschutz-in-deutschland.jpg">
 
 Die katholische Kirche hat zu diesem Zweck das *Gesetz über den Kirchlichen Datenschutz* (*KDG*), die evangelische Kirche das *Kirchengesetz über den Datenschutz der evangelischen Kirche in Deutschland* (*DSG-EKD*) an die Anforderungen der DSGVO angepasst.  
 Für Dich als Betroffene_n ergeben sich hieraus eine Reihe von Fragen.

@@ -59,4 +59,4 @@ If you have made a request to a company via datarequests.org and have received n
 
 In the [“My requests” feature]({{< ref "/my-requests" >}}), you can see an overview of all your requests—provided you have not disabled it. Next to each request, there are buttons that you can use to send reminders and complaints concerning this request via our generator.
 
-{{< img src="/img/blog/send-complaint.png" caption="Sending a complaint through datarequests.org" >}}
+{{< img src="/blog/img/send-complaint.png" caption="Sending a complaint through datarequests.org" >}}
