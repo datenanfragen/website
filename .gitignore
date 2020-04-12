@@ -185,7 +185,9 @@ NOTICES
 # Hugo
 public/
 content/company/*
+content/*/company/*
 content/supervisory-authority/*
+content/*/supervisory-authority/*
 static/templates/*
 static/db/*
 static/schema.json
