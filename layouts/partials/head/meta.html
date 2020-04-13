@@ -29,7 +29,7 @@
 {{ $description := "" }}
 {{ if .Description }}
     {{ $description = .Description }}
-{{ else if eq .Type "company" }}
+{{ else if or (eq .Type "company") (eq .Type "supervisory-authority") }}
     {{ $email_part := (cond (isset .Params "email") (printf "%s %s, " (T "cdb-privacy-email") .Params.email) "") }}
     {{ $fax_part := (cond (isset .Params "fax") (printf "%s %s, " (T "cdb-fax") .Params.fax) "") }}
     {{ $phone_part := (cond (isset .Params "phone") (printf "%s %s, " (T "cdb-phone") .Params.phone) "") }}
