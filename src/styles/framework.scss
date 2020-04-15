@@ -245,6 +245,9 @@ table {
     &.table {
         width: 100%;
         & thead th,
+        & thead td,
+        & tfoot th,
+        & tfoot td,
         & tbody td {
             padding: 10px;
         }
