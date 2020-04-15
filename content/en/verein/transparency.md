@@ -32,7 +32,7 @@ Our purpose is the same as stated in our constitution but we also compiled and e
 
 ## 3. Information on tax privileges
 
-The tax office Braunschweig-Wilhelmstraße approved us as a public benefit organisation by the [notice from June 21, 2018 (German)](https://static.dacdn.de/docs/feststellungsbescheid_2018-06-21.pdf) for the promotion of counselling and protection as well as the advancement of the democratic government. We have been assigned the following tax identification number: 14/209/11640
+The tax office Braunschweig-Wilhelmstraße approved us as a public benefit organisation by the most recent [notice from January 13, 2020 (German)](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) for the promotion of consumer counselling and protection as well as the advancement of the democratic government. We have been assigned the following tax identification number: 14/209/11640
 
 ## 4. Name and function of significant decision makers
 
