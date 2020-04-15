@@ -253,6 +253,10 @@ table {
         }
     }
 
+    tr.border-bottom {
+        border-bottom: 2px solid color('blue', 700);
+    }
+
     &.fancy-table {
         border: 4px solid $primary-color;
         border-collapse: collapse;
