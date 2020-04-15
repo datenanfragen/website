@@ -18,22 +18,16 @@ export default class CommentsWidget extends preact.Component {
         this.state.comments = [];
 
         fetch(API_URL + '/get/' + TARGET)
-            .then(function(res) {
-                return res.json();
-            })
+            .then(res => res.json())
             .then(comments => {
                 this.setState({ comments: comments.sort((a, b) => -a.added_at.localeCompare(b.added_at)) });
             });
     }
 
     render() {
-        let comment_elements = [];
-
-        this.state.comments.forEach(c => {
-            comment_elements.push(
-                <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
-            );
-        });
+        const comment_elements = this.state.comments.map(c => (
+            <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
+        ));
 
         return (
             <IntlProvider scope="comments" definition={I18N_DEFINITION}>
@@ -83,14 +77,12 @@ export class Comment extends preact.Component {
                     []
                 )}
                 <p>
-                    {this.props.message.split('\n').map((item, key) => {
-                        return (
-                            <span key={key}>
-                                {item}
-                                <br />
-                            </span>
-                        );
-                    })}
+                    {this.props.message.split('\n').map(item => (
+                        <span>
+                            {item}
+                            <br />
+                        </span>
+                    ))}
                 </p>
             </div>
         );
