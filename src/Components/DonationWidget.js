@@ -85,7 +85,7 @@ export default class DonationWidget extends preact.Component {
                                 className="form-element"
                                 style="text-align: right;"
                                 value={this.state.amount}
-                                onInput={e => this.setState({ amount: Number.parseFloat(e.target.value) })}
+                                onInput={e => this.setState({ amount: Number.parseFloat(e.target.value) || 0 })}
                             />
                             <div className="input-addon">€</div>
                         </div>
