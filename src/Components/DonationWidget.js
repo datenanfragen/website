@@ -290,6 +290,13 @@ export default class DonationWidget extends preact.Component {
             return;
         }
 
+        // We only allow donations less than 1€ by bank transfer. With the other gateways they just don't make any sense
+        // due to the high fees. The CoinGate API actually fails for payments of less than 10ct.
+        if (this.state.amount < 1) {
+            flash(<FlashMessage type="error">{t('error-amount-too-little', 'donation-widget')}</FlashMessage>);
+            return;
+        }
+
         if (payment_method === 'paypal') {
             this.setState({ ongoing_request: true });
             // Reference for the parameters:
