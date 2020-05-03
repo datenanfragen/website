@@ -122,7 +122,11 @@
         "footer-social-mastodon-desc": "Síganos en Mastodon.",
         "footer-social-twitter-desc": "Síganos en Twitter.",
         "logo": "img/logo-solicituddedatos.svg",
-        "logo-title": "solicituddedatos.es -logotipo"
+        "logo-title": "solicituddedatos.es -logotipo",
+        "home-feature-your-rights-object-title": "Derecho de oposición",
+        "home-feature-your-rights-erasure": "Tan pronto como los datos que la empresa ha almacenado sobre usted ya no sean necesarios para el propósito para el cual fueron recopilados, usted puede requerir que borren estos datos. Si los datos fueron transmitidos a terceras empresas, éstas deben ser igualmente informadas de su solicitud de borrado.",
+        "home-feature-your-rights-access": "Usted tiene derecho a saber que datos ha almacenado una empresa sobre usted. Además, usted puede, por ejemplo, preguntar con qué propósito se almacenaron los datos o de que fuente fueron obtenidos. Si la empresa emplea un sistema de puntuación, tendrá que decirle su puntuación y explicar en detalle cómo fue calculado.",
+        "home-how-it-works-send": "Tan solo es necesario enviar la solicitud cumplimentada. Usted se encarga de hacer esto. De esta forma, sus datos permanecen entre usted y la compañía. Después de que envíe usted la solicitud, tendrá que esperar una respuesta. Las primeras suelen llegar bastante rápido. Las empresas no tienen mucho tiempo después de todo. Aún así, si tardasen demasiado, usted también podría generar fácilmente una advertencia o incluso presentar una reclamación ante el organismo de control."
     },
     "my-requests": {
         "title": "Mis solicitudes",
