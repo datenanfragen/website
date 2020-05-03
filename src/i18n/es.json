@@ -126,7 +126,20 @@
         "home-feature-your-rights-object-title": "Derecho de oposición",
         "home-feature-your-rights-erasure": "Tan pronto como los datos que la empresa ha almacenado sobre usted ya no sean necesarios para el propósito para el cual fueron recopilados, usted puede requerir que borren estos datos. Si los datos fueron transmitidos a terceras empresas, éstas deben ser igualmente informadas de su solicitud de borrado.",
         "home-feature-your-rights-access": "Usted tiene derecho a saber que datos ha almacenado una empresa sobre usted. Además, usted puede, por ejemplo, preguntar con qué propósito se almacenaron los datos o de que fuente fueron obtenidos. Si la empresa emplea un sistema de puntuación, tendrá que decirle su puntuación y explicar en detalle cómo fue calculado.",
-        "home-how-it-works-send": "Tan solo es necesario enviar la solicitud cumplimentada. Usted se encarga de hacer esto. De esta forma, sus datos permanecen entre usted y la compañía. Después de que envíe usted la solicitud, tendrá que esperar una respuesta. Las primeras suelen llegar bastante rápido. Las empresas no tienen mucho tiempo después de todo. Aún así, si tardasen demasiado, usted también podría generar fácilmente una advertencia o incluso presentar una reclamación ante el organismo de control."
+        "home-how-it-works-send": "Tan solo es necesario enviar la solicitud cumplimentada. Usted se encarga de hacer esto. De esta forma, sus datos permanecen entre usted y la compañía. Después de que envíe usted la solicitud, tendrá que esperar una respuesta. Las primeras suelen llegar bastante rápido. Las empresas no tienen mucho tiempo después de todo. Aún así, si tardasen demasiado, usted también podría generar fácilmente una advertencia o incluso presentar una reclamación ante el organismo de control.",
+        "footer-tab-legal": "Información legal",
+        "footer-posts-url": "/blog",
+        "footer-request-generator": "Generador de solicitudes",
+        "verein-home-card-join-button": "Quiero incorporarme.",
+        "verein-home-card-join-content": "En nuestro proyecto la clave es la participación. No importa si quiere contribuir con el desarrollo o si solo quiere aproximarse a la acción: estaremos encantados de recibirle.",
+        "verein-home-card-join-heading": "Convertirse en miembro",
+        "verein-home-card-donate-button": "Quiero donar.",
+        "verein-home-card-donate-content": "Queremos mantener nuestro proyecto gratuito y abierto a todos. Si quiere ayudarnos con ello y emprender proyectos nuevos, considere enviarnos un donativo. Agradecemos sobremanera todas las donaciones.",
+        "verein-home-card-donate-heading": "Donar",
+        "verein-home-card-mission-button": "Más información sobre nuestros objetivos",
+        "verein-home-card-mission-heading": "Nuestros objetivos",
+        "blog-licensed-under": "disponible en virtud de la licencia:",
+        "home-feature-your-rights-portabillity": "La información que brinda a una empresa le pertenece a usted. Tiene el derecho de recuperar esta información en un formato popular y legible por ordenador, de tal manera que pueda transferirla con facilidad a otra empresa."
     },
     "my-requests": {
         "title": "Mis solicitudes",
@@ -391,5 +404,53 @@
         "creditcard": "Tarjeta de crédito",
         "cryptocurrency": "Criptomoneda",
         "mollie": "Otros métodos de pago"
+    },
+    "categories": {
+        "travel": "viajes",
+        "telecommunication": "telecomunicaciones",
+        "social media": "redes sociales",
+        "school": "educación",
+        "public body": "entidad pública",
+        "political party": "partido político",
+        "nonprofit": "organización sin ánimo de lucro",
+        "health": "salud",
+        "entertainment": "entretenimiento",
+        "finance": "finanzas",
+        "commerce": "comercio",
+        "ads": "anuncios",
+        "addresses": "direcciones"
+    },
+    "schema": {
+        "birthdate": "Fecha de nacimiento",
+        "textarea": "Área de texto",
+        "input": "Entrada",
+        "optional": "¿Opcional?",
+        "type": "Tipo",
+        "description": "Descripción",
+        "false": "no",
+        "true": "sí",
+        "add-item": "Añadir un elemento",
+        "comments": "Comentarios",
+        "suggested-transport-medium": "Medio de transporte sugerido",
+        "needs-id-document": "¿Hace falta un documento de identificación para las solicitudes?",
+        "request-language": "Idioma de las solicitudes",
+        "required-elements": "Elementos obligatorios",
+        "sources": "Fuentes",
+        "website": "Sitio web",
+        "letter": "Carta",
+        "email": "Correo electrónico",
+        "fax": "Fax",
+        "phone": "Teléfono",
+        "address": "Dirección",
+        "runs": "Igualmente aplicable",
+        "name": "Nombre",
+        "categories": "Categorías",
+        "relevant-countries": "Países relevantes"
+    },
+    "suggest": {
+        "ok": "De acuerdo"
+    },
+    "error-msg": {
+        "company-not-found": "No se pudo encontrar la empresa que buscaba."
     }
 }
