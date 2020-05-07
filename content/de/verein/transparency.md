@@ -80,7 +80,7 @@ Die Informationen sind auf dem Stand des [Jahresbericht 2019](https://static.dac
 ### Natürliche Personen
 
 - Anonymer Mitgliedsbeitrag: 128 €
-- Anonymer Mitgliedbeitrag: 42 €
+- Anonymer Mitgliedsbeitrag: 42 €
 - Anonymer Mitgliedsbeitrag: 36 €
 
 - einmalige Spende (anonym): 50 €
