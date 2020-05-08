@@ -62,7 +62,8 @@ Anzahl Ehrenamtliche: 2
 s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
 s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)
 
-Vermögensstand Ende 2018: 119,70 €
+Vermögensstand Ende 2018: 119,70 €  
+Vermögensstand Ende 2019: 87,90 €
 
 ## 8. Angaben zur Mittelverwendung
 
