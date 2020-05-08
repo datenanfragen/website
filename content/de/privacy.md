@@ -39,7 +39,7 @@ Schreinerweg 6
 Deutschland
 
 Vertreten durch den Vorstand: Benjamin Altpeter und Lorenz Sieben  
-Der Datenanfragen.de e. V. ist im Vereinsregister des Amtsgerichts Braunschweig unter der Registernummer VR 201732 eingetragen und per Bescheid vom 21. Juni 2018 vom Finanzamt Braunschweig-Wilhelmstraße als gemeinnützig anerkannt.
+Der Datenanfragen.de e. V. ist im Vereinsregister des Amtsgerichts Braunschweig unter der Registernummer VR 201732 eingetragen und zuletzt per Bescheid vom 13. Januar 2020 vom Finanzamt Braunschweig-Wilhelmstraße als gemeinnützig anerkannt.
 
 Telefon: +49 531 209299 35  
 Telefax: +49 531 209299 36  

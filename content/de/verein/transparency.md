@@ -12,6 +12,7 @@ Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Fina
 Die Informationen sind auf dem Stand vom 01. August 2019.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
+
 Diese Informationen sind auch in unserem [Impressum]({{< ref "contact" >}}) zu finden.
 
  - Name: Datenanfragen.de e.&thinsp;V.
@@ -34,7 +35,7 @@ Unsere Ziele entsprechen den Zwecken, die die Satzung festlegt, wir haben sie ab
 
 ## 3. Angaben zur Steuerbegünstigung
 
-Das Finanzamt Braunschweig-Wilhelmstraße hat uns per [Feststellungsbescheid nach §&nbsp;60a AO vom 21. Juni 2018](https://static.dacdn.de/docs/feststellungsbescheid_2018-06-21.pdf) zur Förderung von Verbraucherberatung und -schutz sowie des demokratischen Staatswesens als gemeinnützig anerkannt. Unsere Steuernummer ist: 14/209/11640
+Das Finanzamt Braunschweig-Wilhelmstraße hat zuletzt uns per [Freistellungsbescheid vom 13. Januar 2020](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) zur Förderung von Verbraucherberatung und -schutz sowie des demokratischen Staatswesens als gemeinnützig anerkannt. Unsere Steuernummer ist: 14/209/11640
 
 ## 4. Name und Funktion wesentlicher Entscheidungsträger
 
@@ -47,7 +48,8 @@ Aktuell sind keine Beisitzer_innen bestellt.
 
 ## 5. Tätigkeitsbericht
 
-s. [Jahresbericht 2018 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+s. [Jahresbericht 2018 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
+s. [Jahresbericht 2019 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf)
 
 ## 6. Personalstruktur
 
@@ -57,13 +59,15 @@ Anzahl Ehrenamtliche: 2
 
 ## 7. Angaben zur Mittelherkunft
 
-s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
+s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)
 
 Vermögensstand Ende 2018: 119,70 €
 
 ## 8. Angaben zur Mittelverwendung
 
-s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
+s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)
 
 ## 9. Gesellschaftsrechtliche Verbundenheit mit Dritten
 
@@ -71,14 +75,17 @@ Der Verein steht in keinerlei gesellschaftsrechtlicher Verbundenheit mit Dritten
 
 ## 10. Namen von Personen, deren jährliche Zahlungen mehr als 10 % des Gesamtjahresbudgets ausmachen
 
-Die Informationen sind auf dem Stand des [Jahresberichts von 2018](https://static.dacdn.de/docs/bericht-2018.pdf).
+Die Informationen sind auf dem Stand des [Jahresbericht 2019](https://static.dacdn.de/docs/bericht-2019.pdf).
 
 ### Natürliche Personen
 
- - Anonymer Mitgliedsbeitrag: 128 €
- - Anonymer Mitgliedsbeitrag: 50 €
- - Anonymer Mitgliedsbeitrag: 42 €
+- Anonymer Mitgliedsbeitrag: 128 €
+- Anonymer Mitgliedsbeitrag: 42 €
+- Anonymer Mitgliedsbeitrag: 36 €
+
+- einmalige Spende (anonym): 50 €
 
 ### Juristische Personen
 
-In 2018 haben wir keine Spenden oder Beiträge von juristischen Personen erhalten.
+- Mitgliedsbeitrag der ByteSchneiderei GmbH: 50 €
+- Mitgliedsbeitrag der KlexHub UG (haftungsbeschränkt): 32 €
