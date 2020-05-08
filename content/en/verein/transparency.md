@@ -80,6 +80,9 @@ The information is based on the [yearly report of 2019 (German)](https://static.
 - Anonymous membership fee: 128 €
 - Anonymous membership fee: 42 €
 - Anonymous membership fee: 36 €
+
+<!-- Split the two lists. Without this comment they would end up as one list with stupidly large spacing in-between items. -->
+
 - non-recurring donation (anonymous): 50 €
 
 ### Organisations

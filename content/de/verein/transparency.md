@@ -83,6 +83,8 @@ Die Informationen sind auf dem Stand des [Jahresbericht 2019](https://static.dac
 - Anonymer Mitgliedsbeitrag: 42 €
 - Anonymer Mitgliedsbeitrag: 36 €
 
+<!-- Split the two lists. Without this comment they would end up as one list with stupidly large spacing in-between items. -->
+
 - einmalige Spende (anonym): 50 €
 
 ### Juristische Personen
