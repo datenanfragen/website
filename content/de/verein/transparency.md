@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 01. August 2019.
+Die Informationen sind auf dem Stand vom 08. Mai 2020.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
