@@ -365,7 +365,7 @@ export default class DonationWidget extends preact.Component {
         this.setState({ ongoing_request: true });
         postRequest(SERVERLESS_DONATIONS_API, serverless_request_data)
             .then(data => {
-                if (data && data.auth_url) window.location = data.auth_url;
+                if (data?.auth_url) window.location = data.auth_url;
                 else {
                     throw new CriticalException(
                         'Malformed response body when trying to get payment provider auth URL.',
