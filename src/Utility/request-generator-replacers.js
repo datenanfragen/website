@@ -45,13 +45,13 @@ const replacer_factory = that => ({
                 else
                     that.newRequest().then(() => {
                         // We are in batch mode, move to the next company.
-                        if (that.state.batch && that.state.batch.length > 0) {
+                        if (that.state.batch?.length > 0) {
                             that.setCompanyBySlug(that.state.batch.shift()).then(that.renderLetter);
                         } else that.renderLetter();
                     });
             }}
             {...el.attributes}>
-            <Text id={that.state.batch && that.state.batch.length > 0 ? 'next-request' : 'new-request'} />
+            <Text id={that.state.batch?.length > 0 ? 'next-request' : 'new-request'} />
         </button>
     ),
     CompanySelectorPlaceholder: el => (

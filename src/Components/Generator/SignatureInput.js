@@ -64,7 +64,7 @@ export default class SignatureInput extends preact.Component {
     }
 
     drawSignature(signature) {
-        if (!!signature && signature.type === 'image' && !!signature.value) {
+        if (signature?.type === 'image' && signature?.value) {
             // see https://stackoverflow.com/a/4776378
             let img = new Image();
             img.onload = () => {
@@ -184,7 +184,7 @@ export default class SignatureInput extends preact.Component {
                         style="float: right; margin: 0 0 5px 5px;">
                         <Text id="reset-signature" />
                     </button>
-                    {!!this.props.fillSignature && this.props.fillSignature.type === 'image' ? (
+                    {this.props.fillSignature?.type === 'image' ? (
                         <button
                             style="float: right;"
                             className="button button-small button-secondary"

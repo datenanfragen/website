@@ -112,13 +112,12 @@ class Generator extends preact.Component {
         if (
             that.state.request.type === 'access' &&
             Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) &&
-            that.state.suggestion &&
-            that.state.suggestion.slug
+            that.state.suggestion?.slug
         ) {
             this.saved_companies.remove(that.state.suggestion.slug);
         }
 
-        if (this.state.is_in_wizard_mode && that.state.batch && that.state.batch.length === 0) {
+        if (this.state.is_in_wizard_mode && that.state.batch?.length === 0) {
             // Remove the GET parameters from the URL so this doesn't get triggered again on the next new request and
             // get the generator out of wizard mode.
             clearUrlParameters();

@@ -70,7 +70,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 // Re-calling this code (due to the async nature of the `then` block, it may well run later) would
                 // result in skipping the first company (see #253). Instead, we only want to prepare batch mode here if
                 // it was enabled through the URL (i.e. `batch_companies` is set).
-                if (batch_companies && batch_companies.length > 0) {
+                if (batch_companies?.length > 0) {
                     this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
                 }
             }
@@ -177,7 +177,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
     startBatch = companies => {
         this.setState({ batch: companies });
-        if (this.state.batch && this.state.batch.length > 0) this.setCompanyBySlug(this.state.batch.shift());
+        if (this.state.batch?.length > 0) this.setCompanyBySlug(this.state.batch.shift());
     };
 
     setCompanyBySlug = async slug => {
@@ -235,7 +235,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
             const intermediate_id_data = SavedIdData.mergeFields(
                 prev.request.id_data,
-                !!company['required-elements'] && company['required-elements'].length > 0
+                company['required-elements']?.length > 0
                     ? company['required-elements']
                     : prev.request.is_tracking_request
                     ? trackingFields(language)
@@ -435,14 +435,9 @@ export default class RequestGeneratorBuilder extends preact.Component {
             case 'letter':
                 this.setState({ download_active: false });
                 this.letter.initiatePdfGeneration(
-                    (this.state.suggestion !== null
-                        ? this.state.suggestion.slug
-                        : slugify(this.state.request.recipient_address.split('\n', 1)[0] || 'custom-recipient')) +
-                        '_' +
-                        this.state.request.type +
-                        '_' +
-                        this.state.request.reference +
-                        '.pdf'
+                    (this.state.suggestion?.slug ||
+                        slugify(this.state.request.recipient_address.split('\n', 1)[0] || 'custom-recipient')) +
+                        `_${this.state.request.type}_${this.state.request.reference}.pdf`
                 );
                 break;
             case 'email': {
@@ -503,7 +498,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                                 this.storeRequest();
                                 this.newRequest().then(() => {
                                     // We are in batch mode, move to the next company.
-                                    if (this.state.batch && this.state.batch.length > 0) {
+                                    if (this.state.batch?.length > 0) {
                                         this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
                                     } else this.renderLetter();
                                 });
@@ -516,7 +511,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                     dismissModal(modal);
                     this.newRequest().then(() => {
                         // We are in batch mode, move to the next company.
-                        if (this.state.batch && this.state.batch.length > 0) {
+                        if (this.state.batch?.length > 0) {
                             this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
                         } else this.renderLetter();
                     });

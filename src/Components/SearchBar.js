@@ -92,13 +92,13 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                     '<span><strong>' +
                                     (name_hs.length === 1 ? name_hs[0].snippet : d.name) +
                                     '</strong></span>' +
-                                    (d.runs && d.runs.length
+                                    (d.runs?.length
                                         ? '<br><span>' +
                                           t('also-runs', 'search') +
                                           (runs_hs.length === 1 ? runs_hs[0].snippets : d.runs).join(', ') +
                                           '</span>'
                                         : '') +
-                                    (d.categories && d.categories.length
+                                    (d.categories?.length
                                         ? '<br><span>' +
                                           t('categories', 'search') +
                                           (cats_hs.length === 1 ? cats_hs[0].snippets : d.categories)
