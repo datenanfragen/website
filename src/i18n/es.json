@@ -143,7 +143,19 @@
         "cdb-json-download": "Visualizar como formato JSON legible por máquina",
         "cdb-cc0-explanation": "Esta base de datos está bajo una licencia Universal CC0 1.0.",
         "cdb-back-to-overview": "Volver a la vista general",
-        "cdb-suggest-new": "Sugerir una empresa nueva"
+        "cdb-suggest-new": "Sugerir una empresa nueva",
+        "noscript-generator": "El generador funciona solo en tu ordenador y utiliza exclusivamente JavaScript. El código no enviará ningún dato a ningún otro servidor sin su consentimiento. Si quieres utilizar el generador, por favor activa JavaScript en tu navegador o añade una excepción a tu bloqueador. Si aún así no funciona, envíanos un correo electrónico a <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
+        "cdb-help-needed": "¿Son incorrectos estos datos o la compañía que estás buscando no está en nuestra base de datos? Sugiere <a href='{{ .editUrl }}'>una edición de esta compañía</a> o <a href='{{ .newUrl }}'>la creación de una nueva</a>. ¡Gracias por tu ayuda!",
+        "cdb-attn": "A la atención de: Responsable de Protección de Datos",
+        "adb-intro": "Tenemos la siguiente información de contacto en “{{ .Params.name }}” para que la utilices para presentar reclamaciones:",
+        "cdb-intro": "Tenemos la siguiente información de contacto en “{{ .Params.name }}” para que la utilices en las solicitudes relativas a privacidad:",
+        "cdb-runs-extended": "“{{ .Params.name }}” también es responsable de las siguientes entidades y servicios:",
+        "cdb-runs": "Igualmente aplicable a:",
+        "cdb-company-title": "{{ .Params.name }}: Información de contacto para solicitudes relativas a privacidad",
+        "adb-explanation": "<p>Nuestra base de datos de autoridades supervisoras alberga los detalles de contacto de las autoridades supervisoras de protección de datos en la UE.</p><p>Las autoridades supervisoras son entidades independientes cuyo propósito es asegurarse de que las leyes de protección de datos sean cumplidas. Si crees que una empresa no ha respondido correctamente a tu solicitud o está procesando tus datos ilegalmente, puedes presentar una reclamación antes ellas de forma gratuita. Para saber más, consulta nuestra <a href='supervisory-authorities'>publicación sobre autoridades de protección de datos</a>.</p>",
+        "home-read-more-url": "/blog/tus-derechos-rgpd",
+        "home-feature-your-rights-portabillity-title": "Derecho a la portabilidad de datos",
+        "home-feature-your-rights-object": "Incluso si has dado consentimiento para el uso de tus datos en algún momento, puedes revocarlo cuando quieras. La empresa no puede hacer el proceso de revocación más difícil que su autorización original."
     },
     "my-requests": {
         "title": "Mis solicitudes",
