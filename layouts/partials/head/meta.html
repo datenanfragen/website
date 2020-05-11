@@ -26,6 +26,19 @@
 	{{ $authors = delimit (apply (apply . "index" $.Site.Params.authors ".") "index" "." "byline") ", " (T "blog-and") }}
 {{ end }}
 
+{{ $description := "" }}
+{{ if .Description }}
+    {{ $description = .Description }}
+{{ else if or (eq .Type "company") (eq .Type "supervisory-authority") }}
+    {{ $email_part := (cond (isset .Params "email") (printf "%s %s, " (T "cdb-privacy-email") .Params.email) "") }}
+    {{ $fax_part := (cond (isset .Params "fax") (printf "%s %s, " (T "cdb-fax") .Params.fax) "") }}
+    {{ $phone_part := (cond (isset .Params "phone") (printf "%s %s, " (T "cdb-phone") .Params.phone) "") }}
+    {{ $address_part := (printf "%s %s" (T "cdb-address") (replace .Params.address "\n" ", ")) }}
+    {{ $description = (printf "%s%s%s%s" $email_part $fax_part $phone_part $address_part) }}
+{{ else if .IsPage }}
+    {{ $description = .Summary }}
+{{ end }}
+                        
 {{ $img_src := "" }}
 {{ if .Params.featured_image }}
     <!-- 1200x630 seems to be a good size for all platform (see https://iamturns.com/open-graph-image-size/). -->
@@ -34,19 +47,18 @@
     {{ $img_src = .Params.featured_image_url }}
 {{ end }}
 
-
 <link href="{{ "blog/index.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 <link href="{{ "blog/index.xml" | absURL }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
 {{ hugo.Generator }}
 
-<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
+<meta name="description" content="{{ $description }}">
 {{ if .Site.Params.authors }}<meta name="author" content="{{ $authors }}">{{ end }}
 
 <link rel="canonical" href="{{ .Permalink }}">
 
 <!-- Schema.org -->
 <meta itemprop="name" content="{{ $title }}">
-<meta itemprop="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
+<meta itemprop="description" content="{{ $description }}">
 {{ with .Params.tags }}<meta itemprop="keywords" content="{{ delimit (first 6 .) ", " }}" />{{ end }}
 {{ with $img_src }}<meta itemprop="image" content="{{ . | absURL }}">{{ end }}
 {{ if .Params.authors }}<meta itemprop="author" content="{{ $authors }}">{{ end }}
@@ -55,7 +67,7 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="{{ .Site.LanguageCode }}">
 <meta property="og:title" content="{{ $title }}">
-<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
+<meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="article">
 <meta property="og:updated_time" content="{{ dateFormat "2006-01-02T15:04:05" $updated_date }}">
 <meta property="og:url" content="{{ .Permalink }}">
@@ -83,6 +95,6 @@
 {{- end }}
 
 <meta name="twitter:title" content="{{ $title }}">
-<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage }}{{ .Summary }}{{ end }}{{ end }}">
+<meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:site" content="@Datenanfragen">
 <meta name="twitter:creator" content="@Datenanfragen">

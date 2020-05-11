@@ -64,7 +64,7 @@
         "adb-title": "List of supervisory data protection authorities",
         "adb-explanation": "<p>Our supervisory authority database holds the contact details for the supervisory data protection authorities in the EU.</p><p>The supervisory authorities are independent entities whose purpose it is to make sure data protection laws are followed. If you think that a company hasn’t correctly responded to your requests or is processing your data illegally, you can always submit a complaint with them at no cost. To learn more, have a look at our <a href='supervisory-authorities'>post on the data protection authorities</a>.</p>",
         "adb-more-details": "More details",
-        "cdb-company-title": "{{ .Params.name }}: Contact information for privacy-related requests",
+        "cdb-company-title": "{{ .Params.name }}: Privacy contact details",
         "cdb-company-heading": "Contact information for privacy-related requests to “{{ .Params.name }}”",
         "cdb-categories": {
             "one": "Category:",
@@ -79,6 +79,7 @@
         "cdb-phone": "Phone:",
         "cdb-fax": "Fax:",
         "cdb-email": "Email:",
+        "cdb-privacy-email": "Privacy email:",
         "cdb-web": "Website:",
         "cdb-pgp-fingerprint": "PGP fingerprint:",
         "cdb-pgp-url": "PGP key download:",
