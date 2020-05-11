@@ -34,7 +34,7 @@ Notre objectif est le même que celui énoncé dans notre constitution, mais nou
 
 ## 3. Informations sur les avantages fiscaux
 
-Le centre des impôts de Braunschweig-Wilhelmstraße nous a reconnu en tant qu'association reconnue d'intérêt général par la dernière [déclaration du 13 janvier 2020 (en allemand)](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) pour la réalisation d'activités de conseil et de protection auprès des consommateurs ainsi que pour la promotion du gouvernement démocratique. Le numéro d'identification fiscale suivant nous a été attribué : 14/209/11640
+Le centre des impôts de Braunschweig-Wilhelmstraße nous a agréé association reconnue d'intérêt général par la dernière [déclaration du 13 janvier 2020 (en allemand)](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) pour la réalisation d'activités de conseil et de protection auprès des consommateurs ainsi que pour la promotion du gouvernement démocratique. Le numéro d'identification fiscale suivant nous a été attribué : 14/209/11640
 
 ## 4. Nom et fonction des principaux décideurs
 
