@@ -1,9 +1,9 @@
 {
     "title": "Wie muss ich mich bei einer Datenschutzanfrage ausweisen?",
     "slug": "ausweispflichten",
-    "date": "2020-04-02T14:00:00+02:00",
+    "date": "2020-05-11T14:00:00+02:00",
     "type": "blog",
-    "description": "Wenn Nutzer_innen eine Datenschutzanfrage stellen, werden sie häufig vom Diensteanbieter häufig aufgefordert sich auszuweisen. Grundsätzlich müssen sich Betroffene nur mit solchen Informationen ausweisen, die das Unternehmen für die eindeutige Identifizierung benögtigt.",
+    "description": "Wenn Nutzer_innen eine Datenschutzanfrage stellen, werden sie häufig vom Diensteanbieter aufgefordert sich auszuweisen. Grundsätzlich müssen sich Betroffene nur mit solchen Informationen ausweisen, die das Unternehmen für die eindeutige Identifizierung benögtigt.",
     "featured_image": "/img/blog/wie-oft-anfragen.de.jpg",
     "notices": "Titelfoto angepasst nach: „[Letters Write Communication](https://pixabay.com/photos/letters-write-communication-1659715/)“ von [Gerhard Gellinger](https://pixabay.com/users/gellinger-201217/) ([Pixabay-Lizenz](https://pixabay.com/service/license/))",
     "authors": [ "steffengrundke" ],
