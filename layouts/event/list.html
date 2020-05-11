@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main>
     {{ .Content }}
-    <div class="press-releases">
+    <div class="events">
         {{ if .Paginator.Pages }}
             {{ range .Paginator.Pages }}
             {{ partial "summary.html" . }}
