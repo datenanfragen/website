@@ -85,12 +85,29 @@
 @each $hue in map-keys($colors) {
     @each $shade in map-keys(map-get($colors, $hue)) {
         .bg-#{$hue}-#{$shade} {
-            background-color: color($hue, $shade);
+            background-color: color($hue, $shade) !important;
         }
         .color-#{$hue}-#{$shade} {
-            color: color($hue, $shade);
+            color: color($hue, $shade) !important;
         }
     }
+}
+
+.align-left {
+    text-align: left !important;
+}
+.align-right {
+    text-align: right !important;
+}
+.align-center {
+    text-align: center !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
 }
 
 .clearfix {
@@ -228,9 +245,16 @@ table {
     &.table {
         width: 100%;
         & thead th,
+        & thead td,
+        & tfoot th,
+        & tfoot td,
         & tbody td {
             padding: 10px;
         }
+    }
+
+    tr.border-bottom {
+        border-bottom: 2px solid color('blue', 700);
     }
 
     &.fancy-table {

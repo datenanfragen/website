@@ -132,6 +132,7 @@
         "verein-home-card-join-heading": "Uns beitreten.",
         "verein-home-card-join-content": "Unser Projekt lebt von Zusammenarbeit. Wenn Du in der Entwicklung und Verwaltung mitmachen möchtest oder einfach mehr von uns mitbekommen möchtest, heißen wir Dich herzlich bei uns willkommen.",
         "verein-home-card-join-button": "Ich möchte beitreten.",
+        "event-no-events": "Zur Zeit sind keine Veranstaltungen geplant und keine Aufzeichungen verfügbar.",
         "footer-tab-website-name": "Datenanfragen.de",
         "footer-request-generator": "Anfrage generieren",
         "footer-request-generator-url": "/generator",
@@ -176,6 +177,8 @@
         "footer-posts-url": "/blog",
         "footer-press": "Presse",
         "footer-press-url": "/verein/press",
+        "footer-event": "Veranstaltungen & Vorträge",
+        "footer-event-url": "/verein/event",
         "footer-tab-legal": "Rechtliches",
         "footer-legal-notice": "Impressum",
         "footer-legal-notice-url": "/contact",
@@ -335,7 +338,6 @@
         "error-template-not-found": "Das gesuchte Template konnte leider nicht gefunden werden.",
         "error-template-fetch-failed": "Beim Laden des Templates ist ein unbekannter Fehler passiert.",
         "email-address": "E-Mail-Adresse",
-
         "mailto-dropdown-explanation": "Wie möchtest Du die E-Mail verschicken?",
         "mailto-dropdown-warning": "*Dadurch werden die Daten Deiner Anfrage an den jeweiligen Anbieter weitergegeben."
     },
@@ -543,7 +545,6 @@
         "finish": "Fertig",
         "next": "Weiter",
         "skip": "Tutorial überspringen",
-
         "request-parameters": "<p>Alles klar, lass’ uns anfangen, Deine Anfragen zu generieren. Wir geben uns Mühe, Dir so viel Arbeit wie möglich abzunehmen.</p><p class='desktop-only'>Auf der linken Seite haben wir schon einmal die Kontaktdaten des ersten Unternehmens eingetragen.</p><p class='mobile-only'>Oberhalb haben wir schon einmal die Kontaktdaten des ersten Unternehmens eingetragen.</p>",
         "company-info": "<p>Hier unten siehst Du noch einige zusätzliche Details zu dem aktuellen Unternehmen. Manchmal haben wir auch wichtige Hinweise zu einem Unternehmen. Diese würden dann auch hier angezeigt werden.</p>",
         "id-data": "<p>Jetzt bist Du an der Reihe. Um Dir Zugriff auf Deine Daten geben zu können, muss das Unternehmen Dich identifizieren können. Hier gibst Du die dafür notwendigen Informationen an. Das könnten z.&nbsp;B. Dein Name, Deine Kundennummer, Deine E-Mail-Adresse oder etwas ganz anderes sein. Wenn Du Dir nicht sicher bist, übernimm’ einfach die Standardfelder.<br>Und nie vergessen: Im Zweifelsfall lieber weniger angeben – die Unternehmen werden schon nachfragen, wenn sie mehr Daten benötigen.</p><p>Wir werden die Daten, die Du hier angibst, speichern, damit Du sie bei der nächsten Anfrage nicht nochmal eingeben musst. Keine Sorge: Das passiert alles nur auf <strong>Deinem</strong> Rechner, wir haben zu keinem Zeitpunkt Zugriff auf Deine Daten. Wenn Du das trotzdem nicht möchtest, kannst Du diese <a href=\"/privacy-controls\" target=\"_blank\">Funktion aber jederzeit deaktivieren</a>.</p>",
