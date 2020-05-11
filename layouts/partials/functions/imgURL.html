@@ -1,0 +1,35 @@
+<!--
+Get the URL for an image resource (an image in the `content` directory), optionally resizing the image.
+
+Use it like this (remove the `.`):
+    `{.{ partial "functions/imgURL" (dict "page" .Page "name" [name] "command" [command] "options" [options]) }}`
+
+For a description of the `[name]`, `[command]` and `[options]` parameters, see the documentation for the corresponding
+`imgURL` shortcode.
+
+Adapted after:
+    - https://github.com/gohugoio/hugoDocs/blob/4bdc9bc729e4e438fb1c1c1f339c16f6e10f9c78/layouts/shortcodes/imgproc.html
+    - https://gohugo.io/content-management/image-processing/#image-processing-examples
+-->
+{{ $original := .page.Resources.GetMatch (printf "*%s*" .name) }}
+{{ if not $original }}{{ errorf "Image resource `%s` not found." .name }}{{ end }}
+{{ $command := .command }}
+{{ $options := .options }}
+
+{{ $scratch := newScratch }}
+
+{{ if $command }}
+    {{ if eq $command "Fit" }}
+        {{ $scratch.Set "image" ($original.Fit $options) }}
+    {{ else if eq $command "Resize" }}
+        {{ $scratch.Set "image" ($original.Resize $options) }}
+    {{ else if eq $command "Fill" }}
+        {{ $scratch.Set "image" ($original.Fill $options) }}
+    {{ else }}
+        {{ errorf "Invalid image processing command: Must be one of `Fit`, `Fill` or `Resize`." }}
+    {{ end }}
+{{ else }}
+    {{ $scratch.Set "image" $original }}
+{{ end }}
+
+{{ return ($scratch.Get "image").Permalink }}

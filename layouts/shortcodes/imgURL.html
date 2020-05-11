@@ -1,0 +1,19 @@
+<!--
+Get the URL for an image resource (an image in the `content` directory), optionally resizing the image.
+
+Use it like this: `{.{< imgURL name="[name]" command="[command]" options="[options]" >}}` (remove the `.`), where:
+    - `[name]` is the name of the image
+    - `[command]` is one of: `Fit`, `Resize` or `Fill`
+    - `[options]` are the options for the processing, mainly the dimensions. Some other options are also supported, see:
+        https://gohugo.io/content-management/image-processing/#image-processing-options
+
+Only `[name]` is required, you can also not modify the image. However, if a `[command]` is specified, `[options]` also
+need to be specified.
+
+Examples (remove the `.`):
+    - `{.{< imgURL name="sunset" command="Resize" options="300x" >}}`
+    - `{.{< imgURL name="beach" command="Fit" options="1280x720" >}}`
+    - `{.{< imgURL name="flower" command="Fill" options="100x600 jpg q100" >}}`
+    - `{.{< imgURL name="dog" />}}`
+-->
+{{- partial "functions/imgURL" (dict "page" .Page "name" (.Get "name") "command" (.Get "command") "options" (.Get "options")) -}}

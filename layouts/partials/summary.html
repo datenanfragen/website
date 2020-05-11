@@ -1,9 +1,14 @@
 <article class="list-article">
-    {{ if .Params.featured_image }}
-    <div class="col25 article-featured-image"><a href="{{ .Permalink }}"><img class="image"
-                src="{{ .Params.featured_image }}" alt="{{ .Title }}"></a></div>
+    {{ if (or .Params.featured_image .Params.featured_image_url) }}
+        {{ $img_src := "" }}
+        {{ if .Params.featured_image }}
+            {{ $img_src = (partial "functions/imgURL" (dict "page" .Page "name" (.Params.featured_image) "command" "Resize" "options" "230x")) }}
+        {{ else }}
+            {{ $img_src = .Params.featured_image_url }}
+        {{ end }}
+        <div class="col25 article-featured-image"><a href="{{ .Permalink }}"><img class="image" src="{{ $img_src }}" alt="{{ .Title }}"></a></div>
     {{ end }}
-    <div class="padded {{ if .Params.featured_image }}col75{{end}}">
+    <div class="padded {{ if (or .Params.featured_image .Params.featured_image_url) }}col75{{end}}">
         <a href="{{ .Permalink }}">
             <h1>{{ .Title }}</h1>
         </a>
