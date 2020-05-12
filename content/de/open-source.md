@@ -90,9 +90,7 @@ Hier findest Du eine Übersicht einiger wichtiger Repositories, die direkt oder 
 
 Herzlichen Dank an alle, die etwas zu Datenanfragen.de beigetragen haben! Ohne Euch wäre das Projekt nicht möglich.
 
-<div class="box box-info" style="white-space: pre;">
-    {{< authors >}}
-</div>
+<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
 
 Falls Du auch zu dem Projekt beigetragen hast, aber noch nicht in der Liste erscheinst, würden wir uns freuen, wenn Du Dich in die [`AUTHORS`-Datei](https://github.com/datenanfragen/website/blob/master/AUTHORS) einträgst.
 
