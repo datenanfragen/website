@@ -680,30 +680,14 @@
         "noscript-wizard": "Voici un assistant qui est généré par JavaScript, qui t'aide à créer tes demandes. La création de demandes uniquement sur ton ordinateur nécessite JavaScript. Tu peux utiliser le site Web sans JavaScript mais tu n'aura que des fonctionnalités limitées. Le code n'enverra aucune donnée à aucun serveur si tu n'y consent pas. Si tu veux utiliser le site et toutes ses fonctionnalités, active JavaScript dans ton navigateur ou ajoute une exception à ton bloqueur. Si cela ne fonctionne toujours pas après cela, envoie-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "404-title": "Erreur 404 : Page non trouvée",
         "404-body": "La page que tu cherches n'existe malheureusement pas sur ce serveur. Peut-être que tu as juste fait une faute de frappe dans l'URL ? Si l'erreur persiste, tu peux nous en informer par e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> ou soumettre un problème dans notre <a href='https://github.com/datenanfragen/website/issues/new'>suivi des problèmes </a>.",
-        "lic-cc-by-4": {
-            "0": "Licence Creative Commons Attribution 4.0 International"
-        },
-        "lic-url-cc-by-4": {
-            "0": "https://creativecommons.org/licenses/by/4.0/deed.fr"
-        },
-        "lic-cc-by-nd-4": {
-            "0": "Licence Creative Commons Attribution-NoDerivatives 4.0 International"
-        },
-        "lic-url-cc-by-nd-4": {
-            "0": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
-        },
-        "lic-cc-by-sa-4": {
-            "0": "Licence Creative Commons Attribution-ShareAlike 4.0 International"
-        },
-        "lic-url-cc-by-sa-4": {
-            "0": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr"
-        },
-        "lic-cc0-1": {
-            "0": "CC0 1.0 Universel Transfert dans le Domaine Public"
-        },
-        "lic-url-cc0-1": {
-            "0": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr"
-        },
+        "lic-cc-by-4.0": "Licence Creative Commons Attribution 4.0 International",
+        "lic-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+        "lic-cc-by-nd-4.0": "Licence Creative Commons Attribution-NoDerivatives 4.0 International",
+        "lic-url-cc-by-nd-4.0": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr",
+        "lic-cc-by-sa-4.0": "Licence Creative Commons Attribution-ShareAlike 4.0 International",
+        "lic-url-cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr",
+        "lic-cc0-1.0": "CC0 1.0 Universel Transfert dans le Domaine Public",
+        "lic-url-cc0-1.0": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
         "ads": "publicités",
         "footer-tab-website-name": "demandetesdonnees.fr",
         "footer-request-generator": "Générateur de demande",
