@@ -65,25 +65,19 @@ export const MAILTO_HANDLERS = {
                                 onClick={onInputClick}
                                 readOnly
                             />
-
-                            {d.email
-                                ? [
-                                      <strong>
-                                          <label htmlFor="mailto-dropdown-copymanually-recipient">
-                                              {t('recipient', 'generator')}
-                                          </label>
-                                      </strong>,
-                                      <input
-                                          type="text"
-                                          id="mailto-dropdown-copymanually-recipient"
-                                          className="form-element"
-                                          value={d.email}
-                                          onClick={onInputClick}
-                                          readOnly
-                                      />
-                                  ]
-                                : []}
-
+                            <strong>
+                                <label htmlFor="mailto-dropdown-copymanually-recipient">
+                                    {t('recipient', 'generator')}
+                                </label>
+                            </strong>
+                            <input
+                                type="text"
+                                id="mailto-dropdown-copymanually-recipient"
+                                className="form-element"
+                                value={d.email}
+                                onClick={onInputClick}
+                                readOnly
+                            />
                             <strong>
                                 <label htmlFor="mailto-dropdown-copymanually-body">{t('body', 'generator')}</label>
                             </strong>
@@ -126,8 +120,9 @@ export default class MailtoDropdown extends preact.Component {
             body: encodeURIComponent(props.letter.toEmailString())
         };
         const handler_buttons = handlers.map(h => (
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
-                href={MAILTO_HANDLERS[h].link && MAILTO_HANDLERS[h].link(data)}
+                href={MAILTO_HANDLERS[h].link?.(data)}
                 onClick={e => {
                     if (!props.letter) e.preventDefault();
                     else {
