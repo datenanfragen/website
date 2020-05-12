@@ -631,7 +631,7 @@
         "adb-title": "Liste des autorités de contrôle chargées de la protection des données",
         "adb-explanation": "<p>Notre base de données des autorités de contrôle contient les coordonnées des autorités de contrôle en matière de protection des données dans l'UE. </p><p>Les autorités de contrôle sont des entités indépendantes dont le but est de veiller au respect des lois sur la protection des données. Si tu penses qu'une entreprise n'a pas répondu correctement à tes demandes ou qu'elle traite tes données de façon illégale, tu peux toujours déposer une plainte sans frais. Pour en savoir plus, consulte notre <a href='/supervisory-authorities'>article sur les autorités de protection des données </a>.</p>",
         "adb-more-details": "Plus de détails",
-        "cdb-company-title": "{{ .Params.name }} : Informations de contact pour les demandes relatives à la protection de la vie privée",
+        "cdb-company-title": "{{ .Params.name }} : Informations de contact pour la protection de la vie privée",
         "cdb-company-heading": "Informations de contact pour les demandes relatives à la protection de la vie privée pour « {{ .Params.name }} »",
         "cdb-categories": {
             "one": "Catégorie :",
@@ -680,14 +680,30 @@
         "noscript-wizard": "Voici un assistant qui est généré par JavaScript, qui t'aide à créer tes demandes. La création de demandes uniquement sur ton ordinateur nécessite JavaScript. Tu peux utiliser le site Web sans JavaScript mais tu n'aura que des fonctionnalités limitées. Le code n'enverra aucune donnée à aucun serveur si tu n'y consent pas. Si tu veux utiliser le site et toutes ses fonctionnalités, active JavaScript dans ton navigateur ou ajoute une exception à ton bloqueur. Si cela ne fonctionne toujours pas après cela, envoie-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "404-title": "Erreur 404 : Page non trouvée",
         "404-body": "La page que tu cherches n'existe malheureusement pas sur ce serveur. Peut-être que tu as juste fait une faute de frappe dans l'URL ? Si l'erreur persiste, tu peux nous en informer par e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> ou soumettre un problème dans notre <a href='https://github.com/datenanfragen/website/issues/new'>suivi des problèmes </a>.",
-        "lic-cc-by-4.0": "Licence Creative Commons Attribution 4.0 International",
-        "lic-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.fr",
-        "lic-cc-by-nd-4.0": "Licence Creative Commons Attribution-NoDerivatives 4.0 International",
-        "lic-url-cc-by-nd-4.0": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr",
-        "lic-cc-by-sa-4.0": "Licence Creative Commons Attribution-ShareAlike 4.0 International",
-        "lic-url-cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr",
-        "lic-cc0-1.0": "CC0 1.0 Universel Transfert dans le Domaine Public",
-        "lic-url-cc0-1.0": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+        "lic-cc-by-4": {
+            "0": "Licence Creative Commons Attribution 4.0 International"
+        },
+        "lic-url-cc-by-4": {
+            "0": "https://creativecommons.org/licenses/by/4.0/deed.fr"
+        },
+        "lic-cc-by-nd-4": {
+            "0": "Licence Creative Commons Attribution-NoDerivatives 4.0 International"
+        },
+        "lic-url-cc-by-nd-4": {
+            "0": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+        },
+        "lic-cc-by-sa-4": {
+            "0": "Licence Creative Commons Attribution-ShareAlike 4.0 International"
+        },
+        "lic-url-cc-by-sa-4": {
+            "0": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr"
+        },
+        "lic-cc0-1": {
+            "0": "CC0 1.0 Universel Transfert dans le Domaine Public"
+        },
+        "lic-url-cc0-1": {
+            "0": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr"
+        },
         "ads": "publicités",
         "footer-tab-website-name": "demandetesdonnees.fr",
         "footer-request-generator": "Générateur de demande",
@@ -761,7 +777,11 @@
         "footer-your-gdpr-rights-url": "/blog/tes-droits-rgpd",
         "footer-supervisory-authorities-url": "/autorites-de-controle",
         "footer-posts-url": "/blog",
-        "footer-press-url": "/verein/press"
+        "footer-press-url": "/verein/press",
+        "footer-event-url": "/verein/evenement",
+        "footer-event": "Événements et conférences",
+        "event-no-events": "Il n'y a actuellement aucun événement prévu et aucun enregistrement disponible.",
+        "cdb-privacy-email": "E-mail de la protection de la vie privée :"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
@@ -816,6 +836,7 @@
         "directdebit-info": "Au cours de la prochaine étape, nous te redirigerons vers notre partenaire Mollie. Si tu souhaites donner régulièrement, songe aussi à devenir membre.",
         "mollie": "Autre méthodes de paiement",
         "mollie-info": "Notre partenaire Mollie offre également plusieurs autres méthodes de paiement, incluant Sofortüberweisung, giropay, iDEAL, EPS, CDC et Bancontact.",
-        "paysafecard": "paysafecard"
+        "paysafecard": "paysafecard",
+        "error-amount-too-little": "Malheureusement, nous ne pouvons accepter les dons inférieurs à 1 € que par virement bancaire en raison des frais de transaction élevés. Veuillez choisir un montant supérieur ou sélectionner« virement bancaire » comme moyen de paiement."
     }
 }
