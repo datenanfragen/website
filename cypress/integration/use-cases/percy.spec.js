@@ -3,8 +3,14 @@ function snap(url) {
     cy.percySnapshot(url);
 }
 
-describe('Visual diffs using Percy', () => {
-    it('Snapshots', () => {
+describe('Visual diffs using Percy', async () => {
+    it('Snapshots', async () => {
+        // Cypress doesn't clear indexedDB in-between test runs (see https://github.com/cypress-io/cypress/issues/1208).
+        // As localforage tends to choose indexedDB as the storage backend, this means that we are persisting state
+        // between tests, causing the Percy snapshots to look differently depending on which tests ran first. So, until
+        // Cypress fixes that problem, we need to clear indexedDB ourselves.
+        indexedDB.deleteDatabase('Datenanfragen.de');
+
         snap('/');
         snap('/generator');
         snap('/my-requests');
