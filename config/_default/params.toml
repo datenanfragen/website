@@ -19,6 +19,10 @@ short_name = "nishantwrp"
 byline = "Nadja Rode (<a href=\"http://www.hlci.de/\">Humboldt Law Clinic Internetrecht</a>, Berlin)"
 short_name = "Nadja"
 
+[authors.steffengrundke]
+byline = "Steffen Grundke (<a href=\"http://www.hlci.de/\">Humboldt Law Clinic Internetrecht</a>, Berlin)"
+short_name = "Steffen"
+
 [authors.lars]
 byline = "Lars (<a href=\"http://www.hlci.de/\">Humboldt Law Clinic Internetrecht</a>, Berlin)"
 short_name = "Lars"
