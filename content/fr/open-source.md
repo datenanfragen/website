@@ -84,6 +84,15 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
     <a class="button button-primary read-more-button" href="https://github.com/baltpeter/yace">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
+<a id="contributeurs"></a>
+## Contributeurs
+
+Un grand merci à tous les contributeurs de demandetesdonnees.fr ! Le projet ne serait pas possible sans vous.
+
+<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
+
+Si vous avez également contribué mais que votre nom ne figure pas encore sur la liste, nous vous invitons à l'ajouter dans le [fichier `AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
+
 <a id="license-notices"></a>
 ## Projets Open Source que nous utilisons
 
