@@ -193,6 +193,9 @@ static/db/*
 static/schema.json
 static/schema-supervisory-authorities.json
 i18n/*.json
+# These are just too annoying to deal with, so we ignore them, even though Hugo recommend keeping those in the repo
+# (see: https://gohugo.io/content-management/image-processing/#image-processing-performance-consideration).
+resources/_gen/
 
 # Generated JS and CSS
 static/*/*.gen.js
