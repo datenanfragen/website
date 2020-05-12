@@ -338,14 +338,18 @@
         "error-template-not-found": "Das gesuchte Template konnte leider nicht gefunden werden.",
         "error-template-fetch-failed": "Beim Laden des Templates ist ein unbekannter Fehler passiert.",
         "email-address": "E-Mail-Adresse",
+        "body": "Text",
+
         "mailto-dropdown-explanation": "Wie möchtest Du die E-Mail verschicken?",
-        "mailto-dropdown-warning": "*Dadurch werden die Daten Deiner Anfrage an den jeweiligen Anbieter weitergegeben."
+        "mailto-dropdown-warning": "*Dadurch werden die Daten Deiner Anfrage an den jeweiligen Anbieter weitergegeben.",
+        "copymanually-explanation": "Hier kannst Du den Betreff, Empfänger und Text Deiner generierten E-Mail von Hand kopieren."
     },
     "mailto": {
         "mailto": "Standard-E-Mail-Programm",
         "gmail": "Google Mail (Gmail)*",
         "outlook": "Outlook (Hotmail)*",
-        "yahoo": "Yahoo! Mail*"
+        "yahoo": "Yahoo! Mail*",
+        "copymanually": "Text von Hand kopieren"
     },
     "requests": {
         "letter-subject-erasure": "Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO",
