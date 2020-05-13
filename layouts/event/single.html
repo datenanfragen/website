@@ -1,0 +1,98 @@
+{{ define "main" }}
+{{ if .Params.license }}
+{{ $.Scratch.Set "license" .Params.license }}
+{{ else }}
+{{ $.Scratch.Set "license" "cc-by-4.0"}}
+{{ end }}
+
+<main>
+    <article class="page">
+        {{ with .Params.video_url }}
+            {{ partial "embedded-video" (dict "url" . ) }}
+        {{ end }}
+
+        <div id="event-meta">
+            {{ with .Params.date }}<div>
+                <strong>{{ T "event-date" }}</strong><br>
+                <time pubdate datetime="{{ .Format "2006-01-02T15:04" }}">{{ .Format "2006-01-02" }}
+                    {{ T "blog-time-at" }}
+                    {{ .Format "15:04" }}</time>
+                </div>{{- end -}}
+            {{ with .Params.place }}<div>
+                <strong>{{ T "event-place" }}</strong><br>
+                {{ if isset . "online" }}
+                    <a href="{{ .online }}">{{ T "event-place-online" }}</a>
+                {{ else }}
+                    {{ with .name }}{{ . }}{{ end }}
+                    {{ with .address }}<br>{{ . }}{{ end }}
+                {{ end }}
+            </div>{{ end }}
+            {{ with .Params.duration }}<div>
+                <strong>{{ T "event-duration" }}</strong><br> {{ . }}
+            </div>{{ end }}
+        </div>
+
+        <div id="page-content">
+            {{ .Content }}
+        </div>
+        {{ if and (not .Params.disable_comments) (not (eq .Type "act")) }}
+        <div id="comments-widget"></div>
+        {{ end }}
+    </article>
+</main>
+{{ end }}
+
+{{ define "heading" }}
+{{ if .Params.heading }}
+{{ .Params.heading | markdownify }}
+{{ else }}
+{{ .Title }}
+{{ end }}
+{{ end }}
+
+{{ define "scripts" }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "{{ .Title }}",
+    "startDate": {{ .Date.Format "2006-01-02T15:04-07:00" }},
+    "endDate": "",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode":
+    {{- if and (isset .Params "place") (isset .Params.place "online") -}}
+        "https://schema.org/OnlineEventAttendanceMode",
+    {{- else -}}
+        "https://schema.org/OfflineEventAttendanceMode",
+    {{- end -}}
+    {{ with .Params.place }}
+        "location": {
+            {{ if isset . "online" }}
+                "@type": "VirtualLocation",
+                "url": {{ .online }}
+            {{ else }}
+                "@type": "Place"
+                {{- with .name -}}, "name": {{ . }}{{ end }}
+                {{- with .address -}}, "address": {{ . }}{{ end }}
+            {{ end }}
+        },
+    {{ end }}
+    {{- if (or .Params.featured_image .Params.featured_image_url) -}}
+        {{ $img_src := "" }}
+        {{ if .Params.featured_image }}
+            {{ $img_src = (partial "functions/imgURL" (dict "page" .Page "name" (.Params.featured_image) "command" "Resize" "options" "230x")) }}
+        {{ else }}
+            {{ $img_src = .Params.featured_image_url }}
+        {{ end }}
+        "image": [
+            {{ $img_src }}
+        ],
+    {{ end }}
+    {{ if .Description }}
+        "desciption": {{ .Description }}
+    {{ else }}
+        "description": {{ .Summary }}
+    {{ end }}
+}
+</script>
+{{ end }}
