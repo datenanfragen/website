@@ -16,6 +16,6 @@ Die Humboldt-Universität Berlin hat uns zur Zusammenarbeit bei der [Humboldt La
  - Präzisierung des Auskunftsantrags gemäß Erwägungsgrund 63 (in Arbeit)
  - [Wie muss ich mich bei einer Datenschutzanfrage ausweisen?]({{< ref "blog/ausweispflichten" >}})
  - [Räumlicher Anwendungsbereich der DSGVO]({{< ref "blog/gdpr-territorial-scope" >}})
- - [Besonderheiten des Datenschutzrechts in Portugal]({{< ref "blog/portugal-data-protection" >}}) (auch auf Portogiesisch verfügbar)
+ - [Besonderheiten des Datenschutzrechts in Portugal]({{< ref "blog/portugal-data-protection" >}}) (auch auf Portugiesisch verfügbar)
  - [Kirchlicher Datenschutz in Deutschland]({{< ref "blog/kirchlicher-datenschutz-in-deutschland" >}})
  - [Wie oft kann ich Anfragen an Unternehmen stellen?]({{< ref "blog/wie-oft-anfragen" >}})
