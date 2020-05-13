@@ -13,7 +13,21 @@
             <h1>{{ .Title }}</h1>
         </a>
         <aside class="list-article-meta">
-            {{ if not .Params.static }}
+            {{ if eq .Type "event" }}
+                <strong>{{ T "event-date" }}</strong>: <span class="meta-date">{{ with .Params.date }}<time pubdate
+                    datetime="{{ .Format "2006-01-02T15:04" }}">{{ .Format "2006-01-02" }} {{ T "blog-time-at" }}
+                    {{ .Format "15:04" }}</time>{{- end -}}
+                {{ with .Params.place }}<br><strong>{{ T "event-place" }}</strong>:
+                <span class="meta-event-place">
+                    {{ if isset . "online" }}
+                        <a href="{{ .online }}">{{ T "event-place-online" }}</a>
+                    {{ else }}
+                        {{ with .name }}{{ . }}{{ end }}
+                        {{ with .address }}<br>{{ . }}{{ end }}
+                    {{ end }}
+                </span>
+                {{ end }}
+            {{ else if not .Params.static }}
             {{ T "blog-published" }}<span class="meta-date">{{ with .Params.date }}<time pubdate
                     datetime="{{ .Format "2006-01-02T15:04" }}">{{ .Format "2006-01-02" }} {{ T "blog-time-at" }}
                     {{ .Format "15:04" }}</time>{{- end -}}
