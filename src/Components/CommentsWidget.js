@@ -105,7 +105,7 @@ export class Comment extends preact.Component {
             let match;
 
             while (
-                (match = remaining.match(/<(?<tag>bold|italic|link)(?: url="(?<url>https:\/\/.+?)")?>(?<content>.+?)<\/\1>/))
+                (match = remaining.match(/<(?<tag>bold|italic|link)(?: url="(?<url>https?:\/\/.+?)")?>(?<content>.+?)<\/\1>/))
             ) {
                 // TODO: Get rid of all those stupid <span>s once we have <Fragment>s.
                 chunks.push(<span>{remaining.slice(0, match.index)}</span>);
