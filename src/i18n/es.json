@@ -151,7 +151,7 @@
         "cdb-intro": "Tenemos la siguiente información de contacto en “{{ .Params.name }}” para que la utilices en las solicitudes relativas a privacidad:",
         "cdb-runs-extended": "“{{ .Params.name }}” también es responsable de las siguientes entidades y servicios:",
         "cdb-runs": "Igualmente aplicable a:",
-        "cdb-company-title": "{{ .Params.name }}: Información de contacto para solicitudes relativas a privacidad",
+        "cdb-company-title": "{{ .Params.name }}: datos de contacto para solicitudes relativas a la privacidad",
         "adb-explanation": "<p>Nuestra base de datos de autoridades supervisoras alberga los detalles de contacto de las autoridades supervisoras de protección de datos en la UE.</p><p>Las autoridades supervisoras son entidades independientes cuyo propósito es asegurarse de que las leyes de protección de datos sean cumplidas. Si crees que una empresa no ha respondido correctamente a tu solicitud o está procesando tus datos ilegalmente, puedes presentar una reclamación antes ellas de forma gratuita. Para saber más, consulta nuestra <a href='supervisory-authorities'>publicación sobre autoridades de protección de datos</a>.</p>",
         "home-read-more-url": "/blog/tus-derechos-rgpd",
         "home-feature-your-rights-portabillity-title": "Derecho a la portabilidad de datos",
