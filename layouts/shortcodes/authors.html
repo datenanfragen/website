@@ -1,0 +1,1 @@
+{{ replaceRE "([^\n]+)\n*$|\n*(.+\n)\n*" "$1$2" (replaceRE "(?m)^#.+?$" "" (readFile "AUTHORS"))  }}

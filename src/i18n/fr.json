@@ -705,6 +705,8 @@
         "footer-donate-url": "/donate",
         "footer-open-source": "Open source",
         "footer-open-source-url": "/open-source",
+        "footer-contributors": "Contributeurs",
+        "footer-contributors-url": "/open-source#contributeurs",
         "footer-tab-association": "Datenanfragen.de e. V.",
         "footer-association-overview-url": "/verein",
         "footer-association-goals-url": "/verein/nos-objectifs",
