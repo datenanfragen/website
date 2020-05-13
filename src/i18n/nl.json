@@ -34,6 +34,12 @@
         "home-hero-line-2": "Gebruik het.",
         "home-main-copy": "Elk bedrijf in de EU is door de wet verplicht om je toegang te geven tot je persoonlijke data, de mogelijkheid om die te corrigeren of zelfs te verwijderen en meer. Hier bij datarequests.org, willen we je helpen om deze rechten uit te oefenen.",
         "home-how-it-works-title": "Hoe het werkt",
-        "home-how-it-works-generator-title": "Genereer een verzoek"
+        "home-how-it-works-generator-title": "Genereer een verzoek",
+        "home-how-it-works-parameters": "Kies bedrijven waar je een aanvraag naar wilt sturen. Voer je gegevens in, zodat de bedrijven je kunnen identificeren. Om het makkelijker voor je te maken, hebben wij de formulieren al voorbereid. En geen zorgen: alle gegevens blijven op je computer en worden alleen daar verwerkt. Dit maakt het mogelijk dat jouw gegevens nooit bij ons terecht komen.",
+        "home-how-it-works-parameters-title": "Voer je parameters in",
+        "header-blog": "Publicaties",
+        "header-name": "gegevensaanvragen.org",
+        "logo-title": "gegevensaanvragen.org logo",
+        "logo": "img/logo-gegevensaanvragen.svg"
     }
 }

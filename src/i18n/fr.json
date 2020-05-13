@@ -631,7 +631,7 @@
         "adb-title": "Liste des autorités de contrôle chargées de la protection des données",
         "adb-explanation": "<p>Notre base de données des autorités de contrôle contient les coordonnées des autorités de contrôle en matière de protection des données dans l'UE. </p><p>Les autorités de contrôle sont des entités indépendantes dont le but est de veiller au respect des lois sur la protection des données. Si tu penses qu'une entreprise n'a pas répondu correctement à tes demandes ou qu'elle traite tes données de façon illégale, tu peux toujours déposer une plainte sans frais. Pour en savoir plus, consulte notre <a href='/supervisory-authorities'>article sur les autorités de protection des données </a>.</p>",
         "adb-more-details": "Plus de détails",
-        "cdb-company-title": "{{ .Params.name }} : Informations de contact pour les demandes relatives à la protection de la vie privée",
+        "cdb-company-title": "{{ .Params.name }} : Informations de contact pour la protection de la vie privée",
         "cdb-company-heading": "Informations de contact pour les demandes relatives à la protection de la vie privée pour « {{ .Params.name }} »",
         "cdb-categories": {
             "one": "Catégorie :",
@@ -763,7 +763,11 @@
         "footer-your-gdpr-rights-url": "/blog/tes-droits-rgpd",
         "footer-supervisory-authorities-url": "/autorites-de-controle",
         "footer-posts-url": "/blog",
-        "footer-press-url": "/verein/press"
+        "footer-press-url": "/verein/press",
+        "footer-event-url": "/verein/evenement",
+        "footer-event": "Événements et conférences",
+        "event-no-events": "Il n'y a actuellement aucun événement prévu et aucun enregistrement disponible.",
+        "cdb-privacy-email": "E-mail de la protection de la vie privée :"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
@@ -818,6 +822,7 @@
         "directdebit-info": "Au cours de la prochaine étape, nous te redirigerons vers notre partenaire Mollie. Si tu souhaites donner régulièrement, songe aussi à devenir membre.",
         "mollie": "Autre méthodes de paiement",
         "mollie-info": "Notre partenaire Mollie offre également plusieurs autres méthodes de paiement, incluant Sofortüberweisung, giropay, iDEAL, EPS, CDC et Bancontact.",
-        "paysafecard": "paysafecard"
+        "paysafecard": "paysafecard",
+        "error-amount-too-little": "Malheureusement, nous ne pouvons accepter les dons inférieurs à 1 € que par virement bancaire en raison des frais de transaction élevés. Veuillez choisir un montant supérieur ou sélectionner« virement bancaire » comme moyen de paiement."
     }
 }
