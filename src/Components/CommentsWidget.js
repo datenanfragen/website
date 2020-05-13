@@ -18,22 +18,16 @@ export default class CommentsWidget extends preact.Component {
         this.state.comments = [];
 
         fetch(API_URL + '/get/' + TARGET)
-            .then(function(res) {
-                return res.json();
-            })
+            .then(res => res.json())
             .then(comments => {
                 this.setState({ comments: comments.sort((a, b) => -a.added_at.localeCompare(b.added_at)) });
             });
     }
 
     render() {
-        let comment_elements = [];
-
-        this.state.comments.forEach(c => {
-            comment_elements.push(
-                <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
-            );
-        });
+        const comment_elements = this.state.comments.map(c => (
+            <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
+        ));
 
         return (
             <IntlProvider scope="comments" definition={I18N_DEFINITION}>
@@ -83,18 +77,50 @@ export class Comment extends preact.Component {
                     []
                 )}
                 <p>
-                    {this.props.message.split('\n').map((item, key) => {
-                        return (
-                            <span key={key}>
-                                {item}
-                                <br />
-                            </span>
-                        );
-                    })}
+                    {this.props.message
+                        .split('\n')
+                        .map(this.processLine)
+                        .flat()}
                 </p>
             </div>
         );
     }
+
+    /**
+     * Handle some very basic markup in comments, similar to what the generator allows.
+     *
+     * The following tags are supported:
+     *   - <bold>This text will be bold.</bold>
+     *   - <italic>This text will be italic.</italic>
+     *   - <link url="https://example.org">This text will link to example.org.</link> Note that the URL can technically
+     *       be missing, it will then produce a link without href. Also note that URLs are not checked at all.
+     *
+     * @param {string} line The line of text to process.
+     * @returns {Array} An array of the elements to insert instead of the line.
+     */
+    processLine = line => {
+        const processChunk = function(chunk) {
+            let chunks = [];
+            let remaining = chunk;
+            let match;
+
+            while (
+                (match = remaining.match(/<(?<tag>bold|italic|link)(?: url="(?<url>https?:\/\/.+?)")?>(?<content>.+?)<\/\1>/))
+            ) {
+                // TODO: Get rid of all those stupid <span>s once we have <Fragment>s.
+                chunks.push(<span>{remaining.slice(0, match.index)}</span>);
+                const content = processChunk(match.groups.content);
+                if (match.groups.tag === 'link') chunks.push(<a href={match.groups.url}>{content}</a>);
+                else chunks.push(<span className={match.groups.tag}>{content}</span>);
+
+                remaining = remaining.slice(match.index + match[0].length);
+            }
+
+            return [...chunks, <span>{remaining}</span>];
+        };
+
+        return [...processChunk(line), <br />];
+    };
 }
 
 export class CommentForm extends preact.Component {
