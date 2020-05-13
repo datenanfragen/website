@@ -133,6 +133,7 @@
         "verein-home-card-join-content": "Unser Projekt lebt von Zusammenarbeit. Wenn Du in der Entwicklung und Verwaltung mitmachen möchtest oder einfach mehr von uns mitbekommen möchtest, heißen wir Dich herzlich bei uns willkommen.",
         "verein-home-card-join-button": "Ich möchte beitreten.",
         "event-no-events": "Zur Zeit sind keine Veranstaltungen geplant und keine Aufzeichungen verfügbar.",
+        "video-embed-yourself": "Selbst einbinden",
         "footer-tab-website-name": "Datenanfragen.de",
         "footer-request-generator": "Anfrage generieren",
         "footer-request-generator-url": "/generator",
@@ -341,7 +342,6 @@
         "error-template-fetch-failed": "Beim Laden des Templates ist ein unbekannter Fehler passiert.",
         "email-address": "E-Mail-Adresse",
         "body": "Text",
-
         "mailto-dropdown-explanation": "Wie möchtest Du die E-Mail verschicken?",
         "mailto-dropdown-warning": "*Dadurch werden die Daten Deiner Anfrage an den jeweiligen Anbieter weitergegeben.",
         "copymanually-explanation": "Hier kannst Du den Betreff, Empfänger und Text Deiner generierten E-Mail von Hand kopieren."
@@ -617,7 +617,6 @@
         "error-amount-too-little": "Spenden von weniger als 1 € können wir aufgrund der hohen Transaktionskosten leider nur per Überweisung annehmen. Bitte wähle einen höheren Betrag oder wähle „Banküberweisung“ als Zahlungsmethode.",
         "donation-failed": "Zahlung fehlgeschlagen. Bitte versuche es erneut.",
         "donation-expired": "Zahlung abgelaufen. Bitte versuche es erneut.",
-
         "bank-transfer": "Banküberweisung",
         "bank-transfer-info": "Im nächsten Schritt werden Dir unsere Bankdaten angezeigt, an die Du überweisen kannst.",
         "paysafecard": "paysafecard",
