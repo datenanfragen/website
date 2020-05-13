@@ -139,7 +139,9 @@
         "email-address": "Adresse e-mail",
         "objection-request": "Opposition à la prospection",
         "mailto-dropdown-explanation": "Comment souhaites-tu envoyer l'e-mail ?",
-        "mailto-dropdown-warning": "*Ceci transmettra ta demande et toutes les données incluses au service correspondant."
+        "mailto-dropdown-warning": "*Ceci transmettra ta demande et toutes les données incluses au service correspondant.",
+        "copymanually-explanation": "Ici, vous pouvez copier manuellement le sujet, le destinataire et le texte de votre courriel généré.",
+        "body": "Texte"
     },
     "privacy-controls": {
         "title": "Options de confidentialité",
@@ -767,13 +769,19 @@
         "footer-event-url": "/verein/evenement",
         "footer-event": "Événements et conférences",
         "event-no-events": "Il n'y a actuellement aucun événement prévu et aucun enregistrement disponible.",
-        "cdb-privacy-email": "E-mail de la protection de la vie privée :"
+        "cdb-privacy-email": "E-mail de la protection de la vie privée :",
+        "video-embed-yourself": "Intégrez-vous",
+        "event-place-online": "En ligne",
+        "event-duration": "Durée",
+        "event-place": "Lieu de l'évènement",
+        "event-date": "Date de l'évènement"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
         "gmail": "Google Mail (Gmail)*",
         "outlook": "Outlook (Hotmail)*",
-        "yahoo": "Yahoo! Mail*"
+        "yahoo": "Yahoo! Mail*",
+        "copymanually": "Copier le texte manuellement"
     },
     "requests": {
         "letter-subject-erasure": "Demande de suppression des données personnelles conformément à l'Art. 17 du RGPD",
