@@ -155,7 +155,32 @@
         "adb-explanation": "<p>Nuestra base de datos de autoridades supervisoras alberga los detalles de contacto de las autoridades supervisoras de protección de datos en la UE.</p><p>Las autoridades supervisoras son entidades independientes cuyo propósito es asegurarse de que las leyes de protección de datos sean cumplidas. Si crees que una empresa no ha respondido correctamente a tu solicitud o está procesando tus datos ilegalmente, puedes presentar una reclamación antes ellas de forma gratuita. Para saber más, consulta nuestra <a href='supervisory-authorities'>publicación sobre autoridades de protección de datos</a>.</p>",
         "home-read-more-url": "/blog/tus-derechos-rgpd",
         "home-feature-your-rights-portabillity-title": "Derecho a la portabilidad de datos",
-        "home-feature-your-rights-object": "Incluso si has dado consentimiento para el uso de tus datos en algún momento, puedes revocarlo cuando quieras. La empresa no puede hacer el proceso de revocación más difícil que su autorización original."
+        "home-feature-your-rights-object": "Incluso si has dado consentimiento para el uso de tus datos en algún momento, puedes revocarlo cuando quieras. La empresa no puede hacer el proceso de revocación más difícil que su autorización original.",
+        "lic-url-cc0-1": {
+            "0": "https://creativecommons.org/publicdomain/zero/1.0/deed.es"
+        },
+        "lic-cc-by-nd-4": {
+            "0": "Licencia Creative Commons Atribución-SinObraDerivada 4.0 Internacional"
+        },
+        "lic-cc-by-sa-4": {
+            "0": "Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional"
+        },
+        "lic-url-cc-by-sa-4": {
+            "0": "https://creativecommons.org/licenses/by-sa/4.0/deed.es"
+        },
+        "lic-url-cc-by-nd-4": {
+            "0": "https://creativecommons.org/licenses/by-nd/4.0/deed.es"
+        },
+        "lic-url-cc-by-4": {
+            "0": "https://creativecommons.org/licenses/by/4.0/deed.es"
+        },
+        "lic-cc-by-4": {
+            "0": "Licencia Creative Commons Atribución 4.0 Internacional"
+        },
+        "404-body": "Desafortunadamente la página que estás buscando no existe en este servidor. Tal vez solo has cometido un error tipográfico en la URL? Si el error persiste, puede notificarlo a través de nuestro correo electrónico <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> o comunicar el problema en nuestro <a href='https://github.com/datenanfragen/website/issues/new'>rastreador de problemas</a>.",
+        "noscript-my-requests": "Todas las solicitudes son almacenadas y mostradas en tu ordenador utilizando JavaScript (por supuesto sólo si está activado). El código no enviará ninguna información a ningún servidor sin tu consentimiento. Si quieres guardas y ver tus solicitudes en tu ordenador, por favor activa JavaScript en tu navegador o añade una excepción a tu bloqueador. Si siguen sin funcionar después de eso, envíanos un correo electrónico a <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
+        "press-no-releases": "En este momento no hay comunicados de prensa en inglés.",
+        "noscript-wizard": "Aquí tendría que haber sido generado un asistente mediante JavaScript, para ayudarte a crear tus solicitudes. JavaScript es necesario para que las solicitudes sean generadas solamente en tu ordenador. Puedes utilizar este sitio web sin JavaScript pero solo tendrás una funcionalidad limitada. El código no enviará ninguna información a ningún servidor sin tu consentimiento. Si quieres utilizar esta página web y todas sus funcionalidades, por favor activa JavaScript en tu navegador o añade una excepción a tu bloqueador. Si sigue sin funcionar después de eso, envíanos un correo electrónico a <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
     },
     "my-requests": {
         "title": "Mis solicitudes",
