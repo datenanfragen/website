@@ -2,6 +2,13 @@ import preact from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import PropTypes from 'prop-types';
 import t, { t_r } from '../Utility/i18n';
+import Modal from './Modal';
+
+// We only want to select everything in the copymanually inputs if they aren't yet focused. That, the user can still
+// an individual selection if they prefer.
+// However, the event we get in the onclick handler means that the focus has already been changed to the element the
+// user clicked, so we need to remember the previous one for the check to make any sense at all.
+let previous_active_element = document.body;
 
 // TODO: I would like to extend this with country-specific services in the future. Unfortunately, I did not find a way
 // to produce links for GMX and Web.de.
@@ -23,6 +30,71 @@ export const MAILTO_HANDLERS = {
     // },
     yahoo: {
         link: d => `https://compose.mail.yahoo.com/?to=${d.email}&subject=${d.subject}&body=${d.body}`,
+        countries: ['all']
+    },
+    copymanually: {
+        onClick: d => {
+            const dismiss = () => preact.render('', document.body, modal);
+            const onInputClick = e => {
+                if (previous_active_element.id === e.target.id) return;
+
+                e.target.select();
+                e.target.focus();
+                previous_active_element = e.target;
+            };
+            const modal = preact.render(
+                <IntlProvider scope="generator" definition={I18N_DEFINITION}>
+                    <Modal
+                        positiveText={<Text id="ok" />}
+                        onPositiveFeedback={dismiss}
+                        positiveDefault={true}
+                        onDismiss={dismiss}>
+                        <Text id="copymanually-explanation" />
+
+                        <div className="form-group">
+                            <strong>
+                                <label htmlFor="mailto-dropdown-copymanually-subject">
+                                    {t('subject', 'generator')}
+                                </label>
+                            </strong>
+                            <input
+                                type="text"
+                                id="mailto-dropdown-copymanually-subject"
+                                className="form-element"
+                                value={decodeURIComponent(d.subject)}
+                                onClick={onInputClick}
+                                readOnly
+                            />
+                            <strong>
+                                <label htmlFor="mailto-dropdown-copymanually-recipient">
+                                    {t('recipient', 'generator')}
+                                </label>
+                            </strong>
+                            <input
+                                type="text"
+                                id="mailto-dropdown-copymanually-recipient"
+                                className="form-element"
+                                value={d.email}
+                                onClick={onInputClick}
+                                readOnly
+                            />
+                            <strong>
+                                <label htmlFor="mailto-dropdown-copymanually-body">{t('body', 'generator')}</label>
+                            </strong>
+                            <textarea
+                                id="mailto-dropdown-copymanually-body"
+                                className="form-element"
+                                rows="10"
+                                onClick={onInputClick}
+                                readOnly>
+                                {decodeURIComponent(d.body)}
+                            </textarea>
+                        </div>
+                    </Modal>
+                </IntlProvider>,
+                document.body
+            );
+        },
         countries: ['all']
     }
 };
@@ -48,11 +120,15 @@ export default class MailtoDropdown extends preact.Component {
             body: encodeURIComponent(props.letter.toEmailString())
         };
         const handler_buttons = handlers.map(h => (
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
-                href={MAILTO_HANDLERS[h].link(data)}
+                href={MAILTO_HANDLERS[h].link?.(data)}
                 onClick={e => {
                     if (!props.letter) e.preventDefault();
-                    else props.onSuccess();
+                    else {
+                        if (MAILTO_HANDLERS[h].onClick) MAILTO_HANDLERS[h].onClick(data);
+                        props.onSuccess();
+                    }
                 }}
                 className="button button-secondary button-full-width"
                 target="_blank"

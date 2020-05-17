@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main>
+    {{ .Content }}
+    <div class="events">
+        {{ if .Paginator.Pages }}
+            {{ range .Paginator.Pages }}
+            {{ partial "summary.html" . }}
+            {{ end }}
+            {{ partial "pagination.html" . }}
+        {{ else }}
+            <p>{{ T "event-no-events" }}</p>
+        {{ end }}
+    </div>
+</main>
+{{ end }}

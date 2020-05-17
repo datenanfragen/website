@@ -16,7 +16,7 @@ export default class FeatureDisabledWidget extends preact.Component {
                 )}
 
                 <div style="text-align: center;">
-                    {this.props.children && this.props.children.length > 0 ? (
+                    {this.props.children?.length > 0 ? (
                         this.props.children
                     ) : (
                         <span dangerouslySetInnerHTML={{ __html: t('feature-disabled', 'privacy-controls') }} />

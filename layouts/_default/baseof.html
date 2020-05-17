@@ -47,8 +47,12 @@
     <header id="nav-header">
         <div id="nav-header-bg"></div>
         <div id="header-main" class="container">
-            <a href="{{ "/" | absURL }}" title="{{ T "logo-a-title" . }}"><img id="logo" src="{{ T "logo" . | absURL }}"
-                    title="{{ T "logo-title" . }}"></a>
+            <a href="{{ "/" | absURL }}" title="{{ T "logo-a-title" . }}" style="position: relative;">
+                <img id="logo" src="{{ T "logo" . | absURL }}" title="{{ T "logo-title" . }}">
+                {{ if .Site.Params.devMode }}
+                    <span class="dev-mode-indicator" style="font-family: monospace; font-weight: bold; color: #d53f8c; position: absolute; bottom: 22px; right: -25px;">DEV</span>
+                {{ end }}
+            </a>
             <nav id="main-nav">
                 <div id="menu-items">
                     <a href="{{ "company" | absURL }}" class="menu-link desktop-only">{{ T "header-cdb" }}</a>
@@ -129,6 +133,7 @@
                         <li><a href="{{ T "footer-donate-url" | absLangURL }}">{{ T "footer-donate" . }}</a></li>
                         <li><a href="{{ T "footer-become-a-member-url" | absLangURL }}">{{ T "footer-become-a-member" . }}</a></li>
                         <li><a href="{{ T "footer-open-source-url" | absLangURL }}">{{ T "footer-open-source" . }}</a></li>
+                        <li><a href="{{ ref . (T "footer-contributors-url") }}">{{ T "footer-contributors" . }}</a></li>
                     </ul>
                 </div>
                 <div class="col22 footer-col">
@@ -152,6 +157,7 @@
                         <li><a href="{{ T "footer-supervisory-authorities-url" | absLangURL }}">{{ T "footer-supervisory-authorities" . }}</a></li>
                         <li><a href="{{ T "footer-posts-url" | absLangURL }}">{{ T "footer-posts" . }}</a></li>
                         <li><a href="{{ T "footer-press-url" | absLangURL }}">{{ T "footer-press" . }}</a></li>
+                        <li><a href="{{ T "footer-event-url" | absLangURL }}">{{ T "footer-event" . }}</a></li>
                         {{ if eq .Lang "de" }}<li><a href="{{ "/verein/material" | absLangURL }}">Material</a></li>{{ end }}
                     </ul>
                 </div>

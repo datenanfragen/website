@@ -295,6 +295,57 @@ a #logo {
     }
 }
 
+/* Events */
+#event-meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    div {
+        margin-right: 10px;
+    }
+}
+
+// taken from http://maddesigns.de/responsive-iframes-2417.html
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* ratio 16x9 */
+    width: 100%;
+    height: auto;
+    border: 4px solid $primary-color;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin-bottom: 35px;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    a.embed-yourself-link {
+        background-color: $primary-color;
+        border-radius: 0 0px 5px 5px;
+        color: $bg-color !important;
+        text-decoration: none;
+        display: block;
+        position: absolute;
+        height: 25px;
+        bottom: -33px;
+        padding: 4px 10px;
+        right: -4px;
+
+        &:hover,
+        &:focus {
+            color: color('gray', 400) !important;
+        }
+    }
+}
+
 /* Wizard */
 #wizard-tabs {
     $tab-border: 4px;

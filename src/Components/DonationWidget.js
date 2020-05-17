@@ -85,7 +85,7 @@ export default class DonationWidget extends preact.Component {
                                 className="form-element"
                                 style="text-align: right;"
                                 value={this.state.amount}
-                                onInput={e => this.setState({ amount: Number.parseFloat(e.target.value) })}
+                                onInput={e => this.setState({ amount: Number.parseFloat(e.target.value) || 0 })}
                             />
                             <div className="input-addon">€</div>
                         </div>
@@ -290,6 +290,13 @@ export default class DonationWidget extends preact.Component {
             return;
         }
 
+        // We only allow donations less than 1€ by bank transfer. With the other gateways they just don't make any sense
+        // due to the high fees. The CoinGate API actually fails for payments of less than 10ct.
+        if (this.state.amount < 1) {
+            flash(<FlashMessage type="error">{t('error-amount-too-little', 'donation-widget')}</FlashMessage>);
+            return;
+        }
+
         if (payment_method === 'paypal') {
             this.setState({ ongoing_request: true });
             // Reference for the parameters:
@@ -358,7 +365,7 @@ export default class DonationWidget extends preact.Component {
         this.setState({ ongoing_request: true });
         postRequest(SERVERLESS_DONATIONS_API, serverless_request_data)
             .then(data => {
-                if (data && data.auth_url) window.location = data.auth_url;
+                if (data?.auth_url) window.location = data.auth_url;
                 else {
                     throw new CriticalException(
                         'Malformed response body when trying to get payment provider auth URL.',

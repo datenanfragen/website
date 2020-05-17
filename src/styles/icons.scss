@@ -135,3 +135,9 @@
     @extend %icon;
     font-icon: url('matrix.svg');
 }
+
+.icon-code:before {
+    @extend %icon;
+    font-icon: 120% url('code.svg');
+    vertical-align: -4px;
+}
