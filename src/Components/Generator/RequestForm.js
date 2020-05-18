@@ -12,6 +12,7 @@ import TransportMediumChooser from './TransportMediumChooser';
 export default class RequestForm extends preact.Component {
     render() {
         let body = [];
+        let heading_class = '';
         switch (this.props.request_data['type']) {
             case 'rectification':
                 body.push(
@@ -25,6 +26,7 @@ export default class RequestForm extends preact.Component {
                         <MarkupText id="rectification-data-explanation" />
                     </DynamicInputContainer>
                 );
+                heading_class = 'has-margin';
             // fallthrough intentional
             case 'erasure':
             case 'objection':
@@ -40,7 +42,8 @@ export default class RequestForm extends preact.Component {
                             'generator'
                         )}
                         hasPrimary={true}
-                        fillFields={this.props.fillFields}>
+                        fillFields={this.props.fillFields}
+                        heading_class={heading_class}>
                         <MarkupText
                             id={
                                 this.props.request_data.is_tracking_request
@@ -117,7 +120,7 @@ export default class RequestForm extends preact.Component {
                         </div>
                     </div>,
                     <div>
-                        <h2>
+                        <h2 className="has-margin">
                             <Text id="sender-address" />
                         </h2>
                         <div className="form-group fancy-fg">
