@@ -3,7 +3,7 @@
     "slug": "praezisierung-einer-auskunftsanfrage",
     "date": "2020-05-18T16:20:00+02:00",
     "type": "blog",
-    "description": "Gemäß Erwägungsgrund 63 DSGVO können Verantwortliche eine Präziesierung von Auskunftsanfragen verlagen. Aber wann ist das gerechtfertig? Und wie muss eine solche Präszisierung aussehen?",
+    "description": "Gemäß Erwägungsgrund 63 DSGVO können Verantwortliche eine Präzisierung von Auskunftsanfragen verlangen. Aber wann ist das gerechtfertigt? Und wie muss eine solche Präzisierung aussehen?",
     "tags": [ "dsgvo", "Erwägungsgrund 63", "präzisieren", "präzisierung", "konkretisieren", "konkretisierung", "artikel 15", "Auskunftsantrag", "gdpr" ],
     "authors": [ "andreas_bampounis" ],
     "featured_image": "praezisierung-von-auskunftsanfragen",
@@ -11,7 +11,7 @@
     "notices": "Titelfoto angepasst nach: „[The files](https://unsplash.com/photos/Q9y3LRuuxmg)“ von [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 
-Gemäß Art. 15 DSGVO und konkreter dem Erwägungsgrund 63 S. 7[^1] darf der_die Verantwortliche der betroffenen Person eine Präzisierung im Rahmen ihrer Ausübung des Auskunftsrechts verlangen. Um diese Aufforderung verlangen zu können, muss der_die Verantwortliche eine große Menge von Daten in Bezug auf die betroffene Person verarbeiten. 
+Gemäß Art. 15 DSGVO und konkreter dem Erwägungsgrund 63 S. 7[^1] darf der_die Verantwortliche von der betroffenen Person eine Präzisierung der Anfrage im Rahmen ihrer Ausübung des Auskunftsrechts verlangen. Um diese Aufforderung verlangen zu können, muss der_die Verantwortliche eine große Menge von Daten in Bezug auf die betroffene Person verarbeiten. 
 
 Zunächst ist es wichtig zu klären, ob die betroffene Person nach Verlangen des_der Verantwortlichen verpflichtet ist, eine Präzisierung vorzunehmen. Um diese Frage zu beantworten, muss zuerst eine Unterscheidung gemacht werden; Die Auskunftsanfrage an eine öffentliche Stelle einerseits und die im Rahmen der Privatwirtschaft.
 
@@ -39,7 +39,7 @@ Weder in der Lehre noch in der Rechtsprechung gibt es eine einheitliche Auffassu
 
 Neben der juristischen Auslegung der Normen ist für die Praxis besonders wichtig, wie die betroffene Person ihre Auskunftsanfrage präzisieren soll, wenn dies vom Verantwortlichen verlangt wird.
 
-Am Anfang sollte die Anfragesteller_in klarstellen, an welchen Informationen und Verarbeitungsvorgängen er_sie interessiert ist.[^8] Eine bestimmte Kategorie von Daten i.S.v. Art. 15 DSGVO sind üblicherweise Leistungs- und Verhaltensdaten.[^9] Die Anfrage ist bestimmt genug, wenn die betroffene Person eine Auskunft der verarbeiteten und nicht der sich in ihrer Personalakte befindenden Daten begehrt. Nicht in die Anfrage aufgenommen werden können oder müssen die Daten, die Anfragesteller_in nicht kennen kann.[^10] Eine Präzisierung ist auch bestimmt genug, wenn die Datenkategorie und der Zeitraum festgelegt worden sind (z.B. E-Mails von einem bestimmten Zeitraum).[^11] Letztere Methode ist zu empfehlen.
+Am Anfang sollte die Anfragesteller_in klarstellen, an welchen Informationen und Verarbeitungsvorgängen er_sie interessiert ist.[^8] Eine bestimmte Kategorie von Daten i.S.v. Art. 15 DSGVO sind üblicherweise Leistungs- und Verhaltensdaten.[^9] Die Anfrage ist bestimmt genug, wenn die betroffene Person eine Auskunft der verarbeiteten und nicht der sich in ihrer Personalakte befindenden Daten begehrt. Nicht in die Anfrage aufgenommen werden können oder müssen die Daten, welche die Anfragesteller_in nicht kennen kann.[^10] Eine Präzisierung ist auch bestimmt genug, wenn die Datenkategorie und der Zeitraum festgelegt worden sind (z.B. E-Mails von einem bestimmten Zeitraum).[^11] Letztere Methode ist zu empfehlen.
 
 [^1]: „Verarbeitet der Verantwortliche eine große Menge von Informationen über die betroffene Person, so sollte er verlangen können, dass die betroffene Person präzisiert, auf welche Information oder welche Verarbeitungsvorgänge sich ihr Auskunftsersuchen bezieht, bevor er ihr Auskunft erteilt.“
 [^2]: Paal/Pauly/Paal, 2. Aufl. 2018, DS-GVO Art. 15, Rn 8. 
