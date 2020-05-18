@@ -167,6 +167,10 @@ input:disabled {
     h5,
     h6 {
         margin-top: 0;
+
+        &.has-margin {
+            margin-top: 20px;
+        }
     }
 }
 .box-error {
