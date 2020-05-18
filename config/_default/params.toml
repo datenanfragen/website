@@ -30,3 +30,7 @@ short_name = "Lars"
 [authors.anikarini]
 byline = "Ani Karini Muniz Schiebert (<a href=\"http://www.hlci.de/\">Humboldt Law Clinic Internetrecht</a>, Berlin)"
 short_name = "Ani Karini"
+
+[authors.andreas_bampounis]
+byline = "Andreas Bampounis (<a href=\"http://www.hlci.de/\">Humboldt Law Clinic Internetrecht</a>, Berlin)"
+short_name = "Andreas Bampounis"
