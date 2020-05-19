@@ -120,19 +120,10 @@
         }
     },
     "lint-staged": {
-        "*.{js,css,scss,json}": [
-            "prettier --write",
-            "git add"
-        ],
+        "*.{js,css,scss,json}": "prettier --write",
         "*.{js,json}": "eslint --ext .json --ext .js",
         "*.{css,scss}": "stylelint",
-        "*.{png,jpeg,jpg,gif,PNG,JPEG,JPG,GIF}": [
-            "imagemin-lint-staged",
-            "git add"
-        ],
-        "*.{svg,SVG}": [
-            "svgo --disable=removeViewBox,convertPathData",
-            "git add"
-        ]
+        "*.{png,jpeg,jpg,gif,PNG,JPEG,JPG,GIF}": "imagemin-lint-staged",
+        "*.{svg,SVG}": "svgo --disable=removeViewBox,convertPathData"
     }
 }
