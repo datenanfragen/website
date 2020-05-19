@@ -12,6 +12,6 @@
 
 A informação completa da licença para todos os projetos que usamos pode ser encontrada [aqui]({{< absURL "NOTICES.txt" >}}).
 
-<div class="box box-info">
+<div class="box box-info attribution-box">
     {{< attribution "por" >}}
 </div>

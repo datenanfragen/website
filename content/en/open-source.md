@@ -102,6 +102,6 @@ We are proud to be able to use the following projects for this website. Huge tha
 
 You may find the full license notices for all projects we use [here]({{< absURL "NOTICES.txt" >}}).
 
-<div class="box box-info">
+<div class="box box-info attribution-box">
 	{{< attribution "by" >}}
 </div>

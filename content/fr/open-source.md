@@ -102,6 +102,6 @@ Nous sommes fiers de pouvoir utiliser les projets suivants pour ce site Web. Un 
 
 Tu peux trouver les notices de licence complètes pour tous les projets que nous utilisons [ici]({{< absURL "NOTICES.txt" >}}).
 
-<div class="box box-info">
+<div class="box box-info attribution-box">
 	{{< attribution "de" >}}
 </div>
