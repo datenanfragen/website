@@ -31,7 +31,7 @@ Nach einer Meinung muss die betroffene Person die Informationen und die Verarbei
 
 Nach einer anderen Auffassung besteht keine Verpflichtung, die Anfrage zu konkretisieren und falls diesem Verlangen nicht entsprochen werde, muss der_die Verantwortliche umfassend Auskunft erteilen.[^5] Diese Meinung geht davon aus, dass diese Aufforderung zur Präzisierung eine Sollvorschrift darstellt, nämlich eine Vorschrift, die freiwillig vorgenommen werden kann und folglich keine Rechtsfolge hervorbringt und als solche die betroffene Person nicht zu einer Präzisierung zwingt.[^6] Auch dieser Ansicht folgt ein Teil der Rechtsprechung.[^7] Dieser Ansicht folgend, ist eine Präzisierung des Auskunftsverlangens optional.
 
-## Zwischenfazit
+### Zwischenfazit
 
 Weder in der Lehre noch in der Rechtsprechung gibt es eine einheitliche Auffassung. Die DSGVO ist neu, weshalb noch viele normative Lücken zu füllen sind. Deshalb sollte die betroffene Person ihr Recht auf Auskunftsanspruch ausgedehnt verlangen. Das hat den Vorteil, dass die Anfragesteller_in bestenfalls den kompletten Datensatz bekommen kann. Eventuell hätte er_sie dann allerdings anschließend auf eine Präzisierungsaufforderung zu reagieren. Die Abwägung zwischen Auskunftsvollständigkeit und Zeitaufwand seitens der betroffenen Person wäre zugunsten der ersten beizulegen. Auf jeden Fall sollte die Pflicht, effiziente Methoden und Prozesse zur Datenauskunft zu entwickeln und anzuwenden, zulasten des_der Verantwortlichen erfolgen.
 
@@ -48,7 +48,7 @@ Am Anfang sollte die Anfragesteller_in klarstellen, an welchen Informationen und
 [^5]: Dix in: Simitis/Hornung/Spiecker gen. Döhmann, Datenschutzrecht, 1. Aufl. 2019, Art. 15, Rn. 11
 [^6]: Specht in: Sydow, Europäische Datenschutzverordnung, 2. Aufl. 2018, Art. 15, Rn. 6
 [^7]: Landesarbeitsgericht Baden-Württemberg, Urteil vom 20. Dezember 2018 – 17 Sa 11/18, Rn. 194, juris, obwohl vorliegend der Kläger die Präzisierung schon gemacht hatte.
-[^8]: Paal/Pauly/Paal, aaO (Fn. 10)
-[^9]: LG Heidelberg, aaO (Fn. 11)
-[^10]: Landesarbeitsgericht Baden-Württemberg, aaO (Fn. 15)
-[^11]: LG Heidelberg, aaO (Fn. 11), Rn. 22.
+[^8]: Paal/Pauly/Paal, aaO (Fn. 2)
+[^9]: LG Heidelberg, aaO (Fn. 3)
+[^10]: Landesarbeitsgericht Baden-Württemberg, aaO (Fn. 7)
+[^11]: LG Heidelberg, aaO (Fn. 3), Rn. 22.
