@@ -35,12 +35,10 @@ import '@percy/cypress';
 Cypress.Commands.add(
     'clickLinkWithoutFollowingHref',
     {
-        prevSubject: true
+        prevSubject: true,
     },
-    subject => {
-        cy.wrap(subject)
-            .invoke('removeAttr', 'href')
-            .click();
+    (subject) => {
+        cy.wrap(subject).invoke('removeAttr', 'href').click();
     }
 );
 
@@ -66,10 +64,9 @@ Cypress.Commands.add('addCompanyToWizard', (company, result_str) => {
  */
 Cypress.Commands.add('seedWizardCompaniesWithKnownList', () => {
     cy.visit('/contact');
-    cy.setCookie('changed_saved_companies', 'true');
     cy.window()
-        .then(win => {
-            return win.accessLocalForageStore('wizard-companies').then(instance => {
+        .then((win) => {
+            return win.accessLocalForageStore('wizard-companies').then((instance) => {
                 const promises = [
                     instance.clear(),
 
@@ -79,12 +76,14 @@ Cypress.Commands.add('seedWizardCompaniesWithKnownList', () => {
                     instance.setItem(
                         'verfassungsschutz-nds',
                         'Niedersächsisches Ministerium für Inneres und Sport – Abteilung Verfassungsschutz'
-                    )
+                    ),
                 ];
                 return Promise.all(promises);
             });
         })
         .then(() => {
+            cy.clearCookies();
+            cy.setCookie('changed_saved_companies', 'true');
             cy.visit('/');
 
             cy.get('#wizard').scrollIntoView();
