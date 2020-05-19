@@ -96,7 +96,7 @@ export default class DynamicInputContainer extends preact.Component {
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                 <div className="dynamic-input-container">
-                    <h2>{this.props.title}</h2>
+                    <h2 className={this.props.heading_class}>{this.props.title}</h2>
                     {this.props.children}
                     <div id={'request-dynamic-input-' + this.props.id}>{input_elements}</div>
                     {this.props.allowAddingFields ? (
