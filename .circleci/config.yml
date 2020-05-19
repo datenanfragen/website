@@ -3,15 +3,14 @@ version: 2.1
 executors:
   docker_hugo_node:
     docker:
-      - image: node:10-alpine
+      - image: node:13.14-alpine
 
 jobs:
   build:
     executor: docker_hugo_node
     environment:
-        - HUGO_VERSION: '0.58.3'
-        - HUGO_BINARY: hugo_0.58.3_linux-64bit
-        - GLIBC_VERSION: 2.28-r0
+        - HUGO_VERSION: '0.70.0'
+        - HUGO_BINARY: hugo_0.70.0_linux-64bit
     steps:
       - run:
           command: |
@@ -43,10 +42,11 @@ jobs:
 
   test:
       docker:
-        - image: cypress/base:10
+        # 13.6.0 seems to be the latest 13.x version offered by Cypress currently
+        - image: cypress/base:13.6.0
       environment:
-        - HUGO_VERSION: '0.60.1'
-        - HUGO_BINARY: hugo_0.60.1_linux-64bit
+        - HUGO_VERSION: '0.70.0'
+        - HUGO_BINARY: hugo_0.70.0_linux-64bit
       steps:
         - run:
             command: |
