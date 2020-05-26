@@ -165,7 +165,7 @@ export default class DonationWidget extends preact.Component {
                         <td>
                             <Text id="bank-transfer-recipient" />
                         </td>
-                        <td>Datenanfragen.de e.&thinsp;V.</td>
+                        <td>Datenanfragen.de e. V.</td>
                     </tr>
                     <tr>
                         <td>IBAN</td>
