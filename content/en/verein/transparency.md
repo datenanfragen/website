@@ -46,8 +46,8 @@ There are currently no assessors on the board.
 
 ## 5. Report of activities
 
-see [Yearly report 2018 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
-see [Yearly report 2019 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf)
+see [Yearly report 2019 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
+see [Yearly report 2018 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf)
 
 ## 6. Staff structure
 
@@ -57,16 +57,16 @@ Number of volunteers: 2
 
 ## 7. Funding sources
 
-see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
-see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)
+see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
+see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)
 
-Financial assets at the end of 2018: 119,70 €  
-Financial assets at the end of 2018: 87,90 €
+Financial assets at the end of 2019: 87,90 €  
+Financial assets at the end of 2018: 119,70 €
 
 ## 8. Use of funds
 
-see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
-see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)
+see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
+see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)
 
 ## 9. Corporate relationships with third parties 
 
@@ -75,18 +75,6 @@ The association is in no corporate relationships with any third parties.
 ## 10. Names of entities whose donations make up more than 10% of the yearly budget
 
 We publish this information on a yearly basis in conjunction with the publishing of the yearly report.
-
-### 2018
-
-#### People
-
-- Anonymous membership fee: 128 €
-- Anonymous membership fee: 50 €
-- Anonymous membership fee: 42 € 
-
-#### Organisations
-
-No organisations contributed to our budget in 2018.
 
 ### 2019
 
@@ -104,3 +92,15 @@ No organisations contributed to our budget in 2018.
 
 - Membership fee by ByteSchneiderei GmbH: 50 €
 - Membership fee by KlexHub UG (haftungsbeschränkt): 32 €
+
+### 2018
+
+#### People
+
+- Anonymous membership fee: 128 €
+- Anonymous membership fee: 50 €
+- Anonymous membership fee: 42 € 
+
+#### Organisations
+
+No organisations contributed to our budget in 2018.

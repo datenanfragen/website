@@ -47,8 +47,8 @@ Il n'y a pour le moment aucun conseiller au sein du comité directeur.
 
 ## 5. Rapports d'activité
 
-Voir [Rapport annuel 2018 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
-Voir [Rapport annuel 2019 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)
+Voir [Rapport annuel 2019 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
+Voir [Rapport annuel 2018 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)
 
 ## 6. Personnel
 
@@ -58,34 +58,22 @@ Nombre de bénévoles : 2
 
 ## 7. Sources de financement
 
-Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
-Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)
+Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
+Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)
 
-Actifs financiers fin 2018 : 119,70 €  
-Actifs financiers fin 2019 : 87,90 €
+Actifs financiers fin 2019 : 87,90 €  
+Actifs financiers fin 2018 : 119,70 €
 
 ## 8. Utilisation des fonds
 
-Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)  
-Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)
+Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
+Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)
 
 ## 9. Relations d'affaires avec des tiers 
 
 L'association n'entretient aucune relation d'affaires avec des tiers.
 
 ## 10. Noms des entités dont les dons représentent plus de 10 % du budget annuel
-
-### 2018
-
-#### Personnes
-
-- Cotisation anonyme : 128 €
-- Cotisation anonyme : 50 €
-- Cotisation anonyme : 42 € 
-
-#### Organisations
-
-Aucune organisation n'a contribué à notre budget en 2018.
 
 ### 2019
 
@@ -103,3 +91,15 @@ Aucune organisation n'a contribué à notre budget en 2018.
 
 - Cotisation par ByteSchneiderei GmbH : 50 €
 - Cotisation par KlexHub UG (haftungsbeschränkt) : 32 €
+
+### 2018
+
+#### Personnes
+
+- Cotisation anonyme : 128 €
+- Cotisation anonyme : 50 €
+- Cotisation anonyme : 42 € 
+
+#### Organisations
+
+Aucune organisation n'a contribué à notre budget en 2018.
