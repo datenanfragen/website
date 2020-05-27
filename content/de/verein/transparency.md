@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 08. Mai 2020.
+Die Informationen sind auf dem Stand vom 27. Mai 2020.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
@@ -76,9 +76,23 @@ Der Verein steht in keinerlei gesellschaftsrechtlicher Verbundenheit mit Dritten
 
 ## 10. Namen von Personen, deren jährliche Zahlungen mehr als 10 % des Gesamtjahresbudgets ausmachen
 
-Die Informationen sind auf dem Stand des [Jahresbericht 2019](https://static.dacdn.de/docs/bericht-2019.pdf).
+Diese Informationen veröffentlichen wir jährlich zusammen mit dem Jahresbericht.
 
-### Natürliche Personen
+### 2018
+
+#### Natürliche Personen
+
+- Anonymer Mitgliedsbeitrag: 128 €
+- Anonymer Mitgliedsbeitrag: 50 €
+- Anonymer Mitgliedsbeitrag: 42 €
+
+#### Juristische Personen
+
+In 2018 haben wir keine Spenden oder Beiträge von juristischen Personen erhalten.
+
+### 2019
+
+#### Natürliche Personen
 
 - Anonymer Mitgliedsbeitrag: 128 €
 - Anonymer Mitgliedsbeitrag: 42 €
@@ -88,7 +102,7 @@ Die Informationen sind auf dem Stand des [Jahresbericht 2019](https://static.dac
 
 - einmalige Spende (anonym): 50 €
 
-### Juristische Personen
+#### Juristische Personen
 
 - Mitgliedsbeitrag der ByteSchneiderei GmbH: 50 €
 - Mitgliedsbeitrag der KlexHub UG (haftungsbeschränkt): 32 €

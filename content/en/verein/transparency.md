@@ -7,7 +7,7 @@
 
 In order for you to be able to trust us, we pledged to be as transparent as possible about our procedures, finances and decisions. Because of that, we have joined the [Initiative for a Transparent Civil Society](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), an initiative by the German branch of Transparency International, which is allowed to audit us on a sample basis. They ensure that we will keep our promise of transparent management. On this page we summarized all the important information that we publish as part of that.
 
-This information has been last updated on May 08, 2020.
+This information has been last updated on May 27, 2020.
 
 ## 1. Name, registered seat, address and date of foundation
 
@@ -74,9 +74,23 @@ The association is in no corporate relationships with any third parties.
 
 ## 10. Names of entities whose donations make up more than 10% of the yearly budget
 
-The information is based on the [yearly report of 2019 (German)](https://static.dacdn.de/docs/bericht-2019.pdf).
+We publish this information on a yearly basis in conjunction with the publishing of the yearly report.
 
-### People
+### 2018
+
+#### People
+
+- Anonymous membership fee: 128 €
+- Anonymous membership fee: 50 €
+- Anonymous membership fee: 42 € 
+
+#### Organisations
+
+No organisations contributed to our budget in 2018.
+
+### 2019
+
+#### People
 
 - Anonymous membership fee: 128 €
 - Anonymous membership fee: 42 €
@@ -86,7 +100,7 @@ The information is based on the [yearly report of 2019 (German)](https://static.
 
 - non-recurring donation (anonymous): 50 €
 
-### Organisations
+#### Organisations
 
 - Membership fee by ByteSchneiderei GmbH: 50 €
 - Membership fee by KlexHub UG (haftungsbeschränkt): 32 €
