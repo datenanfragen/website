@@ -3,9 +3,10 @@
     "slug": "musterbrief-dsgvo-anfrage-auskunft",
     "aliases": [ "sample-letter-gdpr-access-request" ],
     "date": "2018-05-16T22:06:12+02:00",
-	"type": "blog",
-	"description": "Gemäß der DSGVO hast Du ein Recht auf Auskunft über die personenbezogenen Daten, die Verantwortliche zu Dir speichern. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
-	"featured_image": "musterbrief-dsgvo-anfrage-auskunft",
+    "last_edited": "2020-05-31T01:06:15+02:00",
+    "type": "blog",
+    "description": "Gemäß der DSGVO hast Du ein Recht auf Auskunft über die personenbezogenen Daten, die Verantwortliche zu Dir speichern. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
+    "featured_image": "musterbrief-dsgvo-anfrage-auskunft",
     "tags": [ "dsgvo", "gdpr", "selbstauskunft", "brief", "schreiben", "muster", "artikel 15" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-1.0"
@@ -36,7 +37,7 @@ Hier ist unser Musterschreiben für Anfragen auf Auskunft nach Art. 15 DSGVO. Di
 
 <p>In diesem Fall bitte ich Sie im Sinne des Art. 15 Abs. 1 DSGVO um Auskunft über</p>
 <ol>
-<li><em>sämtliche</em> personenbezogenen Daten, die Sie zu meiner Person gespeichert haben;</li>
+<li><em>sämtliche</em> personenbezogenen Daten, die Sie zu meiner Person gespeichert haben, einschließlich eventueller mich betreffender pseudonymisierter Daten im Sinne des Art. 4 Nr. 5 DSGVO;</li>
 <li>die Verarbeitungszwecke;</li>
 <li>die Kategorien personenbezogener Daten, die verarbeitet werden;</li>
 <li>die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen Daten offengelegt worden sind oder noch offengelegt werden;</li>
@@ -44,6 +45,8 @@ Hier ist unser Musterschreiben für Anfragen auf Auskunft nach Art. 15 DSGVO. Di
 <li>wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren Informationen über die Herkunft der Daten;</li>
 <li>falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – sofern gegeben – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung für meine Person.
 </ol>
+
+<p>Falls Sie mich betreffende anonymisierte Daten verarbeiten, bitte ich Sie darum, mir das nicht nur mitzuteilen, sondern auch das verwendete Verfahren verständlich zu erläutern.</p>
 
 <p>Sofern Sie meine personenbezogenen Daten an ein Drittland oder an eine internationale Organisation übermitteln, bitte ich über die geeigneten Garantien gemäß Art. 46 DSGVO im Zusammenhang mit der Übermittlung unterrichtet zu werden.</p>
 
@@ -57,6 +60,8 @@ Hier ist unser Musterschreiben für Anfragen auf Auskunft nach Art. 15 DSGVO. Di
 <span class="blog-letter-fill-in">Hier Deine Daten zur Identifikation einfügen. Das sind häufig Angaben wie Dein Name, Dein Geburtsdatum, Deine Adresse, Deine E-Mail-Adresse usw.</span></p>
 
 <p>Sollten Sie meiner Anfrage nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
+
+<p>Schon im Voraus vielen Dank für Ihre Mühe.</p>
 
 <p>Mit freundlichen Grüßen<br>
 <span class="blog-letter-fill-in">Dein Name</span></p>
@@ -80,3 +85,11 @@ Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig
 ## Geht das nicht auch einfacher?
 
 Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen [Generator](/generator) entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
+
+---
+
+**Änderungen:**
+
+Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
+
+* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-ba75fd411f4f897cf77f57d77aec0d64): Klargestellt, dass „personenbezogene Daten“ auch pseudonymisierte Daten einschließt und diese ebenfalls angefragt. Anonymisierte Daten erwähnt und angefragt. Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht. (Danke, Andreas!)

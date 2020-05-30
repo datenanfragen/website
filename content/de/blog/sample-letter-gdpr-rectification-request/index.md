@@ -3,9 +3,10 @@
     "slug": "musterbrief-dsgvo-anfrage-berichtigung",
     "aliases": [ "sample-letter-gdpr-rectification-request" ],
     "date": "2018-05-18T12:43:47+02:00",
-	"type": "blog",
-	"description": "Nach der DSGVO hast Du ein Recht auf Berichtigung unrichtiger Daten, die ein Verantwortlicher zu Dir speichert und verarbeitet. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
-	"featured_image": "musterbrief-dsgvo-anfrage-berichtigung",
+    "last_edited": "2020-05-31T01:09:41+02:00",
+    "type": "blog",
+    "description": "Nach der DSGVO hast Du ein Recht auf Berichtigung unrichtiger Daten, die ein Verantwortlicher zu Dir speichert und verarbeitet. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
+    "featured_image": "musterbrief-dsgvo-anfrage-berichtigung",
     "tags": [ "dsgvo", "gdpr", "berichtigung", "brief", "schreiben", "muster", "artikel 16" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-1.0"
@@ -32,12 +33,12 @@ Hier ist unser Musterschreiben für Anträge auf Berichtigung nach Art. 16 DSGVO
 <div class="blog-letter">
 <p>Guten Tag,</p>
 
-<p>ich stelle hiermit Antrag auf Berichtigung mich betreffender unrichtiger personenbezogener Daten nach Art. 16 DSGVO.</p>
+<p>ich stelle hiermit Antrag auf Berichtigung bzw. Vervollständigung mich betreffender unrichtiger personenbezogener Daten nach Art. 16 DSGVO.</p>
 
 <p>Folgende Änderungen sind vorzunehmen:<br>
 <span class="blog-letter-fill-in">Hier die zu berichtigenden Daten eintragen.</span></p>
 
-<p>Sofern Sie die betroffenen personenbezogenen Daten Dritten offengelegt haben, haben Sie die vorgenommenen Änderungen nach Art. 19 DSGVO allen solchen Empfängern mitzuteilen. Bitte informieren Sie mich weiterhin über diese Empfänger.</p>
+<p>Sofern Sie die betroffenen personenbezogenen Daten einem oder mehreren Empfängern im Sinne des Art. 4 Nr. 9 DSGVO offengelegt haben, haben Sie die vorgenommenen Änderungen nach Art. 19 DSGVO allen solchen Empfängern mitzuteilen. Bitte informieren Sie mich weiterhin über diese Empfänger.</p>
 
 <p>Meine Anfrage schließt explizit auch sämtliche weiteren Angebote und Unternehmen ein, für die Sie Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO sind.</p>
 
@@ -47,6 +48,8 @@ Hier ist unser Musterschreiben für Anträge auf Berichtigung nach Art. 16 DSGVO
 <span class="blog-letter-fill-in">Hier Deine Daten zur Identifikation einfügen. Das sind häufig Angaben wie Dein Name, Dein Geburtsdatum, Deine Adresse, Deine E-Mail-Adresse usw.</span></p>
 
 <p>Sollten Sie meiner Anfrage nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
+
+<p>Schon im Voraus vielen Dank für Ihre Mühe.</p>
 
 <p>Mit freundlichen Grüßen<br>
 <span class="blog-letter-fill-in">Dein Name</span></p>
@@ -70,3 +73,11 @@ Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig
 ## Geht das nicht auch einfacher?
 
 Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen [Generator](/generator) entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
+
+---
+
+**Änderungen:**
+
+Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
+
+* [11. April 2020](https://github.com/datenanfragen/data/pull/562/commits/7bbcff8144a743adf90e3ec29bddc8626156e829#diff-882b749af63f006db1f8a29b16edf8ee): „Vervollständigung“ als Zusatz zur „Berichtigung“ erwähnt. Verwendung des korrekten Begriffs „Empfänger“ statt „Dritte“. Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht. (Danke, Andreas!)
