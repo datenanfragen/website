@@ -60,7 +60,9 @@ then
 	hugo -e production --minify
 	echo "Copying files for Netlify…"
 	cp _redirects public/_redirects
+    cp _headers public/_headers
 	cp static/404.html public/404.html
 else
 	hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
+    cp _headers public/_headers
 fi
