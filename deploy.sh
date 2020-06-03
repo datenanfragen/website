@@ -9,8 +9,8 @@ git clone --depth 1 https://github.com/datenanfragen/data data_tmp
 echo "Creating directories…"
 for lang in ${languages[@]}
 do
-mkdir -p "content/$lang/company"
-mkdir -p "content/$lang/supervisory-authority"
+    mkdir -p "content/$lang/company"
+    mkdir -p "content/$lang/supervisory-authority"
 done
 
 mkdir -p static/templates
@@ -25,8 +25,8 @@ cp data_tmp/supervisory-authorities/* static/db/sva
 
 for lang in ${languages[@]}
 do
-cp data_tmp/companies/* "content/$lang/company"
-cp data_tmp/supervisory-authorities/* "content/$lang/supervisory-authority"
+    cp data_tmp/companies/* "content/$lang/company"
+    cp data_tmp/supervisory-authorities/* "content/$lang/supervisory-authority"
 done
 
 cp -r data_tmp/templates/* static/templates
@@ -44,8 +44,8 @@ echo "Renaming JSON files…"
 
 for lang in ${languages[@]}
 do
-	find "$lang/company" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
-	find "$lang/supervisory-authority" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
+    find "$lang/company" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
+    find "$lang/supervisory-authority" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
 done
 
 cd .. || exit
@@ -57,10 +57,10 @@ yarn run build
 
 if [ "$CONTEXT" = "production" ]
 then
-	hugo -e production --minify
-	echo "Copying files for Netlify…"
-	cp _redirects public/_redirects
-	cp static/404.html public/404.html
+    hugo -e production --minify
+    echo "Copying files for Netlify…"
+    cp _redirects public/_redirects
+    cp static/404.html public/404.html
 else
-	hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
+    hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
 fi
