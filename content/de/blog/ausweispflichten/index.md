@@ -22,4 +22,4 @@ Ausweiskopien sind hauptsächlich in den Fällen erforderlich, in denen die Nutz
 
 [^1]: Jahresbericht des Berliner Datenschutzbeauftragten, S. 132, https://www.datenschutz-berlin.de/fileadmin/user_upload/pdf/publikationen/jahresbericht/BlnBDI-Jahresbericht-2017-Web.pdf  
 [^2]: Personalausweis und Datenschutz, LfDI NRW, https://www.ldi.nrw.de/mainmenu_Aktuelles/Inhalt/Personalausweis-und-Datenschutz/Datenschutz-und-Personalausweis-2019_07.pdf  
-[^3]: Beifügung einer Personalausweiskopie bei Auskunftsrechten, Bundesdatenschutzbeauftragter, https://www.bfdi.bund.de/SharedDocs/Publikationen/AusweiskopieAuskunftsersuchen.html
+[^3]: Beifügung einer Personalausweiskopie bei Auskunftsrechten, Bundesdatenschutzbeauftragter (archiviert), https://web.archive.org/web/20200314022901/https://www.bfdi.bund.de/SharedDocs/Publikationen/AusweiskopieAuskunftsersuchen.html
