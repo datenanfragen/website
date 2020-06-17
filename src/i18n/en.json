@@ -619,6 +619,7 @@
         "error-donation-status-malformed-response": "Invalid response when trying to fetch donation status.",
         "error-auth-url-malformed-response": "Invalid response from our payment provider. Please try again later.",
         "error-amount-too-little": "Unfortunately, we can only accept donations less than 1 € by bank transfer due to the high transaction fees. Please choose a higher amount or select “bank transfer” as the payment method.",
+        "error-amount-invalid": "Please enter a valid amount.",
         "donation-failed": "Payment failed. Please try again.",
         "donation-expired": "Payment expired. Please try again.",
         "bank-transfer": "Bank transfer",

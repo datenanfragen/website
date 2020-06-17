@@ -619,6 +619,7 @@
         "error-donation-status-malformed-response": "Ungültige Antwort bei Abfrage des Spendenstatus'.",
         "error-auth-url-malformed-response": "Ungültige Antwort von unserem Zahlungsdienstleister. Bitte versuche es erneut.",
         "error-amount-too-little": "Spenden von weniger als 1 € können wir aufgrund der hohen Transaktionskosten leider nur per Überweisung annehmen. Bitte wähle einen höheren Betrag oder wähle „Banküberweisung“ als Zahlungsmethode.",
+        "error-amount-invalid": "Bitte geben Sie einen gültigen Betrag ein.",
         "donation-failed": "Zahlung fehlgeschlagen. Bitte versuche es erneut.",
         "donation-expired": "Zahlung abgelaufen. Bitte versuche es erneut.",
         "bank-transfer": "Banküberweisung",
