@@ -10,7 +10,7 @@
     "license": "cc-by-4.0"
 }
 
-<img src="/blog/ausweispflichten/wie-ausweisen.png">
+{{< img name="wie-ausweisen" alt="Wie muss ich mich ausweisen?" >}}
 
 Unternehmen versuchen immer wieder, unliebsame Datenschutzanfragen von Nutzer_innen abzuwehren. Dies geschieht häufig, indem die Unternehmen von den Nutzer_innen detaillierte Nachweise über ihre Identität verlangen. Teilweise fordern die Unternehmen sogar Ausweiskopien an. Solche Identitätsnachweise sind vor allem dann ein Problem, wenn man sich als Nutzer_in nicht mit dem richtigen Namen oder nur mit solchen Kontaktinformationen angemeldet hat, aus denen die Anbieter_in nicht ohne Weiteres auf die Person der Nutzer_in schließen kann. In diesen Fällen würde die Anbieter_in durch den Identitätsnachweis weitere persönliche Daten erhalten. Auf der anderen Seite haben die Unternehmen jedoch ein Interesse daran, die Daten nur an die betreffenden Nutzer_innen herauszugeben, um sich nicht selbst eines Datenschutzverstoßes schuldig zu machen.
 

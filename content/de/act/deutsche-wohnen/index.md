@@ -10,7 +10,7 @@
 
 Die Deutsche Wohnen SE ist eines der größten Immobilienunternehmen in Deutschland. [Nach eigenen Angaben](https://www.deutsche-wohnen.com/ueber-uns/unternehmen/unternehmensprofil/) verwaltet sie mehr als 150.000 Immobilien in Deutschland. Dementsprechend kommt das Unternehmen aus Berlin in Kontakt mit den Daten zahlreicher Mieter_innen.
 
-<img src="/act/deutsche-wohnen/deutsche-wohnen.jpg">
+{{< img name="deutsche-wohnen" alt="Rekordbußgeld gegen Deutsche Wohnen – frag Deine Daten an!" >}}
 
 Wie sich jetzt herausgestellt hat, hat die Deutsche Wohnen dabei leider nicht auf die Grundsätze des Datenschutz geachtet. Wie die Berliner Datenschutzbehörde (BlnBDI) in einer [Pressemitteilung](https://www.datenschutz-berlin.de/fileadmin/user_upload/pdf/pressemitteilungen/2019/20191105-PM-Bussgeld_DW.pdf) berichtet, hatte man bereits 2017 – noch vor Einführung der DSGVO – gravierende Mängel im Archivsystem des Unternehmens festgestellt. So habe dieses keine Möglichkeit vorgesehen, nicht mehr erforderliche Daten zu löschen. Auch eine Überprüfung, ob die Speicherung von Mieter_innendaten rechtmäßig oder überhaupt erforderlich ist, habe nicht stattgefunden.  
 So wurden dauerhaft auch sensible Daten der Mieter_innen, darunter Gehaltsbescheinigungen, Auszüge aus Arbeits- und Ausbildungsverträgen, Steuer-, Sozial- und Krankenversicherungsdaten sowie Kontoauszüge gespeichert.
