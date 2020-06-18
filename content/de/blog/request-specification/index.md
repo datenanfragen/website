@@ -13,6 +13,8 @@
 
 Gemäß Art. 15 DSGVO und konkreter dem Erwägungsgrund 63 S. 7[^1] darf der_die Verantwortliche von der betroffenen Person eine Präzisierung der Anfrage im Rahmen ihrer Ausübung des Auskunftsrechts verlangen. Um diese Aufforderung verlangen zu können, muss der_die Verantwortliche eine große Menge von Daten in Bezug auf die betroffene Person verarbeiten. 
 
+{{< img name="praezisierung-von-auskunftsanfragen" alt="Präzisierung von Auskunftsanfragen" >}}
+
 Zunächst ist es wichtig zu klären, ob die betroffene Person nach Verlangen des_der Verantwortlichen verpflichtet ist, eine Präzisierung vorzunehmen. Um diese Frage zu beantworten, muss zuerst eine Unterscheidung gemacht werden; Die Auskunftsanfrage an eine öffentliche Stelle einerseits und die im Rahmen der Privatwirtschaft.
 
 ## Anfrage an öffentliche Stellen

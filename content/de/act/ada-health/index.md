@@ -10,6 +10,8 @@
 
 Die App *Ada Health* stellt sich auf ihrer [Webseite](https://ada.com/de/) als „Deine Gesundheitshelferin” vor. Per interaktivem Chat können Nutzer_innen der App die Symptome ihrer Krankheiten mitteilen, welche diese dann verwendet um mögliche Ursachen zu vermuten und Ratschläge für die nächsten Schritte zu geben. Die Diagnose kann sogar direkt an die eigene Ärzt_in weitergeleitet werden.
 
+{{< img name="ada-health" alt="Daten löschen lassen bei Ada Health-App" >}}
+
 Das klingt erst einmal nützlich und wird auch von Nutzer_innen angenommen. Laut [eigenen Angaben](https://ada.com/de/milestones/) des Anbieters haben bereits 8 Millionen Menschen die App genutzt und 15 Millionen Analysen durchgeführt, zahlreiche Medien haben über das Angebot berichtet.
 
 Doch leider stellt sich heraus, dass ein genauerer Blick hinter die Kulissen nötig ist. Die Informationen, die über die App gesammelt und an den Anbieter geschickt werden, sind höchst sensible Daten. Nicht umsonst stellt die **DSGVO** (**Datenschutz-Grundverordnung**) Gesundheitsdaten unter [besonderen Schutz]({{< ref "gdpr-cheat-sheet" >}}#besondere-kategorien-personenbezogener-daten). Hier ist es umso wichtiger, dass die Verarbeitung sorgfältig und nur im nötigen Rahmen geschieht, um Verbraucher_innen zu schützen und unnötige Gefahren zu vermeiden.
