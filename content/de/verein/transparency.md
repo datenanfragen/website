@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 27. Mai 2020.
+Die Informationen sind auf dem Stand vom 19. Juni 2020.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
@@ -106,3 +106,17 @@ Diese Informationen veröffentlichen wir jährlich zusammen mit dem Jahresberich
 #### Juristische Personen
 
 In 2018 haben wir keine Spenden oder Beiträge von juristischen Personen erhalten.
+
+---
+
+Die folgenden Abschnitte gehen über die zehn durch die Initiative Transparente Zivilgesellschaft geforderten Informationen hinaus. Uns ist es wichtig, auch in diesen Punkten transparent zu sein.
+
+## 11. Vergütete Vorträge
+
+Unser [Vorstand]({{< ref "verein/board" >}}) arbeitet grundsätzlich ehrenamtlich und erhält durch den Verein keinerlei Zahlungen für seine Arbeit. Teilweise können Vereinsmitglieder allerdings von externen Organisationen ein Honorar für Vorträge zu Themen, die den Verein betreffen, erhalten. Für solche vergüteten Vorträge werden selbstverständlich keine Vereinsmittel aufgewendet, sie liegen alleine in der privaten Verantwortung der entsprechenden Mitglieder.
+
+Der Vorstand hat sich selbst verpflichtet, Vorträge, für die Vorstandsmitglieder eine Vergütung von externen Organisationen erhalten haben, hier öffentlich zu dokumentieren.
+
+### 2020
+
+* Im März 2020 hat die Humboldt-Universität zu Berlin Benjamin Altpeter und Lorenz Sieben im Rahmen der [HLCI](http://www.hlci.de/) privat eingeladen, ein [Seminar zu Datenanfragen.de]({{< ref "verein/event/hlci-berlin-2020" >}}) als Gastvortrag zu halten. Die Humboldt-Universität hat die Kosten für die Zugreise und Übernachtung übernommen und den beiden ein Honorar von jeweils 250&nbsp;€ gezahlt. Benni und Lorenz haben sich freiwillig entschieden, die Hälfte des Honorars an den Verein zu spenden.
