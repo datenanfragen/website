@@ -280,10 +280,9 @@ export default class DonationWidget extends preact.Component {
         const payment_method = this.state.payment_method === 'mollie' ? MOLLIE_METHODS : this.state.payment_method;
 
         if (payment_method === 'bank-transfer') {
-
-            if(this.state.amount <= 0){
-              flash(<FlashMessage type="error">{t('error-amount-invalid', 'donation-widget')}</FlashMessage>);
-              return;
+            if (this.state.amount <= 0) {
+                flash(<FlashMessage type="error">{t('error-amount-invalid', 'donation-widget')}</FlashMessage>);
+                return;
             }
 
             this.setState({ step: 'bank-transfer-info' });
