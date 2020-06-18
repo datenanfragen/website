@@ -22,13 +22,13 @@ module.exports = {
         pdfworker: './src/Utility/PdfWorker.js',
         style: './src/styles/main.scss',
         loader: './src/styles/loader.scss',
-        'test-interface': './src/test-interface.js'
+        'test-interface': './src/test-interface.js',
     },
     output: {
         filename: 'js/[name].gen.js',
         chunkFilename: 'js/[name].bundle.gen.js',
         publicPath: '/',
-        path: path.resolve(__dirname, 'static')
+        path: path.resolve(__dirname, 'static'),
     },
     optimization: {
         minimizer: [new OptimizeCSSAssetsPlugin({})],
@@ -38,10 +38,10 @@ module.exports = {
                     name: 'style',
                     test: /\.css$/,
                     chunks: 'all',
-                    enforce: true
-                }
-            }
-        }
+                    enforce: true,
+                },
+            },
+        },
     },
     module: {
         rules: [
@@ -49,8 +49,8 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader'
-                }
+                    loader: 'babel-loader',
+                },
             },
             {
                 test: /\.scss$/,
@@ -58,34 +58,34 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        options: { importLoaders: 2 }
+                        options: { importLoaders: 2 },
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: loader => [
+                            plugins: (loader) => [
                                 new IconfontWebpackPlugin(loader),
                                 postcssPresetEnv(),
-                                require('cssnano')
-                            ]
-                        }
+                                require('cssnano'),
+                            ],
+                        },
                     },
-                    'sass-loader'
-                ]
+                    'sass-loader',
+                ],
             },
             {
                 test: /\.(png|jpg|gif|eot|ttf|woff|woff2)$/,
                 loader: 'url-loader',
                 options: {
-                    limit: 10000
-                }
+                    limit: 10000,
+                },
             },
             {
                 test: /\.svg/,
                 use: {
                     loader: 'svg-url-loader',
-                    options: {}
-                }
+                    options: {},
+                },
             },
             // Hugo doesn't support nested translations but we want to have both the Hugo and Preact translations in a
             // single file.
@@ -93,9 +93,9 @@ module.exports = {
             // file.
             {
                 test: /src\/i18n\/[a-z]{2}\.json/,
-                loader: path.resolve('src/Utility/webpack-hugo-i18n-loader.js')
-            }
-        ]
+                loader: path.resolve('src/Utility/webpack-hugo-i18n-loader.js'),
+            },
+        ],
     },
     plugins: [
         new TerserPlugin({
@@ -114,14 +114,14 @@ module.exports = {
                         'SignatureInputPlaceholder',
                         'RequestTypeChooserPlaceholder',
                         'RecipientInputPlaceholder',
-                        'TransportMediumChooserPlaceholder'
-                    ]
-                }
-            }
+                        'TransportMediumChooserPlaceholder',
+                    ],
+                },
+            },
         }),
 
         new MiniCssExtractPlugin({
-            filename: 'css/[name].gen.css'
+            filename: 'css/[name].gen.css',
         }),
 
         new webpack.BannerPlugin(`[file]
@@ -134,12 +134,13 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
 @see {@link https://github.com/datenanfragen/website|Code repository}
 @see {@link https://www.datenanfragen.de|German website}
 @see {@link https://datarequests.org|English website}
-@see {@link https://www.demandetesdonnees.fr|French website}`),
+@see {@link https://www.demandetesdonnees.fr|French website}
+@see {@link https://www.pedidodedados.org/|Portuguese website}`),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
         new webpack.DefinePlugin({
-            CODE_VERSION: JSON.stringify(process.env.npm_package_version)
-        })
+            CODE_VERSION: JSON.stringify(process.env.npm_package_version),
+        }),
     ],
     resolve: {
         modules: ['src', 'node_modules', 'i18n', 'res/icons'],
@@ -147,7 +148,7 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
             react: 'preact-compat',
             'react-dom': 'preact-compat',
             // Not necessary unless you consume a module using `createClass`
-            'create-react-class': 'preact-compat/lib/create-react-class'
-        }
-    }
+            'create-react-class': 'preact-compat/lib/create-react-class',
+        },
+    },
 };
