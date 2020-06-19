@@ -8,7 +8,7 @@
 
 Afin que vous puissiez nous faire confiance, nous nous sommes engagés à être aussi transparents que possible sur nos procédures, nos finances et nos décisions. C'est pourquoi nous avons adhéré à l'[Initiative pour une Société Civile Transparente](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), une initiative de la branche allemande de Transparency International, qui est autorisée à nous contrôler par échantillonnage. Ils garantissent le respect de notre promesse de gestion transparente. Sur cette page, nous avons résumé toutes les informations importantes que nous publions dans le cadre de cette initiative.
 
-Ces informations ont été mises à jour pour la dernière fois le 8 mai 2020.
+Ces informations ont été mises à jour pour la dernière fois le 19 juin 2020.
 
 ## 1. Nom, siège social, adresse et date de création
 
@@ -103,3 +103,17 @@ L'association n'entretient aucune relation d'affaires avec des tiers.
 #### Organisations
 
 Aucune organisation n'a contribué à notre budget en 2018.
+
+---
+
+Les sections suivantes vont au-delà des dix informations requises par l'Initiative pour une Société Civile Transparente. Cependant, nous pensons qu'il est important d'être transparent sur ces points également.
+
+## 11. Conférences rémunérées
+
+Les membres de notre [comité directeur]({{< ref "verein/board" >}}) travaillent sur une base strictement volontaire et ne reçoivent aucune rémunération de l'association pour leur travail. Dans certains cas, cependant, les membres de l'association peuvent recevoir une compensation de la part d'organisations externes pour des conférences sur des sujets qui concernent l'association. Bien entendu, aucun fonds de l'association n'est utilisé pour de telles conférences rémunérées, elles relèvent de la responsabilité privée des membres respectifs.
+
+Le comité s'est engagé à documenter publiquement les conférences données sur cette page et pour lesquelles les membres du comité ont reçu une compensation de la part d'organisations externes.
+
+### 2020
+
+* En mars 2020, l'université Humboldt de Berlin a invité Benjamin Altpeter et Lorenz Sieben à donner un [séminaire sur Datenanfragen.de](https://www.datenanfragen.de/verein/event/hlci-berlin-2020/) (article en allemand) en tant que conférencier invité à la [HLCI](http://www.hlci.de/). L'université Humboldt a pris en charge les frais de déplacement en train et d'hébergement et leur a versé une indemnité de 250&nbsp;€ chacun. Benni et Lorenz ont volontairement décidé de donner la moitié de cette compensation à l'association.
