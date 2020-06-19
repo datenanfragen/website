@@ -8,7 +8,7 @@
 
 Afin que vous puissiez nous faire confiance, nous nous sommes engagés à être aussi transparents que possible sur nos procédures, nos finances et nos décisions. C'est pourquoi nous avons adhéré à l'[Initiative pour une Société Civile Transparente](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), une initiative de la branche allemande de Transparency International, qui est autorisée à nous contrôler par échantillonnage. Ils garantissent le respect de notre promesse de gestion transparente. Sur cette page, nous avons résumé toutes les informations importantes que nous publions dans le cadre de cette initiative.
 
-Ces informations ont été mises à jour pour la dernière fois le 8<sup>e</sup> mai 2020.
+Ces informations ont été mises à jour pour la dernière fois le 8 mai 2020.
 
 ## 1. Nom, siège social, adresse et date de création
 
