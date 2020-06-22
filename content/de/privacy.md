@@ -141,13 +141,13 @@ Zur Kontaktaufnahme musst Du selbstverständlich keinerlei Daten angeben, von da
 - Dauer der Speicherung: solange gesetzliche Aufbewahrungspflichten vorliegen (vgl. dazu insb. § 147 Abs. 3 AO)
 
 #### Newsletter
-Wir bieten einen Newsletter an, der Dich über die Aktivitäten des Vereins informiert und für den Du Dich bspw. im Rahmen des Mitgliedsantrags über den dafür vorgesehenen Vordruck anmelden kannst. Wenn Du Dich dafür entscheidest, lassen wir Dir die entsprechenden Informationen über die von Dir angegebene Kontaktmöglichkeit (per E-Mail oder Post) zukommen.
+Wir bieten einen Newsletter an, der Dich über die Aktivitäten des Vereins informiert und für den Du Dich im Rahmen des Mitgliedsantrags über den dafür vorgesehenen Vordruck oder über unsere Webseite anmelden kannst. Wenn Du Dich dafür entscheidest, lassen wir Dir die entsprechenden Informationen per E-Mail zukommen.
 
-Die Anmeldung ist vollkommen freiwillig für Dich. Sie ist aktuell nur für Mitglieder des Vereins möglich.
+Die Anmeldung ist vollkommen freiwillig für Dich.
 
-- Betroffene Daten: die Kontaktmöglichkeit, die Du angegeben hast (entweder eine E-Mail-Adresse optional in Verbindung mit einem PGP-Key oder Deine Postanschrift)
+- Betroffene Daten: die Kontaktmöglichkeit, die Du angegeben hast (eine E-Mail-Adresse optional in Verbindung mit einem PGP-Key)
 - Rechtsgrundlage: Mit der Anmeldung zum Newsletter erteilst Du uns eine Einwilligung zur Zusendung von Informationen nach Art. 6 Abs. 1 lit. a DSGVO. Diese Einwilligung kannst Du jederzeit widerrufen; wie das geht, erfährst Du im Abschnitt „Recht auf Widerruf erteilter Einwilligungen“.
-- Dauer der Speicherung: für die Dauer Deiner Mitgliedschaft oder bis Du Dich vom Newsletter abmeldest, was immer früher eintritt
+- Dauer der Speicherung: bis Du Dich vom Newsletter abmeldest
 - Weitergabe der Daten: Die Zusendung des Newsletters erfolgt durch den Vorstand.
 
 ### Externe Dienste

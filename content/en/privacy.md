@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on December 7, 2019.
+Our privacy policy was last changed on June 22, 2020.
 
 ## General remarks
 
@@ -139,13 +139,13 @@ You do not have to provide any data to contact us, so the disclosure of this dat
 - Duration of storage: as long as there are legal storage obligations
 
 #### Newsletter
-We offer a newsletter with information about the activities of the association and for which you can register e.g. in the membership application form. If you decide to do so, we will send you the relevant information via the contact option you have provided (by e-mail or post).
+We offer a newsletter with information about the activities of the association and for which you can register through the membership application form or through our website. If you decide to do so, we will send you the relevant information by e-mail.
 
-The subscription is entirely voluntary for you. It is currently only available to members of the association.
+The subscription is entirely voluntary for you.
 
-- Affected data: the contact details you provided (an email address with an optional PGP key or a postal mail address)
+- Affected data: the contact details you provided (an email address with an optional PGP key)
 - Lawful basis: By subscribing, you consent to the sending of the newsletter in accordance with Art. 6(1) lit. a GDPR. You can revoke this consent at any time; you can find out how to do this in the section “Right to revoke given consent”.
-- Duration of storage: for the duration of your membership or until you unsubscribe from the newsletter, whichever happens first
+- Duration of storage: until you unsubscribe from the newsletter
 - Data disclosure: The newsletter is sent by the board.
 
 ### External services
