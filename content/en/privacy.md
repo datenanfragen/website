@@ -153,10 +153,10 @@ The subscription is entirely voluntary for you. It is currently only available t
 In order to make our servives more interesting and efficient, we work with some external services.
 
 #### CoinGate
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by UAB Virtualios valiutos, A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
+We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by UAB “Decentralized”, A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
 We use CoinGate for crypto currency transactions. We will display a note in the payment form if your payment is made through CoinGate.
 
-If you make a payment through CoinGate, UAB Virtualios valiutos receives all data incurred in the payment process, especially including: the payment amount, the cryto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
+If you make a payment through CoinGate, UAB “Decentralized” receives all data incurred in the payment process, especially including: the payment amount, the cryto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
 For more details on how CoinGate processes your data, have a look at their [privacy policy](https://coingate.com/privacy).
 
 #### Mollie

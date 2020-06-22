@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 7. Dezember 2019 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
+Unsere Datenschutzerklärung wurde zuletzt am 22. Juni 2020 geändert.
 
 ## Allgemeine Hinweise
 
@@ -155,10 +155,10 @@ Die Anmeldung ist vollkommen freiwillig für Dich. Sie ist aktuell nur für Mitg
 Um unsere Angebote attraktiver und effizienter gestalten, arbeiten wir mit einigen externen Dienstleistern.
 
 #### CoinGate
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform CoinGate zu tätigen. CoinGate ist ein Angebot der UAB Virtualios valiutos, A. Goštauto g. 8, LT-01108 Vilnius, Litauen.  
+Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform CoinGate zu tätigen. CoinGate ist ein Angebot der UAB “Decentralized”, A. Goštauto g. 8, LT-01108 Vilnius, Litauen.  
 Wir setzen CoinGate für Zahlungen mit Crypowährungen ein. In jedem Fall wird Dir in dem Zahlungsformular angezeigt, wenn Deine ausgewählte Zahlungsmethode von CoinGate zur Verfügung gestellt wird.
 
-Wenn Du über CoinGate eine Zahlung tätigst, erhält die UAB Virtualios valiutos sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: der Betrag Deiner Zahlung, die Cryptowährung, mit der Du bezahlst, Deine Bezahldaten (z.&nbsp;B. die Adresse Deiner Bitcoin-Wallet), ggf. Deinen Namen, ggf. Deine E-Mail-Adresse.  
+Wenn Du über CoinGate eine Zahlung tätigst, erhält die UAB “Decentralized” sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: der Betrag Deiner Zahlung, die Cryptowährung, mit der Du bezahlst, Deine Bezahldaten (z.&nbsp;B. die Adresse Deiner Bitcoin-Wallet), ggf. Deinen Namen, ggf. Deine E-Mail-Adresse.  
 Weitere Informationen dazu, wie CoinGate Deine Daten verarbeitet, findest Du in deren [Datenschutzerklärung](https://coingate.com/privacy).
 
 #### Mollie
