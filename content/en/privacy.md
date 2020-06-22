@@ -146,7 +146,10 @@ The subscription is entirely voluntary for you.
 - Affected data: the contact details you provided (an email address with an optional PGP key)
 - Lawful basis: By subscribing, you consent to the sending of the newsletter in accordance with Art. 6(1) lit. a GDPR. You can revoke this consent at any time; you can find out how to do this in the section “Right to revoke given consent”.
 - Duration of storage: until you unsubscribe from the newsletter
-- Data disclosure: The newsletter is sent by the board.
+- Data disclosure: Only board members can access the contact data. The newsletter is sent is sent using the Mailgun service. Therefore, the contact data needs to be sent to Mailgun.
+  
+  Mailgun is run by Mailgun Technologies, Inc., 548 Market St #43099, San Francisco, California 94104, USA.  
+  [Mailgun Technologies, Inc.](https://www.privacyshield.gov/participant?id=a2zt0000000PCbmAAG) is certified under the US-European “Privacy Shield” framework, which ensures that the EU data protection level is maintained. For more information on how Mailgun processes your data, please refer to [their privacy policy](https://www.mailgun.com/privacy-policy/).
 
 ### External services
 

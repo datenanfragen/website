@@ -148,7 +148,10 @@ Die Anmeldung ist vollkommen freiwillig für Dich.
 - Betroffene Daten: die Kontaktmöglichkeit, die Du angegeben hast (eine E-Mail-Adresse optional in Verbindung mit einem PGP-Key)
 - Rechtsgrundlage: Mit der Anmeldung zum Newsletter erteilst Du uns eine Einwilligung zur Zusendung von Informationen nach Art. 6 Abs. 1 lit. a DSGVO. Diese Einwilligung kannst Du jederzeit widerrufen; wie das geht, erfährst Du im Abschnitt „Recht auf Widerruf erteilter Einwilligungen“.
 - Dauer der Speicherung: bis Du Dich vom Newsletter abmeldest
-- Weitergabe der Daten: Die Zusendung des Newsletters erfolgt durch den Vorstand.
+- Weitergabe der Daten: Auf die Kontaktdaten hat nur der Vorstand Zugriff. Der Newsletter wird über den Dienstleister Mailgun verschickt. Dafür werden die Kontaktdaten an Mailgun übertragen.
+  
+  Mailgun wird betrieben von der Mailgun Technologies, Inc., 548 Market St #43099, San Francisco, California 94104, USA.  
+  Die [Mailgun Technologies, Inc.](https://www.privacyshield.gov/participant?id=a2zt0000000PCbmAAG) ist über das US-europäische Datenschutzabkommen „Privacy Shield“ zertifiziert. Mehr Informationen dazu, wie Mailgun Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailgun.com/privacy-policy/) entnehmen.
 
 ### Externe Dienste
 
