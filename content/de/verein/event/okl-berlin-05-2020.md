@@ -8,7 +8,7 @@
     },
     "video_url": "https://media.datenanfragen.de/embed/20200511-okl-berlin",
     "featured_image_url": "https://datenanfragen-media.sos-de-fra-1.exo.io/videos/20200511-okl-berlin/poster.jpg",
-    "license": "cc-by-4.0",
+    "license": "cc-by-40",
     "description": "Wir wurden vom Open Knowledge Lab Berlin eingeladen etwas über unsere Arbeit zu erzählen. Dieser Einladung sind wir natürlich gerne nachgekommen: In diesem Vortrag führt Lorenz in einige Grundlagen zur DSGVO ein, erklärt die Grundfunktionen der Webseite und redet über die technischen und organisatorischen Hintergründe des Projekts. Der Vortrag ist auf Englisch."
 }
 

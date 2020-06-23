@@ -8,7 +8,7 @@
     "featured_image": "rgpd-ambito-de-aplicacao-territorial",
     "tags": [ "rgpd" , "gdpr", "âmbito de aplicação territorial", "direito de proteção de dados aplicação territorial", "escopo geográfico do RGPD", "rgpd âmbito territorial", "rgpd escopo geográfico", "gdpr âmbito territorial", "Artigo 3 RGPD", "artigo 3 GDPR"],
     "authors": [ "anikarini" ],
-    "license": "cc-by-4.0",
+    "license": "cc-by-40",
     "notices": "Foto da capa adaptada para: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” por [Mohit](https://unsplash.com/@98mohitkumar) ([licença Unsplash](https://unsplash.com/license))"
 }
 

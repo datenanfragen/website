@@ -6,7 +6,7 @@
     "type": "blog",
     "description": "",
     "tags": [ ],
-    "license": "cc0-1.0"
+    "license": "cc0-10"
 }
 
 Conformément à l'Art. 21, alinéa 2 du RGPD, tu as le droit de t'opposer à l'utilisation de tes données personnelles à des fins de prospection.

@@ -7,7 +7,7 @@
         "name": "Juristische Fakultät, HU Berlin",
         "address": "Bebelplatz 2, 10117 Berlin, Deutschland"
     },
-    "license": "cc-by-4.0",
+    "license": "cc-by-40",
     "description": "Die Humboldt-Universität Berlin hat uns zur Zusammenarbeit bei der Humboldt Law Clinic Internetrecht eingeladen. Im Rahmen dieser Zusammenarbeit haben wir an der Juristischen Fakultät einen Einführungsworkshop gegeben, in dem wir die Grundlagen für die Mitarbeit an Datenanfragen.de vermittelt haben."
 }
 

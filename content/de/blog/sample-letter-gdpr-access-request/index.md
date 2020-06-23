@@ -8,7 +8,7 @@
 	"featured_image": "musterbrief-dsgvo-anfrage-auskunft",
     "tags": [ "dsgvo", "gdpr", "selbstauskunft", "brief", "schreiben", "muster", "artikel 15" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-1.0"
+    "license": "cc0-10"
 }
 
 Nach der Datenschutz-Grundverordnung (DSGVO) hast Du ein Recht darüber Auskunft über die personenbezogenen Daten zu erhalten, die Unternehmen und sonstige Organisationen (sogenannte Verantwortliche) zu Dir speichern und verarbeiten.
