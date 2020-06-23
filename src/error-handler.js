@@ -20,7 +20,7 @@ try {
     let Modal = require('Components/Modal').default;
     let t = require('Utility/i18n').default;
 
-    window.addEventListener('error', event => {
+    const handler = event => {
         logError(event);
 
         // This is horrendous. It is however the easiest (and worryingly cleanest) way I see to achieve the intended result here as the (interesting) properties of the `Error` object are not enumerable and JSON.stringify() only encodes enumerable properties.
@@ -41,10 +41,9 @@ try {
             ])
         );
 
-        // It gets worse. Errors in Chrome have basically no information at all, not even a code or error type.
-        // TODO: Since the Chrome debug info contains practically no information at all, we should probably include a note that users would need to manually copy the stack trace from the console in order for us to be able to do anything.
-        if (typeof debug_info.error !== 'object' || debug_info.error === null)
+        if (typeof debug_info.error !== 'object' || debug_info.error === null) {
             debug_info.error = { code: 999, message: event.message };
+        }
         debug_info.code_version = CODE_VERSION;
         debug_info.user_agent = window.navigator.userAgent;
         debug_info.url = window.location;
@@ -88,7 +87,16 @@ try {
                 document.body
             );
         }
+    };
+
+    window.addEventListener('error', handler);
+    window.addEventListener('unhandledrejection', evt => {
+        // Promise rejections, for some reason, are passed the actual error as `evt.reason` instead of `evt.error` as
+        // with 'regular' errors.
+        evt.error = evt.reason;
+        handler(evt);
     });
 } catch (e) {
+    window.addEventListener('unhandledrejection', logError);
     window.addEventListener('error', logError);
 }
