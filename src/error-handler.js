@@ -37,7 +37,11 @@ try {
                 'lineno',
                 'error',
                 'stack',
-                'enduser_message'
+                'enduser_message',
+                'defaultPrevented',
+                'eventPhase',
+                'isTrusted',
+                'returnValue'
             ])
         );
 
