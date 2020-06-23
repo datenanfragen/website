@@ -64,7 +64,7 @@ try {
         let mailto_url = 'mailto:dev@datenanfragen.de?' + 'subject=' + report_title + '&body=' + report_body;
 
         // Note: Unless debugging_enabled is set, this will never happen for Chrome. But considering what I mentioned above, this is probably a good thing.
-        if (debug_info.error.code <= 3 || debugging_enabled) {
+        if (!debug_info.error.code || debug_info.error.code <= 3 || debugging_enabled) {
             let dismiss = () => {
                 preact.render('', document.body, modal);
             };
