@@ -7,7 +7,7 @@
     "tags": [ "dsgvo", "Erwägungsgrund 63", "präzisieren", "präzisierung", "konkretisieren", "konkretisierung", "artikel 15", "Auskunftsantrag", "gdpr" ],
     "authors": [ "andreas_bampounis" ],
     "featured_image": "praezisierung-von-auskunftsanfragen",
-    "license": "cc-by-4.0",
+    "license": "cc-by-40",
     "notices": "Titelfoto angepasst nach: „[The files](https://unsplash.com/photos/Q9y3LRuuxmg)“ von [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 

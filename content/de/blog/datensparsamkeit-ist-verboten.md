@@ -5,7 +5,7 @@
     "description": "Eine Meinung zu dem Beschluss des Bundesverfassungsgerichts, dass Posteo zur Überwachung von IP-Adressen verpflichtet sei.",
     "tags": [ "BVerfG", "TKÜV", "Posteo", "Telekommunikationsüberwachung", "Datensparsamkeit" ],
     "featured_image_url": "https://static.dacdn.de/blog/posteo.jpg",
-    "license": "cc-by-nd-4.0",
+    "license": "cc-by-nd-40",
     "authors": [ "zner0l" ]
 }
 

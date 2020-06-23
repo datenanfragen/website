@@ -7,7 +7,7 @@
     "featured_image": "sample-letter-gdpr-direct-marketing-objection",
     "tags": [ "gdpr", "objection against direct marketing", "letter", "sample", "article 21" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-1.0",
+    "license": "cc0-10",
     "notices": "Photo adapted after: \"[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)\" by [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash license](https://unsplash.com/license))"
 }
 
