@@ -141,3 +141,8 @@
     font-icon: 120% url('code.svg');
     vertical-align: -4px;
 }
+
+.icon-external:before {
+    @extend %icon;
+    font-icon: url('external.svg');
+}

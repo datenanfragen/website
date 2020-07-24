@@ -206,14 +206,28 @@ span > a,
 
         // Very loosely inspired by: https://codepen.io/aaroniker/pen/pojaBvb
         background-image: linear-gradient(0deg, $accent-color 0%, $accent-color 100%);
-        background-position: bottom;
+        background-position: bottom left;
         background-repeat: no-repeat;
         background-size: 100% 2px;
+        $external-link-selector: '&:not([href^="https://www.datenanfragen.de"]):not([href^="https://www.datarequests.org"]):not([href^="https://www.demandetesdonnees.fr"]):not([href^="https://www.pedidodedados.org"]):not([href^="https://static.dacdn.de"]):not([href^="http://localhost:"]):not([href^="http://datenanfragen.test:"]):not([href^="https://verein.datenanfragen.de"])';
+
+        #{$external-link-selector} {
+            background-size: calc(100% - 17.8px) 2px;
+            &:after {
+                color: $accent-color;
+                font-icon: 80% url('external.svg');
+                padding-left: 4px;
+                vertical-align: -0.5px;
+            }
+        }
 
         &:hover,
         &:focus {
             color: color('white');
             background-size: 100% 100%;
+            #{$external-link-selector} {
+                background-size: calc(100% - 17.8px) 100%;
+            }
         }
     }
 }
