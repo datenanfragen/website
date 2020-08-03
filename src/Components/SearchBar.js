@@ -20,7 +20,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     host: 'search.datenanfragen.de',
                     port: '443',
                     protocol: 'https',
-                    apiKey: '981da30f2e80463cadf8a91bc2db4cf5'
+                    apiKey: ''
                 },
                 timeoutSeconds: 2
             });
@@ -45,7 +45,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
         componentDidMount() {
             let options = {
                 query_by: this.props.query_by || 'name, runs, categories, web, slug, address, comments',
-                sort_by: 'sort-index:asc',
+                sort_by: '_text_match:desc,sort-index:asc',
                 num_typos: 4,
                 per_page: this.props.numberOfHits || 5
             };
