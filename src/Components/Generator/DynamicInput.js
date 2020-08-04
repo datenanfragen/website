@@ -93,7 +93,7 @@ export default class DynamicInput extends preact.Component {
                                     <button
                                         id={this.props.id + '-delete-' + this.props.suffix}
                                         rel={this.props.id}
-                                        className="dynamic-input-delete button button-primary button-small icon-trash"
+                                        className="dynamic-input-delete button button-secondary button-small icon-trash"
                                         onClick={this.props.removeHandler}
                                     />
                                 </div>

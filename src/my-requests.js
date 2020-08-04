@@ -172,7 +172,7 @@ class RequestList extends preact.Component {
                                   ]
                                 : []}
                             <button
-                                className="button button-primary button-small icon-trash"
+                                className="button button-secondary button-small icon-trash"
                                 onClick={() => {
                                     this.removeRequest(id);
                                 }}
