@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 22. Juni 2020 geändert.
+Unsere Datenschutzerklärung wurde zuletzt am 06. August 2020 geändert.
 
 ## Allgemeine Hinweise
 
@@ -71,8 +71,7 @@ In diesem Abschnitt möchten wir Dir genau erklären, unter welchen Umständen w
 #### Server-Logdateien
 Wenn Du eine unserer Webseiten aufrufst, baut Dein Browser eine Verbindung zu einem Server von Netlify, Inc., 610 22nd Street, Suite 315, San Francisco, CA 94107, USA auf. Dieser speichert dabei einige Informationen über die Verbindung in einer sogenannten Logdatei. Wir haben keinen Zugriff auf diese Logdateien. Mehr Informationen dazu, wie Netlify Deine Daten verarbeitet, kannst Du [deren Datenschutzerklärung](https://www.netlify.com/privacy/) entnehmen.
 
-Darüber hinaus werden bestimmte Dateien auf unseren Webseiten von Servern von Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxemburg, Luxemburg (der autorisierten Vertreterin der Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA im europäischen Wirtschaftsraum) abgerufen. Diese Server legen u.&nbsp;U. kumulierte Statistiken dazu an, wie die Dienste genutzt werden. Wir haben Einblick in diese Statistiken, aber keine Kontrolle darüber, ob und wie sie erhoben werden.  
-Die Amazon Web Services, Inc. ist über die [Amazon.com, Inc.](https://www.privacyshield.gov/participant?id=a2zt0000000TOWQAA4) für das US-europäische Datenschutzabkommen „Privacy Shield“ zertifiziert, welches die Wahrung des EU-Datenschutzniveaus sicherstellt. Mehr Informationen dazu, wie Amazon Web Services Deine Daten verarbeitet, kannst Du [deren Datenschutz-FAQs](https://aws.amazon.com/de/compliance/data-privacy-faq/) entnehmen.
+Darüber hinaus werden bestimmte Dateien auf unseren Webseiten von Servern von Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxemburg, Luxemburg (der autorisierten Vertreterin der Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA im europäischen Wirtschaftsraum) abgerufen. Diese Server legen u.&nbsp;U. kumulierte Statistiken dazu an, wie die Dienste genutzt werden. Wir haben Einblick in diese Statistiken, aber keine Kontrolle darüber, ob und wie sie erhoben werden. Mehr Informationen dazu, wie Amazon Web Services Deine Daten verarbeitet, kannst Du [deren Datenschutz-FAQs](https://aws.amazon.com/de/compliance/data-privacy-faq/) entnehmen.
 
 - Betroffene Daten: die konkrete Unterseite, die Du besucht hast, das Datum und die Uhrzeit Deines Zugriffs, die Herkunft Deiner Anfrage (der sogenannte „Referrer“), Informationen zu Deinem Browser und Betriebssystem (der sogenannte „User-Agent-String“), dein Land und Deine IP-Adresse
 - Rechtsgrundlage: Die Speicherung erfolgt auf Grundlage unseres (sowie des unserer Hostinganbieter) berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität der benutzten Server im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
@@ -96,7 +95,7 @@ Vor dem Absenden der Fehlermeldung werden Dir sämliche betroffenen Daten angeze
 - Rechtsgrundlage: Die Grundlage der Speicherung ist unser rechtmäßiges Interesse, die Stabilität und Funktionalität unserer Webseite zu verbessern im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
 - Dauer der Speicherung: unbeschränkt
 - Weitergabe der Daten: Der Inhalt von Fehlermeldungen ist ggf. über unseren [Issue-Tracker auf GitHub](https://github.com/datenanfragen/website/issues) öffentlich einsehbar.  
-GitHub wird betrieben von der GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/). Die [GitHub, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI) ist über das US-europäische Datenschutzabkommen „Privacy Shield“ zertifiziert, welches die Wahrung des EU-Datenschutzniveaus sicherstellt.
+GitHub wird betrieben von der GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/).
 
 #### Mitgliedsantrag
 Für den Antrag auf Mitgliedschaft im Datenanfragen.de e.&nbsp;V. musst Du in dem dafür vorgesehenen Vordruck einige personenbezogenen Daten angeben. Diese Daten sind notwendig, damit wir Dich als Mitglied führen und Dir wichtige Informationen im Bezug auf Deine Mitgliedschaft (bspw. Einladungen zu Mitgliederversammlungen, Zuwendungsbescheinigungen oder Zahlungserinnerungen) zukommen lassen können.
@@ -150,8 +149,7 @@ Die Anmeldung ist vollkommen freiwillig für Dich.
 - Dauer der Speicherung: bis Du Dich vom Newsletter abmeldest
 - Weitergabe der Daten: Auf die Kontaktdaten hat nur der Vorstand Zugriff. Der Newsletter wird über den Dienstleister Mailgun verschickt. Dafür werden die Kontaktdaten an Mailgun übertragen.
   
-  Mailgun wird betrieben von der Mailgun Technologies, Inc., 548 Market St #43099, San Francisco, California 94104, USA.  
-  Die [Mailgun Technologies, Inc.](https://www.privacyshield.gov/participant?id=a2zt0000000PCbmAAG) ist über das US-europäische Datenschutzabkommen „Privacy Shield“ zertifiziert. Mehr Informationen dazu, wie Mailgun Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailgun.com/privacy-policy/) entnehmen.
+  Mailgun wird betrieben von der Mailgun Technologies, Inc., 548 Market St #43099, San Francisco, California 94104, USA. Mehr Informationen dazu, wie Mailgun Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailgun.com/privacy-policy/) entnehmen.
 
 ### Externe Dienste
 
