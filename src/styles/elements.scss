@@ -200,7 +200,7 @@ input:disabled {
         -moz-appearance: none;
         padding-right: 30px;
         width: 100%;
-        background-color: $bg-color;
+        background-color: transparent;
     }
 
     .icon {
@@ -208,6 +208,7 @@ input:disabled {
         right: 10px;
         top: 10px;
         color: $primary-color;
+        z-index: -1;
     }
 }
 
