@@ -13,3 +13,4 @@
 * Translate the 404 page.
 * Setup the necessary redirects in `_redirects`.
 * Add the domain in the Netlify control panel and set the appropriate DNS records.
+* Add the domain to `content/de/verein/_index.md`
