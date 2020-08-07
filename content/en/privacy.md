@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on December 7, 2019.
+Our privacy policy was last changed on August 06, 2020.
 
 ## General remarks
 
@@ -71,8 +71,7 @@ In this section we would like to explain to you exactly under which circumstance
 #### Server log files
 When you visit one of our websites, your browser connects to a server run by Netlify, Inc., 610 22nd Street, Suite 315, San Francisco, CA 94107, USA. This server will store some information about the connection in a so-called log file. We have no access to these log files. To find out more about how Netlify processes your data, have a look at their [privacy policy](https://www.netlify.com/privacy/).
 
-In addition to that, some of the files on our website are requested from servers run by Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxembourg, Luxembourg (the authorized representative of Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA in the European economic area). These servers may collect aggregated statistics on how the services are used. While have have access to these statistics, we cannot influence whether or how they are collected.  
-Amazon Web Services, Inc. is certified under the US-European “Privacy Shield” framework, which ensures that the EU data protection level is maintained, through [Amazon.com, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI). For more information on how Amazon Web Services processes your data, please refer to [their data privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).
+In addition to that, some of the files on our website are requested from servers run by Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxembourg, Luxembourg (the authorized representative of Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA in the European economic area). These servers may collect aggregated statistics on how the services are used. While have have access to these statistics, we cannot influence whether or how they are collected. For more information on how Amazon Web Services processes your data, please refer to [their data privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).
 
 - Affected data: the specific page you visited, the date and time of your visit, the origin of your request (the so-called “referrer”), information about your browser and operating system (the so-called “user-agent string”), your country and your IP address
 - Lawful basis: The data is stored on the basis of our (and our hosting partners’) legitimate interest in improving the stability and functionality of the servers in use in accordance with Art. 6(1) lit. f GDPR.
@@ -96,7 +95,7 @@ We will always display all the information included in the report to you before 
 - Lawful basis: The basis of the storage is our legitimate interest to improve the stability and functionality of our website in accordance with Art. 6(1) lit. f GDPR.
 - Duration of storage: indefinitely
 - Data disclosure: The content of error reports may be publicly accessible via our [GitHub issue tracker](https://github.com/datenanfragen/website/issues).  
-GitHub is operated by GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA or their subsidiary GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. For more information on how GitHub processes your data, please refer to [their privacy policy](https://help.github.com/articles/github-privacy-statement/). [GitHub, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI) is certified under the US-European “Privacy Shield” framework, which ensures that the EU data protection level is maintained.
+GitHub is operated by GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA or their subsidiary GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. For more information on how GitHub processes your data, please refer to [their privacy policy](https://help.github.com/articles/github-privacy-statement/).
 
 #### Membership applications
 If you want to become a member of the association, you need to provide some data through the membership application form. This data is necessary for our records and for us to be able to contact you with important information regarding your membership (like invitations to the general assembly, donation receipts or payment reminders).
@@ -139,24 +138,26 @@ You do not have to provide any data to contact us, so the disclosure of this dat
 - Duration of storage: as long as there are legal storage obligations
 
 #### Newsletter
-We offer a newsletter with information about the activities of the association and for which you can register e.g. in the membership application form. If you decide to do so, we will send you the relevant information via the contact option you have provided (by e-mail or post).
+We offer a newsletter with information about the activities of the association and for which you can register through the membership application form or through our website. If you decide to do so, we will send you the relevant information by e-mail.
 
-The subscription is entirely voluntary for you. It is currently only available to members of the association.
+The subscription is entirely voluntary for you.
 
-- Affected data: the contact details you provided (an email address with an optional PGP key or a postal mail address)
+- Affected data: the contact details you provided (an email address with an optional PGP key)
 - Lawful basis: By subscribing, you consent to the sending of the newsletter in accordance with Art. 6(1) lit. a GDPR. You can revoke this consent at any time; you can find out how to do this in the section “Right to revoke given consent”.
-- Duration of storage: for the duration of your membership or until you unsubscribe from the newsletter, whichever happens first
-- Data disclosure: The newsletter is sent by the board.
+- Duration of storage: until you unsubscribe from the newsletter
+- Data disclosure: Only board members can access the contact data. The newsletter is sent is sent using the Mailgun service. Therefore, the contact data needs to be sent to Mailgun.
+  
+  Mailgun is run by Mailgun Technologies, Inc., 548 Market St #43099, San Francisco, California 94104, USA. For more information on how Mailgun processes your data, please refer to [their privacy policy](https://www.mailgun.com/privacy-policy/).
 
 ### External services
 
 In order to make our servives more interesting and efficient, we work with some external services.
 
 #### CoinGate
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by UAB Virtualios valiutos, A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
+We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by UAB “Decentralized”, A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
 We use CoinGate for crypto currency transactions. We will display a note in the payment form if your payment is made through CoinGate.
 
-If you make a payment through CoinGate, UAB Virtualios valiutos receives all data incurred in the payment process, especially including: the payment amount, the cryto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
+If you make a payment through CoinGate, UAB “Decentralized” receives all data incurred in the payment process, especially including: the payment amount, the cryto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
 For more details on how CoinGate processes your data, have a look at their [privacy policy](https://coingate.com/privacy).
 
 #### Mollie

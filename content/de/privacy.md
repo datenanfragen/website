@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 7. Dezember 2019 geändert. <!-- TODO: Offer PDF once privacy policy is finalized. -->
+Unsere Datenschutzerklärung wurde zuletzt am 06. August 2020 geändert.
 
 ## Allgemeine Hinweise
 
@@ -71,8 +71,7 @@ In diesem Abschnitt möchten wir Dir genau erklären, unter welchen Umständen w
 #### Server-Logdateien
 Wenn Du eine unserer Webseiten aufrufst, baut Dein Browser eine Verbindung zu einem Server von Netlify, Inc., 610 22nd Street, Suite 315, San Francisco, CA 94107, USA auf. Dieser speichert dabei einige Informationen über die Verbindung in einer sogenannten Logdatei. Wir haben keinen Zugriff auf diese Logdateien. Mehr Informationen dazu, wie Netlify Deine Daten verarbeitet, kannst Du [deren Datenschutzerklärung](https://www.netlify.com/privacy/) entnehmen.
 
-Darüber hinaus werden bestimmte Dateien auf unseren Webseiten von Servern von Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxemburg, Luxemburg (der autorisierten Vertreterin der Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA im europäischen Wirtschaftsraum) abgerufen. Diese Server legen u.&nbsp;U. kumulierte Statistiken dazu an, wie die Dienste genutzt werden. Wir haben Einblick in diese Statistiken, aber keine Kontrolle darüber, ob und wie sie erhoben werden.  
-Die Amazon Web Services, Inc. ist über die [Amazon.com, Inc.](https://www.privacyshield.gov/participant?id=a2zt0000000TOWQAA4) für das US-europäische Datenschutzabkommen „Privacy Shield“ zertifiziert, welches die Wahrung des EU-Datenschutzniveaus sicherstellt. Mehr Informationen dazu, wie Amazon Web Services Deine Daten verarbeitet, kannst Du [deren Datenschutz-FAQs](https://aws.amazon.com/de/compliance/data-privacy-faq/) entnehmen.
+Darüber hinaus werden bestimmte Dateien auf unseren Webseiten von Servern von Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxemburg, Luxemburg (der autorisierten Vertreterin der Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA im europäischen Wirtschaftsraum) abgerufen. Diese Server legen u.&nbsp;U. kumulierte Statistiken dazu an, wie die Dienste genutzt werden. Wir haben Einblick in diese Statistiken, aber keine Kontrolle darüber, ob und wie sie erhoben werden. Mehr Informationen dazu, wie Amazon Web Services Deine Daten verarbeitet, kannst Du [deren Datenschutz-FAQs](https://aws.amazon.com/de/compliance/data-privacy-faq/) entnehmen.
 
 - Betroffene Daten: die konkrete Unterseite, die Du besucht hast, das Datum und die Uhrzeit Deines Zugriffs, die Herkunft Deiner Anfrage (der sogenannte „Referrer“), Informationen zu Deinem Browser und Betriebssystem (der sogenannte „User-Agent-String“), dein Land und Deine IP-Adresse
 - Rechtsgrundlage: Die Speicherung erfolgt auf Grundlage unseres (sowie des unserer Hostinganbieter) berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität der benutzten Server im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
@@ -96,7 +95,7 @@ Vor dem Absenden der Fehlermeldung werden Dir sämliche betroffenen Daten angeze
 - Rechtsgrundlage: Die Grundlage der Speicherung ist unser rechtmäßiges Interesse, die Stabilität und Funktionalität unserer Webseite zu verbessern im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
 - Dauer der Speicherung: unbeschränkt
 - Weitergabe der Daten: Der Inhalt von Fehlermeldungen ist ggf. über unseren [Issue-Tracker auf GitHub](https://github.com/datenanfragen/website/issues) öffentlich einsehbar.  
-GitHub wird betrieben von der GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/). Die [GitHub, Inc.](https://www.privacyshield.gov/participant?id=a2zt000000001K2AAI) ist über das US-europäische Datenschutzabkommen „Privacy Shield“ zertifiziert, welches die Wahrung des EU-Datenschutzniveaus sicherstellt.
+GitHub wird betrieben von der GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/).
 
 #### Mitgliedsantrag
 Für den Antrag auf Mitgliedschaft im Datenanfragen.de e.&nbsp;V. musst Du in dem dafür vorgesehenen Vordruck einige personenbezogenen Daten angeben. Diese Daten sind notwendig, damit wir Dich als Mitglied führen und Dir wichtige Informationen im Bezug auf Deine Mitgliedschaft (bspw. Einladungen zu Mitgliederversammlungen, Zuwendungsbescheinigungen oder Zahlungserinnerungen) zukommen lassen können.
@@ -141,24 +140,26 @@ Zur Kontaktaufnahme musst Du selbstverständlich keinerlei Daten angeben, von da
 - Dauer der Speicherung: solange gesetzliche Aufbewahrungspflichten vorliegen (vgl. dazu insb. § 147 Abs. 3 AO)
 
 #### Newsletter
-Wir bieten einen Newsletter an, der Dich über die Aktivitäten des Vereins informiert und für den Du Dich bspw. im Rahmen des Mitgliedsantrags über den dafür vorgesehenen Vordruck anmelden kannst. Wenn Du Dich dafür entscheidest, lassen wir Dir die entsprechenden Informationen über die von Dir angegebene Kontaktmöglichkeit (per E-Mail oder Post) zukommen.
+Wir bieten einen Newsletter an, der Dich über die Aktivitäten des Vereins informiert und für den Du Dich im Rahmen des Mitgliedsantrags über den dafür vorgesehenen Vordruck oder über unsere Webseite anmelden kannst. Wenn Du Dich dafür entscheidest, lassen wir Dir die entsprechenden Informationen per E-Mail zukommen.
 
-Die Anmeldung ist vollkommen freiwillig für Dich. Sie ist aktuell nur für Mitglieder des Vereins möglich.
+Die Anmeldung ist vollkommen freiwillig für Dich.
 
-- Betroffene Daten: die Kontaktmöglichkeit, die Du angegeben hast (entweder eine E-Mail-Adresse optional in Verbindung mit einem PGP-Key oder Deine Postanschrift)
+- Betroffene Daten: die Kontaktmöglichkeit, die Du angegeben hast (eine E-Mail-Adresse optional in Verbindung mit einem PGP-Key)
 - Rechtsgrundlage: Mit der Anmeldung zum Newsletter erteilst Du uns eine Einwilligung zur Zusendung von Informationen nach Art. 6 Abs. 1 lit. a DSGVO. Diese Einwilligung kannst Du jederzeit widerrufen; wie das geht, erfährst Du im Abschnitt „Recht auf Widerruf erteilter Einwilligungen“.
-- Dauer der Speicherung: für die Dauer Deiner Mitgliedschaft oder bis Du Dich vom Newsletter abmeldest, was immer früher eintritt
-- Weitergabe der Daten: Die Zusendung des Newsletters erfolgt durch den Vorstand.
+- Dauer der Speicherung: bis Du Dich vom Newsletter abmeldest
+- Weitergabe der Daten: Auf die Kontaktdaten hat nur der Vorstand Zugriff. Der Newsletter wird über den Dienstleister Mailgun verschickt. Dafür werden die Kontaktdaten an Mailgun übertragen.
+  
+  Mailgun wird betrieben von der Mailgun Technologies, Inc., 548 Market St #43099, San Francisco, California 94104, USA. Mehr Informationen dazu, wie Mailgun Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailgun.com/privacy-policy/) entnehmen.
 
 ### Externe Dienste
 
 Um unsere Angebote attraktiver und effizienter gestalten, arbeiten wir mit einigen externen Dienstleistern.
 
 #### CoinGate
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform CoinGate zu tätigen. CoinGate ist ein Angebot der UAB Virtualios valiutos, A. Goštauto g. 8, LT-01108 Vilnius, Litauen.  
+Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform CoinGate zu tätigen. CoinGate ist ein Angebot der UAB “Decentralized”, A. Goštauto g. 8, LT-01108 Vilnius, Litauen.  
 Wir setzen CoinGate für Zahlungen mit Crypowährungen ein. In jedem Fall wird Dir in dem Zahlungsformular angezeigt, wenn Deine ausgewählte Zahlungsmethode von CoinGate zur Verfügung gestellt wird.
 
-Wenn Du über CoinGate eine Zahlung tätigst, erhält die UAB Virtualios valiutos sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: der Betrag Deiner Zahlung, die Cryptowährung, mit der Du bezahlst, Deine Bezahldaten (z.&nbsp;B. die Adresse Deiner Bitcoin-Wallet), ggf. Deinen Namen, ggf. Deine E-Mail-Adresse.  
+Wenn Du über CoinGate eine Zahlung tätigst, erhält die UAB “Decentralized” sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: der Betrag Deiner Zahlung, die Cryptowährung, mit der Du bezahlst, Deine Bezahldaten (z.&nbsp;B. die Adresse Deiner Bitcoin-Wallet), ggf. Deinen Namen, ggf. Deine E-Mail-Adresse.  
 Weitere Informationen dazu, wie CoinGate Deine Daten verarbeitet, findest Du in deren [Datenschutzerklärung](https://coingate.com/privacy).
 
 #### Mollie
