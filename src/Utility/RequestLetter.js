@@ -72,7 +72,7 @@ export default class RequestLetter {
     initiatePdfGeneration(filename) {
         if (!this.pdfWorker) {
             this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
-            if (process.env.NODE_ENV === 'development') {
+            if (window.hugoDevMode) {
                 // copy the worker to window if we are in a dev env to enable easy testing
                 window.pdfWorker = this.pdfWorker;
             }
