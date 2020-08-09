@@ -172,19 +172,20 @@ document.getElementById('submit-suggest-form').onclick = () => {
     // we can control the ordering of the JSON to fix #187
     // (see https://stackoverflow.com/questions/16167581/sort-object-properties-and-json-stringify/40646557#comment70742750_40646557)
     let properties = getAllPropertyNamesInSchema(schema);
+    // we use a replacer to order the JSON
+    const body = JSON.stringify(
+        {
+            for: 'cdb',
+            data: data,
+            new: !PARAMETERS['slug']
+        },
+        ['for', 'data'].concat(properties, ['new'])
+    );
 
     fetch(SUBMIT_URL, {
         method: 'POST',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        // we use a replacer to order the JSON
-        body: JSON.stringify(
-            {
-                for: 'cdb',
-                data: data,
-                new: !PARAMETERS['slug']
-            },
-            ['for', 'data'].concat(properties, ['new'])
-        )
+        body
     })
         .then(res => res.json())
         .then(res => {
@@ -193,11 +194,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
         })
         .catch(err => {
             document.getElementById('loading-indicator').classList.add('hidden');
-            rethrow(err);
-            /* eslint-disable no-unused-vars */
-            let preact = require('preact');
-            /* eslint-enable no-unused-vars */
-            flash(<FlashMessage type="error">{t('error', 'suggest')}</FlashMessage>);
+            rethrow(err, 'POSTing the suggestion failed.', { submit_url: SUBMIT_URL, body }, t('error', 'suggest'));
         });
 };
 
