@@ -58,7 +58,8 @@ yarn run build
 if [ "$CONTEXT" = "production" ]
 then
 	hugo -e production --minify
-	echo "Copying files for Nezrects
+	echo "Copying files for Netlify…"
+    cp _redirects public/_redirects
     cp _headers public/_headers
 	cp static/404.html public/404.html
 else
