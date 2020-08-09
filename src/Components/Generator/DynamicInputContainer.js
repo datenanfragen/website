@@ -118,7 +118,7 @@ export default class DynamicInputContainer extends preact.Component {
                                         <Text id="input-address" />
                                     </option>
                                 </select>
-                                <div className="icon icon-arrow-down" style="top: 8px;" />
+                                <div className="icon icon-arrow-down" style="top: 10px;" />
                             </div>
                             <button
                                 className="button button-secondary"
