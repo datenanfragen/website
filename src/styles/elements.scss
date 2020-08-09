@@ -200,14 +200,15 @@ input:disabled {
         -moz-appearance: none;
         padding-right: 30px;
         width: 100%;
-        background-color: $bg-color;
+        background-color: transparent;
     }
 
     .icon {
         position: absolute;
         right: 10px;
-        top: 10px;
+        top: 5px;
         color: $primary-color;
+        z-index: -1;
     }
 }
 

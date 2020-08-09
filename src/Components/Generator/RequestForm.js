@@ -83,7 +83,7 @@ export default class RequestForm extends preact.Component {
                                         <Text id="complaint" />
                                     </option>
                                 </select>
-                                <div className="icon icon-arrow-down" style="top: 6px;" />
+                                <div className="icon icon-arrow-down" />
                             </div>
                         </div>
                         <div className="form-group">
