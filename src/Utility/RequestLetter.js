@@ -24,14 +24,6 @@ export default class RequestLetter {
 
         this.clearProps();
         this.setProps(props);
-
-        this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
-        this.pdfWorker.onmessage = message => {
-            if (this.pdf_callback) this.pdf_callback(message.data.blob_url, message.data.filename);
-        };
-        this.pdfWorker.onerror = error => {
-            rethrow(error, 'PdfWorker error');
-        };
     }
 
     setProps(props) {
@@ -78,6 +70,19 @@ export default class RequestLetter {
      * @param {String} filename
      */
     initiatePdfGeneration(filename) {
+        if (!this.pdfWorker) {
+            this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
+            if (window.hugoDevMode) {
+                // copy the worker to window if we are in a dev env to enable easy testing
+                window.pdfWorker = this.pdfWorker;
+            }
+            this.pdfWorker.onmessage = message => {
+                if (this.pdf_callback) this.pdf_callback(message.data.blob_url, message.data.filename);
+            };
+            this.pdfWorker.onerror = error => {
+                rethrow(error, 'PdfWorker error');
+            };
+        }
         this.pdfWorker.postMessage({
             pdfdoc: { doc: this.toPdfDoc() },
             filename: filename
