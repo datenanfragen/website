@@ -2,12 +2,13 @@
     "title": "Sample letter for objections against direct marketing as per Art. 21(2) GDPR",
     "slug": "sample-letter-gdpr-direct-marketing-objection",
     "date": "2019-10-24T18:47:21+02:00",
+    "last_edited": "2020-05-31T01:23:52+02:00",
     "type": "blog",
     "description": "You don't have to put up with direct marketing. Thanks to the GPDR, you can object to the use of your personal data for direct marketing purposes. Our sample letter helps you exercise this right.",
     "featured_image": "sample-letter-gdpr-direct-marketing-objection",
     "tags": [ "gdpr", "objection against direct marketing", "letter", "sample", "article 21" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-1.0",
+    "license": "cc0-10",
     "notices": "Photo adapted after: \"[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)\" by [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash license](https://unsplash.com/license))"
 }
 
@@ -49,6 +50,8 @@ Here is our sample letter for objecting to direct marketing according to Art. 21
 
 <p>If you do not answer my request within the stated period, I am reserving the right to take legal action against you and to lodge a complaint with the responsible supervisory authority.</p>
 
+<p>Thank you in advance.</p>
+
 <p>Yours sincerely,<br>
 <span class="blog-letter-fill-in">Your name</span></p>
 </div>
@@ -57,6 +60,7 @@ To make your life easier, you can also download the letter and use it directly w
 
 <a href="/downloads/sample-letter-gdpr-objection-request-datarequests.org.ott" class="button button-primary" style="margin-bottom: 10px;">Download LibreOffice or OpenOffice template (.ott)</a><br>
 <a href="/downloads/sample-letter-gdpr-objection-request-datarequests.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Download Word template (.dotx)</a><br>
+<a href="/downloads/sample-letter-gdpr-objection-request-datarequests.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Download PDF form (.pdf)</a><br>
 <a href="/downloads/sample-letter-gdpr-objection-request-datarequests.org.txt" class="button button-secondary">Download plain text file (.txt)</a>
 
 You are free to use these templates as you like. We make them available to you under a [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/). The templates for LibreOffice and Word are based on this [LibreOffice template](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
@@ -70,3 +74,11 @@ You can often find the contact details of companies and other organisations on t
 ## Isn't there an easier way?
 
 The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+
+---
+
+**Updates:**
+
+We have made the following changes to this sample letter since the initial publication:
+
+* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/6e7499dcb3d5497c6a16607370d26c5961ba237d#diff-3be9975245c2f40e39444ce4ac95f9e9): More consistent style between [all templates]({{< ref "sample-letters" >}}).

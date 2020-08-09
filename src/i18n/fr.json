@@ -69,7 +69,7 @@
         "recipient": "Destinataire",
         "id-data": "Mes informations",
         "id-data-tracking": "Mes informations de contact",
-        "id-data-explanation": "Les informations que tu spécifies ici vont aider l'entreprise à t'identifier. N'hésite pas à en supprimer sur le côté ou à en entrer moins. L'entreprise te contactera si elle a besoin de plus d'informations.<br />Les champs, qui,  par expérience doivent être absolument remplis sont marqués d'une *.",
+        "id-data-explanation": "Les informations que tu spécifies ici vont aider l'entreprise à t'identifier. N'hésite pas à en supprimer sur le côté ou à en entrer moins. L'entreprise te contactera si elle a besoin de plus d'informations.<br />Les champs, qui, par expérience doivent être absolument remplis sont marqués d'une *.",
         "id-data-tracking-explanation": "Nous ne sommes pas en mesure de t'indiquer quelles sont informations dont l'entreprise que tu as sélectionnée à besoin pour t'identifier. Après ta demande, l'entreprise te répondra en t'expliquant comment tu peux récupérer ces données.<br/>Pense à préciser la façon par laquelle tu souhaites que l'entreprise te contacte ici. Nous te recommandons de leur donner ton adresse e-mail.",
         "add-dynamic-input-explanation": "Tu souhaites ajouter plus d'informations ? Aucun problème&nbsp;: Sélectionne simplement le type de champ que tu souhaites ajouter. Tu peux également ajouter tes champs enregistrés.",
         "name": "Nom",
@@ -139,7 +139,9 @@
         "email-address": "Adresse e-mail",
         "objection-request": "Opposition à la prospection",
         "mailto-dropdown-explanation": "Comment souhaites-tu envoyer l'e-mail ?",
-        "mailto-dropdown-warning": "*Ceci transmettra ta demande et toutes les données incluses au service correspondant."
+        "mailto-dropdown-warning": "*Ceci transmettra ta demande et toutes les données incluses au service correspondant.",
+        "copymanually-explanation": "Ici, vous pouvez copier manuellement le sujet, le destinataire et le texte de votre courriel généré.",
+        "body": "Texte"
     },
     "privacy-controls": {
         "title": "Options de confidentialité",
@@ -174,7 +176,7 @@
     "error-handler": {
         "explanation": "Malheureusement, une erreur inattendue s'est produite. Nous apprécierons vraiment si tu prenais le temps de nous envoyer un rapport d'erreur via GitHub ou par e-mail, afin que nous puissions diagnostiquer le problème. Un grand merci d'avance !",
         "privacy": "Pour plus d'informations sur la manière dont nous traitons les données contenues dans les rapports d'erreur, Réfère-toi à notre <a href='/privacy#error-reports' target='_blank'>politique de confidentialité</a>.",
-        "explain-context": "S'il y a lieu, pense à fournir le contexte de l'erreur, c.-à-d. décrire ce que tu as fait avant que l'erreur ne se produise. Pense également  à supprimer toute information sensible des informations de débogage ci-dessous.",
+        "explain-context": "S'il y a lieu, pense à fournir le contexte de l'erreur, c.-à-d. décrire ce que tu as fait avant que l'erreur ne se produise. Pense également à supprimer toute information sensible des informations de débogage ci-dessous.",
         "report-on-github": "Signaler sur GitHub",
         "report-via-email": "Signaler par e-mail"
     },
@@ -238,8 +240,8 @@
         "other": "autre"
     },
     "wizard": {
-        "suggested": "<p>La première étape pour reprendre le contrôle de tes données est de savoir quelles données les entreprises ont stockées sur toi. Notre assistant t'aide à identifier les entreprises qui peuvent stocker des données personnelles te concernant  pour ensuite leur envoyer des demandes d'accès RGPD.</p>{{suggested}}<p>Nous te proposerons des catégories d'entreprises avec lesquelles tu pourrais avoir eu des interactions au cours des prochaines étapes. Tu peux alors ajouter d'autres entreprises de ces catégories et bien sûr toujours supprimer les entreprises précédemment ajoutées si tu changes d'avis.</p><p>Une fois que tu es satisfait de ta sélection, clique sur « Suivant » pour passer à la première catégorie.</p>",
-        "suggestions": "<p>Sur la droite, nous avons déjà commencé ta liste avec quelques entreprises. Ça fait beaucoup et tu ne reconnaît pas la plupart d'entre elles ? N'hésite pas à nous en parler ! D'après notre expérience, ces sociétés détiennent des données sur à peu près tout le monde dans ton pays (si tu n'es pas en <em id='wizard-user-country'>{{country}}</em>, tu peux <a href='#footer'>modifier ce paramètre</a> en bas de page). Nous pensons donc qu'il est d'autant plus important de les interroger sur tes données personnelles.</p>",
+        "suggested": "<p>La première étape pour reprendre le contrôle de tes données est de savoir quelles données les entreprises ont stockées sur toi. Notre assistant t'aide à identifier les entreprises qui peuvent stocker des données personnelles te concernant pour ensuite leur envoyer des demandes d'accès RGPD.</p>{{suggested}}<p>Nous te proposerons des catégories d'entreprises avec lesquelles tu pourrais avoir eu des interactions au cours des prochaines étapes. Tu peux alors ajouter d'autres entreprises de ces catégories et bien sûr toujours supprimer les entreprises précédemment ajoutées si tu changes d'avis.</p><p>Une fois que tu es satisfait de ta sélection, clique sur « Suivant » pour passer à la première catégorie.</p>",
+        "suggestions": "<p>Nous avons déjà commencé ta liste avec quelques entreprises. Ça fait beaucoup et tu ne reconnaît pas la plupart d'entre elles ? N'hésite pas à nous en parler ! D'après notre expérience, ces sociétés détiennent des données sur à peu près tout le monde dans ton pays (si tu n'es pas en <em id='wizard-user-country'>{{country}}</em>, tu peux <a href='#footer'>modifier ce paramètre</a> en bas de page). Nous pensons donc qu'il est d'autant plus important de les interroger sur tes données personnelles.</p>",
         "no-suggestions": "<p>Malheureusement, nous n'avons pas encore d'entreprises suggérées pour ton pays (<em id='wizard-user-country'>{{country}}</em>). Si tu es dans un autre pays, tu peux <a href='#footer'>modifier ce paramètre</a> en bas de la page.</p>",
         "commerce": "<p>Commençons par le commerce. Tu fais beaucoup d'achats sur Amazon ou Ebay ? Tu sais probablement déjà que les boutiques en ligne aiment collecter de nombreuses données personnelles sur leurs utilisateurs, alors n'oublie pas d'ajouter celles que tu utilises ou a utilisé par le passé.</p><p>Il est inquiétant de constater que les magasins traditionnels surveillent de plus en plus leurs clients et nous te suggérons d'ajouter au moins ceux que tu visites régulièrement ou pour lesquels ils t'ont activement demandé de fournir tes données.</p><p>Pour ajouter une entreprise, utilise simplement la barre de recherche ci-dessus.<br>Note bien que la recherche est filtrée par catégorie. Cela signifie que tu ne trouveras que des entreprises de la catégorie « commerce » dans cette étape, alors que l'étape suivante ne concerne que les entreprises de divertissement et ainsi de suite.</p>",
         "entertainment": "<p>Te souviens-tu du dernier film que tu as regardé sur Netflix, de la chanson la plus écoutée sur ton compte Spotify ou du nombre d'heures que tu as passées à jouer à ton jeu Steam préféré ? C'est certainement le cas de ces entreprises.</p><p>À ce propos : Nous nous souviendrons des entreprises que tu as déjà sélectionnées. Alors ne t'inquiète pas : si tu recharges la page ou si tu veux continuer plus tard, tu n'auras pas à recommencer à zéro.<br>Et bien sûr, ces données ne sont sauvegardées que sur ton ordinateur. Si tu souhaites néanmoins désactiver cette fonction, consulte nos <a href=\"/options-de-confidentialite\">options de confidentialité</a>.</p>",
@@ -254,7 +256,7 @@
         "finish": "Ajout des entreprises terminé",
         "search-company": "Rechercher des entreprises dans « {{category}} »…",
         "selected-companies": "Entreprises actuellement sélectionnées",
-        "none-selected": "Aucune pour le moment."
+        "none-selected": "Aucune pour le moment. Pourquoi ne pas en ajouter ?"
     },
     "id-data-controls": {
         "id-data-deactivated": "L'enregistrement des informations d'identification est désactivé. Si tu souhaites accélérer le processus de génération et enregistrer les informations d'identification, pense à activer la sauvegarde des informations d'identification dans les <a href=\"/options-de-confidentialite/\">options de confidentialité</a>.",
@@ -365,7 +367,7 @@
         "kathbay": "Diocèses de Bavière (diocèse de Augsbourg, archevêché de Bamberg, diocèse de Eichstätt, archevêché de Munich et Freising, diocèse de Passau, diocèse de Ratisbonne, diocèse de Wurtzbourg)",
         "kathnrw": "Diocèses de Rhénanie-Du-Nord Westphalie (diocèse de Aix-la-Chapelle, diocèse de Essen, archevêché de Cologne, diocèse de Munich (partie de Rhénanie-Du-Nord Westphalie), archevêché de Paderborn)",
         "kathmsw": "Diocèses du Centre et du Sud-Ouest de l'Allemagne (archevêché de Fribourg, diocèse de Fulde, diocèse de Limbourg, diocèse de Mayence, diocèse de Rottenburg-Stuttgart, diocèse de Spire et Trèves)",
-        "kathnd": "Diocèses du Nord de l'Allemagne (archevêques de Hambourg, diocèse de Hildesheim, diocèse de Osnabrück, diocèse diocèse de Munich (Partie de Basse-Saxe))",
+        "kathnd": "Diocèses du Nord de l'Allemagne (archevêques de Hambourg, diocèse de Hildesheim, diocèse de Osnabrück, diocèse de Munich (Partie de Basse-Saxe))",
         "kathod": "Diocèses de l'Est de l'Allemagne (archevêché de Berlin, diocèse de Dresde-Meissen, diocèse de Erfurt, diocèse de Görlitz, diocèse de Magdebourg)",
         "kathsonst": "Autres diocèses et demandes générales",
         "de-q": "Laquelle des zones suivantes ta demande concerne-t-elle ?"
@@ -675,19 +677,19 @@
         "blog-time-at": "à",
         "blog-and": " et ",
         "blog-licensed-under": "sous licence :",
-        "noscript-generator": "Le générateur ne fonctionne que sur  ton ordinateur et est donc entièrement écrit en JavaScript. Le code n'enverra aucune donnée à aucun serveur si tu n'y consent pas. Si tu veux utiliser le générateur, active JavaScript dans ton navigateur ou ajoute une exception à ton bloqueur. Si cela ne fonctionne toujours pas après cela, envoie-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
+        "noscript-generator": "Le générateur ne fonctionne que sur ton ordinateur et est donc entièrement écrit en JavaScript. Le code n'enverra aucune donnée à aucun serveur si tu n'y consent pas. Si tu veux utiliser le générateur, active JavaScript dans ton navigateur ou ajoute une exception à ton bloqueur. Si cela ne fonctionne toujours pas après cela, envoie-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "noscript-my-requests": "Toutes les demandes sont enregistrées et affichées dans ton ordinateur en utilisant JavaScript (évidemment uniquement s'il est activé). Le code n'enverra aucune donnée à aucun serveur si tu n'y consent pas. Si tu veux utiliser le enregistrer et visualiser tes demandes, active JavaScript dans ton navigateur ou ajoute une exception à ton bloqueur. Si cela ne fonctionne toujours pas après cela, envoie-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "noscript-wizard": "Voici un assistant qui est généré par JavaScript, qui t'aide à créer tes demandes. La création de demandes uniquement sur ton ordinateur nécessite JavaScript. Tu peux utiliser le site Web sans JavaScript mais tu n'aura que des fonctionnalités limitées. Le code n'enverra aucune donnée à aucun serveur si tu n'y consent pas. Si tu veux utiliser le site et toutes ses fonctionnalités, active JavaScript dans ton navigateur ou ajoute une exception à ton bloqueur. Si cela ne fonctionne toujours pas après cela, envoie-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "404-title": "Erreur 404 : Page non trouvée",
         "404-body": "La page que tu cherches n'existe malheureusement pas sur ce serveur. Peut-être que tu as juste fait une faute de frappe dans l'URL ? Si l'erreur persiste, tu peux nous en informer par e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> ou soumettre un problème dans notre <a href='https://github.com/datenanfragen/website/issues/new'>suivi des problèmes </a>.",
-        "lic-cc-by-4.0": "Licence Creative Commons Attribution 4.0 International",
-        "lic-url-cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/deed.fr",
-        "lic-cc-by-nd-4.0": "Licence Creative Commons Attribution-NoDerivatives 4.0 International",
-        "lic-url-cc-by-nd-4.0": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr",
-        "lic-cc-by-sa-4.0": "Licence Creative Commons Attribution-ShareAlike 4.0 International",
-        "lic-url-cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr",
-        "lic-cc0-1.0": "CC0 1.0 Universel Transfert dans le Domaine Public",
-        "lic-url-cc0-1.0": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+        "lic-cc-by-40": "Licence Creative Commons Attribution 4.0 International",
+        "lic-url-cc-by-40": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+        "lic-cc-by-nd-40": "Licence Creative Commons Attribution-NoDerivatives 4.0 International",
+        "lic-url-cc-by-nd-40": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr",
+        "lic-cc-by-sa-40": "Licence Creative Commons Attribution-ShareAlike 4.0 International",
+        "lic-url-cc-by-sa-40": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr",
+        "lic-cc0-10": "CC0 1.0 Universel Transfert dans le Domaine Public",
+        "lic-url-cc0-10": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
         "ads": "publicités",
         "footer-tab-website-name": "demandetesdonnees.fr",
         "footer-request-generator": "Générateur de demande",
@@ -767,13 +769,19 @@
         "footer-event-url": "/verein/evenement",
         "footer-event": "Événements et conférences",
         "event-no-events": "Il n'y a actuellement aucun événement prévu et aucun enregistrement disponible.",
-        "cdb-privacy-email": "E-mail de la protection de la vie privée :"
+        "cdb-privacy-email": "E-mail de la protection de la vie privée :",
+        "video-embed-yourself": "Intégrez-vous",
+        "event-place-online": "En ligne",
+        "event-duration": "Durée",
+        "event-place": "Lieu de l'évènement",
+        "event-date": "Date de l'évènement"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
         "gmail": "Google Mail (Gmail)*",
         "outlook": "Outlook (Hotmail)*",
-        "yahoo": "Yahoo! Mail*"
+        "yahoo": "Yahoo! Mail*",
+        "copymanually": "Copier le texte manuellement"
     },
     "requests": {
         "letter-subject-erasure": "Demande de suppression des données personnelles conformément à l'Art. 17 du RGPD",

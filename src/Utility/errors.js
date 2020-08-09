@@ -1,8 +1,9 @@
-export function rethrow(error, description, context) {
+export function rethrow(error, description, context, enduser_message = '') {
     // allow throwing from inside promise `catch` functions, see https://stackoverflow.com/a/30741722
     setTimeout(() => {
         if (description) error.description = description;
         if (context) error.context = context;
+        if (enduser_message) error.enduser_message = enduser_message;
         throw error;
     }, 0);
 }

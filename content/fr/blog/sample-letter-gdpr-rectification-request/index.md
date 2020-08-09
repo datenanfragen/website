@@ -6,7 +6,7 @@
     "type": "blog",
     "description": "",
     "tags": [ ],
-    "license": "cc0-1.0"
+    "license": "cc0-10"
 }
 
 Conformément à l'Art. 16 du RGPD, tu as le droit de demander une correction immédiate des données personnelles incorrectes (ou incomplètes) qu'une entreprise stocke sur toi.

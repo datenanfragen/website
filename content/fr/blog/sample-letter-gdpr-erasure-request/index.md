@@ -6,7 +6,7 @@
     "type": "blog",
     "description": "",
     "tags": [ ],
-    "license": "cc0-1.0"
+    "license": "cc0-10"
 }
 
 Conformément à l'Art. 17 du RGPD, tu as le droit de demander la suppression de tes données personnelles si elles ne sont plus nécessaires à leur traitement initial (aussi appellé « droit à l'oubli »).

@@ -6,7 +6,7 @@
     "type": "blog",
     "description": "",
     "tags": [ ],
-    "license": "cc0-1.0"
+    "license": "cc0-10"
 }
 
 Conformément à l'Art. 15 du RGPD, tu as un droit d'accès aux données personnelles qu'une entreprise stocke sur toi.

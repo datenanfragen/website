@@ -3,12 +3,13 @@
     "slug": "musterbrief-dsgvo-anfrage-loeschung",
     "aliases": [ "sample-letter-gdpr-erasure-request" ],
     "date": "2018-05-17T17:58:23+02:00",
-	"type": "blog",
-	"description": "Dank der DSGVO hast Du ein Recht auf Löschung Deiner personenbezogenen Daten, wenn ein Verantwortlicher sie für ihren ursprünglichen Zweck nicht mehr benötigt. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
-	"featured_image": "musterbrief-dsgvo-anfrage-loeschung",
+    "last_edited": "2020-05-31T01:10:59+02:00",
+    "type": "blog",
+    "description": "Dank der DSGVO hast Du ein Recht auf Löschung Deiner personenbezogenen Daten, wenn ein Verantwortlicher sie für ihren ursprünglichen Zweck nicht mehr benötigt. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
+    "featured_image": "musterbrief-dsgvo-anfrage-loeschung",
     "tags": [ "dsgvo", "gdpr", "löschantrag", "brief", "schreiben", "muster", "artikel 17" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-1.0"
+    "license": "cc0-10"
 }
 
 Wenn die personenbezogenen Daten, die Unternehmen oder andere Organisationen (sogenannte Verantwortliche) zu Deiner Person gespeichert haben, für ihren ursprünglichen Zweck nicht mehr nötig sind, hast Du nach der Datenschutz-Grundverordnung ein „Recht auf Vergessenwerden“. Das bedeutet, dass Du vom Verantwortlichen verlangen kannst, dass eben diese Daten wieder gelöscht werden.
@@ -38,12 +39,14 @@ Hier ist unser Musterschreiben für Anfragen auf Löschung nach Art. 17 DSGVO. D
 [Bitte löschen Sie die folgenden mich betreffenden personenbezogenen Daten:<br>
 <span class="blog-letter-fill-in">Hier die zu löschenden Daten eintragen.</span>]</p>
 
-<p>Ich bin der Meinung, dass die Voraussetzungen des Art. 17 Abs. 1 DSGVO gegeben sind.</p>
+<p>Ich bin der Meinung, dass die Voraussetzungen des Art. 17 Abs. 1 DSGVO gegeben sind. Sie können auch keinen Ausnahmetatbestand nach Art. 17 Abs. 3 DSGVO geltend machen, zumal ich keine Person des öffentlichen Lebens bin.</p>
 
-<p>Sollte ich eine Einwilligung zur Verarbeitung meiner Daten (bspw. nach Art. 6 Abs. 1 Buchstabe a oder Art. 9 Abs. 2 DSGVO) erteilt haben, widerrufe ich diese hiermit.<br>
-Weiterhin lege ich im Sinne des Art. 21 DSGVO Widerspruch gegen die Verarbeitung mich betreffender personenbezogener Daten ein, dies gilt auch für Profiling.</p>
+<p>Sollte ich eine Einwilligung zur Verarbeitung meiner Daten (bspw. nach Art. 6 Abs. 1 Buchstabe a oder Art. 9 Abs. 2 DSGVO) erteilt haben, widerrufe ich diese hiermit für den gesamten Prozess der Datenverarbeitung.<br>
+Weiterhin lege ich im Sinne des Art. 21 DSGVO Widerspruch gegen die Verarbeitung mich betreffender personenbezogener Daten ein, dies gilt auch für Profiling. Ich fordere Sie auf, die Verarbeitung der mich betreffenden Daten gemäß Art. 18 Abs. 1 lit. d DSGVO einzuschränken, solange noch nicht feststeht, ob Ihre berechtigten Gründe gegenüber meinen überwiegen.</p>
 
-<p>Sofern Sie die betroffenen personenbezogenen Daten Dritten offengelegt haben, haben Sie meinen Wunsch auf Löschung der genannten personenbezogenen Daten und sämtlicher Verweise darauf nach Art. 19 DSGVO auch allen solchen Empfängern mitzuteilen. Bitte informieren Sie mich weiterhin über diese Empfänger.</p>
+<p>Falls Sie die betroffenen Daten öffentlich gemacht haben sollten, sind Sie nach Art. 17 Abs. 2 DSGVO dazu verpflichtet, alle angemessenen Maßnahmen zu treffen, um andere Verantwortliche, beispielsweise Suchmaschinenbetreiber, welche die oben aufgeführten personenbezogenen Daten verarbeiten, über meinen Antrag auf Löschung aller Links, Kopien oder Replikationen zu informieren. Dies gilt nicht nur für exakte Kopien der betroffenen Daten, sondern auch für solche, aus denen in den betroffenen Daten enthaltene Informationen entnehmbar sind.</p>
+
+<p>Sofern Sie die betroffenen personenbezogenen Daten einem oder mehreren Empfängern im Sinne des Art. 4 Nr. 9 DSGVO offengelegt haben, haben Sie meinen Wunsch auf Löschung der genannten personenbezogenen Daten und sämtlicher Verweise darauf nach Art. 19 DSGVO auch allen solchen Empfängern mitzuteilen. Bitte informieren Sie mich weiterhin über diese Empfänger.</p>
 
 <p>Sollten Sie die Löschung ablehnen, haben Sie dies mir gegenüber zu begründen.</p>
 
@@ -55,6 +58,8 @@ Weiterhin lege ich im Sinne des Art. 21 DSGVO Widerspruch gegen die Verarbeitung
 <span class="blog-letter-fill-in">Hier Deine Daten zur Identifikation einfügen. Das sind häufig Angaben wie Dein Name, Dein Geburtsdatum, Deine Adresse, Deine E-Mail-Adresse usw.</span></p>
 
 <p>Sollten Sie meinem Antrag nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
+
+<p>Schon im Voraus vielen Dank für Ihre Mühe.</p>
 
 <p>Mit freundlichen Grüßen<br>
 <span class="blog-letter-fill-in">Dein Name</span></p>
@@ -78,3 +83,11 @@ Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig
 ## Geht das nicht auch einfacher?
 
 Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen [Generator](/generator) entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
+
+---
+
+**Änderungen:**
+
+Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
+
+* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/585d653f7447e022664d601f16ff74abd94ce6b7#diff-718f65e09a34d89265a92666af6af78e): Erwähnt, dass auch Art. 17 Abs. 3 DSGVO als Ausnahmetatbestand nicht infrage kommt. Deutlich gemacht, dass sich der Widerruf der Einwilligung auf die gesamte Datenverarbeitung bezieht. Vom Recht auf Einschränkung der Verarbeitung (Art. 18 Abs. 1 lit. d DSGVO) Gebrauch gemacht. Informationspflicht nach Art. 17 Abs. in Anspruch genommen. Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht. (Danke, Andreas!)
