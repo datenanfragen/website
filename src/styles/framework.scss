@@ -209,7 +209,6 @@ span > a,
         background-position: bottom left;
         background-repeat: no-repeat;
         background-size: 100% 2px;
-        $external-link-selector: '&:not([href^="https://www.datenanfragen.de"]):not([href^="https://www.datarequests.org"]):not([href^="https://www.demandetesdonnees.fr"]):not([href^="https://www.pedidodedados.org"]):not([href^="https://static.dacdn.de"]):not([href^="http://localhost:"]):not([href^="http://datenanfragen.test:"]):not([href^="https://verein.datenanfragen.de"]):not([href^="#"]):not([href*="--datenanfragen.netlify.app/"])';
 
         #{$external-link-selector} {
             background-size: calc(100% - 16.8px) 2px;
