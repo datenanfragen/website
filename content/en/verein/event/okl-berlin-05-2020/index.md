@@ -7,8 +7,8 @@
         "online": "https://bbb.ulm.dev/b/ok-lab-berlin"
     },
     "video_url": "https://media.datenanfragen.de/embed/20200511-okl-berlin",
-    "featured_image_url": "https://datenanfragen-media.sos-de-fra-1.exo.io/videos/20200511-okl-berlin/poster.jpg",
-    "license": "cc-by-40",
+    "featured_image": "poster",
+    "license": "cc-by-4.0",
     "description": "We were invited by the Open Knowledge Lab Berlin to talk about our work. Of course we were happy to do so: In this talk, Lorenz gives an introduction to some GDPR basics, explains the basic function of the website and talks abput the technical and orgnizational backgrounds of the project."
 }
 
