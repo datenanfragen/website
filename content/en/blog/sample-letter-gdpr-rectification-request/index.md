@@ -2,10 +2,10 @@
     "title": "Sample letter for rectification requests as per Art. 16 GDPR",
     "slug": "sample-letter-gdpr-rectification-request",
     "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2018-05-20T01:46:56",
-	"type": "blog",
-	"description": "If a company has stored false (or incomplete) personal data on you, then under the GDPR you have a right to demand immediate correction of said incorrect data. We offer you a sample letter with which you can exercise said right.",
-	"featured_image": "gdpr-rectification-request-letter",
+    "last_edited": "2020-05-31T01:28:42",
+    "type": "blog",
+    "description": "If a company has stored false (or incomplete) personal data on you, then under the GDPR you have a right to demand immediate correction of said incorrect data. We offer you a sample letter with which you can exercise said right.",
+    "featured_image": "gdpr-rectification-request-letter",
     "tags": [ "gdpr", "erasure request", "letter", "sample", "article 17" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10"
@@ -32,12 +32,12 @@ Here is our sample letter for requests for rectification according to Art. 16 GD
 <div class="blog-letter">
 <p>To Whom It May Concern:</p>
 
-<p>I am hereby requesting rectification of inaccurate personal data concerning me according to Article 16 GDPR.</p>
+<p>I am hereby requesting rectification or completion of inaccurate personal data concerning me according to Article 16 GDPR.</p>
 
 <p>Please make the following changes:<br>
 <span class="blog-letter-fill-in">Specify the data to be corrected.</span></p>
 
-<p>In case you have disclosed the affected personal data to third parties, you have to communicate my request for rectification of the affected personal data to each recipient as laid down in Article 19 GDPR. Please also inform me about those recipients.</p>
+<p>In case you have disclosed the affected personal data to one or more recipients as defined in Article 4(9) GDPR, you have to communicate my request for rectification of the affected personal data to each recipient as laid down in Article 19 GDPR. Please also inform me about those recipients.</p>
 
 <p>My request explicitly includes any other services and companies for which you are the controller as defined by Article 4(7) GDPR.</p>
 
@@ -47,6 +47,8 @@ Here is our sample letter for requests for rectification according to Art. 16 GD
 <span class="blog-letter-fill-in">Enter your identification data here. This often includes information like your name, your date of birth, your address, your email address and so on.</span></p>
 
 <p>If you do not answer my request within the stated period, I am reserving the right to take legal action against you and to lodge a complaint with the responsible supervisory authority.</p>
+
+<p>Thank you in advance.</p>
 
 <p>Yours sincerely,<br>
 <span class="blog-letter-fill-in">Your name</span></p>
@@ -70,3 +72,11 @@ You can often find the contact details of companies and other organisations on t
 ## Isn't there an easier way?
 
 The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+
+---
+
+**Updates:**
+
+We have made the following changes to this sample letter since the initial publication:
+
+* [April 11, 2020](https://github.com/datenanfragen/data/pull/562/commits/7bbcff8144a743adf90e3ec29bddc8626156e829#diff-8ffcdb3fe2a0fb689b1a52eb5368df26): Explicitly mention the right to completion in addition to rectification. Only use the official term 'recipient' instead of 'third party'. More consistent style between [all templates]({{< ref "sample-letters" >}}). (Thanks, Andreas!)

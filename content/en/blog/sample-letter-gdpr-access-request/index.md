@@ -2,10 +2,10 @@
     "title": "Sample letter for requests for access to personal data as per Art. 15 GDPR",
     "slug": "sample-letter-gdpr-access-request",
     "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2018-05-20T00:15:50",
-	"type": "blog",
-	"description": "According to the GDPR, you have a right to access the personal data stored on you by companies. We offer you a sample letter that allows you to assert such claims.",
-	"featured_image": "gdpr-access-request-letter",
+    "last_edited": "2020-05-31T01:20:33",
+    "type": "blog",
+    "description": "According to the GDPR, you have a right to access the personal data stored on you by companies. We offer you a sample letter that allows you to assert such claims.",
+    "featured_image": "gdpr-access-request-letter",
     "tags": [ "gdpr", "access request", "letter", "sample", "article 15" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10"
@@ -37,7 +37,7 @@ Here is our sample letter for requests for access according to Art. 15 GDPR. The
 <p>In case you are, I am hereby requesting access to the following information pursuant to Article 15 GDPR:</p>
 
 <ol>
-<li><em>all</em> personal data concerning me that you have stored;</li>
+<li><em>all</em> personal data concerning me that you have stored, including any potential pseudonymised data on me as per Article 4(5) GDPR;</li>
 <li>the purposes of the processing;</li>
 <li>the categories of personal data concerned;</li>
 <li>the recipients or categories of recipient to whom the personal data have been or will be disclosed;</li>
@@ -45,6 +45,8 @@ Here is our sample letter for requests for access according to Art. 15 GDPR. The
 <li>where the personal data are not collected from the data subject, any available information as to their source;</li>
 <li>the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) GDPR and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for me.</li>
 </ol>
+
+<p>In case you are processing anonymised data concerning me, please not only inform me about that but also explain the procedure used in an easily understandable way.</p>
 
 <p>If you are transferring my personal data to a third country or an international organisation, I request to be informed about the appropriate safeguards according to Article 46 GDPR concerning the transfer.
 
@@ -58,6 +60,8 @@ Here is our sample letter for requests for access according to Art. 15 GDPR. The
 <span class="blog-letter-fill-in">Enter your identification data here. This often includes information like your name, your date of birth, your address, your email address and so on.</span></p>
 
 <p>If you do not answer my request within the stated period, I am reserving the right to take legal action against you and to lodge a complaint with the responsible supervisory authority.</p>
+
+<p>Thank you in advance.</p>
 
 <p>Yours sincerely,<br>
 <span class="blog-letter-fill-in">Your name</span></p>
@@ -81,3 +85,11 @@ You can often find the contact details of companies and other organisations on t
 ## Isn't there an easier way?
 
 The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+
+---
+
+**Updates:**
+
+We have made the following changes to this sample letter since the initial publication:
+
+* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-21e880eae2f2c4209d64e2fe3bf93b7f): Explain that 'personal data' includes pseudonymised data and explicitly request that as well. Mention anonymised data and request to be informed about it. Also request an easily understandable explanation of the procedure used. More consistent style between [all templates]({{< ref "sample-letters" >}}). (Thanks, Andreas!)

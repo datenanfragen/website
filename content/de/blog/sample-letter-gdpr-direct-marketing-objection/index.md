@@ -4,6 +4,7 @@
     "slug": "musterbrief-dsgvo-werbewiderspruch",
     "aliases": [ "sample-letter-gdpr-direct-marketing-objection" ],
     "date": "2019-10-24T14:59:57+02:00",
+    "last_edited": "2020-05-31T01:16:19+02:00",
     "type": "blog",
     "description": "Direktwerbung musst Du Dir nicht gefallen lassen. Dank der DSGVO kannst Du dagegen widersprechen. Unser Musterbrief hilft Dir dabei, diesen Anspruch geltend zu machen.",
     "featured_image": "musterbrief-dsgvo-werbewiderspruch",
@@ -41,7 +42,7 @@ Hier ist also unser Musterschreiben für den Werbewiderspruch nach Art. 21 Abs. 
 
 <p>ich lege hiermit Widerspruch gegen die Verarbeitung meiner personenbezogenen Daten für Direktwerbung gemäß Art. 21 Abs. 2 DSGVO ein. Der Widerspruch betrifft auch Profiling, soweit es mit Direktwerbung in Verbindung steht.</p>
 
-<p>Sollte ich eine Einwilligung zur Verarbeitung meiner Daten für Direktwerbung (bspw. nach Art. 6 Abs. 1 Buchstabe a oder Art. 9 Abs. 2 DSGVO) erteilt haben, widerrufe ich diese hiermit.</p>
+<p>Sollte ich eine Einwilligung zur Verarbeitung meiner Daten für Direktwerbung (bspw. nach Art. 6 Abs. 1 lit. a oder Art. 9 Abs. 2 DSGVO) erteilt haben, widerrufe ich diese hiermit.</p>
 
 <p>Meine Anfrage schließt explizit auch sämtliche weiteren Angebote und Unternehmen ein, für die Sie Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO sind.</p>
 
@@ -52,6 +53,8 @@ Hier ist also unser Musterschreiben für den Werbewiderspruch nach Art. 21 Abs. 
 
 <p>Sollten Sie meinem Antrag nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
 
+<p>Schon im Voraus vielen Dank für Ihre Mühe.</p>
+
 <p>Mit freundlichen Grüßen<br>
 <span class="blog-letter-fill-in">Dein Name</span></p>
 </div>
@@ -60,6 +63,7 @@ Um Dir Dein Leben einfacher zu machen, kannst Du das Schreiben auch herunterlade
 
 <a href="/downloads/musterschreiben-dsgvo-werbewiderspruch-datenanfragen.de.ott" class="button button-primary" style="margin-bottom: 10px;">Vorlage für LibreOffice oder OpenOffice (.ott) herunterladen</a><br>
 <a href="/downloads/musterschreiben-dsgvo-werbewiderspruch-datenanfragen.de.dotx" class="button button-secondary" style="margin-bottom: 10px;">Vorlage für Microsoft Word (.dotx) herunterladen</a><br>
+<a href="/downloads/musterschreiben-dsgvo-werbewiderspruch-datenanfragen.de.pdf" class="button button-secondary" style="margin-bottom: 10px;">PDF-Formular (.pdf) herunterladen</a><br>
 <a href="/downloads/musterschreiben-dsgvo-werbewiderspruch-datenanfragen.de.txt" class="button button-secondary">Textdokument (.txt) herunterladen</a>
 
 Du darfst die Vorlagen gerne verwenden wie immer Du möchtest. Wir stellen sie Dir unter einer [CC0-Lizenz](https://creativecommons.org/publicdomain/zero/1.0/) zur Verfügung. Die Vorlagen für LibreOffice und Word basieren auf [dieser LibreOffice-Vorlage](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
@@ -73,3 +77,11 @@ Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig
 ## Geht das nicht auch einfacher?
 
 Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen [Generator](/generator) entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
+
+---
+
+**Änderungen:**
+
+Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
+
+* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/3c31ea33425d8c53e27bebea98f7486bd6754be8#diff-0fbc22e0510c1148f28cd399109977fe): Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht.
