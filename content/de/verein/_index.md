@@ -6,7 +6,7 @@
 
 ## Wer wir sind
 
-Wir sind der Datenanfragen.de e.&thinsp;V., ein gemeinnütziger Verein, der die Webseite [Datenanfragen.de](https://www.datenanfragen.de) (sowie deren englische und französische Übersetzungen, [datarequests.org](https://www.datarequests.org) und [demandetesdonnees.fr](https://www.demandetesdonnees.fr)) betreibt. Wir haben es uns zur [Mission]({{< ref "verein/mission-statement" >}}) gemacht, Datenschutz und Schutz der Privatsphäre in Europa und darüber hinaus voranzutreiben. Wir wollen Dir helfen, Dein Grundrecht auf informationelle Selbstbestimmung auszuüben und setzen ein Beispiel, wie sich guter Datenschutz umsetzen lässt, ohne nervig zu sein. Warum? Weil wir glauben, dass Datenschutz der Standard sein sollte.
+Wir sind der Datenanfragen.de e.&thinsp;V., ein gemeinnütziger Verein, der die Webseite [Datenanfragen.de](https://www.datenanfragen.de) (sowie deren englische, französische und portugiesische Übersetzungen, [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr) und [pedidodedados.org](https://www.pedidodedados.org/)) betreibt. Wir haben es uns zur [Mission]({{< ref "verein/mission-statement" >}}) gemacht, Datenschutz und Schutz der Privatsphäre in Europa und darüber hinaus voranzutreiben. Wir wollen Dir helfen, Dein Grundrecht auf informationelle Selbstbestimmung auszuüben und setzen ein Beispiel, wie sich guter Datenschutz umsetzen lässt, ohne nervig zu sein. Warum? Weil wir glauben, dass Datenschutz der Standard sein sollte.
 
 ## Was wir tun
 

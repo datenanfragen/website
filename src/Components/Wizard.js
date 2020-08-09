@@ -285,7 +285,7 @@ class SelectedCompaniesList {
                 selected_companies.push(
                     <p>
                         <button
-                            className="button button-primary button-small icon-trash"
+                            className="button button-secondary button-small icon-trash"
                             onClick={() => {
                                 this.props.removeCallback(slug);
                             }}

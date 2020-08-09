@@ -8,7 +8,9 @@
 * In all translation files, under `i18n-widget`, add the new language if necessary.
 * In the deploy script `deploy.sh`, make sure to also copy the companies and SVAs for the new language.
 * Add the new language to the `languageFiles` for `preact-i18n` in `.eslintrc.js`.
+* Link the new domain in the banner in `webpack.common.js`.
 * In `content/` create a `*.[new lang].md` file for all pages that should be available in the new language.
+* Add the domain to `content/*/verein/_index.md`
 * Translate the 404 page.
 * Setup the necessary redirects in `_redirects`.
 * Add the domain in the Netlify control panel and set the appropriate DNS records.

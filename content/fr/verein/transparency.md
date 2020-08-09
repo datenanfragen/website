@@ -8,7 +8,7 @@
 
 Afin que vous puissiez nous faire confiance, nous nous sommes engagés à être aussi transparents que possible sur nos procédures, nos finances et nos décisions. C'est pourquoi nous avons adhéré à l'[Initiative pour une Société Civile Transparente](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), une initiative de la branche allemande de Transparency International, qui est autorisée à nous contrôler par échantillonnage. Ils garantissent le respect de notre promesse de gestion transparente. Sur cette page, nous avons résumé toutes les informations importantes que nous publions dans le cadre de cette initiative.
 
-Ces informations ont été mises à jour pour la dernière fois le 1<sup>er</sup> août 2019.
+Ces informations ont été mises à jour pour la dernière fois le 19 juin 2020.
 
 ## 1. Nom, siège social, adresse et date de création
 
@@ -47,8 +47,8 @@ Il n'y a pour le moment aucun conseiller au sein du comité directeur.
 
 ## 5. Rapports d'activité
 
+Voir [Rapport annuel 2019 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
 Voir [Rapport annuel 2018 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)
-Voir [Rapport annuel 2019 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)
 
 ## 6. Personnel
 
@@ -58,15 +58,16 @@ Nombre de bénévoles : 2
 
 ## 7. Sources de financement
 
+Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
 Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)
-Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)
 
+Actifs financiers fin 2019 : 87,90 €  
 Actifs financiers fin 2018 : 119,70 €
 
 ## 8. Utilisation des fonds
 
+Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
 Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)
-Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)
 
 ## 9. Relations d'affaires avec des tiers 
 
@@ -74,16 +75,45 @@ L'association n'entretient aucune relation d'affaires avec des tiers.
 
 ## 10. Noms des entités dont les dons représentent plus de 10 % du budget annuel
 
-Ces informations sont basées sur le [rapport annuel de 2019 (en allemand)](https://static.dacdn.de/docs/bericht-2019.pdf).
+### 2019
 
-### Personnes
+#### Personnes
 
- - Cotisation anonyme : 128 €
- - Cotisation anonyme : 42 €
- - Cotisation anonyme : 36 €
- - Don unique (anonyme) : 50 €
+- Cotisation anonyme : 128 €
+- Cotisation anonyme : 42 €
+- Cotisation anonyme : 36 €
 
-### Organisations
+<!-- Split the two lists. Without this comment they would end up as one list with stupidly large spacing in-between items. -->
+
+- Don unique (anonyme) : 50 €
+
+#### Organisations
 
 - Cotisation par ByteSchneiderei GmbH : 50 €
 - Cotisation par KlexHub UG (haftungsbeschränkt) : 32 €
+
+### 2018
+
+#### Personnes
+
+- Cotisation anonyme : 128 €
+- Cotisation anonyme : 50 €
+- Cotisation anonyme : 42 € 
+
+#### Organisations
+
+Aucune organisation n'a contribué à notre budget en 2018.
+
+---
+
+Les sections suivantes vont au-delà des dix informations requises par l'Initiative pour une Société Civile Transparente. Cependant, nous pensons qu'il est important d'être transparent sur ces points également.
+
+## 11. Conférences rémunérées
+
+Les membres de notre [comité directeur]({{< ref "verein/board" >}}) travaillent sur une base strictement volontaire et ne reçoivent aucune rémunération de l'association pour leur travail. Dans certains cas, cependant, les membres de l'association peuvent recevoir une compensation de la part d'organisations externes pour des conférences sur des sujets qui concernent l'association. Bien entendu, aucun fonds de l'association n'est utilisé pour de telles conférences rémunérées, elles relèvent de la responsabilité privée des membres respectifs.
+
+Le comité s'est engagé à documenter publiquement les conférences données sur cette page et pour lesquelles les membres du comité ont reçu une compensation de la part d'organisations externes.
+
+### 2020
+
+* En mars 2020, l'université Humboldt de Berlin a invité Benjamin Altpeter et Lorenz Sieben à donner un [séminaire sur Datenanfragen.de](https://www.datenanfragen.de/verein/event/hlci-berlin-2020/) (article en allemand) en tant que conférencier invité à la [HLCI](http://www.hlci.de/). L'université Humboldt a pris en charge les frais de déplacement en train et d'hébergement et leur a versé une indemnité de 250&nbsp;€ chacun. Benni et Lorenz ont volontairement décidé de donner la moitié de cette compensation à l'association.

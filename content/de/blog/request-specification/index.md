@@ -7,11 +7,13 @@
     "tags": [ "dsgvo", "Erwägungsgrund 63", "präzisieren", "präzisierung", "konkretisieren", "konkretisierung", "artikel 15", "Auskunftsantrag", "gdpr" ],
     "authors": [ "andreas_bampounis" ],
     "featured_image": "praezisierung-von-auskunftsanfragen",
-    "license": "cc-by-4.0",
+    "license": "cc-by-40",
     "notices": "Titelfoto angepasst nach: „[The files](https://unsplash.com/photos/Q9y3LRuuxmg)“ von [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 
 Gemäß Art. 15 DSGVO und konkreter dem Erwägungsgrund 63 S. 7[^1] darf der_die Verantwortliche von der betroffenen Person eine Präzisierung der Anfrage im Rahmen ihrer Ausübung des Auskunftsrechts verlangen. Um diese Aufforderung verlangen zu können, muss der_die Verantwortliche eine große Menge von Daten in Bezug auf die betroffene Person verarbeiten. 
+
+{{< img name="praezisierung-von-auskunftsanfragen" alt="Präzisierung von Auskunftsanfragen" >}}
 
 Zunächst ist es wichtig zu klären, ob die betroffene Person nach Verlangen des_der Verantwortlichen verpflichtet ist, eine Präzisierung vorzunehmen. Um diese Frage zu beantworten, muss zuerst eine Unterscheidung gemacht werden; Die Auskunftsanfrage an eine öffentliche Stelle einerseits und die im Rahmen der Privatwirtschaft.
 

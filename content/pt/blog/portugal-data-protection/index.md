@@ -9,7 +9,7 @@
     "featured_image": "direito-de-protecao-de-dados-portugal",
     "tags": ["rgpd" , "gdpr", "Lei Nr. 58/ 2019", "direito de proteção de dados português", "direito de proteção de dados em Portugal", "gdpr em Portugal", "rgpd Portugal", "proteção de dados Portugal", "gdpr Portugal"],
     "authors": [ "anikarini" ],
-    "license": "cc-by-4.0",
+    "license": "cc-by-40",
     "notices": "Foto da capa adaptada para: “[Portugal Flag Wind](https://pixabay.com/photos/portugal-flag-wind-sky-blue-1355102/)” por [b1-foto](https://pixabay.com/users/b1-foto-2445766/) ([licença Pixabay](https://pixabay.com/service/license/))"
 }
 
