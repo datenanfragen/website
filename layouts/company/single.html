@@ -102,20 +102,33 @@
         {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "?type=new&for=cdb")) | safeHTML }}
     </div>
 
-    <!-- TODO: This is currently a very naive approach, mostly since we don't exactly have any data to do this better. We will want to improve this in the future. Oh yeah, and this feature seems to be very 'non-deterministic', at least under our parameters. Not sure if that is a good or a bad thing. -->
+    <!-- TODO: This is currently a very naive approach, mostly since we don't exactly have any data to do this better. We will want to improve this in the future. -->
     {{ if not .Site.Params.devMode }}
-    {{ $related := (where (.Site.RegularPages.Related .) "Type" "company") | first 5 }}
-    {{ with $related }}
-    <div id="related-companies">
-        <h2>{{ T "cdb-related-companies" }}</h2>
-        <!-- TODO: Nicer styling -->
-        <ul>
-            {{ range . }}
-            <li><a href="{{ .Permalink }}">{{ .Param "name" }}</a></li>
+        {{ $related_pages := slice }}
+
+        {{ $num_categories := (cond (isset .Params "categories") .Params.categories slice) | len }}
+        {{ $num_countries := (.Param "relevant-countries") | len }}
+
+        {{ range (where .Site.Pages "Section" "company") }}
+            {{ $num_common_categories := intersect $.Params.categories .Params.categories | len }}
+            {{ $num_common_countries := intersect ($.Param "relevant-countries") (.Param "relevant-countries") | len }}
+            {{ if and (gt $num_common_categories 0) (ne .Permalink $.Permalink) }}
+                {{ $score := add (div (float $num_common_categories) $num_categories) (div $num_common_countries $num_countries) }}
+                {{ $related_pages = $related_pages | append (dict "page" . "score" $score) }}
             {{ end }}
-        </ul>
-    </div>
-    {{ end }}
+        {{ end }}
+        {{ $related_pages = sort $related_pages "score" "desc" }}
+        {{ with $related_pages }}
+            <div id="related-companies">
+                <h2>{{ T "cdb-related-companies" }}</h2>
+                <!-- TODO: Nicer styling -->
+                <ul>
+                    {{ range (. | first 5) }}
+                        <li><a href="{{ .page.Permalink }}">{{ .page.Params.name }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+        {{ end }}
     {{ end }}
 
     <div id="comments-widget" data-rating-enabled="1" data-display-warning="1"></div>

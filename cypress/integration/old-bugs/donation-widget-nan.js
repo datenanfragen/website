@@ -43,4 +43,23 @@ describe('Donation widget amount', () => {
         testMethod('PayPal');
         testMethod('Other payments');
     });
+
+    it('Donation of negative values via bank transfer should not be allowed', () => {
+        cy.get('#donation-widget-amount')
+            .type('{selectall}5{leftarrow}-')
+            .trigger('input');
+
+        const testMethod = method => {
+            cy.contains(method).click();
+            cy.contains('To the next step').click();
+            cy.get('.flash-message.flash-error')
+                .contains('valid amount')
+                .parent()
+                .get('button.close-button')
+                .click();
+            // Make sure the flash has actually been closed before proceeding.
+            cy.get('.flash-message.flash-error').should('not.exist');
+        };
+        testMethod('Bank transfer');
+    });
 });

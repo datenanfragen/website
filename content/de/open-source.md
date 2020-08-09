@@ -103,6 +103,6 @@ Wir sind stolz, die folgenden Projekte für die Webseite verwenden zu dürfen. H
 
 Die vollständigen Lizenzinformationen für alle Projekte, die wir nutzen, findest Du [hier]({{< absURL "NOTICES.txt" >}}).
 
-<div class="box box-info">
+<div class="box box-info attribution-box">
     {{< attribution "von" >}}
 </div>

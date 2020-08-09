@@ -8,7 +8,7 @@
     "featured_image": "gdpr-access-request-letter",
     "tags": [ "gdpr", "access request", "letter", "sample", "article 15" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-1.0"
+    "license": "cc0-10"
 }
 
 According to the GDPR, you have a right to access the personal data stored and processed on you by companies and other organisations (so-called controllers).

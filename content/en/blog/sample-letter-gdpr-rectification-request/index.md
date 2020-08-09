@@ -8,7 +8,7 @@
     "featured_image": "gdpr-rectification-request-letter",
     "tags": [ "gdpr", "erasure request", "letter", "sample", "article 17" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-1.0"
+    "license": "cc0-10"
 }
 
 If a company or other organization (a so-called controller) has stored false (or incomplete) personal data on you, then under the General Data Protection Regulation (GDPRVO) you have a right to demand immediate correction of said incorrect data.

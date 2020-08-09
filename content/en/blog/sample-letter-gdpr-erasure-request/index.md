@@ -8,7 +8,7 @@
     "featured_image": "gdpr-erasure-request-letter",
     "tags": [ "gdpr", "erasure request", "letter", "sample", "article 17" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-1.0"
+    "license": "cc0-10"
 }
 
 If the personal data that companies or other organisations (so-called controllers) have stored on you is no longer necessary for its original purpose, you have a "right to be forgotten" according to the General Data Protection Regulation. This means that you can ask the controller to delete said data.

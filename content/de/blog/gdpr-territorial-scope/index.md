@@ -8,7 +8,7 @@
     "featured_image": "dsgvo-raeumlicher-anwendungsbereich",
     "tags": ["dsgvo", "räumlicher Anwendungsbereich", "gdpr", "artikel 3 dsgvo" ],
     "authors": [ "anikarini" ],
-    "license": "cc-by-4.0",
+    "license": "cc-by-40",
     "notices": "Titelfoto angepasst nach: „[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)“ von [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 

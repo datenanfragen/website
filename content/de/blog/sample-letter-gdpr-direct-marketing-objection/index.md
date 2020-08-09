@@ -10,7 +10,7 @@
     "featured_image": "musterbrief-dsgvo-werbewiderspruch",
     "tags": [ "dsgvo", "gdpr", "widerspruch direktwerbung", "brief", "schreiben", "muster", "artikel 21" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-1.0",
+    "license": "cc0-10",
     "notices": "Titelfoto angepasst nach: „[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)“ von [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 

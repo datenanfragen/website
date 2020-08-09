@@ -6,7 +6,7 @@
     "description": "Das zweite Jahr des Datenanfragen.de e. V. liegt hinter uns. In unserem Jahresbericht blicken wir zurück auf 2019 und geben einen Überblick über unsere Ziele für 2020.",
     "authors": [ "baltpeter", "zner0l" ],
     "featured_image": "jahresbericht-2019",
-    "license": "cc-by-4.0"
+    "license": "cc-by-40"
 }
 
 Das zweite Jahr des Datenanfragen.de e.&nbsp;V. liegt hinter uns. In diesem Jahr konnten wir vieles dazu gewinnen: neue Mitglieder, die unsere Arbeit unterstützen wollen, neue Mitwirkende, die kurz- und langfristig am Projekt mitarbeiten, Unterstützung für eine komplett neue Sprache und neue Stabilität im Betrieb der Webseite. Im letzten Jahr stand unser Projekt oft im Zeichen der Vereinfachung: leichterer Zugang für Menschen mit eingeschränker Sehfähigkeit, leichtere Bedienung des Generators (auch wenn hier noch viele Baustellen offen sind) und - was uns besonders freut - leichterer Zugang zur Mitarbeit am Projekt.

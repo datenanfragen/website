@@ -6,17 +6,6 @@ preserveTaxonomyNames = true
     name = "Datenanfragen.de e. V."
     email = "kontakt@datenanfragen.de"
 
-[related]
-    threshold = 100
-    includeNewer = true
-    toLower = true
-[[related.indices]]
-    name = "categories"
-    weight = 40
-[[related.indices]]
-    name = "relevant-countries"
-    weight = 40
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

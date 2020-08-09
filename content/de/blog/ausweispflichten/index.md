@@ -7,8 +7,10 @@
     "featured_image": "wie-ausweisen",
     "notices": "Titelfoto angepasst nach: „[passport document germany federal republic of](https://pixabay.com/photos/passport-document-germany-249420/)“ von [noelsch](https://pixabay.com/users/noelsch-136390/) ([Pixabay-Lizenz](https://pixabay.com/service/license/))",
     "authors": [ "steffengrundke" ],
-    "license": "cc-by-4.0"
+    "license": "cc-by-40"
 }
+
+{{< img name="wie-ausweisen" alt="Wie muss ich mich ausweisen?" >}}
 
 Unternehmen versuchen immer wieder, unliebsame Datenschutzanfragen von Nutzer_innen abzuwehren. Dies geschieht häufig, indem die Unternehmen von den Nutzer_innen detaillierte Nachweise über ihre Identität verlangen. Teilweise fordern die Unternehmen sogar Ausweiskopien an. Solche Identitätsnachweise sind vor allem dann ein Problem, wenn man sich als Nutzer_in nicht mit dem richtigen Namen oder nur mit solchen Kontaktinformationen angemeldet hat, aus denen die Anbieter_in nicht ohne Weiteres auf die Person der Nutzer_in schließen kann. In diesen Fällen würde die Anbieter_in durch den Identitätsnachweis weitere persönliche Daten erhalten. Auf der anderen Seite haben die Unternehmen jedoch ein Interesse daran, die Daten nur an die betreffenden Nutzer_innen herauszugeben, um sich nicht selbst eines Datenschutzverstoßes schuldig zu machen.
 
@@ -22,4 +24,4 @@ Ausweiskopien sind hauptsächlich in den Fällen erforderlich, in denen die Nutz
 
 [^1]: Jahresbericht des Berliner Datenschutzbeauftragten, S. 132, https://www.datenschutz-berlin.de/fileadmin/user_upload/pdf/publikationen/jahresbericht/BlnBDI-Jahresbericht-2017-Web.pdf  
 [^2]: Personalausweis und Datenschutz, LfDI NRW, https://www.ldi.nrw.de/mainmenu_Aktuelles/Inhalt/Personalausweis-und-Datenschutz/Datenschutz-und-Personalausweis-2019_07.pdf  
-[^3]: Beifügung einer Personalausweiskopie bei Auskunftsrechten, Bundesdatenschutzbeauftragter, https://www.bfdi.bund.de/SharedDocs/Publikationen/AusweiskopieAuskunftsersuchen.html
+[^3]: Beifügung einer Personalausweiskopie bei Auskunftsrechten, Bundesdatenschutzbeauftragter (archiviert), https://web.archive.org/web/20200314022901/https://www.bfdi.bund.de/SharedDocs/Publikationen/AusweiskopieAuskunftsersuchen.html

@@ -12,7 +12,7 @@ Vielen Dank, dass Du Dich über die Möglichkeiten zum Mitmachen informierst!
 <article id="cdb" class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/company.svg" alt="Wartung der Unternehmensdatenbank"></div>
     <div class="padded col75">
-        <h1>Wartung der Unternehmensdatenbank</h1>
+        <h1>Wartung der Un&shy;ter&shy;neh&shy;mens&shy;da&shy;ten&shy;bank</h1>
         <p>Ein zentrales Element von Datenanfragen.de ist unsere <a href="/company">Unternehmensdatenbank</a>. Hier finden sich die Kontaktdaten von zahlreichen Unternehmen und sonstigen Organisationen für Fragen zum Datenschutz.</p>
         <p>So eine Datenbank erfordert natürlich auch eine Menge Wartung, bei der wir Deine Hilfe gebrauchen können! Wenn Du ein Unternehmen entdeckst, das noch nicht vorhanden ist, kannst Du es über den Knopf unten einfach selbst eintragen.
         <br>Bei einem bereits vorhandenen Unternehmen stimmt etwas nicht mehr oder eine Information fehlt? Auf der Detailseite jedes Unternehmens findest Du oben den Button „Änderung vorschlagen“, über den Du die entsprechenden Daten bearbeiten kannst.</p>
