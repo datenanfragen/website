@@ -44,7 +44,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
 
         componentDidMount() {
             let options = {
-                query_by: this.props.query_by || 'name, runs, categories, web, slug, address, comments',
+                query_by: this.props.query_by || 'name, runs, web, slug, address, comments',
                 sort_by: 'sort-index:asc',
                 num_typos: 4,
                 per_page: this.props.numberOfHits || 5
@@ -86,7 +86,6 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
 
                                 let name_hs = suggestion.highlights.filter(a => a.field === 'name');
                                 let runs_hs = suggestion.highlights.filter(a => a.field === 'runs');
-                                let cats_hs = suggestion.highlights.filter(a => a.field === 'categories');
 
                                 return (
                                     '<span><strong>' +
@@ -101,9 +100,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                     (d.categories?.length
                                         ? '<br><span>' +
                                           t('categories', 'search') +
-                                          (cats_hs.length === 1 ? cats_hs[0].snippets : d.categories)
-                                              .map(c => t(c, 'categories'))
-                                              .join(', ') +
+                                          d.categories.map(c => t(c, 'categories')).join(', ') +
                                           '</span>'
                                         : '')
                                 );
