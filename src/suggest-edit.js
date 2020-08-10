@@ -12,7 +12,7 @@ let schema;
 const SUBMIT_URL =
     process.env.NODE_ENV === 'development'
         ? 'https://datenanfragen-test.free.beeceptor.com/suggest'
-        : 'https://z374s4qgtc.execute-api.eu-central-1.amazonaws.com/prod/suggest';
+        : 'https://backend.datenanfragen.de/suggest';
 
 window.onload = () => {
     const SCHEMA_URL = BASE_URL + 'schema.json';
@@ -183,7 +183,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
     );
 
     fetch(SUBMIT_URL, {
-        method: 'POST',
+        method: 'PUT',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
         body
     })

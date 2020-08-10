@@ -8,7 +8,7 @@ import { rethrow } from '../Utility/errors';
 const API_URL =
     process.env.NODE_ENV === 'development'
         ? 'https://datenanfragen-test.free.beeceptor.com/comments'
-        : 'https://comments.datenanfragen.de';
+        : 'https://backend.datenanfragen.de/comments';
 const TARGET = LOCALE + '/' + document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '');
 
 export default class CommentsWidget extends preact.Component {
@@ -105,7 +105,9 @@ export class Comment extends preact.Component {
             let match;
 
             while (
-                (match = remaining.match(/<(?<tag>bold|italic|link)(?: url="(?<url>https?:\/\/.+?)")?>(?<content>.+?)<\/\1>/))
+                (match = remaining.match(
+                    /<(?<tag>bold|italic|link)(?: url="(?<url>https?:\/\/.+?)")?>(?<content>.+?)<\/\1>/
+                ))
             ) {
                 // TODO: Get rid of all those stupid <span>s once we have <Fragment>s.
                 chunks.push(<span>{remaining.slice(0, match.index)}</span>);
