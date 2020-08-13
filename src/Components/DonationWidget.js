@@ -8,11 +8,9 @@ import Radio from './Radio';
 import { clientPost } from '../Utility/browser';
 import LoadingIndicator from './LoadingIndicator';
 
-const SERVERLESS_DONATIONS_API = 'https://donate.datenanfragen.de';
+const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];
-// const PAYMENT_METHODS = [ 'bank-transfer', 'paysafecard', 'directdebit', 'creditcard', 'paypal', 'cryptocurrency', 'mollie' ];
 const PAYMENT_METHODS = ['bank-transfer', 'creditcard', 'cryptocurrency', 'paypal', 'mollie'];
-const MOLLIE_METHODS = ['sofort', 'giropay', 'eps', 'bancontact', 'ideal', 'kbc', 'belfius', 'inghomepay'];
 
 export default class DonationWidget extends preact.Component {
     epcr_canvas_ref = undefined;
@@ -33,33 +31,31 @@ export default class DonationWidget extends preact.Component {
     componentDidMount() {
         const donation_reference = PARAMETERS['donation_reference'];
         if (!donation_reference) return;
-        fetch(`${SERVERLESS_DONATIONS_API}/state/${donation_reference}`)
-            .then(response => response.json())
+        fetch(`${DONATIONS_API}/state/${donation_reference}`)
             .then(response => {
-                if (!response || !response.status)
+                if (response.ok) {
+                    return response.json();
+                } else if (response.status === 404) {
+                    flash(<FlashMessage type="warning">{t('no-mollie-id', 'donation-widget')}</FlashMessage>);
+                    return;
+                } else {
                     throw new CriticalException(
-                        'Malformed response body when trying to fetch donation status.',
+                        'Server error while fetching donation status.',
                         { donation_reference, response },
-                        t('error-donation-status-malformed-response', 'donation-widget')
+                        t('error-donation-server', 'donation-widget')
                     );
-
-                switch (response.status) {
+                }
+            })
+            .then(json => {
+                switch (json?.status) {
                     case 'paid':
-                        window.location = `${BASE_URL}thanks?donation_reference=${response.reference}`;
+                        window.location = `${BASE_URL}thanks?donation_reference=${json.reference}`;
                         break;
                     case 'failed':
-                        flash(
-                            <FlashMessage type="error">
-                                <Text id="donation-failed" />
-                            </FlashMessage>
-                        );
+                        flash(<FlashMessage type="error">{t('donation-failed', 'donation-widget')}</FlashMessage>);
                         break;
                     case 'expired':
-                        flash(
-                            <FlashMessage type="warning">
-                                <Text id="donation-expired" />
-                            </FlashMessage>
-                        );
+                        flash(<FlashMessage type="warning">{t('donation-expired', 'donation-widget')}</FlashMessage>);
                         break;
                 }
             })
@@ -277,113 +273,92 @@ export default class DonationWidget extends preact.Component {
 
         this.setState({ donation_reference: almostUniqueId() });
 
-        const payment_method = this.state.payment_method === 'mollie' ? MOLLIE_METHODS : this.state.payment_method;
-
-        if (payment_method === 'bank-transfer') {
-            if (this.state.amount <= 0) {
-                flash(<FlashMessage type="error">{t('error-amount-invalid', 'donation-widget')}</FlashMessage>);
-                return;
-            }
-
-            this.setState({ step: 'bank-transfer-info' });
-
-            import(/* webpackChunkName: "bank-transfer-codes" */ '../Utility/bank-transfer-codes').then(module => {
-                module.renderEpcrQr(this.epcr_canvas_ref, this.state.amount, this.state.donation_reference);
-                module.renderBezahlcodeQr(this.bezahlcode_canvas_ref, this.state.amount, this.state.donation_reference);
-            });
-
+        if (this.state.amount <= 0) {
+            flash(<FlashMessage type="error">{t('error-amount-invalid', 'donation-widget')}</FlashMessage>);
             return;
         }
-
         // We only allow donations less than 1€ by bank transfer. With the other gateways they just don't make any sense
         // due to the high fees. The CoinGate API actually fails for payments of less than 10ct.
-        if (this.state.amount < 1) {
+        else if (this.state.payment_method !== 'bank-transfer' && this.state.amount < 1) {
             flash(<FlashMessage type="error">{t('error-amount-too-little', 'donation-widget')}</FlashMessage>);
             return;
         }
 
-        if (payment_method === 'paypal') {
-            this.setState({ ongoing_request: true });
-            // Reference for the parameters:
-            // https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/Appx-websitestandard-htmlvariables/
-            clientPost(
-                'https://www.paypal.com/cgi-bin/webscr',
-                {
-                    cmd: '_donations',
-                    amount: Number(this.state.amount).toFixed(2),
-                    item_name: t('reference-value', 'donation-widget', { reference: this.state.donation_reference }),
-                    currency_code: 'EUR',
-                    business: 'paypal@datenanfragen.de',
-                    image_url: 'https://www.datenanfragen.de/img/logo-datenanfragen-ev.png',
-                    no_shipping: 1,
-                    return: `${BASE_URL}thanks?donation_reference=${this.state.donation_reference}`,
-                    cancel_return: `${BASE_URL}donate`,
-                    custom: this.state.donation_reference
-                },
-                '_top'
-            );
-            return;
-        }
+        switch (this.state.payment_method) {
+            case 'bank-transfer':
+                this.setState({ step: 'bank-transfer-info' });
 
-        function postRequest(url, data) {
-            return fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
-                },
-                body: JSON.stringify(data)
-            }).then(response => response.json());
-        }
-
-        let serverless_request_data = {};
-        if (['mollie', 'creditcard', 'directdebit', 'paysafecard'].includes(this.state.payment_method)) {
-            serverless_request_data = {
-                payment_provider: 'mollie',
-                data: {
-                    amount: {
-                        value: Number(this.state.amount).toFixed(2),
-                        currency: 'EUR'
-                    },
-                    description: t('reference-value', 'donation-widget', { reference: this.state.donation_reference }),
-                    redirectUrl: `${BASE_URL}donate?donation_reference=${this.state.donation_reference}`,
-                    method: payment_method,
-                    metadata: {
-                        donation_reference: this.state.donation_reference
-                    }
-                }
-            };
-        } else if (payment_method === 'cryptocurrency') {
-            serverless_request_data = {
-                payment_provider: 'coingate',
-                data: {
-                    price_amount: Number(this.state.amount).toFixed(2),
-                    price_currency: 'EUR',
-                    receive_currency: 'EUR',
-                    title: t('reference-value', 'donation-widget', { reference: this.state.donation_reference }),
-                    success_url: `${BASE_URL}donate?donation_reference=${this.state.donation_reference}`,
-                    cancel_url: `${BASE_URL}donate`,
-                    order_id: this.state.donation_reference
-                }
-            };
-        }
-
-        this.setState({ ongoing_request: true });
-        postRequest(SERVERLESS_DONATIONS_API, serverless_request_data)
-            .then(data => {
-                if (data?.auth_url) window.location = data.auth_url;
-                else {
-                    throw new CriticalException(
-                        'Malformed response body when trying to get payment provider auth URL.',
-                        {
-                            donation_reference: this.state.donation_reference,
-                            request: serverless_request_data,
-                            response: data
-                        },
-                        t('error-auth-url-malformed-response', 'donation-widget')
+                import(/* webpackChunkName: "bank-transfer-codes" */ '../Utility/bank-transfer-codes').then(module => {
+                    module.renderEpcrQr(this.epcr_canvas_ref, this.state.amount, this.state.donation_reference);
+                    module.renderBezahlcodeQr(
+                        this.bezahlcode_canvas_ref,
+                        this.state.amount,
+                        this.state.donation_reference
                     );
-                }
-            })
-            .catch(e => rethrow(e));
+                });
+                break;
+            case 'paypal':
+                this.setState({ ongoing_request: true });
+                // Reference for the parameters:
+                // https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/Appx-websitestandard-htmlvariables/
+                clientPost(
+                    'https://www.paypal.com/cgi-bin/webscr',
+                    {
+                        cmd: '_donations',
+                        amount: Number(this.state.amount).toFixed(2),
+                        item_name: t('reference-value', 'donation-widget', {
+                            reference: this.state.donation_reference
+                        }),
+                        currency_code: 'EUR',
+                        business: 'paypal@datenanfragen.de',
+                        image_url: 'https://www.datenanfragen.de/img/logo-datenanfragen-ev.png',
+                        no_shipping: 1,
+                        return: `${BASE_URL}thanks?donation_reference=${this.state.donation_reference}`,
+                        cancel_return: `${BASE_URL}donate`,
+                        custom: this.state.donation_reference
+                    },
+                    '_top'
+                );
+                break;
+            case 'mollie':
+            case 'creditcard':
+            case 'cryptocurrency':
+            default:
+                // eslint-disable-next-line no-case-declarations
+                let donation = {
+                    method: this.state.payment_method,
+                    amount: Number(this.state.amount).toFixed(2),
+                    description: t('reference-value', 'donation-widget', { reference: this.state.donation_reference }),
+                    reference: this.state.donation_reference,
+                    redirect_base: BASE_URL
+                };
+                this.setState({ ongoing_request: true });
+                console.log(donation);
+                fetch(DONATIONS_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                    },
+                    body: JSON.stringify(donation)
+                })
+                    .then(r => r.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data?.redirect_url) window.location = data.redirect_url;
+                        else {
+                            throw new CriticalException(
+                                'Malformed response body when trying to get payment provider auth URL.',
+                                {
+                                    donation_reference: this.state.donation_reference,
+                                    request: donation,
+                                    response: data
+                                },
+                                t('error-auth-url-malformed-response', 'donation-widget')
+                            );
+                        }
+                    })
+                    .catch(e => rethrow(e));
+        }
     };
 
     render() {
