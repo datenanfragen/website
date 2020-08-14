@@ -178,6 +178,7 @@ $RECYCLE.BIN/
 
 # Cypress
 cypress/videos/
+cypress/screenshots/
 
 static/NOTICES.txt
 NOTICES

@@ -3,15 +3,14 @@ version: 2.1
 executors:
   docker_hugo_node:
     docker:
-      - image: node:10-alpine
+      - image: node:13.14-alpine
 
 jobs:
   build:
     executor: docker_hugo_node
     environment:
-        - HUGO_VERSION: '0.58.3'
-        - HUGO_BINARY: hugo_0.58.3_linux-64bit
-        - GLIBC_VERSION: 2.28-r0
+        - HUGO_VERSION: '0.74.3'
+        - HUGO_BINARY: hugo_0.74.3_linux-64bit
     steps:
       - run:
           command: |
@@ -43,10 +42,10 @@ jobs:
 
   test:
       docker:
-        - image: cypress/base:10
+        - image: cypress/base:13.8.0
       environment:
-        - HUGO_VERSION: '0.60.1'
-        - HUGO_BINARY: hugo_0.60.1_linux-64bit
+        - HUGO_VERSION: '0.74.3'
+        - HUGO_BINARY: hugo_0.74.3_linux-64bit
       steps:
         - run:
             command: |

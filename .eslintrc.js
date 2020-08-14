@@ -7,7 +7,7 @@ module.exports = {
         es6: true,
         amd: true,
         worker: true,
-        node: true
+        node: true,
     },
     extends: [
         'eslint:recommended',
@@ -15,18 +15,14 @@ module.exports = {
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:jsx-a11y/recommended',
-        'plugin:cypress/recommended'
+        'plugin:cypress/recommended',
     ],
-    globals: {
-        Atomics: 'readonly',
-        SharedArrayBuffer: 'readonly'
-    },
     parserOptions: {
         ecmaFeatures: {
-            jsx: true
+            jsx: true,
         },
         ecmaVersion: 2018,
-        sourceType: 'module'
+        sourceType: 'module',
     },
     plugins: ['react', 'preact-i18n', 'import', 'babel', 'html', 'optimize-regex', 'json', 'jsx-a11y'],
     rules: {
@@ -42,16 +38,18 @@ module.exports = {
             {
                 allowArrowFunctions: true,
                 allowBind: false,
-                ignoreRefs: true
-            }
+                ignoreRefs: true,
+            },
         ],
         'react/react-in-jsx-scope': 'off',
         'react/jsx-key': 'off',
         'react/no-unknown-property': ['error', { ignore: ['for'] }],
 
-        'optimize-regex/optimize-regex': 'warn'
+        'optimize-regex/optimize-regex': 'warn',
     },
     globals: {
+        Atomics: 'readonly',
+        SharedArrayBuffer: 'readonly',
         // defined in `layouts/partials/scripts.html`
         globals: 'readonly',
         BASE_URL: 'readonly',
@@ -65,33 +63,33 @@ module.exports = {
         I18N_DEFINITION_REQUESTS: 'readonly',
 
         // defined in `webpack.common.js`
-        CODE_VERSION: 'readonly'
+        CODE_VERSION: 'readonly',
     },
     settings: {
         react: {
             pragma: 'h',
-            version: 'latest'
+            version: 'latest',
         },
         'preact-i18n': {
             languageFiles: [
                 {
                     name: 'en',
-                    path: 'src/i18n/en.json'
+                    path: 'src/i18n/en.json',
                 },
                 {
                     name: 'de',
-                    path: 'src/i18n/de.json'
+                    path: 'src/i18n/de.json',
                 },
                 {
                     name: 'fr',
-                    path: 'src/i18n/fr.json'
+                    path: 'src/i18n/fr.json',
                 },
                 {
                     name: 'pt',
-                    path: 'src/i18n/pt.json'
-                }
-            ]
+                    path: 'src/i18n/pt.json',
+                },
+            ],
         },
-        'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } }
-    }
+        'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } },
+    },
 };
