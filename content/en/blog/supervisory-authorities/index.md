@@ -25,7 +25,6 @@ If the authority determines a misconduct of the controller, it will first instru
 For you as a consumer, the supervisory authorities primarily offer straightforward help if you want to defend yourself against a company or other organisation that incorrectly processes your data. If you believe that a data controller is violating your privacy rights, you can contact the supervisory authorities at any time and ask them to address your concerns.  
 This is much easier for you than the alternative of taking legal action against the controller. The work of the authority is even free for you (see Art. 57(3) GDPR).
 
-<a id="one-stop-shop"></a>
 ## The One Stop Shop principle and the competence of the supervisory authorities
 
 Before the introduction of the GDPR, there were some uncertainties as to which supervisory authority would be responsible in a particular case. This problem is solved with the GDPR.
@@ -37,7 +36,6 @@ Art. 77(1) GDPR now specifies, however, that a data subject can also contact the
 
 It should be noted that this principle only regulates which authority you contact. The supervisory authority in your country will then get in touch with the one in the controller’s country and ask them to deal with your case. The contact point for you, however, will always remain the authority in your country, so you do not have to worry about filing complaints against companies from other countries.
 
-<a id="finder"></a>
 ## Which supervisory authority should I contact?
 
 <img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;">
