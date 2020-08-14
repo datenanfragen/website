@@ -24,7 +24,7 @@ export default class DonationWidget extends preact.Component {
             payment_method: 'bank-transfer',
             ongoing_request: false,
             step: 'select-params',
-            donation_reference: undefined
+            donation_reference: undefined,
         };
     }
 
@@ -32,7 +32,7 @@ export default class DonationWidget extends preact.Component {
         const donation_reference = PARAMETERS['donation_reference'];
         if (!donation_reference) return;
         fetch(`${DONATIONS_API}/state/${donation_reference}`)
-            .then(response => {
+            .then((response) => {
                 if (response.ok) {
                     return response.json();
                 } else if (response.status === 404) {
@@ -46,7 +46,7 @@ export default class DonationWidget extends preact.Component {
                     );
                 }
             })
-            .then(json => {
+            .then((json) => {
                 switch (json?.status) {
                     case 'paid':
                         window.location = `${BASE_URL}thanks?donation_reference=${json.reference}`;
@@ -59,7 +59,7 @@ export default class DonationWidget extends preact.Component {
                         break;
                 }
             })
-            .catch(e => rethrow(e));
+            .catch((e) => rethrow(e));
     }
 
     donationForm() {
@@ -81,16 +81,16 @@ export default class DonationWidget extends preact.Component {
                                 className="form-element"
                                 style="text-align: right;"
                                 value={this.state.amount}
-                                onInput={e => this.setState({ amount: Number.parseFloat(e.target.value) || 0 })}
+                                onInput={(e) => this.setState({ amount: Number.parseFloat(e.target.value) || 0 })}
                             />
                             <div className="input-addon">€</div>
                         </div>
 
                         <div id="donation-widget-amount-buttons">
-                            {SUGGESTED_AMOUNTS.map(amount => (
+                            {SUGGESTED_AMOUNTS.map((amount) => (
                                 <button
                                     className={'button' + (this.state.amount === amount ? ' button-primary' : '')}
-                                    onClick={e => {
+                                    onClick={(e) => {
                                         e.preventDefault();
                                         this.setState({ amount: amount });
                                     }}>
@@ -111,13 +111,13 @@ export default class DonationWidget extends preact.Component {
                     </h2>
                     <div className="col60 donation-widget-main-column">
                         <div id="donation-widget-payment-method-buttons" className="radio-group radio-group-vertical">
-                            {PAYMENT_METHODS.map(payment_method => (
+                            {PAYMENT_METHODS.map((payment_method) => (
                                 <Radio
                                     id={'payment-method-choice-' + payment_method}
                                     radio_variable={this.state.payment_method}
                                     value={payment_method}
                                     name="payment_method"
-                                    onChange={e => {
+                                    onChange={(e) => {
                                         this.setState({ payment_method: e.target.value });
                                     }}
                                     label={<Text id={payment_method} />}
@@ -198,11 +198,11 @@ export default class DonationWidget extends preact.Component {
                 <div id="bank-transfer-qrcodes">
                     <div id="bank-transfer-epcr-qrcode" className="bank-transfer-qrcode">
                         <strong>EPCR-QR-CODE</strong>
-                        <canvas id="epcr-qr-canvas" ref={el => (this.epcr_canvas_ref = el)} />
+                        <canvas id="epcr-qr-canvas" ref={(el) => (this.epcr_canvas_ref = el)} />
                     </div>
                     <div id="bank-transfer-bezahlcode-qrcode" className="bank-transfer-qrcode">
                         <strong>BezahlCode</strong>
-                        <canvas id="bezahlcode-qr-canvas" ref={el => (this.bezahlcode_canvas_ref = el)} />
+                        <canvas id="bezahlcode-qr-canvas" ref={(el) => (this.bezahlcode_canvas_ref = el)} />
                     </div>
                     <div className="clearfix"></div>
                 </div>
@@ -247,7 +247,7 @@ export default class DonationWidget extends preact.Component {
         print_window.document.write(style + content.innerHTML);
 
         // innerHTML doesn't keep the canvas content, we need to manually restore that here.
-        import(/* webpackChunkName: "bank-transfer-codes" */ '../Utility/bank-transfer-codes').then(module => {
+        import(/* webpackChunkName: "bank-transfer-codes" */ '../Utility/bank-transfer-codes').then((module) => {
             module.renderEpcrQr(
                 print_window.document.getElementById('epcr-qr-canvas'),
                 amount,
@@ -267,7 +267,7 @@ export default class DonationWidget extends preact.Component {
         print_window.close();
     }
 
-    handlePayment = e => {
+    handlePayment = (e) => {
         e.preventDefault();
         if (this.state.ongoing_request) return;
 
@@ -288,14 +288,16 @@ export default class DonationWidget extends preact.Component {
             case 'bank-transfer':
                 this.setState({ step: 'bank-transfer-info' });
 
-                import(/* webpackChunkName: "bank-transfer-codes" */ '../Utility/bank-transfer-codes').then(module => {
-                    module.renderEpcrQr(this.epcr_canvas_ref, this.state.amount, this.state.donation_reference);
-                    module.renderBezahlcodeQr(
-                        this.bezahlcode_canvas_ref,
-                        this.state.amount,
-                        this.state.donation_reference
-                    );
-                });
+                import(/* webpackChunkName: "bank-transfer-codes" */ '../Utility/bank-transfer-codes').then(
+                    (module) => {
+                        module.renderEpcrQr(this.epcr_canvas_ref, this.state.amount, this.state.donation_reference);
+                        module.renderBezahlcodeQr(
+                            this.bezahlcode_canvas_ref,
+                            this.state.amount,
+                            this.state.donation_reference
+                        );
+                    }
+                );
                 break;
             case 'paypal':
                 this.setState({ ongoing_request: true });
@@ -307,7 +309,7 @@ export default class DonationWidget extends preact.Component {
                         cmd: '_donations',
                         amount: Number(this.state.amount).toFixed(2),
                         item_name: t('reference-value', 'donation-widget', {
-                            reference: this.state.donation_reference
+                            reference: this.state.donation_reference,
                         }),
                         currency_code: 'EUR',
                         business: 'paypal@datenanfragen.de',
@@ -315,7 +317,7 @@ export default class DonationWidget extends preact.Component {
                         no_shipping: 1,
                         return: `${BASE_URL}thanks?donation_reference=${this.state.donation_reference}`,
                         cancel_return: `${BASE_URL}donate`,
-                        custom: this.state.donation_reference
+                        custom: this.state.donation_reference,
                     },
                     '_top'
                 );
@@ -323,27 +325,24 @@ export default class DonationWidget extends preact.Component {
             case 'mollie':
             case 'creditcard':
             case 'cryptocurrency':
-            default:
-                // eslint-disable-next-line no-case-declarations
-                let donation = {
+            default: {
+                const donation = {
                     method: this.state.payment_method,
                     amount: Number(this.state.amount).toFixed(2),
                     description: t('reference-value', 'donation-widget', { reference: this.state.donation_reference }),
                     reference: this.state.donation_reference,
-                    redirect_base: BASE_URL
+                    redirect_base: BASE_URL,
                 };
                 this.setState({ ongoing_request: true });
-                console.log(donation);
                 fetch(DONATIONS_API, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json; charset=utf-8'
+                        'Content-Type': 'application/json; charset=utf-8',
                     },
-                    body: JSON.stringify(donation)
+                    body: JSON.stringify(donation),
                 })
-                    .then(r => r.json())
-                    .then(data => {
-                        console.log(data);
+                    .then((r) => r.json())
+                    .then((data) => {
                         if (data?.redirect_url) window.location = data.redirect_url;
                         else {
                             throw new CriticalException(
@@ -351,13 +350,14 @@ export default class DonationWidget extends preact.Component {
                                 {
                                     donation_reference: this.state.donation_reference,
                                     request: donation,
-                                    response: data
+                                    response: data,
                                 },
                                 t('error-auth-url-malformed-response', 'donation-widget')
                             );
                         }
                     })
-                    .catch(e => rethrow(e));
+                    .catch((e) => rethrow(e));
+            }
         }
     };
 

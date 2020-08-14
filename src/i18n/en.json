@@ -622,7 +622,7 @@
         "error-amount-invalid": "Please enter a valid amount.",
         "donation-failed": "Payment failed. Please try again.",
         "donation-expired": "Payment expired. Please try again.",
-        "no-mollie-id": "The payment could not be found on the server. This is normal if you didn't pay via mollie.",
+        "no-mollie-id": "The payment could not be found on the server. This is normal if you didn't pay via Mollie.",
         "bank-transfer": "Bank transfer",
         "bank-transfer-info": "In the next step, we are going to show you our bank details so that you can transfer your donation.",
         "paysafecard": "paysafecard",

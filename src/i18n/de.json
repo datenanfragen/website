@@ -622,7 +622,7 @@
         "error-amount-invalid": "Bitte gib einen gültigen Betrag ein.",
         "donation-failed": "Zahlung fehlgeschlagen. Bitte versuche es erneut.",
         "donation-expired": "Zahlung abgelaufen. Bitte versuche es erneut.",
-        "no-mollie-id": "Die Zahlung wurde auf dem Server nicht gefunden. Das ist normal, wenn nicht über mollie gezahlt wurde.",
+        "no-mollie-id": "Die Zahlung wurde auf dem Server nicht gefunden. Das ist normal, wenn nicht über Mollie gezahlt wurde.",
         "bank-transfer": "Banküberweisung",
         "bank-transfer-info": "Im nächsten Schritt werden Dir unsere Bankdaten angezeigt, an die Du überweisen kannst.",
         "paysafecard": "paysafecard",
