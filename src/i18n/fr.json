@@ -832,6 +832,8 @@
         "mollie-info": "Notre partenaire Mollie offre également plusieurs autres méthodes de paiement, incluant Sofortüberweisung, giropay, iDEAL, EPS, CDC et Bancontact.",
         "paysafecard": "paysafecard",
         "error-amount-too-little": "Malheureusement, nous ne pouvons accepter les dons inférieurs à 1 € que par virement bancaire en raison des frais de transaction élevés. Veuillez choisir un montant supérieur ou sélectionner« virement bancaire » comme moyen de paiement.",
-        "error-amount-invalid": "Veuillez saisir un montant valide."
+        "error-amount-invalid": "Veuillez saisir un montant valide.",
+        "no-mollie-id": "Aucune correspondance pour ce paiement sur le serveur. C'est normal si vous n'avez pas payé via Mollie.",
+        "error-donation-server": "Erreur serveur lors de la récupération de l'état du don."
     }
 }
