@@ -1,22 +1,5 @@
-# Canonicalize URLs
-https://datenanfragen.de/*  https://www.datenanfragen.de/:splat 301!
-http://datenanfragen.de/*  https://www.datenanfragen.de/:splat 301!
-http://www.datenanfragen.de/*  https://www.datenanfragen.de/:splat 301!
-
-https://datarequests.org/*  https://www.datarequests.org/:splat 301!
-http://datarequests.org/*  https://www.datarequests.org/:splat 301!
-http://www.datarequests.org/*  https://www.datarequests.org/:splat 301!
-
-https://demandetesdonnees.fr/*  https://www.demandetesdonnees.fr/:splat 301!
-http://demandetesdonnees.fr/*  https://www.demandetesdonnees.fr/:splat 301!
-http://www.demandetesdonnees.fr/*  https://www.demandetesdonnees.fr/:splat 301!
-
-https://pedidodedados.org/*  https://www.pedidodedados.org/:splat 301!
-http://pedidodedados.org/*  https://www.pedidodedados.org/:splat 301!
-http://www.pedidodedados.org/*  https://www.pedidodedados.org/:splat 301!
-
-# Configure language rewrites
-https://www.datenanfragen.de/*  /de/:splat 200!
-https://www.datarequests.org/*  /en/:splat 200!
-https://www.demandetesdonnees.fr/*  /fr/:splat 200!
-https://www.pedidodedados.org/*  /pt/:splat 200!
+# Canonicalize URLs, Caddy automatically adds the slash with :splat, so they need to be omitted here.
+https://datenanfragen.de/*  https://www.datenanfragen.de:splat 301!
+https://datarequests.org/*  https://www.datarequests.org:splat 301!
+https://demandetesdonnees.fr/*  https://www.demandetesdonnees.fr:splat 301!
+https://pedidodedados.org/*  https://www.pedidodedados.org:splat 301!

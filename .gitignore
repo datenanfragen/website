@@ -208,3 +208,4 @@ static/*/*.gen.css
 *.tmp
 *.tmp.*
 tmp/
+.envrc

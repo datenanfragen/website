@@ -57,12 +57,17 @@ yarn run build
 
 if [ "$CONTEXT" = "production" ]
 then
-	hugo -e production --minify
-	echo "Copying files for Netlify…"
+    hugo -e production --minify
+    if [ -n "$DATTEL_SERVER" ] && [ -n "$DATTEL_TOKEN" ]
+    then
+        yarn deploy-dattel
+    fi
+    # TODO: This will soon not be necessary anymore.
+    echo "Copying files for Netlify…"
     cp _redirects public/_redirects
     cp _headers public/_headers
-	cp static/404.html public/404.html
+    cp static/404.html public/404.html
 else
-	hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
+    hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
     cp _headers public/_headers
 fi
