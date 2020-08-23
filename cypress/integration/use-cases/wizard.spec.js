@@ -7,7 +7,7 @@ describe('Using the wizard', () => {
 
         cy.get('.wizard-selected-list .button.icon-trash')
             .its('length')
-            .then(old_length => {
+            .then((old_length) => {
                 // Delete some of the suggested companies.
                 cy.get('.wizard-selected-list > :nth-child(1) > .button.icon-trash').click();
                 cy.get('.wizard-selected-list > :nth-child(3) > .button.icon-trash').click();
@@ -47,20 +47,18 @@ describe('Using the wizard', () => {
 
         cy.contains('Done adding companies').click();
 
-        cy.url()
-            .should('include', '/generator')
-            .should('include', '#!from=wizard');
+        cy.url().should('include', '/generator').should('include', '#!from=wizard');
 
         cy.get('.joyride-tooltip__close').click();
 
         cy.get('aside.company-info.box');
 
         cy.get('.dynamic-input.dynamic-input-name input[name=value]').type('Kim Mustermensch');
-        cy.get('.request-transport-medium-chooser')
-            .contains('Fax')
-            .click();
+        cy.get('.request-transport-medium-chooser').contains('Fax').click();
 
-        cy.contains('Download PDF')
+        // Now that the PDF worker is only loaded on demand, the default timeout of 4 seconds is cutting it fairly
+        // close.
+        cy.contains('Download PDF', { timeout: 10000 })
             .should('not.have.class', 'disabled')
             .clickLinkWithoutFollowingHref();
 

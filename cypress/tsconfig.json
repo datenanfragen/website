@@ -2,7 +2,7 @@
     "compilerOptions": {
         "allowJs": true,
         "baseUrl": "../node_modules",
-        "types": ["cypress", "@percy/cypress"]
+        "types": ["cypress", "@percy/cypress", "@cypress/skip-test"]
     },
     "include": ["**/*.*"]
 }
