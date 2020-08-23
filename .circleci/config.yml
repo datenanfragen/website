@@ -68,6 +68,21 @@ jobs:
               # https://stackoverflow.com/a/13864829
               if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn percy exec yarn cypress run --record; fi
 
+  production_test:
+      docker:
+        - image: cypress/base:13.8.0
+      environment:
+        - CYPRESS_baseUrl: 'https://www.datarequests.org'
+        - CYPRESS_ENVIRONMENT: production
+      steps:
+        - checkout
+
+        - run:
+            command: |
+              yarn
+              yarn cypress verify
+              yarn cypress run
+
 workflows:
   version: 2
   build_and_test:
@@ -76,3 +91,13 @@ workflows:
       - test:
           requires:
               - build
+  scheduled_production_test:
+      jobs:
+        - production_test
+      triggers:
+        - schedule:
+            cron: "* 7,12,17,22 * * *"
+            filters:
+              branches:
+                only:
+                  - master
