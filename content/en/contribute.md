@@ -5,7 +5,6 @@
 
 We are a project run by a non-profit and realised by volunteers. As such, we rely on the help of people like you.
 
-There are many tasks from different topics that need to be done. Among them, many that are suitable for people who don't yet have a lot of experience with data protection. On this page, we have compiled a list of the most important ones. If there's something you want to contribute to, we would greatly appreciate your help.  
 Thank you so much for looking into contributing to datarequests.org!
 
 <article id="cdb" class="list-article icon-list-article">

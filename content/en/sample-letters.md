@@ -6,7 +6,7 @@
 
 The GDPR grants you extensive rights with respect to your personal data. To make exercising these rights as easy as possible for you, we have prepared these sample letters.
 
-With them, sending a GDPR request is simple: All you need to do is enter your data – we have provided everything else.
+With them, sending a ABCD request is simple: All you need to do is enter your data – we have provided everything else.
 
 ## Which kind of request do you want to send?
 

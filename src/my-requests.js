@@ -12,13 +12,13 @@ export default class UserRequests {
         // TODO: Is there a better place for this?
         this.localforage_instance = localforage.createInstance({
             name: 'Datenanfragen.de',
-            storeName: 'my-requests'
+            storeName: 'my-requests',
         });
     }
 
     storeRequest(db_id, item) {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            this.localforage_instance.setItem(db_id, item).catch(error => {
+            this.localforage_instance.setItem(db_id, item).catch((error) => {
                 rethrow(error, 'Saving request failed.', { db_id: db_id });
             });
         }
@@ -38,7 +38,7 @@ export default class UserRequests {
                 .then(() => {
                     resolve(requests);
                 })
-                .catch(error => {
+                .catch((error) => {
                     rethrow(error, 'Could not get requests');
                     reject();
                 });
@@ -61,12 +61,12 @@ class RequestList extends preact.Component {
         this.state = {
             requests: [],
             sorted_request_ids: [],
-            selected_requests: []
+            selected_requests: [],
         };
 
         this.user_requests = new UserRequests();
-        this.user_requests.getRequests().then(requests => {
-            this.setState(prev => {
+        this.user_requests.getRequests().then((requests) => {
+            this.setState((prev) => {
                 prev.requests = requests;
                 let sorted_request_ids = Object.keys(requests).sort((a, b) => {
                     a = requests[a];
@@ -101,7 +101,7 @@ class RequestList extends preact.Component {
     }
 
     onCheckboxChange(e) {
-        this.setState(prev => {
+        this.setState((prev) => {
             if (e.target.checked) prev.selected_requests.push(e.target.dataset.dbId);
             else prev.selected_requests.splice(prev.selected_requests.indexOf(e.target.dataset.dbId), 1);
             return prev;
@@ -115,7 +115,7 @@ class RequestList extends preact.Component {
         const date_locale = locale_country === 'ALL' ? LOCALE : `${LOCALE}-${locale_country}`;
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             let request_rows = [];
-            this.state.sorted_request_ids.forEach(id => {
+            this.state.sorted_request_ids.forEach((id) => {
                 let request = this.state.requests[id];
                 if (!request) return;
                 let recipient = request.recipient.split('\n', 1)[0]; // TODO: Proper authority pages and links
@@ -132,7 +132,7 @@ class RequestList extends preact.Component {
                                 data-db-id={id}
                             />
                         </td>
-                        <td data-label={t('date', 'my-requests')}>{date}</td>
+                        <td data-label={'Date and time'}>{date}</td>
                         <td data-label={t('recipient', 'my-requests')}>
                             {request.slug ? (
                                 <a
@@ -168,7 +168,7 @@ class RequestList extends preact.Component {
                                           href={BASE_URL + 'generator/#!response_type=complaint&response_to=' + id}
                                           className="button button-small button-secondary">
                                           {t('complaint', 'generator')}
-                                      </a>
+                                      </a>,
                                   ]
                                 : []}
                             <button
@@ -227,7 +227,7 @@ class RequestList extends preact.Component {
                                     type="checkbox"
                                     className="form-element"
                                     title={t('toggle-all', 'my-requests')}
-                                    onChange={e => {
+                                    onChange={(e) => {
                                         let selected = [];
                                         if (this.state.selected_requests.length != this.state.sorted_request_ids.length)
                                             selected = this.state.sorted_request_ids.slice();
@@ -275,7 +275,7 @@ class RequestList extends preact.Component {
                         <button id="clear-button" className="button button-secondary" onClick={this.clearRequests}>
                             <Text id="delete-all-btn" />
                         </button>
-                    </div>
+                    </div>,
                 ];
             }
 
@@ -309,8 +309,8 @@ class RequestList extends preact.Component {
     buildCsv() {
         let csv = 'date;slug;recipient;email;reference;type;via\r\n';
         this.state.sorted_request_ids
-            .filter(a => this.state.selected_requests.includes(a))
-            .forEach(id => {
+            .filter((a) => this.state.selected_requests.includes(a))
+            .forEach((id) => {
                 let request = this.state.requests[id];
                 csv +=
                     [
@@ -320,7 +320,7 @@ class RequestList extends preact.Component {
                         request.email,
                         request.reference,
                         request.type,
-                        request.via
+                        request.via,
                     ].join(';') + '\r\n';
             });
 
@@ -328,11 +328,7 @@ class RequestList extends preact.Component {
     }
 
     buildIcs() {
-        let now =
-            new Date()
-                .toISOString()
-                .replace(/[-:]/g, '')
-                .substring(0, 15) + 'Z';
+        let now = new Date().toISOString().replace(/[-:]/g, '').substring(0, 15) + 'Z';
 
         let grouped_requests = this.state.selected_requests.reduce((accumulator, id) => {
             if (!accumulator[this.state.requests[id].date]) accumulator[this.state.requests[id].date] = [];
@@ -341,9 +337,9 @@ class RequestList extends preact.Component {
         }, {});
 
         let events = '';
-        Object.keys(grouped_requests).forEach(group => {
+        Object.keys(grouped_requests).forEach((group) => {
             let items = [];
-            grouped_requests[group].forEach(id => {
+            grouped_requests[group].forEach((id) => {
                 let request = this.state.requests[id];
                 items.push(
                     `* ${request.recipient.split('\n', 1)[0]} (${
@@ -361,10 +357,7 @@ class RequestList extends preact.Component {
 BEGIN:VEVENT
 UID:${hash(items.join(','))}@ics.datenanfragen.de
 DTSTAMP:${now}
-DTSTART:${reminder_date
-                .toISOString()
-                .replace(/-/g, '')
-                .substring(0, 8)}
+DTSTART:${reminder_date.toISOString().replace(/-/g, '').substring(0, 8)}
 SUMMARY:${t('ics-summary', 'my-requests')}
 DESCRIPTION:${t('ics-desc', 'my-requests').replace(/([,;])/g, '\\$1')}\\n\\n\n ${items
                 .join('\\n\n ')
@@ -394,7 +387,7 @@ END:VCALENDAR`;
                 .then(() => {
                     this.setState({ requests: [] });
                 })
-                .catch(error => {
+                .catch((error) => {
                     rethrow(error, 'Could not clear requests.');
                 });
         }
@@ -405,21 +398,21 @@ END:VCALENDAR`;
             this.user_requests
                 .removeRequest(request_id)
                 .then(() => {
-                    this.setState(prev => {
+                    this.setState((prev) => {
                         delete prev.requests[request_id];
-                        prev.sorted_request_ids = prev.sorted_request_ids.filter(id => id !== request_id);
-                        prev.selected_requests = prev.selected_requests.filter(id => id !== request_id);
+                        prev.sorted_request_ids = prev.sorted_request_ids.filter((id) => id !== request_id);
+                        prev.selected_requests = prev.selected_requests.filter((id) => id !== request_id);
 
                         return prev;
                     });
                 })
-                .catch(error => {
+                .catch((error) => {
                     rethrow(error, 'Could not remove request', { db_id: request_id });
                 });
         }
     }
 }
 
-window.renderMyRequestsWidget = function() {
+window.renderMyRequestsWidget = function () {
     preact.render(<RequestList />, null, document.getElementById('my-requests'));
 };
