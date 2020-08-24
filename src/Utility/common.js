@@ -1,4 +1,4 @@
-import variables from './../styles/exported-variables.scss';
+import variables from './../../assets/styles/exported-variables.scss';
 
 // Taken from: https://gist.github.com/mathewbyrne/1280286
 export function slugify(text) {
@@ -49,7 +49,7 @@ export function deepCopyObject(object) {
 // Adapted after: https://stackoverflow.com/a/15710692
 export function hash(s) {
     return window.btoa(
-        s.split('').reduce(function(a, b) {
+        s.split('').reduce(function (a, b) {
             a = (a << 5) - a + b.charCodeAt(0);
             return a & a;
         }, 0)
@@ -62,10 +62,7 @@ export function almostUniqueId(length = 9) {
         ('' + d.getUTCFullYear()).slice(-2) +
         ('0' + (d.getUTCMonth() + 1)).slice(-2) +
         ('0' + d.getUTCDate()).slice(-2) +
-        Math.random()
-            .toString(36)
-            .substr(2, length)
-            .toUpperCase()
+        Math.random().toString(36).substr(2, length).toUpperCase()
     );
 }
 

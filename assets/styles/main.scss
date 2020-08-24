@@ -864,7 +864,7 @@ footer {
 
 /* Tutorial */
 $joyride-color: $primary-color;
-@import '~react-joyride/lib/react-joyride';
+@import '../../node_modules/react-joyride/lib/react-joyride';
 button.joyride-tooltip__button {
     &:hover,
     &:focus {
