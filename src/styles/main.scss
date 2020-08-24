@@ -767,6 +767,11 @@ body.sticky-offset {
         }
     }
 
+    tr.invalid {
+        color: $error_color;
+        border: 2px solid $error-color;
+    }
+
     td {
         padding: 5px;
         vertical-align: top;

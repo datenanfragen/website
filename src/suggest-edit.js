@@ -11,27 +11,27 @@ let schema;
 // The requests to the dev endpoint can be viewed here: https://beeceptor.com/console/datenanfragen-test
 const SUBMIT_URL =
     process.env.NODE_ENV === 'development'
-        ? 'https://datenanfragen-test.free.beeceptor.com/suggest'
+        ? 'http://localhost:3000/suggest'
         : 'https://backend.datenanfragen.de/suggest';
 
 window.onload = () => {
     const SCHEMA_URL = BASE_URL + 'schema.json';
     fetch(SCHEMA_URL)
-        .then(res => res.json())
-        .then(out => {
+        .then((res) => res.json())
+        .then((out) => {
             prepareForm(out);
             schema = out;
         })
-        .catch(err => {
+        .catch((err) => {
             rethrow(ErrorException.fromError(err), 'Could not get `schema.json` for cdb suggestion form.', {
-                schema_url: SCHEMA_URL
+                schema_url: SCHEMA_URL,
             });
         });
 };
 
 function prepareForm(schema) {
     if (PARAMETERS['slug']) {
-        fetchCompanyDataBySlug(PARAMETERS['slug']).then(company => {
+        fetchCompanyDataBySlug(PARAMETERS['slug']).then((company) => {
             renderForm(schema, company);
         });
     } else renderForm(schema);
@@ -46,7 +46,7 @@ function renderForm(schema, company = undefined) {
         'custom-erasure-template',
         'custom-rectification-template',
         'custom-objection-template',
-        'request-language'
+        'request-language',
     ];
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
@@ -73,7 +73,7 @@ function renderForm(schema, company = undefined) {
             if (TO_HIDE.includes(SANITIZED_TEXT)) {
                 // We are currently in the scope of some promise or something like that. `setTimeout` brings us back to the scope of the content process.
                 setTimeout(
-                    el => {
+                    (el) => {
                         document.getElementById(el).parentElement.parentElement.remove();
                     },
                     0,
@@ -104,19 +104,21 @@ function renderForm(schema, company = undefined) {
                 }
                 element.className += ' button button-small button-secondary';
             } else if (tagName === 'label') {
-                element.onmouseover = ev => {
+                element.onmouseover = (ev) => {
                     let tooltip = document.createTextNode(ev.target.title);
                     let tip_container = document.createElement('div');
                     tip_container.className = 'label-tooltip';
                     tip_container.appendChild(tooltip);
                     ev.target.appendChild(tip_container);
                 };
-                element.onmouseout = ev => {
+                element.onmouseout = (ev) => {
                     ev.target.removeChild(ev.target.lastChild);
                 };
             } else if (tagName === 'td') {
                 if (element.className === 'item-action') element.style = 'padding-left: 0;';
                 if (element.className === 'item-value') element.style = 'padding-right: 0;';
+            } else if (tagName === 'tr') {
+                element.dataset.schema_id = schema['$id'];
             }
         }
     });
@@ -129,13 +131,19 @@ function renderForm(schema, company = undefined) {
 
 document.getElementById('submit-suggest-form').onclick = () => {
     let data = bf.getData();
+    /* eslint-disable-next-line no-unused-vars */
+    const preact = require('preact');
     if (!data) {
-        /* eslint-disable no-unused-vars */
-        let preact = require('preact');
-        /* eslint-enable no-unused-vars */
         flash(<FlashMessage type="warning">{t('no-input', 'suggest')}</FlashMessage>);
         return;
+    } else if (!data.name && !data.web) {
+        flash(<FlashMessage type="warning">{t('name-or-web-missing', 'suggest')}</FlashMessage>);
+        return;
     }
+
+    document.querySelectorAll('.invalid').forEach((el) => {
+        el.classList.remove('invalid');
+    });
 
     // Do some post-processing on the user-submitted data to make the review easier.
     if (!data.slug) {
@@ -177,7 +185,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
         {
             for: 'cdb',
             data: data,
-            new: !PARAMETERS['slug']
+            new: !PARAMETERS['slug'],
         },
         ['for', 'data'].concat(properties, ['new'])
     );
@@ -185,14 +193,35 @@ document.getElementById('submit-suggest-form').onclick = () => {
     fetch(SUBMIT_URL, {
         method: 'PUT',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body
+        body,
     })
-        .then(res => res.json())
-        .then(res => {
+        .then((res) => {
             document.getElementById('loading-indicator').classList.add('hidden');
-            displaySuccessModal(res);
+            res.json().then((json) => {
+                switch (res.status) {
+                    case 201:
+                    case 502:
+                        if (json.url) {
+                            displaySuccessModal(json);
+                            break;
+                        }
+                        flash(<FlashMessage type="error">{t('github-error', 'suggest')}</FlashMessage>);
+                        break;
+                    case 400:
+                        if (json.path) {
+                            document
+                                .querySelector(`tr[data-schema_id='${json.path.join('.').replace(/^data/, '$')}']`)
+                                ?.classList.add('invalid');
+                        }
+                        flash(<FlashMessage type="error">{t('invalid-request', 'suggest')}</FlashMessage>);
+                        break;
+                    default:
+                        flash(<FlashMessage type="error">{t('error', 'suggest')}</FlashMessage>);
+                        break;
+                }
+            });
         })
-        .catch(err => {
+        .catch((err) => {
             document.getElementById('loading-indicator').classList.add('hidden');
             rethrow(err, 'POSTing the suggestion failed.', { submit_url: SUBMIT_URL, body }, t('error', 'suggest'));
         });
@@ -216,7 +245,7 @@ function displaySuccessModal(data) {
         <Modal onDismiss={dismiss} positiveText={t('ok', 'suggest')} onPositiveFeedback={dismiss}>
             <p>{t('success', 'suggest')}</p>
             <p>
-                <a href={data.issue_url}>{t('view-on-github', 'suggest')}</a>
+                <a href={data.url}>{t('view-on-github', 'suggest')}</a>
             </p>
         </Modal>,
         document.body
