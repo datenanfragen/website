@@ -18,6 +18,8 @@
     const COUNTRIES_WITH_SUGGESTED_COMPANIES = ['de', 'gb'];
     const BASE_URL = {{ "/" | absURL }};
 </script>
+<script src="{{ "js/translations-requests.gen.js" | absURL }}"></script>
+<script src="{{ (printf "js/translations-%s.gen.js" .Site.Language.Lang) | absURL }}"></script>
 <script src="{{ "js/error-handler.gen.js" | absURL }}"></script>
 <script src="{{ "js/general.gen.js" | absURL }}"></script>
 
