@@ -1,5 +1,3 @@
-import variables from './../../assets/styles/exported-variables.scss';
-
 // Taken from: https://gist.github.com/mathewbyrne/1280286
 export function slugify(text) {
     if (!text) return '';
@@ -16,21 +14,6 @@ export function slugify(text) {
 
 export function fakeEvt(value) {
     return { target: { value } };
-}
-
-// Try to avoid using this where possible.
-export function colorVar(name) {
-    const color = variables[name];
-    if (color.startsWith('#')) return color;
-
-    // Taken from: https://gist.github.com/xpansive/1337890
-    const hsbToHsl = (h, s, b) => [h, (s * b) / ((h = (2 - s) * b) < 1 ? h : 2 - h), h / 2];
-
-    const [h, s, b] = color
-        .replace('hsb(', '')
-        .replace(/[\s%)]/g, '')
-        .split(',');
-    return `hsl(${hsbToHsl(h, s / 100, b / 100).join(',')})`;
 }
 
 // Adapted after: https://stackoverflow.com/a/8498629

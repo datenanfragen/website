@@ -131,6 +131,7 @@ textarea:placeholder-shown + label.fancy-label {
     canvas#signature {
         user-select: none;
         touch-action: none;
+        background-color: $bg-color;
     }
 }
 

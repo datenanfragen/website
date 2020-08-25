@@ -1,10 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
-const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
     entry: {
@@ -20,8 +16,6 @@ module.exports = {
         'sva-finder': './src/Components/SvaFinder.js',
         'act-widget': './src/Components/ActWidget.js',
         pdfworker: './src/Utility/PdfWorker.js',
-        //style: './src/styles/main.scss',
-        //loader: './src/styles/loader.scss',
         'test-interface': './src/test-interface.js',
     },
     output: {
@@ -30,19 +24,6 @@ module.exports = {
         publicPath: '/',
         path: path.resolve(__dirname, 'static'),
     },
-    optimization: {
-        minimizer: [new OptimizeCSSAssetsPlugin({})],
-        splitChunks: {
-            cacheGroups: {
-                styles: {
-                    name: 'style',
-                    test: /\.css$/,
-                    chunks: 'all',
-                    enforce: true,
-                },
-            },
-        },
-    },
     module: {
         rules: [
             {
@@ -50,41 +31,6 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
-                },
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: { importLoaders: 2 },
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: (loader) => [
-                                new IconfontWebpackPlugin(loader),
-                                postcssPresetEnv(),
-                                require('cssnano'),
-                            ],
-                        },
-                    },
-                    'sass-loader',
-                ],
-            },
-            {
-                test: /\.(png|jpg|gif|eot|ttf|woff|woff2)$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                },
-            },
-            {
-                test: /\.svg/,
-                use: {
-                    loader: 'svg-url-loader',
-                    options: {},
                 },
             },
             // Hugo doesn't support nested translations but we want to have both the Hugo and Preact translations in a
@@ -118,10 +64,6 @@ module.exports = {
                     ],
                 },
             },
-        }),
-
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].gen.css',
         }),
 
         new webpack.BannerPlugin(`[file]
