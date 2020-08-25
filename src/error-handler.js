@@ -9,11 +9,40 @@ function logError(event) {
     /* eslint-enable no-console */
 }
 
-try {
-    const preact = require('preact');
-    const Modal = require('Components/Modal').default;
-    const t = require('Utility/i18n').default;
+function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
+    const dismiss = () => document.getElementById('error-modal') && document.getElementById('error-modal').remove();
+    const html = `
+<div id="error-modal" class="modal">
+    <div class="backdrop" role="presentation" tabIndex="0"></div>
+    <div class="inner">
+        <button class="button-unstyled close-button icon-close" title="${
+            I18N_DEFINITION['error-handler']['cancel']
+        }"></button>
 
+        ${enduser_message ? '<p id="error-modal-enduser-message"></p>' : ''}
+        <p>${I18N_DEFINITION['error-handler']['explanation']}</p>
+        <p>${I18N_DEFINITION['error-handler']['privacy']}</p>
+        <a id="error-modal-github-link" class="button button-small" style="margin-right: 10px;" target="_blank" rel="noopener noreferrer">
+            ${I18N_DEFINITION['error-handler']['report-on-github']}
+        </a>
+        <a id="error-modal-email-link" class="button button-small">
+            ${I18N_DEFINITION['error-handler']['report-via-email']}
+        </a>
+    </div>
+</div>`;
+
+    // Using innerHTML is a little naughty but it is fine here, since we don't include anything that could possibly be
+    // attacker-controlled. All that content is later added safely.
+    document.body.innerHTML += html;
+    if (enduser_message) document.getElementById('error-modal-enduser-message').innerText = enduser_message;
+    document.getElementById('error-modal-github-link').href = github_issue_url;
+    document.getElementById('error-modal-email-link').href = mailto_url;
+
+    document.querySelector('#error-modal .backdrop').onclick = dismiss;
+    document.querySelector('#error-modal .close-button').onclick = dismiss;
+}
+
+try {
     const handler = (event) => {
         logError(event);
 
@@ -50,7 +79,7 @@ try {
         const report_title = encodeURIComponent('JS error (' + event.message + ')');
         const report_body = encodeURIComponent(
             '[' +
-                t('explain-context', 'error-handler') +
+                I18N_DEFINITION['error-handler']['explain-context'] +
                 ']\n\n**Debug information:**\n\n```js\n' +
                 JSON.stringify(debug_info, null, '    ') +
                 '\n```'
@@ -61,28 +90,7 @@ try {
         const mailto_url = 'mailto:dev@datenanfragen.de?' + 'subject=' + report_title + '&body=' + report_body;
 
         if (!debug_info.error.code || debug_info.error.code <= 3) {
-            const dismiss = () => {
-                preact.render('', document.body, modal);
-            };
-            const modal = preact.render(
-                <Modal onDismiss={dismiss}>
-                    {event.error.enduser_message ? <p>{event.error.enduser_message}</p> : ''}
-                    <p>{t('explanation', 'error-handler')}</p>
-                    <p dangerouslySetInnerHTML={{ __html: t('privacy', 'error-handler') }} />
-                    <a
-                        href={github_issue_url}
-                        className="button button-small"
-                        style="margin-right: 10px;"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        {t('report-on-github', 'error-handler')}
-                    </a>
-                    <a href={mailto_url} className="button button-small">
-                        {t('report-via-email', 'error-handler')}
-                    </a>
-                </Modal>,
-                document.body
-            );
+            primitiveErrorModal(event.error.enduser_message, github_issue_url, mailto_url);
         }
     };
 
