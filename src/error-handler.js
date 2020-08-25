@@ -9,18 +9,12 @@ function logError(event) {
     /* eslint-enable no-console */
 }
 
-let debugging_enabled = false;
-try {
-    let cookie = require('js-cookie/src/js.cookie');
-    debugging_enabled = !!cookie.get('debugging_enabled');
-} catch (e) {}
-
 try {
     let preact = require('preact');
     let Modal = require('Components/Modal').default;
     let t = require('Utility/i18n').default;
 
-    const handler = event => {
+    const handler = (event) => {
         logError(event);
 
         // This is horrendous. It is however the easiest (and worryingly cleanest) way I see to achieve the intended result here as the (interesting) properties of the `Error` object are not enumerable and JSON.stringify() only encodes enumerable properties.
@@ -41,7 +35,7 @@ try {
                 'defaultPrevented',
                 'eventPhase',
                 'isTrusted',
-                'returnValue'
+                'returnValue',
             ])
         );
 
@@ -66,8 +60,7 @@ try {
             'https://github.com/datenanfragen/website/issues/new?title=' + report_title + '&body=' + report_body;
         let mailto_url = 'mailto:dev@datenanfragen.de?' + 'subject=' + report_title + '&body=' + report_body;
 
-        // Note: Unless debugging_enabled is set, this will never happen for Chrome. But considering what I mentioned above, this is probably a good thing.
-        if (!debug_info.error.code || debug_info.error.code <= 3 || debugging_enabled) {
+        if (!debug_info.error.code || debug_info.error.code <= 3) {
             let dismiss = () => {
                 preact.render('', document.body, modal);
             };
@@ -94,7 +87,7 @@ try {
     };
 
     window.addEventListener('error', handler);
-    window.addEventListener('unhandledrejection', evt => {
+    window.addEventListener('unhandledrejection', (evt) => {
         // Promise rejections, for some reason, are passed the actual error as `evt.reason` instead of `evt.error` as
         // with 'regular' errors.
         evt.error = evt.reason;

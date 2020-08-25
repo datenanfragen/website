@@ -5,8 +5,6 @@ import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
 import UserRequests from './my-requests';
 import Modal from './Components/Modal';
 import SavedIdData from './Utility/SavedIdData';
-import Cookie from 'js-cookie';
-import { isDebugMode } from './Utility/errors';
 import { SavedCompanies } from './Components/Wizard';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 
@@ -17,7 +15,7 @@ class PrivacyControl extends preact.Component {
         this.meta = PRIVACY_ACTIONS[this.props.privacy_action];
 
         this.state = {
-            enabled: Privacy.isAllowed(PRIVACY_ACTIONS[this.props.privacy_action])
+            enabled: Privacy.isAllowed(PRIVACY_ACTIONS[this.props.privacy_action]),
         };
 
         this.onChange = this.onChange.bind(this);
@@ -25,7 +23,7 @@ class PrivacyControl extends preact.Component {
 
     onChange(event) {
         this.setState({
-            enabled: event.target.checked
+            enabled: event.target.checked,
         });
 
         Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
@@ -85,7 +83,7 @@ class PrivacyControl extends preact.Component {
                 positiveText={t(button_text_id, 'privacy-controls')}
                 negativeText={t('cancel', 'privacy-controls')}
                 onNegativeFeedback={this.props.hideModal}
-                onPositiveFeedback={e => {
+                onPositiveFeedback={(e) => {
                     this.props.hideModal();
                     clear_function();
                 }}
@@ -102,7 +100,7 @@ class PrivacyControls extends preact.Component {
         super(props);
 
         this.state = {
-            modal: ''
+            modal: '',
         };
 
         this.clearRequestsButton = this.clearRequestsButton.bind(this);
@@ -114,7 +112,7 @@ class PrivacyControls extends preact.Component {
 
     render() {
         let controls = [];
-        Object.keys(PRIVACY_ACTIONS).forEach(action => {
+        Object.keys(PRIVACY_ACTIONS).forEach((action) => {
             controls.push(
                 <PrivacyControl privacy_action={action} showModal={this.showModal} hideModal={this.hideModal} />
             );
@@ -145,18 +143,6 @@ class PrivacyControls extends preact.Component {
                         onClick={this.clearSavedCompaniesButton}>
                         <Text id="clear-save_wizard_entries" />
                     </button>
-                    {Cookie.get('debugging_enabled') ? (
-                        <button
-                            id="debugging-button"
-                            className="button button-secondary"
-                            onClick={() => {
-                                Cookie.set('debugging_enabled', isDebugMode() ? 'false' : 'true');
-                            }}>
-                            Toggle Debugging
-                        </button>
-                    ) : (
-                        []
-                    )}
                     <button
                         id="clear-cookies-button"
                         className="button button-secondary"
@@ -179,7 +165,7 @@ class PrivacyControls extends preact.Component {
                 positiveText={t('confirm-clear-requests', 'privacy-controls')}
                 negativeText={t('cancel', 'privacy-controls')}
                 onNegativeFeedback={this.hideModal}
-                onPositiveFeedback={e => {
+                onPositiveFeedback={(e) => {
                     this.hideModal();
                     PrivacyControls.clearRequests();
                 }}
@@ -196,7 +182,7 @@ class PrivacyControls extends preact.Component {
                 positiveText={t('clear-id_data', 'privacy-controls')}
                 negativeText={t('cancel', 'privacy-controls')}
                 onNegativeFeedback={this.hideModal}
-                onPositiveFeedback={e => {
+                onPositiveFeedback={(e) => {
                     this.hideModal();
                     PrivacyControls.clearSavedIdData();
                 }}
@@ -213,7 +199,7 @@ class PrivacyControls extends preact.Component {
                 positiveText={t('confirm-clear-save_wizard_entries', 'privacy-controls')}
                 negativeText={t('cancel', 'privacy-controls')}
                 onNegativeFeedback={this.hideModal}
-                onPositiveFeedback={e => {
+                onPositiveFeedback={(e) => {
                     this.hideModal();
                     PrivacyControls.clearSavedCompanies();
                 }}
