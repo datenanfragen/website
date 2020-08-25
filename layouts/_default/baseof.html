@@ -31,8 +31,8 @@
     {{ if eq .Type "generator" -}}
     <!-- TODO: Implement this correctly! <link rel="preload" as="script" href="{{ "js/pdfworker.gen.js" | absURL }}"> -->
     {{- end }}
-    <link rel="stylesheet" href="https://static.dacdn.de/fonts/fira-sans.css" integrity="sha384-U8TLqRd5TXsbHc89iPjGqbk/4KrbgxDjzI37GGTuQ30EdFX0pgdZZzPJPLkL2iJR" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.dacdn.de/fonts/league-spartan.css" integrity="sha384-8xT2dJ0AqzYTGWPC27D6SB6ndu+drRpQGL4BAxDYQvC87Adakg1LrWQY5t84tkkO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.dacdn.de/fonts/fira-sans.css" integrity="sha384-tdesaAgh/bq3iJZEqjfYp6o6sVopRLnw3wjZKW9gLPpNd26Pdgbur5PChCva/Z+2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.dacdn.de/fonts/league-spartan.css" integrity="sha384-n561KFrMi6x/rwAxQhsRLmxmF+oKREXWnteNZCFbPbU1nODnUri2U+r9p/lCJ918" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ "css/style.gen.css" | absURL }}" />
 
     {{ partial "head/meta.html" . }}
@@ -168,7 +168,7 @@
                     </ul>
                 </div>
                 <div class="col22 footer-col">
-                    {{ if eq .Lang "de" }}<a href="{{ "/verein/transparenz" | absURL }}"><img src="/img/logo-itz.svg" alt="ITZ (Initiative Transparente Zivilgesellschaft) Logo" class="itz-logo"></a>{{ end }}
+                    {{ if eq .Lang "de" }}<a href="{{ "/verein/transparenz" | absURL }}"><img src="/img/logo-itz.svg" alt="Logo der ITZ (Initiative Transparente Zivilgesellschaft)" class="itz-logo"></a>{{ end }}
                 </div>
             </div>
             <div class="clearfix"></div>
