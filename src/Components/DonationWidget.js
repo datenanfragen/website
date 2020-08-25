@@ -372,3 +372,9 @@ export default class DonationWidget extends preact.Component {
         );
     }
 }
+
+window.renderDonationWidget = function () {
+    document.querySelectorAll('.donation-widget').forEach((el) => {
+        preact.render(<DonationWidget />, null, el);
+    });
+};

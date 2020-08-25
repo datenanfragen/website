@@ -15,6 +15,7 @@ module.exports = {
         'id-data-controls': './src/id-data-controls.js',
         'sva-finder': './src/Components/SvaFinder.js',
         'act-widget': './src/Components/ActWidget.js',
+        'donation-widget': './src/Components/DonationWidget.js',
         pdfworker: './src/Utility/PdfWorker.js',
         'test-interface': './src/test-interface.js',
         // We need to define a dummy entrypoint that requires all our translation files, otherwise Webpack will not

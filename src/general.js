@@ -3,7 +3,6 @@ import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
 import Cookie from 'js-cookie';
 import { PARAMETERS } from './Utility/common';
-import DonationWidget from './Components/DonationWidget';
 
 window.PARAMETERS = PARAMETERS;
 
@@ -37,8 +36,6 @@ if (comments_div) {
         comments_div
     );
 }
-
-document.querySelectorAll('.donation-widget').forEach((el) => preact.render(<DonationWidget />, null, el));
 
 // This uses the `navigator.language` property (similar-ish to the `Accept-Language`header which we cannot access from JS) which may not necessarily represent the user's country (or even include region-information at all).
 // The more reliable way would be to feed the user's IP into a geolocation service but that is not an option, so we have to stick with this.
