@@ -58,6 +58,11 @@
 <script>renderActWidget();</script>
 {{ end }}
 
+{{ if eq .Type "donate" }}
+<script src="{{ "js/donation-widget.gen.js" | absURL }}"></script>
+<script>renderDonationWidget();</script>
+{{ end }}
+
 {{ if .IsHome }}
 <script src="{{ "js/home.gen.js" | absURL }}"></script>
 {{ end }}
