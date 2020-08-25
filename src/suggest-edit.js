@@ -141,7 +141,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
         return;
     }
 
-    document.querySelectorAll('.invalid').forEach((el) => {
+    document.querySelectorAll('.brutusin-form .invalid').forEach((el) => {
         el.classList.remove('invalid');
     });
 
