@@ -81,6 +81,26 @@ if(window.location.host.includes('datenanfragen.de') || window.location.host.inc
 if(window.location.host.includes('demandetesdonnees.fr') || window.location.host.includes('1315')) lang = 'fr';
 if(window.location.host.includes('pedidodedados.org') || window.location.host.includes('1316')) lang = 'pt';
 
+// Adds 'lang' attribute to <html>
+let htmlSelector = document.querySelector('html');
+switch(lang) {
+    case 'en':
+        htmlSelector.setAttribute('lang', 'en-us');
+        break;
+    case 'de': 
+        htmlSelector.setAttribute('lang', 'de-de');
+        break;
+    case 'fr':
+        htmlSelector.setAttribute('lang', 'fr-fr');
+        break;
+    case 'pt':
+        htmlSelector.setAttribute('lang', 'pt-pt');
+        break;
+    default: 
+        htmlSelector.setAttribute('lang', 'en-us');
+        break;
+}
+
 document.title = document.querySelector('#heading .translatable .translatable-' + lang).innerText;
 var redundant_langs = langs.filter(function(item) { return item !== lang; });
 redundant_langs.forEach(function(redundant_lang) {
