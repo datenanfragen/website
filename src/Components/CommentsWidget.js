@@ -5,10 +5,7 @@ import FlashMessage, { flash } from 'Components/FlashMessage';
 import StarWidget from 'Components/StarWidget';
 import { rethrow } from '../Utility/errors';
 
-const API_URL =
-    process.env.NODE_ENV === 'development'
-        ? 'https://datenanfragen-test.free.beeceptor.com/comments'
-        : 'https://backend.datenanfragen.de/comments';
+const API_URL = 'https://backend.datenanfragen.de/comments';
 const TARGET = LOCALE + '/' + document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '');
 
 export default class CommentsWidget extends preact.Component {
@@ -18,14 +15,14 @@ export default class CommentsWidget extends preact.Component {
         this.state.comments = [];
 
         fetch(API_URL + '/get/' + TARGET)
-            .then(res => res.json())
-            .then(comments => {
+            .then((res) => res.json())
+            .then((comments) => {
                 this.setState({ comments: comments.sort((a, b) => -a.added_at.localeCompare(b.added_at)) });
             });
     }
 
     render() {
-        const comment_elements = this.state.comments.map(c => (
+        const comment_elements = this.state.comments.map((c) => (
             <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
         ));
 
@@ -76,12 +73,7 @@ export class Comment extends preact.Component {
                 ) : (
                     []
                 )}
-                <p>
-                    {this.props.message
-                        .split('\n')
-                        .map(this.processLine)
-                        .flat()}
-                </p>
+                <p>{this.props.message.split('\n').map(this.processLine).flat()}</p>
             </div>
         );
     }
@@ -98,8 +90,8 @@ export class Comment extends preact.Component {
      * @param {string} line The line of text to process.
      * @returns {Array} An array of the elements to insert instead of the line.
      */
-    processLine = line => {
-        const processChunk = function(chunk) {
+    processLine = (line) => {
+        const processChunk = function (chunk) {
             let chunks = [];
             let remaining = chunk;
             let match;
@@ -132,7 +124,7 @@ export class CommentForm extends preact.Component {
         this.state = {
             author: '',
             message: '',
-            rating: 0
+            rating: 0,
         };
 
         this.submitComment = this.submitComment.bind(this);
@@ -170,7 +162,7 @@ export class CommentForm extends preact.Component {
                             className="form-element"
                             placeholder={t('author', 'comments')}
                             value={this.state.author}
-                            onChange={e => this.setState({ author: e.target.value })}
+                            onChange={(e) => this.setState({ author: e.target.value })}
                         />
                     </div>
                 </div>
@@ -193,7 +185,7 @@ export class CommentForm extends preact.Component {
                             placeholder={t('comment', 'comments')}
                             required={true}
                             value={this.state.message}
-                            onChange={e => this.setState({ message: e.target.value })}
+                            onChange={(e) => this.setState({ message: e.target.value })}
                         />
                     </div>
                 </div>
@@ -212,10 +204,13 @@ export class CommentForm extends preact.Component {
                                   <label htmlFor="star-widget" className="sr-only">
                                       <Text id="rating" />
                                   </label>
-                                  <StarWidget id="star-widget" onChange={rating => this.setState({ rating: rating })} />
+                                  <StarWidget
+                                      id="star-widget"
+                                      onChange={(rating) => this.setState({ rating: rating })}
+                                  />
                               </div>
                           </div>,
-                          <div className="clearfix" />
+                          <div className="clearfix" />,
                       ]
                     : []}
 
@@ -242,7 +237,7 @@ export class CommentForm extends preact.Component {
         let body = {
             author: this.state.author,
             message: this.state.message,
-            target: TARGET
+            target: TARGET,
         };
         if (this.props.allow_rating && this.state.rating) body['additional'] = { rating: this.state.rating };
 
@@ -250,15 +245,15 @@ export class CommentForm extends preact.Component {
         fetch(API_URL, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body)
+            body: JSON.stringify(body),
         })
-            .then(response => {
+            .then((response) => {
                 if (!response.ok) throw new Error('Unexpected response from comments server.');
 
                 flash(<FlashMessage type="success">{t('send-success', 'comments')}</FlashMessage>);
                 this.setState({ message: '' });
             })
-            .catch(err => {
+            .catch((err) => {
                 rethrow(err);
                 flash(<FlashMessage type="error">{t('send-error', 'comments')}</FlashMessage>);
             });
