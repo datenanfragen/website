@@ -115,7 +115,7 @@ Die folgenden Abschnitte gehen über die zehn durch die Initiative Transparente 
 
 Unser [Vorstand]({{< ref "verein/board" >}}) arbeitet grundsätzlich ehrenamtlich und erhält durch den Verein keinerlei Zahlungen für seine Arbeit. Teilweise können Vereinsmitglieder allerdings von externen Organisationen ein Honorar für Vorträge zu Themen, die den Verein betreffen, erhalten. Für solche vergüteten Vorträge werden selbstverständlich keine Vereinsmittel aufgewendet, sie liegen alleine in der privaten Verantwortung der entsprechenden Mitglieder.
 
-Der Vorstand hat sich selbst verpflichtet, Vorträge, für die Vorstandsmitglieder eine Vergütung von externen Organisationen erhalten haben, hier öffentlich zu dokumentieren.
+Der Vorstand ist verpflichtet, Vorträge, für die Vorstandsmitglieder eine Vergütung von externen Organisationen erhalten haben, hier öffentlich zu dokumentieren. Dies ist in unserer [Vortragsordnung]({{< ref "verein/compensated-lectures" >}}) geregelt.
 
 ### 2020
 

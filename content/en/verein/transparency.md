@@ -113,7 +113,7 @@ The following sections go beyond the ten pieces of information required by the I
 
 Our [board members]({{< ref "verein/board" >}}) work on a strictly voluntary basis and receive no payment from the association for their work. In some cases, however, members of the association can receive compensation from external organizations for lectures on topics that concern the association. Of course, no funds of the association are used for such compensated lectures, they are the private responsibility of the respective members.
 
-The board has committed itself to publicly document lectures here for which board members have received compensation from external organizations.
+The board has to publicly document lectures here for which board members have received compensation from external organizations.
 
 ### 2020
 
