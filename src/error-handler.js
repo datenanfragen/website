@@ -10,15 +10,15 @@ function logError(event) {
 }
 
 try {
-    let preact = require('preact');
-    let Modal = require('Components/Modal').default;
-    let t = require('Utility/i18n').default;
+    const preact = require('preact');
+    const Modal = require('Components/Modal').default;
+    const t = require('Utility/i18n').default;
 
     const handler = (event) => {
         logError(event);
 
         // This is horrendous. It is however the easiest (and worryingly cleanest) way I see to achieve the intended result here as the (interesting) properties of the `Error` object are not enumerable and JSON.stringify() only encodes enumerable properties.
-        let debug_info = JSON.parse(
+        const debug_info = JSON.parse(
             JSON.stringify(event, [
                 'code',
                 'message',
@@ -47,8 +47,8 @@ try {
         debug_info.url = window.location;
         debug_info.error.context = event.error.context;
 
-        let report_title = encodeURIComponent('JS error (' + event.message + ')');
-        let report_body = encodeURIComponent(
+        const report_title = encodeURIComponent('JS error (' + event.message + ')');
+        const report_body = encodeURIComponent(
             '[' +
                 t('explain-context', 'error-handler') +
                 ']\n\n**Debug information:**\n\n```js\n' +
@@ -56,15 +56,15 @@ try {
                 '\n```'
         );
 
-        let github_issue_url =
+        const github_issue_url =
             'https://github.com/datenanfragen/website/issues/new?title=' + report_title + '&body=' + report_body;
-        let mailto_url = 'mailto:dev@datenanfragen.de?' + 'subject=' + report_title + '&body=' + report_body;
+        const mailto_url = 'mailto:dev@datenanfragen.de?' + 'subject=' + report_title + '&body=' + report_body;
 
         if (!debug_info.error.code || debug_info.error.code <= 3) {
-            let dismiss = () => {
+            const dismiss = () => {
                 preact.render('', document.body, modal);
             };
-            let modal = preact.render(
+            const modal = preact.render(
                 <Modal onDismiss={dismiss}>
                     {event.error.enduser_message ? <p>{event.error.enduser_message}</p> : ''}
                     <p>{t('explanation', 'error-handler')}</p>
