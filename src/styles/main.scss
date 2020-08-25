@@ -16,7 +16,7 @@ header#nav-header {
     width: 100%;
     background-color: $bg-accent-color;
 }
-a #logo {
+a .logo {
     height: 32px;
 
     @include mobile {
