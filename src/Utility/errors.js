@@ -94,9 +94,3 @@ export class DebugException extends GenericException {
         this.code = 7;
     }
 }
-
-import Cookie from 'js-cookie';
-
-export function isDebugMode() {
-    return !!Cookie.get('debugging_enabled') && Cookie.get('debugging_enabled') === 'true';
-}
