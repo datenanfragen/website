@@ -8,7 +8,7 @@
 
 Afin que vous puissiez nous faire confiance, nous nous sommes engagés à être aussi transparents que possible sur nos procédures, nos finances et nos décisions. C'est pourquoi nous avons adhéré à l'[Initiative pour une Société Civile Transparente](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), une initiative de la branche allemande de Transparency International, qui est autorisée à nous contrôler par échantillonnage. Ils garantissent le respect de notre promesse de gestion transparente. Sur cette page, nous avons résumé toutes les informations importantes que nous publions dans le cadre de cette initiative.
 
-Ces informations ont été mises à jour pour la dernière fois le 19 juin 2020.
+Ces informations ont été mises à jour pour la dernière fois le 26 août 2020.
 
 ## 1. Nom, siège social, adresse et date de création
 
@@ -38,10 +38,14 @@ Le centre des impôts de Braunschweig-Wilhelmstraße nous a agréé association 
 
 ## 4. Nom et fonction des principaux décideurs
 
-L'association est gérée par le [comité directeur]({{< ref "verein/board" >}}). Elle est composée de :
+L'association est gérée par les presidents associés du [comité directeur]({{< ref "verein/board" >}}). Les conseillers contrôlent et soutiennent les presidents associés dans leur travail. Le comité directeur est composée de :
 
- - Benjamin Altpeter, Président associé
- - Lorenz Sieben, Président associé
+- Benjamin Altpeter, Président associé
+- Lorenz Sieben, Président associé
+
+<!-- -->
+
+- Malte Wessels, Conseiller
 
 Il n'y a pour le moment aucun conseiller au sein du comité directeur.
 
@@ -54,7 +58,7 @@ Voir [Rapport annuel 2018 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/
 
 L'association n'a pas de personnel.
 
-Nombre de bénévoles : 2
+Nombre de bénévoles : 3
 
 ## 7. Sources de financement
 
