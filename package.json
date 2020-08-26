@@ -33,8 +33,8 @@
         "build": "BABEL_ENV=production; webpack --mode=production --config webpack.prod.js",
         "dev": "webpack --watch --mode=development --config webpack.dev.js",
         "sanity-check": "grep -E '^[><=]{7}( |$)' -H -I --line-number -r --exclude-dir=node_modules && exit 1 || exit 0 # Check for merge conflict artifacts, inspired by: https://stackoverflow.com/a/42584779",
-        "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint src/styles && git diff --check",
-        "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint src/styles --fix"
+        "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint assets/styles && git diff --check",
+        "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix"
     },
     "bugs": {
         "url": "https://github.com/datenanfragen/website/issues"
