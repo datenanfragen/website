@@ -7,7 +7,7 @@
 
 In order for you to be able to trust us, we pledged to be as transparent as possible about our procedures, finances and decisions. Because of that, we have joined the [Initiative for a Transparent Civil Society](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), an initiative by the German branch of Transparency International, which is allowed to audit us on a sample basis. They ensure that we will keep our promise of transparent management. On this page we summarized all the important information that we publish as part of that.
 
-This information has been last updated on June 19, 2020.
+This information has been last updated on August 26, 2020.
 
 ## 1. Name, registered seat, address and date of foundation
 
@@ -37,12 +37,14 @@ The tax office Braunschweig-Wilhelmstraße approved us as a public benefit organ
 
 ## 4. Name and function of significant decision makers
 
-The association is managed by the [board]({{< ref "verein/board" >}}). It is comprised of:
+The association is managed by the chairpersons of the [board]({{< ref "verein/board" >}}). The assessors check and support the chairpersons in their work. It is comprised of:
 
- - Benjamin Altpeter, Chairman
- - Lorenz Sieben, Chairman
+- Benjamin Altpeter, Chairman
+- Lorenz Sieben, Chairman
 
-There are currently no assessors on the board.
+<!-- -->
+
+- Malte Wessels, Assessor
 
 ## 5. Report of activities
 
@@ -53,7 +55,7 @@ see [Yearly report 2018 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht
 
 The association has no staff.
 
-Number of volunteers: 2
+Number of volunteers: 3
 
 ## 7. Funding sources
 

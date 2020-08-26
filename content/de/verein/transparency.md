@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 19. Juni 2020.
+Die Informationen sind auf dem Stand vom 26. August 2020.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
@@ -39,12 +39,14 @@ Das Finanzamt Braunschweig-Wilhelmstraße hat zuletzt uns per [Freistellungsbesc
 
 ## 4. Name und Funktion wesentlicher Entscheidungsträger
 
-Die Geschäftsführung des Vereins hat der [Vorstand]({{< ref "verein/board" >}}) inne. Dieser besteht aus:
+Die Geschäftsführung des Vereins haben die Vorsitzenden des [Vorstands]({{< ref "verein/board" >}}) inne. Die Beisitzer_innen kontrollieren und unterstützen die Vorsitzenden in ihrer Arbeit. Der Vorstand besteht aus:
  
- - Benjamin Altpeter, Vorsitzender
- - Lorenz Sieben, Vorsitzender
+- Benjamin Altpeter, Vorsitzender
+- Lorenz Sieben, Vorsitzender
 
-Aktuell sind keine Beisitzer_innen bestellt.
+<!-- -->
+
+- Malte Wessels, Beisitzer
 
 ## 5. Tätigkeitsbericht
 
@@ -55,7 +57,7 @@ s. [Jahresbericht 2018 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf
 
 Der Verein beschäftigt kein Personal.
 
-Anzahl Ehrenamtliche: 2
+Anzahl Ehrenamtliche: 3
 
 ## 7. Angaben zur Mittelherkunft
 
