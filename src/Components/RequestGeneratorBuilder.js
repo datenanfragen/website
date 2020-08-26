@@ -11,7 +11,7 @@ import { fetchCompanyDataBySlug } from '../Utility/companies';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import Modal, { showModal, dismissModal } from './Modal';
 import SvaFinder from './SvaFinder';
-import { download, clearUrlParameters } from '../Utility/browser';
+import { clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
 import UserRequests from '../my-requests';
 import ActionButton from './Generator/ActionButton';
@@ -166,8 +166,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
             c.nodeName && Object.keys(replacers).includes(c.nodeName.name)
                 ? replacers[c.nodeName.name](c)
                 : Array.isArray(c.children)
-                ? { ...c, children: c.children.map(children_mapper) }
-                : c;
+                    ? { ...c, children: c.children.map(children_mapper) }
+                    : c;
         const children = this.props.children.map(children_mapper);
 
         return (
@@ -202,8 +202,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
             prev.request.transport_medium = company['suggested-transport-medium']
                 ? company['suggested-transport-medium']
                 : company.email
-                ? 'email'
-                : 'letter';
+                    ? 'email'
+                    : 'letter';
             prev.request.recipient_address =
                 company.name +
                 (PARAMETERS.response_type !== 'complaint'
@@ -240,8 +240,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 company['required-elements']?.length > 0
                     ? company['required-elements']
                     : prev.request.is_tracking_request
-                    ? trackingFields(language)
-                    : defaultFields(language)
+                        ? trackingFields(language)
+                        : defaultFields(language)
             );
 
             prev.request.id_data = SavedIdData.mergeFields(
@@ -439,7 +439,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 this.letter.initiatePdfGeneration(
                     (this.state.suggestion?.slug ||
                         slugify(this.state.request.recipient_address.split('\n', 1)[0] || 'custom-recipient')) +
-                        `_${this.state.request.type}_${this.state.request.reference}.pdf`
+                    `_${this.state.request.type}_${this.state.request.reference}.pdf`
                 );
                 break;
             case 'email': {
@@ -542,12 +542,12 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
 // If we need to add more placeholders in the future, their names also need to be added to the Webpack MinifyPlugin's
 // mangle exclude list.
-export class ActionButtonPlaceholder extends preact.Component {}
-export class NewRequestButtonPlaceholder extends preact.Component {}
-export class CompanySelectorPlaceholder extends preact.Component {}
-export class RequestFormPlaceholder extends preact.Component {}
-export class DynamicInputContainerPlaceholder extends preact.Component {}
-export class SignatureInputPlaceholder extends preact.Component {}
-export class RequestTypeChooserPlaceholder extends preact.Component {}
-export class RecipientInputPlaceholder extends preact.Component {}
-export class TransportMediumChooserPlaceholder extends preact.Component {}
+export class ActionButtonPlaceholder extends preact.Component { }
+export class NewRequestButtonPlaceholder extends preact.Component { }
+export class CompanySelectorPlaceholder extends preact.Component { }
+export class RequestFormPlaceholder extends preact.Component { }
+export class DynamicInputContainerPlaceholder extends preact.Component { }
+export class SignatureInputPlaceholder extends preact.Component { }
+export class RequestTypeChooserPlaceholder extends preact.Component { }
+export class RecipientInputPlaceholder extends preact.Component { }
+export class TransportMediumChooserPlaceholder extends preact.Component { }
