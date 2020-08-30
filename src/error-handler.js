@@ -1,11 +1,17 @@
-function logError(event) {
+function logError(event, debug_info = undefined) {
     /* eslint-disable no-console */
-    console.log(
-        '%cAn unexpected error occurred:',
-        'color: red; font-weight: bold;',
-        event,
-        'Please submit reports via GitHub (https://github.com/datenanfragen/website/issues) or email (dev@datenanfragen.de).'
+    console.group(
+        '%cAn unexpected error occurred: ' + '%c' + (event?.error?.description || event?.error?.message || ''),
+        'color: red; font-weight: bold; font-size: 1.5em;',
+        'font-size: 1.5em;'
     );
+    console.log(event);
+    console.groupCollapsed(
+        'Please submit reports via GitHub (https://github.com/datenanfragen/website/issues) or email (dev@datenanfragen.de) and copy the debug details below.'
+    );
+    console.log(JSON.stringify(debug_info || event));
+    console.groupEnd();
+    console.groupEnd();
     /* eslint-enable no-console */
 }
 
@@ -44,53 +50,57 @@ function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
 
 try {
     const handler = (event) => {
-        logError(event);
+        try {
+            // This is horrendous. It is however the easiest (and worryingly cleanest) way I see to achieve the intended result here as the (interesting) properties of the `Error` object are not enumerable and JSON.stringify() only encodes enumerable properties.
+            const debug_info = JSON.parse(
+                JSON.stringify(event, [
+                    'code',
+                    'message',
+                    'description',
+                    'arguments',
+                    'type',
+                    'name',
+                    'colno',
+                    'filename',
+                    'lineno',
+                    'error',
+                    'stack',
+                    'enduser_message',
+                    'defaultPrevented',
+                    'eventPhase',
+                    'isTrusted',
+                    'returnValue',
+                ])
+            );
 
-        // This is horrendous. It is however the easiest (and worryingly cleanest) way I see to achieve the intended result here as the (interesting) properties of the `Error` object are not enumerable and JSON.stringify() only encodes enumerable properties.
-        const debug_info = JSON.parse(
-            JSON.stringify(event, [
-                'code',
-                'message',
-                'description',
-                'arguments',
-                'type',
-                'name',
-                'colno',
-                'filename',
-                'lineno',
-                'error',
-                'stack',
-                'enduser_message',
-                'defaultPrevented',
-                'eventPhase',
-                'isTrusted',
-                'returnValue',
-            ])
-        );
+            if (typeof debug_info.error !== 'object' || debug_info.error === null) {
+                debug_info.error = { code: 999, message: event.message };
+            }
+            debug_info.code_version = CODE_VERSION;
+            debug_info.user_agent = window.navigator.userAgent;
+            debug_info.url = window.location;
+            debug_info.error.context = event.error.context;
 
-        if (typeof debug_info.error !== 'object' || debug_info.error === null) {
-            debug_info.error = { code: 999, message: event.message };
-        }
-        debug_info.code_version = CODE_VERSION;
-        debug_info.user_agent = window.navigator.userAgent;
-        debug_info.url = window.location;
-        debug_info.error.context = event.error.context;
+            logError(event, debug_info);
 
-        const report_title = encodeURIComponent('JS error (' + event.message + ')');
-        const report_body = encodeURIComponent(
-            '[' +
-                I18N_DEFINITION['error-handler']['explain-context'] +
-                ']\n\n**Debug information:**\n\n```js\n' +
-                JSON.stringify(debug_info, null, '    ') +
-                '\n```'
-        );
+            const report_title = encodeURIComponent('JS error (' + event.message + ')');
+            const report_body = encodeURIComponent(
+                '[' +
+                    I18N_DEFINITION['error-handler']['explain-context'] +
+                    ']\n\n**Debug information:**\n\n```js\n' +
+                    JSON.stringify(debug_info, null, '    ') +
+                    '\n```'
+            );
 
-        const github_issue_url =
-            'https://github.com/datenanfragen/website/issues/new?title=' + report_title + '&body=' + report_body;
-        const mailto_url = 'mailto:dev@datenanfragen.de?' + 'subject=' + report_title + '&body=' + report_body;
+            const github_issue_url =
+                'https://github.com/datenanfragen/website/issues/new?title=' + report_title + '&body=' + report_body;
+            const mailto_url = 'mailto:dev@datenanfragen.de?' + 'subject=' + report_title + '&body=' + report_body;
 
-        if (!debug_info.error.code || debug_info.error.code <= 3) {
-            primitiveErrorModal(event.error.enduser_message, github_issue_url, mailto_url);
+            if (!debug_info.error.code || debug_info.error.code <= 3) {
+                primitiveErrorModal(event.error.enduser_message, github_issue_url, mailto_url);
+            }
+        } catch (new_err) {
+            logError(event);
         }
     };
 
