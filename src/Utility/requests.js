@@ -23,20 +23,20 @@ export function defaultFields(locale = LOCALE) {
             desc: t_r('name', locale),
             type: 'name',
             optional: true,
-            value: ''
+            value: '',
         },
         {
             desc: t_r('email', locale),
             type: 'email',
             optional: true,
-            value: ''
+            value: '',
         },
         {
             desc: t_r('address', locale),
             type: 'address',
             optional: true,
-            value: { primary: true }
-        }
+            value: { primary: true },
+        },
     ];
 }
 
@@ -46,14 +46,14 @@ export function trackingFields(locale = LOCALE) {
             desc: t_r('name', locale),
             type: 'name',
             optional: false,
-            value: ''
+            value: '',
         },
         {
             desc: t_r('email', locale),
             type: 'input',
             optional: false,
-            value: ''
-        }
+            value: '',
+        },
     ];
 }
 
@@ -75,7 +75,7 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
     const template_url = BASE_URL + 'templates/' + (locale || LOCALE) + '/' + template + '.txt';
 
     return fetch(template_url)
-        .then(response => {
+        .then((response) => {
             switch (response.status) {
                 case 200:
                     return response.text();
@@ -89,7 +89,7 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
                             locale: locale,
                             template: template,
                             template_url: template_url,
-                            response: response
+                            response: response,
                         },
                         t('error-template-not-found', 'generator')
                     );
@@ -100,13 +100,15 @@ export function fetchTemplate(locale, request_type, company = null, suffix = 'de
                             locale: locale,
                             template: template,
                             template_url: template_url,
-                            response: response
+                            response: response,
                         },
                         t('error-template-fetch-failed', 'generator')
                     );
             }
         })
-        .catch(error => rethrow(error));
+        .catch((error) =>
+            rethrow(error, 'fetchTemplate() failed.', { template_url }, t('error-template-fetch-failed', 'generator'))
+        );
 }
 
 /**
@@ -125,11 +127,11 @@ export function initializeFields(fields) {
 
         return saved_id_data
             .getAllFixed()
-            .then(fill_data => SavedIdData.mergeFields(fields, fill_data, true, true, true, true, false))
+            .then((fill_data) => SavedIdData.mergeFields(fields, fill_data, true, true, true, true, false))
             .then(
-                new_fields =>
-                    new Promise(resolve => {
-                        saved_id_data.getSignature().then(signature => {
+                (new_fields) =>
+                    new Promise((resolve) => {
+                        saved_id_data.getSignature().then((signature) => {
                             resolve({ new_fields, signature });
                         });
                     })

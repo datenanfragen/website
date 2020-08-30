@@ -413,7 +413,7 @@
     },
     "suggest": {
         "success": "Your contribution has been sent successfully. Thank you once again! We will now review it as soon as possible.",
-        "error": "Unfortunately, sending your contribution has failed. Please make sure that you are connected to the internet and not blocking requests to external servers through an add-on like uMatrix or NoScript.",
+        "error": "Unfortunately, sending your contribution has failed. Please make sure that you are connected to the internet and not blocking requests to backend.datenanfragen.de through an add-on like uMatrix or NoScript.",
         "no-input": "You need to enter something to submit a suggestion.",
         "name-or-web-missing": "Please enter at least a name or website.",
         "invalid-request": "Some of your entries are not in the right format or incomplete. Correct them and send your suggestion again.",
@@ -543,6 +543,7 @@
         "send-success": "Comment sent successfully. It will have to be accepted by an administrator first before it is shown here.",
         "send-error": "An error occurred while sending your comment. Please try again later.",
         "error-no-message": "Please enter a comment to send.",
+        "warning-loading-failed": "Loading the comments for this page failed. Please make sure that you are connected to the internet and not blocking requests to backend.datenanfragen.de through an add-on like uMatrix or NoScript.",
         "no-comments": "No comments here yet. Why don’t you leave one?",
         "leave-comment": "Leave a comment",
         "optional": "(optional)",

@@ -16,7 +16,7 @@ const CATEGORIES = [
     'insurance',
     'telecommunication',
     'utility',
-    /*'public body',*/ 'other'
+    /*'public body',*/ 'other',
 ];
 const USER_CHANGED_COOKIE = 'changed_saved_companies';
 
@@ -24,7 +24,7 @@ export default class Wizard extends preact.Component {
     constructor(props) {
         super(props);
 
-        globals._country_listeners.push(value => {
+        globals._country_listeners.push((value) => {
             this.setState({ country: value });
         });
         globals._country_listeners.push(() => {
@@ -34,7 +34,7 @@ export default class Wizard extends preact.Component {
         this.state = {
             current_tab: 0,
             selected_companies: {},
-            country: globals.country // Don't ever update `this.state.country` directly but rather use `globals.country`.
+            country: globals.country, // Don't ever update `this.state.country` directly but rather use `globals.country`.
         };
 
         this.prepareWizard();
@@ -48,10 +48,10 @@ export default class Wizard extends preact.Component {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
             this.saved_companies = new SavedCompanies();
 
-            this.saved_companies.length().then(length => {
+            this.saved_companies.length().then((length) => {
                 if (length === 0 || !this.saved_companies.getUserChanged()) this.loadSuggestedCompanies();
                 else {
-                    this.saved_companies.getAll().then(companies => {
+                    this.saved_companies.getAll().then((companies) => {
                         this.setState({ selected_companies: companies });
                     });
                 }
@@ -60,10 +60,11 @@ export default class Wizard extends preact.Component {
     }
 
     loadSuggestedCompanies() {
-        fetch(BASE_URL + 'db/suggested-companies/' + this.state.country + '_wizard.json')
-            .then(res => (res.status === 200 ? res.json() : {}))
-            .then(companies => {
-                this.setState(prev => {
+        const url = `${BASE_URL}db/suggested-companies/${this.state.country}_wizard.json`;
+        fetch(url)
+            .then((res) => (res.status === 200 ? res.json() : {}))
+            .then((companies) => {
+                this.setState((prev) => {
                     prev.selected_companies = companies;
                     return prev;
                 });
@@ -74,7 +75,7 @@ export default class Wizard extends preact.Component {
                     });
                 }
             })
-            .catch(err => rethrow(err));
+            .catch((err) => rethrow(err, 'Loading the suggested companies in the wizard failed.', { url }));
     }
 
     changeTab(next) {
@@ -86,7 +87,7 @@ export default class Wizard extends preact.Component {
     }
 
     addCompany(slug, name) {
-        this.setState(prev => {
+        this.setState((prev) => {
             prev.selected_companies[slug] = name;
             return prev;
         });
@@ -94,7 +95,7 @@ export default class Wizard extends preact.Component {
     }
 
     removeCompany(slug) {
-        this.setState(prev => {
+        this.setState((prev) => {
             delete prev.selected_companies[slug];
             return prev;
         });
@@ -139,7 +140,7 @@ export default class Wizard extends preact.Component {
                                     }}
                                     debug={true}
                                     placeholder={t('search-company', 'wizard', {
-                                        category: t(CATEGORIES[this.state.current_tab], 'categories')
+                                        category: t(CATEGORIES[this.state.current_tab], 'categories'),
                                     })}
                                     filters={
                                         this.state.current_tab === CATEGORIES.length - 1
@@ -164,7 +165,7 @@ export default class Wizard extends preact.Component {
                                             : 'no-suggestions',
                                         'wizard',
                                         { country: t(this.state.country, 'countries') }
-                                    )
+                                    ),
                                 }}
                             />
                             <div id="wizard-buttons">
@@ -206,7 +207,7 @@ export class SavedCompanies {
     constructor() {
         this.localforage_instance = localforage.createInstance({
             name: 'Datenanfragen.de',
-            storeName: 'wizard-companies'
+            storeName: 'wizard-companies',
         });
     }
 
@@ -216,7 +217,7 @@ export class SavedCompanies {
 
     add(slug, name, by_user = true) {
         if (by_user) this.setUserChanged();
-        return this.localforage_instance.setItem(slug, name).catch(err => {
+        return this.localforage_instance.setItem(slug, name).catch((err) => {
             rethrow(err, 'Could not save company for the wizard', { slug: slug, name: name });
         });
     }
@@ -231,7 +232,7 @@ export class SavedCompanies {
     }
     clearAll() {
         this.setUserChanged(false);
-        return this.localforage_instance.clear().catch(err => {
+        return this.localforage_instance.clear().catch((err) => {
             rethrow(err, 'Could clear saved companies.');
         });
     }
@@ -254,7 +255,7 @@ export class SavedCompanies {
                 .then(() => {
                     resolve(companies);
                 })
-                .catch(err => {
+                .catch((err) => {
                     rethrow(err, 'Could not get saved companies for the wizard');
                     reject();
                 });
@@ -281,7 +282,7 @@ class SelectedCompaniesList {
         let selected_companies = [];
         Object.keys(this.props.companies)
             .sort()
-            .forEach(slug => {
+            .forEach((slug) => {
                 selected_companies.push(
                     <p>
                         <button
