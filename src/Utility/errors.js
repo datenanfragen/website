@@ -18,7 +18,7 @@ class GenericException extends Error {
     }
 
     static fromError(error) {
-        return Object.assign(error, new this());
+        return Object.assign(new this(), error);
     }
 
     toString() {
