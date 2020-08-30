@@ -413,7 +413,7 @@
     },
     "suggest": {
         "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank noch einmal! Wir werden ihn jetzt schnellstmöglich überprüfen.",
-        "error": "Beim Absenden deines Vorschlags ist leider ein Fehler aufgetreten. Bitte stelle sicher, dass Du mit dem Internet verbunden bist und Anfragen an externe Server nicht mit einem Add-On wie uMatrix oder NoScript blockierst.",
+        "error": "Beim Absenden deines Vorschlags ist leider ein Fehler aufgetreten. Bitte stelle sicher, dass Du mit dem Internet verbunden bist und Anfragen an backend.datenanfragen.de nicht mit einem Add-On wie uMatrix oder NoScript blockierst.",
         "no-input": "Bitte gib etwas ein, um Deinen Vorschlag abzusenden.",
         "name-or-web-missing": "Bitte gib mindestens einen Namen oder eine Webseite an.",
         "invalid-request": "Deine Eingaben entsprechen nicht dem richtigen Format oder sind unvollständig. Korrigiere sie und schicke den Vorschlag erneut ab.",
@@ -543,6 +543,7 @@
         "send-success": "Kommentar erfolgreich abgesendet. Der Kommentar wird erst angezeigt, wenn er von einer Administrator_in überprüft wurde.",
         "send-error": "Fehler beim Absenden des Kommentars. Bitte versuche es später erneut.",
         "error-no-message": "Bitte gib einen Kommentar zum Absenden ein.",
+        "warning-loading-failed": "Das Laden der Kommentare zu diesem Artikel ist fehlgeschlagen. Bitte stelle sicher, dass Du mit dem Internet verbunden bist und Anfragen an backend.datenanfragen.de nicht mit einem Add-On wie uMatrix oder NoScript blockierst.",
         "no-comments": "Noch keine Kommentare vorhanden. Schreib’ doch einen!",
         "leave-comment": "Kommentar hinterlassen",
         "optional": "(optional)",

@@ -3,7 +3,7 @@ import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 import StarWidget from 'Components/StarWidget';
-import { rethrow } from '../Utility/errors';
+import { rethrow, WarningException } from '../Utility/errors';
 
 const API_URL = 'https://backend.datenanfragen.de/comments';
 const TARGET = LOCALE + '/' + document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '');
@@ -14,10 +14,19 @@ export default class CommentsWidget extends preact.Component {
 
         this.state.comments = [];
 
-        fetch(API_URL + '/get/' + TARGET)
+        const url = `${API_URL}/get/${TARGET}`;
+        fetch(url)
             .then((res) => res.json())
             .then((comments) => {
                 this.setState({ comments: comments.sort((a, b) => -a.added_at.localeCompare(b.added_at)) });
+            })
+            .catch((e) => {
+                flash(
+                    <FlashMessage type="warning" duration={10000}>
+                        {t('warning-loading-failed', 'comments')}
+                    </FlashMessage>
+                );
+                rethrow(WarningException.fromError(e), 'Loading the comments failed.', { url });
             });
     }
 
