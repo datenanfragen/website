@@ -189,7 +189,10 @@
         "error": "Malheureusement, l'envoi de ta contribution a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les demandes en provenance de serveurs externes à travers une application comme uMatrix ou NoScript.",
         "no-input": "Tu dois saisir quelque chose pour envoyer une suggestion.",
         "view-on-github": "Tu peux suivre l'état d'avancement sur GitHub",
-        "ok": "Ok"
+        "ok": "Ok",
+        "github-error": "Un problème s'est produit avec GitHub pendant l'envoi de votre suggestion, qui n'a pas pu être prise en compte. Veuillez réessayer.",
+        "invalid-request": "Certaines informations ne sont pas au bon format ou sont incomplètes. Veuillez les corriger avant de d'envoyer de nouveau votre suggestion.",
+        "name-or-web-missing": "Veuillez entrer au moins un nom ou un site Web."
     },
     "schema": {
         "relevant-countries": "Pays concernés",
