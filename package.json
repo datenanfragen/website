@@ -66,6 +66,7 @@
         "@babel/plugin-transform-runtime": "^7.6.2",
         "@babel/preset-env": "^7.7.1",
         "@babel/runtime": "^7.6.2",
+        "@cypress/skip-test": "^2.5.0",
         "@percy/cypress": "^2.2.0",
         "babel-eslint": "^10.0.2",
         "babel-loader": "^8.0.6",

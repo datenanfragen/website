@@ -1,3 +1,4 @@
+import { isOn, skipOn } from '@cypress/skip-test';
 /*
  * In GitLab#103, we noticed that changing the country did not update the suggested companies in the wizard.
  */
@@ -9,7 +10,7 @@ describe('Changing the country should update the companies in the wizard', () =>
     });
 
     it('"All" should have no suggested companies', () => {
-        cy.window().then(win => {
+        cy.window().then((win) => {
             win.globals.country = 'all';
 
             cy.contains('#wizard-user-country', 'all');
@@ -18,7 +19,7 @@ describe('Changing the country should update the companies in the wizard', () =>
     });
 
     it('"Germany" should have a few suggested companies', () => {
-        cy.window().then(win => {
+        cy.window().then((win) => {
             win.globals.country = 'de';
 
             cy.contains('#wizard-user-country', 'Germany');
@@ -27,21 +28,18 @@ describe('Changing the country should update the companies in the wizard', () =>
     });
 
     it('Changing the country after manually modifying the suggested companies', () => {
-        cy.window().then(win => {
+        cy.window().then((win) => {
             win.globals.country = 'de';
 
             cy.get('.wizard-selected-list .button.icon-trash')
                 .its('length')
-                .then(old_length => {
-                    cy.get('.wizard-selected-list .button.icon-trash')
-                        .first()
-                        .click();
+                .then((old_length) => {
+                    cy.get('.wizard-selected-list .button.icon-trash').first().click();
 
-                    cy.getCookie('changed_saved_companies')
-                        .its('value')
-                        .should('eq', 'true');
+                    skipOn(isOn('production'));
+                    cy.getCookie('changed_saved_companies').its('value').should('eq', 'true');
 
-                    cy.window().then(w => {
+                    cy.window().then((w) => {
                         w.globals.country = 'all';
 
                         cy.contains('#wizard-user-country', 'all');

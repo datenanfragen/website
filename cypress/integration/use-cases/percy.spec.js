@@ -1,3 +1,5 @@
+import { isOn, skipOn } from '@cypress/skip-test';
+
 function snap(url) {
     cy.visit(url);
     cy.percySnapshot(url);
@@ -5,6 +7,8 @@ function snap(url) {
 
 describe('Visual diffs using Percy', async () => {
     it('Snapshots', async () => {
+        skipOn(isOn('production'));
+
         // Cypress doesn't clear indexedDB in-between test runs (see https://github.com/cypress-io/cypress/issues/1208).
         // As localforage tends to choose indexedDB as the storage backend, this means that we are persisting state
         // between tests, causing the Percy snapshots to look differently depending on which tests ran first. So, until

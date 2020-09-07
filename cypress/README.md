@@ -14,3 +14,16 @@ export CYPRESS_baseUrl='http://localhost:1314'
 ```
 
 Then, run `yarn cypress open` to open the test runner. As we are running *Electron* in the CI env, you should also select that as the browser for local testing to get consistent results.
+
+### Production tests
+
+To run tests against the production site, you need to make sure to set the correct base URL and environment:
+
+```sh
+export CYPRESS_baseUrl='https://www.datarequests.org'
+export CYPRESS_ENVIRONMENT=production
+```
+
+If you are writing a test that doesn't work in production, you can then use `skipOn(isOn('production'))` to skip it for production tests after importing `import { isOn, skipOn } from '@cypress/skip-test'`. See the [`@cypress/skip-test` README](https://github.com/cypress-io/cypress-skip-test) for more details.
+
+TODO: Change to `skipOn('production')` once the plugin actually behaves as documented, see: https://github.com/cypress-io/cypress-skip-test/issues/41
