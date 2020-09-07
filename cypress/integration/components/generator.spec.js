@@ -17,6 +17,8 @@ describe('Generator component', () => {
     });
 
     it('did not load pdfworker for email', () => {
+        skipOn(isOn('production'));
+        
         cy.window().then((win) => {
             expect(win.pdfWorker).to.be.undefined;
         });
