@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 06. August 2020 geändert.
+Unsere Datenschutzerklärung wurde zuletzt am 10. September 2020 geändert.
 
 ## Allgemeine Hinweise
 
@@ -23,11 +23,11 @@ Diese Datenschutzerklärung gilt für alle Aktivitäten des Datenanfragen.de e.&
 
 Dazu zählen zunächst die Daten, die wir von unseren Mitgliedern erheben und verarbeiten, aber auch jene die anfallen, wenn Du z.&nbsp;B. an uns spendest.
 
-Weiterhin gilt die Datenschutzerklärung für unsere Webseiten [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org) und [demandetesdonnees.fr](https://www.demandetesdonnees.fr).
+Weiterhin gilt die Datenschutzerklärung für unsere Webseiten [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr) und [pedidodedados.org](https://www.pedidodedados.org/).
 
 Zweck des Datenanfragen.de e.&nbsp;V. ist es, die Bürger_innen durch Aufklärung und Beratung in allen mit dem Datenschutz im Zusammenhang stehenden Fragen in der Ausübung ihres Rechts auf informationelle Selbstbestimmung zu stärken. Wir sind in allen unseren Tätigkeiten an unsere [Satzung]({{< ref "verein/constitution" >}}) gebunden.
 
-Mit unserer Webseite Datenanfragen.de (sowie deren englischen und französischen Übersetzungen, datarequests.org und demandetesdonnees.fr) wollen wir Dir helfen, Deine Datenschutzrechte einfacher auszuüben. Dazu bieten wir Dir einen Generator, mit dem Du automatisch Anfragen erstellen kannst, eine Datenbank mit Kontaktdaten für datenschutzspezifische Anfragen an viele Unternehmen und Informationsmaterialien zum Datenschutz und verwandten Themen. Schließlich informiert sie über den Verein und bieten Dir unter anderem die Möglichkeit zu spenden oder Mitglied zu werden.
+Mit unserer Webseite Datenanfragen.de (sowie deren Übersetzungen) wollen wir Dir helfen, Deine Datenschutzrechte einfacher auszuüben. Dazu bieten wir Dir einen Generator, mit dem Du automatisch Anfragen erstellen kannst, eine Datenbank mit Kontaktdaten für datenschutzspezifische Anfragen an viele Unternehmen und Informationsmaterialien zum Datenschutz und verwandten Themen. Schließlich informiert sie über den Verein und bieten Dir unter anderem die Möglichkeit zu spenden oder Mitglied zu werden.
 
 ### Verantwortlicher und Kontakt
 
@@ -66,16 +66,18 @@ Um Dir die größtmögliche Kontrolle über Deine Privatsphäre zu ermöglichen,
 
 In diesem Abschnitt möchten wir Dir genau erklären, unter welchen Umständen wir welche Daten erheben und verarbeiten.
 
-### Informationen, die wir automatisch sammeln
+### Informationen, die wir automatisch verarbeiten
 
-#### Server-Logdateien
-Wenn Du eine unserer Webseiten aufrufst, baut Dein Browser eine Verbindung zu einem Server von Netlify, Inc., 610 22nd Street, Suite 315, San Francisco, CA 94107, USA auf. Dieser speichert dabei einige Informationen über die Verbindung in einer sogenannten Logdatei. Wir haben keinen Zugriff auf diese Logdateien. Mehr Informationen dazu, wie Netlify Deine Daten verarbeitet, kannst Du [deren Datenschutzerklärung](https://www.netlify.com/privacy/) entnehmen.
+#### Server-Verbindungsdaten
+Wenn Du eine unserer Webseiten aufrufst, baut Dein Browser eine Verbindung zu einem oder mehreren unserer Server auf. Wir haben alle unsere Server so konfiguriert, dass sie keine Logdateien speichern, zur Bearbeitung Deiner Anfrage müssen aber gewisse personenbezogene Daten kurzzeitig im Arbeitsspeicher verarbeitet werden.
 
-Darüber hinaus werden bestimmte Dateien auf unseren Webseiten von Servern von Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxemburg, Luxemburg (der autorisierten Vertreterin der Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA im europäischen Wirtschaftsraum) abgerufen. Diese Server legen u.&nbsp;U. kumulierte Statistiken dazu an, wie die Dienste genutzt werden. Wir haben Einblick in diese Statistiken, aber keine Kontrolle darüber, ob und wie sie erhoben werden. Mehr Informationen dazu, wie Amazon Web Services Deine Daten verarbeitet, kannst Du [deren Datenschutz-FAQs](https://aws.amazon.com/de/compliance/data-privacy-faq/) entnehmen.
-
-- Betroffene Daten: die konkrete Unterseite, die Du besucht hast, das Datum und die Uhrzeit Deines Zugriffs, die Herkunft Deiner Anfrage (der sogenannte „Referrer“), Informationen zu Deinem Browser und Betriebssystem (der sogenannte „User-Agent-String“), dein Land und Deine IP-Adresse
-- Rechtsgrundlage: Die Speicherung erfolgt auf Grundlage unseres (sowie des unserer Hostinganbieter) berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität der benutzten Server im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
-- Dauer der Speicherung: 30 Tage bei Netlify bzw. 60 Tage bei Amazon Web Services
+- Betroffene Daten: die konkrete Unterseite, die Du besucht hast, das Datum und die Uhrzeit Deines Zugriffs, die Daten die Dein Browser mit der Anfrage schickt (die sogenannten „Header“), darunter Informationen zu Deinem Browser und Betriebssystem (der sogenannte „User-Agent-String“), und Deine IP-Adresse
+- Rechtsgrundlage: Die flüchtige Verarbeitung dieser Daten ist erforderlich, damit wir Dir unsere Webseite bereitstellen können, sie erfolgt auf Basis des Art. 6 Abs. 1 lit. b DSGVO.
+- Dauer der Speicherung: keine
+- Weitergabe der Daten: Unsere Server betreiben wir bei den folgenden Unternehmen. Es handelt sich dabei ausschließlich um Unternehmen aus der EU, die wir sorgfältig nach unseren hohen Datenschutzansprüchen ausgewählt haben.
+  * Hetzner Online GmbH, Industriestraße 25, 91710 Gunzenhausen, Deutschland ([Datenschutzerklärung](https://www.hetzner.de/rechtliches/datenschutz))
+  * Uberspace, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Deutschland ([Datenschutzerklärung](https://uberspace.de/de/about/privacy/))
+  * BunnyWay d.o.o., Cesta komandanta Staneta 4A, 1215 Medvode, Slowenien ([Datenschutzerklärung](https://bunnycdn.com/privacy))
 
 ### Informationen, die Du uns zur Verfügung stellst
 
@@ -147,9 +149,8 @@ Die Anmeldung ist vollkommen freiwillig für Dich.
 - Betroffene Daten: die Kontaktmöglichkeit, die Du angegeben hast (eine E-Mail-Adresse optional in Verbindung mit einem PGP-Key)
 - Rechtsgrundlage: Mit der Anmeldung zum Newsletter erteilst Du uns eine Einwilligung zur Zusendung von Informationen nach Art. 6 Abs. 1 lit. a DSGVO. Diese Einwilligung kannst Du jederzeit widerrufen; wie das geht, erfährst Du im Abschnitt „Recht auf Widerruf erteilter Einwilligungen“.
 - Dauer der Speicherung: bis Du Dich vom Newsletter abmeldest
-- Weitergabe der Daten: Auf die Kontaktdaten hat nur der Vorstand Zugriff. Der Newsletter wird über den Dienstleister Mailgun verschickt. Dafür werden die Kontaktdaten an Mailgun übertragen.
-  
-  Mailgun wird betrieben von der Mailgun Technologies, Inc., 548 Market St #43099, San Francisco, California 94104, USA. Mehr Informationen dazu, wie Mailgun Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailgun.com/privacy-policy/) entnehmen.
+- Weitergabe der Daten: Auf die Kontaktdaten hat nur der Vorstand Zugriff. Der Newsletter wird über den Dienstleister Mailjet verschickt. Dafür werden die Kontaktdaten an Mailjet übertragen.  
+  Mailjet wird betrieben von der Mailjet SAS, 13-13 bis rue de l’Aubrac, 75012 Paris, Frankreich. Mehr Informationen dazu, wie Mailjet Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailjet.com/privacy-policy/) entnehmen.
 
 ### Externe Dienste
 
