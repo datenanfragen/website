@@ -33,8 +33,8 @@
     {{- end }}
     <link rel="stylesheet" href="https://static.dacdn.de/fonts/fira-sans.css" integrity="sha384-U8TLqRd5TXsbHc89iPjGqbk/4KrbgxDjzI37GGTuQ30EdFX0pgdZZzPJPLkL2iJR" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.dacdn.de/fonts/league-spartan.css" integrity="sha384-8xT2dJ0AqzYTGWPC27D6SB6ndu+drRpQGL4BAxDYQvC87Adakg1LrWQY5t84tkkO" crossorigin="anonymous">
-    {{ $style := resources.Get "styles/main.scss" | toCSS | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{ $style := resources.Get "styles/main.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink | absURL }}" integrity="{{ $style.Data.Integrity }}">
 
     {{ partial "head/meta.html" . }}
     {{ partial "head/favicons.html" . }}
