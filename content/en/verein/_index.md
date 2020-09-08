@@ -4,7 +4,7 @@
     "aliases": ["association", "ev", "e.v.", "e. v."]
 }
 
-## Who we are
+## Who are we?
 
 We are the Datenanfragen.de e.&thinsp;V., a non-profit running the website [datarequests.org](https://www.datarequests.org) (as well as their German, French, and Portuguese translations, [Datenanfragen.de](https://www.datenanfragen.de), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), and [pedidodedados.org](https://www.pedidodedados.org/)). We are on a [mission]({{< ref "verein/mission-statement" >}}) to advance data protection and privacy in Europe and beyond. We want to help you exercise your human right to privacy and set an example of how to do thorough data protection without being annoying because we believe privacy should be the default option.
 
