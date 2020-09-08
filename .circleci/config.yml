@@ -96,7 +96,7 @@ workflows:
         - production_test
       triggers:
         - schedule:
-            cron: "* 7,12,17,22 * * *"
+            cron: "0 7,12,17,22 * * *"
             filters:
               branches:
                 only:
