@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on August 06, 2020.
+Our privacy policy was last changed on September 10, 2020.
 
 ## General remarks
 
@@ -23,11 +23,11 @@ This privacy policy applies to all activities of Datenanfragen.de e.&nbsp;V. (�
 
 This includes the data we collect and process from our member but also the data that is incurred from donations and the like.
 
-In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org) and [demandetesdonnees.fr](https://www.demandetesdonnees.fr).
+In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr) and [pedidodedados.org](https://www.pedidodedados.org/).
 
 The association's purpose is to support the general public in excercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our [constitution]({{< ref "verein/constitution" >}}) in all our activities.
 
-With our website datarequests.org (as well as their German and French translations, Datenanfragen.de and demandetesdonnees.fr), we want to help you exercise your right to privacy. In order to do so, we offer a generator that helps you automatically generate requests, a company database with contact data for privacy-related requests to many companies and educational material on subjects related to privacy and data protection. Finally, it has information on the association and allows you to join or donate among other things.
+With our website datarequests.org (as well as their translations), we want to help you exercise your right to privacy. In order to do so, we offer a generator that helps you automatically generate requests, a company database with contact data for privacy-related requests to many companies and educational material on subjects related to privacy and data protection. Finally, it has information on the association and allows you to join or donate among other things.
 
 ### Controller and contact information
 
@@ -66,16 +66,18 @@ In order to give you the greatest possible control over your privacy, you can se
 
 In this section we would like to explain to you exactly under which circumstances we collect and process which data. Not listed here are the processings that take place exclusively on your own computer and for which no data is transferred to us. You can find further information about these in the above mentioned privacy controls.
 
-### Data we collect automatically
+### Data we process automatically
 
-#### Server log files
-When you visit one of our websites, your browser connects to a server run by Netlify, Inc., 610 22nd Street, Suite 315, San Francisco, CA 94107, USA. This server will store some information about the connection in a so-called log file. We have no access to these log files. To find out more about how Netlify processes your data, have a look at their [privacy policy](https://www.netlify.com/privacy/).
+#### Server connection data
+When you visit one of our websites, your browser connnects to one or more of our servers. We have configured all our servers not to save log files, but we do need to process some data in memory for a short while to serve your request.
 
-In addition to that, some of the files on our website are requested from servers run by Amazon Web Services EMEA SARL, 5 rue Plaetis, L-2338 Luxembourg, Luxembourg (the authorized representative of Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109, USA in the European economic area). These servers may collect aggregated statistics on how the services are used. While have have access to these statistics, we cannot influence whether or how they are collected. For more information on how Amazon Web Services processes your data, please refer to [their data privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).
-
-- Affected data: the specific page you visited, the date and time of your visit, the origin of your request (the so-called “referrer”), information about your browser and operating system (the so-called “user-agent string”), your country and your IP address
-- Lawful basis: The data is stored on the basis of our (and our hosting partners’) legitimate interest in improving the stability and functionality of the servers in use in accordance with Art. 6(1) lit. f GDPR.
-- Duration of storage: 30 days for Netlify; 60 days for Amazon Web Services
+- Affected data: the specific page you visited, the date and time of your visit, the data your browser sends with the request (the so-called “headers”), including information about your browser and operating system (the so-called “user-agent string”), and your IP address
+- Lawful basis: The brief processing of this data is necessary to offer our websites to you, it is based on Art. 6(1) lit. b GDPR.
+- Duration of storage: none
+- Data disclosure: Our servers are operated by the following companies. They are exclusively EU companies, which we have carefully selected to meet our high data protection standards.
+  * Hetzner Online GmbH, Industriestraße 25, 91710 Gunzenhausen, Germany ([privacy policy](https://www.hetzner.com/rechtliches/datenschutz))
+  * Uberspace, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Germany ([privacy policy](https://uberspace.de/en/about/privacy/))
+  * BunnyWay d.o.o., Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([privacy policy](https://bunnycdn.com/privacy))
 
 ### Data you provide to us
 
@@ -145,9 +147,8 @@ The subscription is entirely voluntary for you.
 - Affected data: the contact details you provided (an email address with an optional PGP key)
 - Lawful basis: By subscribing, you consent to the sending of the newsletter in accordance with Art. 6(1) lit. a GDPR. You can revoke this consent at any time; you can find out how to do this in the section “Right to revoke given consent”.
 - Duration of storage: until you unsubscribe from the newsletter
-- Data disclosure: Only board members can access the contact data. The newsletter is sent is sent using the Mailgun service. Therefore, the contact data needs to be sent to Mailgun.
-  
-  Mailgun is run by Mailgun Technologies, Inc., 548 Market St #43099, San Francisco, California 94104, USA. For more information on how Mailgun processes your data, please refer to [their privacy policy](https://www.mailgun.com/privacy-policy/).
+- Data disclosure: Only board members can access the contact data. The newsletter is sent is sent using the Mailjet service. Therefore, the contact data needs to be sent to Mailjet.  
+  Mailjet is run by Mailjet SAS, 13-13 bis rue de l’Aubrac, 75012 Paris, France. For more information on how Mailjet processes your data, please refer to [their privacy policy](https://www.mailjet.com/privacy-policy/).
 
 ### External services
 
