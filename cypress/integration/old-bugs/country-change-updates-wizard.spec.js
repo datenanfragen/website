@@ -36,6 +36,10 @@ describe('Changing the country should update the companies in the wizard', () =>
                 .then((old_length) => {
                     cy.get('.wizard-selected-list .button.icon-trash').first().click();
 
+                    // Sometimes the cookie is not set quickly enough, so we need to wait a little to have the correct result.
+                    // eslint-disable-next-line cypress/no-unnecessary-waiting
+                    cy.wait(500);
+
                     skipOn(isOn('production'));
                     cy.getCookie('changed_saved_companies').its('value').should('eq', 'true');
 
