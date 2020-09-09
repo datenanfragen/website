@@ -18,6 +18,32 @@ module.exports = {
         pdfworker: './src/Utility/PdfWorker.js',
         'test-interface': './src/test-interface.js',
     },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                sourceMap: true,
+                extractComments: false,
+                cache: true,
+                parallel: true,
+                terserOptions: {
+                    mangle: {
+                        reserved: [
+                            'ActionButtonPlaceholder',
+                            'NewRequestButtonPlaceholder',
+                            'CompanySelectorPlaceholder',
+                            'RequestFormPlaceholder',
+                            'DynamicInputContainerPlaceholder',
+                            'SignatureInputPlaceholder',
+                            'RequestTypeChooserPlaceholder',
+                            'RecipientInputPlaceholder',
+                            'TransportMediumChooserPlaceholder',
+                        ],
+                    },
+                },
+            }),
+        ],
+    },
     output: {
         filename: 'js/[name].gen.js',
         chunkFilename: 'js/[name].bundle.gen.js',
@@ -44,28 +70,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new TerserPlugin({
-            sourceMap: true,
-            extractComments: false,
-            cache: true,
-            parallel: true,
-            terserOptions: {
-                mangle: {
-                    reserved: [
-                        'ActionButtonPlaceholder',
-                        'NewRequestButtonPlaceholder',
-                        'CompanySelectorPlaceholder',
-                        'RequestFormPlaceholder',
-                        'DynamicInputContainerPlaceholder',
-                        'SignatureInputPlaceholder',
-                        'RequestTypeChooserPlaceholder',
-                        'RecipientInputPlaceholder',
-                        'TransportMediumChooserPlaceholder',
-                    ],
-                },
-            },
-        }),
-
         new webpack.BannerPlugin(`[file]
 This code is part of the Datenanfragen.de project. We want to help you exercise your rights under the GDPR.
 
