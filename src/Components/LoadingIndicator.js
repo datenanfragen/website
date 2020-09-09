@@ -7,7 +7,6 @@ export default class LoadingIndicator extends preact.Component {
 
         return (
             <div className="loading-indicator" style={this.props.style}>
-                <link rel="stylesheet" href={`${BASE_URL}css/loader.gen.css`} />
                 <div className="sk-folding-cube">
                     <div className="sk-cube1 sk-cube"></div>
                     <div className="sk-cube2 sk-cube"></div>
@@ -20,12 +19,12 @@ export default class LoadingIndicator extends preact.Component {
 
     static propTypes = {
         shown: PropTypes.bool,
-        style: PropTypes.string
+        style: PropTypes.string,
     };
 
     static get defaultProps() {
         return {
-            shown: true
+            shown: true,
         };
     }
 }

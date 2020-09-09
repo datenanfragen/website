@@ -1,7 +1,6 @@
 import preact from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import { detectBlockedCanvasImageExtraction } from '../../Utility/browser';
-import { colorVar } from '../../Utility/common';
 
 export default class SignatureInput extends preact.Component {
     constructor(props) {
@@ -13,20 +12,19 @@ export default class SignatureInput extends preact.Component {
             top: props.height || 100,
             bottom: 0,
             left: props.width || 100,
-            right: 0
+            right: 0,
         };
         this.state = {
             width: props.width || 100,
             height: props.height || 100,
             hasBeenDrawnOn: false,
             isEmpty: true,
-            backgroundColor: props.backgroundColor || colorVar('bg-color'),
-            strokeColor: props.strokeColor || colorVar('text-color'),
+            strokeColor: props.strokeColor || '#2d3748',
             isDrawing: false,
             lastX: 0,
             lastY: 0,
             canvasImageExtractionBlocked: false,
-            cropArea: this.initialCropArea
+            cropArea: this.initialCropArea,
         };
 
         this.handleMouse = this.handleMouse.bind(this);
@@ -39,7 +37,7 @@ export default class SignatureInput extends preact.Component {
         const res = detectBlockedCanvasImageExtraction(this.context);
         const force_update = this.state.canvasImageExtractionBlocked !== res;
         this.setState({
-            canvasImageExtractionBlocked: res
+            canvasImageExtractionBlocked: res,
         });
 
         // TODO @zner0L: Due to your modifications to `shouldComponentUpdate()`, I need to force an update here. Without
@@ -78,8 +76,8 @@ export default class SignatureInput extends preact.Component {
                         top,
                         bottom: img.height + top,
                         left,
-                        right: img.width + left
-                    }
+                        right: img.width + left,
+                    },
                 });
                 this.handleChange();
             };
@@ -132,9 +130,8 @@ export default class SignatureInput extends preact.Component {
                             id={this.props.id}
                             style={`width: 100%;
                                 height: ${this.state.height}px;
-                                box-sizing: border-box;
-                                background-color: %{this.state.backgroundColor};`}
-                            ref={el => (this.canvas = el)}
+                                box-sizing: border-box;`}
+                            ref={(el) => (this.canvas = el)}
                             width={this.state.width}
                             height={this.state.height}
                             onPointerMove={this.handleMouse}
@@ -217,7 +214,7 @@ export default class SignatureInput extends preact.Component {
                     this.drawPath(x, y, this.state.strokeColor);
                     this.setState({
                         lastX: x,
-                        lastY: y
+                        lastY: y,
                     });
                     this.setNewCropArea(x, y);
                 }
@@ -238,7 +235,7 @@ export default class SignatureInput extends preact.Component {
                     hasBeenDrawnOn: true,
                     isEmpty: false,
                     lastX: x,
-                    lastY: y
+                    lastY: y,
                 });
                 break;
             case 'pointerout':
@@ -302,8 +299,8 @@ export default class SignatureInput extends preact.Component {
         this.props.onChange({
             signature: {
                 type: this.state.isEmpty ? 'text' : 'image',
-                value: !this.state.isEmpty ? this.croppedCanvas.toDataURL() : ''
-            }
+                value: !this.state.isEmpty ? this.croppedCanvas.toDataURL() : '',
+            },
         });
     }
 }

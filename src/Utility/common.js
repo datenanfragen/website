@@ -1,5 +1,3 @@
-import variables from './../styles/exported-variables.scss';
-
 // Taken from: https://gist.github.com/mathewbyrne/1280286
 export function slugify(text) {
     if (!text) return '';
@@ -18,21 +16,6 @@ export function fakeEvt(value) {
     return { target: { value } };
 }
 
-// Try to avoid using this where possible.
-export function colorVar(name) {
-    const color = variables[name];
-    if (color.startsWith('#')) return color;
-
-    // Taken from: https://gist.github.com/xpansive/1337890
-    const hsbToHsl = (h, s, b) => [h, (s * b) / ((h = (2 - s) * b) < 1 ? h : 2 - h), h / 2];
-
-    const [h, s, b] = color
-        .replace('hsb(', '')
-        .replace(/[\s%)]/g, '')
-        .split(',');
-    return `hsl(${hsbToHsl(h, s / 100, b / 100).join(',')})`;
-}
-
 // Adapted after: https://stackoverflow.com/a/8498629
 export function domainFromUrl(url) {
     if (!url) return;
@@ -49,7 +32,7 @@ export function deepCopyObject(object) {
 // Adapted after: https://stackoverflow.com/a/15710692
 export function hash(s) {
     return window.btoa(
-        s.split('').reduce(function(a, b) {
+        s.split('').reduce(function (a, b) {
             a = (a << 5) - a + b.charCodeAt(0);
             return a & a;
         }, 0)
@@ -62,10 +45,7 @@ export function almostUniqueId(length = 9) {
         ('' + d.getUTCFullYear()).slice(-2) +
         ('0' + (d.getUTCMonth() + 1)).slice(-2) +
         ('0' + d.getUTCDate()).slice(-2) +
-        Math.random()
-            .toString(36)
-            .substr(2, length)
-            .toUpperCase()
+        Math.random().toString(36).substr(2, length).toUpperCase()
     );
 }
 
