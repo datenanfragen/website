@@ -58,10 +58,6 @@ yarn run build
 if [ "$CONTEXT" = "production" ]
 then
     hugo -e production --minify
-    if [ -n "$DATTEL_SERVER" ] && [ -n "$DATTEL_TOKEN" ]
-    then
-        yarn deploy-dattel
-    fi
     # TODO: This will soon not be necessary anymore.
     echo "Copying files for Netlify…"
     cp _redirects public/_redirects

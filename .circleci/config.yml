@@ -68,6 +68,16 @@ jobs:
               # https://stackoverflow.com/a/13864829
               if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn percy exec yarn cypress run --record; fi
 
+  deploy:
+      executor: docker_hugo_node
+      steps:
+        - attach_workspace:
+            at: ~/
+
+        - run:
+            command: |
+              yarn deploy-dattel
+
   production_test:
       docker:
         - image: cypress/base:13.8.0
@@ -85,12 +95,20 @@ jobs:
 
 workflows:
   version: 2
-  build_and_test:
+  build_test_deploy:
     jobs:
       - build
       - test:
           requires:
               - build
+      - deploy:
+          requires:
+              - test
+          filters:
+              branches:
+                only:
+                  - master
+
   scheduled_production_test:
       jobs:
         - production_test
