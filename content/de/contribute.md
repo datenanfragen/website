@@ -20,7 +20,7 @@ Vielen Dank, dass Du Dich über die Möglichkeiten zum Mitmachen informierst!
     </div>
     <div class="clearfix"></div>
     <!-- TODO: At some point, we will want to have proper landing page/better process for this. -->
-    <a class="button button-primary read-more-button" href="/suggest?type=new&for=cdb">Neues Unternehmen eintragen&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="/suggest#!type=new&for=cdb">Neues Unternehmen eintragen&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 <article id="i18n" class="list-article icon-list-article">

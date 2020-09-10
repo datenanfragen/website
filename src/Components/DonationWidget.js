@@ -49,7 +49,7 @@ export default class DonationWidget extends preact.Component {
             .then((json) => {
                 switch (json?.status) {
                     case 'paid':
-                        window.location = `${BASE_URL}thanks?donation_reference=${json.reference}`;
+                        window.location = `${BASE_URL}thanks#!donation_reference=${json.reference}`;
                         break;
                     case 'failed':
                         flash(<FlashMessage type="error">{t('donation-failed', 'donation-widget')}</FlashMessage>);
@@ -225,7 +225,7 @@ export default class DonationWidget extends preact.Component {
                     id="donation-widget-thanks-button"
                     className="button button-primary"
                     style="float: right;"
-                    href={`${BASE_URL}thanks?donation_reference=${this.state.donation_reference}`}>
+                    href={`${BASE_URL}thanks#!donation_reference=${this.state.donation_reference}`}>
                     <Text id="thanks" />
                 </a>
                 <div className="clearfix"></div>
@@ -315,7 +315,7 @@ export default class DonationWidget extends preact.Component {
                         business: 'paypal@datenanfragen.de',
                         image_url: 'https://www.datenanfragen.de/img/logo-datenanfragen-ev.png',
                         no_shipping: 1,
-                        return: `${BASE_URL}thanks?donation_reference=${this.state.donation_reference}`,
+                        return: `${BASE_URL}thanks#!donation_reference=${this.state.donation_reference}`,
                         cancel_return: `${BASE_URL}donate`,
                         custom: this.state.donation_reference,
                     },
