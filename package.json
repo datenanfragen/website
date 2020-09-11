@@ -34,7 +34,8 @@
         "dev": "webpack --watch --mode=development --config webpack.dev.js",
         "sanity-check": "grep -E '^[><=]{7}( |$)' -H -I --line-number -r --exclude-dir=node_modules && exit 1 || exit 0 # Check for merge conflict artifacts, inspired by: https://stackoverflow.com/a/42584779",
         "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint assets/styles && git diff --check",
-        "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix"
+        "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix",
+        "deploy-dattel": "node deploy-dattel.js"
     },
     "bugs": {
         "url": "https://github.com/datenanfragen/website/issues"
@@ -72,6 +73,7 @@
         "babel-loader": "^8.0.6",
         "cssnano": "^4.1.10",
         "cypress": "^4.12.1",
+        "dattel-client": "^0.7.0",
         "deepmerge": "^4.2.1",
         "eslint": "^7.0.0",
         "eslint-import-resolver-webpack": "^0.12.1",
