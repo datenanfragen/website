@@ -18,7 +18,7 @@ Deutschland
 **Web:** [www.datenanfragen.de/verein](https://www.datenanfragen.de/verein)
 
 **Vertreten durch den Vorstand:** Benjamin Altpeter und Lorenz Sieben  
-Der Datenanfragen.de e.&nbsp;V. ist im Vereinsregister des Amtsgerichts Braunschweig unter der [Registernummer VR&nbsp;201732](https://static.dacdn.de/docs/vereinsregisterabdruck_2018-09-05.pdf "Aktueller Abdruck aus dem Vereinsregister vom 05. September 2018") eingetragen und zuletzt per [Bescheid vom 13. Januar 2020](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) vom Finanzamt Braunschweig-Wilhelmstraße als gemeinnützig anerkannt.
+Der Datenanfragen.de e.&nbsp;V. ist im Vereinsregister des Amtsgerichts Braunschweig unter der [Registernummer VR&nbsp;201732](https://static.dacdn.de/docs/vereinsregisterabdruck_2020-09-11.pdf "Aktueller Abdruck aus dem Vereinsregister vom 11. September 2020") eingetragen und zuletzt per [Bescheid vom 13. Januar 2020](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) vom Finanzamt Braunschweig-Wilhelmstraße als gemeinnützig anerkannt.
 
 **Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Deutschland
