@@ -35,11 +35,7 @@ async function main() {
             await dattel.publishDeploy(site_id, deploy_info.id);
 
             console.log(`Setting headers and redirects for ${site_id}…`);
-            await dattel.setSiteHeadersFromFile(
-                site_id,
-                path.join(__dirname, '_headers'),
-                path.join(__dirname, '_redirects')
-            );
+            await dattel.setSiteHeadersFromFile(site_id, path.join(__dirname, '_headers'), null);
 
             console.log(`Done with ${site_id}`);
         }

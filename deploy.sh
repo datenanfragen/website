@@ -58,11 +58,6 @@ yarn run build
 if [ "$CONTEXT" = "production" ]
 then
     hugo -e production --minify
-    # TODO: This will soon not be necessary anymore.
-    echo "Copying files for Netlify…"
-    cp _redirects public/_redirects
-    cp _headers public/_headers
-    cp static/404.html public/404.html
 else
     hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
     cp _headers public/_headers

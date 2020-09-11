@@ -1,5 +1,0 @@
-# Canonicalize URLs, Caddy automatically adds the slash with :splat, so they need to be omitted here.
-https://datenanfragen.de/*  https://www.datenanfragen.de:splat 301!
-https://datarequests.org/*  https://www.datarequests.org:splat 301!
-https://demandetesdonnees.fr/*  https://www.demandetesdonnees.fr:splat 301!
-https://pedidodedados.org/*  https://www.pedidodedados.org:splat 301!
