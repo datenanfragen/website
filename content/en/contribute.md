@@ -19,7 +19,7 @@ Thank you so much for looking into contributing to datarequests.org!
     </div>
     <div class="clearfix"></div>
     <!-- TODO: At some point, we will want to have proper landing page/better process for this. -->
-    <a class="button button-primary read-more-button" href="/suggest?type=new&for=cdb">Submit a new company&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="/suggest#!type=new&for=cdb">Submit a new company&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 <article id="i18n" class="list-article icon-list-article">

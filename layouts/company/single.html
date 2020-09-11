@@ -23,10 +23,10 @@
     <div id="company-details">
         <div class="col100-mobile" style="float: right; text-align: right; padding: 0 0 15px 15px;">
             <a class="button button-primary button-small icon icon-letter"
-                href="{{ print ("generator" | absURL) "?company=" .Params.slug }}"
+                href="{{ print ("generator" | absURL) "#!company=" .Params.slug }}"
                 style="margin-bottom: 5px;">{{ T "cdb-send-request" }}</a><br>
             <a class="button button-secondary button-small icon icon-pencil"
-                href="{{ print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug }}">{{ T "cdb-suggest-change" }}</a>
+                href="{{ print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug }}">{{ T "cdb-suggest-change" }}</a>
         </div>
 
         <p>{{ T "cdb-intro" . }}</p>
@@ -99,7 +99,7 @@
         {{ end }}
     </div>
     <div id="companies-help-needed" class="box box-info" style="margin-bottom: 20px;">
-        {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "?type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "?type=new&for=cdb")) | safeHTML }}
+        {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "#!type=new&for=cdb")) | safeHTML }}
     </div>
 
     <!-- TODO: This is currently a very naive approach, mostly since we don't exactly have any data to do this better. We will want to improve this in the future. -->
