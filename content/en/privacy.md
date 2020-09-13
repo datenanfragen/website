@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on September 10, 2020.
+Our privacy policy was last changed on September 13, 2020.
 
 ## General remarks
 
@@ -75,9 +75,9 @@ When you visit one of our websites, your browser connnects to one or more of our
 - Lawful basis: The brief processing of this data is necessary to offer our websites to you, it is based on Art. 6(1) lit. b GDPR.
 - Duration of storage: none
 - Data disclosure: Our servers are operated by the following companies. They are exclusively EU companies, which we have carefully selected to meet our high data protection standards.
-  * Hetzner Online GmbH, Industriestraße 25, 91710 Gunzenhausen, Germany ([privacy policy](https://www.hetzner.com/rechtliches/datenschutz))
-  * Uberspace, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Germany ([privacy policy](https://uberspace.de/en/about/privacy/))
-  * BunnyWay d.o.o., Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([privacy policy](https://bunnycdn.com/privacy))
+  * [Hetzner Online GmbH]({{< ref "company/hetzner" >}}), Industriestraße 25, 91710 Gunzenhausen, Germany ([privacy policy](https://www.hetzner.com/rechtliches/datenschutz))
+  * [Uberspace]({{< ref "company/uberspace" >}}), Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Germany ([privacy policy](https://uberspace.de/en/about/privacy/))
+  * [BunnyWay d.o.o.](({{< ref "company/bunnycdn" >}})), Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([privacy policy](https://bunnycdn.com/privacy))
 
 ### Data you provide to us
 
@@ -97,7 +97,7 @@ We will always display all the information included in the report to you before 
 - Lawful basis: The basis of the storage is our legitimate interest to improve the stability and functionality of our website in accordance with Art. 6(1) lit. f GDPR.
 - Duration of storage: indefinitely
 - Data disclosure: The content of error reports may be publicly accessible via our [GitHub issue tracker](https://github.com/datenanfragen/website/issues).  
-GitHub is operated by GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA or their subsidiary GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. For more information on how GitHub processes your data, please refer to [their privacy policy](https://help.github.com/articles/github-privacy-statement/).
+GitHub is operated by [GitHub, Inc.]({{< ref "company/github" >}}), 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA or their subsidiary GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. For more information on how GitHub processes your data, please refer to [their privacy policy](https://help.github.com/articles/github-privacy-statement/).
 
 #### Membership applications
 If you want to become a member of the association, you need to provide some data through the membership application form. This data is necessary for our records and for us to be able to contact you with important information regarding your membership (like invitations to the general assembly, donation receipts or payment reminders).
@@ -148,28 +148,28 @@ The subscription is entirely voluntary for you.
 - Lawful basis: By subscribing, you consent to the sending of the newsletter in accordance with Art. 6(1) lit. a GDPR. You can revoke this consent at any time; you can find out how to do this in the section “Right to revoke given consent”.
 - Duration of storage: until you unsubscribe from the newsletter
 - Data disclosure: Only board members can access the contact data. The newsletter is sent is sent using the Mailjet service. Therefore, the contact data needs to be sent to Mailjet.  
-  Mailjet is run by Mailjet SAS, 13-13 bis rue de l’Aubrac, 75012 Paris, France. For more information on how Mailjet processes your data, please refer to [their privacy policy](https://www.mailjet.com/privacy-policy/).
+  Mailjet is run by [Mailjet SAS]({{< ref "company/mailjet" >}}), 13-13 bis rue de l’Aubrac, 75012 Paris, France. For more information on how Mailjet processes your data, please refer to [their privacy policy](https://www.mailjet.com/privacy-policy/).
 
 ### External services
 
 In order to make our servives more interesting and efficient, we work with some external services.
 
 #### CoinGate
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by UAB “Decentralized”, A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
+We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by [UAB “Decentralized”](({{< ref "company/coingate" >}})), A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
 We use CoinGate for crypto currency transactions. We will display a note in the payment form if your payment is made through CoinGate.
 
 If you make a payment through CoinGate, UAB “Decentralized” receives all data incurred in the payment process, especially including: the payment amount, the cryto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
 For more details on how CoinGate processes your data, have a look at their [privacy policy](https://coingate.com/privacy).
 
 #### Mollie
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. Mollie is run by Mollie B.V., Keizersgracht 313, 1016 EE Amsterdam, Netherlands.  
+We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. Mollie is run by [Mollie B.V.](({{< ref "company/mollie" >}})), Keizersgracht 313, 1016 EE Amsterdam, Netherlands.  
 We use CoinGate for example for credit card transactions. In any case, we will display a note in the payment form if your payment is made through Mollie.
 
 If you make a payment through Mollie, Mollie B.V. receives all data incurred in the payment process, especially including: your payment details (for example your bank account or credit card details) including the amount, your IP address, your browser and device type, potentially your name, potentially your address, potentially information on the kind of paynebt your are making to us, potentially all other data you actively provide (like when interacting with Mollie's support).  
 For more details on how CoinGate processes your data, have a look at their [privacy policy](https://www.mollie.com/en/privacy).
 
 #### PayPal
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway PayPal. PayPal is run by PayPal (Europe) S.à.r.l. et Cie, S.C.A., 22-24 Boulevard Royal L-2449, Luxembourg.  
+We allow you to make payments to the association (especially donations and membership fees) through the payment gateway PayPal. PayPal is run by [PayPal (Europe) S.à.r.l. et Cie, S.C.A.]({{< ref "company/paypal" >}}), 22-24 Boulevard Royal L-2449, Luxembourg.  
 We will display a note in the payment form if your payment is made through PayPal.
 
 If you make a payment through PayPal, PayPal (Europe) S.à.r.l., S.C.A. receives all data incurred in the payment process, especially including: the amount, data on the payment source for the transaction (for example your bank account or credit card details), device details, technical usage details, location details, your name, your address, your phone number, your email address.  
@@ -231,7 +231,7 @@ According to Art. 77 GDPR, without prejudice to any other administrative or judi
 
 The following supervisory authority is responsible for us:
 
-Die Landesbeauftragte für den Datenschutz Niedersachsen  
+[Die Landesbeauftragte für den Datenschutz Niedersachsen]({{< ref "supervisory-authority/dendslfd" >}})  
 Prinzenstraße 5  
 30159 Hannover  
 Germany

@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 10. September 2020 geändert.
+Unsere Datenschutzerklärung wurde zuletzt am 13. September 2020 geändert.
 
 ## Allgemeine Hinweise
 
@@ -75,9 +75,9 @@ Wenn Du eine unserer Webseiten aufrufst, baut Dein Browser eine Verbindung zu ei
 - Rechtsgrundlage: Die flüchtige Verarbeitung dieser Daten ist erforderlich, damit wir Dir unsere Webseite bereitstellen können, sie erfolgt auf Basis des Art. 6 Abs. 1 lit. b DSGVO.
 - Dauer der Speicherung: keine
 - Weitergabe der Daten: Unsere Server betreiben wir bei den folgenden Unternehmen. Es handelt sich dabei ausschließlich um Unternehmen aus der EU, die wir sorgfältig nach unseren hohen Datenschutzansprüchen ausgewählt haben.
-  * Hetzner Online GmbH, Industriestraße 25, 91710 Gunzenhausen, Deutschland ([Datenschutzerklärung](https://www.hetzner.de/rechtliches/datenschutz))
-  * Uberspace, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Deutschland ([Datenschutzerklärung](https://uberspace.de/de/about/privacy/))
-  * BunnyWay d.o.o., Cesta komandanta Staneta 4A, 1215 Medvode, Slowenien ([Datenschutzerklärung](https://bunnycdn.com/privacy))
+  * [Hetzner Online GmbH]({{< ref "company/hetzner" >}}), Industriestraße 25, 91710 Gunzenhausen, Deutschland ([Datenschutzerklärung](https://www.hetzner.de/rechtliches/datenschutz))
+  * [Uberspace]({{< ref "company/uberspace" >}}), Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Deutschland ([Datenschutzerklärung](https://uberspace.de/de/about/privacy/))
+  * [BunnyWay d.o.o.]({{< ref "company/bunnycdn" >}}), Cesta komandanta Staneta 4A, 1215 Medvode, Slowenien ([Datenschutzerklärung](https://bunnycdn.com/privacy))
 
 ### Informationen, die Du uns zur Verfügung stellst
 
@@ -97,7 +97,7 @@ Vor dem Absenden der Fehlermeldung werden Dir sämliche betroffenen Daten angeze
 - Rechtsgrundlage: Die Grundlage der Speicherung ist unser rechtmäßiges Interesse, die Stabilität und Funktionalität unserer Webseite zu verbessern im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
 - Dauer der Speicherung: unbeschränkt
 - Weitergabe der Daten: Der Inhalt von Fehlermeldungen ist ggf. über unseren [Issue-Tracker auf GitHub](https://github.com/datenanfragen/website/issues) öffentlich einsehbar.  
-GitHub wird betrieben von der GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/).
+GitHub wird betrieben von der [GitHub, Inc.]({{< ref "company/github" >}}), 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/).
 
 #### Mitgliedsantrag
 Für den Antrag auf Mitgliedschaft im Datenanfragen.de e.&nbsp;V. musst Du in dem dafür vorgesehenen Vordruck einige personenbezogenen Daten angeben. Diese Daten sind notwendig, damit wir Dich als Mitglied führen und Dir wichtige Informationen im Bezug auf Deine Mitgliedschaft (bspw. Einladungen zu Mitgliederversammlungen, Zuwendungsbescheinigungen oder Zahlungserinnerungen) zukommen lassen können.
@@ -150,14 +150,14 @@ Die Anmeldung ist vollkommen freiwillig für Dich.
 - Rechtsgrundlage: Mit der Anmeldung zum Newsletter erteilst Du uns eine Einwilligung zur Zusendung von Informationen nach Art. 6 Abs. 1 lit. a DSGVO. Diese Einwilligung kannst Du jederzeit widerrufen; wie das geht, erfährst Du im Abschnitt „Recht auf Widerruf erteilter Einwilligungen“.
 - Dauer der Speicherung: bis Du Dich vom Newsletter abmeldest
 - Weitergabe der Daten: Auf die Kontaktdaten hat nur der Vorstand Zugriff. Der Newsletter wird über den Dienstleister Mailjet verschickt. Dafür werden die Kontaktdaten an Mailjet übertragen.  
-  Mailjet wird betrieben von der Mailjet SAS, 13-13 bis rue de l’Aubrac, 75012 Paris, Frankreich. Mehr Informationen dazu, wie Mailjet Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailjet.com/privacy-policy/) entnehmen.
+  Mailjet wird betrieben von der [Mailjet SAS]({{< ref "company/mailjet" >}}), 13-13 bis rue de l’Aubrac, 75012 Paris, Frankreich. Mehr Informationen dazu, wie Mailjet Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailjet.com/privacy-policy/) entnehmen.
 
 ### Externe Dienste
 
 Um unsere Angebote attraktiver und effizienter gestalten, arbeiten wir mit einigen externen Dienstleistern.
 
 #### CoinGate
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform CoinGate zu tätigen. CoinGate ist ein Angebot der UAB “Decentralized”, A. Goštauto g. 8, LT-01108 Vilnius, Litauen.  
+Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform CoinGate zu tätigen. CoinGate ist ein Angebot der [UAB “Decentralized”]({{< ref "company/coingate" >}}), A. Goštauto g. 8, LT-01108 Vilnius, Litauen.  
 Wir setzen CoinGate für Zahlungen mit Crypowährungen ein. In jedem Fall wird Dir in dem Zahlungsformular angezeigt, wenn Deine ausgewählte Zahlungsmethode von CoinGate zur Verfügung gestellt wird.
 
 Wenn Du über CoinGate eine Zahlung tätigst, erhält die UAB “Decentralized” sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: der Betrag Deiner Zahlung, die Cryptowährung, mit der Du bezahlst, Deine Bezahldaten (z.&nbsp;B. die Adresse Deiner Bitcoin-Wallet), ggf. Deinen Namen, ggf. Deine E-Mail-Adresse.  
@@ -165,14 +165,14 @@ Weitere Informationen dazu, wie CoinGate Deine Daten verarbeitet, findest Du in 
 
 #### Mollie
 
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform Mollie zu tätigen. Mollie ist ein Angebot der Mollie B.V., Keizersgracht 313, 1016 EE Amsterdam, Niederlande.  
+Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform Mollie zu tätigen. Mollie ist ein Angebot der [Mollie B.V.]({{< ref "company/mollie" >}}), Keizersgracht 313, 1016 EE Amsterdam, Niederlande.  
 Wir setzen Mollie bspw. für Kreditkartenzahlungen ein. In jedem Fall wird Dir in dem Zahlungsformular angezeigt, wenn Deine ausgewählte Zahlungsmethode von Mollie zur Verfügung gestellt wird.
 
 Wenn Du über Mollie eine Zahlung tätigst, erhält die Mollie B.V. sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: Deine Bezahldaten (z.&nbsp;B. Konto- oder Kreditkartennummer) inkl. dem Betrag, Deine IP-Adresse, Dein Browser und Gerätetyp, ggf. Dein Name, ggf. Deine Adressdaten, ggf. Informationen über die Art von Zahlung, die an uns tätigst, ggf. sonstige personenbezogene Daten, die Du aktiv bereitstellst (z.&nbsp;B. bei Korrespondenz mit dem Kundendienst von Mollie).  
 Weitere Informationen dazu, wie Mollie Deine Daten verarbeitet, findest Du in deren [Datenschutzerklärung](https://www.mollie.com/de/privacy).
 
 #### PayPal
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform PayPal zu tätigen. PayPal ist ein Angebot der PayPal (Europe) S.à.r.l. et Cie, S.C.A., 22-24 Boulevard Royal L-2449, Luxemburg.  
+Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform PayPal zu tätigen. PayPal ist ein Angebot der [PayPal (Europe) S.à.r.l. et Cie, S.C.A.]({{< ref "company/paypal" >}}), 22-24 Boulevard Royal L-2449, Luxemburg.  
 Im Zahlungsformular wird Dir angezeigt, wenn Deine Zahlung über PayPal stattfindet.
 
 Wenn Du über PayPal eine Zahlung tätigst, erhält die PayPal (Europe) S.à.r.l., S.C.A. sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: der gesendete Betrag, Angaben zu Zahlungsquellen, die für die Transaktion verwendet wurden (z.&nbsp;B. Deine Bankkontoinformationen oder Kreditkartendaten), Geräteinformationen, technische Nutzungsdaten, Standortdaten, Dein Name, Deine Adresse, Deine Telefonnummer, Deine E-Mail-Adresse.  
@@ -234,7 +234,7 @@ Nach Art. 77 DSGVO hast Du unbeschadet eines anderweitigen verwaltungsrechtliche
 
 Für uns ist die folgende Aufsichtsbehörde zuständig:
 
-Die Landesbeauftragte für den Datenschutz Niedersachsen  
+[Die Landesbeauftragte für den Datenschutz Niedersachsen]({{< ref "supervisory-authority/dendslfd" >}})  
 Prinzenstraße 5  
 30159 Hannover  
 Deutschland
