@@ -14,6 +14,5 @@
 * Change the CSS link selector for external links in `src/styles/variables.scss`.
 * Add the domain to `content/*/verein/_index.md`.
 * Add the domain to the `sites` array in `cypress/integration/use-cases/wizard.spec.js`.
-* Translate the 404 page.
 * Setup the necessary redirects in `_redirects`.
 * Add the domain in dattel (see `infrastructure` on how to do that) and set the appropriate DNS records.
