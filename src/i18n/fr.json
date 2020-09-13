@@ -186,7 +186,7 @@
     },
     "suggest": {
         "success": "Ta contribution a été envoyée avec succès. Merci encore ! Nous allons désormais l'examiner au plus vite.",
-        "error": "Malheureusement, l'envoi de ta contribution a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les demandes en provenance de serveurs externes à travers une application comme uMatrix ou NoScript.",
+        "error": "Malheureusement, l'envoi de ta contribution a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript.",
         "no-input": "Tu dois saisir quelque chose pour envoyer une suggestion.",
         "view-on-github": "Tu peux suivre l'état d'avancement sur GitHub",
         "ok": "Ok",
@@ -321,7 +321,8 @@
         "optional": "(facultatif)",
         "rss-link": "Abonne-toi aux commentaires sur cet article en utilisant ton lecteur de flux RSS/Atom.",
         "warning": "Note que nous somme une <em>association à but non lucratif indépendante</em> et que nous ne sommes affiliés à aucune des entreprises listées ici.<br>Si tu souhaites obtenir de l'aide ou envoyer une demande, contacte l'entreprise directement. Nous <strong>ne pouvons pas</strong> t'aider dans ce cas. Merci de ta compréhension.",
-        "rating": "Évaluation"
+        "rating": "Évaluation",
+        "warning-loading-failed": "Le chargement des commentaires de cette page a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript."
     },
     "wizard_tutorial": {
         "back": "Retour",
