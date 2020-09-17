@@ -76,13 +76,9 @@ function renderForm(schema, company = undefined) {
 
             if (TO_HIDE.includes(SANITIZED_TEXT)) {
                 // We are currently in the scope of some promise or something like that. `setTimeout` brings us back to the scope of the content process.
-                setTimeout(
-                    (el) => {
-                        document.getElementById(el).parentElement.parentElement.remove();
-                    },
-                    0,
-                    element.parentElement.attributes.for.value
-                );
+                setTimeout(() => {
+                    document.querySelector(`tr[data-schema_id="$.${SANITIZED_TEXT}"]`)?.remove();
+                }, 0);
             }
         } else {
             var tagName = element.tagName.toLowerCase();
