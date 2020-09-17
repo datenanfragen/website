@@ -780,6 +780,9 @@ body.sticky-offset {
         &.prop-name {
             width: 300px;
         }
+        td.prop-name {
+            width: auto;
+        }
         &.item-action {
             width: 35px;
         }
