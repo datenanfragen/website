@@ -47,6 +47,10 @@ function renderForm(schema, company = undefined) {
         'custom-rectification-template',
         'custom-objection-template',
         'request-language',
+        'pgp-fingerprint',
+        'pgp-url',
+        'quality',
+        'facet-group',
     ];
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
@@ -153,6 +157,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
     if (!data['relevant-countries']) data['relevant-countries'] = ['all'];
     if (data.phone) data.phone = formatPhoneNumber(data.phone);
     if (data.fax) data.fax = formatPhoneNumber(data.fax);
+    data.quality = 'verified';
 
     document.getElementById('loading-indicator').classList.remove('hidden');
 
