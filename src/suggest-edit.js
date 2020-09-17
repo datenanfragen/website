@@ -1,6 +1,6 @@
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
-import { slugify, domainFromUrl, PARAMETERS } from './Utility/common';
+import { slugify, domainWithoutTldFromUrl, PARAMETERS } from './Utility/common';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 require('brutusin-json-forms');
 /* global brutusin */
@@ -147,7 +147,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
 
     // Do some post-processing on the user-submitted data to make the review easier.
     if (!data.slug) {
-        const DOMAIN = domainFromUrl(data.web);
+        const DOMAIN = domainWithoutTldFromUrl(data.web);
         data.slug = slugify(DOMAIN ? DOMAIN.replace('www.', '') : data.name);
     }
     if (!data['relevant-countries']) data['relevant-countries'] = ['all'];
