@@ -37,7 +37,7 @@ export default class RequestLetter {
             information_block: [props.reference_barcode, props.information_block],
             subject: props.subject,
             content: props.content,
-            signature: props.signature
+            signature: props.signature,
         });
     }
 
@@ -51,7 +51,7 @@ export default class RequestLetter {
             signature: { type: 'text', value: '', name: '' },
             reference_barcode: {},
             reference: '',
-            language: LOCALE
+            language: LOCALE,
         };
         this.letter = new Letter();
 
@@ -76,16 +76,16 @@ export default class RequestLetter {
                 // copy the worker to window if we are in a dev env to enable easy testing
                 window.pdfWorker = this.pdfWorker;
             }
-            this.pdfWorker.onmessage = message => {
+            this.pdfWorker.onmessage = (message) => {
                 if (this.pdf_callback) this.pdf_callback(message.data.blob_url, message.data.filename);
             };
-            this.pdfWorker.onerror = error => {
+            this.pdfWorker.onerror = (error) => {
                 rethrow(error, 'PdfWorker error');
             };
         }
         this.pdfWorker.postMessage({
             pdfdoc: { doc: this.toPdfDoc() },
-            filename: filename
+            filename: filename,
         });
     }
 
@@ -126,13 +126,13 @@ export default class RequestLetter {
             has_fields: !!id_data.formatted,
             erase_all: request_object.erase_all,
             data_portability: request_object.data_portability,
-            runs: request_object.recipient_runs ? request_object.recipient_runs.length > 0 : false
+            runs: request_object.recipient_runs ? request_object.recipient_runs.length > 0 : false,
         };
         const variables = {
             id_data: id_data.formatted,
             rectification_data: rectification_data.formatted,
             erasure_data: '<italic>' + request_object.erasure_data + '</italic>',
-            runs_list: '<italic>' + (request_object.recipient_runs.join(', ') || '') + '</italic>'
+            runs_list: '<italic>' + (request_object.recipient_runs.join(', ') || '') + '</italic>',
         };
 
         const sender = id_data.primary_address;
@@ -146,8 +146,8 @@ export default class RequestLetter {
             recipient_address: request_object.recipient_address,
             sender_address: sender_address,
             signature: request_object.signature,
-            content: new Template(template, flags, variables).getText(),
-            language: request_object.language
+            content: new Template(template || '', flags, variables).getText(),
+            language: request_object.language,
         };
     }
 
@@ -156,7 +156,7 @@ export default class RequestLetter {
         let primary_address = {}; // This seems like an odd place for this, but I really want to spare the additional loop(s).
         let name = '';
 
-        request_data.forEach(item => {
+        request_data.forEach((item) => {
             if ((item.type !== 'address' && item.value !== '') || (item.type === 'address' && item.value.street_1)) {
                 formatted += '<bold>' + item.desc + ':</bold> ';
 
@@ -193,7 +193,7 @@ export default class RequestLetter {
         return {
             text: '*' + text + '*' + (addNewline ? '\n' : ''),
             fontSize: 32,
-            font: 'Code39'
+            font: 'Code39',
         };
     }
 
