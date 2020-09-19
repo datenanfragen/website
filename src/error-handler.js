@@ -1,3 +1,22 @@
+// Our email hoster Uberspace has a spam filter that cannot be disabled and that doesn't like JSON. We have had problems
+// in the past with error reports being marked as spam and not being delivered to us. Thus, we employ this function to
+// make our JSON look as little like JSON as possible.
+function dejsonify(object) {
+    // Taken from: https://stackoverflow.com/a/49042916
+    const flatten = (obj, path = '') => {
+        if (!(obj instanceof Object)) return { [path.replace(/\.$/g, '')]: obj };
+
+        return Object.keys(obj).reduce((output, key) => {
+            return obj instanceof Array
+                ? { ...output, ...flatten(obj[key], path + '[' + key + '].') }
+                : { ...output, ...flatten(obj[key], path + key + '.') };
+        }, {});
+    };
+    return Object.entries(flatten(object))
+        .map((e) => e.join(' := '))
+        .join('\n');
+}
+
 function logError(event, debug_info = undefined) {
     /* eslint-disable no-console */
     console.group(
@@ -84,17 +103,17 @@ try {
             logError(event, debug_info);
 
             const report_title = encodeURIComponent('JS error (' + event.message + ')');
-            const report_body = encodeURIComponent(
-                '[' +
-                    I18N_DEFINITION['error-handler']['explain-context'] +
-                    ']\n\n**Debug information:**\n\n```js\n' +
-                    JSON.stringify(debug_info, null, '    ') +
-                    '\n```'
-            );
+            const reportBody = (debug_str) =>
+                encodeURIComponent(
+                    `[${I18N_DEFINITION['error-handler']['explain-context']}]\n\n**Debug information:**\n\n${debug_str}`
+                );
 
-            const github_issue_url =
-                'https://github.com/datenanfragen/website/issues/new?title=' + report_title + '&body=' + report_body;
-            const mailto_url = 'mailto:dev@datenanfragen.de?' + 'subject=' + report_title + '&body=' + report_body;
+            const github_issue_url = `https://github.com/datenanfragen/website/issues/new?title=${report_title}&body=${reportBody(
+                '```js\n' + JSON.stringify(debug_info, null, 4) + '\n```'
+            )}`;
+            const mailto_url = `mailto:dev@datenanfragen.de?subject=${report_title}&body=${reportBody(
+                dejsonify(debug_info)
+            )}`;
 
             if (!debug_info.error.code || debug_info.error.code <= 3) {
                 primitiveErrorModal(event.error.enduser_message, github_issue_url, mailto_url);
