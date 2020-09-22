@@ -1,0 +1,10 @@
+{{ define "title" }}{{ T "404-title" }}{{ end }}
+{{ define "heading" }}{{ T "404-title" }}{{ end }}
+
+{{ define "main" }}
+<main>
+    <img id="404-artwork" src="/img/404_artwork.svg" style="display: block; max-height: 500px; margin: auto; margin-bottom: 25px;">
+
+    <div class="box box-warning">{{ T "404-body" | safeHTML }}</div>
+</main>
+{{ end }}
