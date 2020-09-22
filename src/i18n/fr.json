@@ -219,7 +219,11 @@
         "optional": "Facultatif ?",
         "input": "Champ",
         "textarea": "Zone de texte",
-        "birthdate": "Date de naissance"
+        "birthdate": "Date de naissance",
+        "quality": "Qualité",
+        "required-id-document-elements": "Éléments requis sur la pièce d'identité",
+        "pgp-fingerprint": "Empreinte de la clé PGP",
+        "pgp-url": "URL de la clé PGP"
     },
     "categories": {
         "addresses": "adresses",
