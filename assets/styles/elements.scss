@@ -72,6 +72,18 @@ canvas {
     border-radius: 2px;
 }
 
+// On the off chance that this might not *immediately* be obvious to everyone: Our colors are defined as HSB and run
+// through a function that converts them to HSL. Sass then (not so) helpfully converts them to hex for us.
+// Unfortunately, we are using a data URL here and a `#` in a URL is a fragment identifier. Now, most browsers
+// apparently still produce the expected result—except Firefox (see: https://codepen.io/gunnarbittersmann/pen/BoovjR). I
+// mean, good on you for adhering to the spec. But still. Come on.
+// Anyway, that is why we are URL-encoding the `#` here (inspired by: https://codepen.io/kevinweber/pen/dXWoRw).
+$required-asterisk-svg: str-replace(
+    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='" +
+        $accent-color + "' font-size='20' font-family='Fira Sans'>*</text></svg>",
+    '#',
+    '%23'
+);
 #{$text-inputs} {
     border: 2px solid $primary-color; /*none*/
     border-radius: 2px;
@@ -87,6 +99,17 @@ canvas {
     &.form-element {
         width: 100%;
     }
+
+    &:required {
+        background: $bg-color url($required-asterisk-svg) no-repeat right;
+        padding-right: 20px;
+        box-shadow: none !important;
+    }
+}
+textarea:required {
+    background: $bg-color url($required-asterisk-svg) no-repeat;
+    background-position: top 12px right 0;
+    box-shadow: none !important;
 }
 textarea.form-element {
     max-width: 100%;
@@ -97,28 +120,6 @@ textarea.form-element {
 input::placeholder,
 textarea::placeholder {
     color: color('black'); // This is dimmed down by the browser anyway.
-}
-// On the off chance that this might not *immediately* be obvious to everyone: Our colors are defined as HSB and run
-// through a function that converts them to HSL. Sass then (not so) helpfully converts them to hex for us.
-// Unfortunately, we are using a data URL here and a `#` in a URL is a fragment identifier. Now, most browsers
-// apparently still produce the expected result—except Firefox (see: https://codepen.io/gunnarbittersmann/pen/BoovjR). I
-// mean, good on you for adhering to the spec. But still. Come on.
-// Anyway, that is why we are URL-encoding the `#` here (inspired by: https://codepen.io/kevinweber/pen/dXWoRw).
-$required-asterisk-svg: str-replace(
-    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='" +
-        $accent-color + "' font-size='20' font-family='Fira Sans'>*</text></svg>",
-    '#',
-    '%23'
-);
-input:required {
-    background: $bg-color url($required-asterisk-svg) no-repeat right;
-    padding-right: 20px;
-    box-shadow: none !important;
-}
-textarea:required {
-    background: $bg-color url($required-asterisk-svg) no-repeat;
-    background-position: top 12px right 0;
-    box-shadow: none !important;
 }
 
 .input-addon-container {
