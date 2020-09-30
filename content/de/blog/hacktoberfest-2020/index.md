@@ -9,7 +9,7 @@
     "notices": "Titelfoto angepasst nach: „[people doing office works](https://unsplash.com/photos/QBpZGqEMsKg)“ von [Alex Kotliarskyi](https://unsplash.com/@frantic) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 
-Bald ist es wieder so weit: Das [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2020 steht an, wie immer ausgerichtet vom Hosting-Anbieter DigitalOcean. Auch in diesem Jahr geht es darum, Menschen für die Arbeit an Open-Source-Software zu begeistern. Das Hacktoberfest lädt Dich ein, im Laufe des Oktobers 2020 Pull-Requests bei Open-Source-Projekten einzureichen. Wer vier oder mehr Pull-Requests einreicht, bekommt ein T-Shirt von DigitalOcean geschenkt.
+Bald ist es wieder so weit: Das [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2020 steht an, wie immer ausgerichtet vom Hosting-Anbieter DigitalOcean. Auch in diesem Jahr geht es darum, Menschen für die Arbeit an Open-Source-Software zu begeistern. Das Hacktoberfest lädt Dich ein, im Laufe des Oktobers 2020 Pull-Requests bei Open-Source-Projekten einzureichen. Wer vier oder mehr Pull-Requests einreicht, bekommt ein T-Shirt von DigitalOcean geschenkt oder die Möglichkeit, einen Baum zu pflanzen.
 
 {{< img name="hacktoberfest-2020" alt="Hacktoberfest 2020 + Datenanfragen.de e. V." >}}
 
@@ -31,7 +31,7 @@ Unsere Aktion läuft unabhängig vom offiziellen Hacktoberfest. Wenn Du teilnehm
 Wenn Du über GitHub mitmachen möchtest, verwende bitte dieses Formular, damit wir Deine Beiträge zuordnen können:
 
 <div class="box form-group" style="max-width: 600px; margin: auto;">
-<form action="http://localhost:3000/hacktoberfest" method="POST">
+<form action="https://backend.datenanfragen.de/hacktoberfest" method="POST">
 Ich möchte an der Hacktoberfest 2020-Aktion des Datenanfragen.de e.&nbsp;V. über GitHub teilnehmen.
 <div class="clearfix" style="margin-bottom: 5px;"></div>
 <!-- Pattern adapted after: https://github.com/shinnn/github-username-regex/blob/0794566cc10e8c5a0e562823f8f8e99fa044e5f4/index.js#L1 -->

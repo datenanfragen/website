@@ -9,7 +9,7 @@
     "notices": "Photo adapted after: \"[people doing office works](https://unsplash.com/photos/QBpZGqEMsKg)\" by [Alex Kotliarskyi](https://unsplash.com/@frantic) ([Unsplash license](https://unsplash.com/license))"
 }
 
-It's that time again: The [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2020 is coming up, as always hosted by hosting provider DigitalOcean. The aim is to get people excited about working on open source software as usual. The Hacktoberfest invites you to submit pull requests to open source projects during October 2020. Those who submit four or more pull requests will receive a t-shirt from DigitalOcean as a gift.
+It's that time again: The [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2020 is coming up, as always hosted by the hosting provider DigitalOcean. The aim is to get people excited about working on open source software as usual. The Hacktoberfest invites you to submit pull requests to open source projects during October 2020. Those who submit four or more pull requests will receive a t-shirt from DigitalOcean as a gift or can plant a tree.
 
 {{< img name="hacktoberfest-2020" alt="Hacktoberfest 2020 + Datenanfragen.de e. V." >}}
 
@@ -31,7 +31,7 @@ Our event is independent of the offical Hacktoberfest. If you want to participat
 If you want to participate using GitHub, please use this form, so we can match your contributions to you:
 
 <div class="box form-group" style="max-width: 600px; margin: auto;">
-<form action="http://localhost:3000/hacktoberfest" method="POST">
+<form action="https://backend.datenanfragen.de/hacktoberfest" method="POST">
 I want to participate in the Hacktoberfest 2020 event by Datenanfragen.de e.&nbsp;V. using GitHub.
 <div class="clearfix" style="margin-bottom: 5px;"></div>
 <!-- Pattern adapted after: https://github.com/shinnn/github-username-regex/blob/0794566cc10e8c5a0e562823f8f8e99fa044e5f4/index.js#L1 -->
