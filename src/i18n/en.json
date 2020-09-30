@@ -353,6 +353,7 @@
         "gmail": "Google Mail (Gmail)*",
         "outlook": "Outlook (Hotmail)*",
         "yahoo": "Yahoo! Mail*",
+        "yandex": "Yandex.Mail*",
         "copymanually": "Copy text manually"
     },
     "requests": {
