@@ -339,7 +339,8 @@
         "mailto": "Programa de e-mail padrão",
         "gmail": "Google Mail (Gmail)*",
         "outlook": "Outlook (Hotmail)*",
-        "yahoo": "Yahoo! Mail*"
+        "yahoo": "Yahoo! Mail*",
+        "yandex": "Yandex.Mail*"
     },
     "requests": {
         "letter-subject-erasure": "Solicitação de eliminação de dados pessoais conforme o Art.17 do RGPD",

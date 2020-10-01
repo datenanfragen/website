@@ -32,6 +32,10 @@ export const MAILTO_HANDLERS = {
         link: d => `https://compose.mail.yahoo.com/?to=${d.email}&subject=${d.subject}&body=${d.body}`,
         countries: ['all']
     },
+    yandex: {
+        link: d => `https://mail.yandex.com/#compose?to=${d.email}&subject=${d.subject}&body=${d.body}`,
+        countries: ['all']
+    },
     copymanually: {
         onClick: d => {
             const dismiss = () => preact.render('', document.body, modal);
