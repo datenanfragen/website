@@ -30,6 +30,11 @@
             {{ with .Params.duration }}<div>
                 <strong>{{ T "event-duration" }}</strong><br> {{ . }}
             </div>{{ end }}
+            <br>{{ T "blog-licensed-under" }} <a
+                    href="{{ T (printf "lic-url-%s" ($.Scratch.Get "license")) }}">{{ T (printf "lic-%s" ($.Scratch.Get "license")) }}</a>
+                <span class="hidden" xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset"
+                    property="dct:title" rel="dct:type">{{ .Title }}</span>
+                    {{ with .Params.notices }}<p>{{ . | markdownify }}</p>{{ end }}
         </div>
 
         <div id="page-content">
