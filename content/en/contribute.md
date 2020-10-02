@@ -11,7 +11,7 @@ Thank you so much for looking into contributing to datarequests.org!
 <article id="cdb" class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/company.svg" alt="Maintaining the company database"></div>
     <div class="padded col75">
-        <h1>Maintaining the company database</h1>
+        <h1 ><b>Maintaining the company database</b></h1>
         <p>The <a href="/company">company database</a> is an important element of datarequests.org. It contains the contact details for privacy-related requests to lots of companies and other organisations.</p>
         <p>A database like that of course requires a lot of maintenance, which is why we could really use your help! If you find a company that is missing from our database, you can click the button below and submit it yourself.
         <br>You have noticed that the data we have on a company is incorrect or incomplete? At the top of every company detail page, there is a “suggest a change” button that allows you to edit the current data.</p>
@@ -28,7 +28,7 @@ Thank you so much for looking into contributing to datarequests.org!
         <h1>Internationalisation</h1>
         <p>Our goal is for datarequests.org to be available to as many people as possible. In order to achieve that, we need to translate the project and adjust the content to different countries.</p>
         <p>You know a language we are not yet supporting and would like to help us translate? Great! We manage our translations through the <em><a href="https://hosted.weblate.org/engage/datenanfragen-de/">Weblate</a></em> platform. There, you can easily help us translate—be it a couple of strings or whole components.
-        <br>In order for us to offically support a new language, in addition to the actual translations, we also need a maintainer for that language, for helping us come up with a name and checking incoming translations for example. If you’re up for that, send us an <a href="mailto:dev@datarequests.org">e-mail</a>.</p>
+        <br>In order for us to offically support a new language, in addition to the actual translations, we also need a maintainer for that language,like for example,  for helping us come up with a name and checking incoming translations. If you’re up for that, do send us an <a href="mailto:dev@datarequests.org">e-mail</a>.</p>
         <p>An equally important task is adding companies from as many countries as possible to the database. Please refer to the information <a href="#cdb">above</a> on how to submit new entries.
         <br>We automatically start officially supporting a new country once we have a sufficient number of companies from that country in our database (the threshold is currently set to ten). We would also like to compile a list of suggested companies that every person in that country should send a request to.</p>
     </div>
@@ -85,4 +85,4 @@ Thank you so much for looking into contributing to datarequests.org!
     <a class="button button-primary read-more-button" href="https://www.datarequests.org/donate">Donate now&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
-You have another idea on how to contribute? Shoot us an [email](mailto:contact@datarequests.org)!
+So, do you have another idea on how to contribute? Shoot us an [email](mailto:contact@datarequests.org)!
