@@ -40,6 +40,8 @@
         <div id="page-content">
             {{ .Content }}
         </div>
+        {{ with .Params.notices }}<p>{{ . | markdownify }}</p>
+        {{end}}
         {{ if and (not .Params.disable_comments) (not (eq .Type "act")) }}
         <div id="comments-widget"></div>
         {{ end }}
@@ -101,4 +103,3 @@
 }
 </script>
 {{ end }}
-{{ with .Params.notices }}<p>{{ . | markdownify }}</p>
