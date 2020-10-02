@@ -28,6 +28,10 @@ export const MAILTO_HANDLERS = {
     //         `https://outlook.live.com/owa/?path=/mail/action/compose&to=${d.email}&subject=${d.subject}&body=${d.body}`,
     //     countries: ['all']
     // },
+    outlook: {
+        link: d => `https://outlook.office.com/?path=/mail/action/compose&to=${d.email}&subject=${d.subject}&body=${d.body}`,
+        countries: ['all']
+    },
     yahoo: {
         link: d => `https://compose.mail.yahoo.com/?to=${d.email}&subject=${d.subject}&body=${d.body}`,
         countries: ['all']
