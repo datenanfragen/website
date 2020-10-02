@@ -34,7 +34,7 @@
                     href="{{ T (printf "lic-url-%s" ($.Scratch.Get "license")) }}">{{ T (printf "lic-%s" ($.Scratch.Get "license")) }}</a>
                 <span class="hidden" xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset"
                     property="dct:title" rel="dct:type">{{ .Title }}</span>
-                    {{ with .Params.notices }}<p>{{ . | markdownify }}</p> </div>{{ end }}
+                     </div>{{ end }}
         </div>
 
         <div id="page-content">
@@ -101,3 +101,4 @@
 }
 </script>
 {{ end }}
+{{ with .Params.notices }}<p>{{ . | markdownify }}</p>
