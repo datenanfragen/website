@@ -30,11 +30,18 @@
             {{ with .Params.duration }}<div>
                 <strong>{{ T "event-duration" }}</strong><br> {{ . }}
             </div>{{ end }}
+            <div><strong>{{ T "license" }} </strong> <a
+                    href="{{ T (printf "lic-url-%s" ($.Scratch.Get "license")) }}">{{ T (printf "lic-%s" ($.Scratch.Get "license")) }}</a>
+                <span class="hidden" xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset"
+                    property="dct:title" rel="dct:type">{{ .Title }}</span>
+                     </div>
         </div>
 
         <div id="page-content">
             {{ .Content }}
         </div>
+        {{ with .Params.notices }}<p>{{ . | markdownify }}</p>
+        {{end}}
         {{ if and (not .Params.disable_comments) (not (eq .Type "act")) }}
         <div id="comments-widget"></div>
         {{ end }}
