@@ -6,7 +6,7 @@ languages=(de en fr pt)
 echo "Fetching data…"
 git clone --depth 1 https://github.com/datenanfragen/data data_tmp
 
-echo "Creating directories…"
+echo "Creating local directories…"
 for lang in ${languages[@]}
 do
     mkdir -p "content/$lang/company"
