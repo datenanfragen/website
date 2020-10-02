@@ -64,7 +64,7 @@ Here is an overview of important repositories that we have created—directly or
         <a href="https://github.com/datenanfragen/letter-generator"><h1><code>letter-generator</code></h1></a>
         <span class="license">MIT License</span>
         <p class="description">
-            A tool that allows you to generate letters (plain text or PDF formats) from pre-defined templates. This repository includes these templates and the scripts needed to render letters from them.
+            A tool that allows you to generate letters (plain text or PDF formats) from pre-defined layout templates. This repository includes these layout templates and the scripts needed to render letters from them.
         </p>
     </div>
     <div class="clearfix"></div>
@@ -103,7 +103,7 @@ Here is an overview of important repositories that we have created—directly or
         <a href="https://github.com/datenanfragen/backend"><h1><code>backend</code></h1></a>
         <span class="license">MIT License</span>
         <p class="description">
-            A development server that defines endpoints for dynamic features of the website such as comments, suggestions, and donations.
+            The server that defines endpoints for dynamic features of the website such as comments, suggestions, and donations.
         </p>
     </div>
     <div class="clearfix"></div>
