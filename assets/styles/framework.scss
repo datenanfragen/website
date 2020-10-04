@@ -194,10 +194,8 @@ a:focus {
     color: color('teal', 800);
 }
 
-p > a,
-span > a,
-.box a {
-    &:not(.button):not(.no-link-decoration) {
+main a {
+    &:not(.button):not(.no-link-decoration):not(.icon) {
         position: relative;
         text-decoration: none;
         @media (prefers-reduced-motion: no-preference) {
