@@ -39,115 +39,117 @@ class IdDataControls extends preact.Component {
     render() {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             return (
-                <div id="id-data-controls-container" className="narrow-page">
-                    <DynamicInputContainer
-                        key="id-data-controls"
-                        id="id-data-controls"
-                        onChange={this.handleCustomChange}
-                        fields={this.state.custom_id_data}
-                        title={t('saved-data', 'id-data-controls')}
-                        hasPrimary={false}>
-                        <IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}>
-                            <div>
-                                <p>
-                                    <MarkupText id="saved-data-explanation" />
-                                </p>
-                                <div className="form-group">
-                                    <input
-                                        type="checkbox"
-                                        id="always-fill-in"
-                                        className="form-element"
-                                        checked={SavedIdData.shouldAlwaysFill()}
-                                        onChange={event => {
-                                            SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill());
-                                        }}
-                                    />
-                                    <label htmlFor="always-fill-in">
-                                        <Text id="always-fill-in" />
-                                    </label>
+                <main>
+                    <div id="id-data-controls-container" className="narrow-page">
+                        <DynamicInputContainer
+                            key="id-data-controls"
+                            id="id-data-controls"
+                            onChange={this.handleCustomChange}
+                            fields={this.state.custom_id_data}
+                            title={t('saved-data', 'id-data-controls')}
+                            hasPrimary={false}>
+                            <IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}>
+                                <div>
+                                    <p>
+                                        <MarkupText id="saved-data-explanation" />
+                                    </p>
+                                    <div className="form-group">
+                                        <input
+                                            type="checkbox"
+                                            id="always-fill-in"
+                                            className="form-element"
+                                            checked={SavedIdData.shouldAlwaysFill()}
+                                            onChange={event => {
+                                                SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill());
+                                            }}
+                                        />
+                                        <label htmlFor="always-fill-in">
+                                            <Text id="always-fill-in" />
+                                        </label>
+                                    </div>
+
+                                    <div className="form-group" style="width: 100%; display: table;">
+                                        <div className="col40">
+                                            <strong>
+                                                <label htmlFor="name-input-value-fixed-id-data">
+                                                    {t('name', 'generator')}
+                                                </label>
+                                            </strong>
+                                        </div>
+                                        <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
+                                            <InputControl
+                                                id="name-input"
+                                                suffix="fixed-id-data"
+                                                onChange={e => this.handleFixedChange('name', e)}
+                                                value={this.state.fixed_id_data['name']}
+                                            />
+                                        </div>
+                                        <div className="clearfix" />
+
+                                        <div className="col40">
+                                            <strong>
+                                                <label htmlFor="email-input-value-fixed-id-data">
+                                                    {t('email-address', 'generator')}
+                                                </label>
+                                            </strong>
+                                        </div>
+                                        <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
+                                            <InputControl
+                                                id="email-input"
+                                                suffix="fixed-id-data"
+                                                onChange={e => this.handleFixedChange('email', e)}
+                                                value={this.state.fixed_id_data['email']}
+                                            />
+                                        </div>
+                                        <div className="clearfix" />
+
+                                        <div className="col40">
+                                            <strong>
+                                                <label htmlFor="main-address-input-container-fixed-id-data">
+                                                    {t('address', 'generator')}
+                                                </label>
+                                            </strong>
+                                        </div>
+                                        <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
+                                            <AddressControl
+                                                id="main-address-input"
+                                                suffix="fixed-id-data"
+                                                onChange={e => this.handleFixedChange('address', e)}
+                                                value={this.state.fixed_id_data['address']}
+                                            />
+                                        </div>
+                                        <div className="clearfix" />
+
+                                        <div className="col40">
+                                            <strong>
+                                                <label htmlFor="birthdate-input-value-fixed-id-data">
+                                                    {t('birthdate', 'generator')}
+                                                </label>
+                                            </strong>
+                                        </div>
+                                        <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
+                                            <DateControl
+                                                id="birthdate-input"
+                                                suffix="fixed-id-data"
+                                                onChange={e => this.handleFixedChange('birthdate', e)}
+                                                value={this.state.fixed_id_data['birthdate']}
+                                            />
+                                        </div>
+                                        <div className="clearfix" />
+                                    </div>
                                 </div>
-
-                                <div className="form-group" style="width: 100%; display: table;">
-                                    <div className="col40">
-                                        <strong>
-                                            <label htmlFor="name-input-value-fixed-id-data">
-                                                {t('name', 'generator')}
-                                            </label>
-                                        </strong>
-                                    </div>
-                                    <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                        <InputControl
-                                            id="name-input"
-                                            suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('name', e)}
-                                            value={this.state.fixed_id_data['name']}
-                                        />
-                                    </div>
-                                    <div className="clearfix" />
-
-                                    <div className="col40">
-                                        <strong>
-                                            <label htmlFor="email-input-value-fixed-id-data">
-                                                {t('email-address', 'generator')}
-                                            </label>
-                                        </strong>
-                                    </div>
-                                    <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                        <InputControl
-                                            id="email-input"
-                                            suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('email', e)}
-                                            value={this.state.fixed_id_data['email']}
-                                        />
-                                    </div>
-                                    <div className="clearfix" />
-
-                                    <div className="col40">
-                                        <strong>
-                                            <label htmlFor="main-address-input-container-fixed-id-data">
-                                                {t('address', 'generator')}
-                                            </label>
-                                        </strong>
-                                    </div>
-                                    <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                        <AddressControl
-                                            id="main-address-input"
-                                            suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('address', e)}
-                                            value={this.state.fixed_id_data['address']}
-                                        />
-                                    </div>
-                                    <div className="clearfix" />
-
-                                    <div className="col40">
-                                        <strong>
-                                            <label htmlFor="birthdate-input-value-fixed-id-data">
-                                                {t('birthdate', 'generator')}
-                                            </label>
-                                        </strong>
-                                    </div>
-                                    <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                        <DateControl
-                                            id="birthdate-input"
-                                            suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('birthdate', e)}
-                                            value={this.state.fixed_id_data['birthdate']}
-                                        />
-                                    </div>
-                                    <div className="clearfix" />
-                                </div>
-                            </div>
-                        </IntlProvider>
-                    </DynamicInputContainer>
-                    <SignatureInput
-                        id="id-data-controls-signature"
-                        width={450}
-                        height={200}
-                        onChange={this.handleSignatureChange}
-                        value={this.state.signature}
-                        isForIdData={true}
-                    />
-                </div>
+                            </IntlProvider>
+                        </DynamicInputContainer>
+                        <SignatureInput
+                            id="id-data-controls-signature"
+                            width={450}
+                            height={200}
+                            onChange={this.handleSignatureChange}
+                            value={this.state.signature}
+                            isForIdData={true}
+                        />
+                    </div>
+                </main>
             );
         } else {
             return (
