@@ -202,7 +202,8 @@
         "footer-social-mastodon-desc": "Folge uns bei Mastodon.",
         "footer-social-mastodon-url": "https://mastodon.social/@DatenanfragenDE",
         "footer-social-twitter-desc": "Folge uns auf Twitter.",
-        "footer-social-twitter-url": "https://twitter.com/DatenanfragenDE"
+        "footer-social-twitter-url": "https://twitter.com/DatenanfragenDE",
+        "license": "Lizenz"
     },
     "home": {
         "data-access": "Datenauskunft.",
