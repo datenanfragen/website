@@ -240,7 +240,9 @@ class IdDataControls extends preact.Component {
 
 preact.render(
     <IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}>
-        <IdDataControls />
+        <main>
+            <IdDataControls />
+        </main>
     </IntlProvider>,
     null,
     document.querySelector('main')
