@@ -238,7 +238,7 @@ export class SavedCompanies {
     }
 
     getUserChanged() {
-        return Cookie.get(USER_CHANGED_COOKIE) && true;
+        return Cookie.get(USER_CHANGED_COOKIE) ? true : false;
     }
     setUserChanged(value = true) {
         if ( value ){
