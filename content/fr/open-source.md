@@ -103,7 +103,7 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
         <a href="https://github.com/datenanfragen/backend"><h1><code>backend</code></h1></a>
         <span class="license">Licence MIT</span>
         <p class="description">
-            Un serveur de développement qui définit les paramètres des fonctionnalités dynamiques du site internet comme les commentaires, les suggestions eet les donations.:;;
+            Un serveur de développement qui définit les paramètres des fonctionnalités dynamiques du site internet comme les commentaires, les suggestions et les donations.
         </p>
     </div>
     <div class="clearfix"></div>
@@ -113,7 +113,7 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
 <a id="contributeurs"></a>
 ## Contributeurs
 
-Un grand merci à tous les contributeurs(trices) de demandetesdonnees.fr! Le projet ne serait pas possible sans vous.
+Un grand merci à tous les contributeurs(trices) de demandetesdonnees.fr ! Le projet ne serait pas possible sans vous.
 
 <div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
 
