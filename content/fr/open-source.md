@@ -13,7 +13,7 @@ Nous sommes de fervents partisans de l'Open Source et nous y croyons.
 
 ## Nos dépôts Open Source
 
-Voici un aperçu des principaux dépôts que nous avons créés directement ou indirectement, pour demandetesdonnees.fr. Ils sont bien sûr publiés sous licence libre. Nous vous invitons à consulter, contribuer et/ou utiliser notre travail pour vos propres projets! Toutes  *issues* et  *pull requests* sont les bienvenus sur les dépôts GitHub correspondants.
+Voici un aperçu des principaux dépôts que nous avons créés directement ou indirectement, pour demandetesdonnees.fr. Ils sont bien sûr publiés sous licence libre. Nous t'invitons à consulter, contribuer et/ou utiliser notre travail pour tes propres projets! Toutes  *issues* et  *pull requests* sont les bienvenus sur les dépôts GitHub correspondants.
 
 <!-- TODO: Add new repos when applicable. -->
 
@@ -23,7 +23,7 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
         <a href="https://github.com/datenanfragen/website"><h1><code>website</code></h1></a>
         <span class="license">Licence MIT</span>
         <p class="description">
-            Site Web sur lequel vous êtes actuellement. Ce dépôt contient non seulement le contenu mais aussi le code du générateur, des options de confidentialité et bien plus encore.
+            Site Web sur lequel tu es actuellement. Ce dépôt contient non seulement le contenu mais aussi le code du générateur, des options de confidentialité et bien plus encore.
             <br>Le site est conçu pour être statique et fonctionne avec Hugo et Preact.
         </p>
     </div>
@@ -38,7 +38,7 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
         <span class="license">Licence CC0</span>
         <p class="description">
             Les données à l'origine du projet. Il s'agit notamment de nos bases de données sur les entreprises et les autorités de contrôle mais aussi de nos modèles de lettre.
-            <br>Le dépôt est composé d'une collection de fichiers de textes bruts qui peut etre à la fois interprétés par l'homme et la machine.
+            <br>Le dépôt est composé d'une collection de fichiers de textes bruts qui peut être à la fois interprétés par l'homme et la machine.
         </p>
     </div>
     <div class="clearfix"></div>
@@ -74,10 +74,10 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="https://github.com/baltpeter/yace"><img class="image" src="/card-icons/speech-bubble.svg" alt="yace"></a></div>
     <div class="padded col75">
-        <a href="https://github.com/baltpeter/yace"><h1><code>yace</code></h1></a>
+        <a href="https://github.com/baltpeter/yace"><h1><code>backend</code></h1></a>
         <span class="license">Licence MIT</span>
         <p class="description">
-            Un moteur simple, respectueux de la vie privée et facile à déployer pour créer des solutions de commentaires personnalisés. Hébergé sur AWS.
+            Un serveur de développement qui définit les paramètres des fonctionnalités dynamiques du site internet comme les commentaires, les suggestions eet les donations.:;;
         </p>
     </div>
     <div class="clearfix"></div>
@@ -91,16 +91,16 @@ Un grand merci à tous les contributeurs(trices) de demandetesdonnees.fr! Le pro
 
 <div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
 
-Si vous avez contribué mais que votre nom ne figure pas encore sur la liste, nous vous invitons à l'ajouter dans le [fichier `AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
+Si tu as contribué mais que ton nom ne figure pas encore sur la liste, nous t'invitons à l'ajouter dans le [fichier `AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 
 <a id="license-notices"></a>
 ## Projets Open Source que nous utilisons
 
 En accord avec l'esprit de l'Open Source, nous ne nous contentons pas de maintenir nos propres projets. Nous utilisons également des projets Open Source tiers afin de déveloper nos propres projets libre de droits.
 
-Nous sommes fiers de pouvoir utiliser les projets suivants pour ce site Web. Un grand merci aux auteur(ee)s qui ont permis d'utiliser leur précieux travail!
+Nous sommes fiers de pouvoir utiliser les projets suivants pour ce site Web. Un grand merci aux auteur(e)s qui ont permis d'utiliser leur précieux travail!
 
-Vous pouvez trouver toutes les licences complètes des projets que nous utilisons [ici]({{< absURL "NOTICES.txt" >}}).
+Tu peux trouver toutes les licences complètes des projets que nous utilisons [ici]({{< absURL "NOTICES.txt" >}}).
 
 <div class="box box-info attribution-box">
 	{{< attribution "de" >}}
