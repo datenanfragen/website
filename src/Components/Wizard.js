@@ -238,10 +238,14 @@ export class SavedCompanies {
     }
 
     getUserChanged() {
-        return Cookie.get(USER_CHANGED_COOKIE) === 'true';
+        return Cookie.get(USER_CHANGED_COOKIE) && true;
     }
     setUserChanged(value = true) {
-        Cookie.set(USER_CHANGED_COOKIE, value ? 'true' : 'false', { expires: 365 });
+        if ( value ){
+            Cookie.set(USER_CHANGED_COOKIE, value, { expires: 365 });
+        } else {
+            Cookies.remove(USER_CHANGED_COOKIE);
+        }
     }
 
     getAll() {
