@@ -46,6 +46,32 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
 </article>
 
 <article class="list-article icon-list-article">
+    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/media"><img class="image" src="/card-icons/group.svg" alt="media"></a></div>
+    <div class="padded col75">
+        <a href="https://github.com/datenanfragen/media"><h1><code>media</code></h1></a>
+        <span class="license">MIT License</span>
+        <p class="description">
+        Notre site internet permet l'hébergement de vidéos, media.datenanfragen.de. Ce dépôt comprend le code source et les scripts utiles au site.
+        </p>
+    </div>
+    <div class="clearfix"></div>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/media">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+</article>
+
+<article class="list-article icon-list-article">
+    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/letter-generator"><img class="image" src="/card-icons/group.svg" alt="letter-generator"></a></div>
+    <div class="padded col75">
+        <a href="https://github.com/datenanfragen/letter-generator"><h1><code>letter-generator</code></h1></a>
+        <span class="license">MIT License</span>
+        <p class="description">
+        Un outil qui te permets de générer des lettres (format texte ou format PDF) à partir des modèles prédéfinis. Ce dépôt comprend les modèles et les scripts nécessaire au rendu des lettres.
+        </p>
+    </div>
+    <div class="clearfix"></div>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/letter-generator">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+</article>
+
+<article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/verein"><img class="image" src="/card-icons/group.svg" alt="verein"></a></div>
     <div class="padded col75">
         <a href="https://github.com/datenanfragen/verein"><h1><code>verein</code></h1></a>
@@ -72,16 +98,16 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/baltpeter/yace"><img class="image" src="/card-icons/speech-bubble.svg" alt="yace"></a></div>
+    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/backend"><img class="image" src="/card-icons/speech-bubble.svg" alt="backend"></a></div>
     <div class="padded col75">
-        <a href="https://github.com/baltpeter/yace"><h1><code>backend</code></h1></a>
+        <a href="https://github.com/datenanfragen/backend"><h1><code>backend</code></h1></a>
         <span class="license">Licence MIT</span>
         <p class="description">
             Un serveur de développement qui définit les paramètres des fonctionnalités dynamiques du site internet comme les commentaires, les suggestions eet les donations.:;;
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/baltpeter/yace">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 <a id="contributeurs"></a>
