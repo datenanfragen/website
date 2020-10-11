@@ -137,8 +137,10 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 }
             );
             this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
-            if (typeof this.props.setupPlaceholderChange === 'function')
+            if (typeof this.props.setupPlaceholderChange === 'function') {
                 this.props.setupPlaceholderChange(this.input_element);
+            }
+            this.input_element.focus();
         }
 
         componentWillUnmount() {
