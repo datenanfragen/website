@@ -339,8 +339,10 @@ class RequestList extends preact.Component {
         let events = '';
         Object.keys(grouped_requests).forEach((group) => {
             let items = [];
+            let titles = [];
             grouped_requests[group].forEach((id) => {
                 let request = this.state.requests[id];
+                titles.push(request.recipient.split('\n', 1)[0]);
                 items.push(
                     `* ${request.recipient.split('\n', 1)[0]} (${
                         request.type === 'custom' && request.response_type
@@ -349,7 +351,10 @@ class RequestList extends preact.Component {
                     } – ${request.reference})`
                 );
             });
-
+            titles = titles.map((title) => (title.length > 15 ? `${title.slice(0, 15)}...` : title));
+            let heading = `${t('for', 'my-requests')} ${titles.slice(0, 2).join(', ')}`;
+            heading +=
+                titles.length > 2 ? ` ${t('and', 'my-requests')} ${titles.length - 2} ${t('more', 'my-requests')}` : '';
             let reminder_date = new Date(group);
             reminder_date.setDate(reminder_date.getDate() + 32);
 
@@ -358,7 +363,7 @@ BEGIN:VEVENT
 UID:${hash(items.join(','))}@ics.datenanfragen.de
 DTSTAMP:${now}
 DTSTART:${reminder_date.toISOString().replace(/-/g, '').substring(0, 8)}
-SUMMARY:${t('ics-summary', 'my-requests')}
+SUMMARY:${t('ics-summary', 'my-requests')} ${heading}
 DESCRIPTION:${t('ics-desc', 'my-requests').replace(/([,;])/g, '\\$1')}\\n\\n\n ${items
                 .join('\\n\n ')
                 .replace(/([,;])/g, '\\$1')}
