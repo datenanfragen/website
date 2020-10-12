@@ -238,10 +238,10 @@ export class SavedCompanies {
     }
 
     getUserChanged() {
-        return Cookie.get(USER_CHANGED_COOKIE) ? true : false;
+        return !!Cookie.get(USER_CHANGED_COOKIE);
     }
     setUserChanged(value = true) {
-        if ( value ){
+        if (value) {
             Cookie.set(USER_CHANGED_COOKIE, value, { expires: 365 });
         } else {
             Cookie.remove(USER_CHANGED_COOKIE);
