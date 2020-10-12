@@ -24,7 +24,7 @@ Inspired by: https://gohugo.io/templates/shortcode-templates/#single-named-examp
 {{- $alt_text := cond (isset .Params "alt") (.Get "alt") (.Get "caption") -}}
 
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
-    {{ with .Get "link" }}<a href="{{ . }}">{{ end -}}
+    {{ with .Get "link" }}<a class="no-link-decoration" href="{{ . }}">{{ end -}}
     {{- if .Get "name" -}}
         <!--
         An explanation of the sizes and breakpoints used:

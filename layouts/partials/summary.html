@@ -1,7 +1,7 @@
 <article class="list-article">
     {{ if (or .Params.featured_image .Params.featured_image_url) }}
         <div class="col25 article-featured-image">
-            <a href="{{ .Permalink }}">
+            <a href="{{ .Permalink }}" class="no-link-decoration">
                 {{ if .Params.featured_image }}
                     <img srcset="
                             {{- partial "functions/imgURL" (dict "page" .Page "name" .Params.featured_image "command" "Resize" "options" "280x") }} 280w,
