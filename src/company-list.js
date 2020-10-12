@@ -37,14 +37,16 @@ class CompanyList extends preact.Component {
             ['W', 'W'],
             ['X', 'X'],
             ['Y', 'Y'],
-            ['Z', 'Z']
+            ['Z', 'Z'],
         ]);
         let anchor_links = [];
         let anchor_ids = [];
         anchor_map.forEach((value, key, map) => {
             anchor_links.push(
                 <li>
-                    <a href={'#' + value}>{key}</a>
+                    <a href={'#' + value} className="no-link-decoration">
+                        {key}
+                    </a>
                 </li>
             );
             anchor_ids.push(value + '-container');
