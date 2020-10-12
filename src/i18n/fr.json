@@ -780,7 +780,8 @@
         "event-place-online": "En ligne",
         "event-duration": "Durée",
         "event-place": "Lieu de l'évènement",
-        "event-date": "Date de l'évènement"
+        "event-date": "Date de l'évènement",
+        "license": "Licence"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
