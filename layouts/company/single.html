@@ -117,6 +117,7 @@
 {
   "@context": "http://schema.org",
   "@type": "Organization",
+  "@id": "{{ .Params.slug }}",
   "identifier": "{{ .Params.slug }}",
   "name": {{ .Params.name }},
   {{ with .Params.address}}"address": {{ replace . "\n" ", " }},{{ end }}

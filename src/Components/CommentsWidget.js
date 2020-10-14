@@ -34,9 +34,19 @@ export default class CommentsWidget extends Component {
     }
 
     render() {
-        const comment_elements = this.state.comments.map((c) => (
-            <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
-        ));
+        let ratingCount = 0;
+        let ratingSum = 0;
+
+        const comment_elements = this.state.comments.map((c) => {
+            if (c.additional.rating) {
+                ratingCount++;
+                ratingSum += Number(c.additional.rating);
+            }
+
+            return (
+                <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
+            );
+        });
 
         return (
             <IntlProvider scope="comments" definition={I18N_DEFINITION}>
@@ -60,6 +70,15 @@ export default class CommentsWidget extends Component {
                     ) : (
                         comment_elements
                     )}
+
+                    {ratingCount > 0 && (
+                        <CommentSummary
+                            ratingCount={ratingCount}
+                            ratingSum={ratingSum}
+                            reviewCount={this.state.comments.length}
+                        />
+                    )}
+
                     <CommentForm allow_rating={this.props.allow_rating} displayWarning={this.props.displayWarning} />
                 </div>
             </IntlProvider>
@@ -291,4 +310,43 @@ export class CommentForm extends Component {
         displayWarning: PropTypes.bool,
         allow_rating: PropTypes.bool,
     };
+}
+
+export class CommentSummary extends preact.Component {
+    componentDidMount() {
+        const parts = TARGET.split('/');
+
+        if (parts[1] !== 'company') {
+            return;
+        }
+
+        const json = {
+            '@context': 'http://schema.org',
+            '@type': 'Organization',
+            '@id': parts[2],
+            aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingCount: this.props.ratingCount,
+                ratingValue: this.averageRating,
+                reviewCount: this.props.reviewCount,
+            },
+        };
+
+        const script = document.createElement('script');
+
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(json);
+
+        document.body.appendChild(script);
+    }
+
+    render() {
+        this.averageRating = (this.props.ratingSum / this.props.ratingCount).toFixed(2);
+
+        return (
+            <div style="text-align: right; margin-bottom: 15px;">
+                <Text id="average-rating" /> {this.averageRating}
+            </div>
+        );
+    }
 }
