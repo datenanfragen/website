@@ -86,6 +86,7 @@
         "cdb-sources": "Quellen:",
         "cdb-notes": "Hinweise:",
         "cdb-help-needed": "Die Daten sind nicht aktuell oder das Unternehmen, das Du suchst, ist noch nicht in unserer Datenbank? Schlag <a href='{{ .editUrl }}'>eine Änderung für dieses Unternehmen</a> oder <a href='{{ .newUrl }}'>ein ganz neues</a> vor. Vielen Dank für Deine Mithilfe!",
+        "cdb-warning-unverified": "<strong>Achtung</strong>: Die Angaben in diesem Eintrag haben wir <em>nicht</em> überprüft, sie wurden automatisch übernommen. Ist Dir ein Fehler aufgefallen? Dann würden wir uns freuen, wenn Du den Eintrag <a href='{{ .editUrl }}'>korrigierst</a>. Vielen Dank für Deine Mithilfe!",
         "cdb-suggest-change": "Änderung vorschlagen",
         "cdb-suggest-new": "Neues Unternehmen vorschlagen",
         "cdb-back-to-overview": "Zurück zur Übersicht",
@@ -219,7 +220,9 @@
         "categories": "Kategorie(n): ",
         "search-disabled": "Du hast die Suchfunktion deaktiviert. Falls Du sie aktivieren möchtest, kannst Du das über die <a href='/privacy-controls'>Datenschutzeinstellungen</a> tun.",
         "no-results": "Wir haben leider keine Ergebnisse für Deine Anfrage gefunden.",
-        "suggest-a-company": "Ein neues Unternehmen vorschlagen"
+        "suggest-a-company": "Ein neues Unternehmen vorschlagen",
+        "quality-tested": "Mindestens eine_r unserer Mitwirkenden hat über die Kontaktdaten in diesem Eintrag bereits erfolgreich eine Anfrage gestellt.",
+        "quality-unverified": "Die Kontaktdaten in diesem Eintrag wurden automatisch übernommen. Wir haben sie nicht überprüft."
     },
     "cdb": {
         "title": "Unternehmensdatenbank",

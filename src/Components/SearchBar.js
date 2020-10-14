@@ -20,9 +20,9 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     host: 'search.datenanfragen.de',
                     port: '443',
                     protocol: 'https',
-                    apiKey: ''
+                    apiKey: '',
                 },
-                timeoutSeconds: 2
+                timeoutSeconds: 2,
             });
 
             this.algolia_autocomplete = null;
@@ -47,7 +47,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 query_by: this.props.query_by || 'name, runs, web, slug, address, comments',
                 sort_by: '_text_match:desc,sort-index:asc',
                 num_typos: 4,
-                per_page: this.props.numberOfHits || 5
+                per_page: this.props.numberOfHits || 5,
             };
             if (!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
 
@@ -71,25 +71,34 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                             .collections(this.props.index)
                             .documents()
                             .search(options)
-                            .then(res => {
+                            .then((res) => {
                                 callback(res.hits);
                             })
-                            .catch(e => {
+                            .catch((e) => {
                                 rethrow(e);
                             });
                     },
                     templates: {
                         suggestion:
                             this.props.suggestion_template ||
-                            function(suggestion) {
+                            function (suggestion) {
                                 let d = suggestion.document;
 
-                                let name_hs = suggestion.highlights.filter(a => a.field === 'name');
-                                let runs_hs = suggestion.highlights.filter(a => a.field === 'runs');
+                                let name_hs = suggestion.highlights.filter((a) => a.field === 'name');
+                                let runs_hs = suggestion.highlights.filter((a) => a.field === 'runs');
 
                                 return (
                                     '<span><strong>' +
                                     (name_hs.length === 1 ? name_hs[0].snippet : d.name) +
+                                    (d.quality === 'tested'
+                                        ? '&nbsp;<span class="icon icon-check-badge color-green-800" title="' +
+                                          t('quality-tested', 'search') +
+                                          '"></span>'
+                                        : d.quality !== 'verified'
+                                        ? '&nbsp;<span class="icon icon-question-badge color-orange-800" title="' +
+                                          t('quality-unverified', 'search') +
+                                          '"></span>'
+                                        : '') +
                                     '</strong></span>' +
                                     (d.runs?.length
                                         ? '<br><span>' +
@@ -100,14 +109,14 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                     (d.categories?.length
                                         ? '<br><span>' +
                                           t('categories', 'search') +
-                                          d.categories.map(c => t(c, 'categories')).join(', ') +
+                                          d.categories.map((c) => t(c, 'categories')).join(', ') +
                                           '</span>'
                                         : '')
                                 );
                             },
                         empty:
                             this.props.empty_template ||
-                            function(query) {
+                            function (query) {
                                 return (
                                     '<p style="margin-left: 10px;">' +
                                     t('no-results', 'search') +
@@ -121,8 +130,8 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                 );
                             },
                         header: this.props.header_template,
-                        footer: this.props.footer_template
-                    }
+                        footer: this.props.footer_template,
+                    },
                 }
             );
             this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
@@ -138,7 +147,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     placeholder={this.props.placeholder}
                     type="search"
                     style={this.props.style}
-                    ref={el => (this.input_element = el)}
+                    ref={(el) => (this.input_element = el)}
                 />
             );
         }

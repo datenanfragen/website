@@ -86,6 +86,7 @@
         "cdb-sources": "Sources:",
         "cdb-notes": "Notes:",
         "cdb-help-needed": "Is this data inaccurate or the company you were looking for not in our database? Suggest <a href='{{ .editUrl }}'>an edit to this company</a> or <a href='{{ .newUrl }}'>a new one</a>. Thanks for your help!",
+        "cdb-warning-unverified": "<strong>Warning</strong>: We have <em>not</em> verified the details in this record, they have been imported automatically. Something wrong? We would greatly appreciate if you <a href='{{ .editUrl }}'>submitted a correction</a>. Thanks for your help!",
         "cdb-suggest-change": "Suggest a change",
         "cdb-suggest-new": "Suggest a new company",
         "cdb-back-to-overview": "Back to the overview",
@@ -219,7 +220,9 @@
         "categories": "Categories: ",
         "search-disabled": "You have disabled the search feature. If you want to enable it, have a look at the <a href='/privacy-controls'>privacy controls</a>.",
         "no-results": "Unfortunately, there were no results for your query.",
-        "suggest-a-company": "Suggest a new company"
+        "suggest-a-company": "Suggest a new company",
+        "quality-tested": "At least one of our contributors has successfully sent a request using the contact details in this record.",
+        "quality-unverified": "The contact details in this record were imported automatically. They have not been verified by us."
     },
     "cdb": {
         "title": "Company database",
