@@ -146,3 +146,15 @@
     @extend %icon;
     font-icon: url('external.svg');
 }
+
+.icon-check-badge:before {
+    @extend %icon;
+    font-icon: url('check-badge.svg');
+    vertical-align: -2px;
+}
+
+.icon-question-badge:before {
+    @extend %icon;
+    font-icon: url('question-badge.svg');
+    vertical-align: -2px;
+}
