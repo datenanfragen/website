@@ -46,6 +46,32 @@ Hier findest Du eine Übersicht einiger wichtiger Repositories, die direkt oder 
 </article>
 
 <article class="list-article icon-list-article">
+    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/media"><img class="image" src="/card-icons/view.svg" alt="media"></a></div>
+    <div class="padded col75">
+        <a href="https://github.com/datenanfragen/media"><h1><code>media</code></h1></a>
+        <span class="license">MIT License</span>
+        <p class="description">
+            Unsere Website die zum Video hosten verwendet wird, media.datenanfragen.de. Das Repository beinhaltet den Quellcode und die Skripte die für die Seite benutzt werden.
+        </p>
+    </div>
+    <div class="clearfix"></div>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/media">Zum Repository&nbsp;<span class="icon icon-arrow-right"></span></a>
+</article>
+
+<article class="list-article icon-list-article">
+    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/letter-generator"><img class="image" src="/card-icons/letter.svg" alt="letter-generator"></a></div>
+    <div class="padded col75">
+        <a href="https://github.com/datenanfragen/letter-generator"><h1><code>letter-generator</code></h1></a>
+        <span class="license">MIT License</span>
+        <p class="description">
+		Ein Werkzeug zum Erstellen von Briefen (Text- oder PDF-Format) aus vordefinierten Layoutvorlagen. Das Repository enthält diese Layoutvorlagen und die Skripte, die nötig sind um Briefe aus diesen zu rendern. 
+        </p>
+    </div>
+    <div class="clearfix"></div>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/letter-generator">Zum Repository&nbsp;<span class="icon icon-arrow-right"></span></a>
+</article>
+
+<article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/verein"><img class="image" src="/card-icons/group.svg" alt="verein"></a></div>
     <div class="padded col75">
         <a href="https://github.com/datenanfragen/verein"><h1><code>verein</code></h1></a>
@@ -72,17 +98,16 @@ Hier findest Du eine Übersicht einiger wichtiger Repositories, die direkt oder 
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/baltpeter/yace"><img class="image" src="/card-icons/speech-bubble.svg" alt="yace"></a></div>
+    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/backend"><img class="image" src="/card-icons/speech-bubble.svg" alt="backend"></a></div>
     <div class="padded col75">
-        <a href="https://github.com/baltpeter/yace"><h1><code>yace</code></h1></a>
+        <a href="https://github.com/datenanfragen/backend"><h1><code>backend</code></h1></a>
         <span class="license">MIT License</span>
         <p class="description">
-            Ein Framework zum einfachen und flexiblen Deployment von Kommentarfunktionen für beliebige Inhalte. Das Backend wird dabei kostengünstig über AWS gehostet.
-            <br>Das Framework ist von Grund auf entwickelt, um den Datenschutz der Nutzer_innen weitmöglichst zu garantieren.
+	    Dieser Server definiert die Endpoints für die dynamischen Features der Webseite, wie Kommentare, Vorschläge und Spenden.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/baltpeter/yace">Zum Repository&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Zum Repository&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
 <a id="contributors"></a>
