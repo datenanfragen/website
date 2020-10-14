@@ -40,6 +40,25 @@
         "header-blog": "Publicaties",
         "header-name": "gegevensaanvragen.org",
         "logo-title": "gegevensaanvragen.org logo",
-        "logo": "img/logo-gegevensaanvragen.svg"
+        "logo": "img/logo-gegevensaanvragen.svg",
+        "adb-more-details": "Meer informatie",
+        "adb-explanation": "<p>Onze database met gegevensbeschermingsautoriteiten bevat de contactgegevens van de gegevensbeschermingsautoriteiten in de EU.</p><p>De gegevensbeschermingsautoriteiten zijn onafhankelijke instellingen, die ervoor zorgen dat de privacyregels worden opgevolgd. Als je vindt dat een bedrijf jouw verzoeken niet op de juiste manier behandelt of als jouw gegevens verwerkt worden op een manier die in strijd is met de privacywet, kun je bij de gegevensbeschermingsautoriteit altijd gratis een klacht indienen. Meer daarover lees je in ons <a href='supervisory-authorities'>artikel over de gegevensbeschermingsautoriteiten</a> lezen.</p>",
+        "adb-title": "Lijst met gegevensbeschermingsautoriteiten",
+        "cdb-title": "Database met bedrijven",
+        "home-read-more-url": "/blog/jouw-avg-rechten",
+        "home-feature-your-rights-portabillity": "De gegevens die je aan een bedrijf verstrekt hebt zijn van jou. Je hebt het recht om deze gegevens te ontvangen in een vorm die gemakkelijk naar een ander bedrijf over te dragen is.",
+        "home-feature-your-rights-portabillity-title": "Recht op dataportabiliteit",
+        "home-feature-your-rights-object": "Ook als je ooit toestemming hebt gegeven om je gegevens te gebruiken, mag je deze toestemming op ieder moment intrekken. Het intrekken van de toestemming mag niet moeilijker zijn dan het geven van de oorspronkelijke toestemming.",
+        "home-feature-your-rights-object-title": "Recht van bezwaar",
+        "home-feature-your-rights-erasure-title": "Recht op vergetelheid",
+        "home-feature-your-rights-rectification": "Als een bedrijf onjuiste informatie over je heeft opgeslagen, moeten ze dit onmiddellijk corrigeren als je ze hierop wijst.",
+        "home-feature-your-rights-rectification-title": "Recht op rectificatie",
+        "home-feature-your-rights-access": "Je hebt het recht om te weten welke data een bedrijf over je heeft opgeslagen. Daarnaast kun je bijvoorbeeld vragen met welk doel je gegevens zijn opgeslagen of waar die vandaan komen. Als een bedrijf een scoresysteem gebruikt, moeten ze je die score vertellen en uitleggen hoe die wordt berekend.",
+        "home-feature-your-rights-access-title": "Recht op inzage",
+        "home-feature-your-rights-title": "Jouw rechten",
+        "home-how-it-works-send": "Als het verzoek klaar is, moet het alleen nog verstuurd worden. Dat doe je zelf. Op die manier blijven je gegevens tussen jou en het bedrijf. Als het verzoek verstuurd is, is het wachten op een reactie. De eerste zullen al vrij snel komen. Bedrijven hebben daarvoor niet zo lang de tijd. Als het toch te lang duurt, kun je direct een herinnering sturen of zelfs een klacht indienen bij een toezichthouder.",
+        "home-how-it-works-send-title": "Versturen naar de bedrijven",
+        "home-how-it-works-generator": "Op basis van de gegevens die je hebt ingevoerd en de gegevens die we hebben verzameld bij de bedrijven, genereren we het daadwerkelijke verzoek op jouw computer. Je kunt kiezen hoe je het wil versturen naar het bedrijf: via e-mail, fax of zelfs per post. Voor elke methode maken we een verzoek.",
+        "header-privacy-controls": "Privacyinstellingen"
     }
 }
