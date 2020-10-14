@@ -3,6 +3,7 @@
         "categories": "Kategorien",
         "addresses": "Adressen",
         "ads": "Werbung",
+        "church": "Kirche",
         "collection agency": "Inkasso",
         "commerce": "Handel",
         "credit agency": "Auskunftei",
@@ -466,6 +467,7 @@
     "categories": {
         "addresses": "Adressen",
         "ads": "Werbung",
+        "church": "Kirche",
         "collection agency": "Inkasso",
         "commerce": "Handel",
         "credit agency": "Auskunftei",
