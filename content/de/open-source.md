@@ -51,7 +51,7 @@ Hier findest Du eine Übersicht einiger wichtiger Repositories, die direkt oder 
         <a href="https://github.com/datenanfragen/media"><h1><code>media</code></h1></a>
         <span class="license">MIT License</span>
         <p class="description">
-            Unsere Website die zum Video hosten verwendet wird, media.datenanfragen.de. Das Repository beinhaltet den Quellcode und die Skripte die für die Seite benutzt werden.
+            Unsere Website, die zum Hosten von Videos verwendet wird, media.datenanfragen.de. Das Repository beinhaltet den Quellcode und die Skripte, die für die Seite benutzt werden.
         </p>
     </div>
     <div class="clearfix"></div>
@@ -64,7 +64,7 @@ Hier findest Du eine Übersicht einiger wichtiger Repositories, die direkt oder 
         <a href="https://github.com/datenanfragen/letter-generator"><h1><code>letter-generator</code></h1></a>
         <span class="license">MIT License</span>
         <p class="description">
-		Ein Werkzeug zum Erstellen von Briefen (Text- oder PDF-Format) aus vordefinierten Layoutvorlagen. Das Repository enthält diese Layoutvorlagen und die Skripte, die nötig sind um Briefe aus diesen zu rendern. 
+		Ein Werkzeug zum Erstellen von Briefen (Text- oder PDF-Format) aus vordefinierten Layoutvorlagen. Das Repository enthält diese Layoutvorlagen und die Skripte, die nötig sind, um Briefe aus diesen zu rendern. 
         </p>
     </div>
     <div class="clearfix"></div>
