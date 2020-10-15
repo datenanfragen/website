@@ -62,7 +62,9 @@
         "header-privacy-controls": "Privacyinstellingen",
         "cdb-sources": "Bronnen:",
         "cdb-pgp-url": "Download PGP-sleutel:",
-        "cdb-web": "Website:"
+        "cdb-web": "Website:",
+        "utility": "hulpprogramma",
+        "public body": "openbaar lichaam"
     },
     "countries": {
         "zw": "Zimbabwe",
@@ -280,7 +282,9 @@
         "donation-failed": "Betaling mislukt. Probeer het alstublieft opnieuw.",
         "error-amount-too-little": "Donaties van minder dan €1 kunnen we vanwege de hoge transactiekosten helaas alleen via een bankoverschrijving accepteren. Kies een hoger bedrag of selecteer 'bankoverschrijving' als betalingsmethode.",
         "print": "Betalingsinformatie afdrukken",
-        "next-step": "Naar de volgende stap"
+        "next-step": "Naar de volgende stap",
+        "bank-transfer-info": "In de volgende stap worden onze bankgegevens getoond, zodat u uw donatie kan overmaken.",
+        "error-amount-invalid": "Voer alstublieft een geldig bedrag in."
     },
     "generator": {
         "custom-request": "Je eigen tekst",
