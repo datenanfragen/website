@@ -66,7 +66,7 @@
         "utility": "hulpprogramma",
         "public body": "openbaar lichaam",
         "cdb-company-title": "{{ .Params.name }}: Privacy contact informatie",
-        "home-feature-your-rights-erasure": "Zodra een bedrijf je gegevens niet meer nodig heeft voor het doel waarvoor ze zijn verzameld, kun je vragen om  deze gegevens te verwijderen. Als de gegevens naar derde partijen zijn gestuurd, moeten ook zij op de hoogte worden gesteld van jouw verwijderingsverzoek.",
+        "home-feature-your-rights-erasure": "Zodra een bedrijf je gegevens niet meer nodig heeft voor het doel waarvoor ze zijn verzameld, kun je vragen om deze gegevens te verwijderen. Als de gegevens naar derde partijen zijn gestuurd, moeten ook zij op de hoogte worden gesteld van jouw verwijderingsverzoek.",
         "home-how-it-works-get-started": "Nu starten!"
     },
     "countries": {
