@@ -254,7 +254,10 @@
         "ics-desc": "Du hast über Datenanfragen.de DSGVO-Anfragen bei den unten \n genannten Unternehmen gestellt. Die Frist für diese Anfragen ist \n mittlerweile abgelaufen. Falls Du noch keine Antwort auf eine oder \n mehrere der Anfragen erhalten hast, kannst Du jetzt Mahnungen erstellen: \n https://www.datenanfragen.de/my-requests",
         "ics-url": "https://www.datenanfragen.de/my-requests",
         "ics-title": "Meine Anfragen bei Datenanfragen.de",
-        "ics-lang": "DE"
+        "ics-lang": "DE",
+        "more": "weitere",
+        "and": "und",
+        "for": "für"
     },
     "generator": {
         "reference": "Zeichen",
