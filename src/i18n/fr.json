@@ -48,7 +48,10 @@
         "ics-title": "Mes demandes sur demandetesdonnees.fr",
         "ics-lang": "EN",
         "toggle-all": "Sélectionner/Désélectionner tout",
-        "objection": "opposition"
+        "objection": "opposition",
+        "more": "plus",
+        "and": "et",
+        "for": "pour"
     },
     "generator": {
         "reference": "Référence",
