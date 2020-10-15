@@ -13,7 +13,30 @@
     <!-- All of this only to make case-insensitive sorting possible. I hate you hugo -->
     {{ $pages := (.Data.Pages.ByParam "name")}}
     {{ range $pages }}
-        {{ $.Scratch.SetInMap "upper_title" (upper .Params.name) .Params.slug }}
+        {{/*
+             Normalize company name for sorting by uppercasing and translating accented characters to equivalent Latin
+             alphabet characters.
+        */}}
+        {{ $clean_name := replaceRE "[ÅÁÀÂÄÃ]" "A" (upper .Params.name) }}
+        {{ $clean_name := replaceRE "[Ç]" "C" $clean_name }}
+        {{ $clean_name := replaceRE "[ÉÈÊË]" "E" $clean_name }}
+        {{ $clean_name := replaceRE "[ÌÍÎÏ]" "I" $clean_name }}
+        {{ $clean_name := replaceRE "[ÒÓÔÕÖØ]" "O" $clean_name }}
+        {{ $clean_name := replaceRE "[ŬÙÚÛÜ]" "U" $clean_name }}
+        {{ $clean_name := replaceRE "[Ñ]" "N" $clean_name }}
+        {{ $clean_name := replaceRE "[ŚṠŜŠŞ]" "S" $clean_name }}
+        {{ $clean_name := replaceRE "[ÝŸ]" "Y" $clean_name }}
+        {{/*
+            Remove specific problem and special characters out; Note: \x200b is the 'Zero Width Space' character.
+        */}}
+        {{ $clean_name := replaceRE "[\\x{200b}„“\"]" "" $clean_name }}
+        {{/*
+            Non-alphanum starting characters are being modified with a colon prefix, this will cause names with
+            other characters (not handled above) to sort in the number section after 9.
+        */}}
+        {{ $clean_name := replaceRE "^([^[[:alnum:]]])" ":$1" $clean_name }}
+        {{ $clean_entry := dict "first_letter" (substr $clean_name 0 1) "clean_name" $clean_name "slug" .Params.slug }}
+        {{ $.Scratch.Add "clean_companies" (slice $clean_entry) }}
     {{ end }}
 
     <div id="company-overview" class="narrow-page">
@@ -22,25 +45,23 @@
         {{ .Scratch.Set "letter" " " }}
         {{ .Scratch.Set "numbers_done" false }}
         {{ .Scratch.Set "first_entry" true }}
-        {{ range (.Scratch.GetSortedMapValues "upper_title") }}
-            {{ with $.Site.GetPage (printf "company/%s" .) }}
-                {{ if not (in "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ" (upper (substr .Params.name 0 1))) }}
-                    {{ if (not ($.Scratch.Get "numbers_done")) }}
-                        {{ $.Scratch.Set "numbers_done" true }}
-                        {{ if not ($.Scratch.Get "first_entry") }}</div>{{ end }}
-                        <div id="numbers-container" class="sorting-container"><a class="letter-anchor" href="#numbers"><h2>#</h2></a><a class="stickyproof-anchor" name="numbers"></a>
-                        {{ $.Scratch.Set "first_entry" false }}
-                    {{ end }}
-                {{ else if lt ($.Scratch.Get "letter") (upper (substr .Params.name 0 1))}}
-                    {{ $.Scratch.Set "letter" (upper (substr .Params.name 0 1))}}
+        {{ range $clean_company := sort ($.Scratch.Get "clean_companies") ".clean_name" }}
+            {{ if (in "0123456789:" $clean_company.first_letter) }}
+                {{ if (not ($.Scratch.Get "numbers_done")) }}
+                    {{ $.Scratch.Set "numbers_done" true }}
                     {{ if not ($.Scratch.Get "first_entry") }}</div>{{ end }}
-                    <div id="{{ $.Scratch.Get "letter" }}-container" class="sorting-container"><a class="letter-anchor"  href="#{{ $.Scratch.Get "letter" }}"><h2>{{ $.Scratch.Get "letter" }}</h2></a><a class="stickyproof-anchor" name="{{ $.Scratch.Get "letter" }}"></a>
+                    <div id="numbers-container" class="sorting-container"><a class="letter-anchor" href="#numbers"><h2>#</h2></a><a class="stickyproof-anchor" name="numbers"></a>
                     {{ $.Scratch.Set "first_entry" false }}
                 {{ end }}
-                {{ partial "summary-company.html" . }}
+            {{ else if lt ($.Scratch.Get "letter") $clean_company.first_letter }}
+                {{ $.Scratch.Set "letter" $clean_company.first_letter }}
+                {{ if not ($.Scratch.Get "first_entry") }}</div>{{ end }}
+                <div id="{{ $.Scratch.Get "letter" }}-container" class="sorting-container"><a class="letter-anchor"  href="#{{ $.Scratch.Get "letter" }}"><h2>{{ $.Scratch.Get "letter" }}</h2></a><a class="stickyproof-anchor" name="{{ $.Scratch.Get "letter" }}"></a>
+                {{ $.Scratch.Set "first_entry" false }}
             {{ end }}
+            {{ partial "summary-company.html" ($.Site.GetPage (printf "company/%s" $clean_company.slug)) }}
         {{ end }}
-        {{ if gt (len (.Scratch.GetSortedMapValues "upper_title")) 0}}</div>{{ end }}
+        {{ if gt (len (.Scratch.Get "clean_companies")) 0}}</div>{{ end }}
     </div>
 </main>
 {{ end }}
