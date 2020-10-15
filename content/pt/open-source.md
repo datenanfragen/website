@@ -7,7 +7,7 @@
 
 <img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg">
 
-Código aberto está no coração do pedidodedados.org. Nós construímos o projeto do chão com a idéia de ser tão aberto quanto possível. Nossa [constituição]({{< ref "verein/constitution" >}}) nos obriga a publicar todo nosso conteúdo de forma livre e gratuita.
+Código aberto está no coração do pedidodedados.org. Nós construímos o projeto do chão com a idéia de ser tão aberto quanto possível. Nossa [constituição](https://www.datarequests.org/verein/constitution) nos obriga a publicar todo nosso conteúdo de forma livre e gratuita.
 
 Nós somos grandes proponentes do Código Aberto e acreditamos nele.
 
