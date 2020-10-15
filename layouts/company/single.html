@@ -113,11 +113,15 @@
 {{ end }}
 
 {{ define "scripts" }}
+
+{{ .Scratch.Add "ldJsonId" .Permalink }}
+{{ .Scratch.Add "ldJsonId" "#company" }}
+
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
-  "@id": "{{ .Params.slug }}",
+  "@id": {{ .Scratch.Get "ldJsonId" }},
   "identifier": "{{ .Params.slug }}",
   "name": {{ .Params.name }},
   {{ with .Params.address}}"address": {{ replace . "\n" ", " }},{{ end }}
