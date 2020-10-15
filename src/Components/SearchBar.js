@@ -125,12 +125,17 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     },
                 }
             );
-            this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
+
+            this.algolia_autocomplete.on('autocomplete:selected', this.refocusInput);
             if (typeof this.props.setupPlaceholderChange === 'function') {
                 this.props.setupPlaceholderChange(this.input_element);
             }
-            this.input_element.focus();
         }
+
+        refocusInput = (event, suggestion, dataset) => {
+            this.input_element.focus();
+            this.props.onAutocompleteSelected(event, suggestion, dataset);
+        };
 
         render() {
             return (
