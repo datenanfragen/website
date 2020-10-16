@@ -17,7 +17,7 @@ To build the project, first install Hugo (we need the extended version) and [Yar
 For development, use `yarn dev` to start the webpack file watcher which will automatically build the JS and (S)CSS files. For Hugo, use `hugo server`.  
 The production builds are automatically done by [Netlify](https://www.netlify.com/) using the `deploy.sh` script.
 
-For testing, we use CircleCI in combination with Cypress (see [more on our browser tests here](/cypress/README.md)). We previously used BrowserStack who kindly let us use their services.
+For testing, we use CircleCI in combination with Cypress (see [more on our browser tests here](/cypress/README.md)). We previously used BrowserStack Which kindly let us use their services.
 
 ## Contributing
 
