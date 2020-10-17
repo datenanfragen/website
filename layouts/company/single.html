@@ -9,7 +9,7 @@
 {{ define "main" }}
 <main class="narrow-page" style="overflow-wrap: break-word;">
     <div style="display: flex; align-items: center; justify-content: space-between;">
-        <a href="{{ "company" | absURL }}"><span class="icon inline-icon inline-icon-left icon-arrow-left"></span>
+        <a class="no-link-decoration" href="{{ "company" | absURL }}"><span class="icon inline-icon inline-icon-left icon-arrow-left"></span>
             {{ T "cdb-back-to-overview" }}</a>
         <span>
             <a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/deed.{{ .Lang }}"
@@ -66,7 +66,7 @@
         {{ $title := . }}
         <!-- Yes, that is actually the *recommended* way to do this (https://gohugo.io/templates/taxonomy-templates/#example-list-tags-in-a-single-page-template)… *sigh* -->
         {{ with $.Site.GetPage (printf "/categories/%s" (urlize .)) }}
-        {{ $.Scratch.Add "categories" (printf "<a href='%s' class='no-link-decoration'>%s</a>" .Permalink (T $title)) }}
+        {{ $.Scratch.Add "categories" (printf "<a href='%s'>%s</a>" .Permalink (T $title)) }}
         {{ end }}
         {{ end }}
         {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong>
