@@ -189,6 +189,17 @@ input:disabled {
 
 .box-compact {
     padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 600px));
+    grid-template-rows: 30px 1fr;
+    min-width: 225px;
+}
+
+@media only screen and (min-width: 614px) {
+    .stars-wrapper {
+        grid-row: 1;
+        grid-column: 2;
+    }
 }
 
 .select-container {
