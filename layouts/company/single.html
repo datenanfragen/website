@@ -131,13 +131,10 @@
         {{ end }}
     {{ else }}
     <div id="related-companies">
-        <h2>Related companies</h2>
+        <h2>{{ T "cdb-related-companies" }}</h2>
         <ul>
-            <li><a href="https://www.datarequests.org/company/quotient-com/">Quotient Technology Inc.</a></li>
-            <li><a href="https://www.datarequests.org/company/1plusx/">1plusX AG</a></li>
-            <li><a href="https://www.datarequests.org/company/33across/">33Across, Inc.</a></li>
-            <li><a href="https://www.datarequests.org/company/4info/">4INFO Inc.</a></li>
-            <li><a href="https://www.datarequests.org/company/zetaglobal-com/">Zeta Global Corp.</a></li>
+            <li><a href="{{ ref . "company/datenanfragen" }}">Darkenanfragen AG</a></li>
+            <li><a href="{{ ref . "company/datenanfragen" }}">Acme Inc.</a></li>
         </ul>
     </div>
     {{ end }}
