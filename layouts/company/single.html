@@ -129,6 +129,17 @@
                 </ul>
             </div>
         {{ end }}
+    {{ else }}
+    <div id="related-companies">
+        <h2>{{ T "cdb-related-companies" }}</h2>
+        <ul>
+            <li><a href="{{ ref . "company/datenanfragen" }}">Darkenanfragen AG</a></li>
+            <li><a href="{{ ref . "company/datenanfragen" }}">Acme Inc.</a></li>
+            <li><a href="{{ ref . "company/datenanfragen" }}">Ace Corporation</a></li>
+            <li><a href="{{ ref . "company/datenanfragen" }}">Foo Bar Co.</a></li>
+            <li><a href="{{ ref . "company/datenanfragen" }}">Mum and Pop Ltd.</a></li>
+        </ul>
+    </div>
     {{ end }}
 
     <div id="comments-widget" data-rating-enabled="1" data-display-warning="1"></div>
