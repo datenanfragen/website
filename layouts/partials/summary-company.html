@@ -5,7 +5,7 @@
 {{ end }}
 
 <article class="company-article company-summary">
-	<h1><a href="{{ .Permalink }}" class="no-link-decoration">{{ .Params.name }}</a></h1>
+	<h1><a href="{{ .Permalink }}">{{ .Params.name }}</a></h1>
 	{{ with .Params.categories }}<div><strong>{{ T "cdb-categories" (len .) }}</strong> {{ delimit (sort ($.Scratch.Get "categories")) ", " }}</div>{{ end }}
 	{{ with .Params.runs }}<div><strong>{{ T "cdb-runs" }}</strong> {{ delimit . ", " }}</div>{{ end }}
 </article>

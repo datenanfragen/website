@@ -1,5 +1,5 @@
 <article class="company-article company-summary" style="margin-bottom: 50px;">
-	<h1><a href="{{ .Permalink }}" class="no-link-decoration">{{ .Params.name }}</a></h1>
+	<h1><a href="{{ .Permalink }}">{{ .Params.name }}</a></h1>
 	{{ with .Params.address}}
         <div class="col40 col100-mobile"><strong>{{ T "cdb-address" }}</strong><br>{{ replace . "\n" "<br>" | safeHTML }}</div>
     {{ end }}
