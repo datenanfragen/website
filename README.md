@@ -13,9 +13,15 @@ Live versions of the website are currently available in [German](https://www.dat
 
 Datenanfragen.de is designed as a static website, running on [Hugo](https://gohugo.io/) and [Preact](https://preactjs.com/).
 
-To build the project, first install Hugo (we need the extended version) and [Yarn](https://yarnpkg.com). Then clone the repository and run `yarn` in the root directory to fetch all required dependencies. Then run the deploy script (`./deploy.sh`) to fetch the required resources from our data repository.  
-For development, use `yarn dev` to start the webpack file watcher which will automatically build the JS and (S)CSS files. For Hugo, use `hugo server`.  
-The production builds are automatically done by [Netlify](https://www.netlify.com/) using the `deploy.sh` script.
+To build the project locally for development, follow these steps:
+
+1. Install [Yarn](https://classic.yarnpkg.com/en/docs/install) and the extended(!) version of [Hugo](https://gohugo.io/getting-started/quick-start/).
+2. Clone the repo and run `yarn` in the root directory of the repo to fetch all required dependencies.
+3. Run the deploy script (`./deploy.sh`) to fetch and prepare the required resources from our [data](https://github.com/datenanfragen/data) repository.
+4. Open two terminal windows. In the first, run `yarn dev` to start the Webpack file watcher which will automatically build the JS files. In the second one, run `hugo server` to have Hugo continously build the actual website and the SCSS.
+5. Now the website should be served by Hugo on multiple ports, starting from `1313`, for the different language versions.
+
+The production builds are done automatically by [CircleCI](https://circleci.com/) using the `deploy.sh` script and deployed using dattel, our own static hosting solution (split into a [server](https://github.com/binaro-xyz/dattel-server) and [client](https://github.com/binaro-xyz/dattel-client)).
 
 For testing, we use CircleCI in combination with Cypress (see [more on our browser tests here](/cypress/README.md)). We previously used BrowserStack who kindly let us use their services.
 
