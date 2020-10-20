@@ -19,6 +19,13 @@ The production builds are automatically done by [Netlify](https://www.netlify.co
 
 For testing, we use CircleCI in combination with Cypress (see [more on our browser tests here](/cypress/README.md)). We previously used BrowserStack who kindly let us use their services.
 
+### Step-by-Step Quick Start Guide
+
+1. Install yarn and the extended(!) version of hugo, e.g. from https://github.com/gohugoio/hugo/releases 
+2. Clone the repo and run `yarn` in the folder
+3. Run the deploy script (`./deploy.sh`)
+4. Run `yarn dev` and in a new terminal window also `hugo server`
+5. Now the website should be served by hugo on four different ports (1313, 1314, 1315, and 1316) for the four supported languages
 ## Contributing
 
 First of all, thank you very much for taking the time to contribute! Contributions are incredibly valuable for a project like ours.
