@@ -37,7 +37,11 @@ export default class Privacy {
     }
 
     static setAllowed(privacy_action, value) {
-        Cookie.set(this.cookieNameForAction(privacy_action), value, { expires: 365 });
+        if(value !== privacy_action.default) Cookie.set(this.cookieNameForAction(privacy_action), value, { expires: 365 });
+        else {
+            let cookie_value = Cookie.get(this.cookieNameForAction(privacy_action));
+            if(cookie_value!==undefined) Cookie.remove(this.cookieNameForAction(privacy_action));
+        }
     }
 
     static clearAllCookies() {
