@@ -340,7 +340,8 @@
         "gmail": "Google Mail (Gmail)*",
         "outlook": "Outlook (Hotmail)*",
         "yahoo": "Yahoo! Mail*",
-        "yandex": "Yandex.Mail*"
+        "yandex": "Yandex.Mail*",
+        "aol": "AOL Mail*"
     },
     "requests": {
         "letter-subject-erasure": "Solicitação de eliminação de dados pessoais conforme o Art.17 do RGPD",

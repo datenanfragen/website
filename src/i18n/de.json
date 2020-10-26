@@ -358,6 +358,7 @@
         "outlook": "Outlook (Hotmail)*",
         "yahoo": "Yahoo! Mail*",
         "yandex": "Yandex.Mail*",
+        "aol": "AOL Mail*",
         "copymanually": "Text von Hand kopieren"
     },
     "requests": {
