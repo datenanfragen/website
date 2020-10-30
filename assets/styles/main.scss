@@ -953,3 +953,31 @@ article.page,
         }
     }
 }
+
+/* Comments summary */
+
+.comments-summary {
+    h3 {
+        font-size: 0.8em;
+        font-weight: normal;
+    }
+
+    ol {
+        border: 1px dotted $primary-color;
+        padding-left: 0.5em;
+    }
+
+    li {
+        display: inline-block;
+        list-style: none;
+        padding: 15px;
+        vertical-align: top;
+    }
+
+    .primary-content {
+        color: $primary-color;
+        display: block;
+        font-size: 2em;
+        font-weight: bold;
+    }
+}

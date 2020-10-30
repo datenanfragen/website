@@ -31,9 +31,19 @@ export default class CommentsWidget extends preact.Component {
     }
 
     render() {
-        const comment_elements = this.state.comments.map((c) => (
-            <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
-        ));
+        let ratingCount = 0;
+        let ratingSum = 0;
+
+        const comment_elements = this.state.comments.map((c) => {
+            if (c.additional?.rating) {
+                ratingCount++;
+                ratingSum += Number(c.additional.rating);
+            }
+
+            return (
+                <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
+            );
+        });
 
         return (
             <IntlProvider scope="comments" definition={I18N_DEFINITION}>
@@ -55,8 +65,17 @@ export default class CommentsWidget extends preact.Component {
                             <Text id="no-comments" />
                         </p>
                     ) : (
-                        comment_elements
+                        <div>
+                            <CommentSummary
+                                ratingCount={ratingCount}
+                                ratingSum={ratingSum}
+                                reviewCount={this.state.comments.length}
+                            />
+
+                            {comment_elements}
+                        </div>
                     )}
+
                     <CommentForm allow_rating={this.props.allow_rating} displayWarning={this.props.displayWarning} />
                 </div>
             </IntlProvider>
@@ -266,5 +285,76 @@ export class CommentForm extends preact.Component {
                 rethrow(err);
                 flash(<FlashMessage type="error">{t('send-error', 'comments')}</FlashMessage>);
             });
+    }
+}
+
+export class CommentSummary extends preact.Component {
+    componentDidMount() {
+        const parts = TARGET.split('/');
+
+        if (parts[1] !== 'company') {
+            return;
+        }
+
+        const json = {
+            '@context': 'http://schema.org',
+            '@type': 'Organization',
+            '@id': document.location.href + '#company',
+            aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingCount: this.props.ratingCount,
+                ratingValue: this.averageRating,
+                reviewCount: this.props.reviewCount,
+            },
+        };
+
+        const script = document.createElement('script');
+
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(json);
+
+        document.body.appendChild(script);
+    }
+
+    render() {
+        if (this.props.reviewCount === 0) {
+            return;
+        }
+
+        this.averageRating = (this.props.ratingSum / this.props.ratingCount).toFixed(2);
+
+        return (
+            <div className="comments-summary">
+                <ol>
+                    <li>
+                        <h3>
+                            <Text id="total" />
+                        </h3>
+                        <span className="primary-content">{this.props.reviewCount}</span>
+                    </li>
+                    <li>
+                        <h3>
+                            <Text id="average-rating" />
+                        </h3>
+
+                        {this.props.ratingCount > 0 ? (
+                            <div>
+                                <span className="primary-content">{this.averageRating}</span>
+
+                                <Text
+                                    id="from-x-reviewers"
+                                    fields={{ count: this.props.ratingCount }}
+                                    plural={this.props.ratingCount}
+                                />
+                            </div>
+                        ) : (
+                            <span className="primary-content">
+                                <Text id="no-ratings" />
+                            </span>
+                        )}
+                    </li>
+                </ol>
+            </div>
+        );
     }
 }
