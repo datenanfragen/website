@@ -28,7 +28,7 @@ Même si vous avez donné votre accord à l'utilisation de vos données à un mo
 * **Le droit à la portabilité des données**  
 Les informations que vous fournissez à une entreprise vous appartiennent. Vous avez le droit de récuperer ces informations de leur part dans un format commun lisible afin de pouvoir les transférer facilement à une autre entreprise.
 
-Vous trouvez un aperçu encore plus détaillé dans notre [article à propos vos droits sous la RGPD]({{< ref "/blog/your-gdpr-rights" >}}).
+Vous trouvez un aperçu encore plus détaillé dans notre [article à propos vos droits sous le RGPD]({{< ref "/blog/your-gdpr-rights" >}}).
 
 ## Comment exercer ces droits?
 
