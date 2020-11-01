@@ -204,6 +204,9 @@ static/*/*.gen.js
 static/*/*.map
 static/*/*.gen.css
 
+# PSDs for thumbnails
+content/**/*.psd
+
 # Private files
 *.tmp
 *.tmp.*
