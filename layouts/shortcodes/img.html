@@ -54,6 +54,6 @@ Inspired by: https://gohugo.io/templates/shortcode-templates/#single-named-examp
     {{- end -}}
     {{- if .Get "link" }}</a>{{ end }}
     {{ with .Get "caption" -}}
-        <figcaption>{{ . }}</figcaption>
+        <figcaption>{{ . | markdownify }}</figcaption>
     {{- end }}
 </figure>
