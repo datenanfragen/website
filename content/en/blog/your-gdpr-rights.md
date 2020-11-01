@@ -67,7 +67,7 @@ This right is particularly exciting with regard to credit agencies such as Exper
 
 It is important to note that according to Art. 19 GDPR, the controller not only has to correct your data, but also has to communicate the correction to all recipients, such that they also carry it out in their systems accordingly.
 
-## Right to be forgotten
+## Right to be forgotten {#right-to-be-forgotten}
 
 If you want a company to delete personal data that they have stored on you, you can use the **right to be forgotten**, which is defined in Art. 17 GDPR. This right allows you to request the immediate deletion of data concerning you under certain circumstances.
 
