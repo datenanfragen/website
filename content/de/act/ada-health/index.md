@@ -33,13 +33,14 @@ Hast Du die App genutzt und warst Dir dieser Datenweitergabe vielleicht nicht be
 Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben das entsprechende Schreiben an die Ada Health GmbH, mit dem Du die Löschung Deiner Daten verlangen kannst, schon einmal vorbereitet. Du musst nur noch Deinen Namen und die E-Mail-Adresse, die Du bei der ersten Benutzung der App eingegeben hast, eintragen und schon kannst Du Deinen Löschantrag einfach per E-Mail verschicken – natürlich kostenlos.
 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
-{{< script >}}
+<script>
 window.props = {
     request_types: ['erasure'],
     transport_medium: 'email',
     company: 'ada-health'
 };
-{{< /script >}}
+window.onload = function() { renderActWidget(); };
+</script>
 
 Die E-Mail verschickst Du selbst mit Deinem eigenen E-Mail-Programm. Im Gegensatz zu Ada haben wir uns nämlich Gedanken zur Datenminimierung gemacht: Alles, was Du hier auf der Seite eingibst, wird **nur lokal auf Deinem Rechner** verarbeitet. Das heißt, dass wir diese Daten nie auch nur zu sehen bekommen.
 
