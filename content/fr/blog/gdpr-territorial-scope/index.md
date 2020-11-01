@@ -3,16 +3,16 @@
     "date": "2020-10-31T21:22:15+02:00",
     "type": "blog",
     "description": "Qui est habilité à faire valoir les droits des personnes concernées par le RGPD ? Et contre qui ? Voici un aperçu de la portée territoriale du RGPD.",
-    "featured_image": "gdpr-territorial-scope",
+    "featured_image": "portee-territoriale-du-rgdp",
     "tags": ["rgpd", "portée territoriale", "rgpd article 3" ],
-    "authors": [ "eliottha" ],
+    "authors": [ "anikarini" ],
     "license": "cc-by-40",
     "notices": "Photo adaptée sur base de: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” par [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash license](https://unsplash.com/license))"
 }
 
 Qui est habilité à faire valoir les droits des personnes concernées par le RGPD ? Et contre qui ? Cet article donne un bref aperçu de la portée territoriale du RGPD.
 
-{{< img name="gdpr-territorial-scope" alt="Portée Territoriale du RGPD" >}}
+{{< img name="portee-territoriale-du-rgdp" alt="Portée Territoriale du RGPD" >}}
 
 ## Qu'est-ce que le RGPD veut dire? 
 
