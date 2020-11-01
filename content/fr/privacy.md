@@ -6,4 +6,4 @@
     "target_url": "https://www.datarequests.org/privacy"
 }
 
-Vous pouvez retrouver notre politique de confidentialité [ici](https://www.datarequests.org/privacy) (en anglais).
+Tu peux retrouver notre politique de confidentialité [ici](https://www.datarequests.org/privacy) (en anglais).
