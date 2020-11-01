@@ -1,6 +1,7 @@
 {
     "title": "Une vue d'ensemble de demandetesdonnees.fr",
     "slug": "une-vue-d-ensemble",
+    "aliases": [ "a-quick-overview" ],
     "date": "2020-10-31T07:12:24+02:00",
     "last_edited": "2020-10-31T07:12:24",
     "type": "blog",
