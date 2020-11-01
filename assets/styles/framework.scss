@@ -311,6 +311,10 @@ table {
 pre {
     white-space: pre-wrap;
     overflow: auto;
+
+    div.highlight > & {
+        padding: 20px;
+    }
 }
 
 .form-group {
@@ -336,6 +340,12 @@ figure {
         margin: auto;
         text-align: center;
     }
+}
+
+blockquote {
+    border-left: 7px solid color('blue', 200);
+    margin-left: 0;
+    padding-left: 20px;
 }
 
 .sr-only {

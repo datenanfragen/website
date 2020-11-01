@@ -38,3 +38,7 @@ short_name = "Andreas Bampounis"
 [authors.eliottha]
 byline = "<a href='https://eliott.be' property='cc:attributionName' rel='cc:attributionURL'>Eliott Hauteclair</a>"
 short_name = "Eliott H"
+
+[authors.malte]
+byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://matrix.to/#/@mal-tee:matrix.org' property='cc:attributionName' rel='cc:attributionURL'>Malte Wessels</a>"
+short_name = "Malte"

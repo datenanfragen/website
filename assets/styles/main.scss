@@ -306,6 +306,9 @@ a #logo {
         margin-right: 10px;
     }
 }
+details summary {
+    cursor: pointer;
+}
 
 // taken from http://maddesigns.de/responsive-iframes-2417.html
 .embed-container {
@@ -952,4 +955,33 @@ article.page,
             padding-top: 15px;
         }
     }
+}
+
+/* Slider, see https://css-tricks.com/can-get-pretty-far-making-slider-just-html-css/ */
+.slider {
+    width: 100%;
+    display: flex;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    .button {
+        margin-bottom: 10px;
+    }
+    .button-left {
+        float: left;
+    }
+    .button-right {
+        float: right;
+    }
+}
+
+.slides > div {
+    scroll-snap-align: start;
 }
