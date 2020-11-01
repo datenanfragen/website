@@ -13,7 +13,7 @@ export default class ActWidget extends preact.Component {
     render() {
         return (
             <div className="box">
-                <RequestGeneratorBuilder ref={o => (this.generator = o)}>
+                <RequestGeneratorBuilder ref={(o) => (this.generator = o)} onInitialized={this.initializeGenerator}>
                     {this.props.request_types.length > 1 ? (
                         <RequestTypeChooserPlaceholder request_types={this.props.request_types} />
                     ) : (
@@ -43,7 +43,7 @@ export default class ActWidget extends preact.Component {
         );
     }
 
-    componentDidMount = () => {
+    initializeGenerator = () => {
         if (typeof this.props.company === 'string') this.generator.setCompanyBySlug(this.props.company);
         else if (typeof this.props.company === 'object') this.generator.setCompany(this.props.company);
 
