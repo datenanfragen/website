@@ -2,6 +2,9 @@ defaultContentLanguage = "de"
 pluralizeListTitles = false
 preserveTaxonomyNames = true
 
+# Our page takes may take a while to build, see: https://github.com/gohugoio/hugo/issues/4841
+timeout = "500s"
+
 [Author]
     name = "Datenanfragen.de e. V."
     email = "kontakt@datenanfragen.de"
