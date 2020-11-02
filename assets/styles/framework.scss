@@ -255,6 +255,16 @@ table {
         border-bottom: 2px solid color('blue', 700);
     }
 
+    &#my-requests-table {
+        th,
+        td {
+            &:nth-child(2),
+            &:nth-child(4) {
+                white-space: nowrap;
+            }
+        }
+    }
+
     &.fancy-table {
         border: 4px solid $primary-color;
         border-collapse: collapse;
@@ -275,11 +285,6 @@ table {
         td {
             padding: 15px;
             text-align: center;
-
-            &:nth-child(2),
-            &:nth-child(4) {
-                white-space: nowrap;
-            }
         }
     }
     &.fancy-table-mobile {
