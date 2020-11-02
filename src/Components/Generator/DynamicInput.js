@@ -95,6 +95,7 @@ export default class DynamicInput extends preact.Component {
                                         rel={this.props.id}
                                         className="dynamic-input-delete button button-secondary button-small icon-trash"
                                         onClick={this.props.removeHandler}
+                                        title={t('delete-field', 'generator')}
                                     />
                                 </div>
                             ) : (
@@ -116,10 +117,10 @@ export default class DynamicInput extends preact.Component {
                                     style="margin-left: 5px;"
                                     required={!this.props.optional}
                                     onChange={this.props.onChange}
-                                    onFocus={e => {
+                                    onFocus={(e) => {
                                         this.setState({ focus: true });
                                     }}
-                                    onBlur={e => {
+                                    onBlur={(e) => {
                                         this.setState({ focus: false });
                                     }}
                                 />
@@ -177,10 +178,10 @@ export class TextareaControl extends preact.Component {
                     placeholder={t('value', 'generator')}
                     required={this.props.required}
                     onChange={this.props.onChange}
-                    onFocus={e => {
+                    onFocus={(e) => {
                         this.setState({ focus: true });
                     }}
-                    onBlur={e => {
+                    onBlur={(e) => {
                         this.setState({ focus: false });
                     }}
                     value={this.props.value}
@@ -220,10 +221,10 @@ export class InputControl extends preact.Component {
                     placeholder={t('value', 'generator')}
                     required={this.props.required}
                     onChange={this.props.onChange}
-                    onFocus={e => {
+                    onFocus={(e) => {
                         this.setState({ focus: true });
                     }}
-                    onBlur={e => {
+                    onBlur={(e) => {
                         this.setState({ focus: false });
                     }}
                     value={this.props.value}
@@ -263,10 +264,10 @@ export class DateControl extends preact.Component {
                     placeholder={t('value', 'generator')}
                     required={this.props.required}
                     onChange={this.props.onChange}
-                    onFocus={e => {
+                    onFocus={(e) => {
                         this.setState({ focus: true });
                     }}
-                    onBlur={e => {
+                    onBlur={(e) => {
                         this.setState({ focus: false });
                     }}
                     value={this.props.value}
@@ -300,10 +301,10 @@ export class AddressControl extends preact.Component {
                         className="form-element"
                         required={this.props.required}
                         onChange={this.props.onChange}
-                        onFocus={e => {
+                        onFocus={(e) => {
                             this.setState({ focus: true });
                         }}
-                        onBlur={e => {
+                        onBlur={(e) => {
                             this.setState({ focus: false });
                         }}
                         value={this.props.value['street_1']}
@@ -322,10 +323,10 @@ export class AddressControl extends preact.Component {
                         placeholder={t('address-line-2', 'generator')}
                         className="form-element"
                         onChange={this.props.onChange}
-                        onFocus={e => {
+                        onFocus={(e) => {
                             this.setState({ focus: true });
                         }}
-                        onBlur={e => {
+                        onBlur={(e) => {
                             this.setState({ focus: false });
                         }}
                         value={this.props.value['street_2']}
@@ -345,10 +346,10 @@ export class AddressControl extends preact.Component {
                         className="form-element"
                         required={this.props.required}
                         onChange={this.props.onChange}
-                        onFocus={e => {
+                        onFocus={(e) => {
                             this.setState({ focus: true });
                         }}
-                        onBlur={e => {
+                        onBlur={(e) => {
                             this.setState({ focus: false });
                         }}
                         value={this.props.value['place']}
@@ -367,10 +368,10 @@ export class AddressControl extends preact.Component {
                         placeholder={t('address-country', 'generator')}
                         className="form-element"
                         onChange={this.props.onChange}
-                        onFocus={e => {
+                        onFocus={(e) => {
                             this.setState({ focus: true });
                         }}
-                        onBlur={e => {
+                        onBlur={(e) => {
                             this.setState({ focus: false });
                         }}
                         value={this.props.value['country']}
