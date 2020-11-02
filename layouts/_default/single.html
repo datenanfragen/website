@@ -32,7 +32,7 @@
             </address>
         </header>
         {{ end }}
-        {{ if and (not .Params.disable_comments) (not (eq .Type "act")) }}
+        {{ if (not .Params.disable_comments) }}
         <div id="comments-widget"></div>
         {{ end }}
         {{ end }}
