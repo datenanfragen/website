@@ -144,7 +144,9 @@
         "mailto-dropdown-explanation": "Comment souhaites-tu envoyer l'e-mail ?",
         "mailto-dropdown-warning": "*Ceci transmettra ta demande et toutes les données incluses au service correspondant.",
         "copymanually-explanation": "Ici, vous pouvez copier manuellement le sujet, le destinataire et le texte de votre courriel généré.",
-        "body": "Texte"
+        "body": "Texte",
+        "delete-field": "Supprimer ce champ",
+        "add-fill-field": "Complète tes données sauvegardées"
     },
     "privacy-controls": {
         "title": "Options de confidentialité",
