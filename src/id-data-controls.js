@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/SavedIdData';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import t from 'Utility/i18n';
@@ -8,7 +8,7 @@ import { AddressControl, DateControl, InputControl } from './Components/Generato
 import SignatureInput from './Components/Generator/SignatureInput';
 import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
 
-class IdDataControls extends preact.Component {
+class IdDataControls extends Component {
     constructor(props) {
         super(props);
 
@@ -238,12 +238,13 @@ class IdDataControls extends preact.Component {
     }
 }
 
-preact.render(
+const main = document.querySelector('main');
+render(
     <IntlProvider scope="id-data-controls" definition={I18N_DEFINITION}>
         <main>
             <IdDataControls />
         </main>
     </IntlProvider>,
-    null,
-    document.querySelector('main')
+    main.parentElement,
+    main
 );

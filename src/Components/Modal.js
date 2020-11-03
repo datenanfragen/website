@@ -1,9 +1,9 @@
-import preact from 'preact';
-import Portal from 'preact-portal';
+import { render, Component } from 'preact';
+import { createPortal } from 'preact/compat';
 import t from '../Utility/i18n';
 import PropTypes from 'prop-types';
 
-export default class Modal extends preact.Component {
+export default class Modal extends Component {
     render() {
         const positiveButton =
             this.props.positiveButton ||
@@ -30,37 +30,35 @@ export default class Modal extends preact.Component {
                 ''
             ));
         /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-        return (
-            <Portal into="body">
-                <div className="modal">
-                    <div
-                        className="backdrop"
-                        onClick={this.props.onDismiss}
-                        onKeyDown={e => {
-                            if (e.key === 'Escape') this.props.onDismiss();
-                        }}
-                        role="presentation"
-                        tabIndex="0"
-                    />
-                    <div className="inner" style={this.props.innerStyle}>
-                        {this.props.onDismiss ? (
-                            <button
-                                className="button-unstyled close-button icon-close"
-                                onClick={this.props.onDismiss}
-                                title={t('cancel', 'generator')}
-                            />
-                        ) : (
-                            []
-                        )}
-                        {this.props.children}
-                        <div className="button-group">
-                            {positiveButton}
-                            {negativeButton}
-                        </div>
+        return createPortal(
+            <div className="modal">
+                <div
+                    className="backdrop"
+                    onClick={this.props.onDismiss}
+                    onKeyDown={e => {
+                        if (e.key === 'Escape') this.props.onDismiss();
+                    }}
+                    role="presentation"
+                    tabIndex="0"
+                />
+                <div className="inner" style={this.props.innerStyle}>
+                    {this.props.onDismiss ? (
+                        <button
+                            className="button-unstyled close-button icon-close"
+                            onClick={this.props.onDismiss}
+                            title={t('cancel', 'generator')}
+                        />
+                    ) : (
+                        []
+                    )}
+                    {this.props.children}
+                    <div className="button-group">
+                        {positiveButton}
+                        {negativeButton}
                     </div>
                 </div>
-            </Portal>
-        );
+            </div>
+        , document.body);
         /* eslint-enable */
     }
 
@@ -76,14 +74,14 @@ export default class Modal extends preact.Component {
         onNegativeFeedback: PropTypes.func,
 
         onDismiss: PropTypes.func,
-        children: PropTypes.arrayOf(PropTypes.element),
+        children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
         innerStyle: PropTypes.string
     };
 }
 
 export function showModal(modal) {
-    return preact.render(modal, null);
+    return render(modal, document.body);
 }
 export function dismissModal(node) {
-    preact.render('', null, node);
+    render('', document.body, node);
 }

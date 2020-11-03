@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import DynamicInputContainer from './DynamicInputContainer';
 import SignatureInput from './SignatureInput';
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';
@@ -9,7 +9,7 @@ import RequestTypeChooser from './RequestTypeChooser';
 import RecipientInput from './RecipientInput';
 import TransportMediumChooser from './TransportMediumChooser';
 
-export default class RequestForm extends preact.Component {
+export default class RequestForm extends Component {
     render() {
         let body = [];
         let heading_class = '';

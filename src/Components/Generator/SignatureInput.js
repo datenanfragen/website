@@ -1,8 +1,8 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import { detectBlockedCanvasImageExtraction } from '../../Utility/browser';
 
-export default class SignatureInput extends preact.Component {
+export default class SignatureInput extends Component {
     constructor(props) {
         super(props);
 

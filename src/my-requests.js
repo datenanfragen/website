@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import localforage from 'localforage';
@@ -54,7 +54,7 @@ export default class UserRequests {
     }
 }
 
-class RequestList extends preact.Component {
+class RequestList extends Component {
     constructor(props) {
         super(props);
 
@@ -419,5 +419,6 @@ END:VCALENDAR`;
 }
 
 window.renderMyRequestsWidget = function () {
-    preact.render(<RequestList />, null, document.getElementById('my-requests'));
+    let my_requests_div = document.getElementById('my-requests');
+    render(<RequestList />, my_requests_div.parentElement, my_requests_div);
 };

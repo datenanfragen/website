@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import PropTypes from 'prop-types';
 import RequestGeneratorBuilder, {
     RequestTypeChooserPlaceholder,
@@ -9,7 +9,12 @@ import RequestGeneratorBuilder, {
 import { fakeEvt } from '../Utility/common';
 import { VALID_REQUEST_TYPES } from '../Utility/requests';
 
-export default class ActWidget extends preact.Component {
+// has to run before any rendering, webpack will remove this if the condition is false
+if (process.env.NODE_ENV === 'development') {
+    require('preact/debug');
+}
+
+export default class ActWidget extends Component {
     render() {
         return (
             <div className="box">
@@ -63,6 +68,6 @@ window.renderActWidget = function (id = undefined, props = undefined) {
     props ||= window.props;
     const elems = id ? [document.getElementById(id)] : document.querySelectorAll('.act-widget');
     elems.forEach((el) => {
-        preact.render(<ActWidget {...props} />, el);
+        render(<ActWidget {...props} />, el);
     });
 };

@@ -1,6 +1,6 @@
-import preact from 'preact';
+import { Component } from 'preact';
 
-export default class Accordion extends preact.Component {
+export default class Accordion extends Component {
     constructor(props) {
         super(props);
 

@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import t from 'Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 
@@ -79,7 +79,7 @@ let initial_state = {
     result: false
 };
 
-export default class SvaFinder extends preact.Component {
+export default class SvaFinder extends Component {
     constructor(props) {
         super(props);
 
@@ -180,7 +180,7 @@ export default class SvaFinder extends preact.Component {
 
 window.renderSvaFinder = function() {
     document.querySelectorAll('.sva-finder').forEach(el => {
-        preact.render(<SvaFinder />, null, el);
+        render(<SvaFinder />, null, el);
     });
 };
 

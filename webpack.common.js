@@ -23,6 +23,21 @@ module.exports = {
         'translations-dummy': ['./src/i18n/de.json', './src/i18n/en.json', './src/i18n/fr.json', './src/i18n/pt.json'],
     },
     optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendors: {
+                    name: 'vendors',
+                    chunks: 'all',
+                    test: /[/\\]node_modules[/\\]/,
+                    minChunks: 2,
+                },
+                commons: {
+                    name: 'commons',
+                    chunks: 'initial',
+                    minChunks: 2,
+                },
+            },
+        },
         minimize: true,
         minimizer: [
             new TerserPlugin({
@@ -53,6 +68,7 @@ module.exports = {
         chunkFilename: 'js/[name].bundle.gen.js',
         publicPath: '/',
         path: path.resolve(__dirname, 'static'),
+        globalObject: 'self',
     },
     module: {
         rules: [
@@ -71,7 +87,7 @@ module.exports = {
             // * Finally, it combines the requests translations for all languages into one JS files to be included in
             //   the HTML of all language versions.
             {
-                test: /src\/i18n\/[a-z]{2}\.json/,
+                test: /src[/\\]i18n[/\\][a-z]{2}\.json/,
                 loader: path.resolve('src/Utility/webpack-i18n-loader.js'),
             },
         ],
@@ -94,14 +110,16 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
         new webpack.DefinePlugin({
             CODE_VERSION: JSON.stringify(process.env.npm_package_version),
         }),
+        new webpack.ProvidePlugin({
+            createElement: ['preact', 'createElement'],
+            Fragment: ['preact', 'Fragment'],
+        }),
     ],
     resolve: {
         modules: ['src', 'node_modules', 'i18n', 'res/icons'],
         alias: {
-            react: 'preact-compat',
-            'react-dom': 'preact-compat',
-            // Not necessary unless you consume a module using `createClass`
-            'create-react-class': 'preact-compat/lib/create-react-class',
+            react: 'preact/compat',
+            'react-dom': 'preact/compat',
         },
     },
 };

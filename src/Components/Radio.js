@@ -1,6 +1,6 @@
-import preact from 'preact';
+import { Component } from 'preact';
 
-export default class Radio extends preact.Component {
+export default class Radio extends Component {
     render() {
         return (
             <label for={this.props.id} className={"radio-label" + (this.props.radio_variable === this.props.value ? " active" : "")}>

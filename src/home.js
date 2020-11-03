@@ -1,6 +1,11 @@
-import preact from 'preact';
+import { render } from 'preact';
 import t from 'Utility/i18n';
 import Wizard from 'Components/Wizard';
+
+// has to run before any rendering, webpack will remove this if the condition is false
+if (process.env.NODE_ENV === 'development') {
+    require('preact/debug');
+}
 
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
 const hero_rights = [
@@ -11,7 +16,8 @@ const hero_rights = [
     t('privacy', 'home')
 ];
 
-preact.render(<Wizard />, null, document.getElementById('home-wizard'));
+const wizard_div = document.getElementById('home-wizard');
+render(<Wizard />, wizard_div.parentElement, wizard_div);
 
 function typewriter(text, i, fnCallback) {
     if (text && i < text.length) {

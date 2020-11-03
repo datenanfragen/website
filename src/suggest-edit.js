@@ -1,3 +1,5 @@
+import { render } from 'preact';
+import Modal from 'Components/Modal';
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
 import { slugify, domainWithoutTldFromUrl, PARAMETERS } from './Utility/common';
@@ -234,15 +236,13 @@ function formatPhoneNumber(number) {
 }
 
 function displaySuccessModal(data) {
-    let preact = require('preact');
-    let Modal = require('Components/Modal').default;
-
+    let modal;
     let dismiss = () => {
-        preact.render('', document.body, modal);
+        render('', document.body, modal);
 
         window.location = BASE_URL + 'company/' + (PARAMETERS['slug'] || '');
     };
-    let modal = preact.render(
+    modal = render(
         <Modal onDismiss={dismiss} positiveText={t('ok', 'suggest')} onPositiveFeedback={dismiss}>
             <p>{t('success', 'suggest')}</p>
             <p>

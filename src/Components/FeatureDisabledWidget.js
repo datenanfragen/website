@@ -1,7 +1,7 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import t from 'Utility/i18n';
 
-export default class FeatureDisabledWidget extends preact.Component {
+export default class FeatureDisabledWidget extends Component {
     render() {
         return (
             <div className="box box-warning">

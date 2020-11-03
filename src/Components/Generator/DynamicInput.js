@@ -1,8 +1,8 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 
-export default class DynamicInput extends preact.Component {
+export default class DynamicInput extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };
@@ -152,7 +152,7 @@ export default class DynamicInput extends preact.Component {
     }
 }
 
-export class TextareaControl extends preact.Component {
+export class TextareaControl extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };
@@ -190,7 +190,7 @@ export class TextareaControl extends preact.Component {
     }
 }
 
-export class InputControl extends preact.Component {
+export class InputControl extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };
@@ -233,7 +233,7 @@ export class InputControl extends preact.Component {
     }
 }
 
-export class DateControl extends preact.Component {
+export class DateControl extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };
@@ -276,7 +276,7 @@ export class DateControl extends preact.Component {
     }
 }
 
-export class AddressControl extends preact.Component {
+export class AddressControl extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };

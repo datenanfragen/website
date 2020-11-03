@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import PropTypes from 'prop-types';
 import t, { t_r } from '../Utility/i18n';
@@ -38,7 +38,7 @@ export const MAILTO_HANDLERS = {
     },
     copymanually: {
         onClick: d => {
-            const dismiss = () => preact.render('', document.body, modal);
+            const dismiss = () => render('', document.body, modal);
             const onInputClick = e => {
                 if (previous_active_element.id === e.target.id) return;
 
@@ -46,7 +46,7 @@ export const MAILTO_HANDLERS = {
                 e.target.focus();
                 previous_active_element = e.target;
             };
-            const modal = preact.render(
+            const modal = render(
                 <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                     <Modal
                         positiveText={<Text id="ok" />}
@@ -103,7 +103,7 @@ export const MAILTO_HANDLERS = {
     }
 };
 
-export default class MailtoDropdown extends preact.Component {
+export default class MailtoDropdown extends Component {
     render(props) {
         const handlers =
             this.props.handlers ||
@@ -175,6 +175,6 @@ export default class MailtoDropdown extends preact.Component {
         onSuccess: PropTypes.func.isRequired,
         done: PropTypes.bool.isRequired,
         className: PropTypes.string.isRequired,
-        buttonText: PropTypes.oneOf([PropTypes.string, PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
+        buttonText: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
     };
 }

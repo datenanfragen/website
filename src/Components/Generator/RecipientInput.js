@@ -1,9 +1,9 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import t from 'Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
 import PropTypes from 'prop-types';
 
-export default class RecipientInput extends preact.Component {
+export default class RecipientInput extends Component {
     render() {
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>

@@ -1,9 +1,9 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import DynamicInput from './DynamicInput';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 
-export default class DynamicInputContainer extends preact.Component {
+export default class DynamicInputContainer extends Component {
     constructor(props) {
         super(props);
         this.state = DynamicInputContainer.getDerivedStateFromProps(this.props, {});

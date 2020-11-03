@@ -1,9 +1,9 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
 import Accordion from '../Accordion';
 
-export default class CompanyWidget extends preact.Component {
+export default class CompanyWidget extends Component {
     render() {
         let comments = [];
         if (this.props.company['comments']) {

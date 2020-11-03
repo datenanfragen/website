@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { PARAMETERS, almostUniqueId, renderMoney } from '../Utility/common';
 import { CriticalException, rethrow } from '../Utility/errors';
@@ -12,7 +12,7 @@ const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];
 const PAYMENT_METHODS = ['bank-transfer', 'creditcard', 'cryptocurrency', 'paypal', 'mollie'];
 
-export default class DonationWidget extends preact.Component {
+export default class DonationWidget extends Component {
     epcr_canvas_ref = undefined;
     bezahlcode_canvas_ref = undefined;
 
@@ -375,6 +375,6 @@ export default class DonationWidget extends preact.Component {
 
 window.renderDonationWidget = function () {
     document.querySelectorAll('.donation-widget').forEach((el) => {
-        preact.render(<DonationWidget />, null, el);
+        render(<DonationWidget />, el.parentElement, el);
     });
 };

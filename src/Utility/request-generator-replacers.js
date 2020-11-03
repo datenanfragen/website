@@ -1,5 +1,4 @@
 // eslint-disable-next-line no-unused-vars
-import preact from 'preact';
 import { Text } from 'preact-i18n';
 import t from '../Utility/i18n';
 
@@ -33,7 +32,7 @@ const replacer_factory = that => ({
                     return prev;
                 });
             }}
-            {...el.attributes}
+            {...el.props}
         />
     ),
     NewRequestButtonPlaceholder: el => (
@@ -50,7 +49,7 @@ const replacer_factory = that => ({
                         } else that.renderLetter();
                     });
             }}
-            {...el.attributes}>
+            {...el.props}>
             <Text id={that.state.batch?.length > 0 ? 'next-request' : 'new-request'} />
         </button>
     ),
@@ -62,7 +61,7 @@ const replacer_factory = that => ({
                 onAutocompleteSelected={that.handleAutocompleteSelected}
                 placeholder={t('select-company', 'generator')}
                 debug={false}
-                {...el.attributes}
+                {...el.props}
             />
             {/* For some reason, autocomplete.js completely freaks out if it is wrapped in any tag at all and there isn't *anything at all* after it (only in the generator, though). As a workaround, we just use a space. We are counting on #24 anyway… */}{' '}
         </div>
@@ -77,7 +76,7 @@ const replacer_factory = that => ({
             fillFields={that.state.fill_fields}
             fillSignature={that.state.fill_signature}
             onLetterTemplateChange={that.handleCustomLetterTemplateChange}
-            {...el.attributes}>
+            {...el.props}>
             {that.state.suggestion ? (
                 <CompanyWidget
                     company={that.state.suggestion}
@@ -103,7 +102,7 @@ const replacer_factory = that => ({
             id="id_data"
             onChange={that.handleInputChange}
             fields={that.state.request.id_data}
-            {...el.attributes}
+            {...el.props}
         />
     ),
     SignatureInputPlaceholder: el => (
@@ -113,11 +112,11 @@ const replacer_factory = that => ({
             height={190}
             onChange={that.handleInputChange}
             value={that.state.request.signature}
-            {...el.attributes}
+            {...el.props}
         />
     ),
     RequestTypeChooserPlaceholder: el => (
-        <RequestTypeChooser onTypeChange={that.handleTypeChange} current={that.state.request.type} {...el.attributes} />
+        <RequestTypeChooser onTypeChange={that.handleTypeChange} current={that.state.request.type} {...el.props} />
     ),
     RecipientInputPlaceholder: el => (
         <RecipientInput
@@ -126,14 +125,14 @@ const replacer_factory = that => ({
             transportMedium={that.state.request.transport_medium}
             recipientAddress={that.state.request.recipient_address}
             email={that.state.request.email}
-            {...el.attributes}
+            {...el.props}
         />
     ),
     TransportMediumChooserPlaceholder: el => (
         <TransportMediumChooser
             transportMedium={that.state.request.transport_medium}
             onChange={that.handleTransportMediumChange}
-            {...el.attributes}
+            {...el.props}
         />
     )
 });

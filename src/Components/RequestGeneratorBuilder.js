@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { cloneElement, Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import Request from '../DataType/Request';
@@ -16,7 +16,7 @@ import Template from 'letter-generator/Template';
 import UserRequests from '../my-requests';
 import ActionButton from './Generator/ActionButton';
 
-export default class RequestGeneratorBuilder extends preact.Component {
+export default class RequestGeneratorBuilder extends Component {
     constructor(props) {
         super(props);
 
@@ -50,33 +50,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
             this.savedIdData.getAll(false).then((fill_fields) => this.setState({ fill_fields: fill_fields }));
             this.savedIdData.getSignature().then((fill_signature) => this.setState({ fill_signature: fill_signature }));
         }
-
-        this.resetInitialConditions().then(() => {
-            if (
-                !(
-                    Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) &&
-                    PARAMETERS['response_to'] &&
-                    PARAMETERS['response_type']
-                )
-            ) {
-                // If specified in the URL, load a single company…
-                if (PARAMETERS['company']) this.setCompanyBySlug(PARAMETERS['company']).then(this.renderLetter);
-                // …or multiple ones.
-                const batch_companies = PARAMETERS['companies'];
-                if (batch_companies) this.state.batch = batch_companies.split(',');
-                // We are in batch mode, move to the next company.
-                // Note: Previously, we checked for `this.state.batch` here. This is wrong however: The `generator.js`
-                // may have already called `setBatch()` and thus set `this.state.batch` *and* shifted it.
-                // Re-calling this code (due to the async nature of the `then` block, it may well run later) would
-                // result in skipping the first company (see #253). Instead, we only want to prepare batch mode here if
-                // it was enabled through the URL (i.e. `batch_companies` is set).
-                if (batch_companies?.length > 0) {
-                    this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
-                }
-            }
-            this.renderLetter();
-            if (typeof props.onInitialized === 'function') props.onInitialized();
-        });
     }
 
     resetInitialConditions = async () => {
@@ -148,6 +121,40 @@ export default class RequestGeneratorBuilder extends preact.Component {
     };
 
     componentDidMount() {
+        this.resetInitialConditions().then(() => {
+            if (
+                !(
+                    Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) &&
+                    PARAMETERS['response_to'] &&
+                    PARAMETERS['response_type']
+                )
+            ) {
+                // If specified in the URL, load a single company…
+                if (PARAMETERS['company']) this.setCompanyBySlug(PARAMETERS['company']).then(this.renderLetter);
+                // …or multiple ones.
+                const batch_companies = PARAMETERS['companies'];
+                if (batch_companies) {
+                    let batch = batch_companies.split(',');
+                    // We are in batch mode, move to the next company.
+                    // Note: Previously, we checked for `this.state.batch` here. This is wrong however: The `generator.js`
+                    // may have already called `setBatch()` and thus set `this.state.batch` *and* shifted it.
+                    // Re-calling this code (due to the async nature of the `then` block, it may well run later) would
+                    // result in skipping the first company (see #253). Instead, we only want to prepare batch mode here if
+                    // it was enabled through the URL (i.e. `batch_companies` is set).
+
+                    if (batch.length > 0) {
+                        this.setCompanyBySlug(batch.shift()).then(this.renderLetter);
+                    }
+
+                    this.setState({
+                        batch,
+                    });
+                }
+            }
+            this.renderLetter();
+            if (typeof this.props.onInitialized === 'function') this.props.onInitialized();
+        });
+
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             const callback = () => {
                 this.savedIdData.getAll(false).then((fill_fields) => this.setState({ fill_fields: fill_fields }));
@@ -163,24 +170,34 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
     render() {
         const replacers = replacer_factory(this);
-        const children_mapper = (c) =>
-            c.nodeName && Object.keys(replacers).includes(c.nodeName.name)
-                ? replacers[c.nodeName.name](c)
-                : Array.isArray(c.children)
-                ? { ...c, children: c.children.map(children_mapper) }
-                : c;
+        const children_mapper = (c) => {
+            if (!c || !c.type) return c;
+            if (Object.keys(replacers).includes(c.type.name)) {
+                return replacers[c.type.name](c);
+            }
+            if (c.props.children) {
+                c = cloneElement(c);
+                c.props.children =
+                    Array.isArray(c.props.children) ?
+                        c.props.children.map(children_mapper) :
+                        children_mapper(c.props.children);
+                return c;
+            }
+            return c;
+        }
         const children = this.props.children.map(children_mapper);
 
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
-                <div>{children}</div>
+                {children}
             </IntlProvider>
         );
     }
 
     startBatch = (companies) => {
-        this.setState({ batch: companies });
-        if (this.state.batch?.length > 0) this.setCompanyBySlug(this.state.batch.shift());
+        this.setState({ batch: companies }, () => {
+            if (this.state.batch?.length > 0) this.setCompanyBySlug(this.state.batch.shift());
+        });
     };
 
     setCompanyBySlug = async (slug) => {
@@ -192,8 +209,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
     setCompany = async (company) => {
         if (this.state.request.type !== 'custom') {
             fetchTemplate(company['request-language'], this.state.request.type, company).then((text) => {
-                this.setState({ template_text: text });
-                this.renderLetter();
+                this.setState({ template_text: text }, () => this.renderLetter());
             });
         }
 
@@ -543,12 +559,12 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
 // If we need to add more placeholders in the future, their names also need to be added to the Webpack MinifyPlugin's
 // mangle exclude list.
-export class ActionButtonPlaceholder extends preact.Component {}
-export class NewRequestButtonPlaceholder extends preact.Component {}
-export class CompanySelectorPlaceholder extends preact.Component {}
-export class RequestFormPlaceholder extends preact.Component {}
-export class DynamicInputContainerPlaceholder extends preact.Component {}
-export class SignatureInputPlaceholder extends preact.Component {}
-export class RequestTypeChooserPlaceholder extends preact.Component {}
-export class RecipientInputPlaceholder extends preact.Component {}
-export class TransportMediumChooserPlaceholder extends preact.Component {}
+export class ActionButtonPlaceholder extends Component {}
+export class NewRequestButtonPlaceholder extends Component {}
+export class CompanySelectorPlaceholder extends Component {}
+export class RequestFormPlaceholder extends Component {}
+export class DynamicInputContainerPlaceholder extends Component {}
+export class SignatureInputPlaceholder extends Component {}
+export class RequestTypeChooserPlaceholder extends Component {}
+export class RecipientInputPlaceholder extends Component {}
+export class TransportMediumChooserPlaceholder extends Component {}

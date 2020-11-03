@@ -1,8 +1,13 @@
-import preact from 'preact';
+import { render } from 'preact';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
 import Cookie from 'js-cookie';
 import { PARAMETERS } from './Utility/common';
+
+// has to run before any rendering, webpack will remove this if the condition is false
+if (process.env.NODE_ENV === 'development') {
+    require('preact/debug');
+}
 
 window.PARAMETERS = PARAMETERS;
 
@@ -21,18 +26,18 @@ Object.defineProperty(globals, 'country', {
 if (!globals.country) globals.country = guessUserCountry();
 
 document.querySelectorAll('.i18n-button-container').forEach((el) => {
-    preact.render(<I18nButton />, el);
+    render(<I18nButton />, el);
 });
-preact.render(<I18nWidget minimal={true} />, document.getElementById('personal-menu-i18n-widget'));
+render(<I18nWidget minimal={true} />, document.getElementById('personal-menu-i18n-widget'));
 
 const comments_div = document.getElementById('comments-widget');
 if (comments_div) {
-    preact.render(
+    render(
         <CommentsWidget
             allow_rating={comments_div.dataset.ratingEnabled === '1'}
             displayWarning={comments_div.dataset.displayWarning === '1'}
         />,
-        null,
+        comments_div.parentElement,
         comments_div
     );
 }
@@ -59,11 +64,3 @@ function guessUserCountry() {
     // If however we *can* guess the country but just don't support it, we show all companies.
     return SUPPORTED_COUNTRIES.includes(bcp47_country) ? bcp47_country : 'all';
 }
-
-window.enableReactDevTools = function () {
-    if (process.env.NODE_ENV === 'development') {
-        require.ensure([], function (require) {
-            require('preact/debug');
-        });
-    }
-};

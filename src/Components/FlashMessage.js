@@ -1,8 +1,8 @@
-import preact from 'preact';
-import Portal from 'preact-portal';
+import { render, Component } from 'preact';
+import { createPortal } from 'preact/compat';
 import t from '../Utility/i18n';
 
-export default class FlashMessage extends preact.Component {
+export default class FlashMessage extends Component {
     constructor(props) {
         super(props);
 
@@ -28,7 +28,7 @@ export default class FlashMessage extends preact.Component {
 
     render() {
         return this.state.shown ? (
-            <Portal into="#flash-messages">
+            createPortal(
                 <div className={'flash-message flash-' + this.props.type + (this.state.fading_out ? ' fade-out' : '')}>
                     <button
                         className="button-unstyled close-button icon-close"
@@ -37,7 +37,7 @@ export default class FlashMessage extends preact.Component {
                     />
                     <div className="inner">{this.props.children}</div>
                 </div>
-            </Portal>
+                , document.getElementById('flash-messages'))
         ) : (
             []
         );
@@ -45,5 +45,5 @@ export default class FlashMessage extends preact.Component {
 }
 
 export function flash(flash_message) {
-    preact.render(flash_message, null);
+    render(flash_message, document.body);
 }

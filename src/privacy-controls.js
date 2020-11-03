@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
@@ -8,7 +8,7 @@ import SavedIdData from './Utility/SavedIdData';
 import { SavedCompanies } from './Components/Wizard';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 
-class PrivacyControl extends preact.Component {
+class PrivacyControl extends Component {
     constructor(props) {
         super(props);
 
@@ -24,32 +24,33 @@ class PrivacyControl extends preact.Component {
     onChange(event) {
         this.setState({
             enabled: event.target.checked,
-        });
+        }, () => {
+            // setState is async
+            Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
+            flash(<FlashMessage type="success">{t('cookie-change-success', 'privacy-controls')}</FlashMessage>);
 
-        Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
-        flash(<FlashMessage type="success">{t('cookie-change-success', 'privacy-controls')}</FlashMessage>);
-
-        if (this.state.enabled === false) {
-            switch (this.props.privacy_action) {
-                case 'SAVE_ID_DATA':
-                    this.clearModal('clear-id_data', 'confirm-delete-id_data', PrivacyControls.clearSavedIdData);
-                    break;
-                case 'SAVE_MY_REQUESTS':
-                    this.clearModal(
-                        'confirm-clear-requests',
-                        'confirm-delete-my-requests',
-                        PrivacyControls.clearRequests
-                    );
-                    break;
-                case 'SAVE_WIZARD_ENTRIES':
-                    this.clearModal(
-                        'confirm-clear-save_wizard_entries',
-                        'confirm-delete-save_wizard_entries',
-                        PrivacyControls.clearSavedCompanies
-                    );
-                    break;
+            if (this.state.enabled === false) {
+                switch (this.props.privacy_action) {
+                    case 'SAVE_ID_DATA':
+                        this.clearModal('clear-id_data', 'confirm-delete-id_data', PrivacyControls.clearSavedIdData);
+                        break;
+                    case 'SAVE_MY_REQUESTS':
+                        this.clearModal(
+                            'confirm-clear-requests',
+                            'confirm-delete-my-requests',
+                            PrivacyControls.clearRequests
+                        );
+                        break;
+                    case 'SAVE_WIZARD_ENTRIES':
+                        this.clearModal(
+                            'confirm-clear-save_wizard_entries',
+                            'confirm-delete-save_wizard_entries',
+                            PrivacyControls.clearSavedCompanies
+                        );
+                        break;
+                }
             }
-        }
+        });
     }
 
     render() {
@@ -95,7 +96,7 @@ class PrivacyControl extends preact.Component {
     }
 }
 
-class PrivacyControls extends preact.Component {
+class PrivacyControls extends Component {
     constructor(props) {
         super(props);
 
@@ -239,10 +240,11 @@ class PrivacyControls extends preact.Component {
     }
 }
 
-preact.render(
+let main = document.querySelector('main');
+render(
     <IntlProvider scope="privacy-controls" definition={I18N_DEFINITION}>
         <PrivacyControls />
     </IntlProvider>,
-    null,
-    document.querySelector('main')
+    main.parentElement,
+    main
 );

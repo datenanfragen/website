@@ -2,9 +2,6 @@
 
 import FlashMessage, { flash } from 'Components/FlashMessage';
 import localforage from 'localforage';
-/* eslint-disable no-unused-vars */
-import preact from 'preact';
-/* eslint-enable no-unused-vars */
 
 window.showFlash = function(type, text, duration) {
     flash(

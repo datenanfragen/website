@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
@@ -11,7 +11,7 @@ export let SearchBar;
 if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
     let autocomplete = require('autocomplete.js');
 
-    SearchBar = class SearchBar extends preact.Component {
+    SearchBar = class SearchBar extends Component {
         constructor(props) {
             super(props);
 
@@ -130,6 +130,12 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 this.props.setupPlaceholderChange(this.input_element);
         }
 
+        componentWillUnmount () {
+            if (this.algolia_autocomplete) {
+                this.algolia_autocomplete.autocomplete.destroy();
+            }
+        }
+
         render() {
             return (
                 <input
@@ -144,7 +150,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
         }
     };
 } else {
-    SearchBar = class SearchBar extends preact.Component {
+    SearchBar = class SearchBar extends Component {
         render() {
             return (
                 <IntlProvider scope="search" definition={I18N_DEFINITION}>

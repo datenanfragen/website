@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import { IntlProvider } from 'preact-i18n';
 import { PARAMETERS } from './Utility/common';
 import { clearUrlParameters } from './Utility/browser';
@@ -16,6 +16,11 @@ import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import { SavedCompanies } from './Components/Wizard';
 import Modal, { showModal, dismissModal } from './Components/Modal';
 
+// has to run before any rendering, webpack will remove this if the condition is false
+if (process.env.NODE_ENV === 'development') {
+    require('preact/debug');
+}
+
 const HIDE_IN_WIZARD_MODE = [
     '.search',
     '.request-type-chooser',
@@ -24,7 +29,7 @@ const HIDE_IN_WIZARD_MODE = [
     '.company-remove'
 ];
 
-class Generator extends preact.Component {
+class Generator extends Component {
     constructor(props) {
         super(props);
 
@@ -54,7 +59,7 @@ class Generator extends preact.Component {
                 <Joyride
                     ref={c => (this.tutorial = c)}
                     callback={data => {
-                        if (data.type == 'finished') Cookie.set('finished_wizard_tutorial', 'true', { expires: 365 });
+                        if (data.type === 'finished') Cookie.set('finished_wizard_tutorial', 'true', { expires: 365 });
                     }}
                     steps={tutorial_steps}
                     type="continuous"
@@ -138,10 +143,11 @@ class Generator extends preact.Component {
     };
 }
 
-preact.render(
+const generator_el = document.getElementById('generator');
+render(
     <IntlProvider scope="generator" definition={I18N_DEFINITION}>
         <Generator />
     </IntlProvider>,
-    null,
-    document.getElementById('generator')
+    generator_el.parentElement,
+    generator_el
 );

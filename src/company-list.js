@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import { SearchBar } from 'Components/SearchBar';
 import { IntlProvider, Text } from 'preact-i18n';
 import t from 'Utility/i18n';
@@ -8,7 +8,7 @@ import Scrollspy from 'react-scrollspy';
 if (!Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH) && document.getElementById('aa-search-input'))
     document.getElementById('aa-search-input').style.display = 'none';
 
-class CompanyList extends preact.Component {
+class CompanyList extends Component {
     render() {
         let anchor_map = new Map([
             ['#', 'numbers'],
@@ -108,7 +108,7 @@ class CompanyList extends preact.Component {
     }
 }
 
-class CompanySearch extends preact.Component {
+class CompanySearch extends Component {
     render() {
         return (
             <IntlProvider scope="cdb" definition={I18N_DEFINITION}>
@@ -129,13 +129,14 @@ class CompanySearch extends preact.Component {
     }
 }
 
-preact.render(<CompanyList />, null, document.getElementById('company-list'));
+let company_list_div = document.getElementById('company-list');
+render(<CompanyList />, company_list_div.parentElement, company_list_div);
 let search_div = document.getElementById('company-search');
 if (search_div) {
     let search_filters = search_div.dataset.filterCategory;
-    preact.render(
+    render(
         <CompanySearch filters={search_filters ? ['categories:' + search_filters] : undefined} />,
-        null,
+        search_div.parentElement,
         search_div
     );
 }

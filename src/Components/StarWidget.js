@@ -1,7 +1,7 @@
-import preact from 'preact';
+import { Component } from 'preact';
 
 // Adapted after https://jsfiddle.net/leaverou/CGP87/
-export default class StarWidget extends preact.Component {
+export default class StarWidget extends Component {
     constructor(props) {
         super(props);
 

@@ -1,10 +1,10 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import PropTypes from 'prop-types';
 import t from 'Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
 import Radio from '../Radio';
 
-export default class TransportMediumChooser extends preact.Component {
+export default class TransportMediumChooser extends Component {
     render() {
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>

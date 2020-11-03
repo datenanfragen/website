@@ -4,7 +4,8 @@
         [
             "@babel/plugin-transform-react-jsx",
             {
-                "pragma": "preact.h"
+                "pragma": "createElement",
+                "pragmaFrag": "Fragment"
             }
         ],
         ["@babel/plugin-transform-block-scoping"],
