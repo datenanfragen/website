@@ -1,4 +1,5 @@
 import { Component } from 'preact';
+import PropTypes from 'prop-types';
 
 // Adapted after https://jsfiddle.net/leaverou/CGP87/
 export default class StarWidget extends Component {
@@ -6,7 +7,7 @@ export default class StarWidget extends Component {
         super(props);
 
         this.state = {
-            rating: this.props.initial
+            rating: this.props.initial,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -28,13 +29,13 @@ export default class StarWidget extends Component {
                     id={this.props.id + '-star' + i}
                     name={this.props.id}
                     value={i}
-                    checked={this.state.rating == i}
+                    checked={this.state.rating === i}
                     onChange={this.handleChange}
                     disabled={this.props.readonly}
                 />,
                 <label for={this.props.id + '-star' + i} className={this.props.readonly ? '' : 'editable'}>
                     {i} stars
-                </label>
+                </label>,
             ]);
 
         return (
@@ -48,7 +49,14 @@ export default class StarWidget extends Component {
     static get defaultProps() {
         return {
             initial: 0,
-            readonly: false
+            readonly: false,
         };
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        initial: PropTypes.number.isRequired,
+        readonly: PropTypes.bool,
+        onChange: PropTypes.func,
+    };
 }

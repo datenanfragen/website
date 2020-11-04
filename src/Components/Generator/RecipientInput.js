@@ -40,7 +40,7 @@ export default class RecipientInput extends Component {
 
     static get defaultProps() {
         return {
-            recipientAddress: ''
+            recipientAddress: '',
         };
     }
 
@@ -49,6 +49,6 @@ export default class RecipientInput extends Component {
         email: PropTypes.string,
         transportMedium: PropTypes.oneOf(['fax', 'email', 'letter']).isRequired,
         onAddressChange: PropTypes.func.isRequired,
-        onEmailChange: PropTypes.func.isRequired
+        onEmailChange: PropTypes.func.isRequired,
     };
 }

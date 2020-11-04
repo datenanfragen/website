@@ -1,6 +1,7 @@
 import { Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
+import PropTypes from 'prop-types';
 
 export default class DynamicInput extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ export default class DynamicInput extends Component {
     }
 
     render() {
-        let input = '';
+        let input;
         let control = '';
         switch (this.props.type) {
             case 'address':
@@ -116,10 +117,10 @@ export default class DynamicInput extends Component {
                                     style="margin-left: 5px;"
                                     required={!this.props.optional}
                                     onChange={this.props.onChange}
-                                    onFocus={e => {
+                                    onFocus={(e) => {
                                         this.setState({ focus: true });
                                     }}
-                                    onBlur={e => {
+                                    onBlur={(e) => {
                                         this.setState({ focus: false });
                                     }}
                                 />
@@ -150,6 +151,25 @@ export default class DynamicInput extends Component {
             </IntlProvider>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        key: PropTypes.string.isRequired,
+        suffix: PropTypes.string.isRequired,
+        type: PropTypes.string,
+        desc: PropTypes.string,
+
+        optional: PropTypes.bool,
+        removeHandler: PropTypes.bool,
+        hasPrimary: PropTypes.bool,
+        allowRemoving: PropTypes.bool,
+        allowChangingDescription: PropTypes.bool,
+
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired,
+        onAction: PropTypes.func,
+        onPrimaryChange: PropTypes.func.isRequired,
+    };
 }
 
 export class TextareaControl extends Component {
@@ -177,10 +197,10 @@ export class TextareaControl extends Component {
                     placeholder={t('value', 'generator')}
                     required={this.props.required}
                     onChange={this.props.onChange}
-                    onFocus={e => {
+                    onFocus={(e) => {
                         this.setState({ focus: true });
                     }}
-                    onBlur={e => {
+                    onBlur={(e) => {
                         this.setState({ focus: false });
                     }}
                     value={this.props.value}
@@ -188,6 +208,18 @@ export class TextareaControl extends Component {
             </div>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        suffix: PropTypes.string.isRequired,
+
+        desc: PropTypes.string,
+
+        required: PropTypes.bool,
+
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired,
+    };
 }
 
 export class InputControl extends Component {
@@ -220,10 +252,10 @@ export class InputControl extends Component {
                     placeholder={t('value', 'generator')}
                     required={this.props.required}
                     onChange={this.props.onChange}
-                    onFocus={e => {
+                    onFocus={(e) => {
                         this.setState({ focus: true });
                     }}
-                    onBlur={e => {
+                    onBlur={(e) => {
                         this.setState({ focus: false });
                     }}
                     value={this.props.value}
@@ -231,6 +263,18 @@ export class InputControl extends Component {
             </div>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        suffix: PropTypes.string,
+
+        desc: PropTypes.string,
+
+        required: PropTypes.bool,
+
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired,
+    };
 }
 
 export class DateControl extends Component {
@@ -263,10 +307,10 @@ export class DateControl extends Component {
                     placeholder={t('value', 'generator')}
                     required={this.props.required}
                     onChange={this.props.onChange}
-                    onFocus={e => {
+                    onFocus={(e) => {
                         this.setState({ focus: true });
                     }}
-                    onBlur={e => {
+                    onBlur={(e) => {
                         this.setState({ focus: false });
                     }}
                     value={this.props.value}
@@ -274,6 +318,18 @@ export class DateControl extends Component {
             </div>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        suffix: PropTypes.string,
+
+        desc: PropTypes.string,
+
+        required: PropTypes.bool,
+
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired,
+    };
 }
 
 export class AddressControl extends Component {
@@ -300,10 +356,10 @@ export class AddressControl extends Component {
                         className="form-element"
                         required={this.props.required}
                         onChange={this.props.onChange}
-                        onFocus={e => {
+                        onFocus={(e) => {
                             this.setState({ focus: true });
                         }}
-                        onBlur={e => {
+                        onBlur={(e) => {
                             this.setState({ focus: false });
                         }}
                         value={this.props.value['street_1']}
@@ -322,10 +378,10 @@ export class AddressControl extends Component {
                         placeholder={t('address-line-2', 'generator')}
                         className="form-element"
                         onChange={this.props.onChange}
-                        onFocus={e => {
+                        onFocus={(e) => {
                             this.setState({ focus: true });
                         }}
-                        onBlur={e => {
+                        onBlur={(e) => {
                             this.setState({ focus: false });
                         }}
                         value={this.props.value['street_2']}
@@ -345,10 +401,10 @@ export class AddressControl extends Component {
                         className="form-element"
                         required={this.props.required}
                         onChange={this.props.onChange}
-                        onFocus={e => {
+                        onFocus={(e) => {
                             this.setState({ focus: true });
                         }}
-                        onBlur={e => {
+                        onBlur={(e) => {
                             this.setState({ focus: false });
                         }}
                         value={this.props.value['place']}
@@ -367,10 +423,10 @@ export class AddressControl extends Component {
                         placeholder={t('address-country', 'generator')}
                         className="form-element"
                         onChange={this.props.onChange}
-                        onFocus={e => {
+                        onFocus={(e) => {
                             this.setState({ focus: true });
                         }}
-                        onBlur={e => {
+                        onBlur={(e) => {
                             this.setState({ focus: false });
                         }}
                         value={this.props.value['country']}
@@ -392,4 +448,16 @@ export class AddressControl extends Component {
             </div>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        suffix: PropTypes.string,
+
+        desc: PropTypes.string,
+
+        required: PropTypes.object,
+
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired,
+    };
 }

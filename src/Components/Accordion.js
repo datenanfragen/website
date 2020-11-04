@@ -1,11 +1,12 @@
 import { Component } from 'preact';
+import PropTypes from 'prop-types';
 
 export default class Accordion extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            expanded: props.expanded
+            expanded: props.expanded,
         };
     }
 
@@ -14,7 +15,7 @@ export default class Accordion extends Component {
         return (
             <div className="accordion" id={this.props.id} style={this.props.style}>
                 <button
-                    onClick={e => {
+                    onClick={(e) => {
                         e.preventDefault();
                         this.setState({ expanded: !this.state.expanded });
                     }}
@@ -30,4 +31,13 @@ export default class Accordion extends Component {
             </div>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        style: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        expanded: PropTypes.bool.isRequired,
+
+        children: PropTypes.node.isRequired,
+    };
 }

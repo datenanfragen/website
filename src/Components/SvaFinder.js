@@ -1,6 +1,7 @@
-import { Component } from 'preact';
+import { render, Component } from 'preact';
 import t from 'Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
+import PropTypes from 'prop-types';
 
 const STEPS = {
     country: {
@@ -24,14 +25,14 @@ const STEPS = {
                     kathmsw: 'dekathffdsz',
                     kathnd: 'dekathnordddsb',
                     kathod: 'dekathostddsb',
-                    kathsonst: 'dekathverbdsb'
-                }
+                    kathsonst: 'dekathverbdsb',
+                },
             },
             land: {
                 bawue: 'debawueldb',
                 bay: {
                     oeff: 'debayldb',
-                    priv: 'debaylda'
+                    priv: 'debaylda',
                 },
                 ber: 'deberlbdi',
                 bra: 'debralda',
@@ -46,8 +47,8 @@ const STEPS = {
                 sachs: 'desaechsdsb',
                 sa: 'desalbd',
                 sh: 'deshuld',
-                thue: 'detlfdi'
-            }
+                thue: 'detlfdi',
+            },
         },
         gr: 'grdpa',
         hu: 'hunaih',
@@ -69,14 +70,14 @@ const STEPS = {
         is: 'isdpa',
         li: 'lidss',
         no: 'nods',
-        ch: 'chedoeb'
-    }
+        ch: 'chedoeb',
+    },
 };
 
 let initial_state = {
     step: STEPS['country'],
     question: t('country', 'sva-finder'),
-    result: false
+    result: false,
 };
 
 export default class SvaFinder extends Component {
@@ -93,7 +94,7 @@ export default class SvaFinder extends Component {
         if (typeof next_step === 'object') {
             this.setState({
                 step: next_step,
-                question: t(option + '-q', 'sva-finder')
+                question: t(option + '-q', 'sva-finder'),
             });
         } else {
             this.setState({ result: next_step });
@@ -105,7 +106,7 @@ export default class SvaFinder extends Component {
 
         if (this.state.result) {
             if (typeof this.props.callback === 'function') {
-                fetchSvaDataBySlug(this.state.result).then(sva => {
+                fetchSvaDataBySlug(this.state.result).then((sva) => {
                     this.props.callback(sva);
                 });
 
@@ -135,7 +136,7 @@ export default class SvaFinder extends Component {
             });
 
             let options = [];
-            sorted_keys.forEach(key => {
+            sorted_keys.forEach((key) => {
                 options.push(
                     <label className={'radio-label' + (key == globals.country ? ' active' : '')}>
                         <input
@@ -153,7 +154,7 @@ export default class SvaFinder extends Component {
                 <p style="margin-top: 0;">{this.state.question}</p>,
                 <div className="radio-group radio-group-vertical" style="max-height: 40vh; overflow: auto;">
                     {options}
-                </div>
+                </div>,
             ];
         }
 
@@ -176,11 +177,16 @@ export default class SvaFinder extends Component {
             </div>
         );
     }
+
+    static propTypes = {
+        callback: PropTypes.func.isRequired,
+        style: PropTypes.string.isRequired,
+    };
 }
 
-window.renderSvaFinder = function() {
-    document.querySelectorAll('.sva-finder').forEach(el => {
-        render(<SvaFinder />, null, el);
+window.renderSvaFinder = function () {
+    document.querySelectorAll('.sva-finder').forEach((el) => {
+        render(<SvaFinder />, el.parentElement, el);
     });
 };
 
@@ -247,5 +253,5 @@ const SVAS = {
     sedi: 'Datainspektionen (Swedish Data Protection Authority)',
     siiprs: 'Informacijski pooblaščenec (Information Commissioner of the Republic of Slovenia)',
     skunoou:
-        'Úrad na ochranu osobných údajov Slovenskej republiky (Office for Personal Data Protection of the Slovak Republic)'
+        'Úrad na ochranu osobných údajov Slovenskej republiky (Office for Personal Data Protection of the Slovak Republic)',
 };

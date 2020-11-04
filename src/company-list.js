@@ -1,6 +1,8 @@
 import { render, Component } from 'preact';
 import { SearchBar } from 'Components/SearchBar';
 import { IntlProvider, Text } from 'preact-i18n';
+import PropTypes from 'prop-types';
+
 import t from 'Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
 import Scrollspy from 'react-scrollspy';
@@ -127,6 +129,10 @@ class CompanySearch extends Component {
             </IntlProvider>
         );
     }
+
+    static propTypes = {
+        filters: PropTypes.arrayOf(PropTypes.string),
+    };
 }
 
 let company_list_div = document.getElementById('company-list');

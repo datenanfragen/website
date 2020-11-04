@@ -3,7 +3,7 @@
 import FlashMessage, { flash } from 'Components/FlashMessage';
 import localforage from 'localforage';
 
-window.showFlash = function(type, text, duration) {
+window.showFlash = function (type, text, duration) {
     flash(
         <FlashMessage type={type} duration={duration}>
             {text}
@@ -11,12 +11,12 @@ window.showFlash = function(type, text, duration) {
     );
 };
 
-window.accessLocalForageStore = function(store_name) {
-    return new Promise(resolve => {
+window.accessLocalForageStore = function (store_name) {
+    return new Promise((resolve) => {
         resolve(
             localforage.createInstance({
                 name: 'Datenanfragen.de',
-                storeName: store_name
+                storeName: store_name,
             })
         );
     });

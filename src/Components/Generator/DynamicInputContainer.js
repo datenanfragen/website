@@ -2,6 +2,7 @@ import { Component } from 'preact';
 import DynamicInput from './DynamicInput';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
+import PropTypes from 'prop-types';
 
 export default class DynamicInputContainer extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ export default class DynamicInputContainer extends Component {
             fields: fields_object,
             fields_counter: nextProps.fields.length || 0,
             'dynamic-input-type': prevState['dynamic-input-type'] || 'input',
-            primary_address: primary_address
+            primary_address: primary_address,
         };
     }
 
@@ -67,7 +68,7 @@ export default class DynamicInputContainer extends Component {
         // new field' menu which allows you to add fields you have defined in the 'My saved data' section.
         let fill_fields = [];
         if (this.props.fillFields)
-            this.props.fillFields.forEach(field => {
+            this.props.fillFields.forEach((field) => {
                 fill_fields.push(
                     <div className="fill-field">
                         <div style="display: table-cell">
@@ -153,7 +154,7 @@ export default class DynamicInputContainer extends Component {
     handleInputChange(event) {
         let rel = event.target.getAttribute('rel');
         let name = event.target.getAttribute('name');
-        this.setState(prev => {
+        this.setState((prev) => {
             switch (name) {
                 case 'desc':
                 case 'value':
@@ -171,7 +172,7 @@ export default class DynamicInputContainer extends Component {
     }
 
     handleTypeChange(event) {
-        this.setState(prev => {
+        this.setState((prev) => {
             prev['dynamic-input-type'] = event.target.value;
             return prev;
         });
@@ -183,9 +184,9 @@ export default class DynamicInputContainer extends Component {
             desc: '',
             type: this.state['dynamic-input-type'],
             optional: true,
-            value: this.state['dynamic-input-type'] === 'address' ? {} : ''
+            value: this.state['dynamic-input-type'] === 'address' ? {} : '',
         };
-        this.setState(prev => {
+        this.setState((prev) => {
             prev.fields_counter = prev.fields_counter + 1;
             prev.fields[prev.fields_counter] = field;
             return prev;
@@ -199,7 +200,7 @@ export default class DynamicInputContainer extends Component {
                 ['name', 'birthdate', 'email'].includes(this.state.fields[key].type) &&
                 this.state.fields[key].type === field.type
             ) {
-                this.setState(prev => {
+                this.setState((prev) => {
                     prev.fields[key].value = field.value;
                     return prev;
                 });
@@ -207,7 +208,7 @@ export default class DynamicInputContainer extends Component {
                 return;
             } // TODO: Also check for desc while I am at it?
         }
-        this.setState(prev => {
+        this.setState((prev) => {
             prev.fields_counter = prev.fields_counter + 1;
             prev.fields[prev.fields_counter] = field;
             return prev;
@@ -220,7 +221,7 @@ export default class DynamicInputContainer extends Component {
         const field = event.target.getAttribute('rel');
         const field_value = this.state.fields[field].value;
         if (DynamicInputContainer.isFieldEmpty(field_value) || window.confirm(t('confirm-input-remove', 'generator'))) {
-            this.setState(prev => {
+            this.setState((prev) => {
                 delete prev.fields[event.target.getAttribute('rel')];
                 return prev;
             });
@@ -275,7 +276,26 @@ export default class DynamicInputContainer extends Component {
         return {
             allowAddingFields: true,
             allowRemovingFields: true,
-            allowChangingFieldDescriptions: true
+            allowChangingFieldDescriptions: true,
         };
     }
+
+    static propTypes = {
+        key: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        heading_class: PropTypes.string,
+        fields: PropTypes.array,
+        fillFields: PropTypes.array,
+        hasPrimary: PropTypes.bool,
+
+        onChange: PropTypes.func.isRequired,
+        onAction: PropTypes.func,
+
+        allowAddingFields: PropTypes.bool,
+        allowRemovingFields: PropTypes.bool,
+        allowChangingFieldDescriptions: PropTypes.bool,
+
+        children: PropTypes.node.isRequired,
+    };
 }

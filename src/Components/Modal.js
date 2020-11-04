@@ -35,7 +35,7 @@ export default class Modal extends Component {
                 <div
                     className="backdrop"
                     onClick={this.props.onDismiss}
-                    onKeyDown={e => {
+                    onKeyDown={(e) => {
                         if (e.key === 'Escape') this.props.onDismiss();
                     }}
                     role="presentation"
@@ -57,8 +57,9 @@ export default class Modal extends Component {
                         {negativeButton}
                     </div>
                 </div>
-            </div>
-        , document.body);
+            </div>,
+            document.body
+        );
         /* eslint-enable */
     }
 
@@ -74,8 +75,9 @@ export default class Modal extends Component {
         onNegativeFeedback: PropTypes.func,
 
         onDismiss: PropTypes.func,
-        children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
-        innerStyle: PropTypes.string
+        innerStyle: PropTypes.string,
+
+        children: PropTypes.node.isRequired,
     };
 }
 

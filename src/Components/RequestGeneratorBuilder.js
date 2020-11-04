@@ -15,6 +15,7 @@ import { clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
 import UserRequests from '../my-requests';
 import ActionButton from './Generator/ActionButton';
+import PropTypes from 'prop-types';
 
 export default class RequestGeneratorBuilder extends Component {
     constructor(props) {
@@ -177,14 +178,13 @@ export default class RequestGeneratorBuilder extends Component {
             }
             if (c.props.children) {
                 c = cloneElement(c);
-                c.props.children =
-                    Array.isArray(c.props.children) ?
-                        c.props.children.map(children_mapper) :
-                        children_mapper(c.props.children);
+                c.props.children = Array.isArray(c.props.children)
+                    ? c.props.children.map(children_mapper)
+                    : children_mapper(c.props.children);
                 return c;
             }
             return c;
-        }
+        };
         const children = this.props.children.map(children_mapper);
 
         return (
@@ -555,6 +555,12 @@ export default class RequestGeneratorBuilder extends Component {
     static get defaultProps() {
         return {};
     }
+
+    static propTypes = {
+        newRequestHook: PropTypes.func,
+        onInitialized: PropTypes.func,
+        children: PropTypes.node.isRequired,
+    };
 }
 
 // If we need to add more placeholders in the future, their names also need to be added to the Webpack MinifyPlugin's

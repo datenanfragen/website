@@ -7,6 +7,7 @@ import Modal from './Components/Modal';
 import SavedIdData from './Utility/SavedIdData';
 import { SavedCompanies } from './Components/Wizard';
 import FlashMessage, { flash } from 'Components/FlashMessage';
+import PropTypes from 'prop-types';
 
 class PrivacyControl extends Component {
     constructor(props) {
@@ -22,35 +23,42 @@ class PrivacyControl extends Component {
     }
 
     onChange(event) {
-        this.setState({
-            enabled: event.target.checked,
-        }, () => {
-            // setState is async
-            Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
-            flash(<FlashMessage type="success">{t('cookie-change-success', 'privacy-controls')}</FlashMessage>);
+        this.setState(
+            {
+                enabled: event.target.checked,
+            },
+            () => {
+                // setState is async
+                Privacy.setAllowed(PRIVACY_ACTIONS[this.props.privacy_action], this.state.enabled);
+                flash(<FlashMessage type="success">{t('cookie-change-success', 'privacy-controls')}</FlashMessage>);
 
-            if (this.state.enabled === false) {
-                switch (this.props.privacy_action) {
-                    case 'SAVE_ID_DATA':
-                        this.clearModal('clear-id_data', 'confirm-delete-id_data', PrivacyControls.clearSavedIdData);
-                        break;
-                    case 'SAVE_MY_REQUESTS':
-                        this.clearModal(
-                            'confirm-clear-requests',
-                            'confirm-delete-my-requests',
-                            PrivacyControls.clearRequests
-                        );
-                        break;
-                    case 'SAVE_WIZARD_ENTRIES':
-                        this.clearModal(
-                            'confirm-clear-save_wizard_entries',
-                            'confirm-delete-save_wizard_entries',
-                            PrivacyControls.clearSavedCompanies
-                        );
-                        break;
+                if (this.state.enabled === false) {
+                    switch (this.props.privacy_action) {
+                        case 'SAVE_ID_DATA':
+                            this.clearModal(
+                                'clear-id_data',
+                                'confirm-delete-id_data',
+                                PrivacyControls.clearSavedIdData
+                            );
+                            break;
+                        case 'SAVE_MY_REQUESTS':
+                            this.clearModal(
+                                'confirm-clear-requests',
+                                'confirm-delete-my-requests',
+                                PrivacyControls.clearRequests
+                            );
+                            break;
+                        case 'SAVE_WIZARD_ENTRIES':
+                            this.clearModal(
+                                'confirm-clear-save_wizard_entries',
+                                'confirm-delete-save_wizard_entries',
+                                PrivacyControls.clearSavedCompanies
+                            );
+                            break;
+                    }
                 }
             }
-        });
+        );
     }
 
     render() {
@@ -84,7 +92,7 @@ class PrivacyControl extends Component {
                 positiveText={t(button_text_id, 'privacy-controls')}
                 negativeText={t('cancel', 'privacy-controls')}
                 onNegativeFeedback={this.props.hideModal}
-                onPositiveFeedback={(e) => {
+                onPositiveFeedback={() => {
                     this.props.hideModal();
                     clear_function();
                 }}
@@ -94,6 +102,12 @@ class PrivacyControl extends Component {
             </Modal>
         );
     }
+
+    static propTypes = {
+        privacy_action: PropTypes.oneOf(Object.keys(PRIVACY_ACTIONS)).isRequired,
+        showModal: PropTypes.func.isRequired,
+        hideModal: PropTypes.func.isRequired,
+    };
 }
 
 class PrivacyControls extends Component {

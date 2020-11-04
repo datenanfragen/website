@@ -44,12 +44,12 @@ export default class TransportMediumChooser extends Component {
 
     static get defaultProps() {
         return {
-            transportMedium: 'email'
+            transportMedium: 'email',
         };
     }
 
     static propTypes = {
         transportMedium: PropTypes.string,
-        onChange: PropTypes.func.isRequired
+        onChange: PropTypes.func.isRequired,
     };
 }

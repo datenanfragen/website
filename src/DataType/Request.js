@@ -127,7 +127,7 @@ export default class Request {
             content: '',
             subject: '',
             sender_address: {},
-            name: ''
+            name: '',
         };
 
         /**
@@ -163,7 +163,7 @@ export default class Request {
             slug: this.slug,
             recipient: this.recipient_address,
             email: this.email,
-            via: this.transport_medium
+            via: this.transport_medium,
         };
         new UserRequests().storeRequest(db_id, item);
     }

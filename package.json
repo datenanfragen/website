@@ -35,6 +35,7 @@
         "sanity-check": "grep -E '^[><=]{7}( |$)' -H -I --line-number -r --exclude-dir=node_modules && exit 1 || exit 0 # Check for merge conflict artifacts, inspired by: https://stackoverflow.com/a/42584779",
         "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint assets/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix",
+        "prettier": "prettier --write src/**/*.{js,css,scss,json}",
         "deploy-dattel": "node deploy-dattel.js"
     },
     "bugs": {
@@ -51,6 +52,7 @@
         "pdfmake": "^0.1.58",
         "preact": "^10.5.5",
         "preact-i18n": "^2.3.0-preactx",
+        "prop-types": "^15.7.2",
         "qrcode": "^1.4.4",
         "react-joyride": "^1.11.4",
         "react-scrollspy": "^3.4.0",

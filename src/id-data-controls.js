@@ -24,10 +24,10 @@ class IdDataControls extends Component {
                     street_2: '',
                     place: '',
                     country: '',
-                    primary: true
-                }
+                    primary: true,
+                },
             },
-            signature: { type: 'text', value: '' }
+            signature: { type: 'text', value: '' },
         };
         this.resetSavedIdData();
 
@@ -58,7 +58,7 @@ class IdDataControls extends Component {
                                         id="always-fill-in"
                                         className="form-element"
                                         checked={SavedIdData.shouldAlwaysFill()}
-                                        onChange={event => {
+                                        onChange={(event) => {
                                             SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill());
                                         }}
                                     />
@@ -79,7 +79,7 @@ class IdDataControls extends Component {
                                         <InputControl
                                             id="name-input"
                                             suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('name', e)}
+                                            onChange={(e) => this.handleFixedChange('name', e)}
                                             value={this.state.fixed_id_data['name']}
                                         />
                                     </div>
@@ -96,7 +96,7 @@ class IdDataControls extends Component {
                                         <InputControl
                                             id="email-input"
                                             suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('email', e)}
+                                            onChange={(e) => this.handleFixedChange('email', e)}
                                             value={this.state.fixed_id_data['email']}
                                         />
                                     </div>
@@ -113,7 +113,7 @@ class IdDataControls extends Component {
                                         <AddressControl
                                             id="main-address-input"
                                             suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('address', e)}
+                                            onChange={(e) => this.handleFixedChange('address', e)}
                                             value={this.state.fixed_id_data['address']}
                                         />
                                     </div>
@@ -130,7 +130,7 @@ class IdDataControls extends Component {
                                         <DateControl
                                             id="birthdate-input"
                                             suffix="fixed-id-data"
-                                            onChange={e => this.handleFixedChange('birthdate', e)}
+                                            onChange={(e) => this.handleFixedChange('birthdate', e)}
                                             value={this.state.fixed_id_data['birthdate']}
                                         />
                                     </div>
@@ -173,7 +173,7 @@ class IdDataControls extends Component {
 
     handleFixedChange(type, e) {
         let name = e.target.getAttribute('name');
-        this.setState(prev => {
+        this.setState((prev) => {
             if (type === 'address') prev.fixed_id_data[type][name] = e.target.value;
             else prev.fixed_id_data[type] = e.target.value;
             return prev;
@@ -192,47 +192,47 @@ class IdDataControls extends Component {
                 desc: t('name', 'generator'),
                 type: 'name',
                 value: data['name'],
-                optional: true
+                optional: true,
             },
             {
                 desc: t('birthdate', 'generator'),
                 type: 'birthdate',
                 value: data['birthdate'],
-                optional: true
+                optional: true,
             },
             {
                 desc: t('address', 'generator'),
                 type: 'address',
                 value: data['address'],
-                optional: true
+                optional: true,
             },
             {
                 desc: t('email-address', 'generator'),
                 type: 'email',
                 value: data['email'],
-                optional: true
-            }
+                optional: true,
+            },
         ];
     }
 
     resetSavedIdData() {
-        this.savedIdData.getAll().then(id_data => this.setState({ custom_id_data: id_data }));
-        this.savedIdData.getAllFixed().then(fixed_data => {
-            this.setState(prev => {
+        this.savedIdData.getAll().then((id_data) => this.setState({ custom_id_data: id_data }));
+        this.savedIdData.getAllFixed().then((fixed_data) => {
+            this.setState((prev) => {
                 for (let i in fixed_data) {
                     prev.fixed_id_data[fixed_data[i].type] = fixed_data[i].value;
                 }
                 return prev;
             });
         });
-        this.savedIdData.getSignature().then(signature => this.setState({ signature: signature }));
+        this.savedIdData.getSignature().then((signature) => this.setState({ signature: signature }));
     }
 
     componentDidMount() {
-        window.addEventListener(ID_DATA_CHANGE_EVENT, event => {
+        window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
             this.resetSavedIdData();
         });
-        window.addEventListener(ID_DATA_CLEAR_EVENT, event => {
+        window.addEventListener(ID_DATA_CLEAR_EVENT, (event) => {
             this.resetSavedIdData();
         });
     }

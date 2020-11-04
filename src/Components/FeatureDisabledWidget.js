@@ -1,5 +1,6 @@
 import { Component } from 'preact';
 import t from 'Utility/i18n';
+import PropTypes from 'prop-types';
 
 export default class FeatureDisabledWidget extends Component {
     render() {
@@ -28,7 +29,12 @@ export default class FeatureDisabledWidget extends Component {
 
     static get defaultProps() {
         return {
-            includeImage: true
+            includeImage: true,
         };
     }
+
+    static propTypes = {
+        children: PropTypes.node,
+        includeImage: PropTypes.bool,
+    };
 }

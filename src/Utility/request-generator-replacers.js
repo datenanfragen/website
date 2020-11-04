@@ -15,8 +15,8 @@ import RecipientInput from '../Components/Generator/RecipientInput';
 import TransportMediumChooser from '../Components/Generator/TransportMediumChooser';
 
 /* eslint-disable react/display-name */
-const replacer_factory = that => ({
-    ActionButtonPlaceholder: el => (
+const replacer_factory = (that) => ({
+    ActionButtonPlaceholder: (el) => (
         <ActionButton
             transport_medium={that.state.request.transport_medium}
             blob_url={that.state.blob_url}
@@ -27,7 +27,7 @@ const replacer_factory = that => ({
             done={that.state.request.done}
             onSuccess={() => {
                 that.storeRequest();
-                that.setState(prev => {
+                that.setState((prev) => {
                     prev.request.done = true;
                     return prev;
                 });
@@ -35,7 +35,7 @@ const replacer_factory = that => ({
             {...el.props}
         />
     ),
-    NewRequestButtonPlaceholder: el => (
+    NewRequestButtonPlaceholder: (el) => (
         <button
             className="button button-secondary"
             id="new-request-button"
@@ -53,7 +53,7 @@ const replacer_factory = that => ({
             <Text id={that.state.batch?.length > 0 ? 'next-request' : 'new-request'} />
         </button>
     ),
-    CompanySelectorPlaceholder: el => (
+    CompanySelectorPlaceholder: (el) => (
         <div className="search">
             <SearchBar
                 id="aa-search-input"
@@ -66,7 +66,7 @@ const replacer_factory = that => ({
             {/* For some reason, autocomplete.js completely freaks out if it is wrapped in any tag at all and there isn't *anything at all* after it (only in the generator, though). As a workaround, we just use a space. We are counting on #24 anyway… */}{' '}
         </div>
     ),
-    RequestFormPlaceholder: el => (
+    RequestFormPlaceholder: (el) => (
         <RequestForm
             onChange={that.handleInputChange}
             onTypeChange={that.handleTypeChange}
@@ -81,7 +81,7 @@ const replacer_factory = that => ({
                 <CompanyWidget
                     company={that.state.suggestion}
                     onRemove={() => {
-                        that.setState(prev => {
+                        that.setState((prev) => {
                             prev.suggestion = undefined;
                             prev.request.recipient_runs = [];
                             prev.request.language = LOCALE;
@@ -96,7 +96,7 @@ const replacer_factory = that => ({
             )}
         </RequestForm>
     ),
-    DynamicInputContainerPlaceholder: el => (
+    DynamicInputContainerPlaceholder: (el) => (
         <DynamicInputContainer
             key="id_data"
             id="id_data"
@@ -105,7 +105,7 @@ const replacer_factory = that => ({
             {...el.props}
         />
     ),
-    SignatureInputPlaceholder: el => (
+    SignatureInputPlaceholder: (el) => (
         <SignatureInput
             id="signature"
             width={428}
@@ -115,26 +115,26 @@ const replacer_factory = that => ({
             {...el.props}
         />
     ),
-    RequestTypeChooserPlaceholder: el => (
+    RequestTypeChooserPlaceholder: (el) => (
         <RequestTypeChooser onTypeChange={that.handleTypeChange} current={that.state.request.type} {...el.props} />
     ),
-    RecipientInputPlaceholder: el => (
+    RecipientInputPlaceholder: (el) => (
         <RecipientInput
-            onAddressChange={e => that.handleInputChange({ recipient_address: e.target.value })}
-            onEmailChange={e => that.handleInputChange({ email: e.target.value })}
+            onAddressChange={(e) => that.handleInputChange({ recipient_address: e.target.value })}
+            onEmailChange={(e) => that.handleInputChange({ email: e.target.value })}
             transportMedium={that.state.request.transport_medium}
             recipientAddress={that.state.request.recipient_address}
             email={that.state.request.email}
             {...el.props}
         />
     ),
-    TransportMediumChooserPlaceholder: el => (
+    TransportMediumChooserPlaceholder: (el) => (
         <TransportMediumChooser
             transportMedium={that.state.request.transport_medium}
             onChange={that.handleTransportMediumChange}
             {...el.props}
         />
-    )
+    ),
 });
 /* eslint-enable react/display-name */
 

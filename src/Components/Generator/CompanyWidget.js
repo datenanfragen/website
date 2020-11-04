@@ -2,12 +2,13 @@ import { Component } from 'preact';
 import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
 import Accordion from '../Accordion';
+import PropTypes from 'prop-types';
 
 export default class CompanyWidget extends Component {
     render() {
         let comments = [];
         if (this.props.company['comments']) {
-            this.props.company['comments'].forEach(comment => {
+            this.props.company['comments'].forEach((comment) => {
                 comments.push(<p className="company-comments">{comment}</p>);
             });
         }
@@ -22,7 +23,7 @@ export default class CompanyWidget extends Component {
                                   <Text id="address-colon" />
                                   &nbsp;
                               </span>,
-                              <span>{this.props.company['address'].split('\n').join(', ')}</span>
+                              <span>{this.props.company['address'].split('\n').join(', ')}</span>,
                           ]
                         : []}
                     {this.props.company['fax']
@@ -32,7 +33,7 @@ export default class CompanyWidget extends Component {
                                   <Text id="fax-colon" />
                                   &nbsp;
                               </span>,
-                              this.props.company['fax']
+                              this.props.company['fax'],
                           ]
                         : []}
                     {this.props.company['email']
@@ -42,7 +43,7 @@ export default class CompanyWidget extends Component {
                                   <Text id="email-colon" />
                                   &nbsp;
                               </span>,
-                              this.props.company['email']
+                              this.props.company['email'],
                           ]
                         : []}
                     {this.props.company['pgp-fingerprint']
@@ -60,7 +61,7 @@ export default class CompanyWidget extends Component {
                                   ) : (
                                       this.props.company['pgp-fingerprint']
                                   )}
-                              </code>
+                              </code>,
                           ]
                         : []}
                 </div>
@@ -71,7 +72,7 @@ export default class CompanyWidget extends Component {
                               <Text id="current-company-comments-colon" />
                           </span>,
                           <br />,
-                          comments
+                          comments,
                       ]
                     : []}
                 <a
@@ -106,4 +107,19 @@ export default class CompanyWidget extends Component {
             </IntlProvider>
         );
     }
+
+    static propTypes = {
+        company: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            comments: PropTypes.arrayOf(PropTypes.string.isRequired),
+            address: PropTypes.string,
+            fax: PropTypes.string,
+            email: PropTypes.string,
+            'pgp-fingerprint': PropTypes.string,
+            'pgp-url': PropTypes.string,
+            'complaint-language': PropTypes.string,
+            slug: PropTypes.string.isRequired,
+        }),
+        onRemove: PropTypes.string.isRequired,
+    };
 }

@@ -10,7 +10,7 @@ export default class SavedIdData {
     constructor() {
         this.localforage_instance = localforage.createInstance({
             name: 'Datenanfragen.de',
-            storeName: 'id-data'
+            storeName: 'id-data',
         });
     }
 
@@ -21,7 +21,7 @@ export default class SavedIdData {
         if (typeof to_store['value'] === 'object') delete to_store['value']['primary'];
         this.localforage_instance
             .setItem(data['desc'].replace('/::/g', '__'), to_store)
-            .catch(error => {
+            .catch((error) => {
                 // '::' is a special character and disallowed in the database for user inputs. The user will not encounter that as the description will be saved in the original state with the data object.
                 rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
             })
@@ -45,7 +45,7 @@ export default class SavedIdData {
         }
         this.localforage_instance
             .setItem(data.type + '::fixed', to_store)
-            .catch(error => {
+            .catch((error) => {
                 rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
             })
             .then(() => {
@@ -54,7 +54,7 @@ export default class SavedIdData {
     }
 
     storeArray(array, fixed_only = true) {
-        array.forEach(item => {
+        array.forEach((item) => {
             if (['name', 'birthdate', 'email'].includes(item.type) || (item.type === 'address' && item.value.primary)) {
                 this.storeFixed(item);
             } else if (!fixed_only) {
@@ -76,7 +76,7 @@ export default class SavedIdData {
     storeSignature(signature) {
         this.localforage_instance
             .setItem('::signature', signature)
-            .catch(error => {
+            .catch((error) => {
                 rethrow(error, 'Saving signature failed.', { signature: signature });
             })
             .then(() => {
@@ -86,14 +86,14 @@ export default class SavedIdData {
 
     // returns Promise
     getByDesc(desc) {
-        return this.localforage_instance.getItem(desc.replace('/::/g', '__')).catch(error => {
+        return this.localforage_instance.getItem(desc.replace('/::/g', '__')).catch((error) => {
             rethrow(error, 'Could not retrieve id_data.', { desc: desc });
         });
     }
 
     // returns Promise
     getFixed(type) {
-        return this.localforage_instance.getItem(type + '::fixed').catch(error => {
+        return this.localforage_instance.getItem(type + '::fixed').catch((error) => {
             rethrow(error, 'Could not retrieve fixed id_data.', { type: type });
         });
     }
@@ -102,8 +102,8 @@ export default class SavedIdData {
     getSignature() {
         return this.localforage_instance
             .getItem('::signature')
-            .then(s => s || { type: 'text', value: '' })
-            .catch(error => {
+            .then((s) => s || { type: 'text', value: '' })
+            .catch((error) => {
                 rethrow(error, 'Could not retrieve signature.');
             });
     }
@@ -118,7 +118,7 @@ export default class SavedIdData {
                 .then(() => {
                     resolve(id_data);
                 })
-                .catch(error => {
+                .catch((error) => {
                     rethrow(error, 'Could not retrieve all fixed id_data');
                     reject();
                 });
@@ -136,7 +136,7 @@ export default class SavedIdData {
                 .then(() => {
                     resolve(id_data);
                 })
-                .catch(error => {
+                .catch((error) => {
                     rethrow(error, 'Could not retrieve all id_data');
                     reject();
                 });
@@ -164,7 +164,7 @@ export default class SavedIdData {
         let has_primary_address = 0;
         old_fields.forEach((field, i) => {
             // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
-            let j = new_fields.findIndex(new_field => {
+            let j = new_fields.findIndex((new_field) => {
                 return (
                     (new_field['type'] === field['type'] &&
                         // type and descriptions are equal
@@ -195,7 +195,7 @@ export default class SavedIdData {
 
         if (add_new_fields) {
             merged_fields = merged_fields.concat(
-                new_fields.map(field => {
+                new_fields.map((field) => {
                     if (!!field['value'] && field['type'] === 'address')
                         field['value']['primary'] = ++has_primary_address === 1;
                     field['value'] =

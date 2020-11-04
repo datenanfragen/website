@@ -6,6 +6,7 @@ import { rethrow } from '../Utility/errors';
 import localforage from 'localforage';
 import Cookie from 'js-cookie';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import PropTypes from 'prop-types';
 
 const CATEGORIES = [
     'suggested',
@@ -277,6 +278,13 @@ class WizardTab extends Component {
             </button>
         );
     }
+
+    static propTypes = {
+        clickCallback: PropTypes.func.isRequired,
+        index: PropTypes.number.isRequired,
+        isCurrent: PropTypes.bool.isRequired,
+        desc: PropTypes.string.isRequired,
+    };
 }
 
 class SelectedCompaniesList {

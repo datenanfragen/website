@@ -1,5 +1,5 @@
 import { render, Component } from 'preact';
-import { createPortal } from 'preact/compat';
+import PropTypes from 'prop-types';
 import t from '../Utility/i18n';
 
 export default class FlashMessage extends Component {
@@ -10,7 +10,7 @@ export default class FlashMessage extends Component {
         if (!this.props.type) this.props.type = 'info';
         this.state = {
             shown: true,
-            fading_out: false
+            fading_out: false,
         };
         this.dismiss = this.dismiss.bind(this);
     }
@@ -28,22 +28,25 @@ export default class FlashMessage extends Component {
 
     render() {
         return this.state.shown ? (
-            createPortal(
-                <div className={'flash-message flash-' + this.props.type + (this.state.fading_out ? ' fade-out' : '')}>
-                    <button
-                        className="button-unstyled close-button icon-close"
-                        onClick={this.dismiss}
-                        title={t('cancel', 'generator')}
-                    />
-                    <div className="inner">{this.props.children}</div>
-                </div>
-                , document.getElementById('flash-messages'))
-        ) : (
-            []
-        );
+            <div className={'flash-message flash-' + this.props.type + (this.state.fading_out ? ' fade-out' : '')}>
+                <button
+                    className="button-unstyled close-button icon-close"
+                    onClick={this.dismiss}
+                    title={t('cancel', 'generator')}
+                />
+                <div className="inner">{this.props.children}</div>
+            </div>
+        ) : null;
     }
+
+    static propTypes = {
+        duration: PropTypes.number,
+        type: PropTypes.oneOf(['info', 'error', 'warning', 'success']),
+        children: PropTypes.node.isRequired,
+    };
 }
 
+let flash_messages_el = document.getElementById('flash-messages');
 export function flash(flash_message) {
-    render(flash_message, document.body);
+    render(flash_message, flash_messages_el);
 }

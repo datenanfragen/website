@@ -2,6 +2,7 @@ import { render, Component } from 'preact';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import Modal from './Modal';
 import t from 'Utility/i18n';
+import PropTypes from 'prop-types';
 
 export default class I18nWidget extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ export default class I18nWidget extends Component {
         this.state = {
             country: globals.country,
         };
-        globals._country_listeners.push(value => {
+        globals._country_listeners.push((value) => {
             this.setState({ country: value });
         });
     }
@@ -56,13 +57,13 @@ export default class I18nWidget extends Component {
             .sort((a, b) =>
                 t('language-desc-' + a, 'i18n-widget').localeCompare(t('language-desc-' + b, 'i18n-widget'))
             )
-            .map(lang => <option value={lang}>{t('language-desc-' + lang, 'i18n-widget')}</option>);
+            .map((lang) => <option value={lang}>{t('language-desc-' + lang, 'i18n-widget')}</option>);
 
         const country_options = SUPPORTED_COUNTRIES.sort((a, b) => {
             if (a === 'all') return -1;
             if (b === 'all') return 1;
             return t(a, 'countries').localeCompare(t(b, 'countries'));
-        }).map(country => <option value={country}>{t(country, 'countries')}</option>);
+        }).map((country) => <option value={country}>{t(country, 'countries')}</option>);
 
         return (
             <IntlProvider scope="i18n-widget" definition={I18N_DEFINITION}>
@@ -111,6 +112,10 @@ export default class I18nWidget extends Component {
             </IntlProvider>
         );
     }
+
+    static propTypes = {
+        minimal: PropTypes.bool,
+    };
 }
 
 export class I18nButton extends Component {
@@ -121,7 +126,7 @@ export class I18nButton extends Component {
         this.state = {
             country: globals.country,
         };
-        globals._country_listeners.push(value => {
+        globals._country_listeners.push((value) => {
             this.setState({ country: value });
         });
     }

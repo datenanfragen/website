@@ -5,6 +5,7 @@ import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import * as Typesense from 'typesense';
 import { rethrow } from '../Utility/errors';
 import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
+import PropTypes from 'prop-types';
 
 export let SearchBar;
 
@@ -20,9 +21,9 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     host: 'search.datenanfragen.de',
                     port: '443',
                     protocol: 'https',
-                    apiKey: ''
+                    apiKey: '',
                 },
-                timeoutSeconds: 2
+                timeoutSeconds: 2,
             });
 
             this.algolia_autocomplete = null;
@@ -47,7 +48,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 query_by: this.props.query_by || 'name, runs, web, slug, address, comments',
                 sort_by: '_text_match:desc,sort-index:asc',
                 num_typos: 4,
-                per_page: this.props.numberOfHits || 5
+                per_page: this.props.numberOfHits || 5,
             };
             if (!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
 
@@ -71,21 +72,21 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                             .collections(this.props.index)
                             .documents()
                             .search(options)
-                            .then(res => {
+                            .then((res) => {
                                 callback(res.hits);
                             })
-                            .catch(e => {
+                            .catch((e) => {
                                 rethrow(e);
                             });
                     },
                     templates: {
                         suggestion:
                             this.props.suggestion_template ||
-                            function(suggestion) {
+                            function (suggestion) {
                                 let d = suggestion.document;
 
-                                let name_hs = suggestion.highlights.filter(a => a.field === 'name');
-                                let runs_hs = suggestion.highlights.filter(a => a.field === 'runs');
+                                let name_hs = suggestion.highlights.filter((a) => a.field === 'name');
+                                let runs_hs = suggestion.highlights.filter((a) => a.field === 'runs');
 
                                 return (
                                     '<span><strong>' +
@@ -100,14 +101,14 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                     (d.categories?.length
                                         ? '<br><span>' +
                                           t('categories', 'search') +
-                                          d.categories.map(c => t(c, 'categories')).join(', ') +
+                                          d.categories.map((c) => t(c, 'categories')).join(', ') +
                                           '</span>'
                                         : '')
                                 );
                             },
                         empty:
                             this.props.empty_template ||
-                            function(query) {
+                            function (query) {
                                 return (
                                     '<p style="margin-left: 10px;">' +
                                     t('no-results', 'search') +
@@ -121,8 +122,8 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                 );
                             },
                         header: this.props.header_template,
-                        footer: this.props.footer_template
-                    }
+                        footer: this.props.footer_template,
+                    },
                 }
             );
             this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
@@ -130,7 +131,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 this.props.setupPlaceholderChange(this.input_element);
         }
 
-        componentWillUnmount () {
+        componentWillUnmount() {
             if (this.algolia_autocomplete) {
                 this.algolia_autocomplete.autocomplete.destroy();
             }
@@ -144,10 +145,32 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     placeholder={this.props.placeholder}
                     type="search"
                     style={this.props.style}
-                    ref={el => (this.input_element = el)}
+                    ref={(el) => (this.input_element = el)}
                 />
             );
         }
+
+        static propTypes = {
+            id: PropTypes.string.isRequired,
+            placeholder: PropTypes.string.isRequired,
+            debug: PropTypes.bool,
+            style: PropTypes.string,
+
+            index: PropTypes.string.isRequired,
+            query_by: PropTypes.string,
+            numberOfHits: PropTypes.number,
+            disableCountryFiltering: PropTypes.bool,
+            onAutocompleteSelected: PropTypes.func.isRequired,
+
+            suggestion_template: PropTypes.func,
+            empty_template: PropTypes.func,
+            header_template: PropTypes.func,
+            footer_template: PropTypes.func,
+
+            setupPlaceholderChange: PropTypes.func,
+
+            filters: PropTypes.arrayOf(PropTypes.string),
+        };
     };
 } else {
     SearchBar = class SearchBar extends Component {
