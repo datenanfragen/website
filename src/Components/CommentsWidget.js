@@ -139,7 +139,7 @@ export class Comment extends Component {
         message: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
         additional: PropTypes.shape({
-            rating: PropTypes.number,
+            rating: PropTypes.string,
         }).isRequired,
     };
 }

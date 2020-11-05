@@ -6,12 +6,7 @@ import t from './Utility/i18n';
 import Joyride from 'react-joyride';
 import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
-import RequestGeneratorBuilder, {
-    ActionButtonPlaceholder,
-    NewRequestButtonPlaceholder,
-    CompanySelectorPlaceholder,
-    RequestFormPlaceholder,
-} from './Components/RequestGeneratorBuilder';
+import RequestGeneratorBuilder from './Components/RequestGeneratorBuilder';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import { SavedCompanies } from './Components/Wizard';
 import Modal, { showModal, dismissModal } from './Components/Modal';
@@ -79,26 +74,35 @@ class Generator extends Component {
 
                 <RequestGeneratorBuilder
                     ref={(el) => (this.generator_builder = el)}
-                    newRequestHook={this.newRequestHook}>
-                    <header id="generator-header">
-                        <div id="generator-controls" style="margin-bottom: 10px;">
-                            <ActionButtonPlaceholder />
-                            <NewRequestButtonPlaceholder />
-                        </div>
-                    </header>
+                    newRequestHook={this.newRequestHook}
+                    render={({
+                        ActionButtonPlaceholder,
+                        NewRequestButtonPlaceholder,
+                        CompanySelectorPlaceholder,
+                        RequestFormPlaceholder,
+                    }) => (
+                        <>
+                            <header id="generator-header">
+                                <div id="generator-controls" style="margin-bottom: 10px;">
+                                    <ActionButtonPlaceholder />
+                                    <NewRequestButtonPlaceholder />
+                                </div>
+                            </header>
 
-                    <div className="clearfix" />
+                            <div className="clearfix" />
 
-                    <CompanySelectorPlaceholder />
+                            <CompanySelectorPlaceholder />
 
-                    <div id="request-generator" className="grid" style="margin-top: 10px;">
-                        <div id="form-container">
-                            <RequestFormPlaceholder />
-                        </div>
-                    </div>
+                            <div id="request-generator" className="grid" style="margin-top: 10px;">
+                                <div id="form-container">
+                                    <RequestFormPlaceholder />
+                                </div>
+                            </div>
 
-                    <div className="clearfix" />
-                </RequestGeneratorBuilder>
+                            <div className="clearfix" />
+                        </>
+                    )}
+                />
             </main>
         );
     }

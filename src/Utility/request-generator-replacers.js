@@ -16,7 +16,7 @@ import TransportMediumChooser from '../Components/Generator/TransportMediumChoos
 
 /* eslint-disable react/display-name */
 const replacer_factory = (that) => ({
-    ActionButtonPlaceholder: (el) => (
+    ActionButtonPlaceholder: (props) => (
         <ActionButton
             transport_medium={that.state.request.transport_medium}
             blob_url={that.state.blob_url}
@@ -32,10 +32,10 @@ const replacer_factory = (that) => ({
                     return prev;
                 });
             }}
-            {...el.props}
+            {...props}
         />
     ),
-    NewRequestButtonPlaceholder: (el) => (
+    NewRequestButtonPlaceholder: (props) => (
         <button
             className="button button-secondary"
             id="new-request-button"
@@ -49,11 +49,11 @@ const replacer_factory = (that) => ({
                         } else that.renderLetter();
                     });
             }}
-            {...el.props}>
+            {...props}>
             <Text id={that.state.batch?.length > 0 ? 'next-request' : 'new-request'} />
         </button>
     ),
-    CompanySelectorPlaceholder: (el) => (
+    CompanySelectorPlaceholder: (props) => (
         <div className="search">
             <SearchBar
                 id="aa-search-input"
@@ -61,12 +61,12 @@ const replacer_factory = (that) => ({
                 onAutocompleteSelected={that.handleAutocompleteSelected}
                 placeholder={t('select-company', 'generator')}
                 debug={false}
-                {...el.props}
+                {...props}
             />
             {/* For some reason, autocomplete.js completely freaks out if it is wrapped in any tag at all and there isn't *anything at all* after it (only in the generator, though). As a workaround, we just use a space. We are counting on #24 anyway… */}{' '}
         </div>
     ),
-    RequestFormPlaceholder: (el) => (
+    RequestFormPlaceholder: (props) => (
         <RequestForm
             onChange={that.handleInputChange}
             onTypeChange={that.handleTypeChange}
@@ -76,7 +76,7 @@ const replacer_factory = (that) => ({
             fillFields={that.state.fill_fields}
             fillSignature={that.state.fill_signature}
             onLetterTemplateChange={that.handleCustomLetterTemplateChange}
-            {...el.props}>
+            {...props}>
             {that.state.suggestion ? (
                 <CompanyWidget
                     company={that.state.suggestion}
@@ -96,43 +96,43 @@ const replacer_factory = (that) => ({
             )}
         </RequestForm>
     ),
-    DynamicInputContainerPlaceholder: (el) => (
+    DynamicInputContainerPlaceholder: (props) => (
         <DynamicInputContainer
             key="id_data"
             id="id_data"
             onChange={that.handleInputChange}
             fields={that.state.request.id_data}
-            {...el.props}
+            {...props}
         />
     ),
-    SignatureInputPlaceholder: (el) => (
+    SignatureInputPlaceholder: (props) => (
         <SignatureInput
             id="signature"
             width={428}
             height={190}
             onChange={that.handleInputChange}
             value={that.state.request.signature}
-            {...el.props}
+            {...props}
         />
     ),
-    RequestTypeChooserPlaceholder: (el) => (
-        <RequestTypeChooser onTypeChange={that.handleTypeChange} current={that.state.request.type} {...el.props} />
+    RequestTypeChooserPlaceholder: (props) => (
+        <RequestTypeChooser onTypeChange={that.handleTypeChange} current={that.state.request.type} {...props} />
     ),
-    RecipientInputPlaceholder: (el) => (
+    RecipientInputPlaceholder: (props) => (
         <RecipientInput
             onAddressChange={(e) => that.handleInputChange({ recipient_address: e.target.value })}
             onEmailChange={(e) => that.handleInputChange({ email: e.target.value })}
             transportMedium={that.state.request.transport_medium}
             recipientAddress={that.state.request.recipient_address}
             email={that.state.request.email}
-            {...el.props}
+            {...props}
         />
     ),
-    TransportMediumChooserPlaceholder: (el) => (
+    TransportMediumChooserPlaceholder: (props) => (
         <TransportMediumChooser
             transportMedium={that.state.request.transport_medium}
             onChange={that.handleTransportMediumChange}
-            {...el.props}
+            {...props}
         />
     ),
 });

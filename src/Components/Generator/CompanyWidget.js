@@ -120,6 +120,6 @@ export default class CompanyWidget extends Component {
             'complaint-language': PropTypes.string,
             slug: PropTypes.string.isRequired,
         }),
-        onRemove: PropTypes.string.isRequired,
+        onRemove: PropTypes.func.isRequired,
     };
 }

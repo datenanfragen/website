@@ -154,21 +154,20 @@ export default class DynamicInput extends Component {
 
     static propTypes = {
         id: PropTypes.string.isRequired,
-        key: PropTypes.string.isRequired,
         suffix: PropTypes.string.isRequired,
         type: PropTypes.string,
         desc: PropTypes.string,
 
         optional: PropTypes.bool,
-        removeHandler: PropTypes.bool,
         hasPrimary: PropTypes.bool,
         allowRemoving: PropTypes.bool,
         allowChangingDescription: PropTypes.bool,
 
-        value: PropTypes.string.isRequired,
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
         onChange: PropTypes.func.isRequired,
         onAction: PropTypes.func,
         onPrimaryChange: PropTypes.func.isRequired,
+        removeHandler: PropTypes.func,
     };
 }
 
@@ -455,9 +454,9 @@ export class AddressControl extends Component {
 
         desc: PropTypes.string,
 
-        required: PropTypes.object,
+        required: PropTypes.bool,
 
-        value: PropTypes.string.isRequired,
+        value: PropTypes.object.isRequired,
         onChange: PropTypes.func.isRequired,
     };
 }

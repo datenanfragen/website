@@ -1,4 +1,4 @@
-import { cloneElement, Component } from 'preact';
+import { Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import Request from '../DataType/Request';
@@ -37,6 +37,8 @@ export default class RequestGeneratorBuilder extends Component {
             fill_fields: [],
             fill_signature: null,
         };
+
+        this.replacers = replacer_factory(this);
 
         this.letter = new RequestLetter({}, (blob_url, filename) => {
             this.setState({
@@ -170,22 +172,7 @@ export default class RequestGeneratorBuilder extends Component {
     }
 
     render() {
-        const replacers = replacer_factory(this);
-        const children_mapper = (c) => {
-            if (!c || !c.type) return c;
-            if (Object.keys(replacers).includes(c.type.name)) {
-                return replacers[c.type.name](c);
-            }
-            if (c.props.children) {
-                c = cloneElement(c);
-                c.props.children = Array.isArray(c.props.children)
-                    ? c.props.children.map(children_mapper)
-                    : children_mapper(c.props.children);
-                return c;
-            }
-            return c;
-        };
-        const children = this.props.children.map(children_mapper);
+        const children = this.props.render(this.replacers);
 
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
@@ -206,7 +193,7 @@ export default class RequestGeneratorBuilder extends Component {
         });
     };
 
-    setCompany = async (company) => {
+    setCompany = (company) => {
         if (this.state.request.type !== 'custom') {
             fetchTemplate(company['request-language'], this.state.request.type, company).then((text) => {
                 this.setState({ template_text: text }, () => this.renderLetter());
@@ -308,28 +295,30 @@ export default class RequestGeneratorBuilder extends Component {
     handleTransportMediumChange = (e) => {
         const by_fax_text = t_r('by-fax', this.state.request.language);
 
-        this.setState((prev) => {
-            prev.request.transport_medium = e.target.value;
-            switch (e.target.value) {
-                case 'fax':
-                    if (prev.suggestion && !prev.request.recipient_address.includes(by_fax_text)) {
-                        prev.request.recipient_address += '\n' + by_fax_text + (prev.suggestion.fax || '');
-                    }
-                    break;
-                case 'letter': // fallthrough intentional
-                case 'email':
-                    prev.request.recipient_address = prev.request.recipient_address.replace(
-                        new RegExp('(?:\\r\\n|\\r|\\n)' + by_fax_text + '\\+?[0-9\\s]*', 'gm'),
-                        ''
-                    );
-                    break;
-            }
+        this.setState(
+            (prev) => {
+                prev.request.transport_medium = e.target.value;
+                switch (e.target.value) {
+                    case 'fax':
+                        if (prev.suggestion && !prev.request.recipient_address.includes(by_fax_text)) {
+                            prev.request.recipient_address += '\n' + by_fax_text + (prev.suggestion.fax || '');
+                        }
+                        break;
+                    case 'letter': // fallthrough intentional
+                    case 'email':
+                        prev.request.recipient_address = prev.request.recipient_address.replace(
+                            new RegExp('(?:\\r\\n|\\r|\\n)' + by_fax_text + '\\+?[0-9\\s]*', 'gm'),
+                            ''
+                        );
+                        break;
+                }
 
-            prev.request.data_portability = e.target.value === 'email';
+                prev.request.data_portability = e.target.value === 'email';
 
-            return prev;
-        });
-        this.renderLetter();
+                return prev;
+            },
+            () => this.renderLetter()
+        );
     };
 
     handleCustomLetterPropertyChange = (e, address_change = false) => {
@@ -411,14 +400,16 @@ export default class RequestGeneratorBuilder extends Component {
                     callback={(sva) => {
                         this.setCompany(sva);
                         fetchTemplate(sva['complaint-language'], 'complaint', null, '').then((text) => {
-                            this.setState((prev) => {
-                                prev.request.custom_data.content = new Template(text, [], {
-                                    request_article: REQUEST_ARTICLES[this.state.response_request.type],
-                                    request_date: this.state.response_request.date,
-                                    request_recipient_address: this.state.response_request.recipient,
-                                }).getText();
-                            });
-                            this.renderLetter();
+                            this.setState(
+                                (prev) => {
+                                    prev.request.custom_data.content = new Template(text, [], {
+                                        request_article: REQUEST_ARTICLES[this.state.response_request.type],
+                                        request_date: this.state.response_request.date,
+                                        request_recipient_address: this.state.response_request.recipient,
+                                    }).getText();
+                                },
+                                () => this.renderLetter()
+                            );
                         });
                         dismissModal(modal);
                     }}
@@ -559,18 +550,7 @@ export default class RequestGeneratorBuilder extends Component {
     static propTypes = {
         newRequestHook: PropTypes.func,
         onInitialized: PropTypes.func,
-        children: PropTypes.node.isRequired,
+        // children: PropTypes.node.isRequired,
+        render: PropTypes.func.isRequired,
     };
 }
-
-// If we need to add more placeholders in the future, their names also need to be added to the Webpack MinifyPlugin's
-// mangle exclude list.
-export class ActionButtonPlaceholder extends Component {}
-export class NewRequestButtonPlaceholder extends Component {}
-export class CompanySelectorPlaceholder extends Component {}
-export class RequestFormPlaceholder extends Component {}
-export class DynamicInputContainerPlaceholder extends Component {}
-export class SignatureInputPlaceholder extends Component {}
-export class RequestTypeChooserPlaceholder extends Component {}
-export class RecipientInputPlaceholder extends Component {}
-export class TransportMediumChooserPlaceholder extends Component {}

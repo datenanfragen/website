@@ -281,7 +281,6 @@ export default class DynamicInputContainer extends Component {
     }
 
     static propTypes = {
-        key: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         heading_class: PropTypes.string,

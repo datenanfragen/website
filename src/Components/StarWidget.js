@@ -48,14 +48,14 @@ export default class StarWidget extends Component {
 
     static get defaultProps() {
         return {
-            initial: 0,
+            initial: '0',
             readonly: false,
         };
     }
 
     static propTypes = {
         id: PropTypes.string.isRequired,
-        initial: PropTypes.number.isRequired,
+        initial: PropTypes.string.isRequired,
         readonly: PropTypes.bool,
         onChange: PropTypes.func,
     };

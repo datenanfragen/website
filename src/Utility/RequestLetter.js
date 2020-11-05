@@ -3,6 +3,8 @@ import { formatAddress, stripTags } from 'letter-generator/utility';
 import Letter from 'letter-generator/Letter';
 import Template from 'letter-generator/Template';
 import { rethrow } from './errors';
+// eslint-disable-next-line import/default
+import PdfWorker from './pdf.worker';
 
 /**
  * Callback with the generated PDF letter.
@@ -71,7 +73,7 @@ export default class RequestLetter {
      */
     initiatePdfGeneration(filename) {
         if (!this.pdfWorker) {
-            this.pdfWorker = new Worker(BASE_URL + 'js/pdfworker.gen.js');
+            this.pdfWorker = new PdfWorker();
             if (window.hugoDevMode) {
                 // copy the worker to window if we are in a dev env to enable easy testing
                 window.pdfWorker = this.pdfWorker;

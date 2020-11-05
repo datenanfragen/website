@@ -47,6 +47,9 @@ export default class FlashMessage extends Component {
 }
 
 let flash_messages_el = document.getElementById('flash-messages');
+let flash_messages = [];
+
 export function flash(flash_message) {
-    render(flash_message, flash_messages_el);
+    flash_messages.push(flash_message);
+    render(<>{flash_messages}</>, flash_messages_el);
 }

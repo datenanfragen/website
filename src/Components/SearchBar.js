@@ -53,8 +53,13 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
             if (!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
 
             this.algolia_autocomplete = autocomplete(
-                '#' + this.props.id,
-                { hint: false, debug: this.props.debug || false },
+                this.input_element,
+                {
+                    autoselect: true,
+                    clearOnSelected: true,
+                    hint: false,
+                    debug: this.props.debug || false,
+                },
                 {
                     source: (query, callback) => {
                         options['q'] = query;
@@ -162,10 +167,10 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
             disableCountryFiltering: PropTypes.bool,
             onAutocompleteSelected: PropTypes.func.isRequired,
 
-            suggestion_template: PropTypes.func,
-            empty_template: PropTypes.func,
-            header_template: PropTypes.func,
-            footer_template: PropTypes.func,
+            suggestion_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+            empty_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+            header_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+            footer_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 
             setupPlaceholderChange: PropTypes.func,
 

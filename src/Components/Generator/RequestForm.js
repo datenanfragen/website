@@ -189,7 +189,10 @@ export default class RequestForm extends Component {
                             />
 
                             {this.renderFlags()}
-                            <Accordion title={t('information-block', 'generator')} id="advanced-information">
+                            <Accordion
+                                title={t('information-block', 'generator')}
+                                id="advanced-information"
+                                expanded={false}>
                                 <div id="information-block-form">
                                     <div className="form-group">
                                         <label htmlFor="request-date">

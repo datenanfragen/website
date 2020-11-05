@@ -1,11 +1,6 @@
 import { render, Component } from 'preact';
 import PropTypes from 'prop-types';
-import RequestGeneratorBuilder, {
-    RequestTypeChooserPlaceholder,
-    SignatureInputPlaceholder,
-    ActionButtonPlaceholder,
-    DynamicInputContainerPlaceholder,
-} from './RequestGeneratorBuilder';
+import RequestGeneratorBuilder from './RequestGeneratorBuilder';
 import { fakeEvt } from '../Utility/common';
 import { VALID_REQUEST_TYPES } from '../Utility/requests';
 
@@ -18,32 +13,43 @@ export default class ActWidget extends Component {
     render() {
         return (
             <div className="box">
-                <RequestGeneratorBuilder ref={(o) => (this.generator = o)} onInitialized={this.initializeGenerator}>
-                    {this.props.request_types.length > 1 ? (
-                        <RequestTypeChooserPlaceholder request_types={this.props.request_types} />
-                    ) : (
-                        ''
+                <RequestGeneratorBuilder
+                    ref={(o) => (this.generator = o)}
+                    onInitialized={this.initializeGenerator}
+                    render={({
+                        RequestTypeChooserPlaceholder,
+                        DynamicInputContainerPlaceholder,
+                        SignatureInputPlaceholder,
+                        ActionButtonPlaceholder,
+                    }) => (
+                        <>
+                            {this.props.request_types.length > 1 ? (
+                                <RequestTypeChooserPlaceholder request_types={this.props.request_types} />
+                            ) : (
+                                ''
+                            )}
+
+                            {this.props.text_before_dynamic_input_container ? (
+                                <p>{this.props.text_before_dynamic_input_container}</p>
+                            ) : (
+                                ''
+                            )}
+
+                            <DynamicInputContainerPlaceholder
+                                allowAddingFields={false}
+                                allowRemovingFields={false}
+                                allowChangingFieldDescriptions={false}
+                            />
+
+                            {this.props.transport_medium !== 'email' ? <SignatureInputPlaceholder /> : []}
+
+                            <div style="float: right; margin-top: 10px;">
+                                <ActionButtonPlaceholder />
+                            </div>
+                            <div className="clearfix" />
+                        </>
                     )}
-
-                    {this.props.text_before_dynamic_input_container ? (
-                        <p>{this.props.text_before_dynamic_input_container}</p>
-                    ) : (
-                        ''
-                    )}
-
-                    <DynamicInputContainerPlaceholder
-                        allowAddingFields={false}
-                        allowRemovingFields={false}
-                        allowChangingFieldDescriptions={false}
-                    />
-
-                    {this.props.transport_medium !== 'email' ? <SignatureInputPlaceholder /> : []}
-
-                    <div style="float: right; margin-top: 10px;">
-                        <ActionButtonPlaceholder />
-                    </div>
-                    <div className="clearfix" />
-                </RequestGeneratorBuilder>
+                />
             </div>
         );
     }

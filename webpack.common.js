@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -16,7 +15,6 @@ module.exports = {
         'sva-finder': './src/Components/SvaFinder.js',
         'act-widget': './src/Components/ActWidget.js',
         'donation-widget': './src/Components/DonationWidget.js',
-        pdfworker: './src/Utility/PdfWorker.js',
         'test-interface': './src/test-interface.js',
         // We need to define a dummy entrypoint that requires all our translation files, otherwise Webpack will not
         // process them.
@@ -38,30 +36,6 @@ module.exports = {
                 },
             },
         },
-        minimize: true,
-        minimizer: [
-            new TerserPlugin({
-                sourceMap: true,
-                extractComments: false,
-                cache: true,
-                parallel: true,
-                terserOptions: {
-                    mangle: {
-                        reserved: [
-                            'ActionButtonPlaceholder',
-                            'NewRequestButtonPlaceholder',
-                            'CompanySelectorPlaceholder',
-                            'RequestFormPlaceholder',
-                            'DynamicInputContainerPlaceholder',
-                            'SignatureInputPlaceholder',
-                            'RequestTypeChooserPlaceholder',
-                            'RecipientInputPlaceholder',
-                            'TransportMediumChooserPlaceholder',
-                        ],
-                    },
-                },
-            }),
-        ],
     },
     output: {
         filename: 'js/[name].gen.js',
@@ -72,6 +46,15 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.worker\.js$/,
+                use: [
+                    { loader: 'worker-loader' },
+                    {
+                        loader: 'babel-loader',
+                    },
+                ],
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
