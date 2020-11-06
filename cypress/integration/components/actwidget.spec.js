@@ -1,5 +1,3 @@
-import { isOn, skipOn } from '@cypress/skip-test';
-
 describe('ActWidget component', () => {
     beforeEach(() => {
         cy.visit('/act/honey');
