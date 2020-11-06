@@ -8,22 +8,25 @@ Füll einfach unten die entsprechenden Felder aus und klicke dann auf *Absenden*
 
 <details>
 <summary>Datensammeltipps für Interessierte (Klicken zum Ausklappen)</summary>
-Falls Du dich etwas intensiver damit beschäftigen willst, was für Daten wir wie sammeln wollen, kannst Du diese Tipps hier lesen.
-Wenn Du die beim Vorschlagen berücksichtigst, erleichterst Du uns unsere Arbeit, wenn wir dann Deine Vorschläge bearbeiten. Die Tipps sind aber natürlich <b>komplett optional</b>. Egal ob Du keinen, einen, ein paar oder alle Tipps befolgst: Wir freuen uns über jeden Vorschlag!
+Falls Du Dich etwas intensiver damit beschäftigen willst, was für Daten wir wie sammeln wollen, kannst Du diese Tipps hier lesen.
+Wenn Du diese beim Vorschlagen berücksichtigst, erleichterst Du uns unsere Arbeit beim Bearbeiten Deiner Einreichungen. Die Tipps sind aber natürlich <strong>komplett optional</strong>. Egal ob Du keinen, einen, ein paar oder alle Tipps befolgst: Wir freuen uns über jeden Vorschlag!
 
 - Der erste und meist auch beste Anlaufpunkt um Daten über eine Firma zu finden ist die Datenschutzerklärung. Das ist auch direkt eine tolle Quelle.
-- Wir wollen wirklich keine persönlichen Daten in der Datenbank speichern, auch nicht, wenn eine (E-Mail)-Adresse einen Namen enthält, wie z.B. <code>max.mustermann@example.org</code>.
+- Wir wollen wirklich keine persönlichen Daten in der Datenbank speichern, auch nicht, wenn eine (E-Mail)-Adresse einen Namen enthält, wie z.B. <code>kim.mustermensch@example.org</code>.
 - Die Kontaktdetails von eventuellen Datenschutzbeauftragten bevorzugen wir gegenüber den normalen Kontaktdetails einer Firma.
 - Manchmal kann es vorkommen, dass Firmen eine_n externe_n Datenschutzbeauftrage_n angeben. Dann nehmen wir lieber deren_dessen Adresse. 
-    - c/o externe_r Datenschutzbeauftrage_r</br>Beispielweg 1</br>1234 Stadt</br>Deutschland
+    - c/o externe_r Datenschutzbeauftrage_r GmbH & Co. KG  
+      Beispielweg 1  
+      12345 Stadt  
+      Deutschland
 - Unser Lieblingsadressformat kannst Du oben im Beispiel auch sehen: Zeilen per "Enter" trennen, den Firmennamen nicht mit aufnehmen und am Ende das Land.
-- Falls Du noch mehr wissen willst, dann schau doch bei unserem [Daten-GitHub-Repo](https://github.com/datenanfragen/data/) vorbei. :)
+- Falls Du noch mehr wissen willst, dann schau doch bei unserem [`data`-Repo bei GitHub](https://github.com/datenanfragen/data/) vorbei.
 
 </details>
 
-Falls Du irgendeinen Vorschlag haben solltest, der sich nicht über dieses Formular klären lässt, oder Du es aus sonstigen Gründen nicht verwenden möchtest, erreichst Du uns auch gerne jederzeit über [unseren Issue-Tracker bei GitHub](https://github.com/datenanfragen/data/pulls) oder per [E-Mail](mailto:data@datenanfragen.de).
+Falls Du irgendeinen Vorschlag haben solltest, der sich nicht über dieses Formular klären lässt, oder Du es aus sonstigen Gründen nicht verwenden möchtest, erreichst Du uns auch gerne jederzeit über [unseren Issue-Tracker bei GitHub](https://github.com/datenanfragen/data/issues) oder per [E-Mail](mailto:data@datenanfragen.de).
 
-<div class="box box-warning">Nach dem Absenden werden die Daten, die Du in das Formular unten eingegeben hast, öffentlich in unserem <a href="https://github.com/datenanfragen/data/issues">Issue-Tracker</a> angezeigt. Gib hier also <strong>auf keinen Fall</strong> persönliche Daten an.<br>Weitere Informationen dazu findest Du in <a href="/privacy/#nutzer-inneninhalte-zur-unternehmensdatenbank">unserer Datenschutzerklärung</a>.</div>
+<div class="box box-warning">Nach dem Absenden werden die Daten, die Du in das Formular unten eingegeben hast, öffentlich in unserem <a href="https://github.com/datenanfragen/data/pulls">Issue-Tracker</a> angezeigt. Gib hier also <strong>auf keinen Fall</strong> persönliche Daten an.<br>Weitere Informationen dazu findest Du in <a href="/privacy/#nutzer-inneninhalte-zur-unternehmensdatenbank">unserer Datenschutzerklärung</a>.</div>
 
 {{< loadingIndicator >}}
 
