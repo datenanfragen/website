@@ -5,7 +5,7 @@ describe('ActWidget component', () => {
         cy.visit('/act/honey');
     });
 
-    it('generates mail-to-link with user data [dynamic]', () => {
+    it('generates mailto link with user data [record from database]', () => {
         // note as this act widget loads the entries from the DB this might break in the future if honey requires other elements
         cy.contains('label', 'Honey Gold balance');
         cy.get('div[id="act-with-account"]').find('input[id="3-value-id_data"]').type('42');
@@ -17,7 +17,7 @@ describe('ActWidget component', () => {
         cy.get('div[id="act-with-account"]').contains('Default email software').clickLinkWithoutFollowingHref();
     });
 
-    it('generates mail-to-link with user data [static]', () => {
+    it('generates mailto link with user data [record specified as object]', () => {
         cy.contains('label', 'userId');
         cy.contains('label', 'deviceId');
         cy.get('div[id="act-no-account"]').find('input[id="3-value-id_data"]').type('132465789ACME');
