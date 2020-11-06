@@ -7,7 +7,7 @@ Herzlichen Dank, dass Du eine Änderung an unserer Unternehmensdatenbank vorschl
 Füll einfach unten die entsprechenden Felder aus und klicke dann auf *Absenden*. Wenn möglich, denk bitte daran, Quellen für Deine Änderungen anzugeben, sodass wir diese nachvollziehen und überprüfen können. Die mit einem * markierten Felder sollten am besten auch ausgefüllt werden. Wenn Du über die Label fährst, bekommst Du noch weitere Informationen, was in den Felder stehen soll. Aber keine Sorge: wenn Du einmal etwas nicht weißt, lass es einfach frei. Wir kümmern uns dann schon darum.
 
 <details>
-<summary>Datensammeltipps für Interessierte (Klicken zum Ausklappen)</summary>
+<summary>Tipps für Interessierte (Klicken zum Ausklappen)</summary>
 Falls Du Dich etwas intensiver damit beschäftigen willst, was für Daten wir wie sammeln wollen, kannst Du diese Tipps hier lesen.
 Wenn Du diese beim Vorschlagen berücksichtigst, erleichterst Du uns unsere Arbeit beim Bearbeiten Deiner Einreichungen. Die Tipps sind aber natürlich <strong>komplett optional</strong>. Egal ob Du keinen, einen, ein paar oder alle Tipps befolgst: Wir freuen uns über jeden Vorschlag!
 
