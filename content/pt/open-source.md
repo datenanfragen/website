@@ -5,7 +5,7 @@
 	"heading": "<span style='text-align: center; font-family: monospace;'>pedidodedados.org <span class='color-red-600' title='ama'>❤</span> Código aberto</span>"
 }
 
-<img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg">
+<img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
 
 Código aberto está no coração do pedidodedados.org. Nós construímos o projeto do chão com a idéia de ser tão aberto quanto possível. Nossa [constituição](https://www.datarequests.org/verein/constitution) nos obriga a publicar todo nosso conteúdo de forma livre e gratuita.
 
