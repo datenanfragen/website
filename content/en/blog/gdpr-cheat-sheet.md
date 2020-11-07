@@ -11,7 +11,7 @@
     "authors": [ "baltpeter", "xeluna" ]
 }
 
-<img class="offset-image offset-image-left" src="/card-icons/book-info.svg" style="height: 200px;">
+<img class="offset-image offset-image-left" src="/card-icons/book-info.svg" style="height: 200px;" alt="">
 
 At first glance, the GDPR can appear confusing like any other legal topic. It introduces numerous legal terms that are vital for understanding the regulations.
 

@@ -4,7 +4,7 @@
     "aliases": ["verein/thanks", "danke", "verein/danke"]
 }
 
-<img class="top-right-humaaan" src="/img/humaaans/thanks.svg">
+<img class="top-right-humaaan" src="/img/humaaans/thanks.svg" alt="">
 
 Vielen herzlichen Dank für Deine Spende! Damit hilfst Du uns ungemein, unsere Webseite in Zukunft weiter für alle kostenlos anbieten zu können und vor allem neue Projekte für den Datenschutz in Europa zu starten. Was genau mit Deiner Spende passiert, kannst du in unseren [Jahresberichten]({{< ref "verein/transparency" >}}) nachlesen. 
 

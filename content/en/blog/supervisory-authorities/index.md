@@ -15,7 +15,7 @@
     "blog_like": true
 }
 
-<img class="offset-image offset-image-left" src="/card-icons/authority.svg" style="height: 200px;">
+<img class="offset-image offset-image-left" src="/card-icons/authority.svg" style="height: 200px;" alt="">
 
 The supervisory data protection authorities are an important institution for data protection. As independent bodies, their task is to ensure compliance with data protection laws, in particular the GDPR.
 
@@ -40,7 +40,7 @@ It should be noted that this principle only regulates which authority you contac
 <a id="finder"></a>
 ## Which supervisory authority should I contact?
 
-<img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;">
+<img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;" alt="">
 
 So, if you have a complaint or other question and would like to seek the help of a supervisory data protection authority, the question remains as to which one you should contact. In general, even the “wrong” authority will forward you to the right one, but it is of course easier and faster if you contact the correct one directly.
 

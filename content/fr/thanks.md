@@ -4,7 +4,7 @@
     "aliases": ["verein/thanks"]
 }
 
-<img class="top-right-humaaan" src="/img/humaaans/thanks.svg">
+<img class="top-right-humaaan" src="/img/humaaans/thanks.svg" alt="">
 
 Merci beaucoup pour ton don ! Cela nous aide vraiment à continuer à faire fonctionner notre site Web gratuitement pour tous à l'avenir et à lancer de nouveaux projets pour la protection des données en Europe. Tu peux savoir exactement où ton argent est allé dans nos [rapports annuels]({{< ref "verein/transparency" >}}).
 
