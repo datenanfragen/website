@@ -16,7 +16,7 @@
     "blog_like": true
 }
 
-<img class="offset-image offset-image-left" src="/card-icons/authority.svg" style="height: 200px;">
+<img class="offset-image offset-image-left" src="/card-icons/authority.svg" style="height: 200px;" alt="">
 
 Les autorités de contrôle de la protection des données sont une institution importante pour la protection des données. En tant que structures indépendantes, elles ont pour mission de veiller au respect des lois sur la protection des données, en particulier le RGPD.
 
@@ -41,7 +41,7 @@ Il convient de noter que ce principe régit uniquement l'autorité à laquelle t
 <a id="finder"></a>
 ## Quelle autorité de contrôle dois-je contacter ?
 
-<img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;">
+<img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;" alt="">
 
 Ainsi, si tu as une réclamation ou une autre question et que tu souhaites demander l'aide d'une autorité de contrôle de la protection des données, la question reste de savoir à laquelle tu dois t'adresser. En général, même la « mauvaise » autorité te redirigera vers la bonne, mais il est bien sûr plus facile et plus rapide de contacter directement la bonne.
 

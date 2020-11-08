@@ -4,7 +4,7 @@
     "aliases": ["verein/thanks"]
 }
 
-<img class="top-right-humaaan" src="/img/humaaans/thanks.svg">
+<img class="top-right-humaaan" src="/img/humaaans/thanks.svg" alt="A big heart floating next to a person.">
 
 Thank you so much for your donation! It really helps us continue running our website free for everyone in the future and also to start new project for data protection in Europe. You can read about what exactly will happen with your donation in our [yearly reports]({{< ref "verein/transparency" >}}).
 

@@ -71,7 +71,7 @@ In Ausnahmefällen können wir auch weitere Repositories erlauben. Wenn Du meins
 
 ## Habt Ihr Vorschläge für Beiträge?
 
-<img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;">
+<img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
 
 Gerade wenn Du neu bei Datenanfragen.de bist, weißt Du wahrscheinlich gar nicht, wo Du anfangen kannst. Keine Sorge: Es gibt bei uns zahlreiche Bereiche, in denen Du mitmachen kannst – ganz unabhängig davon, ob Du Erfahrung mit Programmierung und Datenschutz hast oder nicht. Zum leichteren Einstieg haben wir Dir hier einmal ein paar Vorschläge zusammengestellt. Viele weitere Aufgaben findest Du in den Issues der jeweiligen Repositories. Wir freuen uns natürlich auch, wenn Du eigenen Ideen hast, was Du am Projekt verbessern könntest.
 

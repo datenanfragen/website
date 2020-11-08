@@ -12,7 +12,7 @@ Hast Du den Lieferdienst in der Vergangenheit genutzt und Essen bestellt oder Di
 
 ## Wie fordere ich die Löschung meiner Daten?
 
-<img class="offset-image offset-image-right" src="/card-icons/erase.svg" style="height: 150px; margin-right: -100px;">
+<img class="offset-image offset-image-right" src="/card-icons/erase.svg" style="height: 150px; margin-right: -100px;" alt="">
 
 Hier kommt Dir die **DSGVO** (**Datenschutz-Grundverordnung**) zu Hilfe. Die gibt Dir nämlich eine ganze Reihe an [Rechten im Bezug auf Deine personenbezogenen Daten]({{< ref "your-gdpr-rights" >}}), darunter auch das Rechte, Deine Daten löschen zu lassen – das sogenannte [**Recht auf Vergessenwerden**]({{< ref "your-gdpr-rights" >}}#recht-auf-vergessenwerden).
 
