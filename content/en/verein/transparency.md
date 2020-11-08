@@ -3,7 +3,7 @@
     "type": "page"
 }
 
-<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" style="float: right; width: 40%; min-width: 200px; padding: 5px;" alt="Initiative Transparente Zivilgesellschaft logo"></a>
+<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" style="float: right; width: 40%; min-width: 200px; padding: 5px;" alt="Logo of the Initiative for a Transparent Civil Society, with the German text “Initiative Transparente Zivilgesellschaft”"></a>
 
 In order for you to be able to trust us, we pledged to be as transparent as possible about our procedures, finances and decisions. Because of that, we have joined the [Initiative for a Transparent Civil Society](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), an initiative by the German branch of Transparency International, which is allowed to audit us on a sample basis. They ensure that we will keep our promise of transparent management. On this page we summarized all the important information that we publish as part of that.
 
