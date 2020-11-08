@@ -5,7 +5,7 @@
     "type": "page"
 }
 
-<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" style="float: right; width: 40%; min-width: 200px; padding: 5px;"></a>
+<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" style="float: right; width: 40%; min-width: 200px; padding: 5px;" alt="Logo der Initiative Transparente Zivilgesellschaft"></a>
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 

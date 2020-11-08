@@ -34,7 +34,7 @@ If you also want to participate in the official Hacktoberfest, you will need to 
 
 ## Which repositories qualify?
 
-<img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;">
+<img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
 
 We will count pull requests to all repositories in the [datenanfragen organization on GitHub](https://github.com/datenanfragen) as well as those to our repositories listed on our [open source page]({{< ref "/open-source" >}}).  
 If you think your contribution to another repository will also help our project, please shoot us an email at [hacktoberfest@datenanfragen.de](mailto:hacktoberfest@datenanfragen.de) to ask if we can count that.

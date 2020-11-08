@@ -35,7 +35,7 @@ Wenn Du zusätzlich beim offiziellen Hacktoberfest teilnehmen möchtest, musst D
 
 ## Welche Repositories zählen für die Aktion?
 
-<img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;">
+<img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
 
 Wir werten Pull Requests in allen Repositories in der [Datenanfragen.de-Organisation auf GitHub](https://github.com/datenanfragen) sowie denen, die auf unserer [Open Source-Seite]({{< ref "/open-source" >}}) als unsere Repositories aufgeführt sind, als gültige Beiträge für die Aktion.  
 Wenn Du meinst, dass Dein Beitrag in einem anderen Repository dem Projekt hilft, frag bitte kurz per E-Mail an [hacktoberfest@datenanfragen.de](mailto:hacktoberfest@datenanfragen.de) nach, ob wir diesen Beitrag auch werten können.
