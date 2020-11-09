@@ -72,6 +72,19 @@ canvas {
     border-radius: 2px;
 }
 
+.signature-input {
+    .canvas-blocked-overlay {
+        background-color: color('gray', 700);
+        color: color('gray', 200);
+    }
+
+    canvas[id*='signature'] {
+        user-select: none;
+        touch-action: none;
+        background-color: $bg-color;
+    }
+}
+
 // On the off chance that this might not *immediately* be obvious to everyone: Our colors are defined as HSB and run
 // through a function that converts them to HSL. Sass then (not so) helpfully converts them to hex for us.
 // Unfortunately, we are using a data URL here and a `#` in a URL is a fragment identifier. Now, most browsers
