@@ -7,7 +7,7 @@ export default class StarWidget extends Component {
         super(props);
 
         this.state = {
-            rating: this.props.initial,
+            rating: parseInt(this.props.initial, 10),
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -15,8 +15,9 @@ export default class StarWidget extends Component {
 
     handleChange(e) {
         if (!this.props.readonly) {
-            this.setState({ rating: e.target.value });
-            if (typeof this.props.onChange == 'function') this.props.onChange(e.target.value);
+            const rating = parseInt(e.target.value, 10);
+            this.setState({ rating });
+            if (typeof this.props.onChange == 'function') this.props.onChange(rating);
         }
     }
 
@@ -55,7 +56,7 @@ export default class StarWidget extends Component {
 
     static propTypes = {
         id: PropTypes.string.isRequired,
-        initial: PropTypes.string.isRequired,
+        initial: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
         readonly: PropTypes.bool,
         onChange: PropTypes.func,
     };

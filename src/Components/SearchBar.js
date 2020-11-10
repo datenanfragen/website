@@ -4,7 +4,7 @@ import t from '../Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import * as Typesense from 'typesense';
 import { rethrow } from '../Utility/errors';
-import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
+import FeatureDisabledWidget from './FeatureDisabledWidget';
 import PropTypes from 'prop-types';
 
 export let SearchBar;
