@@ -786,7 +786,8 @@
         "event-duration": "Durée",
         "event-place": "Lieu de l'évènement",
         "event-date": "Date de l'évènement",
-        "license": "Licence"
+        "license": "Licence",
+        "404-alt": "Une personne assise sur le 0 d'un grand panneau 404. Elle tient un livre avec une page manquante."
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
