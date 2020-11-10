@@ -136,7 +136,9 @@ class CompanySearch extends Component {
 }
 
 let company_list_div = document.getElementById('company-list');
-render(<CompanyList />, company_list_div.parentElement, company_list_div);
+if (company_list_div) {
+    render(<CompanyList />, company_list_div.parentElement, company_list_div);
+}
 let search_div = document.getElementById('company-search');
 if (search_div) {
     let search_filters = search_div.dataset.filterCategory;
