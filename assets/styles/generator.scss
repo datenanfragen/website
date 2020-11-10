@@ -122,19 +122,6 @@ textarea:placeholder-shown + label.fancy-label {
     }
 }
 
-.signature-input {
-    .canvas-blocked-overlay {
-        background-color: color('gray', 700);
-        color: color('gray', 200);
-    }
-
-    canvas#signature {
-        user-select: none;
-        touch-action: none;
-        background-color: $bg-color;
-    }
-}
-
 /* PDF viewer (not exactly accurate anymore, is it? :D) */
 
 .company-info {
