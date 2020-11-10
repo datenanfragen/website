@@ -4,11 +4,6 @@ import RequestGeneratorBuilder from './RequestGeneratorBuilder';
 import { fakeEvt } from '../Utility/common';
 import { VALID_REQUEST_TYPES } from '../Utility/requests';
 
-// has to run before any rendering, webpack will remove this if the condition is false
-if (process.env.NODE_ENV === 'development') {
-    require('preact/debug');
-}
-
 export default class ActWidget extends Component {
     render() {
         return (

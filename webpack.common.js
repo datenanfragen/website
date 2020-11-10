@@ -21,18 +21,28 @@ module.exports = {
         'translations-dummy': ['./src/i18n/de.json', './src/i18n/en.json', './src/i18n/fr.json', './src/i18n/pt.json'],
     },
     optimization: {
+        runtimeChunk: 'single',
         splitChunks: {
             cacheGroups: {
+                commons: {
+                    name: 'commons',
+                    chunks: 'all',
+                    test: (module, chunks) => {
+                        // these are always included so others can reuse code from them, i.e. preact
+                        const splitForEntries = ['general', 'error-handler'];
+                        return chunks.filter((c) => splitForEntries.includes(c.name)).length > 0;
+                    },
+                    minChunks: 2,
+                    priority: -10,
+                },
                 vendors: {
                     name: 'vendors',
                     chunks: 'all',
-                    test: /[/\\]node_modules[/\\]/,
-                    minChunks: 2,
-                },
-                commons: {
-                    name: 'commons',
-                    chunks: 'initial',
-                    minChunks: 2,
+                    test: /[/\\]node_modules[/\\](?!@babel)/,
+                    // autocomplete.js, localforage, typesense
+                    minChunks: 4,
+                    priority: -20,
+                    reuseExistingChunk: true,
                 },
             },
         },
@@ -42,14 +52,18 @@ module.exports = {
         chunkFilename: 'js/[name].bundle.gen.js',
         publicPath: '/',
         path: path.resolve(__dirname, 'static'),
-        globalObject: 'self',
     },
     module: {
         rules: [
             {
                 test: /\.worker\.js$/,
                 use: [
-                    { loader: 'worker-loader' },
+                    {
+                        loader: 'worker-loader',
+                        options: {
+                            filename: 'js/[name].worker.gen.js',
+                        },
+                    },
                     {
                         loader: 'babel-loader',
                     },

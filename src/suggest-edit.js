@@ -133,8 +133,6 @@ function renderForm(schema, company = undefined) {
 
 document.getElementById('submit-suggest-form').onclick = () => {
     let data = bf.getData();
-    /* eslint-disable-next-line no-unused-vars */
-    const preact = require('preact');
     if (!data) {
         flash(<FlashMessage type="warning">{t('no-input', 'suggest')}</FlashMessage>);
         return;

@@ -11,11 +11,6 @@ import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import { SavedCompanies } from './Components/Wizard';
 import Modal, { showModal, dismissModal } from './Components/Modal';
 
-// has to run before any rendering, webpack will remove this if the condition is false
-if (process.env.NODE_ENV === 'development') {
-    require('preact/debug');
-}
-
 const HIDE_IN_WIZARD_MODE = [
     '.search',
     '.request-type-chooser',

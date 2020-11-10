@@ -18,54 +18,55 @@
     const COUNTRIES_WITH_SUGGESTED_COMPANIES = ['de', 'gb'];
     const BASE_URL = {{ "/" | absURL }};
 </script>
-<script src="{{ "js/vendors.bundle.gen.js" | absURL }}"></script>
+<script src="{{ "js/runtime.gen.js" | absURL }}"></script>
+<script src="{{ "js/vendors.bundle.gen.js" | absURL }}" defer></script>
 <script src="{{ "js/commons.bundle.gen.js" | absURL }}"></script>
 <script src="{{ "js/translations-requests.gen.js" | absURL }}"></script>
 <script src="{{ (printf "js/translations-%s.gen.js" .Site.Language.Lang) | absURL }}"></script>
-<script src="{{ "js/error-handler.gen.js" | absURL }}"></script>
-<script src="{{ "js/general.gen.js" | absURL }}"></script>
+<script src="{{ "js/error-handler.bundle.gen.js" | absURL }}"></script>
+<script src="{{ "js/general.bundle.gen.js" | absURL }}"></script>
 
 {{ if eq .Type "generator" }}
-<script src="{{ "js/generator.gen.js" | absURL }}"></script>
+<script src="{{ "js/generator.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{ if or (eq .Type "company") (eq .Type "categories") }}
-<script src="{{ "js/company-list.gen.js" | absURL }}"></script>
+<script src="{{ "js/company-list.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{ if eq .Type "my-requests" }}
-<script src="{{ "js/my-requests.gen.js" | absURL }}"></script>
+<script src="{{ "js/my-requests.bundle.gen.js" | absURL }}"></script>
 <script>renderMyRequestsWidget();</script>
 {{ end }}
 
 {{ if eq .Type "privacy-controls" }}
-<script src="{{ "js/privacy-controls.gen.js" | absURL }}"></script>
+<script src="{{ "js/privacy-controls.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{ if eq .Type "id-data-controls" }}
-<script src="{{ "js/id-data-controls.gen.js" | absURL }}"></script>
+<script src="{{ "js/id-data-controls.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{ if eq .Type "suggest" }}
-<script src="{{ "js/suggest-edit.gen.js" | absURL }}"></script>
+<script src="{{ "js/suggest-edit.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{ if eq .Type "supervisory-authorities" }}
-<script src="{{ "js/sva-finder.gen.js" | absURL }}"></script>
+<script src="{{ "js/sva-finder.bundle.gen.js" | absURL }}"></script>
 <script>renderSvaFinder();</script>
 {{ end }}
 
 {{ if eq .Type "act" }}
-<script src="{{ "js/act-widget.gen.js" | absURL }}"></script>
+<script src="{{ "js/act-widget.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{ if eq .Type "donate" }}
-<script src="{{ "js/donation-widget.gen.js" | absURL }}"></script>
+<script src="{{ "js/donation-widget.bundle.gen.js" | absURL }}"></script>
 <script>renderDonationWidget();</script>
 {{ end }}
 
 {{ if .IsHome }}
-<script src="{{ "js/home.gen.js" | absURL }}"></script>
+<script src="{{ "js/home.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{/* TODO: Do this in the js build via hugo pipes */}}
@@ -76,5 +77,5 @@
 
 {{ if .Site.Params.devMode }}
 <script>window.hugoDevMode = true;</script>
-<script src="{{ "js/test-interface.gen.js" | absURL }}"></script>
+<script src="{{ "js/test-interface.bundle.gen.js" | absURL }}"></script>
 {{ end }}

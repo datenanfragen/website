@@ -2,11 +2,6 @@ import { render } from 'preact';
 import t from 'Utility/i18n';
 import Wizard from 'Components/Wizard';
 
-// has to run before any rendering, webpack will remove this if the condition is false
-if (process.env.NODE_ENV === 'development') {
-    require('preact/debug');
-}
-
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
 const hero_rights = [
     t('data-access', 'home'),
