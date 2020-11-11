@@ -27,6 +27,6 @@ export default class Radio extends Component {
         value: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired,
-        label: PropTypes.string.isRequired,
+        label: PropTypes.node.isRequired,
     };
 }

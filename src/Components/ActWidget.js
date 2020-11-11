@@ -20,15 +20,11 @@ export default class ActWidget extends Component {
                         <>
                             {this.props.request_types.length > 1 ? (
                                 <RequestTypeChooserPlaceholder request_types={this.props.request_types} />
-                            ) : (
-                                ''
-                            )}
+                            ) : null}
 
                             {this.props.text_before_dynamic_input_container ? (
                                 <p>{this.props.text_before_dynamic_input_container}</p>
-                            ) : (
-                                ''
-                            )}
+                            ) : null}
 
                             <DynamicInputContainerPlaceholder
                                 allowAddingFields={false}
@@ -36,7 +32,7 @@ export default class ActWidget extends Component {
                                 allowChangingFieldDescriptions={false}
                             />
 
-                            {this.props.transport_medium !== 'email' ? <SignatureInputPlaceholder /> : []}
+                            {this.props.transport_medium !== 'email' ? <SignatureInputPlaceholder /> : null}
 
                             <div style="float: right; margin-top: 10px;">
                                 <ActionButtonPlaceholder />

@@ -14,6 +14,7 @@ class IdDataControls extends Component {
 
         this.savedIdData = new SavedIdData();
         this.state = {
+            reset_state: false,
             custom_id_data: [],
             fixed_id_data: {
                 name: '',
@@ -31,7 +32,6 @@ class IdDataControls extends Component {
         };
         this.resetSavedIdData();
 
-        this.handleCustomChange = this.handleCustomChange.bind(this);
         this.handleFixedChange = this.handleFixedChange.bind(this);
         this.handleSignatureChange = this.handleSignatureChange.bind(this);
     }
@@ -43,7 +43,10 @@ class IdDataControls extends Component {
                     <DynamicInputContainer
                         key="id-data-controls"
                         id="id-data-controls"
-                        onChange={this.handleCustomChange}
+                        onAddField={this.handleAddField}
+                        onRemoveField={this.handleRemoveField}
+                        onSetPrimaryAddress={() => {}}
+                        onChange={this.handleInputChange}
                         fields={this.state.custom_id_data}
                         title={t('saved-data', 'id-data-controls')}
                         hasPrimary={false}>
@@ -158,18 +161,59 @@ class IdDataControls extends Component {
         }
     }
 
-    handleCustomChange(data) {
-        if (data['id-data-controls'].length <= this.state.custom_id_data.length) {
-            // no new fields were added
-            this.savedIdData.clear();
-            this.savedIdData.storeArray(
-                data['id-data-controls'].concat(IdDataControls.fieldsArrayFromFixedData(this.state.fixed_id_data)),
-                false
-            );
-            this.savedIdData.storeSignature(this.state.signature);
-        }
-        this.setState({ custom_id_data: data['id-data-controls'] });
-    }
+    handleAddField = (_, type, value) => {
+        this.changeData((fields) => {
+            fields.push({
+                desc: 'input-' + Math.floor(Math.random() * 1000),
+                type,
+                optional: true,
+                value: value || (type === 'address' ? { primary: false } : ''),
+            });
+        });
+    };
+
+    handleRemoveField = (_, idx) => {
+        this.changeData((fields) => {
+            let field = fields[idx];
+            if (!field) throw new Error('index out of bounds');
+            fields.splice(idx, 1);
+        });
+    };
+
+    handleInputChange = (_, idx, prop, value) => {
+        this.changeData((fields) => {
+            let field = fields[idx];
+            if (!field) throw new Error('index out of bounds');
+            switch (prop) {
+                case 'desc':
+                case 'value':
+                    field[prop] = value;
+                    break;
+                default:
+                    field.value[prop] = value;
+            }
+        });
+    };
+
+    changeData = (closure) => {
+        this.setState(
+            (prev) => {
+                // will modify internally, so we don't need to return it from there
+                closure(prev.custom_id_data);
+                return prev;
+            },
+            () => {
+                let data = this.state.custom_id_data.concat(
+                    IdDataControls.fieldsArrayFromFixedData(this.state.fixed_id_data)
+                );
+                let signature = this.state.signature;
+                this.savedIdData.clear().then(() => {
+                    this.savedIdData.storeArray(data, false);
+                    this.savedIdData.storeSignature(signature);
+                });
+            }
+        );
+    };
 
     handleFixedChange(type, e) {
         let name = e.target.getAttribute('name');
@@ -228,12 +272,22 @@ class IdDataControls extends Component {
         this.savedIdData.getSignature().then((signature) => this.setState({ signature: signature }));
     }
 
+    queued = false;
+    enqueueReset() {
+        if (this.queued) return;
+        this.queued = true;
+        Promise.resolve().then(() => {
+            this.resetSavedIdData();
+            this.queued = false;
+        });
+    }
+
     componentDidMount() {
         window.addEventListener(ID_DATA_CHANGE_EVENT, (event) => {
-            this.resetSavedIdData();
+            this.enqueueReset();
         });
         window.addEventListener(ID_DATA_CLEAR_EVENT, (event) => {
-            this.resetSavedIdData();
+            this.enqueueReset();
         });
     }
 }

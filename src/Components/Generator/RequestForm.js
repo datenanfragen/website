@@ -23,7 +23,10 @@ export default class RequestForm extends Component {
                         title={t('rectification-data', 'generator')}
                         fields={this.props.request_data['rectification_data']}
                         hasPrimary={false}
-                        onChange={this.props.onChange}>
+                        onAddField={this.props.onAddField}
+                        onRemoveField={this.props.onRemoveField}
+                        onSetPrimaryAddress={this.props.onSetPrimaryAddress}
+                        onChange={this.props.onInputChange}>
                         <MarkupText id="rectification-data-explanation" />
                     </DynamicInputContainer>
                 );
@@ -36,7 +39,10 @@ export default class RequestForm extends Component {
                     <DynamicInputContainer
                         key="id_data"
                         id="id_data"
-                        onChange={this.props.onChange}
+                        onAddField={this.props.onAddField}
+                        onRemoveField={this.props.onRemoveField}
+                        onSetPrimaryAddress={this.props.onSetPrimaryAddress}
+                        onChange={this.props.onInputChange}
                         fields={this.props.request_data['id_data']}
                         title={t(
                             this.props.request_data.is_tracking_request ? 'id-data-tracking' : 'id-data',
@@ -308,6 +314,10 @@ export default class RequestForm extends Component {
         fillSignature: PropTypes.object,
         fillFields: PropTypes.arrayOf(PropTypes.object),
 
+        onAddField: PropTypes.func.isRequired,
+        onRemoveField: PropTypes.func.isRequired,
+        onSetPrimaryAddress: PropTypes.func.isRequired,
+        onInputChange: PropTypes.func.isRequired,
         onChange: PropTypes.func.isRequired,
         onTypeChange: PropTypes.func.isRequired,
         onLetterChange: PropTypes.func.isRequired,

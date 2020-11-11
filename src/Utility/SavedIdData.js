@@ -26,7 +26,7 @@ export default class SavedIdData {
                 rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
             })
             .then(() => {
-                window.dispatchEvent(new CustomEvent(ID_DATA_CHANGE_EVENT, { data: data }));
+                window.dispatchEvent(new CustomEvent(ID_DATA_CHANGE_EVENT, { detail: data }));
             });
     }
 
@@ -49,7 +49,7 @@ export default class SavedIdData {
                 rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
             })
             .then(() => {
-                window.dispatchEvent(new CustomEvent(ID_DATA_CHANGE_EVENT, { data: data }));
+                window.dispatchEvent(new CustomEvent(ID_DATA_CHANGE_EVENT, { detail: data }));
             });
     }
 
@@ -144,7 +144,7 @@ export default class SavedIdData {
     }
 
     clear(silent = true) {
-        this.localforage_instance.clear().then(() => {
+        return this.localforage_instance.clear().then(() => {
             if (!silent) window.dispatchEvent(new CustomEvent(ID_DATA_CLEAR_EVENT));
         });
     }

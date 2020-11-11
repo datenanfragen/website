@@ -68,7 +68,11 @@ const replacer_factory = (that) => ({
     ),
     RequestFormPlaceholder: (props) => (
         <RequestForm
-            onChange={that.handleInputChange}
+            onAddField={that.handleAddField}
+            onRemoveField={that.handleRemoveField}
+            onSetPrimaryAddress={that.handleSetPrimaryAddress}
+            onInputChange={that.handleInputChange}
+            onChange={that.handleRequestChange}
             onTypeChange={that.handleTypeChange}
             onLetterChange={that.handleCustomLetterPropertyChange}
             onTransportMediumChange={that.handleTransportMediumChange}
@@ -100,6 +104,9 @@ const replacer_factory = (that) => ({
         <DynamicInputContainer
             key="id_data"
             id="id_data"
+            onAddField={that.handleAddField}
+            onRemoveField={that.handleRemoveField}
+            onSetPrimaryAddress={that.handleSetPrimaryAddress}
             onChange={that.handleInputChange}
             fields={that.state.request.id_data}
             {...props}

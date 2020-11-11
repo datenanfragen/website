@@ -146,6 +146,66 @@ export default class Request {
         this.done = false;
     }
 
+    getFields(data) {
+        return this[data];
+    }
+
+    addField(data, type, value) {
+        const fields = this.getFields(data);
+        fields.push({
+            desc: '',
+            type,
+            optional: true,
+            value: value || (type === 'address' ? { primary: false } : ''),
+        });
+        this.ensurePrimaryAddress(data);
+    }
+
+    removeField(data, idx) {
+        const fields = this.getFields(data);
+        let field = fields[idx];
+        if (!field) throw new Error('index out of bounds');
+        fields.splice(idx, 1);
+        // always have a primary address
+        this.ensurePrimaryAddress(data);
+    }
+
+    ensurePrimaryAddress(data) {
+        const fields = this.getFields(data);
+        if (!fields.find((f) => f.type === 'address' && f.value.primary)) {
+            let address = fields.find((f) => f.type === 'address');
+            if (address) address.value.primary = true;
+        }
+    }
+
+    setPrimaryAddress(data, idx) {
+        const fields = this.getFields(data);
+        let field = fields[idx];
+        if (!field) throw new Error('index out of bounds');
+        if (field.type !== 'address') {
+            throw new Error("can't set something that's not an address as primary");
+        }
+        fields.forEach((field, i) => {
+            if (field.type === 'address') {
+                field.value.primary = idx === i;
+            }
+        });
+    }
+
+    changeField(data, idx, prop, value) {
+        const fields = this.getFields(data);
+        let field = fields[idx];
+        if (!field) throw new Error('index out of bounds');
+        switch (prop) {
+            case 'desc':
+            case 'value':
+                field[prop] = value;
+                break;
+            default:
+                field.value[prop] = value;
+        }
+    }
+
     /**
      * Save this request in the 'My requests' feature.
      */
