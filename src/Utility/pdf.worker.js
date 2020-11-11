@@ -2,7 +2,7 @@ import PdfRenderer from 'letter-generator/PdfRenderer';
 
 onmessage = (e) => {
     const pdf_renderer = new PdfRenderer(e.data.pdfdoc);
-    pdf_renderer.setFonts(require('../../static/js/vfs_fonts.js').pdfMake.vfs, {
+    pdf_renderer.setFonts(require('./vfs_fonts.js').pdfMake.vfs, {
         Roboto: {
             normal: 'Roboto-Regular.ttf',
             bold: 'Roboto-Medium.ttf',
