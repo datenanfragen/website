@@ -271,7 +271,9 @@ export default class DonationWidget extends Component {
         e.preventDefault();
         if (this.state.ongoing_request) return;
 
-        this.setState({ donation_reference: almostUniqueId() });
+        const donation_reference = almostUniqueId();
+        // setState is async you won't be able to use the new value in this function
+        this.setState({ donation_reference });
 
         if (this.state.amount <= 0) {
             flash(<FlashMessage type="error">{t('error-amount-invalid', 'donation-widget')}</FlashMessage>);
@@ -290,12 +292,8 @@ export default class DonationWidget extends Component {
 
                 import(/* webpackChunkName: "bank-transfer-codes" */ '../Utility/bank-transfer-codes').then(
                     (module) => {
-                        module.renderEpcrQr(this.epcr_canvas_ref, this.state.amount, this.state.donation_reference);
-                        module.renderBezahlcodeQr(
-                            this.bezahlcode_canvas_ref,
-                            this.state.amount,
-                            this.state.donation_reference
-                        );
+                        module.renderEpcrQr(this.epcr_canvas_ref, this.state.amount, donation_reference);
+                        module.renderBezahlcodeQr(this.bezahlcode_canvas_ref, this.state.amount, donation_reference);
                     }
                 );
                 break;
@@ -309,15 +307,15 @@ export default class DonationWidget extends Component {
                         cmd: '_donations',
                         amount: Number(this.state.amount).toFixed(2),
                         item_name: t('reference-value', 'donation-widget', {
-                            reference: this.state.donation_reference,
+                            reference: donation_reference,
                         }),
                         currency_code: 'EUR',
                         business: 'paypal@datenanfragen.de',
                         image_url: 'https://www.datenanfragen.de/img/logo-datenanfragen-ev.png',
                         no_shipping: 1,
-                        return: `${BASE_URL}thanks#!donation_reference=${this.state.donation_reference}`,
+                        return: `${BASE_URL}thanks#!donation_reference=${donation_reference}`,
                         cancel_return: `${BASE_URL}donate`,
-                        custom: this.state.donation_reference,
+                        custom: donation_reference,
                     },
                     '_top'
                 );
@@ -329,8 +327,8 @@ export default class DonationWidget extends Component {
                 const donation = {
                     method: this.state.payment_method,
                     amount: Number(this.state.amount).toFixed(2),
-                    description: t('reference-value', 'donation-widget', { reference: this.state.donation_reference }),
-                    reference: this.state.donation_reference,
+                    description: t('reference-value', 'donation-widget', { reference: donation_reference }),
+                    reference: donation_reference,
                     redirect_base: BASE_URL,
                 };
                 this.setState({ ongoing_request: true });
@@ -348,7 +346,7 @@ export default class DonationWidget extends Component {
                             throw new CriticalException(
                                 'Malformed response body when trying to get payment provider auth URL.',
                                 {
-                                    donation_reference: this.state.donation_reference,
+                                    donation_reference,
                                     request: donation,
                                     response: data,
                                 },
