@@ -26,7 +26,7 @@ Angesichts dieser Erkenntnisse raten wir Dir, vor einer Nutzung der Ada Health-A
 
 ## Wie kann ich meine Daten löschen lassen?
 
-<img class="offset-image offset-image-right" src="/card-icons/erase.svg" style="height: 150px; margin-right: -80px;">
+<img class="offset-image offset-image-right" src="/card-icons/erase.svg" style="height: 150px; margin-right: -80px;" alt="">
 
 Hast Du die App genutzt und warst Dir dieser Datenweitergabe vielleicht nicht bewusst? Zum Glück musst Du Dich nicht damit abfinden, dass Deine Gesundheitsdaten für immer bei diesen Anbietern bleiben. Die bereits erwähnte DSGVO gibt Dir nämlich eine ganze Reihe an [Rechten im Bezug auf Deine personenbezogenen Daten]({{< ref "your-gdpr-rights" >}}), darunter auch das Rechte, Deine Daten löschen zu lassen – das sogenannte [**Recht auf Vergessenwerden**]({{< ref "your-gdpr-rights" >}}#recht-auf-vergessenwerden).
 

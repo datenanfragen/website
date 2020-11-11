@@ -18,7 +18,7 @@ describe('Generator component', () => {
 
     it('did not load pdfworker for email', () => {
         skipOn(isOn('production'));
-        
+
         cy.window().then((win) => {
             expect(win.pdfWorker).to.be.undefined;
         });
@@ -39,5 +39,36 @@ describe('Generator component', () => {
             expect(win.pdfWorker).respondTo('onmessage');
             expect(win.pdfWorker).respondTo('onerror');
         });
+    });
+
+    it("reflects 'Get data in a machine-readable format' checkbox in the generated request [false]", () => {
+        cy.get('#request-flags-data-portability').uncheck();
+        cy.contains('Send email').click();
+        cy.contains('Default email software')
+            .should('have.attr', 'href')
+            .and('not.match', /^.*?machine-readable.*$/);
+    });
+
+    it("reflects 'Get data in a machine-readable format' checkbox in the generated request [true]", () => {
+        cy.get('#request-flags-data-portability').check();
+        cy.contains('Send email').click();
+        cy.contains('Default email software')
+            .should('have.attr', 'href')
+            .and('match', /^.*?machine-readable.*$/);
+    });
+
+    it('loads company from slug', () => {
+        cy.visit('/generator/#!company=facebook');
+        cy.reload();
+        cy.contains('Facebook Ireland Ltd.');
+    });
+
+    it('loads companies from slug', () => {
+        cy.visit('/generator/#!companies=facebook,google');
+        cy.reload();
+        cy.contains('Facebook Ireland Ltd.');
+        cy.contains('Next request').click();
+        cy.contains('New request').click();
+        cy.contains('Google LLC');
     });
 });

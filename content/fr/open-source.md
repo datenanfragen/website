@@ -5,7 +5,7 @@
 	"heading": "<span style='text-align: center; font-family: monospace;'>demandetesdonnees.fr <span class='color-red-600' title='aime'>❤</span> l'Open Source</span>"
 }
 
-<img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg">
+<img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
 
 L'Open Source est au cœur même de demandetesdonnees.fr. Nous avons conçu ce projet à partir de rien pour qu'il soit le plus ouvert possible. Notre [constitution]({{< ref "verein/constitution" >}}) nous engage à publier notre contenu sous licence libre.
 

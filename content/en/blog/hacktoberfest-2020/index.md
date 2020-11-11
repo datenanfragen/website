@@ -71,7 +71,7 @@ We may also accept additional repositories. If you think that your contribution 
 
 ## Do you have any suggestions on what to contribute?
 
-<img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;">
+<img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
 
 If you're new to Datenanfragen.de, you may be a little overwhelmed and don't know where to start. Don't worry: There are numerous areas in which you can participate—regardless of whether you have experience with programming and data protection or not. To make it easier for you to get started, we have put together a few suggestions here. You can find many more tasks in the issues of the respective repositories. Of course we also welcome your own ideas on how you could improve the project.
 

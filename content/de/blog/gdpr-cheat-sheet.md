@@ -11,7 +11,7 @@
     "authors": [ "baltpeter" ]
 }
 
-<img class="offset-image offset-image-left" src="/card-icons/book-info.svg" style="height: 200px;">
+<img class="offset-image offset-image-left" src="/card-icons/book-info.svg" style="height: 200px;" alt="">
 
 Die DSGVO kann, wie jedes andere rechtliche Thema auch, auf den ersten Blick verwirrend wirken. Sie führt zahlreiche juristische Begriffe ein, die zum Verständnis der Regelungen wichtig sind.
 

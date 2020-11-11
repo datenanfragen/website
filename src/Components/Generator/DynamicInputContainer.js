@@ -106,7 +106,7 @@ export default class DynamicInputContainer extends Component {
                             </button>
                             {this.props.fillFields && fill_fields.length > 0 ? (
                                 <div className="dropdown-container">
-                                    <button className="button button-primary">
+                                    <button className="button button-primary" title={t('add-fill-field', 'generator')}>
                                         <span className="icon icon-fill" />
                                     </button>
                                     <div className="dropdown">

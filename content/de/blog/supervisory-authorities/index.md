@@ -16,7 +16,7 @@
     "blog_like": true
 }
 
-<img class="offset-image offset-image-left" src="/card-icons/authority.svg" style="height: 200px;">
+<img class="offset-image offset-image-left" src="/card-icons/authority.svg" style="height: 200px;" alt="">
 
 Die Datenschutz-Aufsichtsbehörden sind eine wichtige Instanz für den Datenschutz. Sie sollen als unabhängige Stellen die Einhaltung der Datenschutzgesetze, insbesondere der DSGVO, sicherstellen.
 
@@ -41,7 +41,7 @@ Dabei ist zu beachten, dass dieser Grundsatz nur regelt, mit welcher Behörde Du
 <a id="finder"></a>
 ## An welche Datenschutz-Aufsichtsbehörde sollte ich mich wenden?
 
-<img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;">
+<img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;" alt="">
 
 Wenn Du nun also eine konkrete Beschwerde oder sonstige Frage hast und die Hilfe einer Datenschutz-Aufsichtsbehörde in Anspruch nehmen möchtest, bleibt die Frage, an welche Du die wenden solltest. Grundsätzlich wird Dich auch eine „falsche“ Behörde im Zweifelsfall an die richtige weiterleiten, aber es ist natürlich einfacher und schneller, wenn Du direkt die Behörde erwischst, die für Dich zuständig ist.
 

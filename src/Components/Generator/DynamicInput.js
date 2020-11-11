@@ -26,6 +26,10 @@ export default class DynamicInput extends Component {
                         required={!this.props.optional}
                         onChange={this.props.onChange}
                         value={this.props.value}
+                        // The controls usually automatically add a label if they know their description. If changing
+                        // the description is not allowed, though, a label is already set simply by the description
+                        // text. In that case, we obviously don't want to generate a second label.
+                        suppressLabel={this.props.allowChangingDescription}
                     />
                 );
                 if (this.props.hasPrimary)
@@ -52,6 +56,7 @@ export default class DynamicInput extends Component {
                         required={!this.props.optional}
                         onChange={this.props.onChange}
                         value={this.props.value}
+                        suppressLabel={this.props.allowChangingDescription}
                     />
                 );
                 break;
@@ -64,6 +69,7 @@ export default class DynamicInput extends Component {
                         required={!this.props.optional}
                         onChange={this.props.onChange}
                         value={this.props.value}
+                        suppressLabel={this.props.allowChangingDescription}
                     />
                 );
                 break;
@@ -78,6 +84,7 @@ export default class DynamicInput extends Component {
                         required={!this.props.optional}
                         onChange={this.props.onChange}
                         value={this.props.value}
+                        suppressLabel={this.props.allowChangingDescription}
                     />
                 );
                 break;
@@ -96,35 +103,45 @@ export default class DynamicInput extends Component {
                                         rel={this.props.id}
                                         className="dynamic-input-delete button button-secondary button-small icon-trash"
                                         onClick={this.props.removeHandler}
+                                        title={t('delete-field', 'generator')}
                                     />
                                 </div>
                             ) : (
                                 []
                             )}
                             <div style="display: table-cell;">
-                                <label htmlFor={this.props.id + '-desc-' + this.props.suffix} className="sr-only">
-                                    <Text id="description" />
-                                </label>
-                                <input
-                                    key={this.props.id + this.props.suffix}
-                                    name="desc"
-                                    type="text"
-                                    id={this.props.id + '-desc-' + this.props.suffix}
-                                    rel={this.props.id}
-                                    className={'form-element' + (this.props.allowChangingDescription ? '' : ' hidden')}
-                                    value={this.props.desc}
-                                    placeholder={t('description', 'generator')}
-                                    style="margin-left: 5px;"
-                                    required={!this.props.optional}
-                                    onChange={this.props.onChange}
-                                    onFocus={(e) => {
-                                        this.setState({ focus: true });
-                                    }}
-                                    onBlur={(e) => {
-                                        this.setState({ focus: false });
-                                    }}
-                                />
-                                {this.props.allowChangingDescription ? '' : <span>{this.props.desc}:</span>}
+                                {this.props.allowChangingDescription ? (
+                                    [
+                                        <label
+                                            htmlFor={this.props.id + '-desc-' + this.props.suffix}
+                                            className="sr-only">
+                                            <Text id="description" />
+                                        </label>,
+                                        <input
+                                            key={this.props.id + this.props.suffix}
+                                            name="desc"
+                                            type="text"
+                                            id={this.props.id + '-desc-' + this.props.suffix}
+                                            rel={this.props.id}
+                                            className="form-element"
+                                            value={this.props.desc}
+                                            placeholder={t('description', 'generator')}
+                                            style="margin-left: 5px;"
+                                            required={!this.props.optional}
+                                            onChange={this.props.onChange}
+                                            onFocus={(e) => {
+                                                this.setState({ focus: true });
+                                            }}
+                                            onBlur={(e) => {
+                                                this.setState({ focus: false });
+                                            }}
+                                        />,
+                                    ]
+                                ) : (
+                                    <label htmlFor={this.props.id + '-value-' + this.props.suffix}>
+                                        {this.props.desc}
+                                    </label>
+                                )}
                             </div>
                         </div>
                         {control}
@@ -184,9 +201,14 @@ export class TextareaControl extends Component {
     render() {
         return (
             <div className="form-group">
-                <label for={this.props.id + '-value-' + this.props.suffix} className="sr-only">
-                    {this.props.desc}
-                </label>
+                {!this.props.suppressLabel && this.props.desc ? (
+                    <label for={this.props.id + '-value-' + this.props.suffix} className="sr-only">
+                        {this.props.desc}
+                    </label>
+                ) : (
+                    ''
+                )}
+
                 <textarea
                     key={this.props.id + this.props.suffix}
                     name="value"
@@ -212,6 +234,7 @@ export class TextareaControl extends Component {
         id: PropTypes.string.isRequired,
         suffix: PropTypes.string.isRequired,
 
+        suppressLabel: PropTypes.bool,
         desc: PropTypes.string,
 
         required: PropTypes.bool,
@@ -234,12 +257,12 @@ export class InputControl extends Component {
     render() {
         return (
             <div className="form-group">
-                {this.props.desc ? (
+                {!this.props.suppressLabel && this.props.desc ? (
                     <label htmlFor={this.props.id + '-value-' + this.props.suffix} className="sr-only">
                         {this.props.desc}
                     </label>
                 ) : (
-                    []
+                    ''
                 )}
                 <input
                     key={this.props.id + this.props.suffix}
@@ -267,6 +290,7 @@ export class InputControl extends Component {
         id: PropTypes.string.isRequired,
         suffix: PropTypes.string,
 
+        suppressLabel: PropTypes.bool,
         desc: PropTypes.string,
 
         required: PropTypes.bool,
@@ -289,7 +313,7 @@ export class DateControl extends Component {
     render() {
         return (
             <div className="form-group">
-                {this.props.desc ? (
+                {!this.props.suppressLabel && this.props.desc ? (
                     <label htmlFor={this.props.id + '-value-' + this.props.suffix} className="sr-only">
                         {this.props.desc}
                     </label>
@@ -322,6 +346,7 @@ export class DateControl extends Component {
         id: PropTypes.string.isRequired,
         suffix: PropTypes.string,
 
+        suppressLabel: PropTypes.bool,
         desc: PropTypes.string,
 
         required: PropTypes.bool,
