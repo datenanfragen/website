@@ -1,5 +1,5 @@
 describe('Using the suggest form', () => {
-    it('navigates to the suggest form', () => {
+    it('navigates to the suggest form and sends its content', () => {
         cy.visit('/');
         cy.contains('a', 'Company database').click();
         cy.contains('Suggest a new company').click();
