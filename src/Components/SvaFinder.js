@@ -24,14 +24,14 @@ const STEPS = {
                     kathmsw: 'dekathffdsz',
                     kathnd: 'dekathnordddsb',
                     kathod: 'dekathostddsb',
-                    kathsonst: 'dekathverbdsb'
-                }
+                    kathsonst: 'dekathverbdsb',
+                },
             },
             land: {
                 bawue: 'debawueldb',
                 bay: {
                     oeff: 'debayldb',
-                    priv: 'debaylda'
+                    priv: 'debaylda',
                 },
                 ber: 'deberlbdi',
                 bra: 'debralda',
@@ -46,8 +46,8 @@ const STEPS = {
                 sachs: 'desaechsdsb',
                 sa: 'desalbd',
                 sh: 'deshuld',
-                thue: 'detlfdi'
-            }
+                thue: 'detlfdi',
+            },
         },
         gr: 'grdpa',
         hu: 'hunaih',
@@ -69,43 +69,41 @@ const STEPS = {
         is: 'isdpa',
         li: 'lidss',
         no: 'nods',
-        ch: 'chedoeb'
-    }
+        ch: 'chedoeb',
+    },
 };
 
-let initial_state = {
+const INITIAL_STATE = {
     step: STEPS['country'],
     question: t('country', 'sva-finder'),
-    result: false
+    result: false,
 };
 
 export default class SvaFinder extends preact.Component {
     constructor(props) {
         super(props);
 
-        this.state = initial_state;
-
-        this.selectOption = this.selectOption.bind(this);
+        this.state = INITIAL_STATE;
     }
 
-    selectOption(option) {
-        let next_step = this.state.step[option];
+    selectOption = (option) => {
+        const next_step = this.state.step[option];
         if (typeof next_step === 'object') {
             this.setState({
                 step: next_step,
-                question: t(option + '-q', 'sva-finder')
+                question: t(option + '-q', 'sva-finder'),
             });
         } else {
             this.setState({ result: next_step });
         }
-    }
+    };
 
     render() {
         let content;
 
         if (this.state.result) {
             if (typeof this.props.callback === 'function') {
-                fetchSvaDataBySlug(this.state.result).then(sva => {
+                fetchSvaDataBySlug(this.state.result).then((sva) => {
                     this.props.callback(sva);
                 });
 
@@ -120,12 +118,12 @@ export default class SvaFinder extends preact.Component {
                 </p>
             );
         } else {
-            let entries = Object.keys(this.state.step).reduce((acc, val) => {
+            const entries = Object.keys(this.state.step).reduce((acc, val) => {
                 // This is a little ugly conceptually but I really don't like storing the country names multiple times.
                 acc[val] = t(val, 'sva-finder') || t(val, 'countries');
                 return acc;
             }, {});
-            let sorted_keys = Object.keys(entries).sort((a, b) => {
+            const sorted_keys = Object.keys(entries).sort((a, b) => {
                 // So, this is a fairly ugly but we want to move the user's country to the first position and this is the least awful way I can think of, considering we are already sorting the array anyway.
                 if (STEPS.country[globals.country]) {
                     if (a == globals.country) return -1;
@@ -134,40 +132,35 @@ export default class SvaFinder extends preact.Component {
                 return entries[a].localeCompare(entries[b]);
             });
 
-            let options = [];
-            sorted_keys.forEach(key => {
-                options.push(
-                    <label className={'radio-label' + (key == globals.country ? ' active' : '')}>
-                        <input
-                            className="form-element"
-                            onClick={() => {
-                                this.selectOption(key);
-                            }}
-                        />
-                        {entries[key]}
-                    </label>
-                );
-            });
+            const options = sorted_keys.map((key) => (
+                <label className={'radio-label' + (key == globals.country ? ' active' : '')}>
+                    <input
+                        className="form-element"
+                        onClick={() => {
+                            this.selectOption(key);
+                        }}
+                    />
+                    {entries[key]}
+                </label>
+            ));
 
             content = [
                 <p style="margin-top: 0;">{this.state.question}</p>,
                 <div className="radio-group radio-group-vertical" style="max-height: 40vh; overflow: auto;">
                     {options}
-                </div>
+                </div>,
             ];
         }
 
-        let heading = this.props.callback ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>;
-
         return (
             <div className="sva-finder box box-info" style={this.props.style}>
-                {heading}
+                {this.props.callback ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
                 {content}
                 <div style="float: right; margin-top: 20px;">
                     <button
                         className="button button-secondary button-small"
                         onClick={() => {
-                            this.setState(initial_state);
+                            this.setState(INITIAL_STATE);
                         }}>
                         {t('reset', 'sva-finder')}
                     </button>
@@ -178,8 +171,8 @@ export default class SvaFinder extends preact.Component {
     }
 }
 
-window.renderSvaFinder = function() {
-    document.querySelectorAll('.sva-finder').forEach(el => {
+window.renderSvaFinder = function () {
+    document.querySelectorAll('.sva-finder').forEach((el) => {
         preact.render(<SvaFinder />, null, el);
     });
 };
@@ -247,5 +240,5 @@ const SVAS = {
     sedi: 'Datainspektionen (Swedish Data Protection Authority)',
     siiprs: 'Informacijski pooblaščenec (Information Commissioner of the Republic of Slovenia)',
     skunoou:
-        'Úrad na ochranu osobných údajov Slovenskej republiky (Office for Personal Data Protection of the Slovak Republic)'
+        'Úrad na ochranu osobných údajov Slovenskej republiky (Office for Personal Data Protection of the Slovak Republic)',
 };
