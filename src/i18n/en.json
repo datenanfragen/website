@@ -75,7 +75,7 @@
         "cdb-intro": "We have the following contact information on “{{ .Params.name }}” for you to use for privacy-related requests:",
         "adb-intro": "We have the following contact information on “{{ .Params.name }}” for you to use to lodge complaints:",
         "cdb-address": "Address:",
-        "cdb-attn": "Attn: Data Protection Officer",
+        "cdb-attn": "Attn: Data Protection",
         "cdb-phone": "Phone:",
         "cdb-fax": "Fax:",
         "cdb-email": "Email:",
@@ -374,7 +374,7 @@
         "birthdate": "Date of birth",
         "address": "Address",
         "email": "Email address",
-        "attn": "Attn: Data Protection Officer",
+        "attn": "Attn: Data Protection",
         "by-fax": "By Fax: ",
         "concerns": "Concerns"
     },

@@ -75,7 +75,7 @@
         "cdb-intro": "Zu „{{ .Params.name }}“ sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Fragen zum Datenschutz stellen möchtest:",
         "adb-intro": "Zu „{{ .Params.name }}“ sind uns die folgenden Kontaktdaten bekannt, an die Du Dich wenden kannst, wenn Du Beschwerden über Organisationen einreichen möchtest:",
         "cdb-address": "Adresse:",
-        "cdb-attn": "Datenschutzbeauftragte_r",
+        "cdb-attn": "Betrifft: Datenschutz",
         "cdb-phone": "Telefon:",
         "cdb-fax": "Fax:",
         "cdb-email": "E-Mail:",
@@ -374,7 +374,7 @@
         "birthdate": "Geburtsdatum",
         "address": "Adresse",
         "email": "E-Mail-Adresse",
-        "attn": "Datenschutzbeauftragte_r",
+        "attn": "Betrifft: Datenschutz",
         "by-fax": "Per Fax: ",
         "concerns": "Betrifft"
     },
