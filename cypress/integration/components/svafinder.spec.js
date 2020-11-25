@@ -1,3 +1,5 @@
+import { isOn, skipOn } from '@cypress/skip-test';
+
 describe('SvaFinder component', () => {
     beforeEach(() => {
         cy.visit('/supervisory-authorities');
@@ -87,6 +89,8 @@ describe('SvaFinder component', () => {
     });
 
     it('works in the generator for complaints', () => {
+        skipOn(isOn('production'));
+
         cy.window()
             .then((win) => {
                 return win.accessLocalForageStore('my-requests').then((instance) =>
