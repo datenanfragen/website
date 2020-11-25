@@ -383,7 +383,13 @@
         "kathnd": "Diocèses du Nord de l'Allemagne (archevêques de Hambourg, diocèse de Hildesheim, diocèse de Osnabrück, diocèse de Munich (Partie de Basse-Saxe))",
         "kathod": "Diocèses de l'Est de l'Allemagne (archevêché de Berlin, diocèse de Dresde-Meissen, diocèse de Erfurt, diocèse de Görlitz, diocèse de Magdebourg)",
         "kathsonst": "Autres diocèses et demandes générales",
-        "de-q": "Laquelle des zones suivantes ta demande concerne-t-elle ?"
+        "de-q": "Laquelle des zones suivantes ta demande concerne-t-elle ?",
+        "private-other-q": "Dans quel État vis-tu ?",
+        "private-other": "Entité basée dans un autre pays",
+        "private-de-q": "Dans quel État l'entité concernant ta demande est-elle basée ?",
+        "private-de": "Entité basée en Allemagne",
+        "private-q": "L'entité concernant ta demande est-elle également basée en Allemagne ?",
+        "private": "Entité publique ou privée (par ex. une entreprise, une organisation, un État ou une autorité locale)"
     },
     "countries": {
         "__taken_from": "https://github.com/stefangabos/world_countries",
