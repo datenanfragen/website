@@ -38,9 +38,9 @@ describe('Using the suggest form', () => {
         cy.window().then((win) => {
             const body = win.fetchlog[0][1].body;
             const json = JSON.parse(body);
-            if (json.data.name !== 'Test Company LLC') throw new Error('Name wrong.');
-            if (json.data.address !== 'Test Address 123\nTestcity') throw new Error('Address wrong.');
-            if (!json.new) throw new Error("'new' isn't true");
+            expect(json.data.name).to.equal('Test Company LLC');
+            expect(json.data.address).to.equal('Test Address 123\nTestcity');
+            expect(json.new).to.be.true;
         });
     });
 });

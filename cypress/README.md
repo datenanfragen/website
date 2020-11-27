@@ -8,7 +8,7 @@ The tests are automatically run by the CI environment.
 
 To run them locally, you can use the Cypress test runner. Make sure you have the correct dependencies installed by running: `yarn cypress verify`
 
-If you want to, you can override the launch URLs:  
+If you want to, you can override the launch URLs:
 ```sh
 export CYPRESS_baseUrl='http://localhost:1314'
 ```
