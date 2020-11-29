@@ -148,7 +148,12 @@ export default class DynamicInputContainer extends Component {
     }
 
     addDynamicInput() {
-        this.props.onAddField(this.props.id, this.state.dynamicInputType);
+        this.props.onAddField(this.props.id, {
+            desc: '',
+            type: this.state.dynamicInputType,
+            optional: true,
+            value: this.state.dynamicInputType === 'address' ? {} : '',
+        });
     }
 
     addFillField(newField) {
@@ -159,7 +164,7 @@ export default class DynamicInputContainer extends Component {
                 return;
             } // TODO: Also check for desc while I am at it?
         }
-        this.props.onAddField(this.props.id, newField.type);
+        this.props.onAddField(this.props.id, newField);
     }
 
     removeDynamicInput(event) {

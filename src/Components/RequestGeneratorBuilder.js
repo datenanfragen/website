@@ -281,9 +281,9 @@ export default class RequestGeneratorBuilder extends Component {
         });
     };
 
-    handleAddField = (data, type, value) => {
+    handleAddField = (data, type, props) => {
         this.changeRequest((req) => {
-            req.addField(data, type, value);
+            req.addField(data, type, props);
         });
     };
 
@@ -325,28 +325,25 @@ export default class RequestGeneratorBuilder extends Component {
     handleTransportMediumChange = (e) => {
         const by_fax_text = t_r('by-fax', this.state.request.language);
 
-        this.changeRequest(
-            (request, prev) => {
-                request.transport_medium = e.target.value;
-                switch (e.target.value) {
-                    case 'fax':
-                        if (prev.suggestion && !request.recipient_address.includes(by_fax_text)) {
-                            request.recipient_address += '\n' + by_fax_text + (prev.suggestion.fax || '');
-                        }
-                        break;
-                    case 'letter': // fallthrough intentional
-                    case 'email':
-                        request.recipient_address = request.recipient_address.replace(
-                            new RegExp('(?:\\r\\n|\\r|\\n)' + by_fax_text + '\\+?[0-9\\s]*', 'gm'),
-                            ''
-                        );
-                        break;
-                }
+        this.changeRequest((request, prev) => {
+            request.transport_medium = e.target.value;
+            switch (e.target.value) {
+                case 'fax':
+                    if (prev.suggestion && !request.recipient_address.includes(by_fax_text)) {
+                        request.recipient_address += '\n' + by_fax_text + (prev.suggestion.fax || '');
+                    }
+                    break;
+                case 'letter': // fallthrough intentional
+                case 'email':
+                    request.recipient_address = request.recipient_address.replace(
+                        new RegExp('(?:\\r\\n|\\r|\\n)' + by_fax_text + '\\+?[0-9\\s]*', 'gm'),
+                        ''
+                    );
+                    break;
+            }
 
-                request.data_portability = e.target.value === 'email';
-            },
-            () => this.renderLetter()
-        );
+            request.data_portability = e.target.value === 'email';
+        });
     };
 
     handleCustomLetterPropertyChange = (e, address_change = false) => {

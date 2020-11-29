@@ -150,13 +150,14 @@ export default class Request {
         return this[data];
     }
 
-    addField(data, type, value) {
+    addField(data, props) {
+        if (!props.type) throw new Error('field must have a type.');
         const fields = this.getFields(data);
         fields.push({
             desc: '',
-            type,
             optional: true,
-            value: value || (type === 'address' ? { primary: false } : ''),
+            value: props.type === 'address' ? { primary: false } : '',
+            ...props,
         });
         this.ensurePrimaryAddress(data);
     }

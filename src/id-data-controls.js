@@ -161,10 +161,10 @@ class IdDataControls extends Component {
         }
     }
 
-    handleAddField = (_, type, value) => {
+    handleAddField = (_, { desc, value, type }) => {
         this.changeData((fields) => {
             fields.push({
-                desc: 'input-' + Math.floor(Math.random() * 1000),
+                desc: desc || 'input-' + Math.floor(Math.random() * 1000),
                 type,
                 optional: true,
                 value: value || (type === 'address' ? { primary: false } : ''),
