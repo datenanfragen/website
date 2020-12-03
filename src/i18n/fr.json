@@ -4,7 +4,9 @@
         "suggest-a-company": "Suggérer une nouvelle entreprise",
         "also-runs": "Également applicable : ",
         "categories": "Catégories : ",
-        "search-disabled": "Tu as désactivé la fonctionnalité de recherche. Si tu souhaites l'activer, jette un œil aux <a href='/options-de-confidentialite'>options de confidentialité</a>."
+        "search-disabled": "Tu as désactivé la fonctionnalité de recherche. Si tu souhaites l'activer, jette un œil aux <a href='/options-de-confidentialite'>options de confidentialité</a>.",
+        "quality-unverified": "Les informations de contact de cet enregistrement ont été importées automatiquement. Nous ne les avons pas vérifiées.",
+        "quality-tested": "Au moins un de nos contributeurs a réussi à envoyer une demande en utilisant les informations de contact de cet enregistrement."
     },
     "cdb": {
         "select-company": "Rechercher une entreprise…",
@@ -249,7 +251,8 @@
         "travel": "voyage",
         "utility": "services publics",
         "suggested": "suggéré",
-        "other": "autre"
+        "other": "autre",
+        "church": "église"
     },
     "wizard": {
         "suggested": "<p>La première étape pour reprendre le contrôle de tes données est de savoir quelles données les entreprises ont stockées sur toi. Notre assistant t'aide à identifier les entreprises qui peuvent stocker des données personnelles te concernant pour ensuite leur envoyer des demandes d'accès RGPD.</p>{{suggested}}<p>Nous te proposerons des catégories d'entreprises avec lesquelles tu pourrais avoir eu des interactions au cours des prochaines étapes. Tu peux alors ajouter d'autres entreprises de ces catégories et bien sûr toujours supprimer les entreprises précédemment ajoutées si tu changes d'avis.</p><p>Une fois que tu es satisfait de ta sélection, clique sur « Suivant » pour passer à la première catégorie.</p>",
@@ -793,7 +796,9 @@
         "event-place": "Lieu de l'évènement",
         "event-date": "Date de l'évènement",
         "license": "Licence",
-        "404-alt": "Une personne assise sur le 0 d'un grand panneau 404. Elle tient un livre avec une page manquante."
+        "404-alt": "Une personne assise sur le 0 d'un grand panneau 404. Elle tient un livre avec une page manquante.",
+        "cdb-warning-unverified": "<strong>Avertissement</strong> : Nous<em>n'avons pas</em> vérifié les informations de cet enregistrement, elles ont été importées automatiquement. Quelque-chose ne va pas ? Nous apprécierons beaucoup si tu <a href='{{ .editUrl }}'>envoyais une correction</a>. Merci pour ton aide !",
+        "church": "église"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
