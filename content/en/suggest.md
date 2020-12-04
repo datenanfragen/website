@@ -9,17 +9,17 @@ Just enter the desired information in the form below and click *Submit*. If poss
 <details>
 <summary>Tips for enthusiasts</summary>
 If you want to get into the details of how we collect the data for our company database, you can read these tips.
-Considering these tips when suggesting companies helps us a lot, but is <strong>completely optional</strong>. Whether if you follow none of these tips, one, some, or all: We are happy about every suggestion!
+Considering these tips when suggesting companies helps us a lot, but is <strong>completely optional</strong>. Whether you follow none of these tips, one, some, or all: We are happy about every suggestion!
 
 - The first and best starting point for obtaining information about a company is the privacy policy. It also makes for a great `source`.
 - We really don't want any personal data in our database. This includes names in emails, e.g. <code>john.doe@example.org</code>.
 - We prefer the contact details of a data protection officer over the regular contact details of a company.
-    - c/o external data protection officer Ltd.  
+    - c/o External Data Protection Officer Ltd.  
       Example road 1  
       12345 City  
       Germany  
-- You can see our preferred address format above: Separate lines with line breaks, do not include the company name and add the country as last line.
-- If you want to know even more, you could check out our [`data` repository on GitHub](https://github.com/datenanfragen/data/).
+- You can see our preferred address format above: Separate lines with line breaks, do not include the company name and add the country as the last line.
+- If you want to learn even more, you can check out our [`data` repository on GitHub](https://github.com/datenanfragen/data/).
 
 </details>
 
