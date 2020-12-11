@@ -27,32 +27,32 @@ describe('Changing the country should update the companies in the wizard', () =>
         });
     });
 
-    it('Changing the country after manually modifying the suggested companies', () => {
-        cy.window().then((win) => {
-            win.globals.country = 'de';
+    it(
+        'Changing the country after manually modifying the suggested companies',
+        { retries: { runMode: 5, openMode: 0 } },
+        () => {
+            cy.window().then((win) => {
+                win.globals.country = 'de';
 
-            cy.get('.wizard-selected-list .button.icon-trash')
-                .its('length')
-                .then((old_length) => {
-                    cy.get('.wizard-selected-list .button.icon-trash').first().click();
+                cy.get('.wizard-selected-list .button.icon-trash')
+                    .its('length')
+                    .then((old_length) => {
+                        cy.get('.wizard-selected-list .button.icon-trash').first().click();
 
-                    // Sometimes the cookie is not set quickly enough, so we need to wait a little to have the correct result.
-                    // eslint-disable-next-line cypress/no-unnecessary-waiting
-                    cy.wait(500);
+                        skipOn(isOn('production'));
+                        cy.getCookie('changed_saved_companies').its('value').should('eq', 'true');
 
-                    skipOn(isOn('production'));
-                    cy.getCookie('changed_saved_companies').its('value').should('eq', 'true');
+                        cy.window().then((w) => {
+                            w.globals.country = 'all';
 
-                    cy.window().then((w) => {
-                        w.globals.country = 'all';
+                            cy.contains('#wizard-user-country', 'all');
 
-                        cy.contains('#wizard-user-country', 'all');
-
-                        cy.get('.wizard-selected-list .button.icon-trash')
-                            .its('length')
-                            .should('eq', old_length - 1);
+                            cy.get('.wizard-selected-list .button.icon-trash')
+                                .its('length')
+                                .should('eq', old_length - 1);
+                        });
                     });
-                });
-        });
-    });
+            });
+        }
+    );
 });
