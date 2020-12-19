@@ -5,7 +5,7 @@ function snap(url) {
     cy.percySnapshot(url);
 }
 
-describe('Visual diffs using Percy', async () => {
+describe.skip('Visual diffs using Percy', async () => {
     it('Snapshots', async () => {
         skipOn(isOn('production'));
 
