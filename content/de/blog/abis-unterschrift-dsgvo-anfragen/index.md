@@ -14,7 +14,7 @@
 
 {{< img name="abis-beschwerde-unterschrift.jpg" alt="Foto eines Blatts Paper, auf dem eine Person gerade unterschreibt. Darüber der Text: „Beschwerde gegen ABIS: Unterschrift für DSGVO-Anfragen nicht nötig“" >}}
 
-Die [ABIS GmbH]({{< ref "company/abis" >}}) bietet als Tochter der [Deutsche Post Adress GmbH & Co. KG]({{< ref "company/deutsche-post-adress" >}}) sog. *Adressmanagement* an. Sie prüft für Unternehmen die Adressen von deren Kund_innen auf Richtigkeit und aktualisiert sie etwa im Falle von Umzügen. Für Verbraucher_innen ist es also wichtig zu wissen, welche Daten ABIS zu ihnen speichert.
+Die [ABIS GmbH]({{< ref "company/abis" >}}) bietet als Tochter der [Deutsche Post Adress GmbH & Co. KG]({{< ref "company/deutsche-post-adress" >}}) sogenanntes *Adressmanagement* an. Sie prüft für Unternehmen die Adressen von deren Kund_innen auf Richtigkeit und aktualisiert sie etwa im Falle von Umzügen. Für Verbraucher_innen ist es also wichtig zu wissen, welche Daten ABIS zu ihnen speichert.
 
 Bisher hat ABIS bei Auskunftsanfragen eine eigenhändige Unterschrift der betroffenen Person verlangt, weil dies für die Identifizierung nötig wäre: „Nicht eigenhändig unterschriebene Anfragen […] können wir nicht beantworten, da eine eindeutige Identifizierung Ihrer Person hierbei nicht möglich ist“, hieß andernfalls die Antwort. Die unterschriebene Anfrage sollten Verbraucher_innen per Post, Fax oder E-Mail-Anhang an ABIS schicken. ABIS würde die Anfrage dann auf postalischem Wege beantworten. 
 
