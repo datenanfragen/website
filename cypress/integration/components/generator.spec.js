@@ -81,6 +81,6 @@ describe('Generator component', () => {
         cy.contains('Send email').click();
         cy.contains('Default email software')
             .should('have.attr', 'href')
-            .and('match', /^.*?Date%3A%202222-02-22%0AMAGICSTRING%0ASECONDMAGICSTRING.*?$/);
+            .and('contains', 'Date%3A%202222-02-22%0AMAGICSTRING%0ASECONDMAGICSTRING');
     });
 });
