@@ -71,4 +71,16 @@ describe('Generator component', () => {
         cy.contains('New request').click();
         cy.contains('Google LLC');
     });
+
+    it("reflects the 'Information block' values in the generated request", () => {
+        cy.contains('Information block').click();
+        cy.contains('Request date');
+        cy.get('#request-date').type('2222-02-22');
+        cy.get('textarea#information-block').type('MAGICSTRING{enter}SECONDMAGICSTRING');
+
+        cy.contains('Send email').click();
+        cy.contains('Default email software')
+            .should('have.attr', 'href')
+            .and('contains', 'Date%3A%202222-02-22%0AMAGICSTRING%0ASECONDMAGICSTRING');
+    });
 });
