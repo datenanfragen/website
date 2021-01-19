@@ -44,5 +44,5 @@ byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://matrix.to/#
 short_name = "Malte"
 
 [authors.berni]
-byline = "<a xmlns:cc='http://creativecommons.org/ns#' property='cc:attributionName' rel='cc:attributionURL'>Bernhard Seckinger</a>"
+byline = "<span xmlns:cc='http://creativecommons.org/ns#' property='cc:attributionName' >Bernhard Seckinger</span>"
 short_name = "Berni"
