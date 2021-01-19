@@ -1,5 +1,5 @@
 {
-    "title": "Datenlöschen bei Werbetreibenden ist nicht so einfach",
+    "title": "Datenlöschung bei Werbetreibenden ist nicht so einfach",
     "slug": "datenloeschung bei werbetreibenden",
     "type": "blog",
     "date": "2021-01-18T15:57:54+02:00",
