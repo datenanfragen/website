@@ -19,6 +19,7 @@ Considering these tips when suggesting companies helps us a lot, but is <strong>
       12345 City  
       Germany  
 - You can see our preferred address format above: Separate lines with line breaks, do not include the company name and add the country as the last line.
+- If the company's email is obviously privacy related, e.g. `privacy@` or `gdpr@`, you can set `Suggested transport medium` to email.
 - If you want to learn even more, you can check out our [`data` repository on GitHub](https://github.com/datenanfragen/data/).
 
 </details>
