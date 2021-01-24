@@ -20,6 +20,7 @@ Wenn Du diese beim Vorschlagen berücksichtigst, erleichterst Du uns unsere Arbe
       12345 Stadt  
       Deutschland
 - Unser Lieblingsadressformat kannst Du oben im Beispiel auch sehen: Zeilen per "Enter" trennen, den Firmennamen nicht mit aufnehmen und am Ende das Land.
+- Falls die E-Mail-Addresse der Firma eindeutig datenschutzbezogen ist, wie z.B. `datenschutz@` oder `privacy@`, kannst Du "Empfohlenes Medium für Anfragen" gerne auf E-Mail setzen.
 - Falls Du noch mehr wissen willst, dann schau doch bei unserem [`data`-Repo bei GitHub](https://github.com/datenanfragen/data/) vorbei.
 
 </details>
