@@ -203,6 +203,12 @@
         "download-pdf-again": "Descargar PDF de nuevo"
     },
     "requests": {
+        "letter-subject-erasure": "Solicitud de supresión de datos personales de acuerdo con el Art. 17 del RGPD",
+        "letter-subject-access": "Solicitud de acceso a datos personales según Art. 15 del RGPD",
+        "letter-subject-rectification": "Solicitud de rectificación de datos personales según Art. 16 del RGPD",
+        "letter-subject-objection": "Objeción al marketing directo según el Art. 21 (2) del RGPD",
+        "my-reference": "Mi referencia",
+        "concerns": "Concierne",
         "date": "Fecha",
         "name": "Nombre",
         "birthdate": "Fecha de nacimiento",
