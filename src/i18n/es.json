@@ -797,7 +797,7 @@
     "wizard": {
         "none-selected": "Ninguno todavía. ¿Por qué no agrega algunos?",
         "selected-companies": "Empresas actualmente seleccionadas",
-        "search-company": "Buscar compañías de {{category}}",
+        "search-company": "Buscar compañías de {{category}}…",
         "finish": "Terminé de añadir compañías",
         "next": "Siguiente",
         "remove-company": "Remover empresa",
