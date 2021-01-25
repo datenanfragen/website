@@ -88,6 +88,10 @@ module.exports = {
                     name: 'pt',
                     path: 'src/i18n/pt.json',
                 },
+                {
+                    name: 'es',
+                    path: 'src/i18n/es.json',
+                },
             ],
         },
         'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } },

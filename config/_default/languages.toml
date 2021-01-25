@@ -26,3 +26,10 @@
     weight = 40
     title = "pedidodedados.org"
     copyright = "Exceto onde indicado, esta obra está licenciada sob uma Licença Creative Commons Atribuição 4.0 Internacional."
+[es]
+    languageCode = "es-es"
+    languageName = "Español"
+    contentDir = "content/es"
+    weight = 50
+    title = "solicituddedatos.es"
+    copyright = "Salvo que se indique lo contrario, este sitio está sujeto a una licencia internacional Creative Commons Attribution 4.0."

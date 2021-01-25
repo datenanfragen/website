@@ -1,0 +1,93 @@
+{
+	"title": "Sus derechos bajo el Reglamento general de protección de datos (RGPD)",
+	"slug": "your-gdpr-rights",
+	"date": "2018-05-07T08:22:36+02:00",
+	"last_edited": "2020-02-24T19:07:25+02:00",
+	"type": "blog",
+	"description": "El RGPD le otorga amplios derechos con respecto a la protección de datos. Por ejemplo, todas las empresas de la UE deben informarle qué datos personales han almacenado sobre usted. Si los datos son incorrectos, deben corregirlos. Incluso puede solicitar que se eliminen los datos nuevamente. Obtenga más información en este artículo.",
+	"tags": [ "rgpd", "derechos" ]
+}
+
+En nuestro mundo cada vez más digital, la protección de datos juega un papel cada día más importante. Con el nuevo **Reglamento General de Protección de Datos** (**RGPD**), la Unión Europea refuerza significativamente sus derechos con respecto al manejo cuidadoso de sus datos personales.
+
+<!--En este artículo, queremos brindarle una descripción detallada de los derechos que tiene gracias al GDPR. Si lo que busca es un breve resumen, eche un vistazo a [este artículo]({{< ref "/blog/a-quick-overview" >}}). -->
+
+## ¿Qué es el RGPD?
+
+El GRGPDDPR es un *reglamento de la UE* que entró en vigor el 25 de mayo de 2018. El objetivo del GDPR es brindar a los ciudadanos de la UE un mejor control sobre sus datos personales. Como resultado, al uniformar la regulación de la protección de datos en toda la UE, la situación legal tanto para los ciudadanos como para las empresas se aclarará y se reducirá la burocracia.
+
+El RGPD reemplaza predominantemente la ley nacional de protección de datos anterior, como la *Ley británica de protección de datos de 1998* (*DPA*) (en aspectos individuales, sin embargo, todavía permite a los estados miembros una interpretación individual en la legislación nacional. Como regulación de la UE, Es una ley directamente aplicable en todos los estados miembros de la UE, sin que estos tengan que implementarla en su legislación nacional.
+
+## Derechos de los interesados
+
+El RGPD reconoce el derecho fundamental de las personas a la protección de sus datos personales (como se define en el artículo 8 (1) de la *Carta de los Derechos Fundamentales de la Unión Europea*). Este derecho debe equilibrarse con la realidad arraigada de un mundo en el que el intercambio y el procesamiento de datos desempeñan un papel cada vez más importante en la vida cotidiana de cada ser humano y nos brindan ventajas indispensables:
+
+> Los rápidos avances tecnológicos y la globalización han traído nuevos desafíos para la protección de datos personales. La escala de la recopilación y el intercambio de datos personales ha aumentado significativamente. […] Las personas físicas ponen cada vez más información personal a disposición del público y de todo el mundo. La tecnología ha transformado tanto la economía como la vida social y debería facilitar aún más el libre flujo de datos personales dentro de la Unión y la transferencia a terceros países y organizaciones internacionales, garantizando al mismo tiempo un alto nivel de protección de los datos personales.
+> - <cite>Rectital 6 para el GDPR</cite>
+
+Para lograr este acto de equilibrio, se imponen altas exigencias a la recopilación y el procesamiento de datos personales y se garantizan amplios derechos de los interesados hacia los responsables del tratamiento.
+
+Muchos de los derechos (como el derecho a acceder a datos personales) también existían en la legislación anterior del Reino Unido y otros países. Sin embargo, el RGPD ampliará estos derechos y, lo que es más importante, los implementará de una manera clara y en toda la UE.
+
+## Información transparente correcta
+
+Un principio importante del GDPR es la **transparencia** hacia usted como sujeto de datos. Las entidades que desean procesar sus datos personales tienen la obligación integral **de revelar información detallada**.
+
+Estas obligaciones se establecen específicamente en los artículos 12 y 13 del RGPD. El controlador de datos no solo tiene que proporcionarle el nombre y los datos de contacto del organismo responsable del procesamiento, sino también los fines para los que se procesarán sus datos, la duración del almacenamiento, a qué destinatarios se enviarán y si existe la intención de transferirlo a un país no perteneciente a la UE (Art. 13 (1), (2) GDPR).
+
+Esta información debe proporcionarse *directamente en el momento de la recopilación de datos*. Esto asegura un procesamiento justo y transparente en el que puede tomar una decisión informada sobre si está de acuerdo con el procesamiento.
+
+## Derecho de acceso a los datos
+
+Otro derecho importante es el **derecho de acceso a los datos**, que se define en el art. 15 del RGPD. En primer lugar, le permite solicitar confirmación a empresas y otras organizaciones sobre si se almacenan datos personales relacionados con usted (artículo 15, apartado 1, frase 1 del RGPD). Si este es el caso, puede solicitar una copia gratuita de los datos almacenados sobre usted (Art. 15 (3) RGPD).
+
+Sin embargo, también puede solicitar una gran cantidad de información adicional con respecto al procesamiento de sus datos (Art. 15 (1), (2) GDPR). Estos incluyen, por ejemplo:
+
+* los fines del procesamiento,
+* las categorías de datos personales en cuestión,
+* los destinatarios a los que se han comunicado o se comunicarán los datos,
+* el período previsto durante el cual se almacenarán los datos personales,
+* las fuentes de los datos, si no fueron recopilados directamente del controlador,
+* si se realiza la puntuación: sus puntuaciones calculadas e información significativa sobre la lógica detrás de ellas,
+* si sus datos se transfieren a un país no perteneciente a la UE: cómo garantizan que se respeten sus derechos.
+
+## Derecho a la portabilidad de datos
+
+El **derecho a la portabilidad de datos** no ha existido hasta ahora; está siendo introducido por el art. 20 del RGPD. Se supone que le permitirá recibir sus datos "en un formato estructurado, de uso común y legible por máquina" y "transmitirlos a otro controlador". (Art. 20 (1) GDPR).
+
+Este derecho está dirigido en particular a los usuarios de redes sociales y servicios en la nube. Hasta ahora, los proveedores a menudo han utilizado sistemas propietarios que han impedido pasar a otra plataforma para su propio beneficio. El objetivo es acabar con esto, para darte una mayor libertad a la hora de elegir las plataformas que más te convengan, pero también para evitar monopolios.
+
+Dado que el derecho a la transferencia de datos es todavía muy nuevo, hay muy pocos detalles sobre cómo se implementará en la práctica. Sin embargo, algunas empresas como Facebook y Google ya están proporcionando soluciones iniciales en forma de herramientas en línea, que puede utilizar para descargar sus datos en formato JSON, por ejemplo. Será emocionante ver cómo se desarrollará esto en el futuro.
+
+## Derecho de rectificación
+
+En algunos casos, los datos que una empresa ha almacenado sobre usted pueden ser incorrectos o estar incompletos. El **derecho de rectificación** establecido en el art. 16 GDPR le garantiza la posibilidad de solicitar una rectificación a la empresa en este caso.
+
+Este derecho es particularmente interesante con respecto a las agencias de crédito como Experian y Equifax, que recopilan datos sobre su historial de pagos, sus transacciones bancarias, contratos de telefonía móvil y muchas otras cosas para calcular las probabilidades de pago y similares. Si el cálculo se basa en datos inexactos, esto puede tener consecuencias muy negativas para usted.
+
+Es importante señalar que de acuerdo con el art. 19 GDPR, el controlador no solo tiene que corregir sus datos, sino que también debe comunicar la corrección a todos los destinatarios, para que ellos también la lleven a cabo en sus sistemas en consecuencia.
+
+## Derecho al olvido {# derecho al olvido}
+
+Si desea que una empresa elimine los datos personales que tiene almacenados sobre usted, puede utilizar el **derecho al olvido**, que se define en el Art. 17 del RGPD. Este derecho le permite solicitar la eliminación inmediata de los datos que le conciernen en determinadas circunstancias.
+
+Los requisitos previos para esto se dan, por ejemplo, si
+
+* los datos ya no son necesarios para los fines para los que fueron recopilados (art. 17 párr. 1 letra a del RGPD),
+* usted revoca su consentimiento para el procesamiento (Art. 17, párrafo 1, letra b del RGPD),
+* los datos han sido procesados ​​ilegalmente (art. 17 párr. 1 letra d GDPR).
+
+Sin embargo, también hay algunos casos en los que el derecho está restringido y no se concede la eliminación. Las restricciones incluyen, por ejemplo:
+
+* si el derecho a la libertad de expresión e información supera su derecho a borrar (Art. 17 (3) lit. a GDPR),
+* si existe una obligación legal de almacenar los datos (Art. 17 (3) lit. b GDPR),
+* el uso para el archivo y la investigación científica o histórica en el interés público (Art. 17 (3) lit. d GDPR),
+* para la formulación de reclamaciones legales (Art. 17 (3) lit. e GDPR).
+
+Arte. 19 GDPR también se aplica a las solicitudes relativas a la eliminación de datos y, por lo tanto, el controlador debe informar a todos los destinatarios sobre la eliminación, para que también la apliquen en sus sistemas.
+
+## ¿Cómo ejerzo estos derechos?
+
+En general, puede hacer valer todos los derechos anteriores hacia una empresa mediante una solicitud informal. También puedes usar [nuestro generador]({{< ref "/generator" >}}) para generar solicitudes de forma automática y al mismo tiempo hacer uso de nuestra extensa base de datos de empresas.
+
+<!-- TODO: Write and link article. -->
