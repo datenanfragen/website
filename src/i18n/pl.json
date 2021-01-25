@@ -11,6 +11,9 @@
         "school": "edukacja",
         "social media": "social media",
         "telecommunication": "telekomunikacja",
-        "travel": "podróże"
+        "travel": "podróże",
+        "political party": "partia",
+        "credit agency": "agencja kreditowa",
+        "church": "kościół"
     }
 }
