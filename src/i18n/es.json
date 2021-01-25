@@ -146,7 +146,7 @@
         "cdb-suggest-new": "Sugerir una empresa nueva",
         "noscript-generator": "El generador funciona solo en tu ordenador y utiliza exclusivamente JavaScript. El código no enviará ningún dato a ningún otro servidor sin su consentimiento. Si quieres utilizar el generador, por favor activa JavaScript en tu navegador o añade una excepción a tu bloqueador. Si aún así no funciona, envíanos un correo electrónico a <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "cdb-help-needed": "¿Son incorrectos estos datos o la compañía que estás buscando no está en nuestra base de datos? Sugiere <a href='{{ .editUrl }}'>una edición de esta compañía</a> o <a href='{{ .newUrl }}'>la creación de una nueva</a>. ¡Gracias por tu ayuda!",
-        "cdb-attn": "A la atención de: Responsable de Protección de Datos",
+        "cdb-attn": "A la atención de: Protección de datos",
         "adb-intro": "Tenemos la siguiente información de contacto en “{{ .Params.name }}” para que la utilices para presentar reclamaciones:",
         "cdb-intro": "Tenemos la siguiente información de contacto en “{{ .Params.name }}” para que la utilices en las solicitudes relativas a privacidad:",
         "cdb-runs-extended": "“{{ .Params.name }}” también es responsable de las siguientes entidades y servicios:",
@@ -205,7 +205,8 @@
         "event-duration": "Duración",
         "event-place": "Lugar del evento",
         "404-alt": "Una persona sentada en el 0 de un letrero que dice 404. Están sujetando un libro con una página faltante.",
-        "cdb-privacy-email": "Correo del responsable de privacidad de datos:"
+        "cdb-privacy-email": "Correo del responsable de privacidad de datos:",
+        "church": "iglesia"
     },
     "my-requests": {
         "title": "Mis solicitudes",
