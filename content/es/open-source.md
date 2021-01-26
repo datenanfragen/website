@@ -2,7 +2,7 @@
 	"title": "Código abierto",
 	"type": "page",
 	"aliases": ["opensource", "oss", "foss"],
-	"heading": "<span style='text-align: center; font-family: monospace;'>solicituddedatos.es <span class='color-red-600' title='loves'>❤</span> Código abierto</span>"
+	"heading": "<span style='text-align: center; font-family: monospace;'>solicituddedatos.es <span class='color-red-600' title='loves'>❤</span> código abierto</span>"
 }
 
 <img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
@@ -116,7 +116,7 @@ Aquí hay una descripción general de los repositorios importantes que hemos cre
 
 <div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
 
-Si también ha contribuido pero su nombre aún no está en la lista, lo invitamos a agregarlo al archivo [`AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
+Si también has contribuido pero tu nombre aún no está en la lista, te invitamos a agregarlo al archivo [`AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 
 <a id="license-notices"></a>
 ## Proyectos de código abierto utilizados por nosotros
@@ -125,7 +125,7 @@ De acuerdo con el espíritu del código abierto, no solo mantenemos nuestros pro
 
 Estamos orgullosos de poder utilizar los siguientes proyectos para este sitio web. ¡Muchas gracias a los autores que han decidido permitir que otros utilicen su valioso trabajo!
 
-Puede encontrar los avisos de licencia completos para todos los proyectos que usamos [aquí]({{< absURL "NOTICES.txt" >}}).
+Puedes encontrar los avisos de licencia completos para todos los proyectos que usamos [aquí]({{< absURL "NOTICES.txt" >}}).
 
 <div class="box box-info attribution-box">
 	{{< attribution "by" >}}

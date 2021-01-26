@@ -6,8 +6,7 @@
     "authors": [ "baltpeter" ]
 }
 
-Para que nuestros sitios web, documentos, etc. sean coherentes y accesibles, el proyecto Datenanfragen.de ha definido (y seguirá definiendo) un conjunto de pautas de diseño y estilo.
-El propósito de esta página es documentar y explicar estas pautas.
+Para que nuestros sitios web, documentos, etc. sean coherentes y accesibles, el proyecto Datenanfragen.de ha definido (y seguirá definiendo) un conjunto de pautas de diseño y estilo. El propósito de esta página es documentar y explicar estas pautas.
 
 <div class="box box-warning">
 Esta guía aún se encuentra en una etapa muy temprana. No se ha finalizado ni nuestro lenguaje de diseño ni la documentación del mismo. Espere que ambos cambien en el futuro.<br>

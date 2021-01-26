@@ -30,7 +30,7 @@ Publicamos la constitución completa de nuestra asociación en [este sitio web](
 
 Nuestro propósito es el mismo que se establece en nuestra constitución, pero también lo compilamos y explicamos [aquí]({{< ref "verein/mission-statement" >}}).  
 
-## 3. Information on tax privileges
+## 3. Información sobre impuestos
 
 La oficina de impuestos Braunschweig-Wilhelmstraße nos aprobó como organización de beneficio público el más reciente [aviso del 13 de enero de 2020 (en alemán)](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) para la promoción de la asesoría y protección al consumidor, así como el avance del gobierno democrático. Se nos ha asignado el siguiente número de identificación fiscal: 14/209/11640
 
@@ -56,7 +56,7 @@ La asociación no tiene personal.
 
 Número de voluntarios: 3
 
-## 7. Funding sources
+## 7. Fuentes de financiamiento
 
 véase [Informe anual 2019 (en alemán, pág. 10 y siguientes)](https://static.dacdn.de/docs/bericht-2019.pdf)  
 véase [Informe anual 2018 (en alemán, pág. 9 y siguientes)](https://static.dacdn.de/docs/bericht-2018.pdf)

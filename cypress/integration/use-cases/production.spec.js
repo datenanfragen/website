@@ -10,6 +10,7 @@ describe('Make sure all productions sites are still alive', () => {
         'https://www.datarequests.org',
         'https://www.demandetesdonnees.fr',
         'https://www.pedidodedados.org',
+        'https://www.solicituddedatos.es',
     ];
 
     for (const site of sites) {

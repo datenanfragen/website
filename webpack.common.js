@@ -95,7 +95,7 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
 @see {@link https://www.datarequests.org|English website}
 @see {@link https://www.demandetesdonnees.fr|French website}
 @see {@link https://www.pedidodedados.org/|Portuguese website}
-@see {@link https://www.solicituddedatos.org/|Spanish website}`),
+@see {@link https://www.solicituddedatos.es/|Spanish website}`),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
         new webpack.DefinePlugin({

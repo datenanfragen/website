@@ -23,8 +23,8 @@ Datenanfragen.de e.&nbsp;V. es una organización sin fines de lucro que figura e
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
 
 <div class="box box-warning">
-	Tenga en cuenta que somos una <em>organización sin fines de lucro independiente</em> y no estamos afiliados a las empresas que figuran en nuestra <a href="/company"> base de datos de empresas</a>.<br>
-	Si necesita asistencia o desea enviar una solicitud, comuníquese directamente con la empresa correspondiente. <strong>No podemos</strong> ayudarlo en tales casos. Gracias por su comprensión.
+	Ten en cuenta que somos una <em>organización sin fines de lucro independiente</em> y no estamos afiliados a las empresas que figuran en nuestra <a href="/company">base de datos de empresas</a>.<br>
+	Si necesitas asistencia o deseas enviar una solicitud, comunícate directamente con la empresa correspondiente. <strong>No podemos</strong> ayudarte en tales casos. Gracias por tu comprensión.
 </div>
 
 <script type="application/ld+json">
