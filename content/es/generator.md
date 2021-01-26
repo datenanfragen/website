@@ -1,7 +1,7 @@
 {
-    "title": "Generar una solicitud",
+    "title": "Genera una solicitud",
     "type": "generator",
-    "description": "Utiliza nuestro generador de solicitudes para generar fácilmente solicitudes GDPR de forma gratuita. Tus datos permanecen en su computadora; ni siquiera llegamos a verlos.",
+    "description": "Usa nuestro generador para crear solicitudes RGPD de forma fácil y gratuita y ejerce tus derechos.",
     "featured_image_url": "/img/card/generator-es.png",
     "tags": [ "datarequests", "rgpd", "reglamento general de protección de datos", "generador de solicitud", "privacidad" ]
 }
