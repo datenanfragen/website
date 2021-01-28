@@ -14,6 +14,5 @@
 * Make sure there is at least one blog post or update `cypress/integration/use-cases/production.spec.js` accordingly.
 * Change the CSS link selector for external links in `src/styles/variables.scss`.
 * Add the domain to `content/*/verein/_index.md`.
-* Add the domain to the `sites` array in `cypress/integration/use-cases/wizard.spec.js`.
-* Setup the necessary redirects in `_redirects`.
+* Add the domain to the `sites` array in `cypress/integration/use-cases/production.spec.js`.
 * Add the domain in dattel (see `infrastructure` on how to do that) and set the appropriate DNS records.

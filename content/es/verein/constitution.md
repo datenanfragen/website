@@ -25,15 +25,15 @@ Dado que estamos ubicados en Alemania, solo la <a href="https://www.datenanfrage
 
 **2.1** El propósito de la asociación es:
 
-a) Apoyar al público en general en el ejercicio de su derecho a la privacidad ("derecho a la autodeterminación informativa") informándoles y asesorándolos sobre todas las cuestiones relativas a la protección de datos personales (como un derecho humano fundamental según el artículo 8 (1) de la Carta. de los Derechos Fundamentales de la Unión Europea) y así hacer avanzar el gobierno democrático en el área digital, así como la educación del público en general, y
+a) Apoyar al público en general en el ejercicio de su derecho a la privacidad ("derecho a la autodeterminación informativa") informándoles y asesorándolos sobre todas las cuestiones relativas a la protección de datos personales (como un derecho humano fundamental según el artículo 8 (1) de la Carta. de los Derechos Fundamentales de la Unión Europea) y así hacer avanzar el gobierno democrático en el área digital, así como la educación del público en general, y  
 b) proporcionar información sobre las prácticas de protección de datos en las empresas y otras organizaciones con el fin de proteger los datos personales de los consumidores y apoyar los esfuerzos de asesoramiento y protección al consumidor en lo que respecta a las redes digitales.
 
 **2.2** Estos objetivos se logran específicamente mediante:
 
-a) ejecutando y desarrollando un generador de solicitudes de acuerdo con los artículos 15 et seq. RGPD y, por lo tanto, ofrece ejemplos de cartas para tales solicitudes con el fin de ayudar al público en general a ejercer su derecho a la privacidad,
-b) ofrecer y mantener material informativo (como artículos, guías, informes, folletos, revistas impresas y videos) para promover la educación, la ciencia y la investigación a través de informar y asesorar al público en general sobre temas como las consecuencias que el uso de las redes digitales tiene en su privacidad , los derechos y posibilidades que ofrece el derecho fundamental a la protección de datos y el RGPD en particular, así como sobre cómo hacer uso de estos derechos,
-c) mantener una base de datos con licencia libre con detalles sobre cómo ponerse en contacto con empresas, organizaciones gubernamentales y otras con solicitudes relacionadas con la privacidad, así como información sobre las posibles categorías de datos almacenados por estas empresas; además, moderar las contribuciones de los usuarios a esta base de datos para permitir el intercambio de información en interés de la protección del consumidor,
-d) divulgación pública y realización de campañas, así como organización o participación en charlas, seminarios y otros eventos para la amplia asesoría de la ciudadanía en general sobre el derecho a la intimidad y profundizar el debate sobre el derecho fundamental a la autoinformación. determinación, y
+a) ejecutando y desarrollando un generador de solicitudes de acuerdo con los artículos 15 et seq. RGPD y, por lo tanto, ofrece ejemplos de cartas para tales solicitudes con el fin de ayudar al público en general a ejercer su derecho a la privacidad,  
+b) ofrecer y mantener material informativo (como artículos, guías, informes, folletos, revistas impresas y videos) para promover la educación, la ciencia y la investigación a través de informar y asesorar al público en general sobre temas como las consecuencias que el uso de las redes digitales tiene en su privacidad , los derechos y posibilidades que ofrece el derecho fundamental a la protección de datos y el RGPD en particular, así como sobre cómo hacer uso de estos derechos,  
+c) mantener una base de datos con licencia libre con detalles sobre cómo ponerse en contacto con empresas, organizaciones gubernamentales y otras con solicitudes relacionadas con la privacidad, así como información sobre las posibles categorías de datos almacenados por estas empresas; además, moderar las contribuciones de los usuarios a esta base de datos para permitir el intercambio de información en interés de la protección del consumidor,  
+d) divulgación pública y realización de campañas, así como organización o participación en charlas, seminarios y otros eventos para la amplia asesoría de la ciudadanía en general sobre el derecho a la intimidad y profundizar el debate sobre el derecho fundamental a la autoinformación. determinación, y  
 e) ejecutar y desarrollar las plataformas en línea abiertas, gratuitas y de acceso público Datenanfragen.de (en alemán) y datarequests.org (en inglés), así como potencialmente en otros idiomas, que ofrecen acceso al generador como se describe en a) y la base de datos como se describe en c), además haga que el material informativo descrito en b) sea accesible al público y finalmente anuncie la divulgación pública como se describe en d).
 
 **2.3** La asociación actúa por el bien común y no persigue sus objetivos principalmente con el propósito de obtener ganancias..
@@ -56,10 +56,10 @@ e) ejecutar y desarrollar las plataformas en línea abiertas, gratuitas y de acc
 
 **4.1** La membresía termina:
 
-a) con la muerte del miembro,
-b) por retiro voluntario,
-c) por eliminación de la lista de miembros,
-d) por exclusión de la asociación, o
+a) con la muerte del miembro,  
+b) por retiro voluntario,  
+c) por eliminación de la lista de miembros,  
+d) por exclusión de la asociación, o  
 e) en el caso de personas jurídicas, por su disolución.
 
 **4.2** La renuncia voluntaria requiere una declaración por escrito a un presidente. Tras la confirmación de la renuncia por parte de un presidente, la renuncia se hace efectiva de inmediato. No hay derecho al reembolso de las contribuciones ya pagadas.
@@ -80,14 +80,14 @@ e) en el caso de personas jurídicas, por su disolución.
 
 **6.1** La asociación está compuesta por los siguientes órganos:
 
-a) la junta, y
+a) la junta, y  
 b) la asamblea general.
 
 ## 7. La junta
 
 **7.1** El tablero está compuesto por:
 
-a) dos presidentes, que forman la junta ejecutiva en el sentido de § 26 BGB (Alemania), y
+a) dos presidentes, que forman la junta ejecutiva en el sentido de § 26 BGB (Alemania), y  
 b) un número arbitrario de asesores [Beisitzer_innen], que son miembros de la junta ampliada, pero no de la junta ejecutiva autorizada para representar a la asociación en el sentido de § 26 BGB (Alemania).
 
 **7.2** La asociación está representada conjuntamente judicialmente y de otro modo por sus presidentes. El derecho de representación, dentro del alcance de una tarea definida, también se puede delegar en un miembro individual de la junta ejecutiva por decisión de la junta ejecutiva o de la asamblea general.
@@ -118,9 +118,9 @@ b) un número arbitrario de asesores [Beisitzer_innen], que son miembros de la j
 
 **10.2** La asamblea general es responsable en particular de los siguientes asuntos:
 
-a) aceptar el informe anual del consejo; exonerando a la junta,
-b) establecer el monto y los términos de las cuotas de membresía,
-c) elegir y destituir a los miembros del consejo, y
+a) aceptar el informe anual del consejo; exonerando a la junta,  
+b) establecer el monto y los términos de las cuotas de membresía,  
+c) elegir y destituir a los miembros del consejo, y  
 d) decidir sobre posibles enmiendas a la constitución, así como una posible disolución de la asociación.
 
 ## 11. Summoning of the general assembly
@@ -157,7 +157,7 @@ d) decidir sobre posibles enmiendas a la constitución, así como una posible di
 
 **16.1** La disolución de la asociación sólo puede decidirse en asamblea general con la mayoría de votos especificada en el artículo 12. A menos que la asamblea general decida lo contrario, los presidentes son liquidadores autorizados conjuntamente. Las disposiciones anteriores se aplicarán en consecuencia en caso de que la asociación se disuelva por cualquier otro motivo o pierda su capacidad jurídica.
 
-**16.2** Si la asociación se disuelve o ya no es elegible para privilegios fiscales, los activos de la asociación se transfieren a una entidad legal de derecho público u otra entidad privilegiada de impuestos para su uso en el avance del gobierno democrático según § 52 ( 2) (2.) AO (código fiscal alemán).
+**16.2** Si la asociación se disuelve o ya no es elegible para privilegios fiscales, los activos de la asociación se transfieren a una entidad legal de derecho público u otra entidad privilegiada de impuestos para su uso en el avance del gobierno democrático según § 52 (2) (2.) AO (código fiscal alemán).
 
 ## 17. Llaves OpenPGP
 

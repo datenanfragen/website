@@ -9,7 +9,7 @@
     "tags": [ "rgpd", "objeción contra el marketing directo", "carta", "modelo", "artículo 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10",
-    "notices": "Foto adaptada de: \"[persona de pie junto a la pared durante el día](https://unsplash.com/photos/ZO_tXe8Tinw)\" por [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Licencia unsplash](https://unsplash.com/license))"
+    "notices": "Foto adaptada de: \"[person standing beside wall during daytime photo](https://unsplash.com/photos/ZO_tXe8Tinw)\" por [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Licencia unsplash](https://unsplash.com/license))"
 }
 
 La publicidad parece omnipresente hoy en día: tan pronto como abres tu buzón o bandeja de entrada de correo electrónico, generalmente recibes una serie de cartas y correos electrónicos de empresas que desean promocionar sus productos. A menudo, se dirigen a tí personalmente.
