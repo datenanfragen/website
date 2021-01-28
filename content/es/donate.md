@@ -1,8 +1,7 @@
 {
     "title": "Donaciones",
     "type": "donate",
-    "slug": "donaciones",
-    "aliases": ["donate", "spenden", "verein/donate", "verein/spenden"]
+    "aliases": ["donaciones", "verein/donaciones", "verein/donate"]
 }
 
 ¡Muchas gracias por su interés en apoyarnos! Tu donación nos ayudará a financiar nuestros proyectos actuales y futuros para que puedan ser gratuitos para todos.

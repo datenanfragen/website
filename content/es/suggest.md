@@ -1,8 +1,7 @@
 {
     "title": "Sugerir una edición a la base de datos de empresas",
     "type": "suggest",
-    "slug": "sugerencias",
-    "aliases": ["suggest"]
+    "aliases": ["sugerencias"]
 }
 
 ¡Gracias por tu contribución a la base de datos de empresas! Las contribuciones de los usuarios son increíblemente importantes para un proyecto como el nuestro.

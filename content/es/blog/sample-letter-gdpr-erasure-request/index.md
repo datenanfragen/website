@@ -81,7 +81,7 @@ A menudo puedes encontrar los datos de contacto de empresas y otras organizacion
 
 ## ¿No hay una manera más fácil?
 
-La idea detrás de Datenanfragen.de es facilitarle al máximo el ejercicio de sus derechos en materia de protección de datos. Por lo tanto, hemos desarrollado un [generador](/generator), con el que puedes crear solicitudes como esta de forma automática. Te invitamos a que lo pruebes.
+La idea detrás de Datenanfragen.de es facilitarle al máximo el ejercicio de sus derechos en materia de protección de datos. Por lo tanto, hemos desarrollado un [generador]({{< ref "generator" >}}), con el que puedes crear solicitudes como esta de forma automática. Te invitamos a que lo pruebes.
 
 ---
 
