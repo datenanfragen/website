@@ -16,3 +16,4 @@
 * Add the domain to `content/*/verein/_index.md`.
 * Add the domain to the `sites` array in `cypress/integration/use-cases/production.spec.js`.
 * Add the domain in dattel (see `infrastructure` on how to do that) and set the appropriate DNS records.
+* In `deploy-dattel.js`, add the new language to the `languages` array and trigger a deploy using `CONTEXT=production ./deploy.sh && yarn deploy-dattel`.
