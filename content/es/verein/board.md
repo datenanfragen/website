@@ -1,15 +1,15 @@
 {
-    "title": "La junta",
-    "slug": "board",
-    "aliases": ["vorstand", "vorsitzende", "vorsitzender", "chair"],
+    "title": "Junta directiva",
+    "slug": "junta-directiva",
+    "aliases": ["board", "vorstand", "vorsitzende", "vorsitzender", "chair"],
     "type": "page"
 }
 
-Todos los asuntos importantes de la asociación están a cargo de la junta ejecutiva. Según nuestra [constitución]({{< ref "verein/constitution" >}}#7-the-board), la junta está compuesta por dos presidentes iguales, que representan conjuntamente a la asociación, y un número arbitrario de asesores, que controlan y apoyan a la junta en su trabajo. La junta actual ha sido elegida en la asamblea general el 16 de julio de 2020 y está formada por:
+Todos los asuntos importantes de la asociación están a cargo de la junta directiva. Según nuestra [constitución]({{< ref "verein/constitution" >}}#7-the-board), la junta está compuesta por dos presidentes iguales, que representan conjuntamente a la asociación, y un número arbitrario de asesores, que controlan y apoyan a la junta en su trabajo. La junta actual ha sido elegida en la asamblea general el 16 de julio de 2020 y está formada por:
 
-* Benjamin Altpeter, Chairperson ([benni@datenanfragen.de](mailto:benni@datenanfragen.de), [PGP key](/pgp/AF1381BD.asc)  
+* Benjamin Altpeter, Presidente ([benni@datenanfragen.de](mailto:benni@datenanfragen.de), [PGP key](/pgp/AF1381BD.asc)  
   `9F99 3663 0B82 D3C7 DFC9  23F6 EB5C F074 AF13 81BD`)
-* Lorenz Sieben, Chairperson ([lorenz@datenanfragen.de](mailto:lorenz@datenanfragen.de), [PGP key](/pgp/4C44A6EF.asc)   
+* Lorenz Sieben, Presidente ([lorenz@datenanfragen.de](mailto:lorenz@datenanfragen.de), [PGP key](/pgp/4C44A6EF.asc)   
   `5B50 D7A0 7585 26D4 55AA  F305 DFAF 12BB 4C44 A6EF`)
 
 <!-- Comment to separate the lists. -->
@@ -27,4 +27,4 @@ Puede contactar con la junta a través de varias formas diferentes:
     Datenanfragen.de e. V.  
     Schreinerweg 6  
     38126 Braunschweig  
-    Germany*
+    Alemania*

@@ -1,7 +1,8 @@
 {
     "title": "¡Gracias por su donación!",
     "type": "thanks",
-    "aliases": ["verein/thanks"]
+    "slug": "gracias",
+    "aliases": ["thanks", "verein/thanks", "verein/gracias"]
 }
 
 <img class="top-right-humaaan" src="/img/humaaans/thanks.svg" alt="Un gran corazón flotando junto a una persona.">

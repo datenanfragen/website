@@ -1,9 +1,11 @@
 {
     "title": "Transparencia",
-    "type": "page"
+    "type": "page",
+    "slug": "transparencia",
+    "aliases": ["transparency"]
 }
 
-<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" style="float: right; width: 40%; min-width: 200px; padding: 5px;" alt="Logo of the Initiative for a Transparent Civil Society, with the German text “Initiative Transparente Zivilgesellschaft”"></a>
+<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" style="float: right; width: 40%; min-width: 200px; padding: 5px;" alt="Logotipo de la Iniciativa para una Sociedad Civil Transparente, con el texto alemán ”Initiative Transparente Zivilgesellschaft”"></a>
 
 Para que pueda confiar en nosotros, nos comprometemos a ser lo más transparentes posible sobre nuestros procedimientos, finanzas y decisiones. Por eso, nos hemos unido a la [Iniciativa para una sociedad civil transparente](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), una iniciativa de la sucursal alemana de Transparencia Internacional, que está autorizada a auditarnos por muestreo. Garantizan que cumpliremos nuestra promesa de una gestión transparente. En esta página resumimos toda la información importante que publicamos como parte de eso.
 
@@ -20,7 +22,7 @@ Esta información también está disponible en nuestra página de [contacto]({{<
    Datenanfragen.de e.&thinsp;V  
    Schreinerweg 6  
    38126 Braunschweig  
-   Germany  
+   Alemania  
  - fecha de fundación: June 14, 2018
  - Corresponsal de transparencia: Benjamin Altpeter ([transparenz@datenanfragen.de](mailto:transparenz@datenanfragen.de) o a través de la dirección mencionada anteriormente)
 
@@ -38,8 +40,8 @@ La oficina de impuestos Braunschweig-Wilhelmstraße nos aprobó como organizaci�
 
 La asociación está dirigida por los presidentes de la [junta]({{< ref "verein/board" >}}). Los asesores controlan y apoyan a los presidentes en su trabajo. Está compuesto por:
 
-- Benjamin Altpeter, Chairman
-- Lorenz Sieben, Chairman
+- Benjamin Altpeter, Presidente
+- Lorenz Sieben, Presidente
 
 <!-- -->
 
@@ -61,7 +63,7 @@ Número de voluntarios: 3
 véase [Informe anual 2019 (en alemán, pág. 10 y siguientes)](https://static.dacdn.de/docs/bericht-2019.pdf)  
 véase [Informe anual 2018 (en alemán, pág. 9 y siguientes)](https://static.dacdn.de/docs/bericht-2018.pdf)
 
-Activos financieros al cierre de 2019: 87,90 €
+Activos financieros al cierre de 2019: 87,90 €  
 Activos financieros al cierre de 2018: 119,70 €
 
 ## 8. Uso de fondos
@@ -118,4 +120,4 @@ La junta tiene que documentar públicamente aquí conferencias por las cuales lo
 
 ### 2020
 
-* En marzo de 2020, la Universidad Humboldt de Berlín invitó a Benjamin Altpeter y Lorenz Sieben a dar una [charla sobre datenanfragen.de](https://www.datenanfragen.de/verein/event/hlci-berlin-2020/) (publicación en alemán) como conferencistas invitados en el [HLCI](http://www.hlci.de/). La Universidad Humboldt ha cubierto los gastos de viaje y alojamiento en tren y les ha pagado una indemnización de 250€ cada uno. Benni y Lorenz decidieron voluntariamente donar la mitad de la compensación a la asociación.
+* En marzo de 2020, la Universidad Humboldt de Berlín invitó a Benjamin Altpeter y Lorenz Sieben a dar una [charla sobre Datenanfragen.de](https://www.datenanfragen.de/verein/event/hlci-berlin-2020/) (publicación en alemán) como conferencistas invitados en el [HLCI](http://www.hlci.de/). La Universidad Humboldt ha cubierto los gastos de viaje y alojamiento en tren y les ha pagado una indemnización de 250€ cada uno. Benni y Lorenz decidieron voluntariamente donar la mitad de la compensación a la asociación.

@@ -1,6 +1,8 @@
 {
     "title": "Controles de privacidad",
     "type": "privacy-controls",
+    "slug": "controles-privacidad",
+    "aliases": ["privacy-controls"],
     "static": true
 }
  

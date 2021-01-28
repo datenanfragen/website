@@ -1,7 +1,8 @@
 {
     "title": "Nuestra misión",
     "type": "page",
-    "aliases": ["mission", "goals", "our goals"]
+    "slug": "nuestra-mision",
+    "aliases": ["mission-statement", "mission", "goals", "our-goals"]
 }
 
 Somos una organización sin fines de lucro que defiende el derecho fundamental a la protección de datos y la privacidad. Queremos que cada persona pueda decidir por sí misma, quién sabe cuánto sobre ella, y que las autoridades y las empresas que intenten arrebatar esa información rindan cuentas. Defendemos la transparencia, la apertura, la colaboración y la solidaridad con los afectados. Al hacerlo, nos ponemos del lado del consumidor y ciudadano, cuyos derechos defendemos.

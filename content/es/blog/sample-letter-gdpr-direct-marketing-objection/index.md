@@ -1,15 +1,15 @@
 {
     "title": "Modelo de carta para objeciones al marketing directo según el art. 21 (2) GDPR",
-    "slug": "sample-letter-gdpr-direct-marketing-objection",
-    "date": "2019-10-24T18:47:21+02:00",
-    "last_edited": "2020-05-31T01:23:52+02:00",
+    "slug": "modelo-carta-objecion-marketing-directo-rgpd",
+    "aliases": ["sample-letter-gdpr-direct-marketing-objection"],
+    "date": "2021-01-25T21:25:12-05:00",
     "type": "blog",
     "description": "No tienes que aguantar el marketing directo. Gracias al RGPD, puedes oponerte al uso de tus datos personales con fines de marketing directo. Nuestro modelo de carta te ayuda a ejercer este derecho.",
-    "featured_image": "sample-letter-gdpr-direct-marketing-objection",
+    "featured_image": "objecion-thumb",
     "tags": [ "rgpd", "objeción contra el marketing directo", "carta", "modelo", "artículo 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10",
-    "notices": "Photo adapted after: \"[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)\" by [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Foto adaptada de: \"[persona de pie junto a la pared durante el día](https://unsplash.com/photos/ZO_tXe8Tinw)\" por [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Licensia unsplash](https://unsplash.com/license))"
 }
 
 La publicidad parece omnipresente hoy en día: tan pronto como abres tu buzón o bandeja de entrada de correo electrónico, generalmente recibes una serie de cartas y correos electrónicos de empresas que desean promocionar sus productos. A menudo, se dirigen a tí personalmente.

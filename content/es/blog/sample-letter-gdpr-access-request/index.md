@@ -1,8 +1,8 @@
 {
     "title": "Modelo de carta para solicitudes de acceso a datos personales según Art. 15 del RGPD",
-    "slug": "sample-letter-gdpr-access-request",
-    "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2020-05-31T01:20:33",
+    "slug": "modelo-carta-solicitud-acceso-rgpd",
+    "aliases": ["sample-letter-gdpr-access-request"],
+    "date": "2021-01-25T21:25:12-05:00",
     "type": "blog",
     "description": "De acuerdo con el GDPR, tiene derecho a acceder a los datos personales almacenados sobre tí por las empresas. Te ofrecemos una carta modelo con la que puedes ejercitar tal derecho.",
     "featured_image": "gdpr-access-request-letter",

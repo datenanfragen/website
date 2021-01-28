@@ -1,7 +1,8 @@
 {
 	"title": "Código abierto",
 	"type": "page",
-	"aliases": ["opensource", "oss", "foss"],
+    "slug": "codigo-abierto",
+	"aliases": ["open-source", "opensource", "oss", "foss"],
 	"heading": "<span style='text-align: center; font-family: monospace;'>solicituddedatos.es <span class='color-red-600' title='loves'>❤</span> código abierto</span>"
 }
 
@@ -128,5 +129,5 @@ Estamos orgullosos de poder utilizar los siguientes proyectos para este sitio we
 Puedes encontrar los avisos de licencia completos para todos los proyectos que usamos [aquí]({{< absURL "NOTICES.txt" >}}).
 
 <div class="box box-info attribution-box">
-	{{< attribution "by" >}}
+	{{< attribution "por" >}}
 </div>

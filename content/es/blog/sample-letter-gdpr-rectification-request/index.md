@@ -1,8 +1,8 @@
 {
     "title": "Modelo de carta para solicitudes de rectificación según Art. 16 del RGPD",
-    "slug": "sample-letter-gdpr-rectification-request",
-    "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2020-05-31T01:28:42",
+    "slug": "modelo-carta-solicitud-rectificacion-rgpd",
+    "aliases": ["sample-letter-gdpr-rectification-request"],
+    "date": "2021-01-25T21:25:12-05:00",
     "type": "blog",
     "description": "Si una empresa ha almacenado datos personales falsos (o incompletos) sobre tí, entonces, según el RGPD, tienes derecho a exigir la corrección inmediata de dichos datos incorrectos. Te ofrecemos una carta modelo con la que puedes ejercitar dicho derecho.",
     "featured_image": "gdpr-rectification-request-letter",
@@ -43,7 +43,7 @@ Aquí está nuestro modelo de carta para solicitudes de acceso de acuerdo con el
 
 <p>Según lo establecido en el artículo 12(3) de la RGPD, debe usted confirmarme la objeción sin demora indebida y, en cualquier caso, dentro del mes siguiente a la recepción de la solicitud.</p>
 
-p>Incluyo la siguiente información necesaria para identificarme:<br>
+<p>Incluyo la siguiente información necesaria para identificarme:<br>
 <span class="blog-letter-fill-in">Ingresa aquí tus datos identificativos. Esto a menudo incluye información como tu nombre, tu fecha de nacimiento, tu dirección, tu dirección de correo electrónico, etc.</span></p>
 
 <p>Si vosotros no respondéis a mi petición en el periodo establecido, me reservo el derecho de tomar acciones legales contra vosotros y a presentar una queja con la autoridad supervisora responsable.</p>

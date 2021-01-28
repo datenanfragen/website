@@ -1,15 +1,17 @@
 {
     "title": "Contacto",
-    "type": "page"
+    "type": "page",
+    "slug": "contacto",
+    "aliases": ["contact"]
 }
  
 ## Información de acuerdo con § 5 de la ley alemana de telecomunicaciones (TMG)
 
-**Dirección postal:**
+**Dirección postal:**  
 Datenanfragen.de e.&nbsp;V.  
 Schreinerweg 6  
 38126 Braunschweig  
-Germany
+Alemania
 
 **Teléfono:** +49 531 209299 35  
 **Fax:** +49 531 209299 36  
@@ -19,8 +21,8 @@ Germany
 **Legalmente representado por:** Benjamin Altpeter and Lorenz Sieben  
 Datenanfragen.de e.&nbsp;V. es una organización sin fines de lucro que figura en el registro de asociaciones del tribunal de distrito de Braunschweig, con el número de registro VR&nbsp;201732, y reconocida como organización benéfica por la oficina de impuestos de Braunschweig-Wilhelmstraße.
 
-**Responsable del contenido según § 55 (2) del Tratado de Radiodifusión Interestatal Alemán (RStV):**  
-Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
+**Responsable del contenido según § 18(2) Tratado Interestatal Alemán de Medios *(Medienstaatsvertrag)*:**  
+Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Alemania
 
 <div class="box box-warning">
 	Ten en cuenta que somos una <em>organización sin fines de lucro independiente</em> y no estamos afiliados a las empresas que figuran en nuestra <a href="/company">base de datos de empresas</a>.<br>

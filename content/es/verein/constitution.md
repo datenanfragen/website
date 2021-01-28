@@ -1,6 +1,7 @@
 {
     "title": "Constitución",
-    "aliases": ["statutes", "statute"],
+    "slug": "constitucion",
+    "aliases": ["constitution", "statutes", "statute"],
     "type": "page"
 }
 

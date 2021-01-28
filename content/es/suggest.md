@@ -1,6 +1,8 @@
 {
     "title": "Sugerir una edición a la base de datos de empresas",
-    "type": "suggest"
+    "type": "suggest",
+    "slug": "sugerencias",
+    "aliases": ["suggest"]
 }
 
 ¡Gracias por tu contribución a la base de datos de empresas! Las contribuciones de los usuarios son increíblemente importantes para un proyecto como el nuestro.
@@ -12,12 +14,12 @@ Si deseas conocer los detalles de cómo recopilamos los datos para la base de da
 Tener en cuenta estos consejos a la hora de sugerir empresas nos ayuda mucho, pero es <strong>completamente opcional</strong>. Ya sea que no sigas ninguno de estos consejos, uno, algunos o todos: ¡Estamos felices con cada sugerencia!
 
 - El primer y mejor punto de partida para obtener información sobre una empresa es la política de privacidad. También lo convierte en una gran `fuente`.
-- No queremos ningún dato personal en nuestra base de datos. Esto incluye nombres en los correos electrónicos, p. Ej.<code>john.doe@example.org</code>.
+- No queremos ningún dato personal en nuestra base de datos. Esto incluye nombres en los correos electrónicos, p. Ej. <code>john.doe@example.org</code>.
 - Preferimos los datos de contacto de un responsable de protección de datos a los datos de contacto habituales de una empresa.
-    - c/o External Data Protection Officer Ltd.  
-      Example road 1  
-      12345 City  
-      Germany  
+    - c/o Protección de datos S.A.  
+      Calle de Ejemplo 45
+      12345 Madrid  
+      España  
 - Puedes ver nuestro formato de dirección preferido arriba: líneas separadas con saltos de línea, no incluyas el nombre de la empresa y agrega el país como última línea.
 - Si el correo electrónico de la empresa está obviamente relacionado con la privacidad, p. Ej. `privacy@` or `gdpr@`, puedes configurar `Medio de transporte sugerido` a email.
 - Si deseas aprender aún más, puedes consultar nuestro [repositorio `data` en GitHub](https://github.com/datenanfragen/data/).

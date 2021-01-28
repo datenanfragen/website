@@ -1,7 +1,7 @@
 {
     "title": "Cuotas de afiliación",
-    "slug": "membership-fees",
-    "aliases": ["gebuehrenordnung", "gebührenordnung", "mitgliedsbeitrag"],
+    "slug": "cuotas-de-afiliacion",
+    "aliases": ["membership-fees", "gebuehrenordnung", "gebührenordnung", "mitgliedsbeitrag"],
     "type": "page"
 }
 
@@ -13,7 +13,7 @@ activa        | 16,00 €/a
 apoyadora     | 32,00 €/a
 menores       | 0,00 €/a
 
-La siguiente regulación de tarifas fue decidida por la asamblea fundadora el 14 de junio de 2018 (solo la [versión alemana](https://www.datenanfragen.de/verein/gebuehrenordnung)es legalmente vinculante):
+La siguiente regulación de tarifas fue decidida por la asamblea fundadora el 14 de junio de 2018 (solo la [versión alemana](https://www.datenanfragen.de/verein/gebuehrenordnung) es legalmente vinculante):
 
 La cuota de membresía debe pagarse anualmente.
 La tarifa mínima para miembros activos es de 16,00 €. La tarifa mínima para miembros de apoyo es de 32,00 €. En ambos casos, el miembro puede decidir pagar una cantidad arbitrariamente mayor.
@@ -21,7 +21,7 @@ Un cambio de la cuota de membresía personal (considerando las cuotas mínimas) 
 
 Los miembros que también son menores de edad no están obligados a pagar cuotas de afiliación. Pueden elegir una tarifa de membresía arbitraria (incluido 0,00 € y en adelante)
 Tanto la junta como la asamblea general pueden reducir o eliminar las tarifas de los miembros individuales a su propia discreción.
-La clasificación como reducciones / exenciones menores u otras se basan exclusivamente en la confianza. En * ningún * caso es necesaria una prueba.
+La clasificación como reducciones / exenciones menores u otras se basan exclusivamente en la confianza. En *ningún* caso es necesaria una prueba.
 
 Los miembros fundadores pueden optar por no pagar la cuota de membresía. Están explícitamente exentos por la asamblea fundacional.
 

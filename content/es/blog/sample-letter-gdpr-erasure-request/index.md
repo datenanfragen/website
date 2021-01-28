@@ -1,8 +1,8 @@
 {
     "title": "Modelo de carta para solicitudes de supresión según Art. 17 del RGPD",
-    "slug": "sample-letter-gdpr-erasure-request",
-    "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2020-05-31T01:26:00",
+    "slug": "modelo-carta-solicitud-supresion-rgpd",
+    "aliases": ["sample-letter-gdpr-erasure-request"],
+    "date": "2021-01-25T21:25:12-05:00",
     "type": "blog",
     "description": "Gracias al GDPR, tienes derecho a que se eliminen tus datos personales si un controlador ya no los necesita para su propósito original. Te ofrecemos una carta modelo con la que puedes ejercitar tal derecho.",
     "featured_image": "gdpr-erasure-request-letter",

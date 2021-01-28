@@ -2,9 +2,9 @@
     "title": "Hoja de referencia del RGPD: una explicación de los términos y conceptos importantes",
     "heading": "Hoja de referencia del RGPD<br><span class='color-gray-800' style='font-size: 0.75em;'>Una explicación de los términos y conceptos importantes</span>",
     "type": "blog",
-    "slug": "gdpr-cheat-sheet",
-    "date": "2019-02-16T16:44:39+02:00",
-    "last_edited": "2019-10-16T04:17:02.56+02:00",
+    "slug": "hoja-de-referencia-rgpd",
+    "aliases": ["gdpr-cheat-sheet"],
+    "date": "2021-01-25T21:25:12-05:00",
     "description": "A primera vista, el RGPD puede parecer confuso como cualquier otro tema legal. En este artículo, explicamos brevemente los términos y conceptos más importantes relacionados con el RGPD para que puedas mantener el control fácilmente.",
     "featured_image_url": "/card-icons/book-info.svg",
     "tags": [ "RGPD", "glosario", "terminos", "conceptos" ],
@@ -23,7 +23,7 @@ En este artículo, explicamos los términos y conceptos más importantes relacio
 
 El RGPD (abreviatura de Reglamento general de protección de datos) es un reglamento de la UE que entró en vigor el 25 de mayo de 2018 y que regula la protección de datos en la Unión Europea. Su objetivo es brindar a los ciudadanos un mejor control sobre sus datos y armonizar las leyes de privacidad de datos en toda Europa.
 
-Como regulación de la UE, el RGPD no tiene que ser implementado por los estados miembros, pero es directamente vinculante y aplicable. En su mayor parte, reemplaza las leyes nacionales de protección de datos anteriormente aplicables, como la Ley británica de protección de datos de 1998 (DPA). Sin embargo, ciertos aspectos también pueden ser ajustados individualmente por los estados miembros. La nueva _Data Protection Act 2018_ (_DPA 2018_) que complementa el RGPD entró en vigencia el 23 de mayo de 2018, reemplazando el Data Protection Act de 1998.
+Como regulación de la UE, el RGPD no tiene que ser implementado por los estados miembros, pero es directamente vinculante y aplicable. En su mayor parte, reemplaza las leyes nacionales de protección de datos anteriormente aplicables, como la *Ley Orgánica de Protección de Datos de Carácter Personal*. Sin embargo, ciertos aspectos también pueden ser ajustados individualmente por los estados miembros.
 
 ## Términos y conceptos
 
@@ -57,7 +57,7 @@ El sujeto de datos es la persona cuyos datos personales se procesan. Como consum
 
 ### Principio de ventanilla única
 
-El [principio de ventanilla única]({{< ref "supervisory-authorities" >}}#one-stop-shop) regula la responsabilidad de las autoridades supervisoras de protección de datos. Para tí, como consumidor, esto significa que también puedes presentar quejas ante la autoridad supervisora de tu propio país (en términos concretos, este es el "Estado miembro de [su] residencia habitual, lugar de trabajo o lugar de la presunta infracción" ). Esto es particularmente útil si el controlador está ubicado en otro país.
+El [principio de ventanilla única]({{< ref "supervisory-authorities" >}}#one-stop-shop) regula la responsabilidad de las autoridades supervisoras de protección de datos. Para tí, como consumidor, esto significa que también puedes presentar quejas ante la autoridad supervisora de tu propio país (en términos concretos, este es el "Estado miembro de [su] residencia habitual, lugar de trabajo o lugar de la presunta infracción"). Esto es particularmente útil si el controlador está ubicado en otro país.
 
 Nuestro [Buscador de autoridades supervisoras de protección de datos]({{< ref "supervisory-authorities" >}}#finder) te ayudará a encontrar la autoridad supervisora responsable de tí.
 
@@ -98,7 +98,7 @@ La elaboración de perfiles es una forma de procesamiento automatizado en la que
 * Comportamiento
 * Ubicación o movimientos
 
-Un ejemplo clásico es la verificación de crédito de un teléfono móvil o una tarjeta de crédito que debes aprobar antes de obtener un contrato. Muchas empresas remitirán tus datos a agencias de crédito como [Experian]({{< ref "experian-gb" >}}) o [Equifax]({{< ref "equifax-gb" >}}). Estas agencias determinarán la probabilidad de que cumplas con tus obligaciones contractuales en función de información como tu comportamiento de pago anterior o la cantidad de cuentas bancarias que tienes.
+Un ejemplo clásico es la verificación de crédito de un teléfono móvil o una tarjeta de crédito que debes aprobar antes de obtener un contrato. Muchas empresas remitirán tus datos a agencias de crédito y estas agencias determinarán la probabilidad de que cumplas con tus obligaciones contractuales en función de información como tu comportamiento de pago anterior o la cantidad de cuentas bancarias que tienes.
 
 ### Derechos
 

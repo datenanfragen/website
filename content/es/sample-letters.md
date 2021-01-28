@@ -1,7 +1,8 @@
 {
-	"title": "Cartas de muestra para solicitudes de RGPD",
+	"title": "Modelos de carta para solicitudes de RGPD",
 	"type": "page",
-	"aliases": ["letter-templates"]
+    "slug": "modelos-cartas-rgpd",
+	"aliases": ["sample-letters", "letter-templates"]
 }
 
 El RGPD te otorga amplios derechos con respecto a tus datos personales. Para que el ejercicio de estos derechos sea lo más fácil posible para tí, hemos preparado estos modelos de cartas.

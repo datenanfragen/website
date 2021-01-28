@@ -1,7 +1,7 @@
 {
-    "title": "Convertirse en miembro",
-    "slug": "become-a-member",
-    "aliases": ["mitglied-werden", "membership", "mitgliedschaft", "foerdermitgliedschaft", "fördermitgliedschaft"],
+    "title": "Hazte miembro",
+    "slug": "hazte-miembro",
+    "aliases": ["become-a-member", "mitglied-werden", "membership", "mitgliedschaft", "foerdermitgliedschaft", "fördermitgliedschaft"],
     "type": "page"
 }
 
@@ -9,7 +9,7 @@ Gracias por considerar una membresía con Datenanfragen.de e.&nbsp;V.! Como miem
 
 Porque somos [reconocidos como una organización sin fines de lucro]({{< ref "verein/transparency" >}}#3-information-on-tax-privileges) por las autoridades fiscales alemanas, podemos darte una verificación de donación para tus cuotas de membresía, para que pueda deducirlo de tus declaraciones de impuestos (consulte con tu código fiscal local).
 
-Para convertirte en miembro, solo tendrás que completar la [solicitud de membresía](https://static.dacdn.de/docs/mitgliedsantrag.pdf) (Solo disponible en alemán). Luego envía el formulario terminado por correo electrónico (como PDF completo o escaneado / imagen) a [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), via fax al +49&nbsp;531&nbsp;209299&nbsp;36 o por correo a la siguiente dirección: Datenanfragen.de e.&nbsp;V., c/o Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany.  
+Para hacerte en miembro, solo tendrás que completar la [solicitud de membresía](https://static.dacdn.de/docs/mitgliedsantrag.pdf) (Solo disponible en alemán). Luego envía el formulario terminado por correo electrónico (como PDF completo o escaneado / imagen) a [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), via fax al +49&nbsp;531&nbsp;209299&nbsp;36 o por correo a la siguiente dirección: Datenanfragen.de e.&nbsp;V., c/o Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Alemania.  
 Nos pondremos en contacto contigo posteriormente para informarte si tu solicitud ha sido aceptada y acordar un método de pago.
 
 <a href="https://static.dacdn.de/docs/mitgliedsantrag.pdf" class="button button-primary icon icon-download" style="float: right;">Descargar formulario</a>
@@ -23,7 +23,7 @@ Nos pondremos en contacto contigo posteriormente para informarte si tu solicitud
      Puedes encontrar más información en nuestro [reglamento de tarifas]({{< ref "verein/membership-fees" >}}).
 
 * **¿Hay una tarifa de membresía reducida?**  
-    De acuerdo con nuestra [regulación de tarifas]({{< ref "verein/membership-fees" >}}) mLas tarifas de embership se pueden reducir o incluso eliminar por completo en dos casos:
+    De acuerdo con nuestra [regulación de tarifas]({{< ref "verein/membership-fees" >}}) las tarifas de membresía se pueden reducir o incluso eliminar por completo en dos casos:
 
     Si aún eres menor de edad, estarás exento de pagar la tarifa. Si lo deseas, aún puedes pagar una tarifa de membresía arbitraria, pero no es necesario.
     Sin embargo, para tu membresía, necesitaremos el consentimiento por escrito de tus tutores legales.

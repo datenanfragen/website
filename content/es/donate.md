@@ -1,7 +1,8 @@
 {
-    "title": "Donar",
+    "title": "Donaciones",
     "type": "donate",
-    "aliases": ["spenden", "verein/donate", "verein/spenden"]
+    "slug": "donaciones",
+    "aliases": ["donate", "spenden", "verein/donate", "verein/spenden"]
 }
 
 ¡Muchas gracias por su interés en apoyarnos! Tu donación nos ayudará a financiar nuestros proyectos actuales y futuros para que puedan ser gratuitos para todos.
@@ -46,7 +47,7 @@ Como organización sin fines de lucro de beneficio público, también podemos em
     *Datenanfragen.de e.&thinsp;V.  
     Schreinerweg 6  
     38126 Braunschweig  
-    Germany*
+    Alemania*
 
     Para donaciones en efectivo, sugerimos utilizar el servicio postal alemán [WERT NATIONAL](https://www.deutschepost.de/de/w/wert-national.html) o un producto similar ofrecido por tu oficina de correos local. No recomendamos enviar donaciones en efectivo a nivel internacional. En cualquier caso, asegúrate de que el contenido de tu carta no sea visible desde el exterior.
 

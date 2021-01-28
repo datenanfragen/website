@@ -1,8 +1,8 @@
 {
     "title": "Una descripción general rápida",
-    "slug": "a-quick-overview",
-    "date": "2018-03-23T03:25:12+02:00",
-    "last_edited": "2018-05-18T22:29:46",
+    "slug": "descripcion-rapida",
+    "aliases": ["a-quick-overview"],
+    "date": "2021-01-25T21:25:12-05:00",
     "type": "blog",
     "description": "Todas las empresas de la UE están obligadas por ley a otorgar acceso a tus datos personales, la posibilidad de corregirlos o incluso eliminarlos, etc. Aquí en solicituddedatos.es, queremos ayudarte a ejercer estos derechos. En esta publicación, queremos brindarte una descripción general rápida del proyecto.",
     "featured_image": "filing-shelves",

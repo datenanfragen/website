@@ -1,7 +1,7 @@
 {
     "title": "Our goals",
     "type": "page",
-    "aliases": ["mission", "goals", "our goals"]
+    "aliases": ["mission", "goals", "our-goals"]
 }
 
 We are a non-profit that stands up for the fundamental right to data protection and privacy. We want every person to be able to decide for themselves, who knows how much about them, and that authorities and companies which try to snatch that information will be held accountable. We stand up for transparency, openness, collaboration and solidarity with the affected. In doing so, we take the side of the consumer and citizen, whose rights we defend.

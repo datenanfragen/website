@@ -1,8 +1,8 @@
 {
 	"title": "Tus derechos bajo el Reglamento general de protección de datos (RGPD)",
-	"slug": "your-gdpr-rights",
-	"date": "2018-05-07T08:22:36+02:00",
-	"last_edited": "2020-02-24T19:07:25+02:00",
+	"slug": "tus-derechos-rgpd",
+	"aliases": ["your-gdpr-rights"],
+    "date": "2021-01-25T21:25:12-05:00",
 	"type": "blog",
 	"description": "El RGPD te otorga amplios derechos con respecto a la protección de datos. Por ejemplo, todas las empresas de la UE deben informarte qué datos personales han almacenado sobre tí. Si los datos son incorrectos, deben corregirlos. Incluso puedes solicitar que se eliminen los datos que tienen sobre tí. Obten más información en este artículo.",
 	"tags": [ "rgpd", "derechos" ]
@@ -16,14 +16,14 @@ En este artículo, queremos brindarte una descripción detallada de los derechos
 
 El RGPD es un *reglamento de la UE* que entró en vigor el 25 de mayo de 2018. El objetivo del RGPD es brindar a los ciudadanos de la UE un mejor control sobre sus datos personales. Como resultado, al uniformar la regulación de la protección de datos en toda la UE, la situación legal tanto para los ciudadanos como para las empresas se aclarará y se reducirá la burocracia.
 
-El RGPD reemplaza predominantemente la ley nacional de protección de datos anterior, como la *Ley británica de protección de datos de 1998* (*DPA*) (en aspectos individuales, sin embargo, todavía permite a los estados miembros una interpretación individual en la legislación nacional). Como regulación de la UE, es una ley directamente aplicable en todos los estados miembros de la UE, sin que estos tengan que implementarla en su legislación nacional.
+El RGPD reemplaza predominantemente la ley nacional de protección de datos anterior, la *Ley Orgánica de Protección de Datos de Carácter Personal (LOPD)* (en aspectos individuales, sin embargo, todavía permite a los estados miembros una interpretación individual en la legislación nacional). Como regulación de la UE, es una ley directamente aplicable en todos los estados miembros de la UE, sin que estos tengan que implementarla en su legislación nacional.
 
 ## Derechos del sujeto
 
 El RGPD reconoce el derecho fundamental de las personas a la protección de sus datos personales (como se define en el artículo 8 (1) de la *Carta de los Derechos Fundamentales de la Unión Europea*). Este derecho debe equilibrarse con la realidad arraigada de un mundo en el que el intercambio y el procesamiento de datos desempeñan un papel cada vez más importante en la vida cotidiana de cada ser humano y nos brindan ventajas indispensables:
 
 > Los rápidos avances tecnológicos y la globalización han traído nuevos desafíos para la protección de datos personales. La escala de la recopilación y el intercambio de datos personales ha aumentado significativamente. […] Las personas físicas ponen cada vez más información personal a disposición del público y de todo el mundo. La tecnología ha transformado tanto la economía como la vida social y debería facilitar aún más el libre flujo de datos personales dentro de la Unión y la transferencia a terceros países y organizaciones internacionales, garantizando al mismo tiempo un alto nivel de protección de los datos personales.
-> - <cite>Rectital 6 para el RGPD</cite>
+> -<cite>Rectital 6 para el RGPD</cite>
 
 Para lograr este acto de equilibrio, se imponen altas exigencias a la recopilación y el procesamiento de datos personales y se garantizan amplios derechos de los interesados hacia los responsables del tratamiento.
 

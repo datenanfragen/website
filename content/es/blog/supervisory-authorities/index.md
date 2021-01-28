@@ -1,8 +1,9 @@
 {
     "title": "Autoridades supervisoras de protección de datos",
     "type": "supervisory-authorities",
-    "url": "supervisory-authorities",
+    "url": "autoridades-supervisoras",
     "aliases": [
+        "supervisory-authorities",
     	"supervisory-data-protection-authorities",
     	"dpas",
     	"svas"
@@ -10,7 +11,7 @@
     "date": "2019-02-07T16:58:19+02:00",
     "description": "Las autoridades supervisoras de protección de datos son organismos independientes cuya tarea es asegurarse de que se cumplan las leyes de protección de datos. Si crees que una empresa infringe sus derechos, puedes comunicarse con ellos sin costo alguno. Te explicamos las autoridades supervisoras y te ayudamos a encontrar la corrección de una para contactar si deseas presentar una queja.",
     "featured_image_url": "/card-icons/authority.svg",
-    "tags": [ "one stop shop", "complaint", "competence" ],
+    "tags": [ "principio de ventanilla unica", "queja", "autoridad competente" ],
     "authors": [ "baltpeter" ],
     "blog_like": true
 }
