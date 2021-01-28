@@ -5,11 +5,11 @@
     "date": "2021-01-25T21:25:12-05:00",
     "type": "blog",
     "description": "No tienes que aguantar el marketing directo. Gracias al RGPD, puedes oponerte al uso de tus datos personales con fines de marketing directo. Nuestro modelo de carta te ayuda a ejercer este derecho.",
-    "featured_image": "objecion-thumb",
+    "featured_image": "sample-letter-gdpr-direct-marketing-objection-es",
     "tags": [ "rgpd", "objeción contra el marketing directo", "carta", "modelo", "artículo 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10",
-    "notices": "Foto adaptada de: \"[persona de pie junto a la pared durante el día](https://unsplash.com/photos/ZO_tXe8Tinw)\" por [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Licensia unsplash](https://unsplash.com/license))"
+    "notices": "Foto adaptada de: \"[persona de pie junto a la pared durante el día](https://unsplash.com/photos/ZO_tXe8Tinw)\" por [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Licencia unsplash](https://unsplash.com/license))"
 }
 
 La publicidad parece omnipresente hoy en día: tan pronto como abres tu buzón o bandeja de entrada de correo electrónico, generalmente recibes una serie de cartas y correos electrónicos de empresas que desean promocionar sus productos. A menudo, se dirigen a tí personalmente.
