@@ -20,7 +20,13 @@ module.exports = {
         'test-interface': './src/test-interface.js',
         // We need to define a dummy entrypoint that requires all our translation files, otherwise Webpack will not
         // process them.
-        'translations-dummy': ['./src/i18n/de.json', './src/i18n/en.json', './src/i18n/fr.json', './src/i18n/pt.json'],
+        'translations-dummy': [
+            './src/i18n/de.json',
+            './src/i18n/en.json',
+            './src/i18n/fr.json',
+            './src/i18n/pt.json',
+            './src/i18n/es.json',
+        ],
     },
     optimization: {
         minimize: true,
@@ -88,7 +94,8 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
 @see {@link https://www.datenanfragen.de|German website}
 @see {@link https://www.datarequests.org|English website}
 @see {@link https://www.demandetesdonnees.fr|French website}
-@see {@link https://www.pedidodedados.org/|Portuguese website}`),
+@see {@link https://www.pedidodedados.org/|Portuguese website}
+@see {@link https://www.solicituddedatos.es/|Spanish website}`),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
         new webpack.DefinePlugin({

@@ -9,3 +9,6 @@
 
 [pt]
 	baseURL = "https://www.pedidodedados.org/"
+
+[es]
+	baseURL = "https://www.solicituddedatos.es/"
