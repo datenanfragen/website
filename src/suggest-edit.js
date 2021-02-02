@@ -8,7 +8,6 @@ import { ErrorException, rethrow } from './Utility/errors';
 import FlashMessage, { flash } from 'Components/FlashMessage';
 let bf;
 let schema;
-// The requests to the dev endpoint can be viewed here: https://beeceptor.com/console/datenanfragen-test
 const SUBMIT_URL =
     process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000/suggest'
