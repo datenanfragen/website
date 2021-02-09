@@ -149,9 +149,38 @@ document.getElementById('submit-suggest-form').onclick = () => {
         const DOMAIN = domainWithoutTldFromUrl(data.web);
         data.slug = slugify(DOMAIN ? DOMAIN.replace('www.', '') : data.name);
     }
+    // get all "first depth level" arrays in schema
+    let arrays = [];
+    for (let key in schema.properties) {
+        if (schema.properties[key].type === 'array') arrays.push(key);
+    }
+
+    // get rid of nulls in all arrays
+    for (let property of arrays) {
+        if (!data[property]) continue;
+        data[property] = data[property].filter((x) => {
+            return x !== null;
+        });
+        if (data[property].length === 0) delete data[property]; // remove empty arrays
+    }
+
     if (!data['relevant-countries']) data['relevant-countries'] = ['all'];
     if (data.phone) data.phone = formatPhoneNumber(data.phone);
     if (data.fax) data.fax = formatPhoneNumber(data.fax);
+
+    Object.keys(data).forEach((key) => {
+        // trim string values
+        if (typeof data[key] === 'string') {
+            data[key] = data[key].trim();
+        }
+    });
+    if (data.address) {
+        // trim every line of the address
+        data.address = data.address
+            .split('\n')
+            .map((line) => line.trim())
+            .join('\n');
+    }
     data.quality = 'verified';
 
     document.getElementById('loading-indicator').classList.remove('hidden');
