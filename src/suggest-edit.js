@@ -155,7 +155,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
         if (schema.properties[key].type === 'array') arrays.push(key);
     }
 
-    // get rid of nulls in all arrays
+    // get rid of 'null's in all arrays
     for (let property of arrays) {
         if (!data[property]) continue;
         data[property] = data[property].filter((x) => {
