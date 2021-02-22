@@ -163,8 +163,17 @@ class IdDataControls extends Component {
 
     handleAddField = (_, { desc, value, type }) => {
         this.changeData((fields) => {
+            const last_index =
+                fields
+                    .map((f) => f.desc || '')
+                    .map((d) =>
+                        parseInt(d.match(new RegExp(`^${t('custom-input-desc', 'id-data-controls')} (\\d+)$`))?.[1], 10)
+                    )
+                    .filter((d) => d)
+                    .sort()
+                    .pop() || 0;
             fields.push({
-                desc: desc || 'input-' + Math.floor(Math.random() * 1000),
+                desc: desc || `${t('custom-input-desc', 'id-data-controls')} ${last_index + 1}`,
                 type,
                 optional: true,
                 value: value || (type === 'address' ? { primary: false } : ''),

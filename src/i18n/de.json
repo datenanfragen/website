@@ -514,6 +514,7 @@
         "input-single-line": "Freitext (einzeilig)",
         "input-multi-line": "Freitext (mehrzeilig)",
         "input-address": "Adresse",
+        "custom-input-desc": "Eigenes Feld",
         "add-input": "Feld hinzufügen",
         "description": "Beschreibung",
         "value": "Wert",
