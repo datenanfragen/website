@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
+# We don't need Netlify builds on master. This seems to be the easiest way to achieve this.
+# See https://docs.netlify.com/configure-builds/environment-variables/#read-only-variables for the env vars set by Netlify.
+if [ "$NETLIFY" = "true" ] && [ "$BRANCH" = "master" ];
+then
+    rm -rf public
+    mkdir public
+    echo 'No Netlify deploy previews on master.' > public/index.html
+    echo 'Skipping deploy preview for master on Netlify.'
+    exit
+fi
+
 languages=(de en fr pt es)
 
 echo "Fetching data…"
