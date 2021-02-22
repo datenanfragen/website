@@ -106,45 +106,7 @@
     <div id="companies-unverified" class="box box-error" style="margin-bottom: 20px;">{{ T "cdb-warning-unverified" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug)) | safeHTML }}</div>
     {{ end }}
 
-    <!-- TODO: This is currently a very naive approach, mostly since we don't exactly have any data to do this better. We will want to improve this in the future. -->
-    {{ if not .Site.Params.devMode }}
-        {{ $related_pages := slice }}
-
-        {{ $num_categories := (cond (isset .Params "categories") .Params.categories slice) | len }}
-        {{ $num_countries := (.Param "relevant-countries") | len }}
-
-        {{ range (where .Site.Pages "Section" "company") }}
-            {{ $num_common_categories := intersect $.Params.categories .Params.categories | len }}
-            {{ $num_common_countries := intersect ($.Param "relevant-countries") (.Param "relevant-countries") | len }}
-            {{ if and (gt $num_common_categories 0) (ne .Permalink $.Permalink) }}
-                {{ $score := add (div (float $num_common_categories) $num_categories) (div $num_common_countries $num_countries) }}
-                {{ $related_pages = $related_pages | append (dict "page" . "score" $score) }}
-            {{ end }}
-        {{ end }}
-        {{ $related_pages = sort $related_pages "score" "desc" }}
-        {{ with $related_pages }}
-            <div id="related-companies">
-                <h2>{{ T "cdb-related-companies" }}</h2>
-                <!-- TODO: Nicer styling -->
-                <ul>
-                    {{ range (. | first 5) }}
-                        <li><a href="{{ .page.Permalink }}">{{ .page.Params.name }}</a></li>
-                    {{ end }}
-                </ul>
-            </div>
-        {{ end }}
-    {{ else }}
-    <div id="related-companies">
-        <h2>{{ T "cdb-related-companies" }}</h2>
-        <ul>
-            <li><a href="{{ ref . "company/datenanfragen" }}">Darkenanfragen AG</a></li>
-            <li><a href="{{ ref . "company/datenanfragen" }}">Acme Inc.</a></li>
-            <li><a href="{{ ref . "company/datenanfragen" }}">Ace Corporation</a></li>
-            <li><a href="{{ ref . "company/datenanfragen" }}">Foo Bar Co.</a></li>
-            <li><a href="{{ ref . "company/datenanfragen" }}">Mum and Pop Ltd.</a></li>
-        </ul>
-    </div>
-    {{ end }}
+    {{ partialCached "related-companies.html" . .Params.categories (.Param "relevant-countries") }}
 
     <div id="comments-widget" data-rating-enabled="1" data-display-warning="1"></div>
 </main>
