@@ -172,7 +172,7 @@ export default class DynamicInput extends Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
         suffix: PropTypes.string.isRequired,
-        type: PropTypes.string,
+        type: PropTypes.oneOf(['input', 'textarea', 'email', 'address', 'name', 'birthdate']),
         desc: PropTypes.string,
 
         optional: PropTypes.bool,

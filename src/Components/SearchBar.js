@@ -54,12 +54,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
 
             this.algolia_autocomplete = autocomplete(
                 this.input_element,
-                {
-                    autoselect: true,
-                    clearOnSelected: true,
-                    hint: false,
-                    debug: this.props.debug || false,
-                },
+                { autoselect: true, hint: false, debug: this.props.debug || false },
                 {
                     source: (query, callback) => {
                         options['q'] = query;
