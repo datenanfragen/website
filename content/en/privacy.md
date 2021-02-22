@@ -23,7 +23,7 @@ This privacy policy applies to all activities of Datenanfragen.de e.&nbsp;V. (�
 
 This includes the data we collect and process from our member but also the data that is incurred from donations and the like.
 
-In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr) and [pedidodedados.org](https://www.pedidodedados.org/).
+In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es) and [pedidodedados.org](https://www.pedidodedados.org/).
 
 The association's purpose is to support the general public in excercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our [constitution]({{< ref "verein/constitution" >}}) in all our activities.
 

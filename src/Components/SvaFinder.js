@@ -28,26 +28,46 @@ const STEPS = {
                     kathsonst: 'dekathverbdsb',
                 },
             },
-            land: {
-                bawue: 'debawueldb',
-                bay: {
-                    oeff: 'debayldb',
-                    priv: 'debaylda',
+            private: {
+                'private-de': {
+                    bawue: 'debawueldb',
+                    bay: {
+                        oeff: 'debayldb',
+                        priv: 'debaylda',
+                    },
+                    ber: 'deberlbdi',
+                    bra: 'debralda',
+                    bre: 'debrelfdi',
+                    hess: 'dehessbdi',
+                    hh: 'dehmbbfdi',
+                    mv: 'demvldi',
+                    nds: 'dendslfd',
+                    nrw: 'denrwldi',
+                    rlp: 'derlpbdi',
+                    saar: 'desaarudz',
+                    sachs: 'desaechsdsb',
+                    sa: 'desalbd',
+                    sh: 'deshuld',
+                    thue: 'detlfdi',
                 },
-                ber: 'deberlbdi',
-                bra: 'debralda',
-                bre: 'debrelfdi',
-                hess: 'dehessbdi',
-                hh: 'dehmbbfdi',
-                mv: 'demvldi',
-                nds: 'dendslfd',
-                nrw: 'denrwldi',
-                rlp: 'derlpbdi',
-                saar: 'desaarudz',
-                sachs: 'desaechsdsb',
-                sa: 'desalbd',
-                sh: 'deshuld',
-                thue: 'detlfdi',
+                'private-other': {
+                    bawue: 'debawueldb',
+                    bay: 'debaylda',
+                    ber: 'deberlbdi',
+                    bra: 'debralda',
+                    bre: 'debrelfdi',
+                    hess: 'dehessbdi',
+                    hh: 'dehmbbfdi',
+                    mv: 'demvldi',
+                    nds: 'dendslfd',
+                    nrw: 'denrwldi',
+                    rlp: 'derlpbdi',
+                    saar: 'desaarudz',
+                    sachs: 'desaechsdsb',
+                    sa: 'desalbd',
+                    sh: 'deshuld',
+                    thue: 'detlfdi',
+                },
             },
         },
         gr: 'grdpa',
@@ -74,7 +94,7 @@ const STEPS = {
     },
 };
 
-let initial_state = {
+const INITIAL_STATE = {
     step: STEPS['country'],
     question: t('country', 'sva-finder'),
     result: false,
@@ -84,13 +104,11 @@ export default class SvaFinder extends Component {
     constructor(props) {
         super(props);
 
-        this.state = initial_state;
-
-        this.selectOption = this.selectOption.bind(this);
+        this.state = INITIAL_STATE;
     }
 
-    selectOption(option) {
-        let next_step = this.state.step[option];
+    selectOption = (option) => {
+        const next_step = this.state.step[option];
         if (typeof next_step === 'object') {
             this.setState({
                 step: next_step,
@@ -99,7 +117,7 @@ export default class SvaFinder extends Component {
         } else {
             this.setState({ result: next_step });
         }
-    }
+    };
 
     render() {
         let content;
@@ -121,12 +139,12 @@ export default class SvaFinder extends Component {
                 </p>
             );
         } else {
-            let entries = Object.keys(this.state.step).reduce((acc, val) => {
+            const entries = Object.keys(this.state.step).reduce((acc, val) => {
                 // This is a little ugly conceptually but I really don't like storing the country names multiple times.
                 acc[val] = t(val, 'sva-finder') || t(val, 'countries');
                 return acc;
             }, {});
-            let sorted_keys = Object.keys(entries).sort((a, b) => {
+            const sorted_keys = Object.keys(entries).sort((a, b) => {
                 // So, this is a fairly ugly but we want to move the user's country to the first position and this is the least awful way I can think of, considering we are already sorting the array anyway.
                 if (STEPS.country[globals.country]) {
                     if (a == globals.country) return -1;
@@ -135,20 +153,17 @@ export default class SvaFinder extends Component {
                 return entries[a].localeCompare(entries[b]);
             });
 
-            let options = [];
-            sorted_keys.forEach((key) => {
-                options.push(
-                    <label className={'radio-label' + (key == globals.country ? ' active' : '')}>
-                        <input
-                            className="form-element"
-                            onClick={() => {
-                                this.selectOption(key);
-                            }}
-                        />
-                        {entries[key]}
-                    </label>
-                );
-            });
+            const options = sorted_keys.map((key) => (
+                <label className={'radio-label' + (key == globals.country ? ' active' : '')}>
+                    <input
+                        className="form-element"
+                        onClick={() => {
+                            this.selectOption(key);
+                        }}
+                    />
+                    {entries[key]}
+                </label>
+            ));
 
             content = [
                 <p style="margin-top: 0;">{this.state.question}</p>,
@@ -158,17 +173,15 @@ export default class SvaFinder extends Component {
             ];
         }
 
-        let heading = this.props.callback ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>;
-
         return (
             <div className="sva-finder box box-info" style={this.props.style}>
-                {heading}
+                {this.props.callback ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
                 {content}
                 <div style="float: right; margin-top: 20px;">
                     <button
                         className="button button-secondary button-small"
                         onClick={() => {
-                            this.setState(initial_state);
+                            this.setState(INITIAL_STATE);
                         }}>
                         {t('reset', 'sva-finder')}
                     </button>

@@ -9,3 +9,6 @@
 
 [pt]
 	baseURL = "http://datenanfragen.test"
+
+[es]
+	baseURL = "http://datenanfragen.test"

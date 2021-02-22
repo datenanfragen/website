@@ -41,4 +41,4 @@ window.onload = function() { renderActWidget(); };
 
 Die E-Mail verschickst Du dabei selbst mit Deinem E-Mail-Programm. Wir bekommen Deine Daten dabei nicht zu sehen: Alles, was Du hier auf der Seite eingibst, wird **nur lokal auf Deinem Rechner** verarbeitet und nie an uns übertragen.
 
-Für die Antwort hat die Deutsche Wohnen einen Monat Zeit. Danach darfst Du Dich bei einer [Datenschutz-Aufsichtsbehörde]({{< ref "supervisory-authorities" >}}) beschweren. Sollte es dazu kommen, können wir Dir auch dabei helfen, wie wir in dem [entsprechenden Artikel](({{< ref "supervisory-authorities" >}})) erklären.
+Für die Antwort hat die Deutsche Wohnen einen Monat Zeit. Danach darfst Du Dich bei einer [Datenschutz-Aufsichtsbehörde]({{< ref "supervisory-authorities" >}}) beschweren. Sollte es dazu kommen, können wir Dir auch dabei helfen, wie wir in dem [entsprechenden Artikel]({{< ref "supervisory-authorities" >}}) erklären.

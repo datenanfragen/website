@@ -96,6 +96,15 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                 return (
                                     '<span><strong>' +
                                     (name_hs.length === 1 ? name_hs[0].snippet : d.name) +
+                                    (d.quality === 'tested'
+                                        ? '&nbsp;<span class="icon icon-check-badge color-green-800" title="' +
+                                          t('quality-tested', 'search') +
+                                          '"></span>'
+                                        : d.quality !== 'verified'
+                                        ? '&nbsp;<span class="icon icon-question-badge color-orange-800" title="' +
+                                          t('quality-unverified', 'search') +
+                                          '"></span>'
+                                        : '') +
                                     '</strong></span>' +
                                     (d.runs?.length
                                         ? '<br><span>' +
