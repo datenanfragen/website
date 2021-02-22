@@ -49,7 +49,7 @@ Cypress.Commands.add(
  * Make sure that you are on the homepage and in a tab that can find this company.
  */
 Cypress.Commands.add('addCompanyToWizard', (company, result_str) => {
-    cy.get('#aa-search-input').type(company);
+    cy.get('#aa-search-input').clear().type(company);
     cy.contains(result_str).click();
 });
 
