@@ -127,7 +127,7 @@ export default class Request {
             content: '',
             subject: '',
             sender_address: {},
-            name: ''
+            name: '',
         };
 
         /**
@@ -144,6 +144,67 @@ export default class Request {
          * @type {boolean}
          */
         this.done = false;
+    }
+
+    getFields(data) {
+        return this[data];
+    }
+
+    addField(data, props) {
+        if (!props.type) throw new Error('field must have a type.');
+        const fields = this.getFields(data);
+        fields.push({
+            desc: '',
+            optional: true,
+            value: props.type === 'address' ? { primary: false } : '',
+            ...props,
+        });
+        this.ensurePrimaryAddress(data);
+    }
+
+    removeField(data, idx) {
+        const fields = this.getFields(data);
+        let field = fields[idx];
+        if (!field) throw new Error('index out of bounds');
+        fields.splice(idx, 1);
+        // always have a primary address
+        this.ensurePrimaryAddress(data);
+    }
+
+    ensurePrimaryAddress(data) {
+        const fields = this.getFields(data);
+        if (!fields.find((f) => f.type === 'address' && f.value.primary)) {
+            let address = fields.find((f) => f.type === 'address');
+            if (address) address.value.primary = true;
+        }
+    }
+
+    setPrimaryAddress(data, idx) {
+        const fields = this.getFields(data);
+        let field = fields[idx];
+        if (!field) throw new Error('index out of bounds');
+        if (field.type !== 'address') {
+            throw new Error("can't set something that's not an address as primary");
+        }
+        fields.forEach((field, i) => {
+            if (field.type === 'address') {
+                field.value.primary = idx === i;
+            }
+        });
+    }
+
+    changeField(data, idx, prop, value) {
+        const fields = this.getFields(data);
+        let field = fields[idx];
+        if (!field) throw new Error('index out of bounds');
+        switch (prop) {
+            case 'desc':
+            case 'value':
+                field[prop] = value;
+                break;
+            default:
+                field.value[prop] = value;
+        }
     }
 
     /**
@@ -163,7 +224,7 @@ export default class Request {
             slug: this.slug,
             recipient: this.recipient_address,
             email: this.email,
-            via: this.transport_medium
+            via: this.transport_medium,
         };
         new UserRequests().storeRequest(db_id, item);
     }

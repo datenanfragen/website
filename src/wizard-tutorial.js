@@ -4,12 +4,12 @@ export let tutorial_steps = [
     {
         text: t('request-parameters', 'wizard_tutorial'),
         selector: '.request-parameters',
-        position: 'right'
+        position: 'right',
     },
     {
         text: t('company-info', 'wizard_tutorial'),
         selector: 'aside.company-info',
-        position: 'top'
+        position: 'top',
     },
     {
         text: t('id-data', 'wizard_tutorial'),
@@ -18,13 +18,13 @@ export let tutorial_steps = [
         style: {
             arrow: {
                 // For some reason, the default styling for the arrow is broken in this case. We need to fix that.
-                left: 'initial'
-            }
-        }
+                left: 'initial',
+            },
+        },
     },
     {
         text: t('next-request', 'wizard_tutorial'),
         selector: '#generator-controls',
-        position: 'left'
-    }
+        position: 'left',
+    },
 ];

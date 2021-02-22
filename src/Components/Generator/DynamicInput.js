@@ -1,8 +1,9 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
+import PropTypes from 'prop-types';
 
-export default class DynamicInput extends preact.Component {
+export default class DynamicInput extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };
@@ -13,7 +14,7 @@ export default class DynamicInput extends preact.Component {
     }
 
     render() {
-        let input = '';
+        let input;
         let control = '';
         switch (this.props.type) {
             case 'address':
@@ -167,9 +168,27 @@ export default class DynamicInput extends preact.Component {
             </IntlProvider>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        suffix: PropTypes.string.isRequired,
+        type: PropTypes.oneOf(['input', 'textarea', 'email', 'address', 'name', 'birthdate']),
+        desc: PropTypes.string,
+
+        optional: PropTypes.bool,
+        hasPrimary: PropTypes.bool,
+        allowRemoving: PropTypes.bool,
+        allowChangingDescription: PropTypes.bool,
+
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+        onChange: PropTypes.func.isRequired,
+        onAction: PropTypes.func,
+        onPrimaryChange: PropTypes.func.isRequired,
+        removeHandler: PropTypes.func,
+    };
 }
 
-export class TextareaControl extends preact.Component {
+export class TextareaControl extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };
@@ -210,9 +229,22 @@ export class TextareaControl extends preact.Component {
             </div>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        suffix: PropTypes.string.isRequired,
+
+        suppressLabel: PropTypes.bool,
+        desc: PropTypes.string,
+
+        required: PropTypes.bool,
+
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired,
+    };
 }
 
-export class InputControl extends preact.Component {
+export class InputControl extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };
@@ -253,9 +285,22 @@ export class InputControl extends preact.Component {
             </div>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        suffix: PropTypes.string,
+
+        suppressLabel: PropTypes.bool,
+        desc: PropTypes.string,
+
+        required: PropTypes.bool,
+
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired,
+    };
 }
 
-export class DateControl extends preact.Component {
+export class DateControl extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };
@@ -296,9 +341,22 @@ export class DateControl extends preact.Component {
             </div>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        suffix: PropTypes.string,
+
+        suppressLabel: PropTypes.bool,
+        desc: PropTypes.string,
+
+        required: PropTypes.bool,
+
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired,
+    };
 }
 
-export class AddressControl extends preact.Component {
+export class AddressControl extends Component {
     constructor(props) {
         super(props);
         this.state = { focus: false };
@@ -414,4 +472,16 @@ export class AddressControl extends preact.Component {
             </div>
         );
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        suffix: PropTypes.string,
+
+        desc: PropTypes.string,
+
+        required: PropTypes.bool,
+
+        value: PropTypes.object.isRequired,
+        onChange: PropTypes.func.isRequired,
+    };
 }

@@ -1,18 +1,21 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
-import FlashMessage, { flash } from 'Components/FlashMessage';
-import StarWidget from 'Components/StarWidget';
+import FlashMessage, { flash } from './FlashMessage';
+import StarWidget from './StarWidget';
 import { rethrow, WarningException } from '../Utility/errors';
+import PropTypes from 'prop-types';
 
 const API_URL = 'https://backend.datenanfragen.de/comments';
 const TARGET = LOCALE + '/' + document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '');
 
-export default class CommentsWidget extends preact.Component {
+export default class CommentsWidget extends Component {
     constructor(props) {
         super(props);
 
-        this.state.comments = [];
+        this.state = {
+            comments: [],
+        };
 
         const url = `${API_URL}/get/${TARGET}`;
         fetch(url)
@@ -62,9 +65,14 @@ export default class CommentsWidget extends preact.Component {
             </IntlProvider>
         );
     }
+
+    static propTypes = {
+        displayWarning: PropTypes.bool,
+        allow_rating: PropTypes.bool,
+    };
 }
 
-export class Comment extends preact.Component {
+export class Comment extends Component {
     render() {
         return (
             <div className="comment box box-compact" style="margin-bottom: 15px; position: relative;">
@@ -124,9 +132,19 @@ export class Comment extends preact.Component {
 
         return [...processChunk(line), <br />];
     };
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        message: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        additional: PropTypes.shape({
+            rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        }).isRequired,
+    };
 }
 
-export class CommentForm extends preact.Component {
+export class CommentForm extends Component {
     constructor(props) {
         super(props);
 
@@ -267,4 +285,9 @@ export class CommentForm extends preact.Component {
                 flash(<FlashMessage type="error">{t('send-error', 'comments')}</FlashMessage>);
             });
     }
+
+    static propTypes = {
+        displayWarning: PropTypes.bool,
+        allow_rating: PropTypes.bool,
+    };
 }

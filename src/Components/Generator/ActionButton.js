@@ -1,9 +1,9 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import PropTypes from 'prop-types';
 import { Text, IntlProvider } from 'preact-i18n';
 import MailtoDropdown from '../MailtoDropdown';
 
-export default class ActionButton extends preact.Component {
+export default class ActionButton extends Component {
     render(props) {
         const enabled = props.transport_medium === 'email' ? !!props.letter : props.download_active;
         const class_name =
@@ -25,7 +25,7 @@ export default class ActionButton extends preact.Component {
                     className={class_name}
                     href={props.blob_url}
                     download={props.download_filename}
-                    onClick={e => {
+                    onClick={(e) => {
                         if (!enabled) e.preventDefault();
                         else props.onSuccess();
                     }}>
@@ -50,7 +50,7 @@ export default class ActionButton extends preact.Component {
             blob_url: undefined,
             download_filename: '',
             download_active: false,
-            done: false
+            done: false,
         };
     }
 
@@ -64,6 +64,6 @@ export default class ActionButton extends preact.Component {
         download_active: PropTypes.bool,
         onSuccess: PropTypes.func.isRequired,
         done: PropTypes.bool,
-        buttonText: PropTypes.oneOf([PropTypes.string, PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
+        buttonText: PropTypes.oneOfType([PropTypes.elementType, PropTypes.arrayOf(PropTypes.elementType)]),
     };
 }

@@ -1,8 +1,9 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import { detectBlockedCanvasImageExtraction } from '../../Utility/browser';
+import PropTypes from 'prop-types';
 
-export default class SignatureInput extends preact.Component {
+export default class SignatureInput extends Component {
     constructor(props) {
         super(props);
 
@@ -303,4 +304,19 @@ export default class SignatureInput extends preact.Component {
             },
         });
     }
+
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+
+        height: PropTypes.number,
+        width: PropTypes.number,
+        strokeColor: PropTypes.string,
+
+        value: PropTypes.object.isRequired,
+        fillSignature: PropTypes.object,
+
+        isForIdData: PropTypes.bool,
+
+        onChange: PropTypes.func.isRequired,
+    };
 }

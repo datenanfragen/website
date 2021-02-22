@@ -25,7 +25,7 @@ export function renderEpcrQr(canvas_element, amount, reference, light_color = nu
         errorCorrectionLevel: 'M',
         width: 256,
         height: 256,
-        color: { light: light_color || '#f7fafc' }
+        color: { light: light_color || '#f7fafc' },
     });
 }
 
@@ -37,11 +37,7 @@ export function bezahlcodeData(amount, reference) {
         '&iban=DE42830654080104085140' +
         '&bic=GENODEF1SLR' +
         '&amount=' +
-        encodeURIComponent(
-            Number.parseFloat(amount)
-                .toFixed(2)
-                .replace('.', ',')
-        ) +
+        encodeURIComponent(Number.parseFloat(amount).toFixed(2).replace('.', ',')) +
         '&reason=' +
         encodeURIComponent(reference) +
         '&currency=EUR'
@@ -53,6 +49,6 @@ export function renderBezahlcodeQr(canvas_element, amount, reference, light_colo
         errorCorrectionLevel: 'M',
         width: 256,
         height: 256,
-        color: { light: light_color || '#f7fafc' }
+        color: { light: light_color || '#f7fafc' },
     });
 }

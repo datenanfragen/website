@@ -1,17 +1,18 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import * as Typesense from 'typesense';
 import { rethrow } from '../Utility/errors';
-import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
+import FeatureDisabledWidget from './FeatureDisabledWidget';
+import PropTypes from 'prop-types';
 
 export let SearchBar;
 
 if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
     let autocomplete = require('autocomplete.js');
 
-    SearchBar = class SearchBar extends preact.Component {
+    SearchBar = class SearchBar extends Component {
         constructor(props) {
             super(props);
 
@@ -52,8 +53,8 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
             if (!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
 
             this.algolia_autocomplete = autocomplete(
-                '#' + this.props.id,
-                { hint: false, debug: this.props.debug || false },
+                this.input_element,
+                { autoselect: true, hint: false, debug: this.props.debug || false },
                 {
                     source: (query, callback) => {
                         options['q'] = query;
@@ -139,6 +140,12 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 this.props.setupPlaceholderChange(this.input_element);
         }
 
+        componentWillUnmount() {
+            if (this.algolia_autocomplete) {
+                this.algolia_autocomplete.autocomplete.destroy();
+            }
+        }
+
         render() {
             return (
                 <input
@@ -151,9 +158,31 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 />
             );
         }
+
+        static propTypes = {
+            id: PropTypes.string.isRequired,
+            placeholder: PropTypes.string.isRequired,
+            debug: PropTypes.bool,
+            style: PropTypes.string,
+
+            index: PropTypes.string.isRequired,
+            query_by: PropTypes.string,
+            numberOfHits: PropTypes.number,
+            disableCountryFiltering: PropTypes.bool,
+            onAutocompleteSelected: PropTypes.func.isRequired,
+
+            suggestion_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+            empty_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+            header_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+            footer_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+
+            setupPlaceholderChange: PropTypes.func,
+
+            filters: PropTypes.arrayOf(PropTypes.string),
+        };
     };
 } else {
-    SearchBar = class SearchBar extends preact.Component {
+    SearchBar = class SearchBar extends Component {
         render() {
             return (
                 <IntlProvider scope="search" definition={I18N_DEFINITION}>

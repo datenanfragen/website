@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -16,7 +15,6 @@ module.exports = {
         'sva-finder': './src/Components/SvaFinder.js',
         'act-widget': './src/Components/ActWidget.js',
         'donation-widget': './src/Components/DonationWidget.js',
-        pdfworker: './src/Utility/PdfWorker.js',
         'test-interface': './src/test-interface.js',
         // We need to define a dummy entrypoint that requires all our translation files, otherwise Webpack will not
         // process them.
@@ -29,30 +27,31 @@ module.exports = {
         ],
     },
     optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserPlugin({
-                sourceMap: true,
-                extractComments: false,
-                cache: true,
-                parallel: true,
-                terserOptions: {
-                    mangle: {
-                        reserved: [
-                            'ActionButtonPlaceholder',
-                            'NewRequestButtonPlaceholder',
-                            'CompanySelectorPlaceholder',
-                            'RequestFormPlaceholder',
-                            'DynamicInputContainerPlaceholder',
-                            'SignatureInputPlaceholder',
-                            'RequestTypeChooserPlaceholder',
-                            'RecipientInputPlaceholder',
-                            'TransportMediumChooserPlaceholder',
-                        ],
+        runtimeChunk: 'single',
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    name: 'commons',
+                    chunks: 'all',
+                    test: (module, chunks) => {
+                        // these are always included so others can reuse code from them, i.e. preact
+                        const splitForEntries = ['general', 'error-handler'];
+                        return chunks.filter((c) => splitForEntries.includes(c.name)).length > 0;
                     },
+                    minChunks: 2,
+                    priority: -10,
                 },
-            }),
-        ],
+                vendors: {
+                    name: 'vendors',
+                    chunks: 'all',
+                    test: /[/\\]node_modules[/\\](?!@babel)/,
+                    // autocomplete.js, localforage, typesense
+                    minChunks: 4,
+                    priority: -20,
+                    reuseExistingChunk: true,
+                },
+            },
+        },
     },
     output: {
         filename: 'js/[name].gen.js',
@@ -62,6 +61,20 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.worker\.js$/,
+                use: [
+                    {
+                        loader: 'worker-loader',
+                        options: {
+                            filename: 'js/[name].worker.gen.js',
+                        },
+                    },
+                    {
+                        loader: 'babel-loader',
+                    },
+                ],
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -77,7 +90,7 @@ module.exports = {
             // * Finally, it combines the requests translations for all languages into one JS files to be included in
             //   the HTML of all language versions.
             {
-                test: /src\/i18n\/[a-z]{2}\.json/,
+                test: /src[/\\]i18n[/\\][a-z]{2}\.json/,
                 loader: path.resolve('src/Utility/webpack-i18n-loader.js'),
             },
         ],
@@ -101,14 +114,16 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
         new webpack.DefinePlugin({
             CODE_VERSION: JSON.stringify(process.env.npm_package_version),
         }),
+        new webpack.ProvidePlugin({
+            createElement: ['preact', 'createElement'],
+            Fragment: ['preact', 'Fragment'],
+        }),
     ],
     resolve: {
         modules: ['src', 'node_modules', 'i18n', 'res/icons'],
         alias: {
-            react: 'preact-compat',
-            'react-dom': 'preact-compat',
-            // Not necessary unless you consume a module using `createClass`
-            'create-react-class': 'preact-compat/lib/create-react-class',
+            react: 'preact/compat',
+            'react-dom': 'preact/compat',
         },
     },
 };

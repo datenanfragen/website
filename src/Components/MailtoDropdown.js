@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import PropTypes from 'prop-types';
 import t, { t_r } from '../Utility/i18n';
@@ -14,12 +14,12 @@ let previous_active_element = document.body;
 // to produce links for GMX and Web.de.
 export const MAILTO_HANDLERS = {
     mailto: {
-        link: d => `mailto:${d.email}?subject=${d.subject}&body=${d.body}`,
-        countries: ['all']
+        link: (d) => `mailto:${d.email}?subject=${d.subject}&body=${d.body}`,
+        countries: ['all'],
     },
     gmail: {
-        link: d => `https://mail.google.com/mail/?view=cm&fs=1&to=${d.email}&su=${d.subject}&body=${d.body}`,
-        countries: ['all']
+        link: (d) => `https://mail.google.com/mail/?view=cm&fs=1&to=${d.email}&su=${d.subject}&body=${d.body}`,
+        countries: ['all'],
     },
     // TODO: Outlook doesn't work. I think our body may be too long. :(
     // Reference: https://blogs.msdn.microsoft.com/carloshm/2016/01/16/how-to-compose-a-new-message-or-event-and-populate-fields-in-office365/
@@ -29,24 +29,24 @@ export const MAILTO_HANDLERS = {
     //     countries: ['all']
     // },
     yahoo: {
-        link: d => `https://compose.mail.yahoo.com/?to=${d.email}&subject=${d.subject}&body=${d.body}`,
-        countries: ['all']
+        link: (d) => `https://compose.mail.yahoo.com/?to=${d.email}&subject=${d.subject}&body=${d.body}`,
+        countries: ['all'],
     },
     yandex: {
-        link: d => `https://mail.yandex.com/#compose?to=${d.email}&subject=${d.subject}&body=${d.body}`,
-        countries: ['all']
+        link: (d) => `https://mail.yandex.com/#compose?to=${d.email}&subject=${d.subject}&body=${d.body}`,
+        countries: ['all'],
     },
     copymanually: {
-        onClick: d => {
-            const dismiss = () => preact.render('', document.body, modal);
-            const onInputClick = e => {
+        onClick: (d) => {
+            const dismiss = () => render('', document.body, modal);
+            const onInputClick = (e) => {
                 if (previous_active_element.id === e.target.id) return;
 
                 e.target.select();
                 e.target.focus();
                 previous_active_element = e.target;
             };
-            const modal = preact.render(
+            const modal = render(
                 <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                     <Modal
                         positiveText={<Text id="ok" />}
@@ -99,16 +99,16 @@ export const MAILTO_HANDLERS = {
                 document.body
             );
         },
-        countries: ['all']
-    }
+        countries: ['all'],
+    },
 };
 
-export default class MailtoDropdown extends preact.Component {
+export default class MailtoDropdown extends Component {
     render(props) {
         const handlers =
             this.props.handlers ||
-            Object.keys(MAILTO_HANDLERS).filter(h =>
-                MAILTO_HANDLERS[h].countries.some(c => ['all', globals.country].includes(c))
+            Object.keys(MAILTO_HANDLERS).filter((h) =>
+                MAILTO_HANDLERS[h].countries.some((c) => ['all', globals.country].includes(c))
             );
 
         const data = {
@@ -121,13 +121,13 @@ export default class MailtoDropdown extends preact.Component {
                     props.letter.props.reference +
                     ')'
             ),
-            body: encodeURIComponent(props.letter.toEmailString())
+            body: encodeURIComponent(props.letter.toEmailString()),
         };
-        const handler_buttons = handlers.map(h => (
+        const handler_buttons = handlers.map((h) => (
             // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
                 href={MAILTO_HANDLERS[h].link?.(data)}
-                onClick={e => {
+                onClick={(e) => {
                     if (!props.letter) e.preventDefault();
                     else {
                         if (MAILTO_HANDLERS[h].onClick) MAILTO_HANDLERS[h].onClick(data);
@@ -175,6 +175,6 @@ export default class MailtoDropdown extends preact.Component {
         onSuccess: PropTypes.func.isRequired,
         done: PropTypes.bool.isRequired,
         className: PropTypes.string.isRequired,
-        buttonText: PropTypes.oneOf([PropTypes.string, PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
+        buttonText: PropTypes.oneOfType([PropTypes.elementType, PropTypes.arrayOf(PropTypes.elementType)]),
     };
 }

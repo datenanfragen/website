@@ -1,11 +1,12 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import t from '../Utility/i18n';
 import { Text, MarkupText, IntlProvider } from 'preact-i18n';
-import { SearchBar } from '../Components/SearchBar';
+import { SearchBar } from './SearchBar';
 import { rethrow } from '../Utility/errors';
 import localforage from 'localforage';
 import Cookie from 'js-cookie';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import PropTypes from 'prop-types';
 
 const CATEGORIES = [
     'suggested',
@@ -20,7 +21,7 @@ const CATEGORIES = [
 ];
 const USER_CHANGED_COOKIE = 'changed_saved_companies';
 
-export default class Wizard extends preact.Component {
+export default class Wizard extends Component {
     constructor(props) {
         super(props);
 
@@ -125,78 +126,76 @@ export default class Wizard extends preact.Component {
         }
         return (
             <IntlProvider scope="wizard" definition={I18N_DEFINITION}>
-                <div>
-                    <div id="wizard-tabs">{tabs}</div>
-                    <div id="wizard" className="box">
-                        <div id="wizard-selector" className="col50">
-                            {this.state.current_tab === 0 ? (
-                                ''
-                            ) : (
-                                <SearchBar
-                                    id="aa-search-input"
-                                    index="companies"
-                                    onAutocompleteSelected={(event, suggestion, dataset) => {
-                                        this.addCompany(suggestion.document.slug, suggestion.document.name);
-                                    }}
-                                    debug={true}
-                                    placeholder={t('search-company', 'wizard', {
-                                        category: t(CATEGORIES[this.state.current_tab], 'categories'),
-                                    })}
-                                    filters={
-                                        this.state.current_tab === CATEGORIES.length - 1
-                                            ? []
-                                            : ['categories:' + CATEGORIES[this.state.current_tab]]
-                                    }
-                                    empty_template={
-                                        this.isLastTab()
-                                            ? null
-                                            : '<p style="margin-left: 10px;">' + t('no-results', 'search') + '</p>'
-                                    }
-                                />
-                            )}
-
-                            {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
-                            <MarkupText
-                                id={CATEGORIES[this.state.current_tab]}
-                                fields={{
-                                    suggested: t(
-                                        COUNTRIES_WITH_SUGGESTED_COMPANIES.includes(globals.country)
-                                            ? 'suggestions'
-                                            : 'no-suggestions',
-                                        'wizard',
-                                        { country: t(this.state.country, 'countries') }
-                                    ),
+                <div id="wizard-tabs">{tabs}</div>
+                <div id="wizard" className="box">
+                    <div id="wizard-selector" className="col50">
+                        {this.state.current_tab === 0 ? (
+                            ''
+                        ) : (
+                            <SearchBar
+                                id="aa-search-input"
+                                index="companies"
+                                onAutocompleteSelected={(event, suggestion, dataset) => {
+                                    this.addCompany(suggestion.document.slug, suggestion.document.name);
                                 }}
+                                debug={true}
+                                placeholder={t('search-company', 'wizard', {
+                                    category: t(CATEGORIES[this.state.current_tab], 'categories'),
+                                })}
+                                filters={
+                                    this.state.current_tab === CATEGORIES.length - 1
+                                        ? []
+                                        : ['categories:' + CATEGORIES[this.state.current_tab]]
+                                }
+                                empty_template={
+                                    this.isLastTab()
+                                        ? null
+                                        : '<p style="margin-left: 10px;">' + t('no-results', 'search') + '</p>'
+                                }
                             />
-                            <div id="wizard-buttons">
-                                <button
-                                    className={'button ' + 'button-' + (this.isLastTab() ? 'primary' : 'secondary')}
-                                    onClick={() => {
-                                        location.href =
-                                            BASE_URL +
-                                            '/generator#!from=wizard' +
-                                            (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)
-                                                ? ''
-                                                : '&companies=' + Object.keys(this.state.selected_companies).join(','));
-                                    }}
-                                    disabled={Object.values(this.state.selected_companies).length === 0}>
-                                    <Text id="finish" />
-                                </button>
-                                {next_button}
-                            </div>
-                            <div className="clearfix" />
-                        </div>
-                        <div id="wizard-selected" className="col50">
-                            <h2 style="margin-top: 0;">
-                                <Text id="selected-companies" />
-                            </h2>
-                            <SelectedCompaniesList
-                                companies={this.state.selected_companies}
-                                removeCallback={this.removeCompany}
-                            />
+                        )}
+
+                        {/* TODO: These texts are pretty bad and cringey but I am just not good at writing stuff like that. I am *very* open to different suggestions. */}
+                        <MarkupText
+                            id={CATEGORIES[this.state.current_tab]}
+                            fields={{
+                                suggested: t(
+                                    COUNTRIES_WITH_SUGGESTED_COMPANIES.includes(globals.country)
+                                        ? 'suggestions'
+                                        : 'no-suggestions',
+                                    'wizard',
+                                    { country: t(this.state.country, 'countries') }
+                                ),
+                            }}
+                        />
+                        <div id="wizard-buttons">
+                            <button
+                                className={'button ' + 'button-' + (this.isLastTab() ? 'primary' : 'secondary')}
+                                onClick={() => {
+                                    location.href =
+                                        BASE_URL +
+                                        '/generator#!from=wizard' +
+                                        (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)
+                                            ? ''
+                                            : '&companies=' + Object.keys(this.state.selected_companies).join(','));
+                                }}
+                                disabled={Object.values(this.state.selected_companies).length === 0}>
+                                <Text id="finish" />
+                            </button>
+                            {next_button}
                         </div>
                         <div className="clearfix" />
                     </div>
+                    <div id="wizard-selected" className="col50">
+                        <h2 style="margin-top: 0;">
+                            <Text id="selected-companies" />
+                        </h2>
+                        <SelectedCompaniesList
+                            companies={this.state.selected_companies}
+                            removeCallback={this.removeCompany}
+                        />
+                    </div>
+                    <div className="clearfix" />
                 </div>
             </IntlProvider>
         );
@@ -267,7 +266,7 @@ export class SavedCompanies {
     }
 }
 
-class WizardTab extends preact.Component {
+class WizardTab extends Component {
     render() {
         return (
             <button
@@ -279,6 +278,13 @@ class WizardTab extends preact.Component {
             </button>
         );
     }
+
+    static propTypes = {
+        clickCallback: PropTypes.func.isRequired,
+        index: PropTypes.number.isRequired,
+        isCurrent: PropTypes.bool.isRequired,
+        desc: PropTypes.string.isRequired,
+    };
 }
 
 class SelectedCompaniesList {

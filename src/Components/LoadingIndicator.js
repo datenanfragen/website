@@ -1,7 +1,7 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import PropTypes from 'prop-types';
 
-export default class LoadingIndicator extends preact.Component {
+export default class LoadingIndicator extends Component {
     render() {
         if (!this.props.shown) return '';
 

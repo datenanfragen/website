@@ -513,6 +513,7 @@
         "add-dynamic-input-explanation": "The data above is usually used to identify you. But if you want, you can always add more data here that you also need regularly. You can then add it manually in the generator. Add data by selecting the field type.",
         "input-single-line": "Text (single line)",
         "input-multi-line": "Text (multi line)",
+        "custom-input-desc": "Custom field",
         "input-address": "Address",
         "add-input": "Add input",
         "description": "Description",

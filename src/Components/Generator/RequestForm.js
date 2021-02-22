@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import DynamicInputContainer from './DynamicInputContainer';
 import SignatureInput from './SignatureInput';
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';
@@ -8,8 +8,9 @@ import Accordion from '../Accordion';
 import RequestTypeChooser from './RequestTypeChooser';
 import RecipientInput from './RecipientInput';
 import TransportMediumChooser from './TransportMediumChooser';
+import PropTypes from 'prop-types';
 
-export default class RequestForm extends preact.Component {
+export default class RequestForm extends Component {
     render() {
         let body = [];
         let heading_class = '';
@@ -22,7 +23,10 @@ export default class RequestForm extends preact.Component {
                         title={t('rectification-data', 'generator')}
                         fields={this.props.request_data['rectification_data']}
                         hasPrimary={false}
-                        onChange={this.props.onChange}>
+                        onAddField={this.props.onAddField}
+                        onRemoveField={this.props.onRemoveField}
+                        onSetPrimaryAddress={this.props.onSetPrimaryAddress}
+                        onChange={this.props.onInputChange}>
                         <MarkupText id="rectification-data-explanation" />
                     </DynamicInputContainer>
                 );
@@ -35,7 +39,10 @@ export default class RequestForm extends preact.Component {
                     <DynamicInputContainer
                         key="id_data"
                         id="id_data"
-                        onChange={this.props.onChange}
+                        onAddField={this.props.onAddField}
+                        onRemoveField={this.props.onRemoveField}
+                        onSetPrimaryAddress={this.props.onSetPrimaryAddress}
+                        onChange={this.props.onInputChange}
                         fields={this.props.request_data['id_data']}
                         title={t(
                             this.props.request_data.is_tracking_request ? 'id-data-tracking' : 'id-data',
@@ -141,7 +148,7 @@ export default class RequestForm extends preact.Component {
                             id="0"
                             suffix="custom-request"
                             required={false}
-                            onChange={event => this.props.onLetterChange(event, true)}
+                            onChange={(event) => this.props.onLetterChange(event, true)}
                             value={this.props.request_data.custom_data['sender_address']}
                         />
                     </div>
@@ -180,15 +187,18 @@ export default class RequestForm extends preact.Component {
                             />
 
                             <RecipientInput
-                                onAddressChange={e => this.props.onChange({ recipient_address: e.target.value })}
-                                onEmailChange={e => this.props.onChange({ email: e.target.value })}
+                                onAddressChange={(e) => this.props.onChange({ recipient_address: e.target.value })}
+                                onEmailChange={(e) => this.props.onChange({ email: e.target.value })}
                                 transportMedium={this.props.request_data.transport_medium}
                                 recipientAddress={this.props.request_data.recipient_address}
                                 email={this.props.request_data.email}
                             />
 
                             {this.renderFlags()}
-                            <Accordion title={t('information-block', 'generator')} id="advanced-information">
+                            <Accordion
+                                title={t('information-block', 'generator')}
+                                id="advanced-information"
+                                expanded={false}>
                                 <div id="information-block-form">
                                     <div className="form-group">
                                         <label htmlFor="request-date">
@@ -199,7 +209,7 @@ export default class RequestForm extends preact.Component {
                                             type="date"
                                             id="request-date"
                                             className="form-element"
-                                            onChange={e => this.props.onChange({ date: e.target.value })}
+                                            onChange={(e) => this.props.onChange({ date: e.target.value })}
                                             value={this.props.request_data['date']}
                                         />
                                     </div>
@@ -222,7 +232,7 @@ export default class RequestForm extends preact.Component {
                                         placeholder={t('information-block', 'generator')}
                                         rows="4"
                                         spellCheck="true"
-                                        onChange={e => this.props.onChange({ information_block: e.target.value })}
+                                        onChange={(e) => this.props.onChange({ information_block: e.target.value })}
                                         value={this.props.request_data['information_block']}
                                     />
                                 </div>
@@ -250,7 +260,7 @@ export default class RequestForm extends preact.Component {
                             id="request-flags-data-portability"
                             className="request-flags form-element"
                             checked={this.props.request_data['data_portability']}
-                            onChange={event => {
+                            onChange={(event) => {
                                 this.props.onChange({ data_portability: event.target.checked });
                             }}
                         />
@@ -268,7 +278,7 @@ export default class RequestForm extends preact.Component {
                             id="request-flags-erase-all"
                             className="request-flags form-element"
                             checked={this.props.request_data['erase_all']}
-                            onChange={event => {
+                            onChange={(event) => {
                                 this.props.onChange({ erase_all: event.target.checked });
                             }}
                         />
@@ -283,7 +293,7 @@ export default class RequestForm extends preact.Component {
                             <textarea
                                 id="request-erasure-data"
                                 className="form-element"
-                                onChange={event => {
+                                onChange={(event) => {
                                     this.props.onChange({ erasure_data: event.target.value });
                                 }}
                                 placeholder={t('erasure-data', 'generator')}>
@@ -297,4 +307,23 @@ export default class RequestForm extends preact.Component {
         }
         return flags;
     }
+
+    static propTypes = {
+        request_data: PropTypes.object.isRequired,
+
+        fillSignature: PropTypes.object,
+        fillFields: PropTypes.arrayOf(PropTypes.object),
+
+        onAddField: PropTypes.func.isRequired,
+        onRemoveField: PropTypes.func.isRequired,
+        onSetPrimaryAddress: PropTypes.func.isRequired,
+        onInputChange: PropTypes.func.isRequired,
+        onChange: PropTypes.func.isRequired,
+        onTypeChange: PropTypes.func.isRequired,
+        onLetterChange: PropTypes.func.isRequired,
+        onTransportMediumChange: PropTypes.func.isRequired,
+        onLetterTemplateChange: PropTypes.func.isRequired,
+
+        children: PropTypes.node.isRequired,
+    };
 }

@@ -1,13 +1,14 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import t from 'Utility/i18n';
 import Radio from '../Radio';
 import { VALID_REQUEST_TYPES } from '../../Utility/requests';
+import PropTypes from 'prop-types';
 
-export default class RequestTypeChooser extends preact.Component {
+export default class RequestTypeChooser extends Component {
     render() {
-        const request_types = this.props.request_types.filter(type => VALID_REQUEST_TYPES.includes(type));
+        const request_types = this.props.request_types.filter((type) => VALID_REQUEST_TYPES.includes(type));
         const current = this.props.current || request_types[0];
-        const radios = request_types.map(type => (
+        const radios = request_types.map((type) => (
             <Radio
                 id={'request-type-choice-' + type}
                 radio_variable={current}
@@ -35,7 +36,13 @@ export default class RequestTypeChooser extends preact.Component {
     static get defaultProps() {
         return {
             current: null,
-            request_types: VALID_REQUEST_TYPES
+            request_types: VALID_REQUEST_TYPES,
         };
     }
+
+    static propTypes = {
+        onTypeChange: PropTypes.func.isRequired,
+        current: PropTypes.string.isRequired,
+        request_types: PropTypes.arrayOf(PropTypes.string),
+    };
 }

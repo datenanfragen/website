@@ -1,6 +1,7 @@
-import preact from 'preact';
+import { render, Component } from 'preact';
 import t from 'Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
+import PropTypes from 'prop-types';
 
 const STEPS = {
     country: {
@@ -99,7 +100,7 @@ const INITIAL_STATE = {
     result: false,
 };
 
-export default class SvaFinder extends preact.Component {
+export default class SvaFinder extends Component {
     constructor(props) {
         super(props);
 
@@ -189,11 +190,16 @@ export default class SvaFinder extends preact.Component {
             </div>
         );
     }
+
+    static propTypes = {
+        callback: PropTypes.func.isRequired,
+        style: PropTypes.string.isRequired,
+    };
 }
 
 window.renderSvaFinder = function () {
     document.querySelectorAll('.sva-finder').forEach((el) => {
-        preact.render(<SvaFinder />, null, el);
+        render(<SvaFinder />, el.parentElement, el);
     });
 };
 

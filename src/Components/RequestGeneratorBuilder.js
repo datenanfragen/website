@@ -1,4 +1,4 @@
-import preact from 'preact';
+import { Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import Request from '../DataType/Request';
@@ -15,8 +15,9 @@ import { clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
 import UserRequests from '../my-requests';
 import ActionButton from './Generator/ActionButton';
+import PropTypes from 'prop-types';
 
-export default class RequestGeneratorBuilder extends preact.Component {
+export default class RequestGeneratorBuilder extends Component {
     constructor(props) {
         super(props);
 
@@ -37,6 +38,8 @@ export default class RequestGeneratorBuilder extends preact.Component {
             fill_signature: null,
         };
 
+        this.replacers = replacer_factory(this);
+
         this.letter = new RequestLetter({}, (blob_url, filename) => {
             this.setState({
                 blob_url: blob_url,
@@ -50,33 +53,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
             this.savedIdData.getAll(false).then((fill_fields) => this.setState({ fill_fields: fill_fields }));
             this.savedIdData.getSignature().then((fill_signature) => this.setState({ fill_signature: fill_signature }));
         }
-
-        this.resetInitialConditions().then(() => {
-            if (
-                !(
-                    Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) &&
-                    PARAMETERS['response_to'] &&
-                    PARAMETERS['response_type']
-                )
-            ) {
-                // If specified in the URL, load a single company…
-                if (PARAMETERS['company']) this.setCompanyBySlug(PARAMETERS['company']).then(this.renderLetter);
-                // …or multiple ones.
-                const batch_companies = PARAMETERS['companies'];
-                if (batch_companies) this.state.batch = batch_companies.split(',');
-                // We are in batch mode, move to the next company.
-                // Note: Previously, we checked for `this.state.batch` here. This is wrong however: The `generator.js`
-                // may have already called `setBatch()` and thus set `this.state.batch` *and* shifted it.
-                // Re-calling this code (due to the async nature of the `then` block, it may well run later) would
-                // result in skipping the first company (see #253). Instead, we only want to prepare batch mode here if
-                // it was enabled through the URL (i.e. `batch_companies` is set).
-                if (batch_companies?.length > 0) {
-                    this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
-                }
-            }
-            this.renderLetter();
-            if (typeof props.onInitialized === 'function') props.onInitialized();
-        });
     }
 
     resetInitialConditions = async () => {
@@ -133,7 +109,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                     return prev;
                 });
                 if (response_type === 'admonition' && request.slug) {
-                    this.setCompanyBySlug(request.slug).then(this.renderLetter);
+                    this.setCompanyBySlug(request.slug);
                 }
             });
 
@@ -148,6 +124,40 @@ export default class RequestGeneratorBuilder extends preact.Component {
     };
 
     componentDidMount() {
+        this.resetInitialConditions().then(() => {
+            if (
+                !(
+                    Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) &&
+                    PARAMETERS['response_to'] &&
+                    PARAMETERS['response_type']
+                )
+            ) {
+                // If specified in the URL, load a single company…
+                if (PARAMETERS['company']) this.setCompanyBySlug(PARAMETERS['company']);
+                // …or multiple ones.
+                const batch_companies = PARAMETERS['companies'];
+                if (batch_companies) {
+                    let batch = batch_companies.split(',');
+                    // We are in batch mode, move to the next company.
+                    // Note: Previously, we checked for `this.state.batch` here. This is wrong however: The `generator.js`
+                    // may have already called `setBatch()` and thus set `this.state.batch` *and* shifted it.
+                    // Re-calling this code (due to the async nature of the `then` block, it may well run later) would
+                    // result in skipping the first company (see #253). Instead, we only want to prepare batch mode here if
+                    // it was enabled through the URL (i.e. `batch_companies` is set).
+
+                    if (batch.length > 0) {
+                        this.setCompanyBySlug(batch.shift());
+                    }
+
+                    this.setState({
+                        batch,
+                    });
+                }
+            }
+            this.renderLetter();
+            if (typeof this.props.onInitialized === 'function') this.props.onInitialized();
+        });
+
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             const callback = () => {
                 this.savedIdData.getAll(false).then((fill_fields) => this.setState({ fill_fields: fill_fields }));
@@ -162,25 +172,19 @@ export default class RequestGeneratorBuilder extends preact.Component {
     }
 
     render() {
-        const replacers = replacer_factory(this);
-        const children_mapper = (c) =>
-            c.nodeName && Object.keys(replacers).includes(c.nodeName.name)
-                ? replacers[c.nodeName.name](c)
-                : Array.isArray(c.children)
-                ? { ...c, children: c.children.map(children_mapper) }
-                : c;
-        const children = this.props.children.map(children_mapper);
+        const children = this.props.render(this.replacers);
 
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
-                <div>{children}</div>
+                {children}
             </IntlProvider>
         );
     }
 
     startBatch = (companies) => {
-        this.setState({ batch: companies });
-        if (this.state.batch?.length > 0) this.setCompanyBySlug(this.state.batch.shift());
+        this.setState({ batch: companies }, () => {
+            if (this.state.batch?.length > 0) this.setCompanyBySlug(this.state.batch.shift());
+        });
     };
 
     setCompanyBySlug = async (slug) => {
@@ -189,33 +193,32 @@ export default class RequestGeneratorBuilder extends preact.Component {
         });
     };
 
-    setCompany = async (company) => {
+    setCompany = (company) => {
         if (this.state.request.type !== 'custom') {
             fetchTemplate(company['request-language'], this.state.request.type, company).then((text) => {
-                this.setState({ template_text: text });
-                this.renderLetter();
+                this.setState({ template_text: text }, () => this.renderLetter());
             });
         }
 
         // I would love to have `Request` handle this. But unfortunately that won't work as Preact won't notice the
         // state has changed. :(
-        this.setState((prev) => {
-            prev.request.transport_medium = company['suggested-transport-medium']
+        this.changeRequest((request, prev) => {
+            request.transport_medium = company['suggested-transport-medium']
                 ? company['suggested-transport-medium']
                 : company.email
                 ? 'email'
                 : 'letter';
-            prev.request.recipient_address =
+            request.recipient_address =
                 company.name +
                 (PARAMETERS.response_type !== 'complaint'
                     ? '\n' + t_r('attn', company['request-language'] || LOCALE)
                     : '') +
                 '\n' +
                 company.address +
-                (prev.request.transport_medium === 'fax'
+                (request.transport_medium === 'fax'
                     ? '\n' + t_r('by-fax', company['request-language'] || LOCALE) + company['fax']
                     : '');
-            prev.request.email = company.email;
+            request.email = company.email;
 
             const language =
                 !!company['request-language'] && company['request-language'] !== ''
@@ -229,7 +232,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
             // requests anyway in that they are either also to tracking companies or those companies at least
             // identify the user by the same details (i.e. cookie IDs, device IDs, etc.)
             // I couldn't come up with a better name, so we'll just leave them as tracking requests, I guess…
-            prev.request.is_tracking_request = [
+            request.is_tracking_request = [
                 'access-tracking',
                 'erasure-tracking',
                 'rectification-tracking',
@@ -237,15 +240,15 @@ export default class RequestGeneratorBuilder extends preact.Component {
             ].includes(company['custom-' + this.state.request.type + '-template'] || '');
 
             const intermediate_id_data = SavedIdData.mergeFields(
-                prev.request.id_data,
+                request.id_data,
                 company['required-elements']?.length > 0
                     ? company['required-elements']
-                    : prev.request.is_tracking_request
+                    : request.is_tracking_request
                     ? trackingFields(language)
                     : defaultFields(language)
             );
 
-            prev.request.id_data = SavedIdData.mergeFields(
+            request.id_data = SavedIdData.mergeFields(
                 intermediate_id_data,
                 prev.fill_fields,
                 true,
@@ -255,100 +258,117 @@ export default class RequestGeneratorBuilder extends preact.Component {
                 false
             );
 
-            prev.request.recipient_runs = company.runs || [];
+            request.recipient_runs = company.runs || [];
             prev.suggestion = company;
-            prev.request.slug = company.slug;
-            prev.request.data_portability = company['suggested-transport-medium'] === 'email';
-            prev.request.language = company['request-language'] || LOCALE;
-
-            return prev;
+            request.slug = company.slug;
+            request.data_portability = company['suggested-transport-medium'] === 'email';
+            request.language = company['request-language'] || LOCALE;
         });
     };
 
     handleTypeChange = (e) => {
-        this.handleInputChange({ type: e.target.value });
+        this.changeRequest((req) => {
+            req.type = e.target.value;
+        });
+
         if (e.target.value === 'custom') {
             this.letter.clearProps();
             return;
         }
 
         fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then((text) => {
-            this.setState({ template_text: text });
-            this.renderLetter();
+            this.setState({ template_text: text }, () => this.renderLetter());
         });
     };
 
-    handleInputChange = (changed_data) => {
-        this.setState((prev) => {
-            for (const key in changed_data) {
-                prev.request[key] = changed_data[key];
-            }
-            return prev;
+    handleAddField = (data, type, props) => {
+        this.changeRequest((req) => {
+            req.addField(data, type, props);
         });
+    };
 
-        this.renderLetter();
+    handleRemoveField = (data, idx) => {
+        this.changeRequest((req) => {
+            req.removeField(data, idx);
+        });
+    };
+
+    handleSetPrimaryAddress = (data, idx) => {
+        this.changeRequest((req) => {
+            req.setPrimaryAddress(data, idx);
+        });
+    };
+
+    handleInputChange = (data, idx, prop, value) => {
+        this.changeRequest((req) => {
+            req.changeField(data, idx, prop, value);
+        });
+    };
+
+    handleRequestChange = (obj) => {
+        this.changeRequest((req) => {
+            Object.assign(req, obj);
+        });
+    };
+
+    changeRequest = (closure) => {
+        this.setState(
+            (prev) => {
+                // will modify internally, so we don't need to return it from there
+                closure(prev.request, prev);
+                return prev;
+            },
+            () => this.renderLetter()
+        );
     };
 
     handleTransportMediumChange = (e) => {
         const by_fax_text = t_r('by-fax', this.state.request.language);
 
-        this.setState((prev) => {
-            prev.request.transport_medium = e.target.value;
+        this.changeRequest((request, prev) => {
+            request.transport_medium = e.target.value;
             switch (e.target.value) {
                 case 'fax':
-                    if (prev.suggestion && !prev.request.recipient_address.includes(by_fax_text)) {
-                        prev.request.recipient_address += '\n' + by_fax_text + (prev.suggestion.fax || '');
+                    if (prev.suggestion && !request.recipient_address.includes(by_fax_text)) {
+                        request.recipient_address += '\n' + by_fax_text + (prev.suggestion.fax || '');
                     }
                     break;
                 case 'letter': // fallthrough intentional
                 case 'email':
-                    prev.request.recipient_address = prev.request.recipient_address.replace(
+                    request.recipient_address = request.recipient_address.replace(
                         new RegExp('(?:\\r\\n|\\r|\\n)' + by_fax_text + '\\+?[0-9\\s]*', 'gm'),
                         ''
                     );
                     break;
             }
 
-            prev.request.data_portability = e.target.value === 'email';
-
-            return prev;
+            request.data_portability = e.target.value === 'email';
         });
-        this.renderLetter();
     };
 
     handleCustomLetterPropertyChange = (e, address_change = false) => {
-        if (address_change) {
-            this.setState((prev) => {
-                const att = e.target.getAttribute('name');
-                prev.request.custom_data.sender_address[att] = e.target.value;
-                return prev;
-            });
-        } else {
-            this.setState((prev) => {
-                const att = e.target.getAttribute('name');
-                if (Object.prototype.hasOwnProperty.call(prev.request.custom_data, att))
-                    prev.request.custom_data[att] = e.target.value;
-                return prev;
-            });
-        }
-        this.renderLetter();
+        const att = e.target.getAttribute('name');
+        this.changeRequest((req) => {
+            if (address_change) {
+                req.custom_data.sender_address[att] = e.target.value;
+            } else {
+                if (Object.prototype.hasOwnProperty.call(req.custom_data, att)) req.custom_data[att] = e.target.value;
+            }
+        });
     };
 
     handleCustomLetterTemplateChange = (e) => {
         const new_template = e.target.value;
         if (new_template !== 'no-template') {
             fetchTemplate(this.state.request.language, new_template, null, '').then((text) => {
-                this.setState((prev) => {
-                    prev.request.custom_data.content = text;
-                    prev.request.response_type = new_template;
-                    return prev;
+                this.changeRequest((req) => {
+                    req.custom_data.content = text;
+                    req.response_type = new_template;
                 });
-                this.renderLetter();
             });
         } else
-            this.setState((prev) => {
-                prev.request.response_type = '';
-                return;
+            this.changeRequest((req) => {
+                req.response_type = '';
             });
     };
 
@@ -361,13 +381,11 @@ export default class RequestGeneratorBuilder extends preact.Component {
                     onNegativeFeedback={(e) => {
                         dismissModal(modal);
                         this.setCompany(suggestion.document);
-                        this.renderLetter();
                     }}
                     onPositiveFeedback={(e) => {
                         dismissModal(modal);
                         this.newRequest().then(() => {
                             this.setCompany(suggestion.document);
-                            this.renderLetter();
                         });
                     }}
                     positiveDefault={true}
@@ -377,7 +395,6 @@ export default class RequestGeneratorBuilder extends preact.Component {
             );
         } else {
             this.setCompany(suggestion.document);
-            this.renderLetter();
         }
     };
 
@@ -395,14 +412,13 @@ export default class RequestGeneratorBuilder extends preact.Component {
                     callback={(sva) => {
                         this.setCompany(sva);
                         fetchTemplate(sva['complaint-language'], 'complaint', null, '').then((text) => {
-                            this.setState((prev) => {
-                                prev.request.custom_data.content = new Template(text, [], {
+                            this.changeRequest((request) => {
+                                request.custom_data.content = new Template(text, [], {
                                     request_article: REQUEST_ARTICLES[this.state.response_request.type],
                                     request_date: this.state.response_request.date,
                                     request_recipient_address: this.state.response_request.recipient,
                                 }).getText();
                             });
-                            this.renderLetter();
                         });
                         dismissModal(modal);
                     }}
@@ -465,16 +481,18 @@ export default class RequestGeneratorBuilder extends preact.Component {
 
         if (this.props.newRequestHook) this.props.newRequestHook(this);
 
-        this.setState((prev) => {
-            prev.request = new Request();
-            prev.request.done = false;
-            prev.suggestion = null;
-            prev.download_active = false;
-            prev.blob_url = '';
-            prev.download_filename = '';
-            prev.request.response_type = '';
+        await new Promise((resolve) => {
+            this.setState((prev) => {
+                prev.request = new Request();
+                prev.request.done = false;
+                prev.suggestion = null;
+                prev.download_active = false;
+                prev.blob_url = '';
+                prev.download_filename = '';
+                prev.request.response_type = '';
 
-            return prev;
+                return prev;
+            }, resolve);
         });
 
         await this.resetInitialConditions();
@@ -502,7 +520,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                                 this.newRequest().then(() => {
                                     // We are in batch mode, move to the next company.
                                     if (this.state.batch?.length > 0) {
-                                        this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
+                                        this.setCompanyBySlug(this.state.batch.shift());
                                     } else this.renderLetter();
                                 });
                             }}
@@ -515,7 +533,7 @@ export default class RequestGeneratorBuilder extends preact.Component {
                     this.newRequest().then(() => {
                         // We are in batch mode, move to the next company.
                         if (this.state.batch?.length > 0) {
-                            this.setCompanyBySlug(this.state.batch.shift()).then(this.renderLetter);
+                            this.setCompanyBySlug(this.state.batch.shift());
                         } else this.renderLetter();
                     });
                 }}
@@ -539,16 +557,11 @@ export default class RequestGeneratorBuilder extends preact.Component {
     static get defaultProps() {
         return {};
     }
-}
 
-// If we need to add more placeholders in the future, their names also need to be added to the Webpack MinifyPlugin's
-// mangle exclude list.
-export class ActionButtonPlaceholder extends preact.Component {}
-export class NewRequestButtonPlaceholder extends preact.Component {}
-export class CompanySelectorPlaceholder extends preact.Component {}
-export class RequestFormPlaceholder extends preact.Component {}
-export class DynamicInputContainerPlaceholder extends preact.Component {}
-export class SignatureInputPlaceholder extends preact.Component {}
-export class RequestTypeChooserPlaceholder extends preact.Component {}
-export class RecipientInputPlaceholder extends preact.Component {}
-export class TransportMediumChooserPlaceholder extends preact.Component {}
+    static propTypes = {
+        newRequestHook: PropTypes.func,
+        onInitialized: PropTypes.func,
+        // children: PropTypes.node.isRequired,
+        render: PropTypes.func.isRequired,
+    };
+}
