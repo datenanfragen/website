@@ -5,7 +5,7 @@ const schema = require('./static/schema');
 
 // Find countries that have data.
 let do_not_stub_countries = [];
-glob.sync('static/db/suggested-companies/+(??|all).json').forEach((country_file) => {
+glob.sync('static/db/suggested-companies/@(??|all).json').forEach((country_file) => {
     let country_code = path.basename(country_file, '.json');
     do_not_stub_countries.push(country_code);
 });
@@ -20,7 +20,7 @@ stub_countries.forEach((country) => {
 });
 
 // Create wizard files for all countries.
-glob('static/db/suggested-companies/+(??|all).json', async (err, countries) => {
+glob('static/db/suggested-companies/@(??|all).json', async (err, countries) => {
     countries.forEach((country_file) => {
         fs.readFile(country_file, 'utf-8', (err, json) => {
             let companies = JSON.parse(json);
