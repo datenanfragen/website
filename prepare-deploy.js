@@ -4,38 +4,32 @@ const path = require('path');
 const schema = require('./static/schema');
 
 // Find countries that have data.
-let do_not_stub_countries = [];
-glob.sync('static/db/suggested-companies/@(??|all).json').forEach((country_file) => {
-    let country_code = path.basename(country_file, '.json');
-    do_not_stub_countries.push(country_code);
-});
+const countries_not_to_stub = glob
+    .sync('static/db/suggested-companies/@(??|all).json')
+    .map((country_file) => path.basename(country_file, '.json'));
 
 // Determine countries that need stubs by filtering out the countries that have data.
-let all_countries = schema.properties['relevant-countries'].items.enum;
-let stub_countries = all_countries.filter((country) => !do_not_stub_countries.includes(country));
+const all_countries = schema.properties['relevant-countries'].items.enum;
+const countries_to_stub = all_countries.filter((country) => !countries_not_to_stub.includes(country));
 
 // Create the stubs for the countries with no data.
-stub_countries.forEach((country) => {
+countries_to_stub.forEach((country) => {
     fs.writeFileSync('static/db/suggested-companies/' + country + '.json', '[]');
 });
 
 // Create wizard files for all countries.
-glob('static/db/suggested-companies/@(??|all).json', async (err, countries) => {
-    countries.forEach((country_file) => {
-        fs.readFile(country_file, 'utf-8', (err, json) => {
-            let companies = JSON.parse(json);
-            let companies_wizard = {};
+all_countries.forEach((country) => {
+    const json = fs.readFileSync('static/db/suggested-companies/' + country + '.json', 'utf-8');
+    const companies = JSON.parse(json);
 
-            companies.forEach((slug) => {
-                let details_json = fs.readFileSync('static/db/' + slug + '.json', 'utf-8');
-                let details = JSON.parse(details_json);
-                companies_wizard[slug] = details['name'];
-            });
+    const companies_wizard = companies.reduce((acc, slug) => {
+        const details = JSON.parse(fs.readFileSync('static/db/' + slug + '.json', 'utf-8'));
+        acc[slug] = details['name'];
+        return acc;
+    }, {});
 
-            fs.writeFileSync(
-                'static/db/suggested-companies/' + path.basename(country_file, '.json') + '_wizard.json',
-                JSON.stringify(companies_wizard, null, '    ')
-            );
-        });
-    });
+    fs.writeFileSync(
+        'static/db/suggested-companies/' + country + '_wizard.json',
+        JSON.stringify(companies_wizard, null, 4)
+    );
 });
