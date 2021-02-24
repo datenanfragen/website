@@ -69,6 +69,10 @@ yarn run build
 if [ "$CONTEXT" = "production" ]
 then
     hugo -e production --minify
+
+    # Finds all generated css files, matches and removes the second last non-dot characters (the md5 hash) and renames the files to the new filename without hash
+    # This is really not a good fix and I beg hugo to change this!
+    find "public" -regex '.*/styles/.*\.css' -exec sh -c  'echo $0 | sed "s/\(.*\)\.[^\.]*\(\.[^\.]*\)$/\1\2/" | xargs mv $0 ' {}  \;
 else
     hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
     cp _headers public/_headers

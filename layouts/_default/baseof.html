@@ -34,7 +34,11 @@
     <link rel="stylesheet" href="https://static.dacdn.de/fonts/fira-sans.css" integrity="sha384-tdesaAgh/bq3iJZEqjfYp6o6sVopRLnw3wjZKW9gLPpNd26Pdgbur5PChCva/Z+2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.dacdn.de/fonts/league-spartan.css" integrity="sha384-n561KFrMi6x/rwAxQhsRLmxmF+oKREXWnteNZCFbPbU1nODnUri2U+r9p/lCJ918" crossorigin="anonymous">
     {{ $style := resources.Get "styles/main.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink | absURL }}" integrity="{{ $style.Data.Integrity }}">
+    {{ $style_link := $style.RelPermalink | absURL }}
+    {{ if eq hugo.Environment "production" }}
+        {{ $style_link := $style_link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
+    {{ end }}
+    <link rel="stylesheet" href="{{ $style_link }}" integrity="{{ $style.Data.Integrity }}">
 
     {{ partial "head/meta.html" . }}
     {{ partial "head/favicons.html" . }}
