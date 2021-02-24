@@ -2520,9 +2520,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001111:
-  version "1.0.30001114"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001114.tgz#2e88119afb332ead5eaa330e332e951b1c4bfea9"
-  integrity sha512-ml/zTsfNBM+T1+mjglWRPgVsu2L76GAaADKX5f4t0pbhttEp0WMawJsHDYlFkVZkoA+89uvBRrVrEE4oqenzXQ==
+  version "1.0.30001191"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001191.tgz"
+  integrity sha512-xJJqzyd+7GCJXkcoBiQ1GuxEiOBCLQ0aVW9HMekifZsAVGdj5eJ4mFB9fEhSHipq9IOk/QXFJUiIr9lZT+EsGw==
 
 cardinal@^2.1.1:
   version "2.1.1"
@@ -8774,10 +8774,10 @@ postcss-font-variant@^4.0.0:
   dependencies:
     postcss "^7.0.2"
 
-postcss-fonticons@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/postcss-fonticons/-/postcss-fonticons-1.1.0.tgz#aa277e889d4a89c96e3aaacc82789851705f1cb3"
-  integrity sha512-Ducyf8+5VoBf0agHWNxdvpy1wr5OrU7QjsBaqDi3hFBKVvCwn6IPA9BCUNjyYLFQlxyQssMWYkAmj3kcZrqNWg==
+postcss-fonticons@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-fonticons/-/postcss-fonticons-1.2.0.tgz#21aa2cc6dc5edbfa5b48a76231aa8c519ca447bf"
+  integrity sha512-1kfUuzxD7cSTFPR0RRZOD6Q93LHf21FZ3JREXdNvYUPr8yt5ruMt7CeGcVXHJk08WRikq1yjgUx92jubDFYKvA==
   dependencies:
     path "^0.12.7"
     postcss "^7.0.27"

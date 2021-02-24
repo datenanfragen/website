@@ -5,6 +5,7 @@ module.exports = (ctx) => {
         plugins: [
             require('postcss-fonticons')({
                 iconPath: path.resolve(__dirname, 'assets/icons/'),
+                enforcedTimestamp: 1528942455,
             }),
             require('postcss-preset-env')({
                 browsers: ['last 2 versions', '> 5%'],

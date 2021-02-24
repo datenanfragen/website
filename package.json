@@ -93,7 +93,7 @@
         "node-sass": "^4.12.0",
         "path": "^0.12.7",
         "postcss-cli": "^7.1.1",
-        "postcss-fonticons": "^1.1.0",
+        "postcss-fonticons": "^1.2.0",
         "postcss-loader": "^3.0.0",
         "postcss-preset-env": "^6.7.0",
         "postcss-url": "^8.0.0",
