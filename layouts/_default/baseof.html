@@ -35,8 +35,8 @@
     <link rel="stylesheet" href="https://static.dacdn.de/fonts/league-spartan.css" integrity="sha384-n561KFrMi6x/rwAxQhsRLmxmF+oKREXWnteNZCFbPbU1nODnUri2U+r9p/lCJ918" crossorigin="anonymous">
     {{ $style := resources.Get "styles/main.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
     {{ $style_link := $style.RelPermalink | absURL }}
-    {{ if eq hugo.Environment "production" }}
-        {{ $style_link := $style_link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
+    {{ if (or (eq hugo.Environment "production") (eq hugo.Environment "staging")) }}
+        {{ $style_link = $style_link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
     {{ end }}
     <link rel="stylesheet" href="{{ $style_link }}" integrity="{{ $style.Data.Integrity }}">
 
