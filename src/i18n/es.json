@@ -21,7 +21,7 @@
         "header-privacy-controls": "Controles de privacidad",
         "header-id-data-controls": "Mis datos guardados",
         "header-open-menu": "Abrir menú",
-        "footer-about-us": "Somos Datenanfragen.de e.&nbsp;V., una organización ánimo de lucro registrada en Alemania. Nuestra misión es ayudarte a ejercer tu derecho a la privacidad.",
+        "footer-about-us": "Somos Datenanfragen.de e.&nbsp;V., una organización ánimo de lucro registrada en Alemania. Nuestra misión es ayudarte a ejercer tu derecho a la privacidad. <a href=\"https://www.solicituddedatos.es/verein\">Más información.</a>",
         "footer-other-langs": "También disponible en: ",
         "es": "Español",
         "de": "Alemán (Deutsch)",
@@ -801,7 +801,7 @@
     "wizard": {
         "none-selected": "Ninguna todavía. ¿Por qué no agregas algunas?",
         "selected-companies": "Empresas actualmente seleccionadas",
-        "search-company": "Buscar compañías de {{category}}",
+        "search-company": "Buscar compañías de {{category}}…",
         "finish": "Finalizar",
         "next": "Siguiente",
         "remove-company": "Remover empresa",
@@ -827,8 +827,8 @@
     "privacy-controls": {
         "feature-disabled-alt": "Función deshabilitada a través de los controles de privacidad",
         "feature-disabled": "Has desactivado esta función. Si deseas habilitarla, echa un vistazo a los <a href='/controles-privacidad'>controles de privacidad</a>.",
-        "cookie-change-success": "Ajuste guardado",
-        "clear-success": "Borrado con éxito",
+        "cookie-change-success": "Ajuste guardado.",
+        "clear-success": "Borrado con éxito.",
         "modal-delete-single-request": "¿Estás seguro de que desea eliminar esta solicitud? Esto no se puede deshacer.",
         "modal-clear-id_data": "Esto eliminará tus datos de identificación guardados. ¿Estás seguro?",
         "modal-clear-requests": "Esto eliminará todas las solicitudes guardadas y no se puede deshacer. ¿Estás seguro?",
