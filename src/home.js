@@ -39,5 +39,11 @@ function startTextAnimation(i) {
 }
 
 window.onload = () => {
-    startTextAnimation(0);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce');
+    if (reducedMotion.matches) {
+        document.getElementById('home-hero-word').innerHTML =
+            hero_rights[hero_rights.length - 1] + '<span aria-hidden="true"></span>';
+    } else {
+        startTextAnimation(0);
+    }
 };
