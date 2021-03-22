@@ -16,8 +16,7 @@ render(<Wizard />, wizard_div.parentElement, wizard_div);
 
 function typewriter(text, i, fnCallback) {
     if (text && i < text.length) {
-        document.getElementById('home-hero-word').innerHTML =
-            text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
+        document.getElementById('home-hero-word').textContent = text.substring(0, i + 1);
 
         setTimeout(function () {
             typewriter(text, i + 1, fnCallback);
@@ -39,5 +38,10 @@ function startTextAnimation(i) {
 }
 
 window.onload = () => {
-    startTextAnimation(0);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotion.matches) {
+        document.getElementById('home-hero-word').textContent = hero_rights[hero_rights.length - 1];
+    } else {
+        startTextAnimation(0);
+    }
 };
