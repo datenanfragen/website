@@ -202,8 +202,13 @@ export default class RequestGeneratorBuilder extends Component {
     };
 
     setCompany = (company) => {
+        const language =
+            company['request-language'] && Object.keys(I18N_DEFINITION_REQUESTS).includes(company['request-language'])
+                ? company['request-language']
+                : LOCALE;
+
         if (this.state.request.type !== 'custom') {
-            fetchTemplate(company['request-language'], this.state.request.type, company).then((text) => {
+            fetchTemplate(language, this.state.request.type, company).then((text) => {
                 this.setState({ template_text: text }, () => this.renderLetter());
             });
         }
@@ -227,11 +232,6 @@ export default class RequestGeneratorBuilder extends Component {
                     ? '\n' + t_r('by-fax', company['request-language'] || LOCALE) + company['fax']
                     : '');
             request.email = company.email;
-
-            const language =
-                !!company['request-language'] && company['request-language'] !== ''
-                    ? company['request-language']
-                    : LOCALE;
 
             // This is not the most elegant thing in the world, but we need to support 'no ID data' requests for
             // more than adtech companies. Ideally, this would be another bool in the schema but we can't really
@@ -270,7 +270,7 @@ export default class RequestGeneratorBuilder extends Component {
             prev.suggestion = company;
             request.slug = company.slug;
             request.data_portability = company['suggested-transport-medium'] === 'email';
-            request.language = company['request-language'] || LOCALE;
+            request.language = language;
         });
     };
 
