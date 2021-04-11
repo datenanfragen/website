@@ -115,11 +115,13 @@ export default class MailtoDropdown extends Component {
             email: props.email,
             subject: encodeURIComponent(
                 props.letter.props.subject +
-                    ' (' +
-                    t_r('my-reference', props.letter.props.language) +
-                    ': ' +
-                    props.letter.props.reference +
-                    ')'
+                    (props.letter.props.reference
+                        ? ' (' +
+                          t_r('my-reference', props.letter.props.language) +
+                          ': ' +
+                          props.letter.props.reference +
+                          ')'
+                        : '')
             ),
             body: encodeURIComponent(props.letter.toEmailString()),
         };
