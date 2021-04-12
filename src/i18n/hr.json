@@ -337,7 +337,10 @@
         "search-company": "Traži „{{category}}” poduzeća …",
         "finish": "Dodavanje poduzeća završeno",
         "next": "Idući",
-        "remove-company": "Ukloni poduzeće"
+        "remove-company": "Ukloni poduzeće",
+        "utility": "<p>Samo malo, skoro smo gotovi. Pod komunalnim uslugama, mislimo na plin, struju, vodu, kanalizaciju, ali i na usluge poput javnog prijevoza.</p>",
+        "insurance": "<p>Ova je kategorija prilično očita. Nemoj zaboraviti da će ti poduzeća često prodavati osiguranja za neočitke stvari, uključujući putovanja i kupnje malih elektroničkih uređaja.</p>",
+        "social media": "<p>Ako si član bilo koje društvene mreže (kao što su Facebook, WhatsApp, Twitter ili Instagram), nemoj ih zaboravi dodati. </p>"
     },
     "categories": {
         "other": "ostalo",
@@ -380,7 +383,7 @@
         "required-elements": "Obavezni elementi",
         "sources": "Izvori",
         "website": "Web-stranica",
-        "letter": "Letter",
+        "letter": "Pismo",
         "pgp-url": "URL adresa PGP ključa",
         "pgp-fingerprint": "Otisak PGP ključa",
         "email": "Email",
