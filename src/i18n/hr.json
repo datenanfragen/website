@@ -855,11 +855,13 @@
         "language-fr": "Francuski",
         "language-en": "Engleski",
         "language-de": "Njemački",
-        "language-desc-pt": "Portugalski (Portugalski)",
-        "language-desc-es": "Španjolski (Španjolska)",
-        "language-desc-fr": "Francuski (Francuska)",
-        "language-desc-en": "Engleski",
-        "language-desc-de": "Njemački (Njemačka)",
+        "language-hr": "Hrvatski",
+        "language-desc-pt": "Portugalski (Português)",
+        "language-desc-es": "Španjolski (Español)",
+        "language-desc-fr": "Francuski (Français)",
+        "language-desc-en": "Engleski (English)",
+        "language-desc-de": "Njemački (Deutsch)",
+        "language-desc-hr": "Hrvatski",
         "language": "Jezik",
         "country": "Zemlja"
     }
