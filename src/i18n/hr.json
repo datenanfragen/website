@@ -340,7 +340,11 @@
         "remove-company": "Ukloni poduzeće",
         "utility": "<p>Samo malo, skoro smo gotovi. Pod komunalnim uslugama, mislimo na plin, struju, vodu, kanalizaciju, ali i na usluge poput javnog prijevoza.</p>",
         "insurance": "<p>Ova je kategorija prilično očita. Nemoj zaboraviti da će ti poduzeća često prodavati osiguranja za neočitke stvari, uključujući putovanja i kupnje malih elektroničkih uređaja.</p>",
-        "social media": "<p>Ako si član bilo koje društvene mreže (kao što su Facebook, WhatsApp, Twitter ili Instagram), nemoj ih zaboravi dodati. </p>"
+        "social media": "<p>Ako si član bilo koje društvene mreže (kao što su Facebook, WhatsApp, Twitter ili Instagram), nemoj ih zaboravi dodati. </p>",
+        "finance": "<p>Vjerojatno imaš barem bankovni račun i možda kreditnu karticu. Ova kategorija međutim uključuje i pružatelje usluga plaćanja kao što su PayPal i Patreon.<br>Ili možda trguješ kripto valutama na nekoj burzi?</p>",
+        "no-suggestions": "<p>Nažalost, još nemamo predložena poduzeća za tvoju zemlju (<em id='wizard-user-country'>{{country}}</em>). Ako se nalaziš u jednoj drugoj zemlji, možeš <a href='#footer'>promijeniti ovu postavku</a> u podnožju stranice</p>",
+        "suggestions": "<p>Izradili smo popis s nekim poduzećima. Popis je dugačak i većinu njih ne prepoznaješ? Javi nam! Iz našeg iskustva, ta poduzeća čuvaju podatke o gotovo svima u tvojoj zemlji (ako se ne nalaziš u <em id='wizard-user-country'>{{country}}</em>, možeš <a href='#footer'>promijeniti ovu postavku</a> u podnožju stranice). Vjerujemo da je stoga još važnije zatražiti osobne podatke od tih poduzeća.</p>",
+        "suggested": "<p>Prvi korak za upravljanje vlastitim podacima je znati, koje podatke poduzeća spremaju. Naš čarobnjak pomaže identificirati poduzeća koje možda spremaju tvoje osobne podatke i njima slati zahtjeve za pristup na osnovi Opće uredbe o zaštiti podataka (GDPR).</p>{{suggested}}<p>U sljedećim koracima predložit ćemo kategorije poduzeća s kojima si možda komunicirao/la. Možeš dodati dodatna poduzeća iz tih kategorija ili ukloniti prethodno dodana poduzeća.</p><p>Nakon što odabereš poduzeća, prijeđi na prvu kategoriju pritiskom na „Dalje”.</p>"
     },
     "categories": {
         "other": "ostalo",
@@ -458,7 +462,7 @@
         "my-reference": "Moj znak",
         "letter-subject-objection": "Prigovor na oglas, na osnovi članka 21(2) GDPR",
         "letter-subject-rectification": "Zahtjev za ispravak osobnih podataka, na osnovi članka 16 GDPR",
-        "letter-subject-access": "Zahtjev za pristup osobnim podatacima, na osnovi članka 15 GDPR",
+        "letter-subject-access": "Zahtjev za pristup osobnim podacima, na osnovi članka 15 GDPR",
         "letter-subject-erasure": "Zahtjev za brisanje osobnih podataka, na osnovi članka 17 GDPR"
     },
     "mailto": {
