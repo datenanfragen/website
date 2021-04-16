@@ -94,6 +94,14 @@ export default class RequestGeneratorBuilder extends Component {
                         request_date: request.date,
                         request_recipient_address: request.recipient,
                     }).getText();
+                    prev.request.custom_data.subject = t_r(
+                        `letter-subject-${response_type}`,
+                        this.state.request.language,
+                        {
+                            request_recipient: request.recipient?.split('\n')[0],
+                            request_article: REQUEST_ARTICLES[request.type],
+                        }
+                    );
 
                     if (response_type === 'admonition') {
                         // This might be useful in the future event though it is not used now. Looking forward to a conversations feature!

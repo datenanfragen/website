@@ -372,6 +372,8 @@
         "letter-subject-access": "Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO",
         "letter-subject-rectification": "Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO",
         "letter-subject-objection": "Werbewiderspruch gemäß Art. 21 Abs. 2 DSGVO",
+        "letter-subject-complaint": "Beschwerde nach Art. 77 DSGVO gegen {{request_recipient}}",
+        "letter-subject-admonition": "Mahnung: Anfrage nach Art. {{request_article}} DSGVO",
         "my-reference": "Mein Zeichen",
         "date": "Datum",
         "name": "Name",
