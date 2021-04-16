@@ -372,6 +372,8 @@
         "letter-subject-access": "Request to access to personal data according to Art. 15 GDPR",
         "letter-subject-rectification": "Request for rectification of personal data according to Art. 16 GDPR",
         "letter-subject-objection": "Objection against direct marketing according to Art. 21(2) GDPR",
+        "letter-subject-complaint": "Complaint according to Art. 77 GDPR against {{request_recipient}}",
+        "letter-subject-admonition": "Admonition: Request according to Art. {{request_article}} GDPR",
         "my-reference": "My reference",
         "date": "Date",
         "name": "Name",
