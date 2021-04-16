@@ -445,6 +445,7 @@ export default class RequestGeneratorBuilder extends Component {
                 recipient_address: this.state.request.recipient_address,
                 sender_address: sender_address,
                 information_block: RequestLetter.makeInformationBlock(this.state.request),
+                reference: this.state.request.reference,
                 reference_barcode: RequestLetter.barcodeFromText(this.state.request.reference),
             });
         } else this.letter.setProps(RequestLetter.propsFromRequest(this.state.request, this.state.template_text));
