@@ -111,15 +111,11 @@ export default class MailtoDropdown extends Component {
                 MAILTO_HANDLERS[h].countries.some((c) => ['all', globals.country].includes(c))
             );
 
+        const my_ref_text = `${t_r('my-reference', props.letter.props.language)}: ${props.letter.props.reference}`;
         const data = {
             email: props.email,
             subject: encodeURIComponent(
-                props.letter.props.subject +
-                    ' (' +
-                    t_r('my-reference', props.letter.props.language) +
-                    ': ' +
-                    props.letter.props.reference +
-                    ')'
+                props.letter.props.subject ? `${props.letter.props.subject} (${my_ref_text})` : my_ref_text
             ),
             body: encodeURIComponent(props.letter.toEmailString()),
         };
