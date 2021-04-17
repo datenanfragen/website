@@ -12,3 +12,6 @@
 
 [es]
 	baseURL = "http://datenanfragen.test"
+
+[hr]
+	baseURL = "http://datenanfragen.test"

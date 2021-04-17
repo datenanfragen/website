@@ -6,7 +6,7 @@
 
 ## Quienes somos
 
-Somos Datenanfragen.de e.&thinsp;V., una organización sin fines de lucro que administra el sitio web [solicituddedatos.es](https://www.solicituddedatos.es) (así como sus traducciones al inglés, alemán, francés y portugués, [datarequests.org](https://www.datarequests.org), [Datenanfragen.de](https://www.datenanfragen.de), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), and [pedidodedados.org](https://www.pedidodedados.org/)). Nosotros estamos en una [misión]({{< ref "verein/mission-statement" >}}) para promover la protección de datos y la privacidad en Europa y más allá. Queremos ayudarte a ejercer tu derecho humano a la privacidad y dar un ejemplo de cómo realizar una protección de datos exhaustiva sin ser molesto porque creemos que la privacidad debe ser la opción predeterminada.
+Somos Datenanfragen.de e.&thinsp;V., una organización sin fines de lucro que administra el sitio web [solicituddedatos.es](https://www.solicituddedatos.es) (así como sus traducciones al inglés, alemán, francés, croata y portugués, [datarequests.org](https://www.datarequests.org), [Datenanfragen.de](https://www.datenanfragen.de), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [osobnipodaci.org](https://www.osobnipodaci.org), and [pedidodedados.org](https://www.pedidodedados.org/)). Nosotros estamos en una [misión]({{< ref "verein/mission-statement" >}}) para promover la protección de datos y la privacidad en Europa y más allá. Queremos ayudarte a ejercer tu derecho humano a la privacidad y dar un ejemplo de cómo realizar una protección de datos exhaustiva sin ser molesto porque creemos que la privacidad debe ser la opción predeterminada.
 
 ## Qué hacemos
 

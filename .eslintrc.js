@@ -92,6 +92,10 @@ module.exports = {
                     name: 'es',
                     path: 'src/i18n/es.json',
                 },
+                {
+                    name: 'hr',
+                    path: 'src/i18n/hr.json',
+                },
             ],
         },
         'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } },

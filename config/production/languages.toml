@@ -12,3 +12,6 @@
 
 [es]
 	baseURL = "https://www.solicituddedatos.es/"
+
+[hr]
+	baseURL = "https://www.osobnipodaci.org/"
