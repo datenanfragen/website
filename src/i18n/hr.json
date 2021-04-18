@@ -767,8 +767,8 @@
             "other": "Kategorije:",
             "one": "Kategorija:"
         },
-        "cdb-company-heading": "Podaci kontakta za privatne zahtjeve prema „{{ .Params.name }}”",
-        "cdb-company-title": "{{ .Params.name }}: Podaci privatnih kontakata",
+        "cdb-company-heading": "Podaci kontakta „{{ .Params.name }}” koji se odnose na zahtjeve za zaštitom privatnosti",
+        "cdb-company-title": "{{ .Params.name }}: Podaci kontakta za zaštitu privatnosti",
         "adb-more-details": "Daljnji podaci",
         "adb-explanation": "<p>Naša baza podataka nadzornih tijela sadrži podatke za kontaktiranje nadzornih tijela za zaštitu podataka u EU.</p><p>Nadzorna tijela su neovisna tijela čija je svrha osigurati poštivanje zakona o zaštiti podataka. Ako smatraš da poduzeće nije pravilno odgovorilo na tvoje zahtjeve ili da obrađuje tvoje podatke na nezakonit način, uvijek postoji mogućnost podnošenja žalbe. Saznaj više u našoj <a href='supervisory-authorities'>objavi o nadzornim tijelima za zaštitu podataka</a>.</p>",
         "adb-title": "Popis nadzornih tijela za zaštitu podataka",
