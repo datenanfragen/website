@@ -209,7 +209,7 @@
         "creditcard": "Kreditna kartica",
         "paysafecard-info": "U sljedećem koraku preusmjerit ćemo te na stranicu našeg partnera Mollie.",
         "paysafecard": "paysafecard",
-        "bank-transfer-info": "U sljedećem pokazat ćemo naše bankovne podatke kako bismo ti omogućili prenijeti donaciju.",
+        "bank-transfer-info": "U sljedećem koraku pokazat ćemo naše bankovne podatke kako bismo ti omogućili prenijeti donaciju.",
         "bank-transfer": "Bankovni prijenos",
         "no-mollie-id": "Plaćanje nije pronađeno na poslužitelju. To je normalno ako ne plaćaš putem Mollie.",
         "donation-expired": "Plaćanje isteklo. Pokušaj ponovo.",
@@ -274,7 +274,7 @@
         "sva-finder": "Traženje nadzornog tijela"
     },
     "wizard_tutorial": {
-        "next-request": "<p>I to je sve za ovaj zahtjev!</p><p>Ovisno o mediju prijenosa, ovdje možeš poslati zahtjev kao email ili preuzeti ga kao PDF. Nakon toga, krenimo na sljedeći zahtjev.</p>",
+        "next-request": "<p>I to je sve za ovaj zahtjev!</p><p>Ovisno o mediju prijenosa, ovdje možeš poslati zahtjev kao email ili ga preuzeti kao PDF. Nakon toga, krenimo na sljedeći zahtjev.</p>",
         "id-data": "<p>Sada si ti na redu. Za odobravanje pristupa tvojim podacima, poduzeća te moraju moći identificirati. Ovdje im možeš dati potrebne podatke. To može biti tvoje ime, broj računa, email adresa ili nešto sasvim drugo. Ako ne znaš koje podatke navesti, jednostavno se pridržavaj zadanih polja.<br>I uvijek imaj na umu: Slobodno najprije upiši manje podataka – poduzeće će te kontaktirati, ako trebaju daljnje podatke.</p><p>Ovdje upisane podatke ćemo spremiti, tako da ih u sljedećem zahtjevu ne moraš ponovo upisati. Ne brini: sve se ovo događa isključivo na <strong>tvom</strong> računalu, tvoje podatke nećemo nikada vidjeti. Ako to ne želiš, možeš <a href=\"/privacy-controls\" target=\"_blank\">isključiti tu funkciju</a>.</p>",
         "company-info": "<p>Ovdje možeš vidjeti više detalja o trenutačnom poduzeću. Ponekad imamo i neke važne napomene o određenim poduzećima. Oni će se također ovdje prikazati ovdje.</p>",
         "request-parameters": "<p> U redu, krenimo s generiranjem vaših zahtjeva. Trudit ćemo se da vam to učinimo što lakšim. </p><p class='desktop-only'>Na lijevoj strani smo već unaprijed unijeli kontakt podatke za prvo poduzeće.</p><p class='mobile-only'>Gore smo već unaprijed unijeli kontakt podatke za prvo poduzeće.</p>",
@@ -332,11 +332,11 @@
         "id-data-deactivated": "Spremanje identifikacijskih podataka je deaktivirano. Ako želiš ubrzati postupak izrade i spremiti identifikacijske podatke, aktiviraj spremanje identifikacijskih podataka u <a href=\"/privacy-controls/\">postavkama privatnosti</a>."
     },
     "wizard": {
-        "none-selected": "Još ih nema. Zašto ne dodaš neke?",
+        "none-selected": "Još ih nema. Počni dodavati poduzeća.",
         "selected-companies": "Trenutačno odabrana poduzeća",
-        "search-company": "Traži „{{category}}” poduzeća …",
-        "finish": "Dodavanje poduzeća završeno",
-        "next": "Idući",
+        "search-company": "Traži poduzeća u kategoriji „{{category}}” …",
+        "finish": "Završi dodavanje poduzeća",
+        "next": "Dalje",
         "remove-company": "Ukloni poduzeće",
         "utility": "<p>Samo malo, skoro smo gotovi. Pod komunalnim uslugama, mislimo na plin, struju, vodu, kanalizaciju, ali i na usluge poput javnog prijevoza.</p>",
         "insurance": "<p>Ova je kategorija prilično očita. Nemoj zaboraviti da će ti poduzeća često prodavati osiguranja za neočitke stvari, uključujući putovanja i kupnje malih elektroničkih uređaja.</p>",
@@ -345,7 +345,7 @@
         "no-suggestions": "<p>Nažalost, još nemamo predložena poduzeća za tvoju zemlju (<em id='wizard-user-country'>{{country}}</em>). Ako se nalaziš u jednoj drugoj zemlji, možeš <a href='#footer'>promijeniti ovu postavku</a> u podnožju stranice</p>",
         "suggestions": "<p>Izradili smo popis s nekim poduzećima. Popis je dugačak i većinu njih ne prepoznaješ? Javi nam! Iz našeg iskustva, ta poduzeća čuvaju podatke o gotovo svima u tvojoj zemlji (ako se ne nalaziš u <em id='wizard-user-country'>{{country}}</em>, možeš <a href='#footer'>promijeniti ovu postavku</a> u podnožju stranice). Vjerujemo da je stoga još važnije zatražiti osobne podatke od tih poduzeća.</p>",
         "suggested": "<p>Prvi korak za upravljanje vlastitim podacima je znati, koje podatke poduzeća spremaju. Naš čarobnjak pomaže identificirati poduzeća koje možda spremaju tvoje osobne podatke i njima slati zahtjeve za pristup na osnovi Opće uredbe o zaštiti podataka (GDPR).</p>{{suggested}}<p>U sljedećim koracima predložit ćemo kategorije poduzeća s kojima si možda komunicirao/la. Možeš dodati dodatna poduzeća iz tih kategorija ili ukloniti prethodno dodana poduzeća.</p><p>Nakon što odabereš poduzeća, prijeđi na prvu kategoriju pritiskom na „Dalje”.</p>",
-        "other": "<p>Stigli smo do zadnje kategorije. Hvala ti što ustraješ!</p><p>Naravno, postoji prevelik broj poduzeća za uvrštavanje u kategoriju. U ovom zadnjem koraku možeš pretražiti našu cijelu bazu podataka te pronaći sva poduzeća koja smo propustili u prethodnim koracima.</p><p>Nakon što dodaš sva željena poduzeća, pritisni gumb za prijelaz na generatora, gdje ćemo izraditi zahtjeve za odabrana poduzeća.</p>",
+        "other": "<p>Stigli smo do zadnje kategorije. Hvala ti na ustrajanju!</p><p>Naravno, postoji prevelik broj poduzeća za uvrštavanje u kategoriju. U ovom zadnjem koraku možeš pretražiti našu cijelu bazu podataka te pronaći sva poduzeća koja smo propustili u prethodnim koracima.</p><p>Nakon što dodaš sva željena poduzeća, pritisni gumb za prijelaz na generatora, gdje ćemo izraditi zahtjeve za odabrana poduzeća.</p>",
         "telecommunication": "<p>Tvoj pružatelj telefonskih i internetskih usluga možda pamti sve tvoje pozive u svrhu naplate. Također preporučujemo zatražiti osobne podatke od pružatelja email usluga – nadajmo se da čitaju tvoj email!<br>Ako imaš web-stranicu, također zatraži podatke od svog pružatelja hosting usluga i od poduzeća za registraciju domena.</p>"
     },
     "categories": {
@@ -504,7 +504,7 @@
         "modal-new-request": "Stvoreni zahtjev još nije korišten. Želiš li svejedno poništiti sva polja i pokrenuti novi zahtjev ili želiš najprije učitati zahtjev?",
         "modal-autocomplete-new-request": "Odabrana je novo poduzeće. Želiš li započeti novi zahtjev?",
         "override-request": "Prepiši trenutačni zahtjev",
-        "next-request": "Novi zahtjev",
+        "next-request": "Sljedeći zahtjev",
         "new-request": "Novi zahtjev",
         "letter": "Pismo",
         "email-colon": "Email:",
