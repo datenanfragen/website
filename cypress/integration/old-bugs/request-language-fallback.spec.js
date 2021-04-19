@@ -5,15 +5,8 @@
  */
 
 describe('Request language fallback', () => {
-    beforeEach(() => {
-        cy.visit('/generator');
-    });
-
     it('Request language should match the locale by default', () => {
-        cy.get('#footer .i18n-widget-language > .select-container > select').select('German (Deutsch)', {
-            force: true,
-        });
-        cy.contains('Change language').click();
+        cy.visit(`${Cypress.env('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313')}/generator`);
 
         cy.contains('E-Mail senden').click();
         cy.get('.dropdown-container').contains('Text von Hand kopieren').click({ force: true });
@@ -25,6 +18,8 @@ describe('Request language fallback', () => {
     });
 
     it('Request language should fallback to english, if language is not supported', () => {
+        cy.visit('/generator');
+
         cy.window().LOCALE = 'tlh'; // We will never support this language
 
         cy.contains('Send email').click();
@@ -37,6 +32,8 @@ describe('Request language fallback', () => {
     });
 
     it('Request language should be set to the language defined in the database entry', () => {
+        cy.visit('/generator');
+
         cy.get('#aa-search-input').type('gmx');
         cy.contains('GMX').click();
 
