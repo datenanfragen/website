@@ -2,6 +2,7 @@
     "baseUrl": "http://localhost:1314",
     "projectId": "nug7wk",
 
+    "chromeWebSecurity": false,
     "viewportWidth": 1920,
     "viewportHeight": 1080
 }
