@@ -2,7 +2,14 @@ import { Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import Request from '../DataType/Request';
-import { defaultFields, trackingFields, REQUEST_ARTICLES, initializeFields, fetchTemplate } from '../Utility/requests';
+import {
+    defaultFields,
+    trackingFields,
+    REQUEST_ARTICLES,
+    initializeFields,
+    fetchTemplate,
+    REQUEST_FALLBACK_LANGUAGE,
+} from '../Utility/requests';
 import RequestLetter from '../Utility/RequestLetter';
 import { slugify, PARAMETERS } from '../Utility/common';
 import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utility/SavedIdData';
@@ -205,7 +212,9 @@ export default class RequestGeneratorBuilder extends Component {
         const language =
             company['request-language'] && Object.keys(I18N_DEFINITION_REQUESTS).includes(company['request-language'])
                 ? company['request-language']
-                : LOCALE;
+                : Object.keys(I18N_DEFINITION_REQUESTS).includes(LOCALE)
+                ? LOCALE
+                : REQUEST_FALLBACK_LANGUAGE;
 
         if (this.state.request.type !== 'custom') {
             fetchTemplate(language, this.state.request.type, company).then((text) => {
