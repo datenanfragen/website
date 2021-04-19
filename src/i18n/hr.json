@@ -462,10 +462,12 @@
         "name": "Ime",
         "date": "Datum",
         "my-reference": "Moj znak",
-        "letter-subject-objection": "Prigovor na oglas, na osnovi članka 21(2) GDPR",
-        "letter-subject-rectification": "Zahtjev za ispravak osobnih podataka, na osnovi članka 16 GDPR",
-        "letter-subject-access": "Zahtjev za pristup osobnim podacima, na osnovi članka 15 GDPR",
-        "letter-subject-erasure": "Zahtjev za brisanje osobnih podataka, na osnovi članka 17 GDPR"
+        "letter-subject-objection": "Prigovor za izravni marketing na osnovi članka 21(2) GDPR-a",
+        "letter-subject-rectification": "Zahtjev za ispravak osobnih podataka na osnovi članka 16 GDPR-a",
+        "letter-subject-access": "Zahtjev za pristup osobnim podacima na osnovi članka 15 GDPR-a",
+        "letter-subject-erasure": "Zahtjev za brisanje osobnih podataka na osnovi članka 17 GDPR-a",
+        "letter-subject-admonition": "Opomena: zahtjev na osnovi članka {{request_article}} GDPR-a",
+        "letter-subject-complaint": "Žalba na osnovi članka 21(2) GDPR-a protiv {{request_recipient}}"
     },
     "mailto": {
         "copymanually": "Kopiraj tekst ručno",
@@ -553,8 +555,8 @@
         "recipient": "Primatelj",
         "recipient-explanation": "Tko je primatelj?",
         "custom-request": "Vlastiti tekst",
-        "rectification-request": "Zahtjev za ispravljanje",
-        "objection-request": "Prigovor na oglas",
+        "rectification-request": "Zahtjev za ispravak",
+        "objection-request": "Prigovor za izravni marketing",
         "erasure-request": "Zahtjev za brisanje",
         "access-request": "Zahtjev za pristup",
         "request-type": "Koju vrstu zahtjeva želiš stvoriti?",
