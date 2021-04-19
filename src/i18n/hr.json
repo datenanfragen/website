@@ -774,7 +774,8 @@
         "cdb-runs": "Također pokreće:",
         "cdb-categories": {
             "other": "Kategorije:",
-            "one": "Kategorija:"
+            "one": "Kategorija:",
+            "few": "Kategorije:"
         },
         "cdb-company-heading": "Podaci kontakta „{{ .Params.name }}” koji se odnose na zahtjeve za zaštitom privatnosti",
         "cdb-company-title": "{{ .Params.name }}: Podaci kontakta za zaštitu privatnosti",
