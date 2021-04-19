@@ -1,5 +1,5 @@
 /*
- * Previously, the request template wouldn't change for the request, event though the language was set by the company entry.
+ * Previously, the request template wouldn't change for the request, even though the language was set by the company entry.
  *
  * This has been fixed by #564.
  */
