@@ -271,7 +271,12 @@
         "result": "Na osnovi tvog odabira preporučujemo da se obratiš sljedećem nadzornom tijelu za zaštitu osobnih podataka:",
         "loading-sva": "Učitavanje podataka odabranog tijela …",
         "reset": "Poništi izbor",
-        "sva-finder": "Traženje nadzornog tijela"
+        "sva-finder": "Traženje nadzornog tijela",
+        "kathod": "Biskupije istočne Njemačke (Berlin, Dresden-Meißen, Erfurt, Görlitz, Magdeburg)",
+        "kathnrw": "Biskupije sjeverne Rajn-Vestfalije (Aachen, Essen, Köln, Münster (područje sjeverne Rajn-Vestfalije), Paderborn)",
+        "kathnd": "Biskupije sjeverne Njemačke (Hamburg, Hildesheim, Osnabrück, Münster (područje donje Saske))",
+        "kathmsw": "Biskupije srednje i južnozapadne Njemačke (Freiburg, Fulda, Limburg, Mainz, Stuttgart Rottenburg, Speyer i Trier)",
+        "kathbay": "Biskupije Bavarske (Augsburg, Bamberg, Eichstätt, München & Freising, Passau, Regensburg, Würzburg)"
     },
     "wizard_tutorial": {
         "next-request": "<p>I to je sve za ovaj zahtjev!</p><p>Ovisno o mediju prijenosa, ovdje možeš poslati zahtjev kao email ili ga preuzeti kao PDF. Nakon toga, krenimo na sljedeći zahtjev.</p>",
