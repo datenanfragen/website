@@ -133,6 +133,7 @@ a #logo {
     min-height: 420px;
 
     font-family: $heading-font;
+    font-weight: $heading-weight;
     color: $primary-color;
     font-size: 3em;
 
@@ -936,7 +937,6 @@ article.page,
     }
     h2 {
         margin-top: 0;
-        // TODO: Once we switch to Spartan MB, use a lighter weight here.
         font-size: 1.2em;
     }
 
