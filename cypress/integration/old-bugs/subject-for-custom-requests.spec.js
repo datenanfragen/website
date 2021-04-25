@@ -19,6 +19,15 @@ describe('Proper subject for custom requests', () => {
 
                     cy.contains(reference).parent().contains(type).click();
 
+                    // Dismiss the SVA modal.
+                    if (type === 'Complaint') cy.get('.modal button.icon-close').click({ force: true });
+
+                    // Wait for the template to be loaded. Usually, this wouldn't be an issue as the 'Send email' button
+                    // is only enabled after the template was loaded but as Cypress unfortunately doesn't support
+                    // hovering yet and thus can't open the MailtoDropdown, we have to force-click the 'Copy text
+                    // manually' button and are thus bypassing the enabled check.
+                    cy.get('#custom-subject-input').should('contain.value', type);
+
                     cy.contains('Send email').click();
                     cy.get('.dropdown-container').contains('Copy text manually').should('be.visible');
                     cy.contains('Copy text manually').click({ force: true });
