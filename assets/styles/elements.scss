@@ -93,7 +93,7 @@ canvas {
 // Anyway, that is why we are URL-encoding the `#` here (inspired by: https://codepen.io/kevinweber/pen/dXWoRw).
 $required-asterisk-svg: str-replace(
     "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='" +
-        $accent-color + "' font-size='20' font-family='Fira Sans'>*</text></svg>",
+        $accent-color + "' font-size='20' font-family='FiraGO'>*</text></svg>",
     '#',
     '%23'
 );

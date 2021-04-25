@@ -46,7 +46,7 @@ if (comments_div) {
 // The more reliable way would be to feed the user's IP into a geolocation service but that is not an option, so we have to stick with this.
 function guessUserCountry() {
     // maps from language to country
-    const FALLBACK_COUNTRIES = { de: 'de', en: 'gb', fr: 'fr', pt: 'pt', es: 'es' };
+    const FALLBACK_COUNTRIES = { de: 'de', en: 'gb', fr: 'fr', pt: 'pt', es: 'es', hr: 'hr' };
 
     // see https://stackoverflow.com/a/52112155/3211062
     const navigator_lang =

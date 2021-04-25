@@ -161,6 +161,7 @@ h6 {
     line-height: 1.2;
     margin: 0;
     font-family: $heading-font;
+    font-weight: $heading-weight;
 
     @include mobile {
         hyphens: auto;

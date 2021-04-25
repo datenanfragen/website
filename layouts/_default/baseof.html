@@ -25,14 +25,14 @@
 
     <link rel="preconnect" href="https://static.dacdn.de">
     <!-- To generate the SRIs: `openssl dgst -sha384 -binary FILENAME | openssl base64 -A` -->
-    <link rel="preload" as="font" crossorigin="anonymous" integrity="sha384-sfN6m2ZS0w2gI93ZryRs7smlBmTsJnKb8iLsFhD4mGccijyR6DMU0OwXGHP5Cq68" type="font/woff2" href="https://static.dacdn.de/fonts/fira-sans/fira-sans-v8-latin-regular.woff2">
-    <link rel="preload" as="font" crossorigin="anonymous" integrity="sha384-/h2eAO5snMis60xRC0m0J2b+gsAq3shILQTVkElpzlS51dRJHxfQixG+mxy6QSY1" type="font/woff2" href="https://static.dacdn.de/fonts/fira-sans/fira-sans-v8-latin-600.woff2">
-    <link rel="preload" as="font" crossorigin="anonymous" integrity="sha384-VQWplNnfSp1YWj6BDX8jaHpTyngJfIvk98jM+TnRKufiqypp8W2ggHt7ITfPwLDN" type="font/woff2" href="https://static.dacdn.de/fonts/league-spartan/league-spartan-600.woff2">
+    <link rel="preload" as="font" crossorigin="anonymous" integrity="sha384-tNBae8zgEksCqZQj7CBECeZFk2QtL2mxVPeHSxF75N/wvJzzmQHcZzv7F/X/fp5C" type="font/woff2" href="https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Regular.woff2">
+    <link rel="preload" as="font" crossorigin="anonymous" integrity="sha384-+OpL6cf+m9YfQ7ygI08Ss1/7tIegMPGBWnHayunHLqV5SKsNylANZ4+PeiVC5SSN" type="font/woff2" href="https://static.dacdn.de/fonts/fira-go/FiraGO-1001-SemiBold.woff2">
+    <link rel="preload" as="font" crossorigin="anonymous" integrity="sha384-OweSPaeB1JE8kKcxBY0uMLQ+uMLCkQkkxItLG7y88xrf/KREX5J3LrjBXdGrrh1v" type="font/woff2" href="https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Italic.woff2">
+    <link rel="preload" as="font" crossorigin="anonymous" integrity="sha384-sWa20lMbvqJHIjx/smLcYHI2mJE8aJTZ1nvZaP6APJ0D45qxe+r7+/UYGy47CuLc" type="font/woff2" href="https://static.dacdn.de/fonts/spartan-mb/SpartanMB-1005-ExtraBold.woff">
     {{ if eq .Type "generator" -}}
-    <!-- TODO: Implement this correctly! <link rel="preload" as="script" href="{{ "js/pdfworker.gen.js" | absURL }}"> -->
     {{- end }}
-    <link rel="stylesheet" href="https://static.dacdn.de/fonts/fira-sans.css" integrity="sha384-tdesaAgh/bq3iJZEqjfYp6o6sVopRLnw3wjZKW9gLPpNd26Pdgbur5PChCva/Z+2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.dacdn.de/fonts/league-spartan.css" integrity="sha384-n561KFrMi6x/rwAxQhsRLmxmF+oKREXWnteNZCFbPbU1nODnUri2U+r9p/lCJ918" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.dacdn.de/fonts/fira-go-1001.css" integrity="sha384-VEShClsDs7AfAIERHsyiCemuCu0Ol8cI4UkTsXgjAGPb+I2ImhENwwqYwu0elg9I" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.dacdn.de/fonts/spartan-mb-1005.css" integrity="sha384-jGdJA83BE1qACrIQicI3yuDXjMuT3dPqyXe0If05791UeNXZIJQ83QCfW8LivEZJ" crossorigin="anonymous">
     {{ $style := resources.Get "styles/main.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
     {{ $style_link := $style.RelPermalink | absURL }}
     {{ if (or (eq hugo.Environment "production") (eq hugo.Environment "staging")) }}

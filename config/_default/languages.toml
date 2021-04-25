@@ -33,3 +33,10 @@
     weight = 50
     title = "solicituddedatos.es"
     copyright = "Salvo que se indique lo contrario, este sitio está sujeto a una licencia internacional Creative Commons Attribution 4.0."
+[hr]
+    languageCode = "hr-hr"
+    languageName = "Hrvatski"
+    contentDir = "content/hr"
+    weight = 60
+    title = "osobnipodaci.org"
+    copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."

@@ -6,7 +6,7 @@
 
 ## Qui nous sommes
 
-Nous sommes Datenanfragen.de e.&thinsp;V., une association à but non lucratif gérant le site [demandetesdonnees.fr](https://www.demandetesdonnees.fr) (ainsi que les versions allemande, anglais, espagnol et portugais, [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [solicituddedatos.es](https://www.solicituddedatos.es) et [pedidodedados.org](https://www.pedidodedados.org/)). Nous sommes en [mission]({{< ref "verein/mission-statement" >}}) pour faire avancer la protection des données et de la vie privée en Europe et au-delà. Nous voulons contribuer à l'exercice du droit à la vie privée et montrer l'exemple en matière de protection des données sans pour autant en faire une source d'ennuis, car nous pensons que la protection de la vie privée constitue une règle d'or.
+Nous sommes Datenanfragen.de e.&thinsp;V., une association à but non lucratif gérant le site [demandetesdonnees.fr](https://www.demandetesdonnees.fr) (ainsi que les versions allemande, anglais, espagnol, croate et portugais, [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org) et [pedidodedados.org](https://www.pedidodedados.org/)). Nous sommes en [mission]({{< ref "verein/mission-statement" >}}) pour faire avancer la protection des données et de la vie privée en Europe et au-delà. Nous voulons contribuer à l'exercice du droit à la vie privée et montrer l'exemple en matière de protection des données sans pour autant en faire une source d'ennuis, car nous pensons que la protection de la vie privée constitue une règle d'or.
 
 ## Ce que nous faisons
 
