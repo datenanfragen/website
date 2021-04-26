@@ -320,7 +320,9 @@
         "change-lang": "Modifier la langue",
         "stay": "Rester ici",
         "not-supported-prompt": "Ta langue ou pays n'est pas encore pris en charge ?",
-        "not-supported-cta": "Aide-nous à le prendre en charge !"
+        "not-supported-cta": "Aide-nous à le prendre en charge !",
+        "language-hr": "Croate",
+        "language-desc-hr": "Croate (Hrvatski)"
     },
     "comments": {
         "comments": "Commentaires",
@@ -820,7 +822,9 @@
         "email": "Adresse e-mail",
         "attn": "À l'attention de : Délégué à la protection des données",
         "by-fax": "Par Fax : ",
-        "concerns": "Concerne"
+        "concerns": "Concerne",
+        "letter-subject-admonition": "Mise en demeure : Demande conformément à l'art. {{request_article}} du RGPD",
+        "letter-subject-complaint": "Plainte conformément à l'art. 77 du RGPD contre {{request_recipient}}"
     },
     "donation-widget": {
         "back": "Revenir au formulaire",
