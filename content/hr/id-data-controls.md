@@ -4,4 +4,4 @@
     "static": true
 }
   
-<noscript class="noscript noscript-privacy-policy">If JavaScript is deactivated, no identification data will be saved about you. If you activate JavaScript in your browser or add an exception to your blocker, you can see and edit the data saved on your computer about you here. More information on your data can be found in our <a href="/privacy">privacy policy</a>.</noscript>
+<noscript class="noscript noscript-privacy-policy">Ako je JavaScript deaktiviran, tvoji se identifikacijski podaci neće spremati. Ako aktiviraš JavaScript u pregledniku ili ako blokeru dodaš iznimku, ovdje možeš vidjeti i promijeniti tvoje podatke koji su spremljeni na tvom računalu. Više podataka o tvojim podacima možeš pronaći u našim <a href="/privacy">pravilima privatnosti</a>.</noscript>
