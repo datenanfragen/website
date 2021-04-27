@@ -1,5 +1,5 @@
 {
-    "title": "Suggest an edit to our company database",
+    "title": "Predloži promjenu u našoj baze podataka poduzeća",
     "type": "suggest"
 }
 
@@ -20,7 +20,7 @@ Predlaganje poduzeća pomoću ovih savjeta pomaže nam uvelike, ali je <strong>p
       Zemlja  
 - Koristi gore navedeni format adrese: Odvojeni redci, nemoj navesti ime poduzeća (dodat će se automatski) i dodaj zemlju kao zadnji redak.
 - Ako je email adresa poduzeća očito povezana s privatnošću, npr. „privatnost@” ili „gdpr@”, za email možeš postaviti „Predloženi medij za prijenos”.
-- Ako želiš saznati više, pregledaj naš [„repozitorij podataka” na GitHub stranicama] (https://github.com/datenanfragen/data/).
+- Ako želiš saznati više, pregledaj naš [„repozitorij podataka” na GitHub stranicama](https://github.com/datenanfragen/data/).
 
 </details>
 
