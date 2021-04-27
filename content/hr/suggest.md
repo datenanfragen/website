@@ -1,9 +1,9 @@
 {
-    "title": "Predloži promjenu u našoj baze podataka poduzeća",
+    "title": "Predloži promjenu u našoj bazi podataka poduzeća",
     "type": "suggest"
 }
 
-Zahvaljujemo ti na doprinošenju bazi podataka našeg poduzeća! Doprinosi korisnika nevjerojatno su važni za projekt poput našeg.
+Zahvaljujemo ti na doprinošenju našoj bazi podataka poduzeća! Doprinosi korisnika nevjerojatno su važni za projekt poput našeg.
 Jednostavno upiši željene podatke u donji obrazac i klikni *Pošalji*. Ako je moguće, uključi izvore za tvoje promjene kako bismo ih mogli provjeriti. Polja označena sa zvjezdicom (*) također se moraju popuniti. Za prikaz dodatnih informacija, zadrži pokazivač iznad oznaka. Ali ne brini: Ako postoji nešto što ne znaš, ostavi to prazno i mi ćemo se pobrinuti o tome.
 
 <details>
