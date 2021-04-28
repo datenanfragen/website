@@ -110,7 +110,7 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
     <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
-<a id="contributeurs"></a>
+<a id="contributors"></a>
 ## Contributeurs
 
 Un grand merci à tous les contributeurs(trices) de demandetesdonnees.fr ! Le projet ne serait pas possible sans vous.

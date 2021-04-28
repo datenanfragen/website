@@ -104,16 +104,26 @@
         {{ block "main" . }}
         {{ end }}
     </div>
+
+    <!-- TODO: Move the whole footer into a partial and call with partialCached. -->
+    <!-- Generate a footer link. Links are automatically resolved to the correct translated language version and will
+         fall back to English if no translated version exists.
+         Parameters (in order): [slug] (not translated), [translation key of link text], [document fragment] (optional) -->
+    {{ define "partials/footer-url" }}
+        {{ $link := (partial "functions/link" (dict "slug" (index . 0) "text" (index . 1) "fragment" (index . 2) "translate" true)) }}
+        <li><a href="{{ $link.url }}">{{ $link.text }}</a></li>
+    {{ end }}
+
     <footer id="footer">
         <div class="container">
             <div class="col33 footer-col" style="padding-right: 20px;">
                 <p style="margin: 0;">{{ T "footer-about-us" | safeHTML }}</p>
                 <div class="social-icons">
-                    <a href="{{ T "footer-social-rss-url" . | absLangURL }}" class="icon icon-rss" title="{{ T "footer-social-rss-desc" . }}"><span class="sr-only">{{ T "footer-social-rss-desc" . }}</span></a>
-                    <a rel="me" href="{{ T "footer-social-github-url" . | absLangURL }}" class="icon icon-github" title="{{ T "footer-social-github-desc" . }}"><span class="sr-only">{{ T "footer-social-github-desc" . }}</span></a>
-                    <a href="{{ T "footer-social-matrix-url" . | absLangURL }}" class="icon icon-matrix" title="{{ T "footer-social-matrix-desc" . }}"><span class="sr-only">{{ T "footer-social-matrix-desc" . }}</span></a>
-                    <a rel="me" href="{{ T "footer-social-mastodon-url" . | absLangURL }}" class="icon icon-mastodon" title="{{ T "footer-social-mastodon-desc" . }}"><span class="sr-only">{{ T "footer-social-mastodon-desc" . }}</span></a>
-                    <a rel="me" href="{{ T "footer-social-twitter-url" . | absLangURL }}" class="icon icon-twitter" title="{{ T "footer-social-twitter-desc" . }}"><span class="sr-only">{{ T "footer-social-twitter-desc" . }}</span></a>
+                    <a href="{{ "/blog/index.xml" | absLangURL }}" class="icon icon-rss" title="{{ T "footer-social-rss-desc" . }}"><span class="sr-only">{{ T "footer-social-rss-desc" . }}</span></a>
+                    <a rel="me" href="https://github.com/datenanfragen/" class="icon icon-github" title="{{ T "footer-social-github-desc" . }}"><span class="sr-only">{{ T "footer-social-github-desc" . }}</span></a>
+                    <a href="https://matrix.to/#/+datenanfragen:matrix.altpeter.me" class="icon icon-matrix" title="{{ T "footer-social-matrix-desc" . }}"><span class="sr-only">{{ T "footer-social-matrix-desc" . }}</span></a>
+                    <a rel="me" href="{{ cond (eq .Lang "de") "https://mastodon.social/@DatenanfragenDE" "https://mastodon.social/@datarequestsORG" }}" class="icon icon-mastodon" title="{{ T "footer-social-mastodon-desc" . }}"><span class="sr-only">{{ T "footer-social-mastodon-desc" . }}</span></a>
+                    <a rel="me" href="{{ cond (eq .Lang "de") "https://twitter.com/@DatenanfragenDE" "https://twitter.com/datarequestsORG" }}" class="icon icon-twitter" title="{{ T "footer-social-twitter-desc" . }}"><span class="sr-only">{{ T "footer-social-twitter-desc" . }}</span></a>
                 </div>
                 <div class="i18n-button-container"></div>
             </div>
@@ -121,31 +131,31 @@
                 <div class="col22 footer-col">
                     <strong>{{ T "footer-tab-website-name" . }}</strong>
                     <ul>
-                        <li><a href="{{ T "footer-request-generator-url" | absLangURL }}">{{ T "footer-request-generator" . }}</a></li>
-                        <li><a href="{{ T "footer-my-requests-url" | absLangURL }}">{{ T "footer-my-requests" . }}</a></li>
-                        <li><a href="{{ T "footer-my-saved-data-url" | absLangURL }}">{{ T "footer-my-saved-data" . }}</a></li>
-                        <li><a href="{{ T "footer-company-database-url" | absLangURL }}">{{ T "footer-company-database" . }}</a></li>
-                        <!-- <li><a href="{{ T "footer-settings-url" | absLangURL }}">{{ T "footer-settings" . }}</a></li> -->
+                        {{ partial "footer-url" (slice "/generator" "footer-request-generator") }}
+                        {{ partial "footer-url" (slice "/my-requests" "footer-my-requests") }}
+                        {{ partial "footer-url" (slice "/id-data-controls" "footer-my-saved-data") }}
+                        {{ partial "footer-url" (slice "/company" "footer-company-database") }}
+                        <!-- {.{ partial "footer-url" (slice "/settings" "footer-settings") }} -->
                     </ul>
                 </div>
                 <div class="col22 footer-col">
                     <strong>{{ T "footer-tab-community" . }}</strong>
                     <ul>
-                        <li><a href="{{ T "footer-contribute-url" | absLangURL }}">{{ T "footer-contribute" . }}</a></li>
-                        <li><a href="{{ T "footer-donate-url" | absLangURL }}">{{ T "footer-donate" . }}</a></li>
-                        <li><a href="{{ T "footer-become-a-member-url" | absLangURL }}">{{ T "footer-become-a-member" . }}</a></li>
-                        <li><a href="{{ T "footer-open-source-url" | absLangURL }}">{{ T "footer-open-source" . }}</a></li>
-                        <li><a href="{{ ref . (T "footer-contributors-url") }}">{{ T "footer-contributors" . }}</a></li>
+                        {{ partial "footer-url" (slice "/contribute" "footer-contribute") }}
+                        {{ partial "footer-url" (slice "/donate" "footer-donate") }}
+                        {{ partial "footer-url" (slice "/verein/become-a-member" "footer-become-a-member") }}
+                        {{ partial "footer-url" (slice "/open-source" "footer-open-source") }}
+                        {{ partial "footer-url" (slice "/open-source" "footer-contributors" "contributors") }}
                     </ul>
                 </div>
                 <div class="col22 footer-col">
                     <strong>{{ T "footer-tab-association" . }}</strong>
                     <ul>
-                        <li><a href="{{ T "footer-association-overview-url" | absLangURL }}">{{ T "footer-association-overview" . }}</a></li>
-                        <li><a href="{{ T "footer-association-goals-url" | absLangURL }}">{{ T "footer-association-goals" . }}</a></li>
-                        <li><a href="{{ T "footer-association-constitution-url" | absLangURL }}">{{ T "footer-association-constitution" . }}</a></li>
-                        <li><a href="{{ T "footer-association-transparency-url" | absLangURL }}">{{ T "footer-association-transparency" . }}</a></li>
-                        <li><a href="{{ T "footer-association-board-url" | absLangURL }}">{{ T "footer-association-board" . }}</a></li>
+                        {{ partial "footer-url" (slice "/verein" "footer-association-overview") }}
+                        {{ partial "footer-url" (slice "/verein/mission-statement" "footer-association-goals") }}
+                        {{ partial "footer-url" (slice "/verein/constitution" "footer-association-constitution") }}
+                        {{ partial "footer-url" (slice "/verein/transparency" "footer-association-transparency") }}
+                        {{ partial "footer-url" (slice "/verein/board" "footer-association-board") }}
                     </ul>
                 </div>
             </div>
@@ -153,22 +163,22 @@
                 <div class="col22 footer-col">
                     <strong>{{ T "footer-tab-learn" . }}</strong>
                     <ul>
-                        <li><a href="{{ T "footer-your-gdpr-rights-url" | absLangURL }}">{{ T "footer-your-gdpr-rights" . }}</a></li>
-                        <li><a href="{{ T "footer-sample-letters-url" | absLangURL }}">{{ T "footer-sample-letters" . }}</a></li>
-                        <li><a href="{{ T "footer-supervisory-authorities-url" | absLangURL }}">{{ T "footer-supervisory-authorities" . }}</a></li>
-                        <li><a href="{{ T "footer-posts-url" | absLangURL }}">{{ T "footer-posts" . }}</a></li>
-                        <li><a href="{{ T "footer-press-url" | absLangURL }}">{{ T "footer-press" . }}</a></li>
-                        <li><a href="{{ T "footer-event-url" | absLangURL }}">{{ T "footer-event" . }}</a></li>
-                        {{ if eq .Lang "de" }}<li><a href="{{ "/verein/material" | absLangURL }}">Material</a></li>{{ end }}
+                        {{ partial "footer-url" (slice "/blog/your-gdpr-rights" "footer-your-gdpr-rights") }}
+                        {{ partial "footer-url" (slice "/sample-letters" "footer-sample-letters") }}
+                        {{ partial "footer-url" (slice "/supervisory-authorities" "footer-supervisory-authorities") }}
+                        {{ partial "footer-url" (slice "/blog" "footer-posts") }}
+                        {{ partial "footer-url" (slice "/verein/press" "footer-press") }}
+                        {{ partial "footer-url" (slice "/verein/event" "footer-event") }}
+                        {{ if eq .Lang "de" }}{{ partial "footer-url" (slice "/verein/material" "footer-material") }}{{ end }}
                     </ul>
                 </div>
                 <div class="col22 footer-col">
                     <strong>{{ T "footer-tab-legal" . }}</strong>
                     <ul>
-                        <li><a href="{{ T "footer-legal-notice-url" | absLangURL }}">{{ T "footer-legal-notice" . }}</a></li>
-                        <li><a href="{{ T "footer-privacy-policy-url" | absLangURL }}">{{ T "footer-privacy-policy" . }}</a></li>
-                        <li><a href="{{ T "footer-privacy-controls-url" | absLangURL }}">{{ T "footer-privacy-controls" . }}</a></li>
-                        <li><a href="{{ T "footer-licenses-url" | absLangURL }}#license-notices">{{ T "footer-licenses" . }}</a></li>
+                        {{ partial "footer-url" (slice "/contact" "footer-legal-notice") }}
+                        {{ partial "footer-url" (slice "/privacy" "footer-privacy-policy") }}
+                        {{ partial "footer-url" (slice "/privacy-controls" "footer-privacy-controls") }}
+                        {{ partial "footer-url" (slice "/open-source" "footer-licenses" "license-notices") }}
                     </ul>
                 </div>
                 <div class="col22 footer-col" style="font-size: 10px; margin-top: 20px;">
