@@ -58,27 +58,21 @@
             </a>
             <nav id="main-nav">
                 <div id="menu-items">
-                    <a href="{{ "company" | absURL }}" class="menu-link desktop-only">{{ T "header-cdb" }}</a>
-                    <a href="{{ "blog" | absURL }}" class="menu-link desktop-only">{{ T "header-blog" }}</a>
+                    <a href="{{ (partial "functions/link" (dict "slug" "/company")).url }}" class="menu-link desktop-only">{{ T "header-cdb" }}</a>
+                    <a href="{{ (partial "functions/link" (dict "slug" "/blog")).url }}" class="menu-link desktop-only">{{ T "header-blog" }}</a>
 
-                    <a class="{{ if .IsHome }}button button-primary icon icon-letter {{ end }}menu-link desktop-only"
-                        href="{{ "generator" | absURL }}">{{ T "header-generator" }}</a>
+                    <a class="{{ if .IsHome }}button button-primary icon icon-letter {{ end }}menu-link desktop-only" href="{{ (partial "functions/link" (dict "slug" "/generator")).url }}">{{ T "header-generator" }}</a>
                     <div class="dropdown-container">
-                        <a class="button button-secondary menu-link" href="javascript:void(0)"><span
-                                class="icon icon-menu" title="{{ T "header-open-menu" . }}"></span></a>
+                        <a class="button button-secondary menu-link" href="javascript:void(0)"><span class="icon icon-menu" title="{{ T "header-open-menu" . }}"></span></a>
                         <div class="dropdown" id="personal-menu">
                             <div class="mobile-only">
-                                <a class="button button-primary icon icon-letter menu-link"
-                                    href="{{ "generator" | absURL }}"
-                                    style="border-radius: 0;">{{ T "header-generator" }}</a>
-                                <a href="{{ "company" | absURL }}" class="menu-link">{{ T "header-cdb" }}</a>
-                                <a href="{{ "blog" | absURL }}" class="menu-link">{{ T "header-blog" }}</a>
+                                <a class="button button-primary icon icon-letter menu-link" href="{{ (partial "functions/link" (dict "slug" "/generator")).url }}" style="border-radius: 0;">{{ T "header-generator" }}</a>
+                                <a href="{{ (partial "functions/link" (dict "slug" "/company")).url }}" class="menu-link">{{ T "header-cdb" }}</a>
+                                <a href="{{ (partial "functions/link" (dict "slug" "/blog")).url }}" class="menu-link">{{ T "header-blog" }}</a>
                             </div>
-                            <a href="{{ "my-requests" | absURL }}" class="menu-link">{{ T "header-my-requests" }}</a>
-                            <a href="{{ "id-data-controls" | absURL }}"
-                                class="menu-link">{{ T "header-id-data-controls" }}</a>
-                            <a href="{{ "privacy-controls" | absURL }}"
-                                class="menu-link">{{ T "header-privacy-controls" }}</a>
+                            <a href="{{ (partial "functions/link" (dict "slug" "/my-requests")).url }}" class="menu-link">{{ T "header-my-requests" }}</a>
+                            <a href="{{ (partial "functions/link" (dict "slug" "/id-data-controls")).url }}" class="menu-link">{{ T "header-id-data-controls" }}</a>
+                            <a href="{{ (partial "functions/link" (dict "slug" "/privacy-controls")).url }}" class="menu-link">{{ T "header-privacy-controls" }}</a>
 
                             <div id="personal-menu-i18n-widget" class="i18n-widget-container"></div>
                         </div>
