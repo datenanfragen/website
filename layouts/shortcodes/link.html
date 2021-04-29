@@ -11,5 +11,5 @@ Examples (remove the `.`):
     - `{.{< link slug="/verein/constitution" fragment="7-the-board" text="Read about the board in the constitution." >}}`
 -->
 {{- $link := partial "functions/link" (dict "slug" (.Get "slug") "text" (.Get "text") "fragment" (.Get "fragment") "translate" (.Get "translate")) -}}
-<a href="{{ $link.url }}">{{ $link.text }}</a><!-- The next line is an ugly hack to ensure that Hugo doesn't put an extra space after the link. This comment needs to stay here, otherwise the hack will break. -->
+<a href="{{ $link.url }}">{{ $link.text | markdownify }}</a><!-- The next line is an ugly hack to ensure that Hugo doesn't put an extra space after the link. This comment needs to stay here, otherwise the hack will break. -->
 {{- "" -}}
