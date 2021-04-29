@@ -64,6 +64,6 @@ There's a letter template for each request type, of course. We support the most 
 
 The sample letters above are a good start but we strongly believe there should be an even easier way to send GDPR requests.
 
-That's why we have developed a [generator]({{< ref "/generator" >}}) that automatically generates such requests for you. All you need to do is select a company (we also have many companies in our database already, so you won't even need to find their contact details) and enter your details.
+That's why we have developed a {{< link slug="/generator" text="generator" >}} that automatically generates such requests for you. All you need to do is select a company (we also have many companies in our database already, so you won't even need to find their contact details) and enter your details.
 
 Give it a try!

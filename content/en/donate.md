@@ -6,7 +6,7 @@
 
 Thank you very much for your interest in supporting us! Your donation will help us to fund our current and upcoming projects so that they can stay free for everyone.
 
-If you want to support us recurrently, you can also [become a supporting member]({{< ref "become-a-member" >}}). This way you can also give us a SEPA direct debit mandate.
+If you want to support us recurrently, you can also {{< link slug="become-a-member" text="become a supporting member" >}}. This way you can also give us a SEPA direct debit mandate.
 
 As a public-benefit organization, we can also issue you a [donation receipt](#donation-receipt-howto).
 
@@ -20,7 +20,7 @@ As a public-benefit organization, we can also issue you a [donation receipt](#do
 
 * **What happens to my donation?**
 
-    We use your donation to pay our running expenses and to start new projects to advance data security in Europe according to [our constitution]({{< ref "verein/constitution" >}}). You can read about exactly where your money ended up going in our [yearly report]({{< ref "verein/transparency" >}}). We are not allowed to earn any profit, so you can be sure that your donation ends up going to a good cause.
+    We use your donation to pay our running expenses and to start new projects to advance data security in Europe according to {{< link slug="verein/constitution" text="our constitution" >}}. You can read about exactly where your money ended up going in our {{< link slug="verein/transparency" text="yearly report" >}}. We are not allowed to earn any profit, so you can be sure that your donation ends up going to a good cause.
     
 * <a id="donation-receipt-howto"></a>**How do I get a receipt for my donation?**
 
@@ -33,11 +33,11 @@ As a public-benefit organization, we can also issue you a [donation receipt](#do
  
 * **Who has donated besides me?**
 
-    Donations of people and companies who donated more than 10% of our yearly budget are published with the amount and — only with their consent — their name. For organizations, we will publish the name even without explicit consent. You can read about these donations in our [transparency report]({{< ref "verein/transparency" >}}).
+    Donations of people and companies who donated more than 10% of our yearly budget are published with the amount and — only with their consent — their name. For organizations, we will publish the name even without explicit consent. You can read about these donations in our {{< link slug="verein/transparency" text="transparency report" >}}.
 
 * **What happens to the data that I provide for the donation?**
 
-    Depending on your payment method, you will need to provide different kinds of data. We spent a lot of time trying to minimize the data that you need to enter, though. If you need an extended receipt for your donation, we will need to get your address and keep it according to the lawful retention limit, too. The exact data we get from you or our payment providers is listed in our [privacy policy]({{< ref "privacy" >}}).
+    Depending on your payment method, you will need to provide different kinds of data. We spent a lot of time trying to minimize the data that you need to enter, though. If you need an extended receipt for your donation, we will need to get your address and keep it according to the lawful retention limit, too. The exact data we get from you or our payment providers is listed in our {{< link slug="privacy" text="privacy policy" >}}.
 
 * **How can I donate anonymously?**
 
@@ -55,4 +55,4 @@ As a public-benefit organization, we can also issue you a [donation receipt](#do
 * **How can I donate via SEPA direct debit?**
 
     <!-- TODO: Activate at mollie -->
-    Recurring donations via direct debit are only available for our members. You can [become a supporting member]({{< ref "verein/become-a-member" >}}) and then give us a SEPA mandate. Currently, we do not support single donations via direct debit.
+    Recurring donations via direct debit are only available for our members. You can {{< link slug="verein/become-a-member" text="become a supporting member" >}} and then give us a SEPA mandate. Currently, we do not support single donations via direct debit.

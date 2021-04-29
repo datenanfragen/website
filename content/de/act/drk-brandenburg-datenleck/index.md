@@ -37,9 +37,9 @@ Das DRK Brandenburg gibt in seiner Pressemitteilung zwar an, es seien „jedoch 
 Laut dem DRK Brandenburg sind die folgenden Kreisverbände betroffen: Märkisch-Oder-Havel-Spree, Niederbarnim und Uckermark-West/Oberbarnim  
 Darüber hinaus sei das vom DRK-Landesverband Brandenburg betriebene Erste-Hilfe-Portal betroffen, über das Anmeldungen zu Erste-Hilfe-Kursen verwaltet werden.
 
-Wenn Du wissen möchtest, ob Du konkret betroffen bist, kannst Du Dich an den DRK-Landesverband Brandenburg wenden. Wir empfehlen Dir, in dem Zuge auch gleich von Deinen [DSGVO-Rechten]({{< ref "your-gdpr-rights" >}}) Gebrauch zu machen und Auskunft über die zu Dir gespeicherten Daten zu verlangen.
+Wenn Du wissen möchtest, ob Du konkret betroffen bist, kannst Du Dich an den DRK-Landesverband Brandenburg wenden. Wir empfehlen Dir, in dem Zuge auch gleich von Deinen {{< link slug="your-gdpr-rights" text="DSGVO-Rechten" >}} Gebrauch zu machen und Auskunft über die zu Dir gespeicherten Daten zu verlangen.
 
-Hierbei wollen wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben schon eine Anfrage an das Deutsche Rote Kreuz für Dich vorbereitet. Darin bitten wir für Dich zum einen um Auskunft nach Art. 15 DSGVO und fragen zum anderen, ob Du von dem Datenleck betroffen bist. Du brauchst nur noch Deine Identifikationsdaten einzutragen und schon kannst Du die Anfrage einfach per E-Mail verschicken. Das ist natürlich kostenlos für Dich.
+Hierbei wollen wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich {{< link slug="verein/mission-statement" text="für Dein Recht auf Datenschutz einsetzt" >}}. Wir haben schon eine Anfrage an das Deutsche Rote Kreuz für Dich vorbereitet. Darin bitten wir für Dich zum einen um Auskunft nach Art. 15 DSGVO und fragen zum anderen, ob Du von dem Datenleck betroffen bist. Du brauchst nur noch Deine Identifikationsdaten einzutragen und schon kannst Du die Anfrage einfach per E-Mail verschicken. Das ist natürlich kostenlos für Dich.
 
 Alternativ hat das DRK Brandenburg auch eine Telefonhotline eingerichtet, an die Du Dich mit Fragen wenden kannst: [+49 331 2864 113](tel:+493312864113)
 
@@ -56,4 +56,4 @@ window.onload = function() { renderActWidget(); };
 
 Die E-Mail verschickst Du dabei selbst mit Deinem E-Mail-Programm. Wir bekommen Deine Daten nicht zu sehen: Alles, was Du hier auf der Seite eingibst, wird **nur lokal auf Deinem Rechner** verarbeitet und nie an uns übertragen.
 
-Für die Antwort hat das DRK Brandenburg einen Monat Zeit. Danach darfst Du Dich bei einer [Datenschutz-Aufsichtsbehörde]({{< ref "supervisory-authorities" >}}) beschweren. Sollte es dazu kommen, können wir Dir auch dabei helfen, wie wir in dem [entsprechenden Artikel](({{< ref "supervisory-authorities" >}})) erklären.
+Für die Antwort hat das DRK Brandenburg einen Monat Zeit. Danach darfst Du Dich bei einer {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörde" >}} beschweren. Sollte es dazu kommen, können wir Dir auch dabei helfen, wie wir in dem {{< link slug="supervisory-authorities" text="entsprechenden Artikel" >}} erklären.

@@ -6,9 +6,9 @@
 
 <img class="top-right-humaaan" src="/img/humaaans/thanks.svg" alt="Un gran corazón flotando junto a una persona.">
 
-¡Muchas gracias por tu donación! Realmente nos ayuda a seguir ejecutando nuestro sitio web de forma gratuita para todos en el futuro y también a iniciar un nuevo proyecto de protección de datos en Europa. Puede leer sobre lo que sucederá exactamente con su donación en nuestros [informes anuales]({{< ref "verein/transparency" >}}).
+¡Muchas gracias por tu donación! Realmente nos ayuda a seguir ejecutando nuestro sitio web de forma gratuita para todos en el futuro y también a iniciar un nuevo proyecto de protección de datos en Europa. Puede leer sobre lo que sucederá exactamente con su donación en nuestros {{< link slug="verein/transparency" text="informes anuales" >}}.
 
-Si deseas apoyarnos con regularidad o simplemente deseas participar más, también puedes [convertirse en miembro]({{< ref "verein/become-a-member" >}}).
+Si deseas apoyarnos con regularidad o simplemente deseas participar más, también puedes {{< link slug="verein/become-a-member" text="convertirse en miembro" >}}.
 
 ## ¿Dónde está mi recibo de donación?
 

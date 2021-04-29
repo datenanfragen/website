@@ -15,7 +15,7 @@ According to the GDPR, you have a right to access the personal data stored and p
 
 First of all, this includes a confirmation as to whether your personal data is being processed. If so, you can request a copy of said data. But not only that: In addition, you also have the right to further details, such as the purposes of the processing, the recipients to whom the data is passed on and the duration of the storage.
 
-If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
+If you want to learn more, have a look at our {{< link slug="/blog/your-gdpr-rights" text="article about your rights under the GDPR" >}}.
 
 ## How do I exercise this right?
 
@@ -77,11 +77,11 @@ You are free to use these templates as you like. We make them available to you u
 
 You send the letter directly to the controller. If they have a data protection officer, we recommend that you always address the letter directly to this person. Data protection officers are not only specially trained, but are also required to treat your request confidentially.
 
-You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a [company database](/company) which already contains the appropriate contact data for privacy-related requests for many companies.
+You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a {{< link slug="/company" text="company database" >}} which already contains the appropriate contact data for privacy-related requests for many companies.
 
 ## Isn't there an easier way?
 
-The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a {{< link slug="/generator" text="Generator" >}}, with which you can create requests like this automatically. We invite you to give it a try.
 
 ---
 
@@ -89,5 +89,5 @@ The idea behind Datenanfragen.de is to make it as easy as possible for you to ex
 
 We have made the following changes to this sample letter since the initial publication:
 
-* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-21e880eae2f2c4209d64e2fe3bf93b7f): Explain that 'personal data' includes pseudonymised data and explicitly request that as well. Mention anonymised data and request to be informed about it. Also request an easily understandable explanation of the procedure used. More consistent style between [all templates]({{< ref "sample-letters" >}}). (Thanks, Andreas!)
+* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-21e880eae2f2c4209d64e2fe3bf93b7f): Explain that 'personal data' includes pseudonymised data and explicitly request that as well. Mention anonymised data and request to be informed about it. Also request an easily understandable explanation of the procedure used. More consistent style between {{< link slug="sample-letters" text="all templates" >}}. (Thanks, Andreas!)
 * [July 04, 2021](https://github.com/datenanfragen/data/pull/1167/commits/9195228ca2838b1c7fcc688b2dfb4d5439452913#diff-036e3f066a7d5a0f8ff24b2cb2b5fdaaa7b3a692c84533fb32c1f95e7c46bf0d): Explicitly state that the request also asks for a copy according to Art. 15(3) GDPR.

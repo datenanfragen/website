@@ -8,20 +8,20 @@
     "notices": "Photo adapted after: \"[Busy bees](https://unsplash.com/photos/StEaRc1xQV4)\" by [Boba Jaglicic](https://unsplash.com/@bobajaglicic) ([Unsplash license](https://unsplash.com/license))"
 }
 
-In our [investigation on Honey]({{< ref "blog/honey-data-collection" >}}), we have shown that the browser extension collects their users' data on a large scale. Regardless of whether an account has been registered or not, the add-on dilligently logs page views on plenty of websites and sends them to the company behind the extension, [Honey Science LLC]({{< ref "company/joinhoney" >}}), a US company that was recently [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
+In our {{< link slug="blog/honey-data-collection" text="investigation on Honey" >}}, we have shown that the browser extension collects their users' data on a large scale. Regardless of whether an account has been registered or not, the add-on dilligently logs page views on plenty of websites and sends them to the company behind the extension, {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, a US company that was recently [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
 
 {{< featuredImg alt="Photo of a lot of bees that rush to a drop of sugar water, above that the text: “Honey, the data hoarder—request your data now”" >}}
 
 ## How can I request my data?
 
-Did you use Honey and maybe weren't aware of this data hoarding? Or do you simply want to know what Honey has saved about you? The GDPR grants you a number of [rights regarding your personal data]({{< ref "your-gdpr-rights" >}}), including the right to request a free copy of all data a company has collected <!-- stored? --> about you, the [**right of data access**]({{< ref "your-gdpr-rights#right-of-data-access">}}).
+Did you use Honey and maybe weren't aware of this data hoarding? Or do you simply want to know what Honey has saved about you? The GDPR grants you a number of {{< link slug="your-gdpr-rights" text="rights regarding your personal data" >}}, including the right to request a free copy of all data a company has collected <!-- stored? --> about you, the {{< link slug="your-gdpr-rights#right-of-data-access" text="**right of data access**" >}}.
 
-We can help you with that. We are a registered non-profit from Germany that stands up [for your right of data protection]({{< ref "verein/mission-statement" >}}).
+We can help you with that. We are a registered non-profit from Germany that stands up {{< link slug="verein/mission-statement" text="for your right of data protection" >}}.
 We have already prepared the necessary request that you can use to demand a copy of your data from Honey Science LLC, the US-based company behind the browser extension. There are two forms on this page: Use the first one if you have used Honey with an account or the second one if you have used it [without an account](#used-Honey-without-an-account).
 
 Afterwards, you can send the email using your own email program or webmailer. This way, everything you type into this page can be processed **locally on your device**. That means we will never see your data.
 
-Honey Science LLC has a month to answer your request after you sent the email. They can extend that deadline by another two months if they have good reasons, but they have to tell you that within a month. If you decide that Honey shouldn't keep your data after receiving their response you can use your [**right to be forgotten**]({{< ref "your-gdpr-rights#right-to-be-forgotten" >}}) and make a request to demand the immediate deletion of your data. You can use our [generator]({{<ref "generator#!company=joinhoney">}}) <!-- TODO: set request type to DELETE when the generator supports this--> for that as well.
+Honey Science LLC has a month to answer your request after you sent the email. They can extend that deadline by another two months if they have good reasons, but they have to tell you that within a month. If you decide that Honey shouldn't keep your data after receiving their response you can use your {{< link slug="your-gdpr-rights#right-to-be-forgotten" text="**right to be forgotten**" >}} and make a request to demand the immediate deletion of your data. You can use our {{< link slug="generator#!company=joinhoney" text="generator" >}} <!-- TODO: set request type to DELETE when the generator supports this--> for that as well.
 
 ## Used Honey with an account?
 

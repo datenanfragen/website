@@ -7,7 +7,7 @@
 
 <img id="open-source-humaaan" class="top-left-humaaan" src="/img/humaaans/open-source.svg" alt="">
 
-Open Source steht im Kern von Datenanfragen.de. Wir haben das Projekt von Grund auf konzipiert, so offen wie möglich zu sein. So verpflichtet uns nicht zuletzt unsere [Satzung]({{< ref "verein/constitution" >}}), unsere Inhalte unter freien Lizenzen zur Verfügung zu stellen.
+Open Source steht im Kern von Datenanfragen.de. Wir haben das Projekt von Grund auf konzipiert, so offen wie möglich zu sein. So verpflichtet uns nicht zuletzt unsere {{< link slug="verein/constitution" text="Satzung" >}}, unsere Inhalte unter freien Lizenzen zur Verfügung zu stellen.
 
 Wir sind große Verfechter von Open Source und fest davon überzeugt.
 

@@ -20,7 +20,7 @@ As the legal basis, these companies frequently rely on their "legitimate interes
 
 Fortunately, you don't have to put up with that. According to the General Data Protection Regulation (GDPR), you have the right to object to direct marketing. This is clearly stated in Art. 21(2) GDPR. You may also rise this objection if you have previously given consent for direct marketing.
 
-The GDPR also offers you a number of other rights. You can find out more about those in our [article about your GDPR rights]({{< ref "/blog/your-gdpr-rights" >}}).
+The GDPR also offers you a number of other rights. You can find out more about those in our {{< link slug="/blog/your-gdpr-rights" text="article about your GDPR rights" >}}.
 
 ## How do I exercise this right?
 
@@ -70,11 +70,11 @@ You are free to use these templates as you like. We make them available to you u
 
 You send the letter directly to the company that send you the ads. If they have a data protection officer, we recommend that you always address the letter directly to this person. Data protection officers are not only specially trained, but are also required to treat your request confidentially.
 
-You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a [company database](/company) which already contains the appropriate contact data for privacy-related requests for many companies.
+You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a {{< link slug="/company" text="company database" >}} which already contains the appropriate contact data for privacy-related requests for many companies.
 
 ## Isn't there an easier way?
 
-The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a {{< link slug="/generator" text="generator" >}}, with which you can create requests like this automatically. We invite you to give it a try.
 
 ---
 
@@ -82,4 +82,4 @@ The idea behind Datenanfragen.de is to make it as easy as possible for you to ex
 
 We have made the following changes to this sample letter since the initial publication:
 
-* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/6e7499dcb3d5497c6a16607370d26c5961ba237d#diff-3be9975245c2f40e39444ce4ac95f9e9): More consistent style between [all templates]({{< ref "sample-letters" >}}).
+* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/6e7499dcb3d5497c6a16607370d26c5961ba237d#diff-3be9975245c2f40e39444ce4ac95f9e9): More consistent style between {{< link slug="sample-letters" text="all templates" >}}.

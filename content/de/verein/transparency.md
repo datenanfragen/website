@@ -13,7 +13,7 @@ Die Informationen sind auf dem Stand vom 30. Mai 2021.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
-Diese Informationen sind auch in unserem [Impressum]({{< ref "contact" >}}) zu finden.
+Diese Informationen sind auch in unserem {{< link slug="contact" text="Impressum" >}} zu finden.
 
  - Name: Datenanfragen.de e.&thinsp;V.
  - Sitz: Braunschweig
@@ -29,9 +29,9 @@ Diese Informationen sind auch in unserem [Impressum]({{< ref "contact" >}}) zu f
 
 ## 2. Satzung und Ziele
 
-Die vollständige Satzung veröffentlichen wir auf [dieser Webseite]({{< ref "verein/constitution" >}}) sowie auf [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
+Die vollständige Satzung veröffentlichen wir auf {{< link slug="verein/constitution" text="dieser Webseite" >}} sowie auf [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
 
-Unsere Ziele entsprechen den Zwecken, die die Satzung festlegt, wir haben sie aber [hier]({{< ref "verein/mission-statement" >}}) noch einmal heruntergebrochen und ausgeführt.
+Unsere Ziele entsprechen den Zwecken, die die Satzung festlegt, wir haben sie aber {{< link slug="verein/mission-statement" text="hier" >}} noch einmal heruntergebrochen und ausgeführt.
 
 ## 3. Angaben zur Steuerbegünstigung
 
@@ -39,7 +39,7 @@ Das Finanzamt Braunschweig-Wilhelmstraße hat zuletzt uns per [Freistellungsbesc
 
 ## 4. Name und Funktion wesentlicher Entscheidungsträger
 
-Die Geschäftsführung des Vereins haben die Vorsitzenden des [Vorstands]({{< ref "verein/board" >}}) inne. Die Beisitzer_innen kontrollieren und unterstützen die Vorsitzenden in ihrer Arbeit. Der Vorstand besteht aus:
+Die Geschäftsführung des Vereins haben die Vorsitzenden des {{< link slug="verein/board" text="Vorstands" >}} inne. Die Beisitzer_innen kontrollieren und unterstützen die Vorsitzenden in ihrer Arbeit. Der Vorstand besteht aus:
  
 - Benjamin Altpeter, Vorsitzender
 - Lorenz Sieben, Vorsitzender
@@ -130,10 +130,10 @@ Die folgenden Abschnitte gehen über die zehn durch die Initiative Transparente 
 
 ## 11. Vergütete Vorträge
 
-Unser [Vorstand]({{< ref "verein/board" >}}) arbeitet grundsätzlich ehrenamtlich und erhält durch den Verein keinerlei Zahlungen für seine Arbeit. Teilweise können Vereinsmitglieder allerdings von externen Organisationen ein Honorar für Vorträge zu Themen, die den Verein betreffen, erhalten. Für solche vergüteten Vorträge werden selbstverständlich keine Vereinsmittel aufgewendet, sie liegen alleine in der privaten Verantwortung der entsprechenden Mitglieder.
+Unser {{< link slug="verein/board" text="Vorstand" >}} arbeitet grundsätzlich ehrenamtlich und erhält durch den Verein keinerlei Zahlungen für seine Arbeit. Teilweise können Vereinsmitglieder allerdings von externen Organisationen ein Honorar für Vorträge zu Themen, die den Verein betreffen, erhalten. Für solche vergüteten Vorträge werden selbstverständlich keine Vereinsmittel aufgewendet, sie liegen alleine in der privaten Verantwortung der entsprechenden Mitglieder.
 
-Der Vorstand ist verpflichtet, Vorträge, für die Vorstandsmitglieder eine Vergütung von externen Organisationen erhalten haben, hier öffentlich zu dokumentieren. Dies ist in unserer [Vortragsordnung]({{< ref "verein/compensated-lectures" >}}) geregelt.
+Der Vorstand ist verpflichtet, Vorträge, für die Vorstandsmitglieder eine Vergütung von externen Organisationen erhalten haben, hier öffentlich zu dokumentieren. Dies ist in unserer {{< link slug="verein/compensated-lectures" text="Vortragsordnung" >}} geregelt.
 
 ### 2020
 
-* Im März 2020 hat die Humboldt-Universität zu Berlin Benjamin Altpeter und Lorenz Sieben im Rahmen der [HLCI](http://www.hlci.de/) privat eingeladen, ein [Seminar zu Datenanfragen.de]({{< ref "verein/event/hlci-berlin-2020" >}}) als Gastvortrag zu halten. Die Humboldt-Universität hat die Kosten für die Zugreise und Übernachtung übernommen und den beiden ein Honorar von jeweils 250&nbsp;€ gezahlt. Benni und Lorenz haben sich freiwillig entschieden, die Hälfte des Honorars an den Verein zu spenden.
+* Im März 2020 hat die Humboldt-Universität zu Berlin Benjamin Altpeter und Lorenz Sieben im Rahmen der [HLCI](http://www.hlci.de/) privat eingeladen, ein {{< link slug="verein/event/hlci-berlin-2020" text="Seminar zu Datenanfragen.de" >}} als Gastvortrag zu halten. Die Humboldt-Universität hat die Kosten für die Zugreise und Übernachtung übernommen und den beiden ein Honorar von jeweils 250&nbsp;€ gezahlt. Benni und Lorenz haben sich freiwillig entschieden, die Hälfte des Honorars an den Verein zu spenden.
