@@ -10,7 +10,8 @@ Use it like this (remove the `.`):
     ```
 
 With the following parameters:
-    - `[slug]`: The (untranslated) slug of the page to be referenced.
+    - `[slug]`: The (untranslated) slug of the page to be referenced. Can also include a document fragment, which will
+                then override the `fragment` parameter.
     - `[text]`: The desired link text. Either as the actual text (if `translate == false`) or as a translation key (if
                 `translate == true`).
     - `[fragment]`: An (optional) document fragment to append to the URL. Don't add the `#`.
@@ -26,21 +27,28 @@ Returns a dict with the following properties:
 {{ $translate := .translate }}
 {{ if not .translate }}{{ $translate = false }}{{ end }}
 
-{{ $page := (site.GetPage .slug) }}
+{{ $slug_and_fragment := split .slug "#" }}
+{{ $slug := index $slug_and_fragment 0 }}
+{{ $fragment := .fragment }}
+{{ with (index $slug_and_fragment 1) }}
+    {{ $fragment = . }}
+{{ end }}
+
+{{ $page := (site.GetPage $slug) }}
 {{ $text := (cond $translate (T .text .) .text) }}
 {{ if not $page }}
     <!-- If the page doesn't exist in our current language, we fall back to English and apply a suffix to the text. -->
     <!-- This depends on English being at index 1, which is highly unlikely to ever change. The alternative would have
          been an ugly loop. -->
-    {{ $page = ((index site.Sites 1).GetPage .slug) }}
+    {{ $page = ((index site.Sites 1).GetPage $slug) }}
     {{ $text = (printf "%s (EN)" $text) }}
 
-    {{ if not $page }}{{ errorf "Page `%s` not found." .slug }}{{ end }}
+    {{ if not $page }}{{ errorf "Page `%s` not found." $slug }}{{ end }}
 {{ end }}
 
 {{ $url := "" }}
-{{ if .fragment }}
-    {{ $url = (printf "%s#%s" $page.Permalink .fragment) }}
+{{ if $fragment }}
+    {{ $url = (printf "%s#%s" $page.Permalink $fragment) }}
 {{ else }}
     {{ $url = $page.Permalink }}
 {{ end }}
