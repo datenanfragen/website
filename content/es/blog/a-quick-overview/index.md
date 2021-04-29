@@ -26,7 +26,7 @@ Incluso si has dado tu consentimiento para el uso de tus datos en algún momento
 * **Derecho a la portabilidad de datos**  
 La información que proporcionas a una empresa es tuya. Tienes derecho a recibir esta información de ellos en un formato común legible por máquina para que puedas transferirla fácilmente a otra empresa.
 
-Puedes encontrar una descripción general aún más detallada en nuestro [artículo sobre tus derechos según el RGPD]({{< ref "/blog/your-gdpr-rights" >}}).
+Puedes encontrar una descripción general aún más detallada en nuestro {{< link slug="/blog/your-gdpr-rights" text="artículo sobre tus derechos según el RGPD" >}}.
 
 ## ¿Cómo puedo ejercer estos derechos?
 
@@ -47,4 +47,4 @@ Además, ofrecemos un generador que hará la mayor parte del trabajo por ti a la
 
 Existen muchas áreas en solicituddedatos.es en las que puedes participar, independientemente de tu experiencia previa con la ley de privacidad de datos, programación y similares. ¡Estamos agradecidos por cada mano amiga!
 
-Para obtener más información sobre cómo participar en el proyecto, consulta la [página "Contribuir"]({{< ref "/contribute" >}}).
+Para obtener más información sobre cómo participar en el proyecto, consulta la {{< link slug="/contribute" text="página \"Contribuir\"" >}}.

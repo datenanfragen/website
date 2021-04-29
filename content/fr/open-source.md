@@ -7,7 +7,7 @@
 
 <img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
 
-L'Open Source est au cœur même de demandetesdonnees.fr. Nous avons conçu ce projet à partir de rien pour qu'il soit le plus ouvert possible. Notre [constitution]({{< ref "verein/constitution" >}}) nous engage à publier notre contenu sous licence libre.
+L'Open Source est au cœur même de demandetesdonnees.fr. Nous avons conçu ce projet à partir de rien pour qu'il soit le plus ouvert possible. Notre {{< link slug="verein/constitution" text="constitution" >}} nous engage à publier notre contenu sous licence libre.
 
 Nous sommes de fervents partisans de l'Open Source et nous y croyons.
 

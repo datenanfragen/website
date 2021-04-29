@@ -15,7 +15,7 @@ If a company or other organization (a so-called controller) has stored false (or
 
 This allows you to defend yourself against credit agencies (such as Experian or Equifax), for example, if they rate your creditworthiness or your payment history negatively due to incorrect entries.
 
-If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
+If you want to learn more, have a look at our {{< link slug="/blog/your-gdpr-rights" text="article about your rights under the GDPR" >}}.
 
 ## How do I exercise this right?
 
@@ -68,11 +68,11 @@ You are free to use these templates as you like. We make them available to you u
 
 You send the letter directly to the controller. If they have a data protection officer, we recommend that you always address the letter directly to this person. Data protection officers are not only specially trained, but are also required to treat your request confidentially.
 
-You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a [company database](/company) which already contains the appropriate contact data for privacy-related requests for many companies.
+You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a {{< link slug="/company" text="company database" >}} which already contains the appropriate contact data for privacy-related requests for many companies.
 
 ## Isn't there an easier way?
 
-The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a {{< link slug="/generator" text="generator" >}}, with which you can create requests like this automatically. We invite you to give it a try.
 
 ---
 
@@ -80,4 +80,4 @@ The idea behind Datenanfragen.de is to make it as easy as possible for you to ex
 
 We have made the following changes to this sample letter since the initial publication:
 
-* [April 11, 2020](https://github.com/datenanfragen/data/pull/562/commits/7bbcff8144a743adf90e3ec29bddc8626156e829#diff-8ffcdb3fe2a0fb689b1a52eb5368df26): Explicitly mention the right to completion in addition to rectification. Only use the official term 'recipient' instead of 'third party'. More consistent style between [all templates]({{< ref "sample-letters" >}}). (Thanks, Andreas!)
+* [April 11, 2020](https://github.com/datenanfragen/data/pull/562/commits/7bbcff8144a743adf90e3ec29bddc8626156e829#diff-8ffcdb3fe2a0fb689b1a52eb5368df26): Explicitly mention the right to completion in addition to rectification. Only use the official term 'recipient' instead of 'third party'. More consistent style between {{< link slug="sample-letters" text="all templates" >}}. (Thanks, Andreas!)

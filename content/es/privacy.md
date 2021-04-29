@@ -13,7 +13,7 @@ Gracias por tu interés en nuestra política de privacidad. Nos alegra que esté
 
 Estamos comprometidos con la privacidad, por lo que hemos diseñado nuestros servicios desde cero para recopilar la menor cantidad de datos posible. También hacemos todo lo posible para mantener el procesamiento de datos al mínimo.
 La mayoría de las funciones de nuestros sitios web se ejecutarán completamente en tu propia computadora, por lo que los datos que ingreses nunca llegarán a nuestros servidores. Además, solo se puede acceder a nuestros sitios web a través de una conexión encriptada TLS para garantizar que tu conexión a nuestro servidor no se vea comprometida por terceros.
-Para ejercer tus derechos de privacidad, por supuesto, recomendamos utilizar nuestro [generador]({{< ref "generator" >}}) el cual te ayudará a generar las solicitudes adecuadas de forma gratuita.
+Para ejercer tus derechos de privacidad, por supuesto, recomendamos utilizar nuestro {{< link slug="generator" text="generador" >}} el cual te ayudará a generar las solicitudes adecuadas de forma gratuita.
 
 En esta política de privacidad, nos gustaría explicarte qué datos recopilamos y qué derechos tienes.
 
@@ -25,7 +25,7 @@ Esto incluye los datos que recopilamos y procesamos de nuestros miembro, pero ta
 
 Además, esto incluye nuestros sitios web [solicituddedatos.es](https://www.solicituddedatos.es), [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr) y [pedidodedados.org](https://www.pedidodedados.org/).
 
-El propósito de la asociación es ayudar al público en general a ejercer su derecho a la privacidad (“derecho a la autodeterminación informativa”) informándoles y asesorándolos con todas las preguntas relacionadas con la protección de datos personales. Estamos sujetos a nuestra [constitución]({{< ref "verein/constitution" >}}) en todas nuestras actividades.
+El propósito de la asociación es ayudar al público en general a ejercer su derecho a la privacidad (“derecho a la autodeterminación informativa”) informándoles y asesorándolos con todas las preguntas relacionadas con la protección de datos personales. Estamos sujetos a nuestra {{< link slug="verein/constitution" text="constitución" >}} en todas nuestras actividades.
 
 Con nuestro sitio web solicituddedatos.es (así como sus traducciones), queremos ayudarte a ejercer su derecho a la privacidad. Para ello, ofrecemos un generador que te ayuda a generar automáticamente solicitudes, una base de datos de empresas con datos de contacto para solicitudes relacionadas con la privacidad y material educativo sobre temas relacionados con la privacidad y la protección de datos. Finalmente, tiene información sobre la asociación y te permite unirte o donar entre otras cosas.
 
@@ -62,7 +62,7 @@ No utilizamos perfiles ni ningún otro tipo de toma de decisiones automatizada.
 
 Para cumplir con el propósito de nuestra asociación, operar nuestro sitio web y brindar nuestros servicios, tenemos que recopilar y procesar algunos datos personales. Nuestra principal prioridad es minimizar la recopilación y el procesamiento de datos: solo recopilamos datos personales cuando es necesario y solo en la medida en que sea necesario. Además, los datos siempre se recopilan para un propósito específico y el almacenamiento se limita al período de tiempo necesario.
 
-Para brindarte el mayor control posible sobre tu privacidad, puedes establecer si deseas activar muchas funciones de nuestros sitios web en cualquier momento a través de nuestros [controles de privacidad]({{< ref "privacy-controls" >}}). Se almacena una cookie en tu navegador para cada opción. Solo contiene una indicación de si has activado o desactivado la opción respectiva, pero no contiene datos personales.
+Para brindarte el mayor control posible sobre tu privacidad, puedes establecer si deseas activar muchas funciones de nuestros sitios web en cualquier momento a través de nuestros {{< link slug="privacy-controls" text="controles de privacidad" >}}. Se almacena una cookie en tu navegador para cada opción. Solo contiene una indicación de si has activado o desactivado la opción respectiva, pero no contiene datos personales.
 
 En esta sección, nos gustaría explicarle exactamente en qué circunstancias recopilamos y procesamos qué datos. No se enumeran aquí los tratamientos que tienen lugar exclusivamente en tu propia computadora y para los cuales no se nos transfieren datos. Puedes encontrar más información sobre estos en los controles de privacidad mencionados anteriormente.
 
@@ -75,9 +75,9 @@ Cuando visitas uno de nuestros sitios web, tu navegador se conecta a uno o más 
 - Base legal: El tratamiento breve de estos datos es necesario para ofrecerle nuestros sitios web, se basa en el Art. 6 (1) encendido. b RGPD.
 - Duración del almacenamiento: ninguna
 - Divulgación de datos: Nuestros servidores son operados por las siguientes empresas. Son empresas exclusivamente de la UE, que hemos seleccionado cuidadosamente para cumplir con nuestros altos estándares de protección de datos.
-  * [Hetzner Online GmbH]({{< ref "company/hetzner" >}}), Industriestraße 25, 91710 Gunzenhausen, Alemania ([política de privacidad](https://www.hetzner.com/rechtliches/datenschutz))
-  * [Uberspace]({{< ref "company/uberspace" >}}), Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Alemania ([política de privacidad](https://uberspace.de/en/about/privacy/))
-  * [BunnyWay d.o.o.](({{< ref "company/bunnycdn" >}})), Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([política de privacidad](https://bunnycdn.com/privacy))
+  * {{< link slug="company/hetzner" text="Hetzner Online GmbH" >}}, Industriestraße 25, 91710 Gunzenhausen, Alemania ([política de privacidad](https://www.hetzner.com/rechtliches/datenschutz))
+  * {{< link slug="company/uberspace" text="Uberspace" >}}, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Alemania ([política de privacidad](https://uberspace.de/en/about/privacy/))
+  * {{< link slug="company/bunnycdn" text="BunnyWay d.o.o." >}}, Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([política de privacidad](https://bunnycdn.com/privacy))
 
 ### Datos que nos proporcionas
 
@@ -97,7 +97,7 @@ Siempre te mostraremos toda la información incluida en el informe antes de que 
 - Base legal: La base del almacenamiento es nuestro interés legítimo para mejorar la estabilidad y funcionalidad de nuestro sitio web de acuerdo con el Art. 6 (1) lit. f RGPD.
 - Duración del almacenamiento: indefinidamente
 - Divulgación de datos: el contenido de los informes de error puede ser de acceso público a través de nuestro [GitHub issue tracker](https://github.com/datenanfragen/website/issues).  
-GitHub es operado por [GitHub, Inc.]({{< ref "company/github" >}}), 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA o su subsidiaria GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. Para obtener más información sobre cómo GitHub procesa sus datos, consulte [su política de privacidad](https://help.github.com/articles/github-privacy-statement/).
+GitHub es operado por {{< link slug="company/github" text="GitHub, Inc." >}}, 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA o su subsidiaria GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. Para obtener más información sobre cómo GitHub procesa sus datos, consulte [su política de privacidad](https://help.github.com/articles/github-privacy-statement/).
 
 #### Solicitudes de membresía
 Si deseas convertirse en miembro de la asociación, debes proporcionar algunos datos a través del formulario de solicitud de membresía. Estos datos son necesarios para nuestros registros y para que podamos comunicarnos contigo con información importante sobre tu membresía (como invitaciones a la asamblea general, recibos de donación o recordatorios de pago).
@@ -148,26 +148,26 @@ La suscripción es totalmente voluntaria para ti.
 - Base legal: Al suscribirte, aceptas el envío del boleteín de acuerdo con el Art. 6 (1) lit. 1 RGPD. Puedes revocar este consentimiento en cualquier momento; puedes averiguar cómo hacerlo en la sección “Derecho a revocar el consentimiento prestado”.
 - Duración del almacenamiento: hasta que te dés de baja del boletín.
 - Divulgación de datos: solo los miembros de la junta pueden acceder a los datos de contacto. El boletín se envía mediante el servicio Mailjet. Por lo tanto, los datos de contacto deben enviarse a Mailjet.
-  Mailjet está dirigido por [Mailjet SAS]({{< ref "company/mailjet" >}}), 13-13 bis rue de l’Aubrac, 75012 Paris, France. Para obtener más información sobre cómo Mailjet procesa sus datos, consulte [su política de privacidad](https://www.mailjet.com/privacy-policy/).
+  Mailjet está dirigido por {{< link slug="company/mailjet" text="Mailjet SAS" >}}, 13-13 bis rue de l’Aubrac, 75012 Paris, France. Para obtener más información sobre cómo Mailjet procesa sus datos, consulte [su política de privacidad](https://www.mailjet.com/privacy-policy/).
 
 ### Servicios externos
 
 Para hacer más eficientes nuestros servicios, trabajamos con algunos servicios externos.
 
 #### CoinGate
-Te permitimos realizar pagos a la asociación (especialmente donaciones y cuotas de membresía) a través de la pasarela de pago CoinGate. CoinGate está dirigido por [UAB “Decentralized”](({{< ref "company/coingate" >}})), A. Goštauto g. 8, LT-01108 Vilnius, Lituania.  
+Te permitimos realizar pagos a la asociación (especialmente donaciones y cuotas de membresía) a través de la pasarela de pago CoinGate. CoinGate está dirigido por {{< link slug="company/coingate" text="UAB “Decentralized”" >}}, A. Goštauto g. 8, LT-01108 Vilnius, Lituania.  
 Usamos CoinGate para transacciones de criptomonedas. Mostraremos una nota en el formulario de pago si tu pago se realiza a través de CoinGate.
 
 Si realizas un pago a través de CoinGate, la UAB "Descentralizada" recibe todos los datos incurridos en el proceso de pago, especialmente incluyendo: el monto del pago, la moneda criptográfica que estás utilizando, tus detalles de pago (como la dirección de tu billetera Bitcoin), potencialmente tu nombre, y potencialmente tu dirección de correo electrónico. Para obtener más detalles sobre cómo CoinGate procesa tus datos, consulta su [política de privacidad](https://coingate.com/privacy).
 
 #### Mollie
-Te permitimos realizar pagos a la asociación (especialmente donaciones y cuotas de membresía) a través de la pasarela de pago Mollie. Mollie está dirigido por [Mollie B.V.](({{< ref "company/mollie" >}})), Keizersgracht 313, 1016 EE Amsterdam, Paises Bajos.  
+Te permitimos realizar pagos a la asociación (especialmente donaciones y cuotas de membresía) a través de la pasarela de pago Mollie. Mollie está dirigido por {{< link slug="company/mollie" text="Mollie B.V." >}}, Keizersgracht 313, 1016 EE Amsterdam, Paises Bajos.  
 Mostraremos una nota en el formulario de pago si tu pago se realiza a través de Mollie.
 
 Si realizas un pago a través de Mollie, Mollie BV recibe todos los datos incurridos en el proceso de pago, especialmente incluyendo: tus detalles de pago (por ejemplo, tu cuenta bancaria o detalles de tarjeta de crédito) incluyendo el monto, tu dirección IP, tu navegador y tipo de dispositivo, potencialmente tu nombre, potencialmente tu dirección, potencialmente información sobre el tipo de pago que nos estás haciendo, potencialmente todos los demás datos que proporciones activamente (como cuando interactúas con el equipo de soporte de Mollie). Para obtener más detalles sobre cómo Mollie procesa tus datos, consulta su [política de privacidad](https://www.mollie.com/en/privacy).
 
 #### PayPal
-Te permitimos realizar pagos a la asociación (especialmente donaciones y cuotas de membresía) a través de la pasarela de pago PayPal. PayPal está dirijido por [PayPal (Europe) S.à.r.l. et Cie, S.C.A.]({{< ref "company/paypal" >}}), 22-24 Boulevard Royal L-2449, Luxemburgo.  
+Te permitimos realizar pagos a la asociación (especialmente donaciones y cuotas de membresía) a través de la pasarela de pago PayPal. PayPal está dirijido por {{< link slug="company/paypal" text="PayPal (Europe) S.à.r.l. et Cie, S.C.A." >}}, 22-24 Boulevard Royal L-2449, Luxemburgo.  
 Mostraremos una nota en el formulario de pago si tu pago se realiza a través de PayPal.
 
 Si realizas un pago a través de PayPal, PayPal (Europe) S.à.r.l., S.C.A. recibe todos los datos incurridos en el proceso de pago, especialmente incluyendo: el monto, datos sobre la fuente de pago para la transacción (por ejemplo, tu cuenta bancaria o detalles de tarjeta de crédito), detalles del dispositivo, detalles técnicos de uso, detalles de ubicación, tu nombre, tu dirección, tu número de teléfono, tu dirección de correo electrónico. Para obtener más detalles sobre cómo PayPal procesa tus datos, consulta su [política de privacidad](https://www.paypal.com/en/webapps/mpp/ua/privacy-full).
@@ -175,7 +175,7 @@ Si realizas un pago a través de PayPal, PayPal (Europe) S.à.r.l., S.C.A. recib
 ## Tus derechos
 
 El RGPD te otorga amplios derechos en materia de protección de datos. Estamos firmemente convencidos de que el derecho a la protección de datos es un derecho fundamental y, por lo tanto, respaldamos plenamente estos derechos. Puedes ejercer estos derechos en cualquier momento de manera informal utilizando los datos de contacto proporcionados en la sección "Responsable e información de contacto".
-Por supuesto, te invitamos a usar nuestro [generador]({{< ref "generator" >}}) que te ayudará con las solicitudes por escrito.
+Por supuesto, te invitamos a usar nuestro {{< link slug="generator" text="generador" >}} que te ayudará con las solicitudes por escrito.
 
 ### Derecho al acceso a los datos
 
@@ -228,7 +228,7 @@ Según el art. 77 RGPD, sin perjuicio de cualquier otro recurso administrativo o
 
 La siguiente autoridad de control es responsable de nosotros:
 
-[Die Landesbeauftragte für den Datenschutz Niedersachsen]({{< ref "supervisory-authority/dendslfd" >}})  
+{{< link slug="supervisory-authority/dendslfd" text="Die Landesbeauftragte für den Datenschutz Niedersachsen" >}}  
 Prinzenstraße 5  
 30159 Hannover  
 Germany

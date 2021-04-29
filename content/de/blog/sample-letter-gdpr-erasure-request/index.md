@@ -16,7 +16,7 @@ Wenn die personenbezogenen Daten, die Unternehmen oder andere Organisationen (so
 
 Wenn der Verantwortliche Deine Daten an andere Unternehmen weitergeleitet hat, muss er diese darüber hinaus auch über deinen Löschantrag informieren.
 
-Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "/blog/your-gdpr-rights" >}}) an.
+Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren {{< link slug="/blog/your-gdpr-rights" text="Artikel zu Deinen Rechten nach der DSGVO" >}} an.
 
 ## Wie nutze ich dieses Recht?
 
@@ -80,11 +80,11 @@ Du darfst die Vorlagen gerne verwenden wie immer Du möchtest. Wir stellen sie D
 
 Das Schreiben schickst Du direkt an den Verantwortlichen. Wenn dieser eine_n Datenschutzbeauftrage_n hat, empfiehlt es sich, den Brief immer direkt an diese Person zu adressieren. Datenschutzbeauftragte sind nämlich nicht nur besonders geschult, sondern müssen Dein Anliegen auch vertraulich behandeln.
 
-Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine [Unternehmensdatenbank](/company), die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
+Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine {{< link slug="/company" text="Unternehmensdatenbank" >}}, die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
 
 ## Geht das nicht auch einfacher?
 
-Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen [Generator](/generator) entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
+Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen {{< link slug="/generator" text="Generator" >}} entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
 
 ---
 
@@ -92,4 +92,4 @@ Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug a
 
 Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
 
-* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/585d653f7447e022664d601f16ff74abd94ce6b7#diff-718f65e09a34d89265a92666af6af78e): Erwähnt, dass auch Art. 17 Abs. 3 DSGVO als Ausnahmetatbestand nicht infrage kommt. Deutlich gemacht, dass sich der Widerruf der Einwilligung auf die gesamte Datenverarbeitung bezieht. Vom Recht auf Einschränkung der Verarbeitung (Art. 18 Abs. 1 lit. d DSGVO) Gebrauch gemacht. Informationspflicht nach Art. 17 Abs. in Anspruch genommen. Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht. (Danke, Andreas!)
+* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/585d653f7447e022664d601f16ff74abd94ce6b7#diff-718f65e09a34d89265a92666af6af78e): Erwähnt, dass auch Art. 17 Abs. 3 DSGVO als Ausnahmetatbestand nicht infrage kommt. Deutlich gemacht, dass sich der Widerruf der Einwilligung auf die gesamte Datenverarbeitung bezieht. Vom Recht auf Einschränkung der Verarbeitung (Art. 18 Abs. 1 lit. d DSGVO) Gebrauch gemacht. Informationspflicht nach Art. 17 Abs. in Anspruch genommen. Stil {{< link slug="sample-letters" text="aller Vorlagen" >}} vereinheitlicht. (Danke, Andreas!)

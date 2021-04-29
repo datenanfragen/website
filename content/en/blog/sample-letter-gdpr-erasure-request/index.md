@@ -15,7 +15,7 @@ If the personal data that companies or other organisations (so-called controller
 
 If the controller has forwarded your data to other companies, they also have to inform them about your request for deletion.
 
-If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
+If you want to learn more, have a look at our {{< link slug="/blog/your-gdpr-rights" text="article about your rights under the GDPR" >}}.
 
 ## How do I exercise this right?
 
@@ -79,11 +79,11 @@ You are free to use these templates as you like. We make them available to you u
 
 You send the letter directly to the controller. If they have a data protection officer, we recommend that you always address the letter directly to this person. Data protection officers are not only specially trained, but are also required to treat your request confidentially.
 
-You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a [company database](/company) which already contains the appropriate contact data for privacy-related requests for many companies.
+You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a {{< link slug="/company" text="company database" >}} which already contains the appropriate contact data for privacy-related requests for many companies.
 
 ## Isn't there an easier way?
 
-The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a {{< link slug="/generator" text="generator" >}}, with which you can create requests like this automatically. We invite you to give it a try.
 
 ---
 
@@ -91,4 +91,4 @@ The idea behind Datenanfragen.de is to make it as easy as possible for you to ex
 
 We have made the following changes to this sample letter since the initial publication:
 
-* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/585d653f7447e022664d601f16ff74abd94ce6b7#diff-73dde1e7e36abc4d6e4900ec7ebec74e): Mention that the expections of Art. 17(3) GDPR don't apply either. (The burden of proof here lies with the controller.) Clarify that the withdrawal of consent applies to the entire process. Use the right to restriction of processing (Art. 18(1)(d) GDPR) for the duration of any ambiguities in case the controller objects to our objection. Make use of the information obligation stemming from Art. 17(2) GDPR. More consistent style between [all templates]({{< ref "sample-letters" >}}). (Thanks, Andreas!)
+* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/585d653f7447e022664d601f16ff74abd94ce6b7#diff-73dde1e7e36abc4d6e4900ec7ebec74e): Mention that the expections of Art. 17(3) GDPR don't apply either. (The burden of proof here lies with the controller.) Clarify that the withdrawal of consent applies to the entire process. Use the right to restriction of processing (Art. 18(1)(d) GDPR) for the duration of any ambiguities in case the controller objects to our objection. Make use of the information obligation stemming from Art. 17(2) GDPR. More consistent style between {{< link slug="sample-letters" text="all templates" >}}. (Thanks, Andreas!)

@@ -7,7 +7,7 @@
 
 Nous sommes une association à but non lucratif qui défend le droit fondamental à la protection des données et à la vie privée. Nous souhaitons que chaque personne puisse décider par elle-même, en toute connaissance de cause, de ce qu'adviennent ses données, et que les autorités et les entreprises qui tentent de s'approprier ces informations soient tenues pour responsables. Nous défendons la transparence, l'ouverture, la collaboration et la solidarité envers les personnes concernées. Ainsi, nous prenons le parti des consommateurs et des citoyens, dont nous défendons les droits.
 
-Ces objectifs sont exprimés à travers les finalités décrites dans notre [constitution]({{< ref "verein/constitution" >}}). Nous souhaitons encore une fois expliquer ici comment nos objectifs sont précisément définis et comment nous comptons les atteindre.
+Ces objectifs sont exprimés à travers les finalités décrites dans notre {{< link slug="verein/constitution" text="constitution" >}}. Nous souhaitons encore une fois expliquer ici comment nos objectifs sont précisément définis et comment nous comptons les atteindre.
 
 ## Faire connaître les droits
 

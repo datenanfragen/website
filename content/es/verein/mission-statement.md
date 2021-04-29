@@ -7,7 +7,7 @@
 
 Somos una organización sin fines de lucro que defiende el derecho fundamental a la protección de datos y la privacidad. Queremos que cada persona pueda decidir por sí misma, quién sabe cuánto sobre ella, y que las autoridades y las empresas que intenten arrebatar esa información rindan cuentas. Defendemos la transparencia, la apertura, la colaboración y la solidaridad con los afectados. Al hacerlo, nos ponemos del lado del consumidor y ciudadano, cuyos derechos defendemos.
 
-Estos objetivos se expresan en los propósitos definidos en nuestra [constitución]({{< ref "verein/constitution" >}}). Queremos explicar aquí una vez más, cómo se establecen exactamente nuestros objetivos y cómo planeamos alcanzarlos.
+Estos objetivos se expresan en los propósitos definidos en nuestra {{< link slug="verein/constitution" text="constitución" >}}. Queremos explicar aquí una vez más, cómo se establecen exactamente nuestros objetivos y cómo planeamos alcanzarlos.
 
 ## Dar a conocer los derechos
 

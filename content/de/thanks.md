@@ -6,9 +6,9 @@
 
 <img class="top-right-humaaan" src="/img/humaaans/thanks.svg" alt="Ein großes Herz schwebt neben einer Person.">
 
-Vielen herzlichen Dank für Deine Spende! Damit hilfst Du uns ungemein, unsere Webseite in Zukunft weiter für alle kostenlos anbieten zu können und vor allem neue Projekte für den Datenschutz in Europa zu starten. Was genau mit Deiner Spende passiert, kannst du in unseren [Jahresberichten]({{< ref "verein/transparency" >}}) nachlesen. 
+Vielen herzlichen Dank für Deine Spende! Damit hilfst Du uns ungemein, unsere Webseite in Zukunft weiter für alle kostenlos anbieten zu können und vor allem neue Projekte für den Datenschutz in Europa zu starten. Was genau mit Deiner Spende passiert, kannst du in unseren {{< link slug="verein/transparency" text="Jahresberichten" >}} nachlesen. 
 
-Wenn Du uns gerne regelmäßig unterstützen möchtest oder einfach mehr involviert sein möchtest, kannst Du auch bei uns [Mitglied werden]({{< ref "verein/become-a-member" >}}).
+Wenn Du uns gerne regelmäßig unterstützen möchtest oder einfach mehr involviert sein möchtest, kannst Du auch bei uns {{< link slug="verein/become-a-member" text="Mitglied werden" >}}.
 
 ## Wie bekomme ich eine Bescheinigung für meine Spende?
 
