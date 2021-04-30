@@ -5,7 +5,7 @@
     "type": "page"
 }
 
-Todos los asuntos importantes de la asociación están a cargo de la junta directiva. Según nuestra [constitución]({{< ref "verein/constitution" >}}#7-the-board), la junta está compuesta por dos presidentes iguales, que representan conjuntamente a la asociación, y un número arbitrario de asesores, que controlan y apoyan a la junta en su trabajo. La junta actual ha sido elegida en la asamblea general el 16 de julio de 2020 y está formada por:
+Todos los asuntos importantes de la asociación están a cargo de la junta directiva. Según nuestra {{< link slug="verein/constitution#7-the-board" text="constitución" >}}, la junta está compuesta por dos presidentes iguales, que representan conjuntamente a la asociación, y un número arbitrario de asesores, que controlan y apoyan a la junta en su trabajo. La junta actual ha sido elegida en la asamblea general el 16 de julio de 2020 y está formada por:
 
 * Benjamin Altpeter, Presidente ([benni@datenanfragen.de](mailto:benni@datenanfragen.de), [PGP key](/pgp/AF1381BD.asc)  
   `9F99 3663 0B82 D3C7 DFC9  23F6 EB5C F074 AF13 81BD`)

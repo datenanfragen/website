@@ -64,6 +64,6 @@ Die Mustertexte unterscheiden sich natürlich bei den unterschiedlichen Anfraget
 
 Die Musterschreiben oben sind schon ein guter Schritt, aber wir sind der Überzeugung, dass das Stellen von DSGVO-Anfragen noch einfacher sein sollte.
 
-Deshalb haben wir einen [Generator]({{< ref "/generator" >}}) entwickelt, der solche Anfragen automatisch für Dich erstellt. Du musst nur noch ein Unternehmen auswählen (viele haben wir sogar schon in unserer Datenbank, sodass Du nicht einmal die Kontaktdaten suchen musst) und Deine Daten eingeben.
+Deshalb haben wir einen {{< link slug="/generator" text="Generator" >}} entwickelt, der solche Anfragen automatisch für Dich erstellt. Du musst nur noch ein Unternehmen auswählen (viele haben wir sogar schon in unserer Datenbank, sodass Du nicht einmal die Kontaktdaten suchen musst) und Deine Daten eingeben.
 
 Probier’ es doch einmal aus!

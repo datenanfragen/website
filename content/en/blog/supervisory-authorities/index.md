@@ -51,12 +51,12 @@ Like most features on datarequests.org, all processing *only* happens on your ow
 
 <div class="sva-finder"></div>
 
-If you would rather do the research yourself, have a look at our [list of data protection authorities]({{< ref "/supervisory-authority" >}}). The [European Data Protection Board](https://edpb.europa.eu/about-edpb/board/members_en) also has a list but note that this one only includes the authorities at the national level.
+If you would rather do the research yourself, have a look at our {{< link slug="/supervisory-authority" text="list of data protection authorities" >}}. The [European Data Protection Board](https://edpb.europa.eu/about-edpb/board/members_en) also has a list but note that this one only includes the authorities at the national level.
 
 ## Complaints for requests done through datarequests.org
 
 If you have made a request to a company via datarequests.org and have received no or only an unsatisfactory answer, we can make it even easier for you to complain to the supervisory authority.
 
-In the [“My requests” feature]({{< ref "/my-requests" >}}), you can see an overview of all your requests—provided you have not disabled it. Next to each request, there are buttons that you can use to send reminders and complaints concerning this request via our generator.
+In the {{< link slug="/my-requests" text="“My requests” feature" >}}, you can see an overview of all your requests—provided you have not disabled it. Next to each request, there are buttons that you can use to send reminders and complaints concerning this request via our generator.
 
 {{< img name="send-complaint" caption="Sending a complaint through datarequests.org" alt="Screenshot of the datarequests.org request generator. A complaint to the Information Commissioner's Office about Facebook Ireland Ltd. is being prepared." >}}

@@ -65,6 +65,6 @@ Por supuesto, hay un modelo de carta para cada tipo de solicitud.
 
 Los modelos de cartas anteriores son un buen comienzo, pero creemos firmemente que debería haber una forma aún más fácil de enviar solicitudes RGPD.
 
-Por eso hemos desarrollado un [generador]({{< ref "/generator" >}}) que genera automáticamente dichas solicitudes para tí. Todo lo que necesitas hacer es seleccionar una empresa e ingresar tus datos.
+Por eso hemos desarrollado un {{< link slug="/generator" text="generador" >}} que genera automáticamente dichas solicitudes para tí. Todo lo que necesitas hacer es seleccionar una empresa e ingresar tus datos.
 
 ¡Pruébalo!

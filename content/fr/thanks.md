@@ -6,9 +6,9 @@
 
 <img class="top-right-humaaan" src="/img/humaaans/thanks.svg" alt="">
 
-Merci beaucoup pour ton don ! Cela nous aide vraiment à continuer à faire fonctionner notre site Web gratuitement pour tous à l'avenir et à lancer de nouveaux projets pour la protection des données en Europe. Tu peux savoir exactement où ton argent est allé dans nos [rapports annuels]({{< ref "verein/transparency" >}}).
+Merci beaucoup pour ton don ! Cela nous aide vraiment à continuer à faire fonctionner notre site Web gratuitement pour tous à l'avenir et à lancer de nouveaux projets pour la protection des données en Europe. Tu peux savoir exactement où ton argent est allé dans nos {{< link slug="verein/transparency" text="rapports annuels" >}}.
 
-Si tu souhaites nous soutenir de manière récurrente ou bien seulement être un peu plus impliqué, tu peux également [devenir membre]({{< ref "verein/become-a-member" >}}).
+Si tu souhaites nous soutenir de manière récurrente ou bien seulement être un peu plus impliqué, tu peux également {{< link slug="verein/become-a-member" text="devenir membre" >}}.
 
 ## Où est mon reçu de don ?
 

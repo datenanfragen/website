@@ -26,7 +26,7 @@ Even if you have given your consent to the use of your data at some point, you m
 * **Right to data portability**  
 The information you provide to a company is yours. You have the right to receive this information from them in a common machine-readable format so that you can easily transfer it to another company.
 
-You can find an even more detailed overview in our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
+You can find an even more detailed overview in our {{< link slug="/blog/your-gdpr-rights" text="article about your rights under the GDPR" >}}.
 
 ## How can I exercise these rights?
 
@@ -47,4 +47,4 @@ And the best part? All this happens entirely on **your** computer. We never get 
 
 There are many areas at datarequests.org in which you can participate—regardless of your previous experience with data privacy law, programming and the like. We are grateful for every helping hand!
 
-To learn more on how to participate in the project, have a look at the [“Contribute” page]({{< ref "/contribute" >}}).
+To learn more on how to participate in the project, have a look at the {{< link slug="/contribute" text="“Contribute” page" >}}.

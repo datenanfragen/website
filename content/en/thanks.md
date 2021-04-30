@@ -6,9 +6,9 @@
 
 <img class="top-right-humaaan" src="/img/humaaans/thanks.svg" alt="A big heart floating next to a person.">
 
-Thank you so much for your donation! It really helps us continue running our website free for everyone in the future and also to start new project for data protection in Europe. You can read about what exactly will happen with your donation in our [yearly reports]({{< ref "verein/transparency" >}}).
+Thank you so much for your donation! It really helps us continue running our website free for everyone in the future and also to start new project for data protection in Europe. You can read about what exactly will happen with your donation in our {{< link slug="verein/transparency" text="yearly reports" >}}.
 
-If you would like to regularly support us or you just want to be more involved, you can also [become a member]({{< ref "verein/become-a-member" >}}).
+If you would like to regularly support us or you just want to be more involved, you can also {{< link slug="verein/become-a-member" text="become a member" >}}.
 
 ## Where is my donation receipt?
 

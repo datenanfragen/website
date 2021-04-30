@@ -29,12 +29,12 @@ Als EU-Verordnung muss die DSGVO nicht erst von den Mitgliedsstaaten umgesetzt w
 
 ### Aufsichtsbehörde
 
-Die [Datenschutz-Aufsichtsbehörden]({{< ref "supervisory-authorities" >}}) sind unabhängige Stellen in jedem EU-Land, deren Aufgabe es ist, die Einhaltung der Datenschutzgesetze, insbesondere natürlich der DSGVO, sicherzustellen.
+Die {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} sind unabhängige Stellen in jedem EU-Land, deren Aufgabe es ist, die Einhaltung der Datenschutzgesetze, insbesondere natürlich der DSGVO, sicherzustellen.
 
 Dafür dürfen sie [Verantwortliche](#verantwortlicher) kontrollieren, sie ggf. zur Einhaltung der Datenschutzgesetze auffordern und wenn nötig sogar Bußgelder verhängen.  
 Dir als Verbraucher_in stehen sie als unkomplizierte Hilfe zur Seite: Wenn Du meinst, dass ein Verantwortlicher Deine Daten nicht richtig verarbeitet, kannst Du Dich jederzeit kostenlos an die Datenschutz-Aufsichtsbehörden wenden.
 
-Falls Du Dir nicht sicher bist, an welche Behörde Du Dich wenden solltest, schau Dir doch einmal unseren [Datenschutz-Aufsichtsbehörden-Finder]({{< ref "supervisory-authorities" >}}#finder) an.
+Falls Du Dir nicht sicher bist, an welche Behörde Du Dich wenden solltest, schau Dir doch einmal unseren {{< link slug="supervisory-authorities#finder" text="Datenschutz-Aufsichtsbehörden-Finder" >}} an.
 
 ### Auftragsverarbeiter
 
@@ -76,15 +76,15 @@ Wenn ein [Verantwortlicher](#verantwortlicher) einen Datenschutzbeauftragten bes
 
 ### One-Stop-Shop-Prinzip
 
-Das [One-Stop-Shop-Prinzip]({{< ref "supervisory-authorities" >}}#one-stop-shop) regelt die Zuständigkeit der [Datenschutz-Aufsichtsbehörden](#aufsichtsbehörde). Für Dich als Verbraucher_in heißt das konkret, dass Du Beschwerden auch bei der Aufsichtsbehörde an Deinem Wohnort oder Arbeitsplatz einreichen darfst, was insbesondere dann hilfreich ist, wenn der [Verantworliche](#verantwortlicher), über den Du Dich beschwerst in einem anderen Land sitzt.
+Das {{< link slug="supervisory-authorities#one-stop-shop" text="One-Stop-Shop-Prinzip" >}} regelt die Zuständigkeit der [Datenschutz-Aufsichtsbehörden](#aufsichtsbehörde). Für Dich als Verbraucher_in heißt das konkret, dass Du Beschwerden auch bei der Aufsichtsbehörde an Deinem Wohnort oder Arbeitsplatz einreichen darfst, was insbesondere dann hilfreich ist, wenn der [Verantworliche](#verantwortlicher), über den Du Dich beschwerst in einem anderen Land sitzt.
 
-Beim Finden der für Dich zuständigen Aufsichtsbehörde hilft Dir unser [Datenschutz-Aufsichtsbehörden-Finder]({{< ref "supervisory-authorities" >}}#finder).
+Beim Finden der für Dich zuständigen Aufsichtsbehörde hilft Dir unser {{< link slug="supervisory-authorities#finder" text="Datenschutz-Aufsichtsbehörden-Finder" >}}.
 
 ### Personenbezogene Daten
 
 Das Konzept der personenbezogenen Daten ist Dreh- und Angelpunkt der DSGVO. Fast alle Regelungen beziehen sich darauf. Sobald sich eine Information einem konkreten Menschen zuordnen lässt, ist sie ein personenbezogenes Datum. Für die Zuordnung ist dabei nicht unbedingt ein Name erforderlich, es reicht auch z.&nbsp;B. eine IP-Adresse, ein Benutzername, eine Cookie-ID oder eine Kennnummer.
 
-Die Information, dass die IP-Adresse 31.41.59.26 am 25. Mai 2018 unseren [Generator]({{< ref "generator" >}}) aufgerufen hat, wäre also bspw. auf jeden Fall personenbezogen. Die Information, dass in einer Bäckerei am gleichen Tag ein Drittel der Kund_innen mit Bargeld gezahlt hat, hingegen nicht.
+Die Information, dass die IP-Adresse 31.41.59.26 am 25. Mai 2018 unseren {{< link slug="generator" text="Generator" >}} aufgerufen hat, wäre also bspw. auf jeden Fall personenbezogen. Die Information, dass in einer Bäckerei am gleichen Tag ein Drittel der Kund_innen mit Bargeld gezahlt hat, hingegen nicht.
 
 ### Profiling
 
@@ -99,7 +99,7 @@ Profiling ist eine Form der automatisierten Entscheidungsfindung, bei der der [V
 * Verhalten
 * Aufenthaltsort oder Ortswechsel
 
-Ein klassisches Beispiel ist das Abschließen von Kredit- oder Mobilfunkverträgen. Viele Unternehmen werden vor dem Vertragsschluss Deine Daten an eine Auskunftei wie die [Schufa]({{< ref "schufa" >}}), [Creditreform Boniversum]({{< ref "creditreform-boniversum" >}}) oder [infoscore]({{< ref "infoscore" >}}) weiterleiten, die dann anhand bestimmter Aspekte (wie Deinem bisherigen Zahlungsverhalten oder der Anzahl Deiner Bankkonten) Aussagen dazu trifft, wie wahrscheinlich Du Deine Vertragspflichten erfüllen würdest.
+Ein klassisches Beispiel ist das Abschließen von Kredit- oder Mobilfunkverträgen. Viele Unternehmen werden vor dem Vertragsschluss Deine Daten an eine Auskunftei wie die {{< link slug="schufa" text="Schufa" >}}, {{< link slug="creditreform-boniversum" text="Creditreform Boniversum" >}} oder {{< link slug="infoscore" text="infoscore" >}} weiterleiten, die dann anhand bestimmter Aspekte (wie Deinem bisherigen Zahlungsverhalten oder der Anzahl Deiner Bankkonten) Aussagen dazu trifft, wie wahrscheinlich Du Deine Vertragspflichten erfüllen würdest.
 
 ### Rechte
 
@@ -107,7 +107,7 @@ Die DSGVO gewährt Dir umfangreiche Rechte im Bezug auf Deine [personenbezogenen
 
 Auch nachdem die Verarbeitung Deiner Daten einmal begonnen hat, hast Du noch zahlreiche weitere Rechte. So darfst Du bspw. anfragen, welche personenbezogenen Daten zur Dir verarbeitet werden und eine Kopie davon verlangen, die Berichtigung falscher Daten fordern und unter bestimmten Umständen sogar Deine Daten löschen lassen.
 
-Einen umfassenden Überblick und eine genaue Erklärung zu diesem Thema findest Du in unserem [Artikel zu Deinen DSGVO-Rechten]({{< ref "your-gdpr-rights" >}}).
+Einen umfassenden Überblick und eine genaue Erklärung zu diesem Thema findest Du in unserem {{< link slug="your-gdpr-rights" text="Artikel zu Deinen DSGVO-Rechten" >}}.
 
 ### Verantwortlicher
 

@@ -16,7 +16,7 @@ Nach der Datenschutz-Grundverordnung (DSGVO) hast Du ein Recht darüber Auskunft
 
 Diese Auskunft umfasst zunächst einmal eine Bestätigung darüber, ob Deine personenbezogene Daten verarbeitet werden. Falls dem so ist, kannst Du eine Kopie eben dieser Daten verlangen. Doch nicht nur das: Darüber hinaus hast Du auch das Recht auf etliche weitere Informationen, wie z.&nbsp;B. die Zwecke der Verarbeitung, die Empfänger, an welche die Daten weitergeben werden und die Dauer der Speicherung.
 
-Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "/blog/your-gdpr-rights" >}}) an.
+Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren {{< link slug="/blog/your-gdpr-rights" text="Artikel zu Deinen Rechten nach der DSGVO" >}} an.
 
 ## Wie nutze ich dieses Recht?
 
@@ -80,11 +80,11 @@ Du darfst die Vorlagen gerne verwenden wie immer Du möchtest. Wir stellen sie D
 
 Das Schreiben schickst Du direkt an den Verantwortlichen. Wenn dieser eine_n Datenschutzbeauftrage_n hat, empfiehlt es sich, den Brief immer direkt an diese Person zu adressieren. Datenschutzbeauftragte sind nämlich nicht nur besonders geschult, sondern müssen Dein Anliegen auch vertraulich behandeln.
 
-Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine [Unternehmensdatenbank](/company), die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
+Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine {{< link slug="/company" text="Unternehmensdatenbank" >}}, die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
 
 ## Geht das nicht auch einfacher?
 
-Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen [Generator](/generator) entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
+Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen {{< link slug="/generator" text="Generator" >}} entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
 
 ---
 
@@ -92,4 +92,4 @@ Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug a
 
 Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
 
-* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-ba75fd411f4f897cf77f57d77aec0d64): Klargestellt, dass „personenbezogene Daten“ auch pseudonymisierte Daten einschließt und diese ebenfalls angefragt. Anonymisierte Daten erwähnt und angefragt. Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht. (Danke, Andreas!)
+* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-ba75fd411f4f897cf77f57d77aec0d64): Klargestellt, dass „personenbezogene Daten“ auch pseudonymisierte Daten einschließt und diese ebenfalls angefragt. Anonymisierte Daten erwähnt und angefragt. Stil {{< link slug="sample-letters" text="aller Vorlagen" >}} vereinheitlicht. (Danke, Andreas!)

@@ -57,15 +57,15 @@ El sujeto de datos es la persona cuyos datos personales se procesan. Como consum
 
 ### Principio de ventanilla única
 
-El [principio de ventanilla única]({{< ref "supervisory-authorities" >}}#one-stop-shop) regula la responsabilidad de las autoridades supervisoras de protección de datos. Para tí, como consumidor, esto significa que también puedes presentar quejas ante la autoridad supervisora de tu propio país (en términos concretos, este es el "Estado miembro de [su] residencia habitual, lugar de trabajo o lugar de la presunta infracción"). Esto es particularmente útil si el controlador está ubicado en otro país.
+El {{< link slug="supervisory-authorities#one-stop-shop" text="principio de ventanilla única" >}} regula la responsabilidad de las autoridades supervisoras de protección de datos. Para tí, como consumidor, esto significa que también puedes presentar quejas ante la autoridad supervisora de tu propio país (en términos concretos, este es el "Estado miembro de [su] residencia habitual, lugar de trabajo o lugar de la presunta infracción"). Esto es particularmente útil si el controlador está ubicado en otro país.
 
-Nuestro [Buscador de autoridades supervisoras de protección de datos]({{< ref "supervisory-authorities" >}}#finder) te ayudará a encontrar la autoridad supervisora responsable de tí.
+Nuestro {{< link slug="supervisory-authorities#finder" text="Buscador de autoridades supervisoras de protección de datos" >}} te ayudará a encontrar la autoridad supervisora responsable de tí.
 
 ### Información personal
 
 El concepto de datos personales es el quid de la RGPD. Casi todas las normativas se refieren a él. Tan pronto como la información pueda asignarse a una persona específica, se considera información personal. No se requiere necesariamente un nombre para la tarea. Por ejemplo, una dirección IP, un nombre de usuario, una cookie o un número de identificación serían suficientes.
 
-La información de que la dirección IP 31.41.59.26 visitó nuestro [generador]({{< ref "generator" >}}) el 25 de mayo de 2018 se considerarían datos personales. Por otro lado, la información de que el mismo día en una panadería un tercio de los clientes pagaron en efectivo no lo es.
+La información de que la dirección IP 31.41.59.26 visitó nuestro {{< link slug="generator" text="generador" >}} el 25 de mayo de 2018 se considerarían datos personales. Por otro lado, la información de que el mismo día en una panadería un tercio de los clientes pagaron en efectivo no lo es.
 
 ### Procesamiento
 
@@ -106,7 +106,7 @@ El RGPD le otorga amplios derechos con respecto a tus datos personales. Esto com
 
 Incluso después de que haya comenzado el procesamiento de tus datos, todavía tienes muchos otros derechos. Por ejemplo, puedes preguntar qué datos personales se están procesando y solicitar una copia de los mismos. También puedes solicitar que se corrijan los datos incorrectos y, en determinadas circunstancias, incluso que se eliminen tus datos.
 
-Encontrarás una descripción general completa y una explicación detallada sobre este tema en nuestro [artículo sobre sus derechos del RGPD]({{< ref "your-gdpr-rights" >}}).
+Encontrarás una descripción general completa y una explicación detallada sobre este tema en nuestro {{< link slug="your-gdpr-rights" text="artículo sobre sus derechos del RGPD" >}}.
 
 ### Categorías especiales de datos personales
 
@@ -125,13 +125,13 @@ Concretamente, se trata de los siguientes datos:
 
 ### Autoridad supervisora
 
-Las [autoridades supervisoras de protección de datos]({{< ref "supervisory-authorities" >}}) son organismos independientes en cada país de la UE. Su tarea es garantizar el cumplimiento de las leyes de protección de datos, en particular el RGPD.
+Las {{< link slug="supervisory-authorities" text="autoridades supervisoras de protección de datos" >}} son organismos independientes en cada país de la UE. Su tarea es garantizar el cumplimiento de las leyes de protección de datos, en particular el RGPD.
 
 Para lograr esto, pueden monitorear a los controladores, exigirles que cumplan con las leyes de protección de datos e imponer multas cuando sea necesario.
 
 Para tí como consumidor, están aquí para ayudarte. Si crees que un responsable del tratamiento no está procesando tus datos correctamente, puedes ponerte en contacto con las autoridades supervisoras de protección de datos de forma gratuita en cualquier momento.
 
-Si no estás seguro de con qué autoridad debes comunicarte, consulta nuestro [buscador de autoridades de supervisión de protección de datos]({{< ref "supervisory-authorities" >}}#finder).
+Si no estás seguro de con qué autoridad debes comunicarte, consulta nuestro {{< link slug="supervisory-authorities#finder" text="buscador de autoridades supervisoras de protección de datos" >}}.
 
 <!-- TODO: Link more resources here once we have written those posts.
 ## Other Useful Resources

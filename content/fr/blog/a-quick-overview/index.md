@@ -27,7 +27,7 @@ Même si t'as  donné ton accord à l'utilisation de tes données à un moment d
 * **Le droit à la portabilité des données**  
 Les informations que tu fournis à une entreprise t'appartiennent. Tu as le droit de récuperer ces informations de leur part dans un format commun lisible afin de pouvoir les transférer facilement à une autre entreprise.
 
-Tu trouves un aperçu encore plus détaillé dans notre [article à propos tes droits sous le RGPD]({{< ref "/blog/your-gdpr-rights" >}}).
+Tu trouves un aperçu encore plus détaillé dans notre {{< link slug="/blog/your-gdpr-rights" text="article à propos tes droits sous le RGPD" >}}.
 
 ## Comment exercer ces droits?
 
@@ -48,4 +48,4 @@ Et la meilleure? Tout cela se passe entièrement sur **ton** ordinateur. Nous n'
 
 Il existe de nombreux domaines sur demandedetesdonnees.fr auxquels tu pourrais participer, n'importe ton expérience antérieure en matière de législation sur la protection des données, de programmation et autres. Nous te sommes reconnaissants pour toute aide apportée !
 
-Pour savoir plus sur la façon de participation au projet, consultez la page [“Contribuer” page]({{< ref "/contribute" >}}).
+Pour savoir plus sur la façon de participation au projet, consultez la page {{< link slug="/contribute" text="“Contribuer” page" >}}.

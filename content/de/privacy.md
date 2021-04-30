@@ -13,7 +13,7 @@ Vielen Dank für Dein Interesse an unserer Datenschutzerklärung. Es freut uns, 
 
 Datenschutz liegt uns sehr am Herzen, von daher haben wir unsere Prozesse konzipiert, um so wenige Daten wie möglich zu erfassen. Auch die Verarbeitung Deiner Daten beschränken wir soweit möglich auf das erforderliche Minimum.  
 Ein Großteil der Funktionen auf unseren Webseiten wird vollständig auf Deinem eigenen Computer ausgeführt, sodass die Daten, die Du eingibst, nie auch nur unsere Server erreichen. Weiterhin sind unsere Webseiten nur über eine TLS-verschlüsselte Verbindung zu erreichen, um sicherzustellen, dass Deine Verbindung zu unseren Servern nicht von Dritten kompromittiert werden kann.  
-Um Deine Datenschutzrechte auszuüben, empfehlen wir Dir natürlich unseren [Generator]({{< ref "generator" >}}), der Dir kostenlos beim Generieren entsprechender Anfragen hilft.
+Um Deine Datenschutzrechte auszuüben, empfehlen wir Dir natürlich unseren {{< link slug="generator" text="Generator" >}}, der Dir kostenlos beim Generieren entsprechender Anfragen hilft.
 
 In dieser Datenschutzerklärung möchten wir Dir erklären, welche Daten wir erfassen und welche Rechte Du hast.
 
@@ -25,7 +25,7 @@ Dazu zählen zunächst die Daten, die wir von unseren Mitgliedern erheben und ve
 
 Weiterhin gilt die Datenschutzerklärung für unsere Webseiten [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org) und [pedidodedados.org](https://www.pedidodedados.org/).
 
-Zweck des Datenanfragen.de e.&nbsp;V. ist es, die Bürger_innen durch Aufklärung und Beratung in allen mit dem Datenschutz im Zusammenhang stehenden Fragen in der Ausübung ihres Rechts auf informationelle Selbstbestimmung zu stärken. Wir sind in allen unseren Tätigkeiten an unsere [Satzung]({{< ref "verein/constitution" >}}) gebunden.
+Zweck des Datenanfragen.de e.&nbsp;V. ist es, die Bürger_innen durch Aufklärung und Beratung in allen mit dem Datenschutz im Zusammenhang stehenden Fragen in der Ausübung ihres Rechts auf informationelle Selbstbestimmung zu stärken. Wir sind in allen unseren Tätigkeiten an unsere {{< link slug="verein/constitution" text="Satzung" >}} gebunden.
 
 Mit unserer Webseite Datenanfragen.de (sowie deren Übersetzungen) wollen wir Dir helfen, Deine Datenschutzrechte einfacher auszuüben. Dazu bieten wir Dir einen Generator, mit dem Du automatisch Anfragen erstellen kannst, eine Datenbank mit Kontaktdaten für datenschutzspezifische Anfragen an viele Unternehmen und Informationsmaterialien zum Datenschutz und verwandten Themen. Schließlich informiert sie über den Verein und bieten Dir unter anderem die Möglichkeit zu spenden oder Mitglied zu werden.
 
@@ -62,7 +62,7 @@ Wir setzen keinerlei Profiling oder sonstige Arten automatisierter Entscheidungs
 
 Zur Ausübung unserer satzungsmäßigen Vereinstätigkeit, zum Betrieb unserer Webseite und zur Bereitstellung unserer Angebote müssen wir gewisse personenbezogene Daten von unseren Mitgliedern und Nutzer_innen erfassen und verarbeiten. Oberster Grundsatz ist dabei für uns die Datenminimierung: Wir erheben personenbezogene Daten nur da, wo es notwendig ist und auch nur in dem Maße, wie es notwendig ist. Darüber hinaus erfolgt die Datenerhebung immer zweckgebunden und die Speicherung ist in der Dauer auf den notwendigen Zeitraum beschränkt.
 
-Um Dir die größtmögliche Kontrolle über Deine Privatsphäre zu ermöglichen, kannst Du über unsere [Datenschutzeinstellungen]({{< ref "privacy-controls" >}}) für viele Funktionen auf unseren Webseiten jederzeit einstellen, ob Du diese aktivieren möchtest. Dazu wird für jede Option ein Cookie in Deinem Browser gespeichert. Dieser enthält lediglich die Information, ob Du die jeweilige Option aktiviert oder deaktiviert hast, aber keine personenbezogenen Daten.
+Um Dir die größtmögliche Kontrolle über Deine Privatsphäre zu ermöglichen, kannst Du über unsere {{< link slug="privacy-controls" text="Datenschutzeinstellungen" >}} für viele Funktionen auf unseren Webseiten jederzeit einstellen, ob Du diese aktivieren möchtest. Dazu wird für jede Option ein Cookie in Deinem Browser gespeichert. Dieser enthält lediglich die Information, ob Du die jeweilige Option aktiviert oder deaktiviert hast, aber keine personenbezogenen Daten.
 
 In diesem Abschnitt möchten wir Dir genau erklären, unter welchen Umständen wir welche Daten erheben und verarbeiten.
 
@@ -75,9 +75,9 @@ Wenn Du eine unserer Webseiten aufrufst, baut Dein Browser eine Verbindung zu ei
 - Rechtsgrundlage: Die flüchtige Verarbeitung dieser Daten ist erforderlich, damit wir Dir unsere Webseite bereitstellen können, sie erfolgt auf Basis des Art. 6 Abs. 1 lit. b DSGVO.
 - Dauer der Speicherung: keine
 - Weitergabe der Daten: Unsere Server betreiben wir bei den folgenden Unternehmen. Es handelt sich dabei ausschließlich um Unternehmen aus der EU, die wir sorgfältig nach unseren hohen Datenschutzansprüchen ausgewählt haben.
-  * [Hetzner Online GmbH]({{< ref "company/hetzner" >}}), Industriestraße 25, 91710 Gunzenhausen, Deutschland ([Datenschutzerklärung](https://www.hetzner.de/rechtliches/datenschutz))
-  * [Uberspace]({{< ref "company/uberspace" >}}), Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Deutschland ([Datenschutzerklärung](https://uberspace.de/de/about/privacy/))
-  * [BunnyWay d.o.o.]({{< ref "company/bunnycdn" >}}), Cesta komandanta Staneta 4A, 1215 Medvode, Slowenien ([Datenschutzerklärung](https://bunnycdn.com/privacy))
+  * {{< link slug="company/hetzner" text="Hetzner Online GmbH" >}}, Industriestraße 25, 91710 Gunzenhausen, Deutschland ([Datenschutzerklärung](https://www.hetzner.de/rechtliches/datenschutz))
+  * {{< link slug="company/uberspace" text="Uberspace" >}}, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Deutschland ([Datenschutzerklärung](https://uberspace.de/de/about/privacy/))
+  * {{< link slug="company/bunnycdn" text="BunnyWay d.o.o." >}}, Cesta komandanta Staneta 4A, 1215 Medvode, Slowenien ([Datenschutzerklärung](https://bunnycdn.com/privacy))
 
 ### Informationen, die Du uns zur Verfügung stellst
 
@@ -97,7 +97,7 @@ Vor dem Absenden der Fehlermeldung werden Dir sämliche betroffenen Daten angeze
 - Rechtsgrundlage: Die Grundlage der Speicherung ist unser rechtmäßiges Interesse, die Stabilität und Funktionalität unserer Webseite zu verbessern im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
 - Dauer der Speicherung: unbeschränkt
 - Weitergabe der Daten: Der Inhalt von Fehlermeldungen ist ggf. über unseren [Issue-Tracker auf GitHub](https://github.com/datenanfragen/website/issues) öffentlich einsehbar.  
-GitHub wird betrieben von der [GitHub, Inc.]({{< ref "company/github" >}}), 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/).
+GitHub wird betrieben von der {{< link slug="company/github" text="GitHub, Inc." >}}, 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA und deren Tochterunternehmen GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Niederlande. Weitere Informationen dazu, wie GitHub Deine Daten verarbeitet, findest Du in [deren Datenschutzerklärung](https://help.github.com/articles/github-privacy-statement/).
 
 #### Mitgliedsantrag
 Für den Antrag auf Mitgliedschaft im Datenanfragen.de e.&nbsp;V. musst Du in dem dafür vorgesehenen Vordruck einige personenbezogenen Daten angeben. Diese Daten sind notwendig, damit wir Dich als Mitglied führen und Dir wichtige Informationen im Bezug auf Deine Mitgliedschaft (bspw. Einladungen zu Mitgliederversammlungen, Zuwendungsbescheinigungen oder Zahlungserinnerungen) zukommen lassen können.
@@ -150,14 +150,14 @@ Die Anmeldung ist vollkommen freiwillig für Dich.
 - Rechtsgrundlage: Mit der Anmeldung zum Newsletter erteilst Du uns eine Einwilligung zur Zusendung von Informationen nach Art. 6 Abs. 1 lit. a DSGVO. Diese Einwilligung kannst Du jederzeit widerrufen; wie das geht, erfährst Du im Abschnitt „Recht auf Widerruf erteilter Einwilligungen“.
 - Dauer der Speicherung: bis Du Dich vom Newsletter abmeldest
 - Weitergabe der Daten: Auf die Kontaktdaten hat nur der Vorstand Zugriff. Der Newsletter wird über den Dienstleister Mailjet verschickt. Dafür werden die Kontaktdaten an Mailjet übertragen.  
-  Mailjet wird betrieben von der [Mailjet SAS]({{< ref "company/mailjet" >}}), 13-13 bis rue de l’Aubrac, 75012 Paris, Frankreich. Mehr Informationen dazu, wie Mailjet Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailjet.com/privacy-policy/) entnehmen.
+  Mailjet wird betrieben von der {{< link slug="company/mailjet" text="Mailjet SAS" >}}, 13-13 bis rue de l’Aubrac, 75012 Paris, Frankreich. Mehr Informationen dazu, wie Mailjet Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailjet.com/privacy-policy/) entnehmen.
 
 ### Externe Dienste
 
 Um unsere Angebote attraktiver und effizienter gestalten, arbeiten wir mit einigen externen Dienstleistern.
 
 #### CoinGate
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform CoinGate zu tätigen. CoinGate ist ein Angebot der [UAB “Decentralized”]({{< ref "company/coingate" >}}), A. Goštauto g. 8, LT-01108 Vilnius, Litauen.  
+Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform CoinGate zu tätigen. CoinGate ist ein Angebot der {{< link slug="company/coingate" text="UAB “Decentralized”" >}}, A. Goštauto g. 8, LT-01108 Vilnius, Litauen.  
 Wir setzen CoinGate für Zahlungen mit Crypowährungen ein. In jedem Fall wird Dir in dem Zahlungsformular angezeigt, wenn Deine ausgewählte Zahlungsmethode von CoinGate zur Verfügung gestellt wird.
 
 Wenn Du über CoinGate eine Zahlung tätigst, erhält die UAB “Decentralized” sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: der Betrag Deiner Zahlung, die Cryptowährung, mit der Du bezahlst, Deine Bezahldaten (z.&nbsp;B. die Adresse Deiner Bitcoin-Wallet), ggf. Deinen Namen, ggf. Deine E-Mail-Adresse.  
@@ -165,14 +165,14 @@ Weitere Informationen dazu, wie CoinGate Deine Daten verarbeitet, findest Du in 
 
 #### Mollie
 
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform Mollie zu tätigen. Mollie ist ein Angebot der [Mollie B.V.]({{< ref "company/mollie" >}}), Keizersgracht 313, 1016 EE Amsterdam, Niederlande.  
+Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform Mollie zu tätigen. Mollie ist ein Angebot der {{< link slug="company/mollie" text="Mollie B.V." >}}, Keizersgracht 313, 1016 EE Amsterdam, Niederlande.  
 Wir setzen Mollie bspw. für Kreditkartenzahlungen ein. In jedem Fall wird Dir in dem Zahlungsformular angezeigt, wenn Deine ausgewählte Zahlungsmethode von Mollie zur Verfügung gestellt wird.
 
 Wenn Du über Mollie eine Zahlung tätigst, erhält die Mollie B.V. sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: Deine Bezahldaten (z.&nbsp;B. Konto- oder Kreditkartennummer) inkl. dem Betrag, Deine IP-Adresse, Dein Browser und Gerätetyp, ggf. Dein Name, ggf. Deine Adressdaten, ggf. Informationen über die Art von Zahlung, die an uns tätigst, ggf. sonstige personenbezogene Daten, die Du aktiv bereitstellst (z.&nbsp;B. bei Korrespondenz mit dem Kundendienst von Mollie).  
 Weitere Informationen dazu, wie Mollie Deine Daten verarbeitet, findest Du in deren [Datenschutzerklärung](https://www.mollie.com/de/privacy).
 
 #### PayPal
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform PayPal zu tätigen. PayPal ist ein Angebot der [PayPal (Europe) S.à.r.l. et Cie, S.C.A.]({{< ref "company/paypal" >}}), 22-24 Boulevard Royal L-2449, Luxemburg.  
+Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform PayPal zu tätigen. PayPal ist ein Angebot der {{< link slug="company/paypal" text="PayPal (Europe) S.à.r.l. et Cie, S.C.A." >}}, 22-24 Boulevard Royal L-2449, Luxemburg.  
 Im Zahlungsformular wird Dir angezeigt, wenn Deine Zahlung über PayPal stattfindet.
 
 Wenn Du über PayPal eine Zahlung tätigst, erhält die PayPal (Europe) S.à.r.l., S.C.A. sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: der gesendete Betrag, Angaben zu Zahlungsquellen, die für die Transaktion verwendet wurden (z.&nbsp;B. Deine Bankkontoinformationen oder Kreditkartendaten), Geräteinformationen, technische Nutzungsdaten, Standortdaten, Dein Name, Deine Adresse, Deine Telefonnummer, Deine E-Mail-Adresse.  
@@ -181,7 +181,7 @@ Weitere Informationen dazu, wie PayPal Deine Daten verarbeitet, findest Du in de
 ## Deine Rechte
 
 Die DSGVO gewährt Dir umfassende Rechte im Bezug auf den Datenschutz. Wir sind stark überzeugt davon, dass das Recht auf Datenschutz ein Grundrecht ist und stehen daher voll hinter diesen Rechten. Du kannst sie uns gegenüber jederzeit formlos unter den im Abschnitt „Verantwortlicher“ angegebenen Kontaktdaten geltend machen.  
-Gerne kannst Du natürlich auch unseren [Generator]({{< ref "generator" >}}) verwenden, der Dir das Schreiben von Anfragen abnimmt.
+Gerne kannst Du natürlich auch unseren {{< link slug="generator" text="Generator" >}} verwenden, der Dir das Schreiben von Anfragen abnimmt.
 
 ### Recht auf Auskunft
 
@@ -234,7 +234,7 @@ Nach Art. 77 DSGVO hast Du unbeschadet eines anderweitigen verwaltungsrechtliche
 
 Für uns ist die folgende Aufsichtsbehörde zuständig:
 
-[Die Landesbeauftragte für den Datenschutz Niedersachsen]({{< ref "supervisory-authority/dendslfd" >}})  
+{{< link slug="supervisory-authority/dendslfd" text="Die Landesbeauftragte für den Datenschutz Niedersachsen" >}}  
 Prinzenstraße 5  
 30159 Hannover  
 Deutschland

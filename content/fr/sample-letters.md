@@ -64,6 +64,6 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 
 Les modèles de lettre ci-dessus sont un bon début, mais nous croyons fortement qu'il doit y avoir un moyen plus simple d'envoyer des demandes RGPD.
 
-C'est pourquoi nous avons développé un [générateur]({{< ref "/generator" >}}) qui génère automatiquement ce type de demande pour toi. Tout ce dont tu as besoin est de sélectionner une entreprise (nous avons également déjà beaucoup d'entreprises dans notre base de données, donc vous n'aurez même pas besoin de recherher leurs informations de contact) et entrer vos informations.
+C'est pourquoi nous avons développé un {{< link slug="/generator" text="générateur" >}} qui génère automatiquement ce type de demande pour toi. Tout ce dont tu as besoin est de sélectionner une entreprise (nous avons également déjà beaucoup d'entreprises dans notre base de données, donc vous n'aurez même pas besoin de recherher leurs informations de contact) et entrer vos informations.
 
 Essayez !
