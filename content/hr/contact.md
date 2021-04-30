@@ -1,6 +1,8 @@
 {
     "title": "Kontakt",
-    "type": "page"
+    "type": "page",
+    "slug": "kontakt",
+    "aliases": ["contact"]
 }
  
 ## Podaci na osnovi članka 5. Njemačkog zakona o telekomunikaciji (TMG)

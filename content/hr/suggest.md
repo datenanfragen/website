@@ -16,7 +16,7 @@ Predlaganje poduzeća pomoću ovih savjeta pomaže nam uvelike, ali je <strong>p
 - Preferiramo kontaktne podatke voditelja obrade podataka umjesto kontaktne podatke poduzeća.
     - Voditelj obrade podataka  
       Ulica i kućni broj  
-      Poštanski broj i ime mjesta 
+      Poštanski broj i ime mjesta  
       Zemlja  
 - Koristi gore navedeni format adrese: Odvojeni redci, nemoj navesti ime poduzeća (dodat će se automatski) i dodaj zemlju kao zadnji redak.
 - Ako je email adresa poduzeća očito povezana s privatnošću, npr. „privatnost@” ili „gdpr@”, za email možeš postaviti „Predloženi medij za prijenos”.

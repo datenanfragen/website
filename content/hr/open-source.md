@@ -1,14 +1,14 @@
 {
 	"title": "Otvoreni kod",
 	"type": "page",
-    "aliases": ["otvoreni-kod"],
+    "slug": "otvoreni-kod",
+    "aliases": ["open-source"],
 	"heading": "<span style='text-align: center; font-family: monospace;'>osobnipodaci.org <span class='color-red-600' title='loves'>❤</span> otvoreni kod</span>"
 }
 
 <img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
 
-Open Source is at the very core of datarequests.org. We have designed the project from the ground up to be as open as possible. 
-Projekt datarequests.org zasniva se na otvorenom kodu. Projekt smo izradili od temelja kako bi bio što otvoreniji. Naš [statut]({{< ref "verein/constitution" >}}) zahtijeva da naš sadržaj objavljujemo pod slobodnim licencama.
+Projekt datarequests.org zasniva se na otvorenom kodu. Projekt smo izradili od temelja kako bi bio što otvoreniji. Naš [statut](https://www.datarequests.org/verein/constitution) <!-- TODO: Change to `{.{< link slug="verein/constitution" text="statut" >}}` once #580 is merged. --> zahtijeva da naš sadržaj objavljujemo pod slobodnim licencama.
 
 Veliki smo pobornici otvorenog koda i vjerujemo u njega.
 
@@ -21,7 +21,7 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/website"><img class="image" src="/card-icons/code.svg" alt="web-stranica"></a></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/website"><h1><code>web-stranica</code></h1></a>
+        <a href="https://github.com/datenanfragen/website"><h1><code>website</code></h1></a>
         <span class="license">MIT licenca</span>
         <p class="description">
             Web-stranica na kojoj se trenutačno nalaziš. Ovaj repozitorij ne sadrži samo sadržaj već i programski kod generatora, postavke privatnosti i još mnogo toga.
@@ -35,7 +35,7 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/data"><img class="image" src="/card-icons/database.svg" alt="podaci" style="width: 70%;"></a></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/data"><h1><code>podaci</code></h1></a>
+        <a href="https://github.com/datenanfragen/data"><h1><code>data</code></h1></a>
         <span class="license">CC0</span>
         <p class="description">
             Podaci projekta. To uključuje baze podataka našeg poduzeća i nadzornog tijela, ali i uzorke pisama.
@@ -49,7 +49,7 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/media"><img class="image" src="/card-icons/view.svg" alt="mediji"></a></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/media"><h1><code>mediji</code></h1></a>
+        <a href="https://github.com/datenanfragen/media"><h1><code>media</code></h1></a>
         <span class="license">MIT licenca</span>
         <p class="description">
             Naša web-stranica koja se koristi za hosting videa, media.datenanfragen.de. Ovaj repozitorij uključuje izvorni kod i korištena skripta za web-stranice.
@@ -62,7 +62,7 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/letter-generator"><img class="image" src="/card-icons/letter.svg" alt="generator pisama"></a></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/letter-generator"><h1><code>generator pisama</code></h1></a>
+        <a href="https://github.com/datenanfragen/letter-generator"><h1><code>letter-generator</code></h1></a>
         <span class="license">MIT licenca</span>
         <p class="description">
             Alat koji omogućuje generiranje pisama (obični tekst ili PDF format) iz predložaka. Ovaj repozitorij uključuje ove predloške i skripta koji su potrebni za izradu pisama.
@@ -75,7 +75,7 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/verein"><img class="image" src="/card-icons/group.svg" alt="udruga"></a></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/verein"><h1><code>udruga</code></h1></a>
+        <a href="https://github.com/datenanfragen/verein"><h1><code>verein</code></h1></a>
         <p class="description">
             Također želimo voditi neprofitnu organizaciju koja stoji iza ovog projekta Datenanfragen.de e.&nbsp;V., što otvorenije i transparentnije. Ovaj repozitorij stoga sadrži važne dokumente s poviješću promjena.
         </p>
@@ -101,7 +101,7 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/backend"><img class="image" src="/card-icons/speech-bubble.svg" alt="pozadinski sustav"></a></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/backend"><h1><code>pozadinski sustav</code></h1></a>
+        <a href="https://github.com/datenanfragen/backend"><h1><code>backend</code></h1></a>
         <span class="license">MIT licenca</span>
         <p class="description">
             Poslužitelj koji definira priključke za dinamičke funkcije web-stranice kao što su komentari, prijedlozi i donacije.
@@ -118,7 +118,7 @@ Zahvaljujemo svima koji su doprinijeli stranicama datarequests.org! Projekt ne b
 
 <div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
 
-Ako si i ti doprinio/doprinijela projektu, ali tvoje ime još nije na popisu, pozivamo te da ga dodaš u datoteku [`AUTORI`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
+Ako si i ti doprinio/doprinijela projektu, ali tvoje ime još nije na popisu, pozivamo te da ga dodaš u datoteku [`AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 
 <a id="license-notices"></a>
 ## Korišteni projekti otvorenog koda
