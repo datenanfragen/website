@@ -1,4 +1,5 @@
 enableMissingTranslationPlaceholders = true
+disableAliases = true
 
 [params]
 devMode = true
