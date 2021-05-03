@@ -31,10 +31,14 @@ export default class I18nWidget extends Component {
         modal = render(
             <IntlProvider scope="i18n-widget" definition={I18N_DEFINITION}>
                 <Modal
-                    positiveText={<Text id="change-lang" />}
-                    onPositiveFeedback={() => {
-                        window.location = SUPPORTED_LANGUAGES[event.target.value];
-                    }}
+                    positiveButton={
+                        <a
+                            className="button button-primary"
+                            href={SUPPORTED_LANGUAGES[event.target.value]}
+                            style={'float: right'}>
+                            <Text id="change-lang" />
+                        </a>
+                    }
                     positiveDefault={true}
                     negativeText={<Text id="stay" />}
                     onNegativeFeedback={dismiss}>
