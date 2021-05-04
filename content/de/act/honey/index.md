@@ -29,6 +29,7 @@ Du musst nur noch Deinen Namen, Deine E-Mail-Adresse und Deinen „Honey Gold“
 Deinen Honey Gold Kontostand kannst Du [hier](https://www.joinhoney.com/honeygold/overview) abfragen.
 
 <div id="act-with-account" class="act-widget" style="max-width: 600px; margin: auto;"></div>
+{{<actWidgetNoScript>}}
 
 ### Honey ohne Account genutzt
 
@@ -131,6 +132,7 @@ Wie das geht, unterscheidet sich von Browser zu Browser, wir haben zwei bebilder
 </div>
 
 <div id="act-no-account" class="act-widget" style="max-width: 600px; margin: auto;"></div>
+{{<actWidgetNoScript>}}
 <script>
 window.onload = function() {
     renderActWidget("act-with-account", {
