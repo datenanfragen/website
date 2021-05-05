@@ -44,7 +44,7 @@ Hierbei wollen wir Dir helfen. Wir sind ein gemeinn√ºtziger Verein, der sich [f√
 Alternativ hat das DRK Brandenburg auch eine Telefonhotline eingerichtet, an die Du Dich mit Fragen wenden kannst: [+49 331 2864 113](tel:+493312864113)
 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
-{{<actWidgetNoScript>}}
+{{<noScript "noscript-actwidget">}}
 <script>
 window.props = {
     request_types: ['access'],

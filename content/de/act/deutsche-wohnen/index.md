@@ -30,7 +30,7 @@ Wir schließen uns dieser Empfehlung der Berliner Datenschutzbeauftragten an. Na
 Hierbei wollen wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben die Auskunftsanfrage an die Deutsche Wohnen schon für Dich vorformuliert. Du brauchst nur noch Deinen Namen und Deine Adresse einzutragen und schon kannst Du die Selbstauskunftsanfrage einfach per E-Mail verschicken. Das ist natürlich kostenlos für Dich.
 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
-{{<actWidgetNoScript>}}
+{{<noScript "noscript-actwidget">}}
 <script>
 window.props = {
     request_types: ['access'],

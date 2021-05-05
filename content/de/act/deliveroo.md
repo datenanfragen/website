@@ -19,7 +19,7 @@ Hier kommt Dir die **DSGVO** (**Datenschutz-Grundverordnung**) zu Hilfe. Die gib
 Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben das entsprechende Schreiben an Deliveroo schon einmal vorbereitet. Du musst nur noch Deinen Namen und die E-Mail-Adresse, mit der Du Dich registriert hast, eintragen und schon kannst Du Deinen Löschantrag einfach per E-Mail verschicken – natürlich kostenlos.
 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
-{{<actWidgetNoScript>}}
+{{<noScript "noscript-actwidget">}}
 <script>
 window.props = {
     request_types: ['erasure'],

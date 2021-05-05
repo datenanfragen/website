@@ -30,7 +30,7 @@ You only have to enter your name, email and "Honey Gold" balance and you can alr
 You can view your Honey Gold balance [here](https://www.joinhoney.com/honeygold/overview).
 
 <div id="act-with-account" class="act-widget" style="max-width: 600px; margin: auto;"></div>
-{{<actWidgetNoScript>}}
+{{<noScript "noscript-actwidget">}}
 
 ## Used Honey without an account?
 
@@ -134,7 +134,7 @@ The process for accessing Honey's local storage is different from browser to bro
 </div>
 
 <div id="act-no-account" class="act-widget" style="max-width: 600px; margin: auto;"></div>
-{{<actWidgetNoScript>}}
+{{<noScript "noscript-actwidget">}}
 <script>
 window.onload = function() {
     renderActWidget("act-with-account", {
