@@ -51,8 +51,8 @@ Il n'y a pour le moment aucun conseiller au sein du comité directeur.
 
 ## 5. Rapports d'activité
 
-Voir [Rapport annuel 2019 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-Voir [Rapport annuel 2018 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+Voir [Rapport annuel 2019 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
+Voir [Rapport annuel 2018 (en allemand, p. 5 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=5)
 
 ## 6. Personnel
 
@@ -62,16 +62,16 @@ Nombre de bénévoles : 3
 
 ## 7. Sources de financement
 
-Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
+Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
 Actifs financiers fin 2019 : 87,90 €  
 Actifs financiers fin 2018 : 119,70 €
 
 ## 8. Utilisation des fonds
 
-Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+Voir [Rapport annuel 2019 (en allemand, p. 10 et suiv.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
+Voir [Rapport annuel 2018 (en allemand, p. 9 et suiv.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
 ## 9. Relations d'affaires avec des tiers 
 
