@@ -49,8 +49,8 @@ La asociación está dirigida por los presidentes de la [junta]({{< ref "verein/
 
 ## 5. Informe de actividades
 
-véase [Informe anual 2019 (en alemán, pág. 5 y siguientes)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-véase [Informe anual 2018 (en alemán, pág. 5 y siguientes)](https://static.dacdn.de/docs/bericht-2018.pdf)
+véase [Informe anual 2019 (en alemán, pág. 5 y siguientes)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
+véase [Informe anual 2018 (en alemán, pág. 5 y siguientes)](https://static.dacdn.de/docs/bericht-2018.pdf#page=5)
 
 ## 6. Estructura del personal
 
@@ -60,16 +60,16 @@ Número de voluntarios: 3
 
 ## 7. Fuentes de financiamiento
 
-véase [Informe anual 2019 (en alemán, pág. 10 y siguientes)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-véase [Informe anual 2018 (en alemán, pág. 9 y siguientes)](https://static.dacdn.de/docs/bericht-2018.pdf)
+véase [Informe anual 2019 (en alemán, pág. 10 y siguientes)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
+véase [Informe anual 2018 (en alemán, pág. 9 y siguientes)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
 Activos financieros al cierre de 2019: 87,90 €  
 Activos financieros al cierre de 2018: 119,70 €
 
 ## 8. Uso de fondos
 
-véase [Informe anual 2019 (en alemán, pág. 10 y siguientes)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-véase [Informe anual 2018 (en alemán, pág. 9 y siguientes)](https://static.dacdn.de/docs/bericht-2018.pdf)
+véase [Informe anual 2019 (en alemán, pág. 10 y siguientes)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
+véase [Informe anual 2018 (en alemán, pág. 9 y siguientes)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
 ## 9. Relaciones corporativas con terceros
 

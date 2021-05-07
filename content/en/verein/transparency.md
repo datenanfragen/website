@@ -48,8 +48,8 @@ The association is managed by the chairpersons of the [board]({{< ref "verein/bo
 
 ## 5. Report of activities
 
-see [Yearly report 2019 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-see [Yearly report 2018 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+see [Yearly report 2019 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
+see [Yearly report 2018 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=5)
 
 ## 6. Staff structure
 
@@ -59,16 +59,16 @@ Number of volunteers: 3
 
 ## 7. Funding sources
 
-see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
+see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
 Financial assets at the end of 2019: 87,90 €  
 Financial assets at the end of 2018: 119,70 €
 
 ## 8. Use of funds
 
-see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
+see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
 ## 9. Corporate relationships with third parties 
 
