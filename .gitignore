@@ -199,10 +199,11 @@ i18n/*.json
 # (see: https://gohugo.io/content-management/image-processing/#image-processing-performance-consideration).
 resources/_gen/
 
-# Generated JS and CSS
+# Generated assets
 static/*/*.gen.js
 static/*/*.map
 static/*/*.gen.css
+static/gen
 
 # PSDs for thumbnails
 content/**/*.psd
