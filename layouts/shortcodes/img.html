@@ -50,7 +50,9 @@ Inspired by: https://gohugo.io/templates/shortcode-templates/#single-named-examp
                 "
                 sizes="(max-width: 320px) 288px, (max-width: 425px) 383px, (max-width: 768px) 691px, (max-width: 979px) 881px, 784px">
             {{ end }}
-            <img src="{{ (partial "functions/imgURL" (dict "page" .Page "name" (.Get "name"))) }}" alt="{{ $alt_text }}" title={{ $alt_text }}>
+            {{ with .Page.Resources.GetMatch (printf "*%s*" (.Get "name")) }}
+                <img src="{{ (partial "functions/imgURL" (dict "page" $.Page "name" ($.Get "name"))) }}" alt="{{ $alt_text }}" title="{{ $alt_text }}" height="{{ .Height }}" width="{{ .Width }}">
+            {{ end }}
         </picture>
     {{- else if .Get "url" -}}
         <img src="{{ .Get "url" }}" alt="{{ $alt_text }}" title={{ $alt_text }} />

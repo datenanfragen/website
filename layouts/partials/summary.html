@@ -3,16 +3,21 @@
         <div class="col25 article-featured-image">
             <a href="{{ .Permalink }}" class="no-link-decoration">
                 {{ if .Params.featured_image }}
-                    <img srcset="
-                            {{- partial "functions/imgURL" (dict "page" .Page "name" .Params.featured_image "command" "Resize" "options" "280x") }} 280w,
-                            {{- partial "functions/imgURL" (dict "page" .Page "name" .Params.featured_image "command" "Resize" "options" "375x") }} 375w,
-                            {{- partial "functions/imgURL" (dict "page" .Page "name" .Params.featured_image "command" "Resize" "options" "684x") }} 684w,
-                            {{- partial "functions/imgURL" (dict "page" .Page "name" .Params.featured_image "command" "Resize" "options" "874x") }} 874w,
-                            {{- partial "functions/imgURL" (dict "page" .Page "name" .Params.featured_image "command" "Resize" "options" "230x") }} 230w
-                        "
-                        sizes="(max-width: 320px) 280px, (max-width: 425px) 375px, (max-width: 768px) 684px, (max-width: 979px) 874px, 230px"
-                        src="{{ (partial "functions/imgURL" (dict "page" .Page "name" .Params.featured_image)) }}" 
-                        alt="{{ .Params.title }}">
+                    <picture>
+                        {{ range (slice "webp" "jpg" )}}
+                            <source srcset="
+                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "280x %s" .)) }} 280w,
+                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "375x %s" .)) }} 375w,
+                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "684x %s" .)) }} 684w,
+                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "874x %s" .)) }} 874w,
+                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "230x %s" .)) }} 230w
+                                "
+                                sizes="(max-width: 320px) 280px, (max-width: 425px) 375px, (max-width: 768px) 684px, (max-width: 979px) 874px, 230px">
+                         {{ end }}
+                         {{ with .Page.Resources.GetMatch (printf "*%s*" .Params.featured_image) }}
+                            <img src="{{ (partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image)) }}" alt="{{ $.Params.title }}" height="{{ .Height }}" width="{{ .Width }}">
+                        {{ end }}
+                    </picture>
                 {{ else }}
                     <img class="image" src="{{ .Params.featured_image_url }}" alt="{{ .Title }}">
                 {{ end }}
