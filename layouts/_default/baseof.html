@@ -51,7 +51,9 @@
         <div id="nav-header-bg"></div>
         <div id="header-main" class="container">
             <a href="{{ "/" | absURL }}" title="{{ T "logo-a-title" . }}" style="position: relative;">
-                <img id="logo" src="{{ T "logo" . | absURL }}" title="{{ T "logo-title" . }}">
+                {{ with imageConfig (replace (printf "static/%s" (T "logo")) ".svg" ".png") }}
+                    <img id="logo" src="{{ T "logo" . | absURL }}" title="{{ T "logo-title" . }}" height="{{ .Height }}" width="{{ .Width }}">
+                {{ end }}
                 {{ if .Site.Params.devMode }}
                     <span class="dev-mode-indicator" style="font-family: monospace; font-weight: bold; color: #d53f8c; position: absolute; bottom: 22px; right: -25px;">DEV</span>
                 {{ end }}
@@ -172,7 +174,7 @@
                     </ul>
                 </div>
                 <div class="col22 footer-col" style="font-size: 10px; margin-top: 20px;">
-                    {{ if eq .Lang "de" }}Wir arbeiten transparent nach Kriterien der <a href="{{ "/verein/transparenz" | absURL }}"><br><img src="/img/logo-itz.svg" alt="ITZ (Initiative Transparente Zivilgesellschaft)" class="itz-logo"></a>{{ end }}
+                    {{ if eq .Lang "de" }}Wir arbeiten transparent nach Kriterien der <a href="{{ "/verein/transparenz" | absURL }}"><br><img src="/img/logo-itz.svg" alt="ITZ (Initiative Transparente Zivilgesellschaft)" class="itz-logo" width="539" height="146"></a>{{ end }}
                 </div>
             </div>
             <div class="clearfix"></div>

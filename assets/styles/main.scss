@@ -18,6 +18,7 @@ header#nav-header {
 }
 a #logo {
     height: 32px;
+    width: auto;
 
     @include mobile {
         max-width: 55vw;
@@ -584,6 +585,7 @@ table#my-requests-table {
 
         img {
             max-height: 200px;
+            width: auto;
             object-fit: cover;
 
             @include mobile {
@@ -847,6 +849,7 @@ footer {
         img.itz-logo {
             width: 100%;
             max-width: 300px;
+            height: auto;
             margin-top: 5px;
 
             &:active,
