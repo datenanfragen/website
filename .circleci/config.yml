@@ -9,8 +9,8 @@ jobs:
   build:
     executor: docker_hugo_node
     environment:
-        - HUGO_VERSION: '0.74.3'
-        - HUGO_BINARY: hugo_extended_0.74.3_linux-64bit
+        - HUGO_VERSION: '0.83.1'
+        - HUGO_BINARY: hugo_extended_0.83.1_linux-64bit
     steps:
       - run:
           command: |
@@ -44,8 +44,8 @@ jobs:
       docker:
         - image: cypress/base:13.8.0
       environment:
-        - HUGO_VERSION: '0.74.3'
-        - HUGO_BINARY: hugo_extended_0.74.3_linux-64bit
+        - HUGO_VERSION: '0.83.1'
+        - HUGO_BINARY: hugo_extended_0.83.1_linux-64bit
       steps:
         - run:
             command: |
