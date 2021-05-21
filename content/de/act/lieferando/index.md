@@ -19,11 +19,11 @@ Wir finden, das sind 39 Datenpunkte zu viel. Auch als Arbeitnehmer_in hast Du ei
 
 ## Auskunft nach der DSGVO
 
-Bist oder warst Du Fahrer für Lieferando und willst wissen was Lieferando genau über Dich gespeichert hat?
+Bist oder warst Du Fahrer_in für Lieferando und willst wissen was Lieferando genau über Dich gespeichert hat?
 
 Genau wie Fahrer_innen das für die Recherche des BRs gemacht haben, kannst Du es auch einfach so machen, denn <!-- stolen from the dw-act page: -->nach der DSGVO hast Du [diverse Rechte im Bezug auf Deine personenbezogenen Daten]({{< ref "your-gdpr-rights" >}}), darunter auch das Recht Auskunft über die zu Dir gespeicherten Daten zu verlangen.
 
-Hierbei wollen wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben die Auskunftsanfrage an Takeaway.com Group B.V., die Firma hinter Lieferando, schon für Dich formuliert. Du brauchst nur noch Deine Daten einzutragen und schon kannst Du die Selbstauskunftsanfrage einfach per E-Mail verschicken.
+Hierbei wollen wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben die Auskunftsanfrage an die Takeaway.com Group B.V., die Firma hinter Lieferando, schon für Dich formuliert. Du brauchst nur noch Deine Daten einzutragen und schon kannst Du die Selbstauskunftsanfrage einfach per E-Mail verschicken.
 
 Das ist natürlich kostenlos für dich und wir bekommen keine personenbezogenen Daten von dir, denn unser Programm läuft nur lokal auf Deinem Computer.
 
