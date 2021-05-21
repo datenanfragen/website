@@ -3,14 +3,19 @@
 	"type": "act",
     "date": "2021-05-21T12:00:00+02:00",
     "tags": [ "lieferando", "deutschland", "fahrer", "auskunft", "lieferdienst", "arbeitnehmerrechte" ],
-    "authors": [ "malte", "zner0l" ]
+    "featured_image": "lieferando-ueberwachung.jpg",
+    "authors": [ "malte", "zner0l" ],
+    "notices": "Titelfoto angepasst nach: „[man riding motorcycle on road during daytime](https://unsplash.com/photos/clYlmCaQbzY)“ von [Rowan Freeman](https://unsplash.com/@rowanfreeman) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 
 Laut Recherchen des [BRs](https://www.tagesschau.de/investigativ/br-recherche/ueberwachung-lieferando-101.html) überwacht Lieferando seine Fahrer_innen sehr genau:
 
 > Aus den Unterlagen geht hervor, dass die App pro Lieferung 39 Datenpunkte erhebt: Sekundengenau ist nachvollziehbar, wann ein Fahrer eine Bestellung zugeteilt bekommt, diese abholt und ausliefert. Zusätzlich wird hinterlegt, ob der Rider einzelne Zeitvorgaben einhält oder nicht. Kommt ein Fahrer zu spät bei einem Restaurant oder Kunden an, wird das vermerkt. Die Daten sind personalisiert, können also einzelnen Arbeitnehmerinnen oder Arbeitnehmern zugeordnet werden.
 
+{{< img name="lieferando-ueberwachung.jpg" alt="Foto einer Person, die mit einem Motorrad Essen ausliefert. Darüber der Text: „Überwachung von Fahrer_innen bei Lieferando“" >}}
+
 Wir finden, das sind 39 Datenpunkte zu viel. Auch als Arbeitnehmer_in hast Du ein Recht auf Privatsphäre und das überwiegt hier klar dem Interesse von Lieferando, seine Fahrer_innen im eigenen Profitinteresse zu übermenschlichen Maschinen zu machen. Du kannst vielleicht Essen an Kund_innen ausliefern, aber Du musst Lieferando keine so umfangreichen Daten liefern, während Du für sie arbeitest.
+
 
 ## Auskunft nach der DSGVO
 
