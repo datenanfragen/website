@@ -15,6 +15,8 @@ Parameters:
                  width.
     - `[fallback]`: The fallback image width.
     - `[alt_text]`: The alt text and title to set on the image.
+    - `[loading]`: Whether to lazy-load the image (`eager` to load the image immediately, `lazy` to defer loading).
+                   Defaults to `lazy`.
 
 All parameters are required.
 -->
@@ -33,6 +35,6 @@ All parameters are required.
                 {{ $.fallback -}}px">
     {{ end }}
     {{ with .page.Resources.GetMatch (printf "*%s*" $.name) }}
-        <img src="{{ (partial "functions/imgURL" (dict "page" $.page "name" $.name)) }}" alt="{{ $.alt_text }}" title="{{ $.alt_text }}" height="{{ .Height }}" width="{{ .Width }}">
+        <img src="{{ (partial "functions/imgURL" (dict "page" $.page "name" $.name)) }}" alt="{{ $.alt_text }}" title="{{ $.alt_text }}" height="{{ .Height }}" width="{{ .Width }}"{{ if eq $.loading "lazy" }} loading="lazy"{{ end }}>
     {{ end }}
 </picture>

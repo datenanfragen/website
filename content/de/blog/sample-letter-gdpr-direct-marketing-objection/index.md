@@ -18,7 +18,7 @@ Werbung wirkt heutzutage allgegenwärtig: Kaum öffnet man den Briefkasten oder 
 
 Als Rechtsgrundlage berufen sich diese Unternehmen dabei häufig auf ihr „berechtigtes Interesse“ oder auf eine Einwilligung – gerne auch weit hinten in einem Vertrag zu einem eigentlich ganz anderen Thema.
 
-{{< img name="musterbrief-dsgvo-werbewiderspruch" alt="Musterbrief für den Werbewiderspruch" >}}
+{{< featuredImg alt="Musterbrief für den Werbewiderspruch" >}}
 
 Zum Glück musst Du Dir das nicht gefallen lassen. Nach der Datenschutz-Grundverordnung (DSGVO) hast Du ein Recht auf Widerspruch gegen Direktwerbung. Dieses Recht legt Art. 21 Abs. 2 DSGVO ganz unmissverständlich fest. Den Widerspruch darfst Du auch erheben, wenn Du in der Vergangenheit eine Einwilligung für Direktwerbung erteilt hast.  
 Sobald Du den Widerspruch erhoben hast, darf das entsprechende Unternehmen Deine personenbezogenen Daten nicht mehr für Direktwerbung verwenden.

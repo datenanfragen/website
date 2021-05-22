@@ -10,7 +10,7 @@
 
 In unserer [Recherche zu Honey]({{< ref "blog/honey-data-collection" >}}) haben wir aufgedeckt, dass die Browser-Erweiterung reichlich Daten zu Ihren Nutzer_innen sammelt. Unabhängig davon, ob ein Account angelegt wurde oder nicht, protokolliert das Add-on fleißig alle Aufrufe zahlreicher Webseiten und sendet sie an den Betreiber, die [Honey Science LLC]({{< ref "company/joinhoney" >}}), ein US-Unternehmen, das kürzlich vom Bezahlanbieter [PayPal gekauft wurde](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
 
-{{< img name="honey.jpg" alt="Foto etlicher Bienen, die sich auf Zuckerwasser stürzen, darüber der Text: „Honey in Sammelwut – jetzt Daten anfragen“" >}}
+{{< featuredImg alt="Foto etlicher Bienen, die sich auf Zuckerwasser stürzen, darüber der Text: „Honey in Sammelwut – jetzt Daten anfragen“" >}}
 
 ## Wie kann ich meine Daten anfragen?
 

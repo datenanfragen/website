@@ -11,7 +11,7 @@
 
 Bald ist es wieder so weit: Das [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2020 steht an, wie immer ausgerichtet vom Hosting-Anbieter DigitalOcean. Auch in diesem Jahr geht es darum, Menschen für die Arbeit an Open-Source-Software zu begeistern. Das Hacktoberfest lädt Dich ein, im Laufe des Oktobers 2020 Pull-Requests bei Open-Source-Projekten einzureichen. Wer vier oder mehr Pull-Requests einreicht, bekommt ein T-Shirt von DigitalOcean geschenkt oder die Möglichkeit, einen Baum zu pflanzen.
 
-{{< img name="hacktoberfest-2020" alt="Hacktoberfest 2020 + Datenanfragen.de e. V." >}}
+{{< featuredImg alt="Hacktoberfest 2020 + Datenanfragen.de e. V." >}}
 
 Es hat sich mittlerweile zu einer gewissen Tradition etabliert, dass neben diesem offiziellen Ereignis auch viele weitere Unternehmen sich beteiligen und ihre eigenen Belohnungen für Beiträge zu ihren jeweiligen Open-Source-Projekten ausloben.  
 Nach dem großen Erfolg unserer Teilnahme im letzten Jahr, freut es uns ankündigen zu dürfen, dass wir auch in diesem Jahr wieder beim Hacktoberfest mitmachen. Datenanfragen.de lebt von [Open Source]({{< ref "/open-source" >}}) und die Menschen, die etwas zum Projekt beitragen, sind uns sehr wichtig. Deshalb belohnen wir Beiträge zum Projekt, die im Laufe des Oktobers 2020 als Pull-Request über [GitHub](https://github.com/) oder als Patch per E-Mail eingereicht wurden. Die genauen Details erfährst Du in diesem Artikel.

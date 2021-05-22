@@ -14,7 +14,7 @@
 
 Quem pode exercer os direitos do titular dos dados? Contra quem? Este artigo fornece uma breve visão geral do escopo geográfico de aplicação do RGPD. 
 
-{{< img name="rgpd-ambito-de-aplicacao-territorial" alt="RGPD: Âmbito de aplicação territorial" >}}
+{{< featuredImg alt="RGPD: Âmbito de aplicação territorial" >}}
 
 ## O que é o Regulamento Geral sobre a Proteção de Dados (RGPD)?
 

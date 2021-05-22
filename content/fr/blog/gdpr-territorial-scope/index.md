@@ -12,7 +12,7 @@
 
 Qui est habilité à faire valoir les droits des personnes concernées par le RGPD ? Et contre qui ? Cet article donne un bref aperçu de la portée territoriale du RGPD.
 
-{{< img name="portee-territoriale-du-rgdp" alt="Portée Territoriale du RGPD" >}}
+{{< featuredImg alt="Portée Territoriale du RGPD" >}}
 
 ## Qu'est-ce que le RGPD veut dire? 
 

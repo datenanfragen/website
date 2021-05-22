@@ -10,7 +10,7 @@
 
 Auch in diesem Jahr richtet der Hosting-Anbieter DigitalOcean wieder das [Hacktoberfest](https://hacktoberfest.digitalocean.com/) aus, um Open Source zu feiern. Das Hacktoberfest lädt Dich ein, im Laufe des Oktobers 2019 Pull Requests bei Open Source-Projekten einzureichen. Wer vier oder mehr Pull Requests einreicht, bekommt ein exklusives T-Shirt von DigitalOcean geschenkt.
 
-{{< img name="hacktoberfest-2019" alt="Hacktoberfest 2019 + Datenanfragen.de e. V." >}}
+{{< featuredImg alt="Hacktoberfest 2019 + Datenanfragen.de e. V." >}}
 
 Nebem diesem offiziellen Ereignis nutzen jedes Jahr auch zahlreiche weitere Unternehmen und Organisationen die Gelegenheit, sich am Hacktoberfest zu beteiligen und zusätzlich weitere Belohnungen für bestimmte Beiträge anzubieten.  
 Wir bei Datenanfragen.de [lieben Open Source]({{< ref "/open-source" >}}), unser Projekt ist von Grund auf konzipiert, so offen wie möglich zu sein. Daher freut es uns umso mehr zu verkünden, dass Datenanfragen.de dieses Jahr beim Hacktoberfest mitmacht! Wir belohnen Beiträge zum Projekt, die während des Oktobers 2019 als Pull Request über [GitHub](https://github.com/) eingereicht wurden, mit einem exklusiven Sticker-Set.

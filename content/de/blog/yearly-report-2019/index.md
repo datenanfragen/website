@@ -11,7 +11,7 @@
 
 Das zweite Jahr des Datenanfragen.de e.&nbsp;V. liegt hinter uns. In diesem Jahr konnten wir vieles dazu gewinnen: neue Mitglieder, die unsere Arbeit unterstützen wollen, neue Mitwirkende, die kurz- und langfristig am Projekt mitarbeiten, Unterstützung für eine komplett neue Sprache und neue Stabilität im Betrieb der Webseite. Im letzten Jahr stand unser Projekt oft im Zeichen der Vereinfachung: leichterer Zugang für Menschen mit eingeschränker Sehfähigkeit, leichtere Bedienung des Generators (auch wenn hier noch viele Baustellen offen sind) und - was uns besonders freut - leichterer Zugang zur Mitarbeit am Projekt.
 
-{{< img name="jahresbericht-2019" alt="Titelgrafik zum Jahresbericht 2019" link="https://static.dacdn.de/docs/bericht-2019.pdf" >}}
+{{< featuredImg alt="Titelgrafik zum Jahresbericht 2019" link="https://static.dacdn.de/docs/bericht-2019.pdf" >}}
 
 In diesem Artikel wollen wir Euch einen Überblick darüber geben, was wir letztes Jahr gemacht haben und was unsere Ziele für 2020 sind. Dieser Artikel ist ein Auszug aus unserem Jahresbericht für 2019. Im vollständigen Jahresbericht, den Ihr [als PDF herunterladen](https://static.dacdn.de/docs/bericht-2019.pdf) könnt, erfahrt Ihr noch mehr.
 

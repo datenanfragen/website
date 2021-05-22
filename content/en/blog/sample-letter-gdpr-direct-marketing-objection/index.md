@@ -16,7 +16,7 @@ Advertising seems ubiquitous today: As soon as you open your mailbox or email in
 
 As the legal basis, these companies frequently rely on their "legitimate interest" or your consent—usually buried deep in a contract on a completely different subject.
 
-{{< img name="sample-letter-gdpr-direct-marketing-objection" alt="Sample letter for objections against direct marketing" >}}
+{{< featuredImg alt="Sample letter for objections against direct marketing" >}}
 
 Fortunately, you don't have to put up with that. According to the General Data Protection Regulation (GDPR), you have the right to object to direct marketing. This is clearly stated in Art. 21(2) GDPR. You may also rise this objection if you have previously given consent for direct marketing.
 
