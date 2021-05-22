@@ -39,21 +39,7 @@ Inspired by: https://gohugo.io/templates/shortcode-templates/#single-named-examp
         * Now, it becomes a question of weighing how many more breakpoints we want to support given the overhead. I
           decided to only support the default breakpoints in the Chromium DevTools (768px, 425px, and 320px).
         -->
-        <picture>
-            {{ range (slice "webp" "jpg") }}
-                <source srcset="
-                    {{- partial "functions/imgURL" (dict "page" $.Page "name" ($.Get "name") "command" "Resize" "options" (printf "784x %s" .)) }} 784w,
-                    {{- partial "functions/imgURL" (dict "page" $.Page "name" ($.Get "name") "command" "Resize" "options" (printf "881x %s" .)) }} 881w,
-                    {{- partial "functions/imgURL" (dict "page" $.Page "name" ($.Get "name") "command" "Resize" "options" (printf "691x %s" .)) }} 691w,
-                    {{- partial "functions/imgURL" (dict "page" $.Page "name" ($.Get "name") "command" "Resize" "options" (printf "383x %s" .)) }} 383w,
-                    {{- partial "functions/imgURL" (dict "page" $.Page "name" ($.Get "name") "command" "Resize" "options" (printf "288x %s" .)) }} 288w
-                "
-                sizes="(max-width: 320px) 288px, (max-width: 425px) 383px, (max-width: 768px) 691px, (max-width: 979px) 881px, 784px">
-            {{ end }}
-            {{ with .Page.Resources.GetMatch (printf "*%s*" (.Get "name")) }}
-                <img src="{{ (partial "functions/imgURL" (dict "page" $.Page "name" ($.Get "name"))) }}" alt="{{ $alt_text }}" title="{{ $alt_text }}" height="{{ .Height }}" width="{{ .Width }}">
-            {{ end }}
-        </picture>
+        {{ partial "picture" (dict "page" .Page "name" (.Get "name") "srcset" (slice 784 881 691 383 288) "sizes" (dict "288" 320 "383" 425 "691" 768 "881" 979) "fallback" 784 "alt_text" $alt_text) }}
     {{- else if .Get "url" -}}
         <img src="{{ .Get "url" }}" alt="{{ $alt_text }}" title={{ $alt_text }} />
     {{- else -}}

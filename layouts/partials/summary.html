@@ -3,21 +3,7 @@
         <div class="col25 article-featured-image">
             <a href="{{ .Permalink }}" class="no-link-decoration">
                 {{ if .Params.featured_image }}
-                    <picture>
-                        {{ range (slice "webp" "jpg" )}}
-                            <source srcset="
-                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "280x %s" .)) }} 280w,
-                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "375x %s" .)) }} 375w,
-                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "684x %s" .)) }} 684w,
-                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "874x %s" .)) }} 874w,
-                                    {{- partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image "command" "Resize" "options" (printf "230x %s" .)) }} 230w
-                                "
-                                sizes="(max-width: 320px) 280px, (max-width: 425px) 375px, (max-width: 768px) 684px, (max-width: 979px) 874px, 230px">
-                         {{ end }}
-                         {{ with .Page.Resources.GetMatch (printf "*%s*" .Params.featured_image) }}
-                            <img src="{{ (partial "functions/imgURL" (dict "page" $.Page "name" $.Params.featured_image)) }}" alt="{{ $.Params.title }}" height="{{ .Height }}" width="{{ .Width }}">
-                        {{ end }}
-                    </picture>
+                    {{ partial "picture" (dict "page" $.Page "name" $.Params.featured_image "srcset" (slice 280 375 684 874 230) "sizes" (dict "280" 320 "375" 425 "684" 768 "874" 979) "fallback" 230 "alt_text" $.Params.title) }}
                 {{ else }}
                     <img class="image" src="{{ .Params.featured_image_url }}" alt="{{ .Title }}">
                 {{ end }}
