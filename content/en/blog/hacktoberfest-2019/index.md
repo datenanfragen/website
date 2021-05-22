@@ -10,7 +10,7 @@
 
 The hosting provider DigitalOcean is once again hosting the [Hacktoberfest](https://hacktoberfest.digitalocean.com/) to celebrate open source. The Hacktoberfest invites you to submit pull requests to open source projects. People who submit four or more pull requests, get a free t-shirt from DigitalOcean.
 
-{{< img name="hacktoberfest-2019" alt="Hacktoberfest 2019 + Datenanfragen.de e. V." >}}
+{{< featuredImg alt="Hacktoberfest 2019 + Datenanfragen.de e. V." >}}
 
 In addition to this official event, every year many other companies and organizations also use the opportunity to participate in the Hacktoberfest and offer additional rewards for certain contributions.  
 Over here at datarequests.org, we [love open source]({{< ref "/open-source" >}}). Our project has been designed from the ground up to be as open as possible. We are thus very happy to announce that we are participating in the Hacktoberfest this year! We will reward contributions to our project that are made during October 2019 as a pull request through [GitHub](https://github.com/) with an exclusive sticker pack.

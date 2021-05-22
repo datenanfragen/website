@@ -1,0 +1,10 @@
+<!--
+Display the post's featured image. Importantly, the image is loaded eagerly, as opposed to the `img` shortcode which
+defaults to lazy loading.
+
+Parameters:
+    - `[alt]`: The text to set for the `alt` and `title` attributes of the image.
+-->
+{{ if or .Page.Params.featured_image .Page.Params.featured_image_url }}
+    {{ partial "img" (dict "page" .Page "name" .Page.Params.featured_image "url" .Page.Params.featured_image_url "alt" (.Get "alt") "loading" "eager") }}
+{{ end }}

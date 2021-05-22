@@ -13,6 +13,8 @@ With the following parameters:
     - `[alt]`: The text to set for the `alt` and `title` attributes of the image. Falls back to `[caption]` if not set.
     - `[caption]`: The caption to display underneath the image.
     - `[link]`: The URL that the image links to.
+    - `[loading]`: Whether to lazy-load the image (`eager` to load the image immediately, `lazy` to defer loading).
+                   Defaults to `lazy`.
 
 Only either `[name]` or `[url]` are required, all other commands are optional.
 
@@ -21,4 +23,4 @@ For a description of the `[name]` parameter, see the documentation for the `imgU
 Inspired by: https://gohugo.io/templates/shortcode-templates/#single-named-example-image
 -->
 
-{{ partial "img" (dict "page" .Page "name" (.Get "name") "url" (.Get "url") "class" (.Get "class") "alt" (.Get "alt") "caption" (.Get "caption") "link" (.Get "link")) }}
+{{ partial "img" (dict "page" .Page "name" (.Get "name") "url" (.Get "url") "class" (.Get "class") "alt" (.Get "alt") "caption" (.Get "caption") "link" (.Get "link") "loading" (.Get "loading")) }}

@@ -10,7 +10,7 @@
     "license": "cc-by-40"
 }
 
-{{< img name="wie-oft-anfragen" alt="Wie oft darf ich Anfragen stellen?" >}}
+{{< featuredImg alt="Wie oft darf ich Anfragen stellen?" >}}
 
 Vielleicht interessiert Dich öfters, welche Daten ein bestimmtes Unternehmen von Dir hat und Du möchtest mehrere Anträge stellen. Grundsätzlich gibt die DSGVO keine konkrete Höchstanzahl an möglichen Anträgen vor. Art. 12 Abs. 5 S. 2 DSGVO regelt aber, dass bei exzessiven Anträgen einer Person – insbesondere im Fall häufiger Wiederholung – der Verantwortliche, also das jeweilige Unternehmen, ein angemessenes Entgelt für den erhöhten Verwaltungsaufwand der Bearbeitung der Anfragen verlangen kann (ansonsten erfolgt die Auskunftserteilung ja unentgeltlich) oder sich weigern kann, aufgrund des Antrags tätig zu werden. Ob wiederholte Antragstellungen exzessiv und damit rechtsmissbräuchlich sind richtet sich danach, welches Recht Du geltend machen möchtest.
 

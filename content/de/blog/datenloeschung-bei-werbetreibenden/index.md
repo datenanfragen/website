@@ -13,7 +13,7 @@
 
 Nach Art. 17 DSGVO („[Recht auf Vergessenwerden]({{< ref "blog/your-gdpr-rights" >}}#recht-auf-vergessenwerden)“) hat man das Recht, dass die eigenen Daten gelöscht werden, sofern dem nicht wichtige Gründe entgegenstehen. Auf die Details zu den wichtigen Gründen wollen wir hier nicht eingehen, denn im Falle von Werbefirmen sind die Voraussetzungen in der Regel erfüllt.
 
-{{< img name="datenloeschung-werbetreibende.jpg" alt="Foto mehrerer Briefkästen, von denen einer mit Werbung überquillt. Darüber der Text: „Datenlöschung bei Werbetreibenden“" >}}
+{{< featuredImg alt="Foto mehrerer Briefkästen, von denen einer mit Werbung überquillt. Darüber der Text: „Datenlöschung bei Werbetreibenden“" >}}
 
 In der Praxis ist es allerdings gar nicht so einfach, die Daten wirklich löschen zu lassen. Das liegt daran, dass die Unternehmen nach Art. 5 Abs. 1 lit. f DSGVO („Verarbeitungsgrundsätze“) auch verpflichtet sind, sorgsam mit den Daten umzugehen und insbesondere vor unbeabsichtigtem Verlust zu schützen. Die Firmen werden deswegen die Daten nicht löschen, sondern stattdessen nach Art. 21 DSGVO („[Recht auf Werbewiderspruch]({{< ref "blog/sample-letter-gdpr-direct-marketing-objection" >}})“) sperren. Dieses Vorgehen wird von der Datenschutzkonferenz [ausdrücklich so empfohlen](https://www.datenschutzkonferenz-online.de/media/oh/20181107_oh_werbung.pdf).
 

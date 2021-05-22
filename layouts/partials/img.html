@@ -5,10 +5,8 @@ In addition to the parameters described there, when using an image resource, the
 the `page` parameter.
 -->
 
-{{- $alt_text := .caption -}}
-{{- if .alt -}}
-    {{- $alt_text = .alt -}}
-{{- end -}}
+{{- $alt_text := (default .caption .alt) -}}
+{{- $loading := (default "lazy" .loading) -}}
 
 <figure{{ with .class }} class="{{ . }}"{{ end }}>
     {{ with .link }}<a class="no-link-decoration" href="{{ . }}">{{ end -}}
@@ -26,9 +24,9 @@ the `page` parameter.
         * Now, it becomes a question of weighing how many more breakpoints we want to support given the overhead. I
           decided to only support the default breakpoints in the Chromium DevTools (768px, 425px, and 320px).
         -->
-        {{ partial "picture" (dict "page" .page "name" .name "srcset" (slice 784 881 691 383 288) "sizes" (dict "288" 320 "383" 425 "691" 768 "881" 979) "fallback" 784 "alt_text" $alt_text) }}
+        {{ partial "picture" (dict "page" .page "name" .name "srcset" (slice 784 881 691 383 288) "sizes" (dict "288" 320 "383" 425 "691" 768 "881" 979) "fallback" 784 "alt_text" $alt_text "loading" $loading) }}
     {{- else if .url -}}
-        <img src="{{ .url }}" alt="{{ $alt_text }}" title={{ $alt_text }} />
+        <img src="{{ .url }}" alt="{{ $alt_text }}" title="{{ $alt_text }}"{{ if eq $loading "lazy" }} loading="lazy"{{ end }}>
     {{- else -}}
         {{ errorf "You need to specify either the `name` or `url` parameter: %s" .Position}}
     {{- end -}}

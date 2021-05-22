@@ -14,7 +14,7 @@
 
 Was sind die Besonderheiten des Datenschutzrechts in Portugal? Dieser Artikel gibt einen Überblick über die Eigenheiten des Datenschutzrechts in Portugal, insbesondere in Bezug auf die europäische Datenschutzgrundverordnung (DSGVO).
 
-{{< img name="datenschutzrecht-portugal" alt="Datenschutzrecht in Portugal" >}}
+{{< featuredImg alt="Datenschutzrecht in Portugal" >}}
 
 ## Was ist die DSGVO?
 

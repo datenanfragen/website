@@ -14,7 +14,7 @@
 
 Wer darf Betroffenenrechte geltend machen? Gegen wen? Dieser Artikel gibt einen kurzen Überblick über den räumlichen Anwendungsbereich der DSGVO.
 
-{{< img name="dsgvo-raeumlicher-anwendungsbereich" alt="Räumlicher Anwendungsbereich der DSGVO" >}}
+{{< featuredImg alt="Räumlicher Anwendungsbereich der DSGVO" >}}
 
 ## Was ist die DSGVO? 
 

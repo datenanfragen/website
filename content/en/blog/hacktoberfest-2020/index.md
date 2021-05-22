@@ -11,7 +11,7 @@
 
 It's that time again: The [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2020 is coming up, as always hosted by the hosting provider DigitalOcean. The aim is to get people excited about working on open source software as usual. The Hacktoberfest invites you to submit pull requests to open source projects during October 2020. Those who submit four or more pull requests will receive a t-shirt from DigitalOcean as a gift or can plant a tree.
 
-{{< img name="hacktoberfest-2020" alt="Hacktoberfest 2020 + Datenanfragen.de e. V." >}}
+{{< featuredImg alt="Hacktoberfest 2020 + Datenanfragen.de e. V." >}}
 
 It has almost become a tradition for other companies to participate in addition to this official event and to offer their own rewards for contributions to their respective open source projects.  
 After the great success of our participation last year, we are pleased to announce that we will again participate in the Hacktoberfest this year. datarequests.org loves [open source]({{< ref "/open-source" >}}) and the people who contribute to the project are very important to us. That's why we will reward contributions to the project that are submitted during October 2020 as a pull request via [GitHub](https://github.com/) or as a patch via email. Find out more in this post.

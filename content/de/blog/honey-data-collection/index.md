@@ -13,7 +13,7 @@
 
 **Die kostenlose Browser-Erweiterung „Honey“ möchte ihren Nutzer_innen durch das automatische Suchen von Gutschein-Codes Geld sparen. Honey beschreibt sich selbst als datenschutzfreundlich und sammelt angeblich nur Daten zum Surfverhalten auf Online-Shopping-Webseiten. Zwei unserer Mitglieder, die Honey genutzt hatten, haben mithilfe der DSGVO Auskunft über die Daten angefragt, die zu ihnen gesammelt wurden. Unsere Auswertung der Antworten zeigt, dass Honey entgegen der eigenen Angaben in großem Stil Browser-Verlaufsdaten sammelt. Deshalb haben wir Beschwerde bei den Datenschutzaufsichtsbehörden eingelegt.**
 
-{{< img name="honey-beobachtet-dich-beim-surfen" alt="Foto von mehreren Imker_innen, die Bienen beobachten, darüber der Text: „Gutschein-Erweiterung Honey sammelt auch Browser-Verlaufsdaten“" >}}
+{{< featuredImg alt="Foto von mehreren Imker_innen, die Bienen beobachten, darüber der Text: „Gutschein-Erweiterung Honey sammelt auch Browser-Verlaufsdaten“" >}}
 
 „Hör auf Geld rauszuwerfen – Honey hilft dir, einige der besten Coupon-Codes auf über 30.000 Websites zu finden.“ Mit diesen Worten bewirbt Honey das eigene Produkt auf seiner Startseite. Die kostenlose Browser-Erweiterung wird auf YouTube und anderen Plattformen kräftig beworben. Die Idee ist keine neue. Webseiten, die Gutschein-Codes für allerlei Online-Shops sammeln und veröffentlichen, gibt es schon lange.
 

@@ -11,7 +11,7 @@
 
 **The free browser extension "Honey" wants to save their users money by automatically finding and applying coupon codes. They describe themselves as advocates for data protection and allegedly only collect history data on online shopping websites. Two of our members who have used Honey in the past, have asked for access to the data saved on them using the GDPR. Our analysis of the responses shows that Honey collects history data on a large scale, contrary to what their own privacy policy says. Thus, we have submitted complaints with the data protection authorities.**
 
-{{< img name="honey-watches-you-while-browsing" alt="Photo of multiple beekeepers who watch their bees, above that the text: “Coupon code extension Honey also collects browser history data”" >}}
+{{< featuredImg alt="Photo of multiple beekeepers who watch their bees, above that the text: “Coupon code extension Honey also collects browser history data”" >}}
 
 "Stop wasting money – Honey helps you find some of the best coupon codes on 30,000+ sites." That's how Honey describe themselves on their homepage. The free browser extension is heavily advertised on YouTube and other websites. The idea behind it is nothing new. There have been websites that collect coupon codes for various online shops for a long time.
 

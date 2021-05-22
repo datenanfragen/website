@@ -12,7 +12,7 @@
 
 Who is entitled to assert the GDPR's data subject rights? Against whom? This article provides a brief overview of the territorial scope of the GDPR.
 
-{{< img name="gdpr-territorial-scope" alt="Territorial scope of the GDPR" >}}
+{{< featuredImg alt="Territorial scope of the GDPR" >}}
 
 ## What is the GDPR? 
 

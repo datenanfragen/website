@@ -12,7 +12,7 @@
 
 **Beschweren lohnt sich: Die ABIS GmbH, ein Adressmanagement-Tochterunternehmen der Deutschen Post und Bertelsmann, hatte bisher für Selbstauskünfte nach der DSGVO eine unterschriebene Anfrage verlangt und die Antworten nur per Post verschickt. Nach einer erfolgreichen Beschwerde bei den Datenschutz-Aufsichtsbehörden wurde dieses rechtswidrige Verhalten nun eingestellt.**
 
-{{< img name="abis-beschwerde-unterschrift.jpg" alt="Foto eines Blatts Paper, auf dem eine Person gerade unterschreibt. Darüber der Text: „Beschwerde gegen ABIS: Unterschrift für DSGVO-Anfragen nicht nötig“" >}}
+{{< featuredImg alt="Foto eines Blatts Paper, auf dem eine Person gerade unterschreibt. Darüber der Text: „Beschwerde gegen ABIS: Unterschrift für DSGVO-Anfragen nicht nötig“" >}}
 
 Die [ABIS GmbH]({{< ref "company/abis" >}}) bietet als Tochter der [Deutsche Post Adress GmbH & Co. KG]({{< ref "company/deutsche-post-adress" >}}) sogenanntes *Adressmanagement* an. Sie prüft für Unternehmen die Adressen von deren Kund_innen auf Richtigkeit und aktualisiert sie etwa im Falle von Umzügen. Für Verbraucher_innen ist es also wichtig zu wissen, welche Daten ABIS zu ihnen speichert.
 

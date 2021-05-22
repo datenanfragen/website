@@ -10,7 +10,7 @@
 
 In our [investigation on Honey]({{< ref "blog/honey-data-collection" >}}), we have shown that the browser extension collects their users' data on a large scale. Regardless of whether an account has been registered or not, the add-on dilligently logs page views on plenty of websites and sends them to the company behind the extension, [Honey Science LLC]({{< ref "company/joinhoney" >}}), a US company that was recently [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
 
-{{< img name="honey.jpg" alt="Photo of a lot of bees that rush to a drop of sugar water, above that the text: “Honey, the data hoarder—request your data now”" >}}
+{{< featuredImg alt="Photo of a lot of bees that rush to a drop of sugar water, above that the text: “Honey, the data hoarder—request your data now”" >}}
 
 ## How can I request my data?
 
