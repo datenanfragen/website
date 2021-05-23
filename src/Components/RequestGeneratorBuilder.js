@@ -557,7 +557,8 @@ export default class RequestGeneratorBuilder extends Component {
     storeRequest = () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             this.savedIdData.storeArray(this.state.request.id_data);
-            this.savedIdData.storeSignature(this.state.request.signature);
+            // Don't clear the saved signature if the signature was only cleared for this request (#182).
+            if (this.state.request.signature.value) this.savedIdData.storeSignature(this.state.request.signature);
         }
 
         this.state.request.store();
