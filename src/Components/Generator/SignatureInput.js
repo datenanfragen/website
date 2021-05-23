@@ -71,16 +71,18 @@ export default class SignatureInput extends Component {
                 const top = (this.canvas.height - img.height) / 2;
                 this.clear();
                 this.context.drawImage(img, left, top);
-                this.setState({
-                    isEmpty: false,
-                    cropArea: {
-                        top,
-                        bottom: img.height + top,
-                        left,
-                        right: img.width + left,
+                this.setState(
+                    {
+                        isEmpty: false,
+                        cropArea: {
+                            top,
+                            bottom: img.height + top,
+                            left,
+                            right: img.width + left,
+                        },
                     },
-                });
-                this.handleChange();
+                    () => this.handleChange()
+                );
             };
             img.src = signature.value;
         }
@@ -108,8 +110,7 @@ export default class SignatureInput extends Component {
     clear() {
         if (this.state.isEmpty) return;
         this.context.clearRect(0, 0, this.state.width, this.state.height);
-        this.setState({ isEmpty: true, cropArea: this.initialCropArea });
-        this.handleChange();
+        this.setState({ isEmpty: true, cropArea: this.initialCropArea }, () => this.handleChange());
     }
 
     render() {
