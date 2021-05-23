@@ -92,8 +92,8 @@ canvas {
 // mean, good on you for adhering to the spec. But still. Come on.
 // Anyway, that is why we are URL-encoding the `#` here (inspired by: https://codepen.io/kevinweber/pen/dXWoRw).
 $required-asterisk-svg: str-replace(
-    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='" +
-        $accent-color + "' font-size='20' font-family='FiraGO'>*</text></svg>",
+    'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="9.5" width="10"><path d="M10 4.45l-.7-2.07-3.56 1.57L6.12 0H3.86l.38 3.93L.68 2.4 0 4.45l3.81.83L1.23 8.2l1.8 1.3L5 6.15 6.97 9.5l1.8-1.32-2.6-2.9z" fill="' +
+        $accent_color + '"/></svg>',
     '#',
     '%23'
 );
@@ -114,15 +114,11 @@ $required-asterisk-svg: str-replace(
     }
 
     &:required {
-        background: $bg-color url($required-asterisk-svg) no-repeat right;
+        background: $bg-color url($required-asterisk-svg) no-repeat;
+        background-position: top 8px right 5px;
         padding-right: 20px;
         box-shadow: none !important;
     }
-}
-textarea:required {
-    background: $bg-color url($required-asterisk-svg) no-repeat;
-    background-position: top 12px right 0;
-    box-shadow: none !important;
 }
 textarea.form-element {
     max-width: 100%;
