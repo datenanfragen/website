@@ -1,0 +1,67 @@
+/*
+  FiraGO 1.001 (https://bboxtype.com/typefaces/FiraGO)
+  Digitized data copyright 2012–2018 for FiraGO, bBox Type GmbH and HERE Europe B.V. All rights reserved, with Reserved Font Name "Fira" / Digitized data copyright 2012–2018 for Fira Sans The Mozilla Foundation, Telefonica S.A., Carrois Corporate GbR and bBox Type GmbH, with Reserved Font Name "Fira"
+  License: SIL Open Font License 1.1 (http://scripts.sil.org/OFL)
+*/
+
+@font-face {
+    font-family: 'FiraGO';
+    src: url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Italic.eot'); /* IE9 Compat Modes */
+    src: local('FiraGO Italic'), local('FiraGO-Italic'),
+        url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Italic.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */ url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Italic.woff2') format('woff2'),
+        /* Modern Browsers */ url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Italic.woff') format('woff'),
+        /* Modern Browsers */ url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Italic.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FiraGO';
+    src: url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Regular.eot'); /* IE9 Compat Modes */
+    src: local('FiraGO Regular'), local('FiraGO-Regular'),
+        url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */ url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Regular.woff2') format('woff2'),
+        /* Modern Browsers */ url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Regular.woff') format('woff'),
+        /* Modern Browsers */ url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FiraGO';
+    src: url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-SemiBold.eot'); /* IE9 Compat Modes */
+    src: local('FiraGO SemiBold'), local('FiraGO-SemiBold'),
+        url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-SemiBold.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */ url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-SemiBold.woff2') format('woff2'),
+        /* Modern Browsers */ url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-SemiBold.woff') format('woff'),
+        /* Modern Browsers */ url('https://static.dacdn.de/fonts/fira-go/FiraGO-1001-SemiBold.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*
+  Spartan MB 1.005 (https://www.mtbailey.com/portfolio/spartan.html)
+  Copyright 2020 The Spartan Project Authors (https://github.com/MattBaileyDesign/Spartan-MB/tree/V-1.005), designed by Matt Bailey and Mirko Velimirovic, with Reserved Font Name Spartan MB
+  License: SIL Open Font License 1.1 (https://scripts.sil.org/OFL)
+*/
+
+@font-face {
+    font-family: 'Spartan MB';
+    font-style: normal;
+    font-weight: 800;
+    src: url('https://static.dacdn.de/fonts/spartan-mb/SpartanMB-1005-ExtraBold.eot'); /* IE9 Compat Modes */
+    src: local('Spartan MB ExtraBold'), local('Spartan MB-ExtraBold'), local('SpartanMB ExtraBold'),
+        local('SpartanMB-ExtraBold'), local('Spartan ExtraBold'), local('Spartan-ExtraBold'),
+        url('https://static.dacdn.de/fonts/spartan-mb/SpartanMB-1005-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */ url('https://static.dacdn.de/fonts/spartan-mb/SpartanMB-1005-ExtraBold.woff') format('woff'),
+        /* Modern Browsers */ url('https://static.dacdn.de/fonts/spartan-mb/SpartanMB-1005-ExtraBold.woff2')
+            format('woff2'),
+        /* Modern Browsers */ url('https://static.dacdn.de/fonts/spartan-mb/SpartanMB-1005-ExtraBold.ttf')
+            format('truetype'); /* Safari, Android, iOS */
+    text-rendering: optimizeLegibility;
+    font-display: swap;
+}
