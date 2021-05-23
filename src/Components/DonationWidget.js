@@ -192,19 +192,21 @@ export default class DonationWidget extends Component {
                         <td>{renderMoney(this.state.amount)}&nbsp;€</td>
                     </tr>
                 </table>
-                <h2>
-                    <Text id="bank-transfer-qrcodes" />
-                </h2>
-                <div id="bank-transfer-qrcodes">
-                    <div id="bank-transfer-epcr-qrcode" className="bank-transfer-qrcode">
-                        <strong>EPCR-QR-CODE</strong>
-                        <canvas id="epcr-qr-canvas" ref={(el) => (this.epcr_canvas_ref = el)} />
+                <div id="bank-transfer-qrcode-section">
+                    <h2>
+                        <Text id="bank-transfer-qrcodes" />
+                    </h2>
+                    <div id="bank-transfer-qrcodes">
+                        <div id="bank-transfer-epcr-qrcode" className="bank-transfer-qrcode">
+                            <strong>EPCR-QR-CODE</strong>
+                            <canvas id="epcr-qr-canvas" ref={(el) => (this.epcr_canvas_ref = el)} />
+                        </div>
+                        <div id="bank-transfer-bezahlcode-qrcode" className="bank-transfer-qrcode">
+                            <strong>BezahlCode</strong>
+                            <canvas id="bezahlcode-qr-canvas" ref={(el) => (this.bezahlcode_canvas_ref = el)} />
+                        </div>
+                        <div className="clearfix"></div>
                     </div>
-                    <div id="bank-transfer-bezahlcode-qrcode" className="bank-transfer-qrcode">
-                        <strong>BezahlCode</strong>
-                        <canvas id="bezahlcode-qr-canvas" ref={(el) => (this.bezahlcode_canvas_ref = el)} />
-                    </div>
-                    <div className="clearfix"></div>
                 </div>
                 <button
                     id="donation-widget-back-button"
@@ -240,9 +242,7 @@ export default class DonationWidget extends Component {
         const style = `<style>
 #bank-transfer-data-table td { border: 1px solid #000; padding: 10px; }
 .button { display: none; }
-#bank-transfer-qrcodes { margin: auto; max-width: 672px; }
-.bank-transfer-qrcode { float: left; text-align: center; margin: 40px; }
-.bank-transfer-qrcode canvas { display: block; }
+#bank-transfer-qrcode-section { display: none; }
 </style>`;
         print_window.document.write(style + content.innerHTML);
 
