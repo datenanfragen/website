@@ -32,7 +32,7 @@
     "scripts": {
         "build": "cross-env BABEL_ENV=production; webpack --mode=production --config webpack.prod.js",
         "dev": "webpack --watch --mode=development --config webpack.dev.js",
-        "soundness-check": "regex=\"^[><=]{7}( |$)\";command -v rg > /dev/null && rg \"$regex\" --no-binary --ignore --line-number && exit 1 || grep -E \"$regex\" -H -I --line-number -r --exclude-dir=node_modules && exit 1 || exit 0 # Check for merge conflict artifacts, inspired by: https://stackoverflow.com/a/42584779 and https://stackoverflow.com/a/677212",
+        "merge-conflict-artifact-check": "./scripts/merge-conflict-artifact-check.sh",
         "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint assets/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix",
         "prettier": "prettier --write src/**/*.{js,css,scss,json}",
@@ -119,7 +119,7 @@
     ],
     "husky": {
         "hooks": {
-            "pre-commit": "yarn soundness-check && lint-staged"
+            "pre-commit": "yarn merge-conflict-artifact-check && lint-staged"
         }
     },
     "lint-staged": {
