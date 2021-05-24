@@ -15,7 +15,7 @@ export default class RecipientInput extends Component {
                             type="email"
                             id="request-recipient"
                             className="form-element"
-                            placeholder={t('recipient', 'generator')}
+                            placeholder={t(`recipient-${this.props.transportMedium}`, 'generator')}
                             onChange={this.props.onEmailChange}
                             value={this.props.email}
                         />
@@ -23,7 +23,7 @@ export default class RecipientInput extends Component {
                         <textarea
                             id="request-recipient"
                             className="form-element"
-                            placeholder={t('recipient', 'generator')}
+                            placeholder={t(`recipient-${this.props.transportMedium}`, 'generator')}
                             rows="4"
                             spellCheck="false"
                             onChange={this.props.onAddressChange}
