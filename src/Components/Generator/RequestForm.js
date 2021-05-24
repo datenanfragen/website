@@ -210,7 +210,12 @@ export default class RequestForm extends Component {
                                             id="request-date"
                                             className="form-element"
                                             onChange={(e) => this.props.onChange({ date: e.target.value })}
+                                            onBlur={(e) =>
+                                                !e.target.value &&
+                                                this.props.onChange({ date: new Date().toISOString().substring(0, 10) })
+                                            }
                                             value={this.props.request_data['date']}
+                                            required
                                         />
                                     </div>
                                     <div className="form-group">
