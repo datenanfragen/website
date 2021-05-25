@@ -577,7 +577,10 @@
         "download-pdf-first": "Najprije preuzmi PDF",
         "download-pdf-again": "Ponovo preuzmi PDF",
         "download-pdf": "Preuzmi PDF",
-        "reference": "Znak"
+        "reference": "Znak",
+        "recipient-fax": "Primatelj (adresa i broj faksa)",
+        "recipient-letter": "Primatelj (adresa)",
+        "recipient-email": "Primatelj (email adresa)"
     },
     "my-requests": {
         "more": "više",
