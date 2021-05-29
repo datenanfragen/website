@@ -1,3 +1,4 @@
+import { isOn, skipOn } from '@cypress/skip-test';
 /*
  * In #507, we noticed that an empty date in the generator causes an error in 'My requests' as parsing the empty date
  * will fail.
@@ -5,6 +6,8 @@
 
 describe('Requests without a date should not be allowed', () => {
     it('Deleting the date should reset to today', () => {
+        skipOn(isOn('production'));
+
         cy.visit('/generator');
 
         cy.contains('Information block').click();
