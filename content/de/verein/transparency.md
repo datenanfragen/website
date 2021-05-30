@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 26. August 2020.
+Die Informationen sind auf dem Stand vom 30. Mai 2021.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
@@ -50,6 +50,7 @@ Die Geschäftsführung des Vereins haben die Vorsitzenden des [Vorstands]({{< re
 
 ## 5. Tätigkeitsbericht
 
+s. [Jahresbericht 2020 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=5)  
 s. [Jahresbericht 2019 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
 s. [Jahresbericht 2018 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=5)
 
@@ -61,14 +62,17 @@ Anzahl Ehrenamtliche: 3
 
 ## 7. Angaben zur Mittelherkunft
 
+s. [Jahresbericht 2020 (S. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
+Vermögensstand Ende 2020: 327,78 €  
 Vermögensstand Ende 2019: 87,90 €  
 Vermögensstand Ende 2018: 119,70 €
 
 ## 8. Angaben zur Mittelverwendung
 
+s. [Jahresbericht 2020 (S. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
@@ -79,6 +83,17 @@ Der Verein steht in keinerlei gesellschaftsrechtlicher Verbundenheit mit Dritten
 ## 10. Namen von Personen, deren jährliche Zahlungen mehr als 10 % des Gesamtjahresbudgets ausmachen
 
 Diese Informationen veröffentlichen wir jährlich zusammen mit dem Jahresbericht.
+
+### 2020
+
+#### Natürliche Personen
+
+- Anonyme Spende und Mitgliedsbeitrag: 210,00 € (27,9 %)
+- Anonyme Spende und Mitgliedsbeitrag: 167,00 € (22,2 %)
+
+#### Juristische Personen
+
+- Spende und Mitgliedsbeitrag der KlexHub UG (haftungsbeschränkt): 81,80 € (10,9 %)
 
 ### 2019
 
