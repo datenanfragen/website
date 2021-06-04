@@ -21,7 +21,7 @@ Germany
 **Zakonski predstavnici:** Benjamin Altpeter i Lorenz Sieben  
 Datenanfragen.de e.&nbsp;V. je neprofitna organizacija i registrirana je udruga u okružnom sudu u Braunschweigu, pod matičnim brojem VR&nbsp;201732, i od porezne uprave Braunschweig-Wilhelmstraße potvrđena kao dobrotvorna organizacija.
 
-**Odgovornost za sadržaj prema članku 55. stavka 2. Njemačkog međudržavnog ugovora o emitiranju (RStV):**  
+**Odgovornost za sadržaj prema članku 55. stavka 2. Njemačkog MStV:**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Deutschland
 
 <div class="box box-warning">
