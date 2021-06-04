@@ -148,7 +148,10 @@
         "copymanually-explanation": "Ici, vous pouvez copier manuellement le sujet, le destinataire et le texte de votre courriel généré.",
         "body": "Texte",
         "delete-field": "Supprimer ce champ",
-        "add-fill-field": "Complète tes données sauvegardées"
+        "add-fill-field": "Complète tes données sauvegardées",
+        "recipient-fax": "Destinataire (adresse et numéro de télécopie)",
+        "recipient-letter": "Destinataire (adresse)",
+        "recipient-email": "Destinataire (adresse e-mail)"
     },
     "privacy-controls": {
         "title": "Options de confidentialité",
@@ -799,7 +802,8 @@
         "license": "Licence",
         "404-alt": "Une personne assise sur le 0 d'un grand panneau 404. Elle tient un livre avec une page manquante.",
         "cdb-warning-unverified": "<strong>Avertissement</strong> : Nous<em>n'avons pas</em> vérifié les informations de cet enregistrement, elles ont été importées automatiquement. Quelque-chose ne va pas ? Nous apprécierons beaucoup si tu <a href='{{ .editUrl }}'>envoyais une correction</a>. Merci pour ton aide !",
-        "church": "église"
+        "church": "église",
+        "noscript-actwidget": "Voici un outil permettant de générer rapidement des demandes relatives au RGPD. Il ne fonctionne que sur votre ordinateur et est entièrement écrit en JavaScript. Si vous souhaitez l'utiliser, veuillez activer JavaScript dans votre navigateur. Si cela ne fonctionne toujours pas malgré tout, envoyez-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
