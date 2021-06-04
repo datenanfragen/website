@@ -19,7 +19,7 @@ Germany
 **Legally represented by:** Benjamin Altpeter and Lorenz Sieben  
 Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associations of the district court of Braunschweig, under the registration number VR&nbsp;201732, and recognized as a charitable organisation by the Braunschweig-Wilhelmstraße tax office.
 
-**Responsible for the content according to § 55(2) of German Interstate Broadcasting Treaty (RStV):**  
+**Responsible for the content according to § 18(2) of German State Media Treaty (RStV):**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
 
 <div class="box box-warning">
