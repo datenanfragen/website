@@ -1,3 +1,5 @@
+import FlashMessage, { flash } from 'Components/FlashMessage';
+
 // Our email hoster Uberspace has a spam filter that cannot be disabled and that doesn't like JSON. We have had problems
 // in the past with error reports being marked as spam and not being delivered to us. Thus, we employ this function to
 // make our JSON look as little like JSON as possible.
@@ -70,6 +72,16 @@ function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
 try {
     const handler = (event) => {
         try {
+            if (event.error.message === 'Network Error') {
+                if (!window.navigator.onLine) {
+                    // seems like we don't have a network connection in the first place
+                    // show a little message to the user
+                    // TODO: while typing these stack up quite fast, but I don't want to handle state in an error handler
+                    // also the UX of the messages isn't great on mobile
+                    flash(<FlashMessage type="error">{I18N_DEFINITION['error-handler']['no-internet']}</FlashMessage>);
+                    return;
+                }
+            }
             // This is horrendous. It is however the easiest (and worryingly cleanest) way I see to achieve the intended result here as the (interesting) properties of the `Error` object are not enumerable and JSON.stringify() only encodes enumerable properties.
             const debug_info = JSON.parse(
                 JSON.stringify(event, [

@@ -419,7 +419,8 @@
         "privacy": "Für weitere Informationen dazu, welche Daten Fehlermeldungen enthalten und wie wir diese verarbeiten, schau Dir bitte unsere <a href='/privacy#fehlermeldungen' target='_blank'>Datenschutzerklärung</a> an.",
         "explain-context": "Bitte gib uns wenn möglich ein bisschen Kontext für Deine Fehlermeldung. Beschreib also z. B., was Du getan hast, bevor der Fehler aufgetreten ist. Bitte entferne auch alle privaten Daten aus den Debuginformationen weiter unten.",
         "report-on-github": "Über GitHub melden",
-        "report-via-email": "Per E-Mail melden"
+        "report-via-email": "Per E-Mail melden",
+        "no-internet": "Es scheint so, als hättest Du gerade keine Internetverbindung."
     },
     "error-msg": {
         "company-not-found": "Das gewünschte Unternehmen wurde nicht gefunden.",
