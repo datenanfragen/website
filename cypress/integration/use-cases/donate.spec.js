@@ -27,5 +27,5 @@ describe('Using the donate function', () => {
         cy.contains('Download simplified').clickLinkWithoutFollowingHref();
     });
 
-    // TODO: check QR codes
+    // TODO: check QR codes.
 });
