@@ -1,5 +1,5 @@
 describe('Using the donate function', () => {
-    it("let's users donate via bank transfer", () => {
+    it('lets users donate via bank transfer', () => {
         cy.visit('/donate');
         cy.contains('10 €').click();
         cy.get('#donation-widget-amount').should('have.value', 10);
@@ -17,13 +17,25 @@ describe('Using the donate function', () => {
             'contain.text',
             'Datenanfragen.de e. V.'
         );
-        cy.contains('Donation verification').click();
-        cy.url().should('include', '/thanks');
-        cy.contains('Request donation')
-            .should('have.attr', 'href')
-            .should('match', /^mailto:vorstand@datenanfragen\.de.*donation.*receipt/);
+        cy.get('#bank-transfer-data-table > tr:nth-child(5) > td:nth-child(2)')
+            .invoke('text')
+            .then((t) => {
+                const donation_table_text = t.split(' ');
+                assert(donation_table_text[0] === 'Donation');
+                const reference = donation_table_text[1];
+                cy.contains('Donation verification').click();
+                cy.url().should('match', new RegExp(`/thanks.*${reference}`));
+                cy.contains('Request donation')
+                    .should('have.attr', 'href')
+                    .should(
+                        'match',
+                        new RegExp(`^mailto:vorstand@datenanfragen\\.de.*${reference}.*donation.*receipt`)
+                    );
+            });
         cy.contains('Request donation').clickLinkWithoutFollowingHref();
-        cy.contains('Download simplified').should('have.attr', 'href').should('match', /.pdf$/);
+        cy.contains('Download simplified')
+            .should('have.attr', 'href')
+            .should('match', /\.pdf$/);
         cy.contains('Download simplified').clickLinkWithoutFollowingHref();
     });
 
