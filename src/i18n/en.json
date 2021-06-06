@@ -556,7 +556,8 @@
         "change-lang": "Change language",
         "stay": "Stay here",
         "not-supported-prompt": "Your language or country is not supported yet?",
-        "not-supported-cta": "Help us support it!"
+        "not-supported-cta": "Help us support it!",
+        "recommend-language": "This page is also available in other languages!"
     },
     "comments": {
         "comments": "Comments",
