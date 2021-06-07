@@ -386,7 +386,7 @@
     },
     "privacy-controls": {
         "title": "Privacy controls",
-        "explanation": "<p>We deeply value your right to privacy and try to limit data collection and processing as much as possible. Most of the features on datarequests.org will be run directly on your computer and the data you enter will never even reach our servers. There are however some features we cannot offer without collecting some data (most settings even on FUSS e.Ve <strong>do not</strong> require that, though).<br>Here, you have the option to decide yourself which features you want to enable.</p><p>When you set any of the options below, your choice will be saved in a cookie. If we don’t find a cookie for an option, we use a default value which we have decided on.</p>",
+        "explanation": "<p>We deeply value your right to privacy and try to limit data collection and processing as much as possible. Most of the features on datarequests.org will be run directly on your computer and the data you enter will never even reach our servers. There are however some features we cannot offer without collecting some data (most settings even on this page <strong>do not</strong> require that, though).<br>Here, you have the option to decide yourself which features you want to enable.</p><p>When you set any of the options below, your choice will be saved in a cookie. If we don’t find a cookie for an option, we use a default value which we have decided on.</p>",
         "clear-cookies": "Clear all cookies",
         "clear-my-requests": "Clear all saved requests",
         "confirm-delete-my-requests": "You have disabled the “my requests” feature. Do you also want to delete all saved requests?",
