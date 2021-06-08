@@ -5,13 +5,13 @@ describe('Using the donate function', () => {
         cy.get('#donation-widget-amount').should('have.value', 10);
         cy.get('#donation-widget-amount-section > div:nth-child(3) > span:nth-child(1)')
             .invoke('text')
-            .should('match', /\b10.00\b/);
+            .should('match', /\b10\.00\b/);
         cy.contains('Bank transfer').click();
         cy.contains('To the next step').click();
         cy.contains('Payment information');
         cy.get('#bank-transfer-data-table > tr:nth-child(6) > td:nth-child(2)')
             .invoke('text')
-            .should('match', /^10.00/);
+            .should('match', /^10\.00/);
         cy.get('#bank-transfer-data-table > tr:nth-child(2) > td:nth-child(2)').should(
             'have.text',
             'DE42 8306 5408 0104 0851 40'
