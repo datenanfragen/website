@@ -3,6 +3,9 @@ describe('Using the donate function', () => {
         cy.visit('/donate');
         cy.contains('10 €').click();
         cy.get('#donation-widget-amount').should('have.value', 10);
+        cy.get('#donation-widget-amount-section > div:nth-child(3) > span:nth-child(1)')
+            .invoke('text')
+            .should('match', /\b10.00\b/);
         cy.contains('Bank transfer').click();
         cy.contains('To the next step').click();
         cy.contains('Payment information');
