@@ -1,11 +1,23 @@
+==============================================================
+Request for erasure of personal data according to Art. 17 GDPR
+==============================================================
+
+Here is your GDPR sample letter provided by datarequests.org.
+The passages in [square brackets] are optional; you can decide yourself whether you want to include them. You still have to fill in the data in {curly braces}.
+Afterwards, just delete this explanation and send your request.
+
+---
+
 To Whom It May Concern:
 
 I am hereby requesting immediate erasure of personal data concerning me according to Article 17 GDPR.
 
 [Please erase all personal data concerning me as defined by Article 4(1) GDPR.]
-[Please delete the following personal data concerning me: {Specify the data to be deleted.}]
 
-I am of the opinion that the requirements set forth in Article 17(1) GDPR are fulfilled. You cannot claim an expection based on Article 17(3) GDPR either, particularly as I am not a public figure.
+[Please delete the following personal data concerning me:
+{Specify the data to be deleted here.}]
+
+I am of the opinion that the requirements set forth in Article 17(1) GDPR are fulfilled. You cannot claim an exception based on Article 17(3) GDPR either, particularly as I am not a public figure.
 
 If I have given consent to the processing of my personal data (e.g. according to Article 6(1) or Article 9(2) GDPR), I am hereby withdrawing said consent for the entire process.
 In addition, I am objecting to the processing of personal data concerning me (which includes profiling), according to Article 21 GDPR. I request that you restrict the processing of the data concerning me pending the verification whether your legitimate grounds override mine, pursuant to Art. 18(1)(d) GDPR.
@@ -25,7 +37,7 @@ I am including the following information necessary to identify me:
 
 If you do not answer my request within the stated period, I am reserving the right to take legal action against you and to lodge a complaint with the responsible supervisory authority.
 
- Thank you in advance.
+Thank you in advance.
 
 Yours sincerely,
-{Your name}
+{Enter your name here.}
