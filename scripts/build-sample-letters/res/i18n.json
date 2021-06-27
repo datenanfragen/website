@@ -7,6 +7,7 @@
         "sample-sender-address": "{Enter your address here.}",
         "sample-recipient-address": "{Enter the company’s address here.}",
         "sample-reference-line": "My reference: {Enter reference here.}",
+        "sample-date-line": "Date: {Enter date here.}",
         "sample-your-name": "{Enter your name here.}",
 
         "page": "Page",
@@ -70,6 +71,7 @@
         "sample-sender-address": "{Hier Deine Adresse eintragen.}",
         "sample-recipient-address": "{Hier die Adresse des Unternehmens eintragen.}",
         "sample-reference-line": "Mein Zeichen: {Hier Zeichen eintragen.}",
+        "sample-date-line": "Datum: {Hier Datum eintragen.}",
         "sample-your-name": "{Hier Deinen Namen eintragen.}",
 
         "page": "Seite",

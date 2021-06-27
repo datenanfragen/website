@@ -17,4 +17,5 @@ module.exports = {
         }
         return result.replace(/<.+?>/gmu, '');
     },
+    mm2pt: (mm) => (72.0 / 25.4) * mm,
 };
