@@ -1,3 +1,14 @@
+===================================================================
+Antrag auf Berichtigung personenbezogener Daten gemäß Art. 16 DSGVO
+===================================================================
+
+Hier ist Dein DSGVO-Musterbrief von Datenanfragen.de.
+
+Die Passagen in [eckigen Klammern] sind optional; hier kannst Du selbst entscheiden, ob Du diese übernehmen möchtest. Die Daten in {geschweiften Klammern} musst Du noch ausfüllen.
+Anschließend nur noch diesen Hinweiskasten entfernen und abschicken.
+
+---
+
 Guten Tag,
 
 ich stelle hiermit Antrag auf Berichtigung bzw. Vervollständigung mich betreffender unrichtiger personenbezogener Daten nach Art. 16 DSGVO.
@@ -14,9 +25,9 @@ Nach Art. 12 Abs. 3 DSGVO haben Sie mich unverzüglich, spätestens aber innerha
 Zur Identifikation meiner Person habe ich folgende Daten beigefügt:
 {Hier Deine Daten zur Identifikation einfügen. Das sind häufig Angaben wie Dein Name, Dein Geburtsdatum, Deine Adresse, Deine E-Mail-Adresse usw.}
 
-Sollten Sie meiner Anfrage nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.
+Sollten Sie meinem Antrag nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.
 
 Schon im Voraus vielen Dank für Ihre Mühe.
 
 Mit freundlichen Grüßen
-{Dein Name}
+{Hier Deinen Namen eintragen.}

@@ -35,16 +35,14 @@ Hier ist unser Musterschreiben für Anfragen auf Auskunft nach Art. 15 DSGVO. Di
 
 <p>ich bitte hiermit um Auskunft gemäß Art. 15 DSGVO. Bitte bestätigen Sie mir, ob Sie mich betreffende personenbezogene Daten verarbeiten (vgl. Art. 4 Nr. 1 und 2 DSGVO).</p>
 
-<p>In diesem Fall bitte ich Sie im Sinne des Art. 15 Abs. 1 DSGVO um Auskunft über</p>
-<ol>
-<li><em>sämtliche</em> personenbezogenen Daten, die Sie zu meiner Person gespeichert haben, einschließlich eventueller mich betreffender pseudonymisierter Daten im Sinne des Art. 4 Nr. 5 DSGVO;</li>
-<li>die Verarbeitungszwecke;</li>
-<li>die Kategorien personenbezogener Daten, die verarbeitet werden;</li>
-<li>die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen Daten offengelegt worden sind oder noch offengelegt werden;</li>
-<li>falls möglich die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder, falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer;</li>
-<li>wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren Informationen über die Herkunft der Daten;</li>
-<li>falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – sofern gegeben – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung für meine Person.
-</ol>
+<p>In diesem Fall bitte ich Sie im Sinne des Art. 15 Abs. 1 DSGVO um Auskunft über<br>
+1. sämtliche personenbezogenen Daten, die Sie zu meiner Person gespeichert haben, einschließlich eventueller mich betreffender pseudonymisierter Daten im Sinne des Art. 4 Nr. 5 DSGVO;<br>
+2. die Verarbeitungszwecke;<br>
+3. die Kategorien personenbezogener Daten, die verarbeitet werden;<br>
+4. die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen Daten offengelegt worden sind oder noch offengelegt werden;<br>
+5. falls möglich die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder, falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer;<br>
+6. wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren Informationen über die Herkunft der Daten;<br>
+7. falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – sofern gegeben – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung für meine Person.</p>
 
 <p>Falls Sie mich betreffende anonymisierte Daten verarbeiten, bitte ich Sie darum, mir das nicht nur mitzuteilen, sondern auch das verwendete Verfahren verständlich zu erläutern.</p>
 
@@ -59,12 +57,13 @@ Hier ist unser Musterschreiben für Anfragen auf Auskunft nach Art. 15 DSGVO. Di
 <p>Zur Identifikation meiner Person habe ich folgende Daten beigefügt:<br>
 <span class="blog-letter-fill-in">Hier Deine Daten zur Identifikation einfügen. Das sind häufig Angaben wie Dein Name, Dein Geburtsdatum, Deine Adresse, Deine E-Mail-Adresse usw.</span></p>
 
-<p>Sollten Sie meiner Anfrage nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
+<p>Sollten Sie meinem Antrag nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
 
 <p>Schon im Voraus vielen Dank für Ihre Mühe.</p>
 
-<p>Mit freundlichen Grüßen<br>
-<span class="blog-letter-fill-in">Dein Name</span></p>
+<p>Mit freundlichen Grüßen</p>
+
+<p><span class="blog-letter-fill-in">Hier Deinen Namen eintragen.</span></p>
 </div>
 
 Um Dir Dein Leben einfacher zu machen, kannst Du das Schreiben auch herunterladen und direkt mit dem Textverarbeitungsprogramm Deiner Wahl verwenden. Du hast die Auswahl zwischen den folgenden Vorlagen:<!-- TODO: Host these ourselves and give them some nice buttons. -->

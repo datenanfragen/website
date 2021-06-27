@@ -35,13 +35,13 @@ Here is our sample letter for requests for rectification according to Art. 16 GD
 <p>I am hereby requesting rectification or completion of inaccurate personal data concerning me according to Article 16 GDPR.</p>
 
 <p>Please make the following changes:<br>
-<span class="blog-letter-fill-in">Specify the data to be corrected.</span></p>
+<span class="blog-letter-fill-in">Specify the data to be corrected here.</span></p>
 
 <p>In case you have disclosed the affected personal data to one or more recipients as defined in Article 4(9) GDPR, you have to communicate my request for rectification of the affected personal data to each recipient as laid down in Article 19 GDPR. Please also inform me about those recipients.</p>
 
 <p>My request explicitly includes any other services and companies for which you are the controller as defined by Article 4(7) GDPR.</p>
 
-<p>As laid down in Article 12(3) GDPR, you have to confirm the erasure to me without undue delay and in any event within one month of receipt of the request.</p>
+<p>As laid down in Article 12(3) GDPR, you have to confirm the rectification to me without undue delay and in any event within one month of receipt of the request.</p>
 
 <p>I am including the following information necessary to identify me:<br>
 <span class="blog-letter-fill-in">Enter your identification data here. This often includes information like your name, your date of birth, your address, your email address and so on.</span></p>
@@ -50,8 +50,9 @@ Here is our sample letter for requests for rectification according to Art. 16 GD
 
 <p>Thank you in advance.</p>
 
-<p>Yours sincerely,<br>
-<span class="blog-letter-fill-in">Your name</span></p>
+<p>Yours sincerely,</p>
+
+<p><span class="blog-letter-fill-in">Enter your name here.</span></p>
 </div>
 
 To make your life easier, you can also download the letter and use it directly with the word processor of your choice. You can choose between the following templates:<!-- TODO: Host these ourselves and give them some nice buttons. -->

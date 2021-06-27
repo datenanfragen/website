@@ -46,14 +46,15 @@ Here is our sample letter for objecting to direct marketing according to Art. 21
 <p>As laid down in Article 12(3) GDPR, you have to confirm the objection to me without undue delay and in any event within one month of receipt of the request.</p>
 
 <p>I am including the following information necessary to identify me:<br>
-<span class="blog-letter-fill-in">Enter your identification data here. This will usually—depending on the kind of advertising— be your name and your address or email address.</span></p>
+<span class="blog-letter-fill-in">Enter your identification data here. This often includes information like your name, your date of birth, your address, your email address and so on.</span></p>
 
 <p>If you do not answer my request within the stated period, I am reserving the right to take legal action against you and to lodge a complaint with the responsible supervisory authority.</p>
 
 <p>Thank you in advance.</p>
 
-<p>Yours sincerely,<br>
-<span class="blog-letter-fill-in">Your name</span></p>
+<p>Yours sincerely,</p>
+
+<p><span class="blog-letter-fill-in">Enter your name here.</span></p>
 </div>
 
 To make your life easier, you can also download the letter and use it directly with the word processor of your choice. You can choose between the following templates:

@@ -49,14 +49,15 @@ Hier ist also unser Musterschreiben für den Werbewiderspruch nach Art. 21 Abs. 
 <p>Nach Art. 12 Abs. 3 DSGVO haben Sie mir meinen Widerspruch unverzüglich, spätestens aber innerhalb eines Monats nach Eingang des Antrags, zu bestätigen.</p>
 
 <p>Zur Identifikation meiner Person habe ich folgende Daten beigefügt:<br>
-<span class="blog-letter-fill-in">Hier Deine Daten zur Identifikation einfügen. Das sind – je nach Art der Werbung – in der Regel Angaben wie Dein Name und Deine Adresse oder Deine E-Mail-Adresse.</span></p>
+<span class="blog-letter-fill-in">Hier Deine Daten zur Identifikation einfügen. Das sind häufig Angaben wie Dein Name, Dein Geburtsdatum, Deine Adresse, Deine E-Mail-Adresse usw.</span></p>
 
 <p>Sollten Sie meinem Antrag nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
 
 <p>Schon im Voraus vielen Dank für Ihre Mühe.</p>
 
-<p>Mit freundlichen Grüßen<br>
-<span class="blog-letter-fill-in">Dein Name</span></p>
+<p>Mit freundlichen Grüßen</p>
+
+<p><span class="blog-letter-fill-in">Hier Deinen Namen eintragen.</span></p>
 </div>
 
 Um Dir Dein Leben einfacher zu machen, kannst Du das Schreiben auch herunterladen und direkt mit dem Textverarbeitungsprogramm Deiner Wahl verwenden. Du hast die Auswahl zwischen den folgenden Vorlagen:
