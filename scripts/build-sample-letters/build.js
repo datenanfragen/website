@@ -5,7 +5,8 @@ const deepmerge = require('deepmerge');
 const matcher = require('matcher');
 const carbone = require('carbone');
 const renderCarbone = util.promisify(carbone.render).bind(carbone);
-const { templatify } = require('./util');
+const PDFDocument = require('pdfkit');
+const { templatify, mm2pt } = require('./util');
 
 // This script generates the sample letters in the various formats from our request templates, which was previously done
 // manually (and a source of great pain and suffering).
@@ -60,6 +61,7 @@ const templates = (t) => ({
         sender_address: t('sample-sender-address'),
         recipient_address: t('sample-recipient-address'),
         reference_line: t('sample-reference-line'),
+        date_line: t('sample-date-line'),
         your_name: t('sample-your-name'),
         page: t('page'),
         of: t('of'),
@@ -102,7 +104,9 @@ const out_dir = path.join(__dirname, '..', '..', 'static', 'downloads');
                     .map((p) => templatify(p, flags, common_template.variables))
                     .map((p) => ({ text: p.trim() })),
             };
+            const text = data.body.map((p) => p.text);
 
+            // Build OTT and DOTX.
             for (const format of ['ott', 'dotx']) {
                 const file = await renderCarbone(`template.${format}`, data, {
                     // Carbone doesn't officially support the template format variants, so we pretend that we're using
@@ -110,9 +114,104 @@ const out_dir = path.join(__dirname, '..', '..', 'static', 'downloads');
                     // relevant for proper line breaks.
                     extension: format === 'dotx' ? 'docx' : 'odt',
                 });
-                const out_path = path.join(out_dir, `${data.filename}.${format}`);
-                fs.writeFileSync(out_path, file);
+                fs.writeFileSync(path.join(out_dir, `${data.filename}.${format}`), file);
             }
+
+            // Build PDF.
+            // There is an unfortunate amount of code similar to what we do in letter-generator here but as pdfmake
+            // doesn't support forms yet, there isn't much we can do about that.
+            const pdf = new PDFDocument({
+                layout: 'portrait',
+                size: 'A4',
+                margins: { left: mm2pt(25), top: mm2pt(27), right: mm2pt(20), bottom: mm2pt(16.9) },
+                bufferPages: true,
+            });
+            pdf.initForm();
+            pdf.info.Title = data.subject;
+            pdf.info.Subject = data.subject;
+            pdf.info.Author = 'Datenanfragen.de e. V.';
+            const field_bg = '#e0edf8';
+
+            pdf.fontSize(6);
+            pdf.formText('field-sender-address', mm2pt(25), mm2pt(30), mm2pt(85), 8, {
+                value: data.sender_address.replace(/{(.+)}/, '$1'),
+                backgroundColor: field_bg,
+            });
+
+            pdf.fontSize(12);
+
+            pdf.formText('field-recipient-address', mm2pt(25), mm2pt(35), mm2pt(85), mm2pt(40), {
+                value: data.recipient_address.replace(/{(.+)}/, '$1'),
+                multiline: true,
+                backgroundColor: field_bg,
+            });
+
+            pdf.formText('field-information-block', mm2pt(210 - 85), mm2pt(32), mm2pt(75), mm2pt(40), {
+                value: `${data.reference_line}\n${data.date_line}`,
+                multiline: true,
+                backgroundColor: field_bg,
+            });
+
+            pdf.font('Helvetica-Bold').text(data.subject, mm2pt(25), mm2pt(85));
+            pdf.moveDown();
+
+            let field_no = 0; // This is not great for a11y but currently I don't have a better way to name the fields.
+            pdf.font('Helvetica');
+            const printTextField = (value, x, height = undefined, multiline = true, name = undefined) => {
+                const field_height = height || pdf.currentLineHeight(true) * 7;
+                const field_width = pdf.page.width - x - pdf.page.margins.right;
+                if (pdf.y + field_height > pdf.page.height - pdf.page.margins.bottom) pdf.addPage();
+
+                pdf.formText(name || 'field-' + field_no++, x, pdf.y, field_width, field_height, {
+                    value,
+                    multiline: multiline,
+                    backgroundColor: field_bg,
+                });
+
+                pdf.y += field_height;
+            };
+            const printText = (text, x, y) => {
+                if (!x) x = pdf.x;
+                if (!y) y = pdf.y;
+
+                if (text.startsWith('[')) {
+                    // TODO: Can we set a default value for this/do we want to?
+                    pdf.formCheckbox('field-' + field_no++, x, pdf.y - 2, mm2pt(5), mm2pt(5), {
+                        backgroundColor: field_bg,
+                    });
+                    printText(text.replace(/\[|]/g, ''), x + mm2pt(8), pdf.y);
+                    pdf.x = x;
+                } else if (text.includes('{')) {
+                    // TODO: This only works if the field is at the end of the paragraph which is currently always the
+                    // case.
+                    const value = text.match(/{(.+)}/)[1];
+                    printText(text.replace(/{(.+)}/, ''), x, pdf.y);
+
+                    printTextField(value, x);
+                } else pdf.text(text, x, pdf.y);
+
+                pdf.moveDown();
+            };
+            for (const paragraph of text) printText(paragraph);
+            pdf.moveDown(2);
+            printTextField(
+                data.your_name.replace(/{(.+)}/, '$1'),
+                pdf.x,
+                pdf.currentLineHeight(true),
+                false,
+                'field-your-name'
+            );
+
+            const page_range = pdf.bufferedPageRange();
+            for (let i = page_range.start; i < page_range.count; i++) {
+                pdf.switchToPage(i);
+                pdf.moveTo(0, mm2pt(87)).lineTo(mm2pt(8), mm2pt(87)).stroke();
+                pdf.moveTo(0, mm2pt(192)).lineTo(mm2pt(8), mm2pt(192)).stroke();
+                pdf.moveTo(0, mm2pt(148.5)).lineTo(mm2pt(10), mm2pt(148.5)).stroke();
+            }
+
+            pdf.pipe(fs.createWriteStream(path.join(out_dir, `${data.filename}.pdf`)));
+            pdf.end();
         }
     }
 })();

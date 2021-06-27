@@ -49,6 +49,7 @@
         "letter-generator": "^1.0.0",
         "libphonenumber-js": "^1.7.23",
         "localforage": "^1.7.1",
+        "pdfkit": "^0.12.1",
         "pdfmake": "^0.1.58",
         "preact": "^10.5.5",
         "preact-i18n": "^2.3.0-preactx",
