@@ -35,14 +35,13 @@ Hier ist unser Musterschreiben für Anfragen auf Auskunft nach Art. 15 DSGVO. Di
 
 <p>ich bitte hiermit um Auskunft gemäß Art. 15 DSGVO. Bitte bestätigen Sie mir, ob Sie mich betreffende personenbezogene Daten verarbeiten (vgl. Art. 4 Nr. 1 und 2 DSGVO).</p>
 
-<p>In diesem Fall bitte ich Sie im Sinne des Art. 15 Abs. 1 DSGVO um Auskunft über<br>
-1. sämtliche personenbezogenen Daten, die Sie zu meiner Person gespeichert haben, einschließlich eventueller mich betreffender pseudonymisierter Daten im Sinne des Art. 4 Nr. 5 DSGVO;<br>
-2. die Verarbeitungszwecke;<br>
-3. die Kategorien personenbezogener Daten, die verarbeitet werden;<br>
-4. die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen Daten offengelegt worden sind oder noch offengelegt werden;<br>
-5. falls möglich die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder, falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer;<br>
-6. wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren Informationen über die Herkunft der Daten;<br>
-7. falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – sofern gegeben – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung für meine Person.</p>
+<p>Falls dem so sein sollte, stellen Sie mir bitte im Sinne des Art. 15 Abs. 3 DSGVO eine Kopie sämtlicher personenbezogener Daten, die Sie zu meiner Person verarbeiten, einschließlich eventueller mich betreffender pseudonymisierter Daten im Sinne des Art. 4 Nr. 5 DSGVO, zur Verfügung. Weiterhin bitte ich Sie in diesem Fall im Sinne des Art. 15 Abs. 1 DSGVO um Auskunft über:<br>
+1. die Verarbeitungszwecke;<br>
+2. die Kategorien personenbezogener Daten, die verarbeitet werden;<br>
+3. die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen Daten offengelegt worden sind oder noch offengelegt werden;<br>
+4. falls möglich die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder, falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer;<br>
+5. wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren Informationen über die Herkunft der Daten;<br>
+6. falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – sofern gegeben – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung für meine Person.</p>
 
 <p>Falls Sie mich betreffende anonymisierte Daten verarbeiten, bitte ich Sie darum, mir das nicht nur mitzuteilen, sondern auch das verwendete Verfahren verständlich zu erläutern.</p>
 
@@ -92,3 +91,4 @@ Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug a
 Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
 
 * [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-ba75fd411f4f897cf77f57d77aec0d64): Klargestellt, dass „personenbezogene Daten“ auch pseudonymisierte Daten einschließt und diese ebenfalls angefragt. Anonymisierte Daten erwähnt und angefragt. Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht. (Danke, Andreas!)
+* [04. Juli 2021](https://github.com/datenanfragen/data/pull/1167/commits/9195228ca2838b1c7fcc688b2dfb4d5439452913#diff-5c0a3fd30202ddb6e5a588275157e2ceb0e769b82959a8126c02a1b52f97b6ce): Explizit klargestellt, dass die Anfrage auch eine Kopie nach Art. 15 Abs. 3 DSGVO begehrt.

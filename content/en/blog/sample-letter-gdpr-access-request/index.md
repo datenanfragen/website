@@ -34,14 +34,13 @@ Here is our sample letter for requests for access according to Art. 15 GDPR. The
 
 <p>I am hereby requesting access according to Article 15 GDPR. Please confirm whether or not you are processing personal data (as defined by Article 4(1) and (2) GDPR) concerning me.</p>
 
-<p>In case you are, I am hereby requesting access to the following information pursuant to Article 15 GDPR:<br>
-1. all personal data concerning me that you have stored, including any potential pseudonymised data on me as per Article 4(5) GDPR;<br>
-2. the purposes of the processing;<br>
-3. the categories of personal data concerned;<br>
-4. the recipients or categories of recipient to whom the personal data have been or will be disclosed;<br>
-5. where possible, the envisaged period for which the personal data will be stored, or, if not possible, the criteria used to determine that period;<br>
-6. where the personal data are not collected from the data subject, any available information as to their source;<br>
-7. the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) GDPR and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for me.</p>
+<p>In case you are, please, in accordance with Art. 15(3) GDPR, provide me with a copy of all personal data concerning me that you are processing, including any potential pseudonymised data on me as per Article 4(5) GDPR. I am further requesting access to the following information pursuant to Article 15(1) GDPR:<br>
+1. the purposes of the processing;<br>
+2. the categories of personal data concerned;<br>
+3. the recipients or categories of recipient to whom the personal data have been or will be disclosed;<br>
+4. where possible, the envisaged period for which the personal data will be stored, or, if not possible, the criteria used to determine that period;<br>
+5. where the personal data are not collected from the data subject, any available information as to their source;<br>
+6. the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) GDPR and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for me.</p>
 
 <p>In case you are processing anonymised data concerning me, please not only inform me about that but also explain the procedure used in an easily understandable way.</p>
 
@@ -91,3 +90,4 @@ The idea behind Datenanfragen.de is to make it as easy as possible for you to ex
 We have made the following changes to this sample letter since the initial publication:
 
 * [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-21e880eae2f2c4209d64e2fe3bf93b7f): Explain that 'personal data' includes pseudonymised data and explicitly request that as well. Mention anonymised data and request to be informed about it. Also request an easily understandable explanation of the procedure used. More consistent style between [all templates]({{< ref "sample-letters" >}}). (Thanks, Andreas!)
+* [July 04, 2021](https://github.com/datenanfragen/data/pull/1167/commits/9195228ca2838b1c7fcc688b2dfb4d5439452913#diff-036e3f066a7d5a0f8ff24b2cb2b5fdaaa7b3a692c84533fb32c1f95e7c46bf0d): Explicitly state that the request also asks for a copy according to Art. 15(3) GDPR.
