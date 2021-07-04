@@ -3,7 +3,7 @@
     "slug": "musterbrief-dsgvo-anfrage-auskunft",
     "aliases": [ "sample-letter-gdpr-access-request" ],
     "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2020-05-31T01:06:15+02:00",
+    "last_edited": "2021-07-04T14:51:05+02:00",
     "type": "blog",
     "description": "Gemäß der DSGVO hast Du ein Recht auf Auskunft über die personenbezogenen Daten, die Verantwortliche zu Dir speichern. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
     "featured_image": "musterbrief-dsgvo-anfrage-auskunft",

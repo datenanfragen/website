@@ -2,7 +2,7 @@
     "title": "Sample letter for requests for access to personal data as per Art. 15 GDPR",
     "slug": "sample-letter-gdpr-access-request",
     "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2020-05-31T01:20:33",
+    "last_edited": "2021-07-04T14:52:52+02:00",
     "type": "blog",
     "description": "According to the GDPR, you have a right to access the personal data stored on you by companies. We offer you a sample letter that allows you to assert such claims.",
     "featured_image": "gdpr-access-request-letter",
