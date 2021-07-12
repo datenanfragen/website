@@ -116,7 +116,7 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
 
 Zahvaljujemo svima koji su doprinijeli stranicama datarequests.org! Projekt ne bi bio moguć bez vas.
 
-<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
+<div class="box box-info">{{< authors >}}</div>
 
 Ako si i ti doprinio/doprinijela projektu, ali tvoje ime još nije na popisu, pozivamo te da ga dodaš u datoteku [`AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 

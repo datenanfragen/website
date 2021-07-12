@@ -115,7 +115,7 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
 
 Un grand merci à tous les contributeurs(trices) de demandetesdonnees.fr ! Le projet ne serait pas possible sans vous.
 
-<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
+<div class="box box-info">{{< authors >}}</div>
 
 Si tu as contribué mais que ton nom ne figure pas encore sur la liste, nous t'invitons à l'ajouter dans le [fichier `AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 
