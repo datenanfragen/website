@@ -115,7 +115,7 @@ Aquí hay una descripción general de los repositorios importantes que hemos cre
 
 ¡Muchas gracias a todos los que contribuyeron a datarequests.org! El proyecto no sería posible sin ti.
 
-<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
+<div class="box box-info">{{< authors >}}</div>
 
 Si también has contribuido pero tu nombre aún no está en la lista, te invitamos a agregarlo al archivo [`AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 

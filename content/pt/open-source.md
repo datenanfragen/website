@@ -115,7 +115,7 @@ Aqui temos uma visão geral de repositórios que criamos - direta ou indiretamen
 
 Um grandíssimo muito obrigado a todos que contribuem para pedidodedados.org! O projeto não seria possível sem você.
 
-<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
+<div class="box box-info">{{< authors >}}</div>
 
 Se você também já contribuiu, mas seu nome ainda não está na lista, lhe convidamos para adicioná-lo no [arquivo `AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 
