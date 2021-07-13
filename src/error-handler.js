@@ -1,5 +1,3 @@
-import FlashMessage, { flash } from 'Components/FlashMessage';
-
 // Our email hoster Uberspace has a spam filter that cannot be disabled and that doesn't like JSON. We have had problems
 // in the past with error reports being marked as spam and not being delivered to us. Thus, we employ this function to
 // make our JSON look as little like JSON as possible.
@@ -69,16 +67,43 @@ function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
     document.querySelector('#error-modal .close-button').onclick = dismiss;
 }
 
+const flash_message_id = 'flash-message-error-online';
+const button_id = 'button-flash-message-error-online';
 try {
     const handler = (event) => {
         try {
             if (event.error.message === 'Network Error') {
                 if (!window.navigator.onLine) {
                     // seems like we don't have a network connection in the first place
-                    // show a little message to the user
-                    // TODO: while typing these stack up quite fast, but I don't want to handle state in an error handler
-                    // also the UX of the messages isn't great on mobile
-                    flash(<FlashMessage type="error">{I18N_DEFINITION['error-handler']['no-internet']}</FlashMessage>);
+                    // --> show a little message to the user
+
+                    // check if there is already a network message on screen
+                    const existing_message = document.getElementById(flash_message_id);
+                    if (existing_message?.dataset?.timeoutId) {
+                        // clear the existing timeout, we will set it again
+                        clearTimeout(existing_message.dataset.timeoutId);
+                    } else if (!existing_message) {
+                        const flash_message = `<div class="flash-message flash-error" id="${flash_message_id}" data-timeout-id="">
+                        <button id="${button_id}"
+                            class="button-unstyled close-button icon-close"
+                            title=${I18N_DEFINITION['generator']['cancel']}
+                        ></button>
+                        <div class="inner">${I18N_DEFINITION['error-handler']['no-internet']}</div>
+                    </div>`;
+                        document.getElementById('flash-messages').innerHTML += flash_message;
+                        document.getElementById(button_id).onclick = () => {
+                            const elem = document.getElementById(flash_message_id);
+                            if (elem?.dataset?.timeoutId) {
+                                clearTimeout(elem.dataset.timeoutId);
+                            }
+                            elem.remove();
+                        };
+                    }
+                    // the message should disappear automatically
+                    const timeout_id = setTimeout(() => {
+                        document.getElementById(flash_message_id)?.remove();
+                    }, 5000);
+                    document.getElementById(flash_message_id).dataset.timeoutId = timeout_id;
                     return;
                 }
             }
