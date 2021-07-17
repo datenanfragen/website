@@ -2,7 +2,7 @@ import { render } from 'preact';
 import t from './Utility/i18n';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
-import Modal, { showModal, dismissModal } from './Components/Modal';
+import FlashMessage, { flash } from 'Components/FlashMessage';
 import Cookie from 'js-cookie';
 import { PARAMETERS } from './Utility/common';
 
@@ -53,15 +53,11 @@ if (comments_div) {
 function notifyOtherLanguages(preferred_language, website_language) {
     if (!preferred_language || !website_language) return;
     let recommend_language = t('recommend-language', 'i18n-widget'); //"en"
-
-    const modal = showModal(
-        <Modal
-            positiveText={t('ok', 'generator')}
-            onPositiveFeedback={() => dismissModal(modal)}
-            positiveDefault={true}
-            onDismiss={() => dismissModal(modal)}>
-            {recommend_language} {<I18nWidget minimal={true} />}
-        </Modal>
+    globals.country = preferred_language;
+    flash(
+        <FlashMessage type="info">
+            {recommend_language} {<I18nWidget minimal={true} showLanguageOnly={true} />}
+        </FlashMessage>
     );
 }
 

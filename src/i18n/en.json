@@ -556,8 +556,11 @@
         "change-lang": "Change language",
         "stay": "Stay here",
         "not-supported-prompt": "Your language or country is not supported yet?",
-        "not-supported-cta": "Help us support it!",
-        "recommend-language": "This site is also available in other languages!"
+        "not-supported-cta": "Help us support it!"
+    },
+    "interlingual": {
+        "recommend-en": "This site is also available in your langauge!",
+        "recommend-de": "Diese Seite ist auch in Ihrer Sprache verfügbar!"
     },
     "comments": {
         "comments": "Comments",
