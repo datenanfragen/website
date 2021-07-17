@@ -419,7 +419,8 @@
         "privacy": "For details on how what data error reports contain and how we process said data, please refer to our <a href='/privacy#error-reports' target='_blank'>privacy policy</a>.",
         "explain-context": "If applicable, please provide some context for the error, i.e. describe what you did before the error occurred. Please also remove any sensitive information from the debug information below.",
         "report-on-github": "Report on GitHub",
-        "report-via-email": "Report via email"
+        "report-via-email": "Report via email",
+        "no-internet": "Seems like you don't have a working internet connection."
     },
     "error-msg": {
         "company-not-found": "The company you were looking for could not be found.",

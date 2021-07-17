@@ -76,6 +76,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                 callback(res.hits);
                             })
                             .catch((e) => {
+                                e.no_side_effects = true;
                                 rethrow(e);
                             });
                     },
