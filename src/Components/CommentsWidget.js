@@ -281,6 +281,7 @@ export class CommentForm extends Component {
                 this.setState({ message: '' });
             })
             .catch((err) => {
+                err.no_side_effects = true;
                 rethrow(err);
                 flash(<FlashMessage type="error">{t('send-error', 'comments')}</FlashMessage>);
             });

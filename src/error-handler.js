@@ -69,10 +69,17 @@ function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
 
 const flash_message_id = 'flash-message-error-online';
 const button_id = 'button-flash-message-error-online';
+
+const isNetworkError = (message) => {
+    if (message === 'Network Error') return true;
+    if (message === 'Failed to fetch') return true;
+    if (message === 'NetworkError when attempting to fetch resource.') return true;
+    return false;
+};
 try {
     const handler = (event) => {
         try {
-            if (event.error.message === 'Network Error') {
+            if (event.error?.no_side_effects && isNetworkError(event.error.message)) {
                 if (!window.navigator.onLine) {
                     // seems like we don't have a network connection in the first place
                     // --> show a little message to the user
@@ -83,26 +90,33 @@ try {
                         // clear the existing timeout, we will set it again
                         clearTimeout(existing_message.dataset.timeoutId);
                     } else if (!existing_message) {
-                        const flash_message = `<div class="flash-message flash-error" id="${flash_message_id}" data-timeout-id="">
-                        <button id="${button_id}"
-                            class="button-unstyled close-button icon-close"
-                            title=${I18N_DEFINITION['generator']['cancel']}
-                        ></button>
-                        <div class="inner">${I18N_DEFINITION['error-handler']['no-internet']}</div>
-                    </div>`;
+                        const flash_message = `
+<div class="flash-message flash-error" id="${flash_message_id}" data-timeout-id="">
+<button id="${button_id}"
+    class="button-unstyled close-button icon-close"
+    title=${I18N_DEFINITION['generator']['cancel']}></button>
+<div class="inner">${I18N_DEFINITION['error-handler']['no-internet']}</div>
+</div>`;
                         document.getElementById('flash-messages').innerHTML += flash_message;
                         document.getElementById(button_id).onclick = () => {
                             const elem = document.getElementById(flash_message_id);
                             if (elem?.dataset?.timeoutId) {
                                 clearTimeout(elem.dataset.timeoutId);
                             }
-                            elem.remove();
+                            elem?.remove();
                         };
                     }
                     // the message should disappear automatically
-                    const timeout_id = setTimeout(() => {
-                        document.getElementById(flash_message_id)?.remove();
-                    }, 5000);
+                    const check_message = () => {
+                        const message = document.getElementById(flash_message_id);
+                        if (window.navigator.onLine) {
+                            message?.remove();
+                        } else {
+                            const timeout_id = setTimeout(check_message, 5000);
+                            message.dataset.timeoutId = timeout_id;
+                        }
+                    };
+                    const timeout_id = setTimeout(check_message, 5000);
                     document.getElementById(flash_message_id).dataset.timeoutId = timeout_id;
                     return;
                 }
