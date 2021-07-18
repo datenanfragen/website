@@ -56,7 +56,7 @@ class CompanyList extends Component {
 
         return (
             <IntlProvider scope="cdb" definition={I18N_DEFINITION}>
-                <div id="company-list-controls">
+                <div id="company-list-controls" style="height: auto;">
                     <div className="container">
                         <div className="narrow-page">
                             <div id="suggest-company-btn">
@@ -66,7 +66,7 @@ class CompanyList extends Component {
                                     <Text id="suggest-new" />
                                 </a>
                             </div>
-                            <p>
+                            <p id="explanation-para">
                                 <Text id="explanation" />
                             </p>
                             <SearchBar
@@ -96,14 +96,20 @@ class CompanyList extends Component {
     componentDidMount() {
         window.onscroll = () => {
             let controls = document.getElementById('company-list-controls');
+            let button = document.getElementById('suggest-company-btn');
+            let para = document.getElementById('explanation-para');
             if (controls) {
                 if (window.pageYOffset > controls.offsetTop) {
                     controls.classList.add('sticky');
                     document.body.classList.add('sticky-offset');
+                    button.classList.add('hide');
+                    para.classList.add('hide');
                 }
                 if (window.pageYOffset < controls.offsetTop + 200) {
                     controls.classList.remove('sticky');
                     document.body.classList.remove('sticky-offset');
+                    button.classList.remove('hide');
+                    para.classList.remove('hide');
                 }
             }
         };
