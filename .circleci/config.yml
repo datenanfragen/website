@@ -86,6 +86,7 @@ jobs:
         - image: cypress/base:13.8.0
       environment:
         - CYPRESS_baseUrl: 'https://www.datarequests.org'
+        - CYPRESS_baseUrl_DE: 'https://www.datenanfragen.de'
         - CYPRESS_ENVIRONMENT: production
       steps:
         - checkout

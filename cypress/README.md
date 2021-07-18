@@ -21,6 +21,7 @@ To run tests against the production site, you need to make sure to set the corre
 
 ```sh
 export CYPRESS_baseUrl='https://www.datarequests.org'
+export CYPRESS_baseUrl_DE='https://www.datenanfragen.de'
 export CYPRESS_ENVIRONMENT=production
 ```
 
