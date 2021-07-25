@@ -643,6 +643,7 @@
         "bank-transfer-amount": "Amount",
         "bank-transfer-qrcodes": "QR codes for the transfer",
         "amount": "You will be billed {{amount}}&nbsp;€ <em>once</em>.",
+        "amount-after-fees": "We'll get {{amount}}&nbsp;€",
         "next-step": "To the next step",
         "thanks": "Donation verification",
         "print": "Print transfer information",

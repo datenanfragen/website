@@ -12,6 +12,18 @@ const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];
 const PAYMENT_METHODS = ['bank-transfer', /*'creditcard',*/ 'cryptocurrency', 'paypal', 'mollie'];
 
+const linear_func = (fee_percent, fee_fixed, x) => {
+    return x - fee_fixed - x * fee_percent;
+};
+
+const PAYMENT_NETTO = {
+    'bank-transfer': (x) => linear_func(0, 0, x),
+    //'credit-card': (x) => linear_func()
+    cryptocurrency: (x) => linear_func(0.1, 0.25, x),
+    paypal: (x) => linear_func(0.05, 0.25, x),
+    mollie: (x) => linear_func(0.3, 0, x),
+};
+
 export default class DonationWidget extends Component {
     epcr_canvas_ref = undefined;
     bezahlcode_canvas_ref = undefined;
@@ -120,7 +132,29 @@ export default class DonationWidget extends Component {
                                     onChange={(e) => {
                                         this.setState({ payment_method: e.target.value });
                                     }}
-                                    label={<Text id={payment_method} />}
+                                    label={
+                                        <div>
+                                            <Text id={payment_method} />
+                                            {PAYMENT_NETTO[payment_method] && (
+                                                <p style="text-align:right; margin: 0px; margin-top: -10px;">
+                                                    <small>
+                                                        <MarkupText
+                                                            id="amount-after-fees"
+                                                            fields={{
+                                                                amount: renderMoney(
+                                                                    Math.floor(
+                                                                        PAYMENT_NETTO[payment_method](
+                                                                            this.state.amount
+                                                                        ) * 100
+                                                                    ) / 100
+                                                                ),
+                                                            }}
+                                                        />
+                                                    </small>
+                                                </p>
+                                            )}
+                                        </div>
+                                    }
                                 />
                             ))}
                         </div>
