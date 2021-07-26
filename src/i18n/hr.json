@@ -427,7 +427,8 @@
         "report-on-github": "Prijavi na GitHubu",
         "explain-context": "Po mogućnosti navedi kontekst greške, tj. opiši radnje prije pojavljivanja greške. Također, ukloni sve osjetljive podatke iz dolje navedenih podataka za otklanjanje grešaka.",
         "privacy": "Pojedinosti o sadržaju izvještaja o greškama i o načinu na koji obrađujemo te podatke potraži na našoj stranici <a href='/privacy#error-reports' target='_blank'>pravila privatnosti</a>.",
-        "explanation": "Nažalost se dogodila neočekivana greška. Pošalji nam izvještaj o grešci putem GitHuba ili emaila, kako bismo mogli dijagnosticirati problem. Hvala!"
+        "explanation": "Nažalost se dogodila neočekivana greška. Pošalji nam izvještaj o grešci putem GitHuba ili emaila, kako bismo mogli dijagnosticirati problem. Hvala!",
+        "no-internet": "Čini se da nemaš internetsku vezu."
     },
     "privacy-controls": {
         "feature-disabled-alt": "Funkcija je deaktivirana u postavkama privatnosti",
