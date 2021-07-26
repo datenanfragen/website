@@ -12,9 +12,7 @@ const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];
 const PAYMENT_METHODS = ['bank-transfer', /*'creditcard',*/ 'cryptocurrency', 'paypal', 'mollie'];
 
-const linear_func = (fee_percent, fee_fixed, x) => {
-    return x - fee_fixed - x * fee_percent;
-};
+const linear_func = (fee_percent, fee_fixed, x) => x - fee_fixed - x * fee_percent;
 
 const PAYMENT_NETTO = {
     'bank-transfer': (x) => linear_func(0, 0, x),
@@ -136,7 +134,7 @@ export default class DonationWidget extends Component {
                                         <div>
                                             <Text id={payment_method} />
                                             {PAYMENT_NETTO[payment_method] && (
-                                                <p style="text-align:right; margin: 0px; margin-top: -10px;">
+                                                <p style="text-align: right; margin: -10px 0 0 0;">
                                                     <small>
                                                         <MarkupText
                                                             id="amount-after-fees"
