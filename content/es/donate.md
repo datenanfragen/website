@@ -26,7 +26,7 @@ Como organización sin fines de lucro de beneficio público, también podemos em
 
     Si necesitas un recibo de nuestra parte para demostrarle a tu autoridad fiscal que donaste a una organización sin fines de lucro de beneficio público, podemos proporcionarte uno. Generalmente, solo emitimos recibos de pagos realizados mediante transferencia bancaria, domiciliación bancaria, PayPal o tarjeta de crédito.
 
-    Después de tu donación, serás redirigido a una página donde podrás descargar un recibo (en alemán) de tu donación si donaste una cantidad inferior a 200 €.
+    Después de tu donación, serás redirigido a una página donde podrás descargar un recibo (en alemán) de tu donación si donaste una cantidad inferior a 300 €.
     Para una donación mayor, deberás enviarnos un correo electrónico a [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), y decirnos tu identificación y dirección de donación, para que podamos crear un recibo extendido para tí.
 
     **Ten en cuenta que solo estamos acreditados como una organización sin fines de lucro de beneficio público por las autoridades fiscales alemanas.** Verifica tu código fiscal local para ver cómo y si puedes deducir tu donación en tus declaraciones de impuestos.

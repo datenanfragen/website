@@ -14,7 +14,7 @@ If you would like to regularly support us or you just want to be more involved, 
 
 We will of course happily issue a receipt for your donation. **Please note however that we are only accredited as a charitable organization by the German tax authorities.** Please check your local tax code to see how and if you can deduct your donation to us in your tax returns.
 
-If you donated less than 200 €, the German tax offices will also accept a [simplified donation receipt](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) in combination with your payment receipt (bank statement, credit card invoice, …) for your tax deduction.
+If you donated less than 300 €, the German tax offices will also accept a [simplified donation receipt](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) in combination with your payment receipt (bank statement, credit card invoice, …) for your tax deduction.
 
 For larger donations, you will need a donation receipt in the official form. You can get one of these from us of course, but we do need your address for that. Please send us an email at [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de) (you can encrypt it with [this key](/pgp/62A7EC35.asc)) with your address and donation ID or the reference of your bank transfer. 
 

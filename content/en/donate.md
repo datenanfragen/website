@@ -26,7 +26,7 @@ As a public-benefit organization, we can also issue you a [donation receipt](#do
 
     If you require a receipt from us in order to prove to your tax authority that you donated to a public-benefit organization, we can provide you with one. Generally, we only issue receipts for payments made via bank transfer, direct debit, PayPal or credit card.
 
-    After your donation, you will be redirected to a page where you can download a (German) receipt for your donation if you donated an amount less than 200 €.  
+    After your donation, you will be redirected to a page where you can download a (German) receipt for your donation if you donated an amount less than 300 €.  
     For a larger donation, you will have to send us an email at [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), and tell us your donation ID and address, so that we can create an extended receipt for you.
 
     **Please note that we are only accredited as a public-benefit organization by German tax authorities.** Please check your local tax code to see how and if you can deduct your donation to us in your tax returns.
