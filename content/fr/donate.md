@@ -26,7 +26,7 @@ En tant qu'association reconnue d'utilité publique, nous pouvons également te 
 
   Si tu as besoin d'un reçu de notre part pour prouver à ton administration fiscale que tu as effectué un don à une association reconnue d'utilité publique, nous pouvons t'en fournir un. En règle générale, nous ne délivrons des reçus que pour les paiements effectués par virement bancaire, prélèvement automatique, PayPal ou carte de crédit.
 
-  Après ton don, tu seras redirigé vers une page où tu pourras télécharger un reçu (en allemand) pour ton don si tu as fait un don d'un montant inférieur à 200 €.  
+  Après ton don, tu seras redirigé vers une page où tu pourras télécharger un reçu (en allemand) pour ton don si tu as fait un don d'un montant inférieur à 300 €.  
   Pour un don plus important, tu devras nous envoyer un e-mail à [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), et nous indiquer ton numéro de don et ton adresse, afin que nous puissions te créer un reçu détaillé.
 
   **Note que nous ne sommes accrédités en tant qu'association reconnue d'utilité publique que par les autorités fiscales allemandes** Pense à vérifier ton règlement fiscal local pour savoir comment et si tu peux déduire ton don dans tes déclarations fiscales.

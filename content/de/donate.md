@@ -31,7 +31,7 @@ Als gemeinnütziger Verein stellen wir Dir natürlich auch gerne eine [Spendenbe
 
     Nach der Spende wirst du auf eine Seite weitergeleitet, die Dir erklärt, wie Du an die Spendenbescheinigung kommst.
 
-    Grundsätzlich stellen wir nur Spendenbescheinigungen aus, wenn Du per Überweisung, Bankeinzug, PayPal oder Kreditkarte bezahlt hast. Nach der Bezahlung wirst Du auf eine Abschlusseite weitergeleitet. Falls Deine Spende kleiner als 200 € war, kannst Du dort einen [vereinfachten Zuwendungsnachweis](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) herunterladen.  
+    Grundsätzlich stellen wir nur Spendenbescheinigungen aus, wenn Du per Überweisung, Bankeinzug, PayPal oder Kreditkarte bezahlt hast. Nach der Bezahlung wirst Du auf eine Abschlusseite weitergeleitet. Falls Deine Spende kleiner als 300 € war, kannst Du dort einen [vereinfachten Zuwendungsnachweis](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) herunterladen.  
     Für größere Spenden brauchen wir leider Deine Adresse. Eine Erklärung erhältst Du auch nach Deiner Spende, bei Fragen kannst Du Dich natürlich gerne jederzeit an den [Vorstand]({{< ref "verein/board" >}}) wenden.
  
 * **Wer hat außer mir gespendet?**

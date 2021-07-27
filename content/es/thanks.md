@@ -14,7 +14,7 @@ Si deseas apoyarnos con regularidad o simplemente deseas participar más, tambi�
 
 Por supuesto, con gusto emitiremos un recibo por tu donación. **Sin embargo, ten en cuenta que solo estamos acreditados como una organización sin fines de lucro por las autoridades fiscales alemanas.** Consulta tu código fiscal local para ver cómo y si puede deducir su donación en tus declaraciones de impuestos.
 
-Si donaste menos de 200 €, las oficinas de impuestos alemanas también aceptarán un [recibo de donación simplificado](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) en combinación con tu recibo de pago (extracto bancario, factura de tarjeta de crédito, etc…) para tu deducción fiscal.
+Si donaste menos de 300 €, las oficinas de impuestos alemanas también aceptarán un [recibo de donación simplificado](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) en combinación con tu recibo de pago (extracto bancario, factura de tarjeta de crédito, etc…) para tu deducción fiscal.
 
 Para donaciones más grandes, necesitarás un recibo de donación en formato oficial. Puedes obtener uno de estos de nosotros, pero necesitamos tu dirección para eso. Envíanos un correo electrónico a [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de) (puedes cifrarlo con [esta llave PGP](/pgp/62A7EC35.asc)) con tu dirección y ID de donación o la referencia de tu transferencia bancaria.
 

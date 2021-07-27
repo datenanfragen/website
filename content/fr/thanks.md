@@ -14,7 +14,7 @@ Si tu souhaites nous soutenir de manière récurrente ou bien seulement être un
 
 Nous serons bien entendu heureux de te délivrer un reçu pour ton don. **Toutefois, note que nous ne sommes accrédités en tant qu'association caritative que par les autorités fiscales allemandes.** Vérifie ton règlement fiscal local pour savoir comment et si tu peux déduire ton don dans tes déclarations de revenus.
 
-Si tu as fait un don inférieur à 200 €, les services fiscaux allemands accepteront également un [reçu de don simplifié] (https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) en combinaison avec ton reçu de paiement (relevé bancaire, relevé de carte de crédit, …) pour ta déduction fiscale.
+Si tu as fait un don inférieur à 300 €, les services fiscaux allemands accepteront également un [reçu de don simplifié] (https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) en combinaison avec ton reçu de paiement (relevé bancaire, relevé de carte de crédit, …) pour ta déduction fiscale.
 
 Pour des dons plus importants, tu auras besoin d'un reçu de don en bonne et due forme. Tu peux bien sûr en obtenir un auprès de nous, mais nous avons besoin de ton adresse pour cela. Envoie-nous un e-mail à [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de) (tu peux le chiffrer avec [cette clé](/pgp/62A7EC35.asc)) avec ton adresse et le numéro d'identification du don ou la référence de ton virement bancaire. 
 

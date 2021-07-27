@@ -49,7 +49,7 @@ Wir werden uns anschließend bei Dir melden, um Dir mitzuteilen, ob Dein Antrag 
 * **Wie kann ich meinen Mitgliedsbeitrag von der Steuer absetzen?**  
     Als gemeinnütziger Verein sind wir berechtigt, Dir für Deinen Mitgliedsbeitrag eine Zuwendungsbescheinigung auszustellen, mit der Du diesen dann von der Steuer absetzen kannst. Dafür brauchen wir leider Deine Adresse. Wenn Du diese im Mitgliedsantrag bereits angegeben hast, werden wir Dir die Bescheinigung zusenden, ohne dass Du etwas dafür tun musst. Solltest Du das nicht getan haben, aber dennoch eine Bescheinigung haben wollen, wende Dich bitte an den Vorstand.
 
-    Für Mitgliedsbeiträge, die 200&nbsp;€ nicht überschreiten, genügt auch die [vereinfachte Zuwendungsbestätigung](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf).
+    Für Mitgliedsbeiträge, die 300&nbsp;€ nicht überschreiten, genügt auch die [vereinfachte Zuwendungsbestätigung](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf).
 
 * **An wen kann ich mich mit sonstigen Fragen wenden?**  
     Bei allen Fragen rund um die Mitgliedschaft (und auch sonst alles, das den Verein betrifft) steht Dir der [Vorstand]({{< ref "verein/board" >}}) gerne zur Verfügung. Am besten erreichst Du uns einfach per Mail an [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), aber natürlich auch über die anderen Kontaktmöglichkeiten, die auf der [Vorstandsseite]({{< ref "verein/board" >}}) angegeben sind.

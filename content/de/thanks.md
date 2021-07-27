@@ -14,7 +14,7 @@ Wenn Du uns gerne regelmäßig unterstützen möchtest oder einfach mehr involvi
 
 Selbstverständlich stellen wir Dir gerne einen Nachweis für Deine Spende aus.
 
-Wenn Du weniger als 200 € gespendet hast, reicht dem Finanzamt dafür auch ein [vereinfachter Zuwendungsnachweis](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) in Verbindung mit Deinem Zahlungsbeleg (Kontoauszug, Kreditkartenabrechnung, …) in der Steuererklärung.
+Wenn Du weniger als 300 € gespendet hast, reicht dem Finanzamt dafür auch ein [vereinfachter Zuwendungsnachweis](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) in Verbindung mit Deinem Zahlungsbeleg (Kontoauszug, Kreditkartenabrechnung, …) in der Steuererklärung.
 
 Für größere Spenden benötigst Du einen tatsächlichen Zuwendungsnachweis nach dem amtlichen Vordruck. Den kannst Du natürlich auch von uns bekommen, dazu benötigen wir allerdings Deine Adresse. Schick uns dafür bitte eine E-Mail an [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de) (verschlüsseln kannst Du die E-Mail mit dem [Vorstands-Key](/pgp/62A7EC35.asc)) mit deiner Adresse und Deiner Spendennummer bzw. dem Verwendungszweck Deiner Überweisung.
 
