@@ -188,7 +188,8 @@
         "privacy": "Pour plus d'informations sur la manière dont nous traitons les données contenues dans les rapports d'erreur, Réfère-toi à notre <a href='/privacy#error-reports' target='_blank'>politique de confidentialité</a>.",
         "explain-context": "S'il y a lieu, pense à fournir le contexte de l'erreur, c.-à-d. décrire ce que tu as fait avant que l'erreur ne se produise. Pense également à supprimer toute information sensible des informations de débogage ci-dessous.",
         "report-on-github": "Signaler sur GitHub",
-        "report-via-email": "Signaler par e-mail"
+        "report-via-email": "Signaler par e-mail",
+        "no-internet": "Il semble que vous ne soyez pas connecté à Internet."
     },
     "error-msg": {
         "company-not-found": "L'entreprise que tu cherches n'a pas été trouvée.",
