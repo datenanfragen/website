@@ -133,18 +133,21 @@ export default class DonationWidget extends Component {
                                         <div>
                                             <Text id={payment_method} />
                                             {PAYMENT_NETTO[payment_method] && (
-                                                <p style="text-align: right; margin: -10px 0 0 0;">
-                                                    <small>
-                                                        <MarkupText
-                                                            id="amount-after-fees"
-                                                            fields={{
-                                                                amount: renderMoney(
-                                                                    PAYMENT_NETTO[payment_method](this.state.amount)
-                                                                ),
-                                                            }}
-                                                        />
-                                                    </small>
-                                                </p>
+                                                <div className="donation-widget-fee-text">
+                                                    <MarkupText
+                                                        id={
+                                                            PAYMENT_NETTO[payment_method](this.state.amount) ===
+                                                            this.state.amount
+                                                                ? 'amount-no-fees'
+                                                                : 'amount-after-fees'
+                                                        }
+                                                        fields={{
+                                                            amount: renderMoney(
+                                                                PAYMENT_NETTO[payment_method](this.state.amount)
+                                                            ),
+                                                        }}
+                                                    />
+                                                </div>
                                             )}
                                         </div>
                                     }
