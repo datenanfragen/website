@@ -643,6 +643,8 @@
         "bank-transfer-amount": "Betrag",
         "bank-transfer-qrcodes": "QR-Codes für die Überweisung",
         "amount": "Dir werden <em>einmalig</em> {{amount}}&nbsp;€ abgebucht.",
+        "amount-after-fees": "Nach Gebühren erhalten wir {{amount}}&nbsp;€.",
+        "amount-no-fees": "Wir erhalten den vollen Betrag von {{amount}}&nbsp;€.",
         "next-step": "Zum nächsten Schritt",
         "thanks": "Zuwendungsbestätigung",
         "print": "Überweisungsinformationen drucken",
