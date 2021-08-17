@@ -138,6 +138,7 @@ export default class Wizard extends Component {
                                 onAutocompleteSelected={(event, suggestion, dataset) => {
                                     this.addCompany(suggestion.document.slug, suggestion.document.name);
                                 }}
+                                captureFocus={true}
                                 debug={true}
                                 placeholder={t('search-company', 'wizard', {
                                     category: t(CATEGORIES[this.state.current_tab], 'categories'),

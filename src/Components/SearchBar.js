@@ -140,7 +140,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
             if (typeof this.props.setupPlaceholderChange === 'function') {
                 this.props.setupPlaceholderChange(this.input_element);
             }
-            this.input_element.focus();
+            if (this.props.captureFocus) this.input_element.focus();
         }
 
         componentWillUnmount() {
