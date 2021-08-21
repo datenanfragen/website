@@ -6,6 +6,16 @@ executors:
       - image: node:13.14-alpine
 
 jobs:
+  # Circle's "Auto-cancel redundant builds" feature doesn't work on the default branch. When merging PRs on data, this
+  # can cause lots of unnecessary builds. Thus, we emulate this feature here for master.
+  cancel_redundant_builds:
+    executor: docker_hugo_node
+    steps:
+      - checkout
+      - run:
+          command: |
+            ./.circleci/cancel-redundant-builds.sh
+
   build:
     executor: docker_hugo_node
     environment:
@@ -101,6 +111,13 @@ workflows:
   version: 2
   build_test_deploy:
     jobs:
+      - cancel_redundant_builds:
+          # On the other branches, we are using Circle's "Auto-cancel redundant builds" feature, which doesn't require
+          # an access token and is probably a lot more robust.
+          filters:
+              branches:
+                only:
+                  - master
       - build
       - test:
           requires:
