@@ -14,7 +14,7 @@ Con ellos, enviar una solicitud es simple: todo lo que necesitas hacer es ingres
 Por supuesto, hay un modelo de carta para cada tipo de solicitud.
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/modelo-carta-solicitud-acceso-rgpd/"><img class="image" src="/card-icons/view.svg" alt="Solicitud de acceso a datos personales según Art. 15 del RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modelo-carta-solicitud-acceso-rgpd/"><img class="image" src="/card-icons/view.svg" alt="Solicitud de acceso a datos personales según Art. 15 del RGPD" width="252" height="150"></a></div>
     <div class="padded col75">
         <a href="/blog/modelo-carta-solicitud-acceso-rgpd/"><h1>Solicitud de acceso a datos personales según Art. 15 del RGPD</h1></a>
         <p class="description">
@@ -26,7 +26,7 @@ Por supuesto, hay un modelo de carta para cada tipo de solicitud.
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/modelo-carta-solicitud-rectificacion-rgpd"><img class="image" src="/card-icons/edit.svg" alt="Solicitud de rectificación de datos personales según Art. 16 del RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modelo-carta-solicitud-rectificacion-rgpd"><img class="image" src="/card-icons/edit.svg" alt="Solicitud de rectificación de datos personales según Art. 16 del RGPD" width="150" height="150"></a></div>
     <div class="padded col75">
         <a href="/blog/modelo-carta-solicitud-rectificacion-rgpd"><h1>Solicitud de rectificación de datos personales según Art. 16 del RGPD</h1></a>
         <p class="description">
@@ -38,7 +38,7 @@ Por supuesto, hay un modelo de carta para cada tipo de solicitud.
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/modelo-carta-solicitud-supresion-rgpd/"><img class="image" src="/card-icons/erase.svg" alt="Solicitud de supresión de datos personales de acuerdo con el Art. 17 del RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modelo-carta-solicitud-supresion-rgpd/"><img class="image" src="/card-icons/erase.svg" alt="Solicitud de supresión de datos personales de acuerdo con el Art. 17 del RGPD" width="153" height="150"></a></div>
     <div class="padded col75">
         <a href="/blog/modelo-carta-solicitud-supresion-rgpd/"><h1>Solicitud de supresión de datos personales de acuerdo con el Art. 17 del RGPD</h1></a>
         <p class="description">
@@ -50,7 +50,7 @@ Por supuesto, hay un modelo de carta para cada tipo de solicitud.
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/modelo-carta-objecion-marketing-directo-rgpd/"><img class="image" src="/card-icons/warning.svg" alt="Objection against direct marketing as per Art. 21(2) RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modelo-carta-objecion-marketing-directo-rgpd/"><img class="image" src="/card-icons/warning.svg" alt="Objection against direct marketing as per Art. 21(2) RGPD" width="167" height="150"></a></div>
     <div class="padded col75">
         <a href="/blog/modelo-carta-objecion-marketing-directo-rgpd/"><h1>Objeción al marketing directo según el Art. 21 (2) del RGPD</h1></a>
         <p class="description">
