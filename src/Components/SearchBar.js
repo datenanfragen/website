@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 export let SearchBar;
 
 if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
-    let autocomplete = require('autocomplete.js');
+    const autocomplete = require('autocomplete.js');
 
     SearchBar = class SearchBar extends Component {
         constructor(props) {
@@ -31,7 +31,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
         }
 
         static countryFilter(country) {
-            let items = ['all', country];
+            const items = ['all', country];
 
             /* Our records often simply specify Germany for companies that are also relevant for Austria and/or Switzerland.
                Thus, we explicitly include results from Germany for these countries.
@@ -44,7 +44,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
         }
 
         componentDidMount() {
-            let options = {
+            const options = {
                 query_by: this.props.query_by || 'name, runs, web, slug, address, comments',
                 sort_by: '_text_match:desc,sort-index:asc',
                 num_typos: 4,
