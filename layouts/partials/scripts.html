@@ -24,49 +24,67 @@
 <script src="{{ "js/translations-requests.gen.js" | absURL }}"></script>
 <script src="{{ (printf "js/translations-%s.gen.js" .Site.Language.Lang) | absURL }}"></script>
 <script src="{{ "js/error-handler.bundle.gen.js" | absURL }}"></script>
-<script src="{{ "js/general.bundle.gen.js" | absURL }}"></script>
+
+{{ $defines := dict "process.env.NODE_ENV" `"development"`  "global" "window" }}
+{{ $shims := dict "react" "js/react-shim.js"  "react-dom" "js/react-shim.js" }}
+{{ $inject := slice "js/react-shim.js" }}
+{{ $opts := dict "target" "esnext"  "JSXFactory" "h"  "JSXFragment" "Fragment"  "externals" (slice "react")  "defines" $defines "inject" $inject  "sourceMap" "inline"  "minify" true}}
+
+{{ $general_js := resources.Get "js/general.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $general_js.RelPermalink }}" integrity="{{ $general_js.Data.Integrity }}"></script>
 
 {{ if eq .Type "generator" }}
-<script src="{{ "js/generator.bundle.gen.js" | absURL }}"></script>
+{{ $pdf_worker_js := resources.Get "js/Utility/pdf.worker.js" | js.Build (dict "target" "esnext" "sourceMap" "external"  "minify" true) | fingerprint}}
+{{ $generator_js := resources.Get "js/generator.jsx" | js.Build (merge $opts (dict "defines" (dict "PDF_WORKER_URL" (printf `"%s"` $pdf_worker_js.RelPermalink)))) | fingerprint}}
+<script src="{{ $generator_js.RelPermalink }}" integrity="{{ $generator_js.Data.Integrity }}"></script>
 {{ end }}
 
 {{ if or (eq .Type "company") (eq .Type "categories") }}
-<script src="{{ "js/company-list.bundle.gen.js" | absURL }}"></script>
+{{ $company_list_js := resources.Get "js/company-list.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $company_list_js.RelPermalink }}" integrity="{{ $company_list_js.Data.Integrity }}"></script>
 {{ end }}
 
 {{ if eq .Type "my-requests" }}
-<script src="{{ "js/my-requests.bundle.gen.js" | absURL }}"></script>
+{{ $my_requests_js := resources.Get "js/my-requests.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $my_requests_js.RelPermalink }}" integrity="{{ $my_requests_js.Data.Integrity }}"></script>
 <script>renderMyRequestsWidget();</script>
 {{ end }}
 
 {{ if eq .Type "privacy-controls" }}
-<script src="{{ "js/privacy-controls.bundle.gen.js" | absURL }}"></script>
+{{ $privacy_controls_js := resources.Get "js/privacy-controls.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $privacy_controls_js.RelPermalink }}" integrity="{{ $privacy_controls_js.Data.Integrity }}"></script>
 {{ end }}
 
 {{ if eq .Type "id-data-controls" }}
-<script src="{{ "js/id-data-controls.bundle.gen.js" | absURL }}"></script>
+{{ $id_data_controls_js := resources.Get "js/id-data-controls.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $id_data_controls_js.RelPermalink }}" integrity="{{ $id_data_controls_js.Data.Integrity }}"></script>
 {{ end }}
 
 {{ if eq .Type "suggest" }}
-<script src="{{ "js/suggest-edit.bundle.gen.js" | absURL }}"></script>
+{{ $suggest_edit_js := resources.Get "js/suggest-edit.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $suggest_edit_js.RelPermalink }}" integrity="{{ $suggest_edit_js.Data.Integrity }}"></script>
 {{ end }}
 
 {{ if eq .Type "supervisory-authorities" }}
-<script src="{{ "js/sva-finder.bundle.gen.js" | absURL }}"></script>
+{{ $sva_finder_js := resources.Get "js/Components/SvaFinder.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $sva_finder_js.RelPermalink }}" integrity="{{ $sva_finder_js.Data.Integrity }}"></script>
 <script>renderSvaFinder();</script>
 {{ end }}
 
 {{ if eq .Type "act" }}
-<script src="{{ "js/act-widget.bundle.gen.js" | absURL }}"></script>
+{{ $act_widget_js := resources.Get "js/Components/ActWidget.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $act_widget_js.RelPermalink }}" integrity="{{ $act_widget_js.Data.Integrity }}"></script>
 {{ end }}
 
 {{ if eq .Type "donate" }}
-<script src="{{ "js/donation-widget.bundle.gen.js" | absURL }}"></script>
+{{ $donation_widget_js := resources.Get "js/Components/DonationWidget.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $donation_widget_js.RelPermalink }}" integrity="{{ $donation_widget_js.Data.Integrity }}"></script>
 <script>renderDonationWidget();</script>
 {{ end }}
 
 {{ if .IsHome }}
-<script src="{{ "js/home.bundle.gen.js" | absURL }}"></script>
+{{ $home_js := resources.Get "js/home.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $home_js.RelPermalink }}" integrity="{{ $home_js.Data.Integrity }}"></script>
 {{ end }}
 
 {{/* TODO: Do this in the js build via hugo pipes */}}
@@ -81,5 +99,6 @@
 
 {{ if .Site.Params.devMode }}
 <script>window.hugoDevMode = true;</script>
-<script src="{{ "js/test-interface.bundle.gen.js" | absURL }}"></script>
+{{ $test_interface_js := resources.Get "js/test-interface.jsx" | js.Build $opts | fingerprint}}
+<script src="{{ $test_interface_js.RelPermalink }}" integrity="{{ $test_interface_js.Data.Integrity }}"></script>
 {{ end }}
