@@ -531,10 +531,8 @@
         "not-supported-cta": "Help us support it!"
     },
     "comments": {
-        "average-rating": "Average Rating",
         "comments": "Comments",
         "comment": "Comment",
-        "from-x-reviewers": { "singular": "from {{count}} reviewer", "plural": "from {{count}} reviewers" },
         "author": "Author",
         "submit": "Submit",
         "sending": "Submitting your comment…",
@@ -543,12 +541,14 @@
         "error-no-message": "Please enter a comment to send.",
         "warning-loading-failed": "Loading the comments for this page failed. Please make sure that you are connected to the internet and not blocking requests to backend.datenanfragen.de through an add-on like uMatrix or NoScript.",
         "no-comments": "No comments here yet. Why don’t you leave one?",
-        "no-ratings": "N/A",
         "leave-comment": "Leave a comment",
         "optional": "(optional)",
         "rating": "Rating",
+        "average-rating-title": {
+            "singular": "Average rating: {{rating}} (from {{count}} review)",
+            "plural": "Average rating: {{rating}} (from {{count}} reviews)"
+        },
         "rss-link": "Subscribe to the comments on this post using your RSS/Atom feed reader.",
-        "total": "Total",
         "warning": "Please note that we are an <em>independent non-profit</em> and not affiliated with the company listed here.<br>If you need support or want to send a request, please contact the company directly. We <strong>cannot</strong> help you in such cases. Thanks for your understanding."
     },
     "wizard_tutorial": {
