@@ -26,6 +26,9 @@ module.exports = function (content) {
         this.emitFile(path.join('..', 'i18n', path.basename(this.resource)), JSON.stringify(hugo_data));
     }
 
+    // The JS translation files don't need to include the translations only used by Hugo (#620).
+    delete data.hugo;
+
     // Emit the translation files to be included in the HTML.
     this.emitFile(
         path.join('js', `translations-${path.basename(this.resource, '.json')}.gen.js`),
