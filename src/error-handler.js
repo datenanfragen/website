@@ -79,6 +79,20 @@ const isNetworkError = (message) => {
 try {
     const handler = (event) => {
         try {
+            // Ignore errors triggered by browser extensions as those aren't caused by us and we can't do anything about
+            // them (#656).
+            if (
+                [
+                    'moz-extension://',
+                    // `chrome-extension://` also applies to Chromium Edge, Opera, Vivaldi, Yandex.Browser, and Brave.
+                    'chrome-extension://',
+                    'safari-extension://',
+                    'ms-browser-extension://',
+                ].some((s) => event.error?.stack?.includes(s))
+            ) {
+                return;
+            }
+
             if (event.error?.no_side_effects && isNetworkError(event.error.message)) {
                 if (!window.navigator.onLine) {
                     // seems like we don't have a network connection in the first place
