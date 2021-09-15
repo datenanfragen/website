@@ -544,6 +544,10 @@
         "leave-comment": "Kommentar hinterlassen",
         "optional": "(optional)",
         "rating": "Bewertung",
+        "average-rating-title": {
+            "singular": "Durchschnittliche Bewertung: {{rating}} (aus {{count}} Bewertung)",
+            "plural": "Durchschnittliche Bewertung: {{rating}} (aus {{count}} Bewertungen)"
+        },
         "rss-link": "Abonniere die Kommentare zu diesem Artikel mit Deinem RSS-/Atom-Feed-Reader.",
         "warning": "Beachte bitte, dass wir ein <em>unabhängiger Datenschutzverein</em> sind und nicht zu dem hier aufgeführten Unternehmen gehören.<br>Solltest Du also Support benötigen oder eine Anfrage stellen wollen, wende Dich bitte direkt an das Unternehmen. Wir können Dir hierbei <strong>nicht</strong> helfen. Danke für Dein Verständnis."
     },
