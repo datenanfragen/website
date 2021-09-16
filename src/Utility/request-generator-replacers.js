@@ -24,6 +24,7 @@ const replacer_factory = (that) => ({
             letter={that.letter}
             download_filename={that.state.download_filename}
             download_active={that.state.download_active}
+            ready={that.state.ready}
             done={that.state.request.done}
             onSuccess={() => {
                 that.storeRequest();

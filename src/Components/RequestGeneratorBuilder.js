@@ -43,6 +43,7 @@ export default class RequestGeneratorBuilder extends Component {
 
             fill_fields: [],
             fill_signature: null,
+            ready: false,
         };
 
         this.replacers = replacer_factory(this);
@@ -74,6 +75,7 @@ export default class RequestGeneratorBuilder extends Component {
                     if (address) prev.request.custom_data.sender_address = address.value;
                 }
                 if (res.signature) prev.request.signature = res.signature;
+                prev.ready = false;
 
                 return prev;
             });
@@ -88,6 +90,8 @@ export default class RequestGeneratorBuilder extends Component {
                 prev.request.type = 'custom';
                 return prev;
             });
+
+            this.setState({ ready: false });
 
             await Promise.all([
                 new UserRequests().getRequest(response_to),
@@ -121,6 +125,8 @@ export default class RequestGeneratorBuilder extends Component {
                     prev.request.type = 'custom';
                     prev.response_request = request;
 
+                    prev.ready = true;
+
                     return prev;
                 });
                 if (response_type === 'admonition' && request.slug) {
@@ -133,7 +139,7 @@ export default class RequestGeneratorBuilder extends Component {
         // This is just a regular ol' request.
         else {
             await fetchTemplate(this.state.request.language, 'access').then((text) => {
-                this.setState({ template_text: text });
+                this.setState({ template_text: text, ready: true });
             });
         }
     };
@@ -217,8 +223,9 @@ export default class RequestGeneratorBuilder extends Component {
                 : REQUEST_FALLBACK_LANGUAGE;
 
         if (this.state.request.type !== 'custom') {
+            this.setState({ ready: false });
             fetchTemplate(language, this.state.request.type, company).then((text) => {
-                this.setState({ template_text: text }, () => this.renderLetter());
+                this.setState({ template_text: text, ready: true }, () => this.renderLetter());
             });
         }
 
@@ -293,8 +300,9 @@ export default class RequestGeneratorBuilder extends Component {
             return;
         }
 
+        this.setState({ ready: false });
         fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then((text) => {
-            this.setState({ template_text: text }, () => this.renderLetter());
+            this.setState({ template_text: text, ready: true }, () => this.renderLetter());
         });
     };
 
@@ -377,11 +385,13 @@ export default class RequestGeneratorBuilder extends Component {
     handleCustomLetterTemplateChange = (e) => {
         const new_template = e.target.value;
         if (new_template !== 'no-template') {
+            this.setState({ ready: false });
             fetchTemplate(this.state.request.language, new_template, null, '').then((text) => {
                 this.changeRequest((req) => {
                     req.custom_data.content = text;
                     req.response_type = new_template;
                 });
+                this.setState({ ready: true });
             });
         } else
             this.changeRequest((req) => {
@@ -428,6 +438,7 @@ export default class RequestGeneratorBuilder extends Component {
                 <SvaFinder
                     callback={(sva) => {
                         this.setCompany(sva);
+                        this.setState({ ready: false });
                         fetchTemplate(sva['complaint-language'], 'complaint', null, '').then((text) => {
                             this.changeRequest((request) => {
                                 request.custom_data.content = new Template(text, [], {
@@ -436,6 +447,7 @@ export default class RequestGeneratorBuilder extends Component {
                                     request_recipient_address: this.state.response_request.recipient,
                                 }).getText();
                             });
+                            this.setState({ ready: true });
                         });
                         dismissModal(modal);
                     }}

@@ -141,7 +141,7 @@ export default class MailtoDropdown extends Component {
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                 <div className="dropdown-container" style="display: inline-block;">
-                    <button className={props.className}>
+                    <button disabled={!props.enabled} className={props.className}>
                         {this.props.buttonText || <Text id={props.done ? 'send-email-again' : 'send-email'} />}
                         &nbsp;&nbsp;
                         <span className={'icon ' + (props.done ? 'icon-paper-plane' : 'icon-email')} />
@@ -171,6 +171,7 @@ export default class MailtoDropdown extends Component {
         onSuccess: PropTypes.func.isRequired,
         done: PropTypes.bool.isRequired,
         className: PropTypes.string.isRequired,
+        enabled: PropTypes.bool.isRequired,
         buttonText: PropTypes.oneOfType([PropTypes.elementType, PropTypes.arrayOf(PropTypes.elementType)]),
     };
 }

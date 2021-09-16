@@ -5,7 +5,8 @@ import MailtoDropdown from '../MailtoDropdown';
 
 export default class ActionButton extends Component {
     render(props) {
-        const enabled = props.transport_medium === 'email' ? !!props.letter : props.download_active;
+        const enabled =
+            props.transport_medium === 'email' ? !!props.letter && props.ready : props.download_active && props.ready;
         const class_name =
             'button' + (enabled ? '' : ' disabled') + (props.done ? ' button-secondary' : ' button-primary');
 
@@ -18,6 +19,7 @@ export default class ActionButton extends Component {
                     done={props.done}
                     className={class_name}
                     buttonText={this.props.buttonText}
+                    enabled={enabled}
                 />
             ) : (
                 <a
@@ -64,6 +66,7 @@ export default class ActionButton extends Component {
         download_active: PropTypes.bool,
         onSuccess: PropTypes.func.isRequired,
         done: PropTypes.bool,
+        ready: PropTypes.bool,
         buttonText: PropTypes.oneOfType([PropTypes.elementType, PropTypes.arrayOf(PropTypes.elementType)]),
     };
 }
