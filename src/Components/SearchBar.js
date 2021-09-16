@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 export let SearchBar;
 
 if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
-    let autocomplete = require('autocomplete.js');
+    const autocomplete = require('autocomplete.js');
 
     SearchBar = class SearchBar extends Component {
         constructor(props) {
@@ -31,7 +31,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
         }
 
         static countryFilter(country) {
-            let items = ['all', country];
+            const items = ['all', country];
 
             /* Our records often simply specify Germany for companies that are also relevant for Austria and/or Switzerland.
                Thus, we explicitly include results from Germany for these countries.
@@ -44,7 +44,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
         }
 
         componentDidMount() {
-            let options = {
+            const options = {
                 query_by: this.props.query_by || 'name, runs, web, slug, address, comments',
                 sort_by: '_text_match:desc,sort-index:asc',
                 num_typos: 4,
@@ -83,13 +83,16 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     templates: {
                         suggestion:
                             this.props.suggestion_template ||
-                            function (suggestion) {
-                                let d = suggestion.document;
+                            ((suggestion) => {
+                                const d = suggestion.document;
 
-                                let name_hs = suggestion.highlights.filter((a) => a.field === 'name');
-                                let runs_hs = suggestion.highlights.filter((a) => a.field === 'runs');
+                                const name_hs = suggestion.highlights.filter((a) => a.field === 'name');
+                                const runs_hs = suggestion.highlights.filter((a) => a.field === 'runs');
 
                                 return (
+                                    (this.props.anchorize
+                                        ? `<a class="no-link-decoration" href="${BASE_URL}/company/${d.slug}">`
+                                        : '') +
                                     '<span><strong>' +
                                     (name_hs.length === 1 ? name_hs[0].snippet : d.name) +
                                     (d.quality === 'tested'
@@ -113,9 +116,10 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                           t('categories', 'search') +
                                           d.categories.map((c) => t(c, 'categories')).join(', ') +
                                           '</span>'
-                                        : '')
+                                        : '') +
+                                    (this.props.anchorize ? '</a>' : '')
                                 );
-                            },
+                            }),
                         empty:
                             this.props.empty_template ||
                             function (query) {
@@ -136,7 +140,8 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     },
                 }
             );
-            this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
+            if (this.props.onAutocompleteSelected)
+                this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
             if (typeof this.props.setupPlaceholderChange === 'function')
                 this.props.setupPlaceholderChange(this.input_element);
         }
@@ -170,7 +175,9 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
             query_by: PropTypes.string,
             numberOfHits: PropTypes.number,
             disableCountryFiltering: PropTypes.bool,
-            onAutocompleteSelected: PropTypes.func.isRequired,
+            // TODO: write a custom function to validate that either onAS or anchorize is set
+            onAutocompleteSelected: PropTypes.func,
+            anchorize: PropTypes.bool, // turn the suggestions into anchors linking to the respective company page
 
             suggestion_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
             empty_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
