@@ -140,7 +140,9 @@ export default class MailtoDropdown extends Component {
 
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
-                <div className="dropdown-container" style="display: inline-block;">
+                <div
+                    className={'dropdown-container' + (!props.enabled ? 'disabled' : '')}
+                    style="display: inline-block;">
                     <button disabled={!props.enabled} className={props.className}>
                         {this.props.buttonText || <Text id={props.done ? 'send-email-again' : 'send-email'} />}
                         &nbsp;&nbsp;

@@ -543,6 +543,7 @@ export default class RequestGeneratorBuilder extends Component {
                             download_filename={this.state.download_filename}
                             download_active={this.state.download_active}
                             done={this.state.request.done}
+                            ready={this.state.ready}
                             buttonText={t(medium === 'email' ? 'send-email-first' : 'download-pdf-first', 'generator')}
                             onSuccess={() => {
                                 dismissModal(modal);

@@ -522,6 +522,15 @@ input[type='search'].aa-input-search {
         }
     }
 
+    &:hover.disabled,
+    &:focus.disabled,
+    &:focus-within.disabled {
+        .dropdown,
+        .dropup {
+            display: none;
+        }
+    }
+
     .dropdown,
     .dropup {
         background-color: $bg-color;

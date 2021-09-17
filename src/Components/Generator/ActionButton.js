@@ -6,7 +6,7 @@ import MailtoDropdown from '../MailtoDropdown';
 export default class ActionButton extends Component {
     render(props) {
         const enabled =
-            props.transport_medium === 'email' ? !!props.letter && props.ready : props.download_active && props.ready;
+            (props.transport_medium === 'email' ? !!props.letter && props.ready : props.download_active) && props.ready;
         const class_name =
             'button' + (enabled ? '' : ' disabled') + (props.done ? ' button-secondary' : ' button-primary');
 
