@@ -125,7 +125,7 @@ export default class RequestGeneratorBuilder extends Component {
                     prev.request.type = 'custom';
                     prev.response_request = request;
 
-                    prev.ready = true;
+                    prev.ready = !!text;
 
                     return prev;
                 });
@@ -139,7 +139,7 @@ export default class RequestGeneratorBuilder extends Component {
         // This is just a regular ol' request.
         else {
             await fetchTemplate(this.state.request.language, 'access').then((text) => {
-                this.setState({ template_text: text, ready: true });
+                this.setState({ template_text: text, ready: !!text });
             });
         }
     };
@@ -225,7 +225,7 @@ export default class RequestGeneratorBuilder extends Component {
         if (this.state.request.type !== 'custom') {
             this.setState({ ready: false });
             fetchTemplate(language, this.state.request.type, company).then((text) => {
-                this.setState({ template_text: text, ready: true }, () => this.renderLetter());
+                this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
             });
         }
 
@@ -302,7 +302,7 @@ export default class RequestGeneratorBuilder extends Component {
 
         this.setState({ ready: false });
         fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then((text) => {
-            this.setState({ template_text: text, ready: true }, () => this.renderLetter());
+            this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
         });
     };
 
@@ -391,7 +391,7 @@ export default class RequestGeneratorBuilder extends Component {
                     req.custom_data.content = text;
                     req.response_type = new_template;
                 });
-                this.setState({ ready: true });
+                this.setState({ ready: !!text });
             });
         } else
             this.changeRequest((req) => {
@@ -447,7 +447,7 @@ export default class RequestGeneratorBuilder extends Component {
                                     request_recipient_address: this.state.response_request.recipient,
                                 }).getText();
                             });
-                            this.setState({ ready: true });
+                            this.setState({ ready: !!text });
                         });
                         dismissModal(modal);
                     }}
