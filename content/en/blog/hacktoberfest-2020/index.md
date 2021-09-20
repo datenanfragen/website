@@ -111,7 +111,7 @@ window.onload = function() {
     if (PARAMETERS.error === 'validation') alert('The data you entered was incorrect. Please try again.');
     else if (PARAMETERS.error === 'server') alert('Our server encountered an error while processing your registration. Please try again in a little while or contact hacktoberfest@datenanfragen.de.');
     else if (PARAMETERS.error === 'duplicate') alert('This GitHub user or email has already been registered. This wasn\'t you? Please contact us at hacktoberfest@datenanfragen.de.');
-    else if (PARAMETERS.error === 'expired') alert('Unforuntately, the registration deadline has already expired.');
+    else if (PARAMETERS.error === 'expired') alert('Unfortunately, the registration deadline has already expired.');
   }
   else if (PARAMETERS.success === '1') alert('Your registration was processed successfully. You should receive an email confirmation soon.');
 }
