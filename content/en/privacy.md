@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on September 13, 2020.
+Our privacy policy was last changed on September 20, 2021.
 
 ## General remarks
 
@@ -78,6 +78,16 @@ When you visit one of our websites, your browser connnects to one or more of our
   * {{< link slug="company/hetzner" text="Hetzner Online GmbH" >}}, Industriestraße 25, 91710 Gunzenhausen, Germany ([privacy policy](https://www.hetzner.com/rechtliches/datenschutz))
   * {{< link slug="company/uberspace" text="Uberspace" >}}, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Germany ([privacy policy](https://uberspace.de/en/about/privacy/))
   * {{< link slug="company/bunnycdn" text="BunnyWay d.o.o." >}}, Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([privacy policy](https://bunnycdn.com/privacy))
+
+#### Records in our company database
+In our company database, we publish the contact details for privacy-related requests to companies and other organizations. In the vast majority of cases, this data is _not_ personal data. Nevertheless, in rare cases, the processing of personal data is necessary for this purpose, for example in the case of names of natural persons in company names or e-mail addresses.  
+We voluntarily grant data subjects of this processing an [extended right to object](#right-to-object).
+
+- Affected data: if necessary: name, if necessary: e-mail address, if necessary: telephone number, if necessary: fax number, if necessary: address, if necessary: PGP key.
+- Lawful basis: The basis of the storage is our legitimate interest according to Art. 6(1) lit. f GDPR to support our users in exercising their fundamental right to data protection as a data protection non-profit organization.
+- Data source: The data is taken exclusively from publicly accessible sources, each of which is indicated on the corresponding page in our company database.
+- Duration of storage: unlimited
+- Data disclosure: The data is publicly accessible via our website.
 
 ### Data you provide to us
 
@@ -221,9 +231,12 @@ If you request us to correct, delete or restrict the processing of your personal
 
 ### Right to object
 
-According to Art. 21 GDPR, you have the right to object at any time to the processing of personal data concerning you which is necessary for the performance of a task in the public interest or because of our legitimate interest on the basis of Article 6(1) lit. e or f respectively, for reasons arising from your particular situation. We will then no longer process the personal data, unless we can prove compelling legitimate grounds for the processing, which outweigh your interests, rights and freedoms or the processing serves the assertion, exercise or defense of legal claims.
+According to Art. 21 GDPR, you have the right to object at any time to the processing of personal data concerning you which is necessary for the performance of a task in the public interest or because of our legitimate interest on the basis of Article 6(1) lit. e or f respectively, based on grounds arising from your particular situation. We will then no longer process the personal data, unless we can prove compelling legitimate grounds for the processing, which outweigh your interests, rights and freedoms or the processing serves the assertion, exercise or defense of legal claims.
 
 If we use your personal data for direct marketing, you have the right to object to such processing at any time. We will then no longer use your data for such purposes.
+
+In addition, as a data subject whose data is published in our company database, you can object to this publication at any time, even without giving grounds arising from your particular situation. After an objection, we will immediately remove the relevant data from our company database and, if requested, also include it in an internal blocking file in order to avoid future publication. Only in the case of personal data of company owners do we reserve the right to refuse to remove the data after examining the individual case and if we consider there to be an outweighing public interest in the publication of the data.  
+Where possible, we will replace removed personal contact data with general non-personal contact data of the company.
 
 ### Right to lodge a complaint with a supervisory authority
 

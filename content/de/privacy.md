@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 13. September 2020 geändert.
+Unsere Datenschutzerklärung wurde zuletzt am 20. September 2021 geändert.
 
 ## Allgemeine Hinweise
 
@@ -60,7 +60,7 @@ Wir setzen keinerlei Profiling oder sonstige Arten automatisierter Entscheidungs
 
 ## Erfasste Informationen
 
-Zur Ausübung unserer satzungsmäßigen Vereinstätigkeit, zum Betrieb unserer Webseite und zur Bereitstellung unserer Angebote müssen wir gewisse personenbezogene Daten von unseren Mitgliedern und Nutzer_innen erfassen und verarbeiten. Oberster Grundsatz ist dabei für uns die Datenminimierung: Wir erheben personenbezogene Daten nur da, wo es notwendig ist und auch nur in dem Maße, wie es notwendig ist. Darüber hinaus erfolgt die Datenerhebung immer zweckgebunden und die Speicherung ist in der Dauer auf den notwendigen Zeitraum beschränkt.
+Zur Ausübung unserer satzungsmäßigen Vereinstätigkeit, zum Betrieb unserer Webseite und zur Bereitstellung unserer Angebote müssen wir gewisse personenbezogene Daten erfassen und verarbeiten. Oberster Grundsatz ist dabei für uns die Datenminimierung: Wir erheben personenbezogene Daten nur da, wo es notwendig ist und auch nur in dem Maße, wie es notwendig ist. Darüber hinaus erfolgt die Datenerhebung immer zweckgebunden und die Speicherung ist in der Dauer auf den notwendigen Zeitraum beschränkt.
 
 Um Dir die größtmögliche Kontrolle über Deine Privatsphäre zu ermöglichen, kannst Du über unsere {{< link slug="privacy-controls" text="Datenschutzeinstellungen" >}} für viele Funktionen auf unseren Webseiten jederzeit einstellen, ob Du diese aktivieren möchtest. Dazu wird für jede Option ein Cookie in Deinem Browser gespeichert. Dieser enthält lediglich die Information, ob Du die jeweilige Option aktiviert oder deaktiviert hast, aber keine personenbezogenen Daten.
 
@@ -78,6 +78,16 @@ Wenn Du eine unserer Webseiten aufrufst, baut Dein Browser eine Verbindung zu ei
   * {{< link slug="company/hetzner" text="Hetzner Online GmbH" >}}, Industriestraße 25, 91710 Gunzenhausen, Deutschland ([Datenschutzerklärung](https://www.hetzner.de/rechtliches/datenschutz))
   * {{< link slug="company/uberspace" text="Uberspace" >}}, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Deutschland ([Datenschutzerklärung](https://uberspace.de/de/about/privacy/))
   * {{< link slug="company/bunnycdn" text="BunnyWay d.o.o." >}}, Cesta komandanta Staneta 4A, 1215 Medvode, Slowenien ([Datenschutzerklärung](https://bunnycdn.com/privacy))
+
+#### Einträge in der Unternehmensdatenbank
+In unserer Unternehmensdatenbank veröffentlichen wir die Datenschutzkontaktdaten von Unternehmen und anderen Organisationen. In aller Regel handelt es sich dabei _nicht_ um personenbezogene Daten. In seltenen Fällen ist hierfür aber die Verarbeitung personenbezogener Daten nötig, etwa bei Namen natürlicher Personen in Unternehmensnamen oder E-Mail-Adressen.  
+Betroffenen Personen dieser Verarbeitung gewähren wir freiwillig ein [erweitertes Widerspruchsrecht](#widerspruchsrecht).
+
+- Betroffene Daten: ggf. Name, ggf. E-Mail-Adresse, ggf. Telefonnummer, ggf. Faxnnummer, ggf. Adresse, ggf. PGP-Key
+- Rechtsgrundlage: Die Grundlage der Speicherung ist unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO, als gemeinnütziger Verein im Bereich des Datenschutzes unsere Nutzer_innen bei der Ausübung ihres Grundrechts auf Datenschutz zu unterstützen.
+- Herkunft der Daten: Die Daten werden ausschließlich aus öffentlich zugänglichen Quellen übernommen, die jeweils auf der entsprechenden Unterseite in unserer Unternehmensdatenbank angegeben sind.
+- Dauer der Speicherung: unbeschränkt
+- Weitergabe der Daten: Die Daten sind öffentlich auf unserer Webseite einsehbar.
 
 ### Informationen, die Du uns zur Verfügung stellst
 
@@ -227,6 +237,9 @@ Wenn Du von uns die Berichtigung, Löschung oder eine Einschränkung der Verarbe
 Nach Art. 21 DSGVO hast Du das Recht, aus Gründen die sich aus Deiner besonderen Situation ergeben, jederzeit gegen die Verarbeitung Dich betreffender personenbezogener Daten, die für die Wahrnehmung einer Aufgabe im öffentlichen Interesse oder wegen unseres rechtmäßigen Interesses aufgrund von Artikel 6 Abs. 1 lit. e oder f respektive erfolgt, Widerspruch einzulegen. Wir werden die personenbezogenen Daten dann nicht mehr verarbeiten, es sei denn wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Deine Interesse, Rechte und Freiheiten überwiegen oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
 
 Falls wir Deine personenbezogenen Daten für Direktwerbung verwenden, hast Du das Recht, jederzeit Widerspruch gegen eine derartige Verarbeitung einzulegen. Wir werden Deine Daten dann nicht mehr für solche Zwecke verwenden.
+
+Zusätzlich kannst Du als betroffene Personen, deren Daten in unserer Unternehmensdatenbank veröffentlicht sind, jederzeit auch ohne Darlegung von Gründen, die sich aus Deiner besonderen Situation ergeben, Widerspruch gegen diese Veröffentlichung bei uns einlegen. Wir werden die entsprechenden Daten nach einem Widerspruch umgehend aus unserer Unternehmensdatenbank entfernen und auf Wunsch zusätzlich auf eine interne Sperrkartei aufnehmen, um die zukünftige erneute Veröffentlichung zu vermeiden. Nur bei personenbezogenen Daten von Unternehmensinhaber_innen behalten wir es uns vor, einer Löschung nach Prüfung des Einzelfalls zu widersprechen, falls wir der Ansicht sind, dass das öffentliche Interesse an der Veröffentlichung stark überwiegt.  
+Soweit möglich ersetzen wir gelöschte personenbezogene Kontaktdaten durch allgemeine nicht-personenbezogene Kontaktdaten des Unternehmens.
 
 ### Recht auf Beschwerde bei einer Aufsichtsbehörde
 
