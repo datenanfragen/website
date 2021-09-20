@@ -60,7 +60,7 @@ Wir setzen keinerlei Profiling oder sonstige Arten automatisierter Entscheidungs
 
 ## Erfasste Informationen
 
-Zur Ausübung unserer satzungsmäßigen Vereinstätigkeit, zum Betrieb unserer Webseite und zur Bereitstellung unserer Angebote müssen wir gewisse personenbezogene Daten von unseren Mitgliedern und Nutzer_innen erfassen und verarbeiten. Oberster Grundsatz ist dabei für uns die Datenminimierung: Wir erheben personenbezogene Daten nur da, wo es notwendig ist und auch nur in dem Maße, wie es notwendig ist. Darüber hinaus erfolgt die Datenerhebung immer zweckgebunden und die Speicherung ist in der Dauer auf den notwendigen Zeitraum beschränkt.
+Zur Ausübung unserer satzungsmäßigen Vereinstätigkeit, zum Betrieb unserer Webseite und zur Bereitstellung unserer Angebote müssen wir gewisse personenbezogene Daten erfassen und verarbeiten. Oberster Grundsatz ist dabei für uns die Datenminimierung: Wir erheben personenbezogene Daten nur da, wo es notwendig ist und auch nur in dem Maße, wie es notwendig ist. Darüber hinaus erfolgt die Datenerhebung immer zweckgebunden und die Speicherung ist in der Dauer auf den notwendigen Zeitraum beschränkt.
 
 Um Dir die größtmögliche Kontrolle über Deine Privatsphäre zu ermöglichen, kannst Du über unsere {{< link slug="privacy-controls" text="Datenschutzeinstellungen" >}} für viele Funktionen auf unseren Webseiten jederzeit einstellen, ob Du diese aktivieren möchtest. Dazu wird für jede Option ein Cookie in Deinem Browser gespeichert. Dieser enthält lediglich die Information, ob Du die jeweilige Option aktiviert oder deaktiviert hast, aber keine personenbezogenen Daten.
 
