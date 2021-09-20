@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 17. September 2021 geändert.
+Unsere Datenschutzerklärung wurde zuletzt am 20. September 2021 geändert.
 
 ## Allgemeine Hinweise
 
