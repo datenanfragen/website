@@ -91,7 +91,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
 
                                 return (
                                     (this.props.anchorize
-                                        ? `<a class="no-link-decoration" href="${BASE_URL}/company/${d.slug}">`
+                                        ? `<a class="no-link-decoration" href="${BASE_URL}company/${d.slug}">`
                                         : '') +
                                     '<span><strong>' +
                                     (name_hs.length === 1 ? name_hs[0].snippet : d.name) +
