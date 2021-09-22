@@ -1,7 +1,7 @@
 {
     "title": "Hacktoberfest 2021: Macht mit!",
     "type": "blog",
-    "date": "2021-09-19T11:00:0+02:00",
+    "date": "2021-09-19T11:00:00+02:00",
     "description": "Wir halten 2021 auch wieder eine Hacktoberfest-Aktion ab. Mach' bei Datenanfragen.de mit und gewinne einen Webcam-Slider, Sticker und vielleicht ein T-Shirt!",
     "featured_image": "hacktoberfest-2021",
     "tags": [ "hacktoberfest", "digitalocean", "github", "open source", "pull request"],
@@ -10,15 +10,15 @@
 }
 
 
-~~O'zapft is!~~ Der Oktober und damit auch das Hacktoberfest stehen wieder vor der Tür. Auch dieses Jahr wollen wir als Datenanfragen.de e.V. wieder am Hacktoberfest teilnehmen und freuen uns auf Eure Einreichungen für unser Projekt! Wie auch schon in den letzten Jahres gibt es auch wieder etwas zu gewinnen.
+~~O'zapft is!~~ Der Oktober und damit auch das Hacktoberfest stehen wieder vor der Tür. Auch dieses Jahr wollen wir als Datenanfragen.de e.&thinsp;V. wieder am Hacktoberfest teilnehmen und freuen uns auf Eure Einreichungen für unser Projekt! Wie auch schon in den letzten Jahres gibt es auch wieder etwas zu gewinnen.
 
-{{< featuredImg alt="Vor einem Hintergrund aus Ahornblättern steht: \"Hacktoberfest 2021: Macht mit!\"" >}}
+{{< featuredImg alt="Vor einem Hintergrund aus Ahornblättern steht: „Hacktoberfest 2021: Macht mit!“" >}}
 
-Wie auch das [ursprüngliche Hacktoberfest](https://hacktoberfest.digitalocean.com/) von Digital Ocean, wollen wir mit unserer Aktion Menschen die Mithilfe an Open-Source-Projekten näher bringen und freuen uns über jeden Beitrag für Datenanfragen.de und unsere Schwesterseiten. Konkret heißt das für Dich: Wenn Du an unserer Aktion teilnimmst und etwas zu Datenanfragen.de beiträgst gewinnst Du einen praktischen Webcam-Slider und ein Sticker-Set (jeweils begrenzt auf die ersten 100 Teilnehmer_innen) und erhältst vielleicht auch ein T-Shirt von uns.
+Wie auch das [ursprüngliche Hacktoberfest](https://hacktoberfest.digitalocean.com/) von DigitalOcean, wollen wir mit unserer Aktion Menschen die Mithilfe an Open-Source-Projekten näher bringen und freuen uns über jeden Beitrag für Datenanfragen.de und unsere Schwesterseiten. Konkret heißt das für Dich: Wenn Du an unserer Aktion teilnimmst und etwas zu Datenanfragen.de beiträgst, gewinnst Du einen praktischen Webcam-Slider und ein Sticker-Set (jeweils begrenzt auf die ersten 100 Teilnehmer_innen) und erhältst vielleicht auch ein T-Shirt von uns.
 
-Unser Projekt und unser Ziel Datenschutz möglichst allen zugänglich zu machen, leben von reger Beteiligung aus der Community. Besonders freuen wir uns über Beiträge in Gebieten die wir ohne externe Hilfe nicht abdecken können: Übersetzungen von Deutsch und Englisch in andere in der EU gesprochene Sprachen, siehe z.B. [diesen Eintrag](https://github.com/datenanfragen/data/issues/229) in unserem Issue-Tracker. Oder weißt Du von [Firmen die bestimmten EU-Ländern Daten von allen Bürger_innen sammlen?](https://github.com/datenanfragen/data/issues/230) Wenn Du uns diese mitteilt, können wir unseren Nutzer_innen aus diesen Ländern direkt diese Firmen als Anfrageempfängerinnen vorschlagen.
+Unser Projekt und unser Ziel Datenschutz möglichst allen zugänglich zu machen, leben von reger Beteiligung aus der Community. Besonders freuen wir uns über Beiträge in Gebieten, die wir ohne externe Hilfe nicht abdecken können: Übersetzungen von Deutsch und Englisch in andere in der EU gesprochene Sprachen, siehe z.&nbsp;B. [diesen Eintrag](https://github.com/datenanfragen/data/issues/229) in unserem Issue-Tracker. Oder weißt Du von [Firmen, die in bestimmten EU-Ländern Daten von allen Bürger_innen sammlen]?(https://github.com/datenanfragen/data/issues/230) Wenn Du uns diese mitteilst, können wir unseren Nutzer_innen aus diesen Ländern direkt diese Firmen als Anfrageempfängerinnen vorschlagen.
 
-Weiter unten gibt es ein Formular, mit dem Du Dich bei unserer Aktion anmelden kannst, wenn Du via GitHub teilnehmen wollt. Bitte beachtet, dass unsere Aktion eigenständig von dem Hacktoberfest von Digital Ocean ist. Dieses Jahr vergeben wir wieder 10 T-Shirts unter den Einreichungen. Du kannst Deine Beiträge entweder per PR in GitHub oder per Git-Patch als E-Mail-Anhang einreichen.
+Weiter unten gibt es ein Formular, mit dem Du Dich bei unserer Aktion anmelden kannst, wenn Du via GitHub teilnehmen wollt. Bitte beachtet, dass unsere Aktion eigenständig von dem Hacktoberfest von DigitalOcean ist. Dieses Jahr vergeben wir wieder 10 T-Shirts für die besten Einreichungen. Du kannst Deine Beiträge entweder per PR in GitHub oder per Git-Patch als E-Mail-Anhang einreichen.
 
 ## Was gibt es für Belohnungen?
 
@@ -45,7 +45,7 @@ Ich möchte an der Hacktoberfest 2021-Aktion des Datenanfragen.de e.&nbsp;V. üb
 <label><div class="col40"><strong>E-Mail-Adresse</strong></div><div class="col60"><input type="email" name="email" class="form-element" required></label></div>
 <div class="clearfix"></div>
 <div class="form-group"><input type="checkbox" id="accept_terms" name="accept_terms" class="form-element" required><label for="accept_terms"><div style="float: left; width: 90%;">Die <a href="https://static.dacdn.de/docs/bedingungen-hacktoberfest-2021.pdf">Teilnahme- und Datenschutzbedingungen</a> habe ich zur Kenntnis genommen. Ich bin damit einverstanden.<sup class="color-teal-700">*</sup></div></label></div>
-<div class="form-group"><input type="checkbox" id="accept_us_transfers" name="accept_us_transfers" class="form-element" required><label for="accept_us_transfers"><div style="float: left; width: 90%;">Ich möchte für meine Teilnahme die US-amerikanischen Plattform GitHub (<a href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement">Datenschutzerklärung</a>) nutzen, für die der Datenanfragen.de e.&nbsp;V. nicht das gleiche Datenschutzniveau wie in der EU garantieren kann. Es besteht das Risiko, dass meine Daten dem Zugriff durch US-Behörden unterliegen, wogegen mir möglicherweise keine wirksamen Rechtsbehelfe zur Verfügung stehen. Damit bin ich einverstanden.<sup class="color-teal-700">*</sup></div></label></div>
+<div class="form-group"><input type="checkbox" id="accept_us_transfers" name="accept_us_transfers" class="form-element" required><label for="accept_us_transfers"><div style="float: left; width: 90%;">Ich möchte für meine Teilnahme die US-amerikanischen Plattform GitHub (<a href="https://docs.github.com/de/github/site-policy/github-privacy-statement">Datenschutzerklärung</a>) nutzen, für die der Datenanfragen.de e.&nbsp;V. nicht das gleiche Datenschutzniveau wie in der EU garantieren kann. Es besteht das Risiko, dass meine Daten dem Zugriff durch US-Behörden unterliegen, wogegen mir möglicherweise keine wirksamen Rechtsbehelfe zur Verfügung stehen. Damit bin ich einverstanden.<sup class="color-teal-700">*</sup></div></label></div>
 <input type="hidden" name="language" value="de">
 <input type="hidden" name="year" value="2021">
 <div style="float: right; margin-top: 10px;"><input class="button button-primary" type="submit" value="Registrieren"></label></div>
@@ -96,7 +96,7 @@ Gerade wenn Du neu bei Datenanfragen.de bist, weißt Du wahrscheinlich gar nicht
   Eine weitere wichtige Aufgabe ist das Übersetzen dieser Artikel in die anderen Sprachen, die wir unterstützen. Auch dafür ist das [website-Repository](https://github.com/datenanfragen/website) der richtige Ort.
 
 * **Übersetzen der Anfragevorlagen in weitere Sprachen**  
-  Unsere Anfragevorlagen gibt es schon in etlichen Sprachen, wir haben unsere Vorlagen aber teilweise schon aktualisiert. Du wärst uns eine große Hilfe, wenn Du diese Aktualisierungen auch in den anderen Sprachen vornehmen könntest. Mehr dazu erfährst Du in [diesem GitHub-Issue](https://github.com/datenanfragen/data/issues/229).
+  Unsere Anfragevorlagen gibt es schon in etlichen Sprachen, wir haben unsere Vorlagen aber teilweise seitdem aktualisiert. Du wärst uns eine große Hilfe, wenn Du diese Aktualisierungen auch in den anderen Sprachen vornehmen könntest. Mehr dazu erfährst Du in [diesem GitHub-Issue](https://github.com/datenanfragen/data/issues/229).
 
 * **Mitarbeit am Code**  
   Der Kern des Projektes ist natürlich unsere [Webseite](https://github.com/datenanfragen/website). Vermisst Du eine Funktion und möchtest sie implementieren? Oder einen Bug fixen? Wir freuen uns über Deine Einreichung!
