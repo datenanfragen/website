@@ -231,7 +231,9 @@
         "bank-transfer-heading": "Podaci plaćanja za bankovni prijenos",
         "how": "Na koji način želiš platiti?",
         "how-much": "Na koji način želiš donirati?",
-        "back": "Natrag na obrazac"
+        "back": "Natrag na obrazac",
+        "amount-no-fees": "Dobit ćemo cijeli iznos od {{amount}}&nbsp;€.",
+        "amount-after-fees": "Nakon pristojbi, dobit ćemo {{amount}}&nbsp;€."
     },
     "sva-finder": {
         "kathsonst": "Ostale biskupije i opći zahtjevi",
