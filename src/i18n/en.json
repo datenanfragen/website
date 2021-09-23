@@ -382,7 +382,8 @@
         "email": "Email address",
         "attn": "Attn: Data Protection",
         "by-fax": "By Fax: ",
-        "concerns": "Concerns"
+        "concerns": "Concerns",
+        "recommend-language": "This site is also available in your language."
     },
     "privacy-controls": {
         "title": "Privacy controls",

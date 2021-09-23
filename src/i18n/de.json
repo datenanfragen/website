@@ -382,7 +382,8 @@
         "email": "E-Mail-Adresse",
         "attn": "Betrifft: Datenschutz",
         "by-fax": "Per Fax: ",
-        "concerns": "Betrifft"
+        "concerns": "Betrifft",
+        "recommend-language": "Diese Seite ist auch in einer anderen Sprache verfügbar!"
     },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",
@@ -556,8 +557,7 @@
         "change-lang": "Trotzdem wechseln",
         "stay": "Hier bleiben",
         "not-supported-prompt": "Deine Sprache oder Dein Land wird noch nicht unterstützt?",
-        "not-supported-cta": "Hilf uns dabei!",
-        "recommend-language": "Diese Seite ist auch in einer anderen Sprache verfügbar!"
+        "not-supported-cta": "Hilf uns dabei!"
     },
     "comments": {
         "comments": "Kommentare",
