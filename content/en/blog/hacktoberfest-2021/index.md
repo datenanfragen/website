@@ -8,9 +8,9 @@
     "authors": [ "malte", "baltpeter" ],
     "notices": "Photo adapted after: \"[maple leaves photo](https://unsplash.com/photos/Pu-en3ew8wY)\" by [Fey Marin](https://unsplash.com/@feymarin) ([Unsplash license](https://unsplash.com/license))"
 }
-~~Party time!~~ October and therefore the Hacktoberfest are back! We are participating again and are looking forward to your contributions. Just like in the last years, we are happy to give away some goodies as well.
+~~Party time!~~ October and therefore the Hacktoberfest are back! We are participating again and are looking forward to your contributions. Just like in previous years, we are happy to give away some goodies as well.
 
-{{< featuredImg alt="Written infront of leaves: \"Hacktoberfest 2021: Hack with us!\"" >}}
+{{< featuredImg alt="Written in front of leaves: \"Hacktoberfest 2021: Hack with us!\"" >}}
 
 Just like the [original Hacktoberfest](https://hacktoberfest.digitalocean.com/) from DigitalOcean, we want to get people excited about Open Source software and contributing to it. That means for you: Contribute to datarequests.org and its sister sites and we'll give you some goodies: The first 100 people get a useful webcam slider and a sticker pack. The 10 best contributions will receive a t-shirt as well! All that is completely free for you, we will even pay for postage.
 
@@ -77,7 +77,7 @@ We may also accept additional repositories. If you think that your contribution 
 
 <img class="offset-image offset-image-right" src="/card-icons/code.svg" height="150px" width="190px" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
 
-If you're new to Datenanfragen.de, you may be a little overwhelmed and don't know where to start. Don't worry: There are numerous areas in which you can participate—regardless of whether you have experience with programming and data protection or not. To make it easier for you to get started, we have put together a few suggestions here. You can find many more tasks in the issues of the respective repositories. Of course we also welcome your own ideas on how you could improve the project.
+If you're new to Datenanfragen.de, you may be a little overwhelmed and don't know where to start. Don't worry: There are numerous areas in which you can participate—regardless of whether you have experience with programming and data protection or not. To make it easier for you to get started, we have put together a few suggestions here. You can find many more tasks in the issues of the respective repositories. Of course, we also welcome your own ideas on how you could improve the project.
 
 * **Collecting suggested companies for more countries**  
   As explained above, we want to collect lists of companies that users should request their data from. We need these lists to suggest these companies to users in these countries via our wizard. At the moment, we support Germany, Austria, and Great Britian. However, we would like to support all EU countries in the future. Read more in [this GitHub issue](https://github.com/datenanfragen/data/issues/230).
@@ -94,7 +94,7 @@ If you're new to Datenanfragen.de, you may be a little overwhelmed and don't kno
   Another important task is translating existing posts into the other languages that we support. The [website repository](https://github.com/datenanfragen/website) is the right place to go for that, as well.
 
 * **Translating the request templates to more languages**  
-  Our request templates are already available in many languages but some are outdated, as we have since updated the English and German templates. Help us by translating these updates to other languages as well. Learn more in [this GitHub issue](https://github.com/datenanfragen/data/issues/229).
+  Our request templates are already available in many languages, but some are outdated, as we have since updated the English and German templates. Help us by translating these updates to other languages as well. Learn more in [this GitHub issue](https://github.com/datenanfragen/data/issues/229).
 
 * **Helping with the code**  
   A key part of the project is the [website](https://github.com/datenanfragen/website). Are you missing a feature you want to implement or do you want to fix a bug? We are looking forward to your contribution!
@@ -103,7 +103,7 @@ If you're new to Datenanfragen.de, you may be a little overwhelmed and don't kno
 
 ## Any questions?
 
-If you have any questions, feel free to email us at <hacktoberfest@datenanfragen.de> or write a comment here. If you need help or guidance working with our project and repositiories, ask away! The best place for specific questions are the corresponding GitHub issues.
+If you have any questions, feel free to email us at <hacktoberfest@datenanfragen.de> or write a comment here. If you need help or guidance working with our project and repositories, ask away! The best place for specific questions are the corresponding GitHub issues.
 
 Happy hacking!
 
