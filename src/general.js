@@ -1,5 +1,5 @@
 import { render } from 'preact';
-import t from './Utility/i18n';
+import t, { t_r } from './Utility/i18n';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
 import FlashMessage, { flash } from 'Components/FlashMessage';
@@ -52,10 +52,10 @@ if (comments_div) {
  */
 function notifyOtherLanguages(preferred_language, website_language) {
     if (!preferred_language || !website_language) return;
-    let recommend_language = t('recommend-language', 'i18n-widget'); //"en"
+    let recommend_language = t_r('recommend-language', preferred_language || LOCALE);
     globals.country = preferred_language;
     flash(
-        <FlashMessage type="info">
+        <FlashMessage type="info" duration={15000}>
             {recommend_language} {<I18nWidget minimal={true} showLanguageOnly={true} />}
         </FlashMessage>
     );
