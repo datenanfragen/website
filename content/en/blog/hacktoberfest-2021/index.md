@@ -1,7 +1,7 @@
 {
     "title": "Hacktoberfest 2021: Hack with us!",
     "type": "blog",
-    "date": "2021-09-19T11:00:0+02:00",
+    "date": "2021-09-19T11:00:00+02:00",
     "description": "We are again participating in the Hacktoberfest! Contribute and get a webcam slider, sticker set and maybe a free t-shirt.",
     "featured_image": "hacktoberfest-2021",
     "tags": [ "hacktoberfest", "digitalocean", "github", "open source", "pull request" ],
@@ -10,7 +10,7 @@
 }
 ~~Party time!~~ October and therefore the Hacktoberfest are back! We are participating again and are looking forward to your contributions. Just like in the last years, we are happy to give away some goodies as well.
 
-{{< featuredImg alt="Written infront of maple leaves: \"Hacktoberfest 2021: Hack with us!\"" >}}
+{{< featuredImg alt="Written infront of leaves: \"Hacktoberfest 2021: Hack with us!\"" >}}
 
 Just like the [original Hacktoberfest](https://hacktoberfest.digitalocean.com/) from DigitalOcean, we want to get people excited about Open Source software and contributing to it. That means for you: Contribute to datarequests.org and its sister sites and we'll give you some goodies: The first 100 people get a useful webcam slider and a sticker pack. The 10 best contributions will receive a t-shirt as well! All that is completely free for you, we will even pay for postage.
 

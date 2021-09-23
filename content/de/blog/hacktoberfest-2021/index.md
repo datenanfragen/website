@@ -12,7 +12,7 @@
 
 ~~O'zapft is!~~ Der Oktober und damit auch das Hacktoberfest stehen wieder vor der Tür. Auch dieses Jahr wollen wir als Datenanfragen.de e.&thinsp;V. wieder am Hacktoberfest teilnehmen und freuen uns auf Eure Einreichungen für unser Projekt! Wie auch schon in den letzten Jahres gibt es auch wieder etwas zu gewinnen.
 
-{{< featuredImg alt="Vor einem Hintergrund aus Ahornblättern steht: „Hacktoberfest 2021: Macht mit!“" >}}
+{{< featuredImg alt="Vor einem Hintergrund aus Blättern steht: „Hacktoberfest 2021: Macht mit!“" >}}
 
 Wie auch das [ursprüngliche Hacktoberfest](https://hacktoberfest.digitalocean.com/) von DigitalOcean, wollen wir mit unserer Aktion Menschen die Mithilfe an Open-Source-Projekten näher bringen und freuen uns über jeden Beitrag für Datenanfragen.de oder eine unserer anderssprachigen Seiten. Konkret heißt das für Dich: Wenn Du an unserer Aktion teilnimmst und etwas zu Datenanfragen.de beiträgst, gewinnst Du eine praktische Webcam-Abdeckung und ein Sticker-Set (jeweils begrenzt auf die ersten 100 Teilnehmer_innen) und erhältst vielleicht auch ein T-Shirt von uns.
 
@@ -87,6 +87,9 @@ Gerade wenn Du neu bei Datenanfragen.de bist, weißt Du wahrscheinlich gar nicht
 
   Diese Daten fehlen uns noch für viele Unternehmen, deshalb nutzen wir für diese im Generator die Standardfelder (Name, E-Mail und Adresse). Diese passen aber leider nicht immer, manche Unternehmen fordern noch mehr, wie z.B. spezielle Nutzernamen oder sind mit weniger zufrieden.
   Du kannst uns helfen die Einträge entsprechend zu erweitern. In [diesem GitHub-Issue](https://github.com/datenanfragen/data/issues/720) erkären wir genau, wie Du durch Anfragen an die Unternehmen die entsprechenden Daten nachtragen kannst. Als netter Nebeneffekt kannst Du dadurch auch erfahren, was das Unternehmen so über dich weiß und praktische Erfahrung mit der DSGVO sammeln.
+
+* **Leichte oder einfache Sprache**
+  Kennst Du dich mit leichter oder einfacher Sprache aus und hast Lust für uns einen generellen Überblick oder Artikel zu schreiben? Wir möchten Datenschutz und die DSGVO-Rechte jeder Person leicht zugänglich machen und würden uns freuen, in Zukunft auch Inhalte in leichter oder einfacher Sprache anzubieten. Schreibe uns dafür gerne eine E-Mail an <hacktoberfest@datenanfragen.de>.
 
 * **Schreiben und Übersetzen von Artikeln**  
   In unserem {{< link slug="blog" text="Blog" >}} haben wir Artikel zu vielen Datenschutzthemen. Wir wollen gerne mehr Artikel veröffentlichen und wollen dort auch gerne weiterhin ein großes Spektrum abdecken, so haben wir bislang z.B. Erklärungen der DSGVO-Rechte, Anleitungen, Erfahrungsberichte und Recherchen. Reiche neue Beiträge bitte im [website-Repository](https://github.com/datenanfragen/website) ein.
