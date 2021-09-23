@@ -29,7 +29,7 @@ export default class I18nWidget extends Component {
             event.target.value = LOCALE;
         };
         let selected_lang = event.target.value; //e.g hr
-        console.log(selected_lang)
+
         modal = render(
             <IntlProvider scope={selected_lang} definition={I18N_DEFINITION_REQUESTS}>
                 <Modal
