@@ -782,6 +782,9 @@ body.sticky-offset {
 }
 
 .brutusin-form {
+    @include mobile {
+        line-height: 1.3;
+    }
     table.object {
         width: 100%;
     }
@@ -808,13 +811,18 @@ body.sticky-offset {
         vertical-align: top;
 
         &.prop-name {
-            width: 300px;
+            @include desktop {
+                width: 300px;
+            }
         }
         td.prop-name {
             width: auto;
         }
         &.item-action {
             width: 35px;
+        }
+        @include mobile {
+            display: block;
         }
     }
 
