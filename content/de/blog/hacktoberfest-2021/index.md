@@ -2,7 +2,7 @@
     "title": "Hacktoberfest 2021: Macht mit!",
     "type": "blog",
     "date": "2021-09-19T11:00:00+02:00",
-    "description": "Wir halten 2021 auch wieder eine Hacktoberfest-Aktion ab. Mach' bei Datenanfragen.de mit und gewinne einen Webcam-Slider, Sticker und vielleicht ein T-Shirt!",
+    "description": "Wir halten 2021 auch wieder eine Hacktoberfest-Aktion ab. Mach' bei Datenanfragen.de mit und gewinne eine Webcam-Abdeckung, Sticker und vielleicht ein T-Shirt!",
     "featured_image": "hacktoberfest-2021",
     "tags": [ "hacktoberfest", "digitalocean", "github", "open source", "pull request"],
     "authors": [ "malte", "baltpeter" ],
@@ -14,7 +14,7 @@
 
 {{< featuredImg alt="Vor einem Hintergrund aus Ahornblättern steht: „Hacktoberfest 2021: Macht mit!“" >}}
 
-Wie auch das [ursprüngliche Hacktoberfest](https://hacktoberfest.digitalocean.com/) von DigitalOcean, wollen wir mit unserer Aktion Menschen die Mithilfe an Open-Source-Projekten näher bringen und freuen uns über jeden Beitrag für Datenanfragen.de und unsere Schwesterseiten. Konkret heißt das für Dich: Wenn Du an unserer Aktion teilnimmst und etwas zu Datenanfragen.de beiträgst, gewinnst Du einen praktischen Webcam-Slider und ein Sticker-Set (jeweils begrenzt auf die ersten 100 Teilnehmer_innen) und erhältst vielleicht auch ein T-Shirt von uns.
+Wie auch das [ursprüngliche Hacktoberfest](https://hacktoberfest.digitalocean.com/) von DigitalOcean, wollen wir mit unserer Aktion Menschen die Mithilfe an Open-Source-Projekten näher bringen und freuen uns über jeden Beitrag für Datenanfragen.de oder eine unserer anderssprachigen Seiten. Konkret heißt das für Dich: Wenn Du an unserer Aktion teilnimmst und etwas zu Datenanfragen.de beiträgst, gewinnst Du eine praktische Webcam-Abdeckung und ein Sticker-Set (jeweils begrenzt auf die ersten 100 Teilnehmer_innen) und erhältst vielleicht auch ein T-Shirt von uns.
 
 Unser Projekt und unser Ziel Datenschutz möglichst allen zugänglich zu machen, leben von reger Beteiligung aus der Community. Besonders freuen wir uns über Beiträge in Gebieten, die wir ohne externe Hilfe nicht abdecken können: Übersetzungen von Deutsch und Englisch in andere in der EU gesprochene Sprachen, siehe z.&nbsp;B. [diesen Eintrag](https://github.com/datenanfragen/data/issues/229) in unserem Issue-Tracker. Oder weißt Du von [Firmen, die in bestimmten EU-Ländern Daten von allen Bürger_innen sammlen]?(https://github.com/datenanfragen/data/issues/230) Wenn Du uns diese mitteilst, können wir unseren Nutzer_innen aus diesen Ländern direkt diese Firmen als Anfrageempfängerinnen vorschlagen.
 
@@ -22,7 +22,7 @@ Weiter unten gibt es ein Formular, mit dem Du Dich bei unserer Aktion anmelden k
 
 ## Was gibt es für Belohnungen?
 
-Die ersten 100 Teilnehmer_innen, die zwischen dem 01. Oktober 2021 und 01. November 2021 mindestens eine Pull-Request oder einen Patch in einem der [qualifizierten Repositories](#repos) eingereicht haben, die/der von uns angenommen wurde, bekommen von uns ein Sticker-Set sowie einen Webcam-Slider geschenkt.
+Die ersten 100 Teilnehmer_innen, die zwischen dem 01. Oktober 2021 und 01. November 2021 mindestens eine Pull-Request oder einen Patch in einem der [qualifizierten Repositories](#repos) eingereicht haben, die/der von uns angenommen wurde, bekommen von uns ein Sticker-Set sowie eine Webcam-Abdeckung geschenkt.
 
 Darüber hinaus verlosen wir unter allen Teilnehmer_innen 10 T-Shirts für die besten Beiträge. Die Auswahl der Gewinner_innen erfolgt nach dem Ende der Aktion durch den Vorstand.
 
@@ -72,6 +72,7 @@ Für die Aktion werten wir nur Pull-Requests und Patches in den folgenden Reposi
 * <https://github.com/datenanfragen/media>
 * <https://github.com/datenanfragen/locate-contacts-addon>
 * <https://github.com/zner0L/postcss-fonticons>
+* <https://github.com/datenanfragen/data-imports>
 
 In Ausnahmefällen können wir auch weitere Repositories erlauben. Wenn Du meinst, dass Dein Beitrag in einem anderen Repository dem Projekt hilft, frag bitte vorher kurz per E-Mail an <hacktoberfest@datenanfragen.de> nach, ob wir diesen Beitrag auch werten können.
 
@@ -80,9 +81,6 @@ In Ausnahmefällen können wir auch weitere Repositories erlauben. Wenn Du meins
 <img class="offset-image offset-image-right" src="/card-icons/code.svg" height="150px" width="190px" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
 
 Gerade wenn Du neu bei Datenanfragen.de bist, weißt Du wahrscheinlich gar nicht, wo Du anfangen kannst. Keine Sorge: Es gibt bei uns zahlreiche Bereiche, in denen Du mitmachen kannst – ganz unabhängig davon, ob Du Erfahrung mit Programmierung und Datenschutz hast oder nicht. Zum leichteren Einstieg haben wir Dir hier einmal ein paar Vorschläge zusammengestellt. Viele weitere Aufgaben findest Du in den Issues der jeweiligen Repositories. Wir freuen uns natürlich auch, wenn Du eigenen Ideen hast, was Du am Projekt verbessern könntest.
-
-* **Zusammentragen von empfohlenen Unternehmen für weitere Länder**  
-  Wie schon eingangs beschrieben, wollen wir Listen von Unternehmen pflegen, bei denen Nutzer_innen auf jeden Fall anfragen sollten, damit der Anfrageassistent auf unserer Startseite diese je nach eingestelltem Land anzeigen kann. Aktuell unterstützen wir da nur Deutschland, Österreich und Großbritannien. Am liebsten würden wir aber natürlich alle EU-Länder unterstützen. Weiteres erfährst Du in [diesem GitHub-Issue](https://github.com/datenanfragen/data/issues/230).
 
 * **Rückmeldungen zu Anfragen an Unternehmen**  
   Für DSGVO-Anfragen muss das Unternehmen Dich eindeutig identifizieren können. Die Daten, die dafür nötig sind, unterscheiden sich von Unternehmen zu Unternehmen. Deshalb sammeln wir diese Information in unserer Unternehmensdatenbank.
@@ -94,6 +92,9 @@ Gerade wenn Du neu bei Datenanfragen.de bist, weißt Du wahrscheinlich gar nicht
   In unserem {{< link slug="blog" text="Blog" >}} haben wir Artikel zu vielen Datenschutzthemen. Wir wollen gerne mehr Artikel veröffentlichen und wollen dort auch gerne weiterhin ein großes Spektrum abdecken, so haben wir bislang z.B. Erklärungen der DSGVO-Rechte, Anleitungen, Erfahrungsberichte und Recherchen. Reiche neue Beiträge bitte im [website-Repository](https://github.com/datenanfragen/website) ein.
 
   Eine weitere wichtige Aufgabe ist das Übersetzen dieser Artikel in die anderen Sprachen, die wir unterstützen. Auch dafür ist das [website-Repository](https://github.com/datenanfragen/website) der richtige Ort.
+
+* **Zusammentragen von empfohlenen Unternehmen für weitere Länder**  
+  Wie schon eingangs beschrieben, wollen wir Listen von Unternehmen pflegen, bei denen Nutzer_innen auf jeden Fall anfragen sollten, damit der Anfrageassistent auf unserer Startseite diese je nach eingestelltem Land anzeigen kann. Aktuell unterstützen wir da nur Deutschland, Österreich und Großbritannien. Am liebsten würden wir aber natürlich alle EU-Länder unterstützen. Weiteres erfährst Du in [diesem GitHub-Issue](https://github.com/datenanfragen/data/issues/230).
 
 * **Übersetzen der Anfragevorlagen in weitere Sprachen**  
   Unsere Anfragevorlagen gibt es schon in etlichen Sprachen, wir haben unsere Vorlagen aber teilweise seitdem aktualisiert. Du wärst uns eine große Hilfe, wenn Du diese Aktualisierungen auch in den anderen Sprachen vornehmen könntest. Mehr dazu erfährst Du in [diesem GitHub-Issue](https://github.com/datenanfragen/data/issues/229).

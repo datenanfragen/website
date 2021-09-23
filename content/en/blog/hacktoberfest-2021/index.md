@@ -69,6 +69,7 @@ For the event, we count pull requests and patches to following repositories as v
 * <https://github.com/datenanfragen/media>
 * <https://github.com/datenanfragen/locate-contacts-addon>
 * <https://github.com/zner0L/postcss-fonticons>
+* <https://github.com/datenanfragen/data-imports>
 
 We may also accept additional repositories. If you think that your contribution to another repository will help the project, please contact us beforehand at <hacktoberfest@datenanfragen.de> and ask if we will also count those contributions.
 
