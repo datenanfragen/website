@@ -12,7 +12,7 @@ If you want to get into the details of how we collect the data for our company d
 Considering these tips when suggesting companies helps us a lot, but is <strong>completely optional</strong>. Whether you follow none of these tips, one, some, or all: We are happy about every suggestion!
 
 - The first and best starting point for obtaining information about a company is the privacy policy. It also makes for a great `source`.
-- We really don't want any personal data in our database. This includes names in emails, e.g. <code>john.doe@example.org</code>.
+- We only allow personal data in our database if its absolutely nesseccary. That means, we only accept e.g. <code>john.doe@example.org</code> as email if no generic privacy-related email like <code>privacy@example.org</code> exists.
 - We prefer the contact details of a data protection officer over the regular contact details of a company.
     - c/o External Data Protection Officer Ltd.  
       Example road 1  
