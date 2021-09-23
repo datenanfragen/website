@@ -5,7 +5,7 @@
     "last_edited": "2020-05-31T01:23:52+02:00",
     "type": "blog",
     "description": "You don't have to put up with direct marketing. Thanks to the GPDR, you can object to the use of your personal data for direct marketing purposes. Our sample letter helps you exercise this right.",
-    "featured_image": "sample-letter-gdpr-direct-marketing-objection",
+    "featured_image": "sample-letter-gdpr-direct-marketing-objection-en",
     "tags": [ "gdpr", "objection against direct marketing", "letter", "sample", "article 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10",

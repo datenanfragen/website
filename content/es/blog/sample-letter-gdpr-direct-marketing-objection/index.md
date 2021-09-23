@@ -16,6 +16,8 @@ La publicidad parece omnipresente hoy en día: tan pronto como abres tu buzón o
 
 Como base legal, estas empresas se basan con frecuencia en tu "interés legítimo" o tu consentimiento, por lo general enterrados en lo más profundo de un contrato sobre un tema completamente diferente.
 
+{{< featuredImg alt="Modelo de carta para objeciones al marketing directo" >}}
+
 Afortunadamente, no tienes que aguantar eso. De acuerdo con el Reglamento general de protección de datos (RGPD), tienes derecho a oponerte al marketing directo. Esto se establece claramente en el art. 21 (2) RGPD. También puedes presentar esta objeción si has dado previamente tu consentimiento para el marketing directo.
 
 El RGPD también te ofrece otros derechos. Puedes obtener más información sobre ellos en nuestro {{< link slug="/blog/your-gdpr-rights" text="artículo sobre tus derechos GDPR" >}}.
