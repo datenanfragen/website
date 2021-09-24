@@ -15,7 +15,7 @@ If the personal data that companies or other organisations (so-called controller
 
 If the controller has forwarded your data to other companies, they also have to inform them about your request for deletion.
 
-If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
+If you want to learn more, have a look at our {{< link slug="/blog/your-gdpr-rights" text="article about your rights under the GDPR" >}}.
 
 ## How do I exercise this right?
 
@@ -34,14 +34,15 @@ Here is our sample letter for requests for erasure according to Art. 17 GDPR. Yo
 
 <p>I am hereby requesting immediate erasure of personal data concerning me according to Article 17 GDPR.</p>
 
-<p>[Please erase all personal data concerning me as defined by Article 4(1) GDPR.]<br>
-[Please delete the following personal data concerning me:
-<span class="blog-letter-fill-in">Specify the data to be deleted.</span>]</p>
+<p>[Please erase all personal data concerning me as defined by Article 4(1) GDPR.]</p>
+
+<p>[Please delete the following personal data concerning me:<br>
+<span class="blog-letter-fill-in">Specify the data to be deleted here.</span>]</p>
 
 <p>I am of the opinion that the requirements set forth in Article 17(1) GDPR are fulfilled. You cannot claim an exception based on Article 17(3) GDPR either, particularly as I am not a public figure.</p>
 
-<p> If I have given consent to the processing of my personal data (e.g. according to Article 6(1) or Article 9(2) GDPR), I am hereby withdrawing said consent for the entire process.
-<br>In addition, I am objecting to the processing of personal data concerning me (which includes profiling), according to Article 21 GDPR. I request that you restrict the processing of the data concerning me pending the verification whether your legitimate grounds override mine, pursuant to Art. 18(1)(d) GDPR.</p>
+<p>If I have given consent to the processing of my personal data (e.g. according to Article 6(1) or Article 9(2) GDPR), I am hereby withdrawing said consent for the entire process.<br>
+In addition, I am objecting to the processing of personal data concerning me (which includes profiling), according to Article 21 GDPR. I request that you restrict the processing of the data concerning me pending the verification whether your legitimate grounds override mine, pursuant to Art. 18(1)(d) GDPR.</p>
 
 <p>If you have made the aforementioned data public, you are obliged pursuant to Article 17(2) GDPR to take all reasonable steps to inform other controllers, including search engine operators, who process the personal data listed above, that I have requested the erasure of all links, copies or replications. This applies not only to exact copies of the data concerned, but also to those from which information contained in the data concerned can be derived.</p>
 
@@ -60,8 +61,9 @@ Here is our sample letter for requests for erasure according to Art. 17 GDPR. Yo
 
 <p>Thank you in advance.</p>
 
-<p>Yours sincerely,<br>
-<span class="blog-letter-fill-in">Your name</span></p>
+<p>Yours sincerely,</p>
+
+<p><span class="blog-letter-fill-in">Enter your name here.</span></p>
 </div>
 
 To make your life easier, you can also download the letter and use it directly with the word processor of your choice. You can choose between the following templates:<!-- TODO: Host these ourselves and give them some nice buttons. -->
@@ -77,11 +79,11 @@ You are free to use these templates as you like. We make them available to you u
 
 You send the letter directly to the controller. If they have a data protection officer, we recommend that you always address the letter directly to this person. Data protection officers are not only specially trained, but are also required to treat your request confidentially.
 
-You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a [company database](/company) which already contains the appropriate contact data for privacy-related requests for many companies.
+You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a {{< link slug="/company" text="company database" >}} which already contains the appropriate contact data for privacy-related requests for many companies.
 
 ## Isn't there an easier way?
 
-The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a {{< link slug="/generator" text="generator" >}}, with which you can create requests like this automatically. We invite you to give it a try.
 
 ---
 
@@ -89,4 +91,4 @@ The idea behind Datenanfragen.de is to make it as easy as possible for you to ex
 
 We have made the following changes to this sample letter since the initial publication:
 
-* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/585d653f7447e022664d601f16ff74abd94ce6b7#diff-73dde1e7e36abc4d6e4900ec7ebec74e): Mention that the expections of Art. 17(3) GDPR don't apply either. (The burden of proof here lies with the controller.) Clarify that the withdrawal of consent applies to the entire process. Use the right to restriction of processing (Art. 18(1)(d) GDPR) for the duration of any ambiguities in case the controller objects to our objection. Make use of the information obligation stemming from Art. 17(2) GDPR. More consistent style between [all templates]({{< ref "sample-letters" >}}). (Thanks, Andreas!)
+* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/585d653f7447e022664d601f16ff74abd94ce6b7#diff-73dde1e7e36abc4d6e4900ec7ebec74e): Mention that the expections of Art. 17(3) GDPR don't apply either. (The burden of proof here lies with the controller.) Clarify that the withdrawal of consent applies to the entire process. Use the right to restriction of processing (Art. 18(1)(d) GDPR) for the duration of any ambiguities in case the controller objects to our objection. Make use of the information obligation stemming from Art. 17(2) GDPR. More consistent style between {{< link slug="sample-letters" text="all templates" >}}. (Thanks, Andreas!)

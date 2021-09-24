@@ -188,7 +188,8 @@
         "privacy": "Pour plus d'informations sur la manière dont nous traitons les données contenues dans les rapports d'erreur, Réfère-toi à notre <a href='/privacy#error-reports' target='_blank'>politique de confidentialité</a>.",
         "explain-context": "S'il y a lieu, pense à fournir le contexte de l'erreur, c.-à-d. décrire ce que tu as fait avant que l'erreur ne se produise. Pense également à supprimer toute information sensible des informations de débogage ci-dessous.",
         "report-on-github": "Signaler sur GitHub",
-        "report-via-email": "Signaler par e-mail"
+        "report-via-email": "Signaler par e-mail",
+        "no-internet": "Il semble que vous ne soyez pas connecté à Internet."
     },
     "error-msg": {
         "company-not-found": "L'entreprise que tu cherches n'a pas été trouvée.",
@@ -342,7 +343,11 @@
         "rss-link": "Abonne-toi aux commentaires sur cet article en utilisant ton lecteur de flux RSS/Atom.",
         "warning": "Note que nous somme une <em>association à but non lucratif indépendante</em> et que nous ne sommes affiliés à aucune des entreprises listées ici.<br>Si tu souhaites obtenir de l'aide ou envoyer une demande, contacte l'entreprise directement. Nous <strong>ne pouvons pas</strong> t'aider dans ce cas. Merci de ta compréhension.",
         "rating": "Évaluation",
-        "warning-loading-failed": "Le chargement des commentaires de cette page a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript."
+        "warning-loading-failed": "Le chargement des commentaires de cette page a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript.",
+        "average-rating-title": {
+            "plural": "Note moyenne : {{rating}} (à partir de {{count}} avis)",
+            "singular": "Note moyenne : {{rating}} (à partir de {{count}} avis)"
+        }
     },
     "wizard_tutorial": {
         "back": "Retour",
@@ -719,42 +724,18 @@
         "ads": "publicités",
         "footer-tab-website-name": "demandetesdonnees.fr",
         "footer-request-generator": "Générateur de demande",
-        "footer-request-generator-url": "/generator",
         "footer-my-requests": "Mes demandes",
-        "footer-my-requests-url": "/my-requests",
         "footer-my-saved-data": "Mes données sauvegardées",
-        "footer-my-saved-data-url": "/id-data-controls",
         "footer-company-database": "Base de données d'entreprises",
-        "footer-company-database-url": "/company",
-        "footer-settings-url": "/settings",
         "footer-contribute": "Contribuer",
-        "footer-contribute-url": "/contribute",
         "footer-donate": "Faire un don",
-        "footer-donate-url": "/donate",
         "footer-open-source": "Open source",
-        "footer-open-source-url": "/open-source",
         "footer-contributors": "Contributeurs",
-        "footer-contributors-url": "/open-source#contributeurs",
         "footer-tab-association": "Datenanfragen.de e. V.",
-        "footer-association-overview-url": "/verein",
-        "footer-association-goals-url": "/verein/nos-objectifs",
-        "footer-association-constitution-url": "/verein/constitution",
-        "footer-association-transparency-url": "/verein/transparence",
-        "footer-association-board-url": "/verein/comite-directeur",
         "footer-sample-letters": "Modèles de lettres",
-        "footer-sample-letters-url": "/sample-letters",
         "footer-legal-notice": "Mentions légales et contact",
-        "footer-legal-notice-url": "/contact",
         "footer-privacy-policy": "Politique de confidentialité",
-        "footer-privacy-policy-url": "https://www.datarequests.org/privacy",
         "footer-privacy-controls": "Options de confidentialité",
-        "footer-privacy-controls-url": "/options-de-confidentialite",
-        "footer-licenses-url": "/open-source#license-notices",
-        "footer-social-rss-url": "/blog/index.xml",
-        "footer-social-github-url": "https://github.com/datenanfragen/",
-        "footer-social-matrix-url": "https://matrix.to/#/+datenanfragen:matrix.altpeter.me",
-        "footer-social-mastodon-url": "https://mastodon.social/@datarequestsORG",
-        "footer-social-twitter-url": "https://twitter.com/datarequestsORG",
         "press-no-releases": "Pour le moment, il n'y a pas de communiqués de presse en français.",
         "verein-home-card-mission-heading": "Nos objectifs",
         "verein-home-card-mission-content": "Quels sont nos objectifs, pourquoi avons-nous lancé cette association à but non lucratif ? Et comment comptons-nous t'aider et aider les autres ?<br>Voici quelques réponses à ces questions.",
@@ -784,13 +765,7 @@
         "footer-social-matrix-desc": "Échanger avec nous via Matrix.",
         "footer-social-mastodon-desc": "Nous suivre sur Mastodon.",
         "footer-social-twitter-desc": "Nous suivre sur Twitter.",
-        "footer-become-a-member-url": "/verein/devenir-membre-de-soutien",
         "footer-association-board": "Comité directeur",
-        "footer-your-gdpr-rights-url": "/blog/tes-droits-rgpd",
-        "footer-supervisory-authorities-url": "/autorites-de-controle",
-        "footer-posts-url": "/blog",
-        "footer-press-url": "/verein/press",
-        "footer-event-url": "/verein/evenement",
         "footer-event": "Événements et conférences",
         "event-no-events": "Il n'y a actuellement aucun événement prévu et aucun enregistrement disponible.",
         "cdb-privacy-email": "E-mail de la protection de la vie privée :",
@@ -803,7 +778,8 @@
         "404-alt": "Une personne assise sur le 0 d'un grand panneau 404. Elle tient un livre avec une page manquante.",
         "cdb-warning-unverified": "<strong>Avertissement</strong> : Nous<em>n'avons pas</em> vérifié les informations de cet enregistrement, elles ont été importées automatiquement. Quelque-chose ne va pas ? Nous apprécierons beaucoup si tu <a href='{{ .editUrl }}'>envoyais une correction</a>. Merci pour ton aide !",
         "church": "église",
-        "noscript-actwidget": "Voici un outil permettant de générer rapidement des demandes relatives au RGPD. Il ne fonctionne que sur votre ordinateur et est entièrement écrit en JavaScript. Si vous souhaitez l'utiliser, veuillez activer JavaScript dans votre navigateur. Si cela ne fonctionne toujours pas malgré tout, envoyez-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
+        "noscript-actwidget": "Voici un outil permettant de générer rapidement des demandes relatives au RGPD. Il ne fonctionne que sur votre ordinateur et est entièrement écrit en JavaScript. Si vous souhaitez l'utiliser, veuillez activer JavaScript dans votre navigateur. Si cela ne fonctionne toujours pas malgré tout, envoyez-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
+        "footer-material": "Matériel d'information"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
@@ -866,6 +842,8 @@
         "error-amount-too-little": "Malheureusement, nous ne pouvons accepter les dons inférieurs à 1 € que par virement bancaire en raison des frais de transaction élevés. Veuillez choisir un montant supérieur ou sélectionner« virement bancaire » comme moyen de paiement.",
         "error-amount-invalid": "Veuillez saisir un montant valide.",
         "no-mollie-id": "Aucune correspondance pour ce paiement sur le serveur. C'est normal si vous n'avez pas payé via Mollie.",
-        "error-donation-server": "Erreur serveur lors de la récupération de l'état du don."
+        "error-donation-server": "Erreur serveur lors de la récupération de l'état du don.",
+        "amount-no-fees": "Nous obtiendrons l’intégralité du montant de {{amount}}&nbsp;€.",
+        "amount-after-fees": "Après les frais, nous obtiendrons un montant de {{amount}}&nbsp;€."
     }
 }

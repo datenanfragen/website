@@ -14,9 +14,9 @@ Hast Du den Lieferdienst in der Vergangenheit genutzt und Essen bestellt oder Di
 
 <img class="offset-image offset-image-right" src="/card-icons/erase.svg" style="height: 150px; margin-right: -100px;" alt="">
 
-Hier kommt Dir die **DSGVO** (**Datenschutz-Grundverordnung**) zu Hilfe. Die gibt Dir nämlich eine ganze Reihe an [Rechten im Bezug auf Deine personenbezogenen Daten]({{< ref "your-gdpr-rights" >}}), darunter auch das Rechte, Deine Daten löschen zu lassen – das sogenannte [**Recht auf Vergessenwerden**]({{< ref "your-gdpr-rights" >}}#recht-auf-vergessenwerden).
+Hier kommt Dir die **DSGVO** (**Datenschutz-Grundverordnung**) zu Hilfe. Die gibt Dir nämlich eine ganze Reihe an {{< link slug="your-gdpr-rights" text="Rechten im Bezug auf Deine personenbezogenen Daten" >}}, darunter auch das Rechte, Deine Daten löschen zu lassen – das sogenannte {{< link slug="your-gdpr-rights#recht-auf-vergessenwerden" text="**Recht auf Vergessenwerden**" >}}.
 
-Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich [für Dein Recht auf Datenschutz einsetzt]({{< ref "verein/mission-statement" >}}). Wir haben das entsprechende Schreiben an Deliveroo schon einmal vorbereitet. Du musst nur noch Deinen Namen und die E-Mail-Adresse, mit der Du Dich registriert hast, eintragen und schon kannst Du Deinen Löschantrag einfach per E-Mail verschicken – natürlich kostenlos.
+Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich {{< link slug="verein/mission-statement" text="für Dein Recht auf Datenschutz einsetzt" >}}. Wir haben das entsprechende Schreiben an Deliveroo schon einmal vorbereitet. Du musst nur noch Deinen Namen und die E-Mail-Adresse, mit der Du Dich registriert hast, eintragen und schon kannst Du Deinen Löschantrag einfach per E-Mail verschicken – natürlich kostenlos.
 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< noScript "noscript-actwidget" >}}
@@ -31,4 +31,4 @@ window.onload = function() { renderActWidget(); };
 
 Die E-Mail verschickst Du selbst mit Deinem eigenen E-Mail-Programm. Das hat den Vorteil, dass wir die Daten, die Du hier eingibst, überhaupt nicht sehen können.
 
-Danach hat Deliveroo dann einen Monat Zeit, um Deine Daten zu löschen. Die erfolgte Löschung müssen sie dir bestätigen. Sollten sie das nicht machen, darfst Du Dich bei einer [Datenschutz-Aufsichtsbehörde]({{< ref "supervisory-authorities" >}}) beschweren. Auch dabei können wir Dir helfen. Aber wir hoffen natürlich, dass das gar nicht nötig sein wird.
+Danach hat Deliveroo dann einen Monat Zeit, um Deine Daten zu löschen. Die erfolgte Löschung müssen sie dir bestätigen. Sollten sie das nicht machen, darfst Du Dich bei einer {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörde" >}} beschweren. Auch dabei können wir Dir helfen. Aber wir hoffen natürlich, dass das gar nicht nötig sein wird.

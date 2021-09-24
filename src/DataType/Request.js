@@ -1,6 +1,6 @@
 import { generateReference } from 'letter-generator/utility';
 import { deepCopyObject } from '../Utility/common';
-import { defaultFields } from '../Utility/requests';
+import { defaultFields, REQUEST_FALLBACK_LANGUAGE } from '../Utility/requests';
 import UserRequests from '../my-requests';
 
 /**
@@ -70,7 +70,7 @@ export default class Request {
         /**
          * @type {String}
          */
-        this.language = LOCALE;
+        this.language = Object.keys(I18N_DEFINITION_REQUESTS).includes(LOCALE) ? LOCALE : REQUEST_FALLBACK_LANGUAGE;
 
         /**
          * The 'Get data in a machine-readable format' flag for access requests.

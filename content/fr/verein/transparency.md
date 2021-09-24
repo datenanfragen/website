@@ -12,7 +12,7 @@ Ces informations ont été mises à jour pour la dernière fois le 30 mai 2021.
 
 ## 1. Nom, siège social, adresse et date de création
 
-Ces informations sont également disponibles sur notre page de [contact]({{< ref "contact" >}}).
+Ces informations sont également disponibles sur notre page de {{< link slug="contact" text="contact" >}}.
 
  - Nom : Datenanfragen.de e.&thinsp;V.
  - Siège social : Braunschweig, Allemagne
@@ -28,9 +28,9 @@ Ces informations sont également disponibles sur notre page de [contact]({{< ref
 
 ## 2. Constitution et objectifs
 
-Nous publions la constitution complète de notre association sur [ce site]({{< ref "verein/constitution" >}}) et sur [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
+Nous publions la constitution complète de notre association sur {{< link slug="verein/constitution" text="ce site" >}} et sur [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
 
-Notre objectif est le même que celui énoncé dans notre constitution, mais nous l'avons également résumé et expliqué [ici]({{< ref "verein/mission-statement" >}}).  
+Notre objectif est le même que celui énoncé dans notre constitution, mais nous l'avons également résumé et expliqué {{< link slug="verein/mission-statement" text="ici" >}}.  
 
 ## 3. Informations sur les avantages fiscaux
 
@@ -38,7 +38,7 @@ Le centre des impôts de Braunschweig-Wilhelmstraße nous a agréé association 
 
 ## 4. Nom et fonction des principaux décideurs
 
-L'association est gérée par les presidents associés du [comité directeur]({{< ref "verein/board" >}}). Les conseillers contrôlent et soutiennent les presidents associés dans leur travail. Le comité directeur est composée de :
+L'association est gérée par les presidents associés du {{< link slug="verein/board" text="comité directeur" >}}. Les conseillers contrôlent et soutiennent les presidents associés dans leur travail. Le comité directeur est composée de :
 
 - Benjamin Altpeter, Président associé
 - Lorenz Sieben, Président associé
@@ -129,7 +129,7 @@ Les sections suivantes vont au-delà des dix informations requises par l'Initiat
 
 ## 11. Conférences rémunérées
 
-Les membres de notre [comité directeur]({{< ref "verein/board" >}}) travaillent sur une base strictement volontaire et ne reçoivent aucune rémunération de l'association pour leur travail. Dans certains cas, cependant, les membres de l'association peuvent recevoir une compensation de la part d'organisations externes pour des conférences sur des sujets qui concernent l'association. Bien entendu, aucun fonds de l'association n'est utilisé pour de telles conférences rémunérées, elles relèvent de la responsabilité privée des membres respectifs.
+Les membres de notre {{< link slug="verein/board" text="comité directeur" >}} travaillent sur une base strictement volontaire et ne reçoivent aucune rémunération de l'association pour leur travail. Dans certains cas, cependant, les membres de l'association peuvent recevoir une compensation de la part d'organisations externes pour des conférences sur des sujets qui concernent l'association. Bien entendu, aucun fonds de l'association n'est utilisé pour de telles conférences rémunérées, elles relèvent de la responsabilité privée des membres respectifs.
 
 Le comité s'est engagé à documenter publiquement les conférences données sur cette page et pour lesquelles les membres du comité ont reçu une compensation de la part d'organisations externes.
 

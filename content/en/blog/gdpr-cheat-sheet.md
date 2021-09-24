@@ -57,15 +57,15 @@ The data subject is the person whose [personal data](#personal-data) are [proces
 
 ### One stop shop principle
 
-The [one stop shop principle]({{< ref "supervisory-authorities" >}}#one-stop-shop) regulates the responsibility of the [data protection supervisory authorities](#supervisory-authority). For you as a consumer, this means that you may also lodge complaints with the supervisory authority in your own country (in concrete terms, this is the “Member State of [your] habitual residence, place of work or place of the alleged infringement”). This is particularly helpful if the controller is located in another country.
+The {{< link slug="supervisory-authorities#one-stop-shop" text="one stop shop principle" >}} regulates the responsibility of the [data protection supervisory authorities](#supervisory-authority). For you as a consumer, this means that you may also lodge complaints with the supervisory authority in your own country (in concrete terms, this is the “Member State of [your] habitual residence, place of work or place of the alleged infringement”). This is particularly helpful if the controller is located in another country.
 
-Our [Data Protection Supervisory Authority Finder]({{< ref "supervisory-authorities" >}}#finder) will help you find the supervisory authority responsible for you.
+Our {{< link slug="supervisory-authorities#finder" text="Data Protection Supervisory Authority Finder" >}} will help you find the supervisory authority responsible for you.
 
 ### Personal data
 
 The concept of personal data is the crux of the GDPR. Almost all of the regulations refer to it. As soon as information can be assigned to a specific person, it is considered personal data. A name is not necessarily required for the assignment. For example, an IP address, a user name, a cookie, or an identification number would suffice.
 
-The information that the IP address 31.41.59.26 visited our [generator]({{< ref "generator" >}}) on 25 May 2018 would therefore be considered personal data. On the other hand, the information that on the same day in a bakery a third of the customers paid with cash is not.
+The information that the IP address 31.41.59.26 visited our {{< link slug="generator" text="generator" >}} on 25 May 2018 would therefore be considered personal data. On the other hand, the information that on the same day in a bakery a third of the customers paid with cash is not.
 
 ### Processing
 
@@ -98,7 +98,7 @@ Profiling is a form of automated processing where the [controller](#data-control
 * Behaviour
 * Location or movements
 
-A classic example is the mobile phone or credit card credit check that you need to pass before getting a contract. Many companies will forward your data to credit agencies such as [Experian]({{< ref "experian-gb" >}}) or [Equifax]({{< ref "equifax-gb" >}}). These agencies will then determine how likely you are to fulfil your contractual obligations based on information such as your previous payment behaviour or the number of bank accounts that you have.
+A classic example is the mobile phone or credit card credit check that you need to pass before getting a contract. Many companies will forward your data to credit agencies such as {{< link slug="experian-gb" text="Experian" >}} or {{< link slug="equifax-gb" text="Equifax" >}}. These agencies will then determine how likely you are to fulfil your contractual obligations based on information such as your previous payment behaviour or the number of bank accounts that you have.
 
 ### Rights
 
@@ -106,7 +106,7 @@ The GDPR grants you extensive rights with regards to your [personal data](#perso
 
 Even after the processing of your data has started, you still have numerous other rights. For example, you can ask what personal data is being processed and request a copy of it. You can also request for incorrect data to be corrected and under certain circumstances, even have your data deleted.
 
-You will find a comprehensive overview and a detailed explanation on this subject in our [article on your GDPR rights]({{< ref "your-gdpr-rights" >}}).
+You will find a comprehensive overview and a detailed explanation on this subject in our {{< link slug="your-gdpr-rights" text="article on your GDPR rights" >}}.
 
 ### Special categories of personal data
 
@@ -125,13 +125,13 @@ Concretely, this concerns the following data:
 
 ### Supervisory authority
 
-The [supervisory data protection authorities]({{< ref "supervisory-authorities" >}}) are independent bodies in each EU country. Their task is to ensure compliance with data protection laws, in particular the GDPR.
+The {{< link slug="supervisory-authorities" text="supervisory data protection authorities" >}} are independent bodies in each EU country. Their task is to ensure compliance with data protection laws, in particular the GDPR.
 
 To accomplish this, they may monitor [controllers](#data-controller), require them to comply with data protection laws, and impose fines where necessary.
 
 For you as a consumer, they are here to help. If you think that a controller is not processing your data correctly, you can contact the data protection supervisory authorities free of charge at any time.
 
-If you are not sure which authority you should contact, take a look at our [data protection supervisory authorities finder]({{< ref "supervisory-authorities" >}}#finder).
+If you are not sure which authority you should contact, take a look at our {{< link slug="supervisory-authorities#finder" text="data protection supervisory authority finder" >}}.
 
 <!-- TODO: Link more resources here once we have written those posts.
 ## Other Useful Resources

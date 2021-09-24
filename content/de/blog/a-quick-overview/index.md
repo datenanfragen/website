@@ -26,7 +26,7 @@ Auch wenn Du einmal eine Einwilligung zur Verwendung Deiner Daten gegeben hast, 
 * **Recht auf Datenübertragbarkeit**  
 Die Daten, die Du einen Unternehmen zu Dir mitgeteilt hast, gehören Dir. Du hast ein Recht, diese Daten von dem Unternehmen in einem gängigen Format zu erhalten, sodass Du sie zu einem anderen Unternehmen übertragen kannst.
 
-Eine noch ausführlichere Übersicht findest Du in unserem [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "/blog/your-gdpr-rights" >}}).
+Eine noch ausführlichere Übersicht findest Du in unserem {{< link slug="/blog/your-gdpr-rights" text="Artikel zu Deinen Rechten nach der DSGVO" >}}.
 
 ## Wie kann ich diese Rechte nutzen?
 
@@ -47,4 +47,4 @@ Und das Beste? All das passiert vollständig auf **Deinem** Rechner. Wir erhalte
 
 Es gibt bei Datenanfragen.de viele Stellen, an denen Du Dich beteiligen kannst – unabhängig von Deiner bisherigen Erfahrung mit Datenschutzrecht, Programmierung o.&nbsp;Ä. Wir sind dankbar für jede helfende Hand!
 
-Um mehr zu erfahren, wie Du bei dem Projekt mithelfen kannst, schau Dir die [„Mitmachen“-Seite]({{< ref "/contribute" >}}) an.
+Um mehr zu erfahren, wie Du bei dem Projekt mithelfen kannst, schau Dir die {{< link slug="/contribute" text="„Mitmachen“-Seite" >}} an.

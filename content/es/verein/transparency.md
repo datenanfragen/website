@@ -12,7 +12,7 @@ Para que pueda confiar en nosotros, nos comprometemos a ser lo más transparente
 Esta información se actualizó por última vez el 30 de mayo de 2020.
 
 ## 1. Nombre, sede social, dirección y fecha de fundación
-Esta información también está disponible en nuestra página de [contacto]({{< ref "contact" >}}).
+Esta información también está disponible en nuestra página de {{< link slug="contact" text="contacto" >}}.
 
  - Nombre: Datenanfragen.de e.&thinsp;V.
  - Sede social: Braunschweig, Germany
@@ -28,9 +28,9 @@ Esta información también está disponible en nuestra página de [contacto]({{<
 
 ## 2. Constitución y finalidad
 
-Publicamos la constitución completa de nuestra asociación en [este sitio web]({{< ref "verein/constitution" >}}) y en [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
+Publicamos la constitución completa de nuestra asociación en {{< link slug="verein/constitution" text="este sitio web" >}} y en [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
 
-Nuestro propósito es el mismo que se establece en nuestra constitución, pero también lo compilamos y explicamos [aquí]({{< ref "verein/mission-statement" >}}).  
+Nuestro propósito es el mismo que se establece en nuestra constitución, pero también lo compilamos y explicamos {{< link slug="verein/mission-statement" text="aquí" >}}.  
 
 ## 3. Información sobre impuestos
 
@@ -38,7 +38,7 @@ La oficina de impuestos Braunschweig-Wilhelmstraße nos aprobó como organizaci�
 
 ## 4. Nombre y función de los tomadores de decisiones importantes
 
-La asociación está dirigida por los presidentes de la [junta]({{< ref "verein/board" >}}). Los asesores controlan y apoyan a los presidentes en su trabajo. Está compuesto por:
+La asociación está dirigida por los presidentes de la {{< link slug="verein/board" text="junta" >}}. Los asesores controlan y apoyan a los presidentes en su trabajo. Está compuesto por:
 
 - Benjamin Altpeter, Presidente
 - Lorenz Sieben, Presidente
@@ -129,7 +129,7 @@ Las siguientes secciones van más allá de las diez piezas de información reque
 
 ## 11. Conferencias compensadas
 
-Nuestros [miembros de la junta]({{< ref "verein/board" >}}) trabajan de forma estrictamente voluntaria y no reciben ningún pago de la asociación por su trabajo. En algunos casos, sin embargo, los miembros de la asociación pueden recibir una compensación de organizaciones externas por conferencias sobre temas que conciernen a la asociación. Por supuesto, no se utilizan fondos de la asociación para tales conferencias remuneradas, son responsabilidad privada de los miembros respectivos.
+Nuestros {{< link slug="verein/board" text="miembros de la junta" >}} trabajan de forma estrictamente voluntaria y no reciben ningún pago de la asociación por su trabajo. En algunos casos, sin embargo, los miembros de la asociación pueden recibir una compensación de organizaciones externas por conferencias sobre temas que conciernen a la asociación. Por supuesto, no se utilizan fondos de la asociación para tales conferencias remuneradas, son responsabilidad privada de los miembros respectivos.
 
 La junta tiene que documentar públicamente aquí conferencias por las cuales los miembros de la junta han recibido compensación de organizaciones externas.
 

@@ -8,7 +8,7 @@
 
 <img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
 
-El código abierto es el núcleo de solicituddedatos.es. Hemos diseñado el proyecto desde cero para que sea lo más abierto posible. Nuestra [constitución]({{< ref "verein/constitution" >}}) requiere que publiquemos nuestro contenido bajo licencias gratuitas.
+El código abierto es el núcleo de solicituddedatos.es. Hemos diseñado el proyecto desde cero para que sea lo más abierto posible. Nuestra {{< link slug="verein/constitution" text="constitución" >}} requiere que publiquemos nuestro contenido bajo licencias gratuitas.
 
 Somos grandes defensores del código abierto y creemos en él.
 
@@ -115,7 +115,7 @@ Aquí hay una descripción general de los repositorios importantes que hemos cre
 
 ¡Muchas gracias a todos los que contribuyeron a datarequests.org! El proyecto no sería posible sin ti.
 
-<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
+<div class="box box-info">{{< authors >}}</div>
 
 Si también has contribuido pero tu nombre aún no está en la lista, te invitamos a agregarlo al archivo [`AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 

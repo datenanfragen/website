@@ -5,7 +5,7 @@
     "last_edited": "2020-05-31T01:23:52+02:00",
     "type": "blog",
     "description": "You don't have to put up with direct marketing. Thanks to the GPDR, you can object to the use of your personal data for direct marketing purposes. Our sample letter helps you exercise this right.",
-    "featured_image": "sample-letter-gdpr-direct-marketing-objection",
+    "featured_image": "sample-letter-gdpr-direct-marketing-objection-en",
     "tags": [ "gdpr", "objection against direct marketing", "letter", "sample", "article 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10",
@@ -20,7 +20,7 @@ As the legal basis, these companies frequently rely on their "legitimate interes
 
 Fortunately, you don't have to put up with that. According to the General Data Protection Regulation (GDPR), you have the right to object to direct marketing. This is clearly stated in Art. 21(2) GDPR. You may also rise this objection if you have previously given consent for direct marketing.
 
-The GDPR also offers you a number of other rights. You can find out more about those in our [article about your GDPR rights]({{< ref "/blog/your-gdpr-rights" >}}).
+The GDPR also offers you a number of other rights. You can find out more about those in our {{< link slug="/blog/your-gdpr-rights" text="article about your GDPR rights" >}}.
 
 ## How do I exercise this right?
 
@@ -46,14 +46,15 @@ Here is our sample letter for objecting to direct marketing according to Art. 21
 <p>As laid down in Article 12(3) GDPR, you have to confirm the objection to me without undue delay and in any event within one month of receipt of the request.</p>
 
 <p>I am including the following information necessary to identify me:<br>
-<span class="blog-letter-fill-in">Enter your identification data here. This will usually—depending on the kind of advertising— be your name and your address or email address.</span></p>
+<span class="blog-letter-fill-in">Enter your identification data here. This often includes information like your name, your date of birth, your address, your email address and so on.</span></p>
 
 <p>If you do not answer my request within the stated period, I am reserving the right to take legal action against you and to lodge a complaint with the responsible supervisory authority.</p>
 
 <p>Thank you in advance.</p>
 
-<p>Yours sincerely,<br>
-<span class="blog-letter-fill-in">Your name</span></p>
+<p>Yours sincerely,</p>
+
+<p><span class="blog-letter-fill-in">Enter your name here.</span></p>
 </div>
 
 To make your life easier, you can also download the letter and use it directly with the word processor of your choice. You can choose between the following templates:
@@ -69,11 +70,11 @@ You are free to use these templates as you like. We make them available to you u
 
 You send the letter directly to the company that send you the ads. If they have a data protection officer, we recommend that you always address the letter directly to this person. Data protection officers are not only specially trained, but are also required to treat your request confidentially.
 
-You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a [company database](/company) which already contains the appropriate contact data for privacy-related requests for many companies.
+You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a {{< link slug="/company" text="company database" >}} which already contains the appropriate contact data for privacy-related requests for many companies.
 
 ## Isn't there an easier way?
 
-The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a {{< link slug="/generator" text="generator" >}}, with which you can create requests like this automatically. We invite you to give it a try.
 
 ---
 
@@ -81,4 +82,4 @@ The idea behind Datenanfragen.de is to make it as easy as possible for you to ex
 
 We have made the following changes to this sample letter since the initial publication:
 
-* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/6e7499dcb3d5497c6a16607370d26c5961ba237d#diff-3be9975245c2f40e39444ce4ac95f9e9): More consistent style between [all templates]({{< ref "sample-letters" >}}).
+* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/6e7499dcb3d5497c6a16607370d26c5961ba237d#diff-3be9975245c2f40e39444ce4ac95f9e9): More consistent style between {{< link slug="sample-letters" text="all templates" >}}.

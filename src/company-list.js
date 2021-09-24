@@ -72,9 +72,7 @@ class CompanyList extends Component {
                             <SearchBar
                                 id="aa-search-input"
                                 index="companies"
-                                onAutocompleteSelected={(event, suggestion, dataset) => {
-                                    location.href = '/company/' + suggestion.document.slug;
-                                }}
+                                anchorize={true}
                                 placeholder={t('select-company', 'cdb')}
                                 debug={true}
                                 style="margin-top: 15px;"

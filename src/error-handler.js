@@ -67,9 +67,74 @@ function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
     document.querySelector('#error-modal .close-button').onclick = dismiss;
 }
 
+const flash_message_id = 'flash-message-error-online';
+const button_id = 'button-flash-message-error-online';
+
+const isNetworkError = (message) => {
+    if (message === 'Network Error') return true;
+    if (message === 'Failed to fetch') return true;
+    if (message === 'NetworkError when attempting to fetch resource.') return true;
+    return false;
+};
 try {
     const handler = (event) => {
         try {
+            // Ignore errors triggered by browser extensions as those aren't caused by us and we can't do anything about
+            // them (#656).
+            if (
+                [
+                    'moz-extension://',
+                    // `chrome-extension://` also applies to Chromium Edge, Opera, Vivaldi, Yandex.Browser, and Brave.
+                    'chrome-extension://',
+                    'safari-extension://',
+                    'ms-browser-extension://',
+                ].some((s) => event.error?.stack?.includes(s))
+            ) {
+                return;
+            }
+
+            if (event.error?.no_side_effects && isNetworkError(event.error.message)) {
+                if (!window.navigator.onLine) {
+                    // seems like we don't have a network connection in the first place
+                    // --> show a little message to the user
+
+                    // check if there is already a network message on screen
+                    const existing_message = document.getElementById(flash_message_id);
+                    if (existing_message?.dataset?.timeoutId) {
+                        // clear the existing timeout, we will set it again
+                        clearTimeout(existing_message.dataset.timeoutId);
+                    } else if (!existing_message) {
+                        const flash_message = `
+<div class="flash-message flash-error" id="${flash_message_id}" data-timeout-id="">
+<button id="${button_id}"
+    class="button-unstyled close-button icon-close"
+    title=${I18N_DEFINITION['generator']['cancel']}></button>
+<div class="inner">${I18N_DEFINITION['error-handler']['no-internet']}</div>
+</div>`;
+                        document.getElementById('flash-messages').innerHTML += flash_message;
+                        document.getElementById(button_id).onclick = () => {
+                            const elem = document.getElementById(flash_message_id);
+                            if (elem?.dataset?.timeoutId) {
+                                clearTimeout(elem.dataset.timeoutId);
+                            }
+                            elem?.remove();
+                        };
+                    }
+                    // the message should disappear automatically
+                    const check_message = () => {
+                        const message = document.getElementById(flash_message_id);
+                        if (window.navigator.onLine) {
+                            message?.remove();
+                        } else {
+                            const timeout_id = setTimeout(check_message, 5000);
+                            message.dataset.timeoutId = timeout_id;
+                        }
+                    };
+                    const timeout_id = setTimeout(check_message, 5000);
+                    document.getElementById(flash_message_id).dataset.timeoutId = timeout_id;
+                    return;
+                }
+            }
             // This is horrendous. It is however the easiest (and worryingly cleanest) way I see to achieve the intended result here as the (interesting) properties of the `Error` object are not enumerable and JSON.stringify() only encodes enumerable properties.
             const debug_info = JSON.parse(
                 JSON.stringify(event, [

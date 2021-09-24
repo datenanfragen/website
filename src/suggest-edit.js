@@ -52,6 +52,7 @@ function renderForm(schema, company = undefined) {
         'pgp-url',
         'quality',
         'facet-group',
+        'needs-id-document'
     ];
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
