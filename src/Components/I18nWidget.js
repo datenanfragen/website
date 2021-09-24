@@ -21,14 +21,14 @@ export default class I18nWidget extends Component {
     static alreadyShowingModal = false;
     static showLanguageChangeModal(event) {
         if (I18nWidget.alreadyShowingModal || event.target.value === LOCALE) return;
-        
+
         let modal;
         const dismiss = () => {
             render('', document.body, modal);
             I18nWidget.alreadyShowingModal = false;
             event.target.value = LOCALE;
         };
-        let selected_lang = event.target.value; //e.g hr
+        let selected_lang = event.target.value || LOCALE; //e.g hr
 
         modal = render(
             <IntlProvider scope={selected_lang} definition={I18N_DEFINITION_REQUESTS}>
