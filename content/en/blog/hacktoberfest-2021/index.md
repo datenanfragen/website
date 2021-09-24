@@ -82,14 +82,13 @@ If you're new to Datenanfragen.de, you may be a little overwhelmed and don't kno
 * **Collecting suggested companies for more countries**  
   As explained above, we want to collect lists of companies that users should request their data from. We need these lists to suggest these companies to users in these countries via our wizard. At the moment, we support Germany, Austria, and Great Britian. However, we would like to support all EU countries in the future. Read more in [this GitHub issue](https://github.com/datenanfragen/data/issues/230).
 
-* **Add required elements to company records**  
+* **Adding required elements to company records**  
   Companies have to be able to identify you to respond to your GDPR requests. However, different companies require different methods of identification. That's why we collect the required identification elements for companies.
 
   As we only have this data for some companies, we default to name, email, and address for many companies. But those fields aren't optimal for all companies—some require more, some less data. This is where we need your help: [This GitHub issue](https://github.com/datenanfragen/data/issues/720) explains in detail how you can add the missing data by sending your own GDPR requests to the corresponding companies. As a side effect, you'll also learn something about the data those companies process on you.
 
 * **Writing and translating blog posts**  
-
-  We already have a number of posts in our {< link slug="blog" text="blog" >}}. They cover a wide spectrum from explanations of GDPR topics to tutorials and reports. We want to publish more articles and are happy about fitting submissions to the [website repository](https://github.com/datenanfragen/website). 
+  We already have a number of posts in our {{< link slug="blog" text="blog" >}}. They cover a wide spectrum from explanations of GDPR topics to tutorials and reports. We want to publish more articles and are happy about fitting submissions to the [website repository](https://github.com/datenanfragen/website). 
 
   Another important task is translating existing posts into the other languages that we support. The [website repository](https://github.com/datenanfragen/website) is the right place to go for that, as well.
 

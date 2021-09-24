@@ -88,7 +88,7 @@ Gerade wenn Du neu bei Datenanfragen.de bist, weißt Du wahrscheinlich gar nicht
   Diese Daten fehlen uns noch für viele Unternehmen, deshalb nutzen wir für diese im Generator die Standardfelder (Name, E-Mail und Adresse). Diese passen aber leider nicht immer, manche Unternehmen fordern noch mehr, wie z.B. spezielle Nutzernamen oder sind mit weniger zufrieden.
   Du kannst uns helfen die Einträge entsprechend zu erweitern. In [diesem GitHub-Issue](https://github.com/datenanfragen/data/issues/720) erkären wir genau, wie Du durch Anfragen an die Unternehmen die entsprechenden Daten nachtragen kannst. Als netter Nebeneffekt kannst Du dadurch auch erfahren, was das Unternehmen so über dich weiß und praktische Erfahrung mit der DSGVO sammeln.
 
-* **Leichte oder einfache Sprache**
+* **Leichte oder einfache Sprache**  
   Kennst Du dich mit leichter oder einfacher Sprache aus und hast Lust für uns einen generellen Überblick oder Artikel zu schreiben? Wir möchten Datenschutz und die DSGVO-Rechte jeder Person leicht zugänglich machen und würden uns freuen, in Zukunft auch Inhalte in leichter oder einfacher Sprache anzubieten. Schreibe uns dafür gerne eine E-Mail an <hacktoberfest@datenanfragen.de>.
 
 * **Schreiben und Übersetzen von Artikeln**  
