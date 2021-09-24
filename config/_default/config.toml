@@ -15,5 +15,4 @@ timeout = "500s"
       unsafe = true
 
 [imaging]
-quality = 80
 hint = "picture"
