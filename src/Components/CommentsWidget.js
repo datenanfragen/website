@@ -1,6 +1,6 @@
 import { Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
-import t from 'Utility/i18n';
+import t from '../Utility/i18n';
 import FlashMessage, { flash } from './FlashMessage';
 import StarWidget from './StarWidget';
 import { rethrow, WarningException } from '../Utility/errors';
@@ -21,7 +21,31 @@ export default class CommentsWidget extends Component {
         fetch(url)
             .then((res) => res.json())
             .then((comments) => {
-                this.setState({ comments: comments.sort((a, b) => -a.added_at.localeCompare(b.added_at)) });
+                this.setState({ comments: comments.sort((a, b) => -a.added_at.localeCompare(b.added_at)) }, () => {
+                    const parts = TARGET.split('/');
+                    if (parts[1] !== 'company') return;
+
+                    const { rating_count, average_rating } = this.ratingDetails();
+                    if (rating_count === 0) return;
+
+                    const ldjson = {
+                        '@context': 'http://schema.org',
+                        '@type': 'Organization',
+                        '@id': document.location.href + '#company',
+                        aggregateRating: {
+                            '@type': 'AggregateRating',
+                            ratingCount: rating_count,
+                            ratingValue: average_rating,
+                            reviewCount: this.state.comments.length,
+                        },
+                    };
+
+                    const script = document.createElement('script');
+                    script.type = 'application/ld+json';
+                    script.innerHTML = JSON.stringify(ldjson);
+
+                    document.body.appendChild(script);
+                });
             })
             .catch((e) => {
                 flash(
@@ -33,7 +57,22 @@ export default class CommentsWidget extends Component {
             });
     }
 
+    ratingDetails() {
+        if (!this.props.allow_rating) return { rating_count: 0, rating_sum: 0, average_rating: NaN };
+
+        const [rating_count, rating_sum] = this.state.comments.reduce(
+            ([acc_count, acc_sum], c) =>
+                c.additional?.rating ? [acc_count + 1, acc_sum + Number(c.additional.rating)] : [acc_count, acc_sum],
+            [0, 0]
+        );
+        const average_rating = (rating_sum / rating_count).toFixed(1);
+
+        return { rating_count, rating_sum, average_rating };
+    }
+
     render() {
+        const { rating_count, average_rating } = this.ratingDetails();
+
         const comment_elements = this.state.comments.map((c) => (
             <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
         ));
@@ -41,17 +80,40 @@ export default class CommentsWidget extends Component {
         return (
             <IntlProvider scope="comments" definition={I18N_DEFINITION}>
                 <div id="comments-widget">
-                    <h2 style="position: relative;">
+                    <h2>
                         <Text id="comments" />
-                        <a
-                            href={API_URL + '/feed/' + TARGET}
-                            className="icon icon-rss"
-                            style="position: absolute; right: 0;"
-                            title={t('rss-link', 'comments')}>
-                            <span className="sr-only">
-                                <Text id="rss-link" />
-                            </span>
-                        </a>
+                        <div style="float: right;">
+                            {this.props.allow_rating && rating_count > 0 && (
+                                <div
+                                    style="margin: 0 25px -20px 0; font-size: 16px; display: inline-block;"
+                                    title={t(
+                                        'average-rating-title',
+                                        'comments',
+                                        { count: rating_count, rating: average_rating },
+                                        rating_count
+                                    )}>
+                                    {/* TODO: At the moment, the StarWidget can only render integer ratings. */}
+                                    <StarWidget
+                                        id={'stars-aggregate'}
+                                        initial={average_rating}
+                                        // On the first render, we don't have any comments and thus the average rating
+                                        // will be `NaN`. We force a rerender after the comments have been fetched by
+                                        // setting a different `key.`
+                                        key={average_rating}
+                                        readonly={true}
+                                    />
+                                </div>
+                            )}
+                            <a
+                                href={API_URL + '/feed/' + TARGET}
+                                className="icon icon-rss"
+                                title={t('rss-link', 'comments')}>
+                                <span className="sr-only">
+                                    <Text id="rss-link" />
+                                </span>
+                            </a>
+                        </div>
+                        <div className="clearfix" />
                     </h2>
                     {!comment_elements || comment_elements.length === 0 ? (
                         <p>
@@ -60,6 +122,7 @@ export default class CommentsWidget extends Component {
                     ) : (
                         comment_elements
                     )}
+
                     <CommentForm allow_rating={this.props.allow_rating} displayWarning={this.props.displayWarning} />
                 </div>
             </IntlProvider>
@@ -281,6 +344,7 @@ export class CommentForm extends Component {
                 this.setState({ message: '' });
             })
             .catch((err) => {
+                err.no_side_effects = true;
                 rethrow(err);
                 flash(<FlashMessage type="error">{t('send-error', 'comments')}</FlashMessage>);
             });

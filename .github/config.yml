@@ -1,0 +1,9 @@
+newPRWelcomeComment: |
+  Thank you for making your first PR on `website`!
+  
+  We are glad about every contribution!
+
+  Feel free to add yourself to our [`AUTHORS` file](https://github.com/datenanfragen/website/blob/master/AUTHORS) to [appear as a contributor](https://www.datarequests.org/open-source/#contributors) on our websites.
+
+firstPRMergeComment: |
+  Congrats on your first merge! The resulting deploy will take about twenty minutes to go live.

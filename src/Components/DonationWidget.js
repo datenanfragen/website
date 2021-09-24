@@ -12,6 +12,15 @@ const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];
 const PAYMENT_METHODS = ['bank-transfer', /*'creditcard',*/ 'cryptocurrency', 'paypal', 'mollie'];
 
+const amount_after_linear_fee = (fee_percent, fee_fixed, x) => x - fee_fixed - x * fee_percent;
+
+const PAYMENT_NETTO = {
+    'bank-transfer': (x) => x,
+    //'credit-card': (x) => linear_func()
+    cryptocurrency: (x) => amount_after_linear_fee(0.01, 0, x),
+    paypal: (x) => amount_after_linear_fee(0.015, 0.35, x),
+};
+
 export default class DonationWidget extends Component {
     epcr_canvas_ref = undefined;
     bezahlcode_canvas_ref = undefined;
@@ -120,7 +129,28 @@ export default class DonationWidget extends Component {
                                     onChange={(e) => {
                                         this.setState({ payment_method: e.target.value });
                                     }}
-                                    label={<Text id={payment_method} />}
+                                    label={
+                                        <div>
+                                            <Text id={payment_method} />
+                                            {PAYMENT_NETTO[payment_method] && (
+                                                <div className="donation-widget-fee-text">
+                                                    <MarkupText
+                                                        id={
+                                                            PAYMENT_NETTO[payment_method](this.state.amount) ===
+                                                            this.state.amount
+                                                                ? 'amount-no-fees'
+                                                                : 'amount-after-fees'
+                                                        }
+                                                        fields={{
+                                                            amount: renderMoney(
+                                                                PAYMENT_NETTO[payment_method](this.state.amount)
+                                                            ),
+                                                        }}
+                                                    />
+                                                </div>
+                                            )}
+                                        </div>
+                                    }
                                 />
                             ))}
                         </div>

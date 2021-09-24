@@ -2,7 +2,14 @@ import { Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import Request from '../DataType/Request';
-import { defaultFields, trackingFields, REQUEST_ARTICLES, initializeFields, fetchTemplate } from '../Utility/requests';
+import {
+    defaultFields,
+    trackingFields,
+    REQUEST_ARTICLES,
+    initializeFields,
+    fetchTemplate,
+    REQUEST_FALLBACK_LANGUAGE,
+} from '../Utility/requests';
 import RequestLetter from '../Utility/RequestLetter';
 import { slugify, PARAMETERS } from '../Utility/common';
 import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utility/SavedIdData';
@@ -36,6 +43,7 @@ export default class RequestGeneratorBuilder extends Component {
 
             fill_fields: [],
             fill_signature: null,
+            ready: false,
         };
 
         this.replacers = replacer_factory(this);
@@ -67,6 +75,7 @@ export default class RequestGeneratorBuilder extends Component {
                     if (address) prev.request.custom_data.sender_address = address.value;
                 }
                 if (res.signature) prev.request.signature = res.signature;
+                prev.ready = false;
 
                 return prev;
             });
@@ -81,6 +90,8 @@ export default class RequestGeneratorBuilder extends Component {
                 prev.request.type = 'custom';
                 return prev;
             });
+
+            this.setState({ ready: false });
 
             await Promise.all([
                 new UserRequests().getRequest(response_to),
@@ -114,6 +125,8 @@ export default class RequestGeneratorBuilder extends Component {
                     prev.request.type = 'custom';
                     prev.response_request = request;
 
+                    prev.ready = !!text;
+
                     return prev;
                 });
                 if (response_type === 'admonition' && request.slug) {
@@ -126,7 +139,7 @@ export default class RequestGeneratorBuilder extends Component {
         // This is just a regular ol' request.
         else {
             await fetchTemplate(this.state.request.language, 'access').then((text) => {
-                this.setState({ template_text: text });
+                this.setState({ template_text: text, ready: !!text });
             });
         }
     };
@@ -202,9 +215,17 @@ export default class RequestGeneratorBuilder extends Component {
     };
 
     setCompany = (company) => {
+        const language =
+            company['request-language'] && Object.keys(I18N_DEFINITION_REQUESTS).includes(company['request-language'])
+                ? company['request-language']
+                : Object.keys(I18N_DEFINITION_REQUESTS).includes(LOCALE)
+                ? LOCALE
+                : REQUEST_FALLBACK_LANGUAGE;
+
         if (this.state.request.type !== 'custom') {
-            fetchTemplate(company['request-language'], this.state.request.type, company).then((text) => {
-                this.setState({ template_text: text }, () => this.renderLetter());
+            this.setState({ ready: false });
+            fetchTemplate(language, this.state.request.type, company).then((text) => {
+                this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
             });
         }
 
@@ -227,11 +248,6 @@ export default class RequestGeneratorBuilder extends Component {
                     ? '\n' + t_r('by-fax', company['request-language'] || LOCALE) + company['fax']
                     : '');
             request.email = company.email;
-
-            const language =
-                !!company['request-language'] && company['request-language'] !== ''
-                    ? company['request-language']
-                    : LOCALE;
 
             // This is not the most elegant thing in the world, but we need to support 'no ID data' requests for
             // more than adtech companies. Ideally, this would be another bool in the schema but we can't really
@@ -270,7 +286,7 @@ export default class RequestGeneratorBuilder extends Component {
             prev.suggestion = company;
             request.slug = company.slug;
             request.data_portability = company['suggested-transport-medium'] === 'email';
-            request.language = company['request-language'] || LOCALE;
+            request.language = language;
         });
     };
 
@@ -284,8 +300,9 @@ export default class RequestGeneratorBuilder extends Component {
             return;
         }
 
+        this.setState({ ready: false });
         fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then((text) => {
-            this.setState({ template_text: text }, () => this.renderLetter());
+            this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
         });
     };
 
@@ -368,11 +385,13 @@ export default class RequestGeneratorBuilder extends Component {
     handleCustomLetterTemplateChange = (e) => {
         const new_template = e.target.value;
         if (new_template !== 'no-template') {
+            this.setState({ ready: false });
             fetchTemplate(this.state.request.language, new_template, null, '').then((text) => {
                 this.changeRequest((req) => {
                     req.custom_data.content = text;
                     req.response_type = new_template;
                 });
+                this.setState({ ready: !!text });
             });
         } else
             this.changeRequest((req) => {
@@ -419,6 +438,7 @@ export default class RequestGeneratorBuilder extends Component {
                 <SvaFinder
                     callback={(sva) => {
                         this.setCompany(sva);
+                        this.setState({ ready: false });
                         fetchTemplate(sva['complaint-language'], 'complaint', null, '').then((text) => {
                             this.changeRequest((request) => {
                                 request.custom_data.content = new Template(text, [], {
@@ -427,6 +447,7 @@ export default class RequestGeneratorBuilder extends Component {
                                     request_recipient_address: this.state.response_request.recipient,
                                 }).getText();
                             });
+                            this.setState({ ready: !!text });
                         });
                         dismissModal(modal);
                     }}
@@ -522,6 +543,7 @@ export default class RequestGeneratorBuilder extends Component {
                             download_filename={this.state.download_filename}
                             download_active={this.state.download_active}
                             done={this.state.request.done}
+                            ready={this.state.ready}
                             buttonText={t(medium === 'email' ? 'send-email-first' : 'download-pdf-first', 'generator')}
                             onSuccess={() => {
                                 dismissModal(modal);
@@ -557,7 +579,8 @@ export default class RequestGeneratorBuilder extends Component {
     storeRequest = () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             this.savedIdData.storeArray(this.state.request.id_data);
-            this.savedIdData.storeSignature(this.state.request.signature);
+            // Don't clear the saved signature if the signature was only cleared for this request (#182).
+            if (this.state.request.signature.value) this.savedIdData.storeSignature(this.state.request.signature);
         }
 
         this.state.request.store();

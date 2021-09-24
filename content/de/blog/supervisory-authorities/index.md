@@ -53,12 +53,12 @@ Wie die meisten Funktionen auf Datenanfragen.de passiert das natürlich auch *nu
 
 <div class="sva-finder"></div>
 
-Wenn Du lieber selbst recherchieren möchtest, kannst Du Dir auch unsere [Liste der Datenschutz-Aufsichtsbehörden]({{< ref "/supervisory-authority" >}}) anschauen. Eine weitere Übersicht findest Du auch beim [Europäischen Datenschutzausschuss](https://edpb.europa.eu/about-edpb/board/members_de), beachte aber, dass hier nur die Behörden auf Länderebene aufgeführt sind. Und schließlich gibt es im Datenschutz-Wiki des Berufsverbands der Datenschutzbeauftragten Deutschlands (BvD) e.&nbsp;V. eine Liste der [Aufsichtsbehörden und Landesdatenschutzbeauftragten in Deutschland](https://www.datenschutz-wiki.de/Aufsichtsbeh%c3%b6rden_und_Landesdatenschutzbeauftragte).
+Wenn Du lieber selbst recherchieren möchtest, kannst Du Dir auch unsere {{< link slug="/supervisory-authority" text="Liste der Datenschutz-Aufsichtsbehörden" >}} anschauen. Eine weitere Übersicht findest Du auch beim [Europäischen Datenschutzausschuss](https://edpb.europa.eu/about-edpb/board/members_de), beachte aber, dass hier nur die Behörden auf Länderebene aufgeführt sind. Und schließlich gibt es im Datenschutz-Wiki des Berufsverbands der Datenschutzbeauftragten Deutschlands (BvD) e.&nbsp;V. eine Liste der [Aufsichtsbehörden und Landesdatenschutzbeauftragten in Deutschland](https://www.datenschutz-wiki.de/Aufsichtsbeh%c3%b6rden_und_Landesdatenschutzbeauftragte).
 
 ## Beschwerden für Anfragen über Datenanfragen.de
 
 Wenn Du über Datenanfragen.de eine Anfrage an ein Unternehmen gestellt hast und keine oder nur eine unzufriedenstellende Antwort bekommen hast, können wir Dir die Beschwerde bei der Aufsichtsbehörde sogar noch einfacher machen.
 
-Über die [„Meine Anfragen”-Funktion]({{< ref "/my-requests"  >}}) findest Du – vorausgesetzt, Du hast sie nicht ausgeschaltet – eine Übersicht aller Deiner bereits gestellten Anfragen. Neben jeder Anfrage gibt es Knöpfe, über die Du Mahnungen und Beschwerden zu eben dieser Anfrage einfach über unseren Generator verschicken kannst.
+Über die {{< link slug="/my-requests" text="„Meine Anfragen”-Funktion" >}} findest Du – vorausgesetzt, Du hast sie nicht ausgeschaltet – eine Übersicht aller Deiner bereits gestellten Anfragen. Neben jeder Anfrage gibt es Knöpfe, über die Du Mahnungen und Beschwerden zu eben dieser Anfrage einfach über unseren Generator verschicken kannst.
 
 {{< img name="mahnung-senden" caption="Eine Beschwerde über Datenanfragen.de verschicken" alt="Screenshot des Anfragengenerators von Datenanfragen.de. Es wird eine Beschwerde an die Landesbeauftragte für den Datenschutz Niedersachsen über die Amazon Deutschland Services GmbH vorbereitet." >}}

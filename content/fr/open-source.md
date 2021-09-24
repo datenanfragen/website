@@ -7,7 +7,7 @@
 
 <img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
 
-L'Open Source est au cœur même de demandetesdonnees.fr. Nous avons conçu ce projet à partir de rien pour qu'il soit le plus ouvert possible. Notre [constitution]({{< ref "verein/constitution" >}}) nous engage à publier notre contenu sous licence libre.
+L'Open Source est au cœur même de demandetesdonnees.fr. Nous avons conçu ce projet à partir de rien pour qu'il soit le plus ouvert possible. Notre {{< link slug="verein/constitution" text="constitution" >}} nous engage à publier notre contenu sous licence libre.
 
 Nous sommes de fervents partisans de l'Open Source et nous y croyons.
 
@@ -110,12 +110,12 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
     <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
-<a id="contributeurs"></a>
+<a id="contributors"></a>
 ## Contributeurs
 
 Un grand merci à tous les contributeurs(trices) de demandetesdonnees.fr ! Le projet ne serait pas possible sans vous.
 
-<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
+<div class="box box-info">{{< authors >}}</div>
 
 Si tu as contribué mais que ton nom ne figure pas encore sur la liste, nous t'invitons à l'ajouter dans le [fichier `AUTHORS`](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 

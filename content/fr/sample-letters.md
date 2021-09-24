@@ -13,7 +13,7 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 Évidemment, il y a un modèle de lettre pour chaque type de demande. Nous prenons en charge les plus courantes.
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-acces/"><img class="image" src="/card-icons/view.svg" alt="Demande d'accès conformément à l'Art. 15 du RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-acces/"><img class="image" src="/card-icons/view.svg" alt="Demande d'accès conformément à l'Art. 15 du RGPD" width="252" height="150"></a></div>
     <div class="padded col75">
         <a href="/blog/modele-lettre-rgpd-acces/"><h1>Demande d'accès conformément à l'Art. 15 du RGPD</h1></a>
         <p class="description">
@@ -25,7 +25,7 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-rectification/"><img class="image" src="/card-icons/edit.svg" alt="Demande de rectification conformément à l'Art. 16 du RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-rectification/"><img class="image" src="/card-icons/edit.svg" alt="Demande de rectification conformément à l'Art. 16 du RGPD" width="150" height="150"></a></div>
     <div class="padded col75">
         <a href="/blog/modele-lettre-rgpd-rectification/"><h1>Demande de rectification conformément à l'Art. 16 du RGPD</h1></a>
         <p class="description">
@@ -37,7 +37,7 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-suppression/"><img class="image" src="/card-icons/erase.svg" alt="Demande de suppression conformément à l'Art. 17 du RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-suppression/"><img class="image" src="/card-icons/erase.svg" alt="Demande de suppression conformément à l'Art. 17 du RGPD" width="153" height="150"></a></div>
     <div class="padded col75">
         <a href="/blog/modele-lettre-rgpd-suppression/"><h1>Demande de suppression conformément à l'Art. 17 du RGPD</h1></a>
         <p class="description">
@@ -49,7 +49,7 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-opposition-prospection/"><img class="image" src="/card-icons/warning.svg" alt="Opposition à la prospection conformément à l'Art. 21, alinéa 2 du RGPD"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/modele-lettre-rgpd-opposition-prospection/"><img class="image" src="/card-icons/warning.svg" alt="Opposition à la prospection conformément à l'Art. 21, alinéa 2 du RGPD" width="167" height="150"></a></div>
     <div class="padded col75">
         <a href="/blog/modele-lettre-rgpd-opposition-prospection/"><h1>Opposition à la prospection conformément à l'Art. 21, alinéa 2 du RGPD</h1></a>
         <p class="description">
@@ -64,6 +64,6 @@ Avec eux, l'envoi d'une demande RGPD est simple : Tout ce que tu as à faire est
 
 Les modèles de lettre ci-dessus sont un bon début, mais nous croyons fortement qu'il doit y avoir un moyen plus simple d'envoyer des demandes RGPD.
 
-C'est pourquoi nous avons développé un [générateur]({{< ref "/generator" >}}) qui génère automatiquement ce type de demande pour toi. Tout ce dont tu as besoin est de sélectionner une entreprise (nous avons également déjà beaucoup d'entreprises dans notre base de données, donc vous n'aurez même pas besoin de recherher leurs informations de contact) et entrer vos informations.
+C'est pourquoi nous avons développé un {{< link slug="/generator" text="générateur" >}} qui génère automatiquement ce type de demande pour toi. Tout ce dont tu as besoin est de sélectionner une entreprise (nous avons également déjà beaucoup d'entreprises dans notre base de données, donc vous n'aurez même pas besoin de recherher leurs informations de contact) et entrer vos informations.
 
 Essayez !

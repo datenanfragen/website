@@ -7,7 +7,7 @@
 
 <img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
 
-Open Source is at the very core of datarequests.org. We have designed the project from the ground up to be as open as possible. Our [constitution]({{< ref "verein/constitution" >}}) requires us to publish our content under free licenses.
+Open Source is at the very core of datarequests.org. We have designed the project from the ground up to be as open as possible. Our {{< link slug="verein/constitution" text="constitution" >}} requires us to publish our content under free licenses.
 
 We are huge proponents of Open Source and believe in it.
 
@@ -115,7 +115,7 @@ Here is an overview of important repositories that we have created—directly or
 
 A huge thanks to everyone contributing to datarequests.org! The project wouldn't be possible without you.
 
-<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
+<div class="box box-info">{{< authors >}}</div>
 
 If you have also contributed but your name isn't on the list yet, we invite you to add it to the [`AUTHORS` file](https://github.com/datenanfragen/website/blob/master/AUTHORS).
 

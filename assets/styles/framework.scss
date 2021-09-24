@@ -196,6 +196,8 @@ a:focus {
 }
 
 main a {
+    overflow-wrap: anywhere;
+
     &:not(.button):not(.no-link-decoration):not(.icon) {
         position: relative;
         text-decoration: none;

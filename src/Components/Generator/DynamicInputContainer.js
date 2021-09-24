@@ -1,6 +1,6 @@
 import { Component } from 'preact';
 import DynamicInput from './DynamicInput';
-import { Text, IntlProvider } from 'preact-i18n';
+import { Text, MarkupText, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import PropTypes from 'prop-types';
 
@@ -79,7 +79,7 @@ export default class DynamicInputContainer extends Component {
                     <div id={'request-dynamic-input-' + this.props.id}>{input_elements}</div>
                     {this.props.allowAddingFields ? (
                         <div className="dynamic-input-controls">
-                            <Text id="add-dynamic-input-explanation" />
+                            <MarkupText id="add-dynamic-input-explanation" />
                             <br />
                             <div className="select-container">
                                 <select

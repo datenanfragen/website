@@ -5,7 +5,7 @@
     "type": "page"
 }
 
-Alle wichtigen laufenden Geschäfte des Vereins werden vom Vorstand erledigt, der ebenfalls die Geschäftsführung innehat. Laut unserer [Satzung]({{< ref "verein/constitution" >}}#7-der-vorstand) besteht der Vorstand aus zwei gleichberechtigten Vorsitzenden, die den Verein gemeinsam vertreten und beliebig vielen Beisitzer_innen, die den Vorstand in seiner Arbeit kontrollieren und unterstützen. Unser aktueller Vorstand besteht seit der Wahl auf der Mitgliederversammlung vom 16. Juli 2020 aus:
+Alle wichtigen laufenden Geschäfte des Vereins werden vom Vorstand erledigt, der ebenfalls die Geschäftsführung innehat. Laut unserer {{< link slug="verein/constitution#7-der-vorstand" text="Satzung" >}} besteht der Vorstand aus zwei gleichberechtigten Vorsitzenden, die den Verein gemeinsam vertreten und beliebig vielen Beisitzer_innen, die den Vorstand in seiner Arbeit kontrollieren und unterstützen. Unser aktueller Vorstand besteht seit der Wahl auf der Mitgliederversammlung vom 16. Juli 2020 aus:
 
 * Benjamin Altpeter, Vorsitzender ([benni@datenanfragen.de](mailto:benni@datenanfragen.de), [PGP-Key](/pgp/AF1381BD.asc)  
   `9F99 3663 0B82 D3C7 DFC9  23F6 EB5C F074 AF13 81BD`)

@@ -12,7 +12,7 @@ Falls Du Dich etwas intensiver damit beschäftigen willst, was für Daten wir wi
 Wenn Du diese beim Vorschlagen berücksichtigst, erleichterst Du uns unsere Arbeit beim Bearbeiten Deiner Einreichungen. Die Tipps sind aber natürlich <strong>komplett optional</strong>. Egal ob Du keinen, einen, ein paar oder alle Tipps befolgst: Wir freuen uns über jeden Vorschlag!
 
 - Der erste und meist auch beste Anlaufpunkt um Daten über eine Firma zu finden ist die Datenschutzerklärung. Das ist auch direkt eine tolle Quelle.
-- Wir wollen wirklich keine persönlichen Daten in der Datenbank speichern, auch nicht, wenn eine (E-Mail)-Adresse einen Namen enthält, wie z.B. <code>kim.mustermensch@example.org</code>.
+- Wir wollen persönlichen Daten nur in der Datenbank speichern, wenn es wirklich nötig ist. Falls z.&nbsp;B. eine (E-Mail)-Adresse einen Namen enthält, wie <code>kim.mustermensch@example.org</code>, dann nehmen wir diese nur auf, wenn es keine generische Datenschutz-Adresse wie <code>datenschutz@example.org</code> gibt.
 - Die Kontaktdetails von eventuellen Datenschutzbeauftragten bevorzugen wir gegenüber den normalen Kontaktdetails einer Firma.
 - Manchmal kann es vorkommen, dass Firmen eine_n externe_n Datenschutzbeauftrage_n angeben. Dann nehmen wir lieber deren_dessen Adresse. 
     - c/o externe_r Datenschutzbeauftrage_r GmbH & Co. KG  

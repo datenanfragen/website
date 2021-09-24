@@ -16,7 +16,7 @@ Wenn die personenbezogenen Daten, die Unternehmen oder andere Organisationen (so
 
 Wenn der Verantwortliche Deine Daten an andere Unternehmen weitergeleitet hat, muss er diese darüber hinaus auch über deinen Löschantrag informieren.
 
-Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "/blog/your-gdpr-rights" >}}) an.
+Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren {{< link slug="/blog/your-gdpr-rights" text="Artikel zu Deinen Rechten nach der DSGVO" >}} an.
 
 ## Wie nutze ich dieses Recht?
 
@@ -35,13 +35,14 @@ Hier ist unser Musterschreiben für Anfragen auf Löschung nach Art. 17 DSGVO. D
 
 <p>ich stelle hiermit Antrag auf unverzügliche Löschung mich betreffender personenbezogener Daten gemäß Art. 17 Abs. 1 DSGVO.</p>
 
-<p>[Bitte löschen Sie sämtliche mich betreffenden personenbezogenen Daten nach der Definition des Art. 4 Nr. 1 DSGVO.]<br>
-[Bitte löschen Sie die folgenden mich betreffenden personenbezogenen Daten:<br>
+<p>[Bitte löschen Sie sämtliche mich betreffenden personenbezogenen Daten nach der Definition des Art. 4 Nr. 1 DSGVO.]</p>
+
+<p>[Bitte löschen Sie die folgenden mich betreffenden personenbezogenen Daten:<br>
 <span class="blog-letter-fill-in">Hier die zu löschenden Daten eintragen.</span>]</p>
 
 <p>Ich bin der Meinung, dass die Voraussetzungen des Art. 17 Abs. 1 DSGVO gegeben sind. Sie können auch keinen Ausnahmetatbestand nach Art. 17 Abs. 3 DSGVO geltend machen, zumal ich keine Person des öffentlichen Lebens bin.</p>
 
-<p>Sollte ich eine Einwilligung zur Verarbeitung meiner Daten (bspw. nach Art. 6 Abs. 1 Buchstabe a oder Art. 9 Abs. 2 DSGVO) erteilt haben, widerrufe ich diese hiermit für den gesamten Prozess der Datenverarbeitung.<br>
+<p>Sollte ich eine Einwilligung zur Verarbeitung meiner Daten (bspw. nach Art. 6 Abs. 1 lit. a oder Art. 9 Abs. 2 DSGVO) erteilt haben, widerrufe ich diese hiermit für den gesamten Prozess der Datenverarbeitung.<br>
 Weiterhin lege ich im Sinne des Art. 21 DSGVO Widerspruch gegen die Verarbeitung mich betreffender personenbezogener Daten ein, dies gilt auch für Profiling. Ich fordere Sie auf, die Verarbeitung der mich betreffenden Daten gemäß Art. 18 Abs. 1 lit. d DSGVO einzuschränken, solange noch nicht feststeht, ob Ihre berechtigten Gründe gegenüber meinen überwiegen.</p>
 
 <p>Falls Sie die betroffenen Daten öffentlich gemacht haben sollten, sind Sie nach Art. 17 Abs. 2 DSGVO dazu verpflichtet, alle angemessenen Maßnahmen zu treffen, um andere Verantwortliche, beispielsweise Suchmaschinenbetreiber, welche die oben aufgeführten personenbezogenen Daten verarbeiten, über meinen Antrag auf Löschung aller Links, Kopien oder Replikationen zu informieren. Dies gilt nicht nur für exakte Kopien der betroffenen Daten, sondern auch für solche, aus denen in den betroffenen Daten enthaltene Informationen entnehmbar sind.</p>
@@ -61,8 +62,9 @@ Weiterhin lege ich im Sinne des Art. 21 DSGVO Widerspruch gegen die Verarbeitung
 
 <p>Schon im Voraus vielen Dank für Ihre Mühe.</p>
 
-<p>Mit freundlichen Grüßen<br>
-<span class="blog-letter-fill-in">Dein Name</span></p>
+<p>Mit freundlichen Grüßen</p>
+
+<p><span class="blog-letter-fill-in">Hier Deinen Namen eintragen.</span></p>
 </div>
 
 Um Dir Dein Leben einfacher zu machen, kannst Du das Schreiben auch herunterladen und direkt mit dem Textverarbeitungsprogramm Deiner Wahl verwenden. Du hast die Auswahl zwischen den folgenden Vorlagen:<!-- TODO: Host these ourselves and give them some nice buttons. -->
@@ -78,11 +80,11 @@ Du darfst die Vorlagen gerne verwenden wie immer Du möchtest. Wir stellen sie D
 
 Das Schreiben schickst Du direkt an den Verantwortlichen. Wenn dieser eine_n Datenschutzbeauftrage_n hat, empfiehlt es sich, den Brief immer direkt an diese Person zu adressieren. Datenschutzbeauftragte sind nämlich nicht nur besonders geschult, sondern müssen Dein Anliegen auch vertraulich behandeln.
 
-Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine [Unternehmensdatenbank](/company), die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
+Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine {{< link slug="/company" text="Unternehmensdatenbank" >}}, die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
 
 ## Geht das nicht auch einfacher?
 
-Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen [Generator](/generator) entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
+Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen {{< link slug="/generator" text="Generator" >}} entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
 
 ---
 
@@ -90,4 +92,4 @@ Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug a
 
 Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
 
-* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/585d653f7447e022664d601f16ff74abd94ce6b7#diff-718f65e09a34d89265a92666af6af78e): Erwähnt, dass auch Art. 17 Abs. 3 DSGVO als Ausnahmetatbestand nicht infrage kommt. Deutlich gemacht, dass sich der Widerruf der Einwilligung auf die gesamte Datenverarbeitung bezieht. Vom Recht auf Einschränkung der Verarbeitung (Art. 18 Abs. 1 lit. d DSGVO) Gebrauch gemacht. Informationspflicht nach Art. 17 Abs. in Anspruch genommen. Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht. (Danke, Andreas!)
+* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/585d653f7447e022664d601f16ff74abd94ce6b7#diff-718f65e09a34d89265a92666af6af78e): Erwähnt, dass auch Art. 17 Abs. 3 DSGVO als Ausnahmetatbestand nicht infrage kommt. Deutlich gemacht, dass sich der Widerruf der Einwilligung auf die gesamte Datenverarbeitung bezieht. Vom Recht auf Einschränkung der Verarbeitung (Art. 18 Abs. 1 lit. d DSGVO) Gebrauch gemacht. Informationspflicht nach Art. 17 Abs. in Anspruch genommen. Stil {{< link slug="sample-letters" text="aller Vorlagen" >}} vereinheitlicht. (Danke, Andreas!)

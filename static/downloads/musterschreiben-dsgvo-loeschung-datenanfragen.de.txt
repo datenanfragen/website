@@ -1,8 +1,20 @@
+===============================================================
+Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO
+===============================================================
+
+Hier ist Dein DSGVO-Musterbrief von Datenanfragen.de.
+
+Die Passagen in [eckigen Klammern] sind optional; hier kannst Du selbst entscheiden, ob Du diese übernehmen möchtest. Die Daten in {geschweiften Klammern} musst Du noch ausfüllen.
+Anschließend nur noch diesen Hinweiskasten entfernen und abschicken.
+
+---
+
 Guten Tag,
 
 ich stelle hiermit Antrag auf unverzügliche Löschung mich betreffender personenbezogener Daten gemäß Art. 17 Abs. 1 DSGVO.
 
 [Bitte löschen Sie sämtliche mich betreffenden personenbezogenen Daten nach der Definition des Art. 4 Nr. 1 DSGVO.]
+
 [Bitte löschen Sie die folgenden mich betreffenden personenbezogenen Daten:
 {Hier die zu löschenden Daten eintragen.}]
 
@@ -29,4 +41,4 @@ Sollten Sie meinem Antrag nicht innerhalb der genannten Frist nachkommen, behalt
 Schon im Voraus vielen Dank für Ihre Mühe.
 
 Mit freundlichen Grüßen
-{Dein Name}
+{Hier Deinen Namen eintragen.}

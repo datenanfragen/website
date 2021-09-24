@@ -16,9 +16,11 @@ La publicidad parece omnipresente hoy en día: tan pronto como abres tu buzón o
 
 Como base legal, estas empresas se basan con frecuencia en tu "interés legítimo" o tu consentimiento, por lo general enterrados en lo más profundo de un contrato sobre un tema completamente diferente.
 
+{{< featuredImg alt="Modelo de carta para objeciones al marketing directo" >}}
+
 Afortunadamente, no tienes que aguantar eso. De acuerdo con el Reglamento general de protección de datos (RGPD), tienes derecho a oponerte al marketing directo. Esto se establece claramente en el art. 21 (2) RGPD. También puedes presentar esta objeción si has dado previamente tu consentimiento para el marketing directo.
 
-El RGPD también te ofrece otros derechos. Puedes obtener más información sobre ellos en nuestro [artículo sobre tus derechos GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
+El RGPD también te ofrece otros derechos. Puedes obtener más información sobre ellos en nuestro {{< link slug="/blog/your-gdpr-rights" text="artículo sobre tus derechos GDPR" >}}.
 
 ## ¿Cómo ejerzo este derecho?
 
@@ -66,11 +68,11 @@ Eres libre de usar estas plantillas como quieras. Los ponemos a su disposición 
 
 Envía la carta directamente al controlador. Si tiene un delegado de protección de datos, te recomendamos que siempre dirijas la carta directamente a esta persona. Los oficiales de protección de datos no solo están especialmente capacitados, sino que también deben tratar tu solicitud de manera confidencial.
 
-A menudo puedes encontrar los datos de contacto de empresas y otras organizaciones en sus sitios web en la política de privacidad o en el aviso legal. También queremos ayudarte con esto. Mantenemos una [base de datos de las empresas](/company) que ya contiene los datos de contacto adecuados para solicitudes relacionadas con la privacidad de muchas empresas.
+A menudo puedes encontrar los datos de contacto de empresas y otras organizaciones en sus sitios web en la política de privacidad o en el aviso legal. También queremos ayudarte con esto. Mantenemos una {{< link slug="/company" text="base de datos de las empresas" >}} que ya contiene los datos de contacto adecuados para solicitudes relacionadas con la privacidad de muchas empresas.
 
 ## ¿No hay una manera más fácil?
 
-La idea detrás de Datenanfragen.de es facilitarle al máximo el ejercicio de sus derechos en materia de protección de datos. Por lo tanto, hemos desarrollado un [generador]({{< ref "generator" >}}), con el que puedes crear solicitudes como esta de forma automática. Te invitamos a que lo pruebes.
+La idea detrás de Datenanfragen.de es facilitarle al máximo el ejercicio de sus derechos en materia de protección de datos. Por lo tanto, hemos desarrollado un {{< link slug="/generator" text="generador" >}}, con el que puedes crear solicitudes como esta de forma automática. Te invitamos a que lo pruebes.
 
 ---
 

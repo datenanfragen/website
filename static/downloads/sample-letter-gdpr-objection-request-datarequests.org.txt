@@ -1,3 +1,13 @@
+===============================================================
+Objection against direct marketing according to Art. 21(2) GDPR
+===============================================================
+
+Here is your GDPR sample letter provided by datarequests.org.
+The passages in [square brackets] are optional; you can decide yourself whether you want to include them. You still have to fill in the data in {curly braces}.
+Afterwards, just delete this explanation and send your request.
+
+---
+
 To Whom It May Concern:
 
 I am hereby objecting to the processing of personal data concerning me for direct marketing purposes according to Article 21(2) GDPR. This objection includes the use for profiling to the extent that it is related to direct marketing.
@@ -9,11 +19,11 @@ My request explicitly includes any other services and companies for which you ar
 As laid down in Article 12(3) GDPR, you have to confirm the objection to me without undue delay and in any event within one month of receipt of the request.
 
 I am including the following information necessary to identify me:
-{Enter your identification data here. This will usually—depending on the kind of advertising— be your name and your address or email address.}
+{Enter your identification data here. This often includes information like your name, your date of birth, your address, your email address and so on.}
 
 If you do not answer my request within the stated period, I am reserving the right to take legal action against you and to lodge a complaint with the responsible supervisory authority.
 
 Thank you in advance.
 
 Yours sincerely,
-{Your name}
+{Enter your name here.}

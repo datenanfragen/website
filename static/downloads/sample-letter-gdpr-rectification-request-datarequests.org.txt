@@ -1,22 +1,32 @@
+====================================================================
+Request for rectification of personal data according to Art. 16 GDPR
+====================================================================
+
+Here is your GDPR sample letter provided by datarequests.org.
+The passages in [square brackets] are optional; you can decide yourself whether you want to include them. You still have to fill in the data in {curly braces}.
+Afterwards, just delete this explanation and send your request.
+
+---
+
 To Whom It May Concern:
 
 I am hereby requesting rectification or completion of inaccurate personal data concerning me according to Article 16 GDPR.
 
 Please make the following changes:
-{Specify the data to be corrected.}
+{Specify the data to be corrected here.}
 
 In case you have disclosed the affected personal data to one or more recipients as defined in Article 4(9) GDPR, you have to communicate my request for rectification of the affected personal data to each recipient as laid down in Article 19 GDPR. Please also inform me about those recipients.
 
 My request explicitly includes any other services and companies for which you are the controller as defined by Article 4(7) GDPR.
 
-As laid down in Article 12(3) GDPR, you have to confirm the erasure to me without undue delay and in any event within one month of receipt of the request.
+As laid down in Article 12(3) GDPR, you have to confirm the rectification to me without undue delay and in any event within one month of receipt of the request.
 
 I am including the following information necessary to identify me:
-}Enter your identification data here. This often includes information like your name, your date of birth, your address, your email address and so on.}
+{Enter your identification data here. This often includes information like your name, your date of birth, your address, your email address and so on.}
 
 If you do not answer my request within the stated period, I am reserving the right to take legal action against you and to lodge a complaint with the responsible supervisory authority.
 
 Thank you in advance.
 
 Yours sincerely,
-{Your name}
+{Enter your name here.}
