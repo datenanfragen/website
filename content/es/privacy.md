@@ -23,7 +23,7 @@ Esta política de privacidad se aplica a todas las actividades de Datenanfragen.
 
 Esto incluye los datos que recopilamos y procesamos de nuestros miembros, pero también los datos que se obtienen de donaciones y similares.
 
-Además, esto incluye nuestros sitios web [solicituddedatos.es](https://www.solicituddedatos.es), [datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr) y [pedidodedados.org](https://www.pedidodedados.org/).
+Además, esto incluye nuestros sitios web [solicituddedatos.es](https://www.solicituddedatos.es), [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr) y [pedidodedados.org](https://www.pedidodedados.org/).
 
 El propósito de la asociación es ayudar al público en general a ejercer su derecho a la privacidad (“derecho a la autodeterminación informativa”) informándoles y asesorándolos con todas las preguntas relacionadas con la protección de datos personales. Estamos sujetos a nuestra {{< link slug="verein/constitution" text="constitución" >}} en todas nuestras actividades.
 
