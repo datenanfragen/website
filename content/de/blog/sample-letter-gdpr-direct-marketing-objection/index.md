@@ -4,7 +4,7 @@
     "slug": "musterbrief-dsgvo-werbewiderspruch",
     "aliases": [ "sample-letter-gdpr-direct-marketing-objection" ],
     "date": "2019-10-24T14:59:57+02:00",
-    "last_edited": "2020-05-31T01:16:19+02:00",
+    "last_edited": "2021-09-25T13:24:55+02:00",
     "type": "blog",
     "description": "Direktwerbung musst Du Dir nicht gefallen lassen. Dank der DSGVO kannst Du dagegen widersprechen. Unser Musterbrief hilft Dir dabei, diesen Anspruch geltend zu machen.",
     "featured_image": "musterbrief-dsgvo-werbewiderspruch",
@@ -43,6 +43,8 @@ Hier ist also unser Musterschreiben für den Werbewiderspruch nach Art. 21 Abs. 
 <p>ich lege hiermit Widerspruch gegen die Verarbeitung meiner personenbezogenen Daten für Direktwerbung gemäß Art. 21 Abs. 2 DSGVO ein. Der Widerspruch betrifft auch Profiling, soweit es mit Direktwerbung in Verbindung steht.</p>
 
 <p>Sollte ich eine Einwilligung zur Verarbeitung meiner Daten für Direktwerbung (bspw. nach Art. 6 Abs. 1 lit. a oder Art. 9 Abs. 2 DSGVO) erteilt haben, widerrufe ich diese hiermit.</p>
+
+<p>Bitte teilen Sie mir im Voraus mit, falls mein Widerspruch eine Löschung meines eventuell bei Ihnen vorhandenen Kontos, eine Kündigung eines eventuell mit Ihnen abgeschlossenen Vertrages oder Ähnliches zur Folge haben sollte. Ich werde dann im Einzelfall entscheiden, ob dies durchgeführt werden soll.</p>
 
 <p>Meine Anfrage schließt explizit auch sämtliche weiteren Angebote und Unternehmen ein, für die Sie Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO sind.</p>
 
@@ -86,3 +88,4 @@ Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug a
 Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
 
 * [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/3c31ea33425d8c53e27bebea98f7486bd6754be8#diff-0fbc22e0510c1148f28cd399109977fe): Stil {{< link slug="sample-letters" text="aller Vorlagen" >}} vereinheitlicht.
+* [25. September 2021](https://github.com/datenanfragen/data/pull/1335/commits/a346ed73910392a57ee774ba7656ec3c835657f9#diff-1c5520812f65d3fdbe31f1042e855094e47b4e3699de3cff50bbdf49ca6dcb0e): Bitte um vorherige Benachrichtigung im Falle einer Löschung oder Kündigung eines eventuellen Kontos oder Vertrages hinzugefügt. (Danke, Tom!)
