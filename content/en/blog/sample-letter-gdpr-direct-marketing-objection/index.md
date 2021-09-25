@@ -2,7 +2,7 @@
     "title": "Sample letter for objections against direct marketing as per Art. 21(2) GDPR",
     "slug": "sample-letter-gdpr-direct-marketing-objection",
     "date": "2019-10-24T18:47:21+02:00",
-    "last_edited": "2020-05-31T01:23:52+02:00",
+    "last_edited": "2021-09-25T13:22:30+02:00",
     "type": "blog",
     "description": "You don't have to put up with direct marketing. Thanks to the GPDR, you can object to the use of your personal data for direct marketing purposes. Our sample letter helps you exercise this right.",
     "featured_image": "sample-letter-gdpr-direct-marketing-objection-en",
@@ -40,6 +40,8 @@ Here is our sample letter for objecting to direct marketing according to Art. 21
 <p>I am hereby objecting to the processing of personal data concerning me for direct marketing purposes according to Article 21(2) GDPR. This objection includes the use for profiling to the extent that it is related to direct marketing.</p>
 
 <p>If I have given consent to the processing of my personal data for direct marketing purposes (e.g. according to Article 6(1) or Article 9(2) GDPR), I am hereby withdrawing said consent.</p>
+
+<p>Please tell me in advance if the objection will result in the deletion of an account I may have with you, the cancellation of a contract I may have with you, or similar. I will then decide whether this should be carried out.</p>
 
 <p>My request explicitly includes any other services and companies for which you are the controller as defined by Article 4(7) GDPR.</p>
 
@@ -83,3 +85,4 @@ The idea behind Datenanfragen.de is to make it as easy as possible for you to ex
 We have made the following changes to this sample letter since the initial publication:
 
 * [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/6e7499dcb3d5497c6a16607370d26c5961ba237d#diff-3be9975245c2f40e39444ce4ac95f9e9): More consistent style between {{< link slug="sample-letters" text="all templates" >}}.
+* [September 25, 2021](https://github.com/datenanfragen/data/pull/1335/commits/a346ed73910392a57ee774ba7656ec3c835657f9#diff-1c5520812f65d3fdbe31f1042e855094e47b4e3699de3cff50bbdf49ca6dcb0e): Ask for a prior notification in the case of a deletion or cancellation of a potential account or contract. (Thanks, Tom!)
