@@ -80,8 +80,8 @@ Cuando visitas uno de nuestros sitios web, tu navegador se conecta a uno o más 
   * {{< link slug="company/bunnycdn" text="BunnyWay d.o.o." >}}, Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([política de privacidad](https://bunnycdn.com/privacy))
 
 #### Registros en la base de datos de empresas
- En la base de datos de empresas, publicamos los datos de contacto para solicitudes relacionadas con la privacidad a empresas y otras organizaciones. En la gran mayoría de los casos, estos datos _no_ son datos personales. Sin embargo, en casos excepcionales, el procesamiento de datos personales es necesario para este propósito, por ejemplo, en el caso de nombres de personas en nombres de empresas o direcciones de correo electrónico.
- Otorgamos voluntariamente a los interesados ​​de este tratamiento un [derecho de oposición ampliado] (#right-to-object).
+ En la base de datos de empresas, publicamos los datos de contacto para solicitudes relacionadas con la privacidad a empresas y otras organizaciones. En la gran mayoría de los casos, estos datos _no_ son datos personales. Sin embargo, en casos excepcionales, el procesamiento de datos personales es necesario para este propósito, por ejemplo, en el caso de nombres de personas en nombres de empresas o direcciones de correo electrónico.  
+Otorgamos voluntariamente a los interesados ​​de este tratamiento un [derecho de oposición ampliado] (#derecho-a-oponerse).
 
  - Datos afectados: si es necesario: nombre, si es necesario: dirección de correo electrónico, si es necesario: número de teléfono, si es necesario: número de fax, si es necesario: dirección, si es necesario: llave PGP.
  - Base legal: La base del almacenamiento es nuestro interés legítimo de acuerdo con el Art. 6 (1) lit. f RGPD para ayudar a nuestros usuarios a ejercer su derecho fundamental a la protección de datos como una organización sin fines de lucro de protección de datos.
@@ -232,8 +232,8 @@ Según el art. 21 RGPD, tienes derecho a oponerte en cualquier momento al proces
 
 Si utilizamos tus datos personales para marketing directo, tienes derecho a oponerse a dicho procesamiento en cualquier momento. Entonces ya no utilizaremos tus datos para tales fines.
 
-Además, como sujeto de datos cuyos datos se publican en la base de datos de empresas, puedes oponerte a esta publicación en cualquier momento, incluso sin dar motivos derivados de tu situación particular. Después de una objeción, eliminaremos inmediatamente los datos relevantes de la base de datos de empresas y, si se solicita, también los incluiremos en un archivo de bloqueo interno para evitar una publicación futura. Solo en el caso de los datos personales de los propietarios de la empresa, nos reservamos el derecho a negarnos a eliminar los datos después de examinar el caso individual y si consideramos que existe un interés público superior en la publicación de los datos.
-  Siempre que sea posible, reemplazaremos los datos de contacto personales eliminados con datos de contacto generales no personales de la empresa.
+Además, como sujeto de datos cuyos datos se publican en la base de datos de empresas, puedes oponerte a esta publicación en cualquier momento, incluso sin dar motivos derivados de tu situación particular. Después de una objeción, eliminaremos inmediatamente los datos relevantes de la base de datos de empresas y, si se solicita, también los incluiremos en un archivo de bloqueo interno para evitar una publicación futura. Solo en el caso de los datos personales de los propietarios de la empresa, nos reservamos el derecho a negarnos a eliminar los datos después de examinar el caso individual y si consideramos que existe un interés público superior en la publicación de los datos.  
+Siempre que sea posible, reemplazaremos los datos de contacto personales eliminados con datos de contacto generales no personales de la empresa.
 
 ### Derecho a presentar una queja ante una autoridad supervisora
 
