@@ -5,7 +5,7 @@
     "aliases": ["privacy", "privacy-policy", "data-protection"]
 }
 
-Nuestra política de privacidad se modificó por última vez el 13 de septiembre de 2020.
+Nuestra política de privacidad se modificó por última vez el 20 de septiembre de 2021.
 
 ## Observaciones generales
 
@@ -21,13 +21,13 @@ En esta política de privacidad, nos gustaría explicarte qué datos recopilamos
 
 Esta política de privacidad se aplica a todas las actividades de Datenanfragen.de e.&nbsp;V. (“la asociación").
 
-Esto incluye los datos que recopilamos y procesamos de nuestros miembro, pero también los datos que se obtienen de donaciones y similares.
+Esto incluye los datos que recopilamos y procesamos de nuestros miembros, pero también los datos que se obtienen de donaciones y similares.
 
 Además, esto incluye nuestros sitios web [solicituddedatos.es](https://www.solicituddedatos.es), [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr) y [pedidodedados.org](https://www.pedidodedados.org/).
 
 El propósito de la asociación es ayudar al público en general a ejercer su derecho a la privacidad (“derecho a la autodeterminación informativa”) informándoles y asesorándolos con todas las preguntas relacionadas con la protección de datos personales. Estamos sujetos a nuestra {{< link slug="verein/constitution" text="constitución" >}} en todas nuestras actividades.
 
-Con nuestro sitio web solicituddedatos.es (así como sus traducciones), queremos ayudarte a ejercer su derecho a la privacidad. Para ello, ofrecemos un generador que te ayuda a generar automáticamente solicitudes, una base de datos de empresas con datos de contacto para solicitudes relacionadas con la privacidad y material educativo sobre temas relacionados con la privacidad y la protección de datos. Finalmente, tiene información sobre la asociación y te permite unirte o donar entre otras cosas.
+Con nuestro sitio web solicituddedatos.es (así como sus traducciones), queremos ayudarte a ejercer tu derecho a la privacidad. Para ello, ofrecemos un generador que te ayuda a generar automáticamente solicitudes, una base de datos de empresas con datos de contacto para solicitudes relacionadas con la privacidad y material educativo sobre temas relacionados con la privacidad y la protección de datos. Finalmente, tiene información sobre la asociación y te permite unirte o donar entre otras cosas.
 
 ### Controlador e información de contacto
 
@@ -46,7 +46,7 @@ Fax: +49 531 209299 36
 Email: [privacy@datenanfragen.de](mailto:privacy@datenanfragen.de) ([PGP key](https://www.datenanfragen.de/pgp/CF2CBB2E.asc) `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`)  
 Web: [www.datarequests.org/verein](https://www.datarequests.org/verein)
 
-Si tienes alguna pregunta sobre nuestra política de privacidad, cree que estamos violando las leyes de protección de datos o deseas hacer valer tus derechos, no dudes en contactarnos en cualquier momento.
+Si tienes alguna pregunta sobre nuestra política de privacidad, crees que estamos violando las leyes de protección de datos o deseas hacer valer tus derechos, no dudes en contactarnos en cualquier momento.
 
 ### Do Not Track (DNT)
 
@@ -71,13 +71,23 @@ En esta sección, nos gustaría explicarle exactamente en qué circunstancias re
 #### Datos de conexión del servidor
 Cuando visitas uno de nuestros sitios web, tu navegador se conecta a uno o más de nuestros servidores. Hemos configurado todos nuestros servidores para que no guarden archivos de registro, pero necesitamos procesar algunos datos en la memoria por un tiempo breve para atender tu solicitud.
 
-- Datos afectados: la página específica que visitaste, la fecha y hora de su visita, los datos que tu navegador envía con la solicitud (los llamados "encabezados"), incluida información sobre su navegador y sistema operativo y su dirección IP
+- Datos afectados: la página específica que visitaste, la fecha y hora de tu visita, los datos que tu navegador envía con la solicitud (los llamados "encabezados"), incluida información sobre tu navegador y sistema operativo y tu dirección IP
 - Base legal: El tratamiento breve de estos datos es necesario para ofrecerle nuestros sitios web, se basa en el Art. 6 (1) encendido. b RGPD.
 - Duración del almacenamiento: ninguna
 - Divulgación de datos: Nuestros servidores son operados por las siguientes empresas. Son empresas exclusivamente de la UE, que hemos seleccionado cuidadosamente para cumplir con nuestros altos estándares de protección de datos.
   * {{< link slug="company/hetzner" text="Hetzner Online GmbH" >}}, Industriestraße 25, 91710 Gunzenhausen, Alemania ([política de privacidad](https://www.hetzner.com/rechtliches/datenschutz))
   * {{< link slug="company/uberspace" text="Uberspace" >}}, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Alemania ([política de privacidad](https://uberspace.de/en/about/privacy/))
   * {{< link slug="company/bunnycdn" text="BunnyWay d.o.o." >}}, Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([política de privacidad](https://bunnycdn.com/privacy))
+
+#### Registros en la base de datos de empresas
+ En la base de datos de empresas, publicamos los datos de contacto para solicitudes relacionadas con la privacidad a empresas y otras organizaciones. En la gran mayoría de los casos, estos datos _no_ son datos personales. Sin embargo, en casos excepcionales, el procesamiento de datos personales es necesario para este propósito, por ejemplo, en el caso de nombres de personas en nombres de empresas o direcciones de correo electrónico.  
+Otorgamos voluntariamente a los interesados ​​de este tratamiento un [derecho de oposición ampliado](#derecho-a-oponerse).
+
+ - Datos afectados: si es necesario: nombre, si es necesario: dirección de correo electrónico, si es necesario: número de teléfono, si es necesario: número de fax, si es necesario: dirección, si es necesario: llave PGP.
+ - Base legal: La base del almacenamiento es nuestro interés legítimo de acuerdo con el Art. 6 (1) lit. f RGPD para ayudar a nuestros usuarios a ejercer su derecho fundamental a la protección de datos como una organización sin fines de lucro de protección de datos.
+ - Fuente de los datos: Los datos se toman exclusivamente de fuentes de acceso público, cada una de las cuales se indica en la página correspondiente en nuestra base de datos de empresas.
+ - Duración del almacenamiento: ilimitado
+ - Divulgación de datos: los datos son de acceso público a través de nuestro sitio web.
 
 ### Datos que nos proporcionas
 
@@ -92,12 +102,12 @@ Si publicas contenido en nuestros sitios (como comentarios o contribuciones a la
 #### Informes de errores
 Si nos informas un error, tu informe puede contener datos personales. La divulgación de estos datos es totalmente voluntaria. No proporcionarlo no influye en el uso que hagas de nuestro sitio web.
 
-- Datos afectados: información sobre el error que ocurrió, información sobre su navegador y sistema operativo, la URL completa de la página específica que estabas visitando cuando ocurrió el error y los datos que potencialmente ingresaste en esa pagina
+- Datos afectados: información sobre el error que ocurrió, información sobre tu navegador y sistema operativo, la URL completa de la página específica que estabas visitando cuando ocurrió el error y los datos que potencialmente ingresaste en esa pagina
 Siempre te mostraremos toda la información incluida en el informe antes de que lo envíes y te daremos la capacidad de modificar o eliminar información del mismo.
 - Base legal: La base del almacenamiento es nuestro interés legítimo para mejorar la estabilidad y funcionalidad de nuestro sitio web de acuerdo con el Art. 6 (1) lit. f RGPD.
 - Duración del almacenamiento: indefinidamente
 - Divulgación de datos: el contenido de los informes de error puede ser de acceso público a través de nuestro [GitHub issue tracker](https://github.com/datenanfragen/website/issues).  
-GitHub es operado por {{< link slug="company/github" text="GitHub, Inc." >}}, 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA o su subsidiaria GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. Para obtener más información sobre cómo GitHub procesa sus datos, consulte [su política de privacidad](https://help.github.com/articles/github-privacy-statement/).
+GitHub es operado por {{< link slug="company/github" text="GitHub, Inc." >}}, 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA o su subsidiaria GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. Para obtener más información sobre cómo GitHub procesa sus datos, consulta [su política de privacidad](https://help.github.com/articles/github-privacy-statement/).
 
 #### Solicitudes de membresía
 Si deseas convertirse en miembro de la asociación, debes proporcionar algunos datos a través del formulario de solicitud de membresía. Estos datos son necesarios para nuestros registros y para que podamos comunicarnos contigo con información importante sobre tu membresía (como invitaciones a la asamblea general, recibos de donación o recordatorios de pago).
@@ -115,20 +125,20 @@ Como miembro, es probable que debas pagar las cuotas de membresía de acuerdo co
 - Datos afectados: el importe de la cuota de membresía correspondiente, tu nombre, tus datos de pago, la forma de pago, la fecha de pago.
 Si nos has dado un mandato de débito directo SEPA para tus cuotas de membresía, los siguientes datos también se verán afectados: tu dirección, la referencia de tu mandato, la fecha de tu mandato de débito directo SEPA
 - Base legal: La recaudación y el procesamiento son necesarios para la liquidación de las cuotas de afiliación y se basan en el art. 6 (1) literal. b RGPD. Además, estamos sujetos a ciertas obligaciones contables legales, para las cuales tenemos que almacenar y procesar los datos de conformidad con el art. 6 (1) literal. c RGPD.
-- Duración del almacenamiento: en general, siempre que existan obligaciones legales de almacenamiento (consulte en particular el § 147 (3) de la AO alemana), además nuestro banco nos exige mantener los mandatos de débito directo SEPA durante 14 meses después de que se haya realizado el último débito sido hecho
+- Duración del almacenamiento: en general, siempre que existan obligaciones legales de almacenamiento (consulta en particular el § 147 (3) de la AO alemana), además nuestro banco nos exige mantener los mandatos de débito directo SEPA durante 14 meses después de que se haya realizado el último débito sido hecho
 - Divulgación de datos: solo la junta tiene acceso a estos datos. Es posible que tengamos que pasarlo a la oficina de impuestos responsable de nosotros como parte de las declaraciones de impuestos o similar.
-Si decides pagar a través de una de las pasarelas de pago externas que ofrecemos, estas pasarelas recibirán datos personales sobre tí y su pago y nos proporcionarán algunos de esos datos. Para obtener más detalles sobre esos terceros y los datos afectados, consulta la sección "Servicios externos" a continuación.
+Si decides pagar a través de una de las pasarelas de pago externas que ofrecemos, estas pasarelas recibirán datos personales sobre tí y tu pago y nos proporcionarán algunos de esos datos. Para obtener más detalles sobre esos terceros y los datos afectados, consulta la sección "Servicios externos" a continuación.
 
 #### Donaciones únicas y recurrentes
 Si nos envías donaciones, recibiremos datos que tenemos que almacenar y procesar con fines contables.
 
 Nos complace aceptar donaciones anónimas, por lo que proporcionar esta información es completamente voluntario.
 
-- Datos afectados: el monto de la donación, en su caso tus datos de pago, la forma de pago, la fecha de pago
+- Datos afectados: el monto de la donación, tus datos de pago, la forma de pago, la fecha de pago
 - Base legal: Estamos sujetos a ciertas obligaciones contables legales, por lo que el almacenamiento y procesamiento se basa en el Art. 6 (1) literal. c RGPD.
-- Duración del almacenamiento: siempre que existan obligaciones legales de almacenamiento (consulte en particular el § 147 (3) de la AO alemana)
+- Duración del almacenamiento: siempre que existan obligaciones legales de almacenamiento (consulta en particular el § 147 (3) de la AO alemana)
 - Divulgación de datos: solo la junta tiene acceso a estos datos. Es posible que tengamos que pasarlo a la oficina de impuestos responsable de nosotros como parte de las declaraciones de impuestos o similar.
-Si decides pagar a través de una de las pasarelas de pago externas que ofrecemos, estas pasarelas recibirán datos personales sobre tí y su pago y nos proporcionarán algunos de esos datos. Para obtener más detalles sobre esos terceros y los datos afectados, consulta la sección "Servicios externos" a continuación.
+Si decides pagar a través de una de las pasarelas de pago externas que ofrecemos, estas pasarelas recibirán datos personales sobre tí y tu pago y nos proporcionarán algunos de esos datos. Para obtener más detalles sobre esos terceros y los datos afectados, consulta la sección "Servicios externos" a continuación.
 
 #### Contacto
 Si te comunicas con nosotros (por ejemplo, por correo electrónico), tu mensaje puede contener datos personales. Utilizaremos estos datos exclusivamente para responder a tu mensaje.
@@ -136,7 +146,7 @@ Si te comunicas con nosotros (por ejemplo, por correo electrónico), tu mensaje 
 No es necesario que proporciones ningún dato para contactarnos, por lo que la divulgación de estos datos es completamente voluntaria.
 
 - Datos afectados: los datos que incluyes en tu mensaje
-- Base legal: el almacenamiento se basa en nuestro interés legítimo en responder a su mensaje de acuerdo con el art. 6 (1) encendido. f RGPD.
+- Base legal: el almacenamiento se basa en nuestro interés legítimo en responder a tu mensaje de acuerdo con el art. 6 (1) encendido. f RGPD.
 - Duración del almacenamiento: siempre que existan obligaciones legales de almacenamiento
 
 #### Boletin informativo
@@ -148,7 +158,7 @@ La suscripción es totalmente voluntaria para ti.
 - Base legal: Al suscribirte, aceptas el envío del boleteín de acuerdo con el Art. 6 (1) lit. 1 RGPD. Puedes revocar este consentimiento en cualquier momento; puedes averiguar cómo hacerlo en la sección “Derecho a revocar el consentimiento prestado”.
 - Duración del almacenamiento: hasta que te dés de baja del boletín.
 - Divulgación de datos: solo los miembros de la junta pueden acceder a los datos de contacto. El boletín se envía mediante el servicio Mailjet. Por lo tanto, los datos de contacto deben enviarse a Mailjet.
-  Mailjet está dirigido por {{< link slug="company/mailjet" text="Mailjet SAS" >}}, 13-13 bis rue de l’Aubrac, 75012 Paris, France. Para obtener más información sobre cómo Mailjet procesa sus datos, consulte [su política de privacidad](https://www.mailjet.com/privacy-policy/).
+  Mailjet está dirigido por {{< link slug="company/mailjet" text="Mailjet SAS" >}}, 13-13 bis rue de l’Aubrac, 75012 Paris, France. Para obtener más información sobre cómo Mailjet procesa sus datos, consulta [su política de privacidad](https://www.mailjet.com/privacy-policy/).
 
 ### Servicios externos
 
@@ -218,9 +228,12 @@ Si nos solicitas que corrijamos, eliminemos o restrinjamos el procesamiento de t
 
 ### Derecho a oponerse
 
-Según el art. 21 RGPD, tienes derecho a oponerse en cualquier momento al procesamiento de los datos personales que te conciernen que sean necesarios para el desempeño de una tarea de interés público o debido a nuestro interés legítimo sobre la base del Artículo 6 (1) por motivos derivados de su situación particular. Entonces ya no procesaremos los datos personales, a menos que podamos probar motivos legítimos convincentes para el procesamiento, que superen tus intereses, derechos y libertades o el procesamiento sirva para la afirmación, el ejercicio o la defensa de reclamos legales.
+Según el art. 21 RGPD, tienes derecho a oponerte en cualquier momento al procesamiento de los datos personales que te conciernen que sean necesarios para el desempeño de una tarea de interés público o debido a nuestro interés legítimo sobre la base del Artículo 6 (1) por motivos derivados de tu situación particular. Entonces ya no procesaremos los datos personales, a menos que podamos probar motivos legítimos convincentes para el procesamiento, que superen tus intereses, derechos y libertades o el procesamiento sirva para la afirmación, el ejercicio o la defensa de reclamos legales.
 
 Si utilizamos tus datos personales para marketing directo, tienes derecho a oponerse a dicho procesamiento en cualquier momento. Entonces ya no utilizaremos tus datos para tales fines.
+
+Además, como sujeto de datos cuyos datos se publican en la base de datos de empresas, puedes oponerte a esta publicación en cualquier momento, incluso sin dar motivos derivados de tu situación particular. Después de una objeción, eliminaremos inmediatamente los datos relevantes de la base de datos de empresas y, si se solicita, también los incluiremos en un archivo de bloqueo interno para evitar una publicación futura. Solo en el caso de los datos personales de los propietarios de la empresa, nos reservamos el derecho a negarnos a eliminar los datos después de examinar el caso individual y si consideramos que existe un interés público superior en la publicación de los datos.  
+Siempre que sea posible, reemplazaremos los datos de contacto personales eliminados con datos de contacto generales no personales de la empresa.
 
 ### Derecho a presentar una queja ante una autoridad supervisora
 
