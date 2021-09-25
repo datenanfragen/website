@@ -2,7 +2,7 @@
     "title": "Hacktoberfest 2021: Hack with us!",
     "type": "blog",
     "date": "2021-09-19T11:00:00+02:00",
-    "description": "We are again participating in the Hacktoberfest! Contribute and get a webcam slider, sticker set and maybe a free t-shirt.",
+    "description": "We are again participating in the Hacktoberfest! Contribute and get a webcam cover, sticker set and maybe a free t-shirt.",
     "featured_image": "hacktoberfest-2021",
     "tags": [ "hacktoberfest", "digitalocean", "github", "open source", "pull request" ],
     "authors": [ "malte", "baltpeter" ],
@@ -12,7 +12,7 @@
 
 {{< featuredImg alt="Written in front of leaves: \"Hacktoberfest 2021: Hack with us!\"" >}}
 
-Just like the [original Hacktoberfest](https://hacktoberfest.digitalocean.com/) from DigitalOcean, we want to get people excited about Open Source software and contributing to it. That means for you: Contribute to datarequests.org and its sister sites and we'll give you some goodies: The first 100 people get a useful webcam slider and a sticker pack. The 10 best contributions will receive a t-shirt as well! All that is completely free for you, we will even pay for postage.
+Just like the [original Hacktoberfest](https://hacktoberfest.digitalocean.com/) from DigitalOcean, we want to get people excited about Open Source software and contributing to it. That means for you: Contribute to datarequests.org or one of our translated websites, and we'll give you some goodies: The first 100 people get a useful webcam slider and a sticker pack. The 10 best contributions will receive a t-shirt as well! All that is completely free for you, we will even pay for postage.
 
 Our project and our goal to make privacy and the GDPR accessible to many users is driven by community contributions. We are especially looking forward to contributions in areas we cannot cover ourselves. Like translations from English or German to other languages that are spoken in EU countries, see [this entry](https://github.com/datenanfragen/data/issues/229) in our issue tracker. Or do you know about [companies that collect data about every citizen of a specific EU country](https://github.com/datenanfragen/data/issues/230)? Tell us about it, to help us recommend the right companies to users in that country!
 
@@ -55,6 +55,33 @@ You can also participate without using GitHub. To do so, please email us at <hac
 
 By the way: If you _also_ want to participate in the official Hacktoberfest, you have to [register separately](https://hacktoberfest.digitalocean.com/). That is however **not** necessary to participate in our event.
 
+
+## Do you have any suggestions on what to contribute?
+
+<img class="offset-image offset-image-right" src="/card-icons/code.svg" height="150px" width="190px" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
+
+If you're new to Datenanfragen.de, you may be a little overwhelmed and don't know where to start. Don't worry: There are numerous areas in which you can participate—regardless of whether you have experience with programming and data protection or not. To make it easier for you to get started, we have put together a few suggestions here. You can find many more tasks in the issues of the respective repositories. Of course, we also welcome your own ideas on how you could improve the project.
+
+* **Helping with the code**  
+  A key part of the project is the [website](https://github.com/datenanfragen/website). Are you missing a feature you want to implement or do you want to fix a bug? We are looking forward to your contribution!
+  If you need some inspiration, have a look at our [GitHub issues](https://github.com/datenanfragen/website/issues).
+
+* **Adding required elements to company records**  
+  Companies have to be able to identify you to respond to your GDPR requests. However, different companies require different methods of identification. That's why we collect the required identification elements for companies.
+
+  As we only have this data for some companies, we default to name, email, and address for many companies. But those fields aren't optimal for all companies—some require more, some less data. This is where we need your help: [This GitHub issue](https://github.com/datenanfragen/data/issues/720) explains in detail how you can add the missing data by sending your own GDPR requests to the corresponding companies. As a side effect, you'll also learn something about the data those companies process on you.
+
+* **Collecting suggested companies for more countries**  
+  As explained above, we want to collect lists of companies that users should request their data from. We need these lists to suggest these companies to users in these countries via our wizard. At the moment, we support Germany, Austria, and Great Britian. However, we would like to support all EU countries in the future. Read more in [this GitHub issue](https://github.com/datenanfragen/data/issues/230).
+
+* **Writing and translating blog posts**  
+  We already have a number of posts in our {{< link slug="blog" text="blog" >}}. They cover a wide spectrum from explanations of GDPR topics to tutorials and reports. We want to publish more articles and are happy about fitting submissions to the [website repository](https://github.com/datenanfragen/website). 
+
+  Another important task is translating existing posts into the other languages that we support. The [website repository](https://github.com/datenanfragen/website) is the right place to go for that, as well. The following issues explain it in more detail: [French and Croatian](https://github.com/datenanfragen/website/issues/489), [French](https://github.com/datenanfragen/website/issues/457), [Portuguese (pages)](https://github.com/datenanfragen/website/issues/455), [Portuguese (blog entries)](https://github.com/datenanfragen/website/issues/456), [Spanish](https://github.com/datenanfragen/website/issues/695), [Croatian (pages)](https://github.com/datenanfragen/website/issues/697) and [Croatian (blog entries)](https://github.com/datenanfragen/website/issues/696).
+
+* **Translating the request templates to more languages**  
+  Our request templates are already available in many languages, but some are outdated, as we have since updated the English and German templates. Help us by translating these updates to other languages as well. Learn more in [this GitHub issue](https://github.com/datenanfragen/data/issues/229).
+
 <a id="repos"></a>
 
 ## Which repositories qualify for the event?
@@ -72,33 +99,6 @@ For the event, we count pull requests and patches to following repositories as v
 * <https://github.com/datenanfragen/data-imports>
 
 We may also accept additional repositories. If you think that your contribution to another repository will help the project, please contact us beforehand at <hacktoberfest@datenanfragen.de> and ask if we will also count those contributions.
-
-## Do you have any suggestions on what to contribute?
-
-<img class="offset-image offset-image-right" src="/card-icons/code.svg" height="150px" width="190px" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
-
-If you're new to Datenanfragen.de, you may be a little overwhelmed and don't know where to start. Don't worry: There are numerous areas in which you can participate—regardless of whether you have experience with programming and data protection or not. To make it easier for you to get started, we have put together a few suggestions here. You can find many more tasks in the issues of the respective repositories. Of course, we also welcome your own ideas on how you could improve the project.
-
-* **Collecting suggested companies for more countries**  
-  As explained above, we want to collect lists of companies that users should request their data from. We need these lists to suggest these companies to users in these countries via our wizard. At the moment, we support Germany, Austria, and Great Britian. However, we would like to support all EU countries in the future. Read more in [this GitHub issue](https://github.com/datenanfragen/data/issues/230).
-
-* **Adding required elements to company records**  
-  Companies have to be able to identify you to respond to your GDPR requests. However, different companies require different methods of identification. That's why we collect the required identification elements for companies.
-
-  As we only have this data for some companies, we default to name, email, and address for many companies. But those fields aren't optimal for all companies—some require more, some less data. This is where we need your help: [This GitHub issue](https://github.com/datenanfragen/data/issues/720) explains in detail how you can add the missing data by sending your own GDPR requests to the corresponding companies. As a side effect, you'll also learn something about the data those companies process on you.
-
-* **Writing and translating blog posts**  
-  We already have a number of posts in our {{< link slug="blog" text="blog" >}}. They cover a wide spectrum from explanations of GDPR topics to tutorials and reports. We want to publish more articles and are happy about fitting submissions to the [website repository](https://github.com/datenanfragen/website). 
-
-  Another important task is translating existing posts into the other languages that we support. The [website repository](https://github.com/datenanfragen/website) is the right place to go for that, as well.
-
-* **Translating the request templates to more languages**  
-  Our request templates are already available in many languages, but some are outdated, as we have since updated the English and German templates. Help us by translating these updates to other languages as well. Learn more in [this GitHub issue](https://github.com/datenanfragen/data/issues/229).
-
-* **Helping with the code**  
-  A key part of the project is the [website](https://github.com/datenanfragen/website). Are you missing a feature you want to implement or do you want to fix a bug? We are looking forward to your contribution!
-  If you need some inspiration, have a look at our [GitHub issues](https://github.com/datenanfragen/website/issues).
-
 
 ## Any questions?
 
