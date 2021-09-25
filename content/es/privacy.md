@@ -81,7 +81,7 @@ Cuando visitas uno de nuestros sitios web, tu navegador se conecta a uno o más 
 
 #### Registros en la base de datos de empresas
  En la base de datos de empresas, publicamos los datos de contacto para solicitudes relacionadas con la privacidad a empresas y otras organizaciones. En la gran mayoría de los casos, estos datos _no_ son datos personales. Sin embargo, en casos excepcionales, el procesamiento de datos personales es necesario para este propósito, por ejemplo, en el caso de nombres de personas en nombres de empresas o direcciones de correo electrónico.  
-Otorgamos voluntariamente a los interesados ​​de este tratamiento un [derecho de oposición ampliado] (#derecho-a-oponerse).
+Otorgamos voluntariamente a los interesados ​​de este tratamiento un [derecho de oposición ampliado](#derecho-a-oponerse).
 
  - Datos afectados: si es necesario: nombre, si es necesario: dirección de correo electrónico, si es necesario: número de teléfono, si es necesario: número de fax, si es necesario: dirección, si es necesario: llave PGP.
  - Base legal: La base del almacenamiento es nuestro interés legítimo de acuerdo con el Art. 6 (1) lit. f RGPD para ayudar a nuestros usuarios a ejercer su derecho fundamental a la protección de datos como una organización sin fines de lucro de protección de datos.
