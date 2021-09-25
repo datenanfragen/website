@@ -12,3 +12,25 @@ describe('switching languages', () => {
             .and('match', /`${Cypress.env('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313')}`/);
     });
 });
+
+describe('language suggestion modal', () => {
+    it('should appear if no cookies set', () => {
+        cy.clearCookie('country');
+        // Change the language reported by the browser
+        cy.visit('/', {
+            onBeforeLoad(window) {
+                Object.defineProperty(window.navigator, 'language', { value: 'de' });
+            },
+        });
+        cy.contains('Diese Seite ist auch in Deiner Sprache verfügbar!');
+    });
+    it('should not appear if cookies are set', () => {
+        cy.setCookie('country', 'de');
+        cy.visit('/', {
+            onBeforeLoad(window) {
+                Object.defineProperty(window.navigator, 'language', { value: 'de' });
+            },
+        });
+        cy.not.contains('Diese Seite ist auch in Deiner Sprache verfügbar!');
+    });
+});
