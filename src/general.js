@@ -53,7 +53,6 @@ if (comments_div) {
 function notifyOtherLanguages(preferred_language, website_language) {
     if (!preferred_language || !website_language) return;
     let recommend_language = t_r('recommend-language', preferred_language || LOCALE);
-    globals.country = preferred_language;
     flash(
         <FlashMessage type="info" duration={15000}>
             {recommend_language} {<I18nWidget minimal={true} showLanguageOnly={true} />}

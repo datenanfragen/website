@@ -326,7 +326,8 @@
         "concerns": "Questões",
         "language-change-modal": "Ao alterar o idioma, você será redirecionado para outro domínio. Suas configurações e dados salvos neste domínio não serão transferidos. <br> Em particular, isso significa que coisas como suas configurações de privacidade e solicitações salvas não estarão disponíveis no novo idioma. Você ainda pode, sempre que quiser, retornar a esse idioma e visualizá-los aqui, mas não poderá compartilhar configurações e dados salvos entre diferentes idiomas.",
         "change-lang": "Alterar idioma",
-        "stay": "Permanecer aqui"
+        "stay": "Permanecer aqui",
+        "language": "Idioma"
     },
     "privacy-controls": {
         "title": "Configurações de privacidade",
@@ -474,7 +475,6 @@
     },
     "i18n-widget": {
         "country": "País",
-        "language": "Idioma",
         "language-desc-de": "Alemão (Deutsch)",
         "language-desc-en": "Inglês (English)",
         "language-desc-fr": "Francês (Français)",

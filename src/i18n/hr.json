@@ -480,7 +480,8 @@
         "letter-subject-complaint": "Žalba prema čl. 77. GDPR-a protiv {{request_recipient}}",
         "stay": "Ostani ovdje",
         "change-lang": "Promijeni jezik",
-        "language-change-modal": "Promjena jezika preusmjerit će te na jednu drugu domenu. Tvoje postavke i spremljeni podaci s ove domene se ne prenose.<br>To znači da stvari poput tvojih postavki privatnosti i spremljenih zahtjeva neće biti dostupne na novom jeziku. Možeš se vratiti na ovaj jezik i ovdje ih pogledati, ali ne možeš dijeliti postavke i spremljene podatke između različitih jezika."
+        "language-change-modal": "Promjena jezika preusmjerit će te na jednu drugu domenu. Tvoje postavke i spremljeni podaci s ove domene se ne prenose.<br>To znači da stvari poput tvojih postavki privatnosti i spremljenih zahtjeva neće biti dostupne na novom jeziku. Možeš se vratiti na ovaj jezik i ovdje ih pogledati, ali ne možeš dijeliti postavke i spremljene podatke između različitih jezika.",
+        "language": "Jezik"
     },
     "mailto": {
         "copymanually": "Kopiraj tekst ručno",
@@ -841,7 +842,6 @@
         "language-desc-en": "Engleski (English)",
         "language-desc-de": "Njemački (Deutsch)",
         "language-desc-hr": "Hrvatski",
-        "language": "Jezik",
         "country": "Zemlja"
     }
 }

@@ -357,7 +357,8 @@
         "recommend-language": "Diese Seite ist auch in Deiner Sprache verfügbar!",
         "language-change-modal": "Wenn Du die Sprache wechelst, wirst Du zu einer anderen Domain weitergeleitet. Deine Einstellungen und gespeicherten Daten werden nicht übernommen.<br>Insbesondere bedeutet das, dass z.&nbsp;B. Deine Datenschutzeinstellungen und gespeicherten Anfragen nicht in der neuen Sprache verfügbar sein werden. Du kannst diese natürlich trotzdem jederzeit in dieser Sprache verwenden, aber Einstellungen und Daten können leider nicht zwischen verschiedenen Sprachen geteilt werden.",
         "change-lang": "Trotzdem wechseln",
-        "stay": "Hier bleiben"
+        "stay": "Hier bleiben",
+        "language": "Sprache"
     },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",
@@ -515,7 +516,6 @@
     },
     "i18n-widget": {
         "country": "Land",
-        "language": "Sprache",
         "language-desc-de": "Deutsch",
         "language-desc-en": "Englisch (English)",
         "language-desc-fr": "Französisch (Français)",

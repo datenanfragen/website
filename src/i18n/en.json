@@ -357,7 +357,8 @@
         "recommend-language": "This site is also available in your language!",
         "language-change-modal": "Changing the language will redirect you to another domain. Your settings and saved data from this domain will not carry over.<br>In particular, this means that things like your privacy settings and saved requests will not be available in the new language. You can still always go back to this language and view them here but you cannot share settings and saved data between different languages.",
         "change-lang": "Change language",
-        "stay": "Stay here"
+        "stay": "Stay here",
+        "language": "Language"
     },
     "privacy-controls": {
         "title": "Privacy controls",
@@ -515,7 +516,6 @@
     },
     "i18n-widget": {
         "country": "Country",
-        "language": "Language",
         "language-desc-de": "German (Deutsch)",
         "language-desc-en": "English",
         "language-desc-fr": "French (Français)",
