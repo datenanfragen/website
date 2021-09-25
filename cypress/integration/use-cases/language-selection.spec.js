@@ -19,7 +19,7 @@ describe('language suggestion modal', () => {
         // Change the language reported by the browser
         cy.visit('/', {
             onBeforeLoad(window) {
-                Object.defineProperty(window.navigator, 'language', { value: 'de' });
+                Object.defineProperty(window.navigator, 'language', { value: 'de-DE' });
             },
         });
         cy.contains('Diese Seite ist auch in Deiner Sprache verfügbar!');
@@ -28,7 +28,7 @@ describe('language suggestion modal', () => {
         cy.setCookie('country', 'de');
         cy.visit('/', {
             onBeforeLoad(window) {
-                Object.defineProperty(window.navigator, 'language', { value: 'de' });
+                Object.defineProperty(window.navigator, 'language', { value: 'de-DE' });
             },
         });
         cy.not.contains('Diese Seite ist auch in Deiner Sprache verfügbar!');
