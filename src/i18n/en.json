@@ -354,7 +354,7 @@
         "attn": "Attn: Data Protection",
         "by-fax": "By Fax: ",
         "concerns": "Concerns",
-        "recommend-language": "This site is also available in your language.",
+        "recommend-language": "This site is also available in your language!",
         "language-change-modal": "Changing the language will redirect you to another domain. Your settings and saved data from this domain will not carry over.<br>In particular, this means that things like your privacy settings and saved requests will not be available in the new language. You can still always go back to this language and view them here but you cannot share settings and saved data between different languages.",
         "change-lang": "Change language",
         "stay": "Stay here"
@@ -530,10 +530,6 @@
         "language-hr": "Croatian",
         "not-supported-prompt": "Your language or country is not supported yet?",
         "not-supported-cta": "Help us support it!"
-    },
-    "interlingual": {
-        "recommend-en": "This site is also available in your langauge!",
-        "recommend-de": "Diese Seite ist auch in Ihrer Sprache verfügbar!"
     },
     "comments": {
         "comments": "Comments",
