@@ -1,3 +1,5 @@
+const I18N_DEFINITION = require('./i18n/' + LOCALE + '.json');
+
 // Our email hoster Uberspace has a spam filter that cannot be disabled and that doesn't like JSON. We have had problems
 // in the past with error reports being marked as spam and not being delivered to us. Thus, we employ this function to
 // make our JSON look as little like JSON as possible.

@@ -1,40 +1,30 @@
-{{ partialCached "supported-countries" . }}
+{{ $supported_countries := (partialCached "supported-countries" .) }}
+{{ $supported_languages := (partialCached "supported-languages" .) }}
+
 <script>
-    const LOCALE = {{ .Site.Language.Lang }};
     // (p)react needs to be notified on changes of `country`, so we use a getter and setter (added in `general.js`. Not exactly pretty but oh well. See: https://stackoverflow.com/a/37403125
     // I briefly considered abstracting this away for new properties in the future but decided against it. Doing something like this *should* hurt and require extra ugly code.
     var globals = {
         _country_listeners: [],
         addCountryListener: function(listener) { this._country_listeners.push(listener); }
     };
-    const SUPPORTED_LANGUAGES = {
-        {{- if .IsTranslated -}}
-            {{- range .Translations -}}
-                "{{ .Lang }}": "{{ .Permalink }}",
-            {{- end -}}
-        {{- end -}}
-    };
-
-    const COUNTRIES_WITH_SUGGESTED_COMPANIES = ['de', 'gb'];
-    const BASE_URL = {{ "/" | absURL }};
 </script>
-<script src="{{ "js/runtime.gen.js" | absURL }}"></script>
-<script src="{{ "js/vendors.bundle.gen.js" | absURL }}"></script>
-<script src="{{ "js/commons.bundle.gen.js" | absURL }}"></script>
-<script src="{{ "js/translations-requests.gen.js" | absURL }}"></script>
-<script src="{{ (printf "js/translations-%s.gen.js" .Site.Language.Lang) | absURL }}"></script>
-<script src="{{ "js/error-handler.bundle.gen.js" | absURL }}"></script>
 
-{{ $defines := dict "process.env.NODE_ENV" `"development"`  "global" "window" }}
-{{ $shims := dict "react" "js/react-shim.js"  "react-dom" "js/react-shim.js" }}
-{{ $inject := slice "js/react-shim.js" }}
-{{ $opts := dict "target" "esnext"  "JSXFactory" "h"  "JSXFragment" "Fragment"  "externals" (slice "react")  "defines" $defines "inject" $inject  "sourceMap" "inline"  "minify" true}}
+<script src="{{ "js/translations-requests.gen.js" | absURL }}"></script>
+
+
+{{ $defines := dict "process.env.NODE_ENV" `"development"`  "global" "window"  "LOCALE"  (printf `"%s"` .Site.Language.Lang) "COUNTRIES_WITH_SUGGESTED_COMPANIES" "['de', 'gb']"  "BASE_URL" (printf `"%s"` ("/" | absURL)) }}
+{{ $params := (dict "supported_languages" $supported_languages "supported_countries" $supported_countries)}}
+{{ $opts := dict "target" "esnext"  "JSXFactory" "h"  "JSXFragment" "Fragment" "defines" $defines  "sourceMap" "inline"  "minify" true "params" $params}}
 
 {{ $general_js := resources.Get "js/general.jsx" | js.Build $opts | fingerprint}}
 <script src="{{ $general_js.RelPermalink }}" integrity="{{ $general_js.Data.Integrity }}"></script>
 
+{{ $error_handler_js := resources.Get "js/error-handler.js" | js.Build $opts | fingerprint}}
+<script src="{{ $error_handler_js.RelPermalink }}" integrity="{{ $error_handler_js.Data.Integrity }}"></script>
+
 {{ if eq .Type "generator" }}
-{{ $pdf_worker_js := resources.Get "js/Utility/pdf.worker.js" | js.Build (dict "target" "esnext" "sourceMap" "external"  "minify" true) | fingerprint}}
+{{ $pdf_worker_js := resources.Get "js/Utility/pdf.worker.js" | js.Build (dict "target" "esnext" "sourceMap" "inline"  "minify" true) | fingerprint}}
 {{ $generator_js := resources.Get "js/generator.jsx" | js.Build (merge $opts (dict "defines" (dict "PDF_WORKER_URL" (printf `"%s"` $pdf_worker_js.RelPermalink)))) | fingerprint}}
 <script src="{{ $generator_js.RelPermalink }}" integrity="{{ $generator_js.Data.Integrity }}"></script>
 {{ end }}

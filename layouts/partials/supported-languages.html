@@ -1,0 +1,7 @@
+{{ $supported_languages := newScratch }}
+{{ if .IsTranslated }}
+    {{ range .Translations }}
+        {{ $supported_languages.Add .Lang .Permalink }}
+    {{ end }}
+{{ end }}
+{{ return $supported_languages.Values }}

@@ -3,6 +3,9 @@ import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import Modal from './Modal.jsx';
 import t from '../Utility/i18n';
 import PropTypes from 'prop-types';
+import * as params from '@params';
+const SUPPORTED_LANGUAGES = params['supported_languages'];
+const SUPPORTED_COUNTRIES = params['supported_countries'];
 
 export default class I18nWidget extends Component {
     constructor(props) {

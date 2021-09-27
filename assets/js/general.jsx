@@ -3,11 +3,14 @@ import I18nWidget, { I18nButton } from './Components/I18nWidget.jsx';
 import CommentsWidget from './Components/CommentsWidget.jsx';
 import Cookie from 'js-cookie';
 import { PARAMETERS } from './Utility/common';
+import * as params from '@params';
 
 // has to run before any rendering, webpack will remove this if the condition is false
 if (process.env.NODE_ENV === 'development') {
     require('preact/debug');
 }
+
+window.I18N_DEFINITION = require('./i18n/' + LOCALE + '.json');
 
 window.PARAMETERS = PARAMETERS;
 
@@ -62,5 +65,5 @@ function guessUserCountry() {
     if (!navigator_lang || !bcp47_country) return FALLBACK_COUNTRIES[LOCALE];
 
     // If however we *can* guess the country but just don't support it, we show all companies.
-    return SUPPORTED_COUNTRIES.includes(bcp47_country) ? bcp47_country : 'all';
+    return params['supported_countries'].includes(bcp47_country) ? bcp47_country : 'all';
 }
