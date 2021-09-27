@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, Fragment } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import { detectBlockedCanvasImageExtraction } from '../../Utility/browser';
 import PropTypes from 'prop-types';

@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, Fragment } from 'preact';
 import t from '../Utility/i18n';
 import { Text, MarkupText, IntlProvider } from 'preact-i18n';
 import { SearchBar } from './SearchBar.jsx';

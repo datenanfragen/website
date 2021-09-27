@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component, Fragment } from 'preact';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import Modal from './Modal.jsx';
 import t from '../Utility/i18n';

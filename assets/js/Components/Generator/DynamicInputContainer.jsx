@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, Fragment } from 'preact';
 import DynamicInput from './DynamicInput.jsx';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';

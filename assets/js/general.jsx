@@ -1,4 +1,4 @@
-import { h, render } from 'preact';
+import { h, render, Fragment } from 'preact';
 import I18nWidget, { I18nButton } from './Components/I18nWidget.jsx';
 import CommentsWidget from './Components/CommentsWidget.jsx';
 import Cookie from 'js-cookie';

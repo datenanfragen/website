@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component, Fragment } from 'preact';
 import PropTypes from 'prop-types';
 import t from '../Utility/i18n';
 

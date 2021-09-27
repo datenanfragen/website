@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component, Fragment } from 'preact';
 import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/SavedIdData';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import t from './Utility/i18n';

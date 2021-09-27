@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component, Fragment } from 'preact';
 import t from '../Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 import PropTypes from 'prop-types';

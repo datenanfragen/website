@@ -1,4 +1,5 @@
 // eslint-disable-next-line no-unused-vars
+import { h, Component, Fragment } from 'preact';
 import { Text } from 'preact-i18n';
 import t from '../Utility/i18n';
 

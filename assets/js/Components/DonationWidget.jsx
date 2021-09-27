@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component, Fragment } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { PARAMETERS, almostUniqueId, renderMoney } from '../Utility/common';
 import { CriticalException, rethrow } from '../Utility/errors';

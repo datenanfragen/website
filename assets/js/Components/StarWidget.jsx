@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, Fragment } from 'preact';
 import PropTypes from 'prop-types';
 
 // Adapted after https://jsfiddle.net/leaverou/CGP87/

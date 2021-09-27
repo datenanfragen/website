@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, Fragment } from 'preact';
 import t from '../../Utility/i18n';
 import Radio from '../Radio.jsx';
 import { VALID_REQUEST_TYPES } from '../../Utility/requests';

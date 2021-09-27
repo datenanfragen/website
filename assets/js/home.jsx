@@ -1,4 +1,4 @@
-import { h, render } from 'preact';
+import { h, render, Fragment } from 'preact';
 import t from './Utility/i18n';
 import Wizard from './Components/Wizard.jsx';
 

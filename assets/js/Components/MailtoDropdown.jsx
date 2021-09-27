@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component, Fragment } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import PropTypes from 'prop-types';
 import t, { t_r } from '../Utility/i18n';
@@ -119,14 +119,14 @@ export default class MailtoDropdown extends Component {
             ),
             body: encodeURIComponent(props.letter.toEmailString()),
         };
-        const handler_buttons = handlers.map((h) => (
+        const handler_buttons = handlers.map((handler) => (
             // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
-                href={MAILTO_HANDLERS[h].link?.(data)}
+                href={MAILTO_HANDLERS[handler].link?.(data)}
                 onClick={(e) => {
                     if (!props.letter) e.preventDefault();
                     else {
-                        if (MAILTO_HANDLERS[h].onClick) MAILTO_HANDLERS[h].onClick(data);
+                        if (MAILTO_HANDLERS[handler].onClick) MAILTO_HANDLERS[handler].onClick(data);
                         props.onSuccess();
                     }
                 }}
@@ -134,7 +134,7 @@ export default class MailtoDropdown extends Component {
                 target="_blank"
                 rel="noreferrer noopener"
                 style="margin-top: 10px;">
-                {t(h, 'mailto')}
+                {t(handler, 'mailto')}
             </a>
         ));
 

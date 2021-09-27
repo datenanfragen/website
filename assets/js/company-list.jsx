@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component, Fragment } from 'preact';
 import { SearchBar } from './Components/SearchBar.jsx';
 import { IntlProvider, Text } from 'preact-i18n';
 import PropTypes from 'prop-types';

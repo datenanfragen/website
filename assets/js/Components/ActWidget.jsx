@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component, Fragment } from 'preact';
 import PropTypes from 'prop-types';
 import RequestGeneratorBuilder from './RequestGeneratorBuilder.jsx';
 import { fakeEvt } from '../Utility/common';

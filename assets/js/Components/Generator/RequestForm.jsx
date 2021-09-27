@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, Fragment } from 'preact';
 import DynamicInputContainer from './DynamicInputContainer.jsx';
 import SignatureInput from './SignatureInput.jsx';
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';

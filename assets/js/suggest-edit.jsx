@@ -1,4 +1,4 @@
-import { h, render } from 'preact';
+import { h, render, Fragment } from 'preact';
 import Modal from './Components/Modal.jsx';
 import t from './Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';

@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component, Fragment } from 'preact';
 import { IntlProvider } from 'preact-i18n';
 import { PARAMETERS } from './Utility/common';
 import { clearUrlParameters } from './Utility/browser';
