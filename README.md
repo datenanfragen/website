@@ -29,7 +29,7 @@ For testing, we use CircleCI in combination with Cypress (see [more on our brows
 
 First of all, thank you very much for taking the time to contribute! Contributions are incredibly valuable for a project like ours.
 
-We warmly welcome issues and pull requests through GitHub.
+We warmly welcome issues and pull requests through GitHub. You can also chat with us through our [Matrix space](https://matrix.to/#/#datenanfragen:matrix.altpeter.me). Feel free to ask questions, pitch your ideas, or just talk with the community.
 
 Please be aware that by contributing, you agree for your work to be released under the MIT license, as specified in the `LICENSE` file.
 
@@ -38,6 +38,8 @@ If you are interested in contributing in other ways besides coding, we can also 
 ### Translations
 
 While you can just contribute translations through this repository, an easier way is through the localisation platform [Weblate](https://hosted.weblate.org/engage/datenanfragen-de/). We manage our translations through them. There, you can easily help us translate—be it a couple of strings or whole components.
+
+If you're interested in chatting about our translation efforts, join our [i18n room on Matrix](https://matrix.to/#/#dade-i18n:matrix.altpeter.me).
 
 <!-- 
 TODO:
