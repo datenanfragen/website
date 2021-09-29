@@ -1,7 +1,7 @@
 {
     "title": "Hacktoberfest 2021: Hack with us!",
     "type": "blog",
-    "date": "2021-09-28T11:00:00+02:00",
+    "date": "2021-09-29T18:51:03+02:00",
     "description": "We are again participating in the Hacktoberfest! Contribute and get a webcam cover, sticker set and maybe a free t-shirt.",
     "featured_image": "hacktoberfest-2021",
     "tags": [ "hacktoberfest", "digitalocean", "github", "open source", "pull request" ],

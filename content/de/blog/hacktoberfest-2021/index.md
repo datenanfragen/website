@@ -1,7 +1,7 @@
 {
     "title": "Hacktoberfest 2021: Macht mit!",
     "type": "blog",
-    "date": "2021-09-28T11:00:00+02:00",
+    "date": "2021-09-29T18:50:00+02:00",
     "description": "Wir halten 2021 auch wieder eine Hacktoberfest-Aktion ab. Mach’ bei Datenanfragen.de mit und gewinne eine Webcam-Abdeckung, Sticker und vielleicht ein T-Shirt!",
     "featured_image": "hacktoberfest-2021",
     "tags": [ "hacktoberfest", "digitalocean", "github", "open source", "pull request"],
