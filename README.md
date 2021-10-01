@@ -37,7 +37,7 @@ If you are interested in contributing in other ways besides coding, we can also 
 
 ### Translations
 
-While you can just contribute translations through this repository, an easier way is through the localisation platform [Weblate](https://hosted.weblate.org/engage/datenanfragen-de/). We manage our translations through them. There, you can easily help us translate—be it a couple of strings or whole components.
+While you can just contribute translations through this repository, an easier way is through the localisation platform [Weblate](https://hosted.weblate.org/engage/datenanfragen-de/). We manage our translations through them. There, you can easily help us translate-be it a couple of strings or whole components.
 
 <!-- 
 TODO:
