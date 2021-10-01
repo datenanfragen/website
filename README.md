@@ -21,6 +21,26 @@ To build the project locally for development, follow these steps:
 4. Open two terminal windows. In the first, run `yarn dev` to start the Webpack file watcher which will automatically build the JS files. In the second one, run `hugo server` to have Hugo continously build the actual website and the SCSS.
 5. Now the website should be served by Hugo on multiple ports, starting from `1313`, for the different language versions.
 
+We recommend building and developing on Linux or macOS. If you are on Windows, use WSL.
+
+<details>
+<summary>Windows development tips</summary>
+    
+### Developing on Windows inside WSL
+
+- Install [ripgrep](https://github.com/BurntSushi/ripgrep) to speed up the merge conflict commit hook.
+- Developing tests with Cypress requires a GUI, which might not work with WSL.
+
+### Developing on Windows outside of WSL
+
+- We do not recommend this, but it's possible.
+- You need to run the `deploy.sh` script once via some bash-like tool. Use WSL or Git Bash.
+- Use Node LTS and not the latest Node release (otherwise you might get Python errors).
+- To get around file name limitations ([#581](https://github.com/datenanfragen/website/issues/581)), run `$env:HUGO_DISABLEALIASES="true"` in the terminal that will run `hugo`.
+- Please make sure to only commit LF line endings. Configure your IDE or Git accordingly or use some conversion tool.
+- Some commit hooks might not work on Windows. You can use `git commit --no-verify` carefully to get around this.
+</details>
+
 The production builds are done automatically by [CircleCI](https://circleci.com/) using the `deploy.sh` script and deployed using dattel, our own static hosting solution (split into a [server](https://github.com/binaro-xyz/dattel-server) and [client](https://github.com/binaro-xyz/dattel-client)).
 
 For testing, we use CircleCI in combination with Cypress (see [more on our browser tests here](/cypress/README.md)). We previously used BrowserStack who kindly let us use their services.
