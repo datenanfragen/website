@@ -21,14 +21,14 @@ To build the project locally for development, follow these steps:
 4. Open two terminal windows. In the first, run `yarn dev` to start the Webpack file watcher which will automatically build the JS files. In the second one, run `hugo server` to have Hugo continously build the actual website and the SCSS.
 5. Now the website should be served by Hugo on multiple ports, starting from `1313`, for the different language versions.
 
-We recommend building and developing on Linux. MacOS should work as well. If you are under Windows, use WSL.
+We recommend building and developing on Linux or macOS. If you are on Windows, use WSL.
 
 <details>
 <summary>Windows development tips</summary>
     
 ### Developing on Windows inside WSL
 
-- Install ripgrep to speed up the merge conflict commit hook.
+- Install [ripgrep](https://github.com/BurntSushi/ripgrep) to speed up the merge conflict commit hook.
 - Developing tests with Cypress requires a GUI, which might not work with WSL.
 
 ### Developing on Windows outside of WSL
