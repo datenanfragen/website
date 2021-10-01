@@ -13,25 +13,6 @@ Live versions of the website are currently available in [German](https://www.dat
 
 Datenanfragen.de is designed as a static website, running on [Hugo](https://gohugo.io/) and [Preact](https://preactjs.com/).
 
-We recommend building and developing on Linux. MacOS should work as well. If you are under Windows, use WSL.
-<details>
-    <summary>Windows development tips</summary>
-    
-### inside WSL:  
-- Install ripgrep to speed up the merge-conflict commit-hook.
-- Developing tests with cypress requires a GUI, it might not work with WSL.
-
-### developing outside of WSL:
-- We do not recommend this, but it's possible.
-- You need to run the `deploy.sh` script once via some bash-like tool. Use WSL or Git Bash.
-- Use Node LTS and not the latest Node release (otherwise you might get some weird python error).
-- To get around file name limitations (#581), run `$env:HUGO_DISABLEALIASES="true"` in the terminal that will run `hugo`.
-- Please make sure to only commit LF line endings.
-    - Configure your IDE or git accordingly or use some conversion tool.
-- Some commit-hooks might not work on Windows. You can use `git commit --no-verify` carefully to get around this.
-
-</details>
-
 To build the project locally for development, follow these steps:
 
 1. Install [Yarn](https://classic.yarnpkg.com/en/docs/install) and the extended(!) version of [Hugo](https://gohugo.io/getting-started/quick-start/).
@@ -39,6 +20,26 @@ To build the project locally for development, follow these steps:
 3. Run the deploy script (`./deploy.sh`) to fetch and prepare the required resources from our [data](https://github.com/datenanfragen/data) repository.
 4. Open two terminal windows. In the first, run `yarn dev` to start the Webpack file watcher which will automatically build the JS files. In the second one, run `hugo server` to have Hugo continously build the actual website and the SCSS.
 5. Now the website should be served by Hugo on multiple ports, starting from `1313`, for the different language versions.
+
+We recommend building and developing on Linux. MacOS should work as well. If you are under Windows, use WSL.
+
+<details>
+<summary>Windows development tips</summary>
+    
+### Developing on Windows inside WSL
+
+- Install ripgrep to speed up the merge conflict commit hook.
+- Developing tests with Cypress requires a GUI, which might not work with WSL.
+
+### Developing on Windows outside of WSL
+
+- We do not recommend this, but it's possible.
+- You need to run the `deploy.sh` script once via some bash-like tool. Use WSL or Git Bash.
+- Use Node LTS and not the latest Node release (otherwise you might get Python errors).
+- To get around file name limitations ([#581](https://github.com/datenanfragen/website/issues/581)), run `$env:HUGO_DISABLEALIASES="true"` in the terminal that will run `hugo`.
+- Please make sure to only commit LF line endings. Configure your IDE or Git accordingly or use some conversion tool.
+- Some commit hooks might not work on Windows. You can use `git commit --no-verify` carefully to get around this.
+</details>
 
 The production builds are done automatically by [CircleCI](https://circleci.com/) using the `deploy.sh` script and deployed using dattel, our own static hosting solution (split into a [server](https://github.com/binaro-xyz/dattel-server) and [client](https://github.com/binaro-xyz/dattel-client)).
 
