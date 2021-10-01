@@ -41,6 +41,18 @@ We recommend building and developing on Linux or macOS. If you are on Windows, u
 - Some commit hooks might not work on Windows. You can use `git commit --no-verify` carefully to get around this.
 </details>
 
+<details>
+<summary>macOS development tips</summary>
+    
+### Increase the maximum file limit for processes
+
+Because `hugo server` registers a file watcher for every file in our repo and the number of files can get very large, you might get file watcher related errors. To fix, increase the file limit for processes on your computer (this change is temporary until you restart):
+
+```
+sudo sysctl -w kern.maxfiles=65536
+```
+</details>
+
 The production builds are done automatically by [CircleCI](https://circleci.com/) using the `deploy.sh` script and deployed using dattel, our own static hosting solution (split into a [server](https://github.com/binaro-xyz/dattel-server) and [client](https://github.com/binaro-xyz/dattel-client)).
 
 For testing, we use CircleCI in combination with Cypress (see [more on our browser tests here](/cypress/README.md)). We previously used BrowserStack who kindly let us use their services.
