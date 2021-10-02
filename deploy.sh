@@ -19,14 +19,11 @@ git clone --depth 1 https://github.com/datenanfragen/data data_tmp
 
 echo "Creating directories…"
 
-create_directory(){
-    lang=$1
+for lang in ${languages[@]}
+do
     mkdir -p "content/$lang/company"
     mkdir -p "content/$lang/supervisory-authority"
-}
-
-export -f create_directory
-parallel create_directory ::: ${languages[@]}
+done
 
 mkdir -p static/templates
 mkdir -p static/db
@@ -38,14 +35,14 @@ cp data_tmp/companies/* static/db
 cp data_tmp/suggested-companies/* static/db/suggested-companies
 cp data_tmp/supervisory-authorities/* static/db/sva
 
-copy_file(){
+copy_records(){
     lang=$1
     cp data_tmp/companies/* "content/$lang/company"
     cp data_tmp/supervisory-authorities/* "content/$lang/supervisory-authority"
 }
 
-export -f copy_file
-parallel copy_file ::: ${languages[@]}
+export -f copy_records
+parallel copy_records ::: ${languages[@]}
 
 cp -r data_tmp/templates/* static/templates
 
