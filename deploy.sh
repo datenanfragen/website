@@ -53,11 +53,14 @@ cd content || exit
 # Unfortunately, Hugo only accepts .md files as posts, so we have to rename our JSONs, see https://stackoverflow.com/a/27285610
 echo "Renaming JSON files…"
 
-for lang in ${languages[@]}
-do
+fun(){
+    lang=$1
     find "$lang/company" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
     find "$lang/supervisory-authority" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
-done
+}
+
+export -f fun
+parallel fun ::: de en fr pt es hr
 
 cd .. || exit
 
