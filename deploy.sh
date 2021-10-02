@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# We don't need Netlify builds on master. This seems to be the easiest way to achieve this.
-# See https://docs.netlify.com/configure-builds/environment-variables/#read-only-variables for the env vars set by Netlify.
 if [ "$NETLIFY" = "true" ] && [ "$BRANCH" = "master" ];
 then
     rm -rf public
@@ -50,7 +48,6 @@ node prepare-deploy.js
 
 cd content || exit
 
-# Unfortunately, Hugo only accepts .md files as posts, so we have to rename our JSONs, see https://stackoverflow.com/a/27285610
 echo "Renaming JSON files…"
 
 for lang in ${languages[@]}
@@ -74,6 +71,4 @@ else
     cp _headers public/_headers
 fi
 
-# Finds all generated css files, matches and removes the second last non-dot characters (the md5 hash) and renames the files to the new filename without hash
-# This is really not a good fix and I beg hugo to change this!
 find "public" -regex '.*/styles/.*\.css' -exec sh -c  'echo $0 | sed "s/\(.*\.min\)\.[^\.]*\(\.[^\.]*\)$/\1\2/" | xargs mv $0 ' {}  \;
