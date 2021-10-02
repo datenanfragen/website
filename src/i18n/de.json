@@ -605,7 +605,21 @@
         "kathmsw": "Mittel- und südwestdeutsche Bistümer (Erzbistum Freiburg, Bistum Fulda, Bistum Limburg, Bistum Mainz, Bistum Stuttgart Rottenburg, Bistum Speyer und Trier)",
         "kathnd": "Norddeutsche Bistümer (Erzbistum Hamburg, Bistum Hildesheim, Bistum Osnabrück, Bistum Münster (niedersächsischer Teil))",
         "kathod": "Ostdeutsche Bistümer (Erzbistum Berlin, Bistum Dresden-Meißen, Bistum Erfurt, Bistum Görlitz, Bistum Magdeburg)",
-        "kathsonst": "Sonstige Bistümer und allgemeine Anfragen"
+        "kathsonst": "Sonstige Bistümer und allgemeine Anfragen",
+        "rundfunk": "Öffentlich-rechtlicher Rundfunk",
+        "rundfunk-q": "Auf welche öffentlich-rechtliche Rundfunkanstalt bezieht sich Dein Anliegen?",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
     },
     "donation-widget": {
         "back": "Zurück zum Formular",

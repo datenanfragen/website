@@ -405,7 +405,21 @@
         "private-de-q": "Dans quel État l'entité concernant ta demande est-elle basée ?",
         "private-de": "Entité basée en Allemagne",
         "private-q": "L'entité concernant ta demande est-elle également basée en Allemagne ?",
-        "private": "Entité publique ou privée (par ex. une entreprise, une organisation, un État ou une autorité locale)"
+        "private": "Entité publique ou privée (par ex. une entreprise, une organisation, un État ou une autorité locale)",
+        "rundfunk": "Service public de radiodiffusion",
+        "rundfunk-q": "Quel radiodiffuseur de service public ta demande concerne-t-elle ?",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
     },
     "countries": {
         "__taken_from": "https://github.com/stefangabos/world_countries",

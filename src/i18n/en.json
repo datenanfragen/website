@@ -605,7 +605,21 @@
         "kathmsw": "Middle and southwestern German dioceses (archdiocese of Freiburg, diocese of Fulda, diocese of Limburg, diocese of Mainz, diocese of Stuttgart Rottenburg, diocese of Speyer and Trier)",
         "kathnd": "Northern German dioceses (archdiocese of Hamburg, diocese of Hildesheim, diocese of Osnabrück, diocese of Münster (lower saxonian part))",
         "kathod": "Eastern German dioceses (archdiocese of Berlin, diocese of Dresden-Meißen, diocese of Erfurt, diocese of Görlitz, diocese of Magdeburg)",
-        "kathsonst": "Other dioceses and general requests"
+        "kathsonst": "Other dioceses and general requests",
+        "rundfunk": "Public service broadcasters",
+        "rundfunk-q": "Which public service broadcaster does your request concern?",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
     },
     "donation-widget": {
         "back": "Back to the form",
