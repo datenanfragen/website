@@ -28,7 +28,7 @@ export default class I18nWidget extends Component {
             I18nWidget.alreadyShowingModal = false;
             event.target.value = LOCALE;
         };
-        const selected_lang = event.target.value;
+        const selected_lang = event.target.value || LOCALE;
 
         modal = render(
             <IntlProvider scope={selected_lang} definition={I18N_DEFINITION_REQUESTS}>
