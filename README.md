@@ -12,7 +12,7 @@ Live versions of the website are currently available in [German](https://www.dat
 ## Development
 
 Datenanfragen.de is designed as a static website, running on [Hugo](https://gohugo.io/) and [Preact](https://preactjs.com/).
-#
+
 To build the project locally for development, follow these steps:
 
 1. Install [Yarn 1](https://classic.yarnpkg.com/en/docs/install) (Classic) and the extended(!) version of [Hugo](https://gohugo.io/getting-started/quick-start/) (v0.88.1).
