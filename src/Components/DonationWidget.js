@@ -84,13 +84,11 @@ export default class DonationWidget extends Component {
                         <div className="input-addon-container">
                             <input
                                 id="donation-widget-amount"
-                                type="number"
-                                step="0.01"
-                                min="0.00"
+                                type="text"
                                 className="form-element"
                                 style="text-align: right;"
                                 value={this.state.amount}
-                                onInput={(e) => this.setState({ amount: Number.parseFloat(e.target.value) || 0 })}
+                                onInput={(e) => this.setState({ amount: this.preformatFloat(e.target.value) || 0 })}
                             />
                             <div className="input-addon">€</div>
                         </div>
@@ -387,6 +385,31 @@ export default class DonationWidget extends Component {
                     .catch((e) => rethrow(e));
             }
         }
+    };
+
+    preformatFloat = (float) => {
+        if (!float) {
+            return '';
+        }
+
+        //Index of first comma
+        const posC = float.indexOf(',');
+
+        if (posC === -1) {
+            //No commas found, treat as float
+            return float;
+        }
+
+        //Index of first full stop
+        const posFS = float.indexOf('.');
+
+        if (posFS === -1) {
+            //Uses commas and not full stops - swap them (e.g. 1,23 --> 1.23)
+            return float.replace(/,/g, '.');
+        }
+
+        //Uses both commas and full stops - ensure correct order and remove 1000s separators
+        return posC < posFS ? float.replace(/,/g, '') : float.replace(/./g, '').replace(',', '.');
     };
 
     render() {
