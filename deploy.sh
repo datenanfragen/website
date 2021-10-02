@@ -60,7 +60,6 @@ fun(){
 }
 
 export -f fun
-#apk add parallel
 parallel fun ::: de en fr pt es hr
 
 cd .. || exit

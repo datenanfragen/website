@@ -28,7 +28,7 @@ jobs:
       - run:
           command: |
             apk update
-            apk add bash git wget ca-certificates autoconf automake build-base libc6-compat
+            apk add bash git wget ca-certificates autoconf automake build-base libc6-compat parallel
 
             rm -rf /var/cache/apk/*
             mkdir /usr/local/hugo
