@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+wget "https://download.opensuse.org/repositories/home:/tange/xUbuntu_14.04/all/parallel_20210922_all.deb"
+dpkg -x parallel_20210922_all.deb ~
+
 # We don't need Netlify builds on master. This seems to be the easiest way to achieve this.
 # See https://docs.netlify.com/configure-builds/environment-variables/#read-only-variables for the env vars set by Netlify.
 if [ "$NETLIFY" = "true" ] && [ "$BRANCH" = "master" ];
