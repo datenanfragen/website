@@ -60,6 +60,7 @@ fun(){
 }
 
 export -f fun
+sudo apt install parallel -y
 parallel fun ::: de en fr pt es hr
 
 cd .. || exit
