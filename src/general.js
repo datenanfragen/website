@@ -45,10 +45,10 @@ if (comments_div) {
 }
 
 /**
- * Notify the user that other languages may exist from their current browser. Ie if someone visits the English site,
- * but the browser is configured in German, lets notify them to change the lang
- * @param  {string} preferred_language - bcp47 substring of language. e.g en-US becomes en
- * @param  {string} website_language - bcp47 substring of current website language eg en-US becomes en
+ * Notify the user that other languages may exist from their current browser. I.e. if someone visits the English site,
+ * but the browser is configured in German, let's notify them to change the lang.
+ * @param  {string} preferred_language - bcp47 substring of target language, e.g. `en-US` becomes `en`
+ * @param  {string} website_language - bcp47 substring of current website language, e.g. `en-US` becomes `en`
  */
 function notifyOtherLanguages(preferred_language, website_language) {
     if (!preferred_language || !website_language) return;
