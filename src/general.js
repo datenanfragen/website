@@ -2,7 +2,7 @@ import { render } from 'preact';
 import t, { t_r } from './Utility/i18n';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
-import FlashMessage, { flash } from 'Components/FlashMessage';
+import FlashMessage, { flash } from './Components/FlashMessage';
 import Cookie from 'js-cookie';
 import { PARAMETERS } from './Utility/common';
 
@@ -54,8 +54,8 @@ function notifyOtherLanguages(preferred_language, website_language) {
     if (!preferred_language || !website_language) return;
     let recommend_language = t_r('recommend-language', preferred_language || LOCALE);
     flash(
-        <FlashMessage type="info" duration={15000}>
-            {recommend_language} {<I18nWidget minimal={true} showLanguageOnly={true} />}
+        <FlashMessage type="info" duration={90000}>
+            {recommend_language} <I18nWidget minimal={true} showLanguageOnly={true} />
         </FlashMessage>
     );
 }
@@ -67,10 +67,7 @@ function guessUserCountry() {
     const FALLBACK_COUNTRIES = { de: 'de', en: 'gb', fr: 'fr', pt: 'pt', es: 'es', hr: 'hr' };
 
     // see https://stackoverflow.com/a/52112155/3211062
-    const navigator_lang =
-        navigator.languages && navigator.languages.length
-            ? navigator.languages[0]
-            : navigator.language || navigator.browserLanguage;
+    const navigator_lang = navigator.language;
 
     // taken from https://github.com/gagle/node-bcp47/blob/master/lib/index.js#L4
     const bcp47_regex = /^(?:(en-gb-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-be-fr|sgn-be-nl|sgn-ch-de)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))$|^((?:[a-z]{2,3}(?:(?:-[a-z]{3}){1,3})?)|[a-z]{4}|[a-z]{5,8})(?:-([a-z]{4}))?(?:-([a-z]{2}|\d{3}))?((?:-(?:[\da-z]{5,8}|\d[\da-z]{3}))*)?((?:-[\da-wyz](?:-[\da-z]{2,8})+)*)?(-x(?:-[\da-z]{1,8})+)?$|^(x(?:-[\da-z]{1,8})+)$/i;
@@ -80,7 +77,7 @@ function guessUserCountry() {
     const bcp47_website_language = (bcp47_regex.exec(document.documentElement.lang)[3] || '').toLowerCase();
 
     // Suggest user other language
-    if (bcp47_preferred_language != bcp47_website_language) {
+    if (bcp47_preferred_language !== bcp47_website_language) {
         // Check if language is supported
         if (bcp47_preferred_language in FALLBACK_COUNTRIES) {
             notifyOtherLanguages(bcp47_preferred_language, bcp47_website_language);
