@@ -18,11 +18,15 @@ echo "Fetching data…"
 git clone --depth 1 https://github.com/datenanfragen/data data_tmp
 
 echo "Creating directories…"
-for lang in ${languages[@]}
-do
+
+create_directory(){
+    lang=$1
     mkdir -p "content/$lang/company"
     mkdir -p "content/$lang/supervisory-authority"
-done
+}
+
+export -f create_directory
+parallel create_directory ::: ${languages[@]}
 
 mkdir -p static/templates
 mkdir -p static/db
@@ -34,11 +38,14 @@ cp data_tmp/companies/* static/db
 cp data_tmp/suggested-companies/* static/db/suggested-companies
 cp data_tmp/supervisory-authorities/* static/db/sva
 
-for lang in ${languages[@]}
-do
+copy_file(){
+    lang=$1
     cp data_tmp/companies/* "content/$lang/company"
     cp data_tmp/supervisory-authorities/* "content/$lang/supervisory-authority"
-done
+}
+
+export -f copy_file
+parallel copy_file ::: ${languages[@]}
 
 cp -r data_tmp/templates/* static/templates
 
@@ -53,14 +60,14 @@ cd content || exit
 # Unfortunately, Hugo only accepts .md files as posts, so we have to rename our JSONs, see https://stackoverflow.com/a/27285610
 echo "Renaming JSON files…"
 
-fun(){
+rename_for_hugo(){
     lang=$1
     find "$lang/company" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
     find "$lang/supervisory-authority" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
 }
 
-export -f fun
-parallel fun ::: de en fr pt es hr
+export -f rename_for_hugo
+parallel rename_for_hugo ::: ${languages[@]}
 
 cd .. || exit
 
