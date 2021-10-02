@@ -821,8 +821,11 @@ body.sticky-offset {
         &.item-action {
             width: 35px;
         }
-        @include mobile {
-            display: block;
+        &.prop-value,
+        &.prop-name {
+            @include mobile {
+                display: block;
+            }
         }
     }
 
