@@ -15,7 +15,7 @@ Datenanfragen.de is designed as a static website, running on [Hugo](https://gohu
 
 To build the project locally for development, follow these steps:
 
-1. Install [Yarn](https://classic.yarnpkg.com/en/docs/install), [GNU Parallel](https://www.gnu.org/software/parallel/) and the extended(!) version of [Hugo](https://gohugo.io/getting-started/quick-start/).
+1. Install [Yarn 1](https://classic.yarnpkg.com/en/docs/install) (Classic), [GNU Parallel](https://www.gnu.org/software/parallel/) and the extended(!) version of [Hugo](https://gohugo.io/getting-started/quick-start/) (v0.88.1).
 2. Clone the repo and run `yarn` in the root directory of the repo to fetch all required dependencies.
 3. Run the deploy script (`./deploy.sh`) to fetch and prepare the required resources from our [data](https://github.com/datenanfragen/data) repository.
 4. Open two terminal windows. In the first, run `yarn dev` to start the Webpack file watcher which will automatically build the JS files. In the second one, run `hugo server` to have Hugo continously build the actual website and the SCSS.
@@ -61,7 +61,7 @@ For testing, we use CircleCI in combination with Cypress (see [more on our brows
 
 First of all, thank you very much for taking the time to contribute! Contributions are incredibly valuable for a project like ours.
 
-We warmly welcome issues and pull requests through GitHub.
+We warmly welcome issues and pull requests through GitHub. You can also chat with us through our [Matrix space](https://matrix.to/#/#datenanfragen:matrix.altpeter.me). Feel free to ask questions, pitch your ideas, or just talk with the community.
 
 Please be aware that by contributing, you agree for your work to be released under the MIT license, as specified in the `LICENSE` file.
 
@@ -70,6 +70,8 @@ If you are interested in contributing in other ways besides coding, we can also 
 ### Translations
 
 While you can just contribute translations through this repository, an easier way is through the localisation platform [Weblate](https://hosted.weblate.org/engage/datenanfragen-de/). We manage our translations through them. There, you can easily help us translate—be it a couple of strings or whole components.
+
+If you're interested in chatting about our translation efforts, join our [i18n room on Matrix](https://matrix.to/#/#dade-i18n:matrix.altpeter.me).
 
 <!-- 
 TODO:
