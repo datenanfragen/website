@@ -516,6 +516,7 @@
     },
     "i18n-widget": {
         "country": "Country",
+        "language": "Language",
         "language-desc-de": "German (Deutsch)",
         "language-desc-en": "English",
         "language-desc-fr": "French (Français)",
