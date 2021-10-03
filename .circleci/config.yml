@@ -108,7 +108,7 @@ jobs:
             command: |
               yarn
               yarn cypress verify
-              yarn cypress run
+              yarn cypress run --record
 
 workflows:
   version: 2
