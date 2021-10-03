@@ -55,13 +55,16 @@ echo "Renaming JSON files…"
 
 for lang in ${languages[@]}
 do
-    find "$lang/company" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
+    find "$lang/company" -name '*.json' -exec sh -c 'mkdir -p ${0%.json}/ && mv "$0" "${0%.json}/index.md"' {} \;
     find "$lang/supervisory-authority" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
 done
 
 cd .. || exit
 
 yarn licenses generate-disclaimer --ignore-optional --ignore-platform > static/NOTICES.txt
+
+echo "Server side rendering…"
+yarn ts-node scripts/SSR/comments.tsx
 
 echo "Running Webpack and Hugo…"
 yarn run build

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "target": "ES2016",
+        "module": "commonjs",
+        "strictNullChecks": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": ["dom", "esnext"],
+        "jsx": "react-jsx",
+        "jsxImportSource": "preact",
+        "outDir": "dist"
+    }
+}

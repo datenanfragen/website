@@ -33,7 +33,13 @@
         </header>
         {{ end }}
         {{ if (not .Params.disable_comments) }}
-        <div id="comments-widget"></div>
+            <!--TODO: no styling?-->
+            <noscript class="noscript noscript-comments">{{ T "noscript-comments" | safeHTML }}</noscript>
+            {{ if .Resources.GetMatch "comments.ssr.html" }}
+                <div id="comments-widget">
+                    <h2>Comments</h2><!-- Translate this? But this is in i18n/comments, but I need it in i18n/hugo-->
+                    {{ (.Resources.GetMatch "comments.ssr.html").Content | safeHTML }}</div>
+            {{ end }}
         {{ end }}
         {{ end }}
     </article>

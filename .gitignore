@@ -227,3 +227,6 @@ content/**/*.psd
 *.tmp.*
 tmp/
 .envrc
+
+*comments.ssr.html
+.vscode
