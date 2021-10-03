@@ -7,6 +7,7 @@ export default class FlashMessage extends Component {
         super(props);
 
         if (!this.props.duration) this.props.duration = 5000;
+        if (this.props.duration === -1) this.props.duration = 2 ** 32 / 2 - 1;
         if (!this.props.type) this.props.type = 'info';
         this.state = {
             shown: true,

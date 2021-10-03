@@ -27,7 +27,7 @@ describe('language suggestion modal', () => {
     it('should not appear if cookies are set and visiting as DE', () => {
         cy.setCookie('country', 'de');
         cy.visit('/', {
-            onBeforeLoad(window) {
+            onBeforeLoad(win) {
                 Object.defineProperty(win.navigator, 'language', {
                     value: ['de-DE'],
                 });
