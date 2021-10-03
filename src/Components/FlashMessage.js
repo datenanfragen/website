@@ -5,9 +5,7 @@ import t from '../Utility/i18n';
 export default class FlashMessage extends Component {
     constructor(props) {
         super(props);
-
         if (!this.props.duration) this.props.duration = 5000;
-        if (this.props.duration === -1) this.props.duration = 2 ** 32 / 2 - 1;
         if (!this.props.type) this.props.type = 'info';
         this.state = {
             shown: true,
@@ -17,7 +15,9 @@ export default class FlashMessage extends Component {
     }
 
     componentDidMount() {
-        setTimeout(this.dismiss, this.props.duration);
+        if (this.props.duration !== -1) {
+            setTimeout(this.dismiss, this.props.duration);
+        }
     }
 
     dismiss() {
