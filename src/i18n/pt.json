@@ -323,7 +323,11 @@
         "email": "Endereço de e-mail",
         "attn": "À atenção do: Encarregado de Proteção de Dados",
         "by-fax": "Por Fax: ",
-        "concerns": "Questões"
+        "concerns": "Questões",
+        "language-change-modal": "Ao alterar o idioma, você será redirecionado para outro domínio. Suas configurações e dados salvos neste domínio não serão transferidos. <br> Em particular, isso significa que coisas como suas configurações de privacidade e solicitações salvas não estarão disponíveis no novo idioma. Você ainda pode, sempre que quiser, retornar a esse idioma e visualizá-los aqui, mas não poderá compartilhar configurações e dados salvos entre diferentes idiomas.",
+        "change-lang": "Alterar idioma",
+        "stay": "Permanecer aqui",
+        "language": "Idioma"
     },
     "privacy-controls": {
         "title": "Configurações de privacidade",
@@ -482,9 +486,6 @@
         "language-fr": "Francês",
         "language-es": "Espanhol",
         "language-pt": "Português",
-        "language-change-modal": "Ao alterar o idioma, você será redirecionado para outro domínio. Suas configurações e dados salvos neste domínio não serão transferidos. <br> Em particular, isso significa que coisas como suas configurações de privacidade e solicitações salvas não estarão disponíveis no novo idioma. Você ainda pode, sempre que quiser, retornar a esse idioma e visualizá-los aqui, mas não poderá compartilhar configurações e dados salvos entre diferentes idiomas.",
-        "change-lang": "Alterar idioma",
-        "stay": "Permanecer aqui",
         "not-supported-prompt": "Seu idioma ou país ainda não é suportado?",
         "not-supported-cta": "Nos ajude a suportá-lo!"
     },

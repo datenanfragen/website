@@ -315,7 +315,11 @@
         "address": "Dirección",
         "email": "Dirección de correo electrónico",
         "by-fax": "Por fax: ",
-        "attn": "Attn: Protección de datos"
+        "attn": "Attn: Protección de datos",
+        "stay": "Quedarse aquí",
+        "change-lang": "Cambiar idioma",
+        "language-change-modal": "Cambiar el idioma te redireccionará a otro dominio. Tu configuración y los datos guardados de este dominio no se transferirán. <br>En particular, esto significa que elementos como la configuración de privacidad y las solicitudes guardadas no estarán disponibles en el nuevo idioma. Siempre puedes volver a este idioma y verlos aquí, pero no puedes compartir configuraciones y datos guardados entre diferentes idiomas.",
+        "language": "Idioma"
     },
     "home": {
         "data-access": "acceso a tus datos.",
@@ -717,9 +721,6 @@
     "i18n-widget": {
         "not-supported-cta": "¡Ayúdanos a agregarlo!",
         "not-supported-prompt": "¿No encuentras tu idioma o país?",
-        "stay": "Quedarse aquí",
-        "change-lang": "Cambiar idioma",
-        "language-change-modal": "Cambiar el idioma te redireccionará a otro dominio. Tu configuración y los datos guardados de este dominio no se transferirán. <br>En particular, esto significa que elementos como la configuración de privacidad y las solicitudes guardadas no estarán disponibles en el nuevo idioma. Siempre puedes volver a este idioma y verlos aquí, pero no puedes compartir configuraciones y datos guardados entre diferentes idiomas.",
         "language-pt": "Portugués",
         "language-fr": "Francés",
         "language-en": "Inglés",
