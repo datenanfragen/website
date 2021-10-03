@@ -2,14 +2,28 @@
     "title": "Modèle de lettre pour le demande d'accès conformément à l'Art. 15 du RGPD",
     "slug": "modele-lettre-rgpd-acces",
     "aliases": [ "sample-letter-gdpr-access-request" ],
-    "date": "2019-11-23T12:30:37+02:00",
+    "date": "2021-10-04T20:30:37+02:00",
     "type": "blog",
-    "description": "",
+    "description": "Conformément au RGPD, tu as un droit d'acces à tes données personnelles stockées par des entreprises. Nous offrons un modèle de lettre pour te permettre de faire valoir ces droits",
     "tags": [ ],
     "license": "cc0-10"
 }
 
-Conformément à l'Art. 15 du RGPD, tu as un droit d'accès aux données personnelles qu'une entreprise stocke sur toi.
+Conformément à le RGPD, tu as le droit d'accès aux données personnelles enregistrées et traitées pour toi par des entreprises et d'autres organisations (appelé contrôleurs)
+
+Premièrement, cela inclut une confirmation de si l'entreprise traite (ou non) vos données personnelles. Si cela est le cas, tu peux demander une copie des données en question. Mais ce n'est pas tout, tu as aussi un droit de regard plus profond, sur, par exemple, pourquoi l'entreprise traìte tes données, à qui les données ont été transmises et la durée du stockage.
+
+## Comment faire valoir ce droit?
+
+Le RGPD n'impose aucun critère sur la forme de ces demandes. Cela veut dire que, sur le papier, tu pourrais écrire un courrier informel et l'envoyer au contrôleur. Théoriquement, même un coup de fil suffirai.
+
+Dans la plupart des cas, tu devrais utiliser un support écrit, simplement pour pouvoir prouver par la suite que tu as bien fait la demande. Même si tu pourrais demander informellement que tu souhaites accéder à vos données, nous te conseillons de prendre une approche plus formelle, en citant la législation concernée. Cela empêchera le contrôleur de ne pas remplir ses responsabilités.
+
+## Qu'est-ce qu'une lettre de ce genre doit contenir?
+
+Ne t'inquiète pas, tu n'as pas à écrire cette lettre tout seul. Nous avons un modèle de lettres que tu peux copier et adapter pour ta situation.
+
+Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 15 du RGPD. Les passages entre [crochets] sont optionnels; tu peux décider si tu souhaite les inclure. Tu auras toujours besoin de repmlir les données dans les <span class="blog-letter-fill-in">accolades</span>
 
 <div class="blog-letter">
 <p>À qui de droit :</p>
@@ -43,3 +57,23 @@ Conformément à l'Art. 15 du RGPD, tu as un droit d'accès aux données personn
 <p>Cordialement,<br>
 <span class="blog-letter-fill-in">Ton nom</span></p>
 </div>
+
+Pour te faciliter la vie, tu peux aussi télécharger des modèles utilisables avec le logiciel de traitement de texte de ton choix.
+Tu peux choisir le modèle parmi cette liste:
+
+* [Modèle LibreOffice ou OpenOffice (.ott)](/downloads/sample-letter-gdpr-access-request-datarequests.org.ott)
+* [Modèle Word (.dotx)](/downloads/sample-letter-gdpr-access-request-datarequests.org.dotx)
+* [Fichier PDF (.pdf)](/downloads/sample-letter-gdpr-access-request-datarequests.org.pdf)
+* [Fichier texte (.txt)](/downloads/sample-letter-gdpr-access-request-datarequests.org.txt)
+
+Tu es libre d'utiliser ces modèles comme tu le souhaite. Ils sont disponibles sous une [licence CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.fr/). Les modèles pour LibreOffice et Word sont basés sur ce [modèle LibreOffice](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
+
+## À qui je dois envoyer cette lettre?
+
+Tu peux envoyer la lettre directement au contrôleur. S'ils ont un employé chargé de la protection des données, nous recommandons de toujours adresser cette lettre directement à cette personne. Non seulement sont ces employés spécialement formés, ils ont l'obligation de garder le secret sur ta demande.
+
+Tu peux souvent trouver ces contacts sur les sites web des entreprises, dans la politique de confidentialité ou dans l'annonce légale. Nous voulons t'aider pour cela aussi. Nous maintenons une {{< link slug="/company" text="base d'entreprises" >}}, qui contiennent les données de contact appropriées pour des demandes concernant la confidentialité pour beaucoup d'entreprises
+
+## N'y a-t-il pas une façon plus facile?
+
+L'idée derrière demandetesdonnees.fr est de faciliter au possible l'exercice de tes droits concernant la protection des données. Ainsi nous avons développé un {{< link slug="/generator" text="générateur" >}}, avec la possibilité de créer des lettres pour toi automatiquement. Nous t'invitons à l'essayer.
