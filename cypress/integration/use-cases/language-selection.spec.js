@@ -24,7 +24,17 @@ describe('language suggestion modal', () => {
         });
         cy.get('#flash-messages').should('contain', 'Diese Seite ist auch in Deiner Sprache verfügbar!');
     });
-
+    it('should not appear if cookies are set and visiting as DE', () => {
+        cy.setCookie('country', 'de');
+        cy.visit('/', {
+            onBeforeLoad(window) {
+                Object.defineProperty(win.navigator, 'language', {
+                    value: ['de-DE'],
+                });
+            },
+        });
+        cy.get('#flash-messages').should('not.contain', 'Diese Seite ist auch in Deiner Sprache verfügbar!');
+    });
     it('should not appear if browser reports english', () => {
         cy.clearCookies();
         cy.visit('/', {
