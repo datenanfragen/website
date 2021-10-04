@@ -3,7 +3,7 @@
     "date": "2020-10-31T21:22:15+02:00",
     "type": "blog",
     "description": "Qui est habilité à faire valoir les droits des personnes concernées par le RGPD ? Et contre qui ? Voici un aperçu de la portée territoriale du RGPD.",
-    "featured_image": "portee-territoriale-du-rgdp",
+    "featured_image": "portee-territoriale-du-rgpd",
     "tags": ["rgpd", "portée territoriale", "rgpd article 3" ],
     "authors": [ "anikarini", "eliottha" ],
     "license": "cc-by-40",

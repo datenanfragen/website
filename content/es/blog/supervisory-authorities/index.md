@@ -29,7 +29,7 @@ Esto es mucho más fácil para ti que la alternativa de emprender acciones legal
 <a id="one-stop-shop"></a>
 ## El principio de ventanilla única y la competencia de las autoridades supervisoras
 
-Antes de la introducción del RPGD, existían algunas incertidumbres sobre qué autoridad supervisora ​​sería responsable en un caso particular. Este problema se resuelve con el RGPD.
+Antes de la introducción del RGPD, existían algunas incertidumbres sobre qué autoridad supervisora ​​sería responsable en un caso particular. Este problema se resuelve con el RGPD.
 
 En primer lugar, el art. 56 (1) GDPR establece el principio de "ventanilla única" que define que la autoridad supervisora ​​de protección de datos en la sede de una empresa es responsable de ellos.
 

@@ -13,7 +13,7 @@ Datenschutz spielt in unserer immer stärker digitalisierten Welt von Tag zu Tag
 
 In diesem Artikel wollen wir Dir einen ausführlichen Überblick über die Rechte verschaffen, die Du dank der DSGVO hast. Wenn Du eher auf der Suche nach einer kurzen Zusammenfassung bist, dann schau doch einmal in {{< link slug="/blog/a-quick-overview" text="diesem Artikel" >}} vorbei.
 
-## Was ist die DSVGO?
+## Was ist die DSGVO?
 
 Die DSGVO (englisch **General Data Protection Regulation** oder kurz **GDPR**) ist eine *EU-Verordnung*, die am 25. Mai 2018 in Kraft getreten ist. Ziel der DSGVO ist es, den Bürger_innen der EU eine bessere Kontrolle über ihre personenbezogenen Daten zu ermöglichen. Durch die EU-weit einheitliche Regelung des Datenschutzes sollen weiterhin für Bürger_innen wie Unternehmen die Rechtslage eindeutiger gemacht und Bürokratie verringert werden.
 
