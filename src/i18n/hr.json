@@ -278,7 +278,19 @@
         "kathnrw": "Biskupije sjeverne Rajn-Vestfalije (Aachen, Essen, Köln, Münster (područje sjeverne Rajn-Vestfalije), Paderborn)",
         "kathnd": "Biskupije sjeverne Njemačke (Hamburg, Hildesheim, Osnabrück, Münster (područje donje Saske))",
         "kathmsw": "Biskupije srednje i južnozapadne Njemačke (Freiburg, Fulda, Limburg, Mainz, Stuttgart Rottenburg, Speyer i Trier)",
-        "kathbay": "Biskupije Bavarske (Augsburg, Bamberg, Eichstätt, München & Freising, Passau, Regensburg, Würzburg)"
+        "kathbay": "Biskupije Bavarske (Augsburg, Bamberg, Eichstätt, München & Freising, Passau, Regensburg, Würzburg)",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
     },
     "wizard_tutorial": {
         "next-request": "<p>I to je sve za ovaj zahtjev!</p><p>Ovisno o mediju prijenosa, ovdje možeš poslati zahtjev kao email ili ga preuzeti kao PDF. Nakon toga, krenimo na sljedeći zahtjev.</p>",

@@ -688,7 +688,19 @@
         "result": "Según lo seleccionado, te recomendamos que te pongas en contacto con la siguiente autoridad de protección de datos:",
         "loading-sva": "Cargando datos sobre la autoridad seleccionada…",
         "reset": "Reestablecer opciones",
-        "sva-finder": "Buscador de autoridad supervisora"
+        "sva-finder": "Buscador de autoridad supervisora",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
     },
     "wizard_tutorial": {
         "next-request": "<p>¡Y estamos listos con esta solicitud!</p> <p>Dependiendo del medio de envío, aquí puedes enviar su solicitud por correo electrónico o descargar el PDF correspondiente. Después de eso, vayamos a la siguiente solicitud.</p>",
