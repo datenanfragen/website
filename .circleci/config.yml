@@ -108,7 +108,7 @@ jobs:
             command: |
               yarn
               yarn cypress verify
-              yarn cypress run --record
+              if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run --record; else yarn cypress run; fi
 
 workflows:
   version: 2
