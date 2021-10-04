@@ -2,6 +2,7 @@
 
 import FlashMessage, { flash } from 'Components/FlashMessage';
 import localforage from 'localforage';
+import { CriticalException } from './Utility/errors';
 
 window.showFlash = function (type, text, duration) {
     flash(
@@ -20,4 +21,8 @@ window.accessLocalForageStore = function (store_name) {
             })
         );
     });
+};
+
+window.throwError = function () {
+    return new CriticalException();
 };
