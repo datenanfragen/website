@@ -24,10 +24,11 @@ describe('Errors should be logged to the console', () => {
         cy.get('#error-modal-github-link')
             .contains('Report on GitHub')
             .should('have.attr', 'href')
-            .and('include', 'https://github.com/datenanfragen/website/issues/new');
+            .should('match', new RegExp(`^https://github.com/datenanfragen/website/issues/new.*$`));
+
         cy.get('#error-modal-email-link')
             .contains('Report via email')
             .should('have.attr', 'href')
-            .and('include', 'mailto:dev@datenanfragen.de');
+            .should('match', new RegExp(`^mailto:dev@datenanfragen.de.*$`));
     });
 });
