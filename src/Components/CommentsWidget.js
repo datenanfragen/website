@@ -259,7 +259,17 @@ export class CommentForm extends Component {
                 <div className="clearfix" />
 
                 <div className="col25 col100-mobile">
-                    <strong>
+                    <strong
+                        title={`The following tags are supported:
+
+<bold>This text will be bold.</bold>
+
+<italic>This text will be italic.</italic> 
+
+<link url="https://example.org">
+    This text will link to example.org.
+</link>
+                    `}>
                         <Text id="comment" />
                     </strong>
                 </div>
