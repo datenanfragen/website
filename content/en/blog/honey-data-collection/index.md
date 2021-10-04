@@ -230,7 +230,7 @@ Here, we finally find out that page views on shopping sites are tracked. But the
 
 ## Our complaints
 
-We are convinced that this data collection by Honey goes way too far. According to the GPDR, every processing of personal data needs to be based on one of six possible legal bases (see Art. 6(1) GDPR). The data subject needs to be informed of the legal basis that is used at the time of the processing (see Art. 13(1)(c) and (d) GDPR). As Honey hasn't done that, Benni explicitly asked them. That's what they replied:
+We are convinced that this data collection by Honey goes way too far. According to the GDPR, every processing of personal data needs to be based on one of six possible legal bases (see Art. 6(1) GDPR). The data subject needs to be informed of the legal basis that is used at the time of the processing (see Art. 13(1)(c) and (d) GDPR). As Honey hasn't done that, Benni explicitly asked them. That's what they replied:
 
 > "The Honey extension collect pin boards data [sic] to determine which coupons or advertisements should be offered. Simply put, we need to know on which retail website you are to offer you an applicable deal. That's how Honey works. We believe that this represents a legitimate interest for this particular form of processing. Please also note that you have give your consent to the processing when you download and install Honey in your browser."  
 > –<cite>Honey in an email to Benni</cite> (translated from the German original)

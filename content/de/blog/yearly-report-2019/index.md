@@ -73,7 +73,7 @@ Für 2020 haben wir uns wieder viel vorgenommen. Wie wir es im letzten Jahr bere
 
 Daran anschließend ist unser stetiges Streben nach besserer Usability: Der Generator ist mit seinen vielen Funktionen unübersichtlich und abschreckend für neue Nutzer_innen und insbesondere Einsteiger_innen. Wir möchten einen klareren Nutzungsfluss etablieren und die Nutzer_innen stärker durch die Seite leiten, ohne dass Expert_innen auf Sonderfunktionen verzichten müssen. In 2020 möchten wir deshalb zumindest beginnen, den Generator auf eine andere Bedienweise umzustellen und mehr im Wizard-Format anzubieten.
 
-Auch im Sinne der besseren Bedienbarkeit, wollen wir in 2020 unser Informationsangebot ausweiten, mit mehr einfachen Artikeln, die sich rund um die Fragen der Antragsstellung drehen und zur DGSVO aufklären. Denkbar wären auch weitere Printangebote, in denen etwa Artikel zusammengefasst sind.
+Auch im Sinne der besseren Bedienbarkeit, wollen wir in 2020 unser Informationsangebot ausweiten, mit mehr einfachen Artikeln, die sich rund um die Fragen der Antragsstellung drehen und zur DSGVO aufklären. Denkbar wären auch weitere Printangebote, in denen etwa Artikel zusammengefasst sind.
 Um die Reichweite der Webseite zu erhöhen und das Angebot insgesamt auf eine breitere Basis zu stellen, suchen wir nach Partner_innen und Freund_innen, die uns unterstützen und mit uns an einem Strang ziehen. Im kommenden Jahr wollen wir deshalb unsere Netzwerke verstärken, sowohl mit anderen Mitstreiter_innen im Datenschutz als auch mit neuen Mitgliedern und Mitwirkenden.
 
 {{< img name="mastodon-toot" caption="Über Mastodon und Twitter wollen wir mehr über Datenanfragen.de informieren" >}}
