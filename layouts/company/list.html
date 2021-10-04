@@ -18,31 +18,31 @@
              alphabet characters.
         */}}
         {{ $clean_name := replaceRE "[ÅÁÀÂÄÃÅÆΆ]" "A" (upper .Params.name) }}
-        {{ $clean_name := replaceRE "[B̌B́]" "B" $clean_name }}
+        {{ $clean_name := replaceRE "[B̌B́Β]" "B" $clean_name }}
         {{ $clean_name := replaceRE "[ÇČĆ̣Ḉ]" "C" $clean_name }}
-        {{ $clean_name := replaceRE "[ĎÐD́]" "D" $clean_name }}
+        {{ $clean_name := replaceRE "[ĎÐD́Δ]" "D" $clean_name }}
         {{ $clean_name := replaceRE "[ÉÈÊËĚÊ̌ΕĖ́Ę́É̩Έ]" "E" $clean_name }}
         {{ $clean_name := replaceRE "[F̌F́]" "F" $clean_name }}
-        {{ $clean_name := replaceRE "[ǦǴ]" "G" $clean_name }}
-        {{ $clean_name := replaceRE "[ȞH́Ή]" "H" $clean_name }}
+        {{ $clean_name := replaceRE "[ǦǴΓ]" "G" $clean_name }}
+        {{ $clean_name := replaceRE "[ȞH́ΉΗ]" "H" $clean_name }}
         {{ $clean_name := replaceRE "[ÌÍÎÏΊ]" "I" $clean_name }}
         {{ $clean_name := replaceRE "[J̌J́]" "J" $clean_name }}
-        {{ $clean_name := replaceRE "[ǨḰ]" "K" $clean_name }}
-        {{ $clean_name := replaceRE "[Ľ]" "L" $clean_name }}
-        {{ $clean_name := replaceRE "[M̌Ḿ]" "M" $clean_name }}
-        {{ $clean_name := replaceRE "[ÑŃ]" "N" $clean_name }}
-        {{ $clean_name := replaceRE "[ÒÓÔÕÖØΌ]" "O" $clean_name }}
-        {{ $clean_name := replaceRE "[P̌Ṕ]" "P" $clean_name }}
+        {{ $clean_name := replaceRE "[ǨḰΚ]" "K" $clean_name }}
+        {{ $clean_name := replaceRE "[ĽΛ]" "L" $clean_name }}
+        {{ $clean_name := replaceRE "[M̌ḾΜ]" "M" $clean_name }}
+        {{ $clean_name := replaceRE "[ÑŃΝ]" "N" $clean_name }}
+        {{ $clean_name := replaceRE "[ÒÓÔÕÖØΌΟ]" "O" $clean_name }}
+        {{ $clean_name := replaceRE "[P̌ṔΡ]" "P" $clean_name }}
         {{ $clean_name := replaceRE "[Q̌Q́]" "Q" $clean_name }}
         {{ $clean_name := replaceRE "[ŘŘ̩Ŕ]" "R" $clean_name }}
         {{ $clean_name := replaceRE "[ŚṠŜŠŞ]" "S" $clean_name }}
-        {{ $clean_name := replaceRE "[ŤT́]" "T" $clean_name }}
+        {{ $clean_name := replaceRE "[ŤT́Τ]" "T" $clean_name }}
         {{ $clean_name := replaceRE "[ŬÙÚÛÜ]" "U" $clean_name }}
         {{ $clean_name := replaceRE "[V̌V́]" "V" $clean_name }}
         {{ $clean_name := replaceRE "[W̌Ẃ]" "W" $clean_name }}
-        {{ $clean_name := replaceRE "[X̌X́Ȳ́]" "X" $clean_name }}
-        {{ $clean_name := replaceRE "[ÝŸΎ]" "Y" $clean_name }}
-        {{ $clean_name := replaceRE "[ŽŹ]" "Z" $clean_name }}
+        {{ $clean_name := replaceRE "[X̌X́Χ]" "X" $clean_name }}
+        {{ $clean_name := replaceRE "[ÝŸȲ́Ύ]" "Y" $clean_name }}
+        {{ $clean_name := replaceRE "[ŽŹΖ]" "Z" $clean_name }}
         {{/*
             Remove specific problem and special characters out; Note: \x200b is the 'Zero Width Space' character.
         */}}
