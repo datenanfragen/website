@@ -67,6 +67,9 @@ Please be aware that by contributing, you agree for your work to be released und
 
 If you are interested in contributing in other ways besides coding, we can also really use your help. Have a look at our [contribute page](https://www.datarequests.org/contribute) for more details.
 
+## Follow Us
+
+Join our growing community around the world! See our official [Blog](https://www.datarequests.org/blog/). Follow us on [Twitter](https://twitter.com/datarequestsORG), [Mastodon](https://mastodon.social/@datarequestsORG) or Talk with us through [Matrix](https://matrix.to/#/#datenanfragen:matrix.altpeter.me).
 ### Translations
 
 While you can just contribute translations through this repository, an easier way is through the localisation platform [Weblate](https://hosted.weblate.org/engage/datenanfragen-de/). We manage our translations through them. There, you can easily help us translate—be it a couple of strings or whole components.
