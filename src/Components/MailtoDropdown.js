@@ -21,13 +21,11 @@ export const MAILTO_HANDLERS = {
         link: (d) => `https://mail.google.com/mail/?view=cm&fs=1&to=${d.email}&su=${d.subject}&body=${d.body}`,
         countries: ['all'],
     },
-    // TODO: Outlook doesn't work. I think our body may be too long. :(
-    // Reference: https://blogs.msdn.microsoft.com/carloshm/2016/01/16/how-to-compose-a-new-message-or-event-and-populate-fields-in-office365/
-    // outlook: {
-    //     link: d =>
-    //         `https://outlook.live.com/owa/?path=/mail/action/compose&to=${d.email}&subject=${d.subject}&body=${d.body}`,
-    //     countries: ['all']
-    // },
+    outlook: {
+        link: (d) =>
+            `https://outlook.live.com/mail/0/deeplink/compose?to=${d.email}&subject=${d.subject}&body=${d.body}`,
+        countries: ['all'],
+    },
     yahoo: {
         link: (d) => `https://compose.mail.yahoo.com/?to=${d.email}&subject=${d.subject}&body=${d.body}`,
         countries: ['all'],
