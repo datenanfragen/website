@@ -11,7 +11,7 @@ This information has been last updated on May 30, 2021.
 
 ## 1. Name, registered seat, address and date of foundation
 
-This information is also avilable in our {{< link slug="contact" text="imprint" >}}.
+This information is also available in our {{< link slug="contact" text="imprint" >}}.
 
  - Name: Datenanfragen.de e.&thinsp;V.
  - Registered seat: Braunschweig, Germany

@@ -15,7 +15,7 @@ minors (both) | 0,00 €/a
 
 The following fee regulation has been decided by the founding assembly on June 14, 2018 (only the [German version](https://www.datenanfragen.de/verein/gebuehrenordnung) is legally binding):
 
-The membership fee has to be paid anually.  
+The membership fee has to be paid annually.  
 The minimum fee for active members is 16,00 €. The minimum fee for supporting members is 32,00 €. In both cases, the member can decide to pay an arbitrarily higher amount.  
 A change of the personal membership fee (considering the minimum fees) can be indicated to the board at any time with the change being valid for the following payment year.
 

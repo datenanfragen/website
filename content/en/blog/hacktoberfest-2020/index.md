@@ -26,7 +26,7 @@ Participating is of course entirely free, we will even pay for shipping.
 
 ## How do I participate?
 
-Our event is independent of the offical Hacktoberfest. If you want to participate, you have to register before November 4, 2020. For the registration, you don't have to provide a shipping address yet. In the interest of data minimization, we will only ask for that after the event, when we are actually shipping the rewards.
+Our event is independent of the official Hacktoberfest. If you want to participate, you have to register before November 4, 2020. For the registration, you don't have to provide a shipping address yet. In the interest of data minimization, we will only ask for that after the event, when we are actually shipping the rewards.
 
 If you want to participate using GitHub, please use this form, so we can match your contributions to you:
 
