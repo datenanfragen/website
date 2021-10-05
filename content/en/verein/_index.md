@@ -10,7 +10,7 @@ We are the Datenanfragen.de e.&thinsp;V., a non-profit running the website [data
 
 ## What we do
 
-We develop and run a plattform that can help you exercise your rights concerning you data. To do so, we provide and curate a database of companies which operate in the EEA. In there, we collect their contact details for privacy-related questions and gather information on their request practices. All of that can be fed into the generator, allowing you to quickly create requests to all companies who might deal with your data. We keep it up to date and try our best to add even more features to help you with your requests. We also provide and create educational material teaching EU citizens about their privacy laws and how and why to care about their privacy.
+We develop and run a platform that can help you exercise your rights concerning you data. To do so, we provide and curate a database of companies which operate in the EEA. In there, we collect their contact details for privacy-related questions and gather information on their request practices. All of that can be fed into the generator, allowing you to quickly create requests to all companies who might deal with your data. We keep it up to date and try our best to add even more features to help you with your requests. We also provide and create educational material teaching EU citizens about their privacy laws and how and why to care about their privacy.
 
 ## Why we exist
 
