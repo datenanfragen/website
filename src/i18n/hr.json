@@ -290,7 +290,9 @@
         "rundfunk-sr": "Saarländischer Rundfunk (SR)",
         "rundfunk-swr": "Südwestrundfunk (SWR)",
         "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
-        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)",
+        "rundfunk": "Javne radiotelevizijske ustanove",
+        "rundfunk-q": "Na koju se javnu radiotelevizijsku ustanovu odnosi tvoj zahtjev?"
     },
     "wizard_tutorial": {
         "next-request": "<p>I to je sve za ovaj zahtjev!</p><p>Ovisno o mediju prijenosa, ovdje možeš poslati zahtjev kao email ili ga preuzeti kao PDF. Nakon toga, krenimo na sljedeći zahtjev.</p>",
@@ -318,7 +320,11 @@
         "submit": "Pošalji",
         "author": "Autor",
         "comment": "Komentar",
-        "comments": "Komentari"
+        "comments": "Komentari",
+        "average-rating-title": {
+            "singular": "Prosječna ocjena: {{rating}} ({{count}} recenzija)",
+            "plural": "Prosječna ocjena: {{rating}} ({{count}} recenzija)"
+        }
     },
     "signature": {
         "reset-signature": "Poništi potpis",
@@ -493,7 +499,8 @@
         "stay": "Ostani ovdje",
         "change-lang": "Promijeni jezik",
         "language-change-modal": "Promjena jezika preusmjerit će te na jednu drugu domenu. Tvoje postavke i spremljeni podaci s ove domene se ne prenose.<br>To znači da stvari poput tvojih postavki privatnosti i spremljenih zahtjeva neće biti dostupne na novom jeziku. Možeš se vratiti na ovaj jezik i ovdje ih pogledati, ali ne možeš dijeliti postavke i spremljene podatke između različitih jezika.",
-        "language": "Jezik"
+        "language": "Jezik",
+        "recommend-language": "Ova je stranica dostupna i na tvom jeziku!"
     },
     "mailto": {
         "copymanually": "Kopiraj tekst ručno",
