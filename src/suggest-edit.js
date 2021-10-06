@@ -30,7 +30,16 @@ window.onload = () => {
         });
 };
 
+const sortRelevantCountries = (countries) => {
+    countries.items.enum.sort((a, b) => {
+        if (a === 'all') return -1;
+        if (b === 'all') return 1;
+        return t(a, 'countries').localeCompare(t(b, 'countries'));
+    });
+};
+
 function prepareForm(schema) {
+    sortRelevantCountries(schema.properties['relevant-countries']);
     if (PARAMETERS['slug']) {
         fetchCompanyDataBySlug(PARAMETERS['slug']).then((company) => {
             renderForm(schema, company);
@@ -53,7 +62,7 @@ function renderForm(schema, company = undefined) {
         'quality',
         'facet-group',
         'needs-id-document',
-        'nsfw'
+        'nsfw',
     ];
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
