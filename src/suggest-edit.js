@@ -38,8 +38,15 @@ const sortRelevantCountries = (countries) => {
     });
 };
 
+const sortCategories = (categories) => {
+    categories.items.enum.sort((a, b) => {
+        return t(a, 'categories').localeCompare(t(b, 'categories'));
+    });
+};
+
 function prepareForm(schema) {
     sortRelevantCountries(schema.properties['relevant-countries']);
+    sortCategories(schema.properties['categories']);
     if (PARAMETERS['slug']) {
         fetchCompanyDataBySlug(PARAMETERS['slug']).then((company) => {
             renderForm(schema, company);
