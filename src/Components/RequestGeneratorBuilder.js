@@ -91,47 +91,54 @@ export default class RequestGeneratorBuilder extends Component {
                 return prev;
             });
 
-            this.setState({ ready: false });
-
             await Promise.all([
+                new Promise((resolve) => this.setState({ ready: false }, resolve)),
                 new UserRequests().getRequest(response_to),
                 fetchTemplate(this.state.request.language, response_type, null, ''),
             ]).then((results) => {
-                const [request, text] = results;
+                const [dummy, request, text] = results;
 
-                this.setState((prev) => {
-                    prev.request.custom_data.content = new Template(text, [], {
-                        request_article: REQUEST_ARTICLES[request.type],
-                        request_date: request.date,
-                        request_recipient_address: request.recipient,
-                    }).getText();
-                    prev.request.custom_data.subject = t_r(
-                        `letter-subject-${response_type}`,
-                        this.state.request.language,
-                        {
-                            request_recipient: request.recipient?.split('\n')[0],
-                            request_article: REQUEST_ARTICLES[request.type],
+                return new Promise((resolve) =>
+                    this.setState(
+                        (prev) => {
+                            prev.request.custom_data.content = new Template(text, [], {
+                                request_article: REQUEST_ARTICLES[request.type],
+                                request_date: request.date,
+                                request_recipient_address: request.recipient,
+                            }).getText();
+                            prev.request.custom_data.subject = t_r(
+                                `letter-subject-${response_type}`,
+                                this.state.request.language,
+                                {
+                                    request_recipient: request.recipient?.split('\n')[0],
+                                    request_article: REQUEST_ARTICLES[request.type],
+                                }
+                            );
+
+                            if (response_type === 'admonition') {
+                                // This might be useful in the future event though it is not used now. Looking forward to a conversations feature!
+                                prev.request.via = request.via;
+                                prev.request.recipient_address = request.recipient;
+                            }
+
+                            prev.request.reference = request.reference;
+                            prev.request.response_type = response_type;
+                            prev.request.type = 'custom';
+                            prev.response_request = request;
+
+                            prev.ready = !!text;
+
+                            return prev;
+                        },
+                        () => {
+                            return resolve(request);
                         }
-                    );
-
-                    if (response_type === 'admonition') {
-                        // This might be useful in the future event though it is not used now. Looking forward to a conversations feature!
-                        prev.request.via = request.via;
-                        prev.request.recipient_address = request.recipient;
+                    )
+                ).then((request) => {
+                    if (response_type === 'admonition' && request.slug) {
+                        return this.setCompanyBySlug(request.slug);
                     }
-
-                    prev.request.reference = request.reference;
-                    prev.request.response_type = response_type;
-                    prev.request.type = 'custom';
-                    prev.response_request = request;
-
-                    prev.ready = !!text;
-
-                    return prev;
                 });
-                if (response_type === 'admonition' && request.slug) {
-                    this.setCompanyBySlug(request.slug);
-                }
             });
 
             if (response_type === 'complaint') this.showAuthorityChooser();
@@ -223,9 +230,10 @@ export default class RequestGeneratorBuilder extends Component {
                 : REQUEST_FALLBACK_LANGUAGE;
 
         if (this.state.request.type !== 'custom') {
-            this.setState({ ready: false });
-            fetchTemplate(language, this.state.request.type, company).then((text) => {
-                this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
+            this.setState({ ready: false }, () => {
+                fetchTemplate(language, this.state.request.type, company).then((text) => {
+                    this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
+                });
             });
         }
 
@@ -300,9 +308,10 @@ export default class RequestGeneratorBuilder extends Component {
             return;
         }
 
-        this.setState({ ready: false });
-        fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then((text) => {
-            this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
+        this.setState({ ready: false }, () => {
+            fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then((text) => {
+                this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
+            });
         });
     };
 
@@ -385,13 +394,14 @@ export default class RequestGeneratorBuilder extends Component {
     handleCustomLetterTemplateChange = (e) => {
         const new_template = e.target.value;
         if (new_template !== 'no-template') {
-            this.setState({ ready: false });
-            fetchTemplate(this.state.request.language, new_template, null, '').then((text) => {
-                this.changeRequest((req) => {
-                    req.custom_data.content = text;
-                    req.response_type = new_template;
+            this.setState({ ready: false }, () => {
+                fetchTemplate(this.state.request.language, new_template, null, '').then((text) => {
+                    this.changeRequest((req) => {
+                        req.custom_data.content = text;
+                        req.response_type = new_template;
+                    });
+                    this.setState({ ready: !!text });
                 });
-                this.setState({ ready: !!text });
             });
         } else
             this.changeRequest((req) => {
