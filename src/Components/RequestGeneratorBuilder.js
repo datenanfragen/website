@@ -97,7 +97,7 @@ export default class RequestGeneratorBuilder extends Component {
                 new UserRequests().getRequest(response_to),
                 fetchTemplate(this.state.request.language, response_type, null, ''),
             ]).then((results) => {
-                const [dummy, request, text] = results;
+                const [, request, text] = results;
 
                 return new Promise((resolve) =>
                     this.setState(
@@ -206,7 +206,7 @@ export default class RequestGeneratorBuilder extends Component {
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                 {children}
-                {this.state.modal ? this.state.modal(this.state) : null}
+                {this.state.modal && this.state.modal(this.state)}
             </IntlProvider>
         );
     }
