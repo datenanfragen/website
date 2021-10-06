@@ -16,7 +16,7 @@ import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utili
 import replacer_factory from '../Utility/request-generator-replacers';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import Modal, { showModal, dismissModal } from './Modal';
+import Modal from './Modal';
 import SvaFinder from './SvaFinder';
 import { clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
@@ -44,6 +44,7 @@ export default class RequestGeneratorBuilder extends Component {
             fill_fields: [],
             fill_signature: null,
             ready: false,
+            modal: null,
         };
 
         this.replacers = replacer_factory(this);
@@ -205,6 +206,7 @@ export default class RequestGeneratorBuilder extends Component {
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                 {children}
+                {this.state.modal ? this.state.modal(this.state) : null}
             </IntlProvider>
         );
     }
@@ -411,60 +413,65 @@ export default class RequestGeneratorBuilder extends Component {
 
     handleAutocompleteSelected = (e, suggestion, dataset) => {
         if (this.state.suggestion) {
-            const modal = showModal(
-                <Modal
-                    positiveText={t('new-request', 'generator')}
-                    negativeText={t('override-request', 'generator')}
-                    onNegativeFeedback={(e) => {
-                        dismissModal(modal);
-                        this.setCompany(suggestion.document);
-                    }}
-                    onPositiveFeedback={(e) => {
-                        dismissModal(modal);
-                        this.newRequest().then(() => {
+            this.setState({
+                modal: (state) => (
+                    <Modal
+                        positiveText={t('new-request', 'generator')}
+                        negativeText={t('override-request', 'generator')}
+                        onNegativeFeedback={(e) => {
+                            this.setState({ modal: null });
                             this.setCompany(suggestion.document);
-                        });
-                    }}
-                    positiveDefault={true}
-                    onDismiss={() => dismissModal(modal)}>
-                    {t('modal-autocomplete-new-request', 'generator')}
-                </Modal>
-            );
+                        }}
+                        onPositiveFeedback={(e) => {
+                            this.setState({ modal: null });
+                            this.newRequest().then(() => {
+                                this.setCompany(suggestion.document);
+                            });
+                        }}
+                        positiveDefault={true}
+                        onDismiss={() => this.setState({ modal: null })}>
+                        {t('modal-autocomplete-new-request', 'generator')}
+                    </Modal>
+                ),
+            });
         } else {
             this.setCompany(suggestion.document);
         }
     };
 
     showAuthorityChooser = () => {
-        const modal = showModal(
-            <Modal
-                negativeText={t('cancel', 'generator')}
-                onNegativeFeedback={() => dismissModal(modal)}
-                positiveDefault={true}
-                onDismiss={() => dismissModal(modal)}>
-                <IntlProvider scope="generator" definition={I18N_DEFINITION}>
-                    <MarkupText id="modal-select-authority" />
-                </IntlProvider>
-                <SvaFinder
-                    callback={(sva) => {
-                        this.setCompany(sva);
-                        this.setState({ ready: false });
-                        fetchTemplate(sva['complaint-language'], 'complaint', null, '').then((text) => {
-                            this.changeRequest((request) => {
-                                request.custom_data.content = new Template(text, [], {
-                                    request_article: REQUEST_ARTICLES[this.state.response_request.type],
-                                    request_date: this.state.response_request.date,
-                                    request_recipient_address: this.state.response_request.recipient,
-                                }).getText();
+        this.setState({
+            modal: (state) => (
+                <Modal
+                    negativeText={t('cancel', 'generator')}
+                    onNegativeFeedback={() => this.setState({ modal: null })}
+                    positiveDefault={true}
+                    onDismiss={() => this.setState({ modal: null })}>
+                    <IntlProvider scope="generator" definition={I18N_DEFINITION}>
+                        <MarkupText id="modal-select-authority" />
+                    </IntlProvider>
+                    <SvaFinder
+                        callback={(sva) => {
+                            this.setCompany(sva);
+                            this.setState({ ready: false }, () => {
+                                fetchTemplate(sva['complaint-language'], 'complaint', null, '').then((text) => {
+                                    this.changeRequest((request) => {
+                                        request.custom_data.content = new Template(text, [], {
+                                            request_article: REQUEST_ARTICLES[state.response_request.type],
+                                            request_date: state.response_request.date,
+                                            request_recipient_address: state.response_request.recipient,
+                                        }).getText();
+                                    });
+                                    this.setState({ ready: !!text });
+                                });
                             });
-                            this.setState({ ready: !!text });
-                        });
-                        dismissModal(modal);
-                    }}
-                    style="margin-top: 15px;"
-                />
-            </Modal>
-        );
+                            this.setState({ modal: null });
+                        }}
+                        style="margin-top: 15px;"
+                    />
+                </Modal>
+            ),
+        });
     };
 
     renderLetter = () => {
@@ -539,51 +546,56 @@ export default class RequestGeneratorBuilder extends Component {
     };
 
     confirmNewRequest = () => {
-        const medium = this.state.request.transport_medium;
-
-        const modal = showModal(
-            <Modal
-                positiveButton={
-                    <div style="float: right;">
-                        <ActionButton
-                            transport_medium={this.state.request.transport_medium}
-                            blob_url={this.state.blob_url}
-                            email={this.state.request.email}
-                            letter={this.letter}
-                            download_filename={this.state.download_filename}
-                            download_active={this.state.download_active}
-                            done={this.state.request.done}
-                            ready={this.state.ready}
-                            buttonText={t(medium === 'email' ? 'send-email-first' : 'download-pdf-first', 'generator')}
-                            onSuccess={() => {
-                                dismissModal(modal);
-                                this.storeRequest();
-                                this.newRequest().then(() => {
-                                    // We are in batch mode, move to the next company.
-                                    if (this.state.batch?.length > 0) {
-                                        this.setCompanyBySlug(this.state.batch.shift());
-                                    } else this.renderLetter();
-                                });
-                            }}
-                        />
-                    </div>
-                }
-                negativeText={t('new-request', 'generator')}
-                onNegativeFeedback={(e) => {
-                    dismissModal(modal);
-                    this.newRequest().then(() => {
-                        // We are in batch mode, move to the next company.
-                        if (this.state.batch?.length > 0) {
-                            this.setCompanyBySlug(this.state.batch.shift());
-                        } else this.renderLetter();
-                    });
-                }}
-                positiveDefault={true}
-                innerStyle="overflow: visible;"
-                onDismiss={() => dismissModal(modal)}>
-                {t('modal-new-request', 'generator')}
-            </Modal>
-        );
+        this.setState({
+            modal: (state) => (
+                <Modal
+                    positiveButton={
+                        <div style="float: right;">
+                            <ActionButton
+                                transport_medium={state.request.transport_medium}
+                                blob_url={state.blob_url}
+                                email={state.request.email}
+                                letter={this.letter}
+                                download_filename={state.download_filename}
+                                download_active={state.download_active}
+                                done={state.request.done}
+                                ready={state.ready}
+                                buttonText={t(
+                                    state.request.transport_medium === 'email'
+                                        ? 'send-email-first'
+                                        : 'download-pdf-first',
+                                    'generator'
+                                )}
+                                onSuccess={() => {
+                                    this.setState({ modal: null });
+                                    this.storeRequest();
+                                    this.newRequest().then(() => {
+                                        // We are in batch mode, move to the next company.
+                                        if (this.state.batch?.length > 0) {
+                                            this.setCompanyBySlug(this.state.batch.shift());
+                                        } else this.renderLetter();
+                                    });
+                                }}
+                            />
+                        </div>
+                    }
+                    negativeText={t('new-request', 'generator')}
+                    onNegativeFeedback={(e) => {
+                        this.setState({ modal: null });
+                        this.newRequest().then(() => {
+                            // We are in batch mode, move to the next company.
+                            if (this.state.batch?.length > 0) {
+                                this.setCompanyBySlug(this.state.batch.shift());
+                            } else this.renderLetter();
+                        });
+                    }}
+                    positiveDefault={true}
+                    innerStyle="overflow: visible;"
+                    onDismiss={() => this.setState({ modal: null })}>
+                    {t('modal-new-request', 'generator')}
+                </Modal>
+            ),
+        });
     };
 
     storeRequest = () => {
