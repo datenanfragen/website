@@ -19,22 +19,22 @@ Aquí hay una descripción general de los repositorios importantes que hemos cre
 <!-- TODO: Add new repos when applicable. -->
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/website"><img class="image" src="/card-icons/code.svg" alt="website"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/code.svg" alt="website"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/website"><h1><code>website</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/website">website</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             El sitio web en el que se encuentra actualmente. Este repositorio no solo contiene el contenido, sino también el código para el generador, los controles de privacidad y más.<br> El sitio está diseñado para ser principalmente estático y se ejecuta en Hugo y Preact.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">Ver repositorio&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/data"><img class="image" src="/card-icons/database.svg" alt="data" style="width: 70%;"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/database.svg" alt="data" style="width: 70%;"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/data"><h1><code>data</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/data">data</a><br>
         <span class="license">CC0</span>
         <p class="description">
             Los datos detrás del proyecto. Esto incluye nuestras bases de datos de la empresa y la autoridad supervisora, pero también las cartas de muestra.
@@ -42,72 +42,72 @@ Aquí hay una descripción general de los repositorios importantes que hemos cre
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/data">Ver repositorio&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/data">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/media"><img class="image" src="/card-icons/view.svg" alt="media"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/view.svg" alt="media"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/media"><h1><code>media</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/media">media</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             Nuestro sitio web utilizado para alojar videos, media.datenanfragen.de. Este repositorio incluye el código fuente y los scripts utilizados para el sitio.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/media">Ver repositorio&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/media">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/letter-generator"><img class="image" src="/card-icons/letter.svg" alt="letter-generator"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/letter.svg" alt="letter-generator"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/letter-generator"><h1><code>letter-generator</code></h1></a>
+        <a class="no-link-decoration"  href="https://github.com/datenanfragen/letter-generator">letter-generator</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             Una herramienta que le permite generar letras (texto sin formato o formatos PDF) a partir de plantillas de diseño predefinidas. Este repositorio incluye estas plantillas de diseño y los scripts necesarios para renderizar cartas a partir de ellas.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/letter-generator">Ver repositorio&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/letter-generator">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/verein"><img class="image" src="/card-icons/group.svg" alt="verein"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/group.svg" alt="verein"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/verein"><h1><code>verein</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/verein">verein</a><br>
         <p class="description">
             También queremos dirigir la organización sin fines de lucro detrás de este proyecto, Datenanfragen.de e.&nbsp;V., de la forma más abierta y transparente posible. Por lo tanto, este repositorio contiene documentos importantes con sus historiales de cambios.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/verein">Ver repositorio&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/verein">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/zner0L/postcss-fonticons"><img class="image" src="/card-icons/icon-font.svg" alt="postcss-fonticons" style="width: 60%;"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/icon-font.svg" alt="postcss-fonticons" style="width: 60%;"></div>
     <div class="padded col75">
-        <a href="https://github.com/zner0L/postcss-fonticons"><h1><code>postcss-fonticons</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/zner0L/postcss-fonticons">postcss-fonticons</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             Un complemento PostCSS que le permite crear su fuente de iconos sobre la marcha, incluidos solo los iconos que se utilizan realmente.
-            <br>Adaptado en base al Icon Font Webpack Plugin de Jan Nicklas <a href="https://github.com/jantimon/iconfont-webpack-plugin"></a>.
+            <br>Adaptado en base al <a href="https://github.com/jantimon/iconfont-webpack-plugin">Icon Font Webpack Plugin</a> de Jan Nicklas .
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/zner0L/postcss-fonticons">Ver repositorio&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/zner0L/postcss-fonticons">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/backend"><img class="image" src="/card-icons/speech-bubble.svg" alt="backend"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/speech-bubble.svg" alt="backend"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/backend"><h1><code>backend</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/backend">backend</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             El servidor que define los endpoints para las características dinámicas del sitio web, como comentarios, sugerencias y donaciones.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Ver repositorio&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Ver repositorio&nbsp;</a>
 </article>
 
 <a id="contributors"></a>

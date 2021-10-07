@@ -18,9 +18,9 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
 <!-- TODO: Add new repos when applicable. -->
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/website"><img class="image" src="/card-icons/code.svg" alt="website"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/code.svg" alt="website"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/website"><h1><code>website</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/website">website</a><br>
         <span class="license">Licence MIT</span>
         <p class="description">
             Site Web sur lequel tu es actuellement. Ce dépôt contient non seulement le contenu mais aussi le code du générateur, des options de confidentialité et bien plus encore.
@@ -28,13 +28,13 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">Voir le dépôt&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/data"><img class="image" src="/card-icons/database.svg" alt="data" style="width: 70%;"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/database.svg" alt="data" style="width: 70%;"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/data"><h1><code>data</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/data">data</a><br>
         <span class="license">Licence CC0</span>
         <p class="description">
             Les données à l'origine du projet. Il s'agit notamment de nos bases de données sur les entreprises et les autorités de contrôle mais aussi de nos modèles de lettre.
@@ -42,51 +42,51 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/data">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/data">Voir le dépôt&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/media"><img class="image" src="/card-icons/group.svg" alt="media"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/group.svg" alt="media"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/media"><h1><code>media</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/media">media</a><br>
         <span class="license">MIT License</span>
         <p class="description">
         Notre site internet permet l'hébergement de vidéos, media.datenanfragen.de. Ce dépôt comprend le code source et les scripts utiles au site.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/media">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/media">Voir le dépôt&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/letter-generator"><img class="image" src="/card-icons/group.svg" alt="letter-generator"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/group.svg" alt="letter-generator"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/letter-generator"><h1><code>letter-generator</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/letter-generator">letter-generator</a><br>
         <span class="license">MIT License</span>
         <p class="description">
         Un outil qui te permets de générer des lettres (format texte ou format PDF) à partir des modèles prédéfinis. Ce dépôt comprend les modèles et les scripts nécessaire au rendu des lettres.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/letter-generator">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/letter-generator">Voir le dépôt&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/verein"><img class="image" src="/card-icons/group.svg" alt="verein"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/group.svg" alt="verein"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/verein"><h1><code>verein</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/verein">verein</a><br>
         <p class="description">
             Nous souhaitons également insister sur le but non lucratif à l'origine de ce projet, Datenanfragen.de e.&nbsp;V., de la manière la plus ouverte et transparente possible. Ce dépôt contient des documents importants avec leur historique de modifications.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/verein">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/verein">Voir le dépôt&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/zner0L/postcss-fonticons"><img class="image" src="/card-icons/icon-font.svg" alt="postcss-fonticons" style="width: 60%;"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/icon-font.svg" alt="postcss-fonticons" style="width: 60%;"></div>
     <div class="padded col75">
-        <a href="https://github.com/zner0L/postcss-fonticons"><h1><code>postcss-fonticons</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/zner0L/postcss-fonticons">postcss-fonticons</a><br>
         <span class="license">Licence MIT</span>
         <p class="description">
             Un plugin PostCSS qui permet de créer une police d'icônes à la volée, en incluant uniquement les icônes réellement utilisées.
@@ -94,20 +94,20 @@ Voici un aperçu des principaux dépôts que nous avons créés directement ou i
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/zner0L/postcss-fonticons">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/zner0L/postcss-fonticons">Voir le dépôt&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="https://github.com/datenanfragen/backend"><img class="image" src="/card-icons/speech-bubble.svg" alt="backend"></a></div>
+    <div class="col25 article-featured-image"><img class="image" src="/card-icons/speech-bubble.svg" alt="backend"></div>
     <div class="padded col75">
-        <a href="https://github.com/datenanfragen/backend"><h1><code>backend</code></h1></a>
+        <a class="no-link-decoration" href="https://github.com/datenanfragen/backend">backend</a><br>
         <span class="license">Licence MIT</span>
         <p class="description">
             Un serveur de développement qui définit les paramètres des fonctionnalités dynamiques du site internet comme les commentaires, les suggestions et les donations.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Voir le dépôt&nbsp;<span class="icon icon-arrow-right"></span></a>
+    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Voir le dépôt&nbsp;</a>
 </article>
 
 <a id="contributors"></a>
