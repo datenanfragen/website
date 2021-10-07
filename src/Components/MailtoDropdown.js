@@ -148,7 +148,7 @@ export default class MailtoDropdown extends Component {
                         &nbsp;&nbsp;
                         <span className={'icon ' + (props.done ? 'icon-paper-plane' : 'icon-email')} />
                     </button>
-                    {props.letter ? (
+                    {props.enabled ? (
                         <div className="dropdown" style="padding: 15px; width: 270px; max-width: 90vw;">
                             <Text id="mailto-dropdown-explanation" />
 
