@@ -1,1 +1,18 @@
-{}
+{
+    "hugo": {
+        "categories": "Categorie",
+        "credit agency": "agenzia di informazione commerciale",
+        "addresses": "indirizzi",
+        "ads": "pubblicità",
+        "church": "chiesa",
+        "collection agency": "agenzia di recupero crediti",
+        "commerce": "commercio",
+        "entertainment": "intrattenimento",
+        "finance": "finanza",
+        "health": "salute",
+        "insurance": "assicurazione",
+        "nonprofit": "organizzazione non a scopo di lucro",
+        "political party": "partito politico",
+        "public body": "ente pubblico"
+    }
+}
