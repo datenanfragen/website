@@ -9,6 +9,7 @@ then
     mkdir ~/bin
     mv parallel sem ~/bin/
     source ~/.profile
+    exit
 fi
 
 # We don't need Netlify builds on master. This seems to be the easiest way to achieve this.
