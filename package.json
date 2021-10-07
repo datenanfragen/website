@@ -30,6 +30,7 @@
     ],
     "license": "MIT",
     "scripts": {
+        "start": "concurrently -n 'webpack,server' -c 'bgBlue.bold,bgGreen.bold' 'yarn dev' 'hugo server'",
         "build": "cross-env BABEL_ENV=production; webpack --mode=production --config webpack.prod.js",
         "dev": "webpack --watch --mode=development --config webpack.dev.js",
         "merge-conflict-artifact-check": "./scripts/merge-conflict-artifact-check.sh",
@@ -73,6 +74,7 @@
         "babel-eslint": "^10.0.2",
         "babel-loader": "^8.0.6",
         "carbone": "^3.2.3",
+        "concurrently": "^6.3.0",
         "cross-env": "^7.0.2",
         "cssnano": "^4.1.10",
         "cypress": "^6.1.0",
