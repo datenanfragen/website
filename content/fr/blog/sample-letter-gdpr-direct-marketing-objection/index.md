@@ -4,9 +4,11 @@
     "aliases": [ "sample-letter-gdpr-direct-marketing-objection" ],
     "date": "2021-10-04T20:30:37+02:00",
     "type": "blog",
-    "description": "Tu n'as plus à supporter la publicité directe. Grâce au RGPD, tu peux objecter à l'utilisation de tes données personnelles pour la publicté directe. Notre modèle vous aide à faire valoir ce droit",
-    "tags": [ ],
-    "license": "cc0-10"
+    "description": "Tu n'as plus à supporter la publicité directe. Grâce au RGPD, tu peux objecter à l'utilisation de tes données personnelles pour la publicté directe. Notre modèle t'aide à faire valoir ce droit",
+    "featured_image": "modele-de-lettre-pour-l-opposition-a-la-prospection",
+    "authors": [ "baltpeter" ],
+    "license": "cc0-10",
+    "notices": "Photo adaptée sur base de: “[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)” par [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash license](https://unsplash.com/license))"
 }
 
 La publicité semble incontournable aujourd'hui: dès que tu ouvres ta boîte aux lettre ou email, tu reçois souvent une série de lettres ou d'emails, d'entreprises qui veulent promouvoir leurs produits. Souvent, elles te sont même adressées personnellement.
@@ -17,7 +19,7 @@ Pour le fondement juridique, ces entreprises invoquent fréquemment leur "intér
 
 Par chance, tu n'as pas à supporter cela. Conformément au Règlement Général de la Protection des Données (RGPD), tu as le droit de t'opposer au marketing direct. Cela est clairement inscrit dans l'Article 21 alinéa 2 du RGPD. Tu peux aussi faire valoir ce droit si tu as déjà donné ton accord.
 
-Le RGPD vous donne d'autres droits dont vous pouvez prendre connaissance dans notre {{< link slug="blog/your-gdpr-rights" text="article sur les droits accordés par le RGPD" >}}
+Le RGPD te donne d'autres droits dont tu peux prendre connaissance dans notre {{< link slug="blog/your-gdpr-rights" text="article sur les droits accordés par le RGPD" >}}
 
 ## Comment faire valoir ce droit?
 

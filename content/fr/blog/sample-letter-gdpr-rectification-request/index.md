@@ -5,7 +5,7 @@
     "date": "2021-10-04T20:30:37+02:00",
     "type": "blog",
     "description": "Si une entreprise a enregistré des données fausses (ou incomplètes) sur toi, alors sous le RGPD, tu as le droit de demander la correction immédiate des données concernées. Nous offrons un modèle de lettre pour te permettre de faire valoir ces droits",
-    "tags": [ ],
+    "authors": [ "baltpeter" ],
     "license": "cc0-10"
 }
 

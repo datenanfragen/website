@@ -2,10 +2,10 @@
     "title": "Modèle de lettre pour le demande de suppression conformément à l'Art. 17 du RGPD",
     "slug": "modele-lettre-rgpd-suppression",
     "aliases": [ "sample-letter-gdpr-erasure-request" ],
-    "date": "2019-11-23T12:42:28+02:00",
+    "date": "2021-10-07T15:15:23+02:00",
     "type": "blog",
-    "description": "Grâce au RGPD, vous avez le droit de suppression de vos données si un contrôleur n'en a plus besoin pour la raison initiale. Nous offrons un modèle de lettre pour te permettre de faire valoir ces droits",
-    "tags": [ ],
+    "description": "Grâce au RGPD, tu as le droit de suppression de tes données si un contrôleur n'en a plus besoin pour la raison initiale. Nous offrons un modèle de lettre pour te permettre de faire valoir ces droits",
+    "authors": [ "baltpeter" ],
     "license": "cc0-10"
 }
 
@@ -13,7 +13,7 @@ Conformément à l'Art. 17 du RGPD, tu as le droit de demander la suppression de
 
 Si le contrôleur a transmis vos données à d'autres entreprises, il doit les informer de ta demande de suppression
 
-Si vous voulez en savoir plus, consultez {{< link slug="blog/your-gdpr-rights" text="article sur les droits accordés par le RGPD" >}}
+Si tu veux en savoir plus, consulte {{< link slug="blog/your-gdpr-rights" text="article sur les droits accordés par le RGPD" >}}
 
 
 ## Comment faire valoir ce droit?

@@ -5,7 +5,7 @@
     "date": "2021-10-04T20:30:37+02:00",
     "type": "blog",
     "description": "Conformément au RGPD, tu as un droit d'acces à tes données personnelles stockées par des entreprises. Nous offrons un modèle de lettre pour te permettre de faire valoir ces droits",
-    "tags": [ ],
+    "authors": [ "baltpeter" ],
     "license": "cc0-10"
 }
 
