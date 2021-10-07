@@ -2,6 +2,7 @@
 set -e
 
 wget "https://download.opensuse.org/repositories/home:/tange/xUbuntu_14.04/all/parallel_20210922_all.deb"
+apt install dpkg
 dpkg -x parallel_20210922_all.deb ~
 
 # We don't need Netlify builds on master. This seems to be the easiest way to achieve this.
