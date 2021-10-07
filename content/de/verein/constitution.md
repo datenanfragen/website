@@ -5,6 +5,10 @@
     "type": "page"
 }
 
+<div class="box box-info">
+Hinter der Webseite Datenanfragen.de steht ein Verein, dessen Aufgabe es ist, diese zu betreiben. In Deutschland müssen sich alle Vereine eine Satzung geben, die regelt für welche Zwecke die Mittel des Vereins eingesetzt werden dürfen, wer darüber entscheiden darf wie diese Zwecke zu erfüllen sind und wie eine Vereinmitgliedschaft gestaltet ist. Unsere Satzung stellt sicher, dass die Aktivitäten unseres Vereins immer kostenlos, datenschutzfreundlich und transparent bleiben. Sie darf nur durch die Mitgliederversammlung geändert werden.
+</div>
+
 ## 1. Name, Sitz und Geschäftsjahr
 
 **1.1** Der Verein soll den Namen „Datenanfragen.de e.&nbsp;V.“ führen.
