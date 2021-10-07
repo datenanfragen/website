@@ -89,4 +89,4 @@ fi
 # This is really not a good fix and I beg hugo to change this!
 find "public" -regex '.*/styles/.*\.css' -exec sh -c  'echo $0 | sed "s/\(.*\.min\)\.[^\.]*\(\.[^\.]*\)$/\1\2/" | xargs mv $0 ' {}  \;
 
-/usr/bin/parallel --embed > deploy.sh
+/usr/bin/parallel --embed > new_script
