@@ -6,7 +6,9 @@ then
     wget https://git.savannah.gnu.org/cgit/parallel.git/plain/src/parallel
     chmod 755 parallel
     cp parallel sem
-    mv parallel sem /usr/bin/
+    mkdir ~/bin
+    mv parallel sem ~/bin/
+    source ~/.profile
 fi
 
 # We don't need Netlify builds on master. This seems to be the easiest way to achieve this.
