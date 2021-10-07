@@ -3,10 +3,11 @@
 	"type": "page"
 }
 
-We are a project run by a non-profit and realised by volunteers. As such, we rely on the help of people like you.
+We are a project run by a non-profit and realised by volunteers. As such, we rely on the help of people like you. Thank you so much for looking into contributing to datarequests.org!
 
 There are many tasks from different topics that need to be done. Among them, many that are suitable for people who don't yet have a lot of experience with data protection. On this page, we have compiled a list of the most important ones. If there's something you want to contribute to, we would greatly appreciate your help.  
-Thank you so much for looking into contributing to datarequests.org!
+
+Also feel free to join our [Matrix space](https://matrix.to/#/#datenanfragen:matrix.altpeter.me). There, you can chat with the community, ask questions and pitch your ideas.
 
 <article id="cdb" class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/company.svg" alt="Maintaining the company database"></div>
@@ -85,4 +86,4 @@ Thank you so much for looking into contributing to datarequests.org!
     <a class="button button-primary read-more-button" href="https://www.datarequests.org/donate">Donate now&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
-You have another idea on how to contribute? Shoot us an [email](mailto:contact@datarequests.org)!
+You have another idea on how to contribute? Shoot us [message on Matrix](https://matrix.to/#/#datenanfragen:matrix.altpeter.me) or an [email](mailto:contact@datarequests.org)!
