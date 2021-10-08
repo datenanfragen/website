@@ -89,7 +89,7 @@ const out_dir = path.join(__dirname, '..', '..', 'static', 'downloads');
     carbone.set({ templatePath: path.join(__dirname, 'res') });
 
     // TODO: Replace this with `languages` once we have the translations for all languages here.
-    for (const lang of ['de', 'en']) {
+    for (const lang of ['de', 'en', 'fr']) {
         const t = (key) => _t(lang, key);
         const common_template = templates(t).common;
 
