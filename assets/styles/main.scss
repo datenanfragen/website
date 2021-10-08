@@ -595,20 +595,6 @@ table#my-requests-table {
             hyphens: auto;
         }
     }
-    &>.button-link{
-        text-decoration:none;
-        background-position: bottom left;
-        background-repeat: no-repeat;
-        background-size: 100% 2px;
-        background-size: calc(100% - 16.8px) 2px !important;
-        color:white !important;
-        &:after {
-            color: white !important;
-            font-icon: 80% url('external.svg') !important;
-            padding-left: 4px !important;
-            vertical-align: -0.5px !important;
-        }
-    }
     .article-featured-image {
         overflow: hidden;
 
