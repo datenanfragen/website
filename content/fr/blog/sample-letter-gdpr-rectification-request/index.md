@@ -37,26 +37,29 @@ Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 16 d
 
 <p>Si vous avez communiqué les données à caractère personnel concernées à des tiers, vous devez communiquer ma demande de rectification de ces données, ainsi que toute référence à celles-ci, à chaque destinataire, conformément à l'Article 19 du RGPD. Veuillez également m'informer au sujet de ces destinataires.</p>
 
-<p>Ma demande comprend explicitement tous les autres services et sociétés dont vous êtes responsable comme défini dans l'Article 4, alinéa 7 du RGPD.</p>
+<p>Ma demande inclut explicitement , ainsi que tous les autres services et sociétés dont vous êtes le responsable du traitement en vertu de l'Article 4, alinéa 7, du RGPD .</p>
 
-<p>Conformément à l'Article 12, alinéa 3 du RGPD, vous devez me fournir les informations demandées dans les meilleurs délais et, dans tout les cas, dans un délai d'un mois après réception de la demande. Conformément à l'Article 15, alinéa 3 du RGPD, vous devez répondre à cette demande sans frais de ma part.</p>
+<p>Conformément à l'Article 12, alinéa 3, du RGPD, vous devez me confirmer la rectification dans un délai raisonnable et, en tout état de cause, dans le mois qui suit la réception de la demande.</p>
 
 <p>J'inclus les informations suivantes nécessaires pour m'identifier :<br>
 <span class="blog-letter-fill-in">Insère ici tes données pour l'identification. Ce sont souvent des informations telles que ton nom, ta date de naissance, ton adresse, ton adresse e-mail, etc.</span></p>
 
 <p>Si vous ne répondez pas à ma demande dans le délai imparti, je me réserve le droit d'intenter une action en justice contre vous et d'introduire une plainte auprès de l'autorité de contrôle compétente.</p>
 
-<p>Cordialement,<br>
-<span class="blog-letter-fill-in">Ton nom</span></p>
+<p>Merci d'avance pour votre effort.</p>
+
+<p>Cordialement,</p>
+
+<p><span class="blog-letter-fill-in">Entre ton nom ici.</span></p>
 </div>
 
 Pour te faciliter la vie, tu peux aussi télécharger des modèles utilisables avec le logiciel de traitement de texte de ton choix.
 Tu peux choisir le modèle parmi cette liste:
 
-* [Modèle LibreOffice ou OpenOffice (.ott)](/downloads/sample-letter-gdpr-rectification-request-datarequests.org.ott)
-* [Modèle Word (.dotx)](/downloads/sample-letter-gdpr-rectification-request-datarequests.org.dotx)
-* [Fichier PDF (.pdf)](/downloads/sample-letter-gdpr-rectification-request-datarequests.org.pdf)
-* [Fichier texte (.txt)](/downloads/sample-letter-gdpr-rectification-request-datarequests.org.txt)
+* [Modèle LibreOffice ou OpenOffice (.ott)](/downloads/modele-lettre-rdpd-rectification-demandetesdonnees.fr.ott)
+* [Modèle Word (.dotx)](/downloads/modele-lettre-rdpd-rectification-demandetesdonnees.fr.dotx)
+* [Fichier PDF (.pdf)](/downloads/modele-lettre-rdpd-rectification-demandetesdonnees.fr.pdf)
+* [Fichier texte (.txt)](/downloads/modele-lettre-rdpd-rectification-demandetesdonnees.fr.txt)
 
 Tu es libre d'utiliser ces modèles comme tu le souhaites. Ils sont disponibles sous une [licence CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.fr/). Les modèles pour LibreOffice et Word sont basés sur ce [modèle LibreOffice](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
 

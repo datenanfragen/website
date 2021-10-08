@@ -33,8 +33,9 @@ Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 15 d
 
 <p>Je viens par la présente, demander la suppression immédiate des données personnelles me concernant conformément à l'Article 17 du RGPD.</p>
 
-<p>[Veuillez supprimer toutes les données personnelles me concernant comme définit pat l'Article 4, alinéa 1 du RGPD.]<br>
-[Veuillez supprimer les données personnelles suivantes me concernant :<br>
+<p>[Veuillez supprimer toutes les données personnelles me concernant comme définit pat l'Article 4, alinéa 1 du RGPD.]</p>
+
+<p>[Veuillez supprimer les données personnelles suivantes me concernant :<br>
 <span class="blog-letter-fill-in">Saisis ici les données à supprimer.</span>]</p>
 
 <p>Je suis convaincu que les conditions énoncées à l'Article 17, alinéa 1, du RGPD sont remplies.</p>
@@ -46,26 +47,29 @@ En outre, je m'oppose au traitement des données à caractère personnel me conc
 
 <p>Si vous vous opposez à cette demande de suppression, vous devez me le justifier.</p>
 
-<p>Ma demande comprend explicitement tous les autres services et sociétés dont vous êtes responsable comme défini dans l'Article 4, alinéa 7 du RGPD.</p>
+<p>Ma demande inclut explicitement , ainsi que tous les autres services et sociétés dont vous êtes le responsable du traitement en vertu de l'Article 4, alinéa 7, du RGPD .</p>
 
-<p>Conformément à l'Article 12, alinéa 3 du RGPD, vous devez me fournir les informations demandées dans les meilleurs délais et, dans tout les cas, dans un délai d'un mois après réception de la demande. Conformément à l'Article 15, alinéa 3 du RGPD, vous devez répondre à cette demande sans frais de ma part.</p>
+<p>Conformément à l'Article 12, alinéa 3, du RGPD, vous devez me confirmer la suppression dans un délai raisonnable et, en tout état de cause, dans le mois qui suit la réception de la demande.</p>
 
 <p>J'inclus les informations suivantes nécessaires pour m'identifier :<br>
 <span class="blog-letter-fill-in">Insère ici tes données pour l'identification. Ce sont souvent des informations telles que ton nom, ta date de naissance, ton adresse, ton adresse e-mail, etc.</span></p>
 
 <p>Si vous ne répondez pas à ma demande dans le délai imparti, je me réserve le droit d'intenter une action en justice contre vous et d'introduire une plainte auprès de l'autorité de contrôle compétente.</p>
 
-<p>Cordialement,<br>
-<span class="blog-letter-fill-in">Ton nom</span></p>
+<p>Merci d'avance pour votre effort.</p>
+
+<p>Cordialement,</p>
+
+<p><span class="blog-letter-fill-in">Entre ton nom ici.</span></p>
 </div>
 
 Pour te faciliter la vie, tu peux aussi télécharger des modèles utilisables avec le logiciel de traitement de texte de ton choix.
 Tu peux choisir le modèle parmi cette liste:
 
-* [Modèle LibreOffice ou OpenOffice (.ott)](/downloads/sample-letter-gdpr-erasure-request-datarequests.org.ott)
-* [Modèle Word (.dotx)](/downloads/sample-letter-gdpr-erasure-request-datarequests.org.dotx)
-* [Fichier PDF (.pdf)](/downloads/sample-letter-gdpr-erasure-request-datarequests.org.pdf)
-* [Fichier texte (.txt)](/downloads/sample-letter-gdpr-erasure-request-datarequests.org.txt)
+* [Modèle LibreOffice ou OpenOffice (.ott)](/downloads/modele-lettre-rdpd-suppression-demandetesdonnees.fr.ott)
+* [Modèle Word (.dotx)](/downloads/modele-lettre-rdpd-suppression-demandetesdonnees.fr.dotx)
+* [Fichier PDF (.pdf)](/downloads/modele-lettre-rdpd-suppression-demandetesdonnees.fr.pdf)
+* [Fichier texte (.txt)](/downloads/modele-lettre-rdpd-suppression-demandetesdonnees.fr.txt)
 
 Tu es libre d'utiliser ces modèles comme tu le souhaites. Ils sont disponibles sous une [licence CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.fr/). Les modèles pour LibreOffice et Word sont basés sur ce [modèle LibreOffice](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
 

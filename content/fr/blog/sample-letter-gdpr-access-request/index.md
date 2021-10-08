@@ -30,22 +30,20 @@ Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 15 d
 
 <p>Je viens par la présente, demander l'accès conformément à l'Article 15 du RGPD. Veuillez confirmer si vous traitez ou non des données à caractère personnel (comme défini dans l'Article 4, alinéas 1 et 2 du RGPD) me concernant.</p>
 
-<p>Si c'est le cas, je demande l'accès aux informations suivantes conformément à l'Article 15 du RGPD :</p>
-<ol>
-<li><italic>Toutes</italic> données personnelles me concernant que vous avez conservées;</li>
-<li>Les motifs du traitement;</li>
-<li>Les catégories de données à caractère personnel impliquées;</li>
-<li>Les destinataires ou les catégories de destinataires auxquels les données personnelles ont été, ou seront divulguées;</li>
-<li>Si possible, la durée envisagée de conservation des données à caractère personnel ou, si cela n'est pas possible, les critères utilisés pour déterminer cette durée;</li>
-<li>Lorsque les données à caractère personnel ne sont pas collectées auprès de la personne concernée, toute information disponible sur l'origine de ces données;</li>
-<li>L'existence d'un processus décisionnel automatisé, y compris le profilage, mentionné l'Article 22, alinéas 1 et 4, du RGPD et, au moins dans ces cas, des informations utiles sur la logique appliquée, ainsi que la signification et les conséquences envisagées de ce traitement pour moi.</li>
-</ol>
+<p>Si c'est le cas, je demande l'accès aux informations suivantes conformément à l'Article 15 du RGPD :<br>
+1. Toutes données personnelles me concernant que vous avez conservées;<br>
+2. Les motifs du traitement;<br>
+3. Les catégories de données à caractère personnel impliquées;<br>
+4. Les destinataires ou les catégories de destinataires auxquels les données personnelles ont été, ou seront divulguées;<br>
+5. Si possible, la durée envisagée de conservation des données à caractère personnel ou, si cela n'est pas possible, les critères utilisés pour déterminer cette durée;<br>
+6. Lorsque les données à caractère personnel ne sont pas collectées auprès de la personne concernée, toute information disponible sur l'origine de ces données;<br>
+7. L'existence d'un processus décisionnel automatisé, y compris le profilage, mentionné l'Article 22, alinéas 1 et 4, du RGPD et, au moins dans ces cas, des informations utiles sur la logique appliquée, ainsi que la signification et les conséquences envisagées de ce traitement pour moi.</p>
 
 <p>Si vous transférez mes données à caractère personnel vers un pays tiers ou une organisation internationale, je demande à être informé des garanties appropriées concernant le transfert, conformément à l'Article 46 du RGPD.</p>
 
 <p>[Veuillez mettre à ma disposition les données à caractère personnel me concernant que je vous ai fournies dans un format structuré, couramment utilisé et lisible par machine, conformément à l'Article 20, alinéa 1, du RGPD.]</p>
 
-<p>Ma demande comprend explicitement tous les autres services et sociétés dont vous êtes responsable comme défini dans l'Article 4, alinéa 7 du RGPD.</p>
+<p>Ma demande comprend explicitement tous les autres services et sociétés dont vous êtes responsable comme défini dans l'Article 4, alinéa 7 du RGPD .</p>
 
 <p>Conformément à l'Article 12, alinéa 3 du RGPD, vous devez me fournir les informations demandées dans les meilleurs délais et, dans tout les cas, dans un délai d'un mois après réception de la demande. Conformément à l'Article 15, alinéa 3 du RGPD, vous devez répondre à cette demande sans frais de ma part.</p>
 
@@ -54,17 +52,20 @@ Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 15 d
 
 <p>Si vous ne répondez pas à ma demande dans le délai imparti, je me réserve le droit d'intenter une action en justice contre vous et d'introduire une plainte auprès de l'autorité de contrôle compétente.</p>
 
-<p>Cordialement,<br>
-<span class="blog-letter-fill-in">Ton nom</span></p>
+<p>Merci d'avance pour votre effort.</p>
+
+<p>Cordialement,</p>
+
+<p><span class="blog-letter-fill-in">Entre ton nom ici.</span></p>
 </div>
 
 Pour te faciliter la vie, tu peux aussi télécharger des modèles utilisables avec le logiciel de traitement de texte de ton choix.
 Tu peux choisir le modèle parmi cette liste:
 
-* [Modèle LibreOffice ou OpenOffice (.ott)](/downloads/sample-letter-gdpr-access-request-datarequests.org.ott)
-* [Modèle Word (.dotx)](/downloads/sample-letter-gdpr-access-request-datarequests.org.dotx)
-* [Fichier PDF (.pdf)](/downloads/sample-letter-gdpr-access-request-datarequests.org.pdf)
-* [Fichier texte (.txt)](/downloads/sample-letter-gdpr-access-request-datarequests.org.txt)
+* [Modèle LibreOffice ou OpenOffice (.ott)](/downloads/modele-lettre-rdpd-acces-demandetesdonnees.fr.ott)
+* [Modèle Word (.dotx)](/downloads/modele-lettre-rdpd-acces-demandetesdonnees.fr.dotx)
+* [Fichier PDF (.pdf)](/downloads/modele-lettre-rdpd-acces-demandetesdonnees.fr.pdf)
+* [Fichier texte (.txt)](/downloads/modele-lettre-rdpd-acces-demandetesdonnees.fr.txt)
 
 Tu es libre d'utiliser ces modèles comme tu le souhaite. Ils sont disponibles sous une [licence CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.fr/). Les modèles pour LibreOffice et Word sont basés sur ce [modèle LibreOffice](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
 

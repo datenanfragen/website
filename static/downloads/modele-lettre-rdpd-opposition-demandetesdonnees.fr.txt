@@ -1,0 +1,31 @@
+===========================================================================
+Opposition à la prospection conformément à l'Art. 21, paragraphe 2, du RGPD
+===========================================================================
+
+Here is your GDPR sample letter provided by datarequests.org.
+The passages in [square brackets] are optional; you can decide yourself whether you want to include them. You still have to fill in the data in {curly braces}.
+Afterwards, just delete this explanation and send your request.
+
+---
+
+À qui de droit :
+
+Je viens par la présente, m'opposer au traitement des données personnelles me concernant à des fins de prospection conformément à l'Article 21, alinéa 2 du RGPD. Cette opposition inclut l'utilisation à des fins de profilage dans la mesure où elle est liée aux activités de prospection.
+
+Si j'ai consenti au traitement de mes données à caractère personnel à des fins de prospection (par exemple, conformément à l'Article 6, alinéa 1, ou à l'Article 9, alinéa 2 du RGPD), je retire ce consentement par la présente.
+
+Please tell me in advance if the objection will result in the deletion of an account I may have with you, the cancellation of a contract I may have with you, or similar. I will then decide whether this should be carried out.
+
+Ma demande inclut explicitement , ainsi que tous les autres services et sociétés dont vous êtes le responsable du traitement en vertu de l'Article 4, alinéa 7, du RGPD .
+
+Conformément à l'Article 12, alinéa 3, du RGPD, vous devez me confirmer cette opposition dans un délai raisonnable et, en tout état de cause, dans le mois qui suit la réception de la demande.
+
+J'inclus les informations suivantes nécessaires pour m'identifier :
+{Insère ici tes données pour l'identification. Ce sont souvent des informations telles que ton nom, ta date de naissance, ton adresse, ton adresse e-mail, etc.}
+
+Si vous ne répondez pas à ma demande dans le délai imparti, je me réserve le droit d'intenter une action en justice contre vous et d'introduire une plainte auprès de l'autorité de contrôle compétente.
+
+Merci d'avance pour votre effort.
+
+Cordialement,
+{Entre ton nom ici.}
