@@ -595,7 +595,7 @@ table#my-requests-table {
             hyphens: auto;
         }
     }
-    &>a{
+    &>.button-link{
         text-decoration:none;
         background-position: bottom left;
         background-repeat: no-repeat;
@@ -637,7 +637,7 @@ table#my-requests-table {
             padding: 15px;
             margin-bottom: 25px;
         }
-        &>a{
+        &>.title-link{
             text-decoration:none;
             font-size: 1.7em;
             background-position: right top;

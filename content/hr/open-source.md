@@ -21,7 +21,7 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/code.svg" alt="web-stranica"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/website">website</a><br>
+        <a class="no-link-decoration title-link title-link" href="https://github.com/datenanfragen/website">website</a><br>
         <span class="license">MIT licenca</span>
         <p class="description">
             Web-stranica na kojoj se trenutačno nalaziš. Ovaj repozitorij ne sadrži samo sadržaj već i programski kod generatora, postavke privatnosti i još mnogo toga.
@@ -29,13 +29,13 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">Otvori repozitorij&nbsp;</a>
+    <a class="button button-primary read-more-button button-link button-link" href="https://github.com/datenanfragen/website">Otvori repozitorij&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/database.svg" alt="podaci" style="width: 70%;"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/data">data</a><br>
+        <a class="no-link-decoration title-link title-link" href="https://github.com/datenanfragen/data">data</a><br>
         <span class="license">CC0</span>
         <p class="description">
             Podaci projekta. To uključuje baze podataka našeg poduzeća i nadzornog tijela, ali i uzorke pisama.
@@ -43,51 +43,51 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/data">Otvori repozitorij&nbsp;</a>
+    <a class="button button-primary read-more-button button-link button-link" href="https://github.com/datenanfragen/data">Otvori repozitorij&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/view.svg" alt="mediji"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/media">media</a><br>
+        <a class="no-link-decoration title-link title-link" href="https://github.com/datenanfragen/media">media</a><br>
         <span class="license">MIT licenca</span>
         <p class="description">
             Naša web-stranica koja se koristi za hosting videa, media.datenanfragen.de. Ovaj repozitorij uključuje izvorni kod i korištena skripta za web-stranice.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/media">Otvori repozitorij&nbsp;</a>
+    <a class="button button-primary read-more-button button-link button-link" href="https://github.com/datenanfragen/media">Otvori repozitorij&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/letter.svg" alt="generator pisama"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/letter-generator">letter-generator</a><br>
+        <a class="no-link-decoration title-link title-link" href="https://github.com/datenanfragen/letter-generator">letter-generator</a><br>
         <span class="license">MIT licenca</span>
         <p class="description">
             Alat koji omogućuje generiranje pisama (obični tekst ili PDF format) iz predložaka. Ovaj repozitorij uključuje ove predloške i skripta koji su potrebni za izradu pisama.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/letter-generator">Otvori repozitorij&nbsp;</a>
+    <a class="button button-primary read-more-button button-link button-link" href="https://github.com/datenanfragen/letter-generator">Otvori repozitorij&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/group.svg" alt="udruga"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/verein">verein</a><br>
+        <a class="no-link-decoration title-link title-link" href="https://github.com/datenanfragen/verein">verein</a><br>
         <p class="description">
             Također želimo voditi neprofitnu organizaciju koja stoji iza ovog projekta Datenanfragen.de e.&nbsp;V., što otvorenije i transparentnije. Ovaj repozitorij stoga sadrži važne dokumente s poviješću promjena.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/verein">Otvori repozitorij&nbsp;</a>
+    <a class="button button-primary read-more-button button-link button-link" href="https://github.com/datenanfragen/verein">Otvori repozitorij&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/icon-font.svg" alt="postcss-fonticons" style="width: 60%;"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/zner0L/postcss-fonticons">postcss-fonticons</a><br>
+        <a class="no-link-decoration title-link title-link" href="https://github.com/zner0L/postcss-fonticons">postcss-fonticons</a><br>
         <span class="license">MIT licenca</span>
         <p class="description">
             PostCSS dodatak koji omogućuje stvaranje fonta s ikonama, uključujući samo one ikone koje se stvarno koriste.
@@ -95,20 +95,20 @@ Ovdje se nalazi pregleda važnih repozitorija koja smo stvorili (što izravno il
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/zner0L/postcss-fonticons">Otvori repozitorij&nbsp;</a>
+    <a class="button button-primary read-more-button button-link button-link" href="https://github.com/zner0L/postcss-fonticons">Otvori repozitorij&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/speech-bubble.svg" alt="pozadinski sustav"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/backend">backend</a><br>
+        <a class="no-link-decoration title-link title-link" href="https://github.com/datenanfragen/backend">backend</a><br>
         <span class="license">MIT licenca</span>
         <p class="description">
             Poslužitelj koji definira priključke za dinamičke funkcije web-stranice kao što su komentari, prijedlozi i donacije.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Otvori repozitorij&nbsp;</a>
+    <a class="button button-primary read-more-button button-link button-link" href="https://github.com/datenanfragen/backend">Otvori repozitorij&nbsp;</a>
 </article>
 
 <a id="contributors"></a>

@@ -21,20 +21,20 @@ Aquí hay una descripción general de los repositorios importantes que hemos cre
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/code.svg" alt="website"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/website">website</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/website">website</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             El sitio web en el que se encuentra actualmente. Este repositorio no solo contiene el contenido, sino también el código para el generador, los controles de privacidad y más.<br> El sitio está diseñado para ser principalmente estático y se ejecuta en Hugo y Preact.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">Ver repositorio&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/website">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/database.svg" alt="data" style="width: 70%;"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/data">data</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/data">data</a><br>
         <span class="license">CC0</span>
         <p class="description">
             Los datos detrás del proyecto. Esto incluye nuestras bases de datos de la empresa y la autoridad supervisora, pero también las cartas de muestra.
@@ -42,51 +42,51 @@ Aquí hay una descripción general de los repositorios importantes que hemos cre
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/data">Ver repositorio&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/data">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/view.svg" alt="media"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/media">media</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/media">media</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             Nuestro sitio web utilizado para alojar videos, media.datenanfragen.de. Este repositorio incluye el código fuente y los scripts utilizados para el sitio.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/media">Ver repositorio&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/media">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/letter.svg" alt="letter-generator"></div>
     <div class="padded col75">
-        <a class="no-link-decoration"  href="https://github.com/datenanfragen/letter-generator">letter-generator</a><br>
+        <a class="no-link-decoration title-link"  href="https://github.com/datenanfragen/letter-generator">letter-generator</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             Una herramienta que le permite generar letras (texto sin formato o formatos PDF) a partir de plantillas de diseño predefinidas. Este repositorio incluye estas plantillas de diseño y los scripts necesarios para renderizar cartas a partir de ellas.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/letter-generator">Ver repositorio&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/letter-generator">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/group.svg" alt="verein"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/verein">verein</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/verein">verein</a><br>
         <p class="description">
             También queremos dirigir la organización sin fines de lucro detrás de este proyecto, Datenanfragen.de e.&nbsp;V., de la forma más abierta y transparente posible. Por lo tanto, este repositorio contiene documentos importantes con sus historiales de cambios.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/verein">Ver repositorio&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/verein">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/icon-font.svg" alt="postcss-fonticons" style="width: 60%;"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/zner0L/postcss-fonticons">postcss-fonticons</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/zner0L/postcss-fonticons">postcss-fonticons</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             Un complemento PostCSS que le permite crear su fuente de iconos sobre la marcha, incluidos solo los iconos que se utilizan realmente.
@@ -94,20 +94,20 @@ Aquí hay una descripción general de los repositorios importantes que hemos cre
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/zner0L/postcss-fonticons">Ver repositorio&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/zner0L/postcss-fonticons">Ver repositorio&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/speech-bubble.svg" alt="backend"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/backend">backend</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/backend">backend</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             El servidor que define los endpoints para las características dinámicas del sitio web, como comentarios, sugerencias y donaciones.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">Ver repositorio&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/backend">Ver repositorio&nbsp;</a>
 </article>
 
 <a id="contributors"></a>

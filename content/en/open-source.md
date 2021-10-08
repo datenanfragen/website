@@ -20,7 +20,7 @@ Here is an overview of important repositories that we have created—directly or
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/code.svg" alt="website"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/website">website</a>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/website">website</a>
         <br>
         <span class="license">MIT License</span>
         <p class="description">
@@ -29,13 +29,13 @@ Here is an overview of important repositories that we have created—directly or
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/website">View repository&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/website">View repository&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/database.svg" alt="data" style="width: 70%;"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/data">data</a>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/data">data</a>
         <br>
         <span class="license">CC0</span>
         <p class="description">
@@ -44,51 +44,51 @@ Here is an overview of important repositories that we have created—directly or
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/data">View repository&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/data">View repository&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/view.svg" alt="media"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/media">media</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/media">media</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             Our website used for hosting videos, media.datenanfragen.de. This repository includes the source code and scripts used for the site.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/media">View repository&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/media">View repository&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/letter.svg" alt="letter-generator"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/letter-generator">letter-generator</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/letter-generator">letter-generator</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             A tool that allows you to generate letters (plain text or PDF formats) from pre-defined layout templates. This repository includes these layout templates and the scripts needed to render letters from them.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/letter-generator">View repository&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/letter-generator">View repository&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/group.svg" alt="verein"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/verein">verein</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/verein">verein</a><br>
         <p class="description">
             We also want to run the non-profit behind this project, Datenanfragen.de e.&nbsp;V., as openly and transparently as possible. Thus, this repository contains important documents with their change histories.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/verein">View repository&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/verein">View repository&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/icon-font.svg" alt="postcss-fonticons" style="width: 60%;"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/zner0L/postcss-fonticons">postcss-fonticons</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/zner0L/postcss-fonticons">postcss-fonticons</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             A PostCSS plugin that allows you to create your icon font on the fly, including only the icons that are actually used.
@@ -96,20 +96,20 @@ Here is an overview of important repositories that we have created—directly or
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/zner0L/postcss-fonticons">View repository&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/zner0L/postcss-fonticons">View repository&nbsp;</a>
 </article>
 
 <article class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/speech-bubble.svg" alt="backend"></div>
     <div class="padded col75">
-        <a class="no-link-decoration" href="https://github.com/datenanfragen/backend">backend</a><br>
+        <a class="no-link-decoration title-link" href="https://github.com/datenanfragen/backend">backend</a><br>
         <span class="license">MIT License</span>
         <p class="description">
             The server that defines endpoints for dynamic features of the website such as comments, suggestions, and donations.
         </p>
     </div>
     <div class="clearfix"></div>
-    <a class="button button-primary read-more-button" href="https://github.com/datenanfragen/backend">View repository&nbsp;</a>
+    <a class="button button-primary read-more-button button-link" href="https://github.com/datenanfragen/backend">View repository&nbsp;</a>
 </article>
 
 <a id="contributors"></a>
