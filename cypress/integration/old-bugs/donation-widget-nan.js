@@ -5,6 +5,7 @@
 
 describe('Donation widget amount', () => {
     beforeEach(() => {
+        cy.setCookie('country', 'en'); // to make sure that the language-suggestion-modals doesn't interfere
         cy.visit('/donate');
     });
 
