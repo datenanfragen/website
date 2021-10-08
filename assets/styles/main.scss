@@ -773,6 +773,11 @@ body.sticky-offset {
     padding: 25px;
     position: relative;
     padding-bottom: 45px;
+    @include mobile {
+        padding-top: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
     #submit-suggest-form {
         position: absolute;
@@ -784,6 +789,10 @@ body.sticky-offset {
 .brutusin-form {
     @include mobile {
         line-height: 1.3;
+        table:not(.array) {
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
     }
     table.object {
         width: 100%;
@@ -808,6 +817,10 @@ body.sticky-offset {
 
     td {
         padding: 5px;
+        @include mobile {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
         vertical-align: top;
 
         &.prop-name {
