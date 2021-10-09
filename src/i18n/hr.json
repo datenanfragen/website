@@ -434,6 +434,7 @@
         "github-error": "Došlo je do problema s GitHubom tijekom slanja tvog prijedloga. Prijedlog nije zapisan. Pokušaj ponovo.",
         "invalid-request": "Neki unosi nisu u ispravom formatu ili su nepotpuni. Ispravi ih i ponovo pošalji prijedlog.",
         "name-or-web-missing": "Upiši barem ime ili web-stranicu.",
+        "duplicate-company": "Već imamo tvrtke sličnog naziva: {{companies}}",
         "no-input": "Za slanje prijedloga moraš nešto upisati.",
         "error": "Nažalost, slanje tvog doprinosa nije uspjelo. Provjeri vezu s internetom i pazi da ne blokiraš zahtjeve za backend.datenanfragen.de putem dodatka poput uMatrix ili NoScript.",
         "success": "Tvoj je doprinos uspješno poslan. Još jednom hvala! Pregledat ćemo ga što prije moguće."

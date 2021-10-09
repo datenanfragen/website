@@ -34,3 +34,9 @@ export function fetchSvaDataBySlug(slug) {
 export function fetchSvaNameBySlug(slug) {
     return fetchSvaDataBySlug(slug).then((json) => json['name']);
 }
+
+export function tryFetchCompanyDataBySlug(slug) {
+    return fetch(BASE_URL + 'db/' + slug + '.json')
+        .then((res) => res.json())
+        .catch(() => undefined);
+}

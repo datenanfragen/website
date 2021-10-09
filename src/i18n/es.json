@@ -637,6 +637,7 @@
         "github-error": "Hubo un problema con GitHub al enviar su sugerencia y no se registró. Inténtelo de nuevo.",
         "invalid-request": "Algunas de sus entradas no están en el formato correcto o están incompletas. Por favor, corrije y vuelve a enviar su sugerencia.",
         "name-or-web-missing": "Ingresa al menos un nombre o sitio web.",
+        "duplicate-company": "Ya tenemos estas empresas con nombres similares: {{companies}}",
         "no-input": "Debes ingresar algo para enviar una sugerencia.",
         "error": "Desafortunadamente, no se pudo enviar tu contribución. Asegúrate de estar conectado a Internet y de no bloquear las solicitudes de backend.datenanfragen.de a través de un add-on como uMatrix o NoScript.",
         "success": "Tu contribución ha sido enviada con éxito. ¡Gracias otra vez! La revisaremos lo antes posible."

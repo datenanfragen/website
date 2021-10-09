@@ -1,7 +1,7 @@
 import { render } from 'preact';
 import Modal from 'Components/Modal';
 import t from 'Utility/i18n';
-import { fetchCompanyDataBySlug } from './Utility/companies';
+import { fetchCompanyDataBySlug, tryFetchCompanyDataBySlug } from './Utility/companies';
 import { slugify, domainWithoutTldFromUrl, PARAMETERS } from './Utility/common';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 require('brutusin-json-forms');
@@ -132,7 +132,7 @@ function renderForm(schema, company = undefined) {
     );
 }
 
-document.getElementById('submit-suggest-form').onclick = () => {
+document.getElementById('submit-suggest-form').onclick = async () => {
     let data = bf.getData();
     if (!data) {
         flash(<FlashMessage type="warning">{t('no-input', 'suggest')}</FlashMessage>);
@@ -150,6 +150,11 @@ document.getElementById('submit-suggest-form').onclick = () => {
     if (!data.slug) {
         const DOMAIN = domainWithoutTldFromUrl(data.web);
         data.slug = slugify(DOMAIN ? DOMAIN.replace('www.', '') : data.name);
+        const company = await tryFetchCompanyDataBySlug(data.slug);
+        if (company) {
+            flash(<FlashMessage type="warning">{t('duplicate-company', 'suggest', { companies: company.name || company.web })}</FlashMessage>);
+            return;
+        }
     }
     if (!data['relevant-countries']) data['relevant-countries'] = ['all'];
     if (data.phone) data.phone = formatPhoneNumber(data.phone);
