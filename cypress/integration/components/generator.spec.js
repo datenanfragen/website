@@ -25,7 +25,7 @@ describe('Generator component', () => {
 
         cy.get('#download-button', { timeout: 10000 }).click()
         cy.get('#download-button').should('have.attr', 'download').then((filename) => {
-            const file = path.join(Cypress.config('downloadsFolder'), filename)
+            const file = path.join(downloadsFolder, filename)
 
             cy.task('readPdf', file)
                 .then(({ text }) => {
