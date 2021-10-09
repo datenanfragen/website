@@ -65,6 +65,10 @@ a.button-secondary {
 }
 .button-small {
     padding: 5px 8px;
+
+    &.icon:before {
+        margin-right: 8px;
+    }
 }
 
 canvas {

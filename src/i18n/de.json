@@ -567,6 +567,7 @@
     "sva-finder": {
         "sva-finder": "Datenschutz-Aufsichtsbehörden-Finder",
         "reset": "Angaben zurücksetzen",
+        "back": "Zurück",
         "loading-sva": "Lade Angaben zur gewählten Behörde…",
         "result": "Die folgende Datenschutz-Aufsichtsbehörde ist auf Grundlage Deiner Angaben für Dein Anliegen zuständig:",
         "country": "In welchem Land lebst Du?",

@@ -110,6 +110,7 @@ const steps = {
 
 const initial_state = {
     step: steps['country'],
+    prev_state: null,
     question: t('country', 'sva-finder'),
     result: false,
 };
@@ -124,11 +125,12 @@ export default class SvaFinder extends Component {
     selectOption = (option) => {
         const next_step = this.state.step[option];
         if (typeof next_step === 'object') {
-            this.setState({
+            this.setState((prev) => ({
                 step: next_step,
+                prev_state: prev,
                 question: t(option + '-q', 'sva-finder'),
-            });
-        } else this.setState({ result: next_step });
+            }));
+        } else this.setState((prev) => ({ result: next_step, prev_state: prev }));
     };
 
     render() {
@@ -183,9 +185,17 @@ export default class SvaFinder extends Component {
             <div className="sva-finder box box-info" style={this.props.style}>
                 {this.props.callback ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
                 {content}
-                <div style="float: right; margin-top: 20px;">
+                <div style="margin-top: 20px;">
+                    {this.state.prev_state && (
+                        <button
+                            className="button button-secondary button-small icon icon-arrow-left"
+                            onClick={() => this.setState(this.state.prev_state)}>
+                            {t('back', 'sva-finder')}
+                        </button>
+                    )}
                     <button
                         className="button button-secondary button-small"
+                        style="float: right;"
                         onClick={() => this.setState(initial_state)}>
                         {t('reset', 'sva-finder')}
                     </button>

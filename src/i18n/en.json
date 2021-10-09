@@ -567,6 +567,7 @@
     "sva-finder": {
         "sva-finder": "Supervisory authority finder",
         "reset": "Reset choices",
+        "back": "Back",
         "loading-sva": "Loading data on the selected authority…",
         "result": "Based on your answers, the following data protection authority is responsible for your case:",
         "country": "Where do you live?",
