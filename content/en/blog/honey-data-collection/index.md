@@ -230,12 +230,12 @@ Here, we finally find out that page views on shopping sites are tracked. But the
 
 ## Our complaints
 
-We are convinced that this data collection by Honey goes way too far. According to the GPDR, every processing of personal data needs to be based on one of six possible legal bases (see Art. 6(1) GDPR). The data subject needs to be informed of the legal basis that is used at the time of the processing (see Art. 13(1)(c) and (d) GDPR). As Honey hasn't done that, Benni explicitly asked them. That's what they replied:
+We are convinced that this data collection by Honey goes way too far. According to the GDPR, every processing of personal data needs to be based on one of six possible legal bases (see Art. 6(1) GDPR). The data subject needs to be informed of the legal basis that is used at the time of the processing (see Art. 13(1)(c) and (d) GDPR). As Honey hasn't done that, Benni explicitly asked them. That's what they replied:
 
 > "The Honey extension collect pin boards data [sic] to determine which coupons or advertisements should be offered. Simply put, we need to know on which retail website you are to offer you an applicable deal. That's how Honey works. We believe that this represents a legitimate interest for this particular form of processing. Please also note that you have give your consent to the processing when you download and install Honey in your browser."  
 > –<cite>Honey in an email to Benni</cite> (translated from the German original)
 
-From that, we conclude that Honey wants to base the processing on Art. 6(1)(a) or (f) GDPR. They claim a legitimate interest in the processing of this data that outweights the interests and fundamental rights of the data subjects. Further, the claim that the users have given their consent to the processing when installing the add-on. We believe that neither of those provide a sufficient legal basis for the processing that Honey undertakes.
+From that, we conclude that Honey wants to base the processing on Art. 6(1)(a) or (f) GDPR. They claim a legitimate interest in the processing of this data that outweighs the interests and fundamental rights of the data subjects. Further, the claim that the users have given their consent to the processing when installing the add-on. We believe that neither of those provide a sufficient legal basis for the processing that Honey undertakes.
 
 Assuming that a correct consent has even been given[^noconsent], it only applies to the purposes given in the privacy policy. And as we have already discussed, the actual extent of the data collection is definitely not properly explained there.  
 Similarly, a legitimate interest can also at most be given insofar as the processing of the data is actually necessary to run the extension. It is understandable that Honey needs to know the website a user is on to find applicable coupon code. But as we have shown, they collect a lot more data that has nothing to do with this purpose.

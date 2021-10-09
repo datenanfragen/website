@@ -278,7 +278,21 @@
         "kathnrw": "Biskupije sjeverne Rajn-Vestfalije (Aachen, Essen, Köln, Münster (područje sjeverne Rajn-Vestfalije), Paderborn)",
         "kathnd": "Biskupije sjeverne Njemačke (Hamburg, Hildesheim, Osnabrück, Münster (područje donje Saske))",
         "kathmsw": "Biskupije srednje i južnozapadne Njemačke (Freiburg, Fulda, Limburg, Mainz, Stuttgart Rottenburg, Speyer i Trier)",
-        "kathbay": "Biskupije Bavarske (Augsburg, Bamberg, Eichstätt, München & Freising, Passau, Regensburg, Würzburg)"
+        "kathbay": "Biskupije Bavarske (Augsburg, Bamberg, Eichstätt, München & Freising, Passau, Regensburg, Würzburg)",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)",
+        "rundfunk": "Javne radiotelevizijske ustanove",
+        "rundfunk-q": "Na koju se javnu radiotelevizijsku ustanovu odnosi tvoj zahtjev?"
     },
     "wizard_tutorial": {
         "next-request": "<p>I to je sve za ovaj zahtjev!</p><p>Ovisno o mediju prijenosa, ovdje možeš poslati zahtjev kao email ili ga preuzeti kao PDF. Nakon toga, krenimo na sljedeći zahtjev.</p>",
@@ -306,7 +320,11 @@
         "submit": "Pošalji",
         "author": "Autor",
         "comment": "Komentar",
-        "comments": "Komentari"
+        "comments": "Komentari",
+        "average-rating-title": {
+            "singular": "Prosječna ocjena: {{rating}} ({{count}} recenzija)",
+            "plural": "Prosječna ocjena: {{rating}} ({{count}} recenzija)"
+        }
     },
     "signature": {
         "reset-signature": "Poništi potpis",
@@ -477,7 +495,12 @@
         "letter-subject-access": "Zahtjev za pristup osobnim podacima prema čl. 15. GDPR-a",
         "letter-subject-erasure": "Zahtjev za brisanje osobnih podataka prema čl. 17. GDPR-a",
         "letter-subject-admonition": "Opomena: zahtjev prema čl. {{request_article}}. GDPR-a",
-        "letter-subject-complaint": "Žalba prema čl. 77. GDPR-a protiv {{request_recipient}}"
+        "letter-subject-complaint": "Žalba prema čl. 77. GDPR-a protiv {{request_recipient}}",
+        "stay": "Ostani ovdje",
+        "change-lang": "Promijeni jezik",
+        "language-change-modal": "Promjena jezika preusmjerit će te na jednu drugu domenu. Tvoje postavke i spremljeni podaci s ove domene se ne prenose.<br>To znači da stvari poput tvojih postavki privatnosti i spremljenih zahtjeva neće biti dostupne na novom jeziku. Možeš se vratiti na ovaj jezik i ovdje ih pogledati, ali ne možeš dijeliti postavke i spremljene podatke između različitih jezika.",
+        "language": "Jezik",
+        "recommend-language": "Ova je stranica dostupna i na tvom jeziku!"
     },
     "mailto": {
         "copymanually": "Kopiraj tekst ručno",
@@ -826,9 +849,6 @@
     "i18n-widget": {
         "not-supported-cta": "Pomogni nam!",
         "not-supported-prompt": "Tvoj jezik ili zemlja još nisu podržani?",
-        "stay": "Ostani ovdje",
-        "change-lang": "Promijeni jezik",
-        "language-change-modal": "Promjena jezika preusmjerit će te na jednu drugu domenu. Tvoje postavke i spremljeni podaci s ove domene se ne prenose.<br>To znači da stvari poput tvojih postavki privatnosti i spremljenih zahtjeva neće biti dostupne na novom jeziku. Možeš se vratiti na ovaj jezik i ovdje ih pogledati, ali ne možeš dijeliti postavke i spremljene podatke između različitih jezika.",
         "language-pt": "Portugalski",
         "language-es": "Španjolski",
         "language-fr": "Francuski",

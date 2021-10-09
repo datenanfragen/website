@@ -26,7 +26,7 @@ Participating is of course entirely free, we will even pay for shipping.
 
 ## How do I participate?
 
-Our event is independent of the offical Hacktoberfest. If you want to participate, you have to register before November 4, 2020. For the registration, you don't have to provide a shipping address yet. In the interest of data minimization, we will only ask for that after the event, when we are actually shipping the rewards.
+Our event is independent of the official Hacktoberfest. If you want to participate, you have to register before November 4, 2020. For the registration, you don't have to provide a shipping address yet. In the interest of data minimization, we will only ask for that after the event, when we are actually shipping the rewards.
 
 If you want to participate using GitHub, please use this form, so we can match your contributions to you:
 
@@ -88,7 +88,7 @@ If you're new to Datenanfragen.de, you may be a little overwhelmed and don't kno
   Currently, we are still missing this entry for many of the companies, forcing the generator to fallback to the default fields (name, email, and address). But those aren't appropriate for all companies. This is where we need your help: [This GitHub issue](https://github.com/datenanfragen/data/issues/720) explains in detail how you can add the missing data by sending your own GDPR requests to the corresponding companies. As a side effect, you'll also learn something about the data those companies process on you.
 
 * **Writing and translating blog post**  
-  Our {{< link slug="blog" text="blog" >}} has posts on many data protection-releated topics, including explanations of the GPDR rights and how to use them, comments on current events, and guides. We would like to offer even more posts. Please submit new posts to the [website repository](https://github.com/datenanfragen/website).
+  Our {{< link slug="blog" text="blog" >}} has posts on many data protection-releated topics, including explanations of the GDPR rights and how to use them, comments on current events, and guides. We would like to offer even more posts. Please submit new posts to the [website repository](https://github.com/datenanfragen/website).
 
   Another important task is translating those posts into the other languages that we support. The [website repository](https://github.com/datenanfragen/website) is the right place to go for that, as well.
 

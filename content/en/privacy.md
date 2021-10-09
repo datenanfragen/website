@@ -25,7 +25,7 @@ This includes the data we collect and process from our member but also the data 
 
 In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org) and [pedidodedados.org](https://www.pedidodedados.org/).
 
-The association's purpose is to support the general public in excercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our {{< link slug="verein/constitution" text="constitution" >}} in all our activities.
+The association's purpose is to support the general public in exercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our {{< link slug="verein/constitution" text="constitution" >}} in all our activities.
 
 With our website datarequests.org (as well as their translations), we want to help you exercise your right to privacy. In order to do so, we offer a generator that helps you automatically generate requests, a company database with contact data for privacy-related requests to many companies and educational material on subjects related to privacy and data protection. Finally, it has information on the association and allows you to join or donate among other things.
 
@@ -69,7 +69,7 @@ In this section we would like to explain to you exactly under which circumstance
 ### Data we process automatically
 
 #### Server connection data
-When you visit one of our websites, your browser connnects to one or more of our servers. We have configured all our servers not to save log files, but we do need to process some data in memory for a short while to serve your request.
+When you visit one of our websites, your browser connects to one or more of our servers. We have configured all our servers not to save log files, but we do need to process some data in memory for a short while to serve your request.
 
 - Affected data: the specific page you visited, the date and time of your visit, the data your browser sends with the request (the so-called “headers”), including information about your browser and operating system (the so-called “user-agent string”), and your IP address
 - Lawful basis: The brief processing of this data is necessary to offer our websites to you, it is based on Art. 6(1) lit. b GDPR.
@@ -168,7 +168,7 @@ In order to make our servives more interesting and efficient, we work with some 
 We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by {{< link slug="company/coingate" text="UAB “Decentralized”" >}}, A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
 We use CoinGate for crypto currency transactions. We will display a note in the payment form if your payment is made through CoinGate.
 
-If you make a payment through CoinGate, UAB “Decentralized” receives all data incurred in the payment process, especially including: the payment amount, the cryto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
+If you make a payment through CoinGate, UAB “Decentralized” receives all data incurred in the payment process, especially including: the payment amount, the crypto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
 For more details on how CoinGate processes your data, have a look at their [privacy policy](https://coingate.com/privacy).
 
 #### Mollie

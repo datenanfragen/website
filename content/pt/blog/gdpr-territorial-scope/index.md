@@ -24,7 +24,7 @@ O RGPD prima pela harmonização e uniformização dos padrões de proteção de
 
 ## Âmbito de aplicação territorial do RGPD
 
-O âmbito de aplicação territorial do RGPD está regulamentado no artigo 3 do RGPD e tem efeitos territoriais e extraterritoriais. Os estabelecimentos que se encontrem tanto dentro ou fora do território europeu e realizem o tratamento de dados pessoais devem cumprir regras uniformizadas sobre proteção de dados. A regulamentação do escopo geográfico do RGDP se dá da seguinte forma:
+O âmbito de aplicação territorial do RGPD está regulamentado no artigo 3 do RGPD e tem efeitos territoriais e extraterritoriais. Os estabelecimentos que se encontrem tanto dentro ou fora do território europeu e realizem o tratamento de dados pessoais devem cumprir regras uniformizadas sobre proteção de dados. A regulamentação do escopo geográfico do RGPD se dá da seguinte forma:
 
 ### Princípio do estabelecimento (§ 1)
 

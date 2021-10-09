@@ -323,7 +323,11 @@
         "email": "Endereço de e-mail",
         "attn": "À atenção do: Encarregado de Proteção de Dados",
         "by-fax": "Por Fax: ",
-        "concerns": "Questões"
+        "concerns": "Questões",
+        "language-change-modal": "Ao alterar o idioma, você será redirecionado para outro domínio. Suas configurações e dados salvos neste domínio não serão transferidos. <br> Em particular, isso significa que coisas como suas configurações de privacidade e solicitações salvas não estarão disponíveis no novo idioma. Você ainda pode, sempre que quiser, retornar a esse idioma e visualizá-los aqui, mas não poderá compartilhar configurações e dados salvos entre diferentes idiomas.",
+        "change-lang": "Alterar idioma",
+        "stay": "Permanecer aqui",
+        "language": "Idioma"
     },
     "privacy-controls": {
         "title": "Configurações de privacidade",
@@ -482,9 +486,6 @@
         "language-fr": "Francês",
         "language-es": "Espanhol",
         "language-pt": "Português",
-        "language-change-modal": "Ao alterar o idioma, você será redirecionado para outro domínio. Suas configurações e dados salvos neste domínio não serão transferidos. <br> Em particular, isso significa que coisas como suas configurações de privacidade e solicitações salvas não estarão disponíveis no novo idioma. Você ainda pode, sempre que quiser, retornar a esse idioma e visualizá-los aqui, mas não poderá compartilhar configurações e dados salvos entre diferentes idiomas.",
-        "change-lang": "Alterar idioma",
-        "stay": "Permanecer aqui",
         "not-supported-prompt": "Seu idioma ou país ainda não é suportado?",
         "not-supported-cta": "Nos ajude a suportá-lo!"
     },
@@ -554,7 +555,19 @@
         "kathmsw": "Dioceses da Alemanha Central e do Sudoeste (Arquidiocese de Friburgo (Freiburg), Diocese de Fulda, Diocese de Limburgo, Diocese de Mainz, Diocese de Estugarda Rottenburgo (Stuttgart Rottenburg), Diocese de Espira (Speyer) e Tréveris (Trier)",
         "kathnd": "Dioceses do norte da Alemanha (Arquidiocese de Hamburgo, Diocese de Hildesheim, Diocese de Osnabruque (Osnabrück), Diocese de Münster (parte da Baixa Saxônia))",
         "kathod": "Dioceses da Alemanha Oriental (Arquidiocese de Berlim, Diocese de Dresden-Meissen, Diocese de Erfurt, Diocese de Görlitz, Diocese de Magdeburgo)",
-        "kathsonst": "Outras dioceses e solicitações gerais"
+        "kathsonst": "Outras dioceses e solicitações gerais",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
     },
     "donation-widget": {
         "back": "Retornar ao formulário",

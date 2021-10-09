@@ -76,7 +76,7 @@
         "carbone": "^3.2.3",
         "cross-env": "^7.0.2",
         "cssnano": "^4.1.10",
-        "cypress": "8.5.0",
+        "cypress": "^8.5.0",
         "dattel-client": "^0.7.0",
         "deepmerge": "^4.2.1",
         "eslint": "^7.0.0",

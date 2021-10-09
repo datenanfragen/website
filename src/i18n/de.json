@@ -353,7 +353,12 @@
         "email": "E-Mail-Adresse",
         "attn": "Betrifft: Datenschutz",
         "by-fax": "Per Fax: ",
-        "concerns": "Betrifft"
+        "concerns": "Betrifft",
+        "recommend-language": "Diese Seite ist auch in Deiner Sprache verfügbar!",
+        "language-change-modal": "Wenn Du die Sprache wechelst, wirst Du zu einer anderen Domain weitergeleitet. Deine Einstellungen und gespeicherten Daten werden nicht übernommen.<br>Insbesondere bedeutet das, dass z.&nbsp;B. Deine Datenschutzeinstellungen und gespeicherten Anfragen nicht in der neuen Sprache verfügbar sein werden. Du kannst diese natürlich trotzdem jederzeit in dieser Sprache verwenden, aber Einstellungen und Daten können leider nicht zwischen verschiedenen Sprachen geteilt werden.",
+        "change-lang": "Trotzdem wechseln",
+        "stay": "Hier bleiben",
+        "language": "Sprache"
     },
     "privacy-controls": {
         "title": "Datenschutzeinstellungen",
@@ -524,9 +529,6 @@
         "language-es": "Spanisch",
         "language-pt": "Portugiesisch",
         "language-hr": "Kroatisch",
-        "language-change-modal": "Wenn Du die Sprache wechelst, wirst Du zu einer anderen Domain weitergeleitet. Deine Einstellungen und gespeicherten Daten werden nicht übernommen.<br>Insbesondere bedeutet das, dass z.&nbsp;B. Deine Datenschutzeinstellungen und gespeicherten Anfragen nicht in der neuen Sprache verfügbar sein werden. Du kannst diese natürlich trotzdem jederzeit in dieser Sprache verwenden, aber Einstellungen und Daten können leider nicht zwischen verschiedenen Sprachen geteilt werden.",
-        "change-lang": "Trotzdem wechseln",
-        "stay": "Hier bleiben",
         "not-supported-prompt": "Deine Sprache oder Dein Land wird noch nicht unterstützt?",
         "not-supported-cta": "Hilf uns dabei!"
     },
@@ -605,7 +607,21 @@
         "kathmsw": "Mittel- und südwestdeutsche Bistümer (Erzbistum Freiburg, Bistum Fulda, Bistum Limburg, Bistum Mainz, Bistum Stuttgart Rottenburg, Bistum Speyer und Trier)",
         "kathnd": "Norddeutsche Bistümer (Erzbistum Hamburg, Bistum Hildesheim, Bistum Osnabrück, Bistum Münster (niedersächsischer Teil))",
         "kathod": "Ostdeutsche Bistümer (Erzbistum Berlin, Bistum Dresden-Meißen, Bistum Erfurt, Bistum Görlitz, Bistum Magdeburg)",
-        "kathsonst": "Sonstige Bistümer und allgemeine Anfragen"
+        "kathsonst": "Sonstige Bistümer und allgemeine Anfragen",
+        "rundfunk": "Öffentlich-rechtlicher Rundfunk",
+        "rundfunk-q": "Auf welche öffentlich-rechtliche Rundfunkanstalt bezieht sich Dein Anliegen?",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
     },
     "donation-widget": {
         "back": "Zurück zum Formular",

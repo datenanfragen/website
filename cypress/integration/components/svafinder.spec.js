@@ -66,6 +66,11 @@ describe('SvaFinder component', () => {
                 result_name: 'Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)',
                 result_url_regex: /supervisory-authority\/debaylda/,
             },
+            {
+                path: ['Public service broadcasters', 'Deutschlandradio'],
+                result_name: 'Der Rundfunkdatenschutzbeauftragte von BR, SR, WDR, Deutschlandradio und ZDF',
+                result_url_regex: /supervisory-authority\/derf/,
+            },
         ];
 
         const validatePath = (p) => {

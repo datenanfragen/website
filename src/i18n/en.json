@@ -353,7 +353,12 @@
         "email": "Email address",
         "attn": "Attn: Data Protection",
         "by-fax": "By Fax: ",
-        "concerns": "Concerns"
+        "concerns": "Concerns",
+        "recommend-language": "This site is also available in your language!",
+        "language-change-modal": "Changing the language will redirect you to another domain. Your settings and saved data from this domain will not carry over.<br>In particular, this means that things like your privacy settings and saved requests will not be available in the new language. You can still always go back to this language and view them here but you cannot share settings and saved data between different languages.",
+        "change-lang": "Change language",
+        "stay": "Stay here",
+        "language": "Language"
     },
     "privacy-controls": {
         "title": "Privacy controls",
@@ -524,9 +529,6 @@
         "language-es": "Spanish",
         "language-pt": "Portuguese",
         "language-hr": "Croatian",
-        "language-change-modal": "Changing the language will redirect you to another domain. Your settings and saved data from this domain will not carry over.<br>In particular, this means that things like your privacy settings and saved requests will not be available in the new language. You can still always go back to this language and view them here but you cannot share settings and saved data between different languages.",
-        "change-lang": "Change language",
-        "stay": "Stay here",
         "not-supported-prompt": "Your language or country is not supported yet?",
         "not-supported-cta": "Help us support it!"
     },
@@ -605,7 +607,21 @@
         "kathmsw": "Middle and southwestern German dioceses (archdiocese of Freiburg, diocese of Fulda, diocese of Limburg, diocese of Mainz, diocese of Stuttgart Rottenburg, diocese of Speyer and Trier)",
         "kathnd": "Northern German dioceses (archdiocese of Hamburg, diocese of Hildesheim, diocese of Osnabrück, diocese of Münster (lower saxonian part))",
         "kathod": "Eastern German dioceses (archdiocese of Berlin, diocese of Dresden-Meißen, diocese of Erfurt, diocese of Görlitz, diocese of Magdeburg)",
-        "kathsonst": "Other dioceses and general requests"
+        "kathsonst": "Other dioceses and general requests",
+        "rundfunk": "Public service broadcasters",
+        "rundfunk-q": "Which public service broadcaster does your request concern?",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
     },
     "donation-widget": {
         "back": "Back to the form",

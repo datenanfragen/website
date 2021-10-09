@@ -30,7 +30,23 @@ window.onload = () => {
         });
 };
 
+const sortRelevantCountries = (countries) => {
+    countries.items.enum.sort((a, b) => {
+        if (a === 'all') return -1;
+        if (b === 'all') return 1;
+        return t(a, 'countries').localeCompare(t(b, 'countries'));
+    });
+};
+
+const sortCategories = (categories) => {
+    categories.items.enum.sort((a, b) => {
+        return t(a, 'categories').localeCompare(t(b, 'categories'));
+    });
+};
+
 function prepareForm(schema) {
+    sortRelevantCountries(schema.properties['relevant-countries']);
+    sortCategories(schema.properties['categories']);
     if (PARAMETERS['slug']) {
         fetchCompanyDataBySlug(PARAMETERS['slug']).then((company) => {
             renderForm(schema, company);
@@ -52,7 +68,8 @@ function renderForm(schema, company = undefined) {
         'pgp-url',
         'quality',
         'facet-group',
-        'needs-id-document'
+        'needs-id-document',
+        'nsfw',
     ];
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
