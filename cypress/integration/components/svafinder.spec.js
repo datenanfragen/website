@@ -71,6 +71,11 @@ describe('SvaFinder component', () => {
                 result_name: 'Der Rundfunkdatenschutzbeauftragte von BR, SR, WDR, Deutschlandradio und ZDF',
                 result_url_regex: /supervisory-authority\/derf/,
             },
+            {
+                path: ['Public service broadcaster', 'Beitragsservice', 'Rhineland-Palatinate'],
+                result_name: 'Rundfunkbeauftragter für den Datenschutz beim Südwestrundfunk',
+                result_url_regex: /supervisory-authority\/derfswr/,
+            },
         ];
 
         const validatePath = (p) => {

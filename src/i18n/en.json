@@ -622,7 +622,9 @@
         "rundfunk-sr": "Saarländischer Rundfunk (SR)",
         "rundfunk-swr": "Südwestrundfunk (SWR)",
         "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
-        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)"
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)",
+        "rundfunk-beitragsservice": "Beitragsservice (formerly GEZ)",
+        "rundfunk-beitragsservice-q": "In which state do you pay broadcasting license fees?"
     },
     "donation-widget": {
         "back": "Back to the form",
