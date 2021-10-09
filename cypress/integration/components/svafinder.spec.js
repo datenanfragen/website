@@ -27,6 +27,11 @@ describe('SvaFinder component', () => {
                 result_url_regex: /supervisory-authority\/debfdi/,
             },
             {
+                path: ['Statutory health insurance'],
+                result_name: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
+                result_url_regex: /supervisory-authority\/debfdi/,
+            },
+            {
                 path: ['Religious body', 'Catholic church', 'Bavarian dioceses'],
                 result_name: 'Diözesandatenschutzbeauftragter Bayerische Bistümer',
                 result_url_regex: /supervisory-authority\/dekathbayddsb/,
@@ -42,27 +47,27 @@ describe('SvaFinder component', () => {
                 result_url_regex: /supervisory-authority\/deekdbfd/,
             },
             {
-                path: ['Public or private entity', 'Entity is based in Germany', 'Lower Saxony'],
+                path: ['public or private entity', 'Entity is based in Germany', 'Lower Saxony'],
                 result_name: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
                 result_url_regex: /supervisory-authority\/dendslfd/,
             },
             {
-                path: ['Public or private entity', 'Entity is based in Germany', 'Bavaria', 'Private entity'],
+                path: ['public or private entity', 'Entity is based in Germany', 'Bavaria', 'Private entity'],
                 result_name: 'Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)',
                 result_url_regex: /supervisory-authority\/debaylda/,
             },
             {
-                path: ['Public or private entity', 'Entity is based in Germany', 'Bavaria', 'Public entity'],
+                path: ['public or private entity', 'Entity is based in Germany', 'Bavaria', 'Public entity'],
                 result_name: 'Der Bayerische Landesbeauftragte für den Datenschutz',
                 result_url_regex: /supervisory-authority\/debayldb/,
             },
             {
-                path: ['Public or private entity', 'Entity is based in other country', 'Lower Saxony'],
+                path: ['public or private entity', 'Entity is based in other country', 'Lower Saxony'],
                 result_name: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
                 result_url_regex: /supervisory-authority\/dendslfd/,
             },
             {
-                path: ['Public or private entity', 'Entity is based in other country', 'Bavaria'],
+                path: ['public or private entity', 'Entity is based in other country', 'Bavaria'],
                 result_name: 'Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)',
                 result_url_regex: /supervisory-authority\/debaylda/,
             },
@@ -124,7 +129,7 @@ describe('SvaFinder component', () => {
                 cy.get('.sva-finder').contains('Where do you live?');
                 cy.get('.sva-finder').contains('Germany').click();
                 cy.get('.sva-finder').contains('Which of the following areas does your request concern?');
-                cy.get('.sva-finder').contains('Public or private entity').click();
+                cy.get('.sva-finder').contains('public or private entity').click();
                 cy.get('.sva-finder').contains('Is the entity that your request concerns also based in Germany?');
                 cy.get('.sva-finder').contains('Entity is based in other country').click();
                 cy.get('.sva-finder').contains('In which state do you live?');
