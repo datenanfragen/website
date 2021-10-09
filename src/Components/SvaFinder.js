@@ -3,7 +3,7 @@ import t from 'Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 import PropTypes from 'prop-types';
 
-const STEPS = {
+const steps = {
     country: {
         at: 'atdsb',
         be: 'beapd',
@@ -108,8 +108,8 @@ const STEPS = {
     },
 };
 
-const INITIAL_STATE = {
-    step: STEPS['country'],
+const initial_state = {
+    step: steps['country'],
     question: t('country', 'sva-finder'),
     result: false,
 };
@@ -118,7 +118,7 @@ export default class SvaFinder extends Component {
     constructor(props) {
         super(props);
 
-        this.state = INITIAL_STATE;
+        this.state = initial_state;
     }
 
     selectOption = (option) => {
@@ -128,9 +128,7 @@ export default class SvaFinder extends Component {
                 step: next_step,
                 question: t(option + '-q', 'sva-finder'),
             });
-        } else {
-            this.setState({ result: next_step });
-        }
+        } else this.setState({ result: next_step });
     };
 
     render() {
@@ -138,10 +136,7 @@ export default class SvaFinder extends Component {
 
         if (this.state.result) {
             if (typeof this.props.callback === 'function') {
-                fetchSvaDataBySlug(this.state.result).then((sva) => {
-                    this.props.callback(sva);
-                });
-
+                fetchSvaDataBySlug(this.state.result).then((sva) => this.props.callback(sva));
                 return <p>{t('loading-sva', 'sva-finder')}</p>;
             }
 
@@ -149,7 +144,7 @@ export default class SvaFinder extends Component {
                 <p>
                     {t('result', 'sva-finder')}
                     <br />
-                    <a href={BASE_URL + 'supervisory-authority/' + this.state.result}>{SVAS[this.state.result]}</a>
+                    <a href={BASE_URL + 'supervisory-authority/' + this.state.result}>{svas[this.state.result]}</a>
                 </p>
             );
         } else {
@@ -159,22 +154,19 @@ export default class SvaFinder extends Component {
                 return acc;
             }, {});
             const sorted_keys = Object.keys(entries).sort((a, b) => {
-                // So, this is a fairly ugly but we want to move the user's country to the first position and this is the least awful way I can think of, considering we are already sorting the array anyway.
-                if (STEPS.country[globals.country]) {
-                    if (a == globals.country) return -1;
-                    else if (b == globals.country) return 1;
+                // For the countries, move the user's country to the top of the list.
+                if (steps.country[globals.country]) {
+                    if (a === globals.country) return -1;
+                    else if (b === globals.country) return 1;
                 }
+
+                // Otherwise, just sort alphabetically.
                 return entries[a].localeCompare(entries[b]);
             });
 
             const options = sorted_keys.map((key) => (
                 <label className={'radio-label' + (key == globals.country ? ' active' : '')}>
-                    <input
-                        className="form-element"
-                        onClick={() => {
-                            this.selectOption(key);
-                        }}
-                    />
+                    <input className="form-element" onClick={() => this.selectOption(key)} />
                     {entries[key]}
                 </label>
             ));
@@ -194,9 +186,7 @@ export default class SvaFinder extends Component {
                 <div style="float: right; margin-top: 20px;">
                     <button
                         className="button button-secondary button-small"
-                        onClick={() => {
-                            this.setState(INITIAL_STATE);
-                        }}>
+                        onClick={() => this.setState(initial_state)}>
                         {t('reset', 'sva-finder')}
                     </button>
                 </div>
@@ -217,7 +207,7 @@ window.renderSvaFinder = function () {
     });
 };
 
-const SVAS = {
+const svas = {
     atdsb: 'Österreichische Datenschutzbehörde',
     beapd: 'Autorite Protection Donnees de Belgique, Gegevensbeschermingsautoriteit van België',
     bgcpdp: 'Commission for Personal Data Protection Bulgaria',

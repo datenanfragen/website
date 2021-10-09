@@ -67,7 +67,7 @@ describe('SvaFinder component', () => {
                 result_url_regex: /supervisory-authority\/debaylda/,
             },
             {
-                path: ['Public service broadcasters', 'Deutschlandradio'],
+                path: ['Public service broadcaster', 'Deutschlandradio'],
                 result_name: 'Der Rundfunkdatenschutzbeauftragte von BR, SR, WDR, Deutschlandradio und ZDF',
                 result_url_regex: /supervisory-authority\/derf/,
             },
