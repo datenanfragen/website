@@ -8,21 +8,25 @@ describe('Using the suggest form', () => {
         // so lets do it manually
         cy.window().then((win) => {
             win.fetch = async function (x, opt) {
-                if (!win.fetchlog) {
-                    win.fetchlog = [[x, opt]];
+                if (opt && opt.method === 'PUT') {
+                    if (!win.fetchlog) {
+                        win.fetchlog = [[x, opt]];
+                    } else {
+                        win.fetchlog.push([x, opt]);
+                    }
+                    return {
+                        status: 201,
+                        json: async function () {
+                            return {
+                                message: 'Successfully posted issue to GitHub',
+                                number: 42,
+                                url: 'MAGICSTRING',
+                            };
+                        },
+                    };
                 } else {
-                    win.fetchlog.push([x, opt]);
+                    return undefined;
                 }
-                return {
-                    status: 201,
-                    json: async function () {
-                        return {
-                            message: 'Successfully posted issue to GitHub',
-                            number: 42,
-                            url: 'MAGICSTRING',
-                        };
-                    },
-                };
             };
         });
 
