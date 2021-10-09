@@ -1,4 +1,5 @@
 import { isOn, skipOn } from '@cypress/skip-test';
+const path = require('path')
 
 describe('Generator component', () => {
     beforeEach(() => {
@@ -6,6 +7,9 @@ describe('Generator component', () => {
     });
 
     it('has generated a blob URL', () => {
+        const downloadsFolder = Cypress.config('downloadsFolder')
+        cy.task('deleteFolder', downloadsFolder)
+
         cy.get('.request-transport-medium-chooser').contains('Fax').click();
 
         // Now that the PDF worker is only loaded on demand, the default timeout of 4 seconds is cutting it fairly
@@ -14,6 +18,19 @@ describe('Generator component', () => {
             .should('not.have.class', 'disabled')
             .should('have.attr', 'href')
             .and('match', /^blob:https?:\/\/[\S]+?\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
+
+        cy.get('#download-button').click()
+        cy.get('#download-button').should('have.attr', 'download').then((filename) => {
+            const file = path.join(Cypress.config('downloadsFolder'), filename)
+
+            cy.task('readPdf', file)
+                .then(({ text }) => {
+                    expect(text, 'contains').to.include("To Whom It May Concern:")
+                })
+        })
+
+        // Cleanup
+        cy.task('deleteFolder', downloadsFolder)
     });
 
     it('did not load pdfworker for email', () => {
