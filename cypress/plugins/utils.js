@@ -1,17 +1,19 @@
-const { rmdir } = require('fs')
+const { rmdir } = require('fs');
 
 const deleteFolder = (folderName) => {
-    console.log('deleting folder %s', folderName)
+    /* eslint-disable no-console */
+    console.log('deleting folder %s', folderName);
 
     return new Promise((resolve, reject) => {
         rmdir(folderName, { maxRetries: 10, recursive: true }, (err) => {
             if (err) {
-                console.error(err)
-                return reject(err)
+                console.error(err);
+                return reject(err);
             }
-            resolve(null)
-        })
-    })
-}
+            resolve(null);
+        });
+    });
+    /* eslint-disable no-console */
+};
 
-module.exports = { deleteFolder }
+module.exports = { deleteFolder };
