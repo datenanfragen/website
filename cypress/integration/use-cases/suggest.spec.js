@@ -14,9 +14,9 @@ describe('Using the suggest form', () => {
                     message: 'Successfully posted issue to GitHub',
                     number: 42,
                     url: 'MAGICSTRING',
-                }
-            })
-        }).as('suggest-request')
+                },
+            });
+        }).as('suggest-request');
 
         cy.get('#submit-suggest-form').click();
 
@@ -29,6 +29,6 @@ describe('Using the suggest form', () => {
                 .should('have.attr', 'href')
                 .and('match', /MAGICSTRING/);
             cy.contains('You can follow the progress').clickLinkWithoutFollowingHref();
-        })
+        });
     });
 });

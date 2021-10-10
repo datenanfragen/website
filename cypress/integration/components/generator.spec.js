@@ -1,5 +1,5 @@
 import { isOn, skipOn } from '@cypress/skip-test';
-const path = require('path')
+const path = require('path');
 
 describe('Generator component', () => {
     beforeEach(() => {
@@ -18,26 +18,25 @@ describe('Generator component', () => {
     });
 
     it('generated PDF contains text', () => {
-        const downloadsFolder = Cypress.config('downloadsFolder')
-        cy.task('deleteFolder', downloadsFolder)
+        const downloadsFolder = Cypress.config('downloadsFolder');
+        cy.task('deleteFolder', downloadsFolder);
 
         cy.get('.request-transport-medium-chooser').contains('Fax').click();
-        cy.get('#download-button', { timeout: 10000 })
-            .should('not.have.class', 'disabled')
-            .click()
+        cy.get('#download-button', { timeout: 10000 }).should('not.have.class', 'disabled').click();
 
-        cy.get('#download-button').should('have.attr', 'download').then((filename) => {
-            const file = path.join(downloadsFolder, filename)
+        cy.get('#download-button')
+            .should('have.attr', 'download')
+            .then((filename) => {
+                const file = path.join(downloadsFolder, filename);
 
-            cy.task('readPdf', file)
-                .then(({ text }) => {
-                    expect(text, 'contains').to.include("To Whom It May Concern:")
-                })
-        })
+                cy.task('readPdf', file).then(({ text }) => {
+                    expect(text, 'contains').to.include('To Whom It May Concern:');
+                });
+            });
         // Cleanup
-        cy.task('deleteFolder', downloadsFolder)
+        cy.task('deleteFolder', downloadsFolder);
     });
-    
+
     it('did not load pdfworker for email', () => {
         skipOn(isOn('production'));
 
