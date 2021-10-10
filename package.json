@@ -35,7 +35,7 @@
         "merge-conflict-artifact-check": "./scripts/merge-conflict-artifact-check.sh",
         "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint assets/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix",
-        "prettier": "prettier --write src/**/*.{js,css,scss,json}",
+        "prettier": "prettier --write {src,scripts,cypress,assets}/**/*.{js,css,scss,json}",
         "deploy-dattel": "node deploy-dattel.js"
     },
     "bugs": {
