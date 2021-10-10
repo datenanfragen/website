@@ -17,7 +17,7 @@ describe('Generator component', () => {
             .and('match', /^blob:https?:\/\/[\S]+?\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
     });
 
-    it('generated PDF contains text', () => {
+    it('generates a PDF containing text', () => {
         const downloadsFolder = Cypress.config('downloadsFolder');
         cy.task('deleteFolder', downloadsFolder);
 
