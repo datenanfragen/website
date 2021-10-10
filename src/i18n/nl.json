@@ -105,7 +105,7 @@
         "404-alt": "Een persoon die zit op de 0 van een groot 404-bord. Hij of zij houdt een boek vast met een missende pagina.",
         "404-title": "Foutcode 404: Pagina niet gevonden",
         "press-no-releases": "Op dit moment zijn er geen persberichten in het Engels.",
-        "noscript-generator": "De generator draait alleen op jouw computer en is daarom compleet geschreven in JavaScript. De code verstuurt geen data naar een server zonder dat je daar toestemming voor geeft. Als je de generator wil gebruiken, activeer dan JavaScript in je browser of voeg een uitzondering aan je blocker toe. Als het daarna nog steeds niet werkt, stuur ons dan een email via <a href='mailto:dev@datenanfragen.de'> dev@datenanfragen.de </a>.",
+        "noscript-generator": "De generator draait alleen op jouw computer en is daarom compleet geschreven in JavaScript. De code verstuurt geen data naar een server zonder dat je daar toestemming voor geeft. Als je de generator wil gebruiken, schakel dan JavaScript in in je browser of voeg een uitzondering aan je blocker toe. Als het daarna nog steeds niet werkt, stuur ons dan een email via <a href='mailto:dev@datenanfragen.de'> dev@datenanfragen.de </a>.",
         "license": "Licentie",
         "blog-licensed-under": "gelicentieerd onder:",
         "blog-and": " en ",
@@ -419,7 +419,7 @@
         "override-request": "Overschijf huidig verzoek",
         "next-request": "Volgend verzoek",
         "new-request": "Nieuw verzoek",
-        "letter": "Brief",
+        "letter": "brief",
         "email-colon": "E-mail:",
         "email": "E-mail",
         "fax-colon": "Fax:",
@@ -447,7 +447,7 @@
         "add-input": "Invoer toevoegen",
         "input-address": "Adres",
         "input-multi-line": "Tekst (meerdere regels)",
-        "input-single-line": "Tekst (één regel)",
+        "input-single-line": "Text (één regel)",
         "address-colon": "Adres:",
         "address": "Adres",
         "birthdate": "Geboortedatum",
@@ -492,7 +492,8 @@
         "no-template": "Geen sjabloon",
         "wizard-done-modal": "En dat is het al! U hebt de aanvragen voltooid voor alle bedrijven die u in de wizard hebt geselecteerd. Als u wilt, kunt u nu extra (complexere) verzoeken genereren.",
         "error-template-not-found": "De aanvraagsjabloon kan niet worden gevonden.",
-        "copymanually-explanation": "Hier kunt u het onderwerp, de ontvanger en de tekst van uw gegenereerde e-mail handmatig kopiëren."
+        "copymanually-explanation": "Hier kunt u het onderwerp, de ontvanger en de tekst van uw gegenereerde e-mail handmatig kopiëren.",
+        "erase-all": "Wis alle gegevens"
     },
     "my-requests": {
         "more": "meer",
