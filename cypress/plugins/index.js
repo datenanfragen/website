@@ -1,6 +1,6 @@
 const percyHealthCheck = require('@percy/cypress/task');
-const readPDF = require('./readPDF')
-const deleteFolder = require('./utils')
+const readPDF = require('./readPDF');
+const deleteFolder = require('./utils');
 
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
