@@ -4,8 +4,11 @@ describe('Using the suggest form', () => {
         cy.contains('a', 'Company database').click();
         cy.contains('Suggest a new company').click();
 
-        cy.get('tr[data-schema_id="$.name"]').find('.prop-value').type('Test Company LLC');
-        cy.get('tr[data-schema_id="$.address"]').find('.prop-value').type('Test Address 123\nTestcity');
+        const companyName = 'Test Company LLC';
+        const companyAddress = 'Test Address 123\nTestcity';
+
+        cy.get('tr[data-schema_id="$.name"]').find('.prop-value').type(companyName);
+        cy.get('tr[data-schema_id="$.address"]').find('.prop-value').type(companyAddress);
 
         cy.intercept('/suggest', (req) => {
             req.reply({
@@ -20,10 +23,12 @@ describe('Using the suggest form', () => {
 
         cy.get('#submit-suggest-form').click();
 
-        cy.wait('@suggest-request').then((r) => {
-            expect(r.request.body.data.name).to.equal('Test Company LLC');
-            expect(r.request.body.data.address).to.equal('Test Address 123\nTestcity');
-            expect(r.request.body.new).to.be.true;
+        cy.wait('@suggest-request').then((req) => {
+            const body = req.request.body;
+
+            expect(body.data.name).to.equal(companyName);
+            expect(body.data.address).to.equal(companyAddress);
+            expect(body.new).to.be.true;
 
             cy.contains('You can follow the progress')
                 .should('have.attr', 'href')
