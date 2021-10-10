@@ -13,7 +13,7 @@ describe('Feedback for privacy controls', () => {
 
         cy.get(
             '#privacy-controls-buttons .button, #privacy-controls-buttons button, .privacy-control input[type="checkbox"]'
-        ).each($el => {
+        ).each(($el) => {
             // The 'search' privacy control and the 'clear cookies' button don't ask for confirmation—we exclude those.
             if (!['clear-cookies-button', 'search-checkbox'].includes($el.attr('id'))) {
                 cy.wrap($el).click();
