@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-if [ "$NETLIFY" = "false" ];
+if [ "$NETLIFY" = "true" ];
 then
     wget https://git.savannah.gnu.org/cgit/parallel.git/plain/src/parallel
     chmod 755 parallel
@@ -13,7 +13,7 @@ fi
 
 # We don't need Netlify builds on master. This seems to be the easiest way to achieve this.
 # See https://docs.netlify.com/configure-builds/environment-variables/#read-only-variables for the env vars set by Netlify.
-if [ "$NETLIFY" = "true" ];
+if [ "$NETLIFY" = "true" ] && [ "$BRANCH" = "master" ];
 then
     rm -rf public
     mkdir public
