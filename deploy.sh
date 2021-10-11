@@ -12,6 +12,7 @@ then
     exit
 fi
 
+mkdir -p i18n
 languages=(de en fr pt es hr)
 
 echo "Fetching data…"
