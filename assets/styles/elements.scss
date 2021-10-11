@@ -337,11 +337,13 @@ input[type='search'].aa-input-search {
     &.aa-cursor {
         background-color: color('blue', 100);
     }
+    &.aa-cursor mark {
+        background-color: #d3d3d3;
+    }
 
     & mark {
-        background: inherit;
+        background-color: #e0edf8;
         color: inherit;
-        font-style: italic;
     }
 
     a {
