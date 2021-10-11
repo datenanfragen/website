@@ -1,9 +1,11 @@
 {
     "title": "Ámbito territorial del RGPD",
-    "date": "2020-08-04T12:37:15+02:00",
+    "date": "2021-10-11T17:05:12+02:00",
+    "slug": "ambito-territorial-rgpd",
+    "aliases": [ "gdpr-territorial-scope" ],
     "type": "blog",
     "description": "¿Quién tiene derecho a hacer valer los derechos de los interesados del RGPD? ¿Contra quién? Este artículo proporciona una breve descripción del alcance territorial del RGPD.",
-    "featured_image": "gdpr-territorial-scope",
+    "featured_image": "ambito-territorial-rgpd",
     "tags": ["rgpd", "ámbito territorial", "artículo 3 rgpd" ],
     "authors": [ "anikarini", "baltpeter" ],
     "license": "cc-by-40",
@@ -12,7 +14,7 @@
 
 ¿Quién tiene derecho a hacer valer los derechos de los interesados del RGPD? ¿Contra quién? Este artículo proporciona una breve descripción del alcance territorial del RGPD.
 
-{{< featuredImg alt="Territorial scope of the GDPR" >}}
+{{< featuredImg alt="Ámbito territorial del RGPD" >}}
 
 ## ¿Qué es el RGPD?
 
