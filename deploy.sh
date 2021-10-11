@@ -13,7 +13,7 @@ fi
 
 # We don't need Netlify builds on master. This seems to be the easiest way to achieve this.
 # See https://docs.netlify.com/configure-builds/environment-variables/#read-only-variables for the env vars set by Netlify.
-if [ "$NETLIFY" = "true" ] && [ "$BRANCH" = "master" ];
+if [ "$NETLIFY" = "true" ];
 then
     rm -rf public
     mkdir public
