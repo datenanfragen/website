@@ -337,6 +337,9 @@ input[type='search'].aa-input-search {
     &.aa-cursor {
         background-color: color('blue', 100);
     }
+    &.aa-cursor mark {
+        background-color: #d3d3d3;
+    }
     &:hover mark,
     &:focus mark {
         background-color: #d3d3d3;
