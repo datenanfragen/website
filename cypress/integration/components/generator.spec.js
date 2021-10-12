@@ -33,7 +33,7 @@ describe('Generator component', () => {
                 const file = path.join(downloadsFolder, filename);
                 
                 // Check file has downloaded first
-                cy.readFile(filename, { timeout: 10000 })
+                cy.readFile(file, { timeout: 10000 })
                 .should('have.length.gt', 0);
             
                 cy.task('readPdf', file).then(({ text }) => {
