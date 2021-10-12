@@ -36,15 +36,9 @@ export default class SignatureInput extends Component {
 
     handleBlockedCanvasImageDetection() {
         const res = detectBlockedCanvasImageExtraction(this.context);
-        const force_update = this.state.canvasImageExtractionBlocked !== res;
         this.setState({
             canvasImageExtractionBlocked: res,
         });
-
-        // TODO @zner0L: Due to your modifications to `shouldComponentUpdate()`, I need to force an update here. Without
-        // those modifications, the component breaks. Even with the manual update, the button text seems to get lost. I
-        // don't really have any idea why that would be the case.
-        if (force_update) this.forceUpdate();
     }
 
     componentDidMount() {
@@ -59,7 +53,10 @@ export default class SignatureInput extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return nextProps !== this.props;
+        return (
+            nextProps !== this.props ||
+            nextState.canvasImageExtractionBlocked !== this.state.canvasImageExtractionBlocked
+        );
     }
 
     drawSignature(signature) {
@@ -71,18 +68,15 @@ export default class SignatureInput extends Component {
                 const top = (this.canvas.height - img.height) / 2;
                 this.clear();
                 this.context.drawImage(img, left, top);
-                this.setState(
-                    {
-                        isEmpty: false,
-                        cropArea: {
-                            top,
-                            bottom: img.height + top,
-                            left,
-                            right: img.width + left,
-                        },
+                this.setState({
+                    isEmpty: false,
+                    cropArea: {
+                        top,
+                        bottom: img.height + top,
+                        left,
+                        right: img.width + left,
                     },
-                    () => this.handleChange()
-                );
+                });
             };
             img.src = signature.value;
         }
