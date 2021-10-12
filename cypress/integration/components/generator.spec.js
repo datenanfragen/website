@@ -26,6 +26,7 @@ describe('Generator component', () => {
 
         cy.get('#download-button')
             .should('have.attr', 'download')
+            .and('match', /.*.pdf$/)
             .then((filename) => {
                 const file = path.join(downloadsFolder, filename);
 
