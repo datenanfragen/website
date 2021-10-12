@@ -23,13 +23,17 @@ describe('Generator component', () => {
 
         cy.get('.request-transport-medium-chooser').contains('Fax').click();
         cy.get('#download-button', { timeout: 10000 }).click();
-
+        
         cy.get('#download-button')
             .should('have.attr', 'download')
             .and('match', /.*.pdf$/)
             .then((filename) => {
                 const file = path.join(downloadsFolder, filename);
-
+                
+                // Check file has downloaded first
+                cy.readFile(filename, { timeout: 10000 })
+                .should('have.length.gt', 0);
+            
                 cy.task('readPdf', file).then(({ text }) => {
                     expect(text, 'contains').to.include('To Whom It May Concern:');
                 });
