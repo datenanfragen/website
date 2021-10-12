@@ -241,7 +241,7 @@ export class SavedCompanies {
     }
     setUserChanged(value = true) {
         if (value) {
-            Cookie.set(USER_CHANGED_COOKIE, value, { expires: 365 });
+            Cookie.set(USER_CHANGED_COOKIE, value, { expires: 365, secure:true, sameSite:'strict' });
         } else {
             Cookie.remove(USER_CHANGED_COOKIE);
         }
