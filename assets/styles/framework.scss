@@ -172,7 +172,18 @@ h1 {
 }
 h2 {
     font-size: 1.4em;
+    a {
+        display: none;
+    }
+
+    &:hover,
+    &:focus {
+        a {
+            display: initial;
+        }
+    }
 }
+
 .page {
     h1,
     h2,
