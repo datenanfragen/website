@@ -19,7 +19,7 @@ In cases where we think the English translation may be ambiguous, we have refere
 
 **1.3** The financial year corresponds to the calendar year.
 
-**1.4** The association exclusively and directly pursures public benefit purposes as per the section “tax-privileged purposes” of the AO (German fiscal code).
+**1.4** The association exclusively and directly pursues public benefit purposes as per the section “tax-privileged purposes” of the AO (German fiscal code).
 
 ## 2. Purpose
 
