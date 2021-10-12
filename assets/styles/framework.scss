@@ -172,14 +172,23 @@ h1 {
 }
 h2 {
     font-size: 1.4em;
+}
+
+.sub-heading {
+    h2 {
+        display: inline-block;
+        width: fit-content;
+    }
+
     .heading-anchor-link {
         display: none;
+        font-size: 1.4em;
     }
 
     &:hover,
     &:focus {
         .heading-anchor-link {
-            display: initial;
+            display: inline-block;
         }
     }
 }
