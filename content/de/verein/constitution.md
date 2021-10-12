@@ -135,7 +135,7 @@ d) Beschlussfassung über die Änderung der Satzung und über die Auflösung des
 
 **12.4** Jede ordnungsgemäß einberufene Mitgliederversammlung ist bei Erscheinen mindestens zweier Mitglieder beschlussfähig.
 
-**12.5** Die Mitgliederversammlung fasst Beschlüsse im Allgemeinen mit einfacher Mehrheit der abgegebenen gültigen Stimmen (einschließlich Enthaltungen). Zur Änderung der Satzung (einschließlich des Vereinszweckes) ist jedoch eine Mehrheit von drei Vierteln der abgebebenen gültigen Stimmen, zur Auflösung des Vereins eine solche von vier Fünfteln erforderlich.
+**12.5** Die Mitgliederversammlung fasst Beschlüsse im Allgemeinen mit einfacher Mehrheit der abgebebenen gültigen Stimmen (einschließlich Enthaltungen). Zur Änderung der Satzung (einschließlich des Vereinszweckes) ist jedoch eine Mehrheit von drei Vierteln der abgegebenen gültigen Stimmen, zur Auflösung des Vereins eine solche von vier Fünfteln erforderlich.
 
 **12.6** Über die Beschlüsse der Mitgliederversammlung ist ein Protokoll aufzunehmen, das von dem_der jeweiligen Versammlungsleiter_in und dem_der Protokollführer_in zu unterzeichnen ist. Es soll folgende Feststellungen enthalten: Datum und Zeit der Versammlung, die Person des_der Versammlungsleiters_rin und des_der Protokollführers_rin, die Zahl der erschienenen Mitglieder, die Tagesordnung, die einzelnen Abstimmungsergebnisse und die Art der Abstimmung. Bei Satzungsänderungen ist die zu ändernde Bestimmung anzugeben. Das Protokoll ist den Mitgliedern zugänglich zu machen.
 
