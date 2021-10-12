@@ -123,7 +123,7 @@ d) Beschlussfassung über die Änderung der Satzung und über die Auflösung des
 
 ## 11. Die Einberufung der Mitgliederversammlung
 
-**11.1** Mindestens einmal im Jahr soll die ordentliche Mitgliederversammlung stattfinden. Sie wird vom Vorstand unter Einbehaltung einer Frist von zwei Wochen durch die schriftliche Benachrichtigung unter Angabe der Tagesordnung einberufen. Die Frist beginnt mit dem auf die Absendung der Einladung folgenden Werktag. Die Einladung erfolgt schriftlich auf dem Postweg oder auf elektronischem Wege. Das Einladungsschreiben gilt dem Mitglied als zugegangen, wenn es an den letzten vom Mitglied dem Verein schriftlich bekannt gegegebenen Kontakt gerichtet ist. Die Tagesordnung setzt der Vorstand fest.
+**11.1** Mindestens einmal im Jahr soll die ordentliche Mitgliederversammlung stattfinden. Sie wird vom Vorstand unter Einbehaltung einer Frist von zwei Wochen durch die schriftliche Benachrichtigung unter Angabe der Tagesordnung einberufen. Die Frist beginnt mit dem auf die Absendung der Einladung folgenden Werktag. Die Einladung erfolgt schriftlich auf dem Postweg oder auf elektronischem Wege. Das Einladungsschreiben gilt dem Mitglied als zugegangen, wenn es an den letzten vom Mitglied dem Verein schriftlich bekannt gegebenen Kontakt gerichtet ist. Die Tagesordnung setzt der Vorstand fest.
 
 ## 12. Die Beschlussfassung der Mitgliederversammlung
 
@@ -135,7 +135,7 @@ d) Beschlussfassung über die Änderung der Satzung und über die Auflösung des
 
 **12.4** Jede ordnungsgemäß einberufene Mitgliederversammlung ist bei Erscheinen mindestens zweier Mitglieder beschlussfähig.
 
-**12.5** Die Mitgliederversammlung fasst Beschlüsse im Allgemeinen mit einfacher Mehrheit der abgebebenen gültigen Stimmen (einschließlich Enthaltungen). Zur Änderung der Satzung (einschließlich des Vereinszweckes) ist jedoch eine Mehrheit von drei Vierteln der abgegebenen gültigen Stimmen, zur Auflösung des Vereins eine solche von vier Fünfteln erforderlich.
+**12.5** Die Mitgliederversammlung fasst Beschlüsse im Allgemeinen mit einfacher Mehrheit der abgegebenen gültigen Stimmen (einschließlich Enthaltungen). Zur Änderung der Satzung (einschließlich des Vereinszweckes) ist jedoch eine Mehrheit von drei Vierteln der abgegebenen gültigen Stimmen, zur Auflösung des Vereins eine solche von vier Fünfteln erforderlich.
 
 **12.6** Über die Beschlüsse der Mitgliederversammlung ist ein Protokoll aufzunehmen, das von dem_der jeweiligen Versammlungsleiter_in und dem_der Protokollführer_in zu unterzeichnen ist. Es soll folgende Feststellungen enthalten: Datum und Zeit der Versammlung, die Person des_der Versammlungsleiters_rin und des_der Protokollführers_rin, die Zahl der erschienenen Mitglieder, die Tagesordnung, die einzelnen Abstimmungsergebnisse und die Art der Abstimmung. Bei Satzungsänderungen ist die zu ändernde Bestimmung anzugeben. Das Protokoll ist den Mitgliedern zugänglich zu machen.
 

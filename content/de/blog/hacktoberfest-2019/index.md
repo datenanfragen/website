@@ -12,7 +12,7 @@ Auch in diesem Jahr richtet der Hosting-Anbieter DigitalOcean wieder das [Hackto
 
 {{< featuredImg alt="Hacktoberfest 2019 + Datenanfragen.de e. V." >}}
 
-Nebem diesem offiziellen Ereignis nutzen jedes Jahr auch zahlreiche weitere Unternehmen und Organisationen die Gelegenheit, sich am Hacktoberfest zu beteiligen und zusätzlich weitere Belohnungen für bestimmte Beiträge anzubieten.  
+Neben diesem offiziellen Ereignis nutzen jedes Jahr auch zahlreiche weitere Unternehmen und Organisationen die Gelegenheit, sich am Hacktoberfest zu beteiligen und zusätzlich weitere Belohnungen für bestimmte Beiträge anzubieten.  
 Wir bei Datenanfragen.de {{< link slug="/open-source" text="lieben Open Source" >}}, unser Projekt ist von Grund auf konzipiert, so offen wie möglich zu sein. Daher freut es uns umso mehr zu verkünden, dass Datenanfragen.de dieses Jahr beim Hacktoberfest mitmacht! Wir belohnen Beiträge zum Projekt, die während des Oktobers 2019 als Pull Request über [GitHub](https://github.com/) eingereicht wurden, mit einem exklusiven Sticker-Set.
 
 ## Was gibt es für Belohnungen?

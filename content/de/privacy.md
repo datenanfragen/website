@@ -83,7 +83,7 @@ Wenn Du eine unserer Webseiten aufrufst, baut Dein Browser eine Verbindung zu ei
 In unserer Unternehmensdatenbank veröffentlichen wir die Datenschutzkontaktdaten von Unternehmen und anderen Organisationen. In aller Regel handelt es sich dabei _nicht_ um personenbezogene Daten. In seltenen Fällen ist hierfür aber die Verarbeitung personenbezogener Daten nötig, etwa bei Namen natürlicher Personen in Unternehmensnamen oder E-Mail-Adressen.  
 Betroffenen Personen dieser Verarbeitung gewähren wir freiwillig ein [erweitertes Widerspruchsrecht](#widerspruchsrecht).
 
-- Betroffene Daten: ggf. Name, ggf. E-Mail-Adresse, ggf. Telefonnummer, ggf. Faxnnummer, ggf. Adresse, ggf. PGP-Key
+- Betroffene Daten: ggf. Name, ggf. E-Mail-Adresse, ggf. Telefonnummer, ggf. Faxnummer, ggf. Adresse, ggf. PGP-Key
 - Rechtsgrundlage: Die Grundlage der Speicherung ist unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO, als gemeinnütziger Verein im Bereich des Datenschutzes unsere Nutzer_innen bei der Ausübung ihres Grundrechts auf Datenschutz zu unterstützen.
 - Herkunft der Daten: Die Daten werden ausschließlich aus öffentlich zugänglichen Quellen übernommen, die jeweils auf der entsprechenden Unterseite in unserer Unternehmensdatenbank angegeben sind.
 - Dauer der Speicherung: unbeschränkt
@@ -103,7 +103,7 @@ Wenn Du Inhalte auf unseren Webseiten veröffentlichst (z.&nbsp;B. in Form von K
 Wenn Du uns eine Fehlermeldung schickst, enthält diese u.&nbsp;U. personenbezogene Daten. Die Bereitstellung dieser Daten ist vollkommen freiwillig für Dich. Es ergeben sich keinerlei Konsequenzen aus einer Nichtbereitstellung.
 
 - Betroffene Daten: Informationen zum aufgetretenen Fehler, Informationen zu Deinem Browser und Betriebssystem (der sogenannte „User-Agent-String“), die vollständige URL der Unterseite, auf der Du Dich beim Auftreten des Fehlers befunden hast und evtl. Daten, die Du auf der entsprechenden Unterseite angegeben hast  
-Vor dem Absenden der Fehlermeldung werden Dir sämliche betroffenen Daten angezeigt und Du hast die Möglichkeit, diese anzupassen und zu entfernen.
+Vor dem Absenden der Fehlermeldung werden Dir sämtliche betroffenen Daten angezeigt und Du hast die Möglichkeit, diese anzupassen und zu entfernen.
 - Rechtsgrundlage: Die Grundlage der Speicherung ist unser rechtmäßiges Interesse, die Stabilität und Funktionalität unserer Webseite zu verbessern im Sinne des Art. 6 Abs. 1 lit. f DSGVO.
 - Dauer der Speicherung: unbeschränkt
 - Weitergabe der Daten: Der Inhalt von Fehlermeldungen ist ggf. über unseren [Issue-Tracker auf GitHub](https://github.com/datenanfragen/website/issues) öffentlich einsehbar.  
