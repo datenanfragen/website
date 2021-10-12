@@ -15,7 +15,7 @@ window.PARAMETERS = PARAMETERS;
 
 Object.defineProperty(globals, 'country', {
     set: function (country) {
-        Cookie.set('country', country, { expires: 365 });
+        Cookie.set('country', country, { expires: 365, secure: true, sameSite: 'strict' });
         this._country_listeners.forEach(function (listener) {
             listener(country);
         });
