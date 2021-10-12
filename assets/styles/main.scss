@@ -789,9 +789,14 @@ body.sticky-offset {
 .brutusin-form {
     @include mobile {
         line-height: 1.3;
-        table:not(.array) {
+        table {
             border-collapse: separate;
-            border-spacing: 0 15px;
+            &:not(.array) {
+                border-spacing: 0 15px;
+            }
+            &.array {
+                border-spacing: 0 5px;
+            }
         }
     }
     table.object {
@@ -838,6 +843,12 @@ body.sticky-offset {
         &.prop-name {
             @include mobile {
                 display: block;
+            }
+        }
+
+        .item-value {
+            table {
+                border-spacing: 0 0;
             }
         }
     }
