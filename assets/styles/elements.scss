@@ -200,6 +200,18 @@ input:disabled {
     padding: 10px;
 }
 
+.comment {
+    @include mobile {
+        div {
+            left: 10px;
+            top: inherit !important;
+            margin-top: 0 !important;
+        }
+        p {
+            margin-top: 6vh;
+        }
+    }
+}
 .select-container {
     position: relative;
     width: 200px;
