@@ -172,13 +172,13 @@ h1 {
 }
 h2 {
     font-size: 1.4em;
-    a {
+    .heading-anchor-link {
         display: none;
     }
 
     &:hover,
     &:focus {
-        a {
+        .heading-anchor-link {
             display: initial;
         }
     }
