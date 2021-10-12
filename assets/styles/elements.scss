@@ -341,6 +341,7 @@ input[type='search'].aa-input-search {
     box-sizing: border-box;
 }
 .aa-suggestion {
+    position: relative;
     padding: 12px;
     cursor: pointer;
     & + .aa-suggestion {
@@ -370,6 +371,15 @@ input[type='search'].aa-input-search {
         height: 100%;
         color: $text-color;
         display: inline-block;
+
+        &.anchor-overlay {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
     }
 }
 
