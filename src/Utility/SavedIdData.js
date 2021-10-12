@@ -209,7 +209,7 @@ export default class SavedIdData {
     }
 
     static setAlwaysFill(value) {
-        Cookie.set('general-always_fill_in', value, { expires: 365, secure:true, sameSite:'strict' });
+        Cookie.set('general-always_fill_in', value, { expires: 365, secure: true, sameSite: 'strict' });
     }
 
     static shouldAlwaysFill() {
