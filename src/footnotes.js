@@ -8,17 +8,18 @@ console.log(
     `background: powderblue; font-weight: bold; font-size: 20px;`
 );
 
+//Since the text content is taken from the bottom footnotes, it contains an arrow at the end that needs to be removed
+// when the content is displayed within the embedded footnote.
+const sanitizeContent = (content) => content.substring(0, content.length - 3).trimEnd();
+
 const getFootnoteProps = (footnotes) => {
     return footnotes.map((footnote, index) => {
         //Grab the text content of the footnote descriptions that are rendered at the bottom of the page
-        //FIXME: Trim out the arrow at the end of the content string
         const textContent = document.getElementById(`fn:${index + 1}`).textContent;
-        console.log('Individual: ', footnote);
-        console.log('textContent: ', textContent);
         return {
             id: footnote.id,
             index: index + 1,
-            content: textContent,
+            content: sanitizeContent(textContent),
         };
     });
 };
