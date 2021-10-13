@@ -22,9 +22,7 @@ describe('Generator component', () => {
         cy.task('deleteFolder', downloadsFolder);
 
         cy.get('.request-transport-medium-chooser').contains('Fax').click();
-        cy.get('#download-button', { timeout: 10000 })
-            .should('not.have.class', 'disabled')
-            .click();
+        cy.get('#download-button', { timeout: 10000 }).click();
         
         cy.get('#download-button')
             .should('have.attr', 'download')
