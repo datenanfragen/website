@@ -69,6 +69,10 @@
 <script src="{{ "js/home.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
+{{ if eq .Type "blog" }}
+<script src="{{ "js/footnotes.bundle.gen.js" | absURL }}"></script>
+{{ end }}
+
 {{/* TODO: Do this in the js build via hugo pipes */}}
 {{ if eq .Type "donate" }}
 {{ $loader := resources.Get "styles/loader.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}

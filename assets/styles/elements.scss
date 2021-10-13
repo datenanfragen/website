@@ -715,3 +715,28 @@ fieldset.rating {
     top: 2px;
     left: 2px;
 }
+
+/*Footnotes adapted after https://news.ycombinator.com/item?id=24747376*/
+details.footnote {
+    display: inline;
+    position: relative;
+
+    & > summary {
+        list-style: none; /* hide details arrow */
+        color: #00826c;
+        cursor: pointer;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    & > .footnote-content {
+        position: absolute;
+        background: color('white');
+        border: 1px solid color('gray', 400);
+        padding: 1em;
+        min-width: 40ch;
+        right: 0;
+    }
+}

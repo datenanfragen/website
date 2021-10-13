@@ -16,6 +16,7 @@ module.exports = {
         'act-widget': './src/Components/ActWidget.js',
         'donation-widget': './src/Components/DonationWidget.js',
         'test-interface': './src/test-interface.js',
+        footnotes: './src/footnotes.js',
         // We need to define a dummy entrypoint that requires all our translation files, otherwise Webpack will not
         // process them.
         'translations-dummy': [
