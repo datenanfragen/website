@@ -355,11 +355,11 @@ input[type='search'].aa-input-search {
         background-color: color('blue', 100);
     }
     &.aa-cursor mark {
-        background-color: #d3d3d3;
+        background-color: color('gray', 400);
     }
 
     & mark {
-        background-color: #e0edf8;
+        background-color: color('blue', 100);
         color: inherit;
     }
 
