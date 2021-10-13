@@ -77,7 +77,7 @@ jobs:
               yarn lint
               yarn add wait-on pa11y-ci
               yarn cypress verify
-              mkdir -p /tmp/pa11y
+              mkdir -p /tmp/pa11y-ci
               hugo server --baseURL "http://localhost" --disableFastRender --minify > /dev/null &
               # Wait for server to deploy before continuing (with 1 minute timeout)
               yarn wait-on tcp:1314 -t 60000
