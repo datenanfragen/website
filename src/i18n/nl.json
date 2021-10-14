@@ -493,7 +493,7 @@
         "wizard-done-modal": "En dat is het al! U hebt de aanvragen voltooid voor alle bedrijven die u in de wizard hebt geselecteerd. Als u wilt, kunt u nu extra (complexere) verzoeken genereren.",
         "error-template-not-found": "De aanvraagsjabloon kan niet worden gevonden.",
         "copymanually-explanation": "Hier kunt u het onderwerp, de ontvanger en de tekst van uw gegenereerde e-mail handmatig kopiëren.",
-        "erase-all": "Wis alle gegevens"
+        "erase-all": "Verwijder alle data"
     },
     "my-requests": {
         "more": "meer",
