@@ -524,7 +524,8 @@
         "explanation": "Hier is een lijst van alle verzoeken die je tot dusver hebt gegenereerd met deze browser. Dit kan bijvoorbeeld handig zijn om te controleren of een bedrijf antwoordt binnen het tijdsbestek dat je hebt opgegeven.",
         "title": "Mijn verzoeken",
         "ics-summary": "Openstaande verzoeken",
-        "ics-desc": "U heeft AVG-verzoeken naar onderstaande bedrijven gestuurd via\n datarequests.org. De termijn voor die verzoeken is inmiddels verstreken. Als u\n nog op een of meer van die verzoeken geen antwoord hebt gekregen, kunt u\n nu waarschuwingen sturen:\n https://www.datarequests.org/my-requests"
+        "ics-desc": "U heeft AVG-verzoeken naar onderstaande bedrijven gestuurd via\n datarequests.org. De termijn voor die verzoeken is inmiddels verstreken. Als u\n nog op een of meer van die verzoeken geen antwoord hebt gekregen, kunt u\n nu waarschuwingen sturen:\n https://www.datarequests.org/my-requests",
+        "custom": "zelfgemaakt"
     },
     "cdb": {
         "suggest-new": "Opper een nieuw bedrijf",
@@ -595,13 +596,15 @@
         "confirm-clear-requests": "Verzoeken verwijderen",
         "cancel": "Annuleer",
         "confirm-delete-my-requests": "U heeft de \"mijn verzoeken\" functie uitgeschakeld. Wilt u ook alle opgeslagen verzoeken verwijderen?",
-        "confirm-clear-save_wizard_entries": "Verwijder opgeslagen bedrijven"
+        "confirm-clear-save_wizard_entries": "Verwijder opgeslagen bedrijven",
+        "explanation": "<p>We hechten veel waarde aan uw recht op privacy en proberen het verzamelen en verwerken van gegevens zoveel mogelijk te beperken. De meeste functies op datarequests.org worden rechtstreeks op uw computer uitgevoerd waardoor de gegevens die u invoert onze servers nooit bereiken. Er zijn echter enkele functies die we niet kunnen aanbieden zonder wat gegevens te verzamelen (de meeste instellingen, zelfs op deze pagina, vereisen dat echter <strong>niet</strong>).<br>Hier heeft u de mogelijkheid om zelf te beslissen welke functies u wilt inschakelen.</p><p>Wanneer u een van de onderstaande opties instelt, wordt uw keuze opgeslagen in een cookie. Als we geen cookie voor een optie vinden, gebruiken we een standaardwaarde die we hebben gekozen.</p>",
+        "search-description": "Onze bedrijfsdatabase bevat privacy-gerelateerde contactgegevens van veel bedrijven, wat het verzenden van verzoeken aan hen een stuk eenvoudiger maakt. Om de bedrijven te vinden die u zoekt, kunt u onze zoekmachine gebruiken. <br>Om dat te laten werken, moeten we de zoektermen die u invoert naar een van onze servers sturen. We houden echter geen logs bij van dergelijke verzoeken."
     },
     "schema": {
         "quality": "Kwaliteit",
         "relevant-countries": "Relevante landen",
         "sources": "Bronnen",
-        "pgp-fingerprint": "PGP-vingerafdruk",
+        "pgp-fingerprint": "PGP-sleutel vingerafdruk",
         "website": "Website",
         "suggested-transport-medium": "Voorgesteld transportmedium",
         "runs": "Beheert ook",
@@ -609,9 +612,9 @@
         "address": "Adres",
         "phone": "Telefoonnummer",
         "fax": "Fax",
-        "pgp-url": "URL van PGP-key",
+        "pgp-url": "URL van PGP-sleutel",
         "required-elements": "Vereiste elementen",
-        "needs-id-document": "Identiteitsbewijs nodig voor aanvraag?",
+        "needs-id-document": "Identiteitsbewijs nodig voor aanvragen?",
         "required-id-document-elements": "Vereiste elementen op het identiteitsbewijs",
         "comments": "Reacties",
         "add-item": "Element toevoegen",
