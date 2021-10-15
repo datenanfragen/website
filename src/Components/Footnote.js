@@ -6,13 +6,13 @@ const Footnote = (props) => {
             <summary>
                 <sup>{props.index}</sup>
             </summary>
-            <div className="footnote-content">{props.content}</div>
+            <div className="footnote-content">{props.children}</div>
         </details>
     );
 };
 
 Footnote.propTypes = {
-    content: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
 };

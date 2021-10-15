@@ -18,7 +18,9 @@ window.onload = () => {
         const textContent = document.getElementById(`fn:${index + 1}`).textContent;
 
         render(
-            <Footnote index={index + 1} id={hugoFootnote.id} content={sanitizeContent(textContent)} />,
+            <Footnote index={index + 1} id={hugoFootnote.id}>
+                {sanitizeContent(textContent)}
+            </Footnote>,
             hugoFootnote.parentElement,
             hugoFootnote
         );
