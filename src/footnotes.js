@@ -6,15 +6,11 @@ import Footnote from 'Components/Footnote';
 const sanitizeContent = (content) => content.substring(0, content.length - 3).trimEnd();
 
 window.onload = () => {
-    //Grab all the hugo footnote references within the DOM. By default, Hugo assigns an
-    // ID of `fnref:<index>` where the index corresponds to the sequential order of the footnote.
     const hugoFootnotes = Array.from(document.querySelectorAll("[id^='fnref']"));
 
-    //No footnotes found, so exit the program
     if (hugoFootnotes.length === 0) return;
 
     hugoFootnotes.forEach((hugoFootnote, index) => {
-        //Grab the text content of the footnote descriptions that are rendered at the bottom of the page
         const textContent = document.getElementById(`fn:${index + 1}`).textContent;
 
         render(
@@ -25,7 +21,7 @@ window.onload = () => {
             hugoFootnote
         );
 
-        //Manually remove the hugo rendered footnote since Preact doesn't do it as part of the render() method
+        // Manually remove the Hugo rendered footnote since Preact doesn't do it as part of the render() method.
         hugoFootnote.remove();
     });
 };
