@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 const Footnote = (props) => {
     return (
         <details className="footnote" id={props.id}>
-            <summary>[{props.index}]</summary>
+            <summary>
+                <sup>{props.index}</sup>
+            </summary>
             <div className="footnote-content">{props.content}</div>
         </details>
     );

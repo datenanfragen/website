@@ -716,7 +716,7 @@ fieldset.rating {
     left: 2px;
 }
 
-/*Footnotes adapted after https://news.ycombinator.com/item?id=24747376*/
+/* Footnotes, adapted after: https://news.ycombinator.com/item?id=24747376 */
 details.footnote {
     display: inline;
     position: relative;
@@ -725,6 +725,7 @@ details.footnote {
         list-style: none; /* hide details arrow */
         color: #00826c;
         cursor: pointer;
+        text-decoration: underline;
 
         &::-webkit-details-marker {
             display: none;
