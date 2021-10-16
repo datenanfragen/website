@@ -94,55 +94,46 @@ export default class DynamicInput extends Component {
                 <div
                     className={'dynamic-input dynamic-input-' + this.props.type}
                     id={'dynamic-input-' + this.props.id + '-' + this.props.suffix}>
-                    <div className="col40">
-                        <div className="form-group" style="width: 100%; display: table;">
-                            {this.props.allowRemoving ? (
-                                <div style="display: table-cell; width: 27px;">
-                                    <button
-                                        id={this.props.id + '-delete-' + this.props.suffix}
-                                        rel={this.props.id}
-                                        className="dynamic-input-delete button button-secondary button-small icon-trash"
-                                        onClick={this.props.removeHandler}
-                                        title={t('delete-field', 'generator')}
-                                    />
-                                </div>
-                            ) : (
-                                []
-                            )}
-                            <div style="display: table-cell;">
-                                {this.props.allowChangingDescription ? (
-                                    [
-                                        <label
-                                            htmlFor={this.props.id + '-desc-' + this.props.suffix}
-                                            className="sr-only">
-                                            <Text id="description" />
-                                        </label>,
-                                        <input
-                                            key={this.props.id + this.props.suffix}
-                                            name="desc"
-                                            type="text"
-                                            id={this.props.id + '-desc-' + this.props.suffix}
-                                            rel={this.props.id}
-                                            className="form-element"
-                                            value={this.props.desc}
-                                            placeholder={t('description', 'generator')}
-                                            style="margin-left: 5px;"
-                                            required={!this.props.optional}
-                                            onChange={this.props.onChange}
-                                            onFocus={(e) => {
-                                                this.setState({ focus: true });
-                                            }}
-                                            onBlur={(e) => {
-                                                this.setState({ focus: false });
-                                            }}
-                                        />,
-                                    ]
-                                ) : (
-                                    <label htmlFor={this.props.id + '-value-' + this.props.suffix}>
-                                        {this.props.desc}
-                                    </label>
-                                )}
+                    <div className="col40 form-group">
+                        {this.props.allowRemoving ? (
+                            <div style="display: table-cell; width: 27px;">
+                                <button
+                                    id={this.props.id + '-delete-' + this.props.suffix}
+                                    rel={this.props.id}
+                                    className="dynamic-input-delete button button-secondary button-small icon-trash"
+                                    onClick={this.props.removeHandler}
+                                    title={t('delete-field', 'generator')}
+                                />
                             </div>
+                        ) : (
+                            []
+                        )}
+                        <div style="display: table-cell;">
+                            {this.props.allowChangingDescription ? (
+                                [
+                                    <input
+                                        key={this.props.id + this.props.suffix}
+                                        name="desc"
+                                        type="text"
+                                        id={this.props.id + '-desc-' + this.props.suffix}
+                                        rel={this.props.id}
+                                        className="form-element"
+                                        value={this.props.desc}
+                                        placeholder={t('description', 'generator')}
+                                        style="margin-left: 5px;"
+                                        required={!this.props.optional}
+                                        onChange={this.props.onChange}
+                                        onFocus={(e) => {
+                                            this.setState({ focus: true });
+                                        }}
+                                        onBlur={(e) => {
+                                            this.setState({ focus: false });
+                                        }}
+                                    />,
+                                ]
+                            ) : (
+                                <label htmlFor={this.props.id + '-value-' + this.props.suffix}>{this.props.desc}</label>
+                            )}
                         </div>
                         {control}
                     </div>
