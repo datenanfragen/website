@@ -1,4 +1,4 @@
-import { render } from 'preact';
+import { render, Component } from 'preact';
 import Modal from 'Components/Modal';
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
@@ -8,6 +8,7 @@ require('brutusin-json-forms');
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
 import FlashMessage, { flash } from 'Components/FlashMessage';
+import * as Typesense from 'typesense';
 let bf;
 let schema;
 const SUBMIT_URL =
@@ -146,6 +147,79 @@ function renderForm(schema, company = undefined) {
         document.getElementById('suggest-form'),
         company || (PARAMETERS['name'] ? { name: PARAMETERS['name'] } : {})
     );
+    suggestSimilarNamedCompanies();
+}
+
+function suggestSimilarNamedCompanies() {
+    const nameCell = document.querySelector('tr[data-schema_id="$.name"] > td.prop-value');
+
+    // create dummy container as Preact.render() does not guarantee order if parent already contains non-Preact components/elements
+    const container = document.createElement('div');
+    nameCell.appendChild(container);
+
+    const SimilarList = class SimilarList extends Component {
+        constructor() {
+            super();
+            this.state = {
+                name: '',
+                similarMatches: [],
+            };
+
+            const typesenseClient = new Typesense.Client({
+                masterNode: {
+                    host: 'search.datenanfragen.de',
+                    port: '443',
+                    protocol: 'https',
+                    apiKey: '',
+                },
+                timeoutSeconds: 2,
+            });
+            const typesenseOptions = {
+                query_by: 'name',
+                sort_by: '_text_match:desc,sort-index:asc',
+                num_typos: 4,
+                per_page: 5,
+            };
+
+            nameCell.querySelector('input').oninput = event => {
+                const name = event.target.value;
+                this.setState({ name });
+                if (name) {
+                    typesenseOptions['q'] = name;
+                    typesenseClient
+                        .collections('companies')
+                        .documents()
+                        .search(typesenseOptions)
+                        .then((res) => {
+                            this.setState({ similarMatches: res.hits.map(hit => hit.document) });
+                        })
+                        .catch((e) => {
+                            e.no_side_effects = true;
+                            rethrow(e);
+                        });
+                } else {
+                    this.setState({ similarMatches: [] });
+                }
+            };
+        }
+
+        render() {
+            return (
+                this.state.name && this.state.similarMatches.length > 0 && <div className="similar-list">
+                    <label>{t('similarly-named-companies', 'suggest')}</label>
+                    <ul>
+                        {this.state.similarMatches.map(similarMatch => (
+                            <li key={similarMatch.slug}>
+                                <a href={BASE_URL + 'company/' + similarMatch.slug}>{similarMatch.name}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            );
+        }
+    }
+
+    render(<SimilarList/>, container);
 }
 
 document.getElementById('submit-suggest-form').onclick = () => {

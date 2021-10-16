@@ -868,6 +868,12 @@ body.sticky-offset {
     }
 }
 
+.similar-list {
+    border: 2px solid $primary-color;
+    padding: 7px;
+    margin-top: 5px;
+}
+
 /* Footer */
 footer {
     background-color: $bg-accent-color;

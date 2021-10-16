@@ -407,6 +407,7 @@
         "error": "Unfortunately, sending your contribution has failed. Please make sure that you are connected to the internet and not blocking requests to backend.datenanfragen.de through an add-on like uMatrix or NoScript.",
         "no-input": "You need to enter something to submit a suggestion.",
         "name-or-web-missing": "Please enter at least a name or website.",
+        "similarly-named-companies": "We already have these similarly named companies:",
         "invalid-request": "Some of your entries are not in the right format or incomplete. Correct them and send your suggestion again.",
         "github-error": "There was a problem with GitHub while sending your suggestion, it was not registered. Please try again.",
         "view-on-github": "You can follow the progress on GitHub",
