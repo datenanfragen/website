@@ -3,6 +3,7 @@ import t, { t_r } from './Utility/i18n';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
 import FlashMessage, { flash } from './Components/FlashMessage';
+import Footnote from 'Components/Footnote';
 import Cookie from 'js-cookie';
 import { PARAMETERS } from './Utility/common';
 
@@ -90,3 +91,30 @@ function guessUserCountry() {
     // If however we *can* guess the country but just don't support it, we show all companies.
     return SUPPORTED_COUNTRIES.includes(bcp47_country) ? bcp47_country : 'all';
 }
+
+const renderNewFootnotes = (hugoFootnotes) => {
+    // Since the text content is taken from the bottom footnotes, it contains an arrow at the end that needs to be removed
+    // when the content is displayed within the embedded footnote.
+    const sanitizeContent = (content) => content.substring(0, content.length - 3).trimEnd();
+
+    hugoFootnotes.forEach((hugoFootnote, index) => {
+        const textContent = document.getElementById(`fn:${index + 1}`).textContent;
+
+        render(
+            <Footnote index={index + 1} id={hugoFootnote.id}>
+                {sanitizeContent(textContent)}
+            </Footnote>,
+            hugoFootnote.parentElement,
+            hugoFootnote
+        );
+
+        // Manually remove the Hugo rendered footnote since Preact doesn't do it as part of the render() method.
+        hugoFootnote.remove();
+    });
+};
+
+window.onload = () => {
+    const hugoFootnotes = Array.from(document.querySelectorAll("[id^='fnref']"));
+
+    if (hugoFootnotes.length > 0) renderNewFootnotes(hugoFootnotes);
+};
