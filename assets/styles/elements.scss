@@ -719,7 +719,6 @@ fieldset.rating {
 /* Footnotes, adapted after: https://news.ycombinator.com/item?id=24747376 */
 details.footnote {
     display: inline;
-    position: relative;
 
     & > summary {
         list-style: none; /* hide details arrow */
@@ -737,6 +736,9 @@ details.footnote {
         background: color('white');
         border: 1px solid color('gray', 400);
         padding: 1rem;
-        min-width: 20rem;
+        min-width: 15rem;
+        max-width: 20rem;
+        transform: translateX(-50%);
+        left: 50%;
     }
 }
