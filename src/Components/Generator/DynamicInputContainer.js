@@ -156,10 +156,14 @@ export default class DynamicInputContainer extends Component {
         });
     }
 
+    _areFieldsEqual(firstField, secondField) {
+        return firstField.type === secondField.type && firstField.value === secondField.value;
+    }
+
     addFillField(newField) {
         for (let key in this.props.fields) {
             let field = this.props.fields[key];
-            if (['name', 'birthdate', 'email'].includes(field.type) && field.type === newField.type) {
+            if (this._areFieldsEqual(field, newField)) {
                 this.props.onChange(this.props.id, key, 'value', newField.value);
                 return;
             } // TODO: Also check for desc while I am at it?
