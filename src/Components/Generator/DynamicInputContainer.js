@@ -44,33 +44,45 @@ export default class DynamicInputContainer extends Component {
         // As this is at least the second time I have struggled to remember this: This is the button next to the 'add
         // new field' menu which allows you to add fields you have defined in the 'My saved data' section.
         let fill_fields = [];
+
         if (this.props.fillFields)
             this.props.fillFields.forEach((field) => {
-                fill_fields.push(
-                    <div className="fill-field">
-                        <div style="display: table-cell">
-                            {field.desc}:{' '}
-                            <span className="fill-field-value">
-                                {field.type === 'address'
-                                    ? field.value['street_1']
-                                        ? field.value['street_1'] + ' …'
-                                        : ''
-                                    : field.value}
-                            </span>
+                let isFieldPresent = false;
+
+                for (let addedField of this.props.fields) {
+                    if (field.type === addedField.type && field.desc === addedField.desc) {
+                        isFieldPresent = true;
+                        break;
+                    }
+                }
+
+                if (!isFieldPresent)
+                    fill_fields.push(
+                        <div className="fill-field">
+                            <div style="display: table-cell">
+                                {field.desc}:{' '}
+                                <span className="fill-field-value">
+                                    {field.type === 'address'
+                                        ? field.value['street_1']
+                                            ? field.value['street_1'] + ' …'
+                                            : ''
+                                        : field.value}
+                                </span>
+                            </div>
+                            <div style="display: table-cell; width: 60px;">
+                                <button
+                                    style="float: none;"
+                                    className="button button-small button-primary icon-arrow-right"
+                                    onClick={() => {
+                                        this.addFillField(field);
+                                    }}
+                                    title={t('add-input', 'generator')}
+                                />
+                            </div>
                         </div>
-                        <div style="display: table-cell; width: 60px;">
-                            <button
-                                style="float: none;"
-                                className="button button-small button-primary icon-arrow-right"
-                                onClick={() => {
-                                    this.addFillField(field);
-                                }}
-                                title={t('add-input', 'generator')}
-                            />
-                        </div>
-                    </div>
-                );
+                    );
             });
+
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                 <div className="dynamic-input-container">
