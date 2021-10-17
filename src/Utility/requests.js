@@ -50,7 +50,7 @@ export function trackingFields(locale = LOCALE) {
         },
         {
             desc: t_r('email', locale),
-            type: 'input',
+            type: 'email',
             optional: false,
             value: '',
         },

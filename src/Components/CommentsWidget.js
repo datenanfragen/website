@@ -143,7 +143,7 @@ export class Comment extends Component {
                     <strong>{this.props.author}</strong> ({new Date(this.props.date).toLocaleString()})
                 </span>
                 {this.props.additional.rating ? (
-                    <div style="position: absolute; top: 0; right: 0; margin-top: 5px;">
+                    <div className="star">
                         <StarWidget
                             id={'stars-' + this.props.id}
                             initial={this.props.additional.rating}

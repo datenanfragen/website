@@ -50,7 +50,6 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 num_typos: 4,
                 per_page: this.props.numberOfHits || 5,
             };
-            if (!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
 
             this.algolia_autocomplete = autocomplete(
                 this.input_element,
@@ -58,15 +57,13 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 {
                     source: (query, callback) => {
                         options['q'] = query;
-                        if (this.props.filters) {
-                            options['filter_by'] = this.props.filters
-                                .concat(
-                                    this.props.disableCountryFiltering || globals.country === 'all'
-                                        ? []
-                                        : [SearchBar.countryFilter(globals.country)]
-                                )
-                                .join(' && ');
-                        }
+                        options['filter_by'] = (this.props.filters || [])
+                            .concat(
+                                this.props.disableCountryFiltering || globals.country === 'all'
+                                    ? []
+                                    : [SearchBar.countryFilter(globals.country)]
+                            )
+                            .join(' && ');
 
                         this.client
                             .collections(this.props.index)

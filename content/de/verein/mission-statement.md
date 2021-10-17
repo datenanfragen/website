@@ -11,7 +11,7 @@ Diese Ziele drücken sich in den Zwecken unserer {{< link slug="verein/constitut
 
 ## Über Rechte aufklären
 
-Unser Ziel ist es, soviele Menschen wie möglich darüber aufzuklären, dass sie ein Grundrecht auf informationelle Selbstbestimmung haben und dieses einfordern können. Dazu wollen wir Bildungsinhalte auf unserer Webseite und in gedruckter Form anbieten, Unterrichts- bzw. Schulmaterialien erstellen, an Veranstaltungen teilnehmen und Kampagnen durchführen. Insbesondere steht für uns zur Zeit im Vordergrund, die aus der DSGVO hervorgehenden konkreten Rechte zu verbreiten.
+Unser Ziel ist es, so viele Menschen wie möglich darüber aufzuklären, dass sie ein Grundrecht auf informationelle Selbstbestimmung haben und dieses einfordern können. Dazu wollen wir Bildungsinhalte auf unserer Webseite und in gedruckter Form anbieten, Unterrichts- bzw. Schulmaterialien erstellen, an Veranstaltungen teilnehmen und Kampagnen durchführen. Insbesondere steht für uns zur Zeit im Vordergrund, die aus der DSGVO hervorgehenden konkreten Rechte zu verbreiten.
  
 ## Rechte zugänglich machen
 

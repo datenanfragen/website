@@ -36,7 +36,7 @@ Unsere Aktion läuft unabhängig vom offiziellen Hacktoberfest. Wenn Du teilnehm
 
 Wenn Du über GitHub mitmachen möchtest, verwende bitte dieses Formular, damit wir Deine Beiträge zuordnen können:
 
-<noscript><div class="box box-info">Aktiviere JavaScript in deinem Browser, um eine Meldung zu erhälten, ob das Formular efolgreich abgesendet wurde.</div></noscript>
+<noscript><div class="box box-info">Aktiviere JavaScript in deinem Browser, um eine Meldung zu erhalten, ob das Formular erfolgreich abgesendet wurde.</div></noscript>
 <div class="box form-group" style="max-width: 600px; margin: auto;">
 <form action="https://backend.datenanfragen.de/hacktoberfest" method="POST">
 Ich möchte an der Hacktoberfest 2021-Aktion des Datenanfragen.de e.&nbsp;V. über GitHub teilnehmen.

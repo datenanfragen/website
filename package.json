@@ -35,7 +35,7 @@
         "merge-conflict-artifact-check": "./scripts/merge-conflict-artifact-check.sh",
         "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint assets/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix",
-        "prettier": "prettier --write src/**/*.{js,css,scss,json}",
+        "prettier": "prettier --write {src,scripts,cypress,assets}/**/*.{js,css,scss,json}",
         "deploy-dattel": "node deploy-dattel.js"
     },
     "bugs": {
@@ -75,7 +75,7 @@
         "carbone": "^3.2.3",
         "cross-env": "^7.0.2",
         "cssnano": "^4.1.10",
-        "cypress": "^6.1.0",
+        "cypress": "^8.5.0",
         "dattel-client": "^0.7.0",
         "deepmerge": "^4.2.1",
         "eslint": "^7.0.0",
