@@ -210,7 +210,12 @@ function suggestSimilarNamedCompanies() {
                         <ul>
                             {this.state.similarMatches.map((similarMatch) => (
                                 <li key={similarMatch.slug}>
-                                    <a href={BASE_URL + 'company/' + similarMatch.slug}>{similarMatch.name}</a>
+                                    <a
+                                        href={BASE_URL + 'company/' + similarMatch.slug}
+                                        target="_blank"
+                                        rel="noreferrer">
+                                        {similarMatch.name}
+                                    </a>
                                 </li>
                             ))}
                         </ul>
