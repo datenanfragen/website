@@ -153,7 +153,7 @@ function renderForm(schema, company = undefined) {
 function suggestSimilarNamedCompanies() {
     const nameCell = document.querySelector('tr[data-schema_id="$.name"] > td.prop-value');
 
-    // create dummy container as Preact.render() does not guarantee order if parent already contains non-Preact components/elements
+    // Create dummy container as Preact.render() does not guarantee order if parent already contains non-Preact components/elements.
     const container = document.createElement('div');
     nameCell.appendChild(container);
 
@@ -181,7 +181,7 @@ function suggestSimilarNamedCompanies() {
                 per_page: 5,
             };
 
-            nameCell.querySelector('input').oninput = event => {
+            nameCell.querySelector('input').oninput = (event) => {
                 const name = event.target.value;
                 this.setState({ name });
                 if (name) {
@@ -190,9 +190,7 @@ function suggestSimilarNamedCompanies() {
                         .collections('companies')
                         .documents()
                         .search(typesenseOptions)
-                        .then((res) => {
-                            this.setState({ similarMatches: res.hits.map(hit => hit.document) });
-                        })
+                        .then((res) => this.setState({ similarMatches: res.hits.map((hit) => hit.document) }))
                         .catch((e) => {
                             e.no_side_effects = true;
                             rethrow(e);
@@ -205,21 +203,24 @@ function suggestSimilarNamedCompanies() {
 
         render() {
             return (
-                this.state.name && this.state.similarMatches.length > 0 && <div className="similar-list">
-                    <label>{t('similarly-named-companies', 'suggest')}</label>
-                    <ul>
-                        {this.state.similarMatches.map(similarMatch => (
-                            <li key={similarMatch.slug}>
-                                <a href={BASE_URL + 'company/' + similarMatch.slug}>{similarMatch.name}</a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                this.state.name &&
+                this.state.similarMatches.length > 0 && (
+                    <div className="similar-list">
+                        <label>{t('similarly-named-companies', 'suggest')}</label>
+                        <ul>
+                            {this.state.similarMatches.map((similarMatch) => (
+                                <li key={similarMatch.slug}>
+                                    <a href={BASE_URL + 'company/' + similarMatch.slug}>{similarMatch.name}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )
             );
         }
-    }
+    };
 
-    render(<SimilarList/>, container);
+    render(<SimilarList />, container);
 }
 
 document.getElementById('submit-suggest-form').onclick = () => {
