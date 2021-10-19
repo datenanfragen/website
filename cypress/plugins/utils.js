@@ -6,7 +6,7 @@ const deleteFolder = (folderName) => {
             if (err) {
                 return reject(err);
             }
-            resolve();
+            resolve(null);
         });
     });
 };
