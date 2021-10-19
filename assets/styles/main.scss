@@ -872,6 +872,20 @@ body.sticky-offset {
     border: 2px solid $primary-color;
     padding: 7px;
     margin-top: 5px;
+
+    a {
+        mark {
+            background-color: color('blue', 100);
+            color: inherit;
+        }
+
+        &:hover,
+        &:focus {
+            mark {
+                background-color: color('gray', 700);
+            }
+        }
+    }
 }
 
 /* Footer */

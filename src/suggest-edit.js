@@ -1,4 +1,4 @@
-import { render, Component } from 'preact';
+import { render, Component, Fragment } from 'preact';
 import Modal from 'Components/Modal';
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
@@ -175,7 +175,7 @@ function suggestSimilarNamedCompanies() {
                 timeoutSeconds: 2,
             });
             const typesenseOptions = {
-                query_by: 'name',
+                query_by: 'name, runs',
                 sort_by: '_text_match:desc,sort-index:asc',
                 num_typos: 4,
                 per_page: 5,
@@ -190,7 +190,17 @@ function suggestSimilarNamedCompanies() {
                         .collections('companies')
                         .documents()
                         .search(typesenseOptions)
-                        .then((res) => this.setState({ similarMatches: res.hits.map((hit) => hit.document) }))
+                        .then((res) =>
+                            this.setState({
+                                similarMatches: res.hits.map((hit) => ({
+                                    slug: hit.document.slug,
+                                    name: hit.document.name,
+                                    runs: hit.highlights
+                                        .filter((highlight) => highlight.field === 'runs')
+                                        .flatMap((highlight) => highlight.snippets),
+                                })),
+                            })
+                        )
                         .catch((e) => {
                             e.no_side_effects = true;
                             rethrow(e);
@@ -214,7 +224,17 @@ function suggestSimilarNamedCompanies() {
                                         href={BASE_URL + 'company/' + similarMatch.slug}
                                         target="_blank"
                                         rel="noreferrer">
-                                        {similarMatch.name}
+                                        <strong>{similarMatch.name}</strong>
+                                        {similarMatch.runs.length > 0 && (
+                                            <Fragment>
+                                                {' '}
+                                                (also runs:{' '}
+                                                <span
+                                                    dangerouslySetInnerHTML={{ __html: similarMatch.runs.join(', ') }}
+                                                />
+                                                )
+                                            </Fragment>
+                                        )}
                                     </a>
                                 </li>
                             ))}
