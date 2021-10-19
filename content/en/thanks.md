@@ -22,7 +22,7 @@ For larger donations, you will need a donation receipt in the official form. You
 <a class="button button-secondary icon icon-download" href="https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf">Download simplified donation receipt</a>
 
 {{< script >}}
-window.addEventListener('load', () => {
+window.addEventListener('load', function() {
     var donation_reference = window.PARAMETERS.donation_reference;
     if(donation_reference) {
         document.getElementById('request-donation-verification-button').setAttribute('href', encodeURI('mailto:vorstand@datenanfragen.de?' +

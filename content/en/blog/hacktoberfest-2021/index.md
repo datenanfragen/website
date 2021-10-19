@@ -111,7 +111,7 @@ If you have any questions, feel free to email us at <hacktoberfest@datenanfragen
 Happy hacking!
 
 <script>
-window.addEventListener('load', () => {
+window.addEventListener('load', function() {
   if (PARAMETERS.error) {
     if (PARAMETERS.error === 'validation') alert('The data you entered was incorrect. Please try again.');
     else if (PARAMETERS.error === 'server') alert('Our server encountered an error while processing your registration. Please try again in a little while or contact hacktoberfest@datenanfragen.de.');

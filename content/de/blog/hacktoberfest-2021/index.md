@@ -117,7 +117,7 @@ Wenn noch etwas unklar ist oder Du noch Fragen hast, schreib uns gerne eine Mail
 Happy Hacking!
 
 <script>
-window.addEventListener('load', () => {
+window.addEventListener('load', function() {
   if (PARAMETERS.error) {
     if (PARAMETERS.error === 'validation') alert('Die Anmeldedaten, die Du angegeben hast, waren leider nicht korrekt. Bitte versuche es erneut.');
     else if (PARAMETERS.error === 'server') alert('Bei der Registrierung ist leider ein Fehler auf unserer Seite aufgetreten. Bitte versuche es später erneut oder wende Dich über hacktoberfest@datenanfragen.de an uns.');

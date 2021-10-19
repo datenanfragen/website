@@ -22,7 +22,7 @@ Para donaciones más grandes, necesitarás un recibo de donación en formato ofi
 <a class="button button-secondary icon icon-download" href="https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf">Descargar recibo de donación simplificado</a>
 
 {{< script >}}
-window.addEventListener('load', () => {
+window.addEventListener('load', function() {
     var donation_reference = window.PARAMETERS.donation_reference;
     if(donation_reference) {
         document.getElementById('request-donation-verification-button').setAttribute('href', encodeURI('mailto:vorstand@datenanfragen.de?' +

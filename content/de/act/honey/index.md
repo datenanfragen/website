@@ -134,7 +134,7 @@ Wie das geht, unterscheidet sich von Browser zu Browser, wir haben zwei bebilder
 <div id="act-no-account" class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< noScript "noscript-actwidget" >}}
 <script>
-window.addEventListener('load', () => {
+window.addEventListener('load', function() {
     renderActWidget("act-with-account", {
         text_before_dynamic_input_container: "Du hast einen Account bei Honey angelegt? Dann nutze dieses Formular.",
         request_types: ['access'],

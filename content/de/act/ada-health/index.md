@@ -40,7 +40,7 @@ window.props = {
     transport_medium: 'email',
     company: 'ada-health'
 };
-window.addEventListener('load', () => { renderActWidget(); });
+window.addEventListener('load', function() { renderActWidget(); });
 </script>
 
 Die E-Mail verschickst Du selbst mit Deinem eigenen E-Mail-Programm. Im Gegensatz zu Ada haben wir uns nämlich Gedanken zur Datenminimierung gemacht: Alles, was Du hier auf der Seite eingibst, wird **nur lokal auf Deinem Rechner** verarbeitet. Das heißt, dass wir diese Daten nie auch nur zu sehen bekommen.
