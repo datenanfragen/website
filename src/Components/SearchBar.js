@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import * as Typesense from 'typesense';
+import {searchClient} from 'Utility/search';
 import { rethrow } from '../Utility/errors';
 import FeatureDisabledWidget from './FeatureDisabledWidget';
 import PropTypes from 'prop-types';
@@ -15,16 +15,6 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
     SearchBar = class SearchBar extends Component {
         constructor(props) {
             super(props);
-
-            this.client = new Typesense.Client({
-                masterNode: {
-                    host: 'search.datenanfragen.de',
-                    port: '443',
-                    protocol: 'https',
-                    apiKey: '',
-                },
-                timeoutSeconds: 2,
-            });
 
             this.algolia_autocomplete = null;
             this.input_element = null;
@@ -65,7 +55,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                             )
                             .join(' && ');
 
-                        this.client
+                        searchClient
                             .collections(this.props.index)
                             .documents()
                             .search(options)

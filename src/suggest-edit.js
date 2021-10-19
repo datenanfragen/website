@@ -8,7 +8,7 @@ require('brutusin-json-forms');
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
 import FlashMessage, { flash } from 'Components/FlashMessage';
-import * as Typesense from 'typesense';
+import { searchClient } from 'Utility/search';
 let bf;
 let schema;
 const SUBMIT_URL =
@@ -165,16 +165,7 @@ function suggestSimilarNamedCompanies() {
                 similarMatches: [],
             };
 
-            const typesenseClient = new Typesense.Client({
-                masterNode: {
-                    host: 'search.datenanfragen.de',
-                    port: '443',
-                    protocol: 'https',
-                    apiKey: '',
-                },
-                timeoutSeconds: 2,
-            });
-            const typesenseOptions = {
+            const searchOptions = {
                 query_by: 'name, runs',
                 sort_by: '_text_match:desc,sort-index:asc',
                 num_typos: 4,
@@ -185,11 +176,11 @@ function suggestSimilarNamedCompanies() {
                 const name = event.target.value;
                 this.setState({ name });
                 if (name) {
-                    typesenseOptions['q'] = name;
-                    typesenseClient
+                    searchOptions['q'] = name;
+                    searchClient
                         .collections('companies')
                         .documents()
-                        .search(typesenseOptions)
+                        .search(searchOptions)
                         .then((res) =>
                             this.setState({
                                 similarMatches: res.hits.map((hit) => ({
