@@ -113,8 +113,7 @@ const renderNewFootnotes = (hugoFootnotes) => {
     });
 };
 
-window.onload = () => {
+window.addEventListener('load', () => {
     const hugoFootnotes = Array.from(document.querySelectorAll("[id^='fnref']"));
-
     if (hugoFootnotes.length > 0) renderNewFootnotes(hugoFootnotes);
-};
+});
