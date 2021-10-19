@@ -37,11 +37,11 @@ function startTextAnimation(i) {
     }
 }
 
-window.onload = () => {
+window.addEventListener('load', () => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (reducedMotion.matches) {
         document.getElementById('home-hero-word').textContent = hero_rights[hero_rights.length - 1];
     } else {
         startTextAnimation(0);
     }
-};
+});
