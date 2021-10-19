@@ -22,7 +22,7 @@ Pour des dons plus importants, tu auras besoin d'un reçu de don en bonne et due
 <a class="button button-secondary icon icon-download" href="https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf">Télécharger le reçu de don simplifié</a>
 
 {{< script >}}
-window.onload = function () {
+window.addEventListener('load', () => {
     var donation_reference = window.PARAMETERS.donation_reference;
     if(donation_reference) {
         document.getElementById('request-donation-verification-button').setAttribute('href', encodeURI('mailto:vorstand@datenanfragen.de?' +
@@ -31,5 +31,5 @@ window.onload = function () {
             'Please send it to my address:\n\n\nBest regards,\n'
         ));
     }
-};
+});
 {{< /script >}}

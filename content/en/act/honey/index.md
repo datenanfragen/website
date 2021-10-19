@@ -136,7 +136,7 @@ The process for accessing Honey's local storage is different from browser to bro
 <div id="act-no-account" class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< noScript "noscript-actwidget" >}}
 <script>
-window.onload = function() {
+window.addEventListener('load', () => {
     renderActWidget("act-with-account", {
         text_before_dynamic_input_container: "You’ve used Honey with an account? Use this form.",
         request_types: ['access'],
@@ -224,5 +224,5 @@ window.onload = function() {
             "quality": "tested"
         }
     });
-};
+});
 </script>

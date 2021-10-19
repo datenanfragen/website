@@ -106,7 +106,7 @@ If you have any questions, just send us an email to <hacktoberfest@datenanfragen
 Happy hacking!
 
 <script>
-window.onload = function() {
+window.addEventListener('load', () => {
   if (PARAMETERS.error) {
     if (PARAMETERS.error === 'validation') alert('The data you entered was incorrect. Please try again.');
     else if (PARAMETERS.error === 'server') alert('Our server encountered an error while processing your registration. Please try again in a little while or contact hacktoberfest@datenanfragen.de.');
@@ -114,5 +114,5 @@ window.onload = function() {
     else if (PARAMETERS.error === 'expired') alert('Unfortunately, the registration deadline has already expired.');
   }
   else if (PARAMETERS.success === '1') alert('Your registration was processed successfully. You should receive an email confirmation soon.');
-}
+});
 </script>

@@ -22,7 +22,7 @@ Für größere Spenden benötigst Du einen tatsächlichen Zuwendungsnachweis nac
 <a class="button button-secondary icon icon-download" href="https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf">Vereinfachten Zuwendungsnachweis herunterladen</a>
 
 {{< script >}}
-window.onload = function () {
+window.addEventListener('load', () => {
     var donation_reference = window.PARAMETERS.donation_reference;
     if(donation_reference) {
         document.getElementById('request-donation-verification-button').setAttribute('href', encodeURI('mailto:vorstand@datenanfragen.de?' +
@@ -31,5 +31,5 @@ window.onload = function () {
             'Bitte sendet ihn mir an meine Adresse:\n\n\nMit freundlichen Grüßen\n'
         ));
     }
-};
+});
 {{< /script >}}

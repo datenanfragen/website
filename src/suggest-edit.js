@@ -15,7 +15,7 @@ const SUBMIT_URL =
         ? 'http://localhost:3000/suggest'
         : 'https://backend.datenanfragen.de/suggest';
 
-window.onload = () => {
+window.addEventListener('load', () => {
     const SCHEMA_URL = BASE_URL + 'schema.json';
     fetch(SCHEMA_URL)
         .then((res) => res.json())
@@ -28,7 +28,7 @@ window.onload = () => {
                 schema_url: SCHEMA_URL,
             });
         });
-};
+});
 
 const sortRelevantCountries = (countries) => {
     countries.items.enum.sort((a, b) => {

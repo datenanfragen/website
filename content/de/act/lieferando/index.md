@@ -36,7 +36,7 @@ window.props = {
     transport_medium: 'email',
     company: 'takeaway-com'
 };
-window.onload = function() { renderActWidget(); };
+window.addEventListener('load', () => { renderActWidget(); });
 </script>
 
 ## Was dann?
