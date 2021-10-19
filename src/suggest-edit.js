@@ -164,7 +164,9 @@ function suggestSimilarNamedCompanies() {
                 name: '',
                 similarMatches: [],
             };
+        }
 
+        componentDidMount() {
             const searchOptions = {
                 query_by: 'name, runs',
                 sort_by: '_text_match:desc,sort-index:asc',
