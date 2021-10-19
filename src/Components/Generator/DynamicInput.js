@@ -111,6 +111,9 @@ export default class DynamicInput extends Component {
                         <div style="display: table-cell;">
                             {this.props.allowChangingDescription ? (
                                 [
+                                    <label htmlFor={this.props.id + '-desc-' + this.props.suffix} className="sr-only">
+                                        <Text id="description" />
+                                    </label>,
                                     <input
                                         key={this.props.id + this.props.suffix}
                                         name="desc"
