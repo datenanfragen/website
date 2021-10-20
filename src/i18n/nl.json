@@ -105,7 +105,7 @@
         "404-alt": "Een persoon die zit op de 0 van een groot 404-bord. Hij of zij houdt een boek vast met een missende pagina.",
         "404-title": "Foutcode 404: Pagina niet gevonden",
         "press-no-releases": "Op dit moment zijn er geen persberichten in het Engels.",
-        "noscript-generator": "De generator draait alleen op uw computer en is daarom compleet geschreven in JavaScript. De code verstuurt geen data naar een server zonder dat u daar toestemming voor geeft. Als u de generator wil gebruiken, schakel dan JavaScript in in uw browser of voeg een uitzondering aan uw blocker toe. Als het daarna nog steeds niet werkt, stuur ons dan een email via <a href='mailto:dev@datenanfragen.de'> dev@datenanfragen.de </a>.",
+        "noscript-generator": "De generator draait alleen op uw computer en is daarom compleet geschreven in JavaScript. De code verstuurt geen data naar een server zonder dat u daar toestemming voor geeft. Als u de generator wilt gebruiken, zet JavaScript dan aan in uw browser of voeg een uitzondering aan uw blocker toe. Als het daarna nog steeds niet werkt, stuur ons dan een email via <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de </a>.",
         "license": "Licentie",
         "blog-licensed-under": "gelicentieerd onder:",
         "blog-and": " en ",
