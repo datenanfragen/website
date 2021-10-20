@@ -691,6 +691,7 @@
         "view-on-github": "U kunt de voortgang volgen op GitHub",
         "name-or-web-missing": "Vul ten minste een naam of website in.",
         "no-input": "U moet iets invoeren om een suggestie in te dienen.",
+        "also-runs": "beheert ook: ",
         "invalid-request": "Sommige van uw inzendingen zijn niet in het juiste formaat of onvolledig. Corrigeer ze en verstuur uw suggestie opnieuw.",
         "ok": "Ok",
         "error": "Helaas, het versturen van uw bijdrage is mislukt. Zorg ervoor dat u verbonden bent met het internet en dat u geen verzoeken blokkeert naar backend.datenanfragen.de via een add-on zoals uMatrix of NoScript.",

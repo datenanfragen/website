@@ -375,6 +375,7 @@
         "error": "Infelizmente, o envio da sua contribuição falhou. Por favor, verifique se você está conectado à Internet e se as solicitações para servidores externos não estão sendo bloqueadas por uma aplicação do tipo Matrix ou NoScript.",
         "no-input": "Você precisa inserir algo para enviar uma sugestão.",
         "view-on-github": "Você pode acompanhar o progresso no GitHub",
+        "also-runs": "também se aplica a: ",
         "ok": "Ok"
     },
     "schema": {

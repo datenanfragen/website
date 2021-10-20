@@ -705,6 +705,7 @@
         "ok": "OK",
         "no-input": "Je potřeba zadat něco, aby bylo možné odeslat návrh.",
         "name-or-web-missing": "Prosím zadejte alespoň název nebo webovou stránku.",
+        "also-runs": "také provozuje: ",
         "invalid-request": "Některé položky nejsou ve správném formátu nebo nejsou kompletní. Opravte je a pošlete návrh znovu.",
         "github-error": "Vyskytl se problém na GitHubu při posílání Vašeho návrhu, a návrh nebyl uložen. Prosím zkuste to znovu.",
         "success": "Váš příspěvek byl úspěšně odeslán. Znovu děkujeme! Zkontrolujeme ho co nejdříve.",
