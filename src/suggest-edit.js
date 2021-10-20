@@ -170,6 +170,7 @@ function suggestSimilarNamedCompanies() {
                 sort_by: '_text_match:desc,sort-index:asc',
                 num_typos: 1,
                 per_page: 5,
+                drop_tokens_threshold: 0,
             };
 
             const nameInput = nameCell.querySelector('input');
