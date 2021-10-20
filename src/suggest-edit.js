@@ -168,7 +168,7 @@ function suggestSimilarNamedCompanies() {
                 query_by: 'name, runs',
                 prefix: false,
                 sort_by: '_text_match:desc,sort-index:asc',
-                num_typos: 4,
+                num_typos: 1,
                 per_page: 5,
             };
 
