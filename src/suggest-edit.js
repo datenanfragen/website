@@ -218,18 +218,15 @@ function suggestSimilarNamedCompanies() {
                                         href={BASE_URL + 'company/' + similarMatch.slug}
                                         target="_blank"
                                         rel="noreferrer">
-                                        <strong>{similarMatch.name}</strong>
-                                        {similarMatch.runs.length > 0 && (
-                                            <Fragment>
-                                                {' '}
-                                                (also runs:{' '}
-                                                <span
-                                                    dangerouslySetInnerHTML={{ __html: similarMatch.runs.join(', ') }}
-                                                />
-                                                )
-                                            </Fragment>
-                                        )}
+                                        {similarMatch.name}
                                     </a>
+                                    {similarMatch.runs.length > 0 && (
+                                        <Fragment>
+                                            {' '}
+                                            (also runs:{' '}
+                                            <span dangerouslySetInnerHTML={{ __html: similarMatch.runs.join(', ') }} />)
+                                        </Fragment>
+                                    )}
                                 </li>
                             ))}
                         </ul>

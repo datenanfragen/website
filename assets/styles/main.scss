@@ -873,18 +873,9 @@ body.sticky-offset {
     padding: 7px;
     margin-top: 5px;
 
-    a {
-        mark {
-            background-color: color('blue', 100);
-            color: inherit;
-        }
-
-        &:hover,
-        &:focus {
-            mark {
-                background-color: color('gray', 700);
-            }
-        }
+    mark {
+        background-color: color('blue', 100);
+        color: inherit;
     }
 }
 
