@@ -160,10 +160,7 @@ function suggestSimilarNamedCompanies() {
     const SimilarList = class SimilarList extends Component {
         constructor() {
             super();
-            this.state = {
-                name: '',
-                similarMatches: [],
-            };
+            this.state = { similarMatches: [] };
         }
 
         componentDidMount() {
@@ -175,9 +172,10 @@ function suggestSimilarNamedCompanies() {
                 per_page: 5,
             };
 
-            nameCell.querySelector('input').oninput = (event) => {
+            const nameInput = nameCell.querySelector('input');
+            nameInput.oninput = () => this.setState({ similarMatches: [] });
+            nameInput.onblur = (event) => {
                 const name = event.target.value;
-                this.setState({ name });
                 if (name) {
                     searchOptions['q'] = name;
                     searchClient
@@ -199,15 +197,12 @@ function suggestSimilarNamedCompanies() {
                             e.no_side_effects = true;
                             rethrow(e);
                         });
-                } else {
-                    this.setState({ similarMatches: [] });
                 }
             };
         }
 
         render() {
             return (
-                this.state.name &&
                 this.state.similarMatches.length > 0 && (
                     <div className="similar-list">
                         <label>{t('similarly-named-companies', 'suggest')}</label>
