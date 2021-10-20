@@ -223,7 +223,7 @@ function suggestSimilarNamedCompanies() {
                                     {similarMatch.runs.length > 0 && (
                                         <Fragment>
                                             {' '}
-                                            (also runs:{' '}
+                                            ({t('also-runs', 'suggest')}
                                             <span dangerouslySetInnerHTML={{ __html: similarMatch.runs.join(', ') }} />)
                                         </Fragment>
                                     )}

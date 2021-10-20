@@ -432,6 +432,7 @@
         "ok": "U redu",
         "view-on-github": "Napredak možeš pratiti na GitHubu",
         "github-error": "Došlo je do problema s GitHubom tijekom slanja tvog prijedloga. Prijedlog nije zapisan. Pokušaj ponovo.",
+        "also-runs": "također pokreće: ",
         "invalid-request": "Neki unosi nisu u ispravom formatu ili su nepotpuni. Ispravi ih i ponovo pošalji prijedlog.",
         "name-or-web-missing": "Upiši barem ime ili web-stranicu.",
         "no-input": "Za slanje prijedloga moraš nešto upisati.",

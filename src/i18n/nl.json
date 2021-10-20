@@ -664,6 +664,7 @@
         "view-on-github": "U kunt de voortgang volgen op GitHub",
         "name-or-web-missing": "Vul ten minste een naam of website in.",
         "no-input": "U moet iets invoeren om een suggestie in te dienen.",
+        "also-runs": "beheert ook: ",
         "invalid-request": "Sommige van uw inzendingen zijn niet in het juiste formaat of onvolledig. Corrigeer ze en verstuur uw suggestie opnieuw.",
         "ok": "Ok"
     },

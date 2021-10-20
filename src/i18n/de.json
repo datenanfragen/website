@@ -407,6 +407,7 @@
         "error": "Beim Absenden deines Vorschlags ist leider ein Fehler aufgetreten. Bitte stelle sicher, dass Du mit dem Internet verbunden bist und Anfragen an backend.datenanfragen.de nicht mit einem Add-On wie uMatrix oder NoScript blockierst.",
         "no-input": "Bitte gib etwas ein, um Deinen Vorschlag abzusenden.",
         "name-or-web-missing": "Bitte gib mindestens einen Namen oder eine Webseite an.",
+        "also-runs": "betreibt auch: ",
         "invalid-request": "Deine Eingaben entsprechen nicht dem richtigen Format oder sind unvollständig. Korrigiere sie und schicke den Vorschlag erneut ab.",
         "github-error": "Beim Absenden gab es ein Problem mit GitHub. Dein Vorschlag wurde nicht abgeschickt. Versuch es doch noch einmal.",
         "view-on-github": "Hier kannst Du den Fortschritt auf GitHub verfolgen",

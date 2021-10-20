@@ -635,6 +635,7 @@
         "ok": "De acuerdo",
         "view-on-github": "Puede seguir el progreso en GitHub",
         "github-error": "Hubo un problema con GitHub al enviar su sugerencia y no se registró. Inténtelo de nuevo.",
+        "also-runs": "también opera: ",
         "invalid-request": "Algunas de sus entradas no están en el formato correcto o están incompletas. Por favor, corrije y vuelve a enviar su sugerencia.",
         "name-or-web-missing": "Ingresa al menos un nombre o sitio web.",
         "no-input": "Debes ingresar algo para enviar una sugerencia.",
