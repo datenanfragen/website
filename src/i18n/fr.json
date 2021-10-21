@@ -204,7 +204,8 @@
         "github-error": "Un problème s'est produit avec GitHub pendant l'envoi de votre suggestion, qui n'a pas pu être prise en compte. Veuillez réessayer.",
         "also-runs": "également applicable: ",
         "invalid-request": "Certaines informations ne sont pas au bon format ou sont incomplètes. Veuillez les corriger avant de d'envoyer de nouveau votre suggestion.",
-        "name-or-web-missing": "Veuillez entrer au moins un nom ou un site Web."
+        "name-or-web-missing": "Veuillez entrer au moins un nom ou un site Web.",
+        "similarly-named-companies": "Nous avons déjà ces entreprises avec un nom similaire :"
     },
     "schema": {
         "relevant-countries": "Pays concernés",
