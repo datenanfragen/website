@@ -1,4 +1,4 @@
-import { render } from 'preact';
+import { hydrate, render } from 'preact';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
 import Cookie from 'js-cookie';
@@ -32,14 +32,25 @@ render(<I18nWidget minimal={true} />, document.getElementById('personal-menu-i18
 
 const comments_div = document.getElementById('comments-widget');
 if (comments_div) {
-    render(
-        <CommentsWidget
-            allow_rating={comments_div.dataset.ratingEnabled === '1'}
-            displayWarning={comments_div.dataset.displayWarning === '1'}
-        />,
-        comments_div.parentElement,
-        comments_div
-    );
+    if (comments_div.innerHTML !== '') {
+        // Stable Era begins... :sun: :sun: :sun:
+        hydrate(
+            <CommentsWidget
+                allow_rating={comments_div.dataset.ratingEnabled === '1'}
+                displayWarning={comments_div.dataset.displayWarning === '1'}
+            />,
+            comments_div.parentElement
+        );
+    } else {
+        render(
+            <CommentsWidget
+                allow_rating={comments_div.dataset.ratingEnabled === '1'}
+                displayWarning={comments_div.dataset.displayWarning === '1'}
+            />,
+            comments_div.parentElement,
+            comments_div
+        );
+    }
 }
 
 // This uses the `navigator.language` property (similar-ish to the `Accept-Language`header which we cannot access from JS) which may not necessarily represent the user's country (or even include region-information at all).

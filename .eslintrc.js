@@ -58,7 +58,7 @@ module.exports = {
         SUPPORTED_COUNTRIES: 'readonly',
         COUNTRIES_WITH_SUGGESTED_COMPANIES: 'readonly',
 
-        // defined in `src/general.js`
+        // defined in `src/general.js` // that's a lie :D ?
         I18N_DEFINITION: 'readonly',
         I18N_DEFINITION_REQUESTS: 'readonly',
 

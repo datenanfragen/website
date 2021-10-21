@@ -1,8 +1,9 @@
 import { render } from 'preact-render-to-string';
-import { Comment } from '../../src/Components/Comment';
+import CommentsWidget from '../../src/Components/CommentsWidget';
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
+import deepmerge from 'deepmerge';
 
 declare global {
     interface Window {
@@ -12,10 +13,15 @@ declare global {
 }
 (async () => {
     // TODO how do we get all comments?
+    // TODO pre-render form for pages w/o comments?
     const request = await axios.get('https://backend.datenanfragen.de/comments/get');
     const all_comments: Array<any> = request.data;
 
     let grouped_comments: Record<string, Array<any>> = {};
+
+    // TODO load right language
+    const en = require('../../src/i18n/en.json');
+    //const i18n_data = deepmerge(en, en);
 
     for (const c of all_comments) {
         if (!grouped_comments[c.target]) grouped_comments[c.target] = [];
@@ -25,12 +31,10 @@ declare global {
     }
     for (const target in grouped_comments) {
         const comments = grouped_comments[target];
-        let output = '';
-        for (const c of comments) {
-            output += render(
-                <Comment id={c.id} author={c.author} message={c.message} date={c.added_at} additional={c.additional} />
-            );
-        }
+        //TODO allowRating and displayWarning depending on site
+        const output = render(
+            <CommentsWidget allow_rating={true} comments={comments} target={'TODO'} i18n_definition={en} />
+        );
         if (!['blog', 'company', 'act'].some((x) => target.split('/')[1].startsWith(x))) {
             console.log('u', target);
             continue;

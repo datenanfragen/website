@@ -10,6 +10,6 @@
         "lib": ["dom", "esnext"],
         "jsx": "react-jsx",
         "jsxImportSource": "preact",
-        "outDir": "dist"
+        "noEmit": true
     }
 }
