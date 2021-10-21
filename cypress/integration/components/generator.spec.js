@@ -116,13 +116,13 @@ describe('Generator component', () => {
         cy.get('#signature').should('not.exist');
     });
 
-    it('shows and hides the "Correct data" field according to the type of request', () => {
+    it("shows and hides the 'Correct data' field according to the type of request", () => {
         cy.contains('Correct data').should('not.exist');
         cy.get('#dynamic-input-type-rectification_data').should('not.exist');
 
         cy.contains('Rectification request').click();
 
-        // shows up only when Rectification Request is selected
+        // shows up only when 'Rectification request' is selected
         cy.contains('Correct data');
         cy.get('#dynamic-input-type-rectification_data');
 
@@ -133,7 +133,7 @@ describe('Generator component', () => {
         cy.get('#dynamic-input-type-rectification_data').should('not.exist');
     });
 
-    it('shows a different form when "Your own text" is selected', () => {
+    it("shows a different form when 'Your own text' is selected", () => {
         cy.get('#custom-template-select').should('not.exist');
         cy.get('#custom-subject-input').should('not.exist');
         cy.get('#custom-content-input').should('not.exist');
@@ -158,7 +158,7 @@ describe('Generator component', () => {
         cy.get('#0-container-custom-request').should('not.exist');
     });
 
-    it('changes the text when selecting a template for "Your own text"', () => {
+    it("changes the text when selecting a template for 'Your own text'", () => {
         cy.contains('Your own text').click();
 
         // is empty when no template selected
@@ -175,11 +175,11 @@ describe('Generator component', () => {
             .should('contain.value', 'complaint');
     });
 
-    it('reflects the text and subject entered for "Your own text" in the generated request', () => {
+    it("reflects the text and subject entered for 'Your own text' in the generated request", () => {
         cy.contains('Your own text').click();
 
-        const custom_subject = 'My Custom Subject';
-        const custom_content = 'My Custom Content';
+        const custom_subject = 'My custom subject';
+        const custom_content = 'My custom content';
         cy.get('#custom-subject-input').type(custom_subject);
         cy.get('#custom-content-input').type(custom_content);
 
@@ -187,11 +187,10 @@ describe('Generator component', () => {
         cy.contains('Copy text manually').click({ force: true });
 
         cy.get('#mailto-dropdown-copymanually-subject').should('contain.value', `${custom_subject}`);
-
         cy.get('#mailto-dropdown-copymanually-body').should('contain.value', `${custom_content}`);
     });
 
-    it('changes the text based on the "Erase all data" checkbox and the "Data to erase" field when "Erasure request" is selected', () => {
+    it("changes the text based on the 'Erase all data' checkbox and the 'Data to erase' field when 'Erasure request' is selected", () => {
         cy.contains('Erasure request').click();
         cy.get('#request-flags-erase-all').should('be.checked');
         cy.get('#request-erasure-data').should('not.exist');
@@ -199,7 +198,7 @@ describe('Generator component', () => {
         cy.contains('Send email').click();
         cy.contains('Copy text manually').click({ force: true });
 
-        // when Erase all data checkbox is selected
+        // when the 'Erase all data' checkbox is selected
         cy.get('#mailto-dropdown-copymanually-body').should('contain.value', 'all personal data');
         cy.get('.modal button.icon-close').click();
 
@@ -213,7 +212,7 @@ describe('Generator component', () => {
         cy.contains('Send email').click();
         cy.contains('Copy text manually').click({ force: true });
 
-        // when Erase all data is unchecked
+        // when 'Erase all data' is unchecked
         cy.get('#mailto-dropdown-copymanually-body').should('contain.value', `${custom_data_to_erase}`);
         cy.get('#mailto-dropdown-copymanually-body').should('not.contain.value', 'all personal data');
     });
