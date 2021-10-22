@@ -411,7 +411,8 @@
         "invalid-request": "Deine Eingaben entsprechen nicht dem richtigen Format oder sind unvollständig. Korrigiere sie und schicke den Vorschlag erneut ab.",
         "github-error": "Beim Absenden gab es ein Problem mit GitHub. Dein Vorschlag wurde nicht abgeschickt. Versuch es doch noch einmal.",
         "view-on-github": "Hier kannst Du den Fortschritt auf GitHub verfolgen",
-        "ok": "Ok"
+        "ok": "Ok",
+        "similarly-named-companies": "Wir haben schon diese Firmen mit ähnlichem Namen:"
     },
     "schema": {
         "relevant-countries": "Relevant in Ländern",
