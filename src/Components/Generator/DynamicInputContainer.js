@@ -43,21 +43,13 @@ export default class DynamicInputContainer extends Component {
         }
         // As this is at least the second time I have struggled to remember this: This is the button next to the 'add
         // new field' menu which allows you to add fields you have defined in the 'My saved data' section.
-        let fill_fields = [];
+        let fill_fields = this.props.fillFields
+            ?.map((field) => {
+                let condition = (addedField) => field.type === addedField.type && field.desc === addedField.desc,
+                    isFieldPresent = this.props.fields.some(condition);
 
-        if (this.props.fillFields)
-            this.props.fillFields.forEach((field) => {
-                let isFieldPresent = false;
-
-                for (let addedField of this.props.fields) {
-                    if (field.type === addedField.type && field.desc === addedField.desc) {
-                        isFieldPresent = true;
-                        break;
-                    }
-                }
-
-                if (!isFieldPresent)
-                    fill_fields.push(
+                if (!isFieldPresent) {
+                    return (
                         <div className="fill-field">
                             <div style="display: table-cell">
                                 {field.desc}:{' '}
@@ -81,7 +73,11 @@ export default class DynamicInputContainer extends Component {
                             </div>
                         </div>
                     );
-            });
+                }
+
+                return null;
+            })
+            .filter((elem) => elem !== null);
 
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
