@@ -32,6 +32,7 @@ render(<I18nWidget minimal={true} />, document.getElementById('personal-menu-i18
 
 const comments_div = document.getElementById('comments-widget');
 if (comments_div) {
+    // TODO: bug: two "comments-widget"
     if (comments_div.innerHTML !== '') {
         // Stable Era begins... :sun: :sun: :sun:
         hydrate(

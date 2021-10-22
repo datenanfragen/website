@@ -34,11 +34,11 @@
         {{ end }}
         {{ if (not .Params.disable_comments) }}
         {{ if .Resources.GetMatch "comments.ssr.html"}}
-        <div id="comments-widget" data-rating-enabled="1" data-display-warning="1">
+        <div id="comments-widget">
             {{ (.Resources.GetMatch "comments.ssr.html").Content | safeHTML}}
         </div>
         {{ else }}
-        <div id="comments-widget" data-rating-enabled="1" data-display-warning="1"></div>
+        <div id="comments-widget"></div>
         {{ end }}
         {{ end }}
         {{ end }}

@@ -32,8 +32,10 @@ declare global {
     for (const target in grouped_comments) {
         const comments = grouped_comments[target];
         //TODO allowRating and displayWarning depending on site
+        const allow_rating = ['blog', 'company', 'act'].some((x) => target.split('/')[1].startsWith(x));
+        const displayWarning = target.split('/')[1].startsWith('company');
         const output = render(
-            <CommentsWidget allow_rating={true} comments={comments} target={'TODO'} i18n_definition={en} />
+            <CommentsWidget allow_rating={allow_rating} comments={comments} target={target} i18n_definition={en} />
         );
         if (!['blog', 'company', 'act'].some((x) => target.split('/')[1].startsWith(x))) {
             console.log('u', target);
