@@ -437,7 +437,8 @@
         "name-or-web-missing": "Upiši barem ime ili web-stranicu.",
         "no-input": "Za slanje prijedloga moraš nešto upisati.",
         "error": "Nažalost, slanje tvog doprinosa nije uspjelo. Provjeri vezu s internetom i pazi da ne blokiraš zahtjeve za backend.datenanfragen.de putem dodatka poput uMatrix ili NoScript.",
-        "success": "Tvoj je doprinos uspješno poslan. Još jednom hvala! Pregledat ćemo ga što prije moguće."
+        "success": "Tvoj je doprinos uspješno poslan. Još jednom hvala! Pregledat ćemo ga što prije moguće.",
+        "similarly-named-companies": "Već imamo poduzeća sa sličnim imenom:"
     },
     "error-msg": {
         "sva-not-found": "Neuspjelo učitavanje podataka nadzornog tijela.",
@@ -456,14 +457,14 @@
         "feature-disabled": "Ova je funkcija deaktivirana. Ako je želiš aktivirati, pogledaj <a href='/privacy-controls'>postavke privatnosti</a>.",
         "cookie-change-success": "Postavke su spremljene.",
         "clear-success": "Uspješno izbrisano.",
-        "modal-delete-single-request": "Stvarno želiš nepovratno izbrisati ovaj zahtjev?",
+        "modal-delete-single-request": "Stvarno želiš nepovratno izbrisati ovaj zahtjev? To je nepovratna radnja.",
         "modal-clear-id_data": "Ovime ćeš nepovratno izbrisati sve spremljene identifikacijske podatke. Stvarno to želiš?",
         "modal-clear-requests": "Ovime ćeš nepovratno izbrisati sve spremljene zahtjeve. Stvarno to želiš?",
         "cancel": "Odustani",
         "confirm-clear-requests": "Izbriši zahtjeve",
         "confirm-delete-id_data": "Spremanje identifikacijskih podataka je deaktivirano. Želiš li i izbrisati trenutačno spremljene podatke?",
         "clear-id_data": "Izbriši sve identifikacijske podatke",
-        "confirm-delete-save_wizard_entries": "Spremanje odabranih poduzeća u čarobnjaku je deaktivirano. Želiš li nepovratno izbrisati i sva prethodno spremljena poduzeća?",
+        "confirm-delete-save_wizard_entries": "Spremanje odabranih poduzeća u čarobnjaku je deaktivirano. Želiš li nepovratno izbrisati i sva prethodno spremljena poduzeća? To je nepovratna radnja.",
         "confirm-clear-save_wizard_entries": "Izbriši spremljena poduzeća",
         "modal-clear-save_wizard_entries": "Ovime se nepovratno brišu sva odabrana poduzeća iz čarobnjaka? Stvarno to želiš?",
         "clear-save_wizard_entries": "Izbriši odabrana poduzeća",
