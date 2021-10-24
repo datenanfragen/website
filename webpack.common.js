@@ -92,7 +92,7 @@ module.exports = {
             //   the HTML of all language versions.
             {
                 test: /src[/\\]i18n[/\\][a-z]{2}\.json/,
-                loader: path.resolve('src/Utility/webpack-i18n-loader.js'),
+                loader: path.resolve('scripts/webpack-i18n-loader.js'),
             },
         ],
     },
