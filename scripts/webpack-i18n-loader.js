@@ -10,6 +10,15 @@ module.exports = function (content) {
     const en = require('../src/i18n/en.json');
     data = deepmerge(en, data);
 
+    // Macros allow us set set common strings (like the site name) once in the translations, and then use that value in
+    // many places. Macros are used by inserting `${macro_name}` somewhere in a translation, where `macro_name` is the
+    // key of the translation under the `macros` context that sets the macro's value.
+    content = JSON.stringify(data);
+    for (const [name, value] of Object.entries(data.macros)) {
+        content = content.replace(new RegExp(`\\\${${name}}`, 'g'), value);
+    }
+    data = JSON.parse(content);
+
     // Emit the translation files for Hugo.
     if (data.hugo) {
         // Hugo always requires setting the translation as an object with at least the `other` key set even if there are
