@@ -7,7 +7,7 @@ module.exports = function (content) {
 
     // Since we now support languages where we cannot guarantee that all strings are always translated, we now need to
     // fallback to English for untranslated strings.
-    const en = require('../i18n/en.json');
+    const en = require('../src/i18n/en.json');
     data = deepmerge(en, data);
 
     // Emit the translation files for Hugo.
@@ -45,7 +45,7 @@ module.exports = function (content) {
             .filter((f) => f.endsWith('.json'))
             .map((f) => path.basename(f, '.json'));
         const requests_translations = languages.reduce((acc, cur) => {
-            const translations = require(`../i18n/${cur}.json`);
+            const translations = require(`../src/i18n/${cur}.json`);
             if (translations.requests) return { ...acc, [cur]: translations.requests };
             return acc;
         }, {});
