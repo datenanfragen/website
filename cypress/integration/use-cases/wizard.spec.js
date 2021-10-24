@@ -3,6 +3,9 @@ describe('Using the wizard', () => {
         cy.setCookie('country', 'de');
         cy.visit('/');
 
+        // Ensure translation macros work.
+        cy.get('#home-main-copy').contains('Here at datarequests.org');
+
         cy.get('#wizard-anchor').scrollIntoView();
 
         cy.get('.wizard-selected-list .button.icon-trash')
