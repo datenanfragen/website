@@ -5,6 +5,7 @@
 * Introduce Hugo to the new language in `config/_default/languages.toml`.
 * Add a base URL in `config/production/languages.toml` and copy one of the existing blocks in `config/development/languages.toml` for the new language.
 * In `src/general.js`, add a fallback country in `guessUserCountry()`.
+* In the translation file for the new language, set the values for the `macros` context.
 * In all translation files, under `i18n-widget`, add the new language if necessary.
 * In the deploy script `deploy.sh`, make sure to also copy the companies and SVAs for the new language.
 * Add the new language to the `languageFiles` for `preact-i18n` in `.eslintrc.js`.
