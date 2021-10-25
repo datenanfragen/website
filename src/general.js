@@ -64,7 +64,7 @@ function notifyOtherLanguages(preferred_language, website_language) {
 // The more reliable way would be to feed the user's IP into a geolocation service but that is not an option, so we have to stick with this.
 function guessUserCountry() {
     // maps from language to country
-    const FALLBACK_COUNTRIES = { de: 'de', en: 'gb', fr: 'fr', pt: 'pt', es: 'es', hr: 'hr' };
+    const FALLBACK_COUNTRIES = { de: 'de', en: 'gb', fr: 'fr', pt: 'pt', es: 'es', hr: 'hr', nl: 'nl' };
 
     // see https://stackoverflow.com/a/52112155/3211062
     const navigator_lang = navigator.language;

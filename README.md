@@ -7,7 +7,7 @@ Through our website, we offer a generator for GDPR requests as well as access to
 
 ![A screenshot of the datarequests.org homepage](https://static.dacdn.de/other/screenshot-datarequests-home.png)
 
-Live versions of the website are currently available in [German](https://www.datenanfragen.de), [English](https://www.datarequests.org), [French](https://www.demandetesdonnees.fr), [Spanish](https://www.solicituddedatos.es/), and [Portuguese](https://www.pedidodedados.org).
+Live versions of the website are currently available in [German](https://www.datenanfragen.de), [English](https://www.datarequests.org), [French](https://www.demandetesdonnees.fr), [Spanish](https://www.solicituddedatos.es/), [Croatian](https://www.osobnipodaci.org/), [Dutch](https://www.gegevensaanvragen.nl/), and [Portuguese](https://www.pedidodedados.org).
 
 ## Development
 
