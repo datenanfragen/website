@@ -5,7 +5,8 @@
 	"last_edited": "2020-02-24T19:25:00",
 	"type": "blog",
 	"description": "Le RGPD t'accorde des droits étendus en matière de protection des données. Par exemple, chaque entreprise de l'UE est tenue de t'indiquer quelles données personnelles elle a stockées sur toi. Si les données sont incorrectes, elles doivent les corriger. Tu peux même demander que les données soient effacées. Pour en savoir plus, consulte cet article.",
-	"tags": [ "rgpd", "droits", "accès aux données", "effacement", "rectification" ]
+	"tags": [ "rgpd", "droits", "accès aux données", "effacement", "rectification" ],
+    "topic": "data-protection-know-how"
 }
 
 Dans notre monde de plus en plus numérique, la protection des données joue chaque jour un rôle plus important. Avec le nouveau **Règlement Général sur la Protection des Données** (**RGPD**), l'Union européenne renforce considérablement tes droits en ce qui concerne le traitement minutieux de tes données personnelles.

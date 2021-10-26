@@ -4,7 +4,8 @@
     "date": "2019-10-21T21:11:25+00:00",
     "description": "Installing security-focused browser extensions that block pop-up advertisements and completely encrypt website traffic from being monitored or tracked will, definitely increase your privacy—and may even speed up your browser.",
     "tags": [ "privacy", "online", "ads", "cookies", "https" ],
-    "authors": [ "nishantwrp" ]
+    "authors": [ "nishantwrp" ],
+    "topic": "guide"
 }
 
 Websites these days collect a lot of information about you. When you leave the website, they then want to know where you are going next. They leave tracking cookies in your browser. 

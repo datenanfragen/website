@@ -8,7 +8,8 @@
     "featured_image": "gdpr-erasure-request-letter",
     "tags": [ "rgpd", "solicitud de supresión", "carta", "modelo", "artículo 17" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 Si los datos personales que las empresas u otras organizaciones (los denominados responsables del tratamiento) han almacenado sobre tí ya no son necesarios para su finalidad original, tienes "derecho al olvido" según el Reglamento general de protección de datos. Esto significa que puedes pedirle al controlador que elimine dichos datos.

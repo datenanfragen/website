@@ -8,7 +8,8 @@
     "description": "Wie jedes rechtliche Thema kann auch die DSGVO auf den ersten Blick ziemlich kompliziert wirken. In diesem Artikel erklären wir die wichtigsten Begriffe und Konzepte rund um die DSGVO kurz, sodass Du leicht den Überblick behältst.",
     "featured_image_url": "/card-icons/book-info.svg",
     "tags": [ "dsgvo", "glossar", "begriffe", "konzepte" ],
-    "authors": [ "baltpeter" ]
+    "authors": [ "baltpeter" ],
+    "topic": "data-protection-know-how"
 }
 
 <img class="offset-image offset-image-left" src="/card-icons/book-info.svg" style="height: 200px;" alt="">

@@ -6,7 +6,8 @@
     "description": "Ein weiteres aufregendes Jahr im Datenanfragen.de e. V. liegt hinter uns. In diesem Artikel präsentieren wir Dir unseren Jahresbericht für 2020 und geben einen Ausblick auf 2021.",
     "authors": [ "baltpeter", "zner0l", "malte" ],
     "featured_image": "jahresbericht-2020",
-    "license": "cc-by-40"
+    "license": "cc-by-40",
+    "topic": "about-us"
 }
 
 Hinter uns liegt ein weiteres Jahr im Datenanfragen.de e.&nbsp;V., das für uns alle kein normales Jahr war. Die Pandemie hat viele Bereiche des Lebens in das Internet verlegt und die Notwendigkeit für konsequenten Datenschutz hat zugenommen. Uns ist es im letzten Jahr gelungen, dies für noch mehr Menschen möglich zu machen und zunehmend mehr Menschen zu erreichen.  

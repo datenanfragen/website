@@ -6,7 +6,8 @@
     "type": "blog",
     "description": "Grâce au RGPD, tu as le droit de suppression de tes données si un contrôleur n'en a plus besoin pour la raison initiale. Nous offrons un modèle de lettre pour te permettre de faire valoir ces droits",
     "authors": [ "baltpeter" ],
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 Conformément à l'Art. 17 du RGPD, tu as le droit de demander la suppression de tes données personnelles si elles ne sont plus nécessaires à leur traitement initial (aussi appelé « droit à l'oubli »).

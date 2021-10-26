@@ -8,7 +8,8 @@
     "featured_image": "honey-beobachtet-dich-beim-surfen",
     "tags": [ "addon", "coupon-codes", "datensammlung", "browser-verlauf", "auskunftsrecht" ],
     "authors": [ "baltpeter" ],
-    "notices": "Titelfoto angepasst nach: „[Alien Invasion](https://unsplash.com/photos/QMFZhJCufKw)“ von [Henry Mwenge](https://unsplash.com/@ayende_the_walkingman) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[Alien Invasion](https://unsplash.com/photos/QMFZhJCufKw)“ von [Henry Mwenge](https://unsplash.com/@ayende_the_walkingman) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "investigation"
 }
 
 **Die kostenlose Browser-Erweiterung „Honey“ möchte ihren Nutzer_innen durch das automatische Suchen von Gutschein-Codes Geld sparen. Honey beschreibt sich selbst als datenschutzfreundlich und sammelt angeblich nur Daten zum Surfverhalten auf Online-Shopping-Webseiten. Zwei unserer Mitglieder, die Honey genutzt hatten, haben mithilfe der DSGVO Auskunft über die Daten angefragt, die zu ihnen gesammelt wurden. Unsere Auswertung der Antworten zeigt, dass Honey entgegen der eigenen Angaben in großem Stil Browser-Verlaufsdaten sammelt. Deshalb haben wir Beschwerde bei den Datenschutzaufsichtsbehörden eingelegt.**

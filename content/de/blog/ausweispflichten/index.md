@@ -7,7 +7,8 @@
     "featured_image": "wie-ausweisen",
     "notices": "Titelfoto angepasst nach: „[passport document germany federal republic of](https://pixabay.com/photos/passport-document-germany-249420/)“ von [noelsch](https://pixabay.com/users/noelsch-136390/) ([Pixabay-Lizenz](https://pixabay.com/service/license/))",
     "authors": [ "steffengrundke" ],
-    "license": "cc-by-40"
+    "license": "cc-by-40",
+    "topic": "data-protection-know-how"
 }
 
 {{< featuredImg alt="Wie muss ich mich ausweisen?" >}}

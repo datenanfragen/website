@@ -5,7 +5,8 @@
     "tags": [ "deutsche wohnen", "bußgeld", "datenschutzverstoß", "auskunftsanfrage", "selbstauskunft" ],
     "featured_image": "deutsche-wohnen",
     "authors": [ "baltpeter" ],
-    "notices": "Titelfoto angepasst nach: „[top-view photography of houses](https://unsplash.com/photos/7lvzopTxjOU)“ von [Tom Rumble](https://unsplash.com/@tomrumble) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[top-view photography of houses](https://unsplash.com/photos/7lvzopTxjOU)“ von [Tom Rumble](https://unsplash.com/@tomrumble) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "use-your-rights"
 }
 
 Die Deutsche Wohnen SE ist eines der größten Immobilienunternehmen in Deutschland. [Nach eigenen Angaben](https://www.deutsche-wohnen.com/ueber-uns/unternehmen/unternehmensprofil/) verwaltet sie mehr als 150.000 Immobilien in Deutschland. Dementsprechend kommt das Unternehmen aus Berlin in Kontakt mit den Daten zahlreicher Mieter_innen.

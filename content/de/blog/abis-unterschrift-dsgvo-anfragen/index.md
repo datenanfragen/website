@@ -7,7 +7,8 @@
     "tags": [ "abis gmbh", "dsgvo beschwerde", "selbstauskunft unterschrift", "formerfordernisse" ],
     "featured_image": "abis-beschwerde-unterschrift.jpg",
     "authors": [ "baltpeter" ],
-    "notices": "Titelfoto angepasst nach: „[person writing on white paper](https://unsplash.com/photos/GJao3ZTX9gU)“ von [Cytonn Photography](https://unsplash.com/@cytonn_photography) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[person writing on white paper](https://unsplash.com/photos/GJao3ZTX9gU)“ von [Cytonn Photography](https://unsplash.com/@cytonn_photography) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "gdpr-in-practice"
 }
 
 **Beschweren lohnt sich: Die ABIS GmbH, ein Adressmanagement-Tochterunternehmen der Deutschen Post und Bertelsmann, hatte bisher für Selbstauskünfte nach der DSGVO eine unterschriebene Anfrage verlangt und die Antworten nur per Post verschickt. Nach einer erfolgreichen Beschwerde bei den Datenschutz-Aufsichtsbehörden wurde dieses rechtswidrige Verhalten nun eingestellt.**

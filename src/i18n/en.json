@@ -179,7 +179,15 @@
         "footer-social-github-desc": "Find us on GitHub.",
         "footer-social-matrix-desc": "Talk with us through Matrix.",
         "footer-social-mastodon-desc": "Follow us on Mastodon.",
-        "footer-social-twitter-desc": "Follow us on Twitter."
+        "footer-social-twitter-desc": "Follow us on Twitter.",
+        "topic-data-protection-know-how": "Data protection know-how",
+        "topic-opinion": "Opinion",
+        "topic-guide": "Guide",
+        "topic-about-us": "About us",
+        "topic-investigation": "Investigation",
+        "topic-gdpr-in-practice": "The GDPR in practice",
+        "topic-look-at-requests": "A look at requests",
+        "topic-use-your-rights": "Use your rights"
     },
     "home": {
         "data-access": "data access.",

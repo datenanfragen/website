@@ -2,7 +2,8 @@
     "title": "Uzorak pisma za zahtjeve za brisanje prema čl. 17 GDPR („pravo na zaborav”)",
     "date": "2021-04-21T17:58:07+02:00",
     "type": "blog",
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 <div class="blog-letter">

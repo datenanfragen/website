@@ -7,7 +7,8 @@
     "tags": ["gdpr", "territorial scope", "article 3 gdpr" ],
     "authors": [ "anikarini", "baltpeter" ],
     "license": "cc-by-40",
-    "notices": "Photo adapted after: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” by [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Photo adapted after: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” by [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash license](https://unsplash.com/license))",
+    "topic": "data-protection-know-how"
 }
 
 Who is entitled to assert the GDPR's data subject rights? Against whom? This article provides a brief overview of the territorial scope of the GDPR.

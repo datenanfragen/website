@@ -2,7 +2,8 @@
     "title": "Uzorak pisma za prigovore protiv izravnog marketinga prema čl. 21 (2) GDPR-a",
     "date": "2021-04-21T18:00:18+02:00",
     "type": "blog",
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 <div class="blog-letter">

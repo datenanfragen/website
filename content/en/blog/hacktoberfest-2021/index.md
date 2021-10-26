@@ -6,7 +6,8 @@
     "featured_image": "hacktoberfest-2021",
     "tags": [ "hacktoberfest", "digitalocean", "github", "open source", "pull request" ],
     "authors": [ "malte", "baltpeter" ],
-    "notices": "Photo adapted after: \"[maple leaves photo](https://unsplash.com/photos/Pu-en3ew8wY)\" by [Fey Marin](https://unsplash.com/@feymarin) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Photo adapted after: \"[maple leaves photo](https://unsplash.com/photos/Pu-en3ew8wY)\" by [Fey Marin](https://unsplash.com/@feymarin) ([Unsplash license](https://unsplash.com/license))",
+    "topic": "about-us"
 }
 
 ~~Party time!~~ October and therefore the Hacktoberfest are back! We are participating again and are looking forward to your contributions. Just like in previous years, we are happy to give away some goodies as well.

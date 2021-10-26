@@ -6,7 +6,8 @@
     "type": "blog",
     "description": "Todas las empresas de la UE están obligadas por ley a otorgar acceso a tus datos personales, la posibilidad de corregirlos o incluso eliminarlos, etc. Aquí en solicituddedatos.es, queremos ayudarte a ejercer estos derechos. En esta publicación, queremos brindarte una descripción general rápida del proyecto.",
     "featured_image": "filing-shelves",
-    "tags": [ "solicituddedatos.es", "rgpd", "solicitud de acceso", "generador" ]
+    "tags": [ "solicituddedatos.es", "rgpd", "solicitud de acceso", "generador" ],
+    "topic": "about-us"
 }
 
 Todas las empresas de la UE están obligadas por ley a otorgar acceso a tus datos personales, la posibilidad de corregirlos o incluso eliminarlos, etc. Aquí en solicituddedatos.es, queremos ayudarte a ejercer estos derechos.

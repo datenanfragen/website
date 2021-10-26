@@ -6,7 +6,8 @@
     "last_edited": "2020-02-24T19:07:25+02:00",
     "type": "blog",
     "description": "Die DSGVO gewährt Dir umfassende Rechte im Bezug auf den Datenschutz. So muss Dir bspw. jedes Unternehmen in der EU mitteilen, welche personenbezogenen Daten es zu Dir gespeichert hat. Wenn die Daten falsch sind, muss es sie berichtigen. Du darfst sogar verlangen, dass die Daten wieder gelöscht werden. Mehr dazu erfährst Du in diesem Artikel.",
-    "tags": [ "dsgvo", "gdpr", "rechte", "auskunft", "selbstauskunft", "datenauskunft", "löschung", "berichtigung" ]
+    "tags": [ "dsgvo", "gdpr", "rechte", "auskunft", "selbstauskunft", "datenauskunft", "löschung", "berichtigung" ],
+    "topic": "data-protection-know-how"
 }
 
 Datenschutz spielt in unserer immer stärker digitalisierten Welt von Tag zu Tag eine wichtigere Rolle. Mit der neuen **Datenschutz-Grundverordnung** (**DSGVO**) stärkt die Europäische Union Deine Rechte im Bezug auf einen sorgsamen Umgang mit Deinen personenbezogenen Daten deutlich.

@@ -5,7 +5,8 @@
 	"last_edited": "2020-02-24T19:07:25+02:00",
 	"type": "blog",
 	"description": "The GDPR grants you extensive rights with regard to data protection. For example, every company in the EU is required to tell you what personal data they have stored on you. If the data is incorrect, they have to correct it. You may even request that the data be deleted again. Find out more in this article.",
-	"tags": [ "gdpr", "rights", "data access", "erasure", "rectification" ]
+	"tags": [ "gdpr", "rights", "data access", "erasure", "rectification" ],
+    "topic": "data-protection-know-how"
 }
 
 In our increasingly digital world, data protection plays a more important role every day. With the new **General Data Protection Regulation** (**GDPR**), the European Union significantly strengthens your rights with regard to the careful handling of your personal data.

@@ -11,7 +11,8 @@
     "tags": [ "dsgvo", "gdpr", "widerspruch direktwerbung", "brief", "schreiben", "muster", "artikel 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10",
-    "notices": "Titelfoto angepasst nach: „[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)“ von [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)“ von [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "use-your-rights"
 }
 
 Werbung wirkt heutzutage allgegenwärtig: Kaum öffnet man den Briefkasten oder das E-Mail-Postfach, erwartet einen in der Regel eine Reihe an Schreiben von Unternehmen, die ihre Produkte anpreisen wollen. Nicht selten auch persönlich an einen selbst adressiert.

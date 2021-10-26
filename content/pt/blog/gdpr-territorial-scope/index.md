@@ -9,7 +9,8 @@
     "tags": [ "rgpd" , "gdpr", "âmbito de aplicação territorial", "direito de proteção de dados aplicação territorial", "escopo geográfico do RGPD", "rgpd âmbito territorial", "rgpd escopo geográfico", "gdpr âmbito territorial", "Artigo 3 RGPD", "artigo 3 GDPR"],
     "authors": [ "anikarini" ],
     "license": "cc-by-40",
-    "notices": "Foto da capa adaptada para: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” por [Mohit](https://unsplash.com/@98mohitkumar) ([licença Unsplash](https://unsplash.com/license))"
+    "notices": "Foto da capa adaptada para: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” por [Mohit](https://unsplash.com/@98mohitkumar) ([licença Unsplash](https://unsplash.com/license))",
+    "topic": "data-protection-know-how"
 }
 
 Quem pode exercer os direitos do titular dos dados? Contra quem? Este artigo fornece uma breve visão geral do escopo geográfico de aplicação do RGPD. 

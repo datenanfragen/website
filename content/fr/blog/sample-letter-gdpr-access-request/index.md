@@ -6,7 +6,8 @@
     "type": "blog",
     "description": "Conformément au RGPD, tu as un droit d'acces à tes données personnelles stockées par des entreprises. Nous offrons un modèle de lettre pour te permettre de faire valoir ces droits",
     "authors": [ "baltpeter" ],
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 Conformément à le RGPD, tu as le droit d'accès aux données personnelles enregistrées et traitées pour toi par des entreprises et d'autres organisations (appelé contrôleurs)

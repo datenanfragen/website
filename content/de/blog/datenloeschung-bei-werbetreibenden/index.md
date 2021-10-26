@@ -7,7 +7,8 @@
     "tags": [ "recht auf vergessenwerden", "direktwerbung", "werbesperre", "werbewiderspruch", "spam" ],
     "featured_image": "datenloeschung-werbetreibende.jpg",
     "authors": [ "berni" ],
-    "notices": "Titelfoto angepasst nach: „[mailboxes on wall](https://unsplash.com/photos/eRp165wNxro)“ von [Natasa Grabovac](https://unsplash.com/@tashanatra) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[mailboxes on wall](https://unsplash.com/photos/eRp165wNxro)“ von [Natasa Grabovac](https://unsplash.com/@tashanatra) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "gdpr-in-practice"
 }
 
 

@@ -5,7 +5,8 @@
     "tags": [ "deutsches rotes kreuz", "drk", "gesundheitsdaten", "sensible daten", "datenleck" ],
     "featured_image": "drk-brandenburg-datenleck",
     "authors": [ "baltpeter" ],
-    "notices": "Titelfoto angepasst nach: „[red vehicle in timelapse](https://unsplash.com/photos/vGu08RYjO-s)“ von [camilo jimenez](https://unsplash.com/@coolmilo) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[red vehicle in timelapse](https://unsplash.com/photos/vGu08RYjO-s)“ von [camilo jimenez](https://unsplash.com/@coolmilo) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "use-your-rights"
 }
 
 Das Deutsche Rote Kreuz (DRK) Brandenburg hat über mehrere Jahre sensible Gesundheitsdaten von Patient_innen kaum geschützt auf einem Server abgelegt. Hacker hätten einfach auf diese sensiblen Daten zugreifen und sie sogar manipulieren können. Betroffen sind Daten zu mehr als 111.000 Einsatzfahrten des DRK für über 30.000 Patient_innen aus den letzten 12 Jahren.

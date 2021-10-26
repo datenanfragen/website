@@ -6,7 +6,8 @@
     "type": "blog",
     "description": "Every company in the EU is required by law to grant access to your personal data, the ability to have it corrected or even deleted and more. Here at datarequests.org, we want to help you exercise these rights. In this post, we want to give you a quick overview of the project.",
     "featured_image": "filing-shelves",
-    "tags": [ "datarequests.org", "gdpr", "access request", "generator", "open source" ]
+    "tags": [ "datarequests.org", "gdpr", "access request", "generator", "open source" ],
+    "topic": "about-us"
 }
 
 Every company in the EU is required by law to grant access to your personal data, the ability to have it corrected or even deleted and more. Here at datarequests.org, we want to help you exercise these rights.

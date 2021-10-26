@@ -9,7 +9,8 @@
     "tags": ["dsgvo", "Gesetz Nr. 58/2019", "portugiesisches Datenschutzrecht", "Datenschutzrecht in Portugal", "gdpr in Portugal", "dsgvo Portugal", "datenschutzrecht Portugal", "gdpr Portugal"],
     "authors": [ "anikarini" ],
     "license": "cc-by-40",
-    "notices": "Titelfoto angepasst nach: „[Portugal Flag Wind](https://pixabay.com/photos/portugal-flag-wind-sky-blue-1355102/)“ von [b1-foto](https://pixabay.com/users/b1-foto-2445766/) ([Pixabay-Lizenz](https://pixabay.com/service/license/))"
+    "notices": "Titelfoto angepasst nach: „[Portugal Flag Wind](https://pixabay.com/photos/portugal-flag-wind-sky-blue-1355102/)“ von [b1-foto](https://pixabay.com/users/b1-foto-2445766/) ([Pixabay-Lizenz](https://pixabay.com/service/license/))",
+    "topic": "data-protection-know-how"
 }
 
 Was sind die Besonderheiten des Datenschutzrechts in Portugal? Dieser Artikel gibt einen Überblick über die Eigenheiten des Datenschutzrechts in Portugal, insbesondere in Bezug auf die europäische Datenschutzgrundverordnung (DSGVO).

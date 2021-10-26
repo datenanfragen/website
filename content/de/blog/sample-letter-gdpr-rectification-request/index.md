@@ -9,7 +9,8 @@
     "featured_image": "musterbrief-dsgvo-anfrage-berichtigung",
     "tags": [ "dsgvo", "gdpr", "berichtigung", "brief", "schreiben", "muster", "artikel 16" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 Falls ein Unternehmen oder eine sonstige Organisation (ein sogenannter Verantwortlicher) falsche (oder unvollständige) personenbezogene Daten zu Dir gespeichert haben sollte, hast Du nach der Datenschutz-Grundverordnung (DSGVO) ein Recht darauf, unverzügliche Korrektur der unrichtigen Daten zu verlagen.

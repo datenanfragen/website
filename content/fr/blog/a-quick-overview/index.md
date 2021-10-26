@@ -7,7 +7,8 @@
     "type": "blog",
     "description": "Chaque entreprise de l'UE est tenue par la loi de t'accorder l'accès à tes données personnelles, te donner la possibilité de les faire corriger ou même supprimer etc. Nous de demandetesdonnees.fr, souhaitons t'aider à exercer ce droit. Dans cet article, nous te donnons une vue d'ensemble en bref du projet.",
     "featured_image": "filing-shelves",
-    "tags": [ "demandetesdonnees.fr", "rgpd", "demande de données", "generateur", "open source" ]
+    "tags": [ "demandetesdonnees.fr", "rgpd", "demande de données", "generateur", "open source" ],
+    "topic": "about-us"
 }
 
 Chaque entreprise de l'UE est tenue par la loi de t'accorder l'accès à tes données personnelles, te donner la possibilité de les faire corriger ou même supprimer etc. Nous de demandetesdonnees.fr, souhaitons t'aider à exercer ce droit.

@@ -642,6 +642,12 @@ table#my-requests-table {
 
         aside {
             color: color('gray', 700);
+
+            &.meta-topic {
+                text-transform: uppercase;
+                line-height: 1.3;
+                letter-spacing: -0.0325em;
+            }
         }
     }
 

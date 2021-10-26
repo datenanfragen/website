@@ -9,7 +9,8 @@
     "tags": [ "gdpr", "objection against direct marketing", "letter", "sample", "article 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10",
-    "notices": "Photo adapted after: \"[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)\" by [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Photo adapted after: \"[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)\" by [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash license](https://unsplash.com/license))",
+    "topic": "use-your-rights"
 }
 
 Advertising seems ubiquitous today: As soon as you open your mailbox or email inbox, you are usually greeted by a series of letters and emails from companies wanting to promote their products. Often, they are personally addressed to you.

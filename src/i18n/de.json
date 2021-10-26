@@ -179,7 +179,15 @@
         "footer-social-matrix-desc": "Unterhalte Dich mit uns über Matrix.",
         "footer-social-mastodon-desc": "Folge uns bei Mastodon.",
         "footer-social-twitter-desc": "Folge uns auf Twitter.",
-        "license": "Lizenz"
+        "license": "Lizenz",
+        "topic-data-protection-know-how": "Datenschutzwissen",
+        "topic-opinion": "Meinung",
+        "topic-guide": "Ratgeber",
+        "topic-about-us": "In eigener Sache",
+        "topic-investigation": "Recherche",
+        "topic-gdpr-in-practice": "DSGVO in der Praxis",
+        "topic-look-at-requests": "Anfragen angeschaut",
+        "topic-use-your-rights": "Rechte nutzen"
     },
     "home": {
         "data-access": "Datenauskunft.",

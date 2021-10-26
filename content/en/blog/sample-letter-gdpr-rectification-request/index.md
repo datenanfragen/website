@@ -8,7 +8,8 @@
     "featured_image": "gdpr-rectification-request-letter",
     "tags": [ "gdpr", "rectificacion request", "letter", "sample", "article 16" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 If a company or other organization (a so-called controller) has stored false (or incomplete) personal data on you, then under the General Data Protection Regulation (GDPR) you have a right to demand immediate correction of said incorrect data.
