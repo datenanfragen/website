@@ -6,7 +6,8 @@
     "featured_image": "hacktoberfest-2020",
     "tags": [ "hacktoberfest", "digitalocean", "github", "open source", "pull request" ],
     "authors": [ "baltpeter" ],
-    "notices": "Titelfoto angepasst nach: „[people doing office works](https://unsplash.com/photos/QBpZGqEMsKg)“ von [Alex Kotliarskyi](https://unsplash.com/@frantic) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[people doing office works](https://unsplash.com/photos/QBpZGqEMsKg)“ von [Alex Kotliarskyi](https://unsplash.com/@frantic) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "about-us"
 }
 
 Bald ist es wieder so weit: Das [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2020 steht an, wie immer ausgerichtet vom Hosting-Anbieter DigitalOcean. Auch in diesem Jahr geht es darum, Menschen für die Arbeit an Open-Source-Software zu begeistern. Das Hacktoberfest lädt Dich ein, im Laufe des Oktobers 2020 Pull-Requests bei Open-Source-Projekten einzureichen. Wer vier oder mehr Pull-Requests einreicht, bekommt ein T-Shirt von DigitalOcean geschenkt oder die Möglichkeit, einen Baum zu pflanzen.

@@ -9,7 +9,8 @@
     "tags": ["dsgvo", "räumlicher Anwendungsbereich", "gdpr", "artikel 3 dsgvo" ],
     "authors": [ "anikarini" ],
     "license": "cc-by-40",
-    "notices": "Titelfoto angepasst nach: „[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)“ von [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)“ von [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "data-protection-know-how"
 }
 
 Wer darf Betroffenenrechte geltend machen? Gegen wen? Dieser Artikel gibt einen kurzen Überblick über den räumlichen Anwendungsbereich der DSGVO.

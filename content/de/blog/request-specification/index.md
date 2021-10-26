@@ -8,7 +8,8 @@
     "authors": [ "andreas_bampounis" ],
     "featured_image": "praezisierung-von-auskunftsanfragen",
     "license": "cc-by-40",
-    "notices": "Titelfoto angepasst nach: „[The files](https://unsplash.com/photos/Q9y3LRuuxmg)“ von [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[The files](https://unsplash.com/photos/Q9y3LRuuxmg)“ von [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "data-protection-know-how"
 }
 
 Gemäß Art. 15 DSGVO und konkreter dem Erwägungsgrund 63 S. 7[^1] darf der_die Verantwortliche von der betroffenen Person eine Präzisierung der Anfrage im Rahmen ihrer Ausübung des Auskunftsrechts verlangen. Um diese Aufforderung verlangen zu können, muss der_die Verantwortliche eine große Menge von Daten in Bezug auf die betroffene Person verarbeiten. 

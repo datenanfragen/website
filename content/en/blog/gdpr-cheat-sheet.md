@@ -8,7 +8,8 @@
     "description": "At first glance, the GDPR can appear confusing like any other legal topic. In this article, we briefly explain the most important terms and concepts related to the GDPR so that you can easily remain in control.",
     "featured_image_url": "/card-icons/book-info.svg",
     "tags": [ "gdpr", "glossary", "terms", "concepts" ],
-    "authors": [ "baltpeter", "xeluna" ]
+    "authors": [ "baltpeter", "xeluna" ],
+    "topic": "data-protection-know-how"
 }
 
 <img class="offset-image offset-image-left" src="/card-icons/book-info.svg" style="height: 200px;" alt="">

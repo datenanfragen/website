@@ -11,6 +11,7 @@
         </div>
     {{ end }}
     <div class="padded {{ if (or .Params.featured_image .Params.featured_image_url) }}col75{{end}}">
+        {{ with .Params.topic }}<aside class="meta-topic">{{ T (printf "topic-%s" .) }}</aside>{{ end }}
         <a href="{{ .Permalink }}">
             <h1>{{ .Title }}</h1>
         </a>

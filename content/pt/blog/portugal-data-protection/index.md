@@ -10,7 +10,8 @@
     "tags": ["rgpd" , "gdpr", "Lei Nr. 58/ 2019", "direito de proteção de dados português", "direito de proteção de dados em Portugal", "gdpr em Portugal", "rgpd Portugal", "proteção de dados Portugal", "gdpr Portugal"],
     "authors": [ "anikarini" ],
     "license": "cc-by-40",
-    "notices": "Foto da capa adaptada para: “[Portugal Flag Wind](https://pixabay.com/photos/portugal-flag-wind-sky-blue-1355102/)” por [b1-foto](https://pixabay.com/users/b1-foto-2445766/) ([licença Pixabay](https://pixabay.com/service/license/))"
+    "notices": "Foto da capa adaptada para: “[Portugal Flag Wind](https://pixabay.com/photos/portugal-flag-wind-sky-blue-1355102/)” por [b1-foto](https://pixabay.com/users/b1-foto-2445766/) ([licença Pixabay](https://pixabay.com/service/license/))",
+    "topic": "data-protection-know-how"
 }
 
 Quais são as particularidades do Direito de Proteção de Dados em Portugal? Este artigo fornece uma visão geral acerca das especificidades do Direito de Proteção de Dados em Portugal, particularmente no que concerne ao Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia. 

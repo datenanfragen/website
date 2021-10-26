@@ -8,7 +8,8 @@
     "featured_image": "gdpr-access-request-letter",
     "tags": [ "rgpd", "solicitud de acceso", "carta", "modelo", "artículo 15" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 De acuerdo con el RGPD, tienes derecho a acceder a los datos personales almacenados y procesados sobre tí por empresas y otras organizaciones (los llamados controladores).

@@ -7,7 +7,8 @@
     "type": "blog",
     "description": "Jedes Unternehmen in der EU ist verpflichtet Dir Rechte auf Datenauskunft, -berichtigung, -löschung usw. zu gewähren. Mit Datenanfragen.de wollen wir Dir helfen diese Rechte auszuüben. In diesem Artikel wollen wir Dir einen kleinen Überblick über das Projekt verschaffen.",
     "featured_image": "filing-shelves",
-    "tags": [ "Datenanfragen.de", "datarequests.org", "dsgvo", "gdpr", "selbstauskunft", "generator", "open source" ]
+    "tags": [ "Datenanfragen.de", "datarequests.org", "dsgvo", "gdpr", "selbstauskunft", "generator", "open source" ],
+    "topic": "about-us"
 }
 
 Jedes Unternehmen in der EU ist verpflichtet Dir Rechte auf Datenauskunft, -berichtigung, -löschung usw. zu gewähren. Mit Datenanfragen.de wollen wir Dir helfen diese Rechte auszuüben.

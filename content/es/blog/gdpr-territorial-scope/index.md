@@ -9,7 +9,8 @@
     "tags": ["rgpd", "ámbito territorial", "artículo 3 rgpd" ],
     "authors": [ "anikarini" ],
     "license": "cc-by-40",
-    "notices": "Foto adaptada de: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” por [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Foto adaptada de: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” por [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash license](https://unsplash.com/license))",
+    "topic": "data-protection-know-how"
 }
 
 ¿Quién tiene derecho a hacer valer los derechos de los interesados del RGPD? ¿Contra quién? Este artículo proporciona una breve descripción del alcance territorial del RGPD.

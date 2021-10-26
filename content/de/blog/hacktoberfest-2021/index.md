@@ -6,7 +6,8 @@
     "featured_image": "hacktoberfest-2021",
     "tags": [ "hacktoberfest", "digitalocean", "github", "open source", "pull request"],
     "authors": [ "malte", "baltpeter" ],
-    "notices": "Titelfoto angepasst nach: „[maple leaves photo](https://unsplash.com/photos/Pu-en3ew8wY)“ von [Fey Marin](https://unsplash.com/@feymarin) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[maple leaves photo](https://unsplash.com/photos/Pu-en3ew8wY)“ von [Fey Marin](https://unsplash.com/@feymarin) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "topic": "about-us"
 }
 
 ~~O'zapft is!~~ Der Oktober und damit auch das Hacktoberfest stehen wieder vor der Tür. Auch dieses Jahr wollen wir als Datenanfragen.de e.&thinsp;V. wieder am Hacktoberfest teilnehmen und freuen uns auf Eure Einreichungen für unser Projekt! Wie schon in den letzten Jahren gibt es auch wieder etwas zu gewinnen.

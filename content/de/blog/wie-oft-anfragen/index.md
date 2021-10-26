@@ -7,7 +7,8 @@
     "featured_image": "wie-oft-anfragen",
     "notices": "Titelfoto angepasst nach: „[Letters Write Communication](https://pixabay.com/photos/letters-write-communication-1659715/)“ von [Gerhard Gellinger](https://pixabay.com/users/gellinger-201217/) ([Pixabay-Lizenz](https://pixabay.com/service/license/))",
     "authors": [ "nadjarode" ],
-    "license": "cc-by-40"
+    "license": "cc-by-40",
+    "topic": "data-protection-know-how"
 }
 
 {{< featuredImg alt="Wie oft darf ich Anfragen stellen?" >}}

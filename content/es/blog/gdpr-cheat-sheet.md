@@ -8,7 +8,8 @@
     "description": "A primera vista, el RGPD puede parecer confuso como cualquier otro tema legal. En este artículo, explicamos brevemente los términos y conceptos más importantes relacionados con el RGPD para que puedas mantener el control fácilmente.",
     "featured_image_url": "/card-icons/book-info.svg",
     "tags": [ "RGPD", "glosario", "terminos", "conceptos" ],
-    "authors": [ "baltpeter", "xeluna" ]
+    "authors": [ "baltpeter", "xeluna" ],
+    "topic": "data-protection-know-how"
 }
 
 <img class="offset-image offset-image-left" src="/card-icons/book-info.svg" style="height: 200px;" alt="">

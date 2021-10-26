@@ -9,7 +9,8 @@
     "featured_image": "musterbrief-dsgvo-anfrage-loeschung",
     "tags": [ "dsgvo", "gdpr", "löschantrag", "brief", "schreiben", "muster", "artikel 17" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 Wenn die personenbezogenen Daten, die Unternehmen oder andere Organisationen (sogenannte Verantwortliche) zu Deiner Person gespeichert haben, für ihren ursprünglichen Zweck nicht mehr nötig sind, hast Du nach der Datenschutz-Grundverordnung ein „Recht auf Vergessenwerden“. Das bedeutet, dass Du vom Verantwortlichen verlangen kannst, dass eben diese Daten wieder gelöscht werden.

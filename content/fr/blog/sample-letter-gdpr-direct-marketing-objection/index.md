@@ -8,7 +8,8 @@
     "featured_image": "modele-de-lettre-pour-l-opposition-a-la-prospection",
     "authors": [ "baltpeter" ],
     "license": "cc0-10",
-    "notices": "Photo adaptée sur base de: “[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)” par [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Photo adaptée sur base de: “[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)” par [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash license](https://unsplash.com/license))",
+    "topic": "use-your-rights"
 }
 
 La publicité semble incontournable aujourd'hui: dès que tu ouvres ta boîte aux lettre ou email, tu reçois souvent une série de lettres ou d'emails, d'entreprises qui veulent promouvoir leurs produits. Souvent, elles te sont même adressées personnellement.

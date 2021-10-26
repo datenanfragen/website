@@ -7,7 +7,8 @@
     "tags": ["rgpd", "portée territoriale", "rgpd article 3" ],
     "authors": [ "anikarini", "eliottha" ],
     "license": "cc-by-40",
-    "notices": "Photo adaptée sur base de: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” par [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Photo adaptée sur base de: “[aerial photography of buildings](https://unsplash.com/photos/6M9xiVgkoN0)” par [Mohit](https://unsplash.com/@98mohitkumar) ([Unsplash license](https://unsplash.com/license))",
+    "topic": "data-protection-know-how"
 }
 
 Qui est habilité à faire valoir les droits des personnes concernées par le RGPD ? Et contre qui ? Cet article donne un bref aperçu de la portée territoriale du RGPD.

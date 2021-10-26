@@ -5,7 +5,8 @@
     "date": "2021-01-25T21:25:12-05:00",
 	"type": "blog",
 	"description": "El RGPD te otorga amplios derechos con respecto a la protección de datos. Por ejemplo, todas las empresas de la UE deben informarte qué datos personales han almacenado sobre tí. Si los datos son incorrectos, deben corregirlos. Incluso puedes solicitar que se eliminen los datos que tienen sobre tí. Obten más información en este artículo.",
-	"tags": [ "rgpd", "derechos" ]
+	"tags": [ "rgpd", "derechos" ],
+    "topic": "data-protection-know-how"
 }
 
 En nuestro mundo cada vez más digital, la protección de datos juega un papel cada día más importante. Con el nuevo **Reglamento General de Protección de Datos** (**RGPD**), la Unión Europea refuerza significativamente sus derechos con respecto al manejo cuidadoso de tus datos personales.

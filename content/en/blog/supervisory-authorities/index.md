@@ -12,7 +12,8 @@
     "featured_image_url": "/card-icons/authority.svg",
     "tags": [ "one stop shop", "complaint", "competence" ],
     "authors": [ "baltpeter" ],
-    "blog_like": true
+    "blog_like": true,
+    "topic": "data-protection-know-how"
 }
 
 <img class="offset-image offset-image-left" src="/card-icons/authority.svg" style="height: 200px;" alt="">

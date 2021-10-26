@@ -8,7 +8,8 @@
     "featured_image": "gdpr-rectification-request-letter",
     "tags": [ "rgpd", "solicitud de rectificacion", "carta", "modelo", "artículo 16" ],
     "authors": [ "baltpeter" ],
-    "license": "cc0-10"
+    "license": "cc0-10",
+    "topic": "use-your-rights"
 }
 
 Si una empresa u otra organización (un llamado controlador) ha almacenado datos personales falsos (o incompletos) sobre tí, entonces, según el Reglamento general de protección de datos (RGPD), tienes derecho a exigir la corrección inmediata de dichos datos incorrectos.
