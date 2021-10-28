@@ -367,7 +367,7 @@
         "sva-finder": "Assistant de recherche d'autorité de contrôle",
         "reset": "Réinitialiser les préférences",
         "loading-sva": "Chargement des données sur l'autorité de contrôle sélectionnée…",
-        "result": "En fonction de ce que tu as choisi, nous te recommandons de contacter l'autorité de protection des données suivante :",
+        "result": "En fonction de tes réponses, l'autorité de protection des données suivante est responsable dans ton cas :",
         "country": "Où habites-tu ?",
         "land": "Entité publique ou privée (par ex. une entreprise, une organisation à but non lucratif, un état ou une autorité locale)",
         "land-q": "Dans quel État se trouve l'entité concernée par ta demande ?",
@@ -408,7 +408,7 @@
         "private-de-q": "Dans quel État l'entité concernant ta demande est-elle basée ?",
         "private-de": "Entité basée en Allemagne",
         "private-q": "L'entité concernant ta demande est-elle également basée en Allemagne ?",
-        "private": "Entité publique ou privée (par ex. une entreprise, une organisation, un État ou une autorité locale)",
+        "private": "Toute autre entité publique ou privée (par ex. une entreprise, une organisation, un État ou une autorité locale)",
         "rundfunk": "Service public de radiodiffusion",
         "rundfunk-br": "Bayerischer Rundfunk (BR)",
         "rundfunk-dw": "Deutsche Welle",
@@ -422,7 +422,9 @@
         "rundfunk-swr": "Südwestrundfunk (SWR)",
         "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
         "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)",
-        "rundfunk-q": "Quel service public de diffusion votre demande concerne-t-il ?"
+        "rundfunk-q": "Quel service public de diffusion votre demande concerne-t-il ?",
+        "back": "Retour",
+        "bund-telepost": "Entreprise de télécommunications ou de services postaux"
     },
     "countries": {
         "__taken_from": "https://github.com/stefangabos/world_countries",
