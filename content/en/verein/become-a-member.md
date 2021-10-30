@@ -20,7 +20,7 @@ We will contact you subsequently to tell you whether your application had been a
 ## Questions and Answers
 
 * **How expensive is a membership?**  
-    The minimum membership fee for the supporting membership is set by the assembly and is currently 32,00 € per year. You can also decide to pay a arbitrarily higher fee.
+    The minimum membership fee for the supporting membership is set by the assembly and is currently 32,00 € per year. You can also decide to pay an arbitrarily higher fee.
 
     More information can be found in our {{< link slug="verein/membership-fees" text="fee regulation" >}}.
 
@@ -32,7 +32,7 @@ We will contact you subsequently to tell you whether your application had been a
 
     If you are unable (or unwilling) to pay the membership fee for any other reason, you can informally apply not to with out any problem. The board (and also the assembly) are allowed to reduce your membership fee. Just file your application informally together with your membership application.
 
-    **Important:** Please do *not* send us proof in any case! All reductions and exemptions are based only on trust – we neither are are allowed to nor want to check anything.
+    **Important:** Please do *not* send us proof in any case! All reductions and exemptions are based only on trust – we neither are allowed to nor want to check anything.
 
 * **How can I pay for my membership?**  
     Currently we offer payment via bank transfer and SEPA direct debit. After we accepted your application, we will contact you to negotiate the payment.
