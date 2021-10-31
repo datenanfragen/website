@@ -157,7 +157,7 @@ The subscription is entirely voluntary for you.
 - Affected data: the contact details you provided (an email address with an optional PGP key)
 - Lawful basis: By subscribing, you consent to the sending of the newsletter in accordance with Art. 6(1) lit. a GDPR. You can revoke this consent at any time; you can find out how to do this in the section “Right to revoke given consent”.
 - Duration of storage: until you unsubscribe from the newsletter
-- Data disclosure: Only board members can access the contact data. The newsletter is sent is sent using the Mailjet service. Therefore, the contact data needs to be sent to Mailjet.  
+- Data disclosure: Only board members can access the contact data. The newsletter is sent using the Mailjet service. Therefore, the contact data needs to be sent to Mailjet.  
   Mailjet is run by {{< link slug="company/mailjet" text="Mailjet SAS" >}}, 13-13 bis rue de l’Aubrac, 75012 Paris, France. For more information on how Mailjet processes your data, please refer to [their privacy policy](https://www.mailjet.com/privacy-policy/).
 
 ### External services
@@ -175,7 +175,7 @@ For more details on how CoinGate processes your data, have a look at their [priv
 We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. Mollie is run by {{< link slug="company/mollie" text="Mollie B.V." >}}, Keizersgracht 313, 1016 EE Amsterdam, Netherlands.  
 We use CoinGate for example for credit card transactions. In any case, we will display a note in the payment form if your payment is made through Mollie.
 
-If you make a payment through Mollie, Mollie B.V. receives all data incurred in the payment process, especially including: your payment details (for example your bank account or credit card details) including the amount, your IP address, your browser and device type, potentially your name, potentially your address, potentially information on the kind of paynebt your are making to us, potentially all other data you actively provide (like when interacting with Mollie's support).  
+If you make a payment through Mollie, Mollie B.V. receives all data incurred in the payment process, especially including: your payment details (for example your bank account or credit card details) including the amount, your IP address, your browser and device type, potentially your name, potentially your address, potentially information on the kind of payment you are making to us, potentially all other data you actively provide (like when interacting with Mollie's support).  
 For more details on how CoinGate processes your data, have a look at their [privacy policy](https://www.mollie.com/en/privacy).
 
 #### PayPal
