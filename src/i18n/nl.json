@@ -463,7 +463,7 @@
         "add-input": "Invoer toevoegen",
         "input-address": "Adres",
         "input-multi-line": "Tekst (meerdere regels)",
-        "input-single-line": "Text (één regel)",
+        "input-single-line": "Tekst (één regel)",
         "address-colon": "Adres:",
         "address": "Adres",
         "birthdate": "Geboortedatum",
@@ -779,7 +779,10 @@
         "hh": "Hamburg",
         "kathnd": "Noord-Duitse bisdommen (aartsbisdom Hamburg, bisdom Hildesheim, bisdom Osnabrück en bisdom Münster (Nedersaksisch deel))",
         "private-de-q": "In welke provincie/staat is de entiteit waarop uw verzoek betrekking heeft gevestigd?",
-        "sh": "Sleeswijk-Holstein"
+        "sh": "Sleeswijk-Holstein",
+        "bund-jobcenter": "Arbeidsbureau (behalve die met erkende gemeentelijke vervoerders)",
+        "back": "Terug",
+        "bund-telepost": "Telecommunicatie- of postbedrijf"
     },
     "id-data-controls": {
         "custom-input-desc": "Aangepast veld",
@@ -860,5 +863,9 @@
         "request-parameters": "<p>Goed, laten we beginnen met het genereren van uw verzoeken. We zullen ons best doen om het u zo makkelijk mogelijk te maken.</p><p class='desktop-only'>Links hebben we de contactgegevens van het eerste bedrijf al ingevuld.</p><p class='mobile-only'>Bovenaan hebben we de contactgegevens van het eerste bedrijf al ingevuld.</p>",
         "company-info": "<p>Hier beneden kunt u meer details zien over het huidige bedrijf. Soms hebben we ook enkele belangrijke notities over bepaalde bedrijven. Deze worden hier dan ook weergegeven. </p>",
         "next-request": "<p>En dat was het al voor dit verzoek!</p><p>Afhankelijk van het transportmedium, kunt u hier uw verzoek als e-mail versturen of de PDF ervoor downloaden. Laten we daarna doorgaan naar het volgende verzoek.</p>"
+    },
+    "macros": {
+        "base_url": "https://www.gegevensaanvragen.nl",
+        "site_name": "gegevensaanvragen.nl"
     }
 }
