@@ -746,7 +746,6 @@ details.footnote {
         list-style: none; /* hide details arrow */
         color: #00826c;
         cursor: pointer;
-        text-decoration: underline;
 
         &::-webkit-details-marker {
             display: none;
