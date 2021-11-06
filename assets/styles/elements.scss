@@ -765,3 +765,17 @@ details.footnote {
         }
     }
 }
+
+/* Adapted after: https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements
+   This will visually hide text content but make it accessible for screen readers.
+*/
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

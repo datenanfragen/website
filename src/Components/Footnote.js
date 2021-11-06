@@ -23,6 +23,7 @@ const Footnote = (props) => {
     return (
         <details className="footnote" id={props.id} ref={detailsRef}>
             <summary>
+                <span className="visually-hidden">Footnote</span>
                 <sup>{props.index}</sup>
             </summary>
             <div className="footnote-content">{props.children}</div>
