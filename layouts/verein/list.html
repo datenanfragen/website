@@ -7,7 +7,8 @@
                     <div class="top-icon"><img src="{{ "card-icons/check.svg" | absURL }}" alt="Ein Häkchen in einem Kasten."></div>
                     <h2>{{ T "verein-home-card-mission-heading" }}</h2>
                     <p>{{ T "verein-home-card-mission-content" | safeHTML }}</p>
-                    <a href="{{ ref . "verein/mission-statement" }}" class="button button-secondary">{{ T "verein-home-card-mission-button" }}</span></a>
+                    {{ $mission_link := (partial "functions/link" (dict "slug" "verein/mission-statement" "text" "verein-home-card-mission-button" "translate" true)) }}
+                    <a href="{{ $mission_link.url }}" class="button button-secondary">{{ $mission_link.text }}</span></a>
                 </div>
             </div>
             <div class="col33" style="padding-top: 0;">
@@ -15,7 +16,8 @@
                     <div class="top-icon" style="font-size: 35px;"><img src="{{ "card-icons/money.svg" | absURL }}" alt="Ein Euro-Zeichen in einem Kreis."></div>
                     <h2>{{ T "verein-home-card-donate-heading" }}</h2>
                     <p>{{ T "verein-home-card-donate-content" }}</p>
-                    <a href="{{ ref . "donate" }}" class="button button-primary">{{ T "verein-home-card-donate-button" }}</a>
+                    {{ $donate_link := (partial "functions/link" (dict "slug" "donate" "text" "verein-home-card-donate-button" "translate" true)) }}
+                    <a href="{{ $donate_link.url }}" class="button button-primary">{{ $donate_link.text }}</a>
                 </div>
             </div>
             <div class="col33 ">
@@ -23,7 +25,8 @@
                     <div class="top-icon" style="font-size: 38px;"><img src="{{ "card-icons/group.svg" | absURL }}" alt="Umrisse von drei Personen."></div>
                     <h2>{{ T "verein-home-card-join-heading" }}</h2>
                     <p>{{ T "verein-home-card-join-content" }}</p>
-                    <a href="{{ ref . "verein/become-a-member" }}" class="button button-secondary">{{ T "verein-home-card-join-button" }}</a>
+                    {{ $join_link := (partial "functions/link" (dict "slug" "verein/become-a-member" "text" "verein-home-card-join-button" "translate" true)) }}
+                    <a href="{{ $join_link.url }}" class="button button-secondary">{{ $join_link.text }}</a>
                 </div>
             </div>
             <div class="clearfix"></div>
