@@ -1,7 +1,7 @@
 {
     "title": "Odbor",
     "slug": "odbor",
-    "aliases": ["vorstand", "vorsitzende", "vorsitzender", "chair"],
+    "aliases": ["board", "chair"],
     "type": "page"
 }
 

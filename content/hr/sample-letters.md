@@ -1,7 +1,8 @@
 {
 	"title": "Uzorci pisama za GDPR zahtjeve",
 	"type": "page",
-	"aliases": ["letter-templates"]
+    "slug": "uzorci-pisama",
+	"aliases": ["sample-letters", "letter-templates"]
 }
 
 GDPR daje opsežna prava u pogledu osobnih podataka. Kako bismo maksimalno olakšali ostvarivanje ovih prava, pripremili smo ove uzorke pisama.
