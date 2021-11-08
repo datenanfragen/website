@@ -4,9 +4,11 @@
 
 {{ define "main" }}
 <main>
-    {{ range .Paginator.Pages }}
-    {{ partial "summary.html" . }}
-    {{ end }}
+    <div class="list-article-columns">
+        {{ range .Paginator.Pages }}
+        {{ partial "summary.html" . }}
+        {{ end }}
+    </div>
     {{ partial "pagination.html" . }}
 </main>
 {{ end }}

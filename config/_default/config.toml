@@ -16,3 +16,6 @@ timeout = "500s"
 
 [imaging]
 hint = "picture"
+
+[taxonomies]
+  topic = 'topic'

@@ -583,49 +583,37 @@ table#my-requests-table {
 .list-article {
     border: 4px solid $primary-color;
     border-radius: 2px;
-    padding: 15px 15px $button-height;
-    margin-bottom: 25px;
-    display: flex;
-    flex-direction: row;
+    margin: 14px;
     position: relative;
+    width: 46%;
+    height: 600px;
+    float: left;
 
-    @include mobile {
-        display: block;
-        padding: 0;
+    display: block;
 
-        h1 {
-            hyphens: auto;
-        }
+    h1 {
+        hyphens: auto;
     }
 
     .article-featured-image {
         overflow: hidden;
-
-        @include mobile {
-            width: 100%;
-        }
+        width: 100%;
 
         a {
             display: inline;
         }
 
         img {
-            max-height: 200px;
-            width: auto;
+            max-height: 260px;
             object-fit: cover;
-
-            @include mobile {
-                width: 100%;
-            }
+            width: 100%;
         }
     }
 
     .padded {
-        @include mobile {
-            width: auto;
-            padding: 15px;
-            margin-bottom: 25px;
-        }
+        width: auto;
+        padding: 15px;
+        margin-bottom: 25px;
 
         &.col75 {
             padding-left: 15px;
@@ -657,6 +645,56 @@ table#my-requests-table {
         right: -4px;
         bottom: -4px;
         box-shadow: none;
+    }
+}
+
+#topic-list-page {
+    h2 {
+        font-size: 1.7em;
+    }
+
+    // TODO: Do we *really* want the 'proper' `.col50` to be `50% - 10px`? *sigh*
+    .col50 {
+        width: 50%;
+    }
+    .topic-article {
+        box-sizing: border-box;
+
+        h1 {
+            font-size: 1.4em;
+            hyphens: auto;
+
+            a {
+                color: $primary-color;
+
+                &:hover,
+                &:focus {
+                    color: color('blue', 900);
+                }
+            }
+        }
+
+        &.topic-article-smaller {
+            .meta {
+                display: none;
+            }
+
+            h1 {
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .topic-box {
+        position: relative;
+
+        .read-more-button {
+            border-radius: 2px;
+            position: absolute;
+            right: -4px;
+            top: -4px;
+            box-shadow: none;
+        }
     }
 }
 
