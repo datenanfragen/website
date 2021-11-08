@@ -3,7 +3,7 @@
         <div class="col25 article-featured-image">
             <a href="{{ .Permalink }}" class="no-link-decoration">
                 {{ if .Params.featured_image }}
-                    {{ partial "picture" (dict "page" $.Page "name" $.Params.featured_image "srcset" (slice 280 375 684 874 230) "sizes" (dict "280" 320 "375" 425 "684" 768 "874" 979) "fallback" 230 "alt_text" $.Params.title) }}
+                    {{ partial "picture" (dict "page" $.Page "name" $.Params.featured_image "srcset" (slice 280 375 684 874 230) "sizes" (dict "280" 320 "375" 425 "684" 768 "874" 979) "fallback" 392 "alt_text" $.Params.title) }}
                 {{ else }}
                     <img class="image" src="{{ .Params.featured_image_url }}" alt="{{ .Title }}">
                 {{ end }}

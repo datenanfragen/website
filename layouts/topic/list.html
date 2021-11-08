@@ -1,0 +1,100 @@
+{{ define "title" }}
+    {{ T "topics" }} &middot; {{ .Site.Title }}
+{{ end }}
+{{ define "heading" }}
+    {{ T "topics" }}
+{{ end }}
+
+{{ define "partials/summary-inner" }}
+    {{ if .Params.featured_image }}
+        <a href="{{ .Permalink }}" class="no-link-decoration">
+            <!-- TODO: Proper sizes. -->
+            {{ partial "picture" (dict "page" . "name" .Params.featured_image "srcset" (slice 280 375 684 874 230) "sizes" (dict "280" 320 "375" 425 "684" 768 "874" 979) "fallback" 392 "alt_text" .Params.title) }}
+        </a>
+    {{ end }}
+    <h1><a class="no-link-decoration" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+
+    <span class="meta">
+        {{ with .Params.date }}
+            {{ T "blog-on" }}<span class="meta-date"><time pubdate datetime="{{ .Format "2006-01-02T15:04" }}">{{ .Format "2006-01-02" }} {{ T "blog-time-at" }} {{ .Format "15:04" }}</time></span>
+        {{- end -}}
+        {{- with .Params.authors -}}
+            , {{ T "blog-author" }}<span class="meta-author">{{ delimit (apply (apply . "index" $.Site.Params.authors ".") "index" "." "short_name") ", " (T "blog-and") }}</span>
+        {{ end }}
+    </span>
+
+    <p class="description">
+        {{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}
+    </p>
+{{ end }}
+{{ define "partials/summary-inner2" }}
+    {{ if .Params.featured_image }}
+    <div class="col45" style="padding-right: 10px; box-sizing: border-box;">
+        <a href="{{ .Permalink }}" class="no-link-decoration">
+            <!-- TODO: Proper sizes. -->
+            {{ partial "picture" (dict "page" . "name" .Params.featured_image "srcset" (slice 280 375 684 874 230) "sizes" (dict "280" 320 "375" 425 "684" 768 "874" 979) "fallback" 392 "alt_text" .Params.title) }}
+        </a>
+    </div>
+    {{ end }}
+    <div class="col55">
+        <h1><a class="no-link-decoration" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+
+        <span class="meta">
+            {{ with .Params.date }}
+                {{ T "blog-on" }}<span class="meta-date"><time pubdate datetime="{{ .Format "2006-01-02T15:04" }}">{{ .Format "2006-01-02" }} {{ T "blog-time-at" }} {{ .Format "15:04" }}</time></span>
+            {{- end -}}
+            {{- with .Params.authors -}}
+                , {{ T "blog-author" }}<span class="meta-author">{{ delimit (apply (apply . "index" $.Site.Params.authors ".") "index" "." "short_name") ", " (T "blog-and") }}</span>
+            {{ end }}
+        </span>
+
+        <p class="description">
+            {{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}
+        </p>
+    </div>
+{{ end }}
+
+{{ define "main" }}
+<!-- TODO: This currently also renders for the /topic/<> pages. -->
+<main id="topic-list-page">
+    <!-- TODO: Order by most recently published post. -->
+    {{ $order := (slice "investigation" "data-protection-know-how" "use-your-rights" "gdpr-in-practice" "guide" "opinion" "look-at-requests" "about-us") }}
+    {{ range $order }}
+        {{ with $topic := ($.Site.GetPage (printf "/topic/%s" .)) }}
+            {{ $title := T (printf "topic-%s" $topic.Title) }}
+            <div class="box topic-box" style="margin-bottom: 20px;">
+                <h2>{{ $title }}</h2>
+                <!-- TODO: "Feature logic". If any of the three posts sets `featured: true`, filter for the ones with that attr. -->
+                {{ $pages := first 3 $topic.Pages }}
+                {{ if eq (len $pages) 3 }}
+                    <article class="col45 topic-article" style="padding-right: 10px;">
+                        {{ partial "summary-inner" (index $pages 0) }}
+                    </article>
+                    <article class="col27 topic-article topic-article-smaller" style="padding-right: 5px;">
+                        {{ partial "summary-inner" (index $pages 1) }}
+                    </article>
+                    <article class="col27 topic-article topic-article-smaller" style="padding-left: 5px;">
+                        {{ partial "summary-inner" (index $pages 2) }}
+                    </article>
+                    <div class="clearfix"></div>
+                {{ else if eq (len $pages) 2 }}
+                    <article class="col55 topic-article" style="padding-right: 5px;">
+                        {{ partial "summary-inner" (index $pages 0) }}
+                    </article>
+                    <article class="col45 topic-article topic-article-smaller" style="padding-left: 5px;">
+                        {{ partial "summary-inner" (index $pages 1) }}
+                    </article>
+                    <div class="clearfix"></div>
+                {{ else }}
+                    <article class="topic-article">
+                        {{ partial "summary-inner2" (index $pages 0) }}
+                    </article>
+                    <div class="clearfix"></div>
+                {{ end }}
+                <a class="button button-primary read-more-button" href="{{ $topic.Permalink }}">{{ T "blog-all-topic-posts" (dict "topic" $title) }}&nbsp;<span class="icon icon-arrow-right"></span></a>
+            </div>
+            <div class="clearfix"></div>
+        {{ end }}
+    {{ end }}
+</main>
+{{ end }}

@@ -15,9 +15,19 @@
     flex: 0.6;
     float: left;
 }
+.col55 {
+    width: 55%;
+    flex: 0.55;
+    float: left;
+}
 .col50 {
     width: calc(50% - 10px);
     flex: 0.5;
+    float: left;
+}
+.col45 {
+    width: 45%;
+    flex: 0.45;
     float: left;
 }
 .col40 {
@@ -33,6 +43,11 @@
 .col30 {
     width: 30%;
     flex: 0.3;
+    float: left;
+}
+.col27 {
+    width: 27.5%;
+    flex: 0.275;
     float: left;
 }
 .col25 {

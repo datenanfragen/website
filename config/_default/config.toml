@@ -19,3 +19,6 @@ hint = "picture"
 
 [params]
 mainSections = ['blog']
+
+[taxonomies]
+  topic = 'topic'
