@@ -6,7 +6,7 @@
 
 ## Tko smo mi
 
-Mi smo Datenanfragen.de e.&thinsp;V., neprofitna organizacija koja vodi web-stranicu [datarequests.org](https://www.datarequests.org) (kao i njihove njemačke, francuske, španjolske, hrvatske i portugalske prijevode, [Datenanfragen.de](https://www.datenanfragen.de), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org) i [pedidodedados.org](https://www.pedidodedados.org/)). Naša je {{< link slug="verein/mission-statement" text="misija" >}} unapređenje zaštite podataka i privatnosti u Europi i šire. Želimo pomoći u ostvarivanju ljudskih prava na privatnost i dati primjer kako temeljito zaštiti podatke, jer smatramo da privatnost mora biti općenitozadana.
+Mi smo Datenanfragen.de e.&thinsp;V., neprofitna organizacija koja vodi web-stranicu [datarequests.org](https://www.datarequests.org) (kao i njihove njemačke, francuske, španjolske, hrvatske i portugalske prijevode, [Datenanfragen.de](https://www.datenanfragen.de), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl) i [pedidodedados.org](https://www.pedidodedados.org/)). Naša je {{< link slug="verein/mission-statement" text="misija" >}} unapređenje zaštite podataka i privatnosti u Europi i šire. Želimo pomoći u ostvarivanju ljudskih prava na privatnost i dati primjer kako temeljito zaštiti podatke, jer smatramo da privatnost mora biti općenitozadana.
 
 ## Što radimo
 

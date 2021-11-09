@@ -25,6 +25,7 @@ module.exports = {
             './src/i18n/pt.json',
             './src/i18n/es.json',
             './src/i18n/hr.json',
+            './src/i18n/nl.json',
         ],
     },
     optimization: {
@@ -110,7 +111,8 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
 @see {@link https://www.demandetesdonnees.fr|French website}
 @see {@link https://www.pedidodedados.org/|Portuguese website}
 @see {@link https://www.solicituddedatos.es/|Spanish website}
-@see {@link https://www.osobnipodaci.org/|Croatian website}`),
+@see {@link https://www.osobnipodaci.org/|Croatian website}
+@see {@link https://www.todo.tl/|Dutch website}`),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
         new webpack.DefinePlugin({

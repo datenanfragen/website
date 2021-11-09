@@ -40,3 +40,10 @@
     weight = 60
     title = "osobnipodaci.org"
     copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."
+[nl]
+    languageCode = "nl-NL"
+    languageName = "Nederlands"
+    contentDir = "content/nl"
+    weight = 70
+    title = "gegevensaanvragen.nl"
+    copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."
