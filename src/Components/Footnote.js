@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Text, IntlProvider } from 'preact-i18n';
 import { useEffect, useRef } from 'preact/hooks';
 
 const Footnote = (props) => {
@@ -21,13 +22,17 @@ const Footnote = (props) => {
     }, []);
 
     return (
-        <details className="footnote" id={props.id} ref={detailsRef}>
-            <summary>
-                <span className="visually-hidden">Footnote</span>
-                <sup>{props.index}</sup>
-            </summary>
-            <div className="footnote-content">{props.children}</div>
-        </details>
+        <IntlProvider scope="blog" definition={I18N_DEFINITION}>
+            <details className="footnote" id={props.id} ref={detailsRef}>
+                <summary>
+                    <span className="sr-only">
+                        <Text id="footnote" />{' '}
+                    </span>
+                    <sup>{props.index}</sup>
+                </summary>
+                <div className="footnote-content">{props.children}</div>
+            </details>
+        </IntlProvider>
     );
 };
 
