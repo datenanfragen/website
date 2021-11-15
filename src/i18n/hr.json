@@ -876,6 +876,8 @@
         "language-desc-de": "Njemački (Deutsch)",
         "language-desc-hr": "Hrvatski",
         "language": "Jezik",
-        "country": "Zemlja"
+        "country": "Zemlja",
+        "language-desc-nl": "Nizozemski (Nederlands)",
+        "language-nl": "Nizozemski"
     }
 }
