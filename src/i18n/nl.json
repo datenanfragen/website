@@ -1,7 +1,7 @@
 {
     "macros": {
-        "site_name": "gegevensaanvragen.nl",
-        "base_url": "https://www.gegevensaanvragen.nl"
+        "base_url": "https://www.gegevensaanvragen.nl",
+        "site_name": "gegevensaanvragen.nl"
     },
     "hugo": {
         "categories": "Categorieën",
@@ -701,7 +701,8 @@
         "ok": "Ok",
         "error": "Helaas, het versturen van uw bijdrage is mislukt. Zorg ervoor dat u verbonden bent met het internet en dat u geen verzoeken blokkeert naar backend.datenanfragen.de via een add-on zoals uMatrix of NoScript.",
         "github-error": "Er was een probleem met GitHub tijdens het verzenden van uw suggestie, deze was niet geregistreerd. Probeer het opnieuw.",
-        "success": "Uw bijdrage is succesvol verzonden. Nogmaals hartelijk dank! We zullen het nu zo snel mogelijk beoordelen."
+        "success": "Uw bijdrage is succesvol verzonden. Nogmaals hartelijk dank! We zullen het nu zo snel mogelijk beoordelen.",
+        "similarly-named-companies": "We hebben al bedrijven met vergelijkbare namen:"
     },
     "wizard": {
         "finance": "<p>U heeft waarschijnlijk op zijn minst een bankrekening en misschien een aparte creditcard. In deze categorie vallen ook betalingsproviders zoals PayPal en Patreon.<br>Of misschien heeft u wel eens gehandeld in cryptovaluta op een beurs?</p>",
@@ -749,7 +750,7 @@
         "de-q": "Op welke van de volgende gebieden heeft uw verzoek betrekking?",
         "private-de": "Entiteit is gevestigd in Duitsland",
         "private-other-q": "In welke provincie woont u?",
-        "bund": "Federale autoriteit",
+        "bund": "Federale autoriteit of andere federale overheidsinstantie",
         "kirche": "Religieuze entiteit",
         "kirche-q": "Over welke religie/denominatie gaat uw verzoek?",
         "oeff": "Publieke entiteit (bijv. lokale overheid)",
@@ -763,7 +764,7 @@
         "kathsonst": "Andere bisdommen en algemene verzoeken",
         "sva-finder": "Toezichthoudende autoriteit zoeken",
         "mv": "Mecklenburg-Vorpommern",
-        "result": "Op basis van wat u heeft geselecteerd, raden we u aan contact op te nemen met de volgende gegevensbeschermingsautoriteit:",
+        "result": "Op basis van uw antwoorden is de volgende gegevensbeschermingsautoriteit verantwoordelijk voor uw zaak:",
         "bay": "Beieren",
         "sa": "Saksen-Anhalt",
         "bawue": "Baden-Württemberg",
@@ -777,7 +778,7 @@
         "kathnrw": "Noordrijn-Westfaalse bisdommen (bisdom Aken, bisdom Essen, aartsbisdom Keulen, bisdom Münster (Noordrijn-Westfaalse deel) en aartsbisdom Paderborn)",
         "kathmsw": "Midden- en zuidwestelijke Duitse bisdommen (aartsbisdom Freiburg, bisdom Fulda, bisdom Limburg, bisdom Mainz, bisdom Stuttgart Rottenburg en bisdom Speyer en Trier)",
         "kathod": "Oost-Duitse bisdommen (aartsbisdom Berlijn, bisdom Dresden-Meißen, bisdom Erfurt, bisdom Görlitz en bisdom Magdeburg)",
-        "private": "Publieke of private entiteit (bijv. bedrijf, non-profit, staat of lokale overheid)",
+        "private": "Overige publieke of private entiteiten (bijv. bedrijf, non-profit, staat of lokale overheid)",
         "private-other": "Entiteit is gevestigd in een ander land",
         "bre": "Bremen",
         "hh": "Hamburg",
@@ -786,7 +787,8 @@
         "sh": "Sleeswijk-Holstein",
         "bund-jobcenter": "Arbeidsbureau (behalve die met erkende gemeentelijke vervoerders)",
         "back": "Terug",
-        "bund-telepost": "Telecommunicatie- of postbedrijf"
+        "bund-telepost": "Telecommunicatie- of postbedrijf",
+        "bund-sueg": "Particuliere onderneming, in gevallen onder de wet op de veiligheidsmachtigingscontrole (“Sicherheitsüberprüfungsgesetz”)"
     },
     "id-data-controls": {
         "custom-input-desc": "Aangepast veld",
@@ -869,9 +871,5 @@
         "request-parameters": "<p>Goed, laten we beginnen met het genereren van uw verzoeken. We zullen ons best doen om het u zo makkelijk mogelijk te maken.</p><p class='desktop-only'>Links hebben we de contactgegevens van het eerste bedrijf al ingevuld.</p><p class='mobile-only'>Bovenaan hebben we de contactgegevens van het eerste bedrijf al ingevuld.</p>",
         "company-info": "<p>Hier beneden kunt u meer details zien over het huidige bedrijf. Soms hebben we ook enkele belangrijke notities over bepaalde bedrijven. Deze worden hier dan ook weergegeven. </p>",
         "next-request": "<p>En dat was het al voor dit verzoek!</p><p>Afhankelijk van het transportmedium, kunt u hier uw verzoek als e-mail versturen of de PDF ervoor downloaden. Laten we daarna doorgaan naar het volgende verzoek.</p>"
-    },
-    "macros": {
-        "base_url": "https://www.gegevensaanvragen.nl",
-        "site_name": "gegevensaanvragen.nl"
     }
 }
