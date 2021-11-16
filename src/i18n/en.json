@@ -874,5 +874,8 @@
         "ye": "Yemen",
         "zm": "Zambia",
         "zw": "Zimbabwe"
+    },
+    "blog": {
+        "footnote": "Footnote"
     }
 }

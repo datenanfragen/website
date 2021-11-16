@@ -738,3 +738,34 @@ fieldset.rating {
     top: 2px;
     left: 2px;
 }
+
+/* Footnotes, adapted after: https://news.ycombinator.com/item?id=24747376 */
+details.footnote {
+    display: inline;
+    @include desktop {
+        position: relative;
+    }
+
+    & > summary {
+        list-style: none; /* hide details arrow */
+        color: #00826c;
+        cursor: pointer;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    & > .footnote-content {
+        position: absolute;
+        background: color('white');
+        border: 1px solid color('gray', 400);
+        padding: 1rem;
+        min-width: 15rem;
+        max-width: 20rem;
+        @include mobile {
+            transform: translateX(-50%);
+            left: 50%;
+        }
+    }
+}
