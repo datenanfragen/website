@@ -329,7 +329,9 @@
         "not-supported-prompt": "Ta langue ou pays n'est pas encore pris en charge ?",
         "not-supported-cta": "Aide-nous à le prendre en charge !",
         "language-hr": "Croate",
-        "language-desc-hr": "Croate (Hrvatski)"
+        "language-desc-hr": "Croate (Hrvatski)",
+        "language-desc-nl": "Néerlandais (Nederlands)",
+        "language-nl": "Néerlandais"
     },
     "comments": {
         "comments": "Commentaires",
