@@ -1,4 +1,6 @@
 const percyHealthCheck = require('@percy/cypress/task');
+const readPDF = require('./readPDF');
+const deleteFolder = require('./utils');
 
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
@@ -17,4 +19,6 @@ module.exports = (on, config) => {
     // `on` is used to hook into various events Cypress emits
     // `config` is the resolved Cypress config
     on('task', percyHealthCheck);
+    on('task', readPDF);
+    on('task', deleteFolder);
 };

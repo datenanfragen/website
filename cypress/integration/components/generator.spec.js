@@ -1,4 +1,5 @@
 import { isOn, skipOn } from '@cypress/skip-test';
+const path = require('path');
 
 describe('Generator component', () => {
     beforeEach(() => {
@@ -14,6 +15,31 @@ describe('Generator component', () => {
             .should('not.have.class', 'disabled')
             .should('have.attr', 'href')
             .and('match', /^blob:https?:\/\/[\S]+?\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
+    });
+
+    it('generates a PDF containing text', () => {
+        const downloadsFolder = Cypress.config('downloadsFolder');
+        cy.task('deleteFolder', downloadsFolder);
+
+        cy.get('.request-transport-medium-chooser').contains('Fax').click();
+        cy.get('#download-button', { timeout: 10000 }).click();
+        
+        cy.get('#download-button')
+            .should('have.attr', 'download')
+            .and('match', /.*.pdf$/)
+            .then((filename) => {
+                const file = path.join(downloadsFolder, filename);
+                
+                // Check file has downloaded first
+                cy.readFile(file, { timeout: 10000 })
+                .should('have.length.gt', 0);
+            
+                cy.task('readPdf', file).then(({ text }) => {
+                    expect(text, 'contains').to.include('To Whom It May Concern:');
+                });
+            });
+        // Cleanup
+        cy.task('deleteFolder', downloadsFolder);
     });
 
     it('did not load pdfworker for email', () => {
