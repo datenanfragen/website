@@ -40,7 +40,7 @@
 <p><span class="blog-letter-fill-in">Ovdje upiši svoje ime.</span></p>
 </div>
 
-<a href="/downloads/primjerak-pisma-gdpr-zahtjev-pristup-osobnipodaci.org.ott" class="button button-primary" style="margin-bottom: 10px;">Preuzmi predložak za LibreOffice ili OpenOffice (.ott)</a><br>
-<a href="/downloads/primjerak-pisma-gdpr-zahtjev-pristup-osobnipodaci.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Preuzmi predložak za Word (.dotx)</a><br>
-<a href="/downloads/primjerak-pisma-gdpr-zahtjev-pristup-osobnipodaci.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Preuzmi predložak za PDF obrazac (.pdf)</a><br>
-<a href="/downloads/primjerak-pisma-gdpr-zahtjev-pristup-osobnipodaci.org.txt" class="button button-secondary">Preuzmi neformatiranu tekstualnu datoteku (.txt)</a>
+<a href="/downloads/uzorak-pismo-gdpr-pristup-zahtjev-osobnipodaci.org.ott" class="button button-primary" style="margin-bottom: 10px;">Preuzmi predložak za LibreOffice ili OpenOffice (.ott)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-pristup-zahtjev-osobnipodaci.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Preuzmi predložak za Word (.dotx)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-pristup-zahtjev-osobnipodaci.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Preuzmi predložak za PDF obrazac (.pdf)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-pristup-zahtjev-osobnipodaci.org.txt" class="button button-secondary">Preuzmi neformatiranu tekstualnu datoteku (.txt)</a>
