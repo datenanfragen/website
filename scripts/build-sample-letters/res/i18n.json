@@ -208,7 +208,7 @@
         "common-doc-desc": "Koristeći uzorke pisama od osobnipodaci.org, GDPR zahtjevi se lako šalju. Dostupni su besplatno.\n\nDaljnje informacije o tome kako ih koristiti, pronađi na našoj web-stranici: https://www.datarequests.org/sample-letters\n\nLicencirani su pod licencom CC0 (https://creativecommons.org/publicdomain/zero/1.0/). Temeljni predložak je: https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib\n\n---\n\nSvatko ima pravo na privatnost – mi pomažemo u korištenju tog prava./nViše pojedinosti na: https://www.osobnipodaci.org/\n\nTakođer isprobaj naš generator zahtjeva koji olakšava slanje GDPR zahtjeva: https://www.osobnipodaci.org/generator/",
 
         "access-subject": "Zahtjev za pristup osobnim podacima u skladu s člankom 15. GDPR-a",
-        "access-body-000": "Ovim putem tražim pristup informacijama u skladu s člankom 15. GDPR-a. Molim vas da mi potvrdite obrađujete li osobne podatke koji se odnose na mene ili ne (kako je definirano člankom 4. stavka 1. i 2. GDPR-a).",
+        "access-body-000": "ovim putem tražim pristup informacijama u skladu s člankom 15. GDPR-a. Molim vas da mi potvrdite obrađujete li osobne podatke koji se odnose na mene ili ne (kako je definirano člankom 4. stavka 1. i 2. GDPR-a).",
         "access-body-010": "U slučaju da ih obrađujete, u skladu s člankom 15. stavka 3. GDPR-a, dostavite mi kopiju <italic>svih</italic> osobnih podataka koji se odnose na mene a koje obrađujete, uključujući sve potencijalne pseudonimizirane podatke o meni prema članku 4. stavka 5. GDPR-a. Nadalje tražim pristup sljedećim podacima u skladu s člankom 15. stavka 1. GDPR-a:\n1. svrha obrade;\n2. kategorije dotičnih osobnih podataka;\n3. primatelji ili kategorije primatelja kojima su ili kojima će se otkriti osobni podaci;\n4. gdje je moguće, predviđeno razdoblje u kojem će osobni podaci biti spremljeni ili, ako to nije moguće, kriterije za određivanje tog razdoblja;\n5. u slučajevima u kojima se osobni podaci ne prikupljaju od ispitanika, sve dostupne informacije o izvoru podataka;\n6. postojanje automatiziranog odlučivanja, uključujući profiliranje, na temelju članka 22. (1) i (4) GDPR-a i, barem u tim slučajevima, značajne informacije o uključenoj logici, kao i objašnjenje značaja i mogućih posljedica te vrste obrade za mene na lako razumljiv način.",
         "access-body-020": "U slučaju da obrađujete anonimne podatke koji se odnose na mene, obavijestite me o tome, te mi objasnite korišteni postupak na lako razumljiv način.",
         "access-body-030": "Ako prenosite moje osobne podatke u treću zemlju ili međunarodnu organizaciju, tražim da me obavijestite o odgovarajućim zaštitnim mjerama prema članku 46 GDPR-a u vezi s prijenosom.",
@@ -219,7 +219,7 @@
         "access-filename": "primjerak-pisma-gdpr-zahtjev-pristup-osobnipodaci.org",
 
         "erasure-subject": "Zahtjev za brisanje osobnih podataka prema članku 17. GDPR-a",
-        "erasure-body-000": "Ovim putem zahtijevam hitno brisanje osobnih podataka koji se odnose na mene prema članku 17. GDPR-a.",
+        "erasure-body-000": "ovim putem zahtijevam hitno brisanje osobnih podataka koji se odnose na mene prema članku 17. GDPR-a.",
         "erasure-body-010": "[erase_all>Molim brisanje svih osobnih podataka koji se odnose na mene kako je definirano člankom 4. stavka 1. GDPR-a.]",
         "erasure-body-020": "[erase_some>Izbrišite sljedeće osobne podatke koji se odnose na mene:\n{erasure_data}]",
         "erasure-body-030": "Smatram da su ispunjeni zahtjevi iz članka 17. stavka 1. GDPR-a. Ne možete zatražiti ni iznimku temeljenu na članku 17. stavka 3. GDPR-a, osobito jer nisam javna osoba.",
@@ -234,7 +234,7 @@
         "erasure-filename": "uzorak-pismo-gdpr-brisanje-zahtjev-osobnipodaci.org",
 
         "objection-subject": "Prigovor za izravni marketing na osnovi članka 21(2) GDPR-a",
-        "objection-body-000": "Ovime se protivim obradi osobnih podataka koji se odnose na mene u svrhu izravnog marketinga u skladu s člankom 21. stavka 2. GDPR-a. Ovaj prigovor uključuje uporabu za profiliranje u mjeri u kojoj je to povezano s izravnim marketingom.",
+        "objection-body-000": "ovime se protivim obradi osobnih podataka koji se odnose na mene u svrhu izravnog marketinga u skladu s člankom 21. stavka 2. GDPR-a. Ovaj prigovor uključuje uporabu za profiliranje u mjeri u kojoj je to povezano s izravnim marketingom.",
         "objection-body-010": "Ako sam dao/dala pristanak za obradu mojih osobnih podataka u svrhe izravnog marketinga (npr. prema članku 6. stavka 1. ili članku 9. stavka 2. GDPR-a), ovime povlačim navedeni pristanak.",
         "objection-body-015": "Molim vas da me unaprijed obavijestite o tome, hoće li moj prigovor rezultirati brisanjem računa koji možda imam s vama, otkazivanjem ugovora koji mogu imati s vama ili slično. Na osnovi toga ću odlučiti o sprvođenju prigovora.",
         "objection-body-020": "Moj zahtjev izričito uključuje [runs> sljedeće, kao i] sve druge usluge i poduzeća za koje ste kontrolor kako je definirano člankom 4. (7) GDPR-a[runs>: {runs_list}].",
@@ -243,7 +243,7 @@
         "objection-filename": "sample-letter-gdpr-objection-request-osobnopodaci.org",
 
         "rectification-subject": "Zahtjev za ispravljanje osobnih podataka prema članku 16. GDPR-a",
-        "rectification-body-000": "Ovime zahtijevam ispravak ili dopunu netočnih osobnih podataka koji se odnose na mene prema članku 16. GDPR-a.",
+        "rectification-body-000": "ovim putem zahtijevam ispravak ili dopunu netočnih osobnih podataka koji se odnose na mene prema članku 16. GDPR-a.",
         "rectification-body-010": "Molim unos sljedećih promjena:\n{rectification_data}",
         "rectification-body-020": "U slučaju da ste otkrili dotične osobne podatke jednom ili više primatelja kako je definirano u članku 4. stavka 9. GDPR-a, morate dostaviti moj zahtjev za ispravljanje dotičnih osobnih podataka svakom primatelju kako je određeno u članku 19. GDPR-a. Obavijestite me i o tim primateljima.",
         "rectification-body-030": "Moj zahtjev izričito uključuje [runs>sljedeće, kao i] sve druge usluge i voditelj za koje ste voditelj kako je definirano člankom 4. (7) GDPR-a[runs>: {runs_list}].",
