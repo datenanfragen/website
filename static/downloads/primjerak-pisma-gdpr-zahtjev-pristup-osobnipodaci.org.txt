@@ -1,0 +1,41 @@
+=================================================================
+Zahtjev za pristup osobnim podacima u skladu s člankom 15. GDPR-a
+=================================================================
+
+Ovo je uzorak tvog GDPR pisma koji pruža osobnipodaci.org.
+Odlomci u [uglatim zagradama] su neobavezni i ne moraju se uključiti u pismo. Podaci u {vitičastim zagradama} se moraju ispuniti.
+Nakon toga jedostavno izbriši ovo objašnjenje i pošalji svoj zahtjev.
+
+---
+
+Poštovani,
+
+Ovim putem tražim pristup informacijama u skladu s člankom 15. GDPR-a. Molim vas da mi potvrdite obrađujete li osobne podatke koji se odnose na mene ili ne (kako je definirano člankom 4. stavka 1. i 2. GDPR-a).
+
+U slučaju da ih obrađujete, u skladu s člankom 15. stavka 3. GDPR-a, dostavite mi kopiju svih osobnih podataka koji se odnose na mene a koje obrađujete, uključujući sve potencijalne pseudonimizirane podatke o meni prema članku 4. stavka 5. GDPR-a. Nadalje tražim pristup sljedećim podacima u skladu s člankom 15. stavka 1. GDPR-a:
+1. svrha obrade;
+2. kategorije dotičnih osobnih podataka;
+3. primatelji ili kategorije primatelja kojima su ili kojima će se otkriti osobni podaci;
+4. gdje je moguće, predviđeno razdoblje u kojem će osobni podaci biti spremljeni ili, ako to nije moguće, kriterije za određivanje tog razdoblja;
+5. u slučajevima u kojima se osobni podaci ne prikupljaju od ispitanika, sve dostupne informacije o izvoru podataka;
+6. postojanje automatiziranog odlučivanja, uključujući profiliranje, na temelju članka 22. (1) i (4) GDPR-a i, barem u tim slučajevima, značajne informacije o uključenoj logici, kao i objašnjenje značaja i mogućih posljedica te vrste obrade za mene na lako razumljiv način.
+
+U slučaju da obrađujete anonimne podatke koji se odnose na mene, obavijestite me o tome, te mi objasnite korišteni postupak na lako razumljiv način.
+
+Ako prenosite moje osobne podatke u treću zemlju ili međunarodnu organizaciju, tražim da me obavijestite o odgovarajućim zaštitnim mjerama prema članku 46 GDPR-a u vezi s prijenosom.
+
+[Molim vas da moje osobne podatke koje sam vam dostavio/dostavila budu dostupni u strukturiranom, uobičajeno korištenom i strojno čitljivom formatu kako je navedeno u članku 20. stavka 1. GDPR-a.]
+
+Moj zahtjev izričito uključuje sve druge usluge i poduzeća za koje ste zaduženi kako je definirano člankom 4. stavka 7. GDPR-a.
+
+Kao što je navedeno u članku 12. stavka 3. GDPR-a, morate mi dostaviti tražene podatke bez nepotrebnog odgađanja, a u svakom slučaju u roku od mjesec dana od primitka zahtjeva. Prema članku 15. (3) GDPR-a, morate odgovoriti na ovaj zahtjev bez ikakvih troškova za mene.
+
+ukjučujem sljedeće podatke potrebne za identifikaciju:
+{Ovdje upiši svoje identifikacijske podatke. To često uključuje podatke kao što su tvoje ime, datum rođenja, adresa, e-mail adresa itd.}
+
+Ukoliko ne odgovorite na moj zahtjev u navedenom roku, pridržavam si pravo podnijeti pravne korake protiv vas i podnijeti žalbu nadležnom nadzornom tijelu.
+
+Hvala vam unaprijed.
+
+S poštovanjem
+{Ovdje upiši svoje ime.}

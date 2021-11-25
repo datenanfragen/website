@@ -8,24 +8,30 @@
 <div class="blog-letter">
 <p>Poštovani,</p>
 
-<p>ovime zahtijevam ispravljanje ili dopunavanje netočnih podataka koji se odnose na mene, u skladu s člankom 16. Opće uredbe o zaštiti podataka.</p>
+<p>Ovime zahtijevam ispravak ili dopunu netočnih osobnih podataka koji se odnose na mene prema članku 16. GDPR-a.</p>
 
-<p>Molim sljedeće promjene:<br>
-<span class="blog-letter-fill-in">Upiši podatke koje želiš ispraviti. Možeš upisati podatke koji nisu potrebni za identifikaciju.</span></p>
+<p>Molim unos sljedećih promjena:<br>
+<span class="blog-letter-fill-in">Ovdje navedi podatke koje želiš ispraviti.</span></p>
 
-<p>Ako ste dotične osobne podatke proslijedili jednom ili više primatelja sukladno članku 4(9) Opće uredbe o zaštiti podataka, morate obavijestiti sve primatelje o mom zahtjevu za ispravljane podataka u skladu s člankom 19 Opće uredbe o zaštiti podataka. Molim vas da me obavijestite o tim primateljima.</p>
+<p>U slučaju da ste otkrili dotične osobne podatke jednom ili više primatelja kako je definirano u članku 4. stavka 9. GDPR-a, morate dostaviti moj zahtjev za ispravljanje dotičnih osobnih podataka svakom primatelju kako je određeno u članku 19. GDPR-a. Obavijestite me i o tim primateljima.</p>
 
-<p>Moj zahtjev izričito uključuje sve druge usluge i poduzeća za koje ste voditelj obrade, kako je definirano u članku 4. stavka 7. GDPR-a.</p>
+<p>Moj zahtjev izričito uključuje  sve druge usluge i voditelj za koje ste voditelj kako je definirano člankom 4. (7) GDPR-a.</p>
 
-<p>Na osnovi članka 12(3) Opće uredbe o zaštiti podataka, morate mi što prije potvrditi ispravljanje podataka, najkasnije u roku od mjesec dana od primitka zahtjeva.</p>
+<p>Kako je navedeno u članku 12. stavka 3. GDPR-a, morate mi potvrditi ispravak bez nepotrebnog odgađanja, a u svakom slučaju u roku od mjesec dana od primitka zahtjeva.</p>
 
-<p>Moji identifikacijski podaci:<br>
-<span class="blog-letter-fill-in">Ovdje navedeni podaci pomažu poduzećima u identifikaciji korisnika. Slobodno najprije upiši manje podataka – poduzeće će te kontaktirati, ako trebaju daljnje podatke.</span></p>
+<p>ukjučujem sljedeće podatke potrebne za identifikaciju:<br>
+<span class="blog-letter-fill-in">Ovdje upiši svoje identifikacijske podatke. To često uključuje podatke kao što su tvoje ime, datum rođenja, adresa, e-mail adresa itd.</span></p>
 
-<p>Ako ne odgovorite na moj zahtjev u navedenom roku, zadržavam si pravo poduzeti pravne korake protiv vas i podnijeti žalbu nadležnom nadzornom tijelu.</p>
+<p>Ukoliko ne odgovorite na moj zahtjev u navedenom roku, pridržavam si pravo podnijeti pravne korake protiv vas i podnijeti žalbu nadležnom nadzornom tijelu.</p>
 
-<p>Hvala unaprijed.</p>
+<p>Hvala vam unaprijed.</p>
 
-<p>S poštovanjem,<br>
-<span class="blog-letter-fill-in">Ime</span></p>
+<p>S poštovanjem</p>
+
+<p><span class="blog-letter-fill-in">Ovdje upiši svoje ime.</span></p>
 </div>
+
+<a href="/downloads/uzorak-pismo-gdpr-ispravljanje-zahtjev-osobnipodaci.org.ott" class="button button-primary" style="margin-bottom: 10px;">Download LibreOffice or OpenOffice template (.ott)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-ispravljanje-zahtjev-osobnipodaci.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Download Word template (.dotx)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-ispravljanje-zahtjev-osobnipodaci.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Download PDF form (.pdf)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-ispravljanje-zahtjev-osobnipodaci.org.txt" class="button button-secondary">Download plain text file (.txt)</a>

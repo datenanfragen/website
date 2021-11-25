@@ -1,0 +1,32 @@
+================================================================
+Zahtjev za ispravljanje osobnih podataka prema članku 16. GDPR-a
+================================================================
+
+Ovo je uzorak tvog GDPR pisma koji pruža osobnipodaci.org.
+Odlomci u [uglatim zagradama] su neobavezni i ne moraju se uključiti u pismo. Podaci u {vitičastim zagradama} se moraju ispuniti.
+Nakon toga jedostavno izbriši ovo objašnjenje i pošalji svoj zahtjev.
+
+---
+
+Poštovani,
+
+Ovime zahtijevam ispravak ili dopunu netočnih osobnih podataka koji se odnose na mene prema članku 16. GDPR-a.
+
+Molim unos sljedećih promjena:
+{Ovdje navedi podatke koje želiš ispraviti.}
+
+U slučaju da ste otkrili dotične osobne podatke jednom ili više primatelja kako je definirano u članku 4. stavka 9. GDPR-a, morate dostaviti moj zahtjev za ispravljanje dotičnih osobnih podataka svakom primatelju kako je određeno u članku 19. GDPR-a. Obavijestite me i o tim primateljima.
+
+Moj zahtjev izričito uključuje  sve druge usluge i voditelj za koje ste voditelj kako je definirano člankom 4. (7) GDPR-a.
+
+Kako je navedeno u članku 12. stavka 3. GDPR-a, morate mi potvrditi ispravak bez nepotrebnog odgađanja, a u svakom slučaju u roku od mjesec dana od primitka zahtjeva.
+
+ukjučujem sljedeće podatke potrebne za identifikaciju:
+{Ovdje upiši svoje identifikacijske podatke. To često uključuje podatke kao što su tvoje ime, datum rođenja, adresa, e-mail adresa itd.}
+
+Ukoliko ne odgovorite na moj zahtjev u navedenom roku, pridržavam si pravo podnijeti pravne korake protiv vas i podnijeti žalbu nadležnom nadzornom tijelu.
+
+Hvala vam unaprijed.
+
+S poštovanjem
+{Ovdje upiši svoje ime.}
