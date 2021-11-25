@@ -42,7 +42,7 @@ Osim toga, protivim se obradi osobnih podataka koji se odnose na mene (što uklj
 <p><span class="blog-letter-fill-in">Ovdje upiši svoje ime.</span></p>
 </div>
 
-<a href="/downloads/uzorak-pismo-gdpr-brisanje-zahtjev-osobnipodaci.org.ott" class="button button-primary" style="margin-bottom: 10px;">Download LibreOffice or OpenOffice template (.ott)</a><br>
-<a href="/downloads/uzorak-pismo-gdpr-brisanje-zahtjev-osobnipodaci.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Download Word template (.dotx)</a><br>
-<a href="/downloads/uzorak-pismo-gdpr-brisanje-zahtjev-osobnipodaci.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Download PDF form (.pdf)</a><br>
-<a href="/downloads/uzorak-pismo-gdpr-brisanje-zahtjev-osobnipodaci.org.txt" class="button button-secondary">Download plain text file (.txt)</a>
+<a href="/downloads/uzorak-pismo-gdpr-brisanje-zahtjev-osobnipodaci.org.ott" class="button button-primary" style="margin-bottom: 10px;">Preuzmi predložak za LibreOffice ili OpenOffice (.ott)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-brisanje-zahtjev-osobnipodaci.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Preuzmi predložak za Word (.dotx)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-brisanje-zahtjev-osobnipodaci.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Preuzmi predložak za PDF obrazac (.pdf)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-brisanje-zahtjev-osobnipodaci.org.txt" class="button button-secondary">Preuzmi neformatiranu tekstualnu datoteku (.txt)</a>
