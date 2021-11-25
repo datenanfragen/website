@@ -14,11 +14,11 @@ S njima je slanje GDPR zahtjeva jednostavno: sve što moraš učiniti je upisati
 Naravno, postoji predložak pisma za svaku vrstu zahtjeva. Podržavamo one najčešće.
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-access-request/"><img class="image" src="/card-icons/view.svg" alt="Zahtjev za pristup prema čl. 15 GDPR-a" width="252" height="150"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-access-request/"><img class="image" src="/card-icons/view.svg" alt="Zahtjev za pristup prema članku 15. GDPR-a" width="252" height="150"></a></div>
     <div class="padded col75">
-        <a href="/blog/sample-letter-gdpr-access-request/"><h1>Zahtjev za pristup prema čl. 15 GDPR-a</h1></a>
+        <a href="/blog/sample-letter-gdpr-access-request/"><h1>Zahtjev za pristup prema članku 15. GDPR-a</h1></a>
         <p class="description">
-            Prema čl. 15 GDPR-a, imaš pravo na pristup osobnim podacima koje poduzeće sprema o tebi. 
+            Prema članku 15. GDPR-a, imaš pravo na pristup osobnim podacima koje poduzeće sprema o tebi. 
         </p>
     </div>
     <div class="clearfix"></div>
@@ -26,11 +26,11 @@ Naravno, postoji predložak pisma za svaku vrstu zahtjeva. Podržavamo one najč
 </article>
 
 <article class="list-article icon-list-article">
-    <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-rectification-request/"><img class="image" src="/card-icons/edit.svg" alt="Zahtjev za ispravljanje prema čl. 16 GDPR-a" width="150" height="150"></a></div>
+    <div class="col25 article-featured-image"><a href="/blog/sample-letter-gdpr-rectification-request/"><img class="image" src="/card-icons/edit.svg" alt="Zahtjev za ispravljanje prema članku 16. GDPR-a" width="150" height="150"></a></div>
     <div class="padded col75">
-        <a href="/blog/sample-letter-gdpr-rectification-request/"><h1>Zahtjev za ispravljanje prema čl. 16 GDPR-a</h1></a>
+        <a href="/blog/sample-letter-gdpr-rectification-request/"><h1>Zahtjev za ispravljanje prema članku 16. GDPR-a</h1></a>
         <p class="description">
-            Prema čl. 16 GDPR-a, imaš pravo zahtijevati trenutno ispravljanje lažnih (ili nepotpunih) osobnih podataka koje tvrtka sprema o tebi.
+            Prema članku 16. GDPR-a, imaš pravo zahtijevati trenutno ispravljanje lažnih (ili nepotpunih) osobnih podataka koje tvrtka sprema o tebi.
         </p>
     </div>
     <div class="clearfix"></div>
