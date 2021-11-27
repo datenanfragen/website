@@ -156,6 +156,10 @@ textarea:placeholder-shown + label.fancy-label {
         margin-top: 15px;
         float: left;
     }
+
+    .company-comments {
+        overflow-wrap: anywhere;
+    }
 }
 
 #form-container {
