@@ -879,5 +879,8 @@
         "country": "Zemlja",
         "language-desc-nl": "Nizozemski (Nederlands)",
         "language-nl": "Nizozemski"
+    },
+    "blog": {
+        "footnote": "Fusnota"
     }
 }
