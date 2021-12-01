@@ -8,7 +8,7 @@
 <div class="blog-letter">
 <p>Poštovani,</p>
 
-<p>Ovim putem tražim pristup informacijama u skladu s člankom 15. GDPR-a. Molim vas da mi potvrdite obrađujete li osobne podatke koji se odnose na mene ili ne (kako je definirano člankom 4. stavka 1. i 2. GDPR-a).</p>
+<p>ovim putem tražim pristup informacijama u skladu s člankom 15. GDPR-a. Molim vas da mi potvrdite obrađujete li osobne podatke koji se odnose na mene ili ne (kako je definirano člankom 4. stavka 1. i 2. GDPR-a).</p>
 
 <p>U slučaju da ih obrađujete, u skladu s člankom 15. stavka 3. GDPR-a, dostavite mi kopiju svih osobnih podataka koji se odnose na mene a koje obrađujete, uključujući sve potencijalne pseudonimizirane podatke o meni prema članku 4. stavka 5. GDPR-a. Nadalje tražim pristup sljedećim podacima u skladu s člankom 15. stavka 1. GDPR-a:<br>
 1. svrha obrade;<br>

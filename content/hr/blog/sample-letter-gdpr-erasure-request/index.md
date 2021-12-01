@@ -8,7 +8,7 @@
 <div class="blog-letter">
 <p>Poštovani,</p>
 
-<p>Ovim putem zahtijevam hitno brisanje osobnih podataka koji se odnose na mene prema članku 17. GDPR-a.</p>
+<p>ovim putem zahtijevam hitno brisanje osobnih podataka koji se odnose na mene prema članku 17. GDPR-a.</p>
 
 <p>[Molim brisanje svih osobnih podataka koji se odnose na mene kako je definirano člankom 4. stavka 1. GDPR-a.]</p>
 

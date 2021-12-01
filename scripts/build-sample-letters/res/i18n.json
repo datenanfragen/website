@@ -216,7 +216,7 @@
         "access-body-050": "Moj zahtjev izričito uključuje [runs> sljedeće, kao i ]sve druge usluge i poduzeća za koje ste zaduženi kako je definirano člankom 4. stavka 7. GDPR-a[runs>: {runs_list}].",
         "access-body-060": "Kao što je navedeno u članku 12. stavka 3. GDPR-a, morate mi dostaviti tražene podatke bez nepotrebnog odgađanja, a u svakom slučaju u roku od mjesec dana od primitka zahtjeva. Prema članku 15. (3) GDPR-a, morate odgovoriti na ovaj zahtjev bez ikakvih troškova za mene.",
         "access-doc-title": "Uzorak pisma za zahtjeve za pristup podacima prema članku 15. GDPR-a (od osobnipodaci.org)",
-        "access-filename": "primjerak-pisma-gdpr-zahtjev-pristup-osobnipodaci.org",
+        "access-filename": "uzorak-pismo-gdpr-pristup-zahtjev-osobnipodaci.org",
 
         "erasure-subject": "Zahtjev za brisanje osobnih podataka prema članku 17. GDPR-a",
         "erasure-body-000": "ovim putem zahtijevam hitno brisanje osobnih podataka koji se odnose na mene prema članku 17. GDPR-a.",
@@ -240,7 +240,7 @@
         "objection-body-020": "Moj zahtjev izričito uključuje [runs> sljedeće, kao i] sve druge usluge i poduzeća za koje ste kontrolor kako je definirano člankom 4. (7) GDPR-a[runs>: {runs_list}].",
         "objection-body-030": "Kao što je navedeno u članku 12. stavka 3. GDPR-a, morate mi potvrditi prigovor bez nepotrebnog odgađanja, a u svakom slučaju u roku od mjesec dana od primitka zahtjeva.",
         "objection-doc-title": "Uzorak pisma za prigovore protiv izravnog marketinga(od osobnopodaci.org)",
-        "objection-filename": "sample-letter-gdpr-objection-request-osobnopodaci.org",
+        "objection-filename": "uzorak-pismo-gdpr-prigovor-zahtjev-osobnipodaci.org",
 
         "rectification-subject": "Zahtjev za ispravljanje osobnih podataka prema članku 16. GDPR-a",
         "rectification-body-000": "ovim putem zahtijevam ispravak ili dopunu netočnih osobnih podataka koji se odnose na mene prema članku 16. GDPR-a.",

@@ -8,7 +8,7 @@
 <div class="blog-letter">
 <p>Poštovani,</p>
 
-<p>Ovime zahtijevam ispravak ili dopunu netočnih osobnih podataka koji se odnose na mene prema članku 16. GDPR-a.</p>
+<p>ovim putem zahtijevam ispravak ili dopunu netočnih osobnih podataka koji se odnose na mene prema članku 16. GDPR-a.</p>
 
 <p>Molim unos sljedećih promjena:<br>
 <span class="blog-letter-fill-in">Ovdje navedi podatke koje želiš ispraviti.</span></p>

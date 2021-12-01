@@ -8,7 +8,7 @@
 <div class="blog-letter">
 <p>Poštovani,</p>
 
-<p>Ovime se protivim obradi osobnih podataka koji se odnose na mene u svrhu izravnog marketinga u skladu s člankom 21. stavka 2. GDPR-a. Ovaj prigovor uključuje uporabu za profiliranje u mjeri u kojoj je to povezano s izravnim marketingom.</p>
+<p>ovime se protivim obradi osobnih podataka koji se odnose na mene u svrhu izravnog marketinga u skladu s člankom 21. stavka 2. GDPR-a. Ovaj prigovor uključuje uporabu za profiliranje u mjeri u kojoj je to povezano s izravnim marketingom.</p>
 
 <p>Ako sam dao/dala pristanak za obradu mojih osobnih podataka u svrhe izravnog marketinga (npr. prema članku 6. stavka 1. ili članku 9. stavka 2. GDPR-a), ovime povlačim navedeni pristanak.</p>
 
