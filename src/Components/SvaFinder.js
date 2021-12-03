@@ -298,20 +298,17 @@ const svas = {
     eeaki: 'Andmekaitse Inspektsioon (Estonian Data Protection Inspectorate)',
     esaepa: 'Agencia Española de Protección de Datos (Spanish Agency for Data Protection)',
     fitst: 'Tietosuojavaltuutetun toimisto (Office of the Data Protection Ombudsman of Denmark)',
-    frcnil:
-        "Commission Nationale de l'Informatique et des Libertés – CNIL (French National Commission on Informatics and Liberty)",
+    frcnil: "Commission Nationale de l'Informatique et des Libertés – CNIL (French National Commission on Informatics and Liberty)",
     gbico: 'The Information Commissioner’s Office',
     grdpa: 'Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (Hellenic Data Protection Authority)',
     hrazop: 'Agencija za zaštitu osobnih podataka (Croatian Personal Data Protection Agency)',
-    hunaih:
-        'Nemzeti Adatvédelmi és Információszabadság Hatóság (Hungarian National Authority for Data Protection and Freedom of Information)',
+    hunaih: 'Nemzeti Adatvédelmi és Információszabadság Hatóság (Hungarian National Authority for Data Protection and Freedom of Information)',
     iedpc: 'Irish Data Protection Commission',
     isdpa: 'Persónuvernd (Icelandic Data Protection Authority)',
     itgpdp: 'Garante per la protezione dei dati personali (Italian Data Protection Authority)',
     lidss: 'Datenschutzstelle (DSS) Fürstentum Liechtenstein',
     ltada: 'Valstybinė duomenų apsaugos inspekcija (State Data Protection Inspectorate of Lithuania)',
-    lucnpd:
-        'Commission nationale pour la protection des données (National Commission for Data Protection, Grand-Duchy of Luxembourg)',
+    lucnpd: 'Commission nationale pour la protection des données (National Commission for Data Protection, Grand-Duchy of Luxembourg)',
     lvdvi: 'Datu valsts inspekcija (Data State Inspectorate of Latvia)',
     mtidpc: 'Office of the Information and Data Protection Commissioner of Malta',
     nlap: 'Autoriteit Persoonsgegevens (Dutch Data Protection Authority)',

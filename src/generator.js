@@ -49,7 +49,13 @@ class Generator extends Component {
                 <Joyride
                     ref={(c) => (this.tutorial = c)}
                     callback={(data) => {
-                        if (data.type === 'finished') Cookie.set('finished_wizard_tutorial', 'true', { expires: 365, secure: true, sameSite: 'strict' });
+                        if (data.type === 'finished') {
+                            Cookie.set('finished_wizard_tutorial', 'true', {
+                                expires: 365,
+                                secure: true,
+                                sameSite: 'strict',
+                            });
+                        }
                     }}
                     steps={tutorial_steps}
                     type="continuous"
