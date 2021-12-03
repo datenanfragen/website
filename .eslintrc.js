@@ -16,6 +16,7 @@ module.exports = {
         'plugin:import/warnings',
         'plugin:jsx-a11y/recommended',
         'plugin:cypress/recommended',
+        'plugin:eslint-comments/recommended',
         'plugin:prettier/recommended',
     ],
     parserOptions: {
