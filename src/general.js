@@ -1,5 +1,5 @@
 import { render } from 'preact';
-import t, { t_r } from './Utility/i18n';
+import { t_r } from './Utility/i18n';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import CommentsWidget from './Components/CommentsWidget';
 import FlashMessage, { flash } from './Components/FlashMessage';
