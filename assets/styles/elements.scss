@@ -389,7 +389,7 @@ input[type='search'].aa-input-search {
     background: rgba(0, 0, 0, 0.5);
     z-index: 998;
 
-    @extend .fade-in;
+    @extend %fade-in;
 }
 
 .modal {
@@ -590,13 +590,15 @@ input[type='search'].aa-input-search {
 }
 
 .flash-message {
+    /* stylelint-disable scss/at-extend-no-missing-placeholder */
     @extend .box;
+    /* stylelint-enable scss/at-extend-no-missing-placeholder */
     background-color: $bg-color;
     position: relative;
     margin-bottom: 10px;
     padding-right: 45px;
 
-    @extend .fade-in;
+    @extend %fade-in;
 
     button.close-button {
         color: $primary-color;

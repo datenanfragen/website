@@ -1,17 +1,21 @@
 {
-	"plugins": ["stylelint-use-nesting", "stylelint-a11y"],
-	"extends": "stylelint-config-recommended-scss",
-	"rules": {
-		"no-descending-specificity": null,
-		"property-no-unknown": [true, { "ignoreProperties": ["font-icon"], "checkPrefixed": true }],
-		"csstools/use-nesting": "always",
+    "plugins": ["stylelint-use-nesting", "stylelint-a11y"],
+    "extends": ["stylelint-config-recommended-scss", "stylelint-config-prettier", "stylelint-prettier/recommended"],
+    "rules": {
+        "no-descending-specificity": null,
+        "property-no-unknown": [true, { "ignoreProperties": ["font-icon"], "checkPrefixed": true }],
+        "csstools/use-nesting": "always",
 
-		"a11y/media-prefers-reduced-motion": true,
-		"a11y/no-obsolete-attribute": true,
-		"a11y/no-obsolete-element": true,
-		"a11y/no-spread-text": true,
-		"a11y/no-outline-none": true,
-		"a11y/no-text-align-justify": true,
-		"a11y/selector-pseudo-class-focus": true
-	}
+        "a11y/media-prefers-reduced-motion": true,
+        "a11y/no-obsolete-attribute": true,
+        "a11y/no-obsolete-element": true,
+        "a11y/no-spread-text": true,
+        "a11y/no-outline-none": true,
+        "a11y/no-text-align-justify": true,
+        "a11y/selector-pseudo-class-focus": true,
+
+        "scss/operator-no-newline-after": null,
+        "scss/operator-no-unspaced": null,
+        "scss/no-global-function-names": null
+    }
 }

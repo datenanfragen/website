@@ -388,7 +388,8 @@ blockquote {
     border: 0;
 } /* With thanks to Bootstrap. */
 
-.fade-in {
+.fade-in,
+%fade-in {
     animation: fadeIn 300ms ease forwards 1;
 
     @media screen and (prefers-reduced-motion: reduce) {
