@@ -9,8 +9,8 @@
 
     {{ range (where .Site.Pages "Section" "company") }}
         {{ $num_common_categories := intersect $.Params.categories .Params.categories | len }}
-        {{ $num_common_countries := intersect ($.Param "relevant-countries") (.Param "relevant-countries") | len }}
         {{ if and (gt $num_common_categories 0) (ne .Permalink $.Permalink) (not .Params.nsfw) }}
+            {{ $num_common_countries := intersect ($.Param "relevant-countries") (.Param "relevant-countries") | len }}
             {{ $score := add (div (float $num_common_categories) $num_categories) (div $num_common_countries $num_countries) }}
 
             {{ if (or (lt ($related_pages | len) 5) (gt $score $lowest_score)) }}
