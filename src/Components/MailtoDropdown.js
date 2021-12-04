@@ -40,7 +40,7 @@ export const MAILTO_HANDLERS = {
         onClick: (d, createModal, onSuccess) => {
             const dismiss = () => {
                 createModal(null);
-                onSuccess();
+                if (onSuccess) onSuccess();
             };
             const onInputClick = (e) => {
                 if (previous_active_element.id === e.target.id) return;
@@ -130,6 +130,7 @@ export default class MailtoDropdown extends Component {
                     else {
                         if (MAILTO_HANDLERS[h].onClick)
                             MAILTO_HANDLERS[h].onClick(data, props.createModal, props.onSuccess);
+                        else if (props.onSuccess) props.onSuccess();
                     }
                 }}
                 className="button button-secondary button-full-width"
