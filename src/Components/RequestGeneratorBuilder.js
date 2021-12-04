@@ -45,17 +45,16 @@ export default class RequestGeneratorBuilder extends Component {
             fill_signature: null,
             ready: false,
             modal: null,
+            letter: new RequestLetter({}, (blob_url, filename) => {
+                this.setState({
+                    blob_url: blob_url,
+                    download_filename: filename,
+                    download_active: true,
+                });
+            }),
         };
 
         this.replacers = replacer_factory(this);
-
-        this.letter = new RequestLetter({}, (blob_url, filename) => {
-            this.setState({
-                blob_url: blob_url,
-                download_filename: filename,
-                download_active: true,
-            });
-        });
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             this.savedIdData = new SavedIdData();
@@ -306,7 +305,7 @@ export default class RequestGeneratorBuilder extends Component {
         });
 
         if (e.target.value === 'custom') {
-            this.letter.clearProps();
+            this.state.letter.clearProps();
             return;
         }
 
@@ -484,7 +483,7 @@ export default class RequestGeneratorBuilder extends Component {
             sender.country,
         ];
         if (this.state.request.type === 'custom') {
-            this.letter.setProps({
+            this.state.letter.setProps({
                 subject: this.state.request.custom_data.subject,
                 content: this.state.request.custom_data.content,
                 signature: { ...this.state.request.signature, name: this.state.request.custom_data.name },
@@ -494,13 +493,13 @@ export default class RequestGeneratorBuilder extends Component {
                 reference: this.state.request.reference,
                 reference_barcode: RequestLetter.barcodeFromText(this.state.request.reference),
             });
-        } else this.letter.setProps(RequestLetter.propsFromRequest(this.state.request, this.state.template_text));
+        } else this.state.letter.setProps(RequestLetter.propsFromRequest(this.state.request, this.state.template_text));
 
         switch (this.state.request.transport_medium) {
             case 'fax': // fallthrough intentional
             case 'letter':
                 this.setState({ download_active: false });
-                this.letter.initiatePdfGeneration(
+                this.state.letter.initiatePdfGeneration(
                     (this.state.suggestion?.slug ||
                         slugify(this.state.request.recipient_address.split('\n', 1)[0] || 'custom-recipient')) +
                         `_${this.state.request.type}_${this.state.request.reference}.pdf`
@@ -509,7 +508,7 @@ export default class RequestGeneratorBuilder extends Component {
             case 'email': {
                 this.setState({
                     blob_url: URL.createObjectURL(
-                        new Blob([this.letter.toEmailString(true)], {
+                        new Blob([this.state.letter.toEmailString(true)], {
                             type: 'text/plain',
                         })
                     ),
@@ -537,6 +536,13 @@ export default class RequestGeneratorBuilder extends Component {
                 prev.blob_url = '';
                 prev.download_filename = '';
                 prev.request.response_type = '';
+                prev.letter = new RequestLetter({}, (blob_url, filename) => {
+                    this.setState({
+                        blob_url: blob_url,
+                        download_filename: filename,
+                        download_active: true,
+                    });
+                });
 
                 return prev;
             }, resolve);
@@ -555,7 +561,7 @@ export default class RequestGeneratorBuilder extends Component {
                                 transport_medium={state.request.transport_medium}
                                 blob_url={state.blob_url}
                                 email={state.request.email}
-                                letter={this.letter}
+                                letter={state.letter}
                                 download_filename={state.download_filename}
                                 download_active={state.download_active}
                                 done={state.request.done}
@@ -566,6 +572,7 @@ export default class RequestGeneratorBuilder extends Component {
                                         : 'download-pdf-first',
                                     'generator'
                                 )}
+                                createModal={(modal) => this.setState({ modal })}
                                 onSuccess={() => {
                                     this.setState({ modal: null });
                                     this.storeRequest();

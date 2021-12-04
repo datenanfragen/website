@@ -21,11 +21,12 @@ const replacer_factory = (that) => ({
             transport_medium={that.state.request.transport_medium}
             blob_url={that.state.blob_url}
             email={that.state.request.email}
-            letter={that.letter}
+            letter={that.state.letter}
             download_filename={that.state.download_filename}
             download_active={that.state.download_active}
             ready={that.state.ready}
             done={that.state.request.done}
+            createModal={(modal) => that.setState({ modal })}
             onSuccess={() => {
                 that.storeRequest();
                 that.setState((prev) => {
