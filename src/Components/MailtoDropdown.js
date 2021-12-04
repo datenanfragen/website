@@ -52,7 +52,7 @@ export const MAILTO_HANDLERS = {
             createModal((state) => (
                 <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                     <Modal
-                        positiveText={<Text id="ok" />}
+                        positiveText={t('ok', 'generator')}
                         onPositiveFeedback={dismiss}
                         positiveDefault={true}
                         onDismiss={dismiss}>
