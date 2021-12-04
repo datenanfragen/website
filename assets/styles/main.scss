@@ -5,6 +5,8 @@
 @import 'icons';
 @import 'generator';
 
+@import '../../node_modules/react-joyride/lib/react-joyride';
+
 /* Header */
 header#nav-header {
     margin-top: 25px;
@@ -945,7 +947,6 @@ footer {
 
 /* Tutorial */
 $joyride-color: $primary-color;
-@import '../../node_modules/react-joyride/lib/react-joyride';
 button.joyride-tooltip__button {
     &:hover,
     &:focus {
