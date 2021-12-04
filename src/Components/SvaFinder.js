@@ -3,7 +3,7 @@ import t from 'Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 import PropTypes from 'prop-types';
 
-const STEPS = {
+const steps = {
     country: {
         at: 'atdsb',
         be: 'beapd',
@@ -17,6 +17,19 @@ const STEPS = {
         fr: 'frcnil',
         de: {
             bund: 'debfdi',
+            'bund-telepost': 'debfdi',
+            // The BfDI is also responsible for the job centres, except those with "authorised municipal carriers"
+            // (https://www.bfdi.bund.de/SharedDocs/Downloads/DE/Flyer/DatenschutzImJobcenter.pdf?__blob=publicationFile&v=3).
+            // Unfortunately, there's 104 of those, so we can't list them all (https://kommunale-jobcenter.de/uebersichtskarte/).
+            'bund-jobcenter': 'debfdi',
+            // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272376&cms_klvl1=272344#kontaktfinderDown
+            'bund-sueg': 'debfdi',
+            // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272350&cms_klvl1=272340#kontaktfinderDown
+            // According to this, the BfDI is not responsible for some guild health insurers (Innungskrankenkassen).
+            // This (https://www.bfdi.bund.de/DE/Buerger/Inhalte/GesundheitSoziales/Allgemein/Krankenkassen-Zust%C3%A4ndigkeit-BfDI.html?nn=302362)
+            // lists the ones the BfDI is responsible for. As there are only six remaining in total (https://www.ikk.de/),
+            // this allows us to determine which ones the BfDI is not responsible for.
+            'bund-kk': 'debfdi',
             kirche: {
                 ev: 'deekdbfd',
                 kath: {
@@ -82,6 +95,25 @@ const STEPS = {
                 'rundfunk-swr': 'derfswr',
                 'rundfunk-wdr': 'derf',
                 'rundfunk-zdf': 'derf',
+                // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272352&cms_klvl1=272342#kontaktfinderDown
+                'rundfunk-beitragsservice': {
+                    bawue: 'derfswr',
+                    bay: 'derf',
+                    ber: 'deberlbdi',
+                    bra: 'debralda',
+                    bre: 'debrelfdi',
+                    hess: 'dehessbdi',
+                    hh: 'derfndr',
+                    mv: 'derfndr',
+                    nds: 'derfndr',
+                    nrw: 'derf',
+                    rlp: 'derfswr',
+                    saar: 'derf',
+                    sachs: 'derfmdr',
+                    sa: 'derfmdr',
+                    sh: 'derfndr',
+                    thue: 'derfmdr',
+                },
             },
         },
         gr: 'grdpa',
@@ -108,8 +140,9 @@ const STEPS = {
     },
 };
 
-const INITIAL_STATE = {
-    step: STEPS['country'],
+const initial_state = {
+    step: steps['country'],
+    prev_state: null,
     question: t('country', 'sva-finder'),
     result: false,
 };
@@ -118,19 +151,18 @@ export default class SvaFinder extends Component {
     constructor(props) {
         super(props);
 
-        this.state = INITIAL_STATE;
+        this.state = initial_state;
     }
 
     selectOption = (option) => {
         const next_step = this.state.step[option];
         if (typeof next_step === 'object') {
-            this.setState({
+            this.setState((prev) => ({
                 step: next_step,
+                prev_state: prev,
                 question: t(option + '-q', 'sva-finder'),
-            });
-        } else {
-            this.setState({ result: next_step });
-        }
+            }));
+        } else this.setState((prev) => ({ result: next_step, prev_state: prev }));
     };
 
     render() {
@@ -138,10 +170,7 @@ export default class SvaFinder extends Component {
 
         if (this.state.result) {
             if (typeof this.props.callback === 'function') {
-                fetchSvaDataBySlug(this.state.result).then((sva) => {
-                    this.props.callback(sva);
-                });
-
+                fetchSvaDataBySlug(this.state.result).then((sva) => this.props.callback(sva));
                 return <p>{t('loading-sva', 'sva-finder')}</p>;
             }
 
@@ -149,7 +178,7 @@ export default class SvaFinder extends Component {
                 <p>
                     {t('result', 'sva-finder')}
                     <br />
-                    <a href={BASE_URL + 'supervisory-authority/' + this.state.result}>{SVAS[this.state.result]}</a>
+                    <a href={BASE_URL + 'supervisory-authority/' + this.state.result}>{svas[this.state.result]}</a>
                 </p>
             );
         } else {
@@ -159,29 +188,30 @@ export default class SvaFinder extends Component {
                 return acc;
             }, {});
             const sorted_keys = Object.keys(entries).sort((a, b) => {
-                // So, this is a fairly ugly but we want to move the user's country to the first position and this is the least awful way I can think of, considering we are already sorting the array anyway.
-                if (STEPS.country[globals.country]) {
-                    if (a == globals.country) return -1;
-                    else if (b == globals.country) return 1;
+                // For the countries, move the user's country to the top of the list.
+                if (steps.country[globals.country]) {
+                    if (a === globals.country) return -1;
+                    else if (b === globals.country) return 1;
                 }
+
+                // In the first step for Germany, "Any other public or private entity" has to be sorted last.
+                if (a === 'private') return 1;
+                else if (b === 'private') return -1;
+
+                // Otherwise, just sort alphabetically.
                 return entries[a].localeCompare(entries[b]);
             });
 
             const options = sorted_keys.map((key) => (
-                <label className={'radio-label' + (key == globals.country ? ' active' : '')}>
-                    <input
-                        className="form-element"
-                        onClick={() => {
-                            this.selectOption(key);
-                        }}
-                    />
+                <label className={'radio-label' + ([globals.country, 'private'].includes(key) ? ' active' : '')}>
+                    <input className="form-element" onClick={() => this.selectOption(key)} />
                     {entries[key]}
                 </label>
             ));
 
             content = [
                 <p style="margin-top: 0;">{this.state.question}</p>,
-                <div className="radio-group radio-group-vertical" style="max-height: 40vh; overflow: auto;">
+                <div className="radio-group radio-group-vertical" style="max-height: 450px; overflow: auto;">
                     {options}
                 </div>,
             ];
@@ -191,12 +221,18 @@ export default class SvaFinder extends Component {
             <div className="sva-finder box box-info" style={this.props.style}>
                 {this.props.callback ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
                 {content}
-                <div style="float: right; margin-top: 20px;">
+                <div style="margin-top: 20px;">
+                    {this.state.prev_state && (
+                        <button
+                            className="button button-secondary button-small icon icon-arrow-left"
+                            onClick={() => this.setState(this.state.prev_state)}>
+                            {t('back', 'sva-finder')}
+                        </button>
+                    )}
                     <button
                         className="button button-secondary button-small"
-                        onClick={() => {
-                            this.setState(INITIAL_STATE);
-                        }}>
+                        style="float: right;"
+                        onClick={() => this.setState(initial_state)}>
                         {t('reset', 'sva-finder')}
                     </button>
                 </div>
@@ -217,7 +253,7 @@ window.renderSvaFinder = function () {
     });
 };
 
-const SVAS = {
+const svas = {
     atdsb: 'Österreichische Datenschutzbehörde',
     beapd: 'Autorite Protection Donnees de Belgique, Gegevensbeschermingsautoriteit van België',
     bgcpdp: 'Commission for Personal Data Protection Bulgaria',
@@ -262,20 +298,17 @@ const SVAS = {
     eeaki: 'Andmekaitse Inspektsioon (Estonian Data Protection Inspectorate)',
     esaepa: 'Agencia Española de Protección de Datos (Spanish Agency for Data Protection)',
     fitst: 'Tietosuojavaltuutetun toimisto (Office of the Data Protection Ombudsman of Denmark)',
-    frcnil:
-        "Commission Nationale de l'Informatique et des Libertés – CNIL (French National Commission on Informatics and Liberty)",
+    frcnil: "Commission Nationale de l'Informatique et des Libertés – CNIL (French National Commission on Informatics and Liberty)",
     gbico: 'The Information Commissioner’s Office',
     grdpa: 'Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (Hellenic Data Protection Authority)',
     hrazop: 'Agencija za zaštitu osobnih podataka (Croatian Personal Data Protection Agency)',
-    hunaih:
-        'Nemzeti Adatvédelmi és Információszabadság Hatóság (Hungarian National Authority for Data Protection and Freedom of Information)',
+    hunaih: 'Nemzeti Adatvédelmi és Információszabadság Hatóság (Hungarian National Authority for Data Protection and Freedom of Information)',
     iedpc: 'Irish Data Protection Commission',
     isdpa: 'Persónuvernd (Icelandic Data Protection Authority)',
     itgpdp: 'Garante per la protezione dei dati personali (Italian Data Protection Authority)',
     lidss: 'Datenschutzstelle (DSS) Fürstentum Liechtenstein',
     ltada: 'Valstybinė duomenų apsaugos inspekcija (State Data Protection Inspectorate of Lithuania)',
-    lucnpd:
-        'Commission nationale pour la protection des données (National Commission for Data Protection, Grand-Duchy of Luxembourg)',
+    lucnpd: 'Commission nationale pour la protection des données (National Commission for Data Protection, Grand-Duchy of Luxembourg)',
     lvdvi: 'Datu valsts inspekcija (Data State Inspectorate of Latvia)',
     mtidpc: 'Office of the Information and Data Protection Commissioner of Malta',
     nlap: 'Autoriteit Persoonsgegevens (Dutch Data Protection Authority)',

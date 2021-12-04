@@ -26,7 +26,7 @@ window.props = {
     transport_medium: 'email',
     company: 'deliveroo-de'
 };
-window.onload = function() { renderActWidget(); };
+window.addEventListener('load', function() { renderActWidget(); });
 </script>
 
 Die E-Mail verschickst Du selbst mit Deinem eigenen E-Mail-Programm. Das hat den Vorteil, dass wir die Daten, die Du hier eingibst, überhaupt nicht sehen können.

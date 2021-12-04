@@ -1,4 +1,4 @@
-import { render } from 'preact';
+import { render, Component, Fragment } from 'preact';
 import Modal from 'Components/Modal';
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
@@ -8,6 +8,7 @@ require('brutusin-json-forms');
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
 import FlashMessage, { flash } from 'Components/FlashMessage';
+import { searchClient } from 'Utility/search';
 let bf;
 let schema;
 const SUBMIT_URL =
@@ -15,7 +16,7 @@ const SUBMIT_URL =
         ? 'http://localhost:3000/suggest'
         : 'https://backend.datenanfragen.de/suggest';
 
-window.onload = () => {
+window.addEventListener('load', () => {
     const SCHEMA_URL = BASE_URL + 'schema.json';
     fetch(SCHEMA_URL)
         .then((res) => res.json())
@@ -28,7 +29,7 @@ window.onload = () => {
                 schema_url: SCHEMA_URL,
             });
         });
-};
+});
 
 const sortRelevantCountries = (countries) => {
     countries.items.enum.sort((a, b) => {
@@ -146,6 +147,92 @@ function renderForm(schema, company = undefined) {
         document.getElementById('suggest-form'),
         company || (PARAMETERS['name'] ? { name: PARAMETERS['name'] } : {})
     );
+    suggestSimilarNamedCompanies();
+}
+
+function suggestSimilarNamedCompanies() {
+    const nameCell = document.querySelector('tr[data-schema_id="$.name"] > td.prop-value');
+
+    // Create dummy container as Preact.render() does not guarantee order if parent already contains non-Preact components/elements.
+    const container = document.createElement('div');
+    nameCell.appendChild(container);
+
+    const SimilarList = class SimilarList extends Component {
+        constructor() {
+            super();
+            this.state = { similarMatches: [] };
+        }
+
+        componentDidMount() {
+            const searchOptions = {
+                query_by: 'name, runs',
+                prefix: false,
+                sort_by: '_text_match:desc,sort-index:asc',
+                num_typos: 1,
+                per_page: 5,
+                drop_tokens_threshold: 0,
+            };
+
+            const nameInput = nameCell.querySelector('input');
+            nameInput.oninput = () => this.setState({ similarMatches: [] });
+            nameInput.onblur = (event) => {
+                const name = event.target.value;
+                if (name) {
+                    searchOptions['q'] = name;
+                    searchClient
+                        .collections('companies')
+                        .documents()
+                        .search(searchOptions)
+                        .then((res) =>
+                            this.setState({
+                                similarMatches: res.hits.map((hit) => ({
+                                    slug: hit.document.slug,
+                                    name: hit.document.name,
+                                    runs: hit.highlights
+                                        .filter((highlight) => highlight.field === 'runs')
+                                        .flatMap((highlight) => highlight.snippets),
+                                })),
+                            })
+                        )
+                        .catch((e) => {
+                            e.no_side_effects = true;
+                            rethrow(e);
+                        });
+                }
+            };
+        }
+
+        render() {
+            return (
+                this.state.similarMatches.length > 0 && (
+                    <div className="similar-list">
+                        <label>{t('similarly-named-companies', 'suggest')}</label>
+                        <ul>
+                            {this.state.similarMatches.map((similarMatch) => (
+                                <li key={similarMatch.slug}>
+                                    <a
+                                        href={BASE_URL + 'company/' + similarMatch.slug}
+                                        target="_blank"
+                                        rel="noreferrer">
+                                        {similarMatch.name}
+                                    </a>
+                                    {similarMatch.runs.length > 0 && (
+                                        <Fragment>
+                                            {' '}
+                                            ({t('also-runs', 'suggest')}
+                                            <span dangerouslySetInnerHTML={{ __html: similarMatch.runs.join(', ') }} />)
+                                        </Fragment>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )
+            );
+        }
+    };
+
+    render(<SimilarList />, container);
 }
 
 document.getElementById('submit-suggest-form').onclick = () => {

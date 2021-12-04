@@ -36,7 +36,7 @@ Unsere Aktion läuft unabhängig vom offiziellen Hacktoberfest. Wenn Du teilnehm
 
 Wenn Du über GitHub mitmachen möchtest, verwende bitte dieses Formular, damit wir Deine Beiträge zuordnen können:
 
-<noscript><div class="box box-info">Aktiviere JavaScript in deinem Browser, um eine Meldung zu erhälten, ob das Formular efolgreich abgesendet wurde.</div></noscript>
+<noscript><div class="box box-info">Aktiviere JavaScript in deinem Browser, um eine Meldung zu erhalten, ob das Formular erfolgreich abgesendet wurde.</div></noscript>
 <div class="box form-group" style="max-width: 600px; margin: auto;">
 <form action="https://backend.datenanfragen.de/hacktoberfest" method="POST">
 Ich möchte an der Hacktoberfest 2021-Aktion des Datenanfragen.de e.&nbsp;V. über GitHub teilnehmen.
@@ -117,7 +117,7 @@ Wenn noch etwas unklar ist oder Du noch Fragen hast, schreib uns gerne eine Mail
 Happy Hacking!
 
 <script>
-window.onload = function() {
+window.addEventListener('load', function() {
   if (PARAMETERS.error) {
     if (PARAMETERS.error === 'validation') alert('Die Anmeldedaten, die Du angegeben hast, waren leider nicht korrekt. Bitte versuche es erneut.');
     else if (PARAMETERS.error === 'server') alert('Bei der Registrierung ist leider ein Fehler auf unserer Seite aufgetreten. Bitte versuche es später erneut oder wende Dich über hacktoberfest@datenanfragen.de an uns.');
@@ -125,5 +125,5 @@ window.onload = function() {
     else if (PARAMETERS.error === 'expired') alert('Die Anmeldefrist ist leider schon abgelaufen.');
   }
   else if (PARAMETERS.success === '1') alert('Deine Registrierung wurde erfolgreich bearbeitet. Du solltest gleich eine Bestätigung per E-Mail erhalten.');
-}
+});
 </script>

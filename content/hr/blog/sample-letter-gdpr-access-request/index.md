@@ -8,36 +8,39 @@
 <div class="blog-letter">
 <p>Poštovani,</p>
 
-<p>ovim putem zahtijevam pristup prema članku 15. GDPR-a. Molim vas da potvrdite, obrađujete li osobne podatke (kako je definirano u članku 4. stavke 1. i 2. GDPR-a) koji se tiču mene.</p>
+<p>ovim putem tražim pristup informacijama u skladu s člankom 15. GDPR-a. Molim vas da mi potvrdite obrađujete li osobne podatke koji se odnose na mene ili ne (kako je definirano člankom 4. stavka 1. i 2. GDPR-a).</p>
 
-<p>U slučaju da ih obrađujete, ovim putem tražim pristup sljedećim podacima sukladno članku 15. GDPR-a:</p>
-<ol>
-<li><em>svi</em> osobni podaci koji se tiču mene i koje ste spremili, uključujući sve potencijalne pseudonimizirane podatke o meni prema članku 4. stavka 5. GDPR-a;</li>
-<li>svrha obrade;</li>
-<li>dotične kategorije osobnih podataka;</li>
-<li>primatelji ili kategorije primatelja kojima su osobni podaci otkriveni ili će im biti otkriveni;</li>
-<li>gdjegod moguće, predviđeno razdoblje čuvanja osobnih podataka ili, ako nije moguće, kriteriji za određivanje tog razdoblja;</li>
-<li>ako se osobni podaci ne prikupljaju od subjekta podataka, sve dostupne podatke o njihovom izvoru;</li>
-<li>postojanje automatiziranog odlučivanja, uključujući izradu profila na osnovi članka 22. stavka 1. i 4. GDPR-a, te barem u tim slučajevima, razumljive informacije o uključenoj logici, kao i značaju i predviđenim posljedicama takve obrade za mene.</li>
-</ol>
+<p>U slučaju da ih obrađujete, u skladu s člankom 15. stavka 3. GDPR-a, dostavite mi kopiju svih osobnih podataka koji se odnose na mene a koje obrađujete, uključujući sve potencijalne pseudonimizirane podatke o meni prema članku 4. stavka 5. GDPR-a. Nadalje tražim pristup sljedećim podacima u skladu s člankom 15. stavka 1. GDPR-a:<br>
+1. svrha obrade;<br>
+2. kategorije dotičnih osobnih podataka;<br>
+3. primatelji ili kategorije primatelja kojima su ili kojima će se otkriti osobni podaci;<br>
+4. gdje je moguće, predviđeno razdoblje u kojem će osobni podaci biti spremljeni ili, ako to nije moguće, kriterije za određivanje tog razdoblja;<br>
+5. u slučajevima u kojima se osobni podaci ne prikupljaju od ispitanika, sve dostupne informacije o izvoru podataka;<br>
+6. postojanje automatiziranog odlučivanja, uključujući profiliranje, na temelju članka 22. (1) i (4) GDPR-a i, barem u tim slučajevima, značajne informacije o uključenoj logici, kao i objašnjenje značaja i mogućih posljedica te vrste obrade za mene na lako razumljiv način.</p>
 
-<p>U slučaju da obrađujete anonimne podatke koji se tiču mene, molim vas da me na lako razumljiv način o tome obavijestite i da mi objasnite postupak.</p>
+<p>U slučaju da obrađujete anonimne podatke koji se odnose na mene, obavijestite me o tome, te mi objasnite korišteni postupak na lako razumljiv način.</p>
 
-<p>Ako moje osobne podatke prenosite u treću zemlju ili međunarodnu organizaciju, zahtijevam da me obavijestite o odgovarajućim zaštitnim mjerama u skladu s člankom 46. GDPR-a u vezi s prijenosom.</p>
+<p>Ako prenosite moje osobne podatke u treću zemlju ili međunarodnu organizaciju, tražim da me obavijestite o odgovarajućim zaštitnim mjerama prema članku 46 GDPR-a u vezi s prijenosom.</p>
 
-<p>[Molim vas da mi omogućite pristup osobnim podacima u strukturiranom, uobičajenom i strojno čitljivom formatu, kako je utvrđeno u članku 20. stavka 1. GDPR-a.]</p>
+<p>[Molim vas da moje osobne podatke koje sam vam dostavio/dostavila budu dostupni u strukturiranom, uobičajeno korištenom i strojno čitljivom formatu kako je navedeno u članku 20. stavka 1. GDPR-a.]</p>
 
-<p>Moj zahtjev izričito uključuje sve druge usluge i poduzeća za koje ste voditelj obrade, kako je definirano u članku 4. stavka 7. GDPR-a.</p>
+<p>Moj zahtjev izričito uključuje sve druge usluge i poduzeća za koje ste zaduženi kako je definirano člankom 4. stavka 7. GDPR-a.</p>
 
-<p>Kao što je utvrđeno u članku 12. stavka 3. GDPR-a, tražene podatke morate mi dostaviti bez odgađanja, a u svakom slučaju u roku od mjesec dana po primitku zahtjeva. Na osnovi članka 15. stavka 3. GDPR-a, na ovaj zahtjev morate odgovoriti bez naknade.</p>
+<p>Kao što je navedeno u članku 12. stavka 3. GDPR-a, morate mi dostaviti tražene podatke bez nepotrebnog odgađanja, a u svakom slučaju u roku od mjesec dana od primitka zahtjeva. Prema članku 15. (3) GDPR-a, morate odgovoriti na ovaj zahtjev bez ikakvih troškova za mene.</p>
 
-<p>Moji identifikacijski podaci:<br>
-<span class="blog-letter-fill-in">Ovdje navedeni podaci pomažu poduzećima u identifikaciji korisnika. Slobodno najprije upiši manje podataka – poduzeće će te kontaktirati, ako trebaju daljnje podatke.</span></p>
+<p>ukjučujem sljedeće podatke potrebne za identifikaciju:<br>
+<span class="blog-letter-fill-in">Ovdje upiši svoje identifikacijske podatke. To često uključuje podatke kao što su tvoje ime, datum rođenja, adresa, e-mail adresa itd.</span></p>
 
-<p>Ako ne odgovorite na moj zahtjev u navedenom roku, zadržavam si pravo poduzeti pravne korake protiv vas i podnijeti žalbu nadležnom nadzornom tijelu.</p>
+<p>Ukoliko ne odgovorite na moj zahtjev u navedenom roku, pridržavam si pravo podnijeti pravne korake protiv vas i podnijeti žalbu nadležnom nadzornom tijelu.</p>
 
-<p>Hvala unaprijed.</p>
+<p>Hvala vam unaprijed.</p>
 
-<p>S poštovanjem,<br>
-<span class="blog-letter-fill-in">Ime</span></p>
+<p>S poštovanjem</p>
+
+<p><span class="blog-letter-fill-in">Ovdje upiši svoje ime.</span></p>
 </div>
+
+<a href="/downloads/uzorak-pismo-gdpr-pristup-zahtjev-osobnipodaci.org.ott" class="button button-primary" style="margin-bottom: 10px;">Preuzmi predložak za LibreOffice ili OpenOffice (.ott)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-pristup-zahtjev-osobnipodaci.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Preuzmi predložak za Word (.dotx)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-pristup-zahtjev-osobnipodaci.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Preuzmi predložak za PDF obrazac (.pdf)</a><br>
+<a href="/downloads/uzorak-pismo-gdpr-pristup-zahtjev-osobnipodaci.org.txt" class="button button-secondary">Preuzmi neformatiranu tekstualnu datoteku (.txt)</a>

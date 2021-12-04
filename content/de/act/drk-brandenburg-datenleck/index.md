@@ -51,7 +51,7 @@ window.props = {
     transport_medium: 'email',
     company: "drk-brandenburg"
 };
-window.onload = function() { renderActWidget(); };
+window.addEventListener('load', function() { renderActWidget(); });
 </script>
 
 Die E-Mail verschickst Du dabei selbst mit Deinem E-Mail-Programm. Wir bekommen Deine Daten nicht zu sehen: Alles, was Du hier auf der Seite eingibst, wird **nur lokal auf Deinem Rechner** verarbeitet und nie an uns übertragen.

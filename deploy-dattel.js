@@ -12,7 +12,7 @@ if (!process.env.DATTEL_SERVER || !process.env.DATTEL_TOKEN) {
 
 async function main() {
     try {
-        const languages = ['de', 'en', 'fr', 'pt', 'es', 'hr'];
+        const languages = ['de', 'en', 'fr', 'pt', 'es', 'hr', 'nl'];
 
         for (const language of languages) {
             const site_id = `dade-website-${language}`;

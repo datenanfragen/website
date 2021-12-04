@@ -9,7 +9,8 @@
 <footer id="footer">
     <div class="container">
         <div class="col33 footer-col" style="padding-right: 20px;">
-            <p style="margin: 0;">{{ T "footer-about-us" | safeHTML }}</p>
+            {{ $learnMoreLink := (partial "functions/link" (dict "slug" "/verein" "text" "footer-learn-more" "translate" true)) }}
+            <p style="margin: 0;">{{ T "footer-about-us" | safeHTML }} <a href="{{ $learnMoreLink.url }}">{{ $learnMoreLink.text }}</a></p>
             <div class="social-icons">
                 <a href="{{ "/blog/index.xml" | absLangURL }}" class="icon icon-rss" title="{{ T "footer-social-rss-desc" . }}"><span class="sr-only">{{ T "footer-social-rss-desc" . }}</span></a>
                 <a rel="me" href="https://github.com/datenanfragen/" class="icon icon-github" title="{{ T "footer-social-github-desc" . }}"><span class="sr-only">{{ T "footer-social-github-desc" . }}</span></a>

@@ -1,4 +1,8 @@
 {
+    "macros": {
+        "site_name": "pedidodedados.org",
+        "base_url": "https://www.pedidodedados.org"
+    },
     "hugo": {
         "categories": "Categorias",
         "addresses": "endereços",
@@ -20,9 +24,9 @@
         "travel": "viagem",
         "utility": "serviços de utilidade pública",
         "logo": "img/logo-pedidodedados.svg",
-        "logo-title": "pedidodedados.org - logotipo",
+        "logo-title": "${site_name} - logotipo",
         "logo-a-title": "Retornar à página inicial",
-        "header-name": "pedidodedados.org",
+        "header-name": "${site_name}",
         "header-home": "Página inicial",
         "header-generator": "Gerador de solicitações",
         "header-cdb": "Banco de dados de empresas",
@@ -32,11 +36,12 @@
         "header-privacy-controls": "Configurações de privacidade",
         "header-id-data-controls": "Meus dados salvos",
         "header-open-menu": "Abrir menu",
-        "footer-about-us": "Nós somos Datenanfragen.de e.&nbsp;V., uma associação sem fins lucrativos registrada na Alemanha. Nossa missão é lhe auxiliar a exercer seu direito à privacidade. <a href='https://www.datarequests.org/verein' class='no-link-decoration'>Saiba mais.</a>",
+        "footer-about-us": "Nós somos Datenanfragen.de e.&nbsp;V., uma associação sem fins lucrativos registrada na Alemanha. Nossa missão é lhe auxiliar a exercer seu direito à privacidade.",
+        "footer-learn-more": "Saiba mais.",
         "home-hero-line-1": "Você tem direito",
         "home-hero-word": "acessar dados",
         "home-hero-line-2": "Use.",
-        "home-main-copy": "Toda empresa na UE é obrigada, por lei, a garantir que você tenha direito de acesso a seus dados pessoais, à correção, à eliminação dos mesmos, entre outros. Nós, do pedidodedados.org, gostaríamos de te ajudar a exercer seus direitos.",
+        "home-main-copy": "Toda empresa na UE é obrigada, por lei, a garantir que você tenha direito de acesso a seus dados pessoais, à correção, à eliminação dos mesmos, entre outros. Nós ,do ${site_name}, gostaríamos de te ajudar a exercer seus direitos.",
         "home-how-it-works-title": "Como funciona",
         "home-how-it-works-parameters-title": "Insira seus parâmetros",
         "home-how-it-works-parameters": "Escolha as empresas, às quais você deseja solicitar seus dados. Forneça dados suficientes, para que as mesmas possam identificá-lo corretamente. Para facilitar o processo, disponibilizamos formulários prontos para serem usados. E não se preocupe: todos os seus dados permanecerão e serão processados somente no seu computador e jamais serão transmitidos a nós.",
@@ -131,7 +136,7 @@
         "event-duration": "Duração",
         "event-place-online": "Online",
         "video-embed-yourself": "Incorpore-se",
-        "footer-tab-website-name": "pedidodedados.org",
+        "footer-tab-website-name": "${site_name}",
         "footer-request-generator": "Gerador de solicitação",
         "footer-my-requests": "Minhas solicitações",
         "footer-my-saved-data": "Meus dados armazenados",
@@ -219,9 +224,9 @@
         "generate-request": "Gerar uma solicitação",
         "toggle-all": "Marcar/desmarcar tudo",
         "ics-summary": "Solicitação(-ões) devida(s)",
-        "ics-desc": "Você enviou solicitações relativas à RGPD para as empresas listadas abaixo, através de \n pedidodedados.org. O prazo das solitações expirou. Se você \n não recebeu uma resposta para uma ou mais solicitações, você poderá, \n a partir de agora, enviar advertências : \n https://www.pedidodedados.org/minhas-solicitacoes",
-        "ics-url": "https://www.pedidodedados.org/minhas-solicitacoes",
-        "ics-title": "Minhas solicitações em pedidodedados.org",
+        "ics-desc": "Você enviou solicitações relativas à RGPD para as empresas listadas abaixo, através de \n ${site_name}. O prazo das solitações expirou. Se você \n não recebeu uma resposta para uma ou mais solicitações, você poderá, \n a partir de agora, enviar advertências : \n ${base_url}/minhas-solicitacoes",
+        "ics-url": "${base_url}/minhas-solicitacoes",
+        "ics-title": "Minhas solicitações em ${site_name}",
         "ics-lang": "PT"
     },
     "generator": {
@@ -343,7 +348,7 @@
     },
     "privacy-controls": {
         "title": "Configurações de privacidade",
-        "explanation": "<p> Valorizamos profundamente o seu direito à privacidade e tentamos limitar ao máximo a coleta e o processamento de dados. A maioria dos recursos do pedidodedados.org será executada diretamente no seu computador e os dados inseridos nunca serão transmitidos aos nossos servidores. No entanto, existem alguns recursos que não podemos oferecer sem coletar alguns dados (embora a maioria das configurações nesta página <strong> não </strong> exija isso). <br> Aqui, você tem a opção de decidir quais recursos deseja para ativar. </p> <p> Quando você define uma das opções abaixo, sua escolha será salva em um cookie. Se não encontrarmos um cookie para uma opção, usamos um valor padrão que decidimos. </p>",
+        "explanation": "<p> Valorizamos profundamente o seu direito à privacidade e tentamos limitar ao máximo a coleta e o processamento de dados. A maioria dos recursos do ${site_name} será executada diretamente no seu computador e os dados inseridos nunca serão transmitidos aos nossos servidores. No entanto, existem alguns recursos que não podemos oferecer sem coletar alguns dados (embora a maioria das configurações nesta página <strong> não </strong> exija isso). <br> Aqui, você tem a opção de decidir quais recursos deseja para ativar. </p> <p> Quando você define uma das opções abaixo, sua escolha será salva em um cookie. Se não encontrarmos um cookie para uma opção, usamos um valor padrão que decidimos. </p>",
         "clear-cookies": "Limpar todos os cookies",
         "clear-my-requests": "Apagar todas as solicitações salvas",
         "confirm-delete-my-requests": "Você desativou o recurso \"minhas solicitações\". Você também deseja excluir todas as solicitações salvas?",
@@ -387,6 +392,7 @@
         "error": "Infelizmente, o envio da sua contribuição falhou. Por favor, verifique se você está conectado à Internet e se as solicitações para servidores externos não estão sendo bloqueadas por uma aplicação do tipo Matrix ou NoScript.",
         "no-input": "Você precisa inserir algo para enviar uma sugestão.",
         "view-on-github": "Você pode acompanhar o progresso no GitHub",
+        "also-runs": "também se aplica a: ",
         "ok": "Ok"
     },
     "schema": {

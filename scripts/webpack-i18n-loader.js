@@ -7,8 +7,17 @@ module.exports = function (content) {
 
     // Since we now support languages where we cannot guarantee that all strings are always translated, we now need to
     // fallback to English for untranslated strings.
-    const en = require('../i18n/en.json');
+    const en = require('../src/i18n/en.json');
     data = deepmerge(en, data);
+
+    // Macros allow us set set common strings (like the site name) once in the translations, and then use that value in
+    // many places. Macros are used by inserting `${macro_name}` somewhere in a translation, where `macro_name` is the
+    // key of the translation under the `macros` context that sets the macro's value.
+    content = JSON.stringify(data);
+    for (const [name, value] of Object.entries(data.macros)) {
+        content = content.replace(new RegExp(`\\\${${name}}`, 'g'), value);
+    }
+    data = JSON.parse(content);
 
     // Emit the translation files for Hugo.
     if (data.hugo) {
@@ -45,7 +54,7 @@ module.exports = function (content) {
             .filter((f) => f.endsWith('.json'))
             .map((f) => path.basename(f, '.json'));
         const requests_translations = languages.reduce((acc, cur) => {
-            const translations = require(`../i18n/${cur}.json`);
+            const translations = require(`../src/i18n/${cur}.json`);
             if (translations.requests) return { ...acc, [cur]: translations.requests };
             return acc;
         }, {});

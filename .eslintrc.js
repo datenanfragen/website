@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
     env: {
         browser: true,
         es6: true,
@@ -16,8 +16,11 @@ module.exports = {
         'plugin:import/warnings',
         'plugin:jsx-a11y/recommended',
         'plugin:cypress/recommended',
+        'plugin:eslint-comments/recommended',
+        'plugin:prettier/recommended',
     ],
     parserOptions: {
+        requireConfigFile: false,
         ecmaFeatures: {
             jsx: true,
         },
@@ -95,6 +98,10 @@ module.exports = {
                 {
                     name: 'hr',
                     path: 'src/i18n/hr.json',
+                },
+                {
+                    name: 'nl',
+                    path: 'src/i18n/nl.json',
                 },
             ],
         },

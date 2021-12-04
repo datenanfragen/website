@@ -4,12 +4,12 @@
     "type": "page"
 }
 
-Our constitution lays down the legal framework for the Datenanfragen.de e.&nbsp;V. Among other things, it explains our purpose and how we want to achieve that, it sets the rules concerning membership in our non-profit and it defines the decision-making process.
+<div class="box box-info" style="margin-bottom: 20px;">
+Our constitution lays down the legal framework for the Datenanfragen.de e.&nbsp;V., the legal entity running this website. Among other things, it explains our purpose and how we want to achieve that, it sets the rules concerning membership in our non-profit and it defines the decision-making process. It also ensures that the activities of our non-profit stay privacy-focused, transparent and free. Only the general assembly is allowed to make changes to the constitution.
 
-<p class="box box-info" style="margin-bottom: 20px;">
-As we are based in Germany, only the <a href="https://www.datenanfragen.de/verein/satzung">German version</a> of our constitution is legally binding. This translation is only offered for convenience.<br>
+As we are based in Germany, only the <a href="{{< ref path="constitution.md" lang="de" >}}">German version</a> of our constitution is legally binding. This translation is only offered for convenience.<br>
 In cases where we think the English translation may be ambiguous, we have referenced the original German text [in square brackets] for clarification.
-</p>
+</div>
 
 ## 1. Name, registered seat and financial year
 
@@ -19,7 +19,7 @@ In cases where we think the English translation may be ambiguous, we have refere
 
 **1.3** The financial year corresponds to the calendar year.
 
-**1.4** The association exclusively and directly pursures public benefit purposes as per the section “tax-privileged purposes” of the AO (German fiscal code).
+**1.4** The association exclusively and directly pursues public benefit purposes as per the section “tax-privileged purposes” of the AO (German fiscal code).
 
 ## 2. Purpose
 

@@ -38,7 +38,11 @@ export default class Privacy {
 
     static setAllowed(privacy_action, value) {
         if (value !== privacy_action.default)
-            Cookie.set(this.cookieNameForAction(privacy_action), value, { expires: 365 });
+            Cookie.set(this.cookieNameForAction(privacy_action), value, {
+                expires: 365,
+                secure: true,
+                sameSite: 'strict',
+            });
         else Cookie.remove(this.cookieNameForAction(privacy_action));
     }
 

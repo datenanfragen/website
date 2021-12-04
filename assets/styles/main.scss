@@ -5,6 +5,8 @@
 @import 'icons';
 @import 'generator';
 
+@import '../../node_modules/react-joyride/lib/react-joyride';
+
 /* Header */
 header#nav-header {
     margin-top: 25px;
@@ -773,6 +775,11 @@ body.sticky-offset {
     padding: 25px;
     position: relative;
     padding-bottom: 45px;
+    @include mobile {
+        padding-top: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
     #submit-suggest-form {
         position: absolute;
@@ -782,6 +789,18 @@ body.sticky-offset {
 }
 
 .brutusin-form {
+    @include mobile {
+        line-height: 1.3;
+        table {
+            border-collapse: separate;
+            &:not(.array) {
+                border-spacing: 0 15px;
+            }
+            &.array {
+                border-spacing: 0 5px;
+            }
+        }
+    }
     table.object {
         width: 100%;
     }
@@ -805,10 +824,20 @@ body.sticky-offset {
 
     td {
         padding: 5px;
+        @include mobile {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
         vertical-align: top;
 
         &.prop-name {
-            width: 300px;
+            @include desktop {
+                width: 300px;
+            }
+
+            label {
+                cursor: help;
+            }
         }
         td.prop-name {
             width: auto;
@@ -816,11 +845,20 @@ body.sticky-offset {
         &.item-action {
             width: 35px;
         }
+        &.prop-value,
+        &.prop-name {
+            @include mobile {
+                display: block;
+            }
+        }
+
+        .item-value {
+            table {
+                border-spacing: 0 0;
+            }
+        }
     }
 
-    label {
-        cursor: help;
-    }
     .label-tooltip {
         position: absolute;
         border: 2px solid $primary-color;
@@ -830,6 +868,17 @@ body.sticky-offset {
         z-index: 999;
         padding: 5px;
         background: $bg-color;
+    }
+}
+
+.similar-list {
+    border: 2px solid $primary-color;
+    padding: 7px;
+    margin-top: 5px;
+
+    mark {
+        background-color: color('blue', 100);
+        color: inherit;
     }
 }
 
@@ -898,7 +947,6 @@ footer {
 
 /* Tutorial */
 $joyride-color: $primary-color;
-@import '../../node_modules/react-joyride/lib/react-joyride';
 button.joyride-tooltip__button {
     &:hover,
     &:focus {
