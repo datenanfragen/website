@@ -552,56 +552,55 @@ export default class RequestGeneratorBuilder extends Component {
     };
 
     confirmNewRequest = () => {
+        let confirmNewRequestModal = (state) => (
+            <Modal
+                positiveButton={
+                    <div style="float: right;">
+                        <ActionButton
+                            transport_medium={state.request.transport_medium}
+                            blob_url={state.blob_url}
+                            email={state.request.email}
+                            letter={state.letter}
+                            download_filename={state.download_filename}
+                            download_active={state.download_active}
+                            done={state.request.done}
+                            ready={state.ready}
+                            buttonText={t(
+                                state.request.transport_medium === 'email' ? 'send-email-first' : 'download-pdf-first',
+                                'generator'
+                            )}
+                            createModal={(modal) => new Promise((resolve, reject) => this.setState({ modal }, resolve))}
+                            onSuccess={() => {
+                                if (this.state.modal === confirmNewRequestModal) this.setState({ modal: null });
+                                this.storeRequest();
+                                this.newRequest().then(() => {
+                                    // We are in batch mode, move to the next company.
+                                    if (this.state.batch?.length > 0) {
+                                        this.setCompanyBySlug(this.state.batch.shift());
+                                    } else this.renderLetter();
+                                });
+                            }}
+                        />
+                    </div>
+                }
+                negativeText={t('new-request', 'generator')}
+                onNegativeFeedback={(e) => {
+                    this.setState({ modal: null });
+                    this.newRequest().then(() => {
+                        // We are in batch mode, move to the next company.
+                        if (this.state.batch?.length > 0) {
+                            this.setCompanyBySlug(this.state.batch.shift());
+                        } else this.renderLetter();
+                    });
+                }}
+                positiveDefault={true}
+                innerStyle="overflow: visible;"
+                onDismiss={() => this.setState({ modal: null })}>
+                {t('modal-new-request', 'generator')}
+            </Modal>
+        );
         this.setState({
-            modal: (state) => (
-                <Modal
-                    positiveButton={
-                        <div style="float: right;">
-                            <ActionButton
-                                transport_medium={state.request.transport_medium}
-                                blob_url={state.blob_url}
-                                email={state.request.email}
-                                letter={state.letter}
-                                download_filename={state.download_filename}
-                                download_active={state.download_active}
-                                done={state.request.done}
-                                ready={state.ready}
-                                buttonText={t(
-                                    state.request.transport_medium === 'email'
-                                        ? 'send-email-first'
-                                        : 'download-pdf-first',
-                                    'generator'
-                                )}
-                                createModal={(modal) => this.setState({ modal })}
-                                onSuccess={() => {
-                                    this.setState({ modal: null });
-                                    this.storeRequest();
-                                    this.newRequest().then(() => {
-                                        // We are in batch mode, move to the next company.
-                                        if (this.state.batch?.length > 0) {
-                                            this.setCompanyBySlug(this.state.batch.shift());
-                                        } else this.renderLetter();
-                                    });
-                                }}
-                            />
-                        </div>
-                    }
-                    negativeText={t('new-request', 'generator')}
-                    onNegativeFeedback={(e) => {
-                        this.setState({ modal: null });
-                        this.newRequest().then(() => {
-                            // We are in batch mode, move to the next company.
-                            if (this.state.batch?.length > 0) {
-                                this.setCompanyBySlug(this.state.batch.shift());
-                            } else this.renderLetter();
-                        });
-                    }}
-                    positiveDefault={true}
-                    innerStyle="overflow: visible;"
-                    onDismiss={() => this.setState({ modal: null })}>
-                    {t('modal-new-request', 'generator')}
-                </Modal>
-            ),
+            modal: confirmNewRequestModal,
         });
     };
 

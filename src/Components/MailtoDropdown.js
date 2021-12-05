@@ -37,10 +37,9 @@ export const MAILTO_HANDLERS = {
         countries: ['all'],
     },
     copymanually: {
-        onClick: (d, createModal, onSuccess) => {
+        onClick: (d, createModal) => {
             const dismiss = () => {
                 createModal(null);
-                if (onSuccess) onSuccess();
             };
             const onInputClick = (e) => {
                 if (previous_active_element.id === e.target.id) return;
@@ -49,7 +48,7 @@ export const MAILTO_HANDLERS = {
                 e.target.focus();
                 previous_active_element = e.target;
             };
-            createModal((state) => (
+            return createModal((state) => (
                 <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                     <Modal
                         positiveText={t('ok', 'generator')}
@@ -129,7 +128,9 @@ export default class MailtoDropdown extends Component {
                     if (!props.letter) e.preventDefault();
                     else {
                         if (MAILTO_HANDLERS[h].onClick)
-                            MAILTO_HANDLERS[h].onClick(data, props.createModal, props.onSuccess);
+                            MAILTO_HANDLERS[h].onClick(data, props.createModal).then(() => {
+                                props.onSuccess();
+                            });
                         else if (props.onSuccess) props.onSuccess();
                     }
                 }}

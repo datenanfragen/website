@@ -20,7 +20,6 @@ describe('Requests without a date should not be allowed', () => {
         cy.get('#reference')
             .invoke('val')
             .then((reference) => {
-                cy.contains('Ok').click({ force: true });
                 cy.window()
                     .then((win) =>
                         win.accessLocalForageStore('my-requests').then((instance) => {

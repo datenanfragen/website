@@ -26,7 +26,7 @@ const replacer_factory = (that) => ({
             download_active={that.state.download_active}
             ready={that.state.ready}
             done={that.state.request.done}
-            createModal={(modal) => that.setState({ modal })}
+            createModal={(modal) => new Promise((resolve, reject) => that.setState({ modal }, resolve))}
             onSuccess={() => {
                 that.storeRequest();
                 that.setState((prev) => {
