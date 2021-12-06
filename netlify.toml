@@ -1,6 +1,7 @@
 [build]
 publish = "public"
 command = "./deploy.sh"
+environment = {NODE_VERSION = "14.17.0"}
 
 [context.production.environment]
 HUGO_VERSION = "0.88.1"
