@@ -1,16 +1,4 @@
 [build]
 publish = "public"
 command = "./deploy.sh"
-environment = {NODE_VERSION = "14.17.0"}
-
-[context.production.environment]
-HUGO_VERSION = "0.88.1"
-YARN_VERSION = "1.22.4"
-
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.88.1"
-YARN_VERSION = "1.22.4"
-
-[context.branch-deploy.environment]
-HUGO_VERSION = "0.88.1"
-YARN_VERSION = "1.22.4"
+environment = {NODE_VERSION = "14.17.0", HUGO_VERSION = "0.88.1", YARN_VERSION = "1.22.4"}
