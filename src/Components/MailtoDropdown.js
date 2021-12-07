@@ -128,9 +128,7 @@ export default class MailtoDropdown extends Component {
                     if (!props.letter) e.preventDefault();
                     else {
                         if (MAILTO_HANDLERS[h].onClick)
-                            MAILTO_HANDLERS[h].onClick(data, props.createModal).then(() => {
-                                props.onSuccess();
-                            });
+                            MAILTO_HANDLERS[h].onClick(data, props.createModal).then(props.onSuccess);
                         else if (props.onSuccess) props.onSuccess();
                     }
                 }}

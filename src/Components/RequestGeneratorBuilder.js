@@ -552,7 +552,7 @@ export default class RequestGeneratorBuilder extends Component {
     };
 
     confirmNewRequest = () => {
-        let confirmNewRequestModal = (state) => (
+        const confirmNewRequestModal = (state) => (
             <Modal
                 positiveButton={
                     <div style="float: right;">
@@ -569,7 +569,7 @@ export default class RequestGeneratorBuilder extends Component {
                                 state.request.transport_medium === 'email' ? 'send-email-first' : 'download-pdf-first',
                                 'generator'
                             )}
-                            createModal={(modal) => new Promise((resolve, reject) => this.setState({ modal }, resolve))}
+                            createModal={(modal) => new Promise((resolve) => this.setState({ modal }, resolve))}
                             onSuccess={() => {
                                 if (this.state.modal === confirmNewRequestModal) this.setState({ modal: null });
                                 this.storeRequest();

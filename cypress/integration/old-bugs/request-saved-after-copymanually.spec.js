@@ -3,7 +3,7 @@ import { isOn, skipOn } from '@cypress/skip-test';
  * In #830, we almost changed the behaviour that requests should be saved after the modal opened without waiting until the modal closed.
  */
 
-describe('Request should exists without clicking ok in the copy manually modal', () => {
+describe('Request should be saved without clicking ok in the copy manually modal', () => {
     it('After click on the ActionButton', () => {
         skipOn(isOn('production'));
 
