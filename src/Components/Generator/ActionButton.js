@@ -20,6 +20,7 @@ export default class ActionButton extends Component {
                     className={class_name}
                     buttonText={this.props.buttonText}
                     enabled={enabled}
+                    createModal={props.createModal}
                 />
             ) : (
                 <a

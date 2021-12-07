@@ -37,8 +37,10 @@ export const MAILTO_HANDLERS = {
         countries: ['all'],
     },
     copymanually: {
-        onClick: (d) => {
-            const dismiss = () => render('', document.body, modal);
+        onClick: (d, createModal) => {
+            const dismiss = () => {
+                createModal(null);
+            };
             const onInputClick = (e) => {
                 if (previous_active_element.id === e.target.id) return;
 
@@ -46,10 +48,10 @@ export const MAILTO_HANDLERS = {
                 e.target.focus();
                 previous_active_element = e.target;
             };
-            const modal = render(
+            return createModal((state) => (
                 <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                     <Modal
-                        positiveText={<Text id="ok" />}
+                        positiveText={t('ok', 'generator')}
                         onPositiveFeedback={dismiss}
                         positiveDefault={true}
                         onDismiss={dismiss}>
@@ -95,9 +97,8 @@ export const MAILTO_HANDLERS = {
                             </textarea>
                         </div>
                     </Modal>
-                </IntlProvider>,
-                document.body
-            );
+                </IntlProvider>
+            ));
         },
         countries: ['all'],
     },
@@ -126,8 +127,9 @@ export default class MailtoDropdown extends Component {
                 onClick={(e) => {
                     if (!props.letter) e.preventDefault();
                     else {
-                        if (MAILTO_HANDLERS[h].onClick) MAILTO_HANDLERS[h].onClick(data);
-                        props.onSuccess();
+                        if (MAILTO_HANDLERS[h].onClick)
+                            MAILTO_HANDLERS[h].onClick(data, props.createModal).then(props.onSuccess);
+                        else if (props.onSuccess) props.onSuccess();
                     }
                 }}
                 className="button button-secondary button-full-width"

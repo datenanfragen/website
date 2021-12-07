@@ -19,9 +19,8 @@ describe('Requests without a date should not be allowed', () => {
 
         cy.get('#reference')
             .invoke('val')
-            .then((reference) =>
-                cy
-                    .window()
+            .then((reference) => {
+                cy.window()
                     .then((win) =>
                         win.accessLocalForageStore('my-requests').then((instance) => {
                             instance
@@ -34,7 +33,7 @@ describe('Requests without a date should not be allowed', () => {
 
                         cy.contains(reference);
                         cy.get('#error-modal').should('not.exist');
-                    })
-            );
+                    });
+            });
     });
 });
