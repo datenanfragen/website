@@ -48,7 +48,7 @@ export default class DynamicInputContainer extends Component {
                 let condition = (addedField) => field.type === addedField.type && field.desc === addedField.desc,
                     isFieldPresent = this.props.fields.some(condition);
 
-                if (!isFieldPresent) {
+                if (!isFieldPresent && !!field.value) {
                     return (
                         <div className="fill-field">
                             <div style="display: table-cell">
