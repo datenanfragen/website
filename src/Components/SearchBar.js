@@ -104,13 +104,13 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                     '</strong></span>' +
                                     (this.props.anchorize ? '</a>' : '') +
                                     (d.runs?.length
-                                        ? '<br><span aria-hidden="true">' +
+                                        ? '<br><span>' +
                                           t('also-runs', 'search') +
                                           (runs_hs.length === 1 ? runs_hs[0].snippets : d.runs).join(', ') +
                                           '</span>'
                                         : '') +
                                     (d.categories?.length
-                                        ? '<br><span aria-hidden="true">' +
+                                        ? '<br><span>' +
                                           t('categories', 'search') +
                                           d.categories.map((c) => t(c, 'categories')).join(', ') +
                                           '</span>'
