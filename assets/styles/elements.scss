@@ -370,6 +370,11 @@ input[type='search'].aa-input-search {
 
     h4 {
         margin: 0;
+
+        .icon {
+            position: relative;
+            z-index: 1;
+        }
     }
 
     a {
