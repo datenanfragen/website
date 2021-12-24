@@ -80,7 +80,7 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                     (this.props.anchorize
                                         ? `<a class="no-link-decoration" href="${BASE_URL}company/${d.slug}">`
                                         : '') +
-                                    '<span class="anchor-overlay" aria-hidden="true"></span><span><h4>' +
+                                    '<div class="anchor-overlay" aria-hidden="true"></div><span><h4>' +
                                     (name_hs.length === 1 ? name_hs[0].snippet : d.name) +
                                     (d.quality === 'tested'
                                         ? '&nbsp;<span class="icon icon-check-badge color-green-800" title="' +
@@ -94,13 +94,13 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                     '</h4></span>' +
                                     (this.props.anchorize ? '</a>' : '') +
                                     (d.runs?.length
-                                        ? '<br><span>' +
+                                        ? '<span>' +
                                           t('also-runs', 'search') +
                                           (runs_hs.length === 1 ? runs_hs[0].snippets : d.runs).join(', ') +
                                           '</span>'
                                         : '') +
                                     (d.categories?.length
-                                        ? '<br><span>' +
+                                        ? '<span>' +
                                           t('categories', 'search') +
                                           d.categories.map((c) => t(c, 'categories')).join(', ') +
                                           '</span>'
