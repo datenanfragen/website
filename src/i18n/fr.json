@@ -872,5 +872,8 @@
         "error-donation-server": "Erreur serveur lors de la récupération de l'état du don.",
         "amount-no-fees": "Nous obtiendrons l’intégralité du montant de {{amount}}&nbsp;€.",
         "amount-after-fees": "Après les frais, nous obtiendrons un montant de {{amount}}&nbsp;€."
+    },
+    "blog": {
+        "footnote": "Note de bas de page"
     }
 }
