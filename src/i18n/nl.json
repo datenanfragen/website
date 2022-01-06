@@ -775,7 +775,7 @@
         "nrw": "Noordrijn-Westfalen",
         "rlp": "Rijnland-Palts",
         "kath-q": "Over welk bisdom gaat uw verzoek?",
-        "kathnrw": "Noordrijn-Westfaalse bisdommen (bisdom Aken, bisdom Essen, aartsbisdom Keulen, bisdom Münster (Noordrijn-Westfaalse deel) en aartsbisdom Paderborn)",
+        "kathnrw": "Noordrijn-Westfaalse bisdommen (bisdom Aken, bisdom Essen, aartsbisdom Keulen, bisdom Münster (Noordrijn-Westfaalse deel), aartsbisdom Paderborn)",
         "kathmsw": "Midden- en zuidwestelijke Duitse bisdommen (aartsbisdom Freiburg, bisdom Fulda, bisdom Limburg, bisdom Mainz, bisdom Stuttgart Rottenburg en bisdom Speyer en Trier)",
         "kathod": "Oost-Duitse bisdommen (aartsbisdom Berlijn, bisdom Dresden-Meißen, bisdom Erfurt, bisdom Görlitz en bisdom Magdeburg)",
         "private": "Overige publieke of private entiteiten (bijv. bedrijf, non-profit, staat of lokale overheid)",
@@ -871,5 +871,8 @@
         "request-parameters": "<p>Goed, laten we beginnen met het genereren van uw verzoeken. We zullen ons best doen om het u zo makkelijk mogelijk te maken.</p><p class='desktop-only'>Links hebben we de contactgegevens van het eerste bedrijf al ingevuld.</p><p class='mobile-only'>Bovenaan hebben we de contactgegevens van het eerste bedrijf al ingevuld.</p>",
         "company-info": "<p>Hier beneden kunt u meer details zien over het huidige bedrijf. Soms hebben we ook enkele belangrijke notities over bepaalde bedrijven. Deze worden hier dan ook weergegeven. </p>",
         "next-request": "<p>En dat was het al voor dit verzoek!</p><p>Afhankelijk van het transportmedium, kunt u hier uw verzoek als e-mail versturen of de PDF ervoor downloaden. Laten we daarna doorgaan naar het volgende verzoek.</p>"
+    },
+    "blog": {
+        "footnote": "Voetnoot"
     }
 }
