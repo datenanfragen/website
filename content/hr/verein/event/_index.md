@@ -1,7 +1,6 @@
 {
     "title": "Događaji i predavanja",
     "type": "event",
-    "slug": "dogadjaj",
     "aliases": ["dogadjaj","dogadjaji","predavanje","predavanja","events", "talk", "talks"]
 }
 
