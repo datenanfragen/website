@@ -1,5 +1,5 @@
 {
-    "title": "Uzorak pisma za zahtjeve za ispravak prema čl. 16. GDPR-a",
+    "title": "Uzorak pisma za zahtjeve za ispravak prema članku 16. GDPR-a",
     "date": "2021-04-21T17:53:55+02:00",
     "type": "blog",
     "license": "cc0-10"
