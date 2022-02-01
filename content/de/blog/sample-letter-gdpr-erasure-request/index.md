@@ -14,7 +14,7 @@
 
 Wenn die personenbezogenen Daten, die Unternehmen oder andere Organisationen (sogenannte Verantwortliche) zu Deiner Person gespeichert haben, für ihren ursprünglichen Zweck nicht mehr nötig sind, hast Du nach der Datenschutz-Grundverordnung ein „Recht auf Vergessenwerden“. Das bedeutet, dass Du vom Verantwortlichen verlangen kannst, dass eben diese Daten wieder gelöscht werden.
 
-Wenn der Verantwortliche Deine Daten an andere Unternehmen weitergeleitet hat, muss er diese darüber hinaus auch über deinen Löschantrag informieren.
+Wenn der Verantwortliche Deine Daten an andere Unternehmen weitergeleitet hat, muss er diese darüber hinaus auch über Deinen Löschantrag informieren.
 
 Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren {{< link slug="/blog/your-gdpr-rights" text="Artikel zu Deinen Rechten nach der DSGVO" >}} an.
 

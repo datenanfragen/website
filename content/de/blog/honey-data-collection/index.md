@@ -258,7 +258,7 @@ Die Bearbeitung unserer Beschwerden steht noch aus.
 
 ## Welche Daten hat Honey zu Dir gesammelt?
 
-Das in diesem Artikel beschriebene Recht auf Selbstauskunft gilt natürlich auch für dich. Falls Du Honey auch benutzt und wissen möchtest, welche Daten zu Dir gesammelt wurden, kannst Du selbst eine Anfrage stellen. Das können wir Dir auch nur empfehlen: Es ist doch etwas anderes, einmal an den eigenen Daten anschaulich zu sehen, wie groß das Ausmaß der Datensammlung wirklich ist.
+Das in diesem Artikel beschriebene Recht auf Selbstauskunft gilt natürlich auch für Dich. Falls Du Honey auch benutzt und wissen möchtest, welche Daten zu Dir gesammelt wurden, kannst Du selbst eine Anfrage stellen. Das können wir Dir auch nur empfehlen: Es ist doch etwas anderes, einmal an den eigenen Daten anschaulich zu sehen, wie groß das Ausmaß der Datensammlung wirklich ist.
 
 Hier bei Datenanfragen.de haben wir es uns zur Aufgabe gemacht, Dir die Ausübung Deiner Datenschutzrechte so einfach wie möglich zu machen. Und auch beim Anfragen Deiner Daten bei Honey wollen wir Dir natürlich helfen. Dafür haben wir extra eine {{< link slug="act/honey" text="Themenseite" >}} eingerichtet, die genau erklärt, welche Daten Du für die Anfrage brauchst und wie Du daran kommst. Anschließend musst Du die Anfrage nur noch per E-Mail abschicken – den Text haben wir schon für Dich formuliert. 
 

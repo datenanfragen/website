@@ -25,7 +25,7 @@ Als gemeinnütziger Verein stellen wir Dir natürlich auch gerne eine [Spendenbe
 
 * **Was passiert mit meiner Spende?**
 
-    Deine Spende verwenden wir um unsere laufenden Kosten zu decken oder neue Projekte für den Datenschutz in Europa im Sinne {{< link slug="verein/constitution" text="unserer Satzung" >}} zu starten. Wohin genau das Geld geflossen ist, kannst du jederzeit in unserem {{< link slug="verein/transparency" text="Jahresbericht" >}} nachlesen. Als gemeinnützige Organisation dürfen wir keinen Überschuss erwirtschaften, das heißt, dass deine Spende sicher einem guten Zweck zugute kommt.
+    Deine Spende verwenden wir um unsere laufenden Kosten zu decken oder neue Projekte für den Datenschutz in Europa im Sinne {{< link slug="verein/constitution" text="unserer Satzung" >}} zu starten. Wohin genau das Geld geflossen ist, kannst du jederzeit in unserem {{< link slug="verein/transparency" text="Jahresbericht" >}} nachlesen. Als gemeinnützige Organisation dürfen wir keinen Überschuss erwirtschaften, das heißt, dass Deine Spende sicher einem guten Zweck zugute kommt.
     
 * <a id="spendenbescheinigung-howto"></a>**Wie erhalte ich eine Spendenbescheinigung?**
 

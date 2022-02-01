@@ -19,9 +19,9 @@ In der Praxis ist es allerdings gar nicht so einfach, die Daten wirklich lösche
 
 ## Was steckt dahinter?
 
-Nehmen wir an, Unternehmen A sammelt Daten für Werbeaktionen und verkauft diese an Unternehmen B. Unternehmen B startet dann eine Werbeaktion, bei der Du einen Werbebrief erhältst. Du schreibst Unternehmen B, dass Du deine Daten löschen lassen möchtest und Unternehmen B macht das auch. Dann sind die Daten aber noch bei Unternehmen A vorhanden.
+Nehmen wir an, Unternehmen A sammelt Daten für Werbeaktionen und verkauft diese an Unternehmen B. Unternehmen B startet dann eine Werbeaktion, bei der Du einen Werbebrief erhältst. Du schreibst Unternehmen B, dass Du Deine Daten löschen lassen möchtest und Unternehmen B macht das auch. Dann sind die Daten aber noch bei Unternehmen A vorhanden.
 
-Unternehmen B kauft dann einige Wochen später erneut Daten von Unternehmen A – oft bestehen hier sogar Verträge für regelmäßige Neulieferungen. Dann werden deine Daten von Unternehmen A wieder an Unternehmen B verkauft und die gelöschten Daten sind wieder da und Du wunderst dich, warum Du wenige Wochen nach der Bestätigung deines Löschwunsches schon wieder Werbung erhältst.
+Unternehmen B kauft dann einige Wochen später erneut Daten von Unternehmen A – oft bestehen hier sogar Verträge für regelmäßige Neulieferungen. Dann werden Deine Daten von Unternehmen A wieder an Unternehmen B verkauft und die gelöschten Daten sind wieder da und Du wunderst dich, warum Du wenige Wochen nach der Bestätigung Deines Löschwunsches schon wieder Werbung erhältst.
 
 Da man davon ausgehen muss, dass viele Leute dies nicht durchschauen, würde das zu zahlreichen Protesten bei den {{< link slug="supervisory-authorities" text="Aufsichtsbehörden" >}} führen, eventuell sogar zu nutzlosen Gerichtsprozessen. Um das zu vermeiden sperren die Unternehmen die Daten zuerst einmal (auch in der Annahme, dass viele Leute in Wirklichkeit eine Sperrung und nicht die Löschung wünschen) und schreiben dann in ihrem Antwortschreiben, warum sie die Daten gesperrt und nicht gelöscht haben und wie man dafür sorgen kann, dass sie doch noch gelöscht werden. Das ist vollkommen korrekt.
 

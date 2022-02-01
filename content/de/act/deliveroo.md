@@ -31,4 +31,4 @@ window.addEventListener('load', function() { renderActWidget(); });
 
 Die E-Mail verschickst Du selbst mit Deinem eigenen E-Mail-Programm. Das hat den Vorteil, dass wir die Daten, die Du hier eingibst, überhaupt nicht sehen können.
 
-Danach hat Deliveroo dann einen Monat Zeit, um Deine Daten zu löschen. Die erfolgte Löschung müssen sie dir bestätigen. Sollten sie das nicht machen, darfst Du Dich bei einer {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörde" >}} beschweren. Auch dabei können wir Dir helfen. Aber wir hoffen natürlich, dass das gar nicht nötig sein wird.
+Danach hat Deliveroo dann einen Monat Zeit, um Deine Daten zu löschen. Die erfolgte Löschung müssen sie Dir bestätigen. Sollten sie das nicht machen, darfst Du Dich bei einer {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörde" >}} beschweren. Auch dabei können wir Dir helfen. Aber wir hoffen natürlich, dass das gar nicht nötig sein wird.
