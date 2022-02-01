@@ -8,19 +8,25 @@
     "notices": "Titelfoto angepasst nach: „[Busy bees](https://unsplash.com/photos/StEaRc1xQV4)“ von [Boba Jaglicic](https://unsplash.com/@bobajaglicic) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 
-In unserer {{< link slug="blog/honey-data-collection" text="Recherche zu Honey" >}} haben wir aufgedeckt, dass die Browser-Erweiterung reichlich Daten zu Ihren Nutzer_innen sammelt. Unabhängig davon, ob ein Account angelegt wurde oder nicht, protokolliert das Add-on fleißig alle Aufrufe zahlreicher Webseiten und sendet sie an den Betreiber, die {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, ein US-Unternehmen, das kürzlich vom Bezahlanbieter [PayPal gekauft wurde](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
+In unserer {{< link slug="blog/honey-data-collection" text="Recherche zu Honey" >}} haben wir aufgedeckt, dass die Browser-Erweiterung reichlich Daten zu Ihren Nutzer_innen sammelt. Unabhängig davon, ob ein Account angelegt wurde oder nicht, protokolliert das Add-on fleißig alle Aufrufe zahlreicher Webseiten und sendet sie an den Betreiber, die {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, ein US-Unternehmen, das vom Bezahlanbieter [PayPal gekauft wurde](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
 
 {{< featuredImg alt="Foto etlicher Bienen, die sich auf Zuckerwasser stürzen, darüber der Text: „Honey in Sammelwut – jetzt Daten anfragen“" >}}
 
-## Wie kann ich meine Daten anfragen?
+## Was kann ich jetzt tun?
 
 Hast Du Honey genutzt und warst Dir dieser Datensammelei vielleicht nicht bewusst? Oder willst Du einfach wissen, was Honey über Dich gespeichert hat? Die DSGVO gibt Dir eine ganze Reihe an {{< link slug="your-gdpr-rights" text="Rechten im Bezug auf Deine personenbezogenen Daten" >}}, darunter auch das Recht, eine kostenfreie Kopie aller Daten die ein Unternehmen über Dich gesammelt zu erhalten – das sogenannte {{< link slug="your-gdpr-rights#auskunftsrecht" text="**Auskunftsrecht**" >}}.
 
-Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich {{< link slug="verein/mission-statement" text="für Dein Recht auf Datenschutz einsetzt" >}}. Wir haben das entsprechende Schreiben an die Honey Science LLC, das US-amerikanische Unternehmen hinter der Erweiterung, mit dem Du die eine Kopie Deiner Daten verlangen kannst, schon einmal vorbereitet. Je nachdem ob Du Dich bei Honey registriert hast oder die Browsererweiterung [nur so](#honey-ohne-account-genutzt) benutzt hast, haben wir zwei Formulare vorbereitet.
+Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich {{< link slug="verein/mission-statement" text="für Dein Recht auf Datenschutz einsetzt" >}}. 
+
+Falls Du Dich nach der Einsicht in die Daten, wie wir, bei den Aufsichtsbehörden über Honey beschweren willst, kannst Du am Ende dieses Artikels nachlesen, wie das funktioniert und bei Bedarf unsere Beschwerdevorlage nutzen.
+
+## Wie kann ich meine Daten anfragen?
+
+Wir haben das entsprechende Schreiben an die Honey Science LLC, das US-amerikanische Unternehmen hinter der Erweiterung, mit dem Du die eine Kopie Deiner Daten verlangen kannst, schon einmal vorbereitet. Je nachdem ob Du Dich bei Honey registriert hast oder die Browsererweiterung [nur so](#honey-ohne-account-genutzt) benutzt hast, haben wir zwei Formulare vorbereitet.
 
 Die E-Mail kannst Du anschließend mit Deinem eigenem E-Mail-Programm oder Webmailer abschicken. So kann alles, was Du hier auf der Seite eingibst, **nur lokal auf Deinem Rechner** verarbeitet werden. Das heißt, dass wir diese Daten nie auch nur zu sehen bekommen.
 
-Nachdem Du die E-Mail abgeschickt hast, hat die Honey Science LLC dann einen Monat Zeit, um Deine Anfrage zu beantworten. Sie dürfen unter Angaben von Gründen die Frist um bis zu zwei Monate verlängern, müssen Dir das aber innerhalb des ersten Monats mitteilen. Falls Du danach beschließt, dass Honey deine Daten lieber nicht länger haben sollte, dann kannst du auch per {{< link slug="your-gdpr-rights#recht-auf-vergessenwerden" text="**Recht auf Vergessenwerden**" >}} eine Löschanfrage stellen. Dafür kannst Du unseren {{< link slug="generator#!company=joinhoney" text="Generator" >}} <!-- TODO: set request type to DELETE when the generator supports this--> nutzen.
+Nachdem Du die E-Mail abgeschickt hast, hat die Honey Science LLC dann einen Monat Zeit, um Deine Anfrage zu beantworten. Sie dürfen unter Angaben von Gründen die Frist um bis zu zwei Monate verlängern, müssen Dir das aber innerhalb des ersten Monats mitteilen. Falls Du danach beschließt, dass Honey Deine Daten lieber nicht länger haben sollte, dann kannst Du auch per {{< link slug="your-gdpr-rights#recht-auf-vergessenwerden" text="**Recht auf Vergessenwerden**" >}} eine Löschanfrage stellen. Dafür kannst Du unseren {{< link slug="generator#!company=joinhoney" text="Generator" >}} <!-- TODO: set request type to DELETE when the generator supports this--> nutzen.
 
 ### Honey mit Account genutzt
 
@@ -224,3 +230,31 @@ window.addEventListener('load', function() {
     });
 });
 </script>
+
+
+## Wie kann ich mich darüber beschweren?
+
+Die DSGVO gibt Dir das Recht Dich bei den unabhängigen {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} über Unternehmen zu beschweren. Du kannst dieses Tool nutzen, um die für Dich zuständige Behörde und ihre Kontaktdetails zu finden: 
+
+<div class="sva-finder"></div>
+<script>
+    window.props = {override: { country: { de: 'debralda' } }}
+    window.addEventListener('load', function() { renderSvaFinder(); });
+</script>
+
+Wir haben auch eine Beschwerdevorlage vorbereitet, die Du an Deinen Fall anpassen und nutzen kannst:
+
+<div class="blog-letter">
+Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.
+
+Banh mi salad rolls peppermint cilantro lime vinaigrette roasted peanuts potato crunchy naga viper bite sized tasty lime. Elderberry sweet potato black bean burrito spicy lemon guacamole sleepy morning tea matcha Malaysian ultra creamy avocado pesto dill ginger lemongrass agave green tea. 
+</div>
+
+
+---
+
+**Änderungen**:
+
+Die folgenden Änderungen haben wir seit der ursprünglichen Veröffentlichung an diesem Artikel vorgenommen:
+
+- Februar 2022: Wir haben den Artikel umstrukturiert und Hinweise auf die Beschwerdemöglichkeit und das Beschwerdetemplate ergänzt.

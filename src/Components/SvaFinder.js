@@ -2,8 +2,9 @@ import { render, Component } from 'preact';
 import t from 'Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 import PropTypes from 'prop-types';
+import deepmerge from 'deepmerge';
 
-const steps = {
+const general_steps = {
     country: {
         at: 'atdsb',
         be: 'beapd',
@@ -140,18 +141,20 @@ const steps = {
     },
 };
 
-const initial_state = {
-    step: steps['country'],
-    prev_state: null,
-    question: t('country', 'sva-finder'),
-    result: false,
-};
-
 export default class SvaFinder extends Component {
     constructor(props) {
         super(props);
 
-        this.state = initial_state;
+        this.steps = window?.props?.override ? deepmerge(general_steps, window.props.override) : general_steps;
+
+        this.initial_state = {
+            step: this.steps['country'],
+            prev_state: null,
+            question: t('country', 'sva-finder'),
+            result: false,
+        };
+
+        this.state = this.initial_state;
     }
 
     selectOption = (option) => {
@@ -189,7 +192,7 @@ export default class SvaFinder extends Component {
             }, {});
             const sorted_keys = Object.keys(entries).sort((a, b) => {
                 // For the countries, move the user's country to the top of the list.
-                if (steps.country[globals.country]) {
+                if (this.steps.country[globals.country]) {
                     if (a === globals.country) return -1;
                     else if (b === globals.country) return 1;
                 }
@@ -232,7 +235,7 @@ export default class SvaFinder extends Component {
                     <button
                         className="button button-secondary button-small"
                         style="float: right;"
-                        onClick={() => this.setState(initial_state)}>
+                        onClick={() => this.setState(this.initial_state)}>
                         {t('reset', 'sva-finder')}
                     </button>
                 </div>

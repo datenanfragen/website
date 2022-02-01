@@ -58,6 +58,7 @@
 
 {{ if eq .Type "act" }}
 <script src="{{ "js/act-widget.bundle.gen.js" | absURL }}"></script>
+<script src="{{ "js/sva-finder.bundle.gen.js" | absURL }}"></script> <!-- TODO Only load SVA where it's needed -->
 {{ end }}
 
 {{ if eq .Type "donate" }}
