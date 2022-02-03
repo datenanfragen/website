@@ -132,7 +132,7 @@ Wenn Du Dich entscheidest, über einen der externen Zahlungsanbieter, die wir an
 
 #### Einzel- und Dauerspenden
 
-Wenn du uns Spenden zukommen lässt, fallen dabei Daten an, die wir zur Buchhaltung speichern und verarbeiten müssen.
+Wenn Du uns Spenden zukommen lässt, fallen dabei Daten an, die wir zur Buchhaltung speichern und verarbeiten müssen.
 
 Wir nehmen gerne auch anonyme Spenden an, von daher ist die Bereitstellung dieser Daten vollkommen freiwillig für Dich.
 

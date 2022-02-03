@@ -42,14 +42,14 @@ Diese Informationen müssen Dir *unmittelbar bei der Erhebung der Daten* zur Ver
 
 Ein weiteres wichtiges Recht ist das **Auskunftsrecht**, das in Art. 15 DSGVO geregelt ist. Es ermöglicht Dir zunächst einmal bei Unternehmen und sonstigen Organisationen eine Bestätigung anzufordern, ob personenbezogene Daten zu Dir gespeichert sind (Art. 15 Abs. 1 Satz 1 DSGVO). Sollte dem so sein, kannst Du eine kostenfreie Kopie Deiner gespeicherten Daten verlangen (Art. 15 Abs. 3 DSGVO).
 
-Darüber hinaus kannst du jedoch auch zahlreiche Informationen im Hinblick auf die Verarbeitung Deiner Daten anfragen (Art. 15 Abs. 1, 2 DSGVO). Dazu zählen u.&nbsp;a.:
+Darüber hinaus kannst Du jedoch auch zahlreiche Informationen im Hinblick auf die Verarbeitung Deiner Daten anfragen (Art. 15 Abs. 1, 2 DSGVO). Dazu zählen u.&nbsp;a.:
 
 * die Zwecke der Verarbeitung,
 * die Kategorien an Daten, die verarbeitet werden,
 * die Empfänger_innen, an die Deine Daten weitergeleitet wurden oder noch werden,
 * die Dauer, für die Deine Daten gespeichert werden sollen,
 * die Herkunft der Daten, falls sie nicht direkt beim Verantwortlichen erhoben wurden,
-* falls Scoring stattfindet: die für dich berechneten Werte und aussagekräftige Informationen über die Logik dahinter,
+* falls Scoring stattfindet: die für Dich berechneten Werte und aussagekräftige Informationen über die Logik dahinter,
 * falls Deine Daten an ein Drittland weitergeleitet werden: wie sichergestellt wird, dass auch dabei Deine Rechte gewahrt werden.
 
 ## Recht auf Datenübertragbarkeit

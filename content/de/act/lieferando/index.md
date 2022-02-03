@@ -25,7 +25,7 @@ Genau wie Fahrer_innen das für die Recherche des BRs gemacht haben, kannst Du e
 
 Hierbei wollen wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich {{< link slug="verein/mission-statement" text="für Dein Recht auf Datenschutz einsetzt" >}}. Wir haben die Auskunftsanfrage an die Takeaway.com Group B.V., die Firma hinter Lieferando, schon für Dich formuliert. Du brauchst nur noch Deine Daten einzutragen und schon kannst Du die Selbstauskunftsanfrage einfach per E-Mail verschicken.
 
-Das ist natürlich kostenlos für dich und wir bekommen keine personenbezogenen Daten von dir, denn unser Programm läuft nur lokal auf Deinem Computer.
+Das ist natürlich kostenlos für dich und wir bekommen keine personenbezogenen Daten von Dir, denn unser Programm läuft nur lokal auf Deinem Computer.
 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< noScript "noscript-actwidget" >}}
@@ -41,4 +41,4 @@ window.addEventListener('load', function() { renderActWidget(); });
 
 ## Was dann?
 
-Wenn Du dich von dem, was du durch Deine Auskunftsanfrage erfährst, in Deinen Datenschutzrechten verletzt siehst, hast Du die Option dich zu beschweren. Kontaktiere dafür die für Dich {{< link slug="supervisory-authorities" text="zuständige Datenschutzbehörde" >}}.
+Wenn Du Dich von dem, was Du durch Deine Auskunftsanfrage erfährst, in Deinen Datenschutzrechten verletzt siehst, hast Du die Option Dich zu beschweren. Kontaktiere dafür die für Dich {{< link slug="supervisory-authorities" text="zuständige Datenschutzbehörde" >}}.
