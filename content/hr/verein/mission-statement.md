@@ -1,7 +1,7 @@
 {
     "title": "Naši ciljevi",
     "type": "page",
-    "aliases": ["misija", "ciljevi", "naši ciljevi" "mission", "goals", "our-goals"]
+    "aliases": ["misija", "ciljevi", "naši ciljevi", "mission", "goals", "our-goals"]
 }
 
 Mi smo neprofitna organizacija koja se zalaže za temeljno pravo na zaštitu podataka i privatnost. Želimo da svaka osoba može sama za sebe odlučiti, tko koliko zna o njoj, te da se nadzorna tijela i poduzeća koja pokušavaju sakupljati te podatke smatraju odgovornima. Zalažemo se za transparentnost, otvorenost, suradnju i solidarnost s pogođenim osobama. Na taj način štitimo potrošača i građanina čija prava branimo.
