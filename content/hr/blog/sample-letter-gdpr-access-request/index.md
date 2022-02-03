@@ -1,5 +1,5 @@
 {
-    "title": "Uzorak pisma za zahtjeve za pristup osobnim podacima prema čl. 15. GDPR-a",
+    "title": "Uzorak pisma za zahtjeve za pristup osobnim podacima prema članku 15. GDPR-a",
     "date": "2021-04-21T12:56:19+02:00",
     "type": "blog",
     "license": "cc0-10"
