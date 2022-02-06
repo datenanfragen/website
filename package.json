@@ -45,6 +45,7 @@
     "dependencies": {
         "autocomplete.js": "^0.37.0",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
+        "deepmerge": "^4.2.2",
         "js-cookie": "^2.2.1",
         "letter-generator": "^1.0.0",
         "libphonenumber-js": "^1.7.23",
@@ -77,7 +78,6 @@
         "cssnano": "^5.0.12",
         "cypress": "^8.5.0",
         "dattel-client": "^0.7.0",
-        "deepmerge": "^4.2.1",
         "eslint": "^8.3.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-import-resolver-webpack": "^0.13.2",

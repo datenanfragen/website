@@ -5,7 +5,8 @@
     "tags": [ "addon", "datenauskunft", "verlaufsdaten", "datensammlung", "browser-verlauf" ],
     "featured_image": "honey.jpg",
     "authors": [ "malte", "baltpeter" ],
-    "notices": "Titelfoto angepasst nach: „[Busy bees](https://unsplash.com/photos/StEaRc1xQV4)“ von [Boba Jaglicic](https://unsplash.com/@bobajaglicic) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[Busy bees](https://unsplash.com/photos/StEaRc1xQV4)“ von [Boba Jaglicic](https://unsplash.com/@bobajaglicic) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "act_like": true
 }
 
 In unserer {{< link slug="blog/honey-data-collection" text="Recherche zu Honey" >}} haben wir aufgedeckt, dass die Browser-Erweiterung reichlich Daten zu Ihren Nutzer_innen sammelt. Unabhängig davon, ob ein Account angelegt wurde oder nicht, protokolliert das Add-on fleißig alle Aufrufe zahlreicher Webseiten und sendet sie an den Betreiber, die {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, ein US-Unternehmen, das vom Bezahlanbieter [PayPal gekauft wurde](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
@@ -15,8 +16,6 @@ In unserer {{< link slug="blog/honey-data-collection" text="Recherche zu Honey" 
 ## Was kann ich jetzt tun?
 
 Hast Du Honey genutzt und warst Dir dieser Datensammelei vielleicht nicht bewusst? Oder willst Du einfach wissen, was Honey über Dich gespeichert hat? Die DSGVO gibt Dir eine ganze Reihe an {{< link slug="your-gdpr-rights" text="Rechten im Bezug auf Deine personenbezogenen Daten" >}}, darunter auch das Recht, eine kostenfreie Kopie aller Daten die ein Unternehmen über Dich gesammelt zu erhalten – das sogenannte {{< link slug="your-gdpr-rights#auskunftsrecht" text="**Auskunftsrecht**" >}}.
-
-Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich {{< link slug="verein/mission-statement" text="für Dein Recht auf Datenschutz einsetzt" >}}. 
 
 Falls Du Dich nach der Einsicht in die Daten, wie wir, bei den Aufsichtsbehörden über Honey beschweren willst, kannst Du am Ende dieses Artikels nachlesen, wie das funktioniert und bei Bedarf unsere Beschwerdevorlage nutzen.
 
