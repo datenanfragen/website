@@ -96,7 +96,7 @@
         "imagemin-lint-staged": "^0.4.0",
         "lint-staged": ">=9.4.3",
         "matcher": "^4.0.0",
-        "node-sass": "^4.12.0",
+        "node-sass": "^7.0.0",
         "path": "^0.12.7",
         "postcss": "^8.4.4",
         "postcss-cli": "^9.0.2",
