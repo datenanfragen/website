@@ -223,7 +223,7 @@ export default class SvaFinder extends Component {
 
         return (
             <div className="sva-finder box box-info" style={this.props.style}>
-                {this.props.callback ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
+                {this.props.callback || window?.props?.override ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
                 {content}
                 <div style="margin-top: 20px;">
                     {this.state.prev_state && (

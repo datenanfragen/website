@@ -6,7 +6,7 @@
     "featured_image": "honey.jpg",
     "authors": [ "malte", "baltpeter" ],
     "notices": "Photo adapted after: \"[Busy bees](https://unsplash.com/photos/StEaRc1xQV4)\" by [Boba Jaglicic](https://unsplash.com/@bobajaglicic) ([Unsplash license](https://unsplash.com/license))",
-    "act_like": true
+    "has_sva_finder": true
 }
 
 In our {{< link slug="blog/honey-data-collection" text="investigation on Honey" >}}, we have shown that the browser extension collects their users' data on a large scale. Regardless of whether an account has been registered or not, the add-on diligently logs page views on plenty of websites and sends them to the company behind the extension, {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, a US company that was [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
@@ -237,6 +237,7 @@ The GDPR gives you the right to file a complaint against a company with the {{< 
 You can use this tool to find the authority responsible for you: 
 
 <div class="sva-finder"></div>
+{{< noScript "noscript-sva" >}}
 <script>
     window.props = { override: { country: { de: 'debralda' } } };
     window.addEventListener('load', function() { renderSvaFinder(); });

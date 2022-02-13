@@ -52,6 +52,7 @@ Um Dir das Finden der für Dich zuständigen Aufsichtsbehörde leichter zu mache
 Wie die meisten Funktionen auf Datenanfragen.de passiert das natürlich auch *nur* auf Deinem eigenen Rechner – uns erreichen Deine Antworten also gar nicht erst.
 
 <div class="sva-finder"></div>
+{{< noScript "noscript-sva" >}}
 
 Wenn Du lieber selbst recherchieren möchtest, kannst Du Dir auch unsere {{< link slug="/supervisory-authority" text="Liste der Datenschutz-Aufsichtsbehörden" >}} anschauen. Eine weitere Übersicht findest Du auch beim [Europäischen Datenschutzausschuss](https://edpb.europa.eu/about-edpb/board/members_de), beachte aber, dass hier nur die Behörden auf Länderebene aufgeführt sind. Und schließlich gibt es im Datenschutz-Wiki des Berufsverbands der Datenschutzbeauftragten Deutschlands (BvD) e.&nbsp;V. eine Liste der [Aufsichtsbehörden und Landesdatenschutzbeauftragten in Deutschland](https://www.datenschutz-wiki.de/Aufsichtsbeh%c3%b6rden_und_Landesdatenschutzbeauftragte).
 

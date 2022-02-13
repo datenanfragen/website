@@ -50,6 +50,7 @@ En principio, existe al menos una autoridad supervisora ​​de protección de 
 Para facilitarte la búsqueda de la autoridad de control responsable de ti, hemos diseñado el buscador de autoridades de control. Todo lo que necesitas hacer es responder algunas preguntas sobre dónde vives y, si corresponde, la naturaleza de tu consulta y luego te sugeriremos la autoridad con la que debes comunicarte.
 Como la mayoría de las funciones en solicituddedatos.es, todo el procesamiento ocurre *solo* en tu propia computadora, por lo que tus respuestas nunca nos llegarán.
 <div class="sva-finder"></div>
+{{< noScript "noscript-sva" >}}
 
 Si prefieres hacer la investigación tu mismo, consulta nuestra {{< link slug="/supervisory-authority" text="lista de autoridades de protección de datos" >}}. La [Junta Europea de Protección de Datos](https://edpb.europa.eu/about-edpb/board/members_es) también tiene una lista pero ten en cuenta que esta solo incluye a las autoridades a nivel nacional.
 

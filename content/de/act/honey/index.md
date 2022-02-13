@@ -6,7 +6,7 @@
     "featured_image": "honey.jpg",
     "authors": [ "malte", "baltpeter" ],
     "notices": "Titelfoto angepasst nach: „[Busy bees](https://unsplash.com/photos/StEaRc1xQV4)“ von [Boba Jaglicic](https://unsplash.com/@bobajaglicic) ([Unsplash-Lizenz](https://unsplash.com/license))",
-    "act_like": true
+    "has_sva_finder": true
 }
 
 In unserer {{< link slug="blog/honey-data-collection" text="Recherche zu Honey" >}} haben wir aufgedeckt, dass die Browser-Erweiterung reichlich Daten zu Ihren Nutzer_innen sammelt. Unabhängig davon, ob ein Account angelegt wurde oder nicht, protokolliert das Add-on fleißig alle Aufrufe zahlreicher Webseiten und sendet sie an den Betreiber, die {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, ein US-Unternehmen, das vom Bezahlanbieter [PayPal gekauft wurde](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
@@ -172,7 +172,7 @@ window.addEventListener('load', function() {
                     "optional": false
                 },
                 {
-                    "desc": "Honey Gold Kontostand",
+                    "desc": "„Honey Gold“-Kontostand",
                     "type": "input",
                     "optional": false
                 }
@@ -236,6 +236,8 @@ window.addEventListener('load', function() {
 Die DSGVO gibt Dir das Recht Dich bei den unabhängigen {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} über Unternehmen zu beschweren. Du kannst dieses Tool nutzen, um die für Dich zuständige Behörde und ihre Kontaktdetails zu finden: 
 
 <div class="sva-finder"></div>
+{{< noScript "noscript-sva" >}}
+
 <script>
     window.props = { override: { country: { de: 'debralda' } } };
     window.addEventListener('load', function() { renderSvaFinder(); });
