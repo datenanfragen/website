@@ -233,7 +233,13 @@ window.addEventListener('load', function() {
 
 ## Wie kann ich mich darüber beschweren?
 
-Die DSGVO gibt Dir das Recht Dich bei den unabhängigen {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} über Unternehmen zu beschweren. Du kannst dieses Tool nutzen, um die für Dich zuständige Behörde und ihre Kontaktdetails zu finden: 
+Die DSGVO gibt Dir das Recht Dich bei den unabhängigen {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} über Unternehmen zu beschweren. Das ist natürlich gratis.
+
+Sofern es zutrifft, solltest Du in Deiner Beschwerde beschreiben, dass Du Deine Daten bei Honey angefragt hast und aufgrund der Antwort glaubst, dass Honey Deine Datenschutzrechte verletzt hat. Am besten illustrierst Du das auch noch mit Beispielen aus dem Datensatz den Honey Dir geschickt hat.
+
+Die Behörde wird Deine Beschwerde prüfen und kann verschiedene Maßnahmen ergreifen. Diese reichen von einer Anweisung an Honey das eventuelle Fehlverhalten einzustellen bis hin zu empfindlichen Bußgeldern. Erfahrungsgemäß muss man bei Beschwerden aber Geduld mitbringen, insbesondere wenn Firmen in einem anderen Land ansässig sind.
+
+Du kannst dieses Tool nutzen, um die für Dich zuständige Behörde und ihre Kontaktdetails zu finden:
 
 <div class="sva-finder"></div>
 {{< noScript "noscript-sva" >}}
@@ -244,6 +250,8 @@ Die DSGVO gibt Dir das Recht Dich bei den unabhängigen {{< link slug="superviso
 </script>
 
 Wir haben auch eine Beschwerdevorlage vorbereitet, die Du an Deinen Fall anpassen und nutzen kannst:
+
+Achte darauf die geschweiften Klammern auszufüllen (Vorsicht: Sie lassen sich nicht mitkopieren), optionale Klammern ggf. zu nutzen und den erwähnten ANHANG anzuhängen.
 
 <div class="blog-letter">
 Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.

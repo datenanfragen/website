@@ -234,6 +234,13 @@ window.addEventListener('load', function() {
 ## How can I file a complaint about this?
 
 The GDPR gives you the right to file a complaint against a company with the {{< link slug="supervisory-authorities" text="supervisory authorities" >}}.
+Filing a complaint is free.
+Your complaint should describe, if applicable, that you requested your data from Honey and that you think, after you've read their response, that they have violated your privacy rights. You might illustrate that with examples from Honey's data export.
+
+The responsible authority will check your complaint and if they determine a misconduct on Honey's side they might instruct them to cease that activity or even impose a fine.
+
+The authorities need some time to process your complaint, especially if the company is in another country than you.
+
 You can use this tool to find the authority responsible for you: 
 
 <div class="sva-finder"></div>
@@ -243,7 +250,7 @@ You can use this tool to find the authority responsible for you:
     window.addEventListener('load', function() { renderSvaFinder(); });
 </script>
 
-We also prepared a complaint template for you to use. Modify it according to your situation.
+We also prepared a complaint template for you to use. Modify it according to your situation: Fill in the curly brackets, check if the parts in square brackets are suitable. Don't forgot to include the referenced ATTACHMENT.
 
 <div class="blog-letter">
 Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.
