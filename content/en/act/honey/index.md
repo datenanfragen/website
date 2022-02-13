@@ -17,7 +17,7 @@ In our {{< link slug="blog/honey-data-collection" text="investigation on Honey" 
 
 Did you use Honey and maybe weren't aware of this data hoarding? Or do you simply want to know what Honey has saved about you? The GDPR grants you a number of {{< link slug="your-gdpr-rights" text="rights regarding your personal data" >}}, including the right to request a free copy of all data a company has collected <!-- stored? --> about you, the {{< link slug="your-gdpr-rights#right-of-data-access" text="**right of data access**" >}}.
 
-If you want to file a complaint with the data protection authorities, after inspecting the files Honey stored on you, you can use the template at the end of this article.
+If you feel Honey violated your rights after inspecting the data they have stored on you and you want to file a complaint with the data protection authorities, you can use the template at the end of this article.
 
 ## How can I request my data?
 
@@ -233,16 +233,16 @@ window.addEventListener('load', function() {
 
 ## How can I file a complaint about this?
 
-The GDPR gives you the right to file a complaint at a {{< link slug="supervisory-authorities" text="Supervisory authorities" >}} against a company.
+The GDPR gives you the right to file a complaint against a company with the {{< link slug="supervisory-authorities" text="supervisory authorities" >}}.
 You can use this tool to find the authority responsible for you: 
 
 <div class="sva-finder"></div>
 <script>
-    window.props = {override: { country: { de: 'debralda' } }}
+    window.props = { override: { country: { de: 'debralda' } } };
     window.addEventListener('load', function() { renderSvaFinder(); });
 </script>
 
-We also prepared a complaint template for you to use. Modify it accordingly to your situation.
+We also prepared a complaint template for you to use. Modify it according to your situation.
 
 <div class="blog-letter">
 Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.

@@ -17,7 +17,7 @@ In unserer {{< link slug="blog/honey-data-collection" text="Recherche zu Honey" 
 
 Hast Du Honey genutzt und warst Dir dieser Datensammelei vielleicht nicht bewusst? Oder willst Du einfach wissen, was Honey über Dich gespeichert hat? Die DSGVO gibt Dir eine ganze Reihe an {{< link slug="your-gdpr-rights" text="Rechten im Bezug auf Deine personenbezogenen Daten" >}}, darunter auch das Recht, eine kostenfreie Kopie aller Daten die ein Unternehmen über Dich gesammelt zu erhalten – das sogenannte {{< link slug="your-gdpr-rights#auskunftsrecht" text="**Auskunftsrecht**" >}}.
 
-Falls Du Dich nach der Einsicht in die Daten, wie wir, bei den Aufsichtsbehörden über Honey beschweren willst, kannst Du am Ende dieses Artikels nachlesen, wie das funktioniert und bei Bedarf unsere Beschwerdevorlage nutzen.
+Falls Du Dich nach der Einsicht in die Daten, wie wir, bei den Aufsichtsbehörden über Honey beschweren willst, weil Du denkst, dass Honey Deine Rechte verletzt hast, kannst Du am Ende dieses Artikels nachlesen, wie das funktioniert und bei Bedarf unsere Beschwerdevorlage nutzen.
 
 ## Wie kann ich meine Daten anfragen?
 
@@ -237,7 +237,7 @@ Die DSGVO gibt Dir das Recht Dich bei den unabhängigen {{< link slug="superviso
 
 <div class="sva-finder"></div>
 <script>
-    window.props = {override: { country: { de: 'debralda' } }}
+    window.props = { override: { country: { de: 'debralda' } } };
     window.addEventListener('load', function() { renderSvaFinder(); });
 </script>
 
