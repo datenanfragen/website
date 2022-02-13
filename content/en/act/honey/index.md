@@ -5,18 +5,22 @@
     "tags": [ "addon", "data request", "history data", "data collection", "browser history" ],
     "featured_image": "honey.jpg",
     "authors": [ "malte", "baltpeter" ],
-    "notices": "Photo adapted after: \"[Busy bees](https://unsplash.com/photos/StEaRc1xQV4)\" by [Boba Jaglicic](https://unsplash.com/@bobajaglicic) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Photo adapted after: \"[Busy bees](https://unsplash.com/photos/StEaRc1xQV4)\" by [Boba Jaglicic](https://unsplash.com/@bobajaglicic) ([Unsplash license](https://unsplash.com/license))",
+    "act_like": true
 }
 
-In our {{< link slug="blog/honey-data-collection" text="investigation on Honey" >}}, we have shown that the browser extension collects their users' data on a large scale. Regardless of whether an account has been registered or not, the add-on dilligently logs page views on plenty of websites and sends them to the company behind the extension, {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, a US company that was recently [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
+In our {{< link slug="blog/honey-data-collection" text="investigation on Honey" >}}, we have shown that the browser extension collects their users' data on a large scale. Regardless of whether an account has been registered or not, the add-on diligently logs page views on plenty of websites and sends them to the company behind the extension, {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, a US company that was [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
 
 {{< featuredImg alt="Photo of a lot of bees that rush to a drop of sugar water, above that the text: “Honey, the data hoarder—request your data now”" >}}
 
-## How can I request my data?
+## What should I do?
 
 Did you use Honey and maybe weren't aware of this data hoarding? Or do you simply want to know what Honey has saved about you? The GDPR grants you a number of {{< link slug="your-gdpr-rights" text="rights regarding your personal data" >}}, including the right to request a free copy of all data a company has collected <!-- stored? --> about you, the {{< link slug="your-gdpr-rights#right-of-data-access" text="**right of data access**" >}}.
 
-We can help you with that. We are a registered non-profit from Germany that stands up {{< link slug="verein/mission-statement" text="for your right of data protection" >}}.
+If you want to file a complaint with the data protection authorities, after inspecting the files Honey stored on you, you can use the template at the end of this article.
+
+## How can I request my data?
+
 We have already prepared the necessary request that you can use to demand a copy of your data from Honey Science LLC, the US-based company behind the browser extension. There are two forms on this page: Use the first one if you have used Honey with an account or the second one if you have used it [without an account](#used-Honey-without-an-account).
 
 Afterwards, you can send the email using your own email program or webmailer. This way, everything you type into this page can be processed **locally on your device**. That means we will never see your data.
@@ -226,3 +230,31 @@ window.addEventListener('load', function() {
     });
 });
 </script>
+
+## How can I file a complaint about this?
+
+The GDPR gives you the right to file a complaint at a {{< link slug="supervisory-authorities" text="Supervisory authorities" >}} against a company.
+You can use this tool to find the authority responsible for you: 
+
+<div class="sva-finder"></div>
+<script>
+    window.props = {override: { country: { de: 'debralda' } }}
+    window.addEventListener('load', function() { renderSvaFinder(); });
+</script>
+
+We also prepared a complaint template for you to use. Modify it accordingly to your situation.
+
+<div class="blog-letter">
+Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.
+
+Banh mi salad rolls peppermint cilantro lime vinaigrette roasted peanuts potato crunchy naga viper bite sized tasty lime. Elderberry sweet potato black bean burrito spicy lemon guacamole sleepy morning tea matcha Malaysian ultra creamy avocado pesto dill ginger lemongrass agave green tea. 
+</div>
+
+
+---
+
+**Updates**:
+
+We have made the following changes to this article since the initial publication:
+
+- February 2022: We restructured the article and added the complaint template and reference to it.
