@@ -2,6 +2,7 @@
     "title": "Honey in Sammelwut – jetzt eine Kopie Deiner Daten anfragen",
     "type": "act",
     "date": "2020-11-02T14:43:34+02:00",
+    "last_edited": "2022-02-18T21:33:10+02:00",
     "tags": [ "addon", "datenauskunft", "verlaufsdaten", "datensammlung", "browser-verlauf" ],
     "featured_image": "honey.jpg",
     "authors": [ "malte", "baltpeter" ],
@@ -15,21 +16,21 @@ In unserer {{< link slug="blog/honey-data-collection" text="Recherche zu Honey" 
 
 ## Was kann ich jetzt tun?
 
-Hast Du Honey genutzt und warst Dir dieser Datensammelei vielleicht nicht bewusst? Oder willst Du einfach wissen, was Honey über Dich gespeichert hat? Die DSGVO gibt Dir eine ganze Reihe an {{< link slug="your-gdpr-rights" text="Rechten im Bezug auf Deine personenbezogenen Daten" >}}, darunter auch das Recht, eine kostenfreie Kopie aller Daten die ein Unternehmen über Dich gesammelt zu erhalten – das sogenannte {{< link slug="your-gdpr-rights#auskunftsrecht" text="**Auskunftsrecht**" >}}.
+Hast Du Honey genutzt und warst Dir dieser Datensammelei vielleicht nicht bewusst? Oder willst Du einfach wissen, was Honey über Dich gespeichert hat? Die DSGVO gibt Dir eine ganze Reihe an {{< link slug="your-gdpr-rights" text="Rechten im Bezug auf Deine personenbezogenen Daten" >}}, darunter auch das Recht, eine kostenfreie Kopie aller Daten, die ein Unternehmen über Dich gesammelt hat, zu erhalten – das sogenannte {{< link slug="your-gdpr-rights#auskunftsrecht" text="**Auskunftsrecht**" >}}. Hier erklären wir Dir, wie Du das Auskunftsrecht Honey gegenüber geltend machen kannst.
 
-Falls Du Dich nach der Einsicht in die Daten, wie wir, bei den Aufsichtsbehörden über Honey beschweren willst, weil Du denkst, dass Honey Deine Rechte verletzt hast, kannst Du am Ende dieses Artikels nachlesen, wie das funktioniert und bei Bedarf unsere Beschwerdevorlage nutzen.
+Und falls Du nach der Einsicht in Deine Daten auch der Meinung bist, dass Honey Deine Rechte verletzt hat, kannst Du Dich darüber bei den Aufsichtsbehörden beschweren. Wie das geht, kannst Du [am Ende dieses Artikels](#beschwerde) nachlesen.
 
 ## Wie kann ich meine Daten anfragen?
 
-Wir haben das entsprechende Schreiben an die Honey Science LLC, das US-amerikanische Unternehmen hinter der Erweiterung, mit dem Du die eine Kopie Deiner Daten verlangen kannst, schon einmal vorbereitet. Je nachdem ob Du Dich bei Honey registriert hast oder die Browsererweiterung [nur so](#honey-ohne-account-genutzt) benutzt hast, haben wir zwei Formulare vorbereitet.
+Wir haben das Schreiben, mit dem Du eine Kopie Deiner Daten von der Honey Science LLC, dem Unternehmen hinter der Erweiterung, verlangen kannst, schon für Dich vorbereitet. Wie Du konkret vorgehen musst, hängt davon ab, ob Du Dich [bei Honey registriert](#honey-mit-account-genutzt) oder die Browsererweiterung [nur so](#honey-ohne-account-genutzt) benutzt hast. Für beide Fälle haben wir ein Formular, welches die Anfrage-E-Mail für Dich generiert.
 
-Die E-Mail kannst Du anschließend mit Deinem eigenem E-Mail-Programm oder Webmailer abschicken. So kann alles, was Du hier auf der Seite eingibst, **nur lokal auf Deinem Rechner** verarbeitet werden. Das heißt, dass wir diese Daten nie auch nur zu sehen bekommen.
+Diese E-Mail kannst Du anschließend mit Deinem eigenem E-Mail-Programm oder Webmailer abschicken. So bleibt alles, was Du hier auf der Seite eingibst, **nur lokal auf Deinem Rechner**. Das heißt, dass wir diese Daten nie auch nur zu sehen bekommen.
 
-Nachdem Du die E-Mail abgeschickt hast, hat die Honey Science LLC dann einen Monat Zeit, um Deine Anfrage zu beantworten. Sie dürfen unter Angaben von Gründen die Frist um bis zu zwei Monate verlängern, müssen Dir das aber innerhalb des ersten Monats mitteilen. Falls Du danach beschließt, dass Honey Deine Daten lieber nicht länger haben sollte, dann kannst Du auch per {{< link slug="your-gdpr-rights#recht-auf-vergessenwerden" text="**Recht auf Vergessenwerden**" >}} eine Löschanfrage stellen. Dafür kannst Du unseren {{< link slug="generator#!company=joinhoney" text="Generator" >}} <!-- TODO: set request type to DELETE when the generator supports this--> nutzen.
+Nachdem Du die E-Mail abgeschickt hast, hat Honey dann einen Monat Zeit, um Deine Anfrage zu beantworten. Sie dürfen unter Angabe von Gründen die Frist um bis zu zwei Monate verlängern, müssen Dir das aber innerhalb des ersten Monats mitteilen. Falls Du danach beschließt, dass Honey Deine Daten lieber nicht länger haben sollte, kannst Du zusätzlich mithilfe des {{< link slug="your-gdpr-rights#recht-auf-vergessenwerden" text="**Rechts auf Vergessenwerden**" >}} eine Löschanfrage stellen. Dafür kannst Du unseren {{< link slug="generator#!company=joinhoney" text="Generator" >}} <!-- TODO: set request type to DELETE when the generator supports this--> nutzen.
 
 ### Honey mit Account genutzt
 
-Du musst nur noch Deinen Namen, Deine E-Mail-Adresse und Deinen „Honey Gold“-Kontostand eintragen und schon kannst Du Deinen Antrag einfach per E-Mail verschicken – natürlich kostenlos. 
+Wenn Du Honey mit einem Account genutzt hast, musst Du nur noch Deinen Namen, Deine E-Mail-Adresse und Deinen „Honey Gold“-Kontostand eintragen und schon kannst Du Deinen Antrag einfach per E-Mail verschicken – natürlich kostenlos. 
 
 Deinen Honey Gold Kontostand kannst Du [hier](https://www.joinhoney.com/honeygold/overview) abfragen.
 
@@ -38,17 +39,16 @@ Deinen Honey Gold Kontostand kannst Du [hier](https://www.joinhoney.com/honeygol
 
 ### Honey ohne Account genutzt
 
-Du hast Honey genutzt, ohne ein Konto angelegt zu haben? Honey sammelt trotzdem Deine Verlaufsdaten. Um diese abzufragen, musst Du Dich aber identifizieren, das klappt mit zwei IDs, die Honey angelegt hat.
-
-Trag einfach Deinen Namen, Deine E-Mail-Adresse und die beiden IDs unten in das Formular ein und schon kannst Du Deinen Datenauskunftsantrag absenden.
+Du hast Honey genutzt, ohne ein Konto angelegt zu haben? Honey sammelt trotzdem Deine Verlaufsdaten. Um diese abzufragen, musst Du Dich aber identifizieren. Das klappt mit zwei Nummern (sog. *IDs*), die Honey Dir zugeteilt hat.
 
 #### IDs rausfinden
 
-Die beiden IDs (*userId* und *deviceId*) zu finden ist leider etwas umständlich, aber doch recht einfach, wenn Du diese Anleitung befolgst:
+Die beiden IDs (*userId* und *deviceId*) zu finden ist leider etwas umständlich, deshalb haben wir eine bebilderte Anleitung erstellt, die den Prozess genau erklärt.
 
-Wir müssen uns den sogenannten „Local Storage“ der Honey-Browsererweiterung angucken. Der Local Storage ist ein Platz in Deinem Browser, den Websites und Erweiterungen nutzen können, um Daten zu speichern.
-Du hast vielleicht schon einmal von Cookies gehört, Local Storage ist so ähnlich.
-Wie das geht, unterscheidet sich von Browser zu Browser, wir haben zwei bebilderte Anleitungen für Firefox und Chrome bereitgestellt:
+Wir müssen uns den sogenannten „Local Storage“ der Honey-Browsererweiterung angucken. Das ist ein Platz in Deinem Browser, in dem Websites und Erweiterungen Daten speichern können. Du hast vielleicht schon einmal von Cookies gehört, Local Storage ist so ähnlich.
+
+Wie genau das geht, unterscheidet sich von Browser zu Browser, wir zeigen es Dir für Firefox und Chrome:
+
 <div class="box box-info">
 <details open>
     <summary>🦊 Firefox</summary>
@@ -92,6 +92,7 @@ Wie das geht, unterscheidet sich von Browser zu Browser, wir haben zwei bebilder
     </div>
 </details>
 </div>
+
 <div class="box box-info" style="margin: 15px 0;">
 <details>
     <summary>Chrome</summary>
@@ -136,6 +137,8 @@ Wie das geht, unterscheidet sich von Browser zu Browser, wir haben zwei bebilder
 </details>
 </div>
 
+Trag Deinen Namen, Deine E-Mail-Adresse und die beiden IDs nun nur noch in das Formular ein und schon kannst Du Deinen Datenauskunftsantrag absenden.
+
 <div id="act-no-account" class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< noScript "noscript-actwidget" >}}
 <script>
@@ -167,7 +170,7 @@ window.addEventListener('load', function() {
                     "optional": false
                 },
                 {
-                    "desc": "Email",
+                    "desc": "E-Mail-Adresse",
                     "type": "email",
                     "optional": false
                 },
@@ -208,7 +211,7 @@ window.addEventListener('load', function() {
                     "optional": false
                 },
                 {
-                    "desc": "Email",
+                    "desc": "E-Mail-Adresse",
                     "type": "email",
                     "optional": false
                 },
@@ -230,16 +233,22 @@ window.addEventListener('load', function() {
 });
 </script>
 
+## Wie kann ich mich darüber beschweren? {#beschwerde}
 
-## Wie kann ich mich darüber beschweren?
+Die DSGVO gibt Dir auch das Recht Dich bei den unabhängigen {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} über Unternehmen zu beschweren, wenn Du der Meinung bist, dass diese Deine Datenschutzrechte verletzt haben. Das ist gratis für Dich und geht natürlich auch für Honey.
 
-Die DSGVO gibt Dir das Recht Dich bei den unabhängigen {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} über Unternehmen zu beschweren. Das ist natürlich gratis.
+Eine Beschwerde kann formlos geschehen, du musst Dich dafür an keine bestimmten Vorgaben halten. Wenn Du Dich über Honey beschweren möchtest, solltest Du – sofern es zutrifft, in Deiner Beschwerde beschreiben, dass Du Deine Daten bei Honey angefragt hast und aufgrund der Antwort glaubst, dass Honey Deine Rechte verletzt hat. Am besten illustrierst Du das auch noch mit Beispielen aus dem Datensatz, den Honey Dir geschickt hat.  
+Wir haben eine Vorlage vorbereitet, an der Du Dich orientieren kannst.
 
-Sofern es zutrifft, solltest Du in Deiner Beschwerde beschreiben, dass Du Deine Daten bei Honey angefragt hast und aufgrund der Antwort glaubst, dass Honey Deine Datenschutzrechte verletzt hat. Am besten illustrierst Du das auch noch mit Beispielen aus dem Datensatz den Honey Dir geschickt hat.
+Achte darauf, die <span class="blog-letter-fill-in">geschweiften Klammern</span> auszufüllen (Vorsicht: Sie werden nicht mitkopiert) und alle erwähnten Dokumente anzuhängen. Die Abschnitte in [eckigen Klammern] sind optional; hier musst Du selbst entscheiden, ob Sie auf Deinen Fall zutreffen oder nicht. Du kannst (und solltest) natürlich auch alle anderen Aspekte der Vorlage an Deinen Fall anpassen, wenn nötig.
 
-Die Behörde wird Deine Beschwerde prüfen und kann verschiedene Maßnahmen ergreifen. Diese reichen von einer Anweisung an Honey das eventuelle Fehlverhalten einzustellen bis hin zu empfindlichen Bußgeldern. Erfahrungsgemäß muss man bei Beschwerden aber Geduld mitbringen, insbesondere wenn Firmen in einem anderen Land ansässig sind.
+<div class="blog-letter" style="margin-bottom: 20px;">
+Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.
 
-Du kannst dieses Tool nutzen, um die für Dich zuständige Behörde und ihre Kontaktdetails zu finden:
+Banh mi salad rolls peppermint cilantro lime vinaigrette roasted peanuts potato crunchy naga viper bite sized tasty lime. Elderberry sweet potato black bean burrito spicy lemon guacamole sleepy morning tea matcha Malaysian ultra creamy avocado pesto dill ginger lemongrass agave green tea. 
+</div>
+
+Welche Behörde für Dich zuständig ist, und wie Du sie erreichst, kannst Du mit diesem Tool herausfinden:
 
 <div class="sva-finder"></div>
 {{< noScript "noscript-sva" >}}
@@ -249,15 +258,7 @@ Du kannst dieses Tool nutzen, um die für Dich zuständige Behörde und ihre Kon
     window.addEventListener('load', function() { renderSvaFinder(); });
 </script>
 
-Wir haben auch eine Beschwerdevorlage vorbereitet, die Du an Deinen Fall anpassen und nutzen kannst:
-
-Achte darauf die geschweiften Klammern auszufüllen (Vorsicht: Sie lassen sich nicht mitkopieren), optionale Klammern ggf. zu nutzen und den erwähnten ANHANG anzuhängen.
-
-<div class="blog-letter">
-Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.
-
-Banh mi salad rolls peppermint cilantro lime vinaigrette roasted peanuts potato crunchy naga viper bite sized tasty lime. Elderberry sweet potato black bean burrito spicy lemon guacamole sleepy morning tea matcha Malaysian ultra creamy avocado pesto dill ginger lemongrass agave green tea. 
-</div>
+Die Behörde wird Deine Beschwerde prüfen und kann verschiedene Maßnahmen ergreifen. Diese reichen von einer Anweisung an Honey, das eventuelle Fehlverhalten einzustellen, bis hin zu empfindlichen Bußgeldern. Erfahrungsgemäß muss man bei Beschwerden aber Geduld mitbringen, insbesondere wenn Firmen in einem anderen Land ansässig sind.
 
 
 ---
@@ -266,4 +267,4 @@ Banh mi salad rolls peppermint cilantro lime vinaigrette roasted peanuts potato 
 
 Die folgenden Änderungen haben wir seit der ursprünglichen Veröffentlichung an diesem Artikel vorgenommen:
 
-- Februar 2022: Wir haben den Artikel umstrukturiert und Hinweise auf die Beschwerdemöglichkeit und das Beschwerdetemplate ergänzt.
+- [Februar 2022](https://github.com/datenanfragen/website/pull/844): Artikel umstrukturiert und Hinweise auf die Beschwerdemöglichkeit und ein Beschwerdetemplate ergänzt.

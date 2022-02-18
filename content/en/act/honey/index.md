@@ -2,6 +2,7 @@
     "title": "Honey, the data hoarder—request a copy of your data now!",
     "type": "act",
     "date": "2020-11-02T14:43:34+02:00",
+    "last_edited": "2022-02-18T22:01:04+02:00",
     "tags": [ "addon", "data request", "history data", "data collection", "browser history" ],
     "featured_image": "honey.jpg",
     "authors": [ "malte", "baltpeter" ],
@@ -9,27 +10,27 @@
     "has_sva_finder": true
 }
 
-In our {{< link slug="blog/honey-data-collection" text="investigation on Honey" >}}, we have shown that the browser extension collects their users' data on a large scale. Regardless of whether an account has been registered or not, the add-on diligently logs page views on plenty of websites and sends them to the company behind the extension, {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, a US company that was [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
+In our {{< link slug="blog/honey-data-collection" text="investigation on Honey" >}}, we have shown that the browser extension collects their users’ data on a large scale. Regardless of whether an account has been registered or not, the add-on diligently logs page views on plenty of websites and sends them to the company behind the extension, {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, a US-based company that was [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
 
-{{< featuredImg alt="Photo of a lot of bees that rush to a drop of sugar water, above that the text: “Honey, the data hoarder—request your data now”" >}}
+{{< featuredImg alt="Photo of a lot of bees rushing to a drop of sugar water, above that the text: “Honey, the data hoarder—request your data now”" >}}
 
 ## What should I do?
 
-Did you use Honey and maybe weren't aware of this data hoarding? Or do you simply want to know what Honey has saved about you? The GDPR grants you a number of {{< link slug="your-gdpr-rights" text="rights regarding your personal data" >}}, including the right to request a free copy of all data a company has collected <!-- stored? --> about you, the {{< link slug="your-gdpr-rights#right-of-data-access" text="**right of data access**" >}}.
+Did you use Honey and maybe weren't aware of this data hoarding? Or do you simply want to know what Honey has saved about you? The GDPR grants you a number of {{< link slug="your-gdpr-rights" text="rights regarding your personal data" >}}, including the right to request a free copy of all data a company has collected <!-- stored? --> about you, the {{< link slug="your-gdpr-rights#right-of-data-access" text="**right of data access**" >}}. In this post, we'll explain how you can use this right with Honey.
 
-If you feel Honey violated your rights after inspecting the data they have stored on you and you want to file a complaint with the data protection authorities, you can use the template at the end of this article.
+And if you feel Honey violated your rights after inspecting the data they have stored on you and you want to file a complaint with the data protection authorities, we'll explain how that works [at the end of the article](#complaint).
 
 ## How can I request my data?
 
-We have already prepared the necessary request that you can use to demand a copy of your data from Honey Science LLC, the US-based company behind the browser extension. There are two forms on this page: Use the first one if you have used Honey with an account or the second one if you have used it [without an account](#used-Honey-without-an-account).
+We have already prepared the necessary request that you can use to demand a copy of your data from Honey Science LLC. The exact steps you need to take depend on whether you have used Honey [with](#used-honey-with-an-account) or [without](#used-honey-without-an-account) an account. We have prepared a form that generates the request email for both cases.
 
-Afterwards, you can send the email using your own email program or webmailer. This way, everything you type into this page can be processed **locally on your device**. That means we will never see your data.
+Afterwards, you can send this email using your own email program or webmailer. This way, everything you type into this page stays **locally on your device**. That means, we will never see your data.
 
-Honey Science LLC has a month to answer your request after you sent the email. They can extend that deadline by another two months if they have good reasons, but they have to tell you that within a month. If you decide that Honey shouldn't keep your data after receiving their response you can use your {{< link slug="your-gdpr-rights#right-to-be-forgotten" text="**right to be forgotten**" >}} and make a request to demand the immediate deletion of your data. You can use our {{< link slug="generator#!company=joinhoney" text="generator" >}} <!-- TODO: set request type to DELETE when the generator supports this--> for that as well.
+Honey has a month to answer your request after you sent the email. They can extend that deadline by another two months if they have good reasons, but they have to tell you that within the first month. If you decide that Honey shouldn't keep your data after receiving their response, you can additionally use your {{< link slug="your-gdpr-rights#right-to-be-forgotten" text="**right to be forgotten**" >}} and make a request to demand the immediate deletion of your data. You can use our {{< link slug="generator#!company=joinhoney" text="generator" >}} <!-- TODO: set request type to DELETE when the generator supports this--> for that.
 
 ## Used Honey with an account?
 
-You only have to enter your name, email and "Honey Gold" balance and you can already send your request via email—free of charge of course.
+If you've used Honey with an account, you only have to enter your name, email and "Honey Gold" balance and you can already send your request via email—free of charge of course.
 
 You can view your Honey Gold balance [here](https://www.joinhoney.com/honeygold/overview).
 
@@ -38,16 +39,15 @@ You can view your Honey Gold balance [here](https://www.joinhoney.com/honeygold/
 
 ## Used Honey without an account?
 
-You've used Honey without creating an account? They have still collected your history data. To request it, you have to identify yourself with two IDs that Honey keeps on you.
-
-Enter your name, email, and both IDs into the form below and you are ready to send your data request!
+You've used Honey without creating an account? They have still collected your history data. To request it, you have to identify yourself with two IDs that Honey has assigned to you.
 
 ### Find your two IDs
 
-Finding the two IDs (*userId* and *deviceId*) is unfortunately a little complicated, but it shouldn't be too hard if you follow this guide.
+Finding the two IDs (*userId* and *deviceId*) is unfortunately a little complicated, so we've compiled a guide with screenshots that explains the process in detail.
 
 We have to look into the so-called "local storage" of the Honey extension. That is a place in your browser where pages and extensions can save data. You might have heard of cookies, local storage is similar.
-The process for accessing Honey's local storage is different from browser to browser, so we have written two guides: One for Firefox and one for Chrome.
+
+The process for accessing Honey's local storage is different from browser to browser. We'll show you how it works for both Firefox and Chrome:
 
 <div class="box box-info">
 <details open>
@@ -92,6 +92,7 @@ The process for accessing Honey's local storage is different from browser to bro
     </div>
 </details>
 </div>
+
 <div class="box box-info" style="margin: 15px 0;">
 <details>
     <summary>Chrome</summary>
@@ -136,6 +137,8 @@ The process for accessing Honey's local storage is different from browser to bro
     </div>
 </details>
 </div>
+
+Enter your name, email, and both IDs into the form below and you are ready to send your data request!
 
 <div id="act-no-account" class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< noScript "noscript-actwidget" >}}
@@ -231,17 +234,22 @@ window.addEventListener('load', function() {
 });
 </script>
 
-## How can I file a complaint about this?
+## How can I file a complaint about this? {#complaint}
 
-The GDPR gives you the right to file a complaint against a company with the {{< link slug="supervisory-authorities" text="supervisory authorities" >}}.
-Filing a complaint is free.
-Your complaint should describe, if applicable, that you requested your data from Honey and that you think, after you've read their response, that they have violated your privacy rights. You might illustrate that with examples from Honey's data export.
+The GDPR also gives you the right to file a complaint against a company with the {{< link slug="supervisory-authorities" text="supervisory authorities" >}} if you believe they have violated your data protection rights. Filing a complaint is free and you can of course also do that for Honey.
 
-The responsible authority will check your complaint and if they determine a misconduct on Honey's side they might instruct them to cease that activity or even impose a fine.
+A complaint can be filed informally, you don't have to adhere to any specific guidelines. If you want to complain about Honey, your complaint should describe, if applicable, that you requested your data from Honey and that you think, after you've read their response, that they have violated your privacy rights. You should illustrate that with examples from Honey's data export.  
+We have prepared a template that you can use as a guide.
 
-The authorities need some time to process your complaint, especially if the company is in another country than you.
+Modify it according to your situation: Fill in the <span class="blog-letter-fill-in">curly brackets</span>, and check if the parts in [square brackets] are applicable to your situation (remove them otherwise). And don't forgot to attach all referenced documents. You can (and should) of course also change any other aspects of the template to better suit your situation where necessary. 
 
-You can use this tool to find the authority responsible for you: 
+<div class="blog-letter">
+Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.
+
+Banh mi salad rolls peppermint cilantro lime vinaigrette roasted peanuts potato crunchy naga viper bite sized tasty lime. Elderberry sweet potato black bean burrito spicy lemon guacamole sleepy morning tea matcha Malaysian ultra creamy avocado pesto dill ginger lemongrass agave green tea. 
+</div>
+
+You can use this tool to find the authority responsible for you and their contact details: 
 
 <div class="sva-finder"></div>
 {{< noScript "noscript-sva" >}}
@@ -250,14 +258,9 @@ You can use this tool to find the authority responsible for you:
     window.addEventListener('load', function() { renderSvaFinder(); });
 </script>
 
-We also prepared a complaint template for you to use. Modify it according to your situation: Fill in the curly brackets, check if the parts in square brackets are suitable. Don't forgot to include the referenced ATTACHMENT.
+The responsible authority will check your complaint and if they determine a misconduct on Honey's side, they can instruct them to cease that activity or even impose a fine.
 
-<div class="blog-letter">
-Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.
-
-Banh mi salad rolls peppermint cilantro lime vinaigrette roasted peanuts potato crunchy naga viper bite sized tasty lime. Elderberry sweet potato black bean burrito spicy lemon guacamole sleepy morning tea matcha Malaysian ultra creamy avocado pesto dill ginger lemongrass agave green tea. 
-</div>
-
+Be prepared for this process to take a while. The authorities need will need time to process your complaint, especially if the company is in another country.
 
 ---
 
@@ -265,4 +268,4 @@ Banh mi salad rolls peppermint cilantro lime vinaigrette roasted peanuts potato 
 
 We have made the following changes to this article since the initial publication:
 
-- February 2022: We restructured the article and added the complaint template and reference to it.
+- [February 2022](https://github.com/datenanfragen/website/pull/844): Restructured article and added a complaint template and reference to it.

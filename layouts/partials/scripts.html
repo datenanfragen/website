@@ -51,9 +51,11 @@
 <script src="{{ "js/suggest-edit.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
-{{ if eq .Type "supervisory-authorities" }}
+{{ if or (eq .Type "supervisory-authorities") .Params.has_sva_finder }}
 <script src="{{ "js/sva-finder.bundle.gen.js" | absURL }}"></script>
+{{ if eq .Type "supervisory-authorities" }}
 <script>renderSvaFinder();</script>
+{{ end }}
 {{ end }}
 
 {{ if eq .Type "act" }}
@@ -67,10 +69,6 @@
 
 {{ if .IsHome }}
 <script src="{{ "js/home.bundle.gen.js" | absURL }}"></script>
-{{ end }}
-
-{{ if .Params.has_sva_finder }}
-<script src="{{ " js/sva-finder.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{/* TODO: Do this in the js build via hugo pipes */}}
