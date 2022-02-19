@@ -9,7 +9,7 @@
     "tags": [ "gdpr", "námitka proti přímému marketingu", "dopis", "vzor", "článek 21" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10",
-    "notices": "Photo adapted after: \"[person standing beside wall during daytime](https://unsplash.com/photos/ZO_tXe8Tinw)\" by [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Fotografie převzata z: \"[osoba stojící vedle zdi během dne](https://unsplash.com/photos/ZO_tXe8Tinw)\" od [Jonalyn San Diego](https://unsplash.com/@sandiejo) ([Licence Unsplash](https://unsplash.com/license))"
 }
 
 Reklama se zdá v současnosti všudypřítomná. Ihned po otevření Vaší poštovní nebo emailové schránky na Vás čeká sada dopisů a emailů od společností, které chtějí propagovat svoje produkty. Často jsou přímo adresovány Vám.
@@ -61,10 +61,10 @@ Zde je náš vzorový dopis pro námitku proti přímému marketingu podle čl. 
 
 Abychom to ulehčili, můžete si stáhnout dopis a použít ho přímo ve Vašem preferovaném textovém editoru. Můžete si vybrat z následujících vzorů:
 
-<a href="/downloads/sample-letter-gdpr-objection-request-datarequests.org.ott" class="button button-primary" style="margin-bottom: 10px;">Stáhnotu šablonu pro LibreOffice nebo OpenOffice (.ott)</a><br>
-<a href="/downloads/sample-letter-gdpr-objection-request-datarequests.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Stáhnotu šablonu pro Word (.dotx)</a><br>
-<a href="/downloads/sample-letter-gdpr-objection-request-datarequests.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Stáhnout PDF formulář (.pdf)</a><br>
-<a href="/downloads/sample-letter-gdpr-objection-request-datarequests.org.txt" class="button button-secondary">Stáhnout obyčejný textový soubor (.txt)</a>
+<a href="/downloads/vzorovy-dopis-namitka-gdpr-datarequests.org.ott" class="button button-primary" style="margin-bottom: 10px;">Stáhnotu šablonu pro LibreOffice nebo OpenOffice (.ott)</a><br>
+<a href="/downloads/vzorovy-dopis-namitka-gdpr-datarequests.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Stáhnotu šablonu pro Word (.dotx)</a><br>
+<a href="/downloads/vzorovy-dopis-namitka-gdpr-datarequests.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Stáhnout PDF formulář (.pdf)</a><br>
+<a href="/downloads/vzorovy-dopis-namitka-gdpr-datarequests.org.txt" class="button button-secondary">Stáhnout obyčejný textový soubor (.txt)</a>
 
 S těmito vzory můžete libovolně nakládat. Publikujeme je pod [Licencí CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.cs). Vzory pro LibreOffice a Word jsou založené na tomto [vzoru pro LibreOffice](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
 
