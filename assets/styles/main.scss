@@ -118,7 +118,7 @@ a #logo {
     transform: translateY(-200%);
     transition: transform 0.2s;
     @media screen and (prefers-reduced-motion: reduce) {
-        transition: transform 0s;
+        transition: none;
     }
     &:focus {
         transform: translateY(0%);
