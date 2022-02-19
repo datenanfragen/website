@@ -57,10 +57,10 @@ Zde je náš vzorový dopis pro žádost o přístup podle článku 16 GDPR. Ale
 
 Abychom to ulehčili, můžete si stáhnout dopis a použít ho přímo ve Vašem preferovaném textovém editoru. Můžete si vybrat z následujících vzorů:<!-- TODO: Host these ourselves and give them some nice buttons. -->
 
-* [šablona pro LibreOffice a OpenOffice (.ott)](/downloads/sample-letter-gdpr-rectification-request-datarequests.org.ott)
-* [šablona pro Word (.dotx)](/downloads/sample-letter-gdpr-rectification-request-datarequests.org.dotx)
-* [formulář v PDF (.pdf)](/downloads/sample-letter-gdpr-rectification-request-datarequests.org.pdf)
-* [Obyčejný textový soubor (.txt)](/downloads/sample-letter-gdpr-rectification-request-datarequests.org.txt)
+* [šablona pro LibreOffice a OpenOffice (.ott)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-datarequests.org.ott)
+* [šablona pro Word (.dotx)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-datarequests.org.dotx)
+* [formulář v PDF (.pdf)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-datarequests.org.pdf)
+* [Obyčejný textový soubor (.txt)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-datarequests.org.txt)
 
 S těmito vzory můžete libovolně nakládat. Publikujeme je pod [Licencí CC0](https://creativecommons.org/publicdomain/zero/1.0/). Vzory pro LibreOffice a Word jsou založené na tomto [vzoru pro LibreOffice](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
 
