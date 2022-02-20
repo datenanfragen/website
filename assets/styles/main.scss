@@ -113,7 +113,7 @@ a #logo {
 #skip-to-content {
     padding: 50px;
     color: black;
-    background-color: color('red', 500);
+    background-color: $primary-color;
     position: absolute;
     transform: translateY(-200%);
     transition: transform 0.2s;
