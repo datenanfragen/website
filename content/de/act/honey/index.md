@@ -243,9 +243,68 @@ Wir haben eine Vorlage vorbereitet, an der Du Dich orientieren kannst.
 Achte darauf, die <span class="blog-letter-fill-in">geschweiften Klammern</span> auszufüllen (Vorsicht: Sie werden nicht mitkopiert) und alle erwähnten Dokumente anzuhängen. Die Abschnitte in [eckigen Klammern] sind optional; hier musst Du selbst entscheiden, ob Sie auf Deinen Fall zutreffen oder nicht. Du kannst (und solltest) natürlich auch alle anderen Aspekte der Vorlage an Deinen Fall anpassen, wenn nötig.
 
 <div class="blog-letter" style="margin-bottom: 20px;">
-Artichoke hearts Thai sun pepper hemp seeds pineapple salsa balsamic vinaigrette summer fruit salad peach strawberry mango creamy cauliflower alfredo sauce coriander mediterranean vegetables smoky maple tempeh glaze edamame hummus golden cayenne pepper. Tofu apple vinaigrette strawberry spinach salad thyme strawberry mango smoothie cool off plums cinnamon udon noodles burritos kimchi overflowing. Dark and stormy grapefruit green onions asian pear portobello mushrooms lemon red lentil soup ginger tofu cinnamon toast lime mango crisp kale.
+<details>
+<summary>Beschwerdevorlage (zum Ausklappen hier klicken)</summary>
+<p>Guten Tag,</p>
 
-Banh mi salad rolls peppermint cilantro lime vinaigrette roasted peanuts potato crunchy naga viper bite sized tasty lime. Elderberry sweet potato black bean burrito spicy lemon guacamole sleepy morning tea matcha Malaysian ultra creamy avocado pesto dill ginger lemongrass agave green tea. 
+<p>hiermit möchte ich Beschwerde nach Art. 77 DSGVO einreichen gegen folgenden Verantwortlichen:<br>
+Honey Science LLC<br>
+963 E. 4th Street<br>
+Los Angeles, CA 90013<br>
+USA</p>
+
+<p>Ich bin Nutzer_in der Honey-Browser-Erweiterung (https://www.joinhoney.com), die von der Honey Science LLC (im Folgenden: „Honey“) betrieben wird (Angaben übernommen aus: https://www.joinhoney.com/privacy). [Dafür habe ich einen Account bei Honey angelegt.] [Ich habe Honey ohne Account verwendet.]</p>
+
+<p>Am <span class="blog-letter-fill-in">hier das Datum Deiner Auskunftsanfrage eintragen</span> habe ich Honey per E-Mail an privacy@joinhoney.com (diese E-Mail-Adresse wird in der Datenschutzerklärung als Datenschutzkontakt genannt: https://www.joinhoney.com/privacy) um Auskunft über die zu mir gespeicherten Daten nach Art. 15 DSGVO gebeten.</p>
+
+<p>Die Auskunft hat Honey mir am <span class="blog-letter-fill-in">hier das Datum von Honeys Antwort eintragen</span> erteilt. Sie enthält u.a. eine Datei „PageViews.csv“, die Seitenaufrufe auflistet. Sie hat insgesamt <span class="blog-letter-fill-in">hier die Anzahl der Zeilen eintragen</span> Zeilen. Da sie, wie ich im Folgenden darlegen werde, sensible Daten zu meiner Person enthält, habe ich diese Datei nicht angehängt, sondern werde nur Ausschnitte daraus zitieren. [Sollten Sie die Datei zur Bearbeitung meiner Beschwerde aber benötigen, bin ich bereit, sie zur Verfügung zu stellen.]</p>
+
+<p>Dies sind einige beispielhafte Zeilen aus der „PageViews.csv“:</p>
+
+<p><span class="blog-letter-fill-in">hier einige Beispielzeilen aus der Datei auflisten</span></p>
+
+<p>Jeder Eintrag enthält mindestens die folgenden Informationen:</p>
+
+<p>
+* Zeitstempel, wann ich die entsprechende Seite aufgerufen habe<br>
+* mehrere eindeutige IDs zu meiner Person, Sitzung und meinem Gerät<br>
+* Informationen zu meinem Browser<br>
+* Geolocation-Daten, die vermutlich aus meiner IP generiert wurden<br>
+* die vollständige URL der Seite, die ich aufgerufen habe
+</p>
+
+<p>Die Datenschutzerklärung (https://www.joinhoney.com/privacy), enthält dazu Folgendes unter &quot;What data we collect and why&quot;:</p>
+
+<p>
+> „Honey does not track your search engine history, emails, or your browsing on any site that is not a retail website (a site where you can shop and make a purchase). When you are on a pre-approved retail site, to help you save money, Honey will collect information about that site that lets us know which coupons and promos to find for you. […]<br>
+> Shopping and Usage Data.<br>
+> On retail sites, Honey collects the name of the retailer, page views, and in some cases, product information that allows us to track price changes and update our product catalog. […]<br>
+> […]<br>
+> What data we do not collect<br>
+> We collect information that we believe can help us save our users time and money. This does not include, and we do not collect, any information from your search engine history, emails, or from websites that are not retail sites.“
+</p>
+
+<p>Entgegen dieser Angaben sammelt Honey aber sehr wohl auch Daten auf anderen als Shopping-Seiten („retail sites“), nämlich u.a. auch [Login-Seiten, Blog-Artikel, Informationen zu Bestellungen, Hilfeseiten, Video-Streaming-Seiten und Foren]. In meiner Auskunft sind beispielsweise die folgenden URLs von Nicht-Shopping-Seiten protokolliert:</p>
+
+<p><span class="blog-letter-fill-in">hier einige Beispiele von Nicht-Shopping-Seiten aus der Datei auflisten</span></p>
+
+<p>Laut der Datenschutzerklärung (https://www.joinhoney.com/privacy) soll die Verarbeitung auf Art. 6 Abs. 1 lit. a oder lit. f DSGVO gestützt sein („When you consent to our use of your data for a specific purpose.“, „When Honey has a legitimate interest in using that data in the normal ways you&#39;d expect, like ensuring Honey&#39;s products run properly, improving and creating new products, historical analytics research, promoting Honey, and protecting our legal rights.“).</p>
+
+<p>Sofern die Verarbeitung auf Art. 6 Abs. 1 lit. a DSGVO gestützt sein soll, bestreite ich das Vorhandensein einer „freiwillig für den bestimmten Fall, in informierter Weise und unmissverständlich abgegebene[n]“ Einwilligung (Art. 4 Nr. 11 DSGVO). [Ich habe Honey nie eine Einwilligung erteilt.] [Nach der Installation wurde mir folgender Text angezeigt: „We’re committed to your privacy. It’s always been our mission to find you the best deals. We only collect data when you’re on shopping sites. That way, we can find you relevant coupons, share accurate pricing trends, and continue to make shopping better for our community. You can read our founders’ commitment to privacy here (https://www.joinhoney.com/privacy). You can always come back and adjust your settings at any time“. Bei der Registrierung für einen Account musste ich das Häkchen bei „I have read and agree to the Honey Terms of Service (https://www.joinhoney.com/terms) and Privacy Policy (https://www.joinhoney.com/privacy). I understand that to continue, PayPal will share name and email address with Honey.“ auswählen. Damit fußte die Einwillung schon von Anfang an auf falschen Aussagen durch Honey (wie dargelegt erfolgt gerade doch eine Erhebung auf Nicht-Shopping-Seiten). Weiter war ohne Auswahl des Häkchens eine Registrierung nicht möglich. Es gab also keine Möglichkeit, die Einwilligung zu verweigern. Und schließlich konnte ich nur in die Datenschutzerklärung als Ganzes einwilligen, nicht aber in konkrete einzelne Zwecke. Daher ist trotz dieser erzwungenen Auswahl ist keine gültige Einwilligung zustandegekommen (vgl. OH Telemedien 2021 der Datenschutzkonferenz: https://www.datenschutzkonferenz-online.de/media/oh/20211220_oh_telemedien.pdf).]</p>
+
+<p>Sofern die Verarbeitung auf Art. 6 Abs. 1 lit. f DSGVO gestützt sein soll, bestreite ich das Vorhandensein eines berechtigten Interesses Honeys, das meinen Interessen oder Grundrechten und Grundfreiheiten überwiegen würde. Hier ist zu unterscheiden zwischen den Daten zu Shopping-Webseiten und Daten zu sonstigen Seiten. Für letztere ist beim besten Willen kein berechtigtes Interesse zu erkennen. Sie stehen in keinem Zusammenhang zur Honey-Erweiterung und es war für mich nicht erwartbar, dass diese Daten gesammelt würden. [Als ich die Auskunft erhalten habe, war ich entsetzt und schockiert darüber, wie umfangreich Honey mein Surfverhalten protokolliert hat.]
+Für Daten zu Shopping-Webseiten mag Honey ein berechtigtes Interesse angeben. Aber selbst hier ist fragwürdig, ob die Verarbeitung verhältnismäßig ist, angesichts der umfangreichen Daten, die gesammelt werden, und dem Umstand, dass die Daten ohne zeitliche Begrenzung gespeichert werden („Honey only retains information about you as long as you keep using Honey“, aus: https://www.joinhoney.com/privacy)</p>
+
+<p>Ich gehe also davon aus, dass Honey meine Daten ohne gültige Rechtsgrundlage verarbeitet hat. Daher wende ich mich nun mit meiner Beschwerde an Sie. Ich möchte Sie bitten das Verfahren zu prüfen und Honey ggf. die rechtswidrige Verarbeitung zu untersagen. Auch die Verhängung eines Bußgeldes bitte ich zu prüfen.
+[Sie dürfen meine Daten zur Bearbeitung der Beschwerde an den Verantwortlichen weitergeben.] Die beschriebene Korrespondenz mit Honey habe ich an diese Beschwerde angehängt.</p>
+
+<p>Sollten Sie weitere Informationen von mir benötigen, wenden Sie sich gerne an mich. Sie erreichen mich <span class="blog-letter-fill-in">hier Deine bevorzugte Kontaktmöglichkeit eintragen</span>.</p>
+
+<p>Ich bedanke mich bereits im Voraus für Ihre Unterstützung.</p>
+
+<p>Mit freundlichen Grüßen<br>
+<span class="blog-letter-fill-in">hier Deinen Namen eintragen</span></p>
+</details>
 </div>
 
 Welche Behörde für Dich zuständig ist, und wie Du sie erreichst, kannst Du mit diesem Tool herausfinden:
@@ -267,4 +326,4 @@ Die Behörde wird Deine Beschwerde prüfen und kann verschiedene Maßnahmen ergr
 
 Die folgenden Änderungen haben wir seit der ursprünglichen Veröffentlichung an diesem Artikel vorgenommen:
 
-- [Februar 2022](https://github.com/datenanfragen/website/pull/844): Artikel umstrukturiert und Hinweise auf die Beschwerdemöglichkeit und ein Beschwerdetemplate ergänzt.
+- [20. Februar 2022](https://github.com/datenanfragen/website/pull/844): Artikel umstrukturiert und Hinweise auf die Beschwerdemöglichkeit und ein Beschwerdetemplate ergänzt.
