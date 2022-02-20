@@ -44,11 +44,7 @@
 </head>
 
 <body>
-    {{ if .IsHome }}
-        <a id="skip-to-content" href="#heading">{{T "skip-to-content"}}</a>
-    {{ else }}
-        <a id="skip-to-content" href="#home-hero">{{T "skip-to-content"}}</a>
-    {{ end }}
+    <a id="skip-to-content" href="{{ if .IsHome }}#home-hero{{ else }}#heading{{ end }}">{{T "skip-to-content"}}</a>
     <aside id="flash-messages"></aside>
     <header id="nav-header">
         <div id="nav-header-bg"></div>
