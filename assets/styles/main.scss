@@ -110,6 +110,21 @@ a #logo {
     }
 }
 
+#skip-to-content {
+    padding: 50px;
+    color: $bg-color;
+    background-color: $primary-color;
+    position: absolute;
+    transform: translateY(-200%);
+    transition: transform 0.2s;
+    @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+    &:focus {
+        transform: translateY(0%);
+    }
+}
+
 /* Home */
 #home-hero-bg {
     height: 95vh;
