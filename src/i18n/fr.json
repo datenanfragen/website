@@ -801,7 +801,8 @@
         "cdb-warning-unverified": "<strong>Avertissement</strong> : Nous<em>n'avons pas</em> vérifié les informations de cet enregistrement, elles ont été importées automatiquement. Quelque-chose ne va pas ? Nous apprécierons beaucoup si tu <a href='{{ .editUrl }}'>envoyais une correction</a>. Merci pour ton aide !",
         "church": "église",
         "noscript-actwidget": "Voici un outil permettant de générer rapidement des demandes relatives au RGPD. Il ne fonctionne que sur votre ordinateur et est entièrement écrit en JavaScript. Si vous souhaitez l'utiliser, veuillez activer JavaScript dans votre navigateur. Si cela ne fonctionne toujours pas malgré tout, envoyez-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
-        "footer-material": "Matériel d'information"
+        "footer-material": "Matériel d'information",
+        "skip-to-content": "Aller au contenu"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
