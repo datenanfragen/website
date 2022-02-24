@@ -858,7 +858,8 @@
         "addresses": "adrese",
         "categories": "Kategorije",
         "noscript-actwidget": "Ovdje bi se nalazio alat za brzo generiranje GDPR zahtjeva. Izvodi se samo na tvom računalu i stoga je u potpunosti napisan u JavaScript-u. Ako ga želiš koristiti, aktiviraj JavaScript u svom pregledniku. Ako i nakon toga ne radi, pošalji nam email na <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
-        "footer-material": "Informativni materijal"
+        "footer-material": "Informativni materijal",
+        "skip-to-content": "Preskoči na sadržaj"
     },
     "i18n-widget": {
         "not-supported-cta": "Pomogni nam!",
