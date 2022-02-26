@@ -50,6 +50,7 @@ In order to make it easier for you to find the supervisory authority responsible
 Like most features on datarequests.org, all processing *only* happens on your own computer, so your answers will never even reach us.
 
 <div class="sva-finder"></div>
+{{< noScript "noscript-sva" >}}
 
 If you would rather do the research yourself, have a look at our {{< link slug="/supervisory-authority" text="list of data protection authorities" >}}. The [European Data Protection Board](https://edpb.europa.eu/about-edpb/board/members_en) also has a list but note that this one only includes the authorities at the national level.
 

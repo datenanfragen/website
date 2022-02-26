@@ -2,143 +2,147 @@ import { render, Component } from 'preact';
 import t from 'Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 import PropTypes from 'prop-types';
+import deepmerge from 'deepmerge';
 
-const steps = {
-    country: {
-        at: 'atdsb',
-        be: 'beapd',
-        bg: 'bgcpdp',
-        hr: 'hrazop',
-        cy: 'cydp',
-        cz: 'czcuooz',
-        dk: 'dkdi',
-        ee: 'eeaki',
-        fi: 'fitst',
-        fr: 'frcnil',
-        de: {
-            bund: 'debfdi',
-            'bund-telepost': 'debfdi',
-            // The BfDI is also responsible for the job centres, except those with "authorised municipal carriers"
-            // (https://www.bfdi.bund.de/SharedDocs/Downloads/DE/Flyer/DatenschutzImJobcenter.pdf?__blob=publicationFile&v=3).
-            // Unfortunately, there's 104 of those, so we can't list them all (https://kommunale-jobcenter.de/uebersichtskarte/).
-            'bund-jobcenter': 'debfdi',
-            // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272376&cms_klvl1=272344#kontaktfinderDown
-            'bund-sueg': 'debfdi',
-            // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272350&cms_klvl1=272340#kontaktfinderDown
-            // According to this, the BfDI is not responsible for some guild health insurers (Innungskrankenkassen).
-            // This (https://www.bfdi.bund.de/DE/Buerger/Inhalte/GesundheitSoziales/Allgemein/Krankenkassen-Zust%C3%A4ndigkeit-BfDI.html?nn=302362)
-            // lists the ones the BfDI is responsible for. As there are only six remaining in total (https://www.ikk.de/),
-            // this allows us to determine which ones the BfDI is not responsible for.
-            'bund-kk': 'debfdi',
-            kirche: {
-                ev: 'deekdbfd',
-                kath: {
-                    kathbay: 'dekathbayddsb',
-                    kathnrw: 'dekathdsz',
-                    kathmsw: 'dekathffdsz',
-                    kathnd: 'dekathnordddsb',
-                    kathod: 'dekathostddsb',
-                    kathsonst: 'dekathverbdsb',
-                },
-            },
-            private: {
-                'private-de': {
-                    bawue: 'debawueldb',
-                    bay: {
-                        oeff: 'debayldb',
-                        priv: 'debaylda',
+const steps = deepmerge(
+    {
+        country: {
+            at: 'atdsb',
+            be: 'beapd',
+            bg: 'bgcpdp',
+            hr: 'hrazop',
+            cy: 'cydp',
+            cz: 'czcuooz',
+            dk: 'dkdi',
+            ee: 'eeaki',
+            fi: 'fitst',
+            fr: 'frcnil',
+            de: {
+                bund: 'debfdi',
+                'bund-telepost': 'debfdi',
+                // The BfDI is also responsible for the job centres, except those with "authorised municipal carriers"
+                // (https://www.bfdi.bund.de/SharedDocs/Downloads/DE/Flyer/DatenschutzImJobcenter.pdf?__blob=publicationFile&v=3).
+                // Unfortunately, there's 104 of those, so we can't list them all (https://kommunale-jobcenter.de/uebersichtskarte/).
+                'bund-jobcenter': 'debfdi',
+                // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272376&cms_klvl1=272344#kontaktfinderDown
+                'bund-sueg': 'debfdi',
+                // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272350&cms_klvl1=272340#kontaktfinderDown
+                // According to this, the BfDI is not responsible for some guild health insurers (Innungskrankenkassen).
+                // This (https://www.bfdi.bund.de/DE/Buerger/Inhalte/GesundheitSoziales/Allgemein/Krankenkassen-Zust%C3%A4ndigkeit-BfDI.html?nn=302362)
+                // lists the ones the BfDI is responsible for. As there are only six remaining in total (https://www.ikk.de/),
+                // this allows us to determine which ones the BfDI is not responsible for.
+                'bund-kk': 'debfdi',
+                kirche: {
+                    ev: 'deekdbfd',
+                    kath: {
+                        kathbay: 'dekathbayddsb',
+                        kathnrw: 'dekathdsz',
+                        kathmsw: 'dekathffdsz',
+                        kathnd: 'dekathnordddsb',
+                        kathod: 'dekathostddsb',
+                        kathsonst: 'dekathverbdsb',
                     },
-                    ber: 'deberlbdi',
-                    bra: 'debralda',
-                    bre: 'debrelfdi',
-                    hess: 'dehessbdi',
-                    hh: 'dehmbbfdi',
-                    mv: 'demvldi',
-                    nds: 'dendslfd',
-                    nrw: 'denrwldi',
-                    rlp: 'derlpbdi',
-                    saar: 'desaarudz',
-                    sachs: 'desaechsdsb',
-                    sa: 'desalbd',
-                    sh: 'deshuld',
-                    thue: 'detlfdi',
                 },
-                'private-other': {
-                    bawue: 'debawueldb',
-                    bay: 'debaylda',
-                    ber: 'deberlbdi',
-                    bra: 'debralda',
-                    bre: 'debrelfdi',
-                    hess: 'dehessbdi',
-                    hh: 'dehmbbfdi',
-                    mv: 'demvldi',
-                    nds: 'dendslfd',
-                    nrw: 'denrwldi',
-                    rlp: 'derlpbdi',
-                    saar: 'desaarudz',
-                    sachs: 'desaechsdsb',
-                    sa: 'desalbd',
-                    sh: 'deshuld',
-                    thue: 'detlfdi',
+                private: {
+                    'private-de': {
+                        bawue: 'debawueldb',
+                        bay: {
+                            oeff: 'debayldb',
+                            priv: 'debaylda',
+                        },
+                        ber: 'deberlbdi',
+                        bra: 'debralda',
+                        bre: 'debrelfdi',
+                        hess: 'dehessbdi',
+                        hh: 'dehmbbfdi',
+                        mv: 'demvldi',
+                        nds: 'dendslfd',
+                        nrw: 'denrwldi',
+                        rlp: 'derlpbdi',
+                        saar: 'desaarudz',
+                        sachs: 'desaechsdsb',
+                        sa: 'desalbd',
+                        sh: 'deshuld',
+                        thue: 'detlfdi',
+                    },
+                    'private-other': {
+                        bawue: 'debawueldb',
+                        bay: 'debaylda',
+                        ber: 'deberlbdi',
+                        bra: 'debralda',
+                        bre: 'debrelfdi',
+                        hess: 'dehessbdi',
+                        hh: 'dehmbbfdi',
+                        mv: 'demvldi',
+                        nds: 'dendslfd',
+                        nrw: 'denrwldi',
+                        rlp: 'derlpbdi',
+                        saar: 'desaarudz',
+                        sachs: 'desaechsdsb',
+                        sa: 'desalbd',
+                        sh: 'deshuld',
+                        thue: 'detlfdi',
+                    },
+                },
+                rundfunk: {
+                    'rundfunk-br': 'derf',
+                    'rundfunk-dw': 'derfdw',
+                    'rundfunk-dr': 'derf',
+                    'rundfunk-hr': 'derfhr',
+                    'rundfunk-mdr': 'derfmdr',
+                    'rundfunk-ndr': 'derfndr',
+                    'rundfunk-rb': 'derfrb',
+                    'rundfunk-rbb': 'derfrbb',
+                    'rundfunk-sr': 'derf',
+                    'rundfunk-swr': 'derfswr',
+                    'rundfunk-wdr': 'derf',
+                    'rundfunk-zdf': 'derf',
+                    // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272352&cms_klvl1=272342#kontaktfinderDown
+                    'rundfunk-beitragsservice': {
+                        bawue: 'derfswr',
+                        bay: 'derf',
+                        ber: 'deberlbdi',
+                        bra: 'debralda',
+                        bre: 'debrelfdi',
+                        hess: 'dehessbdi',
+                        hh: 'derfndr',
+                        mv: 'derfndr',
+                        nds: 'derfndr',
+                        nrw: 'derf',
+                        rlp: 'derfswr',
+                        saar: 'derf',
+                        sachs: 'derfmdr',
+                        sa: 'derfmdr',
+                        sh: 'derfndr',
+                        thue: 'derfmdr',
+                    },
                 },
             },
-            rundfunk: {
-                'rundfunk-br': 'derf',
-                'rundfunk-dw': 'derfdw',
-                'rundfunk-dr': 'derf',
-                'rundfunk-hr': 'derfhr',
-                'rundfunk-mdr': 'derfmdr',
-                'rundfunk-ndr': 'derfndr',
-                'rundfunk-rb': 'derfrb',
-                'rundfunk-rbb': 'derfrbb',
-                'rundfunk-sr': 'derf',
-                'rundfunk-swr': 'derfswr',
-                'rundfunk-wdr': 'derf',
-                'rundfunk-zdf': 'derf',
-                // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272352&cms_klvl1=272342#kontaktfinderDown
-                'rundfunk-beitragsservice': {
-                    bawue: 'derfswr',
-                    bay: 'derf',
-                    ber: 'deberlbdi',
-                    bra: 'debralda',
-                    bre: 'debrelfdi',
-                    hess: 'dehessbdi',
-                    hh: 'derfndr',
-                    mv: 'derfndr',
-                    nds: 'derfndr',
-                    nrw: 'derf',
-                    rlp: 'derfswr',
-                    saar: 'derf',
-                    sachs: 'derfmdr',
-                    sa: 'derfmdr',
-                    sh: 'derfndr',
-                    thue: 'derfmdr',
-                },
-            },
+            gr: 'grdpa',
+            hu: 'hunaih',
+            ie: 'iedpc',
+            it: 'itgpdp',
+            lv: 'lvdvi',
+            lt: 'ltada',
+            lu: 'lucnpd',
+            mt: 'mtidpc',
+            nl: 'nlap',
+            pl: 'plgiodo',
+            pt: 'ptcnpd',
+            ro: 'roanspdcp',
+            sk: 'skunoou',
+            si: 'siiprs',
+            es: 'esaepa',
+            se: 'sedi',
+            gb: 'gbico',
+            is: 'isdpa',
+            li: 'lidss',
+            no: 'nods',
+            ch: 'chedoeb',
         },
-        gr: 'grdpa',
-        hu: 'hunaih',
-        ie: 'iedpc',
-        it: 'itgpdp',
-        lv: 'lvdvi',
-        lt: 'ltada',
-        lu: 'lucnpd',
-        mt: 'mtidpc',
-        nl: 'nlap',
-        pl: 'plgiodo',
-        pt: 'ptcnpd',
-        ro: 'roanspdcp',
-        sk: 'skunoou',
-        si: 'siiprs',
-        es: 'esaepa',
-        se: 'sedi',
-        gb: 'gbico',
-        is: 'isdpa',
-        li: 'lidss',
-        no: 'nods',
-        ch: 'chedoeb',
     },
-};
+    window?.props?.override ? window.props.override : {}
+);
 
 const initial_state = {
     step: steps['country'],
@@ -219,7 +223,7 @@ export default class SvaFinder extends Component {
 
         return (
             <div className="sva-finder box box-info" style={this.props.style}>
-                {this.props.callback ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
+                {this.props.callback || window?.props?.override ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
                 {content}
                 <div style="margin-top: 20px;">
                     {this.state.prev_state && (
