@@ -2,7 +2,7 @@
     "title": "Honey in Sammelwut – jetzt eine Kopie Deiner Daten anfragen",
     "type": "act",
     "date": "2020-11-02T14:43:34+02:00",
-    "last_edited": "2022-02-18T21:33:10+02:00",
+    "last_edited": "2022-02-26T19:54:10+02:00",
     "tags": [ "addon", "datenauskunft", "verlaufsdaten", "datensammlung", "browser-verlauf" ],
     "featured_image": "honey.jpg",
     "authors": [ "malte", "baltpeter" ],
@@ -326,4 +326,4 @@ Die Behörde wird Deine Beschwerde prüfen und kann verschiedene Maßnahmen ergr
 
 Die folgenden Änderungen haben wir seit der ursprünglichen Veröffentlichung an diesem Artikel vorgenommen:
 
-- [20. Februar 2022](https://github.com/datenanfragen/website/pull/844): Artikel umstrukturiert und Hinweise auf die Beschwerdemöglichkeit und ein Beschwerdetemplate ergänzt.
+- [26. Februar 2022](https://github.com/datenanfragen/website/pull/844): Artikel umstrukturiert und Hinweise auf die Beschwerdemöglichkeit und ein Beschwerdetemplate ergänzt.

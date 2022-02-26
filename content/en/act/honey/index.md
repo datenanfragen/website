@@ -2,7 +2,7 @@
     "title": "Honey, the data hoarder—request a copy of your data now!",
     "type": "act",
     "date": "2020-11-02T14:43:34+02:00",
-    "last_edited": "2022-02-18T22:01:04+02:00",
+    "last_edited": "2022-02-26T19:55:04+02:00",
     "tags": [ "addon", "data request", "history data", "data collection", "browser history" ],
     "featured_image": "honey.jpg",
     "authors": [ "malte", "baltpeter" ],
@@ -258,7 +258,7 @@ USA</p>
 
 <p>On <span class="blog-letter-fill-in">enter the date of your access request here</span>, I sent an access request according to Art. 15 GDPR to privacy@joinhoney.com (the privacy contact listed in the privacy policy: https://www.joinhoney.com/privacy).</p>
 
-<p>Honey provided me with my date on <span class="blog-letter-fill-in">enter the date of Honey’s reply here</span>. I was sent, among other files, a “PageViews.csv” file, which lists pages I have visited with my browser. In total, it has <span class="blog-letter-fill-in">enter number of lines in the file here</span> lines. As this file contains a lot of private data about me, as I am going to argue in the following, I have not attached it but will only quote parts of it. [Should you need the file for the investigation, I am however willing to provide it.]</p>
+<p>Honey provided me with my data on <span class="blog-letter-fill-in">enter the date of Honey’s reply here</span>. I was sent, among other files, a “PageViews.csv” file, which lists pages I have visited with my browser. In total, it has <span class="blog-letter-fill-in">enter number of lines in the file here</span> lines. As this file contains a lot of private data about me, as I am going to argue in the following, I have not attached it but will only quote parts of it. [Should you need the file for the investigation, I am however willing to provide it.]</p>
 
 <p>Here are some example of lines from “PageViews.csv”:</p>
 
@@ -327,4 +327,4 @@ Be prepared for this process to take a while. The authorities need will need tim
 
 We have made the following changes to this article since the initial publication:
 
-- [February 20, 2022](https://github.com/datenanfragen/website/pull/844): Restructured article and added a complaint template and reference to it.
+- [February 26, 2022](https://github.com/datenanfragen/website/pull/844): Restructured article and added a complaint template and reference to it.
