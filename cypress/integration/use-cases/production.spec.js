@@ -32,7 +32,7 @@ describe('Make sure all productions sites are still alive', () => {
             if (!['https://www.gegevensaanvragen.nl'].includes(site)) {
                 cy.visit(`${site}/blog`);
                 cy.get(':nth-child(1) > .padded > a > h1').click();
-                cy.url().should('match', new RegExp(`${site}/blog/.+`));
+                cy.url().should('match', new RegExp(`${site.replace('.', '\\.')}/blog/.+`));
             }
         });
     }
