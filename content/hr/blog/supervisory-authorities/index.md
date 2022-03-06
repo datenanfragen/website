@@ -57,6 +57,6 @@ Ako želiš, pretraži naš {{< link slug="/supervisory-authority" text="popis n
 
 Ako si podnio/podnijela zahtjev poduzeću putem osobnipodaci.org i ako ne dobiješ nikakav odgovor ili ako dobiješ samo nezadovoljavajući odgovor, možemo ti dodatno olakšati podnijeti žalbu nadzornom tijelu.
 
-Na stranici {{< link slug="/moji-zahtjevi" text="„Moji zahtjevi”" >}} možeš vidjeti popis svih tvojih zahtjeva – pod uvjetom da je nisi deaktivirao. Pored svakog zahtjeva nalaze se gumbi pomoću kojih možeš slati opomene i pritužbe na ovaj zahtjev putem našeg generatora.
+Na stranici {{< link slug="/my-requests" text="„Moji zahtjevi”" >}} možeš vidjeti popis svih tvojih zahtjeva – pod uvjetom da je nisi deaktivirao. Pored svakog zahtjeva nalaze se gumbi pomoću kojih možeš slati opomene i pritužbe na ovaj zahtjev putem našeg generatora.
 
-{{< img name="slanje-žalbe" caption="Slanje žalbe putem osobnipodaci.org" alt="Snimka ekrana generatora zahtjeva na osobnipodaci.org. Pripremanje žalbe agenciji za zaštitu osobnih podataka protiv Facebook Ireland Ltd." >}}
+{{< img name="slanje-zalbe" caption="Slanje žalbe putem osobnipodaci.org" alt="Snimka ekrana generatora zahtjeva na osobnipodaci.org. Pripremanje žalbe agenciji za zaštitu osobnih podataka protiv Facebook Ireland Ltd." >}}
