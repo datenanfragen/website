@@ -38,15 +38,15 @@ Postupak je također značajno pojednostavljen za potrošače. Prije uvođenja G
 Treba imati na umu da ovo načelo samo regulira kojem se tijelu obračaš. Nadzorno tijelo u tvojoj zemlji će tada stupiti u kontakt s tijelom u zemlji voditelja obrade i zamoliti ih da se pobrinu o tvom slučaju. Odgovorno je uvijek nadležno tijelo u tvojoj zemlji, tako da ne moraš brinuti o podnošenju žalbe protiv poduzeća iz drugih zemalja.
 
 <a id="finder"></a>
-## Koje nadzordno tijelo trebam kontaktirati??
+## Kojem se nadzornom tijelu trebam obratiti??
 
 <img class="offset-image offset-image-right" src="/img/humaaans/question-1.svg" style="height: 350px;" alt="">
 
-Ako imate žalbu ili neko drugo pitanje i želiš potražiti pomoć nadzornog tijela za zaštitu podataka, ostaje pitanje kome se obratiti. Općenito, čak i „krivo” tijelo će te proslijediti pravom tijelu, ali je naravno lakše i brže ako se izravno obratiš ispravnom tijelu.
+Ako želiš poslati žalbu ili neko drugo pitanje i ako želiš potražiti pomoć nadzornog tijela za zaštitu podataka, ostaje pitanje kome se obratiti. Općenito, čak i „krivo” tijelo će te proslijediti pravom tijelu, ali je naravno lakše i brže ako se izravno obratiš ispravnom tijelu.
 
 U principu, u svakoj zemlji postoji barem jedno nadzorno tijelo za zaštitu podataka. Nažalost, nije uvijek tako jednostavno. Članak. 51 GDPR-a dopušta uspostavljanje više od jednog nadzornog tijela unutar jedne zemlje. To je primjerice slučaj u Njemačkoj.
 
-Kako bismo ti olakšali pronaći za tebe odgovorno nadzorno tijelo, osmislili smo alat za pronalaženje nadzornog tijela. Jednostavno odgovori na nekoliko pitanja o tome gdje živiš i (ako je primjenjivo) o prirodi tvog upita. Na osnovi toga ćemo ti predložiti tijelo kojem se trebaš obratiti.
+Kako bismo ti olakšali pronaći za tebe odgovorno nadzorno tijelo, osmislili smo alat za pronalaženje nadzornog tijela. Jednostavno odgovori na nekoliko pitanja o tome gdje živiš i (ako je primjenjivo) o prirodi tvog upita. Na osnovi tih podataka predložit ćemo tijelo kojemu se trebaš obratiti.
 Kao i većina funkcija na stranicama osobnipodaci.org, sva obrada odvija se *samo* na tvom računalu – stoga mi nikada nećemo saznati tvoje odgovore.
 
 <div class="sva-finder"></div>
@@ -55,8 +55,8 @@ Ako želiš, pretraži naš {{< link slug="/supervisory-authority" text="popis n
 
 ## Žalbe za zahtjeve učinjene putem osobnipodaci.org
 
-Ako si podnio/podnijela zahtjev poduzeću putem osobnipodaci.org i ako ne dobiješ nikakav odgovor ili ako dobiješ samo nezadovoljavajući odgovor, možemo ti dodatno olakšati podnijeti žalbu nadzornom tijelu.
+Ako si podnio/podnijela zahtjev poduzeću putem osobnipodaci.org i ako ne dobiješ odgovor ili ako dobiješ samo nezadovoljavajući odgovor, možemo ti dodatno olakšati podnijeti žalbu nadzornom tijelu.
 
-Na stranici {{< link slug="/my-requests" text="„Moji zahtjevi”" >}} možeš vidjeti popis svih tvojih zahtjeva – pod uvjetom da je nisi deaktivirao. Pored svakog zahtjeva nalaze se gumbi pomoću kojih možeš slati opomene i pritužbe na ovaj zahtjev putem našeg generatora.
+Na stranici {{< link slug="/my-requests" text="„Moji zahtjevi”" >}} možeš vidjeti popis svih tvojih zahtjeva – pod uvjetom da je nisi deaktivirao. Pored svakog zahtjeva nalaze se gumbi pomoću kojih možeš slati opomene i žalbe na ovaj zahtjev putem našeg generatora.
 
 {{< img name="slanje-zalbe" caption="Slanje žalbe putem osobnipodaci.org" alt="Snimka ekrana generatora zahtjeva na osobnipodaci.org. Pripremanje žalbe agenciji za zaštitu osobnih podataka protiv Facebook Ireland Ltd." >}}
