@@ -41,7 +41,7 @@ Also feel free to join our [Matrix space](https://matrix.to/#/#datenanfragen:mat
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/edit.svg" alt="Writing content"></div>
     <div class="padded col75">
         <h1>Writing content</h1>
-        <p>Apart from the generator and company database, we also want to offer comprehensive <a href="/">posts</a> about all topics relating to privacy and data protection. That includes things like explanations on an individuals rights under the GDPR and how to use them, comments on current news about data protection and tutorials on how to use the download features offered by some websites, among others.</p>
+        <p>Apart from the generator and company database, we also want to offer comprehensive <a href="/blog">posts</a> about all topics relating to privacy and data protection. That includes things like explanations on an individuals rights under the GDPR and how to use them, comments on current news about data protection and tutorials on how to use the download features offered by some websites, among others.</p>
         <p>You have an article that could be interesting to our users? We would love to publish it!
         <br>Furthermore, we are of course also always interested in new translations for existing articles.</p>
     </div>
