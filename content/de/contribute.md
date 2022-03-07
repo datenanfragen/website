@@ -42,7 +42,7 @@ Trete auch gerne unserem [Matrix-Space](https://matrix.to/#/#datenanfragen:matri
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/edit.svg" alt="Schreiben von Beiträgen"></div>
     <div class="padded col75">
         <h1>Schreiben von Beiträgen</h1>
-        <p>Neben dem Generator und der Unternehmensdatenbank stellen wir auch <a href="/">Artikel</a> zu allen Themen rund um den Datenschutz zur Verfügung. Die Bandbreite reicht von Erklärungen zu den DSGVO-Rechten und deren Ausübung über Kommentare zu aktuellen Geschehnissen in Sachen Datenschutz bis hin zu Anleitungen, wie man die Downloadtools, die einige Webseiten mittlerweile anbieten, nutzt.</p>
+        <p>Neben dem Generator und der Unternehmensdatenbank stellen wir auch <a href="/blog">Artikel</a> zu allen Themen rund um den Datenschutz zur Verfügung. Die Bandbreite reicht von Erklärungen zu den DSGVO-Rechten und deren Ausübung über Kommentare zu aktuellen Geschehnissen in Sachen Datenschutz bis hin zu Anleitungen, wie man die Downloadtools, die einige Webseiten mittlerweile anbieten, nutzt.</p>
         <p>Du hast ein Thema, das für unsere Nutzer_innen interessant sein könnte? Dann würden wir uns sehr über Deinen Artikel freuen!
         <br>Darüber hinaus sind wir natürlich auch immer an Übersetzungen von vorhandenen Artikeln interessiert.</p>
     </div>

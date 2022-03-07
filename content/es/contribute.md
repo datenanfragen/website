@@ -40,7 +40,7 @@ Hay muchas tareas de diferentes temas que deben realizarse. Entre ellos, muchos 
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/edit.svg" alt="Escribir contenido"></div>
     <div class="padded col75">
         <h1>Escribir contenido</h1>
-        <p>Además del generador y la base de datos de la empresa, también queremos ofrecer publicaciones completas sobre todos los temas relacionados con la privacidad y la protección de datos. Eso incluye cosas como explicaciones sobre los derechos de las personas según el RGPD y cómo usarlos, comentarios sobre noticias actuales sobre protección de datos y tutoriales sobre cómo usar las funciones de descarga que ofrecen algunos sitios web, entre otros.</p>
+        <p>Además del generador y la base de datos de la empresa, también queremos ofrecer <a href="/blog">publicaciones</a> completas sobre todos los temas relacionados con la privacidad y la protección de datos. Eso incluye cosas como explicaciones sobre los derechos de las personas según el RGPD y cómo usarlos, comentarios sobre noticias actuales sobre protección de datos y tutoriales sobre cómo usar las funciones de descarga que ofrecen algunos sitios web, entre otros.</p>
         <p>¿Tienes un artículo que podría ser interesante para nuestros usuarios? ¡Nos encantaría publicarlo!</p>
         <p>Además, por supuesto, siempre estamos interesados en nuevas traducciones de artículos existentes.</p>
     </div>
