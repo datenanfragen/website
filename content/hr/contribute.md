@@ -41,7 +41,7 @@ Možeš se prijaviti i na [Matrix space](https://matrix.to/#/#datenanfragen:matr
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/edit.svg" alt="Pisanje sadržaja"></div>
     <div class="padded col75">
         <h1>Pisanje sadržaja</h1>
-        <p>Osim generatora zahtjeva i baze podataka poduzeća, želimo ponuditi i opsežne <a href="/">objave</a> o svim temama koje se odnose na privatnost i zaštitu podataka. Između ostalog, objave uključuju objašnjenja o pravima pojedinca na osnovi GDPR-a i kako ih koristiti, komentare na aktualne vijesti o zaštiti podataka i priručnike o tome kako koristiti funkcije preuzimanja koje nude neke web-stranice.</p>
+        <p>Osim generatora zahtjeva i baze podataka poduzeća, želimo ponuditi i opsežne <a href="/blog">objave</a> o svim temama koje se odnose na privatnost i zaštitu podataka. Između ostalog, objave uključuju objašnjenja o pravima pojedinca na osnovi GDPR-a i kako ih koristiti, komentare na aktualne vijesti o zaštiti podataka i priručnike o tome kako koristiti funkcije preuzimanja koje nude neke web-stranice.</p>
         <p>Imaš članak koji bi mogao biti zanimljiv našim korisnicima? Rado bismo ga objavili!
         <br>Također, uvijek smo zainteresirani za nove prijevode postojećih članaka.</p>
     </div>
