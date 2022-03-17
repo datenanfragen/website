@@ -1,4 +1,4 @@
-import { render, Component } from 'preact';
+import { Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import PropTypes from 'prop-types';
 import t, { t_r } from '../Utility/i18n';
