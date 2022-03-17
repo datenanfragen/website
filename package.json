@@ -33,9 +33,9 @@
         "build": "cross-env BABEL_ENV=production; webpack --mode=production --config webpack.prod.js",
         "dev": "webpack --watch --mode=development --config webpack.dev.js",
         "merge-conflict-artifact-check": "./scripts/merge-conflict-artifact-check.sh",
-        "lint": "yarn eslint src --ext .json --ext .js && yarn stylelint assets/styles && git diff --check",
+        "lint": "yarn tsc && yarn eslint src --ext .json --ext .js --ext .jsx --ext .ts --ext .tsx && yarn stylelint assets/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix",
-        "prettier": "prettier --write {src,scripts,cypress,assets}/**/*.{js,css,scss,json}",
+        "prettier": "prettier --write {src,scripts,cypress,assets}/**/*.{js,jsx,ts,tsx,css,scss,json}",
         "deploy-dattel": "node deploy-dattel.js"
     },
     "bugs": {
@@ -69,9 +69,13 @@
         "@babel/plugin-transform-react-jsx": "^7.3.0",
         "@babel/plugin-transform-runtime": "^7.6.2",
         "@babel/preset-env": "^7.7.1",
+        "@babel/preset-typescript": "^7.16.7",
         "@babel/runtime": "^7.6.2",
         "@cypress/skip-test": "^2.5.0",
         "@percy/cypress": "^2.2.0",
+        "@types/preact-i18n": "^2.3.0-preactx",
+        "@typescript-eslint/eslint-plugin": "^5.15.0",
+        "@typescript-eslint/parser": "^5.15.0",
         "babel-loader": "^8.0.6",
         "carbone": "^3.2.3",
         "cross-env": "^7.0.2",
@@ -117,6 +121,7 @@
         "svgicons2svgfont": "^9.1.1",
         "svgo": "^1.3.0",
         "terser-webpack-plugin": "^3.0.1",
+        "typescript": "^4.6.2",
         "webpack": "^4.39.3",
         "webpack-cli": "^3.3.5",
         "webpack-merge": "^4.2.1",
@@ -128,12 +133,12 @@
     ],
     "husky": {
         "hooks": {
-            "pre-commit": "yarn merge-conflict-artifact-check && lint-staged"
+            "pre-commit": "yarn merge-conflict-artifact-check && lint-staged && yarn tsc"
         }
     },
     "lint-staged": {
-        "*.{js,css,scss,json}": "prettier --write",
-        "*.{js,json}": "eslint --ext .json --ext .js",
+        "*.{js,jsx,ts,tsx,css,scss,json}": "prettier --write",
+        "*.{js,jsx,ts,tsx,json}": "eslint --ext .json --ext .js --ext .jsx --ext .ts --ext .tsx",
         "*.{css,scss}": "stylelint",
         "*.{png,jpeg,jpg,gif,PNG,JPEG,JPG,GIF}": "imagemin-lint-staged",
         "*.{svg,SVG}": "svgo --disable=removeViewBox,convertPathData"

@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    parser: '@babel/eslint-parser',
+    parser: '@typescript-eslint/parser',
     env: {
         browser: true,
         es6: true,
@@ -11,9 +11,11 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
         'plugin:react/recommended',
         'plugin:import/errors',
         'plugin:import/warnings',
+        'plugin:import/typescript',
         'plugin:jsx-a11y/recommended',
         'plugin:cypress/recommended',
         'plugin:eslint-comments/recommended',
@@ -27,12 +29,28 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module',
     },
-    plugins: ['react', 'preact-i18n', 'import', 'babel', 'html', 'optimize-regex', 'json', 'jsx-a11y'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'preact-i18n',
+        'import',
+        'babel',
+        'html',
+        'optimize-regex',
+        'json',
+        'jsx-a11y',
+    ],
     rules: {
         'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
         'no-empty': ['error', { allowEmptyCatch: true }],
         // Re-enable the `no-console` rule which gets disabled by the Node env.
         'no-console': 'error',
+
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
+        '@typescript-eslint/no-empty-function': 'off',
+        // TODO: Re-enable this once we've completely migrated to TypeScript.
+        '@typescript-eslint/no-var-requires': 'off',
 
         'react/no-did-update-set-state': 'warn',
 

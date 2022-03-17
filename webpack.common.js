@@ -78,7 +78,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -125,6 +125,7 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
     ],
     resolve: {
         modules: ['src', 'node_modules', 'i18n', 'res/icons'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
             react: 'preact/compat',
             'react-dom': 'preact/compat',
