@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
 import FlashMessage, { flash } from './FlashMessage';
-import StarWidget from './StarWidget';
+import { StarWidget } from './StarWidget';
 import { rethrow, WarningException } from '../Utility/errors';
 import PropTypes from 'prop-types';
 
@@ -95,7 +95,7 @@ export default class CommentsWidget extends Component {
                                     {/* TODO: At the moment, the StarWidget can only render integer ratings. */}
                                     <StarWidget
                                         id={'stars-aggregate'}
-                                        initial={average_rating}
+                                        initial={parseInt(average_rating, 10)}
                                         // On the first render, we don't have any comments and thus the average rating
                                         // will be `NaN`. We force a rerender after the comments have been fetched by
                                         // setting a different `key.`
@@ -146,7 +146,7 @@ export class Comment extends Component {
                     <div className="star">
                         <StarWidget
                             id={'stars-' + this.props.id}
-                            initial={this.props.additional.rating}
+                            initial={parseInt(this.props.additional.rating, 10)}
                             readonly={true}
                         />
                     </div>
