@@ -24,7 +24,7 @@ describe('Using the wizard', () => {
         cy.get('#wizard-buttons > .button-primary').click();
 
         // Commerce
-        cy.addCompanyToWizard('amazon', 'Amazon Deutschland');
+        cy.addCompanyToWizard('amazon', 'Amazon Europe');
         cy.addCompanyToWizard('ebay', 'eBay GmbH');
         cy.addCompanyToWizard('h&m', 'H&M Hennes');
 
