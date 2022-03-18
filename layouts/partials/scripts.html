@@ -1,6 +1,6 @@
 {{ partialCached "supported-countries" . }}
 <script>
-    const LOCALE = {{ .Site.Language.Lang }};
+    window.LOCALE = {{ .Site.Language.Lang }};
     // (p)react needs to be notified on changes of `country`, so we use a getter and setter (added in `general.js`. Not exactly pretty but oh well. See: https://stackoverflow.com/a/37403125
     // I briefly considered abstracting this away for new properties in the future but decided against it. Doing something like this *should* hurt and require extra ugly code.
     var globals = {
