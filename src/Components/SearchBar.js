@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import * as Typesense from 'typesense';
+import { searchClient } from '../Utility/search';
 import { rethrow } from '../Utility/errors';
 import FeatureDisabledWidget from './FeatureDisabledWidget';
 import PropTypes from 'prop-types';
@@ -10,28 +10,18 @@ import PropTypes from 'prop-types';
 export let SearchBar;
 
 if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
-    let autocomplete = require('autocomplete.js');
+    const autocomplete = require('autocomplete.js');
 
     SearchBar = class SearchBar extends Component {
         constructor(props) {
             super(props);
-
-            this.client = new Typesense.Client({
-                masterNode: {
-                    host: 'search.datenanfragen.de',
-                    port: '443',
-                    protocol: 'https',
-                    apiKey: '',
-                },
-                timeoutSeconds: 2,
-            });
 
             this.algolia_autocomplete = null;
             this.input_element = null;
         }
 
         static countryFilter(country) {
-            let items = ['all', country];
+            const items = ['all', country];
 
             /* Our records often simply specify Germany for companies that are also relevant for Austria and/or Switzerland.
                Thus, we explicitly include results from Germany for these countries.
@@ -44,13 +34,12 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
         }
 
         componentDidMount() {
-            let options = {
+            const options = {
                 query_by: this.props.query_by || 'name, runs, web, slug, address, comments',
                 sort_by: '_text_match:desc,sort-index:asc',
                 num_typos: 4,
                 per_page: this.props.numberOfHits || 5,
             };
-            if (!this.props.disableCountryFiltering && !this.props.filters) this.props.filters = [];
 
             this.algolia_autocomplete = autocomplete(
                 this.input_element,
@@ -58,17 +47,15 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                 {
                     source: (query, callback) => {
                         options['q'] = query;
-                        if (this.props.filters) {
-                            options['filter_by'] = this.props.filters
-                                .concat(
-                                    this.props.disableCountryFiltering || globals.country === 'all'
-                                        ? []
-                                        : [SearchBar.countryFilter(globals.country)]
-                                )
-                                .join(' && ');
-                        }
+                        options['filter_by'] = (this.props.filters || [])
+                            .concat(
+                                this.props.disableCountryFiltering || globals.country === 'all'
+                                    ? []
+                                    : [SearchBar.countryFilter(globals.country)]
+                            )
+                            .join(' && ');
 
-                        this.client
+                        searchClient
                             .collections(this.props.index)
                             .documents()
                             .search(options)
@@ -76,20 +63,24 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                 callback(res.hits);
                             })
                             .catch((e) => {
+                                e.no_side_effects = true;
                                 rethrow(e);
                             });
                     },
                     templates: {
                         suggestion:
                             this.props.suggestion_template ||
-                            function (suggestion) {
-                                let d = suggestion.document;
+                            ((suggestion) => {
+                                const d = suggestion.document;
 
-                                let name_hs = suggestion.highlights.filter((a) => a.field === 'name');
-                                let runs_hs = suggestion.highlights.filter((a) => a.field === 'runs');
+                                const name_hs = suggestion.highlights.filter((a) => a.field === 'name');
+                                const runs_hs = suggestion.highlights.filter((a) => a.field === 'runs');
 
                                 return (
-                                    '<span><strong>' +
+                                    (this.props.anchorize
+                                        ? `<a class="no-link-decoration" href="${BASE_URL}company/${d.slug}">`
+                                        : '') +
+                                    '<div class="anchor-overlay" aria-hidden="true"></div><h4>' +
                                     (name_hs.length === 1 ? name_hs[0].snippet : d.name) +
                                     (d.quality === 'tested'
                                         ? '&nbsp;<span class="icon icon-check-badge color-green-800" title="' +
@@ -100,21 +91,22 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                                           t('quality-unverified', 'search') +
                                           '"></span>'
                                         : '') +
-                                    '</strong></span>' +
+                                    '</h4>' +
+                                    (this.props.anchorize ? '</a>' : '') +
                                     (d.runs?.length
-                                        ? '<br><span>' +
+                                        ? '<span>' +
                                           t('also-runs', 'search') +
                                           (runs_hs.length === 1 ? runs_hs[0].snippets : d.runs).join(', ') +
-                                          '</span>'
+                                          '</span><br>'
                                         : '') +
                                     (d.categories?.length
-                                        ? '<br><span>' +
+                                        ? '<span>' +
                                           t('categories', 'search') +
                                           d.categories.map((c) => t(c, 'categories')).join(', ') +
                                           '</span>'
                                         : '')
                                 );
-                            },
+                            }),
                         empty:
                             this.props.empty_template ||
                             function (query) {
@@ -135,7 +127,8 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
                     },
                 }
             );
-            this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
+            if (this.props.onAutocompleteSelected)
+                this.algolia_autocomplete.on('autocomplete:selected', this.props.onAutocompleteSelected);
             if (typeof this.props.setupPlaceholderChange === 'function')
                 this.props.setupPlaceholderChange(this.input_element);
         }
@@ -169,7 +162,9 @@ if (Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)) {
             query_by: PropTypes.string,
             numberOfHits: PropTypes.number,
             disableCountryFiltering: PropTypes.bool,
-            onAutocompleteSelected: PropTypes.func.isRequired,
+            // TODO: write a custom function to validate that either onAS or anchorize is set
+            onAutocompleteSelected: PropTypes.func,
+            anchorize: PropTypes.bool, // turn the suggestions into anchors linking to the respective company page
 
             suggestion_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
             empty_template: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

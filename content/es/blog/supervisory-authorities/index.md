@@ -29,7 +29,7 @@ Esto es mucho más fácil para ti que la alternativa de emprender acciones legal
 <a id="one-stop-shop"></a>
 ## El principio de ventanilla única y la competencia de las autoridades supervisoras
 
-Antes de la introducción del RPGD, existían algunas incertidumbres sobre qué autoridad supervisora ​​sería responsable en un caso particular. Este problema se resuelve con el RGPD.
+Antes de la introducción del RGPD, existían algunas incertidumbres sobre qué autoridad supervisora ​​sería responsable en un caso particular. Este problema se resuelve con el RGPD.
 
 En primer lugar, el art. 56 (1) GDPR establece el principio de "ventanilla única" que define que la autoridad supervisora ​​de protección de datos en la sede de una empresa es responsable de ellos.
 
@@ -50,11 +50,12 @@ En principio, existe al menos una autoridad supervisora ​​de protección de 
 Para facilitarte la búsqueda de la autoridad de control responsable de ti, hemos diseñado el buscador de autoridades de control. Todo lo que necesitas hacer es responder algunas preguntas sobre dónde vives y, si corresponde, la naturaleza de tu consulta y luego te sugeriremos la autoridad con la que debes comunicarte.
 Como la mayoría de las funciones en solicituddedatos.es, todo el procesamiento ocurre *solo* en tu propia computadora, por lo que tus respuestas nunca nos llegarán.
 <div class="sva-finder"></div>
+{{< noScript "noscript-sva" >}}
 
-Si prefieres hacer la investigación tu mismo, consulta nuestra [lista de autoridades de protección de datos]({{< ref "/supervisory-authority" >}}). La [Junta Europea de Protección de Datos](https://edpb.europa.eu/about-edpb/board/members_es) también tiene una lista pero ten en cuenta que esta solo incluye a las autoridades a nivel nacional.
+Si prefieres hacer la investigación tu mismo, consulta nuestra {{< link slug="/supervisory-authority" text="lista de autoridades de protección de datos" >}}. La [Junta Europea de Protección de Datos](https://edpb.europa.eu/about-edpb/board/members_es) también tiene una lista pero ten en cuenta que esta solo incluye a las autoridades a nivel nacional.
 
 ## Quejas por solicitudes realizadas a través de solicituddedatos.es
 
 Si has realizado una solicitud a una empresa a través de solicituddedatos.es y no has recibido ninguna respuesta o has recibido una respuesta insatisfactoria, podemos facilitarle aún más con la presentación de una queja ante la autoridad supervisora.
 
-En la [función "Mis solicitudes"]({{< ref "/my-requests" >}}), puedes ver una descripción general de todas tus solicitudes, siempre que no lo hayas desactivado. Junto a cada solicitud, hay botones que puedes utilizar para enviar recordatorios y quejas sobre esta solicitud a través de nuestro generador.
+En la {{< link slug="/my-requests" text="función \"Mis solicitudes\"" >}}, puedes ver una descripción general de todas tus solicitudes, siempre que no lo hayas desactivado. Junto a cada solicitud, hay botones que puedes utilizar para enviar recordatorios y quejas sobre esta solicitud a través de nuestro generador.

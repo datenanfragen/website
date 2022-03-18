@@ -65,6 +65,10 @@ a.button-secondary {
 }
 .button-small {
     padding: 5px 8px;
+
+    &.icon:before {
+        margin-right: 8px;
+    }
 }
 
 canvas {
@@ -92,8 +96,8 @@ canvas {
 // mean, good on you for adhering to the spec. But still. Come on.
 // Anyway, that is why we are URL-encoding the `#` here (inspired by: https://codepen.io/kevinweber/pen/dXWoRw).
 $required-asterisk-svg: str-replace(
-    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='9px' width='15px'><text x='0' y='16' fill='" +
-        $accent-color + "' font-size='20' font-family='FiraGO'>*</text></svg>",
+    'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="9.5" width="10"><path d="M10 4.45l-.7-2.07-3.56 1.57L6.12 0H3.86l.38 3.93L.68 2.4 0 4.45l3.81.83L1.23 8.2l1.8 1.3L5 6.15 6.97 9.5l1.8-1.32-2.6-2.9z" fill="' +
+        $accent_color + '"/></svg>',
     '#',
     '%23'
 );
@@ -114,15 +118,11 @@ $required-asterisk-svg: str-replace(
     }
 
     &:required {
-        background: $bg-color url($required-asterisk-svg) no-repeat right;
+        background: $bg-color url($required-asterisk-svg) no-repeat;
+        background-position: top 8px right 5px;
         padding-right: 20px;
         box-shadow: none !important;
     }
-}
-textarea:required {
-    background: $bg-color url($required-asterisk-svg) no-repeat;
-    background-position: top 12px right 0;
-    box-shadow: none !important;
 }
 textarea.form-element {
     max-width: 100%;
@@ -202,6 +202,23 @@ input:disabled {
 
 .box-compact {
     padding: 10px;
+}
+
+.star {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 5px;
+    @include mobile {
+        left: 10px;
+        top: inherit !important;
+        margin-top: 0 !important;
+    }
+    & + p {
+        @include mobile {
+            margin-top: 40px;
+        }
+    }
 }
 
 .select-container {
@@ -328,6 +345,7 @@ input[type='search'].aa-input-search {
     box-sizing: border-box;
 }
 .aa-suggestion {
+    position: relative;
     padding: 12px;
     cursor: pointer;
     & + .aa-suggestion {
@@ -341,11 +359,43 @@ input[type='search'].aa-input-search {
     &.aa-cursor {
         background-color: color('blue', 100);
     }
+    &.aa-cursor mark {
+        background-color: color('gray', 400);
+    }
 
     & mark {
-        background: inherit;
+        background-color: color('blue', 100);
         color: inherit;
-        font-style: italic;
+    }
+
+    h4 {
+        margin: 0;
+
+        .icon {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    a {
+        margin: -12px;
+        padding: 12px;
+        width: 100%;
+        height: 100%;
+        color: $text-color;
+        display: inline-block;
+
+        .anchor-overlay {
+            position: absolute;
+            margin: auto;
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
     }
 }
 
@@ -361,7 +411,7 @@ input[type='search'].aa-input-search {
     background: rgba(0, 0, 0, 0.5);
     z-index: 998;
 
-    @extend .fade-in;
+    @extend %fade-in;
 }
 
 .modal {
@@ -526,6 +576,15 @@ input[type='search'].aa-input-search {
         }
     }
 
+    &:hover.disabled,
+    &:focus.disabled,
+    &:focus-within.disabled {
+        .dropdown,
+        .dropup {
+            display: none;
+        }
+    }
+
     .dropdown,
     .dropup {
         background-color: $bg-color;
@@ -553,13 +612,15 @@ input[type='search'].aa-input-search {
 }
 
 .flash-message {
+    /* stylelint-disable scss/at-extend-no-missing-placeholder */
     @extend .box;
+    /* stylelint-enable scss/at-extend-no-missing-placeholder */
     background-color: $bg-color;
     position: relative;
     margin-bottom: 10px;
     padding-right: 45px;
 
-    @extend .fade-in;
+    @extend %fade-in;
 
     button.close-button {
         color: $primary-color;
@@ -700,4 +761,35 @@ fieldset.rating {
     position: relative;
     top: 2px;
     left: 2px;
+}
+
+/* Footnotes, adapted after: https://news.ycombinator.com/item?id=24747376 */
+details.footnote {
+    display: inline;
+    @include desktop {
+        position: relative;
+    }
+
+    & > summary {
+        list-style: none; /* hide details arrow */
+        color: #00826c;
+        cursor: pointer;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    & > .footnote-content {
+        position: absolute;
+        background: color('white');
+        border: 1px solid color('gray', 400);
+        padding: 1rem;
+        min-width: 15rem;
+        max-width: 20rem;
+        @include mobile {
+            transform: translateX(-50%);
+            left: 50%;
+        }
+    }
 }

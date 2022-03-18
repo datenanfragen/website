@@ -4,10 +4,11 @@
 	"aliases": ["mitmachen"]
 }
 
-Datenanfragen.de ist ein Projekt, das von einem gemeinnützigen Verein betrieben und von Freiwilligen umgesetzt wird. Das bedeutet: Wir sind auf die Hilfe von Menschen wir Dir angewiesen.
+Datenanfragen.de ist ein Projekt, das von einem gemeinnützigen Verein betrieben und von Freiwilligen umgesetzt wird. Das bedeutet: Wir sind auf die Hilfe von Menschen wir Dir angewiesen. Vielen Dank, dass Du Dich über die Möglichkeiten zum Mitmachen informierst!
 
 Es gibt bei uns viele unterschiedliche Themenbereiche und Aufgaben, die erledigt werden möchten, darunter auch etliche für Menschen die noch nicht so viel Erfahrung mit dem Datenschutz haben. Auf dieser Seite findest Du eine Auflistung der wichtigsten davon. Wenn Du etwas findest, zu dem Du beitragen könntest, würden wir uns sehr über Deine Mitarbeit freuen.  
-Vielen Dank, dass Du Dich über die Möglichkeiten zum Mitmachen informierst!
+
+Trete auch gerne unserem [Matrix-Space](https://matrix.to/#/#datenanfragen:matrix.altpeter.me) bei. Dort kannst Du Dich mit uns und der Community unterhalten, Fragen stellen und Ideen vorschlagen.
 
 <article id="cdb" class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/company.svg" alt="Wartung der Unternehmensdatenbank"></div>
@@ -41,7 +42,7 @@ Vielen Dank, dass Du Dich über die Möglichkeiten zum Mitmachen informierst!
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/edit.svg" alt="Schreiben von Beiträgen"></div>
     <div class="padded col75">
         <h1>Schreiben von Beiträgen</h1>
-        <p>Neben dem Generator und der Unternehmensdatenbank stellen wir auch <a href="/">Artikel</a> zu allen Themen rund um den Datenschutz zur Verfügung. Die Bandbreite reicht von Erklärungen zu den DSGVO-Rechten und deren Ausübung über Kommentare zu aktuellen Geschehnissen in Sachen Datenschutz bis hin zu Anleitungen, wie man die Downloadtools, die einige Webseiten mittlerweile anbieten, nutzt.</p>
+        <p>Neben dem Generator und der Unternehmensdatenbank stellen wir auch <a href="/blog">Artikel</a> zu allen Themen rund um den Datenschutz zur Verfügung. Die Bandbreite reicht von Erklärungen zu den DSGVO-Rechten und deren Ausübung über Kommentare zu aktuellen Geschehnissen in Sachen Datenschutz bis hin zu Anleitungen, wie man die Downloadtools, die einige Webseiten mittlerweile anbieten, nutzt.</p>
         <p>Du hast ein Thema, das für unsere Nutzer_innen interessant sein könnte? Dann würden wir uns sehr über Deinen Artikel freuen!
         <br>Darüber hinaus sind wir natürlich auch immer an Übersetzungen von vorhandenen Artikeln interessiert.</p>
     </div>
@@ -86,4 +87,4 @@ Vielen Dank, dass Du Dich über die Möglichkeiten zum Mitmachen informierst!
     <a class="button button-primary read-more-button" href="https://www.datenanfragen.de/spenden">Jetzt spenden&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
-Du hast noch eine andere Idee, wie Du helfen kannst? Wir freuen uns über Deine [E-Mail](mailto:kontakt@datenanfragen.de)!
+Du hast noch eine andere Idee, wie Du helfen kannst? Wir freuen uns über Deine Nachricht per [Matrix](https://matrix.to/#/#datenanfragen:matrix.altpeter.me) oder [E-Mail](mailto:kontakt@datenanfragen.de)!

@@ -11,7 +11,7 @@
 
 **The free browser extension "Honey" wants to save their users money by automatically finding and applying coupon codes. They describe themselves as advocates for data protection and allegedly only collect history data on online shopping websites. Two of our members who have used Honey in the past, have asked for access to the data saved on them using the GDPR. Our analysis of the responses shows that Honey collects history data on a large scale, contrary to what their own privacy policy says. Thus, we have submitted complaints with the data protection authorities.**
 
-{{< img name="honey-watches-you-while-browsing" alt="Photo of multiple beekeepers who watch their bees, above that the text: “Coupon code extension Honey also collects browser history data”" >}}
+{{< featuredImg alt="Photo of multiple beekeepers who watch their bees, above that the text: “Coupon code extension Honey also collects browser history data”" >}}
 
 "Stop wasting money – Honey helps you find some of the best coupon codes on 30,000+ sites." That's how Honey describe themselves on their homepage. The free browser extension is heavily advertised on YouTube and other websites. The idea behind it is nothing new. There have been websites that collect coupon codes for various online shops for a long time.
 
@@ -19,13 +19,13 @@ But Honey goes one step further and wants to make this process easier for their 
 
 Honey then earn money through so-called "affiliate marketing". The participating shops pay a commission to Honey for the coupons used.
 
-So far, so good. But as a non-profit promoting data protection, we are mostly interested in one thing: How does Honey process their users' data? As a browser extension, Honey could in theory record all internet traffic and thus log the entire browser history. This is especially problematic as Honey is run by a US company, [Honey Science LLC]({{< ref "company/joinhoney" >}}), that was recently [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
+So far, so good. But as a non-profit promoting data protection, we are mostly interested in one thing: How does Honey process their users' data? As a browser extension, Honey could in theory record all internet traffic and thus log the entire browser history. This is especially problematic as Honey is run by a US company, {{< link slug="company/joinhoney" text="Honey Science LLC" >}}, that was recently [bought by PayPal](https://help.joinhoney.com/article/302-what-does-honey-joining-paypal-mean-for-members).
 
 ## What data is actually collected?
 
-To find out what data Honey collects, we could first take a look at their privacy policy (and, of course, [we did](#honey-privacy-policy)). But these unfortunately tend to be pretty general. They don't really give users an idea on what data is actually collected on them. Luckily, the GDPR can help here. It grants users [extensive rights with regards to their data]({{< ref "blog/your-gdpr-rights" >}}). One of those is the so-called *right to data access*, which is defined in Art. 15 GDPR, and allows all consumers to demand a copy of the data companies have saved on them. This makes it possible to verify a company's statements.
+To find out what data Honey collects, we could first take a look at their privacy policy (and, of course, [we did](#honey-privacy-policy)). But these unfortunately tend to be pretty general. They don't really give users an idea on what data is actually collected on them. Luckily, the GDPR can help here. It grants users {{< link slug="blog/your-gdpr-rights" text="extensive rights with regards to their data" >}}. One of those is the so-called *right to data access*, which is defined in Art. 15 GDPR, and allows all consumers to demand a copy of the data companies have saved on them. This makes it possible to verify a company's statements.
 
-Two of our members, Benni and Malte, have made use of this right. They had both used the Honey extension in the past for a while. Benni had created an account and used that to log into the extension, while Malte has used the extension without an account. Both used our [generator]({{< ref "generator" >}}) to send an access request to Honey.
+Two of our members, Benni and Malte, have made use of this right. They had both used the Honey extension in the past for a while. Benni had created an account and used that to log into the extension, while Malte has used the extension without an account. Both used our {{< link slug="generator" text="generator" >}} to send an access request to Honey.
 
 We have then analysed the responses they received.
 
@@ -230,12 +230,12 @@ Here, we finally find out that page views on shopping sites are tracked. But the
 
 ## Our complaints
 
-We are convinced that this data collection by Honey goes way too far. According to the GPDR, every processing of personal data needs to be based on one of six possible legal bases (see Art. 6(1) GDPR). The data subject needs to be informed of the legal basis that is used at the time of the processing (see Art. 13(1)(c) and (d) GDPR). As Honey hasn't done that, Benni explicitly asked them. That's what they replied:
+We are convinced that this data collection by Honey goes way too far. According to the GDPR, every processing of personal data needs to be based on one of six possible legal bases (see Art. 6(1) GDPR). The data subject needs to be informed of the legal basis that is used at the time of the processing (see Art. 13(1)(c) and (d) GDPR). As Honey hasn't done that, Benni explicitly asked them. That's what they replied:
 
 > "The Honey extension collect pin boards data [sic] to determine which coupons or advertisements should be offered. Simply put, we need to know on which retail website you are to offer you an applicable deal. That's how Honey works. We believe that this represents a legitimate interest for this particular form of processing. Please also note that you have give your consent to the processing when you download and install Honey in your browser."  
 > –<cite>Honey in an email to Benni</cite> (translated from the German original)
 
-From that, we conclude that Honey wants to base the processing on Art. 6(1)(a) or (f) GDPR. They claim a legitimate interest in the processing of this data that outweights the interests and fundamental rights of the data subjects. Further, the claim that the users have given their consent to the processing when installing the add-on. We believe that neither of those provide a sufficient legal basis for the processing that Honey undertakes.
+From that, we conclude that Honey wants to base the processing on Art. 6(1)(a) or (f) GDPR. They claim a legitimate interest in the processing of this data that outweighs the interests and fundamental rights of the data subjects. Further, the claim that the users have given their consent to the processing when installing the add-on. We believe that neither of those provide a sufficient legal basis for the processing that Honey undertakes.
 
 Assuming that a correct consent has even been given[^noconsent], it only applies to the purposes given in the privacy policy. And as we have already discussed, the actual extent of the data collection is definitely not properly explained there.  
 Similarly, a legitimate interest can also at most be given insofar as the processing of the data is actually necessary to run the extension. It is understandable that Honey needs to know the website a user is on to find applicable coupon code. But as we have shown, they collect a lot more data that has nothing to do with this purpose.
@@ -257,9 +257,9 @@ Our complaints have yet to be processed.
 
 The right to data access that we have talked about in this post also applies to you. If you have also used Honey and want to know what data they have collected on you, you can send a request yourself. And we definitely recommend doing that: There is quite a difference in hearing which data someone collects and actually seeing the data they have on you.
 
-We at datarequests.org have made it our mission to make help you exercise your right to privacy. And of course, we also want to help you with your request to Honey. That's why we have put of a [separate page]({{< ref "act/honey" >}}) that explains in detail which identification details you need for your request and how to obtain them. Afterwards, all you need to do is send the request by email—we have already written the necessary letter for you.
+We at datarequests.org have made it our mission to make help you exercise your right to privacy. And of course, we also want to help you with your request to Honey. That's why we have put of a {{< link slug="act/honey" text="separate page" >}} that explains in detail which identification details you need for your request and how to obtain them. Afterwards, all you need to do is send the request by email—we have already written the necessary letter for you.
 
 <a href="{{< ref "act/honey" >}}" class="button button-primary icon icon-email" style="float: right;">Request your data from Honey</a><div class="clearfix"></div>
 
-And should you decide that you are not okay with Honey's vast data collection, you can make use of your [*right to be forgotten*]({{< ref "your-gdpr-rights" >}}#right-to-be-forgotten) and demand the deletion of your data. You can use our [generator]({{<ref "generator#!company=joinhoney">}}) for that.  
-Finally, you also have the right to submit a complain yourself. We explain how that works in our [post on the supervisory authorities]({{< ref "supervisory-authorities" >}}).
+And should you decide that you are not okay with Honey's vast data collection, you can make use of your {{< link slug="your-gdpr-rights#right-to-be-forgotten" text="*right to be forgotten*" >}} and demand the deletion of your data. You can use our {{< link slug="generator#!company=joinhoney" text="generator" >}} for that.  
+Finally, you also have the right to submit a complain yourself. We explain how that works in our {{< link slug="supervisory-authorities" text="post on the supervisory authorities" >}}.

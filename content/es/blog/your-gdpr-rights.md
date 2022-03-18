@@ -10,7 +10,7 @@
 
 En nuestro mundo cada vez más digital, la protección de datos juega un papel cada día más importante. Con el nuevo **Reglamento General de Protección de Datos** (**RGPD**), la Unión Europea refuerza significativamente sus derechos con respecto al manejo cuidadoso de tus datos personales.
 
-En este artículo, queremos brindarte una descripción detallada de los derechos que tienes gracias al RGPD. Si lo que buscas es un breve resumen, echa un vistazo a [este artículo]({{< ref "/blog/a-quick-overview" >}}).
+En este artículo, queremos brindarte una descripción detallada de los derechos que tienes gracias al RGPD. Si lo que buscas es un breve resumen, echa un vistazo a {{< link slug="/blog/a-quick-overview" text="este artículo" >}}.
 
 ## ¿Qué es el RGPD?
 
@@ -88,6 +88,6 @@ Arte. 19 RGPD también se aplica a las solicitudes relativas a la eliminación d
 
 ## ¿Cómo ejerzo estos derechos?
 
-En general, puedes hacer valer todos los derechos anteriores hacia una empresa mediante una solicitud informal. También puedes usar [nuestro generador]({{< ref "/generator" >}}) para generar solicitudes de forma automática y al mismo tiempo hacer uso de nuestra extensa base de datos de empresas.
+En general, puedes hacer valer todos los derechos anteriores hacia una empresa mediante una solicitud informal. También puedes usar {{< link slug="/generator" text="nuestro generador" >}} para generar solicitudes de forma automática y al mismo tiempo hacer uso de nuestra extensa base de datos de empresas.
 
 <!-- TODO: Write and link article. -->

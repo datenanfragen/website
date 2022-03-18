@@ -2,7 +2,7 @@
     "title": "Sample letter for requests for access to personal data as per Art. 15 GDPR",
     "slug": "sample-letter-gdpr-access-request",
     "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2020-05-31T01:20:33",
+    "last_edited": "2021-07-04T14:52:52+02:00",
     "type": "blog",
     "description": "According to the GDPR, you have a right to access the personal data stored on you by companies. We offer you a sample letter that allows you to assert such claims.",
     "featured_image": "gdpr-access-request-letter",
@@ -15,7 +15,7 @@ According to the GDPR, you have a right to access the personal data stored and p
 
 First of all, this includes a confirmation as to whether your personal data is being processed. If so, you can request a copy of said data. But not only that: In addition, you also have the right to further details, such as the purposes of the processing, the recipients to whom the data is passed on and the duration of the storage.
 
-If you want to learn more, have a look at our [article about your rights under the GDPR]({{< ref "/blog/your-gdpr-rights" >}}).
+If you want to learn more, have a look at our {{< link slug="/blog/your-gdpr-rights" text="article about your rights under the GDPR" >}}.
 
 ## How do I exercise this right?
 
@@ -34,21 +34,17 @@ Here is our sample letter for requests for access according to Art. 15 GDPR. The
 
 <p>I am hereby requesting access according to Article 15 GDPR. Please confirm whether or not you are processing personal data (as defined by Article 4(1) and (2) GDPR) concerning me.</p>
 
-<p>In case you are, I am hereby requesting access to the following information pursuant to Article 15 GDPR:</p>
-
-<ol>
-<li><em>all</em> personal data concerning me that you have stored, including any potential pseudonymised data on me as per Article 4(5) GDPR;</li>
-<li>the purposes of the processing;</li>
-<li>the categories of personal data concerned;</li>
-<li>the recipients or categories of recipient to whom the personal data have been or will be disclosed;</li>
-<li>where possible, the envisaged period for which the personal data will be stored, or, if not possible, the criteria used to determine that period;</li>
-<li>where the personal data are not collected from the data subject, any available information as to their source;</li>
-<li>the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) GDPR and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for me.</li>
-</ol>
+<p>In case you are, please, in accordance with Art. 15(3) GDPR, provide me with a copy of all personal data concerning me that you are processing, including any potential pseudonymised data on me as per Article 4(5) GDPR. I am further requesting access to the following information pursuant to Article 15(1) GDPR:<br>
+1. the purposes of the processing;<br>
+2. the categories of personal data concerned;<br>
+3. the recipients or categories of recipient to whom the personal data have been or will be disclosed;<br>
+4. where possible, the envisaged period for which the personal data will be stored, or, if not possible, the criteria used to determine that period;<br>
+5. where the personal data are not collected from the data subject, any available information as to their source;<br>
+6. the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) GDPR and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for me.</p>
 
 <p>In case you are processing anonymised data concerning me, please not only inform me about that but also explain the procedure used in an easily understandable way.</p>
 
-<p>If you are transferring my personal data to a third country or an international organisation, I request to be informed about the appropriate safeguards according to Article 46 GDPR concerning the transfer.
+<p>If you are transferring my personal data to a third country or an international organisation, I request to be informed about the appropriate safeguards according to Article 46 GDPR concerning the transfer.</p>
 
 <p>[Please make the personal data concerning me, which I have provided to you, available to me in a structured, commonly used and machine-readable format as laid down in Article 20(1) GDPR.]</p>
 
@@ -63,8 +59,9 @@ Here is our sample letter for requests for access according to Art. 15 GDPR. The
 
 <p>Thank you in advance.</p>
 
-<p>Yours sincerely,<br>
-<span class="blog-letter-fill-in">Your name</span></p>
+<p>Yours sincerely,</p>
+
+<p><span class="blog-letter-fill-in">Enter your name here.</span></p>
 </div>
 
 To make your life easier, you can also download the letter and use it directly with the word processor of your choice. You can choose between the following templates:<!-- TODO: Host these ourselves and give them some nice buttons. -->
@@ -80,11 +77,11 @@ You are free to use these templates as you like. We make them available to you u
 
 You send the letter directly to the controller. If they have a data protection officer, we recommend that you always address the letter directly to this person. Data protection officers are not only specially trained, but are also required to treat your request confidentially.
 
-You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a [company database](/company) which already contains the appropriate contact data for privacy-related requests for many companies.
+You can often find the contact details of companies and other organisations on their websites in the privacy policy or in the legal notice. We want to help you with this, too. We maintain a {{< link slug="/company" text="company database" >}} which already contains the appropriate contact data for privacy-related requests for many companies.
 
 ## Isn't there an easier way?
 
-The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a [generator](/generator), with which you can create requests like this automatically. We invite you to give it a try.
+The idea behind Datenanfragen.de is to make it as easy as possible for you to exercise your rights regarding data protection. Therefore we have developed a {{< link slug="/generator" text="Generator" >}}, with which you can create requests like this automatically. We invite you to give it a try.
 
 ---
 
@@ -92,4 +89,5 @@ The idea behind Datenanfragen.de is to make it as easy as possible for you to ex
 
 We have made the following changes to this sample letter since the initial publication:
 
-* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-21e880eae2f2c4209d64e2fe3bf93b7f): Explain that 'personal data' includes pseudonymised data and explicitly request that as well. Mention anonymised data and request to be informed about it. Also request an easily understandable explanation of the procedure used. More consistent style between [all templates]({{< ref "sample-letters" >}}). (Thanks, Andreas!)
+* [April 18, 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-21e880eae2f2c4209d64e2fe3bf93b7f): Explain that 'personal data' includes pseudonymised data and explicitly request that as well. Mention anonymised data and request to be informed about it. Also request an easily understandable explanation of the procedure used. More consistent style between {{< link slug="sample-letters" text="all templates" >}}. (Thanks, Andreas!)
+* [July 04, 2021](https://github.com/datenanfragen/data/pull/1167/commits/9195228ca2838b1c7fcc688b2dfb4d5439452913#diff-036e3f066a7d5a0f8ff24b2cb2b5fdaaa7b3a692c84533fb32c1f95e7c46bf0d): Explicitly state that the request also asks for a copy according to Art. 15(3) GDPR.

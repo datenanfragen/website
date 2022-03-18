@@ -3,14 +3,27 @@ version: 2.1
 executors:
   docker_hugo_node:
     docker:
-      - image: node:13.14-alpine
+      - image: node:14.17.0-alpine
 
 jobs:
+  # Circle's "Auto-cancel redundant builds" feature doesn't work on the default branch. When merging PRs on data, this
+  # can cause lots of unnecessary builds. Thus, we emulate this feature here for master.
+  cancel_redundant_builds:
+    executor: docker_hugo_node
+    steps:
+      - checkout
+      - run:
+          command: |
+            apk update
+            apk add curl jq bash
+            chmod +x .circleci/cancel-redundant-builds.sh
+            sh .circleci/cancel-redundant-builds.sh
+
   build:
     executor: docker_hugo_node
     environment:
-        - HUGO_VERSION: '0.74.3'
-        - HUGO_BINARY: hugo_extended_0.74.3_linux-64bit
+        - HUGO_VERSION: '0.88.1'
+        - HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
     steps:
       - run:
           command: |
@@ -42,10 +55,10 @@ jobs:
 
   test:
       docker:
-        - image: cypress/base:13.8.0
+        - image: cypress/base:14.17.0
       environment:
-        - HUGO_VERSION: '0.74.3'
-        - HUGO_BINARY: hugo_extended_0.74.3_linux-64bit
+        - HUGO_VERSION: '0.88.1'
+        - HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
       steps:
         - run:
             command: |
@@ -62,8 +75,11 @@ jobs:
             command: |
               yarn
               yarn lint
+              yarn add wait-on
               yarn cypress verify
               hugo server --baseURL "http://localhost" --disableFastRender --minify > /dev/null &
+              # Wait for server to deploy before continuing (with 1 minute timeout)
+              yarn wait-on tcp:1314 -t 60000
               # Only record the Cypress tests and submit to Percy if the Cypress env var is set, see:
               # https://stackoverflow.com/a/13864829
               if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn percy exec yarn cypress run --record; fi
@@ -80,9 +96,10 @@ jobs:
 
   production_test:
       docker:
-        - image: cypress/base:13.8.0
+        - image: cypress/base:14.17.0
       environment:
         - CYPRESS_baseUrl: 'https://www.datarequests.org'
+        - CYPRESS_baseUrl_DE: 'https://www.datenanfragen.de'
         - CYPRESS_ENVIRONMENT: production
       steps:
         - checkout
@@ -91,12 +108,19 @@ jobs:
             command: |
               yarn
               yarn cypress verify
-              yarn cypress run
+              if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn cypress run --record; fi
 
 workflows:
   version: 2
   build_test_deploy:
     jobs:
+      - cancel_redundant_builds:
+          # On the other branches, we are using Circle's "Auto-cancel redundant builds" feature, which doesn't require
+          # an access token and is probably a lot more robust.
+          filters:
+              branches:
+                only:
+                  - master
       - build
       - test:
           requires:

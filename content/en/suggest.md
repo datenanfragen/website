@@ -12,7 +12,7 @@ If you want to get into the details of how we collect the data for our company d
 Considering these tips when suggesting companies helps us a lot, but is <strong>completely optional</strong>. Whether you follow none of these tips, one, some, or all: We are happy about every suggestion!
 
 - The first and best starting point for obtaining information about a company is the privacy policy. It also makes for a great `source`.
-- We really don't want any personal data in our database. This includes names in emails, e.g. <code>john.doe@example.org</code>.
+- We only allow personal data in our database if it's absolutely necessary. That means, we only accept e.g. <code>jane.doe@example.org</code> as the email if no generic privacy-related email like <code>privacy@example.org</code> exists.
 - We prefer the contact details of a data protection officer over the regular contact details of a company.
     - c/o External Data Protection Officer Ltd.  
       Example road 1  
@@ -24,7 +24,7 @@ Considering these tips when suggesting companies helps us a lot, but is <strong>
 
 </details>
 
-If you have any suggestions that cannot be handled through this form or that you don't want to submit through this form for whatever reasons, feel free to contact us through [our GitHub issue tracker](https://github.com/datenanfragen/data/issues) or via [email](mailto:data@datarequests.org).
+If you have any suggestions that cannot be handled through this form or that you don't want to submit through this form for whatever reasons, feel free to contact us through [our GitHub issue tracker](https://github.com/datenanfragen/data/issues), via [Matrix](https://matrix.to/#/#dade-company:matrix.altpeter.me), or via [email](mailto:data@datarequests.org).
 
 <div class="box box-warning">After you submit the form, the data you entered below will be publicly visible in our <a href="https://github.com/datenanfragen/data/issues">issue tracker</a>. So, please <strong>do not</strong> enter any personal data here.<br>For more information, please refer to our <a href="/privacy/#user-content-in-our-company-database">privacy policy</a>.</div>
 

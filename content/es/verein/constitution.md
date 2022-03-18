@@ -5,21 +5,21 @@
     "type": "page"
 }
 
-Nuestra constitución establece el marco legal para Datenanfragen.de e.&nbsp;V. Entre otras cosas, explica nuestro propósito y cómo queremos lograrlo, establece las reglas relativas a la membresía en nuestra organización sin fines de lucro y define el proceso de toma de decisiones.
+<div class="box box-info" style="margin-bottom: 20px;">
+Nuestra constitución establece el marco legal para Datenanfragen.de e.&nbsp;V., la entidad legal que administra este sitio web. Entre otras cosas, explica nuestro propósito y cómo queremos lograrlo, establece las reglas relativas a la membresía en nuestra organización sin fines de lucro y define el proceso de toma de decisiones. También garantiza que las actividades de nuestra organización sin fines de lucro se mantengan centradas en la privacidad, transparentes y gratuitas. Solo la asamblea general está autorizada a realizar cambios en la constitución.
  
-<p class="box box-info" style="margin-bottom: 20px;">
-Dado que estamos ubicados en Alemania, solo la <a href="https://www.datenanfragen.de/verein/satzung">version alemana</a> de nuestra constitución es legalmente vinculante. Esta traducción solo se ofrece por conveniencia. <br>
-</p>
+Dado que estamos ubicados en Alemania, solo la <a href="{{< ref path="constitution.md" lang="de" >}}">version alemana</a> de nuestra constitución es legalmente vinculante. Esta traducción solo se ofrece por conveniencia. <br>
+</div>
 
 ## 1. Nombre, sede social y ejercicio económico
 
-**1.1** La asociación debe llevar el nombre “Datenanfragen.de e.&nbsp;V.”.
+**1.1** La asociación llevará el nombre “Datenanfragen.de e.&nbsp;V.”.
 
 **1.2** La sede registrada de la asociación se encuentra en Braunschweig, Alemania. Se estableció el 14 de junio de 2018.
 
 **1.3** El ejercicio financiero corresponde al año natural.
 
-**1.4** La asociación persigue exclusiva y directamente fines de beneficio público según la sección "fines fiscales privilegiados" de la AO (código fiscal alemán).
+**1.4** La asociación ejerce exclusiva y directamente fines de beneficio público según la sección "fines fiscales privilegiados" del AO (código fiscal alemán).
 
 ## 2. Propósito
 
@@ -46,9 +46,9 @@ e) ejecutar y desarrollar las plataformas en línea abiertas, gratuitas y de acc
 
 ## 3. Adquisición de membresía
 
-**3.1** Cualquier persona física o jurídica que apoye los propósitos de la asociación y tenga la intención de apoyarlos activamente puede convertirse en miembro activo.
+**3.1** Cualquier persona natural o jurídica que apoye los propósitos de la asociación y tenga la intención de apoyarlos activamente puede convertirse en miembro activo.
 
-**3.2** Cualquier persona física o jurídica que apoye los propósitos de la asociación y tenga la intención de contribuir financiera o materialmente a ella puede convertirse en miembro de apoyo. Los miembros de apoyo deben ser informados sobre las actividades de la asociación con regularidad.
+**3.2** Cualquier persona natural o jurídica que apoye los propósitos de la asociación y tenga la intención de contribuir financiera o materialmente a ella puede convertirse en miembro de apoyo. Los miembros de apoyo deben ser informados sobre las actividades de la asociación con regularidad.
 
 **3.3** Se requiere una solicitud por escrito para convertirse en miembro. En ambos casos, la junta toma la decisión final sobre la solicitud de membresía.
 
@@ -123,7 +123,7 @@ b) establecer el monto y los términos de las cuotas de membresía,
 c) elegir y destituir a los miembros del consejo, y  
 d) decidir sobre posibles enmiendas a la constitución, así como una posible disolución de la asociación.
 
-## 11. Summoning of the general assembly
+## 11. Convocación de la asamblea general
 
 **11.1** La asamblea general ordinaria se celebrará al menos una vez al año. Es convocado por la junta mediante invitación escrita indicando el orden del día y con un plazo de preaviso de dos semanas. El plazo comienza el día hábil siguiente al envío de la invitación. La invitación se envía por escrito por correo postal o por vía electrónica. Se considera que la invitación se ha entregado al miembro si está dirigida al último contacto del que el miembro ha informado a la asociación por escrito. La agenda la fija la junta.
 
@@ -167,7 +167,7 @@ a) Asuntos Generales: `B64A 852D F7DF 855C A058  0A00 FC74 1754 62A7 EC35`
 b) Asuntos de la junta: `2E72 EA5B DDE3 1730 58D7  F87D A0C1 C012 3E2B 296B`  
 c) Asuntos de privacidad: `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`
 
-**17.2** La placa debe poner a disposición las claves públicas mencionadas en la sección 17.1 por los medios habituales (por ejemplo, a través de servidores de llaves públicas).
+**17.2** La junta debe poner a disposición las claves públicas mencionadas en la sección 17.1 por los medios habituales (por ejemplo, a través de servidores de llaves públicas).
 
 ## 18. Disposición fundacional
 

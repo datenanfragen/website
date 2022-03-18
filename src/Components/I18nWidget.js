@@ -28,13 +28,19 @@ export default class I18nWidget extends Component {
             I18nWidget.alreadyShowingModal = false;
             event.target.value = LOCALE;
         };
+        const selected_lang = event.target.value || LOCALE;
+
         modal = render(
-            <IntlProvider scope="i18n-widget" definition={I18N_DEFINITION}>
+            <IntlProvider scope={selected_lang} definition={I18N_DEFINITION_REQUESTS}>
                 <Modal
-                    positiveText={<Text id="change-lang" />}
-                    onPositiveFeedback={() => {
-                        window.location = SUPPORTED_LANGUAGES[event.target.value];
-                    }}
+                    positiveButton={
+                        <a
+                            className="button button-primary"
+                            href={SUPPORTED_LANGUAGES[event.target.value]}
+                            style={'float: right'}>
+                            <Text id="change-lang" />
+                        </a>
+                    }
                     positiveDefault={true}
                     negativeText={<Text id="stay" />}
                     onNegativeFeedback={dismiss}>
@@ -85,19 +91,23 @@ export default class I18nWidget extends Component {
                             <div className="icon icon-arrow-down" />
                         </div>
                     </div>
-                    <div className="i18n-widget-country">
-                        <h2>
-                            <Text id="country" />
-                        </h2>
-                        <div className="select-container">
-                            {/* eslint-disable jsx-a11y/no-onchange */}
-                            <select value={this.state.country} onChange={I18nWidget.changeCountry}>
-                                {country_options}
-                            </select>
-                            {/* eslint-enable */}
-                            <div className="icon icon-arrow-down" />
+                    {this.props.showLanguageOnly ? (
+                        []
+                    ) : (
+                        <div className="i18n-widget-country">
+                            <h2>
+                                <Text id="country" />
+                            </h2>
+                            <div className="select-container">
+                                {/* eslint-disable jsx-a11y/no-onchange */}
+                                <select value={this.state.country} onChange={I18nWidget.changeCountry}>
+                                    {country_options}
+                                </select>
+                                {/* eslint-enable */}
+                                <div className="icon icon-arrow-down" />
+                            </div>
                         </div>
-                    </div>
+                    )}
                     {this.props.minimal ? (
                         []
                     ) : (
@@ -115,6 +125,7 @@ export default class I18nWidget extends Component {
 
     static propTypes = {
         minimal: PropTypes.bool,
+        showLanguageOnly: PropTypes.bool,
     };
 }
 

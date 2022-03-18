@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on September 13, 2020.
+Our privacy policy was last changed on September 20, 2021.
 
 ## General remarks
 
@@ -13,7 +13,7 @@ Thank you for your interest in our privacy policy. We are glad that you are inte
 
 We are committed to privacy, so we have designed our services from the ground up to collect as little data as possible. We also try our best to keep data processing at a minimum.  
 Most features on our websites will be executed entirely on your own computer, so the data you enter will never even reach our servers. Furthermore, our websites can only be accessed via a TLS-encrypted connection to ensure that your connection to our server cannot be compromised by third parties.  
-To exercise your privacy rights, we of course recommend using our [generator]({{< ref "generator" >}}) which will help you generate the appropriate requests for free.
+To exercise your privacy rights, we of course recommend using our {{< link slug="generator" text="generator" >}} which will help you generate the appropriate requests for free.
 
 In this privacy policy, we would like to explain to you what data we collect and what rights you have.
 
@@ -23,9 +23,9 @@ This privacy policy applies to all activities of Datenanfragen.de e.&nbsp;V. (�
 
 This includes the data we collect and process from our member but also the data that is incurred from donations and the like.
 
-In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org) and [pedidodedados.org](https://www.pedidodedados.org/).
+In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl) and [pedidodedados.org](https://www.pedidodedados.org/).
 
-The association's purpose is to support the general public in excercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our [constitution]({{< ref "verein/constitution" >}}) in all our activities.
+The association's purpose is to support the general public in exercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our {{< link slug="verein/constitution" text="constitution" >}} in all our activities.
 
 With our website datarequests.org (as well as their translations), we want to help you exercise your right to privacy. In order to do so, we offer a generator that helps you automatically generate requests, a company database with contact data for privacy-related requests to many companies and educational material on subjects related to privacy and data protection. Finally, it has information on the association and allows you to join or donate among other things.
 
@@ -62,22 +62,32 @@ We do not use profiling or any other type of automated decision making.
 
 To fulfill our association's purpose, to operate our website and to provide our services, we have to collect and process some personal data. Our top priority is to minimise data collection and processing: We only collect personal data where it is necessary and only to the extent that it is necessary. In addition, data is always collected for a specific purpose and storage is limited to the necessary period of time.
 
-In order to give you the greatest possible control over your privacy, you can set whether you want to activate many functions of our websites at any time via our [privacy controls]({{< ref "privacy-controls" >}}). A cookie is stored in your browser for each option. It only contains an indication as to whether you have activated or deactivated the respective option, but no personal data.
+In order to give you the greatest possible control over your privacy, you can set whether you want to activate many functions of our websites at any time via our {{< link slug="privacy-controls" text="privacy controls" >}}. A cookie is stored in your browser for each option. It only contains an indication as to whether you have activated or deactivated the respective option, but no personal data.
 
 In this section we would like to explain to you exactly under which circumstances we collect and process which data. Not listed here are the processings that take place exclusively on your own computer and for which no data is transferred to us. You can find further information about these in the above mentioned privacy controls.
 
 ### Data we process automatically
 
 #### Server connection data
-When you visit one of our websites, your browser connnects to one or more of our servers. We have configured all our servers not to save log files, but we do need to process some data in memory for a short while to serve your request.
+When you visit one of our websites, your browser connects to one or more of our servers. We have configured all our servers not to save log files, but we do need to process some data in memory for a short while to serve your request.
 
 - Affected data: the specific page you visited, the date and time of your visit, the data your browser sends with the request (the so-called “headers”), including information about your browser and operating system (the so-called “user-agent string”), and your IP address
 - Lawful basis: The brief processing of this data is necessary to offer our websites to you, it is based on Art. 6(1) lit. b GDPR.
 - Duration of storage: none
 - Data disclosure: Our servers are operated by the following companies. They are exclusively EU companies, which we have carefully selected to meet our high data protection standards.
-  * [Hetzner Online GmbH]({{< ref "company/hetzner" >}}), Industriestraße 25, 91710 Gunzenhausen, Germany ([privacy policy](https://www.hetzner.com/rechtliches/datenschutz))
-  * [Uberspace]({{< ref "company/uberspace" >}}), Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Germany ([privacy policy](https://uberspace.de/en/about/privacy/))
-  * [BunnyWay d.o.o.](({{< ref "company/bunnycdn" >}})), Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([privacy policy](https://bunnycdn.com/privacy))
+  * {{< link slug="company/hetzner" text="Hetzner Online GmbH" >}}, Industriestraße 25, 91710 Gunzenhausen, Germany ([privacy policy](https://www.hetzner.com/rechtliches/datenschutz))
+  * {{< link slug="company/uberspace" text="Uberspace" >}}, Jonas Pasche, Kaiserstraße 15, 55116 Mainz, Germany ([privacy policy](https://uberspace.de/en/about/privacy/))
+  * {{< link slug="company/bunnycdn" text="BunnyWay d.o.o." >}}, Cesta komandanta Staneta 4A, 1215 Medvode, Slovenia ([privacy policy](https://bunnycdn.com/privacy))
+
+#### Records in our company database
+In our company database, we publish the contact details for privacy-related requests to companies and other organizations. In the vast majority of cases, this data is _not_ personal data. Nevertheless, in rare cases, the processing of personal data is necessary for this purpose, for example in the case of names of natural persons in company names or e-mail addresses.  
+We voluntarily grant data subjects of this processing an [extended right to object](#right-to-object).
+
+- Affected data: if necessary: name, if necessary: e-mail address, if necessary: telephone number, if necessary: fax number, if necessary: address, if necessary: PGP key.
+- Lawful basis: The basis of the storage is our legitimate interest according to Art. 6(1) lit. f GDPR to support our users in exercising their fundamental right to data protection as a data protection non-profit organization.
+- Data source: The data is taken exclusively from publicly accessible sources, each of which is indicated on the corresponding page in our company database.
+- Duration of storage: unlimited
+- Data disclosure: The data is publicly accessible via our website.
 
 ### Data you provide to us
 
@@ -97,7 +107,7 @@ We will always display all the information included in the report to you before 
 - Lawful basis: The basis of the storage is our legitimate interest to improve the stability and functionality of our website in accordance with Art. 6(1) lit. f GDPR.
 - Duration of storage: indefinitely
 - Data disclosure: The content of error reports may be publicly accessible via our [GitHub issue tracker](https://github.com/datenanfragen/website/issues).  
-GitHub is operated by [GitHub, Inc.]({{< ref "company/github" >}}), 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA or their subsidiary GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. For more information on how GitHub processes your data, please refer to [their privacy policy](https://help.github.com/articles/github-privacy-statement/).
+GitHub is operated by {{< link slug="company/github" text="GitHub, Inc." >}}, 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA or their subsidiary GitHub BV, Vijzelstraat 68 – 72, 1017 HL Amsterdam, Netherlands. For more information on how GitHub processes your data, please refer to [their privacy policy](https://help.github.com/articles/github-privacy-statement/).
 
 #### Membership applications
 If you want to become a member of the association, you need to provide some data through the membership application form. This data is necessary for our records and for us to be able to contact you with important information regarding your membership (like invitations to the general assembly, donation receipts or payment reminders).
@@ -147,29 +157,29 @@ The subscription is entirely voluntary for you.
 - Affected data: the contact details you provided (an email address with an optional PGP key)
 - Lawful basis: By subscribing, you consent to the sending of the newsletter in accordance with Art. 6(1) lit. a GDPR. You can revoke this consent at any time; you can find out how to do this in the section “Right to revoke given consent”.
 - Duration of storage: until you unsubscribe from the newsletter
-- Data disclosure: Only board members can access the contact data. The newsletter is sent is sent using the Mailjet service. Therefore, the contact data needs to be sent to Mailjet.  
-  Mailjet is run by [Mailjet SAS]({{< ref "company/mailjet" >}}), 13-13 bis rue de l’Aubrac, 75012 Paris, France. For more information on how Mailjet processes your data, please refer to [their privacy policy](https://www.mailjet.com/privacy-policy/).
+- Data disclosure: Only board members can access the contact data. The newsletter is sent using the Mailjet service. Therefore, the contact data needs to be sent to Mailjet.  
+  Mailjet is run by {{< link slug="company/mailjet" text="Mailjet SAS" >}}, 13-13 bis rue de l’Aubrac, 75012 Paris, France. For more information on how Mailjet processes your data, please refer to [their privacy policy](https://www.mailjet.com/privacy-policy/).
 
 ### External services
 
 In order to make our servives more interesting and efficient, we work with some external services.
 
 #### CoinGate
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by [UAB “Decentralized”](({{< ref "company/coingate" >}})), A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
+We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by {{< link slug="company/coingate" text="UAB “Decentralized”" >}}, A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
 We use CoinGate for crypto currency transactions. We will display a note in the payment form if your payment is made through CoinGate.
 
-If you make a payment through CoinGate, UAB “Decentralized” receives all data incurred in the payment process, especially including: the payment amount, the cryto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
+If you make a payment through CoinGate, UAB “Decentralized” receives all data incurred in the payment process, especially including: the payment amount, the crypto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
 For more details on how CoinGate processes your data, have a look at their [privacy policy](https://coingate.com/privacy).
 
 #### Mollie
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. Mollie is run by [Mollie B.V.](({{< ref "company/mollie" >}})), Keizersgracht 313, 1016 EE Amsterdam, Netherlands.  
+We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. Mollie is run by {{< link slug="company/mollie" text="Mollie B.V." >}}, Keizersgracht 313, 1016 EE Amsterdam, Netherlands.  
 We use CoinGate for example for credit card transactions. In any case, we will display a note in the payment form if your payment is made through Mollie.
 
-If you make a payment through Mollie, Mollie B.V. receives all data incurred in the payment process, especially including: your payment details (for example your bank account or credit card details) including the amount, your IP address, your browser and device type, potentially your name, potentially your address, potentially information on the kind of paynebt your are making to us, potentially all other data you actively provide (like when interacting with Mollie's support).  
+If you make a payment through Mollie, Mollie B.V. receives all data incurred in the payment process, especially including: your payment details (for example your bank account or credit card details) including the amount, your IP address, your browser and device type, potentially your name, potentially your address, potentially information on the kind of payment you are making to us, potentially all other data you actively provide (like when interacting with Mollie's support).  
 For more details on how CoinGate processes your data, have a look at their [privacy policy](https://www.mollie.com/en/privacy).
 
 #### PayPal
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway PayPal. PayPal is run by [PayPal (Europe) S.à.r.l. et Cie, S.C.A.]({{< ref "company/paypal" >}}), 22-24 Boulevard Royal L-2449, Luxembourg.  
+We allow you to make payments to the association (especially donations and membership fees) through the payment gateway PayPal. PayPal is run by {{< link slug="company/paypal" text="PayPal (Europe) S.à.r.l. et Cie, S.C.A." >}}, 22-24 Boulevard Royal L-2449, Luxembourg.  
 We will display a note in the payment form if your payment is made through PayPal.
 
 If you make a payment through PayPal, PayPal (Europe) S.à.r.l., S.C.A. receives all data incurred in the payment process, especially including: the amount, data on the payment source for the transaction (for example your bank account or credit card details), device details, technical usage details, location details, your name, your address, your phone number, your email address.  
@@ -178,7 +188,7 @@ For more details on how PayPal processes your data, have a look at their [privac
 ## Your rights
 
 The GDPR grants you comprehensive rights with regard to data protection. We are strongly convinced that the right to data protection is a fundamental right and therefore we fully stand behind these rights. You can exercise these rights at any time in an informal manner using the contact details given in the “Controller and contact information” section.  
-We of course invite you to use our [generator]({{< ref "generator" >}}) which will assist you with writing requests.
+We of course invite you to use our {{< link slug="generator" text="generator" >}} which will assist you with writing requests.
 
 ### Right to data access
 
@@ -221,9 +231,12 @@ If you request us to correct, delete or restrict the processing of your personal
 
 ### Right to object
 
-According to Art. 21 GDPR, you have the right to object at any time to the processing of personal data concerning you which is necessary for the performance of a task in the public interest or because of our legitimate interest on the basis of Article 6(1) lit. e or f respectively, for reasons arising from your particular situation. We will then no longer process the personal data, unless we can prove compelling legitimate grounds for the processing, which outweigh your interests, rights and freedoms or the processing serves the assertion, exercise or defense of legal claims.
+According to Art. 21 GDPR, you have the right to object at any time to the processing of personal data concerning you which is necessary for the performance of a task in the public interest or because of our legitimate interest on the basis of Article 6(1) lit. e or f respectively, based on grounds arising from your particular situation. We will then no longer process the personal data, unless we can prove compelling legitimate grounds for the processing, which outweigh your interests, rights and freedoms or the processing serves the assertion, exercise or defense of legal claims.
 
 If we use your personal data for direct marketing, you have the right to object to such processing at any time. We will then no longer use your data for such purposes.
+
+In addition, as a data subject whose data is published in our company database, you can object to this publication at any time, even without giving grounds arising from your particular situation. After an objection, we will immediately remove the relevant data from our company database and, if requested, also include it in an internal blocking file in order to avoid future publication. Only in the case of personal data of company owners do we reserve the right to refuse to remove the data after examining the individual case and if we consider there to be an outweighing public interest in the publication of the data.  
+Where possible, we will replace removed personal contact data with general non-personal contact data of the company.
 
 ### Right to lodge a complaint with a supervisory authority
 
@@ -231,7 +244,7 @@ According to Art. 77 GDPR, without prejudice to any other administrative or judi
 
 The following supervisory authority is responsible for us:
 
-[Die Landesbeauftragte für den Datenschutz Niedersachsen]({{< ref "supervisory-authority/dendslfd" >}})  
+{{< link slug="supervisory-authority/dendslfd" text="Die Landesbeauftragte für den Datenschutz Niedersachsen" >}}  
 Prinzenstraße 5  
 30159 Hannover  
 Germany

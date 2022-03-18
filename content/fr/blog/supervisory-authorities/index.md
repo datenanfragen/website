@@ -51,13 +51,14 @@ Afin de te faciliter la tâche pour trouver l'autorité de contrôle qui te corr
 Comme la plupart des fonctionnalités de demandetesdonnees.fr, la totalité du traitement ne se fait *que* sur ton propre ordinateur, de sorte que tes réponses ne nous seront jamais transmises.
 
 <div class="sva-finder"></div>
+{{< noScript "noscript-sva" >}}
 
-Si tu préfères effectuer ces recherches toi-même, consulte notre [liste des autorités de contrôle]({{< ref "/supervisory-authority" >}}). Le [Conseil européen de la protection des données](https://edpb.europa.eu/about-edpb/board/members_fr) dispose également d'une liste, mais il faut noter que celle-ci ne comprend que les autorités au niveau national.
+Si tu préfères effectuer ces recherches toi-même, consulte notre {{< link slug="/supervisory-authority" text="liste des autorités de contrôle" >}}. Le [Conseil européen de la protection des données](https://edpb.europa.eu/about-edpb/board/members_fr) dispose également d'une liste, mais il faut noter que celle-ci ne comprend que les autorités au niveau national.
 
 ## Plaintes relatives à des demandes effectuées par l'intermédiaire de demandetesdonnees.fr
 
 Si tu as effectué une demande à une entreprise via demandetesdonnees.fr et que tu n'as reçu aucune réponse ou que la réponse n'était pas satisfaisante, nous pouvons te faciliter encore la tâche pour déposer une plainte auprès de l'autorité de contrôle.
 
-Dans la fonction [« Mes demandes »]({{< ref "/my-requests" >}}), tu peux obtenir un aperçu de toutes tes demandes, à condition de ne pas l'avoir désactivée. À côté de chaque demande, il y a des boutons que tu peux utiliser pour envoyer des rappels et des plaintes concernant cette demande via notre générateur.
+Dans la fonction {{< link slug="/my-requests" text="« Mes demandes »" >}}, tu peux obtenir un aperçu de toutes tes demandes, à condition de ne pas l'avoir désactivée. À côté de chaque demande, il y a des boutons que tu peux utiliser pour envoyer des rappels et des plaintes concernant cette demande via notre générateur.
 
 {{< img name="envoyer-une-plainte" caption="Envoyer une plainte via demandetesdonnees.fr" >}}

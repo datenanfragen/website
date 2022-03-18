@@ -13,6 +13,8 @@ With the following parameters:
     - `[alt]`: The text to set for the `alt` and `title` attributes of the image. Falls back to `[caption]` if not set.
     - `[caption]`: The caption to display underneath the image.
     - `[link]`: The URL that the image links to.
+    - `[loading]`: Whether to lazy-load the image (`eager` to load the image immediately, `lazy` to defer loading).
+                   Defaults to `lazy`.
 
 Only either `[name]` or `[url]` are required, all other commands are optional.
 
@@ -21,39 +23,4 @@ For a description of the `[name]` parameter, see the documentation for the `imgU
 Inspired by: https://gohugo.io/templates/shortcode-templates/#single-named-example-image
 -->
 
-{{- $alt_text := cond (isset .Params "alt") (.Get "alt") (.Get "caption") -}}
-
-<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
-    {{ with .Get "link" }}<a class="no-link-decoration" href="{{ . }}">{{ end -}}
-    {{- if .Get "name" -}}
-        <!--
-        An explanation of the sizes and breakpoints used:
-
-        * On a regular, full desktop layout, the image width will be constrained by the .narrow-page class. In this
-          scenario, images cannot be wider than 784px, so we use that as the default fallback.
-        * If we now start shrinking the page, the image width will also decrease accordingly. This will be handled by
-          the following cases. *However*, as soon as we have a viewport width < 980px (which is the $max-width defined
-          in variables.scss), we switch to the mobile layout. For a short while (until we reach a viewport width of
-          781px), this actually allows the image to be *wider* than on the full desktop layout, reaching a width maximum
-          of 881px. Thus, we provide a special breakpoint for this case to not risk blurry images.
-        * Now, it becomes a question of weighing how many more breakpoints we want to support given the overhead. I
-          decided to only support the default breakpoints in the Chromium DevTools (768px, 425px, and 320px).
-        -->
-        <img srcset="
-            {{- partial "functions/imgURL" (dict "page" .Page "name" (.Get "name") "command" "Resize" "options" "784x") }} 784w,
-            {{- partial "functions/imgURL" (dict "page" .Page "name" (.Get "name") "command" "Resize" "options" "881x") }} 881w,
-            {{- partial "functions/imgURL" (dict "page" .Page "name" (.Get "name") "command" "Resize" "options" "691x") }} 691w,
-            {{- partial "functions/imgURL" (dict "page" .Page "name" (.Get "name") "command" "Resize" "options" "383x") }} 383w,
-            {{- partial "functions/imgURL" (dict "page" .Page "name" (.Get "name") "command" "Resize" "options" "288x") }} 288w
-        "
-        sizes="(max-width: 320px) 288px, (max-width: 425px) 383px, (max-width: 768px) 691px, (max-width: 979px) 881px, 784px" src="{{ (partial "functions/imgURL" (dict "page" .Page "name" (.Get "name"))) }}" alt="{{ $alt_text }}" title={{ $alt_text }}>
-    {{- else if .Get "url" -}}
-        <img src="{{ .Get "url" }}" alt="{{ $alt_text }}" title={{ $alt_text }} />
-    {{- else -}}
-        {{ errorf "You need to specify either the `name` or `url` parameter: %s" .Position}}
-    {{- end -}}
-    {{- if .Get "link" }}</a>{{ end }}
-    {{ with .Get "caption" -}}
-        <figcaption>{{ . | markdownify }}</figcaption>
-    {{- end }}
-</figure>
+{{ partial "img" (dict "page" .Page "name" (.Get "name") "url" (.Get "url") "class" (.Get "class") "alt" (.Get "alt") "caption" (.Get "caption") "link" (.Get "link") "loading" (.Get "loading")) }}

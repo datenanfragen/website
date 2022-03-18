@@ -15,7 +15,7 @@ De acuerdo con el RGPD, tienes derecho a acceder a los datos personales almacena
 
 En primer lugar, esto incluye una confirmación de si se están procesando tus datos personales. En caso afirmativo, puedes solicitar una copia de dichos datos. Pero no solo eso: además, también tienes derecho a obtener más detalles, como los fines del procesamiento, los destinatarios a los que se transmiten los datos y la duración del almacenamiento.
 
-Si deseas obtener más información, consulta nuestro [artículo sobre tus derechos según el RGPD]({{< ref "/blog/your-gdpr-rights" >}}).
+Si deseas obtener más información, consulta nuestro {{< link slug="/blog/your-gdpr-rights" text="artículo sobre tus derechos según el RGPD" >}}.
 
 ## ¿Cómo ejerzo este derecho?
 
@@ -76,11 +76,11 @@ Eres libre de usar estas plantillas como quieras. Los ponemos a su disposición 
 
 Envía la carta directamente al controlador. Si tiene un delegado de protección de datos, te recomendamos que siempre dirijas la carta directamente a esta persona. Los oficiales de protección de datos no solo están especialmente capacitados, sino que también deben tratar tu solicitud de manera confidencial.
 
-A menudo puedes encontrar los datos de contacto de empresas y otras organizaciones en sus sitios web en la política de privacidad o en el aviso legal. También queremos ayudarte con esto. Mantenemos una [base de datos de las empresas](/company) que ya contiene los datos de contacto adecuados para solicitudes relacionadas con la privacidad de muchas empresas.
+A menudo puedes encontrar los datos de contacto de empresas y otras organizaciones en sus sitios web en la política de privacidad o en el aviso legal. También queremos ayudarte con esto. Mantenemos una {{< link slug="/company" text="base de datos de las empresas" >}} que ya contiene los datos de contacto adecuados para solicitudes relacionadas con la privacidad de muchas empresas.
 
 ## ¿No hay una manera más fácil?
 
-La idea detrás de Datenanfragen.de es facilitarle al máximo el ejercicio de sus derechos en materia de protección de datos. Por lo tanto, hemos desarrollado un [generador]({{< ref "generator" >}}), con el que puedes crear solicitudes como esta de forma automática. Te invitamos a que lo pruebes.
+La idea detrás de Datenanfragen.de es facilitarle al máximo el ejercicio de sus derechos en materia de protección de datos. Por lo tanto, hemos desarrollado un {{< link slug="/generator" text="generador" >}}, con el que puedes crear solicitudes como esta de forma automática. Te invitamos a que lo pruebes.
 
 ---
 

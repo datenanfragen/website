@@ -3,10 +3,11 @@
 	"type": "page"
 }
 
-We are a project run by a non-profit and realised by volunteers. As such, we rely on the help of people like you.
+We are a project run by a non-profit and realised by volunteers. As such, we rely on the help of people like you. Thank you so much for looking into contributing to datarequests.org!
 
 There are many tasks from different topics that need to be done. Among them, many that are suitable for people who don't yet have a lot of experience with data protection. On this page, we have compiled a list of the most important ones. If there's something you want to contribute to, we would greatly appreciate your help.  
-Thank you so much for looking into contributing to datarequests.org!
+
+Also feel free to join our [Matrix space](https://matrix.to/#/#datenanfragen:matrix.altpeter.me). There, you can chat with the community, ask questions and pitch your ideas.
 
 <article id="cdb" class="list-article icon-list-article">
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/company.svg" alt="Maintaining the company database"></div>
@@ -28,7 +29,7 @@ Thank you so much for looking into contributing to datarequests.org!
         <h1>Internationalisation</h1>
         <p>Our goal is for datarequests.org to be available to as many people as possible. In order to achieve that, we need to translate the project and adjust the content to different countries.</p>
         <p>You know a language we are not yet supporting and would like to help us translate? Great! We manage our translations through the <em><a href="https://hosted.weblate.org/engage/datenanfragen-de/">Weblate</a></em> platform. There, you can easily help us translate—be it a couple of strings or whole components.
-        <br>In order for us to offically support a new language, in addition to the actual translations, we also need a maintainer for that language, for helping us come up with a name and checking incoming translations for example. If you’re up for that, send us an <a href="mailto:dev@datarequests.org">e-mail</a>.</p>
+        <br>In order for us to officially support a new language, in addition to the actual translations, we also need a maintainer for that language, for helping us come up with a name and checking incoming translations for example. If you’re up for that, send us an <a href="mailto:dev@datarequests.org">e-mail</a>.</p>
         <p>An equally important task is adding companies from as many countries as possible to the database. Please refer to the information <a href="#cdb">above</a> on how to submit new entries.
         <br>We automatically start officially supporting a new country once we have a sufficient number of companies from that country in our database (the threshold is currently set to ten). We would also like to compile a list of suggested companies that every person in that country should send a request to.</p>
     </div>
@@ -40,7 +41,7 @@ Thank you so much for looking into contributing to datarequests.org!
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/edit.svg" alt="Writing content"></div>
     <div class="padded col75">
         <h1>Writing content</h1>
-        <p>Apart from the generator and company database, we also want to offer comprehensive <a href="/">posts</a> about all topics relating to privacy and data protection. That includes things like explanations on an individuals rights under the GDPR and how to use them, comments on current news about data protection and tutorials on how to use the download features offered by some websites, among others.</p>
+        <p>Apart from the generator and company database, we also want to offer comprehensive <a href="/blog">posts</a> about all topics relating to privacy and data protection. That includes things like explanations on an individuals rights under the GDPR and how to use them, comments on current news about data protection and tutorials on how to use the download features offered by some websites, among others.</p>
         <p>You have an article that could be interesting to our users? We would love to publish it!
         <br>Furthermore, we are of course also always interested in new translations for existing articles.</p>
     </div>
@@ -78,11 +79,11 @@ Thank you so much for looking into contributing to datarequests.org!
         <h1>Donations</h1>
         <p>datarequests.org will always be offered for free. But running a project like this obviously costs money. And the more money we have available, the more projects relating to data protection we can start and continue.
         <br>As such, we are incredibly grateful for all donations.</p>
-        <p>The project is run by <a href="https://www.datarequests.org/verein">Datenanfragen.de e.&nbsp;V.</a>, a public-benefit non-profit from Germany. That means that donations donations from individuals and companies from Germany are eligible for tax deduction. There’s more details on that on the donation page.</p>
+        <p>The project is run by <a href="https://www.datarequests.org/verein">Datenanfragen.de e.&nbsp;V.</a>, a public-benefit non-profit from Germany. That means that donations from individuals and companies from Germany are eligible for tax deduction. There’s more details on that on the donation page.</p>
         <p>If you want to support us long-term, you can also <a href="https://www.datarequests.org/verein/become-a-member/">become a member</a>.</p>
     </div>
     <div class="clearfix"></div>
     <a class="button button-primary read-more-button" href="https://www.datarequests.org/donate">Donate now&nbsp;<span class="icon icon-arrow-right"></span></a>
 </article>
 
-You have another idea on how to contribute? Shoot us an [email](mailto:contact@datarequests.org)!
+You have another idea on how to contribute? Shoot us [message on Matrix](https://matrix.to/#/#datenanfragen:matrix.altpeter.me) or an [email](mailto:contact@datarequests.org)!

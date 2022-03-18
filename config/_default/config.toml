@@ -13,3 +13,6 @@ timeout = "500s"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[imaging]
+hint = "picture"

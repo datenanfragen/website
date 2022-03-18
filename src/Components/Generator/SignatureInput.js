@@ -36,15 +36,9 @@ export default class SignatureInput extends Component {
 
     handleBlockedCanvasImageDetection() {
         const res = detectBlockedCanvasImageExtraction(this.context);
-        const force_update = this.state.canvasImageExtractionBlocked !== res;
         this.setState({
             canvasImageExtractionBlocked: res,
         });
-
-        // TODO @zner0L: Due to your modifications to `shouldComponentUpdate()`, I need to force an update here. Without
-        // those modifications, the component breaks. Even with the manual update, the button text seems to get lost. I
-        // don't really have any idea why that would be the case.
-        if (force_update) this.forceUpdate();
     }
 
     componentDidMount() {
@@ -59,7 +53,10 @@ export default class SignatureInput extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return nextProps !== this.props;
+        return (
+            nextProps !== this.props ||
+            nextState.canvasImageExtractionBlocked !== this.state.canvasImageExtractionBlocked
+        );
     }
 
     drawSignature(signature) {
@@ -80,7 +77,6 @@ export default class SignatureInput extends Component {
                         right: img.width + left,
                     },
                 });
-                this.handleChange();
             };
             img.src = signature.value;
         }
@@ -108,8 +104,7 @@ export default class SignatureInput extends Component {
     clear() {
         if (this.state.isEmpty) return;
         this.context.clearRect(0, 0, this.state.width, this.state.height);
-        this.setState({ isEmpty: true, cropArea: this.initialCropArea });
-        this.handleChange();
+        this.setState({ isEmpty: true, cropArea: this.initialCropArea }, () => this.handleChange());
     }
 
     render() {

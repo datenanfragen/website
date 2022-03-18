@@ -3,6 +3,9 @@ describe('Using the wizard', () => {
         cy.setCookie('country', 'de');
         cy.visit('/');
 
+        // Ensure translation macros work.
+        cy.get('#home-main-copy').contains('Here at datarequests.org');
+
         cy.get('#wizard-anchor').scrollIntoView();
 
         cy.get('.wizard-selected-list .button.icon-trash')
@@ -21,7 +24,7 @@ describe('Using the wizard', () => {
         cy.get('#wizard-buttons > .button-primary').click();
 
         // Commerce
-        cy.addCompanyToWizard('amazon', 'Amazon Deutschland');
+        cy.addCompanyToWizard('amazon', 'Amazon Europe');
         cy.addCompanyToWizard('ebay', 'eBay GmbH');
         cy.addCompanyToWizard('h&m', 'H&M Hennes');
 

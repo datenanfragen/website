@@ -1,0 +1,15 @@
+<!--
+Insert a properly internationalized link. Uses the properly resolved (translated) URL for the given slug. Will fall back
+to the English version (and suffix the link text accordingly) if a translated version doesn't exist.
+
+Parameters (see the `link` function partial for details): [slug], [text], [fragment], [translate]
+
+Examples (remove the `.`):
+    - `{.{< link slug="/generator" text="Request generator" >}}`
+    - `{.{< link slug="/my-requests" text="my-requests-label" translate=true >}}`
+    - `{.{< link slug="/verein/constitution#7-the-board" text="Read about the board in the constitution." >}}`
+    - `{.{< link slug="/verein/constitution" fragment="7-the-board" text="Read about the board in the constitution." >}}`
+-->
+{{- $link := partial "functions/link" (dict "slug" (.Get "slug") "text" (.Get "text") "fragment" (.Get "fragment") "translate" (.Get "translate")) -}}
+<a href="{{ $link.url }}">{{ $link.text | markdownify }}</a><!-- The next line is an ugly hack to ensure that Hugo doesn't put an extra space after the link. This comment needs to stay here, otherwise the hack will break. -->
+{{- "" -}}

@@ -88,6 +88,6 @@ L'article 19 du RGPD s'applique également aux demandes concernant la suppressio
 
 ## Comment puis-je exercer ces droits ?
 
-En général, tu peux faire valoir tous les droits ci-dessus à l'égard d'une entreprise par le biais d'une demande informelle. Tu peux également utiliser [notre générateur]({{< ref "/generator" >}}) pour générer automatiquement des demandes et utiliser en même temps notre large base de données d'entreprises.
+En général, tu peux faire valoir tous les droits ci-dessus à l'égard d'une entreprise par le biais d'une demande informelle. Tu peux également utiliser {{< link slug="/generator" text="notre générateur" >}} pour générer automatiquement des demandes et utiliser en même temps notre large base de données d'entreprises.
 
 <!-- TODO: Write and link article. -->

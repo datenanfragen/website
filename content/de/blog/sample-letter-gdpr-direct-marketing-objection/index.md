@@ -4,7 +4,7 @@
     "slug": "musterbrief-dsgvo-werbewiderspruch",
     "aliases": [ "sample-letter-gdpr-direct-marketing-objection" ],
     "date": "2019-10-24T14:59:57+02:00",
-    "last_edited": "2020-05-31T01:16:19+02:00",
+    "last_edited": "2021-09-25T13:24:55+02:00",
     "type": "blog",
     "description": "Direktwerbung musst Du Dir nicht gefallen lassen. Dank der DSGVO kannst Du dagegen widersprechen. Unser Musterbrief hilft Dir dabei, diesen Anspruch geltend zu machen.",
     "featured_image": "musterbrief-dsgvo-werbewiderspruch",
@@ -18,12 +18,12 @@ Werbung wirkt heutzutage allgegenwärtig: Kaum öffnet man den Briefkasten oder 
 
 Als Rechtsgrundlage berufen sich diese Unternehmen dabei häufig auf ihr „berechtigtes Interesse“ oder auf eine Einwilligung – gerne auch weit hinten in einem Vertrag zu einem eigentlich ganz anderen Thema.
 
-{{< img name="musterbrief-dsgvo-werbewiderspruch" alt="Musterbrief für den Werbewiderspruch" >}}
+{{< featuredImg alt="Musterbrief für den Werbewiderspruch" >}}
 
 Zum Glück musst Du Dir das nicht gefallen lassen. Nach der Datenschutz-Grundverordnung (DSGVO) hast Du ein Recht auf Widerspruch gegen Direktwerbung. Dieses Recht legt Art. 21 Abs. 2 DSGVO ganz unmissverständlich fest. Den Widerspruch darfst Du auch erheben, wenn Du in der Vergangenheit eine Einwilligung für Direktwerbung erteilt hast.  
 Sobald Du den Widerspruch erhoben hast, darf das entsprechende Unternehmen Deine personenbezogenen Daten nicht mehr für Direktwerbung verwenden.
 
-Die DSGVO bietet Dir sogar noch eine Reihe weiterer Rechte. Mehr dazu findest Du in unserem [Artikel zu Deinen DSGVO-Rechten]({{< ref "/blog/your-gdpr-rights" >}}).
+Die DSGVO bietet Dir sogar noch eine Reihe weiterer Rechte. Mehr dazu findest Du in unserem {{< link slug="/blog/your-gdpr-rights" text="Artikel zu Deinen DSGVO-Rechten" >}}.
 
 ## Wie nutze ich dieses Recht?
 
@@ -44,19 +44,22 @@ Hier ist also unser Musterschreiben für den Werbewiderspruch nach Art. 21 Abs. 
 
 <p>Sollte ich eine Einwilligung zur Verarbeitung meiner Daten für Direktwerbung (bspw. nach Art. 6 Abs. 1 lit. a oder Art. 9 Abs. 2 DSGVO) erteilt haben, widerrufe ich diese hiermit.</p>
 
+<p>Bitte teilen Sie mir im Voraus mit, falls mein Widerspruch eine Löschung meines eventuell bei Ihnen vorhandenen Kontos, eine Kündigung eines eventuell mit Ihnen abgeschlossenen Vertrages oder Ähnliches zur Folge haben sollte. Ich werde dann im Einzelfall entscheiden, ob dies durchgeführt werden soll.</p>
+
 <p>Meine Anfrage schließt explizit auch sämtliche weiteren Angebote und Unternehmen ein, für die Sie Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO sind.</p>
 
 <p>Nach Art. 12 Abs. 3 DSGVO haben Sie mir meinen Widerspruch unverzüglich, spätestens aber innerhalb eines Monats nach Eingang des Antrags, zu bestätigen.</p>
 
 <p>Zur Identifikation meiner Person habe ich folgende Daten beigefügt:<br>
-<span class="blog-letter-fill-in">Hier Deine Daten zur Identifikation einfügen. Das sind – je nach Art der Werbung – in der Regel Angaben wie Dein Name und Deine Adresse oder Deine E-Mail-Adresse.</span></p>
+<span class="blog-letter-fill-in">Hier Deine Daten zur Identifikation einfügen. Das sind häufig Angaben wie Dein Name, Dein Geburtsdatum, Deine Adresse, Deine E-Mail-Adresse usw.</span></p>
 
 <p>Sollten Sie meinem Antrag nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
 
 <p>Schon im Voraus vielen Dank für Ihre Mühe.</p>
 
-<p>Mit freundlichen Grüßen<br>
-<span class="blog-letter-fill-in">Dein Name</span></p>
+<p>Mit freundlichen Grüßen</p>
+
+<p><span class="blog-letter-fill-in">Hier Deinen Namen eintragen.</span></p>
 </div>
 
 Um Dir Dein Leben einfacher zu machen, kannst Du das Schreiben auch herunterladen und direkt mit dem Textverarbeitungsprogramm Deiner Wahl verwenden. Du hast die Auswahl zwischen den folgenden Vorlagen:
@@ -72,11 +75,11 @@ Du darfst die Vorlagen gerne verwenden wie immer Du möchtest. Wir stellen sie D
 
 Das Schreiben schickst Du an das Unternehmen, das Dir die Werbung geschickt hat. Wenn diese eine_n Datenschutzbeauftrage_n hat, empfiehlt es sich, das Schreiben immer direkt an diese Person zu adressieren. Datenschutzbeauftragte sind nämlich nicht nur besonders geschult, sondern müssen Dein Anliegen auch vertraulich behandeln.
 
-Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine [Unternehmensdatenbank](/company), die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
+Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine {{< link slug="/company" text="Unternehmensdatenbank" >}}, die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
 
 ## Geht das nicht auch einfacher?
 
-Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen [Generator](/generator) entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
+Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen {{< link slug="/generator" text="Generator" >}} entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
 
 ---
 
@@ -84,4 +87,5 @@ Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug a
 
 Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
 
-* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/3c31ea33425d8c53e27bebea98f7486bd6754be8#diff-0fbc22e0510c1148f28cd399109977fe): Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht.
+* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/3c31ea33425d8c53e27bebea98f7486bd6754be8#diff-0fbc22e0510c1148f28cd399109977fe): Stil {{< link slug="sample-letters" text="aller Vorlagen" >}} vereinheitlicht.
+* [25. September 2021](https://github.com/datenanfragen/data/pull/1335/commits/a346ed73910392a57ee774ba7656ec3c835657f9#diff-1c5520812f65d3fdbe31f1042e855094e47b4e3699de3cff50bbdf49ca6dcb0e): Bitte um vorherige Benachrichtigung im Falle einer Löschung oder Kündigung eines eventuellen Kontos oder Vertrages hinzugefügt. (Danke, Tom!)

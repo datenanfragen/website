@@ -3,7 +3,7 @@
     "slug": "musterbrief-dsgvo-anfrage-auskunft",
     "aliases": [ "sample-letter-gdpr-access-request" ],
     "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2020-05-31T01:06:15+02:00",
+    "last_edited": "2021-07-04T14:51:05+02:00",
     "type": "blog",
     "description": "Gemäß der DSGVO hast Du ein Recht auf Auskunft über die personenbezogenen Daten, die Verantwortliche zu Dir speichern. Wir bieten Dir einen Musterbrief, mit dem Du solche Ansprüche geltend machen kannst.",
     "featured_image": "musterbrief-dsgvo-anfrage-auskunft",
@@ -16,7 +16,7 @@ Nach der Datenschutz-Grundverordnung (DSGVO) hast Du ein Recht darüber Auskunft
 
 Diese Auskunft umfasst zunächst einmal eine Bestätigung darüber, ob Deine personenbezogene Daten verarbeitet werden. Falls dem so ist, kannst Du eine Kopie eben dieser Daten verlangen. Doch nicht nur das: Darüber hinaus hast Du auch das Recht auf etliche weitere Informationen, wie z.&nbsp;B. die Zwecke der Verarbeitung, die Empfänger, an welche die Daten weitergeben werden und die Dauer der Speicherung.
 
-Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren [Artikel zu Deinen Rechten nach der DSGVO]({{< ref "/blog/your-gdpr-rights" >}}) an.
+Falls Du mehr dazu erfahren willst, schau Dir doch einmal unseren {{< link slug="/blog/your-gdpr-rights" text="Artikel zu Deinen Rechten nach der DSGVO" >}} an.
 
 ## Wie nutze ich dieses Recht?
 
@@ -35,16 +35,13 @@ Hier ist unser Musterschreiben für Anfragen auf Auskunft nach Art. 15 DSGVO. Di
 
 <p>ich bitte hiermit um Auskunft gemäß Art. 15 DSGVO. Bitte bestätigen Sie mir, ob Sie mich betreffende personenbezogene Daten verarbeiten (vgl. Art. 4 Nr. 1 und 2 DSGVO).</p>
 
-<p>In diesem Fall bitte ich Sie im Sinne des Art. 15 Abs. 1 DSGVO um Auskunft über</p>
-<ol>
-<li><em>sämtliche</em> personenbezogenen Daten, die Sie zu meiner Person gespeichert haben, einschließlich eventueller mich betreffender pseudonymisierter Daten im Sinne des Art. 4 Nr. 5 DSGVO;</li>
-<li>die Verarbeitungszwecke;</li>
-<li>die Kategorien personenbezogener Daten, die verarbeitet werden;</li>
-<li>die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen Daten offengelegt worden sind oder noch offengelegt werden;</li>
-<li>falls möglich die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder, falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer;</li>
-<li>wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren Informationen über die Herkunft der Daten;</li>
-<li>falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – sofern gegeben – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung für meine Person.
-</ol>
+<p>Falls dem so sein sollte, stellen Sie mir bitte im Sinne des Art. 15 Abs. 3 DSGVO eine Kopie sämtlicher personenbezogener Daten, die Sie zu meiner Person verarbeiten, einschließlich eventueller mich betreffender pseudonymisierter Daten im Sinne des Art. 4 Nr. 5 DSGVO, zur Verfügung. Weiterhin bitte ich Sie in diesem Fall im Sinne des Art. 15 Abs. 1 DSGVO um Auskunft über:<br>
+1. die Verarbeitungszwecke;<br>
+2. die Kategorien personenbezogener Daten, die verarbeitet werden;<br>
+3. die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen Daten offengelegt worden sind oder noch offengelegt werden;<br>
+4. falls möglich die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder, falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer;<br>
+5. wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren Informationen über die Herkunft der Daten;<br>
+6. falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – sofern gegeben – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung für meine Person.</p>
 
 <p>Falls Sie mich betreffende anonymisierte Daten verarbeiten, bitte ich Sie darum, mir das nicht nur mitzuteilen, sondern auch das verwendete Verfahren verständlich zu erläutern.</p>
 
@@ -59,12 +56,13 @@ Hier ist unser Musterschreiben für Anfragen auf Auskunft nach Art. 15 DSGVO. Di
 <p>Zur Identifikation meiner Person habe ich folgende Daten beigefügt:<br>
 <span class="blog-letter-fill-in">Hier Deine Daten zur Identifikation einfügen. Das sind häufig Angaben wie Dein Name, Dein Geburtsdatum, Deine Adresse, Deine E-Mail-Adresse usw.</span></p>
 
-<p>Sollten Sie meiner Anfrage nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
+<p>Sollten Sie meinem Antrag nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.</p>
 
 <p>Schon im Voraus vielen Dank für Ihre Mühe.</p>
 
-<p>Mit freundlichen Grüßen<br>
-<span class="blog-letter-fill-in">Dein Name</span></p>
+<p>Mit freundlichen Grüßen</p>
+
+<p><span class="blog-letter-fill-in">Hier Deinen Namen eintragen.</span></p>
 </div>
 
 Um Dir Dein Leben einfacher zu machen, kannst Du das Schreiben auch herunterladen und direkt mit dem Textverarbeitungsprogramm Deiner Wahl verwenden. Du hast die Auswahl zwischen den folgenden Vorlagen:<!-- TODO: Host these ourselves and give them some nice buttons. -->
@@ -80,11 +78,11 @@ Du darfst die Vorlagen gerne verwenden wie immer Du möchtest. Wir stellen sie D
 
 Das Schreiben schickst Du direkt an den Verantwortlichen. Wenn dieser eine_n Datenschutzbeauftrage_n hat, empfiehlt es sich, den Brief immer direkt an diese Person zu adressieren. Datenschutzbeauftragte sind nämlich nicht nur besonders geschult, sondern müssen Dein Anliegen auch vertraulich behandeln.
 
-Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine [Unternehmensdatenbank](/company), die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
+Die Kontaktdaten von Unternehmen und sonstigen Organisationen findest Du häufig auf deren Webseite in der Datenschutzerklärung oder im Impressum. Auch hier wollen wir Dir die Arbeit abnehmen. Wir führen eine {{< link slug="/company" text="Unternehmensdatenbank" >}}, die für viele Unternehmen schon die passenden Kontaktdaten für datenschutzspezifische Anfragen enthält.
 
 ## Geht das nicht auch einfacher?
 
-Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen [Generator](/generator) entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
+Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug auf den Datenschutz so einfach wie möglich zu machen. Deshalb haben wir einen {{< link slug="/generator" text="Generator" >}} entwickelt, mit dem Du Anfragen wie diese automatisch erstellen kannst. Wir laden Dich herzlich ein, ihn einmal auszuprobieren.
 
 ---
 
@@ -92,4 +90,5 @@ Die Idee hinter Datenanfragen.de ist, Dir die Ausübung Deiner Rechte im Bezug a
 
 Die folgenden Änderungen haben wir an dem Musterschreiben seit der ursprünglichen Veröffentlichung vorgenommen:
 
-* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-ba75fd411f4f897cf77f57d77aec0d64): Klargestellt, dass „personenbezogene Daten“ auch pseudonymisierte Daten einschließt und diese ebenfalls angefragt. Anonymisierte Daten erwähnt und angefragt. Stil [aller Vorlagen]({{< ref "sample-letters" >}}) vereinheitlicht. (Danke, Andreas!)
+* [18. April 2020](https://github.com/datenanfragen/data/pull/562/commits/cde0c2a4943022a025e095a283b2043cf7c2ded0#diff-ba75fd411f4f897cf77f57d77aec0d64): Klargestellt, dass „personenbezogene Daten“ auch pseudonymisierte Daten einschließt und diese ebenfalls angefragt. Anonymisierte Daten erwähnt und angefragt. Stil {{< link slug="sample-letters" text="aller Vorlagen" >}} vereinheitlicht. (Danke, Andreas!)
+* [04. Juli 2021](https://github.com/datenanfragen/data/pull/1167/commits/9195228ca2838b1c7fcc688b2dfb4d5439452913#diff-5c0a3fd30202ddb6e5a588275157e2ceb0e769b82959a8126c02a1b52f97b6ce): Explizit klargestellt, dass die Anfrage auch eine Kopie nach Art. 15 Abs. 3 DSGVO begehrt.

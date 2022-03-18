@@ -25,6 +25,7 @@ module.exports = {
             './src/i18n/pt.json',
             './src/i18n/es.json',
             './src/i18n/hr.json',
+            './src/i18n/nl.json',
         ],
     },
     optimization: {
@@ -77,7 +78,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -92,7 +93,7 @@ module.exports = {
             //   the HTML of all language versions.
             {
                 test: /src[/\\]i18n[/\\][a-z]{2}\.json/,
-                loader: path.resolve('src/Utility/webpack-i18n-loader.js'),
+                loader: path.resolve('scripts/webpack-i18n-loader.js'),
             },
         ],
     },
@@ -110,7 +111,8 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
 @see {@link https://www.demandetesdonnees.fr|French website}
 @see {@link https://www.pedidodedados.org/|Portuguese website}
 @see {@link https://www.solicituddedatos.es/|Spanish website}
-@see {@link https://www.osobnipodaci.org/|Croatian website}`),
+@see {@link https://www.osobnipodaci.org/|Croatian website}
+@see {@link https://www.todo.tl/|Dutch website}`),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
         new webpack.DefinePlugin({
@@ -123,6 +125,7 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
     ],
     resolve: {
         modules: ['src', 'node_modules', 'i18n', 'res/icons'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
             react: 'preact/compat',
             'react-dom': 'preact/compat',

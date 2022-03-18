@@ -115,4 +115,105 @@ describe('Generator component', () => {
         cy.contains('Reset signature').should('not.exist');
         cy.get('#signature').should('not.exist');
     });
+
+    it("shows and hides the 'Correct data' field according to the type of request", () => {
+        cy.contains('Correct data').should('not.exist');
+        cy.get('#dynamic-input-type-rectification_data').should('not.exist');
+
+        cy.contains('Rectification request').click();
+
+        // shows up only when 'Rectification request' is selected
+        cy.contains('Correct data');
+        cy.get('#dynamic-input-type-rectification_data');
+
+        cy.contains('Erasure request').click();
+
+        // check if its hidden again
+        cy.contains('Correct data').should('not.exist');
+        cy.get('#dynamic-input-type-rectification_data').should('not.exist');
+    });
+
+    it("shows a different form when 'Your own text' is selected", () => {
+        cy.get('#custom-template-select').should('not.exist');
+        cy.get('#custom-subject-input').should('not.exist');
+        cy.get('#custom-content-input').should('not.exist');
+        cy.get('#custom-sender-name').should('not.exist');
+        cy.get('#0-container-custom-request').should('not.exist');
+
+        cy.contains('Your own text').click();
+
+        cy.get('#custom-template-select');
+        cy.get('#custom-subject-input');
+        cy.get('#custom-content-input');
+        cy.get('#custom-sender-name');
+        cy.get('#0-container-custom-request');
+
+        cy.contains('Erasure request').click();
+
+        // check if it is hidden again
+        cy.get('#custom-template-select').should('not.exist');
+        cy.get('#custom-subject-input').should('not.exist');
+        cy.get('#custom-content-input').should('not.exist');
+        cy.get('#custom-sender-name').should('not.exist');
+        cy.get('#0-container-custom-request').should('not.exist');
+    });
+
+    it("changes the text when selecting a template for 'Your own text'", () => {
+        cy.contains('Your own text').click();
+
+        // is empty when no template selected
+        cy.get('#custom-content-input').should('be.empty');
+
+        cy.get('#custom-template-select').select('Admonition');
+        cy.get('#custom-content-input')
+            .should('contain.value', 'To Whom It May Concern:')
+            .should('contain.value', 'admonition');
+
+        cy.get('#custom-template-select').select('Complaint');
+        cy.get('#custom-content-input')
+            .should('contain.value', 'To Whom It May Concern:')
+            .should('contain.value', 'complaint');
+    });
+
+    it("reflects the text and subject entered for 'Your own text' in the generated request", () => {
+        cy.contains('Your own text').click();
+
+        const custom_subject = 'My custom subject';
+        const custom_content = 'My custom content';
+        cy.get('#custom-subject-input').type(custom_subject);
+        cy.get('#custom-content-input').type(custom_content);
+
+        cy.contains('Send email').click();
+        cy.contains('Copy text manually').click({ force: true });
+
+        cy.get('#mailto-dropdown-copymanually-subject').should('contain.value', `${custom_subject}`);
+        cy.get('#mailto-dropdown-copymanually-body').should('contain.value', `${custom_content}`);
+    });
+
+    it("changes the text based on the 'Erase all data' checkbox and the 'Data to erase' field when 'Erasure request' is selected", () => {
+        cy.contains('Erasure request').click();
+        cy.get('#request-flags-erase-all').should('be.checked');
+        cy.get('#request-erasure-data').should('not.exist');
+
+        cy.contains('Send email').click();
+        cy.contains('Copy text manually').click({ force: true });
+
+        // when the 'Erase all data' checkbox is selected
+        cy.get('#mailto-dropdown-copymanually-body').should('contain.value', 'all personal data');
+        cy.get('.modal button.icon-close').click();
+
+        cy.contains('New request').click();
+        cy.contains('Erasure request').click();
+
+        const custom_data_to_erase = 'Custom Data';
+        cy.get('#request-flags-erase-all').uncheck();
+        cy.get('#request-erasure-data').type(custom_data_to_erase);
+
+        cy.contains('Send email').click();
+        cy.contains('Copy text manually').click({ force: true });
+
+        // when 'Erase all data' is unchecked
+        cy.get('#mailto-dropdown-copymanually-body').should('contain.value', `${custom_data_to_erase}`);
+        cy.get('#mailto-dropdown-copymanually-body').should('not.contain.value', 'all personal data');
+    });
 });

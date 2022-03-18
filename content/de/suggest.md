@@ -12,7 +12,7 @@ Falls Du Dich etwas intensiver damit beschäftigen willst, was für Daten wir wi
 Wenn Du diese beim Vorschlagen berücksichtigst, erleichterst Du uns unsere Arbeit beim Bearbeiten Deiner Einreichungen. Die Tipps sind aber natürlich <strong>komplett optional</strong>. Egal ob Du keinen, einen, ein paar oder alle Tipps befolgst: Wir freuen uns über jeden Vorschlag!
 
 - Der erste und meist auch beste Anlaufpunkt um Daten über eine Firma zu finden ist die Datenschutzerklärung. Das ist auch direkt eine tolle Quelle.
-- Wir wollen wirklich keine persönlichen Daten in der Datenbank speichern, auch nicht, wenn eine (E-Mail)-Adresse einen Namen enthält, wie z.B. <code>kim.mustermensch@example.org</code>.
+- Wir wollen persönlichen Daten nur in der Datenbank speichern, wenn es wirklich nötig ist. Falls z.&nbsp;B. eine (E-Mail)-Adresse einen Namen enthält, wie <code>kim.mustermensch@example.org</code>, dann nehmen wir diese nur auf, wenn es keine generische Datenschutz-Adresse wie <code>datenschutz@example.org</code> gibt.
 - Die Kontaktdetails von eventuellen Datenschutzbeauftragten bevorzugen wir gegenüber den normalen Kontaktdetails einer Firma.
 - Manchmal kann es vorkommen, dass Firmen eine_n externe_n Datenschutzbeauftrage_n angeben. Dann nehmen wir lieber deren_dessen Adresse. 
     - c/o externe_r Datenschutzbeauftrage_r GmbH & Co. KG  
@@ -25,7 +25,7 @@ Wenn Du diese beim Vorschlagen berücksichtigst, erleichterst Du uns unsere Arbe
 
 </details>
 
-Falls Du irgendeinen Vorschlag haben solltest, der sich nicht über dieses Formular klären lässt, oder Du es aus sonstigen Gründen nicht verwenden möchtest, erreichst Du uns auch gerne jederzeit über [unseren Issue-Tracker bei GitHub](https://github.com/datenanfragen/data/issues) oder per [E-Mail](mailto:data@datenanfragen.de).
+Falls Du irgendeinen Vorschlag haben solltest, der sich nicht über dieses Formular klären lässt, oder Du es aus sonstigen Gründen nicht verwenden möchtest, erreichst Du uns auch gerne jederzeit über [unseren Issue-Tracker bei GitHub](https://github.com/datenanfragen/data/issues), per [Nachricht bei Matrix](https://matrix.to/#/#dade-company:matrix.altpeter.me) oder per [E-Mail](mailto:data@datenanfragen.de).
 
 <div class="box box-warning">Nach dem Absenden werden die Daten, die Du in das Formular unten eingegeben hast, öffentlich in unserem <a href="https://github.com/datenanfragen/data/pulls">Issue-Tracker</a> angezeigt. Gib hier also <strong>auf keinen Fall</strong> persönliche Daten an.<br>Weitere Informationen dazu findest Du in <a href="/privacy/#nutzer-inneninhalte-zur-unternehmensdatenbank">unserer Datenschutzerklärung</a>.</div>
 

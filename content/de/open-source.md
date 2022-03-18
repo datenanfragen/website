@@ -7,7 +7,7 @@
 
 <img id="open-source-humaaan" class="top-left-humaaan" src="/img/humaaans/open-source.svg" alt="">
 
-Open Source steht im Kern von Datenanfragen.de. Wir haben das Projekt von Grund auf konzipiert, so offen wie möglich zu sein. So verpflichtet uns nicht zuletzt unsere [Satzung]({{< ref "verein/constitution" >}}), unsere Inhalte unter freien Lizenzen zur Verfügung zu stellen.
+Open Source steht im Kern von Datenanfragen.de. Wir haben das Projekt von Grund auf konzipiert, so offen wie möglich zu sein. So verpflichtet uns nicht zuletzt unsere {{< link slug="verein/constitution" text="Satzung" >}}, unsere Inhalte unter freien Lizenzen zur Verfügung zu stellen.
 
 Wir sind große Verfechter von Open Source und fest davon überzeugt.
 
@@ -115,7 +115,7 @@ Hier findest Du eine Übersicht einiger wichtiger Repositories, die direkt oder 
 
 Herzlichen Dank an alle, die etwas zu Datenanfragen.de beigetragen haben! Ohne Euch wäre das Projekt nicht möglich.
 
-<div class="box box-info" style="white-space: pre;">{{< authors >}}</div>
+<div class="box box-info">{{< authors >}}</div>
 
 Falls Du auch zu dem Projekt beigetragen hast, aber noch nicht in der Liste erscheinst, würden wir uns freuen, wenn Du Dich in die [`AUTHORS`-Datei](https://github.com/datenanfragen/website/blob/master/AUTHORS) einträgst.
 

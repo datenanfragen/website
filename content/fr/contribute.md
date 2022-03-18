@@ -40,7 +40,7 @@ Merci beaucoup d'avoir cherché à contribuer à demandetesdonnees.fr !
     <div class="col25 article-featured-image"><img class="image" src="/card-icons/edit.svg" alt="Rédaction de contenu"></div>
     <div class="padded col75">
         <h1>Rédaction de contenu</h1>
-        <p>En plus du générateur et de la base de données d'entreprises, nous voulons également proposer des <a href="/">articles</a> complets sur tous les sujets relatifs à la vie privée et à la protection des données. Cela comprend des explications sur les droits d'une personne en vertu du RGPD et la façon de les utiliser, des commentaires sur les dernières nouvelles concernant la protection des données et des guides sur l'utilisation des fonctions de téléchargement offertes par certains sites Web, pour ne citer que ces exemples.</p>
+        <p>En plus du générateur et de la base de données d'entreprises, nous voulons également proposer des <a href="/blog">articles</a> complets sur tous les sujets relatifs à la vie privée et à la protection des données. Cela comprend des explications sur les droits d'une personne en vertu du RGPD et la façon de les utiliser, des commentaires sur les dernières nouvelles concernant la protection des données et des guides sur l'utilisation des fonctions de téléchargement offertes par certains sites Web, pour ne citer que ces exemples.</p>
         <p>Tu as un article qui pourrait intéresser nos utilisateurs ? Nous serions ravis de le publier !
         <br>Par ailleurs, nous sommes également toujours intéressés par de nouvelles traductions pour des articles existants.</p>
     </div>

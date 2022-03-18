@@ -176,6 +176,21 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# LibreOffice locks
+.~lock.*#
+# Word temporary
+~$*.doc*
+# Word Auto Backup File
+Backup of *.doc*
+# Excel temporary
+~$*.xls*
+# Excel Backup File
+*.xlk
+# PowerPoint temporary
+~$*.ppt*
+# Visio autosave temporary files
+*.~vsd*
+
 
 # Cypress
 cypress/videos/
@@ -195,6 +210,7 @@ static/db/*
 static/schema.json
 static/schema-supervisory-authorities.json
 i18n/*.json
+/.hugo_build.lock
 # These are just too annoying to deal with, so we ignore them, even though Hugo recommend keeping those in the repo
 # (see: https://gohugo.io/content-management/image-processing/#image-processing-performance-consideration).
 resources/_gen/

@@ -2,14 +2,21 @@ import { Component } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import Request from '../DataType/Request';
-import { defaultFields, trackingFields, REQUEST_ARTICLES, initializeFields, fetchTemplate } from '../Utility/requests';
+import {
+    defaultFields,
+    trackingFields,
+    REQUEST_ARTICLES,
+    initializeFields,
+    fetchTemplate,
+    REQUEST_FALLBACK_LANGUAGE,
+} from '../Utility/requests';
 import RequestLetter from '../Utility/RequestLetter';
 import { slugify, PARAMETERS } from '../Utility/common';
 import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utility/SavedIdData';
 import replacer_factory from '../Utility/request-generator-replacers';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import Modal, { showModal, dismissModal } from './Modal';
+import Modal from './Modal';
 import SvaFinder from './SvaFinder';
 import { clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
@@ -36,17 +43,18 @@ export default class RequestGeneratorBuilder extends Component {
 
             fill_fields: [],
             fill_signature: null,
+            ready: false,
+            modal: null,
+            letter: new RequestLetter({}, (blob_url, filename) => {
+                this.setState({
+                    blob_url: blob_url,
+                    download_filename: filename,
+                    download_active: true,
+                });
+            }),
         };
 
         this.replacers = replacer_factory(this);
-
-        this.letter = new RequestLetter({}, (blob_url, filename) => {
-            this.setState({
-                blob_url: blob_url,
-                download_filename: filename,
-                download_active: true,
-            });
-        });
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             this.savedIdData = new SavedIdData();
@@ -67,6 +75,7 @@ export default class RequestGeneratorBuilder extends Component {
                     if (address) prev.request.custom_data.sender_address = address.value;
                 }
                 if (res.signature) prev.request.signature = res.signature;
+                prev.ready = false;
 
                 return prev;
             });
@@ -83,42 +92,53 @@ export default class RequestGeneratorBuilder extends Component {
             });
 
             await Promise.all([
+                new Promise((resolve) => this.setState({ ready: false }, resolve)),
                 new UserRequests().getRequest(response_to),
                 fetchTemplate(this.state.request.language, response_type, null, ''),
             ]).then((results) => {
-                const [request, text] = results;
+                const [, request, text] = results;
 
-                this.setState((prev) => {
-                    prev.request.custom_data.content = new Template(text, [], {
-                        request_article: REQUEST_ARTICLES[request.type],
-                        request_date: request.date,
-                        request_recipient_address: request.recipient,
-                    }).getText();
-                    prev.request.custom_data.subject = t_r(
-                        `letter-subject-${response_type}`,
-                        this.state.request.language,
-                        {
-                            request_recipient: request.recipient?.split('\n')[0],
-                            request_article: REQUEST_ARTICLES[request.type],
+                return new Promise((resolve) =>
+                    this.setState(
+                        (prev) => {
+                            prev.request.custom_data.content = new Template(text, [], {
+                                request_article: REQUEST_ARTICLES[request.type],
+                                request_date: request.date,
+                                request_recipient_address: request.recipient,
+                            }).getText();
+                            prev.request.custom_data.subject = t_r(
+                                `letter-subject-${response_type}`,
+                                this.state.request.language,
+                                {
+                                    request_recipient: request.recipient?.split('\n')[0],
+                                    request_article: REQUEST_ARTICLES[request.type],
+                                }
+                            );
+
+                            if (response_type === 'admonition') {
+                                // This might be useful in the future event though it is not used now. Looking forward to a conversations feature!
+                                prev.request.via = request.via;
+                                prev.request.recipient_address = request.recipient;
+                            }
+
+                            prev.request.reference = request.reference;
+                            prev.request.response_type = response_type;
+                            prev.request.type = 'custom';
+                            prev.response_request = request;
+
+                            prev.ready = !!text;
+
+                            return prev;
+                        },
+                        () => {
+                            return resolve(request);
                         }
-                    );
-
-                    if (response_type === 'admonition') {
-                        // This might be useful in the future event though it is not used now. Looking forward to a conversations feature!
-                        prev.request.via = request.via;
-                        prev.request.recipient_address = request.recipient;
+                    )
+                ).then((request) => {
+                    if (response_type === 'admonition' && request.slug) {
+                        return this.setCompanyBySlug(request.slug);
                     }
-
-                    prev.request.reference = request.reference;
-                    prev.request.response_type = response_type;
-                    prev.request.type = 'custom';
-                    prev.response_request = request;
-
-                    return prev;
                 });
-                if (response_type === 'admonition' && request.slug) {
-                    this.setCompanyBySlug(request.slug);
-                }
             });
 
             if (response_type === 'complaint') this.showAuthorityChooser();
@@ -126,7 +146,7 @@ export default class RequestGeneratorBuilder extends Component {
         // This is just a regular ol' request.
         else {
             await fetchTemplate(this.state.request.language, 'access').then((text) => {
-                this.setState({ template_text: text });
+                this.setState({ template_text: text, ready: !!text });
             });
         }
     };
@@ -185,6 +205,7 @@ export default class RequestGeneratorBuilder extends Component {
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                 {children}
+                {this.state.modal && this.state.modal(this.state)}
             </IntlProvider>
         );
     }
@@ -202,9 +223,18 @@ export default class RequestGeneratorBuilder extends Component {
     };
 
     setCompany = (company) => {
+        const language =
+            company['request-language'] && Object.keys(I18N_DEFINITION_REQUESTS).includes(company['request-language'])
+                ? company['request-language']
+                : Object.keys(I18N_DEFINITION_REQUESTS).includes(LOCALE)
+                ? LOCALE
+                : REQUEST_FALLBACK_LANGUAGE;
+
         if (this.state.request.type !== 'custom') {
-            fetchTemplate(company['request-language'], this.state.request.type, company).then((text) => {
-                this.setState({ template_text: text }, () => this.renderLetter());
+            this.setState({ ready: false }, () => {
+                fetchTemplate(language, this.state.request.type, company).then((text) => {
+                    this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
+                });
             });
         }
 
@@ -227,11 +257,6 @@ export default class RequestGeneratorBuilder extends Component {
                     ? '\n' + t_r('by-fax', company['request-language'] || LOCALE) + company['fax']
                     : '');
             request.email = company.email;
-
-            const language =
-                !!company['request-language'] && company['request-language'] !== ''
-                    ? company['request-language']
-                    : LOCALE;
 
             // This is not the most elegant thing in the world, but we need to support 'no ID data' requests for
             // more than adtech companies. Ideally, this would be another bool in the schema but we can't really
@@ -270,7 +295,7 @@ export default class RequestGeneratorBuilder extends Component {
             prev.suggestion = company;
             request.slug = company.slug;
             request.data_portability = company['suggested-transport-medium'] === 'email';
-            request.language = company['request-language'] || LOCALE;
+            request.language = language;
         });
     };
 
@@ -280,12 +305,14 @@ export default class RequestGeneratorBuilder extends Component {
         });
 
         if (e.target.value === 'custom') {
-            this.letter.clearProps();
+            this.state.letter.clearProps();
             return;
         }
 
-        fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then((text) => {
-            this.setState({ template_text: text }, () => this.renderLetter());
+        this.setState({ ready: false }, () => {
+            fetchTemplate(this.state.request.language, this.state.request.type, this.state.suggestion).then((text) => {
+                this.setState({ template_text: text, ready: !!text }, () => this.renderLetter());
+            });
         });
     };
 
@@ -368,10 +395,13 @@ export default class RequestGeneratorBuilder extends Component {
     handleCustomLetterTemplateChange = (e) => {
         const new_template = e.target.value;
         if (new_template !== 'no-template') {
-            fetchTemplate(this.state.request.language, new_template, null, '').then((text) => {
-                this.changeRequest((req) => {
-                    req.custom_data.content = text;
-                    req.response_type = new_template;
+            this.setState({ ready: false }, () => {
+                fetchTemplate(this.state.request.language, new_template, null, '').then((text) => {
+                    this.changeRequest((req) => {
+                        req.custom_data.content = text;
+                        req.response_type = new_template;
+                    });
+                    this.setState({ ready: !!text });
                 });
             });
         } else
@@ -382,58 +412,65 @@ export default class RequestGeneratorBuilder extends Component {
 
     handleAutocompleteSelected = (e, suggestion, dataset) => {
         if (this.state.suggestion) {
-            const modal = showModal(
-                <Modal
-                    positiveText={t('new-request', 'generator')}
-                    negativeText={t('override-request', 'generator')}
-                    onNegativeFeedback={(e) => {
-                        dismissModal(modal);
-                        this.setCompany(suggestion.document);
-                    }}
-                    onPositiveFeedback={(e) => {
-                        dismissModal(modal);
-                        this.newRequest().then(() => {
+            this.setState({
+                modal: (state) => (
+                    <Modal
+                        positiveText={t('new-request', 'generator')}
+                        negativeText={t('override-request', 'generator')}
+                        onNegativeFeedback={(e) => {
+                            this.setState({ modal: null });
                             this.setCompany(suggestion.document);
-                        });
-                    }}
-                    positiveDefault={true}
-                    onDismiss={() => dismissModal(modal)}>
-                    {t('modal-autocomplete-new-request', 'generator')}
-                </Modal>
-            );
+                        }}
+                        onPositiveFeedback={(e) => {
+                            this.setState({ modal: null });
+                            this.newRequest().then(() => {
+                                this.setCompany(suggestion.document);
+                            });
+                        }}
+                        positiveDefault={true}
+                        onDismiss={() => this.setState({ modal: null })}>
+                        {t('modal-autocomplete-new-request', 'generator')}
+                    </Modal>
+                ),
+            });
         } else {
             this.setCompany(suggestion.document);
         }
     };
 
     showAuthorityChooser = () => {
-        const modal = showModal(
-            <Modal
-                negativeText={t('cancel', 'generator')}
-                onNegativeFeedback={() => dismissModal(modal)}
-                positiveDefault={true}
-                onDismiss={() => dismissModal(modal)}>
-                <IntlProvider scope="generator" definition={I18N_DEFINITION}>
-                    <MarkupText id="modal-select-authority" />
-                </IntlProvider>
-                <SvaFinder
-                    callback={(sva) => {
-                        this.setCompany(sva);
-                        fetchTemplate(sva['complaint-language'], 'complaint', null, '').then((text) => {
-                            this.changeRequest((request) => {
-                                request.custom_data.content = new Template(text, [], {
-                                    request_article: REQUEST_ARTICLES[this.state.response_request.type],
-                                    request_date: this.state.response_request.date,
-                                    request_recipient_address: this.state.response_request.recipient,
-                                }).getText();
+        this.setState({
+            modal: (state) => (
+                <Modal
+                    negativeText={t('cancel', 'generator')}
+                    onNegativeFeedback={() => this.setState({ modal: null })}
+                    positiveDefault={true}
+                    onDismiss={() => this.setState({ modal: null })}>
+                    <IntlProvider scope="generator" definition={I18N_DEFINITION}>
+                        <MarkupText id="modal-select-authority" />
+                    </IntlProvider>
+                    <SvaFinder
+                        callback={(sva) => {
+                            this.setCompany(sva);
+                            this.setState({ ready: false }, () => {
+                                fetchTemplate(sva['complaint-language'], 'complaint', null, '').then((text) => {
+                                    this.changeRequest((request) => {
+                                        request.custom_data.content = new Template(text, [], {
+                                            request_article: REQUEST_ARTICLES[state.response_request.type],
+                                            request_date: state.response_request.date,
+                                            request_recipient_address: state.response_request.recipient,
+                                        }).getText();
+                                    });
+                                    this.setState({ ready: !!text });
+                                });
                             });
-                        });
-                        dismissModal(modal);
-                    }}
-                    style="margin-top: 15px;"
-                />
-            </Modal>
-        );
+                            this.setState({ modal: null });
+                        }}
+                        style="margin-top: 15px;"
+                    />
+                </Modal>
+            ),
+        });
     };
 
     renderLetter = () => {
@@ -446,7 +483,7 @@ export default class RequestGeneratorBuilder extends Component {
             sender.country,
         ];
         if (this.state.request.type === 'custom') {
-            this.letter.setProps({
+            this.state.letter.setProps({
                 subject: this.state.request.custom_data.subject,
                 content: this.state.request.custom_data.content,
                 signature: { ...this.state.request.signature, name: this.state.request.custom_data.name },
@@ -456,13 +493,13 @@ export default class RequestGeneratorBuilder extends Component {
                 reference: this.state.request.reference,
                 reference_barcode: RequestLetter.barcodeFromText(this.state.request.reference),
             });
-        } else this.letter.setProps(RequestLetter.propsFromRequest(this.state.request, this.state.template_text));
+        } else this.state.letter.setProps(RequestLetter.propsFromRequest(this.state.request, this.state.template_text));
 
         switch (this.state.request.transport_medium) {
             case 'fax': // fallthrough intentional
             case 'letter':
                 this.setState({ download_active: false });
-                this.letter.initiatePdfGeneration(
+                this.state.letter.initiatePdfGeneration(
                     (this.state.suggestion?.slug ||
                         slugify(this.state.request.recipient_address.split('\n', 1)[0] || 'custom-recipient')) +
                         `_${this.state.request.type}_${this.state.request.reference}.pdf`
@@ -471,7 +508,7 @@ export default class RequestGeneratorBuilder extends Component {
             case 'email': {
                 this.setState({
                     blob_url: URL.createObjectURL(
-                        new Blob([this.letter.toEmailString(true)], {
+                        new Blob([this.state.letter.toEmailString(true)], {
                             type: 'text/plain',
                         })
                     ),
@@ -499,6 +536,13 @@ export default class RequestGeneratorBuilder extends Component {
                 prev.blob_url = '';
                 prev.download_filename = '';
                 prev.request.response_type = '';
+                prev.letter = new RequestLetter({}, (blob_url, filename) => {
+                    this.setState({
+                        blob_url: blob_url,
+                        download_filename: filename,
+                        download_active: true,
+                    });
+                });
 
                 return prev;
             }, resolve);
@@ -508,23 +552,26 @@ export default class RequestGeneratorBuilder extends Component {
     };
 
     confirmNewRequest = () => {
-        const medium = this.state.request.transport_medium;
-
-        const modal = showModal(
+        const confirmNewRequestModal = (state) => (
             <Modal
                 positiveButton={
                     <div style="float: right;">
                         <ActionButton
-                            transport_medium={this.state.request.transport_medium}
-                            blob_url={this.state.blob_url}
-                            email={this.state.request.email}
-                            letter={this.letter}
-                            download_filename={this.state.download_filename}
-                            download_active={this.state.download_active}
-                            done={this.state.request.done}
-                            buttonText={t(medium === 'email' ? 'send-email-first' : 'download-pdf-first', 'generator')}
+                            transport_medium={state.request.transport_medium}
+                            blob_url={state.blob_url}
+                            email={state.request.email}
+                            letter={state.letter}
+                            download_filename={state.download_filename}
+                            download_active={state.download_active}
+                            done={state.request.done}
+                            ready={state.ready}
+                            buttonText={t(
+                                state.request.transport_medium === 'email' ? 'send-email-first' : 'download-pdf-first',
+                                'generator'
+                            )}
+                            createModal={(modal) => new Promise((resolve) => this.setState({ modal }, resolve))}
                             onSuccess={() => {
-                                dismissModal(modal);
+                                if (this.state.modal === confirmNewRequestModal) this.setState({ modal: null });
                                 this.storeRequest();
                                 this.newRequest().then(() => {
                                     // We are in batch mode, move to the next company.
@@ -538,7 +585,7 @@ export default class RequestGeneratorBuilder extends Component {
                 }
                 negativeText={t('new-request', 'generator')}
                 onNegativeFeedback={(e) => {
-                    dismissModal(modal);
+                    this.setState({ modal: null });
                     this.newRequest().then(() => {
                         // We are in batch mode, move to the next company.
                         if (this.state.batch?.length > 0) {
@@ -548,16 +595,20 @@ export default class RequestGeneratorBuilder extends Component {
                 }}
                 positiveDefault={true}
                 innerStyle="overflow: visible;"
-                onDismiss={() => dismissModal(modal)}>
+                onDismiss={() => this.setState({ modal: null })}>
                 {t('modal-new-request', 'generator')}
             </Modal>
         );
+        this.setState({
+            modal: confirmNewRequestModal,
+        });
     };
 
     storeRequest = () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             this.savedIdData.storeArray(this.state.request.id_data);
-            this.savedIdData.storeSignature(this.state.request.signature);
+            // Don't clear the saved signature if the signature was only cleared for this request (#182).
+            if (this.state.request.signature.value) this.savedIdData.storeSignature(this.state.request.signature);
         }
 
         this.state.request.store();

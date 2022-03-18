@@ -1,0 +1,40 @@
+<!--
+Insert an image as a responsive and optimized `<picture>` tag. Only works with page resource images.
+This is mostly to be used by other partials/shortcodes. To insert an image as a `<figure>`, including caption support
+etc., use the `img` shortcode (which is based on this) instead.
+
+Parameters:
+    - `[page]`: The page the resource is embedded in.
+    - `[name]`: The name of the image.
+    - `[srcset]`: An array of the widths the image should be resized to and that will be provided in the `srcset`
+                  attribute, e.g. `(slice 280 375 684 874 230)`.
+    - `[sizes]`: A dictionary specifying which image width should be rendered at which viewport `max-width`, mapping
+                 from image width to max width, e.g. `(dict "280" 320 "375" 425 "684" 768 "874" 979)` (Hugo doesn't
+                 support int keys).
+                 The order matters, the `sizes` attribute is filled in exactly that order. Don't include the fallback
+                 width.
+    - `[fallback]`: The fallback image width.
+    - `[alt_text]`: The alt text and title to set on the image.
+    - `[loading]`: Whether to lazy-load the image (`eager` to load the image immediately, `lazy` to defer loading).
+                   Defaults to `lazy`.
+
+All parameters are required.
+-->
+
+<picture>
+    {{ range $format := (slice "webp" "jpg") }}
+        <source srcset="
+                {{- range $index, $width := $.srcset -}}
+                    {{- partial "functions/imgURL" (dict "page" $.page "name" $.name "command" "Resize" "options" (printf "%dx %s" $width $format)) }} {{ $width }}w{{ cond (lt (add $index 1) (len $.srcset)) "," "" }}
+                {{- end -}}
+            "
+            sizes="
+                {{- range $img_width, $max_width := $.sizes -}}
+                    (max-width: {{ $max_width }}px) {{ $img_width }}px,
+                {{- end -}}
+                {{ $.fallback -}}px">
+    {{ end }}
+    {{ with .page.Resources.GetMatch (printf "*%s*" $.name) }}
+        <img src="{{ (partial "functions/imgURL" (dict "page" $.page "name" $.name)) }}" alt="{{ $.alt_text }}" title="{{ $.alt_text }}" height="{{ .Height }}" width="{{ .Width }}"{{ if eq $.loading "lazy" }} loading="lazy"{{ end }}>
+    {{ end }}
+</picture>

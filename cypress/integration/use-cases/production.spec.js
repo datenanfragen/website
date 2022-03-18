@@ -12,6 +12,7 @@ describe('Make sure all productions sites are still alive', () => {
         'https://www.pedidodedados.org',
         'https://www.solicituddedatos.es',
         'https://www.osobnipodaci.org',
+        'https://www.gegevensaanvragen.nl',
     ];
 
     for (const site of sites) {
@@ -27,11 +28,12 @@ describe('Make sure all productions sites are still alive', () => {
             cy.get('#1-delete-id_data').click();
             cy.get('#download-button').clickLinkWithoutFollowingHref();
 
-            cy.visit(`${site}/blog`);
-            cy.get(':nth-child(1) > .padded > a > h1').click();
-            // This assumes that we always have at least one blog post per language which might not be true in the
-            // future. We would then need to exclude those cases here.
-            cy.url().should('match', new RegExp(`${site}/blog/.+`));
+            // Some languages don't have any blog posts, so we have to exclude them here.
+            if (!['https://www.gegevensaanvragen.nl'].includes(site)) {
+                cy.visit(`${site}/blog`);
+                cy.get(':nth-child(1) > .padded > a > h1').click();
+                cy.url().should('match', new RegExp(`${site.replace('.', '\\.')}/blog/.+`));
+            }
         });
     }
 });

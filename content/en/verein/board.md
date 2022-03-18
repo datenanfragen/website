@@ -5,7 +5,7 @@
     "type": "page"
 }
 
-All important business of the association is conducted by the executive board. According to our [constitution]({{< ref "verein/constitution" >}}#7-the-board), the board is composed of two equal chairpersons, who represent the association jointly, and an arbitrary number of assessors, who check and support the board in its work. The current board has been elected in the general assembly on July 16, 2020, and consists of:
+All important business of the association is conducted by the executive board. According to our {{< link slug="verein/constitution#7-the-board" text="constitution" >}}, the board is composed of two equal chairpersons, who represent the association jointly, and an arbitrary number of assessors, who check and support the board in its work. The current board has been elected in the general assembly on July 16, 2020, and consists of:
 
 * Benjamin Altpeter, Chairperson ([benni@datenanfragen.de](mailto:benni@datenanfragen.de), [PGP key](/pgp/AF1381BD.asc)  
   `9F99 3663 0B82 D3C7 DFC9  23F6 EB5C F074 AF13 81BD`)

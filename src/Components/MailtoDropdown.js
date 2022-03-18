@@ -1,4 +1,4 @@
-import { render, Component } from 'preact';
+import { Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import PropTypes from 'prop-types';
 import t, { t_r } from '../Utility/i18n';
@@ -37,8 +37,10 @@ export const MAILTO_HANDLERS = {
         countries: ['all'],
     },
     copymanually: {
-        onClick: (d) => {
-            const dismiss = () => render('', document.body, modal);
+        onClick: (d, createModal) => {
+            const dismiss = () => {
+                createModal(null);
+            };
             const onInputClick = (e) => {
                 if (previous_active_element.id === e.target.id) return;
 
@@ -46,10 +48,10 @@ export const MAILTO_HANDLERS = {
                 e.target.focus();
                 previous_active_element = e.target;
             };
-            const modal = render(
+            return createModal((state) => (
                 <IntlProvider scope="generator" definition={I18N_DEFINITION}>
                     <Modal
-                        positiveText={<Text id="ok" />}
+                        positiveText={t('ok', 'generator')}
                         onPositiveFeedback={dismiss}
                         positiveDefault={true}
                         onDismiss={dismiss}>
@@ -95,9 +97,8 @@ export const MAILTO_HANDLERS = {
                             </textarea>
                         </div>
                     </Modal>
-                </IntlProvider>,
-                document.body
-            );
+                </IntlProvider>
+            ));
         },
         countries: ['all'],
     },
@@ -126,8 +127,9 @@ export default class MailtoDropdown extends Component {
                 onClick={(e) => {
                     if (!props.letter) e.preventDefault();
                     else {
-                        if (MAILTO_HANDLERS[h].onClick) MAILTO_HANDLERS[h].onClick(data);
-                        props.onSuccess();
+                        if (MAILTO_HANDLERS[h].onClick)
+                            MAILTO_HANDLERS[h].onClick(data, props.createModal).then(props.onSuccess);
+                        else if (props.onSuccess) props.onSuccess();
                     }
                 }}
                 className="button button-secondary button-full-width"
@@ -140,13 +142,15 @@ export default class MailtoDropdown extends Component {
 
         return (
             <IntlProvider scope="generator" definition={I18N_DEFINITION}>
-                <div className="dropdown-container" style="display: inline-block;">
-                    <button className={props.className}>
+                <div
+                    className={'dropdown-container' + (!props.enabled ? ' disabled' : '')}
+                    style="display: inline-block;">
+                    <button disabled={!props.enabled} className={props.className}>
                         {this.props.buttonText || <Text id={props.done ? 'send-email-again' : 'send-email'} />}
                         &nbsp;&nbsp;
                         <span className={'icon ' + (props.done ? 'icon-paper-plane' : 'icon-email')} />
                     </button>
-                    {props.letter ? (
+                    {props.enabled ? (
                         <div className="dropdown" style="padding: 15px; width: 270px; max-width: 90vw;">
                             <Text id="mailto-dropdown-explanation" />
 
@@ -171,6 +175,7 @@ export default class MailtoDropdown extends Component {
         onSuccess: PropTypes.func.isRequired,
         done: PropTypes.bool.isRequired,
         className: PropTypes.string.isRequired,
+        enabled: PropTypes.bool.isRequired,
         buttonText: PropTypes.oneOfType([PropTypes.elementType, PropTypes.arrayOf(PropTypes.elementType)]),
     };
 }

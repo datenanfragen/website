@@ -21,7 +21,7 @@ describe('Clear all cookies button', () => {
 
         cy.get('#clear-cookies-button').click({ force: true });
 
-        PRIVACY_CONTROLS.forEach(c => {
+        PRIVACY_CONTROLS.forEach((c) => {
             cy.getCookie(c.cookie_name).should('not.exist');
         });
     });

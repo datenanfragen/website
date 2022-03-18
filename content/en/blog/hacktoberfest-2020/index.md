@@ -11,10 +11,10 @@
 
 It's that time again: The [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2020 is coming up, as always hosted by the hosting provider DigitalOcean. The aim is to get people excited about working on open source software as usual. The Hacktoberfest invites you to submit pull requests to open source projects during October 2020. Those who submit four or more pull requests will receive a t-shirt from DigitalOcean as a gift or can plant a tree.
 
-{{< img name="hacktoberfest-2020" alt="Hacktoberfest 2020 + Datenanfragen.de e. V." >}}
+{{< featuredImg alt="Hacktoberfest 2020 + Datenanfragen.de e. V." >}}
 
 It has almost become a tradition for other companies to participate in addition to this official event and to offer their own rewards for contributions to their respective open source projects.  
-After the great success of our participation last year, we are pleased to announce that we will again participate in the Hacktoberfest this year. datarequests.org loves [open source]({{< ref "/open-source" >}}) and the people who contribute to the project are very important to us. That's why we will reward contributions to the project that are submitted during October 2020 as a pull request via [GitHub](https://github.com/) or as a patch via email. Find out more in this post.
+After the great success of our participation last year, we are pleased to announce that we will again participate in the Hacktoberfest this year. datarequests.org loves {{< link slug="/open-source" text="open source" >}} and the people who contribute to the project are very important to us. That's why we will reward contributions to the project that are submitted during October 2020 as a pull request via [GitHub](https://github.com/) or as a patch via email. Find out more in this post.
 
 ## What are the rewards?
 
@@ -26,7 +26,7 @@ Participating is of course entirely free, we will even pay for shipping.
 
 ## How do I participate?
 
-Our event is independent of the offical Hacktoberfest. If you want to participate, you have to register before November 4, 2020. For the registration, you don't have to provide a shipping address yet. In the interest of data minimization, we will only ask for that after the event, when we are actually shipping the rewards.
+Our event is independent of the official Hacktoberfest. If you want to participate, you have to register before November 4, 2020. For the registration, you don't have to provide a shipping address yet. In the interest of data minimization, we will only ask for that after the event, when we are actually shipping the rewards.
 
 If you want to participate using GitHub, please use this form, so we can match your contributions to you:
 
@@ -76,7 +76,7 @@ We may also accept additional repositories. If you think that your contribution 
 If you're new to Datenanfragen.de, you may be a little overwhelmed and don't know where to start. Don't worry: There are numerous areas in which you can participate—regardless of whether you have experience with programming and data protection or not. To make it easier for you to get started, we have put together a few suggestions here. You can find many more tasks in the issues of the respective repositories. Of course we also welcome your own ideas on how you could improve the project.
 
 * **Adding new records for the company database**  
-  The [company database]({{< ref "/company" >}}) is at the core of our project. We collect the contact details for privacy-related questions to companies and other organizations. By now, we have collected a fair number of records but of course, tons more are still missing. As such, we always welcome new company records that are submitted as pull requests.  
+  The {{< link slug="/company" text="company database" >}} is at the core of our project. We collect the contact details for privacy-related questions to companies and other organizations. By now, we have collected a fair number of records but of course, tons more are still missing. As such, we always welcome new company records that are submitted as pull requests.  
   A small hint: Our [company JSON generator](https://company-json.netlify.com/) makes this process a lot easier. Please also read our [guidelines on how to create company records](https://github.com/datenanfragen/data#data-format-guidelines-and-resources-for-company-records).
 
 * **Collecting suggested companies for more countries**  
@@ -88,7 +88,7 @@ If you're new to Datenanfragen.de, you may be a little overwhelmed and don't kno
   Currently, we are still missing this entry for many of the companies, forcing the generator to fallback to the default fields (name, email, and address). But those aren't appropriate for all companies. This is where we need your help: [This GitHub issue](https://github.com/datenanfragen/data/issues/720) explains in detail how you can add the missing data by sending your own GDPR requests to the corresponding companies. As a side effect, you'll also learn something about the data those companies process on you.
 
 * **Writing and translating blog post**  
-  Our [blog]({{< ref "blog" >}}) has posts on many data protection-releated topics, including explanations of the GPDR rights and how to use them, comments on current events, and guides. We would like to offer even more posts. Please submit new posts to the [website repository](https://github.com/datenanfragen/website).
+  Our {{< link slug="blog" text="blog" >}} has posts on many data protection-releated topics, including explanations of the GDPR rights and how to use them, comments on current events, and guides. We would like to offer even more posts. Please submit new posts to the [website repository](https://github.com/datenanfragen/website).
 
   Another important task is translating those posts into the other languages that we support. The [website repository](https://github.com/datenanfragen/website) is the right place to go for that, as well.
 
@@ -106,13 +106,13 @@ If you have any questions, just send us an email to <hacktoberfest@datenanfragen
 Happy hacking!
 
 <script>
-window.onload = function() {
+window.addEventListener('load', function() {
   if (PARAMETERS.error) {
     if (PARAMETERS.error === 'validation') alert('The data you entered was incorrect. Please try again.');
     else if (PARAMETERS.error === 'server') alert('Our server encountered an error while processing your registration. Please try again in a little while or contact hacktoberfest@datenanfragen.de.');
     else if (PARAMETERS.error === 'duplicate') alert('This GitHub user or email has already been registered. This wasn\'t you? Please contact us at hacktoberfest@datenanfragen.de.');
-    else if (PARAMETERS.error === 'expired') alert('Unforuntately, the registration deadline has already expired.');
+    else if (PARAMETERS.error === 'expired') alert('Unfortunately, the registration deadline has already expired.');
   }
   else if (PARAMETERS.success === '1') alert('Your registration was processed successfully. You should receive an email confirmation soon.');
-}
+});
 </script>

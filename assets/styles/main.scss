@@ -1,8 +1,11 @@
+@import 'fonts';
 @import 'variables';
 @import 'framework';
 @import 'elements';
 @import 'icons';
 @import 'generator';
+
+@import '../../node_modules/react-joyride/lib/react-joyride';
 
 /* Header */
 header#nav-header {
@@ -18,6 +21,7 @@ header#nav-header {
 }
 a #logo {
     height: 32px;
+    width: auto;
 
     @include mobile {
         max-width: 55vw;
@@ -103,6 +107,21 @@ a #logo {
     @include mobile {
         font-size: 1.5em;
         hyphens: auto;
+    }
+}
+
+#skip-to-content {
+    padding: 50px;
+    color: $bg-color;
+    background-color: $primary-color;
+    position: absolute;
+    transform: translateY(-200%);
+    transition: transform 0.2s;
+    @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+    &:focus {
+        transform: translateY(0%);
     }
 }
 
@@ -243,8 +262,29 @@ a #logo {
     }
 }
 
+#donation-widget-payment-method-buttons {
+    margin-bottom: 10px;
+}
+
+.donation-widget-main-column,
+.donation-widget-info-column {
+    @include mobile {
+        flex: 1;
+        width: 100%;
+    }
+}
+
 .donation-widget-section {
     margin: 20px 0;
+}
+
+.donation-widget-fee-text {
+    text-align: right;
+    line-height: 1.3;
+    font-size: 0.8em;
+    @include desktop {
+        margin-top: -5px;
+    }
 }
 
 #donation-widget-amount-buttons {
@@ -261,8 +301,10 @@ a #logo {
 }
 
 .donation-widget-info-column > span {
-    margin: -4px 0 0 20px;
-    display: block;
+    @include desktop {
+        margin: -4px 0 0 20px;
+        display: block;
+    }
 }
 
 #bank-transfer-data-table {
@@ -584,6 +626,7 @@ table#my-requests-table {
 
         img {
             max-height: 200px;
+            width: auto;
             object-fit: cover;
 
             @include mobile {
@@ -747,6 +790,11 @@ body.sticky-offset {
     padding: 25px;
     position: relative;
     padding-bottom: 45px;
+    @include mobile {
+        padding-top: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
     #submit-suggest-form {
         position: absolute;
@@ -756,6 +804,18 @@ body.sticky-offset {
 }
 
 .brutusin-form {
+    @include mobile {
+        line-height: 1.3;
+        table {
+            border-collapse: separate;
+            &:not(.array) {
+                border-spacing: 0 15px;
+            }
+            &.array {
+                border-spacing: 0 5px;
+            }
+        }
+    }
     table.object {
         width: 100%;
     }
@@ -779,10 +839,20 @@ body.sticky-offset {
 
     td {
         padding: 5px;
+        @include mobile {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
         vertical-align: top;
 
         &.prop-name {
-            width: 300px;
+            @include desktop {
+                width: 300px;
+            }
+
+            label {
+                cursor: help;
+            }
         }
         td.prop-name {
             width: auto;
@@ -790,11 +860,20 @@ body.sticky-offset {
         &.item-action {
             width: 35px;
         }
+        &.prop-value,
+        &.prop-name {
+            @include mobile {
+                display: block;
+            }
+        }
+
+        .item-value {
+            table {
+                border-spacing: 0 0;
+            }
+        }
     }
 
-    label {
-        cursor: help;
-    }
     .label-tooltip {
         position: absolute;
         border: 2px solid $primary-color;
@@ -804,6 +883,17 @@ body.sticky-offset {
         z-index: 999;
         padding: 5px;
         background: $bg-color;
+    }
+}
+
+.similar-list {
+    border: 2px solid $primary-color;
+    padding: 7px;
+    margin-top: 5px;
+
+    mark {
+        background-color: color('blue', 100);
+        color: inherit;
     }
 }
 
@@ -847,6 +937,7 @@ footer {
         img.itz-logo {
             width: 100%;
             max-width: 300px;
+            height: auto;
             margin-top: 5px;
 
             &:active,
@@ -871,7 +962,6 @@ footer {
 
 /* Tutorial */
 $joyride-color: $primary-color;
-@import '../../node_modules/react-joyride/lib/react-joyride';
 button.joyride-tooltip__button {
     &:hover,
     &:focus {

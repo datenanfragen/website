@@ -12,6 +12,15 @@ const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];
 const PAYMENT_METHODS = ['bank-transfer', /*'creditcard',*/ 'cryptocurrency', 'paypal', 'mollie'];
 
+const amount_after_linear_fee = (fee_percent, fee_fixed, x) => x - fee_fixed - x * fee_percent;
+
+const PAYMENT_NETTO = {
+    'bank-transfer': (x) => x,
+    //'credit-card': (x) => linear_func()
+    cryptocurrency: (x) => amount_after_linear_fee(0.01, 0, x),
+    paypal: (x) => amount_after_linear_fee(0.015, 0.35, x),
+};
+
 export default class DonationWidget extends Component {
     epcr_canvas_ref = undefined;
     bezahlcode_canvas_ref = undefined;
@@ -120,7 +129,28 @@ export default class DonationWidget extends Component {
                                     onChange={(e) => {
                                         this.setState({ payment_method: e.target.value });
                                     }}
-                                    label={<Text id={payment_method} />}
+                                    label={
+                                        <div>
+                                            <Text id={payment_method} />
+                                            {PAYMENT_NETTO[payment_method] && (
+                                                <div className="donation-widget-fee-text">
+                                                    <MarkupText
+                                                        id={
+                                                            PAYMENT_NETTO[payment_method](this.state.amount) ===
+                                                            this.state.amount
+                                                                ? 'amount-no-fees'
+                                                                : 'amount-after-fees'
+                                                        }
+                                                        fields={{
+                                                            amount: renderMoney(
+                                                                PAYMENT_NETTO[payment_method](this.state.amount)
+                                                            ),
+                                                        }}
+                                                    />
+                                                </div>
+                                            )}
+                                        </div>
+                                    }
                                 />
                             ))}
                         </div>
@@ -192,19 +222,21 @@ export default class DonationWidget extends Component {
                         <td>{renderMoney(this.state.amount)}&nbsp;€</td>
                     </tr>
                 </table>
-                <h2>
-                    <Text id="bank-transfer-qrcodes" />
-                </h2>
-                <div id="bank-transfer-qrcodes">
-                    <div id="bank-transfer-epcr-qrcode" className="bank-transfer-qrcode">
-                        <strong>EPCR-QR-CODE</strong>
-                        <canvas id="epcr-qr-canvas" ref={(el) => (this.epcr_canvas_ref = el)} />
+                <div id="bank-transfer-qrcode-section">
+                    <h2>
+                        <Text id="bank-transfer-qrcodes" />
+                    </h2>
+                    <div id="bank-transfer-qrcodes">
+                        <div id="bank-transfer-epcr-qrcode" className="bank-transfer-qrcode">
+                            <strong>EPCR-QR-CODE</strong>
+                            <canvas id="epcr-qr-canvas" ref={(el) => (this.epcr_canvas_ref = el)} />
+                        </div>
+                        <div id="bank-transfer-bezahlcode-qrcode" className="bank-transfer-qrcode">
+                            <strong>BezahlCode</strong>
+                            <canvas id="bezahlcode-qr-canvas" ref={(el) => (this.bezahlcode_canvas_ref = el)} />
+                        </div>
+                        <div className="clearfix"></div>
                     </div>
-                    <div id="bank-transfer-bezahlcode-qrcode" className="bank-transfer-qrcode">
-                        <strong>BezahlCode</strong>
-                        <canvas id="bezahlcode-qr-canvas" ref={(el) => (this.bezahlcode_canvas_ref = el)} />
-                    </div>
-                    <div className="clearfix"></div>
                 </div>
                 <button
                     id="donation-widget-back-button"
@@ -240,9 +272,7 @@ export default class DonationWidget extends Component {
         const style = `<style>
 #bank-transfer-data-table td { border: 1px solid #000; padding: 10px; }
 .button { display: none; }
-#bank-transfer-qrcodes { margin: auto; max-width: 672px; }
-.bank-transfer-qrcode { float: left; text-align: center; margin: 40px; }
-.bank-transfer-qrcode canvas { display: block; }
+#bank-transfer-qrcode-section { display: none; }
 </style>`;
         print_window.document.write(style + content.innerHTML);
 

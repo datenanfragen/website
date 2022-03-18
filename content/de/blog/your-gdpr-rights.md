@@ -11,9 +11,9 @@
 
 Datenschutz spielt in unserer immer stärker digitalisierten Welt von Tag zu Tag eine wichtigere Rolle. Mit der neuen **Datenschutz-Grundverordnung** (**DSGVO**) stärkt die Europäische Union Deine Rechte im Bezug auf einen sorgsamen Umgang mit Deinen personenbezogenen Daten deutlich.
 
-In diesem Artikel wollen wir Dir einen ausführlichen Überblick über die Rechte verschaffen, die Du dank der DSGVO hast. Wenn Du eher auf der Suche nach einer kurzen Zusammenfassung bist, dann schau doch einmal in [diesem Artikel]({{< ref "/blog/a-quick-overview" >}}) vorbei.
+In diesem Artikel wollen wir Dir einen ausführlichen Überblick über die Rechte verschaffen, die Du dank der DSGVO hast. Wenn Du eher auf der Suche nach einer kurzen Zusammenfassung bist, dann schau doch einmal in {{< link slug="/blog/a-quick-overview" text="diesem Artikel" >}} vorbei.
 
-## Was ist die DSVGO?
+## Was ist die DSGVO?
 
 Die DSGVO (englisch **General Data Protection Regulation** oder kurz **GDPR**) ist eine *EU-Verordnung*, die am 25. Mai 2018 in Kraft getreten ist. Ziel der DSGVO ist es, den Bürger_innen der EU eine bessere Kontrolle über ihre personenbezogenen Daten zu ermöglichen. Durch die EU-weit einheitliche Regelung des Datenschutzes sollen weiterhin für Bürger_innen wie Unternehmen die Rechtslage eindeutiger gemacht und Bürokratie verringert werden.
 
@@ -42,14 +42,14 @@ Diese Informationen müssen Dir *unmittelbar bei der Erhebung der Daten* zur Ver
 
 Ein weiteres wichtiges Recht ist das **Auskunftsrecht**, das in Art. 15 DSGVO geregelt ist. Es ermöglicht Dir zunächst einmal bei Unternehmen und sonstigen Organisationen eine Bestätigung anzufordern, ob personenbezogene Daten zu Dir gespeichert sind (Art. 15 Abs. 1 Satz 1 DSGVO). Sollte dem so sein, kannst Du eine kostenfreie Kopie Deiner gespeicherten Daten verlangen (Art. 15 Abs. 3 DSGVO).
 
-Darüber hinaus kannst du jedoch auch zahlreiche Informationen im Hinblick auf die Verarbeitung Deiner Daten anfragen (Art. 15 Abs. 1, 2 DSGVO). Dazu zählen u.&nbsp;a.:
+Darüber hinaus kannst Du jedoch auch zahlreiche Informationen im Hinblick auf die Verarbeitung Deiner Daten anfragen (Art. 15 Abs. 1, 2 DSGVO). Dazu zählen u.&nbsp;a.:
 
 * die Zwecke der Verarbeitung,
 * die Kategorien an Daten, die verarbeitet werden,
 * die Empfänger_innen, an die Deine Daten weitergeleitet wurden oder noch werden,
 * die Dauer, für die Deine Daten gespeichert werden sollen,
 * die Herkunft der Daten, falls sie nicht direkt beim Verantwortlichen erhoben wurden,
-* falls Scoring stattfindet: die für dich berechneten Werte und aussagekräftige Informationen über die Logik dahinter,
+* falls Scoring stattfindet: die für Dich berechneten Werte und aussagekräftige Informationen über die Logik dahinter,
 * falls Deine Daten an ein Drittland weitergeleitet werden: wie sichergestellt wird, dass auch dabei Deine Rechte gewahrt werden.
 
 ## Recht auf Datenübertragbarkeit
@@ -89,6 +89,6 @@ Auch bei Anfragen zur Löschung von Daten gilt Art. 19 DSGVO und der Verantwortl
 
 ## Wie nutze ich diese Rechte?
 
-Grundsätzlich kannst Du alle genannten Rechte über einen formlosen Antrag gegenüber einem Unternehmen geltend machen. Gerne kannst Du auch [unseren Generator]({{< ref "/generator" >}}) verwenden, um Anfragen automatisch generieren zu lassen und dabei auf unsere umfangreiche Unternehmensdatenbank zuzugreifen.
+Grundsätzlich kannst Du alle genannten Rechte über einen formlosen Antrag gegenüber einem Unternehmen geltend machen. Gerne kannst Du auch {{< link slug="/generator" text="unseren Generator" >}} verwenden, um Anfragen automatisch generieren zu lassen und dabei auf unsere umfangreiche Unternehmensdatenbank zuzugreifen.
 
-<!-- Grundsätzlich kannst Du alle genannten Rechte über eine formlose Anfrage gegenüber einem Unternehmen geltend machen. Wie Du das konkret tun kannst und wie Dir [unser Generator]({{< ref "generator" >}}) dabei hilft, erfährst Du in [diesem Artikel](#). /* TODO: Write and link article. */ -->
+<!-- Grundsätzlich kannst Du alle genannten Rechte über eine formlose Anfrage gegenüber einem Unternehmen geltend machen. Wie Du das konkret tun kannst und wie Dir {{< link slug="generator" text="unser Generator" >}} dabei hilft, erfährst Du in [diesem Artikel](#). /* TODO: Write and link article. */ -->

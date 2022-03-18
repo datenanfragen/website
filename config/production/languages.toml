@@ -15,3 +15,6 @@
 
 [hr]
 	baseURL = "https://www.osobnipodaci.org/"
+
+[nl]
+	baseURL = "https://www.gegevensaanvragen.nl/"

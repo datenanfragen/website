@@ -173,6 +173,26 @@ h1 {
 h2 {
     font-size: 1.4em;
 }
+
+.sub-heading {
+    h2 {
+        display: inline-block;
+        width: fit-content;
+    }
+
+    .heading-anchor-link {
+        display: none;
+        font-size: 1.4em;
+    }
+
+    &:hover,
+    &:focus {
+        .heading-anchor-link {
+            display: inline-block;
+        }
+    }
+}
+
 .page {
     h1,
     h2,
@@ -196,6 +216,8 @@ a:focus {
 }
 
 main a {
+    overflow-wrap: anywhere;
+
     &:not(.button):not(.no-link-decoration):not(.icon) {
         position: relative;
         text-decoration: none;
@@ -232,6 +254,7 @@ main a {
 
 img {
     max-width: 100%;
+    height: auto;
     &.image {
         display: block;
         margin: auto;
@@ -365,7 +388,8 @@ blockquote {
     border: 0;
 } /* With thanks to Bootstrap. */
 
-.fade-in {
+.fade-in,
+%fade-in {
     animation: fadeIn 300ms ease forwards 1;
 
     @media screen and (prefers-reduced-motion: reduce) {

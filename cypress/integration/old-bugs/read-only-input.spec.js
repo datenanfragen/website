@@ -11,7 +11,7 @@ describe('Readonly inputs', () => {
     });
 
     it('Regular checkbox should not have readonly styling', () => {
-        cy.get('#request-flags-data-portability').then($el => {
+        cy.get('#request-flags-data-portability').then(($el) => {
             // I am using the cursor property here since I expect that to be the least likely one to change (while the
             // colors might).
             expect($el).to.have.css('cursor', 'auto');
@@ -20,7 +20,7 @@ describe('Readonly inputs', () => {
 
     it('Readonly checkbox should have appropriate styling', () => {
         cy.get('.accordion > .accordion-title-link').click();
-        cy.get('#reference').then($el => {
+        cy.get('#reference').then(($el) => {
             expect($el).to.have.css('cursor', 'not-allowed');
         });
     });

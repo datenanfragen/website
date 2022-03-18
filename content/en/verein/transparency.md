@@ -7,11 +7,11 @@
 
 In order for you to be able to trust us, we pledged to be as transparent as possible about our procedures, finances and decisions. Because of that, we have joined the [Initiative for a Transparent Civil Society](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), an initiative by the German branch of Transparency International, which is allowed to audit us on a sample basis. They ensure that we will keep our promise of transparent management. On this page we summarized all the important information that we publish as part of that.
 
-This information has been last updated on August 26, 2020.
+This information has been last updated on May 30, 2021.
 
 ## 1. Name, registered seat, address and date of foundation
 
-This information is also avilable in our [imprint]({{< ref "contact" >}}).
+This information is also available in our {{< link slug="contact" text="imprint" >}}.
 
  - Name: Datenanfragen.de e.&thinsp;V.
  - Registered seat: Braunschweig, Germany
@@ -27,9 +27,9 @@ This information is also avilable in our [imprint]({{< ref "contact" >}}).
 
 ## 2. Constitution and purpose
 
-We publish the complete constitution of our association on [this website]({{< ref "verein/constitution" >}}) and on [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
+We publish the complete constitution of our association on {{< link slug="verein/constitution" text="this website" >}} and on [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
 
-Our purpose is the same as stated in our constitution but we also compiled and explained it [here]({{< ref "verein/mission-statement" >}}).  
+Our purpose is the same as stated in our constitution but we also compiled and explained it {{< link slug="verein/mission-statement" text="here" >}}.  
 
 ## 3. Information on tax privileges
 
@@ -37,7 +37,7 @@ The tax office Braunschweig-Wilhelmstraße approved us as a public benefit organ
 
 ## 4. Name and function of significant decision makers
 
-The association is managed by the chairpersons of the [board]({{< ref "verein/board" >}}). The assessors check and support the chairpersons in their work. It is comprised of:
+The association is managed by the chairpersons of the {{< link slug="verein/board" text="board" >}}. The assessors check and support the chairpersons in their work. It is comprised of:
 
 - Benjamin Altpeter, Chairman
 - Lorenz Sieben, Chairman
@@ -48,8 +48,9 @@ The association is managed by the chairpersons of the [board]({{< ref "verein/bo
 
 ## 5. Report of activities
 
-see [Yearly report 2019 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-see [Yearly report 2018 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+see [Yearly report 2020 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=5)  
+see [Yearly report 2019 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
+see [Yearly report 2018 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=5)
 
 ## 6. Staff structure
 
@@ -59,16 +60,19 @@ Number of volunteers: 3
 
 ## 7. Funding sources
 
-see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+see [Yearly report 2020 (German, p. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
+see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
+see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
+Financial assets at the end of 2019: 327,78 €  
 Financial assets at the end of 2019: 87,90 €  
 Financial assets at the end of 2018: 119,70 €
 
 ## 8. Use of funds
 
-see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf)  
-see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf)
+see [Yearly report 2020 (German, p. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
+see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
+see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
 ## 9. Corporate relationships with third parties 
 
@@ -77,6 +81,17 @@ The association is in no corporate relationships with any third parties.
 ## 10. Names of entities whose donations make up more than 10% of the yearly budget
 
 We publish this information on a yearly basis in conjunction with the publishing of the yearly report.
+
+### 2020
+
+#### People
+
+- Anonymous donation and membership fee: 210,00 € (27,9 %)
+- Anonymous donation and membership fee: 167,00 € (22,2 %)
+
+#### Organisations
+
+- Donation and membership fee by KlexHub UG (haftungsbeschränkt): 81,80 € (10,9 %)
 
 ### 2019
 
@@ -113,7 +128,7 @@ The following sections go beyond the ten pieces of information required by the I
 
 ## 11. Compensated lectures
 
-Our [board members]({{< ref "verein/board" >}}) work on a strictly voluntary basis and receive no payment from the association for their work. In some cases, however, members of the association can receive compensation from external organizations for lectures on topics that concern the association. Of course, no funds of the association are used for such compensated lectures, they are the private responsibility of the respective members.
+Our {{< link slug="verein/board" text="board members" >}} work on a strictly voluntary basis and receive no payment from the association for their work. In some cases, however, members of the association can receive compensation from external organizations for lectures on topics that concern the association. Of course, no funds of the association are used for such compensated lectures, they are the private responsibility of the respective members.
 
 The board has to publicly document lectures here for which board members have received compensation from external organizations.
 

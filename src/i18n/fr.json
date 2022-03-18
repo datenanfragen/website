@@ -1,4 +1,8 @@
 {
+    "macros": {
+        "site_name": "demandetesdonnees.fr",
+        "base_url": "https://www.demandetesdonnees.fr"
+    },
     "search": {
         "no-results": "Malheureusement, il n'y a aucun résultat pour ta recherche.",
         "suggest-a-company": "Suggérer une nouvelle entreprise",
@@ -45,9 +49,9 @@
         "no-requests": "Tu n'as généré aucune demande pour le moment. Dès que tu le feras, elles apparaîtrons ici.",
         "generate-request": "Générer une demande",
         "ics-summary": "Demande(s) en attente",
-        "ics-desc": "Tu as envoyé les demandes relatives au RGPD aux entreprises énumérées ci-dessous par l’intermédiaire de \n demandetesdonnees.fr. Le délai d'attente pour ces demandes est maintenant écoulé. Si tu\n n'as pas reçu de réponse à au moins l'une de ces demandes, tu devrais \n désormais envoyer des avertissements : \n https://www.demandetesdonnees.fr/my-requests",
-        "ics-url": "https://www.demandetesdonnees.fr/my-requests",
-        "ics-title": "Mes demandes sur demandetesdonnees.fr",
+        "ics-desc": "Tu as envoyé les demandes relatives au RGPD aux entreprises énumérées ci-dessous par l’intermédiaire de \n ${site_name}. Le délai d'attente pour ces demandes est maintenant écoulé. Si tu\n n'as pas reçu de réponse à au moins l'une de ces demandes, tu devrais \n désormais envoyer des avertissements : \n ${base_url}/my-requests",
+        "ics-url": "${base_url}/my-requests",
+        "ics-title": "Mes demandes sur ${site_name}",
         "ics-lang": "EN",
         "toggle-all": "Sélectionner/Désélectionner tout",
         "objection": "opposition",
@@ -148,11 +152,14 @@
         "copymanually-explanation": "Ici, vous pouvez copier manuellement le sujet, le destinataire et le texte de votre courriel généré.",
         "body": "Texte",
         "delete-field": "Supprimer ce champ",
-        "add-fill-field": "Complète tes données sauvegardées"
+        "add-fill-field": "Complète tes données sauvegardées",
+        "recipient-fax": "Destinataire (adresse et numéro de télécopie)",
+        "recipient-letter": "Destinataire (adresse)",
+        "recipient-email": "Destinataire (adresse e-mail)"
     },
     "privacy-controls": {
         "title": "Options de confidentialité",
-        "explanation": "<p>Nous attachons une grande importance à ton droit à la confidentialité et nous nous efforçons de limiter autant que possible la collecte et le traitement des données. La plupart des fonctionnalités de demandetesdonnees.fr seront exécutées directement sur ton ordinateur et les données que tu saisis ne seront même jamais transmises à nos serveurs. Il y a cependant certaines fonctionnalités que nous ne pouvons pas offrir sans collecter certaines données (cependant la plupart des paramètres, même sur cette page, ne t'y obligent pas).<br>Ici, tu as la possibilité de décider toi-même quelles fonctions tu souhaites activer.</p><p>Lorsque tu définis l'une des options ci-dessous, ton choix sera enregistré dans un cookie. Si nous ne trouvons pas de cookie pour une option, nous utilisons une valeur par défaut que nous avons choisie.</p>",
+        "explanation": "<p>Nous attachons une grande importance à ton droit à la confidentialité et nous nous efforçons de limiter autant que possible la collecte et le traitement des données. La plupart des fonctionnalités de ${site_name} seront exécutées directement sur ton ordinateur et les données que tu saisis ne seront même jamais transmises à nos serveurs. Il y a cependant certaines fonctionnalités que nous ne pouvons pas offrir sans collecter certaines données (cependant la plupart des paramètres, même sur cette page, ne t'y obligent pas).<br>Ici, tu as la possibilité de décider toi-même quelles fonctions tu souhaites activer.</p><p>Lorsque tu définis l'une des options ci-dessous, ton choix sera enregistré dans un cookie. Si nous ne trouvons pas de cookie pour une option, nous utilisons une valeur par défaut que nous avons choisie.</p>",
         "clear-cookies": "Supprimer tous les cookies",
         "clear-my-requests": "Supprimer toutes les demandes enregistrées",
         "confirm-delete-my-requests": "Tu as désactivé la fonction « mes demandes ». Veux-tu également supprimer toutes les demande enregistrées ?",
@@ -185,7 +192,8 @@
         "privacy": "Pour plus d'informations sur la manière dont nous traitons les données contenues dans les rapports d'erreur, Réfère-toi à notre <a href='/privacy#error-reports' target='_blank'>politique de confidentialité</a>.",
         "explain-context": "S'il y a lieu, pense à fournir le contexte de l'erreur, c.-à-d. décrire ce que tu as fait avant que l'erreur ne se produise. Pense également à supprimer toute information sensible des informations de débogage ci-dessous.",
         "report-on-github": "Signaler sur GitHub",
-        "report-via-email": "Signaler par e-mail"
+        "report-via-email": "Signaler par e-mail",
+        "no-internet": "Il semble que vous ne soyez pas connecté à Internet."
     },
     "error-msg": {
         "company-not-found": "L'entreprise que tu cherches n'a pas été trouvée.",
@@ -198,8 +206,10 @@
         "view-on-github": "Tu peux suivre l'état d'avancement sur GitHub",
         "ok": "Ok",
         "github-error": "Un problème s'est produit avec GitHub pendant l'envoi de votre suggestion, qui n'a pas pu être prise en compte. Veuillez réessayer.",
+        "also-runs": "également applicable: ",
         "invalid-request": "Certaines informations ne sont pas au bon format ou sont incomplètes. Veuillez les corriger avant de d'envoyer de nouveau votre suggestion.",
-        "name-or-web-missing": "Veuillez entrer au moins un nom ou un site Web."
+        "name-or-web-missing": "Veuillez entrer au moins un nom ou un site Web.",
+        "similarly-named-companies": "Nous avons déjà ces entreprises avec un nom similaire :"
     },
     "schema": {
         "relevant-countries": "Pays concernés",
@@ -316,13 +326,12 @@
         "language-fr": "Français",
         "language-es": "Espagnol",
         "language-pt": "Portugais",
-        "language-change-modal": "Modifier la langue te redirigera vers un autre domaine. Tes paramètres et informations sauvegardées depuis ce domaine ne seront pas transférés.<br>En particulier, cela signifie que des éléments tels que tes options de confidentialité et tes demandes enregistrées ne seront pas disponibles dans la nouvelle langue. Tu peux toujours revenir à cette langue et les afficher ici, mais tu ne peux pas partager les paramètres et les données enregistrées entre différentes langues.",
-        "change-lang": "Modifier la langue",
-        "stay": "Rester ici",
         "not-supported-prompt": "Ta langue ou pays n'est pas encore pris en charge ?",
         "not-supported-cta": "Aide-nous à le prendre en charge !",
         "language-hr": "Croate",
-        "language-desc-hr": "Croate (Hrvatski)"
+        "language-desc-hr": "Croate (Hrvatski)",
+        "language-desc-nl": "Néerlandais (Nederlands)",
+        "language-nl": "Néerlandais"
     },
     "comments": {
         "comments": "Commentaires",
@@ -339,7 +348,11 @@
         "rss-link": "Abonne-toi aux commentaires sur cet article en utilisant ton lecteur de flux RSS/Atom.",
         "warning": "Note que nous somme une <em>association à but non lucratif indépendante</em> et que nous ne sommes affiliés à aucune des entreprises listées ici.<br>Si tu souhaites obtenir de l'aide ou envoyer une demande, contacte l'entreprise directement. Nous <strong>ne pouvons pas</strong> t'aider dans ce cas. Merci de ta compréhension.",
         "rating": "Évaluation",
-        "warning-loading-failed": "Le chargement des commentaires de cette page a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript."
+        "warning-loading-failed": "Le chargement des commentaires de cette page a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript.",
+        "average-rating-title": {
+            "plural": "Note moyenne : {{rating}} (à partir de {{count}} avis)",
+            "singular": "Note moyenne : {{rating}} (à partir de {{count}} avis)"
+        }
     },
     "wizard_tutorial": {
         "back": "Retour",
@@ -356,7 +369,7 @@
         "sva-finder": "Assistant de recherche d'autorité de contrôle",
         "reset": "Réinitialiser les préférences",
         "loading-sva": "Chargement des données sur l'autorité de contrôle sélectionnée…",
-        "result": "En fonction de ce que tu as choisi, nous te recommandons de contacter l'autorité de protection des données suivante :",
+        "result": "En fonction de tes réponses, l'autorité de protection des données suivante est responsable dans ton cas :",
         "country": "Où habites-tu ?",
         "land": "Entité publique ou privée (par ex. une entreprise, une organisation à but non lucratif, un état ou une autorité locale)",
         "land-q": "Dans quel État se trouve l'entité concernée par ta demande ?",
@@ -397,7 +410,23 @@
         "private-de-q": "Dans quel État l'entité concernant ta demande est-elle basée ?",
         "private-de": "Entité basée en Allemagne",
         "private-q": "L'entité concernant ta demande est-elle également basée en Allemagne ?",
-        "private": "Entité publique ou privée (par ex. une entreprise, une organisation, un État ou une autorité locale)"
+        "private": "Toute autre entité publique ou privée (par ex. une entreprise, une organisation, un État ou une autorité locale)",
+        "rundfunk": "Service public de radiodiffusion",
+        "rundfunk-br": "Bayerischer Rundfunk (BR)",
+        "rundfunk-dw": "Deutsche Welle",
+        "rundfunk-dr": "Deutschlandradio",
+        "rundfunk-hr": "Hessischer Rundfunk (HR)",
+        "rundfunk-mdr": "Mitteldeutscher Rundfunk (MDR)",
+        "rundfunk-ndr": "Norddeutscher Rundfunk (NDR)",
+        "rundfunk-rb": "Radio Bremen",
+        "rundfunk-rbb": "Rundfunk Berlin-Brandenburg (RBB)",
+        "rundfunk-sr": "Saarländischer Rundfunk (SR)",
+        "rundfunk-swr": "Südwestrundfunk (SWR)",
+        "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
+        "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)",
+        "rundfunk-q": "Quel service public de diffusion votre demande concerne-t-il ?",
+        "back": "Retour",
+        "bund-telepost": "Entreprise de télécommunications ou de services postaux"
     },
     "countries": {
         "__taken_from": "https://github.com/stefangabos/world_countries",
@@ -615,9 +644,9 @@
         "travel": "voyage",
         "utility": "services publics",
         "logo": "img/logo-demandetesdonnees.svg",
-        "logo-title": "Logo de demandetesdonnees.fr",
+        "logo-title": "Logo de ${site_name}",
         "logo-a-title": "Retour à la page d'accueil",
-        "header-name": "demandetesdonnees.fr",
+        "header-name": "${site_name}",
         "header-home": "Accueil",
         "header-generator": "Générateur",
         "header-cdb": "Base de données d'entreprises",
@@ -627,11 +656,12 @@
         "header-privacy-controls": "Options de confidentialité",
         "header-id-data-controls": "Mes données sauvegardées",
         "header-open-menu": "Ouvrir le menu",
-        "footer-about-us": "Nous sommes Datenfragen.de e.&nbsp;V., une association à but non lucratif enregistrée en Allemagne. Nous nous sommes donné pour mission de t'aider à exercer ton droit à la vie privée. <a href='https://www.demandetesdonnees.fr/verein' class='no-link-decoration'>En savoir plus.</a>",
+        "footer-about-us": "Nous sommes Datenfragen.de e.&nbsp;V., une association à but non lucratif enregistrée en Allemagne. Nous nous sommes donné pour mission de t'aider à exercer ton droit à la vie privée.",
+        "footer-learn-more": "En savoir plus.",
         "home-hero-line-1": "Tu as droit à",
         "home-hero-word": "l'accès aux données",
         "home-hero-line-2": "Utilise le",
-        "home-main-copy": "Toutes les entreprises de l'UE sont tenues par la loi de te donner accès à tes données personnelles, de te permettre de les faire rectifier ou même supprimer, etc. Ici sur demandetesdonnees.fr, nous voulons t'aider à exercer ces droits.",
+        "home-main-copy": "Toutes les entreprises de l'UE sont tenues par la loi de te donner accès à tes données personnelles, de te permettre de les faire rectifier ou même supprimer, etc. Ici sur ${site_name}, nous voulons t'aider à exercer ces droits.",
         "home-how-it-works-title": "Comment ça marche",
         "home-how-it-works-parameters-title": "Entre tes paramètres",
         "home-how-it-works-parameters": "Choisis les entreprises auxquelles tu souhaites envoyer une demande. Entre tes informations, juste assez pour que les entreprises puissent t'identifier de manière unique. Pour te faciliter la tâche, nous avons déjà préparé les formulaires pour toi. Et pas de soucis : Toutes les données restent sur ton ordinateur et ne sont traitées qu'à cet endroit. Ainsi, tes données ne nous seront jamais transmises.",
@@ -714,44 +744,20 @@
         "lic-cc0-10": "CC0 1.0 Universel Transfert dans le Domaine Public",
         "lic-url-cc0-10": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
         "ads": "publicités",
-        "footer-tab-website-name": "demandetesdonnees.fr",
+        "footer-tab-website-name": "${site_name}",
         "footer-request-generator": "Générateur de demande",
-        "footer-request-generator-url": "/generator",
         "footer-my-requests": "Mes demandes",
-        "footer-my-requests-url": "/my-requests",
         "footer-my-saved-data": "Mes données sauvegardées",
-        "footer-my-saved-data-url": "/id-data-controls",
         "footer-company-database": "Base de données d'entreprises",
-        "footer-company-database-url": "/company",
-        "footer-settings-url": "/settings",
         "footer-contribute": "Contribuer",
-        "footer-contribute-url": "/contribute",
         "footer-donate": "Faire un don",
-        "footer-donate-url": "/donate",
         "footer-open-source": "Open source",
-        "footer-open-source-url": "/open-source",
         "footer-contributors": "Contributeurs",
-        "footer-contributors-url": "/open-source#contributeurs",
         "footer-tab-association": "Datenanfragen.de e. V.",
-        "footer-association-overview-url": "/verein",
-        "footer-association-goals-url": "/verein/nos-objectifs",
-        "footer-association-constitution-url": "/verein/constitution",
-        "footer-association-transparency-url": "/verein/transparence",
-        "footer-association-board-url": "/verein/comite-directeur",
         "footer-sample-letters": "Modèles de lettres",
-        "footer-sample-letters-url": "/sample-letters",
         "footer-legal-notice": "Mentions légales et contact",
-        "footer-legal-notice-url": "/contact",
         "footer-privacy-policy": "Politique de confidentialité",
-        "footer-privacy-policy-url": "https://www.datarequests.org/privacy",
         "footer-privacy-controls": "Options de confidentialité",
-        "footer-privacy-controls-url": "/options-de-confidentialite",
-        "footer-licenses-url": "/open-source#license-notices",
-        "footer-social-rss-url": "/blog/index.xml",
-        "footer-social-github-url": "https://github.com/datenanfragen/",
-        "footer-social-matrix-url": "https://matrix.to/#/+datenanfragen:matrix.altpeter.me",
-        "footer-social-mastodon-url": "https://mastodon.social/@datarequestsORG",
-        "footer-social-twitter-url": "https://twitter.com/datarequestsORG",
         "press-no-releases": "Pour le moment, il n'y a pas de communiqués de presse en français.",
         "verein-home-card-mission-heading": "Nos objectifs",
         "verein-home-card-mission-content": "Quels sont nos objectifs, pourquoi avons-nous lancé cette association à but non lucratif ? Et comment comptons-nous t'aider et aider les autres ?<br>Voici quelques réponses à ces questions.",
@@ -781,13 +787,7 @@
         "footer-social-matrix-desc": "Échanger avec nous via Matrix.",
         "footer-social-mastodon-desc": "Nous suivre sur Mastodon.",
         "footer-social-twitter-desc": "Nous suivre sur Twitter.",
-        "footer-become-a-member-url": "/verein/devenir-membre-de-soutien",
         "footer-association-board": "Comité directeur",
-        "footer-your-gdpr-rights-url": "/blog/tes-droits-rgpd",
-        "footer-supervisory-authorities-url": "/autorites-de-controle",
-        "footer-posts-url": "/blog",
-        "footer-press-url": "/verein/press",
-        "footer-event-url": "/verein/evenement",
         "footer-event": "Événements et conférences",
         "event-no-events": "Il n'y a actuellement aucun événement prévu et aucun enregistrement disponible.",
         "cdb-privacy-email": "E-mail de la protection de la vie privée :",
@@ -799,7 +799,10 @@
         "license": "Licence",
         "404-alt": "Une personne assise sur le 0 d'un grand panneau 404. Elle tient un livre avec une page manquante.",
         "cdb-warning-unverified": "<strong>Avertissement</strong> : Nous<em>n'avons pas</em> vérifié les informations de cet enregistrement, elles ont été importées automatiquement. Quelque-chose ne va pas ? Nous apprécierons beaucoup si tu <a href='{{ .editUrl }}'>envoyais une correction</a>. Merci pour ton aide !",
-        "church": "église"
+        "church": "église",
+        "noscript-actwidget": "Voici un outil permettant de générer rapidement des demandes relatives au RGPD. Il ne fonctionne que sur votre ordinateur et est entièrement écrit en JavaScript. Si vous souhaitez l'utiliser, veuillez activer JavaScript dans votre navigateur. Si cela ne fonctionne toujours pas malgré tout, envoyez-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
+        "footer-material": "Matériel d'information",
+        "skip-to-content": "Aller au contenu"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
@@ -824,7 +827,12 @@
         "by-fax": "Par Fax : ",
         "concerns": "Concerne",
         "letter-subject-admonition": "Mise en demeure : Demande conformément à l'art. {{request_article}} du RGPD",
-        "letter-subject-complaint": "Plainte conformément à l'art. 77 du RGPD contre {{request_recipient}}"
+        "letter-subject-complaint": "Plainte conformément à l'art. 77 du RGPD contre {{request_recipient}}",
+        "language-change-modal": "Modifier la langue te redirigera vers un autre domaine. Tes paramètres et informations sauvegardées depuis ce domaine ne seront pas transférés.<br>En particulier, cela signifie que des éléments tels que tes options de confidentialité et tes demandes enregistrées ne seront pas disponibles dans la nouvelle langue. Tu peux toujours revenir à cette langue et les afficher ici, mais tu ne peux pas partager les paramètres et les données enregistrées entre différentes langues.",
+        "change-lang": "Modifier la langue",
+        "stay": "Rester ici",
+        "language": "Langue",
+        "recommend-language": "Ce site est également disponible dans votre langue !"
     },
     "donation-widget": {
         "back": "Revenir au formulaire",
@@ -862,6 +870,11 @@
         "error-amount-too-little": "Malheureusement, nous ne pouvons accepter les dons inférieurs à 1 € que par virement bancaire en raison des frais de transaction élevés. Veuillez choisir un montant supérieur ou sélectionner« virement bancaire » comme moyen de paiement.",
         "error-amount-invalid": "Veuillez saisir un montant valide.",
         "no-mollie-id": "Aucune correspondance pour ce paiement sur le serveur. C'est normal si vous n'avez pas payé via Mollie.",
-        "error-donation-server": "Erreur serveur lors de la récupération de l'état du don."
+        "error-donation-server": "Erreur serveur lors de la récupération de l'état du don.",
+        "amount-no-fees": "Nous obtiendrons l’intégralité du montant de {{amount}}&nbsp;€.",
+        "amount-after-fees": "Après les frais, nous obtiendrons un montant de {{amount}}&nbsp;€."
+    },
+    "blog": {
+        "footnote": "Note de bas de page"
     }
 }

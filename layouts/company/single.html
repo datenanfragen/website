@@ -13,7 +13,7 @@
             {{ T "cdb-back-to-overview" }}</a>
         <span>
             <a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/deed.{{ .Lang }}"
-                title="{{ T "cdb-cc0-explanation" }}" class="no-link-decoration"><img src="{{ "img/cc-zero-button.svg" | absURL }}"></a>
+                title="{{ T "cdb-cc0-explanation" }}" class="no-link-decoration"><img src="{{ "img/cc-zero-button.svg" | absURL }}" width="80" height="15"></a>
             <!-- This is not exactly obvious. But I think that a) the interface is cluttered enough and b) not too many people are going to be interested in a machine-readable representation of this data. -->
             <a href="{{ "db" | absURL }}/{{ .Params.slug }}.json" title="{{ T "cdb-json-download" }}" class="no-link-decoration"><span
                     class="icon inline-icon inline-icon-right icon-json-document" style="color: initial;"></a>
@@ -117,6 +117,7 @@
 {
   "@context": "http://schema.org",
   "@type": "Organization",
+  "@id": {{ printf "%s%s" .Permalink "#company" }},
   "identifier": "{{ .Params.slug }}",
   "name": {{ .Params.name }},
   {{ with .Params.address}}"address": {{ replace . "\n" ", " }},{{ end }}

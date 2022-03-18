@@ -15,7 +15,7 @@
 
 Quais são as particularidades do Direito de Proteção de Dados em Portugal? Este artigo fornece uma visão geral acerca das especificidades do Direito de Proteção de Dados em Portugal, particularmente no que concerne ao Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia. 
 
-{{< img name="direito-de-protecao-de-dados-portugal" alt="Proteção de Dados em Portugal" >}}
+{{< featuredImg alt="Proteção de Dados em Portugal" >}}
 
 ## O que é o Regulamento Geral sobre a Proteção de Dados (RGPD)?
 

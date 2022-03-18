@@ -14,7 +14,7 @@
 
 Quem pode exercer os direitos do titular dos dados? Contra quem? Este artigo fornece uma breve visão geral do escopo geográfico de aplicação do RGPD. 
 
-{{< img name="rgpd-ambito-de-aplicacao-territorial" alt="RGPD: Âmbito de aplicação territorial" >}}
+{{< featuredImg alt="RGPD: Âmbito de aplicação territorial" >}}
 
 ## O que é o Regulamento Geral sobre a Proteção de Dados (RGPD)?
 
@@ -24,7 +24,7 @@ O RGPD prima pela harmonização e uniformização dos padrões de proteção de
 
 ## Âmbito de aplicação territorial do RGPD
 
-O âmbito de aplicação territorial do RGPD está regulamentado no artigo 3 do RGPD e tem efeitos territoriais e extraterritoriais. Os estabelecimentos que se encontrem tanto dentro ou fora do território europeu e realizem o tratamento de dados pessoais devem cumprir regras uniformizadas sobre proteção de dados. A regulamentação do escopo geográfico do RGDP se dá da seguinte forma:
+O âmbito de aplicação territorial do RGPD está regulamentado no artigo 3 do RGPD e tem efeitos territoriais e extraterritoriais. Os estabelecimentos que se encontrem tanto dentro ou fora do território europeu e realizem o tratamento de dados pessoais devem cumprir regras uniformizadas sobre proteção de dados. A regulamentação do escopo geográfico do RGPD se dá da seguinte forma:
 
 ### Princípio do estabelecimento (§ 1)
 

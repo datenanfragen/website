@@ -8,7 +8,7 @@
 }
 
 To make our websites, documents, etc. consistent and accessible, the Datenanfragen.de project has defined (and will continue to define) a set of design and style guidelines.  
-The purpose of this page is to document and explain these guidelines.
+The purpose of this page is to document and explain these guidelines. For questions and suggestions, you can best reach us on [Matrix](https://matrix.to/#/#dade-design:matrix.altpeter.me).
 
 <div class="box box-warning">
 This guide is still in a very early stage. Neither our design language nor the documentation thereof have been finalized. Expect both of them to change in the future.<br>

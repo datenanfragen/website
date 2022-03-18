@@ -1,0 +1,37 @@
+<!--
+For a description of this partial and the required parameters, see the `img` shortcode.
+
+In addition to the parameters described there, when using an image resource, the corresponding page has to be passed via
+the `page` parameter.
+-->
+
+{{- $alt_text := (default .caption .alt) -}}
+{{- $loading := (default "lazy" .loading) -}}
+
+<figure{{ with .class }} class="{{ . }}"{{ end }}>
+    {{ with .link }}<a class="no-link-decoration" href="{{ . }}">{{ end -}}
+    {{- if .name -}}
+        <!--
+        An explanation of the sizes and breakpoints used:
+
+        * On a regular, full desktop layout, the image width will be constrained by the .narrow-page class. In this
+          scenario, images cannot be wider than 784px, so we use that as the default fallback.
+        * If we now start shrinking the page, the image width will also decrease accordingly. This will be handled by
+          the following cases. *However*, as soon as we have a viewport width < 980px (which is the $max-width defined
+          in variables.scss), we switch to the mobile layout. For a short while (until we reach a viewport width of
+          781px), this actually allows the image to be *wider* than on the full desktop layout, reaching a width maximum
+          of 881px. Thus, we provide a special breakpoint for this case to not risk blurry images.
+        * Now, it becomes a question of weighing how many more breakpoints we want to support given the overhead. I
+          decided to only support the default breakpoints in the Chromium DevTools (768px, 425px, and 320px).
+        -->
+        {{ partial "picture" (dict "page" .page "name" .name "srcset" (slice 784 881 691 383 288) "sizes" (dict "288" 320 "383" 425 "691" 768 "881" 979) "fallback" 784 "alt_text" $alt_text "loading" $loading) }}
+    {{- else if .url -}}
+        <img src="{{ .url }}" alt="{{ $alt_text }}" title="{{ $alt_text }}"{{ if eq $loading "lazy" }} loading="lazy"{{ end }}>
+    {{- else -}}
+        {{ errorf "You need to specify either the `name` or `url` parameter: %s" .Position}}
+    {{- end -}}
+    {{- if .link }}</a>{{ end }}
+    {{ with .caption -}}
+        <figcaption>{{ . | markdownify }}</figcaption>
+    {{- end }}
+</figure>

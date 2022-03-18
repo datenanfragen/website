@@ -13,7 +13,7 @@ Si deseas conocer los detalles de cómo recopilamos los datos para la base de da
 Tener en cuenta estos consejos a la hora de sugerir empresas nos ayuda mucho, pero es <strong>completamente opcional</strong>. Ya sea que no sigas ninguno de estos consejos, uno, algunos o todos: ¡Estamos felices con cada sugerencia!
 
 - El primer y mejor punto de partida para obtener información sobre una empresa es la política de privacidad. También lo convierte en una gran `fuente`.
-- No queremos ningún dato personal en nuestra base de datos. Esto incluye nombres en los correos electrónicos, p. Ej. <code>john.doe@example.org</code>.
+- Solo permitimos datos personales si es absolutamente necesario. Eso quiere decir que solo aceptamos <code>jane.doe@example.org</code> como dirección de correo si no hubiese un correo dedicado para protección de datos como <code>privacy@example.org</code>.
 - Preferimos los datos de contacto de un responsable de protección de datos a los datos de contacto habituales de una empresa.
     - c/o Protección de datos S.A.  
       Calle de Ejemplo 45
