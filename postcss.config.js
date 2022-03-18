@@ -21,7 +21,7 @@ module.exports = (ctx) => {
                     filter: /\.(svg|png|jpg|gif|eot|ttf|woff|woff2)$/,
                     basePath: path.resolve(__dirname, 'assets/'),
                     maxSize: 5,
-                    url: (...args) => '../' + processCopy(...args).replace('static/', ''),
+                    url: async (...args) => processCopy(...args).then(s => '../' + s.replace('static/', '')),
                     // we copy the files in a subfolder of static, we can't copy in to static directly (we would have to .gitignore them)
                     // sadly we can't copy into static/img either :(
                     assetsPath: path.resolve(__dirname, 'static/gen'),
