@@ -15,11 +15,13 @@
 
         "allowJs": true,
         "checkJs": false,
+        "resolveJsonModule": true,
 
         "noEmit": true,
         "rootDir": "./",
         "baseUrl": ".",
         "paths": {
+            "*": ["./src/types/*"],
             "react": ["node_modules/preact/compat"],
             "react-dom": ["node_modules/preact/compat"]
         }
