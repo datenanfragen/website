@@ -20,6 +20,7 @@ module.exports = {
         'plugin:cypress/recommended',
         'plugin:eslint-comments/recommended',
         'plugin:prettier/recommended',
+        'preact',
     ],
     parserOptions: {
         requireConfigFile: false,
@@ -45,6 +46,7 @@ module.exports = {
         'no-empty': ['error', { allowEmptyCatch: true }],
         // Re-enable the `no-console` rule which gets disabled by the Node env.
         'no-console': 'error',
+        'no-lonely-if': 'off',
 
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
@@ -53,7 +55,7 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
 
         'react/no-did-update-set-state': 'warn',
-
+        'react/self-closing-comp': 'warn',
         'react/jsx-no-bind': [
             'error',
             {
@@ -65,6 +67,8 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'react/jsx-key': 'off',
         'react/no-unknown-property': ['error', { ignore: ['for'] }],
+        // TODO: Enable this once we're done migrating to functional components.
+        'react/prefer-stateless-function': 'off',
 
         'optimize-regex/optimize-regex': 'warn',
     },
@@ -123,6 +127,8 @@ module.exports = {
                 },
             ],
         },
+        // The Preact config includes Jest rules but we don't have Jest installed. This stops them from complaining.
+        jest: { version: 'n/a' },
         'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } },
     },
 };
