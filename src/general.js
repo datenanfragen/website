@@ -1,7 +1,7 @@
 import { render } from 'preact';
 import { t_r } from './Utility/i18n';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
-import CommentsWidget from './Components/CommentsWidget';
+import { CommentsWidget } from './Components/CommentsWidget';
 import FlashMessage, { flash } from './Components/FlashMessage';
 import Footnote from 'Components/Footnote';
 import Cookie from 'js-cookie';
@@ -37,7 +37,7 @@ const comments_div = document.getElementById('comments-widget');
 if (comments_div) {
     render(
         <CommentsWidget
-            allow_rating={comments_div.dataset.ratingEnabled === '1'}
+            allowRating={comments_div.dataset.ratingEnabled === '1'}
             displayWarning={comments_div.dataset.displayWarning === '1'}
         />,
         comments_div.parentElement,

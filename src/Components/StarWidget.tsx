@@ -9,7 +9,7 @@ type StarWidgetProps = {
 
 // Adapted after https://jsfiddle.net/leaverou/CGP87/
 export function StarWidget(props: StarWidgetProps) {
-    const [rating, setRating] = useState(props.initial || 0);
+    const [rating, setRating] = useState(props.initial);
     const readonly = props.readonly || false;
 
     const numbers = Array.from({ length: 5 }, (_, i) => 5 - i);
