@@ -94,16 +94,20 @@ function guessUserCountry() {
 }
 
 const renderNewFootnotes = (hugoFootnotes) => {
-    // Since the text content is taken from the bottom footnotes, it contains an arrow at the end that needs to be removed
-    // when the content is displayed within the embedded footnote.
-    const sanitizeContent = (content) => content.substring(0, content.length - 3).trimEnd();
-
     hugoFootnotes.forEach((hugoFootnote, index) => {
-        const textContent = document.getElementById(`fn:${index + 1}`).textContent;
+        const footnoteContent = document.querySelector(`li[id="fn:${index + 1}"]`).cloneNode(true);
+        // Since the text content is taken from the bottom footnotes, it contains an arrow at the end that needs to be
+        // removed when the content is displayed within the embedded footnote.
+        footnoteContent.querySelector('.footnote-backref').remove();
 
         render(
             <Footnote index={index + 1} id={hugoFootnote.id}>
-                {sanitizeContent(textContent)}
+                {/*
+                    I unfortunately don't see a way to avoid the dangerouslySetInnerHTML here… I'd also love to avoid
+                    the nested div.
+                */}
+                {/* eslint-disable-next-line react/no-danger */}
+                <div dangerouslySetInnerHTML={{ __html: footnoteContent.innerHTML }} />
             </Footnote>,
             hugoFootnote.parentElement,
             hugoFootnote
