@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
     entry: {
         'error-handler': './src/error-handler.js',
-        general: './src/general.js',
+        general: './src/general.tsx',
         home: './src/home.js',
         generator: './src/generator.js',
         'company-list': './src/company-list.js',

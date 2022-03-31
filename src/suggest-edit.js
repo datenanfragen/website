@@ -2,7 +2,7 @@ import { render, Component, Fragment } from 'preact';
 import Modal from 'Components/Modal';
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
-import { slugify, domainWithoutTldFromUrl, PARAMETERS } from './Utility/common';
+import { slugify, domainWithoutTldFromUrl } from './Utility/common';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 require('brutusin-json-forms');
 /* global brutusin */

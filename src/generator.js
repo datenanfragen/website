@@ -1,6 +1,5 @@
 import { render, Component } from 'preact';
 import { IntlProvider } from 'preact-i18n';
-import { PARAMETERS } from './Utility/common';
 import { clearUrlParameters } from './Utility/browser';
 import t from './Utility/i18n';
 import Joyride from 'react-joyride';
