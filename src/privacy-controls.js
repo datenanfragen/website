@@ -6,7 +6,7 @@ import UserRequests from './my-requests';
 import Modal from './Components/Modal';
 import SavedIdData from './Utility/SavedIdData';
 import { SavedCompanies } from './Components/Wizard';
-import FlashMessage, { flash } from 'Components/FlashMessage';
+import { FlashMessage, flash } from './Components/FlashMessage';
 import PropTypes from 'prop-types';
 
 class PrivacyControl extends Component {

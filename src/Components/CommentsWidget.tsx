@@ -1,7 +1,7 @@
 import { Fragment, JSX } from 'preact';
 import { useState, useEffect, useCallback } from 'preact/hooks';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
-import FlashMessage, { flash } from './FlashMessage';
+import { FlashMessage, flash } from '../Components/FlashMessage';
 import { StarWidget } from './StarWidget';
 import t from '../Utility/i18n';
 import { rethrow, WarningException } from '../Utility/errors';
