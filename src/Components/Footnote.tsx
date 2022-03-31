@@ -1,15 +1,22 @@
-import PropTypes from 'prop-types';
+import type { ComponentChildren } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import { useEffect, useRef } from 'preact/hooks';
 
-const Footnote = (props) => {
-    const detailsRef = useRef(null);
+type FootnoteProps = {
+    index: number;
+    id: string;
+    children: ComponentChildren;
+};
+
+const Footnote = (props: FootnoteProps) => {
+    const detailsRef = useRef<HTMLDetailsElement>(null);
 
     useEffect(() => {
-        //Adapted after: https://usehooks.com/useOnClickOutside/
-        const listener = (event) => {
-            if (detailsRef.current?.open && !detailsRef.current?.contains(event.target)) {
-                detailsRef.current.removeAttribute('open');
+        // Adapted after: https://usehooks.com/useOnClickOutside/
+        const listener = (event: MouseEvent | TouchEvent) => {
+            const details_el = detailsRef.current;
+            if (details_el?.open && !details_el?.contains(event.target as Element)) {
+                details_el?.removeAttribute('open');
             }
         };
         document.addEventListener('mousedown', listener);
@@ -22,7 +29,7 @@ const Footnote = (props) => {
     }, []);
 
     return (
-        <IntlProvider scope="blog" definition={I18N_DEFINITION}>
+        <IntlProvider scope="blog" definition={window.I18N_DEFINITION}>
             <details className="footnote" id={props.id} ref={detailsRef}>
                 <summary>
                     <span className="sr-only">
@@ -34,12 +41,6 @@ const Footnote = (props) => {
             </details>
         </IntlProvider>
     );
-};
-
-Footnote.propTypes = {
-    children: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    index: PropTypes.number.isRequired,
 };
 
 export default Footnote;
