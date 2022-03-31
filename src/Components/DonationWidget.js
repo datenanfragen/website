@@ -3,7 +3,7 @@ import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { almostUniqueId, renderMoney } from '../Utility/common';
 import { CriticalException, rethrow } from '../Utility/errors';
 import t from '../Utility/i18n';
-import FlashMessage, { flash } from './FlashMessage';
+import { FlashMessage, flash } from '../Components/FlashMessage';
 import Radio from './Radio';
 import { clientPost } from '../Utility/browser';
 import LoadingIndicator from './LoadingIndicator';

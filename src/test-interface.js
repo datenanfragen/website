@@ -1,6 +1,6 @@
 // This file is necessary in order to be able to access interal methods from within the browser tests
 
-import FlashMessage, { flash } from 'Components/FlashMessage';
+import { FlashMessage, flash } from './Components/FlashMessage';
 import localforage from 'localforage';
 
 window.showFlash = function (type, text, duration) {

@@ -2,7 +2,7 @@ import { render } from 'preact';
 import Cookie from 'js-cookie';
 import I18nWidget, { I18nButton } from './Components/I18nWidget';
 import { CommentsWidget } from './Components/CommentsWidget';
-import FlashMessage, { flash } from './Components/FlashMessage';
+import { FlashMessage, flash } from './Components/FlashMessage';
 import Footnote from './Components/Footnote';
 import { t_r } from './Utility/i18n';
 import { parameters, fallback_countries } from './Utility/common';
