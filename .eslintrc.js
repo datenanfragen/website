@@ -86,6 +86,7 @@ module.exports = {
         // defined in `src/general.js`
         I18N_DEFINITION: 'readonly',
         I18N_DEFINITION_REQUESTS: 'readonly',
+        PARAMETERS: 'readonly',
 
         // defined in `webpack.common.js`
         CODE_VERSION: 'readonly',

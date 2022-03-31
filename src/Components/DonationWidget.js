@@ -1,6 +1,6 @@
 import { render, Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
-import { PARAMETERS, almostUniqueId, renderMoney } from '../Utility/common';
+import { almostUniqueId, renderMoney } from '../Utility/common';
 import { CriticalException, rethrow } from '../Utility/errors';
 import t from '../Utility/i18n';
 import FlashMessage, { flash } from './FlashMessage';

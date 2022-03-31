@@ -1,5 +1,3 @@
-import { PARAMETERS } from './common';
-
 export function clearUrlParameters() {
     window.history.pushState({}, document.title, BASE_URL + 'generator');
     for (const p in PARAMETERS) if (Object.prototype.hasOwnProperty.call(PARAMETERS, p)) delete PARAMETERS[p];
