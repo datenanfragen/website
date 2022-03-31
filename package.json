@@ -46,8 +46,9 @@
         "autocomplete.js": "^0.37.0",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
         "deepmerge": "^4.2.2",
+        "immer": "^9.0.12",
         "js-cookie": "^2.2.1",
-        "letter-generator": "^1.0.0",
+        "letter-generator": "^2.0.1",
         "libphonenumber-js": "^1.7.23",
         "localforage": "^1.7.1",
         "pdfkit": "^0.12.1",
@@ -58,7 +59,8 @@
         "qrcode": "^1.4.4",
         "react-joyride": "^1.11.4",
         "react-scrollspy": "^3.4.0",
-        "typesense": "^1.2.2"
+        "typesense": "^1.2.2",
+        "zustand": "^3.7.1"
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",
@@ -73,7 +75,9 @@
         "@babel/runtime": "^7.6.2",
         "@cypress/skip-test": "^2.5.0",
         "@percy/cypress": "^2.2.0",
+        "@types/js-cookie": "^3.0.1",
         "@types/preact-i18n": "^2.3.0-preactx",
+        "@types/react-joyride": "^2.0.5",
         "@typescript-eslint/eslint-plugin": "^5.15.0",
         "@typescript-eslint/parser": "^5.15.0",
         "babel-loader": "^8.0.6",

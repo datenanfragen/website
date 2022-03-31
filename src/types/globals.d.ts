@@ -19,5 +19,9 @@ declare global {
          * being the first-, and the translation key being the second-level key.
          */
         I18N_DEFINITION_REQUESTS: Record<I18nLanguage, typeof i18n_definition_type['requests']>;
+
+        hugoDevMode: boolean;
+
+        pdfWorker: Worker;
     }
 }
