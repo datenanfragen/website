@@ -1,5 +1,3 @@
-import create, { SetState, GetState } from 'zustand';
-import { isAddress, defaultRequest } from '../Utility/Request';
 import type {
     Request,
     IdDataElement,
@@ -9,10 +7,12 @@ import type {
     Address,
     AccessRequest,
 } from '../types/request';
+import { SetState, GetState } from 'zustand';
+import { isAddress, defaultRequest } from '../Utility/Request';
 import UserRequests from '../my-requests';
 import produce from 'immer';
 
-interface RequestState<R extends Request> {
+export interface RequestState<R extends Request> {
     request: R;
     storeRequest: () => void;
     addField: (field: IdDataElement, data_field: DataField<R>) => void;
@@ -22,7 +22,10 @@ interface RequestState<R extends Request> {
     changeRequestType: (type: RequestType) => void;
 }
 
-const useStore = create<RequestState<Request>>((set, get) => ({
+export const createRequestStore = (
+    set: SetState<RequestState<Request>>,
+    get: GetState<RequestState<Request>>
+): RequestState<Request> => ({
     request: defaultRequest(),
     storeRequest: () => {
         const state = get();
@@ -90,7 +93,7 @@ const useStore = create<RequestState<Request>>((set, get) => ({
             })
         );
     },
-}));
+});
 
 function ensurePrimaryAddress(fields: IdDataElement[]) {
     if (!fields.find((f) => f.type === 'address' && f.value.primary)) {
@@ -98,7 +101,3 @@ function ensurePrimaryAddress(fields: IdDataElement[]) {
         if (address) (address.value as Address).primary = true;
     }
 }
-
-type RequestGeneratorProviderProps = Record<string, never>;
-
-export default function RequestGeneratorProvider(props: RequestGeneratorProviderProps) {}
