@@ -334,9 +334,7 @@ export default class DonationWidget extends Component {
                     {
                         cmd: '_donations',
                         amount: Number(this.state.amount).toFixed(2),
-                        item_name: t('reference-value', 'donation-widget', {
-                            reference: donation_reference,
-                        }),
+                        item_name: t('reference-value', 'donation-widget', { reference: donation_reference }),
                         currency_code: 'EUR',
                         business: 'paypal@datenanfragen.de',
                         image_url: 'https://www.datenanfragen.de/img/logo-datenanfragen-ev.png',
