@@ -131,4 +131,12 @@ module.exports = {
         jest: { version: 'n/a' },
         'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } },
     },
+    overrides: [
+        {
+            files: ['*.spec.ts'],
+            rules: {
+                'jest/valid-expect': 'off',
+            },
+        },
+    ],
 };

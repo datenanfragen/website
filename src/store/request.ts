@@ -8,7 +8,7 @@ import type {
     AccessRequest,
 } from '../types/request';
 import { SetState, GetState } from 'zustand';
-import { isAddress, defaultRequest } from '../Utility/Request';
+import { isAddress, defaultRequest, REQUEST_FALLBACK_LANGUAGE } from '../Utility/requests';
 import UserRequests from '../my-requests';
 import produce from 'immer';
 
@@ -20,13 +20,18 @@ export interface RequestState<R extends Request> {
     changeFieldValue: (index: number, value: IdDataElement['value'], data_field: DataField<R>) => void;
     changeFieldDesc: (index: number, desc: string, data_field: DataField<R>) => void;
     changeRequestType: (type: RequestType) => void;
+    resetRequestToDefault: (language?: string) => void;
 }
+
+const default_language = Object.keys(window.I18N_DEFINITION_REQUESTS).includes(window.LOCALE)
+    ? window.LOCALE
+    : REQUEST_FALLBACK_LANGUAGE;
 
 export const createRequestStore = (
     set: SetState<RequestState<Request>>,
     get: GetState<RequestState<Request>>
 ): RequestState<Request> => ({
-    request: defaultRequest(),
+    request: defaultRequest(REQUEST_FALLBACK_LANGUAGE),
     storeRequest: () => {
         const state = get();
         const db_id = `${state.request.reference}-${state.request.type}${
@@ -93,6 +98,10 @@ export const createRequestStore = (
             })
         );
     },
+    resetRequestToDefault: (language) =>
+        set((state) => ({
+            request: defaultRequest(language || REQUEST_FALLBACK_LANGUAGE),
+        })),
 });
 
 function ensurePrimaryAddress(fields: IdDataElement[]) {

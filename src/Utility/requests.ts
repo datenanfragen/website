@@ -14,7 +14,7 @@ export function isAddress(value: IdDataElement['value']): value is Address {
     return (value as Address).country !== undefined;
 }
 
-export const defaultRequest = (): AccessRequest => {
+export const defaultRequest = (language: string): AccessRequest => {
     const today = new Date();
 
     return {
@@ -26,24 +26,16 @@ export const defaultRequest = (): AccessRequest => {
         email: '',
         signature: { type: 'text', name: '' },
         information_block: '',
-        language: Object.keys(window.I18N_DEFINITION_REQUESTS).includes(window.LOCALE)
-            ? window.LOCALE
-            : REQUEST_FALLBACK_LANGUAGE,
+        language: language,
         data_portability: false,
-        id_data: deepCopyObject(
-            defaultFields(
-                Object.keys(window.I18N_DEFINITION_REQUESTS).includes(window.LOCALE)
-                    ? window.LOCALE
-                    : REQUEST_FALLBACK_LANGUAGE
-            )
-        ),
+        id_data: deepCopyObject(defaultFields(language)),
         slug: '',
         recipient_runs: [],
         is_tracking_request: false,
     };
 };
 
-export const defaultFields = (locale = window.LOCALE): IdDataElement[] => [
+export const defaultFields = (locale: string): IdDataElement[] => [
     {
         desc: t_r('name', locale),
         type: 'name',
@@ -70,7 +62,7 @@ export const defaultFields = (locale = window.LOCALE): IdDataElement[] => [
     },
 ];
 
-export const trackingFields = (locale = window.LOCALE): IdDataElement[] => [
+export const trackingFields = (locale: string): IdDataElement[] => [
     {
         desc: t_r('name', locale),
         type: 'name',

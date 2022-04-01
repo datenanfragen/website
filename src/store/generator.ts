@@ -4,6 +4,6 @@ import type { Request } from '../types/request';
 
 type GeneratorState = RequestState<Request>;
 
-export const useStore = create<GeneratorState>((set, get) => ({
+export const useGeneratorStore = create<GeneratorState>((set, get) => ({
     ...createRequestStore(set, get),
 }));
