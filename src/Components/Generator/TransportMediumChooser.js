@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import PropTypes from 'prop-types';
 import t from 'Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
-import Radio from '../Radio';
+import { Radio } from '../Radio';
 
 export default class TransportMediumChooser extends Component {
     render() {
@@ -14,7 +14,7 @@ export default class TransportMediumChooser extends Component {
                     <div className="radio-group">
                         <Radio
                             id="request-transport-medium-choice-email"
-                            radio_variable={this.props.transportMedium}
+                            radioVariable={this.props.transportMedium}
                             value="email"
                             name="transport-medium"
                             onChange={this.props.onChange}
@@ -22,7 +22,7 @@ export default class TransportMediumChooser extends Component {
                         />
                         <Radio
                             id="request-transport-medium-choice-fax"
-                            radio_variable={this.props.transportMedium}
+                            radioVariable={this.props.transportMedium}
                             value="fax"
                             name="transport-medium"
                             onChange={this.props.onChange}
@@ -30,7 +30,7 @@ export default class TransportMediumChooser extends Component {
                         />
                         <Radio
                             id="request-transport-medium-choice-letter"
-                            radio_variable={this.props.transportMedium}
+                            radioVariable={this.props.transportMedium}
                             value="letter"
                             name="transport-medium"
                             onChange={this.props.onChange}

@@ -1,6 +1,6 @@
 import { Component } from 'preact';
 import t from 'Utility/i18n';
-import Radio from '../Radio';
+import { Radio } from '../Radio';
 import { VALID_REQUEST_TYPES } from '../../Utility/requests';
 import PropTypes from 'prop-types';
 
@@ -11,7 +11,7 @@ export default class RequestTypeChooser extends Component {
         const radios = request_types.map((type) => (
             <Radio
                 id={'request-type-choice-' + type}
-                radio_variable={current}
+                radioVariable={current}
                 value={type}
                 name="request-type"
                 onChange={this.props.onTypeChange}
