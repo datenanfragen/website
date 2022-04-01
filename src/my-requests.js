@@ -5,7 +5,7 @@ import localforage from 'localforage';
 import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
 import { rethrow } from './Utility/errors';
 import { hash } from './Utility/common';
-import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
+import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
 
 export default class UserRequests {
     constructor() {

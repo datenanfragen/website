@@ -6,7 +6,7 @@ import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import DynamicInputContainer from './Components/Generator/DynamicInputContainer';
 import { AddressControl, DateControl, InputControl } from './Components/Generator/DynamicInput';
 import SignatureInput from './Components/Generator/SignatureInput';
-import FeatureDisabledWidget from 'Components/FeatureDisabledWidget';
+import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
 
 class IdDataControls extends Component {
     constructor(props) {
