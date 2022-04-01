@@ -4,7 +4,7 @@ import { almostUniqueId, renderMoney } from '../Utility/common';
 import { CriticalException, rethrow } from '../Utility/errors';
 import t from '../Utility/i18n';
 import { FlashMessage, flash } from '../Components/FlashMessage';
-import Radio from './Radio';
+import { Radio } from './Radio';
 import { clientPost } from '../Utility/browser';
 import { LoadingIndicator } from './LoadingIndicator';
 
@@ -123,12 +123,10 @@ export default class DonationWidget extends Component {
                             {PAYMENT_METHODS.map((payment_method) => (
                                 <Radio
                                     id={'payment-method-choice-' + payment_method}
-                                    radio_variable={this.state.payment_method}
+                                    radioVariable={this.state.payment_method}
                                     value={payment_method}
                                     name="payment_method"
-                                    onChange={(e) => {
-                                        this.setState({ payment_method: e.target.value });
-                                    }}
+                                    onChange={(e) => this.setState({ payment_method: e.target.value })}
                                     label={
                                         <div>
                                             <Text id={payment_method} />
