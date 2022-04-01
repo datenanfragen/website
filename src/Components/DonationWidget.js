@@ -6,7 +6,7 @@ import t from '../Utility/i18n';
 import { FlashMessage, flash } from '../Components/FlashMessage';
 import Radio from './Radio';
 import { clientPost } from '../Utility/browser';
-import LoadingIndicator from './LoadingIndicator';
+import { LoadingIndicator } from './LoadingIndicator';
 
 const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];
