@@ -1,6 +1,6 @@
 import { render } from 'preact';
 import Cookie from 'js-cookie';
-import I18nWidget, { I18nButton } from './Components/I18nWidget';
+import { I18nWidget, I18nButton } from './Components/I18nWidget';
 import { CommentsWidget } from './Components/CommentsWidget';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import Footnote from './Components/Footnote';
@@ -30,7 +30,7 @@ if (!window.globals.country) window.globals.country = guessUserCountry();
 document.querySelectorAll('.i18n-button-container').forEach((el) => render(<I18nButton />, el));
 
 const i18n_widget_div = document.getElementById('personal-menu-i18n-widget');
-if (i18n_widget_div) render(<I18nWidget minimal={true} />, i18n_widget_div);
+if (i18n_widget_div) render(<I18nWidget minimal={true} showLanguageOnly={false} />, i18n_widget_div);
 
 const comments_div = document.getElementById('comments-widget');
 if (comments_div) {
