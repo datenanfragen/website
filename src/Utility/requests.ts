@@ -4,14 +4,32 @@ import SavedIdData from './SavedIdData';
 import { CriticalException, rethrow } from './errors';
 import { generateReference } from 'letter-generator';
 import { deepCopyObject } from '../Utility/common';
-import type { IdDataElement, Address, AccessRequest, RequestType, Signature } from '../types/request';
+import type {
+    IdDataElement,
+    Address,
+    AccessRequest,
+    RequestType,
+    Signature,
+    DataField,
+    Request,
+    RectificationRequest,
+} from '../types/request';
 
 export const REQUEST_ARTICLES = { access: 15, erasure: 17, rectification: 16, objection: '21(2)' };
 export const REQUEST_FALLBACK_LANGUAGE = 'en'; // We'll use English as hardcoded fallback language
-export const VALID_REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'];
 
 export function isAddress(value: IdDataElement['value']): value is Address {
     return (value as Address).country !== undefined;
+}
+
+/**
+ * This is not a true typeguard, but it is a hack to get typescript to shut up because it does not understand that this function actually checks that 'rectification_data' might also be a sane case, depending on the request type.
+ */
+export function isSaneDataField(
+    data_field: DataField<Request>,
+    request_type: RequestType
+): data_field is DataField<AccessRequest> {
+    return data_field === 'id_data' || (request_type === 'rectification' && data_field === 'rectification_data');
 }
 
 export const defaultRequest = (language: string): AccessRequest => {

@@ -1,5 +1,8 @@
-export type RequestType = 'access' | 'erasure' | 'rectification' | 'objection' | 'custom';
-export type TransportMedium = 'fax' | 'letter' | 'email';
+export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
+export const TRANSPORT_MEDIA = ['fax', 'letter', 'email'] as const;
+
+export type RequestType = typeof REQUEST_TYPES[number];
+export type TransportMedium = typeof TRANSPORT_MEDIA[number];
 
 export type GeneralIdData = {
     desc: string; // A description of this element, e.g. 'Name'.
@@ -65,6 +68,7 @@ interface RequestInterface {
     recipient_runs: string[];
     /** Whether the user needs to enter ID data for the request. */
     is_tracking_request: boolean;
+    [index: DataField]: IdDataElement[];
 }
 
 export interface AccessRequest extends RequestInterface {
@@ -103,6 +107,12 @@ export interface RectificationRequest extends RequestInterface {
 
 export type Request = AccessRequest | ErasureRequest | CustomRequest | ObjectionRequest | RectificationRequest;
 
-export type DataField<R extends Request> =
-    | 'id_data'
-    | (R extends ErasureRequest ? 'erasure_data' : R extends RectificationRequest ? 'rectification_data' : never);
+export type DataField<R extends Request> = 'id_data' | (R extends RectificationRequest ? 'rectification_data' : never);
+
+export type RequestFlag =
+    | {
+          name: 'data_portability';
+          value: boolean;
+      }
+    | { name: 'erase_all'; value: boolean }
+    | { name: 'erasure_data'; value: string };
