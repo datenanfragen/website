@@ -17,7 +17,7 @@ import replacer_factory from '../Utility/request-generator-replacers';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import Modal from './Modal';
-import SvaFinder from './SvaFinder';
+import { SvaFinder } from './SvaFinder';
 import { clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
 import UserRequests from '../my-requests';

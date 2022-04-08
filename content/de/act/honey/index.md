@@ -313,7 +313,7 @@ Welche Behörde für Dich zuständig ist, und wie Du sie erreichst, kannst Du mi
 {{< noScript "noscript-sva" >}}
 
 <script>
-    window.props = { override: { country: { de: 'debralda' } } };
+    window.props = { override: { country: { de: 'debralda' } }, showTitle: false };
     window.addEventListener('load', function() { renderSvaFinder(); });
 </script>
 
