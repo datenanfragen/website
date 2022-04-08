@@ -313,7 +313,7 @@ You can use this tool to find the authority responsible for you and their contac
 <div class="sva-finder"></div>
 {{< noScript "noscript-sva" >}}
 <script>
-    window.props = { override: { country: { de: 'debralda' } } };
+    window.props = { override: { country: { de: 'debralda' } }, showTitle: false };
     window.addEventListener('load', function() { renderSvaFinder(); });
 </script>
 

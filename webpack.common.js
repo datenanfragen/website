@@ -12,7 +12,7 @@ module.exports = {
         'privacy-controls': './src/privacy-controls.js',
         'suggest-edit': './src/suggest-edit.js',
         'id-data-controls': './src/id-data-controls.js',
-        'sva-finder': './src/Components/SvaFinder.js',
+        'sva-finder': './src/Components/SvaFinder.tsx',
         'act-widget': './src/Components/ActWidget.js',
         'donation-widget': './src/Components/DonationWidget.js',
         'test-interface': './src/test-interface.js',
