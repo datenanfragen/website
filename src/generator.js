@@ -8,7 +8,7 @@ import Cookie from 'js-cookie';
 import RequestGeneratorBuilder from './Components/RequestGeneratorBuilder';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
 import { SavedCompanies } from './DataType/SavedCompanies';
-import Modal, { showModal, dismissModal } from './Components/Modal';
+import Modal, { showModal, dismissModal } from './Components/DeprecatedModal';
 
 const HIDE_IN_WIZARD_MODE = [
     '.search',

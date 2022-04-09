@@ -1,7 +1,7 @@
 import { render } from 'preact';
 import { useState } from 'preact/hooks';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
-import Modal from './Modal';
+import Modal from './DeprecatedModal';
 import t from '../Utility/i18n';
 
 type I18nWidgetProps = {

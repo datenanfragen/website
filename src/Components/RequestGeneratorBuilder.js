@@ -16,7 +16,7 @@ import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utili
 import replacer_factory from '../Utility/request-generator-replacers';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import Modal from './Modal';
+import Modal from './DeprecatedModal';
 import { SvaFinder } from './SvaFinder';
 import { clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';

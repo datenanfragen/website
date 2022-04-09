@@ -1,5 +1,5 @@
 import { render, Component, Fragment } from 'preact';
-import Modal from 'Components/Modal';
+import Modal from './Components/DeprecatedModal';
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
 import { slugify, domainWithoutTldFromUrl } from './Utility/common';
