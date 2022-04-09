@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import PropTypes from 'prop-types';
 import t, { t_r } from '../Utility/i18n';
-import Modal from './Modal';
+import Modal from './DeprecatedModal';
 
 // We only want to select everything in the copymanually inputs if they aren't yet focused. That, the user can still
 // an individual selection if they prefer.

@@ -3,13 +3,14 @@ import { createPortal } from 'preact/compat';
 import t from '../Utility/i18n';
 import PropTypes from 'prop-types';
 
-export default class Modal extends Component {
+// TODO: Get rid of this once we've moved everything to the new modal hook.
+export default class DeprecatedModal extends Component {
     render() {
         const positiveButton =
             this.props.positiveButton ||
             (this.props.positiveText ? (
                 <button
-                    className={'button ' + (this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
+                    className={`button ${this.props.positiveDefault ? 'button-primary' : 'button-secondary'}`}
                     onClick={this.props.onPositiveFeedback}
                     style={'float: right'}>
                     {this.props.positiveText}
@@ -21,7 +22,7 @@ export default class Modal extends Component {
             this.props.negativeButton ||
             (this.props.negativeText ? (
                 <button
-                    className={'button ' + (!this.props.positiveDefault ? 'button-primary' : 'button-secondary')}
+                    className={`button ${!this.props.positiveDefault ? 'button-primary' : 'button-secondary'}`}
                     onClick={this.props.onNegativeFeedback}
                     style={'float: left'}>
                     {this.props.negativeText}
@@ -71,7 +72,6 @@ export default class Modal extends Component {
 
         negativeButton: PropTypes.element,
         negativeText: PropTypes.string,
-        negativeDefault: PropTypes.bool,
         onNegativeFeedback: PropTypes.func,
 
         onDismiss: PropTypes.func,
