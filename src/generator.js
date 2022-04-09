@@ -7,7 +7,7 @@ import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
 import RequestGeneratorBuilder from './Components/RequestGeneratorBuilder';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
-import { SavedCompanies } from './Components/Wizard';
+import { SavedCompanies } from './DataType/SavedCompanies';
 import Modal, { showModal, dismissModal } from './Components/Modal';
 
 const HIDE_IN_WIZARD_MODE = [

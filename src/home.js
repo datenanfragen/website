@@ -1,6 +1,6 @@
 import { render } from 'preact';
 import t from 'Utility/i18n';
-import Wizard from 'Components/Wizard';
+import { Wizard } from 'Components/Wizard';
 
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
 const hero_rights = [

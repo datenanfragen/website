@@ -5,7 +5,7 @@ import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
 import UserRequests from './my-requests';
 import Modal from './Components/Modal';
 import SavedIdData from './Utility/SavedIdData';
-import { SavedCompanies } from './Components/Wizard';
+import { SavedCompanies } from './DataType/SavedCompanies';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import PropTypes from 'prop-types';
 
