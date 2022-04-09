@@ -1,7 +1,7 @@
-import { render } from 'preact';
-import { useState } from 'preact/hooks';
+import type { JSX } from 'preact';
+import { useState, useCallback } from 'preact/hooks';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
-import Modal from './DeprecatedModal';
+import { useModal } from './Modal';
 import t from '../Utility/i18n';
 
 type I18nWidgetProps = {
@@ -9,39 +9,37 @@ type I18nWidgetProps = {
     showLanguageOnly: boolean;
 };
 
-let alreadyShowingModal = false;
-const showLanguageChangeModal = (new_language: typeof window.LOCALE) => {
-    if (alreadyShowingModal || new_language === window.LOCALE) return;
-
-    render(
-        <IntlProvider scope={new_language} definition={window.I18N_DEFINITION_REQUESTS}>
-            <Modal
-                positiveButton={
-                    <a
-                        className="button button-primary"
-                        href={window.SUPPORTED_LANGUAGES[new_language]}
-                        style={'float: right'}>
-                        <Text id="change-lang" />
-                    </a>
-                }
-                positiveDefault={true}
-                negativeText={<Text id="stay" />}
-                onNegativeFeedback={() => {
-                    render('', document.body);
-                    alreadyShowingModal = false;
-                }}>
-                <MarkupText id="language-change-modal" />
-            </Modal>
-        </IntlProvider>,
-        document.body
-    );
-    alreadyShowingModal = true;
-};
-
 export const I18nWidget = (props: I18nWidgetProps) => {
     // Don't ever update `country` directly but rather use `globals.country`.
     const [country, setCountry] = useState(window.globals.country);
     window.globals._country_listeners.push((new_country) => setCountry(new_country));
+
+    const [newLanguage, setNewLanguage] = useState(window.LOCALE);
+
+    const [Modal, showModal, dismissModal] = useModal(<MarkupText id="language-change-modal" />, {
+        positiveButton: (
+            <a className="button button-primary" href={window.SUPPORTED_LANGUAGES[newLanguage]} style={'float: right'}>
+                <Text id="change-lang" />
+            </a>
+        ),
+        negativeText: <Text id="stay" />,
+        onNegativeFeedback: () => {
+            setNewLanguage(window.LOCALE);
+            dismissModal();
+        },
+        hasDismissButton: false,
+        backdropDismisses: false,
+    });
+    const changeLanguage = useCallback(
+        (e: JSX.TargetedEvent<HTMLSelectElement>) => {
+            const selected_language = (e.target as HTMLInputElement)?.value as typeof window.LOCALE;
+            if (selected_language === window.LOCALE || selected_language === newLanguage) return;
+
+            setNewLanguage(selected_language);
+            showModal();
+        },
+        [newLanguage, showModal]
+    );
 
     const language_options = (Object.keys(window.SUPPORTED_LANGUAGES) as (keyof typeof window.SUPPORTED_LANGUAGES)[])
         .sort((a, b) => t(`language-desc-${a}`, 'i18n-widget').localeCompare(t(`language-desc-${b}`, 'i18n-widget')))
@@ -55,20 +53,17 @@ export const I18nWidget = (props: I18nWidgetProps) => {
 
     return (
         <IntlProvider scope="i18n-widget" definition={window.I18N_DEFINITION}>
+            <IntlProvider scope={newLanguage} definition={window.I18N_DEFINITION_REQUESTS}>
+                <Modal />
+            </IntlProvider>
+
             <div className="i18n-widget">
                 <div className="i18n-widget-language">
                     <h2>
                         <Text id="language" />
                     </h2>
                     <div className="select-container">
-                        <select
-                            value={window.LOCALE}
-                            onBlur={(e) =>
-                                showLanguageChangeModal((e.target as HTMLInputElement)?.value as typeof window.LOCALE)
-                            }
-                            onChange={(e) =>
-                                showLanguageChangeModal((e.target as HTMLInputElement)?.value as typeof window.LOCALE)
-                            }>
+                        <select value={window.LOCALE} onBlur={changeLanguage} onChange={changeLanguage}>
                             <option value={window.LOCALE}>
                                 <Text id={`language-desc-${window.LOCALE}`} />
                             </option>
