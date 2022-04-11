@@ -1,7 +1,7 @@
 import { Component } from 'preact';
 import PropTypes from 'prop-types';
 import { Text, IntlProvider } from 'preact-i18n';
-import MailtoDropdown from '../MailtoDropdown';
+import { MailtoDropdown } from '../MailtoDropdown';
 
 export default class ActionButton extends Component {
     render(props) {
