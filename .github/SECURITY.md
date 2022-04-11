@@ -6,7 +6,3 @@ You can reach us via `vorstand@datenanfragen.de`. You can use our [PGP key](http
 
 Bear in mind that we are a non-profit run by volunteers, so we can't give you any special rewards and might take some time to reply.
 But we will respond quickly if you found a serious vulnerability!
-
-
-
-
