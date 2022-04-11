@@ -71,6 +71,10 @@ module.exports = {
         'react/prefer-stateless-function': 'off',
 
         'optimize-regex/optimize-regex': 'warn',
+
+        'jest/expect-expect': 'off',
+        'jest/valid-expect-in-promise': 'off',
+        'jest/valid-expect': 'off',
     },
     globals: {
         Atomics: 'readonly',
