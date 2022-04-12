@@ -1,4 +1,4 @@
-# Security Policy
+# Security policy
 
 Thanking you for taking an interest in reporting a security vulnerability to us.
 
