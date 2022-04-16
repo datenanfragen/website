@@ -19,20 +19,20 @@ export function StarWidget(props: StarWidgetProps) {
             {numbers.map((i) => [
                 <input
                     type="radio"
-                    id={props.id + '-star' + i}
+                    id={`${props.id}-star${i}`}
                     name={props.id}
                     value={i}
                     checked={rating === i}
                     onChange={(e) => {
                         if (!readonly) {
-                            const new_rating = parseInt((e.target as HTMLInputElement).value, 10);
+                            const new_rating = parseInt(e.currentTarget.value, 10);
                             setRating(new_rating);
                             if (props.onChange) props.onChange(new_rating);
                         }
                     }}
                     disabled={readonly}
                 />,
-                <label for={props.id + '-star' + i} className={readonly ? '' : 'editable'}>
+                <label for={`${props.id}-star${i}`} className={readonly ? '' : 'editable'}>
                     {i} stars
                 </label>,
             ])}

@@ -262,7 +262,7 @@ export function CommentForm(props: CommentFormProps) {
                         className="form-element"
                         placeholder={t('author', 'comments')}
                         value={author}
-                        onChange={(e) => setAuthor((e.target as HTMLInputElement).value)}
+                        onChange={(e) => setAuthor(e.currentTarget.value)}
                     />
                 </div>
             </div>
@@ -285,7 +285,7 @@ export function CommentForm(props: CommentFormProps) {
                         placeholder={t('comment', 'comments')}
                         required={true}
                         value={message}
-                        onChange={(e) => setMessage((e.target as HTMLInputElement).value)}
+                        onChange={(e) => setMessage(e.currentTarget.value)}
                     />
                 </div>
             </div>

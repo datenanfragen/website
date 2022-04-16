@@ -32,7 +32,7 @@ export const I18nWidget = (props: I18nWidgetProps) => {
     });
     const changeLanguage = useCallback(
         (e: JSX.TargetedEvent<HTMLSelectElement>) => {
-            const selected_language = (e.target as HTMLInputElement)?.value as typeof window.LOCALE;
+            const selected_language = e.currentTarget.value as typeof window.LOCALE;
             if (selected_language === window.LOCALE || selected_language === newLanguage) return;
 
             setNewLanguage(selected_language);
@@ -81,8 +81,7 @@ export const I18nWidget = (props: I18nWidgetProps) => {
                             <select
                                 value={country}
                                 onChange={(e) => {
-                                    window.globals.country = (e.target as HTMLInputElement)
-                                        ?.value as typeof window.globals.country;
+                                    window.globals.country = e.currentTarget.value as typeof window.globals.country;
                                 }}>
                                 {country_options}
                             </select>
