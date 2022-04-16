@@ -90,9 +90,6 @@ export const Wizard = () => {
                         <SearchBar
                             id="aa-search-input"
                             index="companies"
-                            // TODO: Once SearchBar is typed, we can remove the ignores.
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
                             onAutocompleteSelected={(event, suggestion, dataset) =>
                                 addCompany(suggestion.document.slug, suggestion.document.name)
                             }
@@ -103,8 +100,8 @@ export const Wizard = () => {
                             filters={
                                 currentTab === categories.length - 1 ? [] : [`categories:${categories[currentTab]}`]
                             }
-                            empty_template={
-                                isLastTab ? null : `<p style="margin-left: 10px;">${t('no-results', 'search')}</p>`
+                            emptyTemplate={
+                                isLastTab ? undefined : `<p style="margin-left: 10px;">${t('no-results', 'search')}</p>`
                             }
                         />
                     )}

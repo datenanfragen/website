@@ -123,6 +123,7 @@ class CompanySearch extends Component {
                     debug={true}
                     style="margin-top: 15px;"
                     filters={this.props.filters}
+                    anchorize={true}
                 />
             </IntlProvider>
         );
