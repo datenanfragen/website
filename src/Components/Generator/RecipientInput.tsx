@@ -24,7 +24,7 @@ export default function RecipientInput(props: RecipientInputProps) {
                         className="form-element"
                         placeholder={t(`recipient-${props.transportMedium}`, 'generator')}
                         onChange={(e: JSX.TargetedEvent<HTMLInputElement, Event>) =>
-                            props.onEmailChange((e.target as HTMLInputElement).value)
+                            props.onEmailChange(e.currentTarget.value)
                         }
                         value={props.email}
                     />
@@ -36,7 +36,7 @@ export default function RecipientInput(props: RecipientInputProps) {
                         rows={4}
                         spellCheck={false}
                         onChange={(e: JSX.TargetedEvent<HTMLTextAreaElement, Event>) =>
-                            props.onAddressChange((e.target as HTMLTextAreaElement).value)
+                            props.onAddressChange(e.currentTarget.value)
                         }
                         value={props.recipientAddress}
                     />

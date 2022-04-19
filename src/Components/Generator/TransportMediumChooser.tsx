@@ -23,7 +23,7 @@ export default function TransportMediumChooser(props: TransportMediumChooserProp
                             value={transport_medium}
                             name="transport-medium"
                             onChange={(e: JSX.TargetedEvent<HTMLInputElement, Event>) =>
-                                props.onChange((e.target as HTMLInputElement).value as TransportMedium)
+                                props.onChange(e.currentTarget.value as TransportMedium)
                             }
                             label={t(transport_medium, 'generator')}
                         />

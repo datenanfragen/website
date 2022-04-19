@@ -20,7 +20,7 @@ export default function RequestFlags() {
                             onChange={(event: JSX.TargetedEvent<HTMLInputElement, Event>) =>
                                 setRequestFlag({
                                     name: 'data_portability',
-                                    value: (event.target as HTMLInputElement).checked,
+                                    value: event.currentTarget.checked,
                                 })
                             }
                         />
@@ -40,7 +40,7 @@ export default function RequestFlags() {
                             className="request-flags form-element"
                             checked={request.erase_all}
                             onChange={(event: JSX.TargetedEvent<HTMLInputElement, Event>) =>
-                                setRequestFlag({ name: 'erase_all', value: (event.target as HTMLInputElement).checked })
+                                setRequestFlag({ name: 'erase_all', value: event.currentTarget.checked })
                             }
                         />
                         <label htmlFor="request-flags-erase-all">
@@ -55,7 +55,7 @@ export default function RequestFlags() {
                                 onChange={(event: JSX.TargetedEvent<HTMLTextAreaElement, Event>) =>
                                     setRequestFlag({
                                         name: 'erasure_data',
-                                        value: (event.target as HTMLTextAreaElement).value,
+                                        value: event.currentTarget.value,
                                     })
                                 }
                                 placeholder={t('erasure-data', 'generator')}>

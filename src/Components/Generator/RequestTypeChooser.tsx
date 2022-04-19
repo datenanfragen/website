@@ -19,7 +19,7 @@ export default function RequestTypeChooser(props: RequestTypeChooserProps) {
             value={type}
             name="request-type"
             onChange={(e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
-                props.onTypeChange((e.target as HTMLInputElement).value as RequestType);
+                props.onTypeChange(e.currentTarget.value as RequestType);
             }}
             label={t(`${type}-request`, 'generator')}
         />
