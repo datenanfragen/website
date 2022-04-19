@@ -84,17 +84,22 @@ export interface ErasureRequest extends RequestInterface {
     /** For erasure requests: The data the user has specified to be erased (if `this.erase_all` is `false`). */
     erasure_data: string;
 }
+export type CustomLetterData = {
+    content: string;
+    subject: string;
+    sender_address: Address;
+    name: string;
+    [index: keyof Omit<CustomLetterData, 'sender_address'>]: string;
+};
 
 export interface CustomRequest extends RequestInterface {
     type: 'custom';
-    custom_data: {
-        content: string;
-        subject: string;
-        sender_address: Address;
-        name: string;
-    };
+    custom_data: CustomLetterData;
     response_type?: ResponseType;
 }
+
+const CUSTOM_TEMPLATE_OPTIONS = ['no-template', 'admonition', 'complaint'] as const;
+type CustomTemplateName = typeof CUSTOM_TEMPLATE_OPTIONS[number];
 
 export interface ObjectionRequest extends RequestInterface {
     type: 'objection';

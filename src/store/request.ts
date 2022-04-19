@@ -9,6 +9,9 @@ import type {
     TransportMedium,
     RectificationRequest,
     RequestFlag,
+    Signature,
+    CustomTemplateName,
+    CustomLetterData,
 } from '../types/request';
 import { SetState, GetState } from 'zustand';
 import {
@@ -22,6 +25,7 @@ import UserRequests from '../my-requests';
 import produce from 'immer';
 import RequestLetter from '../Utility/RequestLetter';
 import { t_r } from '../Utility/i18n';
+import { WarningException } from '../Utility/errors';
 
 export interface RequestState<R extends Request> {
     request: R;
@@ -37,6 +41,13 @@ export interface RequestState<R extends Request> {
     setRecipientAddress: (recipient_address: string) => void;
     setRecipientEmail: (email: string) => void;
     setRequestFlag: (flag: RequestFlag) => void;
+    setDate: (date: string) => void;
+    setInformationBlock: (information_block: string) => void;
+    setSignature: (signature: Signature) => void;
+    // I would've liked to avoid specific functions here, but I guess I can't help it
+    setCustomLetterTemplate: (template_name: CustomTemplateName) => void;
+    setCustomLetterProperty: (property: keyof Omit<CustomLetterData, 'sender_address'>, value: string) => void;
+    setCustomLetterAddress: (address: Address) => void;
     resetRequestToDefault: (language?: string) => void;
     refreshTemplate: () => void;
     letter: () => RequestLetter;
@@ -173,6 +184,83 @@ export const createRequestStore = (
                 }
             })
         ),
+    setDate: (date) =>
+        set(
+            produce((state: RequestState<Request>) => {
+                state.request.date = date;
+            })
+        ),
+    setInformationBlock: (information_block) =>
+        set(
+            produce((state: RequestState<Request>) => {
+                state.request.information_block = information_block;
+            })
+        ),
+    setSignature: (signature) =>
+        set(
+            produce((state: RequestState<Request>) => {
+                state.request.signature = signature;
+            })
+        ),
+    setCustomLetterTemplate: (template_name) => {
+        if (get().request.type === 'custom') {
+            if (template_name !== 'no-template') {
+                // TODO: Declare state not ready
+                fetchTemplate(get().request.language, template_name, null, '').then((text) => {
+                    set(
+                        produce((state: RequestState<Request>) => {
+                            if (state.request.type === 'custom') {
+                                state.request.custom_data.content = text || '';
+                                state.request.response_type = template_name;
+                            }
+                        })
+                    );
+                });
+            } else {
+                set(
+                    produce((state: RequestState<Request>) => {
+                        if (state.request.type === 'custom') {
+                            state.request.response_type = undefined;
+                        }
+                    })
+                );
+            }
+        } else {
+            throw new WarningException(
+                "Custom request templates can only be set for a custom request (request.type !== 'custom')."
+            );
+        }
+    },
+    setCustomLetterProperty: (property, value) => {
+        if (get().request.type === 'custom') {
+            set(
+                produce((state: RequestState<Request>) => {
+                    if (state.request.type === 'custom') {
+                        state.request.custom_data[property] = value;
+                    }
+                })
+            );
+        } else {
+            throw new WarningException(
+                "Custom request templates can only be set for a custom request (request.type !== 'custom')."
+            );
+        }
+    },
+    setCustomLetterAddress: (address) => {
+        if (get().request.type === 'custom') {
+            set(
+                produce((state: RequestState<Request>) => {
+                    if (state.request.type === 'custom') {
+                        state.request.custom_data.sender_address = address;
+                    }
+                })
+            );
+        } else {
+            throw new WarningException(
+                "Custom request templates can only be set for a custom request (request.type !== 'custom')."
+            );
+        }
+    },
     resetRequestToDefault: (language) => {
         set((state) => ({
             request: defaultRequest(language || REQUEST_FALLBACK_LANGUAGE),

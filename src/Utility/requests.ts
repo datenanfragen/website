@@ -13,6 +13,7 @@ import type {
     DataField,
     Request,
     RectificationRequest,
+    CustomTemplateName,
 } from '../types/request';
 
 export const REQUEST_ARTICLES = { access: 15, erasure: 17, rectification: 16, objection: '21(2)' };
@@ -105,7 +106,7 @@ export const trackingFields = (locale: string): IdDataElement[] => [
  */
 export const fetchTemplate = (
     locale: string,
-    request_type: RequestType,
+    request_type: RequestType | Omit<CustomTemplateName, 'no-template'>,
     company = null,
     suffix = 'default'
 ): Promise<void | string> => {
