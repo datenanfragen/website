@@ -71,6 +71,7 @@ module.exports = {
         'react/prefer-stateless-function': 'off',
 
         'optimize-regex/optimize-regex': 'warn',
+        'prefer-template': 'off',
     },
     globals: {
         Atomics: 'readonly',
@@ -135,7 +136,7 @@ module.exports = {
         {
             files: ['*.spec.ts'],
             rules: {
-                'jest/valid-expect': 'off',
+                'jest/*': 'off',
             },
         },
     ],

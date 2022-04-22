@@ -41,12 +41,16 @@ export type ImageSignature = {
 };
 export type Signature = TextSignature | ImageSignature;
 
+export const ADDRESS_STRING_PROPERTIES = ['street_1', 'street_2', 'place', 'country'] as const;
+
 export type Address = {
     street_1: string;
     street_2: string;
     place: string;
     country: string;
     primary?: boolean;
+    [index: typeof ADDRESS_STRING_PROPERTIES[number]]: string;
+    [index: 'primary']: boolean | undefined;
 };
 
 interface RequestInterface {
@@ -84,12 +88,13 @@ export interface ErasureRequest extends RequestInterface {
     /** For erasure requests: The data the user has specified to be erased (if `this.erase_all` is `false`). */
     erasure_data: string;
 }
+
 export type CustomLetterData = {
     content: string;
     subject: string;
     sender_address: Address;
     name: string;
-    [index: keyof Omit<CustomLetterData, 'sender_address'>]: string;
+    [index: 'content' | 'subject' | 'name']: string;
 };
 
 export interface CustomRequest extends RequestInterface {
