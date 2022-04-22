@@ -1,7 +1,7 @@
 import { generateReference } from 'letter-generator/utility';
 import { deepCopyObject } from '../Utility/common';
 import { defaultFields, REQUEST_FALLBACK_LANGUAGE } from '../Utility/requests';
-import UserRequests from '../my-requests';
+import { UserRequests } from './UserRequests';
 
 /**
  * @typedef {"access" | "erasure" | "rectification" | "objection" | "custom"} RequestType

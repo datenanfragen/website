@@ -17,6 +17,9 @@ export const domainWithoutTldFromUrl = (url?: string) =>
 
 export const deepCopyObject = <T>(object: T): T => JSON.parse(JSON.stringify(object));
 
+export const objFilter = <ValT>(obj: Record<string, ValT>, filter: (item: [string, ValT]) => boolean) =>
+    Object.fromEntries(Object.entries<ValT>(obj).filter(filter));
+
 // Adapted after: https://stackoverflow.com/a/15710692
 export const hash = (s: string) =>
     btoa(

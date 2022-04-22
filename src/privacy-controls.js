@@ -2,7 +2,7 @@ import { render, Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
-import UserRequests from './my-requests';
+import { UserRequests } from './DataType/UserRequests';
 import Modal from './Components/DeprecatedModal';
 import SavedIdData from './Utility/SavedIdData';
 import { SavedCompanies } from './DataType/SavedCompanies';

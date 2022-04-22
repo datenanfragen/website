@@ -8,7 +8,7 @@ module.exports = {
         home: './src/home.js',
         generator: './src/generator.js',
         'company-list': './src/company-list.js',
-        'my-requests': './src/my-requests.js',
+        'my-requests': './src/my-requests.tsx',
         'privacy-controls': './src/privacy-controls.js',
         'suggest-edit': './src/suggest-edit.js',
         'id-data-controls': './src/id-data-controls.js',

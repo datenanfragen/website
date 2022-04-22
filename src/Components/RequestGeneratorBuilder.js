@@ -20,7 +20,7 @@ import Modal from './DeprecatedModal';
 import { SvaFinder } from './SvaFinder';
 import { clearUrlParameters } from '../Utility/browser';
 import Template from 'letter-generator/Template';
-import UserRequests from '../my-requests';
+import { UserRequests } from '../DataType/UserRequests';
 import ActionButton from './Generator/ActionButton';
 import PropTypes from 'prop-types';
 
