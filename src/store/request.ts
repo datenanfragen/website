@@ -34,8 +34,7 @@ export interface RequestState<R extends Request> {
     storeRequest: () => void;
     addField: (field: IdDataElement, data_field: DataField<R>) => void;
     removeField: (index: number, data_field: DataField<R>) => void;
-    setFieldValue: (index: number, value: IdDataElement['value'], data_field: DataField<R>) => void;
-    setFieldDesc: (index: number, desc: string, data_field: DataField<R>) => void;
+    setField: (index: number, field: IdDataElement, data_field: DataField<R>) => void;
     setRequestType: (type: RequestType) => void;
     setTransportMedium: (transport_medium: TransportMedium) => void;
     setRecipientAddress: (recipient_address: string) => void;
@@ -100,34 +99,27 @@ export const createRequestStore = (
                 }
             })
         ),
-    setFieldValue: (index, value, data_field) =>
+    setField: (index, field, data_field) =>
         set(
             produce((state: RequestState<Request>) => {
                 if (isSaneDataField(data_field, state.request.type)) {
-                    if (isAddress(value) && isAddress(state.request[data_field][index].value)) {
+                    if (state.request[data_field][index].type === 'address' && field.type === 'address') {
                         // Address changes need to have their primary status checked
-                        if ((state.request[data_field][index].value as Address).primary !== value.primary) {
+                        if ((state.request[data_field][index].value as Address).primary !== field.value.primary) {
                             // Only change the primary adresses if the primary value of the current field changed
                             let addresses = 0;
                             state.request[data_field].forEach((field: IdDataElement, i: number) => {
-                                if (field.type === 'address') {
-                                    // Set the first address to primary if the current change is to non-primary,
+                                if (field.type === 'address' && field === state.request[data_field][index]) {
+                                    // Set the first address (not equal to the current one) to primary if the current change is to non-primary,
                                     // otherwise change all adresses to non-primary (we overwrite this with our change later)
-                                    field.value.primary = addresses++ === 0 && !value.primary;
+                                    field.value.primary = addresses++ === 0 && !field.value.primary;
                                 }
                             });
+                            if (addresses === 0) field.value.primary = true; // if there is only one address, it needs to primary regardless
                         }
                     }
-                    state.request[data_field][index].value = value;
+                    state.request[data_field][index] = field;
                 } // TODO: Should we error here?
-            })
-        ),
-    setFieldDesc: (index, desc, data_field) =>
-        set(
-            produce((state: RequestState<Request>) => {
-                if (isSaneDataField(data_field, state.request.type)) {
-                    state.request[data_field][index].desc = desc;
-                }
             })
         ),
     setRequestType: (type) => {

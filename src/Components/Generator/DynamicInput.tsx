@@ -46,9 +46,9 @@ export const DynamicInput = (props: DynamicInputProps) => {
                         <div style="display: table-cell; width: 27px;">
                             <button
                                 id={`${props.id}-delete-${props.suffix}`}
-                                rel={props.id}
+                                data-dynamic-input-id={props.id}
                                 className="dynamic-input-delete button button-secondary button-small icon-trash"
-                                onClick={props.onRemove}
+                                onClick={() => props.onRemove()}
                                 title={t('delete-field', 'generator')}
                             />
                         </div>
@@ -60,11 +60,10 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                     <Text id="description" />
                                 </label>,
                                 <input
-                                    key={props.id + props.suffix}
                                     name="desc"
                                     type="text"
                                     id={`${props.id}-desc-${props.suffix}`}
-                                    rel={props.id}
+                                    data-dynamic-input-id={props.id}
                                     className="form-element"
                                     value={props.value.desc}
                                     placeholder={t('description', 'generator')}
@@ -82,7 +81,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                             <button
                                 id={`${props.id}-primaryButton`}
                                 name="primary_button"
-                                rel={props.id}
+                                data-dynamic-input-id={props.id}
                                 className="button button-secondary dynamic-input-primaryButton"
                                 data-isprimary={props.value.value.primary}
                                 onClick={() => {
@@ -102,7 +101,6 @@ export const DynamicInput = (props: DynamicInputProps) => {
                 <div className="col60">
                     <div style="padding-left: 10px;" className={'form-group'}>
                         <ControlComponent
-                            key={props.id + props.suffix}
                             id={props.id}
                             suffix={props.suffix}
                             required={!props.optional || !props.value.optional}
@@ -150,10 +148,9 @@ export const TextareaControl = (props: ControlComponentProps<string>) => {
             )}
 
             <textarea
-                key={props.id + props.suffix}
                 name="value"
                 id={props.id + props.suffix}
-                rel={props.id}
+                data-dynamic-input-id={props.id}
                 className="form-element"
                 placeholder={t('value', 'generator')}
                 required={props.required}
@@ -175,11 +172,10 @@ export const InputControl = (props: ControlComponentProps<string>) => {
                 ''
             )}
             <input
-                key={props.id + props.suffix}
                 name="value"
                 type="text"
                 id={`${props.id}-value-${props.suffix}`}
-                rel={props.id}
+                data-dynamic-input-id={props.id}
                 className="form-element"
                 placeholder={t('value', 'generator')}
                 required={props.required}
@@ -201,11 +197,10 @@ export const DateControl = (props: ControlComponentProps<string>) => {
                 []
             )}
             <input
-                key={props.id + props.suffix}
                 name="value"
                 type="date"
                 id={`${props.id}-value-${props.suffix}`}
-                rel={props.id}
+                data-dynamic-input-id={props.id}
                 className="form-element"
                 placeholder={t('value', 'generator')}
                 required={props.required}
@@ -233,9 +228,9 @@ export const AddressControl = (props: ControlComponentProps<Address>) => {
             {ADDRESS_STRING_PROPERTIES.map((property) => (
                 <div className="form-group fancy-fg">
                     <input
-                        key={`${props.id}-${property}-${props.suffix}`}
-                        name="property"
-                        rel={props.id}
+                        key={property}
+                        name={property}
+                        data-dynamic-input-id={props.id}
                         type="text"
                         id={`${props.id}-${property}-${props.suffix}`}
                         placeholder={t(`address-${property}`, 'generator')}
@@ -250,9 +245,8 @@ export const AddressControl = (props: ControlComponentProps<Address>) => {
                 </div>
             ))}
             <input
-                key={`${props.id}-primary-${props.suffix}`}
                 name="primary"
-                rel={props.id}
+                data-dynamic-input-id={props.id}
                 type="hidden"
                 id={`${props.id}-primary-${props.suffix}`}
                 className="dynamic-input-primary form-element"

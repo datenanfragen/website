@@ -1,7 +1,7 @@
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { useGeneratorStore } from '../../store/generator';
-import { CUSTOM_TEMPLATE_OPTIONS, CustomTemplateName } from 'request';
+import { CUSTOM_TEMPLATE_OPTIONS, CustomTemplateName, EMTPY_ADDRESS } from 'request';
 import { AddressControl } from './DynamicInput';
 
 export const CustomRequestInput = () => {
@@ -14,14 +14,7 @@ export const CustomRequestInput = () => {
         state.request.type === 'custom' ? state.request.custom_data.content : ''
     );
     const sender_address = useGeneratorStore((state) =>
-        state.request.type === 'custom'
-            ? state.request.custom_data.sender_address
-            : {
-                  street_1: '',
-                  street_2: '',
-                  place: '',
-                  country: '',
-              }
+        state.request.type === 'custom' ? state.request.custom_data.sender_address : EMTPY_ADDRESS
     );
 
     const setCustomLetterTemplate = useGeneratorStore((state) => state.setCustomLetterTemplate);

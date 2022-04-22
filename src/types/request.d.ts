@@ -27,6 +27,13 @@ export type AddressIdData = GeneralIdData & {
     value: Address;
 };
 
+export const EMTPY_ADDRESS: Address = {
+    street_1: '',
+    street_2: '',
+    place: '',
+    country: '',
+} as const;
+
 export type IdDataElement = TextIdData | AddressIdData;
 export type ResponseType = 'admonition' | 'complaint';
 
