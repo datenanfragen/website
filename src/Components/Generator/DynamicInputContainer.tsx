@@ -9,8 +9,6 @@ import { isAddress } from '../../Utility/requests';
 
 type DynamicInputContainerProps = {
     id: string;
-    title: string;
-    headingClass: string;
     fields: IdDataElement[];
     fillFields?: IdDataElement[];
 
@@ -23,6 +21,8 @@ type DynamicInputContainerProps = {
     allowChangingFieldDescriptions?: boolean;
     hasPrimary?: boolean;
 
+    headingClass?: string;
+    title: string;
     children: ComponentChildren;
 };
 
