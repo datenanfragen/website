@@ -59,6 +59,7 @@
         "qrcode": "^1.4.4",
         "react-joyride": "^1.11.4",
         "react-scrollspy": "^3.4.0",
+        "type-fest": "^2.12.2",
         "typesense": "^1.2.2",
         "zustand": "^3.7.1"
     },
