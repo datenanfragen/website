@@ -1,10 +1,9 @@
 import type { ComponentChildren } from 'preact';
-import { useMemo } from 'preact/hooks';
+import { useMemo, useState } from 'preact/hooks';
 import { DynamicInput } from './DynamicInput';
 import { Text, MarkupText, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { EMTPY_ADDRESS, IdDataElement } from 'request';
-import { useState } from 'preact/hooks';
 import { isAddress } from '../../Utility/requests';
 
 type DynamicInputContainerProps = {
@@ -68,7 +67,7 @@ export const DynamicInputContainer = (props: DynamicInputContainerProps) => {
 
     // As this is at least the second time I have struggled to remember this: This is the button next to the 'add
     // new field' menu which allows you to add fields you have defined in the 'My saved data' section.
-    let fill_fields = props.fillFields
+    const fill_fields = props.fillFields
         ?.map((field) => {
             const condition = (addedField: IdDataElement) =>
                 field.type === addedField.type && field.desc === addedField.desc;
@@ -179,7 +178,7 @@ function isFieldEmpty(field: IdDataElement) {
     if (typeof field.value === 'string' && field.value.trim()) {
         return false;
     } else if (isAddress(field.value)) {
-        for (let [key, value] of Object.entries(field.value)) {
+        for (const [key, value] of Object.entries(field.value)) {
             if (key !== 'primary' && value) {
                 return false;
             }

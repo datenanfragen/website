@@ -18,7 +18,7 @@ export function clearUrlParameters() {
  *     on the fly.
  * @returns {boolean} true if canvas extraction is blocked, false otherwise
  */
-export function detectBlockedCanvasImageExtraction(ctx = undefined) {
+export function detectBlockedCanvasImageExtraction(ctx = null) {
     if (!ctx) {
         const c = document.createElement('canvas');
         c.width = c.height = 1;
