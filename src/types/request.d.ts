@@ -15,7 +15,7 @@ export type GeneralIdData = {
      *     - `name` is an alias for `string` but is used to insert the user's name in the letter
      *     - `birthdate` is the user's date of birth as a string, e.g. '1970-01-01'
      */
-    optional: boolean; // Whether we recommend giving this piece of information (`false`) or not (`true`).
+    optional?: boolean; // Whether we recommend giving this piece of information (`false`) or not (`true`).
     value: string | Address; // The value entered by the user for this element.
 };
 export type TextIdData = GeneralIdData & {
@@ -65,6 +65,7 @@ interface RequestInterface {
     transport_medium: TransportMedium;
     reference: string;
     date: string;
+    sent?: boolean;
     /** The new-line delimited address of the request recipient. */
     recipient_address: string;
     email: string;
