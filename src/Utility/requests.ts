@@ -1,6 +1,6 @@
 import t, { t_r } from './i18n';
 import Privacy, { PRIVACY_ACTIONS } from './Privacy';
-import SavedIdData from './SavedIdData';
+import { SavedIdData } from './SavedIdData';
 import { CriticalException, rethrow } from './errors';
 import { generateReference } from 'letter-generator';
 import { deepCopyObject } from '../Utility/common';
@@ -12,9 +12,9 @@ import type {
     Signature,
     DataField,
     Request,
-    RectificationRequest,
     CustomTemplateName,
 } from '../types/request';
+import type { Company } from 'company';
 
 export const REQUEST_ARTICLES = { access: 15, erasure: 17, rectification: 16, objection: '21(2)' };
 export const REQUEST_FALLBACK_LANGUAGE = 'en'; // We'll use English as hardcoded fallback language
@@ -107,7 +107,7 @@ export const trackingFields = (locale: string): IdDataElement[] => [
 export const fetchTemplate = (
     locale: string,
     request_type: RequestType | Omit<CustomTemplateName, 'no-template'>,
-    company = null,
+    company?: Company,
     suffix = 'default'
 ): Promise<void | string> => {
     const template =
@@ -125,7 +125,7 @@ export const fetchTemplate = (
                     return response.text();
                 case 404:
                     if (locale !== REQUEST_FALLBACK_LANGUAGE) {
-                        return fetchTemplate(REQUEST_FALLBACK_LANGUAGE, request_type, null, '');
+                        return fetchTemplate(REQUEST_FALLBACK_LANGUAGE, request_type, undefined, '');
                     }
                     throw new CriticalException(
                         'Request template could not be found.',
@@ -169,12 +169,12 @@ export const initializeFields = (
 
         return saved_id_data
             .getAllFixed()
-            .then((fill_data) => SavedIdData.mergeFields(fields, fill_data, true, true, true, true, false))
+            .then((fill_data) => SavedIdData.mergeFields(fields, fill_data ?? [], true, true, true, true, false))
             .then(
                 (new_fields) =>
                     new Promise((resolve) => {
                         saved_id_data.getSignature().then((signature) => {
-                            resolve({ new_fields, signature });
+                            resolve({ new_fields, signature: signature ?? { type: 'text', name: '' } });
                         });
                     })
             );

@@ -3,8 +3,10 @@ import Cookie from 'js-cookie';
 import LocalForage from 'localforage';
 import { EMTPY_ADDRESS, IdDataElement, Signature } from 'request';
 import { produce } from 'immer';
+import type { SetOptional } from 'type-fest';
+import { isAddress } from './requests';
 
-export default class SavedIdData {
+export class SavedIdData {
     localforage_instance: LocalForage;
 
     constructor() {
@@ -130,7 +132,7 @@ export default class SavedIdData {
      */
     static mergeFields(
         fields_to_add_to: Readonly<IdDataElement[]>,
-        fields_to_merge: IdDataElement[],
+        fields_to_merge: SetOptional<IdDataElement, 'value'>[],
         keep = false,
         override_values = false,
         protect_desc = false,
@@ -149,7 +151,7 @@ export default class SavedIdData {
                     const candidate = new_fields[candidate_index];
                     if (!protect_desc) old_field.desc = candidate.desc; // should only matter for fixed types
                     if (!preserve_optional) old_field.optional = candidate?.optional;
-                    if (override_values) old_field.value = candidate.value;
+                    if (override_values && candidate.value) old_field.value = candidate.value;
                     if (old_field.type === 'address') old_field.value.primary = ++has_primary_address === 1;
                     new_fields.splice(candidate_index, 1);
                 } else if (keep) {
@@ -164,7 +166,8 @@ export default class SavedIdData {
             return merged_fields.concat(
                 new_fields.map(
                     produce((field) => {
-                        if (field.value && field.type === 'address') field.value.primary = ++has_primary_address === 1;
+                        if (field.value && field.type === 'address' && isAddress(field.value))
+                            field.value.primary = ++has_primary_address === 1;
                         field.value =
                             field.value ||
                             (field.type === 'address'
@@ -195,16 +198,16 @@ export default class SavedIdData {
 const fixed_condition = (item: IdDataElement) =>
     ['name', 'birthdate', 'email'].includes(item.type) || (item.type === 'address' && item.value.primary);
 
-const mergeCondition = (new_field: IdDataElement, old_field: IdDataElement) =>
+const mergeCondition = (new_field: SetOptional<IdDataElement, 'value'>, old_field: IdDataElement) =>
     (new_field.type === old_field.type &&
         // type and descriptions are equal
         (new_field.desc === old_field.desc ||
             // OR type is equal and field is of fixed type
             ['name', 'birthdate', 'email'].includes(old_field.type))) ||
+    // OR both fields are primary addresses
     (old_field.type === 'address' &&
         new_field.type === 'address' &&
         new_field.value &&
-        old_field.value &&
-        old_field.value.primary &&
-        new_field.value.primary);
-// OR both fields are primary addresses
+        isAddress(new_field.value) &&
+        new_field.value.primary &&
+        old_field.value?.primary);
