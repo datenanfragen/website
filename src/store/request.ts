@@ -12,6 +12,7 @@ import type {
     Signature,
     CustomTemplateName,
     CustomLetterData,
+    CustomRequest,
 } from '../types/request';
 import { SetState, GetState } from 'zustand';
 import {
@@ -20,17 +21,25 @@ import {
     REQUEST_FALLBACK_LANGUAGE,
     fetchTemplate,
     isSaneDataField,
+    REQUEST_ARTICLES,
 } from '../Utility/requests';
 import UserRequests from '../my-requests';
-import produce from 'immer';
+import { produce } from 'immer';
 import RequestLetter from '../Utility/RequestLetter';
 import { t_r } from '../Utility/i18n';
-import { WarningException } from '../Utility/errors';
+import { rethrow, WarningException } from '../Utility/errors';
+import type { StoreSlice } from 'utility';
+import { CompanyState, inferRequestLanguage } from './company';
+import type { GeneratorSpecificState, GeneratorState } from './generator';
+import type { RequestLanguage, Company } from '../types/company';
+import { slugify, PARAMETERS } from '../Utility/common';
+import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { SavedIdData } from '../Utility/SavedIdData';
+import { Template } from 'letter-generator';
 
 export interface RequestState<R extends Request> {
     request: R;
     template: string;
-    company_suggestion?: any; // TODO: remove this placeholder!!!
     storeRequest: () => void;
     addField: (field: IdDataElement, data_field: DataField<R>) => void;
     removeField: (index: number, data_field: DataField<R>) => void;
@@ -44,23 +53,22 @@ export interface RequestState<R extends Request> {
     setInformationBlock: (information_block: string) => void;
     setSignature: (signature: Signature) => void;
     // I would've liked to avoid specific functions here, but I guess I can't help it
-    setCustomLetterTemplate: (template_name: CustomTemplateName) => void;
+    setCustomLetterTemplate: (template_name: CustomTemplateName, response_to?: Request) => Promise<void>;
     setCustomLetterProperty: (property: keyof Omit<CustomLetterData, 'sender_address'>, value: string) => void;
     setCustomLetterAddress: (address: Address) => void;
+    setSent: (sent: boolean) => void;
     resetRequestToDefault: (language?: string) => void;
-    refreshTemplate: () => void;
+    initializeFields: (data_field?: DataField<R>) => Promise<void>;
+    refreshTemplate: () => Promise<void>;
     letter: () => RequestLetter;
+    letter_filename: () => string;
 }
 
-const default_language = Object.keys(window.I18N_DEFINITION_REQUESTS).includes(window.LOCALE)
-    ? window.LOCALE
-    : REQUEST_FALLBACK_LANGUAGE;
-
-export const createRequestStore = (
-    set: SetState<RequestState<Request>>,
-    get: GetState<RequestState<Request>>
-): RequestState<Request> => ({
-    request: defaultRequest(REQUEST_FALLBACK_LANGUAGE),
+export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState & GeneratorSpecificState> = (
+    set,
+    get
+) => ({
+    request: defaultRequest(inferRequestLanguage()),
     template: '',
     storeRequest: () => {
         const state = get();
@@ -126,6 +134,8 @@ export const createRequestStore = (
         set(
             produce((state: RequestState<Request>) => {
                 state.request.type = type;
+                if (state.request.type === 'custom')
+                    state.request.custom_data = makeCustomDataFromIdData(state.request);
             })
         );
         get().refreshTemplate();
@@ -134,10 +144,10 @@ export const createRequestStore = (
         const by_fax_text = t_r('by-fax', get().request.language);
 
         set(
-            produce((state: RequestState<Request>) => {
+            produce((state: RequestState<Request> & CompanyState) => {
                 if (transport_medium === 'fax') {
-                    if (state.company_suggestion && !state.request.recipient_address.includes(by_fax_text)) {
-                        state.request.recipient_address += '\n' + by_fax_text + (state.company_suggestion.fax || '');
+                    if (state.current_company && !state.request.recipient_address.includes(by_fax_text)) {
+                        state.request.recipient_address += '\n' + by_fax_text + (state.current_company.fax || '');
                     }
                 } else {
                     state.request.recipient_address = state.request.recipient_address.replace(
@@ -194,34 +204,74 @@ export const createRequestStore = (
                 state.request.signature = signature;
             })
         ),
-    setCustomLetterTemplate: (template_name) => {
+    setCustomLetterTemplate: async (template_name, response_to) => {
         if (get().request.type === 'custom') {
             if (template_name !== 'no-template') {
-                // TODO: Declare state not ready
-                fetchTemplate(get().request.language, template_name, null, '').then((text) => {
+                get().setBusy();
+                return fetchTemplate(get().request.language, template_name, undefined, '').then((text) => {
                     set(
                         produce((state: RequestState<Request>) => {
                             if (state.request.type === 'custom') {
-                                state.request.custom_data.content = text || '';
-                                state.request.response_type = template_name;
+                                if (response_to) {
+                                    const variables = {
+                                        request_date: response_to.date,
+                                        request_recipient: response_to.recipient_address?.split('\n')[0],
+                                        request_recipient_address: response_to.recipient_address,
+                                    };
+                                    state.request.custom_data.content = text
+                                        ? new Template(
+                                              text,
+                                              {},
+                                              response_to.type === 'custom'
+                                                  ? variables
+                                                  : {
+                                                        ...variables,
+                                                        request_article: REQUEST_ARTICLES[response_to.type],
+                                                    }
+                                          ).getText()
+                                        : '';
+
+                                    state.request.custom_data.subject = t_r(
+                                        `letter-subject-${template_name}`,
+                                        state.request.language,
+                                        response_to.type === 'custom'
+                                            ? variables
+                                            : {
+                                                  ...variables,
+                                                  request_article: REQUEST_ARTICLES[response_to.type],
+                                              }
+                                    );
+
+                                    if (template_name === 'admonition') {
+                                        get().setTransportMedium(response_to.transport_medium);
+                                        state.request.email = response_to.email;
+                                        state.request.recipient_address = response_to.recipient_address;
+                                    }
+
+                                    state.request.reference = response_to.reference;
+                                    state.request.response_type = template_name;
+                                } else {
+                                    state.request.custom_data.content = text ?? '';
+                                    state.request.response_type = template_name;
+                                }
                             }
                         })
                     );
+                    get().setReady();
                 });
-            } else {
-                set(
-                    produce((state: RequestState<Request>) => {
-                        if (state.request.type === 'custom') {
-                            state.request.response_type = undefined;
-                        }
-                    })
-                );
             }
-        } else {
-            throw new WarningException(
-                "Custom request templates can only be set for a custom request (request.type !== 'custom')."
+
+            set(
+                produce((state: RequestState<Request>) => {
+                    if (state.request.type === 'custom') {
+                        state.request.response_type = undefined;
+                    }
+                })
             );
         }
+        throw new WarningException(
+            "Custom request templates can only be set for a custom request (request.type !== 'custom')."
+        );
     },
     setCustomLetterProperty: (property, value) => {
         if (get().request.type === 'custom') {
@@ -253,20 +303,63 @@ export const createRequestStore = (
             );
         }
     },
+    setSent: (sent = true) =>
+        set(
+            produce((state: RequestState<Request>) => {
+                state.request.sent = sent;
+            })
+        ),
     resetRequestToDefault: (language) => {
-        set((state) => ({
+        set(() => ({
             request: defaultRequest(language || REQUEST_FALLBACK_LANGUAGE),
         }));
         get().refreshTemplate();
     },
+    initializeFields: async (data_field = 'id_data') => {
+        if (isSaneDataField(data_field, get().request.type)) {
+            const fields = get().request[data_field];
+
+            if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && SavedIdData.shouldAlwaysFill()) {
+                const saved_id_data = new SavedIdData();
+
+                return saved_id_data
+                    .getAllFixed()
+                    .then((fill_data) =>
+                        SavedIdData.mergeFields(fields, fill_data ?? [], true, true, true, true, false)
+                    )
+                    .then((new_fields) => {
+                        set(
+                            produce((state: GeneratorState) => {
+                                if (isSaneDataField(data_field, state.request.type))
+                                    state.request[data_field] = new_fields;
+                                if (state.request.type === 'custom')
+                                    state.request.custom_data = makeCustomDataFromIdData(state.request);
+                            })
+                        );
+                        return saved_id_data.getSignature();
+                    })
+                    .then((signature) => {
+                        get().setSignature(signature ?? { type: 'text', name: '' });
+                    });
+            }
+        }
+    },
     refreshTemplate: async () => {
-        const template = await fetchTemplate(get().request.language, get().request.type); // TODO: include company info
+        const template = await fetchTemplate(get().request.language, get().request.type, get().current_company);
         if (template)
             set({
                 template,
             });
     },
     letter: () => RequestLetter.fromRequest(get().request, get().template, {}),
+    letter_filename: () => {
+        return (
+            get().current_company?.slug ??
+            `${slugify(get().request.recipient_address.split('\n', 1)[0]) ?? 'custom-recipient'}_${
+                get().request.type
+            }_${get().request.reference}.pdf`
+        );
+    },
 });
 
 function ensurePrimaryAddress(fields: IdDataElement[]) {
@@ -274,4 +367,12 @@ function ensurePrimaryAddress(fields: IdDataElement[]) {
         const address = fields.find((f) => f.type === 'address');
         if (address) (address.value as Address).primary = true;
     }
+}
+
+function makeCustomDataFromIdData(request: CustomRequest) {
+    request.id_data.forEach((f) => {
+        if (f.type === 'name') request.custom_data.name = f.value;
+        if (f.type === 'address' && f.value.primary) request.custom_data.sender_address = f.value;
+    });
+    return request.custom_data;
 }

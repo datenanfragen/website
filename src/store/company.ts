@@ -15,6 +15,8 @@ export interface CompanyState {
     setCompany: (company: Company) => Promise<void>;
     removeCompany: () => Promise<void>;
     startBatch: (batch: string[]) => Promise<void>;
+    advanceBatch: () => Promise<void>;
+    clearBatch: () => void;
 }
 
 export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> & GeneratorSpecificState> = (
@@ -104,6 +106,15 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
             return get().setCompanyBySlug(first_company);
         }
     },
+    advanceBatch: async () => {
+        const batch = get().batch;
+        if (batch && batch.length > 0) {
+            const company = batch.shift() as string;
+            set({ batch });
+            return get().setCompanyBySlug(company);
+        }
+    },
+    clearBatch: () => set({ batch: undefined }),
 });
 
 export function inferRequestLanguage(company?: Company) {

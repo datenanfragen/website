@@ -1,6 +1,7 @@
 import { PdfRenderer } from 'letter-generator';
 
-const worker: Worker = self as any;
+// eslint-disable-next-line no-undef
+const worker: DedicatedWorkerGlobalScope = self as any;
 
 worker.onmessage = (e) => {
     const pdf_renderer = new PdfRenderer(e.data.pdfdoc);

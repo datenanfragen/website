@@ -16,7 +16,7 @@ import type {
 } from '../types/request';
 import type { Company } from 'company';
 
-export const REQUEST_ARTICLES = { access: 15, erasure: 17, rectification: 16, objection: '21(2)' };
+export const REQUEST_ARTICLES = { access: '15', erasure: '17', rectification: '16', objection: '21(2)' };
 export const REQUEST_FALLBACK_LANGUAGE = 'en'; // We'll use English as hardcoded fallback language
 
 export function isAddress(value: IdDataElement['value']): value is Address {
@@ -106,7 +106,7 @@ export const trackingFields = (locale: string): IdDataElement[] => [
  */
 export const fetchTemplate = (
     locale: string,
-    request_type: RequestType | Omit<CustomTemplateName, 'no-template'>,
+    request_type: RequestType | Exclude<CustomTemplateName, 'no-template'>,
     company?: Company,
     suffix = 'default'
 ): Promise<void | string> => {
@@ -153,31 +153,4 @@ export const fetchTemplate = (
         .catch((error) =>
             rethrow(error, 'fetchTemplate() failed.', { template_url }, t('error-template-fetch-failed', 'generator'))
         );
-};
-
-/**
- * Initializes the fields for a `RequestForm` with the user's saved data, if allowed.
- *
- * This convenience function handles all privacy checks, the caller can simply trust the result and use that. If the
- * fields shouldn't be filled, the caller will simply get the unfilled fields back.
- */
-export const initializeFields = (
-    fields: IdDataElement[]
-): Promise<{ new_fields: IdDataElement[]; signature: Signature | null }> => {
-    if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && SavedIdData.shouldAlwaysFill()) {
-        const saved_id_data = new SavedIdData();
-
-        return saved_id_data
-            .getAllFixed()
-            .then((fill_data) => SavedIdData.mergeFields(fields, fill_data ?? [], true, true, true, true, false))
-            .then(
-                (new_fields) =>
-                    new Promise((resolve) => {
-                        saved_id_data.getSignature().then((signature) => {
-                            resolve({ new_fields, signature: signature ?? { type: 'text', name: '' } });
-                        });
-                    })
-            );
-    }
-    return Promise.resolve({ new_fields: fields, signature: null });
 };
