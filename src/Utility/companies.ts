@@ -1,6 +1,6 @@
 import { ErrorException, rethrow } from './errors';
 import t from './i18n';
-import type { Company } from 'company';
+import type { Company, SupervisoryAuthority } from 'company';
 
 export function fetchCompanyDataBySlug(slug: string): Promise<Company> {
     return fetch(window.BASE_URL + 'db/' + slug + '.json')
@@ -19,7 +19,7 @@ export function fetchCompanyNameBySlug(slug: string) {
     return fetchCompanyDataBySlug(slug).then((json) => json['name']);
 }
 
-export function fetchSvaDataBySlug(slug: string) {
+export function fetchSvaDataBySlug(slug: string): Promise<SupervisoryAuthority | void> {
     return fetch(window.BASE_URL + 'db/sva/' + slug + '.json')
         .then((res) => res.json())
         .catch((err) => {
@@ -32,6 +32,6 @@ export function fetchSvaDataBySlug(slug: string) {
         });
 }
 
-export function fetchSvaNameBySlug(slug: string) {
-    return fetchSvaDataBySlug(slug).then((json) => json['name']);
+export function fetchSvaNameBySlug(slug: string): Promise<string | void> {
+    return fetchSvaDataBySlug(slug).then((sva) => sva && sva['name']);
 }

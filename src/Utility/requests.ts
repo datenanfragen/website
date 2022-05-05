@@ -12,13 +12,17 @@ import type {
     Request,
     CustomTemplateName,
 } from '../types/request';
-import type { Company } from 'company';
+import type { Company, SupervisoryAuthority } from 'company';
 
 export const REQUEST_ARTICLES = { access: '15', erasure: '17', rectification: '16', objection: '21(2)' };
 export const REQUEST_FALLBACK_LANGUAGE = 'en'; // We'll use English as hardcoded fallback language
 
 export function isAddress(value: IdDataElement['value']): value is Address {
     return (value as Address).country !== undefined;
+}
+
+export function isSva(sva: unknown): sva is SupervisoryAuthority {
+    return (sva as SupervisoryAuthority)['complaint-language'] !== undefined;
 }
 
 /**
@@ -105,7 +109,7 @@ export const trackingFields = (locale: string): IdDataElement[] => [
 export const fetchTemplate = (
     locale: string,
     request_type: RequestType | Exclude<CustomTemplateName, 'no-template'>,
-    company?: Company,
+    company?: Company | SupervisoryAuthority,
     suffix = 'default'
 ): Promise<void | string> => {
     const template =
@@ -152,3 +156,15 @@ export const fetchTemplate = (
             rethrow(error, 'fetchTemplate() failed.', { template_url }, t('error-template-fetch-failed', 'generator'))
         );
 };
+
+export const requestLanguageFallback = (language?: string) =>
+    language && Object.keys(window.I18N_DEFINITION_REQUESTS).includes(language)
+        ? language
+        : Object.keys(window.I18N_DEFINITION_REQUESTS).includes(window.LOCALE)
+        ? window.LOCALE
+        : REQUEST_FALLBACK_LANGUAGE;
+
+export function inferRequestLanguage(entity?: Company | SupervisoryAuthority) {
+    if (entity && isSva(entity)) return requestLanguageFallback(entity['complaint-language']);
+    return requestLanguageFallback(entity?.['request-language']);
+}

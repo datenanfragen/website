@@ -3,9 +3,10 @@ import { useState } from 'preact/hooks';
 import t from '../Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 import deepmerge from 'deepmerge';
+import { SupervisoryAuthority } from '../types/company.d';
 
 type SvaFinderProps = {
-    callback?: (sva: Record<string, unknown>) => void;
+    callback?: (sva?: SupervisoryAuthority) => void;
     style?: string;
 };
 type SvaFinderState = ({ step: Steps; question: string } | { step: undefined; question: undefined }) & {
@@ -186,7 +187,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
     let content: JSX.Element;
     if (state.result) {
         if (props.callback) {
-            fetchSvaDataBySlug(state.result).then((sva) => props.callback?.(sva));
+            fetchSvaDataBySlug(state.result).then((sva) => props.callback?.(sva ?? undefined));
             return <p>{t('loading-sva', 'sva-finder')}</p>;
         }
 

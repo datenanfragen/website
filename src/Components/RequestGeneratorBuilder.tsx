@@ -1,5 +1,5 @@
 import type { ComponentChildren } from 'preact';
-import { IntlProvider, MarkupText } from 'preact-i18n';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import { REQUEST_ARTICLES, fetchTemplate } from '../Utility/requests';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
@@ -13,9 +13,10 @@ import { useEffect, useMemo } from 'preact/hooks';
 // eslint-disable-next-line import/default
 import PdfWorker from '../Utility/pdf.worker.ts';
 import { rethrow } from '../Utility/errors';
-import { useGeneratorStore } from '../store/generator';
-import { CUSTOM_TEMPLATE_OPTIONS, Request } from 'request';
+import { RequestGeneratorProvider, useGeneratorStore, createGeneratorStore } from '../store/generator';
+import { CustomTemplateName, CUSTOM_TEMPLATE_OPTIONS, Request } from 'request';
 import { clearUrlParameters } from '../Utility/browser';
+import { useModal } from './Modal';
 
 type RequestGeneratorBuilderProps = {
     newRequestHook: () => void;
@@ -23,7 +24,15 @@ type RequestGeneratorBuilderProps = {
     children: ComponentChildren;
 };
 
-export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => {
+export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => (
+    <RequestGeneratorProvider createStore={createGeneratorStore}>
+        <WrappedRequestGeneratorBuilder newRequestHook={props.newRequestHook} onInitialized={props.onInitialized}>
+            {props.children}
+        </WrappedRequestGeneratorBuilder>
+    </RequestGeneratorProvider>
+);
+
+const WrappedRequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => {
     const setDownload = useGeneratorStore((state) => state.setDownload);
     const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
     const getLetter = useGeneratorStore((state) => state.letter);
@@ -38,8 +47,11 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
     const setCustomLetterTemplate = useGeneratorStore((state) => state.setCustomLetterTemplate);
     const refreshTemplate = useGeneratorStore((state) => state.refreshTemplate);
     const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
+    const setCompany = useGeneratorStore((state) => state.setCompany);
+    const setSva = useGeneratorStore((state) => state.setSva);
     const removeCompany = useGeneratorStore((state) => state.removeCompany);
     const clearBatch = useGeneratorStore((state) => state.clearBatch);
+    const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
     const storeRequest = useGeneratorStore((state) => state.storeRequest);
 
     const pdfWorker = useMemo(() => new PdfWorker(), []);
@@ -50,7 +62,7 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
                 // copy the worker to window if we are in a dev env to enable easy testing
                 (window as typeof window & { pdfWorker: PdfWorker }).pdfWorker = pdfWorker;
             }
-            const onMessage = (message: MessageEvent<any>) =>
+            const onMessage = (message: MessageEvent<{ blob_url: string; filename: string }>) =>
                 setDownload(true, message.data.blob_url, message.data.filename);
             const onError = (error: ErrorEvent) => rethrow(error, 'PdfWorker error');
 
@@ -89,20 +101,26 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
         setBusy();
         return initializeFields()
             .then(() => {
-                const { response_to, response_type } = PARAMETERS;
+                const { response_to, response_type } = window.PARAMETERS;
 
                 // This is a response to a previous request (warning or complaint).
                 if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) && response_to && response_type) {
                     // Just for the looks: Switch the view before fetching the template
                     setRequestType('custom');
 
-                    return (new UserRequests().getRequest(response_to) as Promise<Request>)
-                        .then((request) =>
-                            setCustomLetterTemplate(
-                                response_type in CUSTOM_TEMPLATE_OPTIONS ? response_type : 'no-template',
-                                request
-                            ).then(() => request)
-                        )
+                    return new UserRequests()
+                        .getRequest(response_to)
+                        .then((request) => {
+                            if (request) {
+                                return setCustomLetterTemplate(
+                                    response_type in CUSTOM_TEMPLATE_OPTIONS
+                                        ? (response_type as CustomTemplateName)
+                                        : 'no-template',
+                                    request
+                                ).then(() => request);
+                            }
+                            throw new Error('No user request found');
+                        })
                         .then((request) => {
                             if (response_type === 'admonition' && request?.slug) {
                                 return setCompanyBySlug(request.slug);
@@ -110,12 +128,15 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
                         })
                         .then(() => {
                             if (response_type === 'complaint') showAuthorityChooser();
+                        })
+                        .catch((e) => {
+                            /* Fail silently when no user request was found */
+                            if (e.message !== 'No user request found') rethrow(e);
                         });
                 }
+
                 // This is just a regular ol' request.
-                else {
-                    return refreshTemplate();
-                }
+                return refreshTemplate();
             })
             .then(setReady);
     };
@@ -125,17 +146,17 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
             if (
                 !(
                     Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) &&
-                    PARAMETERS['response_to'] &&
-                    PARAMETERS['response_type']
+                    window.PARAMETERS['response_to'] &&
+                    window.PARAMETERS['response_type']
                 )
             ) {
                 // If specified in the URL, load a single company…
-                if (PARAMETERS['company']) setCompanyBySlug(PARAMETERS['company']);
+                if (window.PARAMETERS['company']) setCompanyBySlug(window.PARAMETERS['company']);
                 else {
                     // …or multiple ones.
-                    const batch_companies = PARAMETERS['companies'];
+                    const batch_companies = window.PARAMETERS['companies'];
                     if (batch_companies) {
-                        let batch = batch_companies.split(',');
+                        const batch = batch_companies.split(',');
                         // We are in batch mode, move to the next company.
                         // Note: Previously, we checked for `this.state.batch` here. This is wrong however: The `generator.js`
                         // may have already called `setBatch()` and thus set `this.state.batch` *and* shifted it.
@@ -154,47 +175,45 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
             props.onInitialized?.();
             refreshFillFields();
         });
-    }, []);
+    });
 
-    const showAuthorityChooser = () => {
-        this.setState({
-            modal: (state) => (
-                <DeprecatedModal
-                    negativeText={t('cancel', 'generator')}
-                    onNegativeFeedback={() => this.setState({ modal: null })}
-                    positiveDefault={true}
-                    onDismiss={() => this.setState({ modal: null })}>
-                    <IntlProvider scope="generator" definition={I18N_DEFINITION}>
-                        <MarkupText id="modal-select-authority" />
-                    </IntlProvider>
-                    <SvaFinder
-                        callback={(sva) => {
-                            this.setCompany(sva);
-                            this.setState({ ready: false }, () => {
-                                fetchTemplate(sva['complaint-language'], 'complaint', null, '').then((text) => {
-                                    this.changeRequest((request) => {
-                                        request.custom_data.content = new Template(text, [], {
-                                            request_article: REQUEST_ARTICLES[state.response_request.type],
-                                            request_date: state.response_request.date,
-                                            request_recipient_address: state.response_request.recipient,
-                                        }).getText();
-                                    });
-                                    this.setState({ ready: !!text });
-                                });
-                            });
-                            this.setState({ modal: null });
-                        }}
-                        style="margin-top: 15px;"
-                    />
-                </DeprecatedModal>
-            ),
-        });
-    };
+    const [AuthorityChooser, showAuthorityChooser, dismissAuthorityChooser] = useModal(
+        <>
+            <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
+                <MarkupText id="modal-select-authority" />
+            </IntlProvider>
+            <SvaFinder
+                callback={(sva) => {
+                    if (sva) {
+                        setBusy();
+                        const response_to = window.PARAMETERS['response_to'];
+
+                        setSva(sva)
+                            .then(() => {
+                                if (response_to) return new UserRequests().getRequest(response_to);
+                            })
+                            .then((user_request) => setCustomLetterTemplate('complaint', user_request ?? undefined))
+                            .then(() => renderLetter)
+                            .then(() => setReady);
+                    }
+
+                    dismissAuthorityChooser();
+                }}
+                style="margin-top: 15px;"
+            />
+        </>,
+        {
+            onNegativeFeedback: () => dismissAuthorityChooser(),
+            defaultButton: 'positive',
+            shownInitially: false,
+            negativeText: t('cancel', 'generator'),
+        }
+    );
 
     const newRequest = () => {
         // Remove GET parameter-selected company from the URL after the request is finished.
         // Also remove warning and complaint GET parameters from the URL after the request is finished.
-        if (PARAMETERS['company'] || PARAMETERS['response_type'] || PARAMETERS['response_to']) {
+        if (window.PARAMETERS['company'] || window.PARAMETERS['response_type'] || window.PARAMETERS['response_to']) {
             clearUrlParameters();
         }
 
@@ -207,66 +226,55 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
         return resetInitialConditions();
     };
 
-    const confirmNewRequest = () => {
-        const confirmNewRequestModal = (state) => (
-            <DeprecatedModal
-                positiveButton={
-                    <div style="float: right;">
-                        <ActionButton
-                            transport_medium={state.request.transport_medium}
-                            blob_url={state.blob_url}
-                            email={state.request.email}
-                            letter={state.letter}
-                            download_filename={state.download_filename}
-                            download_active={state.download_active}
-                            done={state.request.done}
-                            ready={state.ready}
-                            buttonText={t(
-                                state.request.transport_medium === 'email' ? 'send-email-first' : 'download-pdf-first',
-                                'generator'
-                            )}
-                            createModal={(modal) => new Promise((resolve) => this.setState({ modal }, resolve))}
-                            onSuccess={() => {
-                                if (this.state.modal === confirmNewRequestModal) this.setState({ modal: null });
-                                storeRequest();
-                                newRequest().then(() => {
-                                    // We are in batch mode, move to the next company.
-                                    if (this.state.batch?.length > 0) {
-                                        this.setCompanyBySlug(this.state.batch.shift());
-                                    } else this.renderLetter();
-                                });
-                            }}
-                        />
-                    </div>
-                }
-                negativeText={t('new-request', 'generator')}
-                onNegativeFeedback={(e) => {
-                    this.setState({ modal: null });
-                    newRequest().then(() => {
-                        // We are in batch mode, move to the next company.
-                        if (this.state.batch?.length > 0) {
-                            this.setCompanyBySlug(this.state.batch.shift());
-                        } else this.renderLetter();
-                    });
-                }}
-                positiveDefault={true}
-                innerStyle="overflow: visible;"
-                onDismiss={() => this.setState({ modal: null })}>
-                {t('modal-new-request', 'generator')}
-            </DeprecatedModal>
-        );
-        this.setState({
-            modal: confirmNewRequestModal,
-        });
-    };
+    const [ConfirmNewRequestModal, showConfirmNewRequestModal, dismissConfirmNewRequestModal] = useModal(
+        <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
+            <Text id="modal-new-request" />
+        </IntlProvider>,
+        {
+            positiveButton: (
+                <div style="float: right;">
+                    <ActionButton
+                        buttonText={
+                            <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
+                                <Text id={transport_medium === 'email' ? 'send-email-first' : 'download-pdf-first'} />
+                            </IntlProvider>
+                        }
+                        onSuccess={() => {
+                            dismissConfirmNewRequestModal();
+                            storeRequest()
+                                .then(() => setBusy())
+                                .then(() => newRequest())
+                                .then(() => advanceBatch())
+                                .then(() => renderLetter())
+                                .then(() => setReady());
+                        }}
+                    />
+                </div>
+            ),
+            negativeText: t('new-request', 'generator'),
+            onNegativeFeedback: () => {
+                dismissConfirmNewRequestModal();
+                setBusy();
+                newRequest()
+                    .then(() => advanceBatch())
+                    .then(() => renderLetter())
+                    .then(() => setReady());
+            },
+            defaultButton: 'positive',
+            innerStyle: 'overflow: visible;',
+        }
+    );
 
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
+            <AuthorityChooser />
+            <ConfirmNewRequestModal />
             <>{props.children}</>
         </IntlProvider>
     );
 };
 
+/*
 const handleAutocompleteSelected = (e, suggestion, dataset) => {
     if (this.state.suggestion) {
         this.setState({
@@ -293,4 +301,4 @@ const handleAutocompleteSelected = (e, suggestion, dataset) => {
     } else {
         this.setCompany(suggestion.document);
     }
-};
+};*/

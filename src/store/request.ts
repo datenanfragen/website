@@ -22,14 +22,15 @@ import {
     fetchTemplate,
     isSaneDataField,
     REQUEST_ARTICLES,
+    inferRequestLanguage,
 } from '../Utility/requests';
-import { UserRequests } from '../DataType/UserRequests';
+import { UserRequests, UserRequest } from '../DataType/UserRequests';
 import { produce } from 'immer';
 import { RequestLetter } from '../DataType/RequestLetter';
 import { t_r } from '../Utility/i18n';
 import { rethrow, WarningException } from '../Utility/errors';
 import type { StoreSlice } from 'utility';
-import { CompanyState, inferRequestLanguage } from './company';
+import { CompanyState } from './company';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import type { RequestLanguage, Company } from '../types/company';
 import { slugify } from '../Utility/common';
@@ -40,7 +41,7 @@ import { Template } from 'letter-generator';
 export interface RequestState<R extends Request> {
     request: R;
     template: string;
-    storeRequest: () => void;
+    storeRequest: () => Promise<UserRequest | void>;
     addField: (field: IdDataElement, data_field: DataField<R>) => void;
     removeField: (index: number, data_field: DataField<R>) => void;
     setField: (index: number, field: IdDataElement, data_field: DataField<R>) => void;
@@ -53,7 +54,7 @@ export interface RequestState<R extends Request> {
     setInformationBlock: (information_block: string) => void;
     setSignature: (signature: Signature) => void;
     // I would've liked to avoid specific functions here, but I guess I can't help it
-    setCustomLetterTemplate: (template_name: CustomTemplateName, response_to?: Request) => Promise<void>;
+    setCustomLetterTemplate: (template_name: CustomTemplateName, response_to?: UserRequest) => Promise<void>;
     setCustomLetterProperty: (property: keyof Omit<CustomLetterData, 'sender_address'>, value: string) => void;
     setCustomLetterAddress: (address: Address) => void;
     setSent: (sent: boolean) => void;
@@ -86,7 +87,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             email: state.request.email,
             via: state.request.transport_medium,
         };
-        new UserRequests().storeRequest(db_id, item);
+        return new UserRequests().storeRequest(db_id, item);
     },
     addField: (field, data_field) =>
         set(
@@ -215,8 +216,8 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                                 if (response_to) {
                                     const variables = {
                                         request_date: response_to.date,
-                                        request_recipient: response_to.recipient_address?.split('\n')[0],
-                                        request_recipient_address: response_to.recipient_address,
+                                        request_recipient: response_to.recipient?.split('\n')[0],
+                                        request_recipient_address: response_to.recipient,
                                     };
                                     state.request.custom_data.content = text
                                         ? new Template(
@@ -243,9 +244,9 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                                     );
 
                                     if (template_name === 'admonition') {
-                                        get().setTransportMedium(response_to.transport_medium);
+                                        get().setTransportMedium(response_to.via);
                                         state.request.email = response_to.email;
-                                        state.request.recipient_address = response_to.recipient_address;
+                                        state.request.recipient_address = response_to.via;
                                     }
 
                                     state.request.reference = response_to.reference;

@@ -1,18 +1,25 @@
 import type { Request } from 'request';
-import type { Company } from 'company';
+import type { Company, SupervisoryAuthority } from 'company';
 import type { StoreSlice } from 'utility';
 import { RequestState } from './request';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
-import { REQUEST_FALLBACK_LANGUAGE, trackingFields, defaultFields } from '../Utility/requests';
+import {
+    REQUEST_FALLBACK_LANGUAGE,
+    trackingFields,
+    defaultFields,
+    isSva,
+    inferRequestLanguage,
+} from '../Utility/requests';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { produce } from 'immer';
 import { SavedIdData } from '../DataType/SavedIdData';
 
 export interface CompanyState {
-    current_company?: Company;
+    current_company?: Company | SupervisoryAuthority;
     batch?: string[];
     setCompanyBySlug: (slug: string) => Promise<void>;
     setCompany: (company: Company) => Promise<void>;
+    setSva: (sva: SupervisoryAuthority) => Promise<void>;
     removeCompany: () => Promise<void>;
     startBatch: (batch: string[]) => Promise<void>;
     advanceBatch: () => Promise<void>;
@@ -83,6 +90,27 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
             return get().refreshTemplate();
         }
     },
+    setSva: async (sva) => {
+        get().setRequestType('custom');
+
+        set(
+            produce((state: GeneratorState) => {
+                if (sva) {
+                    state.current_company = sva;
+                    state.request.language = inferRequestLanguage(sva);
+                    state.request.slug = sva.slug;
+                    state.request.recipient_runs = [];
+                }
+            })
+        );
+
+        // Set other data this way to allow for side effects
+        get().setRecipientEmail(sva['email'] ?? '');
+        get().setRecipientAddress(sva['address'] ?? '');
+        get().setTransportMedium(
+            sva['suggested-transport-medium'] ? sva['suggested-transport-medium'] : sva.email ? 'email' : 'letter'
+        );
+    },
     setCompanyBySlug: (slug) => {
         return fetchCompanyDataBySlug(slug).then((company) => {
             return get().setCompany(company);
@@ -116,13 +144,3 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
     },
     clearBatch: () => set({ batch: undefined }),
 });
-
-export function inferRequestLanguage(company?: Company) {
-    return company &&
-        company['request-language'] &&
-        Object.keys(window.I18N_DEFINITION_REQUESTS).includes(company['request-language'])
-        ? company['request-language']
-        : Object.keys(window.I18N_DEFINITION_REQUESTS).includes(window.LOCALE)
-        ? window.LOCALE
-        : REQUEST_FALLBACK_LANGUAGE;
-}

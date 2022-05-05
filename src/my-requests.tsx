@@ -15,7 +15,7 @@ const RequestList = () => {
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
 
     useEffect(() => {
-        user_requests.getRequests()?.then((new_requests) => setRequests(new_requests));
+        user_requests.getRequests()?.then((new_requests) => new_requests && setRequests(new_requests));
     }, []);
 
     const sortedRequestIds = useMemo(
