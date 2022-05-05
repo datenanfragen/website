@@ -1,9 +1,11 @@
-import { PARAMETERS } from './common';
+import type { LiteralUnion } from 'type-fest';
 
-export function clearUrlParameters() {
-    window.history.pushState({}, document.title, BASE_URL + 'generator');
-    for (const p in PARAMETERS) if (Object.prototype.hasOwnProperty.call(PARAMETERS, p)) delete PARAMETERS[p];
-}
+export const clearUrlParameters = () => {
+    window.history.pushState({}, document.title, `${window.BASE_URL}generator`);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    window.PARAMETERS = {};
+};
 
 /**
  * Check whether canvas image extraction is blocked (usually because the user is either the Tor Browser or has
@@ -14,16 +16,16 @@ export function clearUrlParameters() {
  * extraction is blocked, otherwise it is not.
  * Inspired by: https://estada.ch/2018/12/22/firefox-privacy-enhancement-renders-every-off-screen-canvas-white/
  *
- * @param {CanvasRenderingContext2D} [ctx] A canvas context if we already have one. Otherwise, we will just create one
- *     on the fly.
- * @returns {boolean} true if canvas extraction is blocked, false otherwise
+ * @param ctx A canvas context if we already have one. Otherwise, we will just create one on the fly.
+ * @returns true if canvas extraction is blocked, false otherwise
  */
-export function detectBlockedCanvasImageExtraction(ctx = null) {
+export const detectBlockedCanvasImageExtraction = (ctx = null as CanvasRenderingContext2D | null) => {
     if (!ctx) {
         const c = document.createElement('canvas');
         c.width = c.height = 1;
-        ctx = c.getContext('2d');
+        ctx = c.getContext('2d')!;
     }
+
     // For the test, we need to set the `fillStyle`. As this setting is persisted for the context (which may be used
     // elsewhere), we need to remember the old value.
     const old_fs = ctx.fillStyle;
@@ -45,12 +47,11 @@ export function detectBlockedCanvasImageExtraction(ctx = null) {
 
     // Check if the tested pixel is white (i.e. all channels are 255)—in that case extraction is blocked.
     return px.reduce((acc, cur) => acc && cur === 255, true);
-}
+};
 
-// Apparently, triggering a download in JavaScript is very hard
-// inspired by: https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
-export function download(url, filename) {
-    let element = document.createElement('a');
+// Inspired by: https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
+export const download = (url: string, filename: string) => {
+    const element = document.createElement('a');
     element.setAttribute('href', url);
     if (filename) element.setAttribute('download', filename);
 
@@ -60,10 +61,14 @@ export function download(url, filename) {
     element.click();
 
     document.body.removeChild(element);
-}
+};
 
-// Adapted after:  https://stackoverflow.com/a/133997
-export function clientPost(url, params, target) {
+// Adapted after: https://stackoverflow.com/a/133997
+export const clientPost = (
+    url: string,
+    params: Record<string, string>,
+    target: LiteralUnion<'_blank' | '_self' | '_parent' | '_top', string>
+) => {
     const form = document.createElement('form');
     form.setAttribute('method', 'POST');
     form.setAttribute('action', url);
@@ -83,4 +88,4 @@ export function clientPost(url, params, target) {
     document.body.appendChild(form);
     form.submit();
     document.body.removeChild(form);
-}
+};

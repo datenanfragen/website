@@ -23,18 +23,18 @@ import {
     isSaneDataField,
     REQUEST_ARTICLES,
 } from '../Utility/requests';
-import UserRequests from '../my-requests';
+import { UserRequests } from '../DataType/UserRequests';
 import { produce } from 'immer';
-import RequestLetter from '../Utility/RequestLetter';
+import { RequestLetter } from '../DataType/RequestLetter';
 import { t_r } from '../Utility/i18n';
 import { rethrow, WarningException } from '../Utility/errors';
 import type { StoreSlice } from 'utility';
 import { CompanyState, inferRequestLanguage } from './company';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import type { RequestLanguage, Company } from '../types/company';
-import { slugify, PARAMETERS } from '../Utility/common';
+import { slugify } from '../Utility/common';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { SavedIdData } from '../Utility/SavedIdData';
+import { SavedIdData } from '../DataType/SavedIdData';
 import { Template } from 'letter-generator';
 
 export interface RequestState<R extends Request> {
@@ -80,7 +80,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             reference: state.request.reference,
             date: state.request.date,
             type: state.request.type,
-            response_type: state.request.type === 'custom' ? state.request.response_type : '',
+            response_type: state.request.type === 'custom' ? state.request.response_type : undefined,
             slug: state.request.slug,
             recipient: state.request.recipient_address,
             email: state.request.email,

@@ -1,10 +1,26 @@
-import { render, Component } from 'preact';
-import t from 'Utility/i18n';
+import { render, Fragment, JSX } from 'preact';
+import { useState } from 'preact/hooks';
+import t from '../Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
-import PropTypes from 'prop-types';
 import deepmerge from 'deepmerge';
 
-const steps = deepmerge(
+type SvaFinderProps = {
+    callback?: (sva: Record<string, unknown>) => void;
+    style?: string;
+};
+type SvaFinderState = ({ step: Steps; question: string } | { step: undefined; question: undefined }) & {
+    prev_state?: SvaFinderState;
+    result: false | Sva;
+};
+
+type Sva = keyof typeof svas;
+// For some reason, this is allowed but `Record<string, Step | Sva>` is not. *shrug*
+type Steps = { [name: string]: Steps | Sva };
+
+// TODO: Setting props through the window object is not the way to go.
+const win = window as typeof window & { props?: { override?: Steps; showTitle?: boolean } };
+
+const steps: Steps = deepmerge(
     {
         country: {
             at: 'atdsb',
@@ -141,119 +157,113 @@ const steps = deepmerge(
             ch: 'chedoeb',
         },
     },
-    window?.props?.override ? window.props.override : {}
+    win.props?.override || {}
 );
 
-const initial_state = {
-    step: steps['country'],
-    prev_state: null,
+const initial_state: SvaFinderState = {
+    step: steps.country as Steps,
+    prev_state: undefined,
     question: t('country', 'sva-finder'),
     result: false,
 };
 
-export default class SvaFinder extends Component {
-    constructor(props) {
-        super(props);
+export const SvaFinder = (props: SvaFinderProps) => {
+    const [state, setState] = useState<SvaFinderState>(initial_state);
 
-        this.state = initial_state;
-    }
-
-    selectOption = (option) => {
-        const next_step = this.state.step[option];
+    const selectOption = (option: string) => {
+        const next_step = state.step![option];
         if (typeof next_step === 'object') {
-            this.setState((prev) => ({
+            setState({
                 step: next_step,
-                prev_state: prev,
-                question: t(option + '-q', 'sva-finder'),
-            }));
-        } else this.setState((prev) => ({ result: next_step, prev_state: prev }));
+                prev_state: state,
+                // It's probably possible to actually enforce type safety for this but that doesn't seem worth it.
+                question: t(`${option}-q` as keyof typeof window.I18N_DEFINITION['sva-finder'], 'sva-finder'),
+                result: false,
+            });
+        } else setState({ result: next_step, prev_state: state, step: undefined, question: undefined });
     };
 
-    render() {
-        let content;
-
-        if (this.state.result) {
-            if (typeof this.props.callback === 'function') {
-                fetchSvaDataBySlug(this.state.result).then((sva) => this.props.callback(sva));
-                return <p>{t('loading-sva', 'sva-finder')}</p>;
-            }
-
-            content = (
-                <p>
-                    {t('result', 'sva-finder')}
-                    <br />
-                    <a href={BASE_URL + 'supervisory-authority/' + this.state.result}>{svas[this.state.result]}</a>
-                </p>
-            );
-        } else {
-            const entries = Object.keys(this.state.step).reduce((acc, val) => {
-                // This is a little ugly conceptually but I really don't like storing the country names multiple times.
-                acc[val] = t(val, 'sva-finder') || t(val, 'countries');
-                return acc;
-            }, {});
-            const sorted_keys = Object.keys(entries).sort((a, b) => {
-                // For the countries, move the user's country to the top of the list.
-                if (steps.country[globals.country]) {
-                    if (a === globals.country) return -1;
-                    else if (b === globals.country) return 1;
-                }
-
-                // In the first step for Germany, "Any other public or private entity" has to be sorted last.
-                if (a === 'private') return 1;
-                else if (b === 'private') return -1;
-
-                // Otherwise, just sort alphabetically.
-                return entries[a].localeCompare(entries[b]);
-            });
-
-            const options = sorted_keys.map((key) => (
-                <label className={'radio-label' + ([globals.country, 'private'].includes(key) ? ' active' : '')}>
-                    <input className="form-element" onClick={() => this.selectOption(key)} />
-                    {entries[key]}
-                </label>
-            ));
-
-            content = [
-                <p style="margin-top: 0;">{this.state.question}</p>,
-                <div className="radio-group radio-group-vertical" style="max-height: 450px; overflow: auto;">
-                    {options}
-                </div>,
-            ];
+    let content: JSX.Element;
+    if (state.result) {
+        if (props.callback) {
+            fetchSvaDataBySlug(state.result).then((sva) => props.callback?.(sva));
+            return <p>{t('loading-sva', 'sva-finder')}</p>;
         }
 
-        return (
-            <div className="sva-finder box box-info" style={this.props.style}>
-                {this.props.callback || window?.props?.override ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
-                {content}
-                <div style="margin-top: 20px;">
-                    {this.state.prev_state && (
-                        <button
-                            className="button button-secondary button-small icon icon-arrow-left"
-                            onClick={() => this.setState(this.state.prev_state)}>
-                            {t('back', 'sva-finder')}
-                        </button>
-                    )}
-                    <button
-                        className="button button-secondary button-small"
-                        style="float: right;"
-                        onClick={() => this.setState(initial_state)}>
-                        {t('reset', 'sva-finder')}
-                    </button>
+        content = (
+            <p>
+                {t('result', 'sva-finder')}
+                <br />
+                <a href={`${window.BASE_URL}supervisory-authority/${state.result}`}>{svas[state.result]}</a>
+            </p>
+        );
+    } else {
+        const entries = Object.keys(state.step!).reduce<Record<string, string>>((acc, val) => {
+            // This is a little ugly conceptually but I really don't like storing the country names multiple times.
+            acc[val] =
+                t(val as keyof typeof window.I18N_DEFINITION['sva-finder'], 'sva-finder') ||
+                t(val as keyof typeof window.I18N_DEFINITION.countries, 'countries');
+            return acc;
+        }, {});
+        const sorted_keys = Object.keys(entries).sort((a, b) => {
+            // For the countries, move the user's country to the top of the list.
+            if (a === window.globals.country) return -1;
+            else if (b === window.globals.country) return 1;
+
+            // In the first step for Germany, "Any other public or private entity" has to be sorted last.
+            if (a === 'private') return 1;
+            else if (b === 'private') return -1;
+
+            // Otherwise, just sort alphabetically.
+            return entries[a].localeCompare(entries[b]);
+        });
+
+        const options = sorted_keys.map((key) => (
+            <label className={`radio-label${[window.globals.country, 'private'].includes(key) ? ' active' : ''}`}>
+                <input className="form-element" onClick={() => selectOption(key)} />
+                {entries[key]}
+            </label>
+        ));
+        content = (
+            <Fragment>
+                <p style="margin-top: 0;">{state.question}</p>
+                <div className="radio-group radio-group-vertical" style="max-height: 450px; overflow: auto;">
+                    {options}
                 </div>
-                <div className="clearfix" />
-            </div>
+            </Fragment>
         );
     }
 
-    static propTypes = {
-        callback: PropTypes.func.isRequired,
-        style: PropTypes.string.isRequired,
-    };
-}
+    return (
+        <div className="sva-finder box box-info" style={props.style}>
+            {props.callback || win.props?.showTitle === false ? '' : <h2>{t('sva-finder', 'sva-finder')}</h2>}
 
-window.renderSvaFinder = function () {
+            {content}
+
+            <div style="margin-top: 20px;">
+                {state.prev_state && (
+                    <button
+                        className="button button-secondary button-small icon icon-arrow-left"
+                        onClick={() => setState(state.prev_state!)}>
+                        {t('back', 'sva-finder')}
+                    </button>
+                )}
+
+                <button
+                    className="button button-secondary button-small"
+                    style="float: right;"
+                    onClick={() => setState(initial_state)}>
+                    {t('reset', 'sva-finder')}
+                </button>
+            </div>
+            <div className="clearfix" />
+        </div>
+    );
+};
+
+(window as typeof window & { renderSvaFinder: () => void }).renderSvaFinder = function () {
     document.querySelectorAll('.sva-finder').forEach((el) => {
-        render(<SvaFinder />, el.parentElement, el);
+        render(<SvaFinder />, el.parentElement!, el);
     });
 };
 

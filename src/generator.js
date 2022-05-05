@@ -1,6 +1,5 @@
 import { render, Component } from 'preact';
 import { IntlProvider } from 'preact-i18n';
-import { PARAMETERS } from './Utility/common';
 import { clearUrlParameters } from './Utility/browser';
 import t from './Utility/i18n';
 import Joyride from 'react-joyride';
@@ -8,8 +7,8 @@ import { tutorial_steps } from './wizard-tutorial.js';
 import Cookie from 'js-cookie';
 import RequestGeneratorBuilder from './Components/RequestGeneratorBuilder';
 import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
-import { SavedCompanies } from './Components/Wizard';
-import Modal, { showModal, dismissModal } from './Components/Modal';
+import { SavedCompanies } from './DataType/SavedCompanies';
+import Modal, { showModal, dismissModal } from './Components/DeprecatedModal';
 
 const HIDE_IN_WIZARD_MODE = [
     '.search',

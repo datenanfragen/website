@@ -1,12 +1,12 @@
 import { render, Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
-import { PARAMETERS, almostUniqueId, renderMoney } from '../Utility/common';
+import { almostUniqueId, renderMoney } from '../Utility/common';
 import { CriticalException, rethrow } from '../Utility/errors';
 import t from '../Utility/i18n';
-import FlashMessage, { flash } from './FlashMessage';
-import Radio from './Radio';
+import { FlashMessage, flash } from '../Components/FlashMessage';
+import { Radio } from './Radio';
 import { clientPost } from '../Utility/browser';
-import LoadingIndicator from './LoadingIndicator';
+import { LoadingIndicator } from './LoadingIndicator';
 
 const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];
@@ -123,12 +123,10 @@ export default class DonationWidget extends Component {
                             {PAYMENT_METHODS.map((payment_method) => (
                                 <Radio
                                     id={'payment-method-choice-' + payment_method}
-                                    radio_variable={this.state.payment_method}
+                                    radioVariable={this.state.payment_method}
                                     value={payment_method}
                                     name="payment_method"
-                                    onChange={(e) => {
-                                        this.setState({ payment_method: e.target.value });
-                                    }}
+                                    onChange={(e) => this.setState({ payment_method: e.target.value })}
                                     label={
                                         <div>
                                             <Text id={payment_method} />
@@ -336,9 +334,7 @@ export default class DonationWidget extends Component {
                     {
                         cmd: '_donations',
                         amount: Number(this.state.amount).toFixed(2),
-                        item_name: t('reference-value', 'donation-widget', {
-                            reference: donation_reference,
-                        }),
+                        item_name: t('reference-value', 'donation-widget', { reference: donation_reference }),
                         currency_code: 'EUR',
                         business: 'paypal@datenanfragen.de',
                         image_url: 'https://www.datenanfragen.de/img/logo-datenanfragen-ev.png',

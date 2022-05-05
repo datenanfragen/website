@@ -1,6 +1,4 @@
 import t, { t_r } from './i18n';
-import Privacy, { PRIVACY_ACTIONS } from './Privacy';
-import { SavedIdData } from './SavedIdData';
 import { CriticalException, rethrow } from './errors';
 import { generateReference } from 'letter-generator';
 import { deepCopyObject } from '../Utility/common';

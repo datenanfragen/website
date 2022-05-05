@@ -11,16 +11,16 @@ import {
     REQUEST_FALLBACK_LANGUAGE,
 } from '../Utility/requests';
 import RequestLetter from '../Utility/RequestLetter';
-import { slugify, PARAMETERS } from '../Utility/common';
+import { slugify } from '../Utility/common';
 import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from '../Utility/SavedIdData';
 import replacer_factory from '../Utility/request-generator-replacers';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import Modal from './Modal';
-import SvaFinder from './SvaFinder';
+import Modal from './DeprecatedModal';
+import { SvaFinder } from './SvaFinder';
 import { clearUrlParameters } from '../Utility/browser';
 import { Template } from 'letter-generator';
-import UserRequests from '../my-requests';
+import { UserRequests } from '../my-requests';
 import ActionButton from './Generator/ActionButton';
 import PropTypes from 'prop-types';
 

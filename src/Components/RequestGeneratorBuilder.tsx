@@ -2,12 +2,11 @@ import type { ComponentChildren } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t, { t_r } from '../Utility/i18n';
 import { REQUEST_ARTICLES, fetchTemplate } from '../Utility/requests';
-import { PARAMETERS } from '../Utility/common';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import Modal from './Modal';
-import SvaFinder from './SvaFinder';
+import DeprecatedModal from './DeprecatedModal';
+import { SvaFinder } from './SvaFinder';
 import { Template } from 'letter-generator';
-import UserRequests from '../my-requests';
+import { UserRequests } from '../DataType/UserRequests';
 import { ActionButton } from './Generator/ActionButton';
 import { useEffect, useMemo } from 'preact/hooks';
 // This will be replaced with an URL by the worker-loader plugin in webpack which is why eslint can't fin a defautl import (ts can be tricked by defining a module).
@@ -47,7 +46,7 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
 
     useEffect(() => {
         if (pdfWorker) {
-            if (window.hugoDevMode) {
+            if ((window as typeof window & { hugoDevMode: boolean })?.hugoDevMode) {
                 // copy the worker to window if we are in a dev env to enable easy testing
                 (window as typeof window & { pdfWorker: PdfWorker }).pdfWorker = pdfWorker;
             }
@@ -160,7 +159,7 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
     const showAuthorityChooser = () => {
         this.setState({
             modal: (state) => (
-                <Modal
+                <DeprecatedModal
                     negativeText={t('cancel', 'generator')}
                     onNegativeFeedback={() => this.setState({ modal: null })}
                     positiveDefault={true}
@@ -187,7 +186,7 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
                         }}
                         style="margin-top: 15px;"
                     />
-                </Modal>
+                </DeprecatedModal>
             ),
         });
     };
@@ -210,7 +209,7 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
 
     const confirmNewRequest = () => {
         const confirmNewRequestModal = (state) => (
-            <Modal
+            <DeprecatedModal
                 positiveButton={
                     <div style="float: right;">
                         <ActionButton
@@ -243,7 +242,7 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
                 negativeText={t('new-request', 'generator')}
                 onNegativeFeedback={(e) => {
                     this.setState({ modal: null });
-                    this.newRequest().then(() => {
+                    newRequest().then(() => {
                         // We are in batch mode, move to the next company.
                         if (this.state.batch?.length > 0) {
                             this.setCompanyBySlug(this.state.batch.shift());
@@ -254,7 +253,7 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
                 innerStyle="overflow: visible;"
                 onDismiss={() => this.setState({ modal: null })}>
                 {t('modal-new-request', 'generator')}
-            </Modal>
+            </DeprecatedModal>
         );
         this.setState({
             modal: confirmNewRequestModal,
@@ -272,7 +271,7 @@ const handleAutocompleteSelected = (e, suggestion, dataset) => {
     if (this.state.suggestion) {
         this.setState({
             modal: (state) => (
-                <Modal
+                <DeprecatedModal
                     positiveText={t('new-request', 'generator')}
                     negativeText={t('override-request', 'generator')}
                     onNegativeFeedback={(e) => {
@@ -288,7 +287,7 @@ const handleAutocompleteSelected = (e, suggestion, dataset) => {
                     positiveDefault={true}
                     onDismiss={() => this.setState({ modal: null })}>
                     {t('modal-autocomplete-new-request', 'generator')}
-                </Modal>
+                </DeprecatedModal>
             ),
         });
     } else {

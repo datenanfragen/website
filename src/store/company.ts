@@ -6,7 +6,7 @@ import { fetchCompanyDataBySlug } from '../Utility/companies';
 import { REQUEST_FALLBACK_LANGUAGE, trackingFields, defaultFields } from '../Utility/requests';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { produce } from 'immer';
-import { SavedIdData } from '../Utility/SavedIdData';
+import { SavedIdData } from '../DataType/SavedIdData';
 
 export interface CompanyState {
     current_company?: Company;

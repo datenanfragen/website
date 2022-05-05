@@ -1,11 +1,11 @@
+import type { JSX } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
-import MailtoDropdown from '../MailtoDropdown';
+import { MailtoDropdown } from '../MailtoDropdown';
 
 type ActionButtonProps = {
     onSuccess: () => void;
-    createModal: (modal: unknown) => void;
-    buttonText?: Element | Element[];
+    buttonText: JSX.Element | JSX.Element[];
 };
 
 export const ActionButton = (props: ActionButtonProps) => {
@@ -32,7 +32,6 @@ export const ActionButton = (props: ActionButtonProps) => {
                 className={class_name}
                 buttonText={props.buttonText}
                 enabled={enabled}
-                createModal={props.createModal}
             />
         ) : (
             <a

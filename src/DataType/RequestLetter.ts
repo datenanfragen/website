@@ -1,10 +1,10 @@
-import t, { t_r } from './i18n';
+import t, { t_r } from '../Utility/i18n';
 import { Letter, Template, formatAddress, stripTags, LetterProps } from 'letter-generator';
 import type { Address, Request, IdDataElement } from '../types/request';
 
 type FormattedData = { formatted: string; primary_address: Address | null; name: string };
 
-export default class RequestLetter extends Letter {
+export class RequestLetter extends Letter {
     language: string;
     reference: string;
 

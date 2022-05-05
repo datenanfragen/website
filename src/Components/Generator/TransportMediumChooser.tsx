@@ -1,6 +1,6 @@
 import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
-import Radio from '../Radio';
+import { Radio } from '../Radio';
 import { TransportMedium, TRANSPORT_MEDIA } from 'request';
 import type { JSX } from 'preact';
 
@@ -19,12 +19,10 @@ export default function TransportMediumChooser(props: TransportMediumChooserProp
                     {TRANSPORT_MEDIA.map((transport_medium) => (
                         <Radio
                             id={`request-transport-medium-choice-${transport_medium}`}
-                            radio_variable={props.transportMedium}
+                            radioVariable={props.transportMedium}
                             value={transport_medium}
                             name="transport-medium"
-                            onChange={(e: JSX.TargetedEvent<HTMLInputElement, Event>) =>
-                                props.onChange(e.currentTarget.value as TransportMedium)
-                            }
+                            onChange={(value) => props.onChange(value as TransportMedium)}
                             label={t(transport_medium, 'generator')}
                         />
                     ))}

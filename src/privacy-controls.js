@@ -2,11 +2,11 @@ import { render, Component } from 'preact';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import t from 'Utility/i18n';
 import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
-import UserRequests from './my-requests';
-import Modal from './Components/Modal';
+import { UserRequests } from './DataType/UserRequests';
+import Modal from './Components/DeprecatedModal';
 import SavedIdData from './Utility/SavedIdData';
-import { SavedCompanies } from './Components/Wizard';
-import FlashMessage, { flash } from 'Components/FlashMessage';
+import { SavedCompanies } from './DataType/SavedCompanies';
+import { FlashMessage, flash } from './Components/FlashMessage';
 import PropTypes from 'prop-types';
 
 class PrivacyControl extends Component {

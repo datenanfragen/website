@@ -787,9 +787,17 @@ details.footnote {
         padding: 1rem;
         min-width: 15rem;
         max-width: 20rem;
+        z-index: 2;
         @include mobile {
             transform: translateX(-50%);
             left: 50%;
+        }
+
+        p:first-of-type {
+            margin-top: 0;
+        }
+        p:last-of-type {
+            margin-bottom: 0;
         }
     }
 }

@@ -1,10 +1,10 @@
-import { rethrow, WarningException } from './errors';
+import { rethrow, WarningException } from '../Utility/errors';
 import Cookie from 'js-cookie';
 import LocalForage from 'localforage';
 import { EMTPY_ADDRESS, IdDataElement, Signature } from 'request';
 import { produce } from 'immer';
 import type { SetOptional } from 'type-fest';
-import { isAddress } from './requests';
+import { isAddress } from '../Utility/requests';
 
 export class SavedIdData {
     localforage_instance: LocalForage;

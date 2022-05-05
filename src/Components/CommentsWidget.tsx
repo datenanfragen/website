@@ -1,7 +1,7 @@
 import { Fragment, JSX } from 'preact';
 import { useState, useEffect, useCallback } from 'preact/hooks';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
-import FlashMessage, { flash } from './FlashMessage';
+import { FlashMessage, flash } from '../Components/FlashMessage';
 import { StarWidget } from './StarWidget';
 import t from '../Utility/i18n';
 import { rethrow, WarningException } from '../Utility/errors';
@@ -262,7 +262,7 @@ export function CommentForm(props: CommentFormProps) {
                         className="form-element"
                         placeholder={t('author', 'comments')}
                         value={author}
-                        onChange={(e) => setAuthor((e.target as HTMLInputElement).value)}
+                        onChange={(e) => setAuthor(e.currentTarget.value)}
                     />
                 </div>
             </div>
@@ -285,7 +285,7 @@ export function CommentForm(props: CommentFormProps) {
                         placeholder={t('comment', 'comments')}
                         required={true}
                         value={message}
-                        onChange={(e) => setMessage((e.target as HTMLInputElement).value)}
+                        onChange={(e) => setMessage(e.currentTarget.value)}
                     />
                 </div>
             </div>

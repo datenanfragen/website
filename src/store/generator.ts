@@ -5,7 +5,7 @@ import createContext from 'zustand/context';
 import { CompanyState, createCompanyStore } from './company';
 import type { StoreSlice } from 'utility';
 import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { SavedIdData } from '../Utility/SavedIdData';
+import { SavedIdData } from '../DataType/SavedIdData';
 
 export interface GeneratorSpecificState {
     ready: boolean;

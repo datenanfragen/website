@@ -1,5 +1,5 @@
 import t from '../../Utility/i18n';
-import Radio from '../Radio';
+import { Radio } from '../Radio';
 import { RequestType, REQUEST_TYPES } from 'request';
 import type { JSX } from 'preact';
 
@@ -15,12 +15,10 @@ export default function RequestTypeChooser(props: RequestTypeChooserProps) {
     const radios = request_types.map((type) => (
         <Radio
             id={'request-type-choice-' + type}
-            radio_variable={current}
+            radioVariable={current}
             value={type}
             name="request-type"
-            onChange={(e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
-                props.onTypeChange(e.currentTarget.value as RequestType);
-            }}
+            onChange={(value) => props.onTypeChange(value as RequestType)}
             label={t(`${type}-request`, 'generator')}
         />
     ));

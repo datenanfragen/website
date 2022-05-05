@@ -4,15 +4,15 @@ const path = require('path');
 module.exports = {
     entry: {
         'error-handler': './src/error-handler.js',
-        general: './src/general.js',
+        general: './src/general.tsx',
         home: './src/home.js',
         generator: './src/generator.js',
         'company-list': './src/company-list.js',
-        'my-requests': './src/my-requests.js',
+        'my-requests': './src/my-requests.tsx',
         'privacy-controls': './src/privacy-controls.js',
         'suggest-edit': './src/suggest-edit.js',
         'id-data-controls': './src/id-data-controls.js',
-        'sva-finder': './src/Components/SvaFinder.js',
+        'sva-finder': './src/Components/SvaFinder.tsx',
         'act-widget': './src/Components/ActWidget.js',
         'donation-widget': './src/Components/DonationWidget.js',
         'test-interface': './src/test-interface.js',

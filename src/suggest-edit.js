@@ -1,13 +1,13 @@
 import { render, Component, Fragment } from 'preact';
-import Modal from 'Components/Modal';
+import Modal from './Components/DeprecatedModal';
 import t from 'Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
-import { slugify, domainWithoutTldFromUrl, PARAMETERS } from './Utility/common';
+import { slugify, domainWithoutTldFromUrl } from './Utility/common';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 require('brutusin-json-forms');
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
-import FlashMessage, { flash } from 'Components/FlashMessage';
+import { FlashMessage, flash } from './Components/FlashMessage';
 import { searchClient } from 'Utility/search';
 let bf;
 let schema;

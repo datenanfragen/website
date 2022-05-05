@@ -197,6 +197,13 @@ describe('Generator component', () => {
 
         cy.contains('Send email').click();
         cy.contains('Copy text manually').click({ force: true });
+        // TODO: The modal get rerendered a few times and Cypress loses the reference before clicking. I'm not sure but
+        // I don't think the problem lies with `Modal` or `MailtoDropdown`. I think the problem is that the generator
+        // rerenders the `MailtoDropdown` seven times after "Copy text manually" is clicked. If I insert a
+        // `MailtoDropdown` somewhere else, it seems to behave normally.
+        // Since @zner0L is working on the generator right now, it doesn't make sense to try and fix that.
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(1000);
 
         // when the 'Erase all data' checkbox is selected
         cy.get('#mailto-dropdown-copymanually-body').should('contain.value', 'all personal data');
