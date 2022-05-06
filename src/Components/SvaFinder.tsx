@@ -1,5 +1,6 @@
 import { render, Fragment, JSX } from 'preact';
 import { useState } from 'preact/hooks';
+import { useAppStore } from '../store/app';
 import t from '../Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 import deepmerge from 'deepmerge';
@@ -168,6 +169,8 @@ const initial_state: SvaFinderState = {
 };
 
 export const SvaFinder = (props: SvaFinderProps) => {
+    const country = useAppStore((state) => state.country);
+
     const [state, setState] = useState<SvaFinderState>(initial_state);
 
     const selectOption = (option: string) => {
@@ -207,8 +210,8 @@ export const SvaFinder = (props: SvaFinderProps) => {
         }, {});
         const sorted_keys = Object.keys(entries).sort((a, b) => {
             // For the countries, move the user's country to the top of the list.
-            if (a === window.globals.country) return -1;
-            else if (b === window.globals.country) return 1;
+            if (a === country) return -1;
+            else if (b === country) return 1;
 
             // In the first step for Germany, "Any other public or private entity" has to be sorted last.
             if (a === 'private') return 1;
@@ -219,7 +222,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
         });
 
         const options = sorted_keys.map((key) => (
-            <label className={`radio-label${[window.globals.country, 'private'].includes(key) ? ' active' : ''}`}>
+            <label className={`radio-label${[country, 'private'].includes(key) ? ' active' : ''}`}>
                 <input className="form-element" onClick={() => selectOption(key)} />
                 {entries[key]}
             </label>

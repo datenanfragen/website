@@ -1,11 +1,13 @@
 import { render } from 'preact';
 import Cookie from 'js-cookie';
+import { useAppStore, Country } from './store/app';
 import { I18nWidget, I18nButton } from './Components/I18nWidget';
 import { CommentsWidget } from './Components/CommentsWidget';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import Footnote from './Components/Footnote';
 import { t_r } from './Utility/i18n';
-import { parameters, fallback_countries } from './Utility/common';
+import { parameters, parseBcp47Tag, fallback_countries } from './Utility/common';
+import { guessUserCountry } from './Utility/browser';
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');
@@ -14,18 +16,6 @@ if (process.env.NODE_ENV === 'development') require('preact/debug');
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 window.PARAMETERS = parameters;
-
-Object.defineProperty(window.globals, 'country', {
-    set(country) {
-        Cookie.set('country', country, { expires: 365, secure: true, sameSite: 'strict' });
-        this._country_listeners.forEach((listener: (country: string) => void) => listener(country));
-    },
-    get() {
-        return Cookie.get('country');
-    },
-});
-
-if (!window.globals.country) window.globals.country = guessUserCountry();
 
 document.querySelectorAll('.i18n-button-container').forEach((el) => render(<I18nButton />, el));
 
@@ -50,7 +40,7 @@ if (comments_div) {
  * @param preferred_language bcp47 substring of target language, e.g. `en-US` becomes `en`
  * @param website_language bcp47 substring of current website language, e.g. `en-US` becomes `en`
  */
-function notifyOtherLanguages(preferred_language: string, website_language: string) {
+function notifyOtherLanguages(preferred_language?: string, website_language?: string) {
     if (!preferred_language || !website_language) return;
     const recommend_language = t_r('recommend-language', preferred_language);
     flash(
@@ -60,30 +50,16 @@ function notifyOtherLanguages(preferred_language: string, website_language: stri
     );
 }
 
-// This uses the `navigator.language` property (similar-ish to the `Accept-Language` header which we cannot access from
-// JS) which may not necessarily represent the user's country (or even include region information at all).
-// The more reliable way would be to feed the user's IP into a geolocation service but that is not an option, so we have
-// to stick with this.
-function guessUserCountry(): typeof window.globals.country {
-    const navigator_lang = navigator.language;
+if (!useAppStore.getState().country) {
+    // TODO: Remove the cookie migration code in a year or so.
+    useAppStore.getState().changeCountry((Cookie.get('country') as Country) || guessUserCountry());
+    Cookie.remove('country');
 
-    // Taken from: https://github.com/gagle/node-bcp47/blob/a74d98d43d16b0094b2f4ea8e7a58f4b5830c15b/lib/index.js#L4
-    const bcp47_regex =
-        /^(?:(en-gb-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-be-fr|sgn-be-nl|sgn-ch-de)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))$|^((?:[a-z]{2,3}(?:(?:-[a-z]{3}){1,3})?)|[a-z]{4}|[a-z]{5,8})(?:-([a-z]{4}))?(?:-([a-z]{2}|\d{3}))?((?:-(?:[\da-z]{5,8}|\d[\da-z]{3}))*)?((?:-[\da-wyz](?:-[\da-z]{2,8})+)*)?(-x(?:-[\da-z]{1,8})+)?$|^(x(?:-[\da-z]{1,8})+)$/i;
-    const bcp47_country = (bcp47_regex.exec(navigator_lang)?.[5] || '').toLowerCase() as typeof window.globals.country;
+    const { language: preferred_language } = parseBcp47Tag(navigator.language);
+    const { language: website_language } = parseBcp47Tag(document.documentElement.lang);
 
-    const bcp47_preferred_language = (bcp47_regex.exec(navigator_lang)?.[3] || '').toLowerCase();
-    const bcp47_website_language = (bcp47_regex.exec(document.documentElement.lang)?.[3] || '').toLowerCase();
-
-    if (bcp47_preferred_language !== bcp47_website_language && bcp47_preferred_language in fallback_countries) {
-        notifyOtherLanguages(bcp47_preferred_language, bcp47_website_language);
-    }
-
-    // If we cannot guess the user's country, it makes sense to fallback to the language.
-    if (!navigator_lang || !bcp47_country) return fallback_countries[window.LOCALE];
-
-    // If however we *can* guess the country but just don't support it, we show all companies.
-    return window.SUPPORTED_COUNTRIES.includes(bcp47_country) ? bcp47_country : 'all';
+    if (preferred_language !== website_language && preferred_language! in fallback_countries)
+        notifyOtherLanguages(preferred_language, website_language);
 }
 
 const renderNewFootnotes = (hugoFootnotes: Element[]) => {

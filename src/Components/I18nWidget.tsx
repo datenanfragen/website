@@ -1,6 +1,7 @@
 import type { JSX } from 'preact';
 import { useState, useCallback } from 'preact/hooks';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
+import { useAppStore, Country } from '../store/app';
 import { useModal } from './Modal';
 import t from '../Utility/i18n';
 
@@ -10,9 +11,7 @@ type I18nWidgetProps = {
 };
 
 export const I18nWidget = (props: I18nWidgetProps) => {
-    // Don't ever update `country` directly but rather use `globals.country`.
-    const [country, setCountry] = useState(window.globals.country);
-    window.globals._country_listeners.push((new_country) => setCountry(new_country));
+    const [country, changeCountry] = useAppStore((state) => [state.country, state.changeCountry]);
 
     const [newLanguage, setNewLanguage] = useState(window.LOCALE);
 
@@ -78,11 +77,7 @@ export const I18nWidget = (props: I18nWidgetProps) => {
                             <Text id="country" />
                         </h2>
                         <div className="select-container">
-                            <select
-                                value={country}
-                                onChange={(e) => {
-                                    window.globals.country = e.currentTarget.value as typeof window.globals.country;
-                                }}>
+                            <select value={country} onChange={(e) => changeCountry(e.currentTarget.value as Country)}>
                                 {country_options}
                             </select>
                             <div className="icon icon-arrow-down" />
@@ -103,9 +98,7 @@ export const I18nWidget = (props: I18nWidgetProps) => {
 };
 
 export const I18nButton = () => {
-    // Don't ever update `country` directly but rather use `globals.country`.
-    const [country, setCountry] = useState(window.globals.country);
-    window.globals._country_listeners.push((new_country) => setCountry(new_country));
+    const { country } = useAppStore();
 
     return (
         <IntlProvider scope="i18n-widget" definition={window.I18N_DEFINITION}>

@@ -1,7 +1,10 @@
 describe('Using the wizard', () => {
     it('Use case 1', () => {
-        cy.setCookie('country', 'de');
-        cy.visit('/');
+        cy.visit('/', {
+            onBeforeLoad(win) {
+                Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
+            },
+        });
 
         // Ensure translation macros work.
         cy.get('#home-main-copy').contains('Here at datarequests.org');

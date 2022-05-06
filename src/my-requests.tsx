@@ -1,6 +1,7 @@
 import { render } from 'preact';
 import { useState, useEffect, useMemo, useCallback } from 'preact/hooks';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
+import { useAppStore } from './store/app';
 import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
 import { UserRequests, UserRequest } from './DataType/UserRequests';
 import t from './Utility/i18n';
@@ -11,6 +12,8 @@ import { hash, objFilter } from './Utility/common';
 const user_requests = new UserRequests();
 
 const RequestList = () => {
+    const country = useAppStore((state) => state.country);
+
     const [requests, setRequests] = useState<Record<string, UserRequest>>({});
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
 
@@ -150,7 +153,7 @@ END:VCALENDAR`;
         );
     }
 
-    const locale_country = window.globals.country.toUpperCase();
+    const locale_country = country.toUpperCase();
     const date_locale = locale_country === 'ALL' ? window.LOCALE : `${window.LOCALE}-${locale_country}`;
 
     const request_rows = sortedRequestIds.map((id) => {

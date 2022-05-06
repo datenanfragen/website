@@ -79,8 +79,6 @@ module.exports = {
     globals: {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly',
-        // defined in `layouts/partials/scripts.html`
-        globals: 'readonly',
         BASE_URL: 'readonly',
         LOCALE: 'readonly',
         SUPPORTED_LANGUAGES: 'readonly',

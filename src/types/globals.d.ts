@@ -1,9 +1,9 @@
 import type i18n_definition_type from '../i18n/en.json';
+import type { Country } from '../store/app';
 import type { fallback_countries } from '../Utility/common';
 
 type I18nLanguage = keyof typeof fallback_countries;
 type CountryListener = (country: Country) => void;
-type Country = Exclude<keyof typeof i18n_definition_type['countries'], '__taken_from'>;
 
 declare global {
     interface Window {
@@ -38,15 +38,5 @@ declare global {
 
         /** List of parameters specified in the URL, including both hash fragment and GET parameters. */
         readonly PARAMETERS: Record<string, string>;
-
-        /**
-         * Ugly workaround to implement a sort of global store, so that independent Preact components can access the
-         * same state. Will be removed soon.
-         */
-        globals: {
-            _country_listeners: CountryListener[];
-            addCountryListener: (listener: CountryListener) => void;
-            country: Country;
-        };
     }
 }
