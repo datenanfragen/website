@@ -87,6 +87,7 @@ try {
                     // `chrome-extension://` also applies to Chromium Edge, Opera, Vivaldi, Yandex.Browser, and Brave.
                     'chrome-extension://',
                     'safari-extension://',
+                    '@safari-web-extension://',
                     'ms-browser-extension://',
                 ].some((s) => event.error?.stack?.includes(s))
             ) {
