@@ -2,8 +2,9 @@ import { isOn, skipOn } from '@cypress/skip-test';
 
 describe('Test the `Flash` component', () => {
     beforeEach(() => {
-        cy.setCookie('country', 'en'); // to make sure that the language suggestion message doesn't interfere
-        cy.visit('/');
+        cy.visit('/')
+            // Make sure that the language suggestion message doesn't interfere.
+            .then((win) => win.getAppStore().changeCountry('all'));
     });
 
     it('Different flash types', () => {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'preact/hooks';
 import { Text, MarkupText, IntlProvider } from 'preact-i18n';
+import { useAppStore } from '../store/app';
 import { SearchBar } from './SearchBar';
 import { SavedCompanies } from '../DataType/SavedCompanies';
 import t from '../Utility/i18n';
@@ -22,9 +23,7 @@ const categories = [
 const saved_companies = Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) ? new SavedCompanies() : undefined;
 
 export const Wizard = () => {
-    // Don't ever update `country` directly but rather use `globals.country`.
-    const [country, setCountry] = useState(window.globals.country);
-    window.globals._country_listeners.push((new_country) => setCountry(new_country));
+    const country = useAppStore((state) => state.country);
 
     const [currentTab, setCurrentTab] = useState(0);
     const [selectedCompanies, setSelectedCompanies] = useState<Record<string, string>>({});

@@ -93,8 +93,10 @@ describe('SvaFinder component', () => {
     });
 
     it("moves the user's country to the top if set", () => {
+        skipOn(isOn('production'));
+
         cy.window().then((win) => {
-            win.globals.country = 'de';
+            win.getAppStore().changeCountry('de');
             cy.reload();
 
             cy.get('.sva-finder .radio-group-vertical label:nth-child(1)')

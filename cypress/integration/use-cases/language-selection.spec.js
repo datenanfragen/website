@@ -14,34 +14,29 @@ describe('switching languages', () => {
 });
 
 describe('language suggestion modal', () => {
-    it('should appear if no cookies set and visiting as DE', () => {
+    it('should appear if no country is set and visiting as DE', () => {
         cy.visit('/', {
             onBeforeLoad(win) {
-                Object.defineProperty(win.navigator, 'language', {
-                    value: ['de-DE'],
-                });
+                Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
             },
         });
         cy.get('#flash-messages').should('contain', 'Diese Seite ist auch in Deiner Sprache verfügbar!');
     });
-    it('should not appear if cookies are set and visiting as DE', () => {
-        cy.setCookie('country', 'de');
+    it('should not appear if country is set and visiting as DE', () => {
+        // Sets the country.
+        cy.visit('/');
+
         cy.visit('/', {
             onBeforeLoad(win) {
-                Object.defineProperty(win.navigator, 'language', {
-                    value: ['de-DE'],
-                });
+                Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
             },
         });
         cy.get('#flash-messages').should('not.contain', 'Diese Seite ist auch in Deiner Sprache verfügbar!');
     });
     it('should not appear if browser reports english', () => {
-        cy.clearCookies();
         cy.visit('/', {
             onBeforeLoad(win) {
-                Object.defineProperty(win.navigator, 'language', {
-                    value: ['en-GB'],
-                });
+                Object.defineProperty(win.navigator, 'language', { value: ['en-GB'] });
             },
         });
         cy.get('#flash-messages').should('not.contain', 'Diese Seite ist auch in Deiner Sprache verfügbar!');

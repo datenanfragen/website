@@ -10,8 +10,10 @@ describe('Changing the country should update the companies in the wizard', () =>
     });
 
     it('"All" should have no suggested companies', () => {
+        skipOn(isOn('production'));
+
         cy.window().then((win) => {
-            win.globals.country = 'all';
+            win.getAppStore().changeCountry('all');
 
             cy.contains('#wizard-user-country', 'all');
             cy.get('.wizard-selected-list .button.icon-trash').should('not.exist');
@@ -19,8 +21,10 @@ describe('Changing the country should update the companies in the wizard', () =>
     });
 
     it('"Germany" should have a few suggested companies', () => {
+        skipOn(isOn('production'));
+
         cy.window().then((win) => {
-            win.globals.country = 'de';
+            win.getAppStore().changeCountry('de');
 
             cy.contains('#wizard-user-country', 'Germany');
             cy.get('.wizard-selected-list .button.icon-trash').should('have.length.greaterThan', 2);
@@ -31,19 +35,20 @@ describe('Changing the country should update the companies in the wizard', () =>
         'Changing the country after manually modifying the suggested companies',
         { retries: { runMode: 5, openMode: 0 } },
         () => {
+            skipOn(isOn('production'));
+
             cy.window().then((win) => {
-                win.globals.country = 'de';
+                win.getAppStore().changeCountry('de');
 
                 cy.get('.wizard-selected-list .button.icon-trash')
                     .its('length')
                     .then((old_length) => {
                         cy.get('.wizard-selected-list .button.icon-trash').first().click();
 
-                        skipOn(isOn('production'));
                         cy.getCookie('changed_saved_companies').its('value').should('eq', 'true');
 
                         cy.window().then((w) => {
-                            w.globals.country = 'all';
+                            w.getAppStore().changeCountry('all');
 
                             cy.contains('#wizard-user-country', 'all');
 
