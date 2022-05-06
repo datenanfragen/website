@@ -5,7 +5,7 @@ import { MailtoDropdown } from '../MailtoDropdown';
 
 type ActionButtonProps = {
     onSuccess: () => void;
-    buttonText: JSX.Element | JSX.Element[];
+    buttonText?: JSX.Element | JSX.Element[];
 };
 
 export const ActionButton = (props: ActionButtonProps) => {
@@ -53,5 +53,19 @@ export const ActionButton = (props: ActionButtonProps) => {
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             {button}
         </IntlProvider>
+    );
+};
+
+export const ActionButtonPlaceholder = (props: Partial<ActionButtonProps>) => {
+    const storeRequest = useGeneratorStore((state) => state.storeRequest);
+    const setSent = useGeneratorStore((state) => state.setSent);
+
+    return (
+        <ActionButton
+            onSuccess={() => {
+                storeRequest().then(() => setSent(true));
+            }}
+            {...props}
+        />
     );
 };

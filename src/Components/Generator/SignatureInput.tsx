@@ -3,6 +3,7 @@ import { useRef, Ref, useEffect, MutableRef, useState, useCallback } from 'preac
 import { Text, IntlProvider } from 'preact-i18n';
 import { Signature } from 'request';
 import { detectBlockedCanvasImageExtraction } from '../../Utility/browser';
+import { useGeneratorStore } from '../../store/generator';
 
 type Color = string;
 
@@ -23,7 +24,7 @@ type SignatureInputProps = {
 
 type Position = { x: number; y: number };
 
-export default function SignatureInput(props: SignatureInputProps) {
+export const SignatureInput = (props: SignatureInputProps) => {
     const canvas: Ref<HTMLCanvasElement> = useRef(null);
     const context: MutableRef<CanvasRenderingContext2D | null> = useRef(null);
     const [canvasImageExtractionBlocked, setcanvasImageExtractionBlocked] = useState(false);
@@ -234,7 +235,16 @@ export default function SignatureInput(props: SignatureInputProps) {
         </IntlProvider>
     );
     /* eslint-enable */
-}
+};
+
+export const SignatureInputPlaceholder = (props: Partial<SignatureInputProps>) => {
+    const setSignature = useGeneratorStore((state) => state.setSignature);
+    const signature = useGeneratorStore((state) => state.request.signature);
+
+    return (
+        <SignatureInput id="signature" width={428} height={190} onChange={setSignature} value={signature} {...props} />
+    );
+};
 
 type CropArea = {
     right: number;

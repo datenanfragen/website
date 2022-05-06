@@ -1,11 +1,11 @@
 import { Component, ComponentChildren, JSX } from 'preact';
 import { DynamicInputContainer } from './DynamicInputContainer';
-import SignatureInput from './SignatureInput';
+import { SignatureInput } from './SignatureInput';
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { AddressControl } from './DynamicInput';
 import Accordion from '../Accordion';
-import RequestTypeChooser from './RequestTypeChooser';
+import { RequestTypeChooser } from './RequestTypeChooser';
 import RecipientInput from './RecipientInput';
 import TransportMediumChooser from './TransportMediumChooser';
 import { IdDataElement, RequestType, Signature } from 'request';
@@ -44,8 +44,6 @@ export default function RequestForm(props: RequestFormProps) {
     const rectification_data = useGeneratorStore((state) =>
         state.request.type == 'rectification' ? state.request.rectification_data : []
     );
-
-    const setRequestType = useGeneratorStore((state) => state.setRequestType);
     const setTransportMedium = useGeneratorStore((state) => state.setTransportMedium);
     const setRecipientEmail = useGeneratorStore((state) => state.setRecipientEmail);
     const setRecipientAddress = useGeneratorStore((state) => state.setRecipientAddress);
@@ -106,7 +104,7 @@ export default function RequestForm(props: RequestFormProps) {
                         <h2>
                             <Text id="request-parameters" />
                         </h2>
-                        <RequestTypeChooser onTypeChange={(value) => setRequestType(value)} current={request_type} />
+                        <RequestTypeChooser />
 
                         <TransportMediumChooser
                             transportMedium={transport_medium}

@@ -5,6 +5,7 @@ import { Text, MarkupText, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { EMTPY_ADDRESS, IdDataElement } from 'request';
 import { isAddress } from '../../Utility/requests';
+import { useGeneratorStore } from '../../store/generator';
 
 type DynamicInputContainerProps = {
     id: string;
@@ -21,8 +22,8 @@ type DynamicInputContainerProps = {
     hasPrimary?: boolean;
 
     headingClass?: string;
-    title: string;
-    children: ComponentChildren;
+    title?: string;
+    children?: ComponentChildren;
 };
 
 export const DynamicInputContainer = (props: DynamicInputContainerProps) => {
@@ -170,6 +171,24 @@ export const DynamicInputContainer = (props: DynamicInputContainerProps) => {
                 )}
             </div>
         </IntlProvider>
+    );
+};
+
+export const DynamicInputContainerPlaceholder = (props: Partial<DynamicInputContainerProps>) => {
+    const id_data = useGeneratorStore((state) => state.request.id_data);
+    const setField = useGeneratorStore((state) => state.setField);
+    const addField = useGeneratorStore((state) => state.addField);
+    const removeField = useGeneratorStore((state) => state.removeField);
+
+    return (
+        <DynamicInputContainer
+            id="id_data"
+            fields={id_data}
+            onAddField={(field) => addField(field, 'id_data')}
+            onRemoveField={(id) => removeField(id, 'id_data')}
+            onChange={(id, field) => setField(id, field, 'id_data')}
+            {...props}
+        />
     );
 };
 

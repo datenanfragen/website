@@ -20,7 +20,7 @@ type MailtoDropdownProps = {
     done?: boolean;
     className: string;
     enabled: boolean;
-    buttonText: JSX.Element | JSX.Element[];
+    buttonText?: JSX.Element | JSX.Element[];
 };
 
 // TS Helper to type `Record` values but keep strong key type without having to hardcode key values, see:
