@@ -76,6 +76,15 @@ module.exports = {
         'jest/valid-expect-in-promise': 'off',
         'jest/valid-expect': 'off',
     },
+    overrides: [
+        {
+            files: ['*.ts', '*.tsx'],
+            rules: {
+                // https://github.com/typescript-eslint/typescript-eslint/blob/a85254817ae4914333e7236a5b0f9b6844ce8791/docs/linting/TROUBLESHOOTING.md#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+                'no-undef': 'off',
+            },
+        },
+    ],
     globals: {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly',
