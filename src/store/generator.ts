@@ -158,7 +158,7 @@ const generatorStore = (set: SetState<GeneratorState>, get: GetState<GeneratorSt
     ...createGeneratorSpecificStore(set, get),
 });
 
-const { devtools } = process.env.NODE_ENV === 'development' ? require('zustand/middleware') : undefined;
+const { devtools } = process.env.NODE_ENV === 'development' ? require('zustand/middleware') : { devtools: undefined };
 
 export const createGeneratorStore =
     process.env.NODE_ENV === 'development' ? () => create(devtools(generatorStore)) : () => create(generatorStore);
