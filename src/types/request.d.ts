@@ -4,7 +4,7 @@ export const TRANSPORT_MEDIA = ['fax', 'letter', 'email'] as const;
 export type RequestType = typeof REQUEST_TYPES[number];
 export type TransportMedium = typeof TRANSPORT_MEDIA[number];
 
-export type GeneralIdData = {
+export interface GeneralIdData {
     desc: string; // A description of this element, e.g. 'Name'.
     type: string;
     /* The element's type, where:
@@ -17,15 +17,15 @@ export type GeneralIdData = {
      */
     optional?: boolean; // Whether we recommend giving this piece of information (`false`) or not (`true`).
     value: string | Address; // The value entered by the user for this element.
-};
-export type TextIdData = GeneralIdData & {
+}
+export interface TextIdData extends GeneralIdData {
     type: 'input' | 'textarea' | 'name' | 'birthdate' | 'email';
     value: string;
-};
-export type AddressIdData = GeneralIdData & {
+}
+export interface AddressIdData extends GeneralIdData {
     type: 'address';
     value: Address;
-};
+}
 
 export const EMTPY_ADDRESS: Address = {
     street_1: '',
@@ -111,7 +111,7 @@ export interface CustomRequest extends RequestInterface {
     response_type?: ResponseType;
 }
 
-const CUSTOM_TEMPLATE_OPTIONS = ['no-template', 'admonition', 'complaint'] as const;
+export const CUSTOM_TEMPLATE_OPTIONS = ['no-template', 'admonition', 'complaint'] as const;
 type CustomTemplateName = typeof CUSTOM_TEMPLATE_OPTIONS[number];
 
 export interface ObjectionRequest extends RequestInterface {
