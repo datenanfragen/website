@@ -126,7 +126,7 @@ export default class DonationWidget extends Component {
                                     radioVariable={this.state.payment_method}
                                     value={payment_method}
                                     name="payment_method"
-                                    onChange={(e) => this.setState({ payment_method: e.target.value })}
+                                    onChange={(value) => this.setState({ payment_method: value })}
                                     label={
                                         <div>
                                             <Text id={payment_method} />
@@ -255,7 +255,7 @@ export default class DonationWidget extends Component {
                     id="donation-widget-thanks-button"
                     className="button button-primary"
                     style="float: right;"
-                    href={`${BASE_URL}thanks#!donation_reference=${this.state.donation_reference}`}>
+                    href={`${window.BASE_URL}thanks#!donation_reference=${this.state.donation_reference}`}>
                     <Text id="thanks" />
                 </a>
                 <div className="clearfix"></div>
@@ -339,8 +339,8 @@ export default class DonationWidget extends Component {
                         business: 'paypal@datenanfragen.de',
                         image_url: 'https://www.datenanfragen.de/img/logo-datenanfragen-ev.png',
                         no_shipping: 1,
-                        return: `${BASE_URL}thanks#!donation_reference=${donation_reference}`,
-                        cancel_return: `${BASE_URL}donate`,
+                        return: `${window.BASE_URL}thanks#!donation_reference=${donation_reference}`,
+                        cancel_return: `${window.BASE_URL}donate`,
                         custom: donation_reference,
                     },
                     '_top'
@@ -355,7 +355,7 @@ export default class DonationWidget extends Component {
                     amount: Number(this.state.amount).toFixed(2),
                     description: t('reference-value', 'donation-widget', { reference: donation_reference }),
                     reference: donation_reference,
-                    redirect_base: BASE_URL,
+                    redirect_base: window.BASE_URL,
                 };
                 this.setState({ ongoing_request: true });
                 fetch(DONATIONS_API, {
