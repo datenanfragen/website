@@ -1,15 +1,9 @@
 import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
 import Accordion from '../Accordion';
-import type { Company } from 'company';
 import { useGeneratorStore } from '../../store/generator';
 
-type CompanyWidgetProps = {
-    company: Company;
-    onRemove: () => void;
-};
-
-export const CompanyWidget = (props: CompanyWidgetProps) => {
+export const CompanyWidget = () => {
     const company = useGeneratorStore((state) => state.current_company);
     const removeCompany = useGeneratorStore((state) => state.removeCompany);
 

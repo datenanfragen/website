@@ -24,6 +24,7 @@ export type Company = CommonSchema & {
     'request-language'?: RequestLanguage;
     'needs-id-document'?: boolean;
     quality: 'tested' | 'verified' | 'imported' | 'scraped';
+    categories?: (keyof typeof window.I18N_DEFINITION.categories)[];
 };
 
 export type SupervisoryAuthority = CommonSchema & {

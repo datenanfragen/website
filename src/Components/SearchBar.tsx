@@ -7,8 +7,9 @@ import { rethrow } from '../Utility/errors';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 import type { MergeExclusive } from 'type-fest';
 import type { SearchParams, SearchResponseHit } from 'typesense/lib/Typesense/Documents';
+import { Company } from '../types/company.d';
 
-type SearchBarProps = {
+export type SearchBarProps = {
     id: string;
     placeholder: string;
     debug?: boolean;
@@ -33,14 +34,7 @@ type SearchBarProps = {
     }
 >;
 
-type Suggestion = {
-    slug: string;
-    categories?: (keyof typeof window.I18N_DEFINITION.categories)[];
-    name: string;
-    runs?: string[];
-    quality: 'tested' | 'verified' | 'imported' | 'scraped';
-};
-type Hit = SearchResponseHit<Suggestion>;
+type Hit = SearchResponseHit<Company>;
 
 const countryFilter = (country: typeof window.globals.country) => {
     const items = ['all', country];
@@ -103,7 +97,7 @@ const RealSearchBar = ({
                                 };
 
                                 searchClient
-                                    .collections<Suggestion>(index)
+                                    .collections<Company>(index)
                                     .documents()
                                     .search(options)
                                     .then((res) => callback(res.hits))
