@@ -2,6 +2,10 @@ import { render, Component } from 'preact';
 import { IntlProvider, Text } from 'preact-i18n';
 import { clearUrlParameters } from './Utility/browser';
 import t from './Utility/i18n';
+// The type bindings "provided" by this package do not match with the versions of the original package.
+// Since we intend to get rid of this anyway, we will just ignore it.s
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import Joyride from 'react-joyride';
 import { tutorial_steps } from './wizard-tutorial';
 import Cookie from 'js-cookie';
@@ -83,9 +87,9 @@ const Generator = () => {
 
     return (
         <main>
-            {/*<Joyride
+            <Joyride
                 ref={tutorial}
-                callback={(data) => {
+                callback={(data: { type: string }) => {
                     if (data.type === 'finished') {
                         Cookie.set('finished_wizard_tutorial', 'true', {
                             expires: 365,
@@ -108,7 +112,7 @@ const Generator = () => {
                 showSkipButton={true}
                 showStepsProgress={true}
                 showOverlay={false}
-            />*/}
+            />
             <WizardDoneModal />
 
             <RequestGeneratorBuilder>

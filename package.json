@@ -78,7 +78,6 @@
         "@percy/cypress": "^2.2.0",
         "@types/js-cookie": "^3.0.1",
         "@types/preact-i18n": "^2.3.0-preactx",
-        "@types/react-joyride": "^1.11.4",
         "@typescript-eslint/eslint-plugin": "^5.15.0",
         "@typescript-eslint/parser": "^5.15.0",
         "babel-loader": "^8.0.6",
