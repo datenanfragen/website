@@ -6,14 +6,14 @@ module.exports = {
         'error-handler': './src/error-handler.js',
         general: './src/general.tsx',
         home: './src/home.js',
-        generator: './src/generator.js',
+        generator: './src/generator.tsx',
         'company-list': './src/company-list.js',
         'my-requests': './src/my-requests.tsx',
         'privacy-controls': './src/privacy-controls.js',
         'suggest-edit': './src/suggest-edit.js',
-        'id-data-controls': './src/id-data-controls.js',
+        //'id-data-controls': './src/id-data-controls.js',
         'sva-finder': './src/Components/SvaFinder.tsx',
-        'act-widget': './src/Components/ActWidget.js',
+        'act-widget': './src/Components/ActWidget.tsx',
         'donation-widget': './src/Components/DonationWidget.js',
         'test-interface': './src/test-interface.js',
         // We need to define a dummy entrypoint that requires all our translation files, otherwise Webpack will not
@@ -64,7 +64,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.worker\.js$/,
+                test: /\.worker\.ts$/,
                 use: [
                     {
                         loader: 'worker-loader',
