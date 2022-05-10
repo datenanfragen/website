@@ -27,8 +27,8 @@ export class RequestLetter extends Letter {
               '\n\n'
             : '';
         email +=
-            (this.props.recipient_address
-                ? t_r('concerns', this.language) + ': ' + this.props.recipient_address + '\n'
+            (this.props.recipient_address && this.props.recipient_address[0]
+                ? t_r('concerns', this.language) + ': ' + this.props.recipient_address[0] + '\n'
                 : '') + this.toString();
         return email;
     }
@@ -36,6 +36,7 @@ export class RequestLetter extends Letter {
     static fromRequest(request: Request, template_string: string, flags: Record<string, boolean>): RequestLetter {
         let content: string;
         let sender_address: string | string[];
+        const signature = { ...request.signature };
 
         if (request.type === 'custom') {
             sender_address = [
@@ -58,7 +59,7 @@ export class RequestLetter extends Letter {
 
             switch (request.type) {
                 case 'rectification':
-                    variables.rectification_data = RequestLetter.formatData(request.rectification_data).formatted;
+                    variables.rectification_data = RequestLetter.formatData(request.rectification_data ?? []).formatted;
                     break;
                 case 'access':
                     flags.data_portability = request.data_portability;
@@ -70,9 +71,7 @@ export class RequestLetter extends Letter {
                     break;
             }
 
-            request.signature['name'] = id_data.name;
-
-            const sender = id_data.primary_address;
+            if (signature.name || signature.name === '') signature.name = id_data.name;
 
             sender_address = id_data.primary_address
                 ? [
@@ -89,17 +88,20 @@ export class RequestLetter extends Letter {
 
         return new RequestLetter(
             {
-                information_block: [
-                    RequestLetter.barcodeFromText(request.reference),
-                    RequestLetter.makeInformationBlock(request),
-                ],
+                information_block:
+                    request.transport_medium === 'email'
+                        ? RequestLetter.makeInformationBlock(request)
+                        : [
+                              RequestLetter.barcodeFromText(request.reference),
+                              RequestLetter.makeInformationBlock(request),
+                          ],
                 subject:
                     request.type === 'custom'
                         ? request.custom_data.subject
                         : t_r(`letter-subject-${request.type}`, request.language),
-                recipient_address: request.recipient_address,
+                recipient_address: request.recipient_address.split('\n'),
                 sender_address,
-                signature: request.signature,
+                signature,
                 content,
             },
             request.language,
@@ -108,27 +110,26 @@ export class RequestLetter extends Letter {
     }
 
     static formatData(request_data: IdDataElement[]): FormattedData {
-        let formatted = '';
         let primary_address: Address | null = null; // This seems like an odd place for this, but I really want to spare the additional loop(s).
         let name = '';
 
-        request_data.forEach((item) => {
+        const formatted = request_data.reduce<string>((acc, item) => {
             if ((item.type !== 'address' && item.value !== '') || (item.type === 'address' && item.value.street_1)) {
-                formatted += '<bold>' + item.desc + ':</bold> ';
+                acc += '<bold>' + item.desc + ':</bold> ';
 
                 switch (item.type) {
                     case 'address':
-                        formatted +=
+                        if (item.value.primary) primary_address = item.value;
+                        return (
+                            acc +
                             '\n' +
                             formatAddress(
                                 [item.value.street_1, item.value.street_2, item.value.place, item.value.country],
-                                ', '
-                            );
-                        if (item.value.primary) primary_address = item.value;
-                        break;
+                                ', \n'
+                            )
+                        );
                     case 'textarea':
-                        formatted += '\n' + item.value;
-                        break;
+                        return acc + '\n' + item.value + '\n';
                     case 'name':
                         name = item.value;
                     // fallthrough intentional
@@ -136,12 +137,11 @@ export class RequestLetter extends Letter {
                     case 'email':
                     case 'input':
                     default:
-                        formatted += item.value;
-                        break;
+                        return acc + item.value + '\n';
                 }
-                formatted += '\n';
             }
-        });
+            return acc;
+        }, '');
         return { formatted, name, primary_address };
     }
 
@@ -162,8 +162,7 @@ export class RequestLetter extends Letter {
             t_r('date', request.language) +
             ': ' +
             request.date +
-            '\n' +
-            request.information_block
+            (request.information_block ? '\n' + request.information_block : '')
         );
     }
 }

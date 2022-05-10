@@ -72,6 +72,13 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
     request: defaultRequest(inferRequestLanguage()),
     template: '',
     storeRequest: () => {
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            const savedIdData = new SavedIdData();
+            savedIdData.storeArray(get().request.id_data);
+            // Don't clear the saved signature if the signature was only cleared for this request (#182).
+            if (get().request.signature.type === 'image') savedIdData.storeSignature(get().request.signature);
+        }
+
         const state = get();
         const db_id = `${state.request.reference}-${state.request.type}${
             state.request.type === 'custom' && state.request.response_type ? `-${state.request.response_type}` : ''
@@ -89,9 +96,16 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
         };
         return new UserRequests().storeRequest(db_id, item);
     },
-    addField: (field, data_field) =>
+    addField: (_field, data_field) =>
         set(
             produce((state: RequestState<Request>) => {
+                const field =
+                    _field.type === 'address'
+                        ? {
+                              ..._field,
+                              value: { ..._field.value, primary: false },
+                          }
+                        : _field;
                 if (isSaneDataField(data_field, state.request.type)) {
                     state.request[data_field].push(field);
                     if (data_field === 'id_data') ensurePrimaryAddress(state.request.id_data);
@@ -117,11 +131,11 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                         if ((state.request[data_field][index].value as Address).primary !== field.value.primary) {
                             // Only change the primary adresses if the primary value of the current field changed
                             let addresses = 0;
-                            state.request[data_field].forEach((field: IdDataElement, i: number) => {
-                                if (field.type === 'address' && field === state.request[data_field][index]) {
+                            state.request[data_field].forEach((f: IdDataElement, i: number) => {
+                                if (f.type === 'address' && f !== state.request[data_field][index]) {
                                     // Set the first address (not equal to the current one) to primary if the current change is to non-primary,
                                     // otherwise change all adresses to non-primary (we overwrite this with our change later)
-                                    field.value.primary = addresses++ === 0 && !field.value.primary;
+                                    f.value.primary = addresses++ === 0 && !field.value.primary;
                                 }
                             });
                             if (addresses === 0) field.value.primary = true; // if there is only one address, it needs to primary regardless
@@ -137,6 +151,8 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 state.request.type = type;
                 if (state.request.type === 'custom')
                     state.request.custom_data = makeCustomDataFromIdData(state.request);
+                if (state.request.type === 'rectification' && state.request.rectification_data === undefined)
+                    state.request.rectification_data = [];
             })
         );
         get().refreshTemplate();
@@ -333,8 +349,10 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                             produce((state: GeneratorState) => {
                                 if (isSaneDataField(data_field, state.request.type))
                                     state.request[data_field] = new_fields;
-                                if (state.request.type === 'custom')
+                                if (state.request.type === 'custom') {
+                                    state.request['id_data'] = new_fields;
                                     state.request.custom_data = makeCustomDataFromIdData(state.request);
+                                }
                             })
                         );
                         return saved_id_data.getSignature();
@@ -346,17 +364,19 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
         }
     },
     refreshTemplate: async () => {
-        const template = await fetchTemplate(get().request.language, get().request.type, get().current_company);
-        if (template)
-            set({
-                template,
-            });
+        if (get().request.type !== 'custom') {
+            const template = await fetchTemplate(get().request.language, get().request.type, get().current_company);
+            if (template)
+                set({
+                    template,
+                });
+        }
     },
     letter: () => RequestLetter.fromRequest(get().request, get().template, {}),
     letter_filename: () => {
         return (
             get().current_company?.slug ??
-            `${slugify(get().request.recipient_address.split('\n', 1)[0]) ?? 'custom-recipient'}_${
+            `${slugify(get().request.recipient_address.split('\n', 1)[0]) || 'custom-recipient'}_${
                 get().request.type
             }_${get().request.reference}.pdf`
         );
@@ -371,9 +391,10 @@ function ensurePrimaryAddress(fields: IdDataElement[]) {
 }
 
 function makeCustomDataFromIdData(request: CustomRequest) {
+    const custom_data = { ...request.custom_data };
     request.id_data.forEach((f) => {
-        if (f.type === 'name') request.custom_data.name = f.value;
-        if (f.type === 'address' && f.value.primary) request.custom_data.sender_address = f.value;
+        if (f.type === 'name') custom_data.name = f.value;
+        if (f.type === 'address' && f.value.primary) custom_data.sender_address = f.value;
     });
-    return request.custom_data;
+    return custom_data;
 }

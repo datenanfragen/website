@@ -3,6 +3,7 @@ import { useRef, useCallback } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
 import { useModal } from './Modal';
 import t, { t_r } from '../Utility/i18n';
+import { RequestLetter } from '../DataType/RequestLetter';
 
 type EmailData = { email: string; subject: string; body: string };
 type MailtoHandler = (
@@ -11,9 +12,7 @@ type MailtoHandler = (
 ) & { countries: typeof window.globals.country[] };
 
 type MailtoDropdownProps = {
-    // TODO: @zner0L is working on that right now.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    letter?: any;
+    letter: RequestLetter;
     handlers?: (keyof typeof mailto_handlers)[];
     email: string;
     onSuccess: () => void;
@@ -56,7 +55,7 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
     // user clicked, so we need to remember the previous one for the check to make any sense at all.
     const previous_active_element_id = useRef<string>();
 
-    const my_ref_text = `${t_r('my-reference', props.letter.props.language)}: ${props.letter.props.reference}`;
+    const my_ref_text = `${t_r('my-reference', props.letter.language)}: ${props.letter.reference}`;
     const data = {
         email: props.email,
         subject: encodeURIComponent(
