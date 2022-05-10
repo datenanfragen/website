@@ -1,20 +1,20 @@
-import t from 'Utility/i18n';
+import t from './Utility/i18n';
 
-export let tutorial_steps = [
+export const tutorial_steps = [
     {
         text: t('request-parameters', 'wizard_tutorial'),
-        selector: '.request-parameters',
-        position: 'right',
+        target: '.request-parameters',
+        placement: 'right',
     },
     {
         text: t('company-info', 'wizard_tutorial'),
-        selector: 'aside.company-info',
-        position: 'top',
+        target: 'aside.company-info',
+        placement: 'top',
     },
     {
         text: t('id-data', 'wizard_tutorial'),
-        selector: '.dynamic-input-container',
-        position: 'left',
+        target: '.dynamic-input-container',
+        placement: 'left',
         style: {
             arrow: {
                 // For some reason, the default styling for the arrow is broken in this case. We need to fix that.
@@ -24,7 +24,7 @@ export let tutorial_steps = [
     },
     {
         text: t('next-request', 'wizard_tutorial'),
-        selector: '#generator-controls',
-        position: 'left',
+        target: '#generator-controls',
+        placement: 'left',
     },
 ];
