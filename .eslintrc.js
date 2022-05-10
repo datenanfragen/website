@@ -140,5 +140,11 @@ module.exports = {
                 'jest/*': 'off',
             },
         },
+        {
+            files: ['*.ts', '*.tsx'],
+            rules: {
+                'react/prop-types': 'off',
+            },
+        },
     ],
 };
