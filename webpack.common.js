@@ -11,7 +11,7 @@ module.exports = {
         'my-requests': './src/my-requests.tsx',
         'privacy-controls': './src/privacy-controls.js',
         'suggest-edit': './src/suggest-edit.js',
-        //'id-data-controls': './src/id-data-controls.js',
+        'id-data-controls': './src/id-data-controls.tsx',
         'sva-finder': './src/Components/SvaFinder.tsx',
         'act-widget': './src/Components/ActWidget.tsx',
         'donation-widget': './src/Components/DonationWidget.js',

@@ -87,6 +87,12 @@ export class SavedIdData {
         });
     }
 
+    removeByDesc(desc: string) {
+        return this.localforage_instance.removeItem(desc.replace('/::/g', '__')).catch((error) => {
+            rethrow(error, 'Could not delete id_data.', { desc });
+        });
+    }
+
     getAllFixed() {
         const id_data: IdDataElement[] = [];
         return this.localforage_instance

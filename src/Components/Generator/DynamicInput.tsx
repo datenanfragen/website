@@ -69,7 +69,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                     placeholder={t('description', 'generator')}
                                     style="margin-left: 5px;"
                                     required={!props.optional || !props.value.optional}
-                                    onChange={(e) =>
+                                    onBlur={(e) =>
                                         props.onChange(
                                             produce((id_data: IdDataElement) => {
                                                 id_data.desc = e.currentTarget.value;
@@ -160,7 +160,7 @@ export const TextareaControl = (props: ControlComponentProps<string>) => {
                 className="form-element"
                 placeholder={t('value', 'generator')}
                 required={props.required}
-                onChange={(e) => props.onChange(e.currentTarget.value)}
+                onBlur={(e) => props.onChange(e.currentTarget.value)}
                 value={props.value}
             />
         </div>
@@ -185,7 +185,7 @@ export const InputControl = (props: ControlComponentProps<string>) => {
                 className="form-element"
                 placeholder={t('value', 'generator')}
                 required={props.required}
-                onChange={(e) => props.onChange(e.currentTarget.value)}
+                onBlur={(e) => props.onChange(e.currentTarget.value)}
                 value={props.value}
             />
         </div>
@@ -210,7 +210,7 @@ export const DateControl = (props: ControlComponentProps<string>) => {
                 className="form-element"
                 placeholder={t('value', 'generator')}
                 required={props.required}
-                onChange={(e) => props.onChange(e.currentTarget.value)} // TODO: Validate the date here!
+                onBlur={(e) => props.onChange(e.currentTarget.value)} // TODO: Validate the date here!
                 value={props.value}
             />
         </div>
@@ -242,7 +242,7 @@ export const AddressControl = (props: ControlComponentProps<Address>) => {
                         placeholder={t(`address-${property}`, 'generator')}
                         className="form-element"
                         required={props.required}
-                        onChange={(e) => handleChange(property, e.currentTarget.value)}
+                        onBlur={(e) => handleChange(property, e.currentTarget.value)}
                         value={props.value[property]}
                     />
                     <label className="fancy-label" htmlFor={`${props.id}-${property}-${props.suffix}`}>

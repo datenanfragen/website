@@ -151,7 +151,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
                     setCropArea(newCropArea);
                 }
             });
-    }, [context, isEmpty]);
+    }, [context, isEmpty, props.value]);
 
     // As much as I would like it, adding keyboard events ain't gun make this accessible…
     /* eslint-disable jsx-a11y/mouse-events-have-key-events */
