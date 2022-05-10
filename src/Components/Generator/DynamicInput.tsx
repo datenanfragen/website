@@ -69,7 +69,13 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                     placeholder={t('description', 'generator')}
                                     style="margin-left: 5px;"
                                     required={!props.optional || !props.value.optional}
-                                    onChange={(e) => props.onChange}
+                                    onChange={(e) =>
+                                        props.onChange(
+                                            produce((id_data: IdDataElement) => {
+                                                id_data.desc = e.currentTarget.value;
+                                            })(props.value)
+                                        )
+                                    }
                                 />,
                             ]
                         ) : (

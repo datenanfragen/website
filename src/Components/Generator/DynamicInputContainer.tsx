@@ -26,8 +26,14 @@ type DynamicInputContainerProps = {
     children?: ComponentChildren;
 };
 
-export const DynamicInputContainer = (props: DynamicInputContainerProps) => {
+export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
     const [inputTypeToAdd, setInputTypeToAdd] = useState<IdDataElement['type']>('input');
+    const props = {
+        allowAddingFields: true,
+        allowRemovingFields: true,
+        allowChaningFieldDescriptions: true,
+        ..._props,
+    };
 
     const address_number = useMemo(
         () => props.fields.reduce((total, field) => total + (field.type === 'address' ? 1 : 0), 0),

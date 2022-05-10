@@ -14,23 +14,10 @@ import RequestFlags from './RequestFlags';
 import { CustomRequestInput } from './CustomRequestInput';
 
 type RequestFormProps = {
-    //        request_data: PropTypes.object.isRequired,
-    fillSignature: Signature;
-    fillFields: IdDataElement[];
-    //        onAddField: PropTypes.func.isRequired,
-    //        onRemoveField: PropTypes.func.isRequired,
-    //        onSetPrimaryAddress: PropTypes.func.isRequired,
-    //        onInputChange: PropTypes.func.isRequired,
-    //        onChange: PropTypes.func.isRequired,
-    //        onTypeChange: PropTypes.func.isRequired,
-    //        onLetterChange: PropTypes.func.isRequired,
-    //        onTransportMediumChange: PropTypes.func.isRequired,
-    //        onLetterTemplateChange: PropTypes.func.isRequired,
-
     children: ComponentChildren;
 };
 
-export default function RequestForm(props: RequestFormProps) {
+export const RequestForm = (props: RequestFormProps) => {
     const request_type = useGeneratorStore((state) => state.request.type);
     const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
     const recipient_address = useGeneratorStore((state) => state.request.recipient_address);
@@ -44,6 +31,8 @@ export default function RequestForm(props: RequestFormProps) {
     const rectification_data = useGeneratorStore((state) =>
         state.request.type == 'rectification' ? state.request.rectification_data : []
     );
+    const fillFields = useGeneratorStore((state) => state.fillFields);
+    const fillSignature = useGeneratorStore((state) => state.fillSignature);
     const setTransportMedium = useGeneratorStore((state) => state.setTransportMedium);
     const setRecipientEmail = useGeneratorStore((state) => state.setRecipientEmail);
     const setRecipientAddress = useGeneratorStore((state) => state.setRecipientAddress);
@@ -67,7 +56,8 @@ export default function RequestForm(props: RequestFormProps) {
                     hasPrimary={false}
                     onAddField={(field) => addField(field, 'rectification_data')}
                     onRemoveField={(id) => removeField(id, 'rectification_data')}
-                    onChange={(id, field) => setField(id, field, 'rectification_data')}>
+                    onChange={(id, field) => setField(id, field, 'rectification_data')}
+                    allowAddingFields={true}>
                     <MarkupText id="rectification-data-explanation" />
                 </DynamicInputContainer>
             );
@@ -86,7 +76,8 @@ export default function RequestForm(props: RequestFormProps) {
                     fields={id_data}
                     title={t(is_tracking_request ? 'id-data-tracking' : 'id-data', 'generator')}
                     hasPrimary={true}
-                    fillFields={props.fillFields}
+                    fillFields={fillFields}
+                    allowAddingFields={true}
                     headingClass={heading_class}>
                     <MarkupText id={is_tracking_request ? 'id-data-tracking-explanation' : 'id-data-explanation'} />
                 </DynamicInputContainer>
@@ -184,7 +175,7 @@ export default function RequestForm(props: RequestFormProps) {
                                 height={190}
                                 onChange={setSignature}
                                 value={signature}
-                                fillSignature={props.fillSignature}
+                                fillSignature={fillSignature}
                             />
                         ) : null}
                     </div>
@@ -192,4 +183,4 @@ export default function RequestForm(props: RequestFormProps) {
             </div>
         </IntlProvider>
     );
-}
+};
