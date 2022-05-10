@@ -60,7 +60,12 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                             ? company['required-elements']
                             : state.request.is_tracking_request
                             ? trackingFields(state.request.language)
-                            : defaultFields(state.request.language)
+                            : defaultFields(state.request.language),
+                        false,
+                        true,
+                        false,
+                        false,
+                        true
                     );
 
                     state.request.id_data = SavedIdData.mergeFields(
@@ -78,7 +83,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
 
         // Set other data this way to allow for side effects
         get().setRecipientEmail(company['email'] ?? '');
-        get().setRecipientAddress(company['address'] ?? '');
+        get().setRecipientAddress(`${company['name']}\n${company['address']}` ?? '');
         get().setTransportMedium(
             company['suggested-transport-medium']
                 ? company['suggested-transport-medium']
@@ -86,7 +91,6 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 ? 'email'
                 : 'letter'
         );
-
         if (get().current_company && get().request.type !== 'custom') {
             return get().refreshTemplate();
         }
@@ -107,7 +111,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
 
         // Set other data this way to allow for side effects
         get().setRecipientEmail(sva['email'] ?? '');
-        get().setRecipientAddress(sva['address'] ?? '');
+        get().setRecipientAddress(`${sva['name']}\n${sva['address']}` ?? '');
         get().setTransportMedium(
             sva['suggested-transport-medium'] ? sva['suggested-transport-medium'] : sva.email ? 'email' : 'letter'
         );
@@ -138,10 +142,13 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
     advanceBatch: async () => {
         const hasBatch = get().hasBatch;
         if (hasBatch()) {
-            const batch = get().batch;
-            const company = batch!.shift() as string;
-            set({ batch });
-            return get().setCompanyBySlug(company);
+            let company: string | undefined;
+            set(
+                produce((state: GeneratorState) => {
+                    company = state.batch?.shift();
+                })
+            );
+            return company ? get().setCompanyBySlug(company) : undefined;
         }
     },
     clearBatch: () => set({ batch: undefined }),

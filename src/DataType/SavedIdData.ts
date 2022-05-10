@@ -1,8 +1,8 @@
 import { rethrow, WarningException } from '../Utility/errors';
 import Cookie from 'js-cookie';
 import LocalForage from 'localforage';
-import { produce } from 'immer';
 import { EMTPY_ADDRESS, IdDataElement, Signature } from '../types/request.d';
+import { produce, nothing } from 'immer';
 import type { SetOptional } from 'type-fest';
 import { isAddress } from '../Utility/requests';
 
@@ -142,24 +142,27 @@ export class SavedIdData {
         const new_fields = fields_to_merge.slice();
 
         let has_primary_address = 0;
-        const merged_fields = fields_to_add_to.reduce((merged_fields: IdDataElement[], old_field) => {
-            const field = produce((old_field: IdDataElement) => {
-                // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
-                const candidate_index = new_fields.findIndex((new_field) => mergeCondition(new_field, old_field));
+        const merged_fields = fields_to_add_to.reduce((merged_fields: IdDataElement[], old_field): IdDataElement[] => {
+            const field = produce(old_field, (f: IdDataElement | undefined) => {
+                if (f) {
+                    // TODO: How to keep user added inputs and remove machine added inputs? Or do we even need to?
+                    const candidate_index = new_fields.findIndex((new_field) => mergeCondition(new_field, f));
 
-                if (candidate_index && candidate_index >= 0) {
-                    const candidate = new_fields[candidate_index];
-                    if (!protect_desc) old_field.desc = candidate.desc; // should only matter for fixed types
-                    if (!preserve_optional) old_field.optional = candidate?.optional;
-                    if (override_values && candidate.value) old_field.value = candidate.value;
-                    if (old_field.type === 'address') old_field.value.primary = ++has_primary_address === 1;
-                    new_fields.splice(candidate_index, 1);
-                } else if (keep) {
-                    if (old_field.type === 'address') old_field.value.primary = ++has_primary_address === 1;
+                    if (candidate_index !== undefined && candidate_index >= 0) {
+                        const candidate = new_fields[candidate_index];
+                        if (!protect_desc) f.desc = candidate.desc; // should only matter for fixed types
+                        if (!preserve_optional) f.optional = candidate?.optional;
+                        if (override_values && candidate.value) f.value = candidate.value;
+                        if (f.type === 'address') f.value = { ...f.value, primary: ++has_primary_address === 1 };
+                        new_fields.splice(candidate_index, 1);
+                    } else if (keep) {
+                        if (f.type === 'address') f.value = { ...f.value, primary: ++has_primary_address === 1 };
+                    } else {
+                        return nothing;
+                    }
                 }
-                return undefined;
-            })(old_field);
-            return field ? [...merged_fields, field] : merged_fields;
+            });
+            return field !== undefined ? [...merged_fields, field] : merged_fields;
         }, []);
 
         if (add_new_fields) {

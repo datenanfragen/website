@@ -1,7 +1,8 @@
 import type { ComponentChildren } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
+import { memo } from 'preact/compat';
 import t from '../Utility/i18n';
-import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SvaFinder } from './SvaFinder';
 import { UserRequests } from '../DataType/UserRequests';
 import { useEffect } from 'preact/hooks';
@@ -14,7 +15,7 @@ type RequestGeneratorBuilderProps = {
     children: ComponentChildren;
 };
 
-export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => {
+export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps) => {
     const setCompanyBySlug = useGeneratorStore((state) => state.setCompanyBySlug);
     const refreshFillFields = useGeneratorStore((state) => state.refreshFillFields);
     const startBatch = useGeneratorStore((state) => state.startBatch);
@@ -36,7 +37,7 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
             }
         });
         initiatePdfGeneration();
-    });
+    }, [initiatePdfGeneration, renderLetter, generatorStoreApi]);
 
     useEffect(() => {
         const { response_to, response_type } = window.PARAMETERS;
@@ -78,7 +79,7 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
                 props.onInitialized?.();
                 refreshFillFields();
             });
-    });
+    }, []);
 
     const [AuthorityChooser, showAuthorityChooser, dismissAuthorityChooser] = useModal(
         <>
@@ -119,4 +120,4 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
             <>{props.children}</>
         </IntlProvider>
     );
-};
+});

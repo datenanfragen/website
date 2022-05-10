@@ -20,15 +20,13 @@ export class RequestLetter extends Letter {
 
     toEmailString(include_subject = false) {
         let email = include_subject
-            ? t('subject', 'generator') +
-              ': ' +
-              this.props.subject +
-              (this.reference ? ' (' + t_r('my-reference', this.language) + ': ' + this.reference + ')' : '') +
-              '\n\n'
+            ? `${t('subject', 'generator')}: ${this.props.subject}${
+                  this.reference ? ` (${t_r('my-reference', this.language)}: ${this.reference})` : ''
+              }\n\n`
             : '';
         email +=
             (this.props.recipient_address && this.props.recipient_address[0]
-                ? t_r('concerns', this.language) + ': ' + this.props.recipient_address[0] + '\n'
+                ? `${t_r('concerns', this.language)}: ${this.props.recipient_address[0]}\n`
                 : '') + this.toString();
         return email;
     }
@@ -115,21 +113,17 @@ export class RequestLetter extends Letter {
 
         const formatted = request_data.reduce<string>((acc, item) => {
             if ((item.type !== 'address' && item.value !== '') || (item.type === 'address' && item.value.street_1)) {
-                acc += '<bold>' + item.desc + ':</bold> ';
+                acc += `<bold>${item.desc}:</bold> `;
 
                 switch (item.type) {
                     case 'address':
                         if (item.value.primary) primary_address = item.value;
-                        return (
-                            acc +
-                            '\n' +
-                            formatAddress(
-                                [item.value.street_1, item.value.street_2, item.value.place, item.value.country],
-                                ', \n'
-                            )
-                        );
+                        return `${acc}\n${formatAddress(
+                            [item.value.street_1, item.value.street_2, item.value.place, item.value.country],
+                            ', '
+                        )}\n`;
                     case 'textarea':
-                        return acc + '\n' + item.value + '\n';
+                        return `${acc}\n${item.value}\n`;
                     case 'name':
                         name = item.value;
                     // fallthrough intentional
@@ -137,7 +131,7 @@ export class RequestLetter extends Letter {
                     case 'email':
                     case 'input':
                     default:
-                        return acc + item.value + '\n';
+                        return `${acc}${item.value}\n`;
                 }
             }
             return acc;

@@ -70,10 +70,10 @@ export const useNewRequestModal = (
         setDownload(false);
         setBusy();
         removeCompany()
-            .then(() => advanceBatch())
             .then(() => {
                 return newRequestHook && newRequestHook(payload);
             })
+            .then(() => advanceBatch())
             .then(() => resetInitialConditions());
     }, [newRequestHook, resetInitialConditions, resetRequestToDefault, setDownload, removeCompany]);
 
