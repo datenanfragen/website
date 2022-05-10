@@ -4,7 +4,7 @@ import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
 import { UserRequests, UserRequest } from './DataType/UserRequests';
 import t from './Utility/i18n';
-import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
 import { rethrow } from './Utility/errors';
 import { hash, objFilter } from './Utility/common';
 

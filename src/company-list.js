@@ -4,7 +4,7 @@ import { IntlProvider, Text } from 'preact-i18n';
 import PropTypes from 'prop-types';
 
 import t from 'Utility/i18n';
-import Privacy, { PRIVACY_ACTIONS } from 'Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from 'Utility/Privacy';
 import Scrollspy from 'react-scrollspy';
 
 if (!Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH) && document.getElementById('aa-search-input'))

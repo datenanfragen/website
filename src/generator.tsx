@@ -6,7 +6,7 @@ import Joyride from 'react-joyride';
 import { tutorial_steps } from './wizard-tutorial';
 import Cookie from 'js-cookie';
 import { RequestGeneratorBuilder } from './Components/RequestGeneratorBuilder';
-import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
 import { SavedCompanies } from './DataType/SavedCompanies';
 import { useEffect, useState, useRef, useCallback } from 'preact/hooks';
 import { createGeneratorStore, RequestGeneratorProvider, useGeneratorStore } from './store/generator';

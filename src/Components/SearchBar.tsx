@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
-import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { searchClient } from '../Utility/search';
 import { rethrow } from '../Utility/errors';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';

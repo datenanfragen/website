@@ -34,7 +34,7 @@ import { CompanyState } from './company';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import type { RequestLanguage, Company } from '../types/company';
 import { slugify } from '../Utility/common';
-import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
 import { Template } from 'letter-generator';
 

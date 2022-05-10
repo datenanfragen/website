@@ -11,7 +11,7 @@ import {
 import createContext from 'zustand/context';
 import { CompanyState, createCompanyStore } from './company';
 import type { StoreSlice } from 'utility';
-import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
 // This will be replaced with an URL by the worker-loader plugin in webpack which is why eslint can't fin a defautl import (ts can be tricked by defining a module).
 // eslint-disable-next-line import/default

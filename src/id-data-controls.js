@@ -1,6 +1,6 @@
 import { render, Component } from 'preact';
-import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './Utility/SavedIdData';
-import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
+import SavedIdData, { ID_DATA_CHANGE_EVENT, ID_DATA_CLEAR_EVENT } from './DataType/SavedIdData';
+import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
 import t from 'Utility/i18n';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import DynamicInputContainer from './Components/Generator/DynamicInputContainer';
