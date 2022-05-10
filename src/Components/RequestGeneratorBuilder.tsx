@@ -5,7 +5,7 @@ import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SvaFinder } from './SvaFinder';
 import { UserRequests } from '../DataType/UserRequests';
 import { useEffect } from 'preact/hooks';
-import { useGeneratorStore } from '../store/generator';
+import { useGeneratorStore, useGeneratorStoreApi } from '../store/generator';
 import type { ResponseType } from 'request';
 import { useModal } from './Modal';
 
@@ -26,7 +26,17 @@ export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const resetInitialConditions = useGeneratorStore((state) => state.resetInitialConditions);
 
-    useEffect(() => initiatePdfGeneration());
+    // To transiently update the component. See: https://github.com/pmndrs/zustand#transient-updates-for-often-occuring-state-changes
+    const generatorStoreApi = useGeneratorStoreApi();
+
+    useEffect(() => {
+        generatorStoreApi.subscribe((state, prev) => {
+            if (state.request !== prev.request) {
+                renderLetter();
+            }
+        });
+        initiatePdfGeneration();
+    });
 
     useEffect(() => {
         const { response_to, response_type } = window.PARAMETERS;
