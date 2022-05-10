@@ -1,0 +1,126 @@
+import { ActionButton } from '../Generator/ActionButton';
+import { IntlProvider, Text } from 'preact-i18n';
+import { useGeneratorStore } from '../../store/generator';
+import { clearUrlParameters } from '../../Utility/browser';
+import { useCallback, useState } from 'preact/hooks';
+import { useModal } from '../Modal';
+import t from '../../Utility/i18n';
+import type { JSX } from 'preact';
+
+type NewRequestButtonProps = {
+    newRequestHook?: (arg?: unknown) => void;
+    buttonProps?: Record<string | symbol, unknown>;
+};
+
+export const NewRequestButton = (props: NewRequestButtonProps) => {
+    const request_sent = useGeneratorStore((state) => state.request.sent);
+    const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
+    const renderLetter = useGeneratorStore((state) => state.renderLetter);
+    const hasBatch = useGeneratorStore((state) => state.hasBatch);
+    const setBusy = useGeneratorStore((state) => state.setBusy);
+    const setReady = useGeneratorStore((state) => state.setReady);
+    const [ConfirmNewRequestModal, showConfirmNewRequestModal, , , newRequest] = useNewRequestModal(
+        props.newRequestHook
+    );
+
+    return (
+        <>
+            <button
+                className="button button-secondary"
+                id="new-request-button"
+                onClick={() => {
+                    if (!request_sent) return showConfirmNewRequestModal();
+                    newRequest().then(renderLetter);
+                }}
+                {...props.buttonProps}>
+                <Text id={hasBatch() ? 'next-request' : 'new-request'} />
+            </button>
+            <ConfirmNewRequestModal />
+        </>
+    );
+};
+
+export const useNewRequestModal = (
+    newRequestHook?: (arg?: unknown) => void | Promise<void>
+): [
+    () => JSX.Element,
+    (payload?: Parameters<Exclude<typeof newRequestHook, undefined>>[0]) => void,
+    () => void,
+    boolean,
+    () => Promise<void>
+] => {
+    const resetInitialConditions = useGeneratorStore((state) => state.resetInitialConditions);
+    const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
+    const setDownload = useGeneratorStore((state) => state.setDownload);
+    const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
+    const removeCompany = useGeneratorStore((state) => state.removeCompany);
+    const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
+    const storeRequest = useGeneratorStore((state) => state.storeRequest);
+    const setBusy = useGeneratorStore((state) => state.setBusy);
+    const setReady = useGeneratorStore((state) => state.setReady);
+    const renderLetter = useGeneratorStore((state) => state.renderLetter);
+
+    const [payload, setPayload] = useState<Parameters<Exclude<typeof newRequestHook, undefined>>[0]>();
+
+    const newRequest = useCallback(async () => {
+        // Remove GET parameter-selected company from the URL after the request is finished.
+        // Also remove warning and complaint GET parameters from the URL after the request is finished.
+        if (window.PARAMETERS['company'] || window.PARAMETERS['response_type'] || window.PARAMETERS['response_to']) {
+            clearUrlParameters();
+        }
+
+        resetRequestToDefault();
+        setDownload(false);
+        setBusy();
+        removeCompany()
+            .then(() => advanceBatch())
+            .then(() => {
+                return newRequestHook && newRequestHook(payload);
+            })
+            .then(() => resetInitialConditions());
+    }, [newRequestHook, resetInitialConditions, resetRequestToDefault, setDownload, removeCompany]);
+
+    const [ConfirmNewRequestModal, showModal, dismissConfirmNewRequestModal, shown] = useModal(
+        <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
+            <Text id="modal-new-request" />
+        </IntlProvider>,
+        {
+            positiveButton: (
+                <div style="float: right;">
+                    <ActionButton
+                        buttonText={
+                            <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
+                                <Text id={transport_medium === 'email' ? 'send-email-first' : 'download-pdf-first'} />
+                            </IntlProvider>
+                        }
+                        onSuccess={() => {
+                            dismissConfirmNewRequestModal();
+                            storeRequest()
+                                .then(() => setBusy())
+                                .then(() => newRequest())
+                                .then(() => renderLetter());
+                        }}
+                    />
+                </div>
+            ),
+            negativeText: t('new-request', 'generator'),
+            onNegativeFeedback: () => {
+                dismissConfirmNewRequestModal();
+                setBusy();
+                newRequest().then(() => renderLetter());
+            },
+            defaultButton: 'positive',
+            innerStyle: 'overflow: visible;',
+        }
+    );
+
+    const showConfirmNewRequestModal = useCallback(
+        (payload?: Parameters<Exclude<typeof newRequestHook, undefined>>[0]) => {
+            setPayload(payload);
+            showModal();
+        },
+        [setPayload, showModal]
+    );
+
+    return [ConfirmNewRequestModal, showConfirmNewRequestModal, dismissConfirmNewRequestModal, shown, newRequest];
+};
