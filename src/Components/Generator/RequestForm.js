@@ -4,7 +4,7 @@ import SignatureInput from './SignatureInput';
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { AddressControl } from './DynamicInput';
-import Accordion from '../Accordion';
+import { Accordion } from '../Accordion';
 import RequestTypeChooser from './RequestTypeChooser';
 import RecipientInput from './RecipientInput';
 import TransportMediumChooser from './TransportMediumChooser';
@@ -198,7 +198,7 @@ export default class RequestForm extends Component {
                             <Accordion
                                 title={t('information-block', 'generator')}
                                 id="advanced-information"
-                                expanded={false}>
+                                expandedInitially={false}>
                                 <div id="information-block-form">
                                     <div className="form-group">
                                         <label htmlFor="request-date">

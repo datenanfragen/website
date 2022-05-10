@@ -1,7 +1,7 @@
 import { Component } from 'preact';
 import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
-import Accordion from '../Accordion';
+import { Accordion } from '../Accordion';
 import PropTypes from 'prop-types';
 
 export default class CompanyWidget extends Component {
@@ -100,7 +100,7 @@ export default class CompanyWidget extends Component {
                         onClick={this.props.onRemove}
                         title={t('deselect-company', 'generator')}
                     />
-                    <Accordion title={this.props.company['name']} id="company-info" expanded={true}>
+                    <Accordion title={this.props.company['name']} id="company-info" expandedInitially={true}>
                         {content}
                     </Accordion>
                 </aside>
