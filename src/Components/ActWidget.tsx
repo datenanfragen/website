@@ -6,7 +6,7 @@ import { ActionButtonPlaceholder } from './Generator/ActionButton';
 import { SignatureInputPlaceholder } from './Generator/SignatureInput';
 import { RequestTypeChooser } from './Generator/RequestTypeChooser';
 import { DynamicInputContainerPlaceholder } from './Generator/DynamicInputContainer';
-import { useGeneratorStore } from '../store/generator';
+import { createGeneratorStore, RequestGeneratorProvider, useGeneratorStore } from '../store/generator';
 
 type ActWidgetProps = {
     request_types: RequestType[];
@@ -59,5 +59,14 @@ export const ActWidget = (props: ActWidgetProps) => {
 ) => {
     if (!props) props = (window as typeof window & { props: ActWidgetProps }).props;
     const elems = id ? [document.getElementById(id)] : document.querySelectorAll('.act-widget');
-    elems.forEach((el) => el && render(<ActWidget {...props!} />, el));
+    elems.forEach(
+        (el) =>
+            el &&
+            render(
+                <RequestGeneratorProvider createStore={createGeneratorStore}>
+                    <ActWidget {...props!} />
+                </RequestGeneratorProvider>,
+                el
+            )
+    );
 };

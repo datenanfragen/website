@@ -5,25 +5,16 @@ import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SvaFinder } from './SvaFinder';
 import { UserRequests } from '../DataType/UserRequests';
 import { useEffect } from 'preact/hooks';
-import { RequestGeneratorProvider, useGeneratorStore, createGeneratorStore } from '../store/generator';
+import { useGeneratorStore } from '../store/generator';
 import type { ResponseType } from 'request';
 import { useModal } from './Modal';
 
 type RequestGeneratorBuilderProps = {
-    newRequestHook?: () => void;
     onInitialized?: () => void;
     children: ComponentChildren;
 };
 
-export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => (
-    <RequestGeneratorProvider createStore={createGeneratorStore}>
-        <WrappedRequestGeneratorBuilder newRequestHook={props.newRequestHook} onInitialized={props.onInitialized}>
-            {props.children}
-        </WrappedRequestGeneratorBuilder>
-    </RequestGeneratorProvider>
-);
-
-const WrappedRequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => {
+export const RequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => {
     const setCompanyBySlug = useGeneratorStore((state) => state.setCompanyBySlug);
     const refreshFillFields = useGeneratorStore((state) => state.refreshFillFields);
     const startBatch = useGeneratorStore((state) => state.startBatch);
@@ -119,32 +110,3 @@ const WrappedRequestGeneratorBuilder = (props: RequestGeneratorBuilderProps) => 
         </IntlProvider>
     );
 };
-
-/*
-const handleAutocompleteSelected = (e, suggestion, dataset) => {
-    if (this.state.suggestion) {
-        this.setState({
-            modal: (state) => (
-                <DeprecatedModal
-                    positiveText={t('new-request', 'generator')}
-                    negativeText={t('override-request', 'generator')}
-                    onNegativeFeedback={(e) => {
-                        this.setState({ modal: null });
-                        this.setCompany(suggestion.document);
-                    }}
-                    onPositiveFeedback={(e) => {
-                        this.setState({ modal: null });
-                        this.newRequest().then(() => {
-                            this.setCompany(suggestion.document);
-                        });
-                    }}
-                    positiveDefault={true}
-                    onDismiss={() => this.setState({ modal: null })}>
-                    {t('modal-autocomplete-new-request', 'generator')}
-                </DeprecatedModal>
-            ),
-        });
-    } else {
-        this.setCompany(suggestion.document);
-    }
-};*/
