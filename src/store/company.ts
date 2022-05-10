@@ -24,6 +24,7 @@ export interface CompanyState {
     startBatch: (batch: string[]) => Promise<void>;
     advanceBatch: () => Promise<void>;
     clearBatch: () => void;
+    hasBatch: () => boolean | undefined;
 }
 
 export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> & GeneratorSpecificState> = (
@@ -135,12 +136,17 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
         }
     },
     advanceBatch: async () => {
-        const batch = get().batch;
-        if (batch && batch.length > 0) {
-            const company = batch.shift() as string;
+        const hasBatch = get().hasBatch;
+        if (hasBatch()) {
+            const batch = get().batch;
+            const company = batch!.shift() as string;
             set({ batch });
             return get().setCompanyBySlug(company);
         }
     },
     clearBatch: () => set({ batch: undefined }),
+    hasBatch: () => {
+        const batch = get().batch;
+        return batch && batch.length > 0;
+    },
 });

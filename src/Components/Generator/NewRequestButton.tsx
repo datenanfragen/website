@@ -14,11 +14,8 @@ type NewRequestButtonProps = {
 
 export const NewRequestButton = (props: NewRequestButtonProps) => {
     const request_sent = useGeneratorStore((state) => state.request.sent);
-    const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const hasBatch = useGeneratorStore((state) => state.hasBatch);
-    const setBusy = useGeneratorStore((state) => state.setBusy);
-    const setReady = useGeneratorStore((state) => state.setReady);
     const [ConfirmNewRequestModal, showConfirmNewRequestModal, , , newRequest] = useNewRequestModal(
         props.newRequestHook
     );
