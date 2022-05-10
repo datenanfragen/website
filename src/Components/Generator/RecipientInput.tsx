@@ -1,7 +1,7 @@
 import { JSX } from 'preact';
 import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
-import { TransportMedium } from 'request';
+import { TransportMedium } from '../../types/request.d';
 
 type RecipientInputProps = {
     recipientAddress: string;

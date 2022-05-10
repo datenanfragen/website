@@ -3,7 +3,7 @@ import { useMemo, useState } from 'preact/hooks';
 import { DynamicInput } from './DynamicInput';
 import { Text, MarkupText, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
-import { EMTPY_ADDRESS, IdDataElement } from 'request';
+import { EMTPY_ADDRESS, IdDataElement } from '../../types/request.d';
 import { isAddress } from '../../Utility/requests';
 import { useGeneratorStore } from '../../store/generator';
 

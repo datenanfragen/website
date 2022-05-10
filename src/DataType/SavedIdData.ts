@@ -1,8 +1,8 @@
 import { rethrow, WarningException } from '../Utility/errors';
 import Cookie from 'js-cookie';
 import LocalForage from 'localforage';
-import { EMTPY_ADDRESS, IdDataElement, Signature } from 'request';
 import { produce } from 'immer';
+import { EMTPY_ADDRESS, IdDataElement, Signature } from '../types/request.d';
 import type { SetOptional } from 'type-fest';
 import { isAddress } from '../Utility/requests';
 

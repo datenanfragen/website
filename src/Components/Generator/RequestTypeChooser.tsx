@@ -1,6 +1,6 @@
 import t from '../../Utility/i18n';
 import { Radio } from '../Radio';
-import { RequestType, REQUEST_TYPES } from 'request';
+import { RequestType, REQUEST_TYPES } from '../../types/request.d';
 import type { JSX } from 'preact';
 import { useGeneratorStore } from '../../store/generator';
 
