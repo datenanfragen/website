@@ -26,6 +26,7 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
     const initiatePdfGeneration = useGeneratorStore((state) => state.initiatePdfGeneration);
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const resetInitialConditions = useGeneratorStore((state) => state.resetInitialConditions);
+    const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
 
     // To transiently update the component. See: https://github.com/pmndrs/zustand#transient-updates-for-often-occuring-state-changes
     const generatorStoreApi = useGeneratorStoreApi();
@@ -40,7 +41,13 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
         [renderLetter, generatorStoreApi]
     );
 
-    useEffect(() => initiatePdfGeneration(), [initiatePdfGeneration]);
+    useEffect(() => {
+        if (transport_medium !== 'email') {
+            const callbacks = initiatePdfGeneration();
+            renderLetter();
+            return callbacks;
+        }
+    }, [initiatePdfGeneration, transport_medium]);
 
     useEffect(() => {
         const { response_to, response_type } = window.PARAMETERS;

@@ -16,6 +16,14 @@ describe('Generator component', () => {
             .and('match', /^blob:ht{2}ps?:\/{2}\S+?\/[\da-f]{8}(?:-[\da-f]{4}){3}-[\da-f]{12}$/);
     });
 
+    it('did not load pdfworker for email', () => {
+        skipOn(isOn('production'));
+
+        cy.window().then((win) => {
+            expect(win.pdfWorker).to.be.undefined;
+        });
+    });
+
     it('did load pdfworker for fax', () => {
         skipOn(isOn('production'));
 
