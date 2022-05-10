@@ -1,15 +1,9 @@
-import type { Request } from 'request';
-import type { Company, SupervisoryAuthority } from 'company';
-import type { StoreSlice } from 'utility';
+import type { Request } from '../types/request';
+import type { Company, SupervisoryAuthority } from '../types/company';
+import type { StoreSlice } from '../types/utility';
 import { RequestState } from './request';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
-import {
-    REQUEST_FALLBACK_LANGUAGE,
-    trackingFields,
-    defaultFields,
-    isSva,
-    inferRequestLanguage,
-} from '../Utility/requests';
+import { trackingFields, defaultFields, inferRequestLanguage } from '../Utility/requests';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { produce } from 'immer';
 import { SavedIdData } from '../DataType/SavedIdData';

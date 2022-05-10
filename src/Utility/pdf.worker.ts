@@ -1,6 +1,6 @@
 import { PdfRenderer } from 'letter-generator';
 
-// eslint-disable-next-line no-undef
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, no-undef
 const worker: DedicatedWorkerGlobalScope = self as any;
 
 worker.onmessage = (e) => {

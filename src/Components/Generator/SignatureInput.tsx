@@ -1,7 +1,7 @@
-import { Component, JSX } from 'preact';
-import { useRef, Ref, useEffect, MutableRef, useState, useCallback } from 'preact/hooks';
+import { JSX } from 'preact';
+import { useRef, Ref, useEffect, MutableRef, useState } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
-import { Signature } from 'request';
+import type { Signature } from '../../types/request';
 import { detectBlockedCanvasImageExtraction } from '../../Utility/browser';
 import { useGeneratorStore } from '../../store/generator';
 

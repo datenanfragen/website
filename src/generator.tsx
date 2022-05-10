@@ -1,4 +1,4 @@
-import { render, Component } from 'preact';
+import { render } from 'preact';
 import { IntlProvider, Text } from 'preact-i18n';
 import { clearUrlParameters } from './Utility/browser';
 import t from './Utility/i18n';
@@ -32,7 +32,6 @@ const Generator = () => {
     const startBatch = useGeneratorStore((state) => state.startBatch);
     const clearBatch = useGeneratorStore((state) => state.clearBatch);
     const hasBatch = useGeneratorStore((state) => state.hasBatch);
-    const request_type = useGeneratorStore((state) => state.request.type);
     const current_company = useGeneratorStore((state) => state.current_company);
 
     const [isInWizardMode, setWizardMode] = useState(window.PARAMETERS['from'] === 'wizard');
@@ -83,7 +82,7 @@ const Generator = () => {
             setWizardMode(false);
             showWizardDoneModal();
         }
-    }, []);
+    }, [showWizardDoneModal, setWizardMode, hasBatch, isInWizardMode]);
 
     return (
         <main>

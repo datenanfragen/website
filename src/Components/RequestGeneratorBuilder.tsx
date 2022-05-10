@@ -49,6 +49,41 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
         }
     }, [initiatePdfGeneration, transport_medium]);
 
+    const { onInitialized } = props;
+
+    const [AuthorityChooserModal, showAuthorityChooser, dismissAuthorityChooser] = useModal(
+        <>
+            <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
+                <MarkupText id="modal-select-authority" />
+            </IntlProvider>
+            <SvaFinder
+                callback={(sva) => {
+                    if (sva) {
+                        setBusy();
+                        const response_to = window.PARAMETERS['response_to'];
+
+                        setSva(sva)
+                            .then(() => {
+                                if (response_to) return new UserRequests().getRequest(response_to);
+                            })
+                            .then((user_request) => setCustomLetterTemplate('complaint', user_request ?? undefined))
+                            .then(() => renderLetter)
+                            .then(() => setReady);
+                    }
+
+                    dismissAuthorityChooser();
+                }}
+                style="margin-top: 15px;"
+            />
+        </>,
+        {
+            onNegativeFeedback: () => dismissAuthorityChooser(),
+            defaultButton: 'positive',
+            shownInitially: false,
+            negativeText: t('cancel', 'generator'),
+        }
+    );
+
     useEffect(() => {
         const { response_to, response_type } = window.PARAMETERS;
 
@@ -86,47 +121,22 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
                 }
 
                 renderLetter();
-                props.onInitialized?.();
+                onInitialized?.();
                 refreshFillFields();
             });
-    }, []);
-
-    const [AuthorityChooser, showAuthorityChooser, dismissAuthorityChooser] = useModal(
-        <>
-            <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
-                <MarkupText id="modal-select-authority" />
-            </IntlProvider>
-            <SvaFinder
-                callback={(sva) => {
-                    if (sva) {
-                        setBusy();
-                        const response_to = window.PARAMETERS['response_to'];
-
-                        setSva(sva)
-                            .then(() => {
-                                if (response_to) return new UserRequests().getRequest(response_to);
-                            })
-                            .then((user_request) => setCustomLetterTemplate('complaint', user_request ?? undefined))
-                            .then(() => renderLetter)
-                            .then(() => setReady);
-                    }
-
-                    dismissAuthorityChooser();
-                }}
-                style="margin-top: 15px;"
-            />
-        </>,
-        {
-            onNegativeFeedback: () => dismissAuthorityChooser(),
-            defaultButton: 'positive',
-            shownInitially: false,
-            negativeText: t('cancel', 'generator'),
-        }
-    );
+    }, [
+        onInitialized,
+        refreshFillFields,
+        renderLetter,
+        startBatch,
+        resetInitialConditions,
+        setCompanyBySlug,
+        showAuthorityChooser,
+    ]);
 
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
-            <AuthorityChooser />
+            <AuthorityChooserModal />
             <>{props.children}</>
         </IntlProvider>
     );

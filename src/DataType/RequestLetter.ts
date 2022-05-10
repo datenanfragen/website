@@ -1,5 +1,5 @@
 import t, { t_r } from '../Utility/i18n';
-import { Letter, Template, formatAddress, stripTags, LetterProps } from 'letter-generator';
+import { Letter, Template, formatAddress, LetterProps } from 'letter-generator';
 import type { Address, Request, IdDataElement } from '../types/request';
 
 type FormattedData = { formatted: string; primary_address: Address | null; name: string };

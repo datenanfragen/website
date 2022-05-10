@@ -1,14 +1,12 @@
-import { Component, ComponentChildren, JSX } from 'preact';
+import { ComponentChildren } from 'preact';
 import { DynamicInputContainer } from './DynamicInputContainer';
 import { SignatureInput } from './SignatureInput';
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
-import { AddressControl } from './DynamicInput';
 import Accordion from '../Accordion';
 import { RequestTypeChooser } from './RequestTypeChooser';
 import RecipientInput from './RecipientInput';
 import TransportMediumChooser from './TransportMediumChooser';
-import { IdDataElement, RequestType, Signature } from 'request';
 import { useGeneratorStore } from '../../store/generator';
 import RequestFlags from './RequestFlags';
 import { CustomRequestInput } from './CustomRequestInput';

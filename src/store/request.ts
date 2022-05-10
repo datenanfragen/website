@@ -3,20 +3,15 @@ import type {
     IdDataElement,
     DataField,
     RequestType,
-    ErasureRequest,
     Address,
-    AccessRequest,
     TransportMedium,
-    RectificationRequest,
     RequestFlag,
     Signature,
     CustomTemplateName,
     CustomLetterData,
     CustomRequest,
 } from '../types/request';
-import { SetState, GetState } from 'zustand';
 import {
-    isAddress,
     defaultRequest,
     REQUEST_FALLBACK_LANGUAGE,
     fetchTemplate,
@@ -28,11 +23,10 @@ import { UserRequests, UserRequest } from '../DataType/UserRequests';
 import { produce } from 'immer';
 import { RequestLetter } from '../DataType/RequestLetter';
 import { t_r } from '../Utility/i18n';
-import { rethrow, WarningException } from '../Utility/errors';
+import { WarningException } from '../Utility/errors';
 import type { StoreSlice } from 'utility';
 import { CompanyState } from './company';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
-import type { RequestLanguage, Company } from '../types/company';
 import { slugify } from '../Utility/common';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';

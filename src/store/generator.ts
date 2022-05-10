@@ -1,16 +1,9 @@
 import create, { GetState, SetState } from 'zustand';
 import { RequestState, createRequestStore } from './request';
-import {
-    CustomTemplateName,
-    CUSTOM_TEMPLATE_OPTIONS,
-    IdDataElement,
-    Request,
-    ResponseType,
-    Signature,
-} from '../types/request.d';
+import { CUSTOM_TEMPLATE_OPTIONS, IdDataElement, Request, ResponseType, Signature } from '../types/request.d';
 import createContext from 'zustand/context';
 import { CompanyState, createCompanyStore } from './company';
-import type { StoreSlice } from 'utility';
+import type { StoreSlice } from '../types/utility';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
 // This will be replaced with an URL by the worker-loader plugin in webpack which is why eslint can't fin a defautl import (ts can be tricked by defining a module).

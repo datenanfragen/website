@@ -3,7 +3,6 @@ import { useGeneratorStore } from '../../store/generator';
 import { SearchBarProps, SearchBar } from '../SearchBar';
 import type { Except } from 'type-fest';
 import { useNewRequestModal } from './NewRequestButton';
-import { useState } from 'preact/hooks';
 import { Company } from '../../types/company.d';
 
 export const CompanySelector = (
@@ -12,11 +11,10 @@ export const CompanySelector = (
     const setCompany = useGeneratorStore((state) => state.setCompany);
     const request_sent = useGeneratorStore((state) => state.request.sent);
     const company = useGeneratorStore((state) => state.current_company);
-    const [selectedCompany, setSelectedCompany] = useState<Company>();
 
     const { newRequestHook } = props;
 
-    const [ConfirmNewRequestModal, showConfirmNewRequestModal, , , newRequest] = useNewRequestModal((payload) => {
+    const [ConfirmNewRequestModal, showConfirmNewRequestModal] = useNewRequestModal((payload) => {
         setCompany(payload as Company).then(() => {
             if (newRequestHook) newRequestHook();
         });

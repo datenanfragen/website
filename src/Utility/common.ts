@@ -9,8 +9,6 @@ export const slugify = (text: string) =>
         .replace(/-+$/, '') || // Trim - from end of text
     '';
 
-export const fakeEvt = <T>(value: T) => ({ target: { value } });
-
 // Adapted after: https://stackoverflow.com/a/8498629
 export const domainWithoutTldFromUrl = (url?: string) =>
     url?.match(/^https?:\/\/([^#/:?]+)\.([^#./:?]+)(?:[#/:?]|$)/i)?.[1];
