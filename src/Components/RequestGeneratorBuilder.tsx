@@ -30,14 +30,17 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
     // To transiently update the component. See: https://github.com/pmndrs/zustand#transient-updates-for-often-occuring-state-changes
     const generatorStoreApi = useGeneratorStoreApi();
 
-    useEffect(() => {
-        generatorStoreApi.subscribe((state, prev) => {
-            if (state.request !== prev.request) {
-                renderLetter();
-            }
-        });
-        initiatePdfGeneration();
-    }, [initiatePdfGeneration, renderLetter, generatorStoreApi]);
+    useEffect(
+        () =>
+            generatorStoreApi.subscribe((state, prev) => {
+                if (state.request !== prev.request) {
+                    renderLetter();
+                }
+            }),
+        [renderLetter, generatorStoreApi]
+    );
+
+    useEffect(() => initiatePdfGeneration(), [initiatePdfGeneration]);
 
     useEffect(() => {
         const { response_to, response_type } = window.PARAMETERS;

@@ -17,7 +17,7 @@ const SUBMIT_URL =
         : 'https://backend.datenanfragen.de/suggest';
 
 window.addEventListener('load', () => {
-    const SCHEMA_URL = BASE_URL + 'schema.json';
+    const SCHEMA_URL = window.BASE_URL + 'schema.json';
     fetch(SCHEMA_URL)
         .then((res) => res.json())
         .then((out) => {
@@ -48,8 +48,8 @@ const sortCategories = (categories) => {
 function prepareForm(schema) {
     sortRelevantCountries(schema.properties['relevant-countries']);
     sortCategories(schema.properties['categories']);
-    if (PARAMETERS['slug']) {
-        fetchCompanyDataBySlug(PARAMETERS['slug']).then((company) => {
+    if (window.PARAMETERS['slug']) {
+        return fetchCompanyDataBySlug(window.PARAMETERS['slug']).then((company) => {
             renderForm(schema, company);
         });
     } else renderForm(schema);
@@ -211,7 +211,7 @@ function suggestSimilarNamedCompanies() {
                             {this.state.similarMatches.map((similarMatch) => (
                                 <li key={similarMatch.slug}>
                                     <a
-                                        href={BASE_URL + 'company/' + similarMatch.slug}
+                                        href={window.BASE_URL + 'company/' + similarMatch.slug}
                                         target="_blank"
                                         rel="noreferrer">
                                         {similarMatch.name}
@@ -342,7 +342,7 @@ function displaySuccessModal(data) {
     let dismiss = () => {
         render('', document.body, modal);
 
-        window.location = BASE_URL + 'company/' + (PARAMETERS['slug'] || '');
+        window.location = window.BASE_URL + 'company/' + (PARAMETERS['slug'] || '');
     };
     modal = render(
         <Modal onDismiss={dismiss} positiveText={t('ok', 'suggest')} onPositiveFeedback={dismiss}>

@@ -6,6 +6,8 @@ import { useCallback, useState } from 'preact/hooks';
 import { useModal } from '../Modal';
 import t from '../../Utility/i18n';
 import type { JSX } from 'preact';
+import { Privacy, PRIVACY_ACTIONS } from '../../Utility/Privacy';
+import { SavedCompanies } from '../../DataType/SavedCompanies';
 
 type NewRequestButtonProps = {
     newRequestHook?: (arg?: unknown) => void;
@@ -54,7 +56,8 @@ export const useNewRequestModal = (
     const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
     const storeRequest = useGeneratorStore((state) => state.storeRequest);
     const setBusy = useGeneratorStore((state) => state.setBusy);
-    const setReady = useGeneratorStore((state) => state.setReady);
+    const request_type = useGeneratorStore((state) => state.request.type);
+    const current_company = useGeneratorStore((state) => state.current_company);
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
 
     const [payload, setPayload] = useState<Parameters<Exclude<typeof newRequestHook, undefined>>[0]>();
@@ -66,6 +69,13 @@ export const useNewRequestModal = (
             clearUrlParameters();
         }
 
+        if (
+            request_type === 'access' &&
+            Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) &&
+            current_company?.slug
+        )
+            new SavedCompanies().remove(current_company.slug);
+
         resetRequestToDefault();
         setDownload(false);
         setBusy();
@@ -75,7 +85,18 @@ export const useNewRequestModal = (
             })
             .then(() => advanceBatch())
             .then(() => resetInitialConditions());
-    }, [newRequestHook, resetInitialConditions, resetRequestToDefault, setDownload, removeCompany]);
+    }, [
+        newRequestHook,
+        resetInitialConditions,
+        resetRequestToDefault,
+        setDownload,
+        removeCompany,
+        current_company,
+        request_type,
+        payload,
+        advanceBatch,
+        setBusy,
+    ]);
 
     const [ConfirmNewRequestModal, showModal, dismissConfirmNewRequestModal, shown] = useModal(
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>

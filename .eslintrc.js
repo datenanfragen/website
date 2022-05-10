@@ -72,6 +72,9 @@ module.exports = {
 
         'optimize-regex/optimize-regex': 'warn',
         'prefer-template': 'off',
+        'jest/expect-expect': 'off',
+        'jest/valid-expect-in-promise': 'off',
+        'jest/valid-expect': 'off',
     },
     globals: {
         Atomics: 'readonly',
@@ -134,12 +137,6 @@ module.exports = {
         'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } },
     },
     overrides: [
-        {
-            files: ['*.spec.ts'],
-            rules: {
-                'jest/*': 'off',
-            },
-        },
         {
             files: ['*.ts', '*.tsx'],
             rules: {

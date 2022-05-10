@@ -13,15 +13,7 @@ describe('Generator component', () => {
         cy.contains('Download PDF', { timeout: 10000 })
             .should('not.have.class', 'disabled')
             .should('have.attr', 'href')
-            .and('match', /^blob:https?:\/\/[\S]+?\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
-    });
-
-    it('did not load pdfworker for email', () => {
-        skipOn(isOn('production'));
-
-        cy.window().then((win) => {
-            expect(win.pdfWorker).to.be.undefined;
-        });
+            .and('match', /^blob:ht{2}ps?:\/{2}\S+?\/[\da-f]{8}(?:-[\da-f]{4}){3}-[\da-f]{12}$/);
     });
 
     it('did load pdfworker for fax', () => {
@@ -36,8 +28,6 @@ describe('Generator component', () => {
             // time to 🦆 type...
             expect(win.pdfWorker).respondTo('postMessage');
             expect(win.pdfWorker).respondTo('terminate');
-            expect(win.pdfWorker).respondTo('onmessage');
-            expect(win.pdfWorker).respondTo('onerror');
         });
     });
 

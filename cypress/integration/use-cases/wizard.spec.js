@@ -75,6 +75,6 @@ describe('Using the wizard', () => {
         cy.get('aside.company-info.box').get('.accordion-title');
 
         cy.contains('Send email').click();
-        cy.contains('Default email software').clickLinkWithoutFollowingHref();
+        cy.contains('Default email software').clickLinkWithoutFollowingHref({ force: true });
     });
 });

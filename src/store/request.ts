@@ -153,6 +153,10 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                     state.request.custom_data = makeCustomDataFromIdData(state.request);
                 if (state.request.type === 'rectification' && state.request.rectification_data === undefined)
                     state.request.rectification_data = [];
+                if (state.request.type === 'erasure') {
+                    state.request.erase_all = true;
+                    state.request.erasure_data = '';
+                }
             })
         );
         get().refreshTemplate();
@@ -285,10 +289,11 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                     }
                 })
             );
+        } else {
+            throw new WarningException(
+                "Custom request templates can only be set for a custom request (request.type !== 'custom')."
+            );
         }
-        throw new WarningException(
-            "Custom request templates can only be set for a custom request (request.type !== 'custom')."
-        );
     },
     setCustomLetterProperty: (property, value) => {
         if (get().request.type === 'custom') {
@@ -301,7 +306,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             );
         } else {
             throw new WarningException(
-                "Custom request templates can only be set for a custom request (request.type !== 'custom')."
+                "Custom letter property can only be set for a custom request (request.type !== 'custom')."
             );
         }
     },
@@ -316,7 +321,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             );
         } else {
             throw new WarningException(
-                "Custom request templates can only be set for a custom request (request.type !== 'custom')."
+                "Custom letter address can only be set for a custom request (request.type !== 'custom')."
             );
         }
     },

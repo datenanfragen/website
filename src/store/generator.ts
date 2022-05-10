@@ -76,7 +76,7 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
         let pdfWorker = get().pdfWorker;
         if (!pdfWorker) pdfWorker = new PdfWorker();
 
-        if ((window as typeof window & { hugoDevMode: boolean })?.hugoDevMode) {
+        if ((window as typeof window & { hugoDevMode: boolean }).hugoDevMode) {
             // copy the worker to window if we are in a dev env to enable easy testing
             (window as typeof window & { pdfWorker: PdfWorker }).pdfWorker = pdfWorker;
         }
@@ -135,9 +135,7 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
                             if (request) {
                                 return get()
                                     .setCustomLetterTemplate(
-                                        response_type in CUSTOM_TEMPLATE_OPTIONS
-                                            ? (response_type as CustomTemplateName)
-                                            : 'no-template',
+                                        CUSTOM_TEMPLATE_OPTIONS.includes(response_type) ? response_type : 'no-template',
                                         request
                                     )
                                     .then(() => request);
