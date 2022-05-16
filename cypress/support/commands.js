@@ -65,22 +65,20 @@ Cypress.Commands.add('addCompanyToWizard', (company, result_str) => {
 Cypress.Commands.add('seedWizardCompaniesWithKnownList', () => {
     cy.visit('/contact');
     cy.window()
-        .then((win) => {
-            return win.accessLocalForageStore('wizard-companies').then((instance) => {
-                const promises = [
-                    instance.clear(),
+        .then((win) => win.accessLocalForageStore('wizard-companies'))
+        .then((instance) =>
+            Promise.all([
+                instance.clear(),
 
-                    instance.setItem('datenanfragen', 'Datenanfragen.de e. V.'),
-                    instance.setItem('gabriele-altpeter-internethandel', 'Gabriele Altpeter, Internethandel'),
-                    instance.setItem('schufa', 'SCHUFA Holding AG'),
-                    instance.setItem(
-                        'verfassungsschutz-nds',
-                        'Niedersächsisches Ministerium für Inneres und Sport – Abteilung Verfassungsschutz'
-                    ),
-                ];
-                return Promise.all(promises);
-            });
-        })
+                instance.setItem('datenanfragen', 'Datenanfragen.de e. V.'),
+                instance.setItem('gabriele-altpeter-internethandel', 'Gabriele Altpeter, Internethandel'),
+                instance.setItem('schufa', 'SCHUFA Holding AG'),
+                instance.setItem(
+                    'verfassungsschutz-nds',
+                    'Niedersächsisches Ministerium für Inneres und Sport – Abteilung Verfassungsschutz'
+                ),
+            ])
+        )
         .then(() => {
             cy.clearCookies();
             cy.setCookie('changed_saved_companies', 'true');

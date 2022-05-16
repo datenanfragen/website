@@ -7,7 +7,7 @@ import localforage from 'localforage';
 type ExtendedWindow = typeof window & {
     getAppStore: () => ReturnType<typeof useAppStore.getState>;
     showFlash: (type: 'info' | 'error' | 'warning' | 'success', text: string, duration: number) => void;
-    accessLocalForageStore: (store_name: string) => Promise<typeof localforage>;
+    accessLocalForageStore: (store_name: string) => typeof localforage;
 };
 
 (window as ExtendedWindow).getAppStore = () => useAppStore.getState();
@@ -19,14 +19,5 @@ type ExtendedWindow = typeof window & {
         </FlashMessage>
     );
 
-// TODO: This looks like an unnecessary promise to me but Cypress is sometimes weird with stuff like that, so it might
-// actually be needed.
 (window as ExtendedWindow).accessLocalForageStore = (store_name) =>
-    new Promise((resolve) => {
-        resolve(
-            localforage.createInstance({
-                name: 'Datenanfragen.de',
-                storeName: store_name,
-            })
-        );
-    });
+    localforage.createInstance({ name: 'Datenanfragen.de', storeName: store_name });
