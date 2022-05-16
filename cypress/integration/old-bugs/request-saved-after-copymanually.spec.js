@@ -18,13 +18,9 @@ describe('Request should be saved without clicking ok in the copy manually modal
 
         cy.get('#reference')
             .invoke('val')
-            .then((reference) => {
-                cy.window().then((win) =>
-                    win.accessLocalForageStore('my-requests').then((instance) => {
-                        instance.getItem(`${reference}-access`);
-                    })
-                );
-            });
+            .then((reference) =>
+                cy.window().then((win) => win.accessLocalForageStore('my-requests').getItem(`${reference}-access`))
+            );
     });
 
     it('After click in the new request modal', () => {
@@ -41,12 +37,8 @@ describe('Request should be saved without clicking ok in the copy manually modal
 
         cy.get('#reference')
             .invoke('val')
-            .then((reference) => {
-                cy.window().then((win) =>
-                    win.accessLocalForageStore('my-requests').then((instance) => {
-                        instance.getItem(`${reference}-access`);
-                    })
-                );
-            });
+            .then((reference) =>
+                cy.window().then((win) => win.accessLocalForageStore('my-requests').getItem(`${reference}-access`))
+            );
     });
 });
