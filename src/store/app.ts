@@ -4,6 +4,7 @@ import type i18n_definition_type from '../i18n/en.json';
 
 export type Country = Exclude<keyof typeof i18n_definition_type['countries'], '__taken_from'>;
 type AppState = {
+    countrySet: boolean;
     country: Country;
 
     changeCountry: (new_country: Country) => void;
@@ -13,11 +14,10 @@ type AppState = {
 export const useAppStore = create(
     persist(
         (set: SetState<AppState>) => ({
-            // This is hacky but we know that `general.tsx` will always ensure `country` and otherwise all usages would
-            // have to check whether it's set.
-            country: undefined as unknown as Country,
+            countrySet: false,
+            country: 'all' as Country,
 
-            changeCountry: (new_country: Country) => set({ country: new_country }),
+            changeCountry: (new_country: Country) => set({ country: new_country, countrySet: true }),
         }),
         {
             name: 'Datenanfragen.de-settings',
