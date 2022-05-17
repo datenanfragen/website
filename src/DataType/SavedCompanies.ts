@@ -27,7 +27,7 @@ export class SavedCompanies {
     }
     addMultiple(companies: Record<string, string>, by_user = true) {
         if (by_user) this.setUserChanged();
-        for (const slug in companies) this.add(slug, companies[slug], by_user);
+        return Promise.all(Object.keys(companies).map((slug) => this.add(slug, companies[slug], by_user)));
     }
 
     remove(slug: string, by_user = true) {
