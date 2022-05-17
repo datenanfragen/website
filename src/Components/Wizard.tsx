@@ -61,20 +61,18 @@ export const Wizard = () => {
         }
         if (!suggested_companies_data) return;
 
-        setSelectedCompanies(suggested_companies_data);
-
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
             saved_companies?.length().then((length) => {
                 if (length === 0 || !saved_companies?.getUserChanged()) {
                     if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
-                        saved_companies?.clearAll().then(() => {
-                            saved_companies?.addMultiple(suggested_companies_data, false);
-                            saved_companies?.setUserChanged(false);
-                        });
+                        saved_companies
+                            ?.clearAll()
+                            .then(() => saved_companies?.addMultiple(suggested_companies_data, false))
+                            .then(() => setSelectedCompanies(suggested_companies_data));
                     }
                 } else saved_companies.getAll().then((companies) => setSelectedCompanies(companies));
             });
-        }
+        } else setSelectedCompanies(suggested_companies_data);
     }, [suggested_companies_url, suggested_companies_data, suggested_companies_error]);
 
     return (
