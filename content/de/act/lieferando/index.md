@@ -30,13 +30,12 @@ Das ist natürlich kostenlos für dich und wir bekommen keine personenbezogenen 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< noScript "noscript-actwidget" >}}
 <script>
-window.props = {
-    /* TODO: the labels are shown in English, because I don't want to hardcode the record here. Thats kinda okay, because "Name" and "Address" are quite similar to "Name" and "Adresse".*/
-    request_types: ['access'],
-    transport_medium: 'email',
+window.addEventListener('load', function() { renderActWidget({
+    /*TODO: the labels are shown in English, because I don't want to hardcode the record here. Thats kinda okay, because "Name" and "Address" are quite similar to "Name" and "Adresse".*/
+    requestTypes: ['access'],
+    transportMedium: 'email',
     company: 'takeaway-com'
-};
-window.addEventListener('load', function() { renderActWidget(); });
+}); });
 </script>
 
 ## Was dann?

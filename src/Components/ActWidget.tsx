@@ -1,6 +1,6 @@
 import { render } from 'preact';
 import { RequestGeneratorBuilder } from './RequestGeneratorBuilder';
-import { RequestType, TransportMedium } from 'request';
+import type { RequestType, TransportMedium } from '../types/request';
 import { Company } from '../types/company.d';
 import { ActionButtonPlaceholder } from './Generator/ActionButton';
 import { SignatureInputPlaceholder } from './Generator/SignatureInput';
@@ -9,10 +9,10 @@ import { DynamicInputContainerPlaceholder } from './Generator/DynamicInputContai
 import { createGeneratorStore, RequestGeneratorProvider, useGeneratorStore } from '../store/generator';
 
 type ActWidgetProps = {
-    request_types: RequestType[];
-    transport_medium: TransportMedium;
+    requestTypes: RequestType[];
+    transportMedium: TransportMedium;
     company: string | Company;
-    text_before_dynamic_input_container: string;
+    textBeforeDynamicInputContainer: string;
 };
 
 export const ActWidget = (props: ActWidgetProps) => {
@@ -29,12 +29,12 @@ export const ActWidget = (props: ActWidgetProps) => {
                     if (typeof props.company === 'string') setCompanyBySlug(props.company);
                     else if (typeof props.company === 'object') setCompany(props.company);
 
-                    setRequestType(props.request_types[0]);
-                    props.transport_medium && setTransportMedium(props.transport_medium);
+                    setRequestType(props.requestTypes[0]);
+                    props.transportMedium && setTransportMedium(props.transportMedium);
                 }}>
-                {props.request_types.length > 1 ? <RequestTypeChooser request_types={props.request_types} /> : null}
+                {props.requestTypes.length > 1 ? <RequestTypeChooser request_types={props.requestTypes} /> : null}
 
-                {props.text_before_dynamic_input_container ? <p>{props.text_before_dynamic_input_container}</p> : null}
+                {props.textBeforeDynamicInputContainer ? <p>{props.textBeforeDynamicInputContainer}</p> : null}
 
                 <DynamicInputContainerPlaceholder
                     allowAddingFields={false}
@@ -53,11 +53,10 @@ export const ActWidget = (props: ActWidgetProps) => {
     );
 };
 
-(window as typeof window & { renderActWidget: (id?: string, props?: ActWidgetProps) => void }).renderActWidget = (
-    id,
-    props
+(window as typeof window & { renderActWidget: (props: ActWidgetProps, id?: string) => void }).renderActWidget = (
+    props,
+    id
 ) => {
-    if (!props) props = (window as typeof window & { props: ActWidgetProps }).props;
     const elems = id ? [document.getElementById(id)] : document.querySelectorAll('.act-widget');
     elems.forEach(
         (el) =>

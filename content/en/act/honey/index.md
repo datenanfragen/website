@@ -144,10 +144,10 @@ Enter your name, email, and both IDs into the form below and you are ready to se
 {{< noScript "noscript-actwidget" >}}
 <script>
 window.addEventListener('load', function() {
-    renderActWidget("act-with-account", {
-        text_before_dynamic_input_container: "You’ve used Honey with an account? Use this form.",
-        request_types: ['access'],
-        transport_medium: 'email',
+    renderActWidget({
+        textBeforeDynamicInputContainer: "You’ve used Honey with an account? Use this form.",
+        requestTypes: ['access'],
+        transportMedium: 'email',
         company: {
             "slug": "joinhoney",
             "relevant-countries": [
@@ -184,11 +184,11 @@ window.addEventListener('load', function() {
             "suggested-transport-medium": "email",
             "quality": "tested"
         }
-    });
-    renderActWidget("act-no-account", {
-        text_before_dynamic_input_container: "You've used Honey without an account? Use this form.",
-        request_types: ['access'],
-        transport_medium: 'email',
+    }, "act-with-account");
+    renderActWidget({
+        textBeforeDynamicInputContainer: "You've used Honey without an account? Use this form.",
+        requestTypes: ['access'],
+        transportMedium: 'email',
         company: {
             "slug": "joinhoney",
             "relevant-countries": [
@@ -230,7 +230,7 @@ window.addEventListener('load', function() {
             "suggested-transport-medium": "email",
             "quality": "tested"
         }
-    });
+    }, "act-no-account");
 });
 </script>
 
@@ -313,8 +313,7 @@ You can use this tool to find the authority responsible for you and their contac
 <div class="sva-finder"></div>
 {{< noScript "noscript-sva" >}}
 <script>
-    window.props = { override: { country: { de: 'debralda' } }, showTitle: false };
-    window.addEventListener('load', function() { renderSvaFinder(); });
+    window.addEventListener('load', function() { window.renderSvaFinder({ override: { country: { de: 'debralda' } }, showTitle: false }); });
 </script>
 
 The responsible authority will check your complaint and if they determine a misconduct on Honey's side, they can instruct them to cease that activity or even impose a fine.
