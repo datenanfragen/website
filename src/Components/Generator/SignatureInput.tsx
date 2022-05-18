@@ -237,7 +237,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
     /* eslint-enable */
 };
 
-export const SignatureInputPlaceholder = (props: Partial<SignatureInputProps>) => {
+export const StatefulSignatureInput = (props: Partial<SignatureInputProps>) => {
     const setSignature = useGeneratorStore((state) => state.setSignature);
     const signature = useGeneratorStore((state) => state.request.signature);
 

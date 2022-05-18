@@ -15,7 +15,7 @@ import { SavedCompanies } from './DataType/SavedCompanies';
 import { useEffect, useState, useRef, useCallback } from 'preact/hooks';
 import { createGeneratorStore, RequestGeneratorProvider, useGeneratorStore } from './store/generator';
 import { useModal } from './Components/Modal';
-import { ActionButtonPlaceholder } from './Components/Generator/ActionButton';
+import { ActionButton } from './Components/Generator/ActionButton';
 import { NewRequestButton } from './Components/Generator/NewRequestButton';
 import { RequestForm } from './Components/Generator/RequestForm';
 import { CompanyWidget } from './Components/Generator/CompanyWidget';
@@ -117,7 +117,7 @@ const Generator = () => {
             <RequestGeneratorBuilder>
                 <header id="generator-header">
                     <div id="generator-controls" style="margin-bottom: 10px;">
-                        <ActionButtonPlaceholder />
+                        <ActionButton />
                         <NewRequestButton newRequestHook={newRequestHook} />
                     </div>
                 </header>

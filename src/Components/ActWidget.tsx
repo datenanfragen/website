@@ -2,10 +2,10 @@ import { render } from 'preact';
 import { RequestGeneratorBuilder } from './RequestGeneratorBuilder';
 import type { RequestType, TransportMedium } from '../types/request';
 import { Company } from '../types/company.d';
-import { ActionButtonPlaceholder } from './Generator/ActionButton';
-import { SignatureInputPlaceholder } from './Generator/SignatureInput';
+import { ActionButton } from './Generator/ActionButton';
+import { StatefulSignatureInput } from './Generator/SignatureInput';
 import { RequestTypeChooser } from './Generator/RequestTypeChooser';
-import { DynamicInputContainerPlaceholder } from './Generator/DynamicInputContainer';
+import { StatefulDynamicInputContainer } from './Generator/DynamicInputContainer';
 import { createGeneratorStore, RequestGeneratorProvider, useGeneratorStore } from '../store/generator';
 
 type ActWidgetProps = {
@@ -36,16 +36,16 @@ export const ActWidget = (props: ActWidgetProps) => {
 
                 {props.textBeforeDynamicInputContainer ? <p>{props.textBeforeDynamicInputContainer}</p> : null}
 
-                <DynamicInputContainerPlaceholder
+                <StatefulDynamicInputContainer
                     allowAddingFields={false}
                     allowRemovingFields={false}
                     allowChangingFieldDescriptions={false}
                 />
 
-                {transport_medium !== 'email' ? <SignatureInputPlaceholder /> : null}
+                {transport_medium !== 'email' ? <StatefulSignatureInput /> : null}
 
                 <div style="float: right; margin-top: 10px;">
-                    <ActionButtonPlaceholder />
+                    <ActionButton />
                 </div>
                 <div className="clearfix" />
             </RequestGeneratorBuilder>
