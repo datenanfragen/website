@@ -3,7 +3,7 @@ import { Fragment, JSX } from 'preact';
 import { Text } from 'preact-i18n';
 import t from '../../Utility/i18n';
 
-export default function RequestFlags() {
+export function RequestFlags() {
     const request = useGeneratorStore((state) => state.request);
     const setRequestFlag = useGeneratorStore((state) => state.setRequestFlag);
 
@@ -17,7 +17,7 @@ export default function RequestFlags() {
                             id="request-flags-data-portability"
                             className="request-flags form-element"
                             checked={request.data_portability}
-                            onChange={(event: JSX.TargetedEvent<HTMLInputElement, Event>) =>
+                            onChange={(event) =>
                                 setRequestFlag({
                                     name: 'data_portability',
                                     value: event.currentTarget.checked,
@@ -39,7 +39,7 @@ export default function RequestFlags() {
                             id="request-flags-erase-all"
                             className="request-flags form-element"
                             checked={request.erase_all}
-                            onChange={(event: JSX.TargetedEvent<HTMLInputElement, Event>) =>
+                            onChange={(event) =>
                                 setRequestFlag({ name: 'erase_all', value: event.currentTarget.checked })
                             }
                         />

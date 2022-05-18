@@ -5,10 +5,10 @@ import { MarkupText, Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import Accordion from '../Accordion';
 import { RequestTypeChooser } from './RequestTypeChooser';
-import RecipientInput from './RecipientInput';
-import TransportMediumChooser from './TransportMediumChooser';
+import { RecipientInput } from './RecipientInput';
+import { TransportMediumChooser } from './TransportMediumChooser';
 import { useGeneratorStore } from '../../store/generator';
-import RequestFlags from './RequestFlags';
+import { RequestFlags } from './RequestFlags';
 import { CustomRequestInput } from './CustomRequestInput';
 
 type RequestFormProps = {
@@ -41,50 +41,6 @@ export const RequestForm = (props: RequestFormProps) => {
     const addField = useGeneratorStore((state) => state.addField);
     const removeField = useGeneratorStore((state) => state.removeField);
 
-    let body = [];
-    let heading_class = '';
-    switch (request_type) {
-        case 'rectification':
-            body.push(
-                <DynamicInputContainer
-                    key="rectification_data"
-                    id="rectification_data"
-                    title={t('rectification-data', 'generator')}
-                    fields={rectification_data}
-                    hasPrimary={false}
-                    onAddField={(field) => addField(field, 'rectification_data')}
-                    onRemoveField={(id) => removeField(id, 'rectification_data')}
-                    onChange={(id, field) => setField(id, field, 'rectification_data')}
-                    allowAddingFields={true}>
-                    <MarkupText id="rectification-data-explanation" />
-                </DynamicInputContainer>
-            );
-            heading_class = 'has-margin';
-        // fallthrough intentional
-        case 'erasure':
-        case 'objection':
-        case 'access':
-            body.push(
-                <DynamicInputContainer
-                    key="id_data"
-                    id="id_data"
-                    onAddField={(field) => addField(field, 'id_data')}
-                    onRemoveField={(id) => removeField(id, 'id_data')}
-                    onChange={(id, field) => setField(id, field, 'id_data')}
-                    fields={id_data}
-                    title={t(is_tracking_request ? 'id-data-tracking' : 'id-data', 'generator')}
-                    hasPrimary={true}
-                    fillFields={fillFields}
-                    allowAddingFields={true}
-                    headingClass={heading_class}>
-                    <MarkupText id={is_tracking_request ? 'id-data-tracking-explanation' : 'id-data-explanation'} />
-                </DynamicInputContainer>
-            );
-            break;
-        case 'custom':
-            body = [<CustomRequestInput />];
-    }
-
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div className="request-form">
@@ -96,10 +52,8 @@ export const RequestForm = (props: RequestFormProps) => {
                         <RequestTypeChooser />
 
                         <TransportMediumChooser
-                            transportMedium={transport_medium}
-                            onChange={(value) => {
-                                setTransportMedium(value);
-                            }}
+                            value={transport_medium}
+                            onChange={(value) => setTransportMedium(value)}
                         />
 
                         <RecipientInput
@@ -159,14 +113,49 @@ export const RequestForm = (props: RequestFormProps) => {
                             </div>
                         </Accordion>
                     </div>
+
                     {props.children}
                 </div>
 
                 <div className="col50">
                     <div className="box">
-                        {body}
+                        {request_type === 'rectification' && (
+                            <DynamicInputContainer
+                                key="rectification_data"
+                                id="rectification_data"
+                                title={t('rectification-data', 'generator')}
+                                fields={rectification_data}
+                                hasPrimary={false}
+                                onAddField={(field) => addField(field, 'rectification_data')}
+                                onRemoveField={(id) => removeField(id, 'rectification_data')}
+                                onChange={(id, field) => setField(id, field, 'rectification_data')}
+                                allowAddingFields={true}>
+                                <MarkupText id="rectification-data-explanation" />
+                            </DynamicInputContainer>
+                        )}
 
-                        {transport_medium !== 'email' ? (
+                        {request_type === 'custom' ? (
+                            <CustomRequestInput />
+                        ) : (
+                            <DynamicInputContainer
+                                key="id_data"
+                                id="id_data"
+                                onAddField={(field) => addField(field, 'id_data')}
+                                onRemoveField={(id) => removeField(id, 'id_data')}
+                                onChange={(id, field) => setField(id, field, 'id_data')}
+                                fields={id_data}
+                                title={t(is_tracking_request ? 'id-data-tracking' : 'id-data', 'generator')}
+                                hasPrimary={true}
+                                fillFields={fillFields}
+                                allowAddingFields={true}
+                                headingClass={request_type === 'rectification' ? 'has-margin' : ''}>
+                                <MarkupText
+                                    id={is_tracking_request ? 'id-data-tracking-explanation' : 'id-data-explanation'}
+                                />
+                            </DynamicInputContainer>
+                        )}
+
+                        {transport_medium !== 'email' && (
                             <SignatureInput
                                 id="signature"
                                 width={428}
@@ -175,7 +164,7 @@ export const RequestForm = (props: RequestFormProps) => {
                                 value={signature}
                                 fillSignature={fillSignature}
                             />
-                        ) : null}
+                        )}
                     </div>
                 </div>
             </div>

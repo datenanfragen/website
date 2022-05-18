@@ -49,10 +49,9 @@ function prepareForm(schema) {
     sortRelevantCountries(schema.properties['relevant-countries']);
     sortCategories(schema.properties['categories']);
     if (window.PARAMETERS['slug']) {
-        return fetchCompanyDataBySlug(window.PARAMETERS['slug']).then((company) => {
-            renderForm(schema, company);
-        });
-    } else renderForm(schema);
+        return fetchCompanyDataBySlug(window.PARAMETERS['slug']).then((company) => renderForm(schema, company));
+    }
+    renderForm(schema);
 }
 
 function renderForm(schema, company = undefined) {
@@ -101,7 +100,7 @@ function renderForm(schema, company = undefined) {
                 }, 0);
             }
         } else {
-            var tagName = element.tagName.toLowerCase();
+            const tagName = element.tagName.toLowerCase();
             if (tagName === 'input' || tagName === 'textarea') {
                 element.className += ' form-element';
                 if (tagName === 'textarea') element.setAttribute('rows', '5');

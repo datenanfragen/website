@@ -10,8 +10,8 @@ type Color = string;
 type SignatureInputProps = {
     id: string;
 
-    height: number;
-    width: number;
+    height?: number;
+    width?: number;
     strokeColor?: Color;
 
     value: Signature;
@@ -27,7 +27,7 @@ type Position = { x: number; y: number };
 export const SignatureInput = (props: SignatureInputProps) => {
     const canvas: Ref<HTMLCanvasElement> = useRef(null);
     const context: MutableRef<CanvasRenderingContext2D | null> = useRef(null);
-    const [canvasImageExtractionBlocked, setcanvasImageExtractionBlocked] = useState(false);
+    const [canvasImageExtractionBlocked, setCanvasImageExtractionBlocked] = useState(false);
     const [isEmpty, setEmpty] = useState(true);
     const [lastPosition, setLastPosition] = useState<Position>({ x: 0, y: 0 });
     const [isDrawing, setDrawing] = useState(false);
@@ -45,38 +45,36 @@ export const SignatureInput = (props: SignatureInputProps) => {
     };
     const [cropArea, setCropArea] = useState<CropArea>(initialCropArea);
 
-    /**
-     * Mice are scary!
-     */
+    // Mice are scary!
     const handleMouse = (event: JSX.TargetedMouseEvent<HTMLCanvasElement>) => {
         if (canvas.current && context.current) {
-            let x; // Apparently JS linting ignores breaks…
-            let y;
             switch (event.type) {
                 case 'pointermove':
                     if (isDrawing) {
-                        x = event.pageX - canvas.current.offsetLeft;
-                        y = event.pageY - canvas.current.offsetTop;
+                        const x = event.pageX - canvas.current.offsetLeft;
+                        const y = event.pageY - canvas.current.offsetTop;
                         drawPath(context.current, lastPosition, { x, y }, strokeColor);
                         setLastPosition({ x, y });
                         setCropArea(newCropAreaFromPenPosition(x, y, cropArea));
                     }
                     break;
                 case 'pointerdown':
-                    if (canvas.current.width !== canvas.current.parentElement?.scrollWidth) {
-                        canvas.current.width = canvas.current.parentElement?.scrollWidth || 100;
+                    {
+                        if (canvas.current.width !== canvas.current.parentElement?.scrollWidth) {
+                            canvas.current.width = canvas.current.parentElement?.scrollWidth || 100;
+                        }
+
+                        const x = event.pageX - canvas.current.offsetLeft;
+                        const y = event.pageY - canvas.current.offsetTop;
+
+                        drawCircle(context.current, { x, y }, 1, strokeColor);
+                        setCropArea(newCropAreaFromPenPosition(x, y, cropArea));
+
+                        setDrawing(true);
+                        setLastPosition({ x, y });
+                        setEmpty(false);
+                        setHasBeenDrawnOn(true);
                     }
-
-                    x = event.pageX - canvas.current.offsetLeft;
-                    y = event.pageY - canvas.current.offsetTop;
-
-                    drawCircle(context.current, { x, y }, 1, strokeColor);
-                    setCropArea(newCropAreaFromPenPosition(x, y, cropArea));
-
-                    setDrawing(true);
-                    setLastPosition({ x, y });
-                    setEmpty(false);
-                    setHasBeenDrawnOn(true);
 
                     break;
                 case 'pointerout':
@@ -107,7 +105,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
                         );
                     setHasBeenDrawnOn(false);
 
-                    setcanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
+                    setCanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
                 // fallthrough intentional
                 case 'pointerup':
                     setDrawing(false);
@@ -129,7 +127,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
             // event.
             let tries = 50;
             const f = () => {
-                setcanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
+                setCanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
                 if (tries-- > 0 && canvasImageExtractionBlocked) setTimeout(f, 500);
             };
             f();
@@ -139,7 +137,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
     useEffect(() => {
         if (canvas.current) {
             context.current = canvas.current.getContext('2d');
-            setcanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
+            setCanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
         }
     }, [canvas]);
 
@@ -180,7 +178,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
                         onPointerUp={handleMouse}
                         onPointerOut={handleMouse}
                     />
-                    {canvasImageExtractionBlocked ? (
+                    {canvasImageExtractionBlocked && (
                         <div
                             className="canvas-blocked-overlay"
                             style={`position: absolute; top: 0; left: 0; box-sizing: border-box; max-width: 100%; width: ${width}px; height: ${height}px; padding: 10px;`}>
@@ -193,8 +191,6 @@ export const SignatureInput = (props: SignatureInputProps) => {
                                 <Text id="overlay-allow" />
                             </button>
                         </div>
-                    ) : (
-                        []
                     )}
                 </div>
                 <button
@@ -211,7 +207,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
                     style="float: right; margin: 0 0 5px 5px;">
                     <Text id="reset-signature" />
                 </button>
-                {props.fillSignature?.type === 'image' ? (
+                {props.fillSignature?.type === 'image' && (
                     <button
                         style="float: right;"
                         className="button button-small button-secondary"
@@ -227,8 +223,6 @@ export const SignatureInput = (props: SignatureInputProps) => {
                         }}>
                         <Text id="fill-signature" />
                     </button>
-                ) : (
-                    []
                 )}
                 <div className="clearfix" />
             </div>
@@ -256,17 +250,11 @@ type CropArea = {
 function newCropAreaFromPenPosition(x: number, y: number, previousCropArea: CropArea) {
     const newCropArea: CropArea = { ...previousCropArea };
 
-    if (x > newCropArea.right) {
-        newCropArea.right = x;
-    } else if (x < newCropArea.left) {
-        newCropArea.left = x;
-    }
+    if (x > newCropArea.right) newCropArea.right = x;
+    else if (x < newCropArea.left) newCropArea.left = x;
 
-    if (y > newCropArea.bottom) {
-        newCropArea.bottom = y;
-    } else if (y < newCropArea.top) {
-        newCropArea.top = y;
-    }
+    if (y > newCropArea.bottom) newCropArea.bottom = y;
+    else if (y < newCropArea.top) newCropArea.top = y;
 
     return newCropArea;
 }
@@ -302,9 +290,7 @@ function drawSignature(ctx: CanvasRenderingContext2D, signature: Signature): Pro
                 });
             };
             img.src = signature.value;
-        } else {
-            resolve(null);
-        }
+        } else resolve(null);
     });
 }
 

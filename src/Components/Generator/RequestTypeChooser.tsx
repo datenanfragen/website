@@ -8,15 +8,14 @@ type RequestTypeChooserProps = {
 };
 
 export function RequestTypeChooser(props: RequestTypeChooserProps) {
-    const setRequestType = useGeneratorStore((state) => state.setRequestType);
-    const request_type = useGeneratorStore((state) => state.request.type);
-
     const request_types = props.request_types || REQUEST_TYPES;
-    const current = request_type || request_types[0];
+    const setRequestType = useGeneratorStore((state) => state.setRequestType);
+    const request_type = useGeneratorStore((state) => state.request.type) || request_types[0];
+
     const radios = request_types.map((type) => (
         <Radio
-            id={'request-type-choice-' + type}
-            radioVariable={current}
+            id={`request-type-choice-${type}`}
+            radioVariable={request_type}
             value={type}
             name="request-type"
             onChange={(value) => setRequestType(value as RequestType)}

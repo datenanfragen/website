@@ -34,7 +34,6 @@ declare global {
          * Translations used for generating requests in all languages, with the two-letter ISO code of the language
          * being the first-, and the translation key being the second-level key.
          */
-
         readonly I18N_DEFINITION_REQUESTS: Record<I18nLanguage, typeof i18n_definition_type['requests']>;
 
         /** List of parameters specified in the URL, including both hash fragment and GET parameters. */

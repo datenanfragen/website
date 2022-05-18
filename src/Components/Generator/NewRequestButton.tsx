@@ -11,7 +11,7 @@ import { SavedCompanies } from '../../DataType/SavedCompanies';
 
 type NewRequestButtonProps = {
     newRequestHook?: (arg?: unknown) => void;
-    buttonProps?: Record<string | symbol, unknown>;
+    buttonProps?: JSX.DOMAttributes<HTMLButtonElement>;
 };
 
 export const NewRequestButton = (props: NewRequestButtonProps) => {
@@ -80,10 +80,8 @@ export const useNewRequestModal = (
         setDownload(false);
         setBusy();
         removeCompany()
-            .then(() => {
-                return newRequestHook && newRequestHook(payload);
-            })
-            .then(() => advanceBatch())
+            .then(() => newRequestHook && newRequestHook(payload))
+            .then(() => advanceBatch)
             .then(() => resetInitialConditions());
     }, [
         newRequestHook,

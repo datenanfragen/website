@@ -4,11 +4,11 @@ import { Radio } from '../Radio';
 import { TransportMedium, TRANSPORT_MEDIA } from '../../types/request.d';
 
 type TransportMediumChooserProps = {
-    transportMedium: TransportMedium;
+    value: TransportMedium;
     onChange: (value: TransportMedium) => void;
 };
 
-export default function TransportMediumChooser(props: TransportMediumChooserProps) {
+export function TransportMediumChooser(props: TransportMediumChooserProps) {
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div className="request-transport-medium-chooser">
@@ -18,7 +18,7 @@ export default function TransportMediumChooser(props: TransportMediumChooserProp
                     {TRANSPORT_MEDIA.map((transport_medium) => (
                         <Radio
                             id={`request-transport-medium-choice-${transport_medium}`}
-                            radioVariable={props.transportMedium}
+                            radioVariable={props.value}
                             value={transport_medium}
                             name="transport-medium"
                             onChange={(value) => props.onChange(value as TransportMedium)}

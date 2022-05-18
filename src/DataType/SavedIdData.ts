@@ -24,10 +24,10 @@ export class SavedIdData {
             if (d.type === 'address') d.value.primary = undefined;
         })(data);
 
-        return this.localforage_instance.setItem(data.desc.replace('/::/g', '__'), to_store).catch((error) => {
+        return this.localforage_instance.setItem(data.desc.replace('/::/g', '__'), to_store).catch((error) =>
             // '::' is a special character and disallowed in the database for user inputs. The user will not encounter that as the description will be saved in the original state with the data object.
-            rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
-        });
+            rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] })
+        );
     }
 
     storeFixed(data: IdDataElement) {
@@ -64,33 +64,33 @@ export class SavedIdData {
     }
 
     storeSignature(signature: Signature) {
-        return this.localforage_instance.setItem('::signature', signature).catch((error) => {
-            rethrow(error, 'Saving signature failed.', { signature });
-        });
+        return this.localforage_instance
+            .setItem('::signature', signature)
+            .catch((error) => rethrow(error, 'Saving signature failed.', { signature }));
     }
 
     getByDesc(desc: string) {
-        return this.localforage_instance.getItem(desc.replace('/::/g', '__')).catch((error) => {
-            rethrow(error, 'Could not retrieve id_data.', { desc });
-        });
+        return this.localforage_instance
+            .getItem<IdDataElement>(desc.replace('/::/g', '__'))
+            .catch((error) => rethrow(error, 'Could not retrieve id_data.', { desc }));
     }
 
     getFixed(type: 'name' | 'birthdate' | 'email' | 'address') {
-        return this.localforage_instance.getItem(type + '::fixed').catch((error) => {
-            rethrow(error, 'Could not retrieve fixed id_data.', { type });
-        });
+        return this.localforage_instance
+            .getItem<IdDataElement>(type + '::fixed')
+            .catch((error) => rethrow(error, 'Could not retrieve fixed id_data.', { type }));
     }
 
-    getSignature(): Promise<Signature | null | void> {
-        return this.localforage_instance.getItem<Signature>('::signature').catch((error) => {
-            rethrow(error, 'Could not retrieve signature.');
-        });
+    getSignature() {
+        return this.localforage_instance
+            .getItem<Signature>('::signature')
+            .catch((error) => rethrow(error, 'Could not retrieve signature.'));
     }
 
     removeByDesc(desc: string) {
-        return this.localforage_instance.removeItem(desc.replace('/::/g', '__')).catch((error) => {
-            rethrow(error, 'Could not delete id_data.', { desc });
-        });
+        return this.localforage_instance
+            .removeItem(desc.replace('/::/g', '__'))
+            .catch((error) => rethrow(error, 'Could not delete id_data.', { desc }));
     }
 
     getAllFixed() {
@@ -99,12 +99,8 @@ export class SavedIdData {
             .iterate((data: IdDataElement, desc) => {
                 if (desc.match(/.*?::fixed$/)) id_data.push(data);
             })
-            .then(() => {
-                return id_data;
-            })
-            .catch((error) => {
-                rethrow(error, 'Could not retrieve all fixed id_data');
-            });
+            .then(() => id_data)
+            .catch((error) => rethrow(error, 'Could not retrieve all fixed id_data'));
     }
 
     getAll(exclude_fixed = true) {
@@ -114,12 +110,8 @@ export class SavedIdData {
                 if ((!desc.match(/.*?::fixed$/) || !exclude_fixed) && !desc.match(/.*?::signature$/))
                     id_data.push(data);
             })
-            .then(() => {
-                return id_data;
-            })
-            .catch((error) => {
-                rethrow(error, 'Could not retrieve all id_data');
-            });
+            .then(() => id_data)
+            .catch((error) => rethrow(error, 'Could not retrieve all id_data'));
     }
 
     clear() {

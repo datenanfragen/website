@@ -11,7 +11,7 @@ import type {
     Request,
     CustomTemplateName,
 } from '../types/request';
-import type { Company, SupervisoryAuthority } from 'company';
+import type { Company, RequestLanguage, SupervisoryAuthority } from '../types/company';
 
 export const REQUEST_ARTICLES = { access: '15', erasure: '17', rectification: '16', objection: '21(2)' };
 export const REQUEST_FALLBACK_LANGUAGE = 'en'; // We'll use English as hardcoded fallback language
@@ -34,7 +34,7 @@ export function isSaneDataField(
     return data_field === 'id_data' || (request_type === 'rectification' && data_field === 'rectification_data');
 }
 
-export const defaultRequest = (language: string): AccessRequest => {
+export const defaultRequest = (language: RequestLanguage): AccessRequest => {
     const today = new Date();
 
     return {
@@ -82,7 +82,7 @@ export const defaultFields = (locale: string): IdDataElement[] => [
     },
 ];
 
-export const trackingFields = (locale: string): IdDataElement[] => [
+export const trackingFields = (locale: RequestLanguage): IdDataElement[] => [
     {
         desc: t_r('name', locale),
         type: 'name',

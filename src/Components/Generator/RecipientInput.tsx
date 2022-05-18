@@ -1,17 +1,16 @@
-import { JSX } from 'preact';
 import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
 import { TransportMedium } from '../../types/request.d';
 
 type RecipientInputProps = {
-    recipientAddress: string;
-    email: string;
+    recipientAddress?: string;
+    email?: string;
     transportMedium: TransportMedium;
     onAddressChange: (recipient_address: string) => void;
     onEmailChange: (email: string) => void;
 };
 
-export default function RecipientInput(props: RecipientInputProps) {
+export function RecipientInput(props: RecipientInputProps) {
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
@@ -23,9 +22,7 @@ export default function RecipientInput(props: RecipientInputProps) {
                         id="request-recipient"
                         className="form-element"
                         placeholder={t(`recipient-${props.transportMedium}`, 'generator')}
-                        onChange={(e: JSX.TargetedEvent<HTMLInputElement, Event>) =>
-                            props.onEmailChange(e.currentTarget.value)
-                        }
+                        onChange={(e) => props.onEmailChange(e.currentTarget.value)}
                         value={props.email}
                     />
                 ) : (
@@ -35,9 +32,7 @@ export default function RecipientInput(props: RecipientInputProps) {
                         placeholder={t(`recipient-${props.transportMedium}`, 'generator')}
                         rows={4}
                         spellCheck={false}
-                        onChange={(e: JSX.TargetedEvent<HTMLTextAreaElement, Event>) =>
-                            props.onAddressChange(e.currentTarget.value)
-                        }
+                        onChange={(e) => props.onAddressChange(e.currentTarget.value)}
                         value={props.recipientAddress}
                     />
                 )}

@@ -5,9 +5,9 @@ import type { Except } from 'type-fest';
 import { useNewRequestModal } from './NewRequestButton';
 import { Company } from '../../types/company.d';
 
-export const CompanySelector = (
-    props: { newRequestHook: () => void } & Partial<Except<SearchBarProps, 'anchorize' | 'index'>>
-) => {
+type CompanySelectorProps = { newRequestHook: () => void } & Partial<Except<SearchBarProps, 'anchorize' | 'index'>>;
+
+export const CompanySelector = (props: CompanySelectorProps) => {
     const setCompany = useGeneratorStore((state) => state.setCompany);
     const request_sent = useGeneratorStore((state) => state.request.sent);
     const company = useGeneratorStore((state) => state.current_company);
@@ -27,11 +27,8 @@ export const CompanySelector = (
                 id="aa-search-input"
                 index="companies"
                 onAutocompleteSelected={(_, hit) => {
-                    if (company && !request_sent) {
-                        showConfirmNewRequestModal(hit.document);
-                    } else {
-                        setCompany(hit.document);
-                    }
+                    if (company && !request_sent) showConfirmNewRequestModal(hit.document);
+                    else setCompany(hit.document);
                 }}
                 placeholder={t('select-company', 'generator')}
                 debug={false}

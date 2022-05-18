@@ -25,7 +25,7 @@ export class RequestLetter extends Letter {
               }\n\n`
             : '';
         email +=
-            (this.props.recipient_address && this.props.recipient_address[0]
+            (this.props.recipient_address?.[0]
                 ? `${t_r('concerns', this.language)}: ${this.props.recipient_address[0]}\n`
                 : '') + this.toString();
         return email;

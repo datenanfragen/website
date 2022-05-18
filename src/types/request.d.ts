@@ -1,13 +1,15 @@
+import type { RequestLanguage } from './company';
+
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
-export const TRANSPORT_MEDIA = ['fax', 'letter', 'email'] as const;
+export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
 
 export type RequestType = typeof REQUEST_TYPES[number];
 export type TransportMedium = typeof TRANSPORT_MEDIA[number];
 
 export interface GeneralIdData {
-    desc: string; // A description of this element, e.g. 'Name'.
-    type: string;
-    /* The element's type, where:
+    /** A description of this element, e.g. 'Name'. */
+    desc: string;
+    /** The element's type, where:
      *     - `input` is a single-line string
      *     - `textarea` is a multi-line string
      *     - `address` is an object representing an address like this:
@@ -15,8 +17,11 @@ export interface GeneralIdData {
      *     - `name` is an alias for `string` but is used to insert the user's name in the letter
      *     - `birthdate` is the user's date of birth as a string, e.g. '1970-01-01'
      */
-    optional?: boolean; // Whether we recommend giving this piece of information (`false`) or not (`true`).
-    value: string | Address; // The value entered by the user for this element.
+    type: string;
+    /** Whether we recommend giving this piece of information (`false`) or not (`true`). */
+    optional?: boolean;
+    /** The value entered by the user for this element. */
+    value: string | Address;
 }
 export interface TextIdData extends GeneralIdData {
     type: 'input' | 'textarea' | 'name' | 'birthdate' | 'email';
@@ -44,7 +49,8 @@ export type TextSignature = {
 export type ImageSignature = {
     type: 'image';
     name?: string;
-    value: string; // base64-encoded-image
+    /** base64-encoded-image */
+    value: string;
 };
 export type Signature = TextSignature | ImageSignature;
 
@@ -72,7 +78,7 @@ interface RequestInterface {
     signature: Signature;
     /** The user-defined part of the information block. */
     information_block: string;
-    language: string; // TODO: Type this according to a newly typed definition
+    language: RequestLanguage;
     id_data: IdDataElement[];
     /** The slug of the company this request is addressed to (if applicable). */
     slug: string;
@@ -85,15 +91,15 @@ interface RequestInterface {
 
 export interface AccessRequest extends RequestInterface {
     type: 'access';
-    /** The 'Get data in a machine-readable format' flag for access requests. */
+    /** The 'Get data in a machine-readable format' flag. */
     data_portability: boolean;
 }
 
 export interface ErasureRequest extends RequestInterface {
     type: 'erasure';
-    /** The 'Erase all data' flag for erasure requests. */
+    /** The 'Erase all data' flag. */
     erase_all: boolean;
-    /** For erasure requests: The data the user has specified to be erased (if `this.erase_all` is `false`). */
+    /** The data the user has specified to be erased (if `this.erase_all` is `false`). */
     erasure_data: string;
 }
 

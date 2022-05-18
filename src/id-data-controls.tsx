@@ -8,9 +8,10 @@ import { InputControl } from './Components/Generator/DynamicInput';
 import { SignatureInput } from './Components/Generator/SignatureInput';
 import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
 import { useCallback, useEffect, useMemo, useState } from 'preact/hooks';
-import { Address, IdDataElement, Signature } from 'request';
+import type { Address, IdDataElement, Signature } from './types/request';
 import { produce } from 'immer';
 import { isAddress } from './Utility/requests';
+import { ErrorException } from './Utility/errors';
 
 const DEFAULT_FIXED_FIELDS = {
     name: '',
@@ -27,9 +28,9 @@ const DEFAULT_FIXED_FIELDS = {
 
 const IdDataControls = () => {
     const savedIdData = useMemo(() => new SavedIdData(), []);
-    const [custom_id_data, setCustomIdData] = useState<IdDataElement[]>([]);
+    const [customIdData, setCustomIdData] = useState<IdDataElement[]>([]);
     const [signature, setSignature] = useState<Signature>({ type: 'text', name: '' });
-    const [fixed_id_data, setFixedIdData] = useState(DEFAULT_FIXED_FIELDS);
+    const [fixedIdData, setFixedIdData] = useState(DEFAULT_FIXED_FIELDS);
 
     const resetSavedIdData = useCallback(() => {
         savedIdData.getAll().then((id_data) => id_data && setCustomIdData(id_data));
@@ -49,12 +50,12 @@ const IdDataControls = () => {
     }, [resetSavedIdData]);
 
     useEffect(() => {
-        savedIdData.storeArray(fieldsArrayFromFixedData(fixed_id_data));
-    }, [savedIdData, fixed_id_data]);
+        savedIdData.storeArray(fieldsArrayFromFixedData(fixedIdData));
+    }, [savedIdData, fixedIdData]);
 
     useEffect(() => {
-        savedIdData.storeArray(custom_id_data, false);
-    }, [savedIdData, custom_id_data]);
+        savedIdData.storeArray(customIdData, false);
+    }, [savedIdData, customIdData]);
 
     const handleFixedChange = (type: 'name' | 'birthdate' | 'email' | 'address', value: string | Address) => {
         setFixedIdData(
@@ -78,7 +79,7 @@ const IdDataControls = () => {
                         setCustomIdData(
                             produce((fields) => {
                                 const last_index =
-                                    custom_id_data
+                                    customIdData
                                         .map((f) =>
                                             parseInt(
                                                 f.desc.match(
@@ -87,6 +88,8 @@ const IdDataControls = () => {
                                                 10
                                             )
                                         )
+                                        // remove the undefined elements
+                                        .filter((d) => d)
                                         .sort()
                                         .pop() || 0;
                                 fields.push({
@@ -99,8 +102,16 @@ const IdDataControls = () => {
                         )
                     }
                     onRemoveField={(idx) => {
-                        if (!custom_id_data[idx]) throw new Error('index out of bounds');
-                        savedIdData.removeByDesc(custom_id_data[idx].desc);
+                        if (!customIdData[idx])
+                            throw new ErrorException(
+                                'Index out of bounds for customIdData (in removeField).',
+                                {
+                                    index: idx,
+                                    customIdData: { ...customIdData },
+                                },
+                                'Cannot remove field.'
+                            );
+                        savedIdData.removeByDesc(customIdData[idx].desc);
                         setCustomIdData(
                             produce((fields) => {
                                 fields.splice(idx, 1);
@@ -110,12 +121,21 @@ const IdDataControls = () => {
                     onChange={(idx, new_data) =>
                         setCustomIdData(
                             produce((fields) => {
-                                if (!fields[idx]) throw new Error('index out of bounds');
+                                if (!fields[idx])
+                                    throw new ErrorException(
+                                        'Index out of bounds for customIdData (in removeField).',
+                                        {
+                                            index: idx,
+                                            customIdData: { ...fields },
+                                            new_data: { ...new_data },
+                                        },
+                                        'Cannot change field'
+                                    );
                                 fields[idx] = new_data;
                             })
                         )
                     }
-                    fields={custom_id_data}
+                    fields={customIdData}
                     title={t('saved-data', 'id-data-controls')}
                     hasPrimary={false}>
                     <IntlProvider scope="id-data-controls" definition={window.I18N_DEFINITION}>
@@ -129,9 +149,7 @@ const IdDataControls = () => {
                                     id="always-fill-in"
                                     className="form-element"
                                     checked={SavedIdData.shouldAlwaysFill()}
-                                    onChange={(event) => {
-                                        SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill());
-                                    }}
+                                    onChange={() => SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill())}
                                 />
                                 <label htmlFor="always-fill-in">
                                     <Text id="always-fill-in" />
@@ -150,7 +168,7 @@ const IdDataControls = () => {
                                         id="name-input"
                                         suffix="fixed-id-data"
                                         onChange={(v) => handleFixedChange('name', v)}
-                                        value={fixed_id_data.name}
+                                        value={fixedIdData.name}
                                     />
                                 </div>
                                 <div className="clearfix" />
@@ -168,7 +186,7 @@ const IdDataControls = () => {
                                         id="email-input"
                                         suffix="fixed-id-data"
                                         onChange={(v) => handleFixedChange('email', v)}
-                                        value={fixed_id_data.email}
+                                        value={fixedIdData.email}
                                     />
                                 </div>
                                 <div className="clearfix" />
@@ -186,7 +204,7 @@ const IdDataControls = () => {
                                         id="main-address-input"
                                         suffix="fixed-id-data"
                                         onChange={(v) => handleFixedChange('address', v)}
-                                        value={fixed_id_data.address}
+                                        value={fixedIdData.address}
                                     />
                                 </div>
                                 <div className="clearfix" />
@@ -204,7 +222,7 @@ const IdDataControls = () => {
                                         id="birthdate-input"
                                         suffix="fixed-id-data"
                                         onChange={(v) => handleFixedChange('birthdate', v)}
-                                        value={fixed_id_data.birthdate}
+                                        value={fixedIdData.birthdate}
                                     />
                                 </div>
                                 <div className="clearfix" />
@@ -238,25 +256,25 @@ const fieldsArrayFromFixedData = (data: typeof DEFAULT_FIXED_FIELDS): IdDataElem
         {
             desc: t('name', 'generator'),
             type: 'name',
-            value: data['name'],
+            value: data.name,
             optional: true,
         },
         {
             desc: t('birthdate', 'generator'),
             type: 'birthdate',
-            value: data['birthdate'],
+            value: data.birthdate,
             optional: true,
         },
         {
             desc: t('address', 'generator'),
             type: 'address',
-            value: data['address'],
+            value: data.address,
             optional: true,
         },
         {
             desc: t('email-address', 'generator'),
             type: 'email',
-            value: data['email'],
+            value: data.email,
             optional: true,
         },
     ];

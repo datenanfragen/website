@@ -1,5 +1,5 @@
 import localforage from 'localforage';
-import { RequestType, ResponseType } from 'request';
+import type { RequestType, ResponseType } from '../types/request';
 import { rethrow } from '../Utility/errors';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 

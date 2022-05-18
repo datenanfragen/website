@@ -7,7 +7,7 @@ import { SvaFinder } from './SvaFinder';
 import { UserRequests } from '../DataType/UserRequests';
 import { useEffect } from 'preact/hooks';
 import { useGeneratorStore, useGeneratorStoreApi } from '../store/generator';
-import type { ResponseType } from 'request';
+import type { ResponseType } from '../types/request';
 import { useModal } from './Modal';
 
 type RequestGeneratorBuilderProps = {
