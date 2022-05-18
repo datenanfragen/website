@@ -2,7 +2,7 @@ import { MarkupText, Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { CUSTOM_TEMPLATE_OPTIONS, CustomTemplateName, EMTPY_ADDRESS } from '../../types/request.d';
-import { AddressControl } from './DynamicInput';
+import { InputControl } from './DynamicInput';
 
 export const CustomRequestInput = () => {
     const request_type = useGeneratorStore((state) => state.request.type);
@@ -26,7 +26,7 @@ export const CustomRequestInput = () => {
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div>
                 <h2>
-                    <Text id="own-request" />
+                    <Text id="custom-request" />
                 </h2>
                 <div className="form-group">
                     <label htmlFor="custom-template-select" className="sr-only">
@@ -102,7 +102,8 @@ export const CustomRequestInput = () => {
                     </label>
                 </div>
 
-                <AddressControl
+                <InputControl
+                    type="address"
                     id="0"
                     suffix="custom-request"
                     required={false}

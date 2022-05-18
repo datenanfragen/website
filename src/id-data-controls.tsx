@@ -4,7 +4,7 @@ import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
 import t from './Utility/i18n';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import { DynamicInputContainer } from './Components/Generator/DynamicInputContainer';
-import { AddressControl, DateControl, InputControl } from './Components/Generator/DynamicInput';
+import { InputControl } from './Components/Generator/DynamicInput';
 import { SignatureInput } from './Components/Generator/SignatureInput';
 import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
 import { useCallback, useEffect, useMemo, useState } from 'preact/hooks';
@@ -146,6 +146,7 @@ const IdDataControls = () => {
                                 </div>
                                 <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
                                     <InputControl
+                                        type="name"
                                         id="name-input"
                                         suffix="fixed-id-data"
                                         onChange={(v) => handleFixedChange('name', v)}
@@ -163,6 +164,7 @@ const IdDataControls = () => {
                                 </div>
                                 <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
                                     <InputControl
+                                        type="email"
                                         id="email-input"
                                         suffix="fixed-id-data"
                                         onChange={(v) => handleFixedChange('email', v)}
@@ -179,7 +181,8 @@ const IdDataControls = () => {
                                     </strong>
                                 </div>
                                 <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                    <AddressControl
+                                    <InputControl
+                                        type="address"
                                         id="main-address-input"
                                         suffix="fixed-id-data"
                                         onChange={(v) => handleFixedChange('address', v)}
@@ -196,7 +199,8 @@ const IdDataControls = () => {
                                     </strong>
                                 </div>
                                 <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                    <DateControl
+                                    <InputControl
+                                        type="birthdate"
                                         id="birthdate-input"
                                         suffix="fixed-id-data"
                                         onChange={(v) => handleFixedChange('birthdate', v)}

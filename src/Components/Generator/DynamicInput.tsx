@@ -1,5 +1,4 @@
 import type { JSX } from 'preact';
-import { useMemo } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { Address, AddressIdData, ADDRESS_STRING_PROPERTIES, IdDataElement } from '../../types/request.d';
@@ -20,21 +19,23 @@ type DynamicInputProps = {
 };
 
 export const DynamicInput = (props: DynamicInputProps) => {
-    const ControlComponent = useMemo(() => {
-        // TODO: test if the memoization only runs for type changes and not all changes of prop.value
-        switch (props.value.type) {
-            case 'address':
-                return AddressControl;
-            case 'textarea':
-                return TextareaControl;
-            case 'birthdate':
-                return DateControl;
-            case 'name':
-            case 'input':
-            default:
-                return InputControl;
-        }
-    }, [props.value.type]) as (props: ControlComponentProps<string | Address>) => JSX.Element; // This is not the proper way but I honestly do not know how else to make typescript happy. I know my types depend on each other and therefore this is fine, but how do I tell typescript?
+    const inputProps = {
+        id: props.id,
+        type: props.value.type,
+        suffix: props.suffix,
+        required: !props.optional || !props.value.optional,
+        onChange: (field_value: string | Address) =>
+            props.onChange(
+                produce((id_data: IdDataElement) => {
+                    id_data.value = field_value;
+                })(props.value)
+            ),
+        value: props.value.value,
+        // The controls usually automatically add a label if they know their description. If changing
+        // the description is not allowed, though, a label is already set simply by the description
+        // text. In that case, we obviously don't want to generate a second label.
+        suppressLabel: props.allowChangingDescription,
+    } as InputControlProps;
 
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
@@ -48,7 +49,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                 id={`${props.id}-delete-${props.suffix}`}
                                 data-dynamic-input-id={props.id}
                                 className="dynamic-input-delete button button-secondary button-small icon-trash"
-                                onClick={() => props.onRemove()}
+                                onClick={props.onRemove}
                                 title={t('delete-field', 'generator')}
                             />
                         </div>
@@ -82,7 +83,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                             <label htmlFor={`${props.id}-value-${props.suffix}`}>{props.value.desc}</label>
                         )}
                     </div>
-                    {props.hasPrimary && props.value.type === 'address' ? (
+                    {props.hasPrimary && props.value.type === 'address' && (
                         <div className="col50">
                             <button
                                 id={`${props.id}-primaryButton`}
@@ -102,27 +103,11 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                 <Text id="primary-address" />
                             </button>
                         </div>
-                    ) : null}
+                    )}
                 </div>
                 <div className="col60">
-                    <div style="padding-left: 10px;" className={'form-group'}>
-                        <ControlComponent
-                            id={props.id}
-                            suffix={props.suffix}
-                            required={!props.optional || !props.value.optional}
-                            onChange={(field_value) =>
-                                props.onChange(
-                                    produce((id_data: IdDataElement) => {
-                                        id_data.value = field_value;
-                                    })(props.value)
-                                )
-                            }
-                            value={props.value.value}
-                            // The controls usually automatically add a label if they know their description. If changing
-                            // the description is not allowed, though, a label is already set simply by the description
-                            // text. In that case, we obviously don't want to generate a second label.
-                            suppressLabel={props.allowChangingDescription}
-                        />
+                    <div style="padding-left: 10px;" className="form-group">
+                        <InputControl {...inputProps} />
                     </div>
                 </div>
                 <div className="clearfix" />
@@ -131,7 +116,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
     );
 };
 
-type ControlComponentProps<T> = {
+type ControlProps<T> = {
     id: string;
     suffix: string;
     suppressLabel?: boolean;
@@ -141,124 +126,81 @@ type ControlComponentProps<T> = {
     onChange: (value: T) => void;
 };
 
-// TODO: I removed an old bugfix (commit e2bcff7e461c36a256daa9a29a7baedca4468fa3) that seemd more like a workaround to me, suppressing rerenders with shouldComponentUpdate to prevent Components from loosing focus. If the bug is intriduced again, the root cause should be fixed instead, because preact should keep the elements if it is done correctly.
-export const TextareaControl = (props: ControlComponentProps<string>) => {
+type InputControlProps =
+    | ({ type: 'address' } & ControlProps<Address>)
+    | ({ type: Exclude<IdDataElement['type'], 'address'> } & ControlProps<string>);
+
+// TODO: I removed an old bugfix (commit e2bcff7e461c36a256daa9a29a7baedca4468fa3) that seemed more like a workaround to me, suppressing rerenders with shouldComponentUpdate to prevent components from loosing focus. If the bug is introduced again, the root cause should be fixed instead, because preact should keep the elements if it is done correctly.
+export const InputControl = (props: InputControlProps) => {
+    if (props.type === 'address') {
+        const handleChange = (property: keyof Address, field_value: string) =>
+            props.onChange(
+                produce((value: Address) => {
+                    if (property === 'primary') value[property] = field_value === 'true';
+                    else value[property] = field_value;
+                })(props.value)
+            );
+
+        return (
+            <div id={`${props.id}-container-${props.suffix}`}>
+                {ADDRESS_STRING_PROPERTIES.map((property) => (
+                    <div className="form-group fancy-fg">
+                        <input
+                            key={property}
+                            name={property}
+                            data-dynamic-input-id={props.id}
+                            type="text"
+                            id={`${props.id}-${property}-${props.suffix}`}
+                            placeholder={t(`address-${property}`, 'generator')}
+                            className="form-element"
+                            required={props.required}
+                            onBlur={(e) => handleChange(property, e.currentTarget.value)}
+                            value={props.value[property]}
+                        />
+                        <label className="fancy-label" htmlFor={`${props.id}-${property}-${props.suffix}`}>
+                            <Text id={`address-${property}`} />
+                        </label>
+                    </div>
+                ))}
+                <input
+                    name="primary"
+                    data-dynamic-input-id={props.id}
+                    type="hidden"
+                    id={`${props.id}-primary-${props.suffix}`}
+                    className="dynamic-input-primary form-element"
+                    value={props.value ? 'true' : 'false'}
+                    onChange={(e) => handleChange('primary', e.currentTarget.value)}
+                />
+            </div>
+        );
+    }
+
+    const componentProps = {
+        id: props.id + props.suffix,
+        'data-dynamic-input-id': props.id,
+        className: 'form-element',
+        placeholder: t('value', 'generator'),
+        required: props.required,
+        onBlur: (e: JSX.TargetedEvent<HTMLInputElement | HTMLTextAreaElement>) => props.onChange(e.currentTarget.value),
+        value: props.value,
+    };
+
     return (
         <div className="form-group">
-            {!props.suppressLabel && props.desc ? (
+            {!props.suppressLabel && props.desc && (
                 <label for={`${props.id}-value-${props.suffix}`} className="sr-only">
                     {props.desc}
                 </label>
-            ) : (
-                ''
             )}
 
-            <textarea
-                name="value"
-                id={props.id + props.suffix}
-                data-dynamic-input-id={props.id}
-                className="form-element"
-                placeholder={t('value', 'generator')}
-                required={props.required}
-                onBlur={(e) => props.onChange(e.currentTarget.value)}
-                value={props.value}
-            />
-        </div>
-    );
-};
-
-export const InputControl = (props: ControlComponentProps<string>) => {
-    return (
-        <div className="form-group">
-            {props.suppressLabel && props.desc ? (
-                <label htmlFor={`${props.id}-value-${props.suffix}`} className="sr-only">
-                    {props.desc}
-                </label>
+            {props.type === 'textarea' ? (
+                <textarea {...componentProps} />
             ) : (
-                ''
+                <input
+                    type={props.type === 'birthdate' ? 'date' : props.type === 'email' ? 'email' : 'text'}
+                    {...componentProps}
+                />
             )}
-            <input
-                name="value"
-                type="text"
-                id={`${props.id}-value-${props.suffix}`}
-                data-dynamic-input-id={props.id}
-                className="form-element"
-                placeholder={t('value', 'generator')}
-                required={props.required}
-                onBlur={(e) => props.onChange(e.currentTarget.value)}
-                value={props.value}
-            />
-        </div>
-    );
-};
-
-export const DateControl = (props: ControlComponentProps<string>) => {
-    return (
-        <div className="form-group">
-            {!props.suppressLabel && props.desc ? (
-                <label htmlFor={`${props.id}-value-${props.suffix}`} className="sr-only">
-                    {props.desc}
-                </label>
-            ) : (
-                []
-            )}
-            <input
-                name="value"
-                type="date"
-                id={`${props.id}-value-${props.suffix}`}
-                data-dynamic-input-id={props.id}
-                className="form-element"
-                placeholder={t('value', 'generator')}
-                required={props.required}
-                onBlur={(e) => props.onChange(e.currentTarget.value)} // TODO: Validate the date here!
-                value={props.value}
-            />
-        </div>
-    );
-};
-
-export const AddressControl = (props: ControlComponentProps<Address>) => {
-    const handleChange = (property: typeof ADDRESS_STRING_PROPERTIES[number] | 'primary', field_value: string) =>
-        props.onChange(
-            produce((value: Address) => {
-                if (property === 'primary') {
-                    value[property] = field_value === 'true';
-                } else {
-                    value[property] = field_value;
-                }
-            })(props.value)
-        );
-
-    return (
-        <div id={`${props.id}-container-${props.suffix}`}>
-            {ADDRESS_STRING_PROPERTIES.map((property) => (
-                <div className="form-group fancy-fg">
-                    <input
-                        key={property}
-                        name={property}
-                        data-dynamic-input-id={props.id}
-                        type="text"
-                        id={`${props.id}-${property}-${props.suffix}`}
-                        placeholder={t(`address-${property}`, 'generator')}
-                        className="form-element"
-                        required={props.required}
-                        onBlur={(e) => handleChange(property, e.currentTarget.value)}
-                        value={props.value[property]}
-                    />
-                    <label className="fancy-label" htmlFor={`${props.id}-${property}-${props.suffix}`}>
-                        <Text id={`address-${property}`} />
-                    </label>
-                </div>
-            ))}
-            <input
-                name="primary"
-                data-dynamic-input-id={props.id}
-                type="hidden"
-                id={`${props.id}-primary-${props.suffix}`}
-                className="dynamic-input-primary form-element"
-                value={props.value ? 'true' : 'false'}
-                onChange={(e) => handleChange('primary', e.currentTarget.value)}
-            />
         </div>
     );
 };

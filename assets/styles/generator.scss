@@ -56,18 +56,6 @@ textarea:placeholder-shown + label.fancy-label {
 }
 
 /* Inputs */
-
-.action-button-container {
-    padding-right: 45px;
-    position: relative;
-
-    .dynamic-input-action {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-}
-
 .dynamic-input-controls {
     .select-container {
         float: left;

@@ -9,7 +9,7 @@ export const CompanyWidget = () => {
 
     if (company === undefined) return <></>;
 
-    const comments = company['comments']?.map((comment) => <p className="company-comments">{comment}</p>);
+    const comments = company.comments?.map((comment) => <p className="company-comments">{comment}</p>);
 
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
@@ -19,81 +19,71 @@ export const CompanyWidget = () => {
                     onClick={removeCompany}
                     title={t('deselect-company', 'generator')}
                 />
-                <Accordion title={company['name']} id="company-info" expanded={true}>
+                <Accordion title={company.name} id="company-info" expanded={true}>
                     <div className="company-info-content">
                         <div className="company-info-params">
-                            {company['address'] ? (
-                                [
-                                    <br />,
+                            {company.address && (
+                                <>
+                                    <br />
                                     <span className="company-info-label">
                                         <Text id="address-colon" />
                                         &nbsp;
-                                    </span>,
-                                    <span>{company['address'].split('\n').join(', ')}</span>,
-                                ]
-                            ) : (
-                                <></>
+                                    </span>
+                                    <span>{company.address.split('\n').join(', ')}</span>
+                                </>
                             )}
-                            {company['fax'] ? (
-                                [
-                                    <br />,
+                            {company.fax && (
+                                <>
+                                    <br />
                                     <span className="company-info-label">
                                         <Text id="fax-colon" />
                                         &nbsp;
-                                    </span>,
-                                    company['fax'],
-                                ]
-                            ) : (
-                                <></>
+                                    </span>
+                                    {company.fax}
+                                </>
                             )}
-                            {company['email'] ? (
-                                [
-                                    <br />,
+                            {company.email && (
+                                <>
+                                    <br />
                                     <span className="company-info-label">
                                         <Text id="email-colon" />
                                         &nbsp;
-                                    </span>,
-                                    company['email'],
-                                ]
-                            ) : (
-                                <></>
+                                    </span>
+                                    {company.email}
+                                </>
                             )}
-                            {company['pgp-fingerprint'] ? (
-                                [
-                                    <br />,
+                            {company['pgp-fingerprint'] && (
+                                <>
+                                    <br />
                                     <span className="company-info-label">
                                         <Text id="pgp-fingerprint-colon" />
                                         &nbsp;
-                                    </span>,
+                                    </span>
                                     <code>
                                         {company['pgp-url'] ? (
                                             <a href={company['pgp-url']}>{company['pgp-fingerprint']}</a>
                                         ) : (
                                             company['pgp-fingerprint']
                                         )}
-                                    </code>,
-                                ]
-                            ) : (
-                                <></>
+                                    </code>
+                                </>
                             )}
                         </div>
-                        {comments && comments.length > 0 ? (
-                            [
-                                <br />,
+                        {comments && comments.length > 0 && (
+                            <>
+                                <br />
                                 <span className="company-info-label">
                                     <Text id="current-company-comments-colon" />
-                                </span>,
-                                <br />,
-                                comments,
-                            ]
-                        ) : (
-                            <></>
+                                </span>
+                                <br />
+                                {comments}
+                            </>
                         )}
                         <a
                             href={
                                 window.BASE_URL +
                                 (company['complaint-language'] ? 'supervisory-authority/' : 'company/') +
-                                company['slug']
+                                company.slug
                             }
                             target="_blank"
                             rel="noopener noreferrer"
