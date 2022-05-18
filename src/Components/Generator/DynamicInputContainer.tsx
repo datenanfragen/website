@@ -35,7 +35,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
         ..._props,
     };
 
-    const address_number = useMemo(
+    const address_count = useMemo(
         () => props.fields.reduce((total, field) => total + (field.type === 'address' ? 1 : 0), 0),
         [props.fields]
     );
@@ -53,7 +53,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                         props.onRemoveField(i);
                     }
                 }}
-                hasPrimary={props.hasPrimary && address_number > 1}
+                hasPrimary={props.hasPrimary && address_count > 1}
                 value={field}
                 allowRemoving={props.allowRemovingFields ?? true}
                 allowChangingDescription={props.allowChangingFieldDescriptions ?? true}
@@ -62,13 +62,20 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
     });
 
     const addFillField = (newField: IdDataElement) => {
-        props.fields.forEach((field, key) => {
-            if (['name', 'birthdate', 'email'].includes(field.type) && field.type === newField.type) {
-                newField.desc = field.desc;
-                props.onChange(key, newField);
-                return;
-            }
-        });
+        const index = props.fields.findIndex(
+            (field) =>
+                ['name', 'birthdate', 'email'].includes(field.type) &&
+                field.type === newField.type &&
+                field.desc === newField.desc
+        );
+        if (index >= 0 && props.fields[index].value !== newField.value) {
+            const oldField = props.fields[index];
+            // This is obviously true by the contion above, but not to typescript, so let's check explicitly
+            if (oldField.type !== 'address' && newField.type !== 'address')
+                props.onChange(index, { ...oldField, value: newField.value });
+            return;
+        }
+
         props.onAddField(newField);
     };
 
@@ -76,11 +83,14 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
     // new field' menu which allows you to add fields you have defined in the 'My saved data' section.
     const fill_fields = props.fillFields
         ?.map((field) => {
-            const condition = (addedField: IdDataElement) =>
-                field.type === addedField.type && field.desc === addedField.desc;
-            const isFieldPresent = props.fields.some(condition);
+            const isFieldPresent = props.fields.some(
+                (existingField: IdDataElement) =>
+                    field.type === existingField.type &&
+                    field.desc === existingField.desc &&
+                    field.value === existingField.value
+            );
 
-            if (!isFieldPresent && !!field.value) {
+            if (!isFieldPresent && field.value) {
                 return (
                     <div className="fill-field">
                         <div style="display: table-cell">
@@ -97,9 +107,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                             <button
                                 style="float: none;"
                                 className="button button-small button-primary icon-arrow-right"
-                                onClick={() => {
-                                    addFillField(field);
-                                }}
+                                onClick={() => addFillField(field)}
                                 title={t('add-input', 'generator')}
                             />
                         </div>
@@ -117,7 +125,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                 {props.title && <h2 className={props.headingClass}>{props.title}</h2>}
                 {props.children}
                 <div id={'request-dynamic-input-' + props.id}>{input_elements}</div>
-                {props.allowAddingFields ? (
+                {props.allowAddingFields && (
                     <div className="dynamic-input-controls">
                         <MarkupText id="add-dynamic-input-explanation" />
                         <br />
@@ -160,7 +168,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                             }>
                             <Text id="add-input" />
                         </button>
-                        {props.fillFields && fill_fields && fill_fields.length > 0 ? (
+                        {props.fillFields && fill_fields && fill_fields.length > 0 && (
                             <div className="dropdown-container">
                                 <button className="button button-primary" title={t('add-fill-field', 'generator')}>
                                     <span className="icon icon-fill" />
@@ -169,11 +177,9 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                                     <div style="display: table; border-spacing: 5px; width: 100%;">{fill_fields}</div>
                                 </div>
                             </div>
-                        ) : null}
+                        )}
                         <div className="clearfix" />
                     </div>
-                ) : (
-                    []
                 )}
             </div>
         </IntlProvider>
