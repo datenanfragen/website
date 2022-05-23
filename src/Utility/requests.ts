@@ -62,7 +62,7 @@ export const defaultRequest = (language: RequestLanguage): AccessRequest => {
         signature: { type: 'text', name: '' },
         information_block: '',
         language,
-        data_portability: false,
+        data_portability: true,
         id_data: deepCopyObject(defaultFields(language)),
         slug: '',
         recipient_runs: [],
@@ -70,7 +70,7 @@ export const defaultRequest = (language: RequestLanguage): AccessRequest => {
     };
 };
 
-export const defaultFields = (locale: string): IdDataElement[] => [
+export const defaultFields = (locale: RequestLanguage): IdDataElement[] => [
     {
         desc: t_r('name', locale),
         type: 'name',

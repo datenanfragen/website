@@ -1,4 +1,4 @@
-import type { IdDataElement, RequestType, TransportMedium } from 'request';
+import type { IdDataElement, RequestType, TransportMedium } from './request';
 import type { LiteralUnion, SetOptional } from 'type-fest';
 
 type RequestLanguage = LiteralUnion<keyof typeof window.I18N_DEFINITION_REQUESTS, string>;

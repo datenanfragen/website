@@ -24,7 +24,7 @@ import { produce } from 'immer';
 import { RequestLetter } from '../DataType/RequestLetter';
 import { t_r } from '../Utility/i18n';
 import { ErrorException, WarningException } from '../Utility/errors';
-import type { StoreSlice } from 'utility';
+import type { StoreSlice } from '../types/utility';
 import { CompanyState } from './company';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { slugify } from '../Utility/common';

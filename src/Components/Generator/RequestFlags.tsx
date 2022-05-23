@@ -47,12 +47,12 @@ export function RequestFlags() {
                             <Text id="erase-all" />
                         </label>
                     </div>
-                    {!request.erase_all ? (
+                    {!request.erase_all && (
                         <div className="form-group">
                             <textarea
                                 id="request-erasure-data"
                                 className="form-element"
-                                onChange={(event: JSX.TargetedEvent<HTMLTextAreaElement, Event>) =>
+                                onChange={(event) =>
                                     setRequestFlag({
                                         name: 'erasure_data',
                                         value: event.currentTarget.value,
@@ -65,7 +65,7 @@ export function RequestFlags() {
                                 <Text id="erasure-data" />
                             </label>
                         </div>
-                    ) : null}
+                    )}
                 </Fragment>
             );
     }

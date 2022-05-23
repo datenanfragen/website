@@ -90,16 +90,16 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
     setSva: async (sva) => {
         get().setRequestType('custom');
 
-        set(
-            produce((state: GeneratorState) => {
-                if (sva) {
+        if (sva) {
+            set(
+                produce((state: GeneratorState) => {
                     state.current_company = sva;
                     state.request.language = inferRequestLanguage(sva);
                     state.request.slug = sva.slug;
                     state.request.recipient_runs = [];
-                }
-            })
-        );
+                })
+            );
+        }
 
         // Set other data this way to allow for side effects
         get().setRecipientEmail(sva['email'] ?? '');
