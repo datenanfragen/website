@@ -3,7 +3,7 @@ import { IntlProvider, Text } from 'preact-i18n';
 import { clearUrlParameters } from './Utility/browser';
 import t from './Utility/i18n';
 // The type bindings "provided" by this package do not match with the versions of the original package.
-// Since we intend to get rid of this anyway, we will just ignore it.s
+// Since we intend to get rid of this anyway, we will just ignore it.
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Joyride from 'react-joyride';
@@ -47,18 +47,14 @@ const Generator = () => {
                 else el.classList.remove('hidden');
             });
         });
-        document.querySelectorAll<HTMLElement>('.company-info h1').forEach((selector) => {
-            selector.style.marginLeft = isInWizardMode ? '0' : '';
-        });
+        document
+            .querySelectorAll<HTMLElement>('.company-info h1')
+            .forEach((element) => (element.style.marginLeft = isInWizardMode ? '0' : ''));
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) && isInWizardMode) {
             const saved_companies = new SavedCompanies();
 
-            saved_companies.getAll().then((companies) => {
-                // Our ref to the `RequestGeneratorBuilder`, `this.generator_builder`, is only available after the
-                // component has been rendered for the first time. Thus, this needs to be run in `componentDidMount()`.
-                startBatch(Object.keys(companies));
-            });
+            saved_companies.getAll().then((companies) => startBatch(Object.keys(companies)));
             return () => clearBatch();
         }
     }, [isInWizardMode, clearBatch, startBatch]);

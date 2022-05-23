@@ -1,7 +1,7 @@
 import type {
     Request,
     IdDataElement,
-    DataField,
+    DataFieldName,
     RequestType,
     Address,
     TransportMedium,
@@ -23,7 +23,7 @@ import { UserRequests, UserRequest } from '../DataType/UserRequests';
 import { produce } from 'immer';
 import { RequestLetter } from '../DataType/RequestLetter';
 import { t_r } from '../Utility/i18n';
-import { WarningException } from '../Utility/errors';
+import { ErrorException, WarningException } from '../Utility/errors';
 import type { StoreSlice } from 'utility';
 import { CompanyState } from './company';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
@@ -36,9 +36,9 @@ export interface RequestState<R extends Request> {
     request: R;
     template: string;
     storeRequest: () => Promise<UserRequest | void>;
-    addField: (field: IdDataElement, data_field: DataField<R>) => void;
-    removeField: (index: number, data_field: DataField<R>) => void;
-    setField: (index: number, field: IdDataElement, data_field: DataField<R>) => void;
+    addField: (field: IdDataElement, data_field: DataFieldName<R>) => void;
+    removeField: (index: number, data_field: DataFieldName<R>) => void;
+    setField: (index: number, field: IdDataElement, data_field: DataFieldName<R>) => void;
     setRequestType: (type: RequestType) => void;
     setTransportMedium: (transport_medium: TransportMedium) => void;
     setRecipientAddress: (recipient_address: string) => void;
@@ -53,7 +53,7 @@ export interface RequestState<R extends Request> {
     setCustomLetterAddress: (address: Address) => void;
     setSent: (sent: boolean) => void;
     resetRequestToDefault: (language?: string) => void;
-    initializeFields: (data_field?: DataField<R>) => Promise<void>;
+    initializeFields: (data_field?: DataFieldName<R>) => Promise<void>;
     refreshTemplate: () => Promise<void>;
     letter: () => RequestLetter;
     letter_filename: () => string;
@@ -78,7 +78,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             state.request.type === 'custom' && state.request.response_type ? `-${state.request.response_type}` : ''
         }`;
 
-        const item = {
+        return new UserRequests().storeRequest(db_id, {
             reference: state.request.reference,
             date: state.request.date,
             type: state.request.type,
@@ -87,8 +87,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             recipient: state.request.recipient_address,
             email: state.request.email,
             via: state.request.transport_medium,
-        };
-        return new UserRequests().storeRequest(db_id, item);
+        });
     },
     addField: (_field, data_field) =>
         set(
@@ -103,17 +102,32 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 if (isSaneDataField(data_field, state.request.type)) {
                     state.request[data_field].push(field);
                     if (data_field === 'id_data') ensurePrimaryAddress(state.request.id_data);
-                }
+                } else
+                    throw new ErrorException(
+                        'While trying to add a field: Illegal data_field.',
+                        { data_field, field },
+                        'Error while adding a field.'
+                    );
             })
         ),
     removeField: (index, data_field) =>
         set(
             produce((state: RequestState<Request>) => {
                 if (isSaneDataField(data_field, state.request.type)) {
-                    if (!state.request[data_field][index]) throw new Error('index out of bounds');
+                    if (!state.request[data_field][index])
+                        throw new ErrorException(
+                            'While trying to remove a field: Index out of bounds.',
+                            { index, data_field, fields: state.request[data_field] },
+                            'Error while removing a field.'
+                        );
                     state.request[data_field].splice(index, 1);
                     if (data_field === 'id_data') ensurePrimaryAddress(state.request.id_data);
-                }
+                } else
+                    throw new ErrorException(
+                        'While trying to remove a field: Illegal data_field.',
+                        { data_field, index },
+                        'Error while removing a field.'
+                    );
             })
         ),
     setField: (index, field, data_field) =>
@@ -136,7 +150,12 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                         }
                     }
                     state.request[data_field][index] = field;
-                } // TODO: Should we error here?
+                } else
+                    throw new ErrorException(
+                        'While trying to set a field: Illegal data_field.',
+                        { data_field, index, field },
+                        'Error while chnaging a field.'
+                    );
             })
         ),
     setRequestType: (type) => {
@@ -237,12 +256,13 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                                         ? new Template(
                                               text,
                                               {},
-                                              response_to.type === 'custom'
-                                                  ? variables
-                                                  : {
-                                                        ...variables,
-                                                        request_article: REQUEST_ARTICLES[response_to.type],
-                                                    }
+                                              {
+                                                  ...variables,
+                                                  request_article:
+                                                      response_to.type !== 'custom'
+                                                          ? REQUEST_ARTICLES[response_to.type]
+                                                          : '',
+                                              }
                                           ).getText()
                                         : '';
 
@@ -285,7 +305,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             );
         } else {
             throw new WarningException(
-                "Custom request templates can only be set for a custom request (request.type !== 'custom')."
+                "Custom request templates can only be set for a custom request (request.type === 'custom')."
             );
         }
     },
@@ -300,7 +320,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             );
         } else {
             throw new WarningException(
-                "Custom letter property can only be set for a custom request (request.type !== 'custom')."
+                "Custom letter property can only be set for a custom request (request.type === 'custom')."
             );
         }
     },
@@ -315,7 +335,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             );
         } else {
             throw new WarningException(
-                "Custom letter address can only be set for a custom request (request.type !== 'custom')."
+                "Custom letter address can only be set for a custom request (request.type === 'custom')."
             );
         }
     },
@@ -343,7 +363,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                     .then((fill_data) =>
                         SavedIdData.mergeFields(fields, fill_data ?? [], true, true, true, true, false)
                     )
-                    .then((new_fields) => {
+                    .then((new_fields) =>
                         set(
                             produce((state: GeneratorState) => {
                                 if (isSaneDataField(data_field, state.request.type))
@@ -353,12 +373,10 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                                     state.request.custom_data = makeCustomDataFromIdData(state.request);
                                 }
                             })
-                        );
-                        return saved_id_data.getSignature();
-                    })
-                    .then((signature) => {
-                        get().setSignature(signature ?? { type: 'text', name: '' });
-                    });
+                        )
+                    )
+                    .then(() => saved_id_data.getSignature())
+                    .then((signature) => get().setSignature(signature ?? { type: 'text', name: '' }));
             }
         }
     },

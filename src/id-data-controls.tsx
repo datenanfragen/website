@@ -27,14 +27,19 @@ const DEFAULT_FIXED_FIELDS = {
 };
 
 const IdDataControls = () => {
-    const savedIdData = useMemo(() => new SavedIdData(), []);
     const [customIdData, setCustomIdData] = useState<IdDataElement[]>([]);
     const [signature, setSignature] = useState<Signature>({ type: 'text', name: '' });
     const [fixedIdData, setFixedIdData] = useState(DEFAULT_FIXED_FIELDS);
 
+    const savingIsAllowed = Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA);
+
+    const savedIdData = useMemo(() => {
+        if (savingIsAllowed) return new SavedIdData();
+    }, [savingIsAllowed]);
+
     const resetSavedIdData = useCallback(() => {
-        savedIdData.getAll().then((id_data) => id_data && setCustomIdData(id_data));
-        savedIdData.getAllFixed().then((fixed_data) => {
+        savedIdData?.getAll().then((id_data) => id_data && setCustomIdData(id_data));
+        savedIdData?.getAllFixed().then((fixed_data) => {
             setFixedIdData(
                 (fixed_data ?? []).reduce(
                     (acc, elem: IdDataElement) => ({ ...acc, [elem.type]: elem.value }),
@@ -42,7 +47,7 @@ const IdDataControls = () => {
                 )
             );
         });
-        savedIdData.getSignature().then((signature) => signature && setSignature(signature));
+        savedIdData?.getSignature().then((signature) => signature && setSignature(signature));
     }, [savedIdData]);
 
     useEffect(() => {
@@ -50,11 +55,11 @@ const IdDataControls = () => {
     }, [resetSavedIdData]);
 
     useEffect(() => {
-        savedIdData.storeArray(fieldsArrayFromFixedData(fixedIdData));
+        savedIdData?.storeArray(fieldsArrayFromFixedData(fixedIdData));
     }, [savedIdData, fixedIdData]);
 
     useEffect(() => {
-        savedIdData.storeArray(customIdData, false);
+        savedIdData?.storeArray(customIdData, false);
     }, [savedIdData, customIdData]);
 
     const handleFixedChange = (type: 'name' | 'birthdate' | 'email' | 'address', value: string | Address) => {
@@ -69,7 +74,7 @@ const IdDataControls = () => {
         );
     };
 
-    if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+    if (savingIsAllowed) {
         return (
             <div id="id-data-controls-container" className="narrow-page">
                 <DynamicInputContainer
@@ -90,7 +95,7 @@ const IdDataControls = () => {
                                         )
                                         // remove the undefined elements
                                         .filter((d) => d)
-                                        .sort()
+                                        .sort((a, b) => a - b)
                                         .pop() || 0;
                                 fields.push({
                                     ...new_field,
@@ -111,7 +116,7 @@ const IdDataControls = () => {
                                 },
                                 'Cannot remove field.'
                             );
-                        savedIdData.removeByDesc(customIdData[idx].desc);
+                        savedIdData?.removeByDesc(customIdData[idx].desc);
                         setCustomIdData(
                             produce((fields) => {
                                 fields.splice(idx, 1);
@@ -236,7 +241,7 @@ const IdDataControls = () => {
                     height={200}
                     onChange={(s) => {
                         setSignature(s);
-                        savedIdData.storeSignature(s);
+                        savedIdData?.storeSignature(s);
                     }}
                     value={signature}
                     isForIdData={true}

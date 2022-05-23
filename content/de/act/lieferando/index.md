@@ -31,7 +31,7 @@ Das ist natürlich kostenlos für dich und wir bekommen keine personenbezogenen 
 {{< noScript "noscript-actwidget" >}}
 <script>
 window.addEventListener('load', function() { renderActWidget({
-    /*TODO: the labels are shown in English, because I don't want to hardcode the record here. Thats kinda okay, because "Name" and "Address" are quite similar to "Name" and "Adresse".*/
+    /* TODO: the labels are shown in English, because I don't want to hardcode the record here. That's kinda okay, because "Name" and "Address" are quite similar to "Name" and "Adresse". */
     requestTypes: ['access'],
     transportMedium: 'email',
     company: 'takeaway-com'

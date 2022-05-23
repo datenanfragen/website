@@ -1,7 +1,7 @@
 import { render } from 'preact';
 import { RequestGeneratorBuilder } from './RequestGeneratorBuilder';
 import type { RequestType, TransportMedium } from '../types/request';
-import { Company } from '../types/company.d';
+import type { Company } from '../types/company';
 import { ActionButton } from './Generator/ActionButton';
 import { StatefulSignatureInput } from './Generator/SignatureInput';
 import { RequestTypeChooser } from './Generator/RequestTypeChooser';
@@ -30,11 +30,11 @@ export const ActWidget = (props: ActWidgetProps) => {
                     else if (typeof props.company === 'object') setCompany(props.company);
 
                     setRequestType(props.requestTypes[0]);
-                    props.transportMedium && setTransportMedium(props.transportMedium);
+                    if (props.transportMedium) setTransportMedium(props.transportMedium);
                 }}>
-                {props.requestTypes.length > 1 ? <RequestTypeChooser request_types={props.requestTypes} /> : null}
+                {props.requestTypes.length > 1 && <RequestTypeChooser request_types={props.requestTypes} />}
 
-                {props.textBeforeDynamicInputContainer ? <p>{props.textBeforeDynamicInputContainer}</p> : null}
+                {props.textBeforeDynamicInputContainer && <p>{props.textBeforeDynamicInputContainer}</p>}
 
                 <StatefulDynamicInputContainer
                     allowAddingFields={false}
@@ -42,7 +42,7 @@ export const ActWidget = (props: ActWidgetProps) => {
                     allowChangingFieldDescriptions={false}
                 />
 
-                {transport_medium !== 'email' ? <StatefulSignatureInput /> : null}
+                {transport_medium !== 'email' && <StatefulSignatureInput />}
 
                 <div style="float: right; margin-top: 10px;">
                     <ActionButton />
@@ -63,7 +63,7 @@ export const ActWidget = (props: ActWidgetProps) => {
             el &&
             render(
                 <RequestGeneratorProvider createStore={createGeneratorStore}>
-                    <ActWidget {...props!} />
+                    <ActWidget {...props} />
                 </RequestGeneratorProvider>,
                 el
             )

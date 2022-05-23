@@ -62,8 +62,6 @@ export type Address = {
     place: string;
     country: string;
     primary?: boolean;
-    [index: typeof ADDRESS_STRING_PROPERTIES[number]]: string;
-    [index: 'primary']: boolean | undefined;
 };
 
 interface RequestInterface {
@@ -86,7 +84,7 @@ interface RequestInterface {
     recipient_runs: string[];
     /** Whether the user needs to enter ID data for the request. */
     is_tracking_request: boolean;
-    [index: DataField]: IdDataElement[];
+    [field_name: DataFieldName]: IdDataElement[];
 }
 
 export interface AccessRequest extends RequestInterface {
@@ -108,7 +106,6 @@ export type CustomLetterData = {
     subject: string;
     sender_address: Address;
     name: string;
-    [index: 'content' | 'subject' | 'name']: string;
 };
 
 export interface CustomRequest extends RequestInterface {
@@ -131,7 +128,9 @@ export interface RectificationRequest extends RequestInterface {
 
 export type Request = AccessRequest | ErasureRequest | CustomRequest | ObjectionRequest | RectificationRequest;
 
-export type DataField<R extends Request> = 'id_data' | (R extends RectificationRequest ? 'rectification_data' : never);
+export type DataFieldName<R extends Request> =
+    | 'id_data'
+    | (R extends RectificationRequest ? 'rectification_data' : never);
 
 export type RequestFlag =
     | {

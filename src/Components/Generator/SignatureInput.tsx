@@ -47,39 +47,39 @@ export const SignatureInput = (props: SignatureInputProps) => {
 
     // Mice are scary!
     const handleMouse = (event: JSX.TargetedMouseEvent<HTMLCanvasElement>) => {
-        if (canvas.current && context.current) {
-            switch (event.type) {
-                case 'pointermove':
-                    if (isDrawing) {
-                        const x = event.pageX - canvas.current.offsetLeft;
-                        const y = event.pageY - canvas.current.offsetTop;
-                        drawPath(context.current, lastPosition, { x, y }, strokeColor);
-                        setLastPosition({ x, y });
-                        setCropArea(newCropAreaFromPenPosition(x, y, cropArea));
-                    }
-                    break;
-                case 'pointerdown':
-                    {
-                        if (canvas.current.width !== canvas.current.parentElement?.scrollWidth) {
-                            canvas.current.width = canvas.current.parentElement?.scrollWidth || 100;
-                        }
-
-                        const x = event.pageX - canvas.current.offsetLeft;
-                        const y = event.pageY - canvas.current.offsetTop;
-
-                        drawCircle(context.current, { x, y }, 1, strokeColor);
-                        setCropArea(newCropAreaFromPenPosition(x, y, cropArea));
-
-                        setDrawing(true);
-                        setLastPosition({ x, y });
-                        setEmpty(false);
-                        setHasBeenDrawnOn(true);
+        if (!canvas.current || !context.current) return;
+        switch (event.type) {
+            case 'pointermove':
+                if (isDrawing) {
+                    const x = event.pageX - canvas.current.offsetLeft;
+                    const y = event.pageY - canvas.current.offsetTop;
+                    drawPath(context.current, lastPosition, { x, y }, strokeColor);
+                    setLastPosition({ x, y });
+                    setCropArea(newCropAreaFromPenPosition(x, y, cropArea));
+                }
+                break;
+            case 'pointerdown':
+                {
+                    if (canvas.current.width !== canvas.current.parentElement?.scrollWidth) {
+                        canvas.current.width = canvas.current.parentElement?.scrollWidth || 100;
                     }
 
-                    break;
-                case 'pointerout':
-                    if (hasBeenDrawnOn)
-                        /*
+                    const x = event.pageX - canvas.current.offsetLeft;
+                    const y = event.pageY - canvas.current.offsetTop;
+
+                    drawCircle(context.current, { x, y }, 1, strokeColor);
+                    setCropArea(newCropAreaFromPenPosition(x, y, cropArea));
+
+                    setDrawing(true);
+                    setLastPosition({ x, y });
+                    setEmpty(false);
+                    setHasBeenDrawnOn(true);
+                }
+
+                break;
+            case 'pointerout':
+                if (hasBeenDrawnOn)
+                    /*
                         Canvas data cannot be extracted in Firefox with `privacy.resistFingerprinting` enabled or Tor Browser by
                         default (see #69). Instead, the browser simply returns a white image.
 
@@ -92,53 +92,48 @@ export const SignatureInput = (props: SignatureInputProps) => {
                         I have decided on a different approach but if we wanted the prompt to be shown, we would simply need to call
                         `this.canvas.toDataURL()` (or any other of the image-extracting APIs) in the `onmousedown` event.
                         */
-                        props.onChange(
-                            isEmpty
-                                ? { type: 'text', name: props.value.name || '' }
-                                : {
-                                      type: 'image',
-                                      value: !isEmpty
-                                          ? getCroppedCanvas(canvas.current, cropArea).toDataURL() || ''
-                                          : '',
-                                      name: props.value.name || undefined,
-                                  }
-                        );
-                    setHasBeenDrawnOn(false);
+                    props.onChange(
+                        isEmpty
+                            ? { type: 'text', name: props.value.name || '' }
+                            : {
+                                  type: 'image',
+                                  value: !isEmpty ? getCroppedCanvas(canvas.current, cropArea).toDataURL() || '' : '',
+                                  name: props.value.name || undefined,
+                              }
+                    );
+                setHasBeenDrawnOn(false);
 
-                    setCanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
-                // fallthrough intentional
-                case 'pointerup':
-                    setDrawing(false);
-                    break;
-            }
+                setCanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
+            // fallthrough intentional
+            case 'pointerup':
+                setDrawing(false);
+                break;
         }
     };
 
-    const handleChange = () => {
-        if (context.current) {
-            // This doesn't cause a prompt if the user has previously denied one for us. I however
-            // also am not aware of a way to force a prompt in that case (or even to detect that
-            // this has happened), so I don't think there's anything else we can do here.
-            context.current.getImageData(0, 0, 1, 1);
+    const handleImageExtractionDetection = () => {
+        if (!context.current) return;
+        // This doesn't cause a prompt if the user has previously denied one for us. I however
+        // also am not aware of a way to force a prompt in that case (or even to detect that
+        // this has happened), so I don't think there's anything else we can do here.
+        context.current.getImageData(0, 0, 1, 1);
 
-            // This is ugly. There is no way to be notified of the result of the permission prompt,
-            // so we just have to try.
-            // TODO: Is this even necessary? The check will be triggered anyway in the `onmouseout`
-            // event.
-            let tries = 50;
-            const f = () => {
-                setCanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
-                if (tries-- > 0 && canvasImageExtractionBlocked) setTimeout(f, 500);
-            };
-            f();
-        }
+        // This is ugly. There is no way to be notified of the result of the permission prompt,
+        // so we just have to try.
+        // TODO: Is this even necessary? The check will be triggered anyway in the `onmouseout`
+        // event.
+        let tries = 50;
+        const f = () => {
+            setCanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
+            if (tries-- > 0 && canvasImageExtractionBlocked) setTimeout(f, 500);
+        };
+        f();
     };
 
     useEffect(() => {
-        if (canvas.current) {
-            context.current = canvas.current.getContext('2d');
-            setCanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
-        }
+        if (!canvas.current) return;
+        context.current = canvas.current.getContext('2d');
+        setCanvasImageExtractionBlocked(detectBlockedCanvasImageExtraction(context.current));
     }, [canvas]);
 
     useEffect(() => {
@@ -187,7 +182,9 @@ export const SignatureInput = (props: SignatureInputProps) => {
                                 {/* <br />
                                      <a href="#"><Text id="overlay-learn-more" /></a> */}
                             </p>
-                            <button onClick={handleChange} className="button button-primary button-small">
+                            <button
+                                onClick={handleImageExtractionDetection}
+                                className="button button-primary button-small">
                                 <Text id="overlay-allow" />
                             </button>
                         </div>
@@ -212,13 +209,12 @@ export const SignatureInput = (props: SignatureInputProps) => {
                         style="float: right;"
                         className="button button-small button-secondary"
                         onClick={() => {
-                            if (context.current)
-                                drawSignature(context.current, props.value).then((newCropArea) => {
-                                    if (newCropArea) {
-                                        setEmpty(false);
-                                        setCropArea(newCropArea);
-                                        handleChange();
-                                    }
+                            if (context.current && props.fillSignature?.type === 'image')
+                                drawSignature(context.current, props.fillSignature).then((newCropArea) => {
+                                    if (!newCropArea || props.fillSignature?.type !== 'image') return;
+                                    setEmpty(false);
+                                    setCropArea(newCropArea);
+                                    props.onChange(props.fillSignature);
                                 });
                         }}>
                         <Text id="fill-signature" />

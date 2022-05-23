@@ -34,9 +34,7 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
     useEffect(
         () =>
             generatorStoreApi.subscribe((state, prev) => {
-                if (state.request !== prev.request) {
-                    renderLetter();
-                }
+                if (state.request !== prev.request) renderLetter();
             }),
         [renderLetter, generatorStoreApi]
     );
@@ -47,7 +45,7 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
             renderLetter();
             return callbacks;
         }
-    }, [initiatePdfGeneration, transport_medium]);
+    }, [initiatePdfGeneration, transport_medium, renderLetter]);
 
     const { onInitialized } = props;
 
@@ -67,8 +65,8 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
                                 if (response_to) return new UserRequests().getRequest(response_to);
                             })
                             .then((user_request) => setCustomLetterTemplate('complaint', user_request ?? undefined))
-                            .then(() => renderLetter)
-                            .then(() => setReady);
+                            .then(() => renderLetter())
+                            .then(() => setReady());
                     }
 
                     dismissAuthorityChooser();
@@ -106,16 +104,14 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
                         const batch_companies = window.PARAMETERS['companies'];
                         if (batch_companies) {
                             const batch = batch_companies.split(',');
+
                             // We are in batch mode, move to the next company.
                             // Note: Previously, we checked for `this.state.batch` here. This is wrong however: The `generator.js`
                             // may have already called `setBatch()` and thus set `this.state.batch` *and* shifted it.
                             // Re-calling this code (due to the async nature of the `then` block, it may well run later) would
                             // result in skipping the first company (see #253). Instead, we only want to prepare batch mode here if
                             // it was enabled through the URL (i.e. `batch_companies` is set).
-
-                            if (batch.length > 0) {
-                                startBatch(batch);
-                            }
+                            if (batch.length > 0) startBatch(batch);
                         }
                     }
                 }

@@ -80,8 +80,8 @@ export const useNewRequestModal = (
         setDownload(false);
         setBusy();
         removeCompany()
-            .then(() => newRequestHook && newRequestHook(payload))
-            .then(() => advanceBatch)
+            .then(() => newRequestHook?.(payload))
+            .then(() => advanceBatch())
             .then(() => resetInitialConditions());
     }, [
         newRequestHook,

@@ -21,9 +21,7 @@ export const ActionButton = (_props: ActionButtonProps) => {
     const setSent = useGeneratorStore((state) => state.setSent);
 
     const props = {
-        onSuccess: () => {
-            storeRequest().then(() => setSent(true));
-        },
+        onSuccess: () => storeRequest().then(() => setSent(true)),
         ..._props,
     };
 

@@ -7,7 +7,7 @@ import type {
     Address,
     AccessRequest,
     RequestType,
-    DataField,
+    DataFieldName,
     Request,
     CustomTemplateName,
 } from '../types/request';
@@ -17,21 +17,36 @@ export const REQUEST_ARTICLES = { access: '15', erasure: '17', rectification: '1
 export const REQUEST_FALLBACK_LANGUAGE = 'en'; // We'll use English as hardcoded fallback language
 
 export function isAddress(value: IdDataElement['value']): value is Address {
-    return (value as Address).country !== undefined;
+    return typeof value === 'object' && 'country' in value;
 }
 
 export function isSva(sva: unknown): sva is SupervisoryAuthority {
-    return (sva as SupervisoryAuthority)['complaint-language'] !== undefined;
+    return !!sva && typeof sva === 'object' && 'complaint-language' in sva;
 }
 
 /**
  * This is not a true typeguard, but it is a hack to get typescript to shut up because it does not understand that this function actually checks that 'rectification_data' might also be a sane case, depending on the request type.
  */
 export function isSaneDataField(
-    data_field: DataField<Request>,
+    data_field: DataFieldName<Request>,
     request_type: RequestType
-): data_field is DataField<AccessRequest> {
+): data_field is DataFieldName<AccessRequest> {
     return data_field === 'id_data' || (request_type === 'rectification' && data_field === 'rectification_data');
+}
+
+export const adressesEqual = (one: Address, two: Address) =>
+    one.street_1 === two.street_1 &&
+    one.street_2 === two.street_2 &&
+    one.place === two.place &&
+    one.country === two.country;
+
+/** @returns Whether the field contains a value based on its type. */
+export function isFieldEmpty(field: IdDataElement) {
+    if (typeof field.value === 'string' && field.value.trim()) return false;
+    else if (isAddress(field.value))
+        for (const [key, value] of Object.entries(field.value)) if (key !== 'primary' && value) return false;
+
+    return true;
 }
 
 export const defaultRequest = (language: RequestLanguage): AccessRequest => {

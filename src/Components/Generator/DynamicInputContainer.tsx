@@ -4,7 +4,7 @@ import { DynamicInput } from './DynamicInput';
 import { Text, MarkupText, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { EMTPY_ADDRESS, IdDataElement } from '../../types/request.d';
-import { isAddress } from '../../Utility/requests';
+import { adressesEqual, isFieldEmpty } from '../../Utility/requests';
 import { useGeneratorStore } from '../../store/generator';
 
 type DynamicInputContainerProps = {
@@ -70,7 +70,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
         );
         if (index >= 0 && props.fields[index].value !== newField.value) {
             const oldField = props.fields[index];
-            // This is obviously true by the contion above, but not to typescript, so let's check explicitly
+            // This is obviously true by the condition above, but not to typescript, so let's check explicitly
             if (oldField.type !== 'address' && newField.type !== 'address')
                 props.onChange(index, { ...oldField, value: newField.value });
             return;
@@ -87,7 +87,10 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                 (existingField: IdDataElement) =>
                     field.type === existingField.type &&
                     field.desc === existingField.desc &&
-                    field.value === existingField.value
+                    (field.value === existingField.value ||
+                        (field.type === 'address' &&
+                            existingField.type === 'address' &&
+                            adressesEqual(field.value, existingField.value)))
             );
 
             if (!isFieldPresent && field.value) {
@@ -203,17 +206,3 @@ export const StatefulDynamicInputContainer = (props: Partial<DynamicInputContain
         />
     );
 };
-
-// returns boolean whether the field has value based on its type
-function isFieldEmpty(field: IdDataElement) {
-    if (typeof field.value === 'string' && field.value.trim()) {
-        return false;
-    } else if (isAddress(field.value)) {
-        for (const [key, value] of Object.entries(field.value)) {
-            if (key !== 'primary' && value) {
-                return false;
-            }
-        }
-    }
-    return true;
-}

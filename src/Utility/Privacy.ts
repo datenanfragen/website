@@ -67,15 +67,7 @@ export class Privacy {
             navigator.doNotTrack == '1' ||
             (window as typeof window & { doNotTrack: unknown }).doNotTrack == '1' ||
             navigator.doNotTrack == 'yes' ||
-            (navigator as typeof navigator & { msDoNotTrack: unknown }).msDoNotTrack == 1 ||
-            (window.external &&
-                windowExternalTypeguard(window) &&
-                ((!!window.external.msTrackingProtectionEnabled &&
-                    typeof window.external.msTrackingProtectionEnabled == 'function' &&
-                    window.external.msTrackingProtectionEnabled()) ||
-                    (!!window.external.InPrivateFilteringEnabled &&
-                        typeof window.external.InPrivateFilteringEnabled == 'function' &&
-                        window.external.InPrivateFilteringEnabled())))
+            (navigator as typeof navigator & { msDoNotTrack: unknown }).msDoNotTrack == 1
         );
     }
 
@@ -83,10 +75,3 @@ export class Privacy {
         return 'privacy_control-' + privacy_action.id;
     }
 }
-
-// This is a trick to keeo the expression in Privacy.dntEnabled() tidy(er).
-const windowExternalTypeguard = (
-    w: typeof window
-): w is typeof window & {
-    external: { msTrackingProtectionEnabled: unknown; InPrivateFilteringEnabled: unknown };
-} => true;

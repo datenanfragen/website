@@ -43,7 +43,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                 className={`dynamic-input dynamic-input-${props.value.type}`}
                 id={`dynamic-input-${props.id}-${props.suffix}`}>
                 <div className="col40 form-group">
-                    {props.allowRemoving ? (
+                    {props.allowRemoving && (
                         <div style="display: table-cell; width: 27px;">
                             <button
                                 id={`${props.id}-delete-${props.suffix}`}
@@ -53,7 +53,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                 title={t('delete-field', 'generator')}
                             />
                         </div>
-                    ) : null}
+                    )}
                     <div style="display: table-cell;">
                         {props.allowChangingDescription ? (
                             [
@@ -95,7 +95,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                     if (props.value.type === 'address') {
                                         props.onChange(
                                             produce((id_data: AddressIdData) => {
-                                                id_data.value.primary = !id_data.value.primary;
+                                                id_data.value.primary = true;
                                             })(props.value)
                                         );
                                     }
@@ -147,7 +147,6 @@ export const InputControl = (props: InputControlProps) => {
                     <div className="form-group fancy-fg">
                         <input
                             key={property}
-                            name={property}
                             data-dynamic-input-id={props.id}
                             type="text"
                             id={`${props.id}-${property}-${props.suffix}`}
@@ -163,7 +162,6 @@ export const InputControl = (props: InputControlProps) => {
                     </div>
                 ))}
                 <input
-                    name="primary"
                     data-dynamic-input-id={props.id}
                     type="hidden"
                     id={`${props.id}-primary-${props.suffix}`}

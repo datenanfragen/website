@@ -22,14 +22,14 @@ export function fetchCompanyNameBySlug(slug: string) {
 export function fetchSvaDataBySlug(slug: string): Promise<SupervisoryAuthority | void> {
     return fetch(window.BASE_URL + 'db/sva/' + slug + '.json')
         .then((res) => res.json())
-        .catch((err) => {
+        .catch((err) =>
             rethrow(
                 ErrorException.fromError(err),
                 'fetchSvaDataBySlug() failed.',
                 { slug },
                 t('sva-not-found', 'error-msg')
-            );
-        });
+            )
+        );
 }
 
 export function fetchSvaNameBySlug(slug: string): Promise<string | void> {

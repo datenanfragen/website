@@ -24,42 +24,30 @@ export class SavedIdData {
             if (d.type === 'address') d.value.primary = undefined;
         })(data);
 
-        return this.localforage_instance.setItem(data.desc.replace('/::/g', '__'), to_store).catch((error) =>
-            // '::' is a special character and disallowed in the database for user inputs. The user will not encounter that as the description will be saved in the original state with the data object.
-            rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] })
-        );
+        // '::' is a special character and disallowed in the database for user inputs. The user will not encounter that as the description will be saved in the original state with the data object.
+        return this.localforage_instance
+            .setItem(data.desc.replace('/::/g', '__'), to_store)
+            .catch((error) => rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] }));
     }
 
     storeFixed(data: IdDataElement) {
-        const to_store = produce((d: IdDataElement) => {
-            switch (d.type) {
-                case 'name':
-                case 'birthdate':
-                case 'email':
-                    break;
-                case 'address':
-                    d.value.primary = true;
-                    break;
-                default:
-                    throw new WarningException('storeFixed only stores special data types.', d);
-            }
-        })(data);
+        if (!['name', 'email', 'birthdate', 'address'].includes(data.type))
+            throw new WarningException('storeFixed only stores special data types.', data);
 
-        this.localforage_instance.setItem(data.type + '::fixed', to_store).catch((error) => {
-            rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] });
+        const to_store = produce(data, (d: IdDataElement) => {
+            if (d.type === 'address') d.value.primary = true;
         });
+
+        return this.localforage_instance
+            .setItem(data.type + '::fixed', to_store)
+            .catch((error) => rethrow(error, 'Saving id_data failed.', { desc: to_store.desc }));
     }
 
     storeArray(array: IdDataElement[], fixed_only = true) {
-        if (fixed_only) array = array.filter(fixed_condition);
         return Promise.all(
-            array.map((item) => {
-                if (fixed_condition(item)) {
-                    return this.storeFixed(item);
-                } else if (!fixed_only) {
-                    return this.store(item);
-                }
-            })
+            (fixed_only ? array.filter(fixed_condition) : array).map((item) =>
+                fixed_condition(item) ? this.storeFixed(item) : this.store(item)
+            )
         );
     }
 
@@ -71,7 +59,7 @@ export class SavedIdData {
 
     getByDesc(desc: string) {
         return this.localforage_instance
-            .getItem<IdDataElement>(desc.replace('/::/g', '__'))
+            .getItem<IdDataElement>(desc.replace(/::/g, '__'))
             .catch((error) => rethrow(error, 'Could not retrieve id_data.', { desc }));
     }
 
@@ -89,7 +77,7 @@ export class SavedIdData {
 
     removeByDesc(desc: string) {
         return this.localforage_instance
-            .removeItem(desc.replace('/::/g', '__'))
+            .removeItem(desc.replace(/::/g, '__'))
             .catch((error) => rethrow(error, 'Could not delete id_data.', { desc }));
     }
 
@@ -120,7 +108,7 @@ export class SavedIdData {
 
     /**
      * Merges `fields_to_merge` into `fields_to_add_to` to create a new array of `IdDataElements` which contains the data of the `fields_to_merge`. Fields are merged, either if their type and description match, if the type matches and is also a "fixed" type (i.e. non-generic type like 'email'), or if they both contain an address marked as `primary` (also cf. `mergeCondition`).
-     * @param fields_to_add_to Fields in which the data should be merged.
+     * @param fields_to_add_to Fields into which the data should be merged.
      * @param fields_to_merge Data which is supposed to be merged into the fields.
      * @param keep If this flag is true, fields which have no corresponding merging candidate in `fields_to_merge` are still kept. Otherwise they are dropped.
      * @param override_values Whether to override the values in `fields_to_add_to` with values from `fields_to_merge`.
@@ -139,7 +127,7 @@ export class SavedIdData {
     ) {
         const new_fields = fields_to_merge.slice();
 
-        let has_primary_address = 0;
+        let primary_address_count = 0;
         const merged_fields = fields_to_add_to.reduce((merged_fields: IdDataElement[], old_field): IdDataElement[] => {
             const field = produce(old_field, (f: IdDataElement | undefined) => {
                 if (f) {
@@ -151,10 +139,10 @@ export class SavedIdData {
                         if (!protect_desc) f.desc = candidate.desc; // should only matter for fixed types
                         if (!preserve_optional) f.optional = candidate?.optional;
                         if (override_values && candidate.value) f.value = candidate.value;
-                        if (f.type === 'address') f.value = { ...f.value, primary: ++has_primary_address === 1 };
+                        if (f.type === 'address') f.value = { ...f.value, primary: ++primary_address_count === 1 };
                         new_fields.splice(candidate_index, 1);
                     } else if (keep) {
-                        if (f.type === 'address') f.value = { ...f.value, primary: ++has_primary_address === 1 };
+                        if (f.type === 'address') f.value = { ...f.value, primary: ++primary_address_count === 1 };
                     } else {
                         return nothing;
                     }
@@ -168,11 +156,11 @@ export class SavedIdData {
                 new_fields.map(
                     produce((field) => {
                         if (field.value && field.type === 'address' && isAddress(field.value))
-                            field.value.primary = ++has_primary_address === 1;
+                            field.value.primary = ++primary_address_count === 1;
                         field.value =
                             field.value ||
                             (field.type === 'address'
-                                ? { ...EMTPY_ADDRESS, primary: ++has_primary_address === 1 }
+                                ? { ...EMTPY_ADDRESS, primary: ++primary_address_count === 1 }
                                 : '');
                         return field;
                     })
@@ -183,12 +171,14 @@ export class SavedIdData {
         return merged_fields;
     }
 
-    static setAlwaysFill(always_fill: boolean | string) {
-        Cookie.set('general-always_fill_in', always_fill.toString(), {
-            expires: 365,
-            secure: true,
-            sameSite: 'strict',
-        });
+    static setAlwaysFill(always_fill: boolean) {
+        if (always_fill) Cookie.remove('general-always_fill_in');
+        else
+            Cookie.set('general-always_fill_in', always_fill.toString(), {
+                expires: 365,
+                secure: true,
+                sameSite: 'strict',
+            });
     }
 
     static shouldAlwaysFill() {

@@ -13,7 +13,8 @@ describe('Generator component', () => {
         cy.contains('Download PDF', { timeout: 10000 })
             .should('not.have.class', 'disabled')
             .should('have.attr', 'href')
-            .and('match', /^blob:ht{2}ps?:\/{2}\S+?\/[\da-f]{8}(?:-[\da-f]{4}){3}-[\da-f]{12}$/);
+            // eslint-disable-next-line optimize-regex/optimize-regex
+            .and('match', /^blob:https?:\/\/[\S]+?\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
     });
 
     it('did not load pdfworker for email', () => {

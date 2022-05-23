@@ -14,11 +14,9 @@ export const CompanySelector = (props: CompanySelectorProps) => {
 
     const { newRequestHook } = props;
 
-    const [ConfirmNewRequestModal, showConfirmNewRequestModal] = useNewRequestModal((payload) => {
-        setCompany(payload as Company).then(() => {
-            if (newRequestHook) newRequestHook();
-        });
-    });
+    const [ConfirmNewRequestModal, showConfirmNewRequestModal] = useNewRequestModal((payload) =>
+        setCompany(payload as Company).then(() => newRequestHook?.())
+    );
 
     return (
         <div className="search">
@@ -34,7 +32,6 @@ export const CompanySelector = (props: CompanySelectorProps) => {
                 debug={false}
                 {...props}
             />
-            {/* For some reason, autocomplete.js completely freaks out if it is wrapped in any tag at all and there isn't *anything at all* after it (only in the generator, though). As a workaround, we just use a space. We are counting on #24 anyway… */}{' '}
         </div>
     );
 };

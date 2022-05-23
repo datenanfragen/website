@@ -6,7 +6,7 @@ import { CompanyState, createCompanyStore } from './company';
 import type { StoreSlice } from '../types/utility';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
-// This will be replaced with an URL by the worker-loader plugin in webpack which is why eslint can't fin a defautl import (ts can be tricked by defining a module).
+// This will be replaced with an URL by the worker-loader plugin in webpack which is why eslint can't find a default import (TS can be tricked by defining a module).
 // eslint-disable-next-line import/default
 import PdfWorker from '../Utility/pdf.worker.ts';
 import { rethrow } from '../Utility/errors';
@@ -20,8 +20,8 @@ export interface GeneratorSpecificState {
     fillFields: IdDataElement[];
     fillSignature: Signature;
     pdfWorker?: PdfWorker;
-    setBusy: () => void;
     setReady: () => void;
+    setBusy: () => void;
     setDownload: (download_active: boolean, download_url?: string, download_filename?: string) => void;
     refreshFillFields: () => void;
     initiatePdfGeneration: () => void;
@@ -47,12 +47,8 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
     download_active: false,
     fillFields: [],
     fillSignature: { type: 'text', name: '' },
-    setReady: () => {
-        set({ ready: true });
-    },
-    setBusy: () => {
-        set({ ready: false });
-    },
+    setReady: () => set({ ready: true }),
+    setBusy: () => set({ ready: false }),
     setDownload: (download_active, download_url, download_filename) =>
         set({
             download_active,
@@ -85,8 +81,8 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
         set({ pdfWorker });
 
         return () => {
-            pdfWorker!.removeEventListener('message', onMessage);
-            pdfWorker!.removeEventListener('error', onError);
+            pdfWorker?.removeEventListener('message', onMessage);
+            pdfWorker?.removeEventListener('error', onError);
         };
     },
     renderLetter: () => {
@@ -158,7 +154,8 @@ const generatorStore = (set: SetState<GeneratorState>, get: GetState<GeneratorSt
     ...createGeneratorSpecificStore(set, get),
 });
 
-const { devtools } = process.env.NODE_ENV === 'development' ? require('zustand/middleware') : undefined;
+const { devtools } =
+    process.env.NODE_ENV === 'development' ? require('zustand/middleware') : { devtools: (d: unknown) => d };
 
 export const createGeneratorStore =
     process.env.NODE_ENV === 'development' ? () => create(devtools(generatorStore)) : () => create(generatorStore);

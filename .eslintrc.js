@@ -75,6 +75,7 @@ module.exports = {
         'jest/expect-expect': 'off',
         'jest/valid-expect-in-promise': 'off',
         'jest/valid-expect': 'off',
+        'react/prop-types': 'off',
     },
     globals: {
         Atomics: 'readonly',
@@ -136,12 +137,4 @@ module.exports = {
         jest: { version: 'n/a' },
         'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } },
     },
-    overrides: [
-        {
-            files: ['*.ts', '*.tsx'],
-            rules: {
-                'react/prop-types': 'off',
-            },
-        },
-    ],
 };

@@ -53,9 +53,7 @@ export class UserRequests {
                     requests[reference] = data;
                 })
                 .then(() => requests)
-                .catch((error) => {
-                    rethrow(error, 'Could not get requests');
-                });
+                .catch((error) => rethrow(error, 'Could not get requests'));
         }
     }
 
