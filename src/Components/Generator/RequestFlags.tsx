@@ -1,5 +1,5 @@
 import { useGeneratorStore } from '../../store/generator';
-import { Fragment, JSX } from 'preact';
+import { Fragment } from 'preact';
 import { Text } from 'preact-i18n';
 import t from '../../Utility/i18n';
 

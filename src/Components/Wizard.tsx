@@ -5,7 +5,7 @@ import { useFetch } from '../hooks/useFetch';
 import { SearchBar } from './SearchBar';
 import { SavedCompanies } from '../DataType/SavedCompanies';
 import t from '../Utility/i18n';
-import { rethrow } from '../Utility/errors';
+import { rethrow, ErrorException } from '../Utility/errors';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 
 const categories = [
@@ -54,9 +54,13 @@ export const Wizard = () => {
 
     useEffect(() => {
         if (suggested_companies_error) {
-            rethrow(suggested_companies_error, 'Loading the suggested companies in the wizard failed.', {
-                suggested_companies_url,
-            });
+            rethrow(
+                ErrorException.fromError(suggested_companies_error),
+                'Loading the suggested companies in the wizard failed.',
+                {
+                    suggested_companies_url,
+                }
+            );
             return;
         }
         if (!suggested_companies_data) return;

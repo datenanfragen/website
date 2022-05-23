@@ -32,7 +32,7 @@ export class SavedIdData {
 
     storeFixed(data: IdDataElement) {
         if (!['name', 'email', 'birthdate', 'address'].includes(data.type))
-            throw new WarningException('storeFixed only stores special data types.', data);
+            throw new WarningException('storeFixed only stores special data types.', { ...data });
 
         const to_store = produce(data, (d: IdDataElement) => {
             if (d.type === 'address') d.value.primary = true;
