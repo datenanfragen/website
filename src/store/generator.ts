@@ -9,7 +9,7 @@ import { SavedIdData } from '../DataType/SavedIdData';
 // This will be replaced with an URL by the worker-loader plugin in webpack which is why eslint can't find a default import (TS can be tricked by defining a module).
 // eslint-disable-next-line import/default
 import PdfWorker from '../Utility/pdf.worker.ts';
-import { rethrow } from '../Utility/errors';
+import { ErrorException, rethrow } from '../Utility/errors';
 import { UserRequests } from '../DataType/UserRequests';
 
 export interface GeneratorSpecificState {
@@ -73,7 +73,8 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
             get().setDownload(true, message.data.blob_url, message.data.filename);
             get().setReady();
         };
-        const onError = (error: ErrorEvent) => rethrow(error, 'PdfWorker error');
+        const onError = (error_event: ErrorEvent) =>
+            rethrow(ErrorException.fromError(error_event.error), 'PdfWorker error');
 
         pdfWorker.addEventListener('message', onMessage);
         pdfWorker.addEventListener('error', onError);

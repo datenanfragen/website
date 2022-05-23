@@ -11,9 +11,7 @@ describe('Make sure there are no wizard regressions', () => {
 
         cy.visit('/');
 
-        cy.window().then((win) => {
-            win.globals.country = 'de';
-        });
+        cy.window().then((win) => win.getAppStore().changeCountry('de'));
 
         cy.seedWizardCompaniesWithKnownList();
     });

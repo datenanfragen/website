@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'preact/hooks';
 import { Text, MarkupText, IntlProvider } from 'preact-i18n';
+import { useAppStore } from '../store/app';
+import { useFetch } from '../hooks/useFetch';
 import { SearchBar } from './SearchBar';
 import { SavedCompanies } from '../DataType/SavedCompanies';
 import t from '../Utility/i18n';
@@ -21,13 +23,13 @@ const categories = [
 
 const saved_companies = Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) ? new SavedCompanies() : undefined;
 
+type CompanyNameToSlug = Record<string, string>;
+
 export const Wizard = () => {
-    // Don't ever update `country` directly but rather use `globals.country`.
-    const [country, setCountry] = useState(window.globals.country);
-    window.globals._country_listeners.push((new_country) => setCountry(new_country));
+    const country = useAppStore((state) => state.country);
 
     const [currentTab, setCurrentTab] = useState(0);
-    const [selectedCompanies, setSelectedCompanies] = useState<Record<string, string>>({});
+    const [selectedCompanies, setSelectedCompanies] = useState<CompanyNameToSlug>({});
 
     const isLastTab = currentTab === categories.length - 1;
     const changeTab = (new_tab: number) => setCurrentTab(new_tab % categories.length);
@@ -46,31 +48,32 @@ export const Wizard = () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) saved_companies?.remove(slug);
     };
 
-    useEffect(() => {
-        const loadSuggestedCompanies = () => {
-            const url = `${window.BASE_URL}db/suggested-companies/${country}_wizard.json`;
-            fetch(url)
-                .then((res) => (res.status === 200 ? res.json() : {}))
-                .then((companies) => {
-                    setSelectedCompanies(companies);
+    const suggested_companies_url = `${window.BASE_URL}db/suggested-companies/${country}_wizard.json`;
+    const { data: suggested_companies_data, error: suggested_companies_error } =
+        useFetch<CompanyNameToSlug>(suggested_companies_url);
 
-                    if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
-                        saved_companies?.clearAll().then(() => {
-                            saved_companies?.addMultiple(companies, false);
-                            saved_companies?.setUserChanged(false);
-                        });
-                    }
-                })
-                .catch((err) => rethrow(err, 'Loading the suggested companies in the wizard failed.', { url }));
-        };
+    useEffect(() => {
+        if (suggested_companies_error) {
+            rethrow(suggested_companies_error, 'Loading the suggested companies in the wizard failed.', {
+                suggested_companies_url,
+            });
+            return;
+        }
+        if (!suggested_companies_data) return;
 
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
             saved_companies?.length().then((length) => {
-                if (length === 0 || !saved_companies?.getUserChanged()) loadSuggestedCompanies();
-                else saved_companies.getAll().then((companies) => setSelectedCompanies(companies));
+                if (length === 0 || !saved_companies?.getUserChanged()) {
+                    if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES)) {
+                        saved_companies
+                            ?.clearAll()
+                            .then(() => saved_companies?.addMultiple(suggested_companies_data, false))
+                            .then(() => setSelectedCompanies(suggested_companies_data));
+                    }
+                } else saved_companies.getAll().then((companies) => setSelectedCompanies(companies));
             });
-        } else loadSuggestedCompanies();
-    }, [country]);
+        } else setSelectedCompanies(suggested_companies_data);
+    }, [suggested_companies_url, suggested_companies_data, suggested_companies_error]);
 
     return (
         <IntlProvider scope="wizard" definition={window.I18N_DEFINITION}>

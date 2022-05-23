@@ -1,3 +1,7 @@
+// If multiple errors occur, we want to combine them to ensure the user submits all relevant debug information.
+let previous_email_report_body = '';
+let previous_github_report_body = '';
+
 // Our email hoster Uberspace has a spam filter that cannot be disabled and that doesn't like JSON. We have had problems
 // in the past with error reports being marked as spam and not being delivered to us. Thus, we employ this function to
 // make our JSON look as little like JSON as possible.
@@ -35,6 +39,8 @@ function logError(event, debug_info = undefined) {
 }
 
 function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
+    document.getElementById('error-modal')?.remove();
+
     const dismiss = () => document.getElementById('error-modal') && document.getElementById('error-modal').remove();
     const html = `
 <div id="error-modal" class="modal">
@@ -87,6 +93,7 @@ try {
                     // `chrome-extension://` also applies to Chromium Edge, Opera, Vivaldi, Yandex.Browser, and Brave.
                     'chrome-extension://',
                     'safari-extension://',
+                    '@safari-web-extension://',
                     'ms-browser-extension://',
                 ].some((s) => event.error?.stack?.includes(s))
             ) {
@@ -168,23 +175,25 @@ try {
             logError(event, debug_info);
 
             const report_title = encodeURIComponent('JS error (' + event.message + ')');
-            const reportBody = (debug_str) =>
-                encodeURIComponent(
-                    `[${I18N_DEFINITION['error-handler']['explain-context']}]\n\n**Debug information:**\n\n${debug_str}`
-                );
+            const reportBody = (debug_str, target) =>
+                ((target === 'email' ? previous_email_report_body : previous_github_report_body) ||
+                    encodeURIComponent(`[${I18N_DEFINITION['error-handler']['explain-context']}]\n\n`)) +
+                encodeURIComponent(`**Debug information:**\n\n${debug_str}`);
 
-            const github_issue_url = `https://github.com/datenanfragen/website/issues/new?title=${report_title}&body=${reportBody(
-                '```js\n' + JSON.stringify(debug_info, null, 4) + '\n```'
-            )}`;
-            const mailto_url = `mailto:dev@datenanfragen.de?subject=${report_title}&body=${reportBody(
-                dejsonify(debug_info)
-            )}`;
+            const github_body = reportBody('```js\n' + JSON.stringify(debug_info, null, 4) + '\n```', 'github');
+            const email_body = reportBody(dejsonify(debug_info), 'email');
+            const github_issue_url = `https://github.com/datenanfragen/website/issues/new?title=${report_title}&body=${github_body}`;
+            const mailto_url = `mailto:dev@datenanfragen.de?subject=${report_title}&body=${email_body}`;
 
             if (!debug_info.error.code || debug_info.error.code <= 3) {
                 primitiveErrorModal(event.error.enduser_message, github_issue_url, mailto_url);
+                previous_github_report_body = github_body + encodeURIComponent('\n\n---\n\n');
+                previous_email_report_body = email_body + encodeURIComponent('\n\n---\n\n');
             }
         } catch (new_err) {
             logError(event);
+            // eslint-disable-next-line no-console
+            console.error('While handling the error, another one occurred:', new_err);
         }
     };
 

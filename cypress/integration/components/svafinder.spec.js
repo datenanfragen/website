@@ -93,8 +93,10 @@ describe('SvaFinder component', () => {
     });
 
     it("moves the user's country to the top if set", () => {
+        skipOn(isOn('production'));
+
         cy.window().then((win) => {
-            win.globals.country = 'de';
+            win.getAppStore().changeCountry('de');
             cy.reload();
 
             cy.get('.sva-finder .radio-group-vertical label:nth-child(1)')
@@ -107,19 +109,17 @@ describe('SvaFinder component', () => {
         skipOn(isOn('production'));
 
         cy.window()
-            .then((win) => {
-                return win.accessLocalForageStore('my-requests').then((instance) =>
-                    instance.setItem('2020-YWT4H4U-access', {
-                        reference: '2020-YWT4H4U',
-                        date: '2020-03-14',
-                        type: 'access',
-                        slug: 'datenanfragen',
-                        recipient: 'Datenanfragen.de e. V.',
-                        email: '',
-                        via: 'email',
-                    })
-                );
-            })
+            .then((win) =>
+                win.accessLocalForageStore('my-requests').setItem('2020-YWT4H4U-access', {
+                    reference: '2020-YWT4H4U',
+                    date: '2020-03-14',
+                    type: 'access',
+                    slug: 'datenanfragen',
+                    recipient: 'Datenanfragen.de e. V.',
+                    email: '',
+                    via: 'email',
+                })
+            )
             .then(() => {
                 cy.visit('/generator/#!response_type=complaint&response_to=2020-YWT4H4U-access');
 

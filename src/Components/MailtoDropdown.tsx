@@ -1,6 +1,7 @@
 import type { JSX } from 'preact';
 import { useRef, useCallback } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
+import { useAppStore, Country } from '../store/app';
 import { useModal } from './Modal';
 import t, { t_r } from '../Utility/i18n';
 import { RequestLetter } from '../DataType/RequestLetter';
@@ -9,7 +10,7 @@ type EmailData = { email: string; subject: string; body: string };
 type MailtoHandler = (
     | { link: (data: EmailData) => string }
     | { onClick: (data: EmailData, showCopyManuallyModal: () => void) => void }
-) & { countries: typeof window.globals.country[] };
+) & { countries: Country[] };
 
 type MailtoDropdownProps = {
     letter: RequestLetter;
@@ -49,6 +50,8 @@ const mailto_handlers = createMailtoHandlers({
 });
 
 export const MailtoDropdown = (props: MailtoDropdownProps) => {
+    const country = useAppStore((state) => state.country);
+
     // We only want to select everything in the copymanually inputs if they aren't yet focused. That way, the user can still
     // make an individual selection if they prefer.
     // However, the event we get in the onclick handler means that the focus has already been changed to the element the
@@ -129,7 +132,7 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
     const handlers =
         props.handlers ||
         (Object.keys(mailto_handlers) as (keyof typeof mailto_handlers)[]).filter((h) =>
-            mailto_handlers[h].countries.some((c) => ['all', window.globals.country].includes(c))
+            mailto_handlers[h].countries.some((c) => ['all', country].includes(c))
         );
 
     const handler_buttons = handlers.map((h) => {

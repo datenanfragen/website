@@ -3,7 +3,7 @@ import { DynamicInputContainer } from './DynamicInputContainer';
 import { SignatureInput } from './SignatureInput';
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
-import Accordion from '../Accordion';
+import { Accordion } from '../Accordion';
 import { RequestTypeChooser } from './RequestTypeChooser';
 import { RecipientInput } from './RecipientInput';
 import { TransportMediumChooser } from './TransportMediumChooser';
@@ -69,7 +69,7 @@ export const RequestForm = (props: RequestFormProps) => {
                         <Accordion
                             title={t('information-block', 'generator')}
                             id="advanced-information"
-                            expanded={false}>
+                            expandedInitially={false}>
                             <div id="information-block-form">
                                 <div className="form-group">
                                     <label htmlFor="request-date">

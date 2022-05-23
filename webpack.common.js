@@ -15,7 +15,7 @@ module.exports = {
         'sva-finder': './src/Components/SvaFinder.tsx',
         'act-widget': './src/Components/ActWidget.tsx',
         'donation-widget': './src/Components/DonationWidget.js',
-        'test-interface': './src/test-interface.js',
+        'test-interface': './src/test-interface.tsx',
         // We need to define a dummy entrypoint that requires all our translation files, otherwise Webpack will not
         // process them.
         'translations-dummy': [

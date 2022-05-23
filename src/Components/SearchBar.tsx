@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { IntlProvider, MarkupText } from 'preact-i18n';
+import { useAppStore, Country } from '../store/app';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { searchClient } from '../Utility/search';
@@ -36,7 +37,7 @@ export type SearchBarProps = {
 
 type Hit = SearchResponseHit<Company>;
 
-const countryFilter = (country: typeof window.globals.country) => {
+const countryFilter = (country: Country) => {
     const items = ['all', country];
 
     // Our records often simply specify Germany for companies that are also relevant for Austria and/or Switzerland.
@@ -65,6 +66,8 @@ const RealSearchBar = ({
     placeholder,
     style,
 }: SearchBarProps) => {
+    const country = useAppStore((state) => state.country);
+
     const input_element = useRef(null);
     // TODO: We're using an ancient version of autocomplete.js that doesn't have type definitions.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -89,9 +92,7 @@ const RealSearchBar = ({
                                     per_page: numberOfHits || 5,
                                     filter_by: (filters || [])
                                         .concat(
-                                            disableCountryFiltering || window.globals.country === 'all'
-                                                ? []
-                                                : [countryFilter(window.globals.country)]
+                                            disableCountryFiltering || country === 'all' ? [] : [countryFilter(country)]
                                         )
                                         .join(' && '),
                                 };
@@ -189,6 +190,7 @@ ${
         onAutocompleteSelected,
         queryBy,
         suggestionTemplate,
+        country,
     ]);
 
     return (

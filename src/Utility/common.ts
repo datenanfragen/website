@@ -1,3 +1,5 @@
+import type { Country } from '../store/app';
+
 // Adapted after: https://gist.github.com/mathewbyrne/1280286
 export const slugify = (text: string) =>
     text
@@ -63,8 +65,19 @@ export const parameters = (() => {
     return { ...get_params, ...fragment_params };
 })();
 
+export const parseBcp47Tag = (bcp47_tag: string) => {
+    // Taken from: https://github.com/gagle/node-bcp47/blob/a74d98d43d16b0094b2f4ea8e7a58f4b5830c15b/lib/index.js#L4
+    const bcp47_regex =
+        /^(?:(en-gb-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-be-fr|sgn-be-nl|sgn-ch-de)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))$|^((?:[a-z]{2,3}(?:(?:-[a-z]{3}){1,3})?)|[a-z]{4}|[a-z]{5,8})(?:-([a-z]{4}))?(?:-([a-z]{2}|\d{3}))?((?:-(?:[\da-z]{5,8}|\d[\da-z]{3}))*)?((?:-[\da-wyz](?:-[\da-z]{2,8})+)*)?(-x(?:-[\da-z]{1,8})+)?$|^(x(?:-[\da-z]{1,8})+)$/i;
+    const res = bcp47_regex.exec(bcp47_tag);
+    return { language: res?.[3]?.toLowerCase(), country: res?.[5]?.toLowerCase() };
+};
+
 /**
  * Determines the country we fallback to based on the user's language if we can't detect their country. Maps from
  * language to country.
  */
 export const fallback_countries = { de: 'de', en: 'gb', fr: 'fr', pt: 'pt', es: 'es', hr: 'hr', nl: 'nl' } as const;
+
+export const isSupportedCountry = (country: string): country is Country =>
+    window.SUPPORTED_COUNTRIES.includes(country as Country);

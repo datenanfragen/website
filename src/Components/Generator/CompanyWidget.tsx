@@ -1,6 +1,6 @@
 import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
-import Accordion from '../Accordion';
+import { Accordion } from '../Accordion';
 import { useGeneratorStore } from '../../store/generator';
 
 export const CompanyWidget = () => {
@@ -19,7 +19,7 @@ export const CompanyWidget = () => {
                     onClick={removeCompany}
                     title={t('deselect-company', 'generator')}
                 />
-                <Accordion title={company.name} id="company-info" expanded={true}>
+                <Accordion title={company.name} id="company-info" expandedInitially={true}>
                     <div className="company-info-content">
                         <div className="company-info-params">
                             {company.address && (
