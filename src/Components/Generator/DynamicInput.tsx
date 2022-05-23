@@ -174,7 +174,7 @@ export const InputControl = (props: InputControlProps) => {
     }
 
     const componentProps = {
-        id: props.id + props.suffix,
+        id: `${props.id}-value-${props.suffix}`,
         'data-dynamic-input-id': props.id,
         className: 'form-element',
         placeholder: t('value', 'generator'),

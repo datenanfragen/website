@@ -69,7 +69,7 @@ export class RequestLetter extends Letter {
                     break;
             }
 
-            if (signature.name || signature.name === '') signature.name = id_data.name;
+            if (!signature.name || signature.name === '') signature.name = id_data.name;
 
             sender_address = id_data.primary_address
                 ? [

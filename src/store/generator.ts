@@ -143,7 +143,7 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
                 }
 
                 // This is just a regular ol' request.
-                return get().refreshTemplate().then(get().setReady);
+                return get().refreshTemplate();
             });
     },
 });

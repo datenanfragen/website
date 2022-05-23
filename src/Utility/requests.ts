@@ -43,8 +43,11 @@ export const adressesEqual = (one: Address, two: Address) =>
 /** @returns Whether the field contains a value based on its type. */
 export function isFieldEmpty(field: IdDataElement) {
     if (typeof field.value === 'string' && field.value.trim()) return false;
-    else if (isAddress(field.value))
-        for (const [key, value] of Object.entries(field.value)) if (key !== 'primary' && value) return false;
+    else if (isAddress(field.value)) {
+        for (const [key, value] of Object.entries(field.value)) {
+            if (key !== 'primary' && value && typeof value === 'string' && value.trim()) return false;
+        }
+    }
 
     return true;
 }

@@ -93,7 +93,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                             adressesEqual(field.value, existingField.value)))
             );
 
-            if (!isFieldPresent && field.value) {
+            if (!isFieldPresent && !isFieldEmpty(field)) {
                 return (
                     <div className="fill-field">
                         <div style="display: table-cell">

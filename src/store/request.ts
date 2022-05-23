@@ -381,13 +381,16 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
         }
     },
     refreshTemplate: async () => {
-        if (get().request.type !== 'custom') {
-            const template = await fetchTemplate(get().request.language, get().request.type, get().current_company);
-            if (template)
-                set({
-                    template,
-                });
-        }
+        if (get().request.type === 'custom') return;
+        get().setBusy();
+        return fetchTemplate(get().request.language, get().request.type, get().current_company)
+            .then((template) => {
+                if (template)
+                    set({
+                        template,
+                    });
+            })
+            .then(() => get().renderLetter());
     },
     letter: () => RequestLetter.fromRequest(get().request, get().template, {}),
     letter_filename: () => {
