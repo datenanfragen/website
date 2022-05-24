@@ -45,6 +45,8 @@ export class RequestLetter extends Letter {
                 request.custom_data.sender_address.country,
             ];
             content = request.custom_data.content;
+
+            if (!signature.name || signature.name === '') signature.name = request.custom_data.name;
         } else {
             const id_data = RequestLetter.formatData(request.id_data);
             flags.runs = request.recipient_runs ? request.recipient_runs.length > 0 : false;
@@ -95,7 +97,7 @@ export class RequestLetter extends Letter {
                           ],
                 subject:
                     request.type === 'custom'
-                        ? request.custom_data.subject
+                        ? request.custom_data.subject ?? ''
                         : t_r(`letter-subject-${request.type}`, request.language),
                 recipient_address: request.recipient_address.split('\n'),
                 sender_address,
