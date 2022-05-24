@@ -158,3 +158,9 @@
     font-icon: url('question-badge.svg');
     vertical-align: -2px;
 }
+
+.icon-question-mark:before {
+    @extend %icon;
+    font-icon: url('question-mark.svg');
+    vertical-align: -2px;
+}

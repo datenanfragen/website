@@ -253,9 +253,9 @@
         "request-parameters": "Anfrageparameter",
         "request-type": "Was für eine Anfrage möchtest Du stellen?",
         "access-request": "Selbstauskunft",
-        "erasure-request": "Löschantrag",
+        "erasure-request": "Löschanfrage",
         "objection-request": "Werbewiderspruch",
-        "rectification-request": "Berichtigungsantrag",
+        "rectification-request": "Berichtigungsanfrage",
         "custom-request": "Eigener Text",
         "recipient-explanation": "An wen geht Deine Anfrage?",
         "recipient": "Empfänger",
@@ -338,7 +338,14 @@
         "body": "Text",
         "mailto-dropdown-explanation": "Wie möchtest Du die E-Mail verschicken?",
         "mailto-dropdown-warning": "*Dadurch werden die Daten Deiner Anfrage an den jeweiligen Anbieter weitergegeben.",
-        "copymanually-explanation": "Hier kannst Du den Betreff, Empfänger und Text Deiner generierten E-Mail von Hand kopieren."
+        "copymanually-explanation": "Hier kannst Du den Betreff, Empfänger und Text Deiner generierten E-Mail von Hand kopieren.",
+        "back": "Zurück",
+        "request-type-info-access": "Mit einer Auskunftsanfrage kannst Du herausfinden, ob ein Unternehmen Deine Daten verarbeitet und, falls ja, eine Kopie dieser Daten erhalten. Darüber hinaus wird Dir das Unternehmen mitteilen, wofür es Deine Daten verwendet, an wen es sie weitergibt, woher die Daten stammen, und wie lange es sie aufbewahren wird.",
+        "request-type-info-erasure": "Mit einer Löschanfrage bringst Du ein Unternehmen dazu, einige oder alle der Daten, die es zur Dir hat, zu löschen. Das geht, wenn die Daten für den Zweck, für den sie gesammelt wurden, nicht für nötig sind, wenn das Unternehmen die Daten basierend auf einer Einwilligung von Dir verarbeitet oder wenn es sie illegalerweise verarbeitet.",
+        "request-type-info-rectification": "Mit einer Berichtigungsanfrage bringst Du ein Unternehmen dazu, falsche Daten, die es zu Dir speichert, zu korrigieren.",
+        "request-type-info-objection": "Mit einem Werbewiderspruch verbietest Du einem Unternehmen, Deine Daten zu Direktwerbezwecken zu verwenden.",
+        "request-type-info-learn-more": "Erfahre mehr über die Anfragetypen",
+        "request-type-info-learn-more-url": "/blog/deine-dsgvo-rechte/"
     },
     "mailto": {
         "mailto": "Standard-E-Mail-Programm",

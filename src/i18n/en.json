@@ -338,7 +338,14 @@
         "body": "Text",
         "mailto-dropdown-explanation": "How do you want to send the email?",
         "mailto-dropdown-warning": "*This will transmit your request and the included data to the respective service.",
-        "copymanually-explanation": "Here you can copy the subject, recipient and text of your generated email manually."
+        "copymanually-explanation": "Here you can copy the subject, recipient and text of your generated email manually.",
+        "back": "Back",
+        "request-type-info-access": "Through an access request, you can find out whether a company has data on you and, if so, receive a copy of said data. In addition, the company will inform you about what they use your data for, to whom they disclose it, where it came from, and for how long they keep it.",
+        "request-type-info-erasure": "Through an erasure request, you can get a company to delete some or all of the data they have on you. This is possible if the data is no longer necessary for the purpose it was collected for, if the company relies on your consent for processing the data, or if it is being processing illegally.",
+        "request-type-info-rectification": "Through a rectification request, you can get a company to correct any wrong data they may have on you.",
+        "request-type-info-objection": "Through a direct marketing objection, you can forbid a company from using your data to send you advertisements.",
+        "request-type-info-learn-more": "Learn more about the request types",
+        "request-type-info-learn-more-url": "/blog/your-gdpr-rights/"
     },
     "mailto": {
         "mailto": "Default email software",
