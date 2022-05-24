@@ -244,55 +244,121 @@ input:disabled {
 }
 
 /* Radio Buttons */
-.radio-label {
-    input.form-element {
-        display: none;
-    }
+.radio-group {
+    display: flex;
+    flex-direction: row;
 
-    display: inline-block;
-    border: 2px solid $primary-color;
-    padding: 10px;
-    border-radius: 0;
-    background-color: $bg-color;
-    color: $primary-color;
-    border-left: none;
-    margin-bottom: 5px;
+    .radio-wrapper {
+        .radio-label {
+            input.form-element {
+                display: none;
+            }
 
-    &:first-child {
-        border-radius: 2px 0 0 2px;
-        border-left: 2px solid $primary-color;
-    }
+            display: inline-block;
+            border: 2px solid $primary-color;
+            padding: 10px;
+            border-radius: 0;
+            background-color: $bg-color;
+            color: $primary-color;
+            border-left: none;
+            margin-bottom: 5px;
 
-    &:last-child {
-        border-radius: 0 2px 2px 0;
-    }
+            &.active {
+                background-color: $primary-color;
+                color: $bg-color;
+            }
+            &:hover,
+            &:focus {
+                background-color: color('blue', 900);
+                color: $bg-color;
+            }
+        }
 
-    &.active {
-        background-color: $primary-color;
-        color: $bg-color;
-    }
-    &:hover,
-    &:focus {
-        background-color: color('blue', 900);
-        color: $bg-color;
+        /* stylelint-disable csstools/use-nesting */
+        &:first-child .radio-label {
+            /* stylelint-enable csstools/use-nesting */
+            border-radius: 2px 0 0 2px;
+            border-left: 2px solid $primary-color;
+        }
+
+        &:last-child .radio-label {
+            border-radius: 0 2px 2px 0;
+        }
     }
 }
 
 /* yet another backport from chitin */
-.radio-group-vertical .radio-label {
-    display: block;
-    margin-bottom: 0;
-    border-left: 2px solid $primary-color;
-    border-bottom: 0;
+.radio-group-vertical {
+    flex-direction: column;
+    &:not(.radio-group-padded) .radio-wrapper {
+        .radio-label {
+            border-bottom: 0;
+        }
 
-    padding-left: 15px;
+        &:first-child {
+            .radio-label,
+            .radio-addon .button {
+                border-radius: 2px 2px 0 0;
+            }
+        }
+        &:last-child {
+            .radio-label,
+            .radio-addon .button {
+                border-radius: 0 0 2px 2px;
+                border-bottom: 2px solid $primary-color;
+            }
+        }
 
-    &:first-child {
-        border-radius: 2px 2px 0 0;
+        .radio-addon .button {
+            border-bottom: 0;
+            border-radius: 0;
+        }
     }
-    &:last-child {
-        border-radius: 0 0 2px 2px;
-        border-bottom: 2px solid $primary-color;
+
+    /* stylelint-disable csstools/use-nesting */
+    &.radio-group-padded .radio-wrapper {
+        /* stylelint-enable csstools/use-nesting */
+        margin-bottom: 12px;
+
+        .radio-label {
+            border-radius: 2px;
+        }
+
+        .radio-addon {
+            margin-left: 6px;
+
+            .button {
+                border: 2px solid $primary-color;
+
+                padding-left: 13px;
+                padding-right: 13px;
+            }
+        }
+    }
+
+    .radio-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+
+        .radio-label {
+            display: block;
+            margin-bottom: 0;
+            border-left: 2px solid $primary-color;
+            flex-grow: 1;
+            height: 50px;
+            box-sizing: border-box;
+
+            padding-left: 15px;
+        }
+
+        .radio-addon {
+            .button {
+                border-left: 0;
+                font-size: 20px;
+                height: 50px;
+            }
+        }
     }
 }
 
