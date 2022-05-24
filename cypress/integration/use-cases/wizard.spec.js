@@ -59,7 +59,7 @@ describe('Using the wizard', () => {
 
         cy.get('aside.company-info.box');
 
-        cy.get('.dynamic-input.dynamic-input-name input[name=value]').type('Kim Mustermensch');
+        cy.get('.dynamic-input.dynamic-input-name input#name0-value-id_data').type('Kim Mustermensch');
         cy.get('.request-transport-medium-chooser').contains('Fax').click();
 
         // Now that the PDF worker is only loaded on demand, the default timeout of 4 seconds is cutting it fairly
