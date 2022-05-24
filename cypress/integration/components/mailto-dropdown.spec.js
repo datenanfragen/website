@@ -4,7 +4,7 @@ describe('MailtoDropdown', () => {
 
         cy.get('.request-transport-medium-chooser').contains('Email').click();
         cy.get('#request-recipient').type('data.protection@acme.com');
-        cy.get('#1-value-id_data').type('Jane Doe');
+        cy.get('#name0-value-id_data').type('Jane Doe');
         cy.contains('Send email').click();
         cy.get('.dropdown-container').contains('Copy text manually').should('be.visible');
 

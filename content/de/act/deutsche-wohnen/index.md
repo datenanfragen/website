@@ -32,12 +32,11 @@ Hierbei wollen wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich {{<
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< noScript "noscript-actwidget" >}}
 <script>
-window.props = {
-    request_types: ['access'],
-    transport_medium: 'email',
+window.addEventListener('load', function() { window.renderActWidget({
+    requestTypes: ['access'],
+    transportMedium: 'email',
     company: 'deutsche-wohnen'
-};
-window.addEventListener('load', function() { renderActWidget(); });
+}); });
 </script>
 
 Die E-Mail verschickst Du dabei selbst mit Deinem E-Mail-Programm. Wir bekommen Deine Daten dabei nicht zu sehen: Alles, was Du hier auf der Seite eingibst, wird **nur lokal auf Deinem Rechner** verarbeitet und nie an uns übertragen.

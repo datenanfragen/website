@@ -30,7 +30,7 @@
 
 {{ if eq .Type "my-requests" }}
 <script src="{{ "js/my-requests.bundle.gen.js" | absURL }}"></script>
-<script>renderMyRequestsWidget();</script>
+<script>window.renderMyRequestsWidget();</script>
 {{ end }}
 
 {{ if eq .Type "privacy-controls" }}
@@ -48,7 +48,7 @@
 {{ if or (eq .Type "supervisory-authorities") .Params.has_sva_finder }}
 <script src="{{ "js/sva-finder.bundle.gen.js" | absURL }}"></script>
 {{ if eq .Type "supervisory-authorities" }}
-<script>renderSvaFinder();</script>
+<script>window.renderSvaFinder();</script>
 {{ end }}
 {{ end }}
 
@@ -58,7 +58,7 @@
 
 {{ if eq .Type "donate" }}
 <script src="{{ "js/donation-widget.bundle.gen.js" | absURL }}"></script>
-<script>renderDonationWidget();</script>
+<script>window.renderDonationWidget();</script>
 {{ end }}
 
 {{ if .IsHome }}

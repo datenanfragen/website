@@ -5,9 +5,8 @@
 
         "moduleResolution": "node",
         "esModuleInterop": true,
-        "lib": ["dom", "dom.iterable", "es2020"],
+        "lib": ["webworker", "dom", "dom.iterable", "es2020"],
         "target": "es2015",
-
         "strict": true,
         "strictNullChecks": true,
         "skipLibCheck": true,

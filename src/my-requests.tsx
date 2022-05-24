@@ -5,7 +5,7 @@ import { useAppStore } from './store/app';
 import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
 import { UserRequests, UserRequest } from './DataType/UserRequests';
 import t from './Utility/i18n';
-import Privacy, { PRIVACY_ACTIONS } from './Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
 import { rethrow } from './Utility/errors';
 import { hash, objFilter } from './Utility/common';
 
@@ -18,7 +18,7 @@ const RequestList = () => {
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
 
     useEffect(() => {
-        user_requests.getRequests()?.then((new_requests) => setRequests(new_requests));
+        user_requests.getRequests()?.then((new_requests) => new_requests && setRequests(new_requests));
     }, []);
 
     const sortedRequestIds = useMemo(

@@ -143,10 +143,10 @@ Trag Deinen Namen, Deine E-Mail-Adresse und die beiden IDs nun nur noch in das F
 {{< noScript "noscript-actwidget" >}}
 <script>
 window.addEventListener('load', function() {
-    renderActWidget("act-with-account", {
-        text_before_dynamic_input_container: "Du hast einen Account bei Honey angelegt? Dann nutze dieses Formular.",
-        request_types: ['access'],
-        transport_medium: 'email',
+    renderActWidget({
+        textBeforeDynamicInputContainer: "Du hast einen Account bei Honey angelegt? Dann nutze dieses Formular.",
+        requestTypes: ['access'],
+        transportMedium: 'email',
         company: {
             "slug": "joinhoney",
             "relevant-countries": [
@@ -183,11 +183,11 @@ window.addEventListener('load', function() {
             "suggested-transport-medium": "email",
             "quality": "tested"
         }
-    });
-    renderActWidget("act-no-account", {
-        text_before_dynamic_input_container: "Du hast Honey ohne Account benutzt? Dann nutze dieses Formular.",
-        request_types: ['access'],
-        transport_medium: 'email',
+    }, "act-with-account");
+    renderActWidget({
+        textBeforeDynamicInputContainer: "Du hast Honey ohne Account benutzt? Dann nutze dieses Formular.",
+        requestTypes: ['access'],
+        transportMedium: 'email',
         company: {
             "slug": "joinhoney",
             "relevant-countries": [
@@ -229,7 +229,7 @@ window.addEventListener('load', function() {
             "suggested-transport-medium": "email",
             "quality": "tested"
         }
-    });
+    }, "act-no-account");
 });
 </script>
 
@@ -313,8 +313,7 @@ Welche Behörde für Dich zuständig ist, und wie Du sie erreichst, kannst Du mi
 {{< noScript "noscript-sva" >}}
 
 <script>
-    window.props = { override: { country: { de: 'debralda' } }, showTitle: false };
-    window.addEventListener('load', function() { renderSvaFinder(); });
+    window.addEventListener('load', function() { window.renderSvaFinder({ override: { country: { de: 'debralda' } }, showTitle: false }); });
 </script>
 
 Die Behörde wird Deine Beschwerde prüfen und kann verschiedene Maßnahmen ergreifen. Diese reichen von einer Anweisung an Honey, das eventuelle Fehlverhalten einzustellen, bis hin zu empfindlichen Bußgeldern. Erfahrungsgemäß muss man bei Beschwerden aber Geduld mitbringen, insbesondere wenn Firmen in einem anderen Land ansässig sind.

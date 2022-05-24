@@ -13,6 +13,7 @@ describe('Generator component', () => {
         cy.contains('Download PDF', { timeout: 10000 })
             .should('not.have.class', 'disabled')
             .should('have.attr', 'href')
+            // eslint-disable-next-line optimize-regex/optimize-regex
             .and('match', /^blob:https?:\/\/[\S]+?\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
     });
 
@@ -36,8 +37,6 @@ describe('Generator component', () => {
             // time to 🦆 type...
             expect(win.pdfWorker).respondTo('postMessage');
             expect(win.pdfWorker).respondTo('terminate');
-            expect(win.pdfWorker).respondTo('onmessage');
-            expect(win.pdfWorker).respondTo('onerror');
         });
     });
 

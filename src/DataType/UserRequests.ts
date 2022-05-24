@@ -1,12 +1,13 @@
 import localforage from 'localforage';
+import type { RequestType, ResponseType } from '../types/request';
 import { rethrow } from '../Utility/errors';
-import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 
 export type UserRequest = {
     reference: string;
     date: string;
-    type: 'access' | 'erasure' | 'rectification' | 'objection' | 'custom';
-    response_type?: 'admonition' | 'complaint';
+    type: RequestType;
+    response_type?: ResponseType;
     slug: string;
     recipient: string;
     email: string;
@@ -30,34 +31,29 @@ export class UserRequests {
         return this.#localforage_instance;
     }
 
-    storeRequest(db_id: string, item: UserRequest) {
+    async storeRequest(db_id: string, item: UserRequest) {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
-            this.localforage_instance
+            return this.localforage_instance
                 ?.setItem(db_id, item)
                 .catch((error) => rethrow(error, 'Saving request failed.', { db_id }));
         }
     }
 
-    getRequest(db_id: string) {
+    async getRequest(db_id: string) {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             return this.localforage_instance?.getItem<UserRequest>(db_id);
         }
     }
 
-    getRequests() {
+    async getRequests(): Promise<Record<string, UserRequest> | void> {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
             const requests: Record<string, UserRequest> = {};
-            return new Promise<Record<string, UserRequest>>((resolve, reject) => {
-                this.localforage_instance
-                    ?.iterate<UserRequest, void>((data, reference) => {
-                        requests[reference] = data;
-                    })
-                    .then(() => resolve(requests))
-                    .catch((error) => {
-                        rethrow(error, 'Could not get requests');
-                        reject();
-                    });
-            });
+            return this.localforage_instance
+                ?.iterate<UserRequest, void>((data, reference) => {
+                    requests[reference] = data;
+                })
+                .then(() => requests)
+                .catch((error) => rethrow(error, 'Could not get requests'));
         }
     }
 

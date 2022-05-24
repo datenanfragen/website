@@ -6,7 +6,7 @@ import { SearchBar } from './SearchBar';
 import { SavedCompanies } from '../DataType/SavedCompanies';
 import t from '../Utility/i18n';
 import { rethrow, ErrorException } from '../Utility/errors';
-import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 
 const categories = [
     'suggested',

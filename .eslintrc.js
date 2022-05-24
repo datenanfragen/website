@@ -71,10 +71,11 @@ module.exports = {
         'react/prefer-stateless-function': 'off',
 
         'optimize-regex/optimize-regex': 'warn',
-
+        'prefer-template': 'off',
         'jest/expect-expect': 'off',
         'jest/valid-expect-in-promise': 'off',
         'jest/valid-expect': 'off',
+        'react/prop-types': 'off',
     },
     overrides: [
         {

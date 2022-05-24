@@ -1,6 +1,6 @@
-import t from 'Utility/i18n';
+import t from './Utility/i18n';
 
-export let tutorial_steps = [
+export const tutorial_steps = [
     {
         text: t('request-parameters', 'wizard_tutorial'),
         selector: '.request-parameters',

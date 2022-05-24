@@ -47,13 +47,12 @@ export default class DonationWidget extends Component {
                 } else if (response.status === 404) {
                     flash(<FlashMessage type="warning">{t('no-mollie-id', 'donation-widget')}</FlashMessage>);
                     return;
-                } else {
-                    throw new CriticalException(
-                        'Server error while fetching donation status.',
-                        { donation_reference, response },
-                        t('error-donation-server', 'donation-widget')
-                    );
                 }
+                throw new CriticalException(
+                    'Server error while fetching donation status.',
+                    { donation_reference, response },
+                    t('error-donation-server', 'donation-widget')
+                );
             })
             .then((json) => {
                 switch (json?.status) {
@@ -101,7 +100,7 @@ export default class DonationWidget extends Component {
                                     className={'button' + (this.state.amount === amount ? ' button-primary' : '')}
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        this.setState({ amount: amount });
+                                        this.setState({ amount });
                                     }}>
                                     {amount} €
                                 </button>
@@ -112,7 +111,7 @@ export default class DonationWidget extends Component {
                         <MarkupText id="amount" fields={{ amount: renderMoney(this.state.amount) }} />
                     </div>
                 </div>
-                <div className="clearfix"></div>
+                <div className="clearfix" />
 
                 <div id="donation-widget-payment-method-section" className="donation-widget-section">
                     <h2>
@@ -126,7 +125,7 @@ export default class DonationWidget extends Component {
                                     radioVariable={this.state.payment_method}
                                     value={payment_method}
                                     name="payment_method"
-                                    onChange={(e) => this.setState({ payment_method: e.target.value })}
+                                    onChange={(value) => this.setState({ payment_method: value })}
                                     label={
                                         <div>
                                             <Text id={payment_method} />
@@ -160,7 +159,7 @@ export default class DonationWidget extends Component {
                         <LoadingIndicator shown={this.state.ongoing_request} style="margin-top: 50px;" />
                     </div>
                 </div>
-                <div className="clearfix"></div>
+                <div className="clearfix" />
 
                 {/* TODO: How about offering to add a comment to a donation? That should be pretty easy to implement since we already have yace which is explicitly designed with the necessary flexibilty to do something like this in mind. */}
 
@@ -173,7 +172,7 @@ export default class DonationWidget extends Component {
                         <Text id="next-step" />
                     </button>
                 </div>
-                <div className="clearfix"></div>
+                <div className="clearfix" />
             </form>
         );
     }
@@ -233,7 +232,7 @@ export default class DonationWidget extends Component {
                             <strong>BezahlCode</strong>
                             <canvas id="bezahlcode-qr-canvas" ref={(el) => (this.bezahlcode_canvas_ref = el)} />
                         </div>
-                        <div className="clearfix"></div>
+                        <div className="clearfix" />
                     </div>
                 </div>
                 <button
@@ -255,10 +254,10 @@ export default class DonationWidget extends Component {
                     id="donation-widget-thanks-button"
                     className="button button-primary"
                     style="float: right;"
-                    href={`${BASE_URL}thanks#!donation_reference=${this.state.donation_reference}`}>
+                    href={`${window.BASE_URL}thanks#!donation_reference=${this.state.donation_reference}`}>
                     <Text id="thanks" />
                 </a>
-                <div className="clearfix"></div>
+                <div className="clearfix" />
             </div>
         );
     };
@@ -339,8 +338,8 @@ export default class DonationWidget extends Component {
                         business: 'paypal@datenanfragen.de',
                         image_url: 'https://www.datenanfragen.de/img/logo-datenanfragen-ev.png',
                         no_shipping: 1,
-                        return: `${BASE_URL}thanks#!donation_reference=${donation_reference}`,
-                        cancel_return: `${BASE_URL}donate`,
+                        return: `${window.BASE_URL}thanks#!donation_reference=${donation_reference}`,
+                        cancel_return: `${window.BASE_URL}donate`,
                         custom: donation_reference,
                     },
                     '_top'
@@ -355,7 +354,7 @@ export default class DonationWidget extends Component {
                     amount: Number(this.state.amount).toFixed(2),
                     description: t('reference-value', 'donation-widget', { reference: donation_reference }),
                     reference: donation_reference,
-                    redirect_base: BASE_URL,
+                    redirect_base: window.BASE_URL,
                 };
                 this.setState({ ongoing_request: true });
                 fetch(DONATIONS_API, {

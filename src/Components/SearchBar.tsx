@@ -2,14 +2,15 @@ import { useEffect, useRef } from 'preact/hooks';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import { useAppStore, Country } from '../store/app';
 import t from '../Utility/i18n';
-import Privacy, { PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { searchClient } from '../Utility/search';
 import { rethrow } from '../Utility/errors';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 import type { MergeExclusive } from 'type-fest';
 import type { SearchParams, SearchResponseHit } from 'typesense/lib/Typesense/Documents';
+import { Company } from '../types/company.d';
 
-type SearchBarProps = {
+export type SearchBarProps = {
     id: string;
     placeholder: string;
     debug?: boolean;
@@ -34,14 +35,7 @@ type SearchBarProps = {
     }
 >;
 
-type Suggestion = {
-    slug: string;
-    categories?: (keyof typeof window.I18N_DEFINITION.categories)[];
-    name: string;
-    runs?: string[];
-    quality: 'tested' | 'verified' | 'imported' | 'scraped';
-};
-type Hit = SearchResponseHit<Suggestion>;
+type Hit = SearchResponseHit<Company>;
 
 const countryFilter = (country: Country) => {
     const items = ['all', country];
@@ -104,7 +98,7 @@ const RealSearchBar = ({
                                 };
 
                                 searchClient
-                                    .collections<Suggestion>(index)
+                                    .collections<Company>(index)
                                     .documents()
                                     .search(options)
                                     .then((res) => callback(res.hits))

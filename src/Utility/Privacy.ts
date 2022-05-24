@@ -1,6 +1,12 @@
 import Cookie from 'js-cookie';
 
-export const PRIVACY_ACTIONS = Object.freeze({
+type PrivacyAction = {
+    id: string;
+    default: boolean;
+    dnt: boolean;
+};
+
+export const PRIVACY_ACTIONS: Record<string, PrivacyAction> = {
     SEARCH: {
         id: 'search',
         default: true,
@@ -26,19 +32,19 @@ export const PRIVACY_ACTIONS = Object.freeze({
     //     'default': false,
     //     'dnt': false
     // },
-});
+} as const;
 
-export default class Privacy {
-    static isAllowed(privacy_action) {
-        let cookie_value = Cookie.get(this.cookieNameForAction(privacy_action));
+export class Privacy {
+    static isAllowed(privacy_action: PrivacyAction) {
+        const cookie_value = Cookie.get(this.cookieNameForAction(privacy_action));
 
         if (cookie_value === undefined) return Privacy.dntEnabled() ? privacy_action.dnt : privacy_action.default;
         return cookie_value === 'true';
     }
 
-    static setAllowed(privacy_action, value) {
+    static setAllowed(privacy_action: PrivacyAction, value: boolean) {
         if (value !== privacy_action.default)
-            Cookie.set(this.cookieNameForAction(privacy_action), value, {
+            Cookie.set(this.cookieNameForAction(privacy_action), value.toString(), {
                 expires: 365,
                 secure: true,
                 sameSite: 'strict',
@@ -59,20 +65,13 @@ export default class Privacy {
     static dntEnabled() {
         return (
             navigator.doNotTrack == '1' ||
-            window.doNotTrack == '1' ||
+            (window as typeof window & { doNotTrack: unknown }).doNotTrack == '1' ||
             navigator.doNotTrack == 'yes' ||
-            navigator.msDoNotTrack == 1 ||
-            (window.external &&
-                ((!!window.external.msTrackingProtectionEnabled &&
-                    typeof window.external.msTrackingProtectionEnabled == 'function' &&
-                    window.external.msTrackingProtectionEnabled()) ||
-                    (!!window.external.InPrivateFilteringEnabled &&
-                        typeof window.external.InPrivateFilteringEnabled == 'function' &&
-                        window.external.InPrivateFilteringEnabled())))
+            (navigator as typeof navigator & { msDoNotTrack: unknown }).msDoNotTrack == 1
         );
     }
 
-    static cookieNameForAction(privacy_action) {
+    static cookieNameForAction(privacy_action: PrivacyAction) {
         return 'privacy_control-' + privacy_action.id;
     }
 }

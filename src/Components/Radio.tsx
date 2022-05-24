@@ -1,12 +1,10 @@
-import type { JSX } from 'preact';
-
 type RadioProps = {
     id: string;
     label: string;
     radioVariable: string;
     value: string;
     name: string;
-    onChange: JSX.EventHandler<JSX.TargetedEvent<HTMLInputElement, Event>>;
+    onChange: (value: string) => void;
 };
 
 export const Radio = (props: RadioProps) => (
@@ -18,7 +16,7 @@ export const Radio = (props: RadioProps) => (
             value={props.value}
             className="form-element"
             checked={props.radioVariable === props.value}
-            onChange={props.onChange}
+            onChange={(e) => props.onChange(e.currentTarget.value)}
         />
         {props.label}
     </label>

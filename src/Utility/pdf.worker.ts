@@ -1,6 +1,9 @@
-import PdfRenderer from 'letter-generator/PdfRenderer';
+import { PdfRenderer } from 'letter-generator';
 
-onmessage = (e) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, no-undef
+const worker: DedicatedWorkerGlobalScope = self as any;
+
+worker.onmessage = (e) => {
     const pdf_renderer = new PdfRenderer(e.data.pdfdoc);
     pdf_renderer.setFonts(require('./vfs_fonts.js').pdfMake.vfs, {
         Roboto: {

@@ -28,7 +28,15 @@ const default_options = {
     escDismisses: true,
 };
 
-export const useModal = (children: ComponentChildren, _options?: ModalOptions) => {
+type Modal = () => JSX.Element;
+type dismissModal = () => void;
+type showModal = () => void;
+type shown = boolean;
+
+export const useModal = (
+    children: ComponentChildren,
+    _options?: ModalOptions
+): readonly [Modal, showModal, dismissModal, shown] => {
     const options: typeof default_options & ModalOptions = useMemo(
         () => ({ ...default_options, ..._options }),
         [_options]

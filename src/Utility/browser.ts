@@ -21,7 +21,7 @@ export const clearUrlParameters = () => {
  * @param ctx A canvas context if we already have one. Otherwise, we will just create one on the fly.
  * @returns true if canvas extraction is blocked, false otherwise
  */
-export const detectBlockedCanvasImageExtraction = (ctx: CanvasRenderingContext2D | null) => {
+export const detectBlockedCanvasImageExtraction = (ctx = null as CanvasRenderingContext2D | null) => {
     if (!ctx) {
         const c = document.createElement('canvas');
         c.width = c.height = 1;

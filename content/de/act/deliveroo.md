@@ -21,12 +21,11 @@ Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich {{< 
 <div class="act-widget" style="max-width: 600px; margin: auto;"></div>
 {{< noScript "noscript-actwidget" >}}
 <script>
-window.props = {
-    request_types: ['erasure'],
-    transport_medium: 'email',
+window.addEventListener('load', function() { window.renderActWidget({
+    requestTypes: ['erasure'],
+    transportMedium: 'email',
     company: 'deliveroo-de'
-};
-window.addEventListener('load', function() { renderActWidget(); });
+}); });
 </script>
 
 Die E-Mail verschickst Du selbst mit Deinem eigenen E-Mail-Programm. Das hat den Vorteil, dass wir die Daten, die Du hier eingibst, überhaupt nicht sehen können.
