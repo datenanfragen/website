@@ -25,7 +25,7 @@ describe('Make sure all productions sites are still alive', () => {
             cy.visit(`${site}/generator`);
             cy.get('[for="request-type-choice-erasure"]').click();
             cy.get('[for="request-transport-medium-choice-fax"]').click();
-            cy.get('#1-delete-id_data').click();
+            cy.get('#name0-delete-id_data').click();
             cy.get('#download-button').clickLinkWithoutFollowingHref();
 
             // Some languages don't have any blog posts, so we have to exclude them here.

@@ -75,6 +75,7 @@ module.exports = {
         'jest/expect-expect': 'off',
         'jest/valid-expect-in-promise': 'off',
         'jest/valid-expect': 'off',
+        'jest/valid-title': 'off',
         'react/prop-types': 'off',
     },
     overrides: [

@@ -37,8 +37,8 @@ Cypress.Commands.add(
     {
         prevSubject: true,
     },
-    (subject) => {
-        cy.wrap(subject).invoke('removeAttr', 'href').click();
+    (subject, click_options) => {
+        cy.wrap(subject).invoke('removeAttr', 'href').click(click_options);
     }
 );
 
