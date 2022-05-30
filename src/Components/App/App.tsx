@@ -1,20 +1,23 @@
 import { IntlProvider, Text } from 'preact-i18n';
 import { useWizard } from '../../hooks/useWizard';
 import { RequestTypeChooserPage } from './RequestTypeChooserPage';
-import { CompanyChooserPage } from './CompanyChooserPage';
+import { CompanySearchPage } from './CompanySearchPage';
+import { ReviewSelectionPage } from './ReviewSelectionPage';
 
 const pages = (setPage: SetPageFunction) => ({
     request_type_chooser: <RequestTypeChooserPage setPage={setPage} />,
-    company_chooser: <CompanyChooserPage setPage={setPage} />,
+    company_search: <CompanySearchPage setPage={setPage} />,
+    review_selection: <ReviewSelectionPage setPage={setPage} />,
 });
 
-export type AppPageIds = keyof ReturnType<typeof pages>;
-export type SetPageFunction = (newPage: AppPageIds) => void;
+export type AppPageId = keyof ReturnType<typeof pages>;
+export type SetPageFunction = (newPage: AppPageId) => void;
 
 export const App = () => {
-    const { Wizard, set, back, canGoBack } = useWizard(pages(setPage), { initialPageId: 'request_type_chooser' });
+    // TODO: Undo.
+    const { Wizard, set, back, canGoBack } = useWizard(pages(setPage), { initialPageId: 'company_search' });
 
-    function setPage(new_page: AppPageIds) {
+    function setPage(new_page: AppPageId) {
         set(new_page);
     }
 

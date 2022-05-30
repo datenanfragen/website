@@ -345,7 +345,12 @@
         "request-type-info-rectification": "Through a rectification request, you can get a company to correct any wrong data they may have on you.",
         "request-type-info-objection": "Through a direct marketing objection, you can forbid a company from using your data to send you advertisements.",
         "request-type-info-learn-more": "Learn more about the request types",
-        "request-type-info-learn-more-url": "/blog/your-gdpr-rights/"
+        "request-type-info-learn-more-url": "/blog/your-gdpr-rights/",
+        "review-n-companies": {
+            "none": "No companies selected yet",
+            "one": "Review {{count}} selected company",
+            "other": "Review {{count}} selected companies"
+        }
     },
     "mailto": {
         "mailto": "Default email software",

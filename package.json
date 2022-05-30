@@ -58,9 +58,11 @@
         "preact-i18n": "^2.3.0-preactx",
         "prop-types": "^15.7.2",
         "qrcode": "^1.4.4",
+        "react-instantsearch-dom": "^6.26.0",
         "react-joyride": "^1.11.4",
         "react-scrollspy": "^3.4.0",
         "typesense": "^1.2.2",
+        "typesense-instantsearch-adapter": "^2.4.0",
         "zustand": "^3.7.1"
     },
     "devDependencies": {
@@ -80,6 +82,7 @@
         "@types/js-cookie": "^3.0.1",
         "@types/preact-i18n": "^2.3.0-preactx",
         "@types/qrcode": "^1.4.2",
+        "@types/react-instantsearch-dom": "^6.12.3",
         "@typescript-eslint/eslint-plugin": "^5.15.0",
         "@typescript-eslint/parser": "^5.15.0",
         "babel-loader": "^8.0.6",

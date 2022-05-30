@@ -17,6 +17,8 @@ export interface CompanyState {
     removeCompany: () => Promise<void>;
     startBatch: (batch: string[]) => Promise<void>;
     advanceBatch: () => Promise<void>;
+    appendToBatch: (companySlug: string) => void;
+    removeFromBatch: (companySlug: string) => void;
     clearBatch: () => void;
     hasBatch: () => boolean | undefined;
 }
@@ -141,6 +143,8 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
             return company ? get().setCompanyBySlug(company) : undefined;
         }
     },
+    appendToBatch: (companySlug) => set({ batch: [...(get().batch || []), companySlug] }),
+    removeFromBatch: (companySlug) => set({ batch: get().batch?.filter((s) => s !== companySlug) }),
     clearBatch: () => set({ batch: undefined }),
     hasBatch: () => {
         const batch = get().batch;

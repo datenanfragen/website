@@ -1,6 +1,10 @@
 import { Client } from 'typesense';
+import TypesenseInstantSearchAdapter from 'typesense-instantsearch-adapter';
+import type { ConfigurationOptions } from 'typesense/lib/Typesense/Configuration';
+import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 
-export const searchClient = new Client({
+const serverConfig: ConfigurationOptions = {
+    apiKey: '',
     nodes: [
         {
             host: 'search.datenanfragen.de',
@@ -8,6 +12,23 @@ export const searchClient = new Client({
             protocol: 'https',
         },
     ],
-    apiKey: '',
+};
+
+export const defaultSearchParams = {
+    query_by: 'name, runs, web, slug, address, comments',
+    sort_by: '_text_match:desc,sort-index:asc',
+    num_typos: 4,
+    per_page: 5,
+};
+
+export const searchClient = new Client({
+    ...serverConfig,
     connectionTimeoutSeconds: 2,
 });
+
+export const instantSearchClient = (searchParams?: Omit<SearchParams, 'q'>) =>
+    new TypesenseInstantSearchAdapter({
+        server: serverConfig,
+
+        additionalSearchParameters: { ...defaultSearchParams, ...searchParams },
+    }).searchClient;
