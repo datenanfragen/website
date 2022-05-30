@@ -13,6 +13,9 @@ type RequestTypeChooserPageProps = {
     setPage: SetPageFunction;
 };
 
+// TODO: Isn't "<x> request" an implementation detail? Shouldn't we rather ask "What do you want to do?", with answers
+// like "Find out what data companies have on me".
+
 export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
     const request_types = (props.request_types || REQUEST_TYPES).filter((r) => r !== 'custom');
     const setRequestType = useGeneratorStore((state) => state.setRequestType);
@@ -43,7 +46,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                     value={type}
                     name="request-type"
                     onChange={(value) => setRequestType(value as RequestType)}
-                    onClick={() => props.setPage('company_chooser')}
+                    onClick={() => props.setPage('company_search')}
                     label={t(`${type}-request`, 'generator')}
                     addon={
                         <button

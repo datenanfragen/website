@@ -203,6 +203,9 @@ input:disabled {
 .box-compact {
     padding: 10px;
 }
+.box-thin {
+    border-width: 2px;
+}
 
 .star {
     position: absolute;
@@ -429,11 +432,6 @@ input[type='search'].aa-input-search {
         background-color: color('gray', 400);
     }
 
-    & mark {
-        background-color: color('blue', 100);
-        color: inherit;
-    }
-
     h4 {
         margin: 0;
 
@@ -462,6 +460,36 @@ input[type='search'].aa-input-search {
             left: 0;
             bottom: 0;
         }
+    }
+}
+
+/* InstantSearch */
+.ais-SearchBox {
+    margin-bottom: 20px;
+
+    input.ais-SearchBox-input {
+        border-width: 4px;
+        padding: 12px 28px 12px 12px;
+
+        &:required {
+            background: unset;
+        }
+    }
+}
+.ais-SearchBox-input {
+    width: 100%;
+}
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
+    display: none;
+}
+
+/* InstantSearch and Autocomplete */
+.ais-Highlight,
+.aa-suggestion {
+    & mark {
+        background-color: color('blue', 100);
+        color: inherit;
     }
 }
 

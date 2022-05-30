@@ -58,6 +58,9 @@ https://github.com/gilbarbara/react-joyride
 react-scrollspy by makotot ([MIT License](https://github.com/makotot/react-scrollspy#license))
 https://github.com/makotot/react-scrollspy
 
+React InstantSearch by Algolia, Inc. ([MIT License](https://github.com/algolia/react-instantsearch/blob/master/LICENSE))
+https://github.com/algolia/react-instantsearch
+
 Roboto by Christian Robertson ([Apache License 2.0](https://github.com/google/roboto/blob/master/LICENSE))
 https://github.com/google/roboto
 
@@ -70,7 +73,10 @@ https://github.com/tobiasahlin/SpinKit
 Tailwind CSS by Adam Wathan, Jonathan Reinink ([MIT License](https://github.com/tailwindcss/tailwindcss/blob/master/LICENSE))
 https://github.com/tailwindcss/tailwindcss
 
-typesense-js by Wreally Studios ([Apache License 2.0](https://github.com/typesense/typesense-js/blob/master/LICENSE))
+Typesense Instantsearch Adapter by Typesense, Inc. ([MIT License](https://github.com/typesense/typesense-instantsearch-adapter/blob/master/LICENSE))
+https://github.com/typesense/typesense-instantsearch-adapter
+
+typesense-js by Typesense, Inc. ([Apache License 2.0](https://github.com/typesense/typesense-js/blob/master/LICENSE))
 https://github.com/typesense/typesense-js
 
 World Countries by stefangabos ([LGPL-3.0](https://github.com/stefangabos/world_countries/blob/master/LICENSE.md))

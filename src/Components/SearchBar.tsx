@@ -6,7 +6,7 @@ import { IntlProvider, MarkupText } from 'preact-i18n';
 import { useAppStore, Country } from '../store/app';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { searchClient } from '../Utility/search';
+import { searchClient, defaultSearchParams } from '../Utility/search';
 import { rethrow } from '../Utility/errors';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 
@@ -86,10 +86,11 @@ const RealSearchBar = ({
                             source: (q: string, callback: (hits?: Hit[]) => void) => {
                                 const options: SearchParams = {
                                     q,
-                                    query_by: queryBy || 'name, runs, web, slug, address, comments',
-                                    sort_by: '_text_match:desc,sort-index:asc',
-                                    num_typos: 4,
-                                    per_page: numberOfHits || 5,
+
+                                    ...defaultSearchParams,
+                                    ...(queryBy && { query_by: queryBy }),
+                                    ...(numberOfHits && { per_page: numberOfHits }),
+
                                     filter_by: (filters || [])
                                         .concat(
                                             disableCountryFiltering || country === 'all' ? [] : [countryFilter(country)]
