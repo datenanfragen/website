@@ -2,11 +2,12 @@ import type { JSX } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
 import { useProceedingsStore } from '../../store/proceedings';
 import { useGeneratorStore } from '../../store/generator';
-import { MailtoDropdown } from '../MailtoDropdown';
+import { MailtoDropdown, MailtoDropdownProps } from '../MailtoDropdown';
 
 type ActionButtonProps = {
     onSuccess?: () => void;
     buttonText?: JSX.Element | JSX.Element[];
+    mailtoDropdownProps?: Partial<MailtoDropdownProps>;
 };
 
 export const ActionButton = (_props: ActionButtonProps) => {
@@ -45,6 +46,7 @@ export const ActionButton = (_props: ActionButtonProps) => {
                     className={class_name}
                     buttonText={props.buttonText}
                     enabled={enabled}
+                    {...props.mailtoDropdownProps}
                 />
             ) : (
                 <a

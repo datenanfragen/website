@@ -12,18 +12,19 @@ type ReviewSelectionPageProps = {
 export const ReviewSelectionPage = (props: ReviewSelectionPageProps) => {
     const batch = useGeneratorStore((state) => state.batch);
     const removeFromBatch = useGeneratorStore((state) => state.removeFromBatch);
+    const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
 
     if (!batch) throw new ErrorException('Got to review selection page without batch.');
 
     return (
         <>
-            {Array.from(batch.values()).map((c) => (
+            {Object.values(batch).map((c) => (
                 <CompanyResult
-                    company={c}
+                    company={c.company}
                     actionElement={
                         <button
                             className="company-remove button button-primary button-small icon-trash"
-                            onClick={() => removeFromBatch(c.slug)}
+                            onClick={() => removeFromBatch(c.company.slug)}
                             title={t('deselect-company', 'generator')}
                         />
                     }
@@ -32,8 +33,12 @@ export const ReviewSelectionPage = (props: ReviewSelectionPageProps) => {
 
             <button
                 className="button button-secondary button-small"
-                disabled={(batch?.size || 0) < 1}
-                onClick={() => props.setPage('fill_requests')}>
+                disabled={(Object.keys(batch || {}).length || 0) < 1}
+                onClick={() => {
+                    // This also advances the batch.
+                    resetRequestToDefault(true);
+                    props.setPage('fill_requests');
+                }}>
                 <Text id="continue-with-requests" />
             </button>
         </>

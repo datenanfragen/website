@@ -20,7 +20,7 @@ type CommonSchema = {
 };
 
 // Sadly the only way to to this is via a mapped type, so this looks a bit hacky. (See: https://github.com/microsoft/TypeScript/pull/44512#issuecomment-928890218)
-type CustomTemplateProperties = { [P in `custom-${RequestType}-template`]: string | undefined };
+type CustomTemplateProperties = { [P in `custom-${RequestType}-template`]?: string | undefined };
 
 export type Company = CommonSchema & {
     'required-elements'?: SetOptional<IdDataElement, 'value'>[];

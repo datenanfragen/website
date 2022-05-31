@@ -17,7 +17,7 @@ export type SetPageFunction = (newPage: AppPageId) => void;
 
 export const App = () => {
     // TODO: Undo.
-    const { Wizard, set, back, canGoBack } = useWizard(pages(setPage), { initialPageId: 'company_search' });
+    const { Wizard, set, back, canGoBack } = useWizard(pages(setPage), { initialPageId: 'fill_requests' });
 
     function setPage(new_page: AppPageId) {
         set(new_page);
@@ -25,7 +25,7 @@ export const App = () => {
 
     return (
         <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
-            <div>
+            <div className="narrow-page">
                 <Wizard />
                 <button
                     onClick={back}

@@ -189,7 +189,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
     );
 };
 
-export const StatefulDynamicInputContainer = (props: Partial<DynamicInputContainerProps>) => {
+export const StatefulDynamicInputContainer = (props: Exclude<Partial<DynamicInputContainerProps>, 'id_data'>) => {
     const id_data = useGeneratorStore((state) => state.request.id_data);
     const setField = useGeneratorStore((state) => state.setField);
     const addField = useGeneratorStore((state) => state.addField);
