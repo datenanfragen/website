@@ -350,7 +350,8 @@
             "none": "No companies selected yet",
             "one": "Review {{count}} selected company",
             "other": "Review {{count}} selected companies"
-        }
+        },
+        "continue-with-requests": "Continue with requests"
     },
     "mailto": {
         "mailto": "Default email software",
