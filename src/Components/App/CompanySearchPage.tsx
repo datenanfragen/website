@@ -1,9 +1,10 @@
 import { Text } from 'preact-i18n';
-import { InstantSearch, SearchBox, connectHits, Highlight } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, connectHits } from 'react-instantsearch-dom';
 import { useGeneratorStore } from '../../store/generator';
 import { SetPageFunction } from './App';
+import { CompanyResult } from './CompanyResult';
 import { instantSearchClient } from '../../Utility/search';
-import t from '../../Utility/i18n';
+import { companyFromHit } from '../../Utility/companies';
 import type { HitsProvided } from 'react-instantsearch-core';
 import type { Company } from '../../types/company';
 
@@ -18,57 +19,21 @@ const Hits = connectHits(({ hits }: HitsProvided<Company>) => {
     if (hits.length < 1) return 'TODO';
 
     return hits.map((hit) => (
-        // TODO!
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-        <div
-            className="box box-thin"
-            style="margin-bottom: 10px;"
+        <CompanyResult
+            company={hit}
+            actionElement={
+                <input
+                    checked={batch?.has(hit.slug) || false}
+                    type="checkbox"
+                    className="form-element"
+                    style="margin-top: -3px"
+                />
+            }
             onClick={() => {
                 if (batch?.has(hit.slug)) removeFromBatch(hit.slug);
-                else appendToBatch(hit);
-            }}>
-            <input checked={batch?.has(hit.slug)} type="checkbox" className="form-element" style="margin-top: -3px" />
-            <h4>
-                <Highlight attribute="name" hit={hit} />
-
-                {hit.quality === 'tested' ? (
-                    <>
-                        &nbsp;
-                        <span className="icon icon-check-badge color-green-800" title={t('quality-tested', 'search')} />
-                    </>
-                ) : (
-                    hit.quality !== 'verified' && (
-                        <>
-                            &nbsp;
-                            <span
-                                className="icon icon-question-badge color-orange-800"
-                                title={t('quality-unverified', 'search')}
-                            />
-                        </>
-                    )
-                )}
-            </h4>
-
-            {hit.runs && hit.runs.length > 0 && (
-                <>
-                    <span>
-                        {t('also-runs', 'search')}
-                        <Highlight attribute="runs" hit={hit} />
-                    </span>
-                    <br />
-                </>
-            )}
-
-            {hit.categories && hit.categories.length > 0 && (
-                <>
-                    <span>
-                        {t('categories', 'search')}
-                        <Highlight attribute="categories" hit={hit} />
-                    </span>
-                    <br />
-                </>
-            )}
-        </div>
+                else appendToBatch(companyFromHit(hit));
+            }}
+        />
     ));
 });
 

@@ -3,11 +3,13 @@ import { useWizard } from '../../hooks/useWizard';
 import { RequestTypeChooserPage } from './RequestTypeChooserPage';
 import { CompanySearchPage } from './CompanySearchPage';
 import { ReviewSelectionPage } from './ReviewSelectionPage';
+import { FillRequestsPage } from './FillRequestsPage';
 
 const pages = (setPage: SetPageFunction) => ({
     request_type_chooser: <RequestTypeChooserPage setPage={setPage} />,
     company_search: <CompanySearchPage setPage={setPage} />,
     review_selection: <ReviewSelectionPage setPage={setPage} />,
+    fill_requests: <FillRequestsPage setPage={setPage} />,
 });
 
 export type AppPageId = keyof ReturnType<typeof pages>;
