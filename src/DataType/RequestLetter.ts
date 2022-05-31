@@ -1,6 +1,7 @@
 import t, { t_r } from '../Utility/i18n';
 import { Letter, Template, formatAddress, LetterProps } from 'letter-generator';
 import type { Address, Request, IdDataElement } from '../types/request';
+import { isFieldEmpty } from '../Utility/requests';
 
 type FormattedData = { formatted: string; primary_address: Address | null; name: string };
 
@@ -114,29 +115,27 @@ export class RequestLetter extends Letter {
         let name = '';
 
         const formatted = request_data.reduce<string>((acc, item) => {
-            if ((item.type !== 'address' && item.value !== '') || (item.type === 'address' && item.value.street_1)) {
-                acc += `<bold>${item.desc}:</bold> `;
+            if (isFieldEmpty(item)) return acc;
 
-                switch (item.type) {
-                    case 'address':
-                        if (item.value.primary) primary_address = item.value;
-                        return `${acc}\n${formatAddress(
-                            [item.value.street_1, item.value.street_2, item.value.place, item.value.country],
-                            ', '
-                        )}\n`;
-                    case 'textarea':
-                        return `${acc}\n${item.value}\n`;
-                    case 'name':
-                        name = item.value;
-                    // fallthrough intentional
-                    case 'birthdate':
-                    case 'email':
-                    case 'input':
-                    default:
-                        return `${acc}${item.value}\n`;
-                }
+            acc += `<bold>${item.desc}:</bold> `;
+            switch (item.type) {
+                case 'address':
+                    if (item.value.primary) primary_address = item.value;
+                    return `${acc}\n${formatAddress(
+                        [item.value.street_1, item.value.street_2, item.value.place, item.value.country],
+                        ', '
+                    )}\n`;
+                case 'textarea':
+                    return `${acc}\n${item.value}\n`;
+                case 'name':
+                    name = item.value;
+                // fallthrough intentional
+                case 'birthdate':
+                case 'email':
+                case 'input':
+                default:
+                    return `${acc}${item.value}\n`;
             }
-            return acc;
         }, '');
         return { formatted, name, primary_address };
     }
