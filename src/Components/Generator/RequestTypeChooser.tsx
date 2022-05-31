@@ -1,6 +1,7 @@
+import type { RequestType } from '../../types/request';
 import t from '../../Utility/i18n';
 import { Radio } from '../Radio';
-import { RequestType, REQUEST_TYPES } from '../../types/request.d';
+import { REQUEST_TYPES } from '../../Utility/requests';
 import { useGeneratorStore } from '../../store/generator';
 
 type RequestTypeChooserProps = {

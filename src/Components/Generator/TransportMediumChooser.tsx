@@ -1,7 +1,8 @@
+import type { TransportMedium } from '../../types/request';
 import t from '../../Utility/i18n';
 import { Text, IntlProvider } from 'preact-i18n';
 import { Radio } from '../Radio';
-import { TransportMedium, TRANSPORT_MEDIA } from '../../types/request.d';
+import { TRANSPORT_MEDIA } from '../../Utility/requests';
 
 type TransportMediumChooserProps = {
     value: TransportMedium;

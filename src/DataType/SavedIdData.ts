@@ -1,10 +1,10 @@
+import type { IdDataElement, Signature } from '../types/request';
+import type { SetOptional } from 'type-fest';
 import { rethrow, WarningException } from '../Utility/errors';
 import Cookie from 'js-cookie';
 import LocalForage from 'localforage';
-import { EMTPY_ADDRESS, IdDataElement, Signature } from '../types/request.d';
 import { produce, nothing } from 'immer';
-import type { SetOptional } from 'type-fest';
-import { isAddress } from '../Utility/requests';
+import { isAddress, EMTPY_ADDRESS } from '../Utility/requests';
 
 export class SavedIdData {
     localforage_instance: LocalForage;

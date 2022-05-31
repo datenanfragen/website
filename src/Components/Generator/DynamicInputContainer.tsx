@@ -1,10 +1,10 @@
 import type { ComponentChildren } from 'preact';
+import type { IdDataElement } from '../../types/request';
 import { useMemo, useState } from 'preact/hooks';
 import { DynamicInput } from './DynamicInput';
 import { Text, MarkupText, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
-import { EMTPY_ADDRESS, IdDataElement } from '../../types/request.d';
-import { adressesEqual, isFieldEmpty } from '../../Utility/requests';
+import { adressesEqual, isFieldEmpty, EMTPY_ADDRESS } from '../../Utility/requests';
 import { useGeneratorStore } from '../../store/generator';
 
 type DynamicInputContainerProps = {
