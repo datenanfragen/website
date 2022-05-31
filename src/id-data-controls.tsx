@@ -1,17 +1,17 @@
-import { render } from 'preact';
-import { SavedIdData } from './DataType/SavedIdData';
-import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
-import t from './Utility/i18n';
-import { IntlProvider, MarkupText, Text } from 'preact-i18n';
-import { DynamicInputContainer } from './Components/Generator/DynamicInputContainer';
-import { InputControl } from './Components/Generator/DynamicInput';
-import { SignatureInput } from './Components/Generator/SignatureInput';
-import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
-import { useCallback, useEffect, useMemo, useState } from 'preact/hooks';
-import type { Address, IdDataElement, Signature } from './types/request';
 import { produce } from 'immer';
-import { isAddress } from './Utility/requests';
+import { render } from 'preact';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
+import { useCallback, useEffect, useMemo, useState } from 'preact/hooks';
+import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
+import { InputControl } from './Components/Generator/DynamicInput';
+import { DynamicInputContainer } from './Components/Generator/DynamicInputContainer';
+import { SignatureInput } from './Components/Generator/SignatureInput';
+import { SavedIdData } from './DataType/SavedIdData';
+import type { Address, IdDataElement, Signature } from './types/request';
 import { ErrorException } from './Utility/errors';
+import t from './Utility/i18n';
+import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
+import { isAddress } from './Utility/requests';
 
 const DEFAULT_FIXED_FIELDS = {
     name: '',

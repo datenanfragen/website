@@ -1,12 +1,12 @@
 import { render } from 'preact';
-import { RequestGeneratorBuilder } from './RequestGeneratorBuilder';
-import type { RequestType, TransportMedium } from '../types/request';
-import type { Company } from '../types/company';
-import { ActionButton } from './Generator/ActionButton';
-import { StatefulSignatureInput } from './Generator/SignatureInput';
-import { RequestTypeChooser } from './Generator/RequestTypeChooser';
-import { StatefulDynamicInputContainer } from './Generator/DynamicInputContainer';
 import { createGeneratorStore, RequestGeneratorProvider, useGeneratorStore } from '../store/generator';
+import type { Company } from '../types/company';
+import type { RequestType, TransportMedium } from '../types/request';
+import { ActionButton } from './Generator/ActionButton';
+import { StatefulDynamicInputContainer } from './Generator/DynamicInputContainer';
+import { RequestTypeChooser } from './Generator/RequestTypeChooser';
+import { StatefulSignatureInput } from './Generator/SignatureInput';
+import { RequestGeneratorBuilder } from './RequestGeneratorBuilder';
 
 type ActWidgetProps = {
     requestTypes: RequestType[];

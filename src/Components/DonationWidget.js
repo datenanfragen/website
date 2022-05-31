@@ -1,12 +1,12 @@
-import { render, Component } from 'preact';
-import { IntlProvider, Text, MarkupText } from 'preact-i18n';
+import { Component, render } from 'preact';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
+import { flash, FlashMessage } from '../Components/FlashMessage';
+import { clientPost } from '../Utility/browser';
 import { almostUniqueId, renderMoney } from '../Utility/common';
 import { CriticalException, rethrow } from '../Utility/errors';
 import t from '../Utility/i18n';
-import { FlashMessage, flash } from '../Components/FlashMessage';
-import { Radio } from './Radio';
-import { clientPost } from '../Utility/browser';
 import { LoadingIndicator } from './LoadingIndicator';
+import { Radio } from './Radio';
 
 const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];

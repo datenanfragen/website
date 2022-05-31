@@ -1,13 +1,13 @@
+import { IntlProvider, MarkupText } from 'preact-i18n';
+import { useEffect, useRef } from 'preact/hooks';
 import type { MergeExclusive } from 'type-fest';
 import type { SearchParams, SearchResponseHit } from 'typesense/lib/Typesense/Documents';
+import { Country, useAppStore } from '../store/app';
 import type { Company } from '../types/company';
-import { useEffect, useRef } from 'preact/hooks';
-import { IntlProvider, MarkupText } from 'preact-i18n';
-import { useAppStore, Country } from '../store/app';
+import { rethrow } from '../Utility/errors';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { searchClient } from '../Utility/search';
-import { rethrow } from '../Utility/errors';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 
 export type SearchBarProps = {

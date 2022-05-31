@@ -1,12 +1,12 @@
-import type { Request } from '../types/request';
-import type { Company, SupervisoryAuthority } from '../types/company';
-import type { StoreSlice } from '../types/utility';
-import { RequestState } from './request';
-import { fetchCompanyDataBySlug } from '../Utility/companies';
-import { trackingFields, defaultFields, inferRequestLanguage } from '../Utility/requests';
-import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { produce } from 'immer';
 import { SavedIdData } from '../DataType/SavedIdData';
+import type { Company, SupervisoryAuthority } from '../types/company';
+import type { Request } from '../types/request';
+import type { StoreSlice } from '../types/utility';
+import { fetchCompanyDataBySlug } from '../Utility/companies';
+import { defaultFields, inferRequestLanguage, trackingFields } from '../Utility/requests';
+import type { GeneratorSpecificState, GeneratorState } from './generator';
+import { RequestState } from './request';
 
 export interface CompanyState {
     current_company?: Company | SupervisoryAuthority;

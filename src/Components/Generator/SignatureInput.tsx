@@ -1,9 +1,9 @@
 import { JSX } from 'preact';
-import { useRef, Ref, useEffect, MutableRef, useState } from 'preact/hooks';
-import { Text, IntlProvider } from 'preact-i18n';
+import { IntlProvider, Text } from 'preact-i18n';
+import { MutableRef, Ref, useEffect, useRef, useState } from 'preact/hooks';
+import { useGeneratorStore } from '../../store/generator';
 import type { Signature } from '../../types/request';
 import { detectBlockedCanvasImageExtraction } from '../../Utility/browser';
-import { useGeneratorStore } from '../../store/generator';
 
 type Color = string;
 

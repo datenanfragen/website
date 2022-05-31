@@ -1,25 +1,25 @@
+import Cookie from 'js-cookie';
 import { render } from 'preact';
 import { IntlProvider, Text } from 'preact-i18n';
-import { clearUrlParameters } from './Utility/browser';
-import t from './Utility/i18n';
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 // The type bindings "provided" by this package do not match with the versions of the original package.
 // Since we intend to get rid of this anyway, we will just ignore it.
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Joyride from 'react-joyride';
-import { tutorial_steps } from './wizard-tutorial';
-import Cookie from 'js-cookie';
-import { RequestGeneratorBuilder } from './Components/RequestGeneratorBuilder';
-import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
-import { SavedCompanies } from './DataType/SavedCompanies';
-import { useEffect, useState, useRef, useCallback } from 'preact/hooks';
-import { createGeneratorStore, RequestGeneratorProvider, useGeneratorStore } from './store/generator';
-import { useModal } from './Components/Modal';
 import { ActionButton } from './Components/Generator/ActionButton';
+import { CompanySelector } from './Components/Generator/CompanySelector';
+import { CompanyWidget } from './Components/Generator/CompanyWidget';
 import { NewRequestButton } from './Components/Generator/NewRequestButton';
 import { RequestForm } from './Components/Generator/RequestForm';
-import { CompanyWidget } from './Components/Generator/CompanyWidget';
-import { CompanySelector } from './Components/Generator/CompanySelector';
+import { useModal } from './Components/Modal';
+import { RequestGeneratorBuilder } from './Components/RequestGeneratorBuilder';
+import { SavedCompanies } from './DataType/SavedCompanies';
+import { createGeneratorStore, RequestGeneratorProvider, useGeneratorStore } from './store/generator';
+import { clearUrlParameters } from './Utility/browser';
+import t from './Utility/i18n';
+import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
+import { tutorial_steps } from './wizard-tutorial';
 const HIDE_IN_WIZARD_MODE = [
     '.search',
     '.request-type-chooser',

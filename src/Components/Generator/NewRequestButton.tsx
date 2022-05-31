@@ -1,13 +1,13 @@
-import { ActionButton } from '../Generator/ActionButton';
+import type { JSX } from 'preact';
 import { IntlProvider, Text } from 'preact-i18n';
+import { useCallback, useState } from 'preact/hooks';
+import { SavedCompanies } from '../../DataType/SavedCompanies';
 import { useGeneratorStore } from '../../store/generator';
 import { clearUrlParameters } from '../../Utility/browser';
-import { useCallback, useState } from 'preact/hooks';
-import { useModal } from '../Modal';
 import t from '../../Utility/i18n';
-import type { JSX } from 'preact';
 import { Privacy, PRIVACY_ACTIONS } from '../../Utility/Privacy';
-import { SavedCompanies } from '../../DataType/SavedCompanies';
+import { ActionButton } from '../Generator/ActionButton';
+import { useModal } from '../Modal';
 
 type NewRequestButtonProps = {
     newRequestHook?: (arg?: unknown) => void;

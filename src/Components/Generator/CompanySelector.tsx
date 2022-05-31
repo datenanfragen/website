@@ -1,8 +1,8 @@
-import type { Company } from '../../types/company';
 import type { Except } from 'type-fest';
-import t from '../../Utility/i18n';
 import { useGeneratorStore } from '../../store/generator';
-import { SearchBarProps, SearchBar } from '../SearchBar';
+import type { Company } from '../../types/company';
+import t from '../../Utility/i18n';
+import { SearchBar, SearchBarProps } from '../SearchBar';
 import { useNewRequestModal } from './NewRequestButton';
 
 type CompanySelectorProps = { newRequestHook: () => void } & Partial<Except<SearchBarProps, 'anchorize' | 'index'>>;

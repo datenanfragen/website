@@ -1,13 +1,13 @@
-import { render, Component } from 'preact';
-import { IntlProvider, Text, MarkupText } from 'preact-i18n';
+import { Component, render } from 'preact';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
+import PropTypes from 'prop-types';
 import t from 'Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from 'Utility/Privacy';
-import { UserRequests } from './DataType/UserRequests';
 import Modal from './Components/DeprecatedModal';
-import { SavedIdData } from './DataType/SavedIdData';
+import { flash, FlashMessage } from './Components/FlashMessage';
 import { SavedCompanies } from './DataType/SavedCompanies';
-import { FlashMessage, flash } from './Components/FlashMessage';
-import PropTypes from 'prop-types';
+import { SavedIdData } from './DataType/SavedIdData';
+import { UserRequests } from './DataType/UserRequests';
 
 class PrivacyControl extends Component {
     constructor(props) {

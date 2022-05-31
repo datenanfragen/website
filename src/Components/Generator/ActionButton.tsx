@@ -1,5 +1,5 @@
 import type { JSX } from 'preact';
-import { Text, IntlProvider } from 'preact-i18n';
+import { IntlProvider, Text } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { MailtoDropdown } from '../MailtoDropdown';
 

@@ -1,17 +1,17 @@
+import create, { GetState, SetState } from 'zustand';
+import createContext from 'zustand/context';
+import { SavedIdData } from '../DataType/SavedIdData';
+import { UserRequests } from '../DataType/UserRequests';
 import type { IdDataElement, Request, ResponseType, Signature } from '../types/request';
 import type { StoreSlice } from '../types/utility';
-import create, { GetState, SetState } from 'zustand';
-import { RequestState, createRequestStore } from './request';
-import { CUSTOM_TEMPLATE_OPTIONS } from '../Utility/requests';
-import createContext from 'zustand/context';
-import { CompanyState, createCompanyStore } from './company';
-import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { SavedIdData } from '../DataType/SavedIdData';
+import { ErrorException, rethrow } from '../Utility/errors';
 // This will be replaced with an URL by the worker-loader plugin in webpack which is why eslint can't find a default import (TS can be tricked by defining a module).
 // eslint-disable-next-line import/default
 import PdfWorker from '../Utility/pdf.worker.ts';
-import { ErrorException, rethrow } from '../Utility/errors';
-import { UserRequests } from '../DataType/UserRequests';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { CUSTOM_TEMPLATE_OPTIONS } from '../Utility/requests';
+import { CompanyState, createCompanyStore } from './company';
+import { createRequestStore, RequestState } from './request';
 
 export interface GeneratorSpecificState {
     ready: boolean;

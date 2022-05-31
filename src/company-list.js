@@ -1,11 +1,10 @@
-import { render, Component } from 'preact';
 import { SearchBar } from 'Components/SearchBar';
+import { Component, render } from 'preact';
 import { IntlProvider, Text } from 'preact-i18n';
 import PropTypes from 'prop-types';
-
+import Scrollspy from 'react-scrollspy';
 import t from 'Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from 'Utility/Privacy';
-import Scrollspy from 'react-scrollspy';
 
 if (!Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH) && document.getElementById('aa-search-input'))
     document.getElementById('aa-search-input').style.display = 'none';

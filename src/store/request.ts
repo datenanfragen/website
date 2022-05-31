@@ -1,36 +1,36 @@
+import { produce } from 'immer';
+import { Template } from 'letter-generator';
+import { RequestLetter } from '../DataType/RequestLetter';
+import { SavedIdData } from '../DataType/SavedIdData';
+import { UserRequest, UserRequests } from '../DataType/UserRequests';
 import type {
-    Request,
-    IdDataElement,
-    DataFieldName,
-    RequestType,
     Address,
-    TransportMedium,
-    RequestFlag,
-    Signature,
-    CustomTemplateName,
     CustomLetterData,
     CustomRequest,
+    CustomTemplateName,
+    DataFieldName,
+    IdDataElement,
+    Request,
+    RequestFlag,
+    RequestType,
+    Signature,
+    TransportMedium,
 } from '../types/request';
+import type { StoreSlice } from '../types/utility';
+import { slugify } from '../Utility/common';
+import { ErrorException, WarningException } from '../Utility/errors';
+import { t_r } from '../Utility/i18n';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import {
     defaultRequest,
-    REQUEST_FALLBACK_LANGUAGE,
     fetchTemplate,
+    inferRequestLanguage,
     isSaneDataField,
     REQUEST_ARTICLES,
-    inferRequestLanguage,
+    REQUEST_FALLBACK_LANGUAGE,
 } from '../Utility/requests';
-import { UserRequests, UserRequest } from '../DataType/UserRequests';
-import { produce } from 'immer';
-import { RequestLetter } from '../DataType/RequestLetter';
-import { t_r } from '../Utility/i18n';
-import { ErrorException, WarningException } from '../Utility/errors';
-import type { StoreSlice } from '../types/utility';
 import { CompanyState } from './company';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
-import { slugify } from '../Utility/common';
-import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { SavedIdData } from '../DataType/SavedIdData';
-import { Template } from 'letter-generator';
 
 export interface RequestState<R extends Request> {
     request: R;

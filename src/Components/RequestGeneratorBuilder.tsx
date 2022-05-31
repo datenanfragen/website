@@ -1,14 +1,14 @@
 import type { ComponentChildren } from 'preact';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import { memo } from 'preact/compat';
-import t from '../Utility/i18n';
-import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { SvaFinder } from './SvaFinder';
-import { UserRequests } from '../DataType/UserRequests';
 import { useEffect } from 'preact/hooks';
+import { UserRequests } from '../DataType/UserRequests';
 import { useGeneratorStore, useGeneratorStoreApi } from '../store/generator';
 import type { ResponseType } from '../types/request';
+import t from '../Utility/i18n';
+import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { useModal } from './Modal';
+import { SvaFinder } from './SvaFinder';
 
 type RequestGeneratorBuilderProps = {
     onInitialized?: () => void;

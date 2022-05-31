@@ -1,5 +1,5 @@
-import { render, ComponentChildren, Fragment, VNode } from 'preact';
-import { useState, useEffect, useCallback } from 'preact/hooks';
+import { ComponentChildren, Fragment, render, VNode } from 'preact';
+import { useCallback, useEffect, useState } from 'preact/hooks';
 import t from '../Utility/i18n';
 
 type FlashMessageProps = {

@@ -1,5 +1,5 @@
-import localforage from 'localforage';
 import Cookie from 'js-cookie';
+import localforage from 'localforage';
 import { rethrow } from '../Utility/errors';
 
 // TODO: This should probably also be a (persisted) zustand store but since the generator and privacy controls also use

@@ -1,9 +1,9 @@
 import type { JSX } from 'preact';
-import { useState, useCallback } from 'preact/hooks';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
-import { useAppStore, Country } from '../store/app';
-import { useModal } from './Modal';
+import { useCallback, useState } from 'preact/hooks';
+import { Country, useAppStore } from '../store/app';
 import t from '../Utility/i18n';
+import { useModal } from './Modal';
 
 type I18nWidgetProps = {
     minimal: boolean;

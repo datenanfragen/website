@@ -1,15 +1,15 @@
 import { ComponentChildren } from 'preact';
-import { DynamicInputContainer } from './DynamicInputContainer';
-import { SignatureInput } from './SignatureInput';
-import { MarkupText, Text, IntlProvider } from 'preact-i18n';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
+import { useGeneratorStore } from '../../store/generator';
 import t from '../../Utility/i18n';
 import { Accordion } from '../Accordion';
-import { RequestTypeChooser } from './RequestTypeChooser';
-import { RecipientInput } from './RecipientInput';
-import { TransportMediumChooser } from './TransportMediumChooser';
-import { useGeneratorStore } from '../../store/generator';
-import { RequestFlags } from './RequestFlags';
 import { CustomRequestInput } from './CustomRequestInput';
+import { DynamicInputContainer } from './DynamicInputContainer';
+import { RecipientInput } from './RecipientInput';
+import { RequestFlags } from './RequestFlags';
+import { RequestTypeChooser } from './RequestTypeChooser';
+import { SignatureInput } from './SignatureInput';
+import { TransportMediumChooser } from './TransportMediumChooser';
 
 type RequestFormProps = {
     children: ComponentChildren;

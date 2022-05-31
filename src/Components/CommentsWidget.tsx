@@ -1,10 +1,10 @@
 import { Fragment, JSX } from 'preact';
-import { useState, useEffect, useCallback } from 'preact/hooks';
-import { IntlProvider, Text, MarkupText } from 'preact-i18n';
-import { FlashMessage, flash } from '../Components/FlashMessage';
-import { StarWidget } from './StarWidget';
-import t from '../Utility/i18n';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
+import { useCallback, useEffect, useState } from 'preact/hooks';
+import { flash, FlashMessage } from '../Components/FlashMessage';
 import { rethrow, WarningException } from '../Utility/errors';
+import t from '../Utility/i18n';
+import { StarWidget } from './StarWidget';
 
 const api_url = 'https://backend.datenanfragen.de/comments';
 const target = `${window.LOCALE}/${document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '')}`;

@@ -1,14 +1,14 @@
-import { render, Component, Fragment } from 'preact';
-import Modal from './Components/DeprecatedModal';
-import t from 'Utility/i18n';
-import { fetchCompanyDataBySlug } from './Utility/companies';
-import { slugify, domainWithoutTldFromUrl } from './Utility/common';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
-require('brutusin-json-forms');
+import { Component, Fragment, render } from 'preact';
+import t from 'Utility/i18n';
+import { searchClient } from 'Utility/search';
+import Modal from './Components/DeprecatedModal';
+import { flash, FlashMessage } from './Components/FlashMessage';
+import { domainWithoutTldFromUrl, slugify } from './Utility/common';
+import { fetchCompanyDataBySlug } from './Utility/companies';
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
-import { FlashMessage, flash } from './Components/FlashMessage';
-import { searchClient } from 'Utility/search';
+require('brutusin-json-forms');
 let bf;
 let schema;
 const SUBMIT_URL =
