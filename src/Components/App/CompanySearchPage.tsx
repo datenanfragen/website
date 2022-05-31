@@ -24,15 +24,10 @@ const Hits = connectHits(({ hits }: HitsProvided<Company>) => {
             className="box box-thin"
             style="margin-bottom: 10px;"
             onClick={() => {
-                if (batch?.includes(hit.slug)) removeFromBatch(hit.slug);
-                else appendToBatch(hit.slug);
+                if (batch?.has(hit.slug)) removeFromBatch(hit.slug);
+                else appendToBatch(hit);
             }}>
-            <input
-                checked={batch?.includes(hit.slug)}
-                type="checkbox"
-                className="form-element"
-                style="margin-top: -3px"
-            />
+            <input checked={batch?.has(hit.slug)} type="checkbox" className="form-element" style="margin-top: -3px" />
             <h4>
                 <Highlight attribute="name" hit={hit} />
 
@@ -88,9 +83,9 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
             <Hits />
             <button
                 className="button button-secondary button-small"
-                disabled={(batch?.length || 0) < 1}
+                disabled={(batch?.size || 0) < 1}
                 onClick={() => props.setPage('review_selection')}>
-                <Text id="review-n-companies" plural={batch?.length || 0} fields={{ count: batch?.length || 0 }} />
+                <Text id="review-n-companies" plural={batch?.size || 0} fields={{ count: batch?.size || 0 }} />
             </button>
 
             {/* TODO: Pagination? */}

@@ -10,14 +10,14 @@ import { SavedIdData } from '../DataType/SavedIdData';
 
 export interface CompanyState {
     current_company?: Company | SupervisoryAuthority;
-    batch?: string[];
+    batch?: Map<string, Company>;
     setCompanyBySlug: (slug: string) => Promise<void>;
     setCompany: (company: Company) => Promise<void>;
     setSva: (sva: SupervisoryAuthority) => Promise<void>;
     removeCompany: () => Promise<void>;
-    startBatch: (batch: string[]) => Promise<void>;
     advanceBatch: () => Promise<void>;
-    appendToBatch: (companySlug: string) => void;
+    appendToBatch: (companies: Company | Company[]) => void;
+    appendToBatchBySlug: (companySlugs: string | string[]) => Promise<void>;
     removeFromBatch: (companySlug: string) => void;
     clearBatch: () => void;
     hasBatch: () => boolean | undefined;
@@ -110,10 +110,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
             sva['suggested-transport-medium'] ? sva['suggested-transport-medium'] : sva.email ? 'email' : 'letter'
         );
     },
-    setCompanyBySlug: (slug) =>
-        fetchCompanyDataBySlug(slug).then((company) => {
-            return get().setCompany(company);
-        }),
+    setCompanyBySlug: (slug) => fetchCompanyDataBySlug(slug).then((company) => get().setCompany(company)),
     removeCompany: () => {
         set(
             produce((state: GeneratorState) => {
@@ -125,29 +122,30 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
         );
         return get().refreshTemplate();
     },
-    startBatch: async (batch) => {
-        if (batch.length > 0) {
-            const first_company = batch.shift() as string;
-            set({ batch });
-            return get().setCompanyBySlug(first_company);
-        }
-    },
     advanceBatch: async () => {
         if (get().hasBatch()) {
-            let company: string | undefined;
-            set(
-                produce((state: GeneratorState) => {
-                    company = state.batch?.shift();
-                })
-            );
-            return company ? get().setCompanyBySlug(company) : undefined;
+            const company: Company = get().batch?.values().next().value;
+            if (company) get().removeFromBatch(company.slug);
+
+            return company ? get().setCompany(company) : undefined;
         }
     },
-    appendToBatch: (companySlug) => set({ batch: [...(get().batch || []), companySlug] }),
-    removeFromBatch: (companySlug) => set({ batch: get().batch?.filter((s) => s !== companySlug) }),
+    appendToBatch: (companies) =>
+        set(
+            produce((state: GeneratorState) => {
+                if (!state.batch) state.batch = new Map();
+                for (const company of Array.isArray(companies) ? companies : [companies])
+                    state.batch?.set(company.slug, company);
+            })
+        ),
+    appendToBatchBySlug: (companySlugs: string | string[]) =>
+        Promise.all(
+            (Array.isArray(companySlugs) ? companySlugs : [companySlugs]).map((s) => fetchCompanyDataBySlug(s))
+        ).then((companies) => get().appendToBatch(companies)),
+    removeFromBatch: (companySlug) => set(produce((state: GeneratorState) => void state.batch?.delete(companySlug))),
     clearBatch: () => set({ batch: undefined }),
     hasBatch: () => {
         const batch = get().batch;
-        return batch && batch.length > 0;
+        return batch && batch.size > 0;
     },
 });
