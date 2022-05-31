@@ -1,5 +1,6 @@
 import { render } from 'preact';
 import Cookie from 'js-cookie';
+import { enableMapSet } from 'immer';
 import { useAppStore, Country } from './store/app';
 import { I18nWidget, I18nButton } from './Components/I18nWidget';
 import { CommentsWidget } from './Components/CommentsWidget';
@@ -12,6 +13,8 @@ import { UserRequests } from './DataType/UserRequests';
 import { proceedingFromRequest, useProceedingsStore } from './store/proceedings';
 import type { Message } from './types/proceedings';
 import { REQUEST_TYPES } from './Utility/requests';
+
+enableMapSet();
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');

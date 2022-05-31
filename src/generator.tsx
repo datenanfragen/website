@@ -29,7 +29,8 @@ const HIDE_IN_WIZARD_MODE = [
 ];
 
 const Generator = () => {
-    const startBatch = useGeneratorStore((state) => state.startBatch);
+    const appendToBatchBySlug = useGeneratorStore((state) => state.appendToBatchBySlug);
+    const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
     const clearBatch = useGeneratorStore((state) => state.clearBatch);
     const hasBatch = useGeneratorStore((state) => state.hasBatch);
     const current_company = useGeneratorStore((state) => state.current_company);
@@ -54,10 +55,13 @@ const Generator = () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) && isInWizardMode) {
             const saved_companies = new SavedCompanies();
 
-            saved_companies.getAll().then((companies) => startBatch(Object.keys(companies)));
+            saved_companies
+                .getAll()
+                .then((companies) => appendToBatchBySlug(Object.keys(companies)))
+                .then(() => advanceBatch());
             return () => clearBatch();
         }
-    }, [isInWizardMode, clearBatch, startBatch]);
+    }, [isInWizardMode, clearBatch, appendToBatchBySlug, advanceBatch]);
 
     const [WizardDoneModal, showWizardDoneModal, dismissWizardDoneModal] = useModal(
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
