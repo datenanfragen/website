@@ -90,6 +90,8 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
         const letter = get().letter();
 
         if (get().request.transport_medium === 'email') {
+            // TODO: Why are we doing this for emails? Maybe I'm missing something but I don't think this is used
+            // anywhere. The `MailtoDropdown` generates this itself and doesn't rely on `downloadActive`.
             get().setDownload(
                 true,
                 URL.createObjectURL(

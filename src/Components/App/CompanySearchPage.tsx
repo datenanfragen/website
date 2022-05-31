@@ -23,14 +23,14 @@ const Hits = connectHits(({ hits }: HitsProvided<Company>) => {
             company={hit}
             actionElement={
                 <input
-                    checked={batch?.has(hit.slug) || false}
+                    checked={Object.keys(batch || {}).includes(hit.slug) || false}
                     type="checkbox"
                     className="form-element"
                     style="margin-top: -3px"
                 />
             }
             onClick={() => {
-                if (batch?.has(hit.slug)) removeFromBatch(hit.slug);
+                if (Object.keys(batch || {}).includes(hit.slug)) removeFromBatch(hit.slug);
                 else appendToBatch(companyFromHit(hit));
             }}
         />
@@ -39,6 +39,7 @@ const Hits = connectHits(({ hits }: HitsProvided<Company>) => {
 
 export const CompanySearchPage = (props: CompanySearchPageProps) => {
     const batch = useGeneratorStore((state) => state.batch);
+    const batch_length = Object.keys(batch || {}).length || 0;
 
     return (
         <InstantSearch indexName="companies" searchClient={instantSearchClient()}>
@@ -48,9 +49,9 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
             <Hits />
             <button
                 className="button button-secondary button-small"
-                disabled={(batch?.size || 0) < 1}
+                disabled={batch_length < 1}
                 onClick={() => props.setPage('review_selection')}>
-                <Text id="review-n-companies" plural={batch?.size || 0} fields={{ count: batch?.size || 0 }} />
+                <Text id="review-n-companies" plural={batch_length} fields={{ count: batch_length }} />
             </button>
 
             {/* TODO: Pagination? */}

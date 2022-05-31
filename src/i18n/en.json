@@ -351,7 +351,9 @@
             "one": "Review {{count}} selected company",
             "other": "Review {{count}} selected companies"
         },
-        "continue-with-requests": "Continue with requests"
+        "continue-with-requests": "Continue with requests",
+        "send-request": "Send request",
+        "send-request-again": "Send request again"
     },
     "mailto": {
         "mailto": "Default email software",

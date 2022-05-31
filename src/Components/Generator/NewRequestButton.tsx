@@ -48,12 +48,8 @@ export const useNewRequestModal = (
     boolean,
     () => Promise<void>
 ] => {
-    const resetInitialConditions = useGeneratorStore((state) => state.resetInitialConditions);
     const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
-    const setDownload = useGeneratorStore((state) => state.setDownload);
     const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
-    const removeCompany = useGeneratorStore((state) => state.removeCompany);
-    const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
     const storeRequest = useGeneratorStore((state) => state.storeRequest);
     const setBusy = useGeneratorStore((state) => state.setBusy);
     const request_type = useGeneratorStore((state) => state.request.type);
@@ -76,25 +72,8 @@ export const useNewRequestModal = (
         )
             new SavedCompanies().remove(current_company.slug);
 
-        resetRequestToDefault();
-        setDownload(false);
-        setBusy();
-        removeCompany()
-            .then(() => newRequestHook?.(payload))
-            .then(() => advanceBatch())
-            .then(() => resetInitialConditions());
-    }, [
-        newRequestHook,
-        resetInitialConditions,
-        resetRequestToDefault,
-        setDownload,
-        removeCompany,
-        current_company,
-        request_type,
-        payload,
-        advanceBatch,
-        setBusy,
-    ]);
+        resetRequestToDefault(true, undefined, () => newRequestHook?.(payload));
+    }, [newRequestHook, resetRequestToDefault, current_company, request_type, payload]);
 
     const [ConfirmNewRequestModal, showModal, dismissConfirmNewRequestModal, shown] = useModal(
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>

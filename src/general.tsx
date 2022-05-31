@@ -1,6 +1,5 @@
 import { render } from 'preact';
 import Cookie from 'js-cookie';
-import { enableMapSet } from 'immer';
 import { useAppStore, Country } from './store/app';
 import { I18nWidget, I18nButton } from './Components/I18nWidget';
 import { CommentsWidget } from './Components/CommentsWidget';
@@ -9,8 +8,6 @@ import Footnote from './Components/Footnote';
 import { t_r } from './Utility/i18n';
 import { parameters, parseBcp47Tag, fallback_countries } from './Utility/common';
 import { guessUserCountry } from './Utility/browser';
-
-enableMapSet();
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');

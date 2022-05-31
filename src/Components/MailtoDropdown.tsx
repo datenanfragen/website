@@ -12,7 +12,7 @@ type MailtoHandler = (
     | { onClick: (data: EmailData, showCopyManuallyModal: () => void) => void }
 ) & { countries: Country[] };
 
-type MailtoDropdownProps = {
+export type MailtoDropdownProps = {
     letter: RequestLetter;
     handlers?: (keyof typeof mailto_handlers)[];
     email: string;
