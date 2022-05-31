@@ -1,10 +1,10 @@
+import type { SupervisoryAuthority } from '../types/company';
 import { render, Fragment, JSX } from 'preact';
 import { useState } from 'preact/hooks';
 import { useAppStore } from '../store/app';
 import t from '../Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 import deepmerge from 'deepmerge';
-import { SupervisoryAuthority } from '../types/company.d';
 
 type SvaFinderProps = {
     callback?: (sva?: SupervisoryAuthority) => void;

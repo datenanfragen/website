@@ -1,7 +1,5 @@
 import type { RequestLanguage } from './company';
-
-export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
-export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
+import { REQUEST_TYPES, TRANSPORT_MEDIA, CUSTOM_TEMPLATE_OPTIONS } from '../Utility/requests';
 
 export type RequestType = typeof REQUEST_TYPES[number];
 export type TransportMedium = typeof TRANSPORT_MEDIA[number];
@@ -32,13 +30,6 @@ export interface AddressIdData extends GeneralIdData {
     value: Address;
 }
 
-export const EMTPY_ADDRESS: Address = {
-    street_1: '',
-    street_2: '',
-    place: '',
-    country: '',
-} as const;
-
 export type IdDataElement = TextIdData | AddressIdData;
 export type ResponseType = 'admonition' | 'complaint';
 
@@ -53,8 +44,6 @@ export type ImageSignature = {
     value: string;
 };
 export type Signature = TextSignature | ImageSignature;
-
-export const ADDRESS_STRING_PROPERTIES = ['street_1', 'street_2', 'place', 'country'] as const;
 
 export type Address = {
     street_1: string;
@@ -114,7 +103,6 @@ export interface CustomRequest extends RequestInterface {
     response_type?: ResponseType;
 }
 
-export const CUSTOM_TEMPLATE_OPTIONS = ['no-template', 'admonition', 'complaint'] as const;
 type CustomTemplateName = typeof CUSTOM_TEMPLATE_OPTIONS[number];
 
 export interface ObjectionRequest extends RequestInterface {

@@ -1,3 +1,6 @@
+import type { MergeExclusive } from 'type-fest';
+import type { SearchParams, SearchResponseHit } from 'typesense/lib/Typesense/Documents';
+import type { Company } from '../types/company';
 import { useEffect, useRef } from 'preact/hooks';
 import { IntlProvider, MarkupText } from 'preact-i18n';
 import { useAppStore, Country } from '../store/app';
@@ -6,9 +9,6 @@ import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { searchClient } from '../Utility/search';
 import { rethrow } from '../Utility/errors';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
-import type { MergeExclusive } from 'type-fest';
-import type { SearchParams, SearchResponseHit } from 'typesense/lib/Typesense/Documents';
-import { Company } from '../types/company.d';
 
 export type SearchBarProps = {
     id: string;

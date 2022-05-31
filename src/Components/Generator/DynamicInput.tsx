@@ -1,7 +1,8 @@
 import type { JSX } from 'preact';
+import type { Address, AddressIdData, IdDataElement } from '../../types/request';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
-import { Address, AddressIdData, ADDRESS_STRING_PROPERTIES, IdDataElement } from '../../types/request.d';
+import { ADDRESS_STRING_PROPERTIES } from '../../Utility/requests';
 import { produce } from 'immer';
 
 type DynamicInputProps = {

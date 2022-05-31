@@ -1,7 +1,3 @@
-import t, { t_r } from './i18n';
-import { CriticalException, rethrow } from './errors';
-import { generateReference } from 'letter-generator';
-import { deepCopyObject } from '../Utility/common';
 import type {
     IdDataElement,
     Address,
@@ -12,9 +8,23 @@ import type {
     CustomTemplateName,
 } from '../types/request';
 import type { Company, RequestLanguage, SupervisoryAuthority } from '../types/company';
+import t, { t_r } from './i18n';
+import { CriticalException, rethrow } from './errors';
+import { generateReference } from 'letter-generator';
+import { deepCopyObject } from '../Utility/common';
 
-export const REQUEST_ARTICLES = { access: '15', erasure: '17', rectification: '16', objection: '21(2)' };
-export const REQUEST_FALLBACK_LANGUAGE = 'en'; // We'll use English as hardcoded fallback language
+export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
+export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
+export const ADDRESS_STRING_PROPERTIES = ['street_1', 'street_2', 'place', 'country'] as const;
+export const CUSTOM_TEMPLATE_OPTIONS = ['no-template', 'admonition', 'complaint'] as const;
+export const REQUEST_ARTICLES = { access: '15', erasure: '17', rectification: '16', objection: '21(2)' } as const;
+export const REQUEST_FALLBACK_LANGUAGE = 'en' as const; // We'll use English as hardcoded fallback language
+export const EMTPY_ADDRESS: Address = {
+    street_1: '',
+    street_2: '',
+    place: '',
+    country: '',
+} as const;
 
 export function isAddress(value: IdDataElement['value']): value is Address {
     return typeof value === 'object' && 'country' in value;
