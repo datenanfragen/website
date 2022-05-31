@@ -2,14 +2,14 @@ import { isOn, skipOn } from '@cypress/skip-test';
 
 describe('Test the `Flash` component', () => {
     beforeEach(() => {
+        skipOn(isOn('production'));
+
         cy.visit('/')
             // Make sure that the language suggestion message doesn't interfere.
             .then((win) => win.getAppStore().changeCountry('all'));
     });
 
     it('Different flash types', () => {
-        skipOn(isOn('production'));
-
         cy.window().then((win) => {
             win.showFlash('success', "Well, we successfully executed this test, didn't we?", 3000);
             cy.get('.flash-message.flash-success');
@@ -24,8 +24,6 @@ describe('Test the `Flash` component', () => {
     });
 
     it('Flash durations', () => {
-        skipOn(isOn('production'));
-
         cy.window().then((win) => {
             win.showFlash('info', 'I will stay here for five seconds.');
             cy.get('.flash-message.flash-info');
@@ -44,8 +42,6 @@ describe('Test the `Flash` component', () => {
     });
 
     it('Flash text content', () => {
-        skipOn(isOn('production'));
-
         cy.window().then((win) => {
             win.showFlash('error', 'thisismycustomtextcontent');
             cy.get('.flash-message.flash-error .inner').contains('thisismycustomtextcontent');
@@ -53,8 +49,6 @@ describe('Test the `Flash` component', () => {
     });
 
     it('Dismissing flashes', () => {
-        skipOn(isOn('production'));
-
         cy.window().then((win) => {
             win.showFlash(
                 'success',

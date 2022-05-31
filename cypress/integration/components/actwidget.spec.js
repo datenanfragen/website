@@ -12,7 +12,9 @@ describe('ActWidget component', () => {
             .contains('Default email software')
             .should('have.attr', 'href')
             .and('match', /^mailto:[\S\s]*?balance[\S\s]*?42[\S\s]*?$/);
-        cy.get('div[id="act-with-account"]').contains('Default email software').clickLinkWithoutFollowingHref();
+        cy.get('div[id="act-with-account"]')
+            .contains('Default email software')
+            .clickLinkWithoutFollowingHref({ force: true });
     });
 
     it('generates mailto link with user data [record specified as object]', () => {
@@ -25,6 +27,8 @@ describe('ActWidget component', () => {
             .contains('Default email software')
             .should('have.attr', 'href')
             .and('match', /^mailto:[\S\s]*?userId[\S\s]*?132465789ACME[\S\s]*?deviceId[\S\s]*?987654321ACME[\S\s]*?$/);
-        cy.get('div[id="act-no-account"]').contains('Default email software').clickLinkWithoutFollowingHref();
+        cy.get('div[id="act-no-account"]')
+            .contains('Default email software')
+            .clickLinkWithoutFollowingHref({ force: true });
     });
 });
