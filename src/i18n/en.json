@@ -181,7 +181,8 @@
         "footer-social-github-desc": "Find us on GitHub.",
         "footer-social-matrix-desc": "Talk with us through Matrix.",
         "footer-social-mastodon-desc": "Follow us on Mastodon.",
-        "footer-social-twitter-desc": "Follow us on Twitter."
+        "footer-social-twitter-desc": "Follow us on Twitter.",
+        "noscript-app": "The app runs only on your computer and is therefore completely written in JavaScript. The code won't send any data to any servers if you do not consent. If you want to use the app, please activate JavaScript in your browser or add an exception to your blocker. If it still doesn't work after that, send us an email at <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
     },
     "home": {
         "data-access": "data access.",
@@ -353,7 +354,10 @@
         },
         "continue-with-requests": "Continue with requests",
         "send-request": "Send request",
-        "send-request-again": "Send request again"
+        "send-request-again": "Send request again",
+        "request-type-chooser-page-title": "What do you want to do?",
+        "company-chooser-page-title": "Who do you want to address your request to?",
+        "selected-companies-page-title": "Companies you selected"
     },
     "mailto": {
         "mailto": "Default email software",

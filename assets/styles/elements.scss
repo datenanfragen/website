@@ -19,7 +19,7 @@
     &:focus {
         background-color: color('blue', 900);
         color: color('gray', 200) !important;
-        border: 2px solid color('blue', 900);
+        border-color: color('blue', 900);
     }
 
     &.disabled,
@@ -69,6 +69,11 @@ a.button-secondary {
     &.icon:before {
         margin-right: 8px;
     }
+}
+.button-fit-content {
+    height: fit-content;
+    margin: auto 0;
+    padding: 5px 0;
 }
 
 canvas {
