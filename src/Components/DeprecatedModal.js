@@ -1,7 +1,7 @@
-import { render, Component } from 'preact';
+import { Component, render } from 'preact';
 import { createPortal } from 'preact/compat';
-import t from '../Utility/i18n';
 import PropTypes from 'prop-types';
+import t from '../Utility/i18n';
 
 // TODO: Get rid of this once we've moved everything to the new modal hook.
 export default class DeprecatedModal extends Component {

@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'preact/hooks';
-import { Text, MarkupText, IntlProvider } from 'preact-i18n';
-import { useAppStore } from '../store/app';
-import { useFetch } from '../hooks/useFetch';
-import { SearchBar } from './SearchBar';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
+import { useEffect, useState } from 'preact/hooks';
 import { SavedCompanies } from '../DataType/SavedCompanies';
+import { useFetch } from '../hooks/useFetch';
+import { useAppStore } from '../store/app';
+import { ErrorException, rethrow } from '../Utility/errors';
 import t from '../Utility/i18n';
-import { rethrow, ErrorException } from '../Utility/errors';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
+import { SearchBar } from './SearchBar';
 
 const categories = [
     'suggested',

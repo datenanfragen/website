@@ -1,8 +1,8 @@
 // This file is necessary in order to be able to access interal methods from within the browser tests
 
-import { useAppStore } from './store/app';
-import { FlashMessage, flash } from './Components/FlashMessage';
 import localforage from 'localforage';
+import { flash, FlashMessage } from './Components/FlashMessage';
+import { useAppStore } from './store/app';
 
 type ExtendedWindow = typeof window & {
     getAppStore: () => ReturnType<typeof useAppStore.getState>;

@@ -1,6 +1,6 @@
+import { IntlProvider, Text } from 'preact-i18n';
 import type { TransportMedium } from '../../types/request';
 import t from '../../Utility/i18n';
-import { Text, IntlProvider } from 'preact-i18n';
 
 type RecipientInputProps = {
     recipientAddress?: string;

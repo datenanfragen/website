@@ -1,7 +1,7 @@
-import t from '../../Utility/i18n';
-import { Text, IntlProvider } from 'preact-i18n';
-import { Accordion } from '../Accordion';
+import { IntlProvider, Text } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
+import t from '../../Utility/i18n';
+import { Accordion } from '../Accordion';
 
 export const CompanyWidget = () => {
     const company = useGeneratorStore((state) => state.current_company);

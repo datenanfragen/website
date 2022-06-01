@@ -1,6 +1,6 @@
+import type { Company, SupervisoryAuthority } from '../types/company';
 import { ErrorException, rethrow } from './errors';
 import t from './i18n';
-import type { Company, SupervisoryAuthority } from '../types/company';
 
 export function fetchCompanyDataBySlug(slug: string): Promise<Company> {
     return fetch(window.BASE_URL + 'db/' + slug + '.json')

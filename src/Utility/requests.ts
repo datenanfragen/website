@@ -1,17 +1,17 @@
-import type {
-    IdDataElement,
-    Address,
-    AccessRequest,
-    RequestType,
-    DataFieldName,
-    Request,
-    CustomTemplateName,
-} from '../types/request';
-import type { Company, RequestLanguage, SupervisoryAuthority } from '../types/company';
-import t, { t_r } from './i18n';
-import { CriticalException, rethrow } from './errors';
 import { generateReference } from 'letter-generator';
+import type { Company, RequestLanguage, SupervisoryAuthority } from '../types/company';
+import type {
+    AccessRequest,
+    Address,
+    CustomTemplateName,
+    DataFieldName,
+    IdDataElement,
+    Request,
+    RequestType,
+} from '../types/request';
 import { deepCopyObject } from '../Utility/common';
+import { CriticalException, rethrow } from './errors';
+import t, { t_r } from './i18n';
 
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
 export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;

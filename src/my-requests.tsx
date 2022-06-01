@@ -1,13 +1,13 @@
 import { render } from 'preact';
-import { useState, useEffect, useMemo, useCallback } from 'preact/hooks';
-import { IntlProvider, Text, MarkupText } from 'preact-i18n';
-import { useAppStore } from './store/app';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
+import { useCallback, useEffect, useMemo, useState } from 'preact/hooks';
 import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
-import { UserRequests, UserRequest } from './DataType/UserRequests';
+import { UserRequest, UserRequests } from './DataType/UserRequests';
+import { useAppStore } from './store/app';
+import { hash, objFilter } from './Utility/common';
+import { rethrow } from './Utility/errors';
 import t from './Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
-import { rethrow } from './Utility/errors';
-import { hash, objFilter } from './Utility/common';
 
 const user_requests = new UserRequests();
 

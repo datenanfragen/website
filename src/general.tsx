@@ -1,13 +1,13 @@
-import { render } from 'preact';
 import Cookie from 'js-cookie';
-import { useAppStore, Country } from './store/app';
-import { I18nWidget, I18nButton } from './Components/I18nWidget';
+import { render } from 'preact';
 import { CommentsWidget } from './Components/CommentsWidget';
-import { FlashMessage, flash } from './Components/FlashMessage';
+import { flash, FlashMessage } from './Components/FlashMessage';
 import Footnote from './Components/Footnote';
-import { t_r } from './Utility/i18n';
-import { parameters, parseBcp47Tag, fallback_countries } from './Utility/common';
+import { I18nButton, I18nWidget } from './Components/I18nWidget';
+import { Country, useAppStore } from './store/app';
 import { guessUserCountry } from './Utility/browser';
+import { fallback_countries, parameters, parseBcp47Tag } from './Utility/common';
+import { t_r } from './Utility/i18n';
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');

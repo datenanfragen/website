@@ -1,5 +1,5 @@
 import type { ComponentChildren } from 'preact';
-import { MarkupText, IntlProvider } from 'preact-i18n';
+import { IntlProvider, MarkupText } from 'preact-i18n';
 import t from '../Utility/i18n';
 
 type FeatureDisabledWidgetProps = {

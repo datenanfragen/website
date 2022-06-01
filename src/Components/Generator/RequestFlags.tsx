@@ -1,6 +1,6 @@
-import { useGeneratorStore } from '../../store/generator';
 import { Fragment } from 'preact';
 import { Text } from 'preact-i18n';
+import { useGeneratorStore } from '../../store/generator';
 import t from '../../Utility/i18n';
 
 export function RequestFlags() {

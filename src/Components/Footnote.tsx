@@ -1,5 +1,5 @@
 import type { ComponentChildren } from 'preact';
-import { Text, IntlProvider } from 'preact-i18n';
+import { IntlProvider, Text } from 'preact-i18n';
 import { useEffect, useRef } from 'preact/hooks';
 
 type FootnoteProps = {

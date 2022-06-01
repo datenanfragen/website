@@ -1,6 +1,6 @@
+import { formatAddress, Letter, LetterProps, Template } from 'letter-generator';
+import type { Address, IdDataElement, Request } from '../types/request';
 import t, { t_r } from '../Utility/i18n';
-import { Letter, Template, formatAddress, LetterProps } from 'letter-generator';
-import type { Address, Request, IdDataElement } from '../types/request';
 import { isFieldEmpty } from '../Utility/requests';
 
 type FormattedData = { formatted: string; primary_address: Address | null; name: string };

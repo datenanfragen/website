@@ -1,8 +1,8 @@
-import type { CustomTemplateName } from '../../types/request';
-import { MarkupText, Text, IntlProvider } from 'preact-i18n';
-import t from '../../Utility/i18n';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
-import { EMTPY_ADDRESS, CUSTOM_TEMPLATE_OPTIONS } from '../../Utility/requests';
+import type { CustomTemplateName } from '../../types/request';
+import t from '../../Utility/i18n';
+import { CUSTOM_TEMPLATE_OPTIONS, EMTPY_ADDRESS } from '../../Utility/requests';
 import { InputControl } from './DynamicInput';
 
 export const CustomRequestInput = () => {

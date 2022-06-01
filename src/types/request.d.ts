@@ -1,5 +1,5 @@
+import { CUSTOM_TEMPLATE_OPTIONS, REQUEST_TYPES, TRANSPORT_MEDIA } from '../Utility/requests';
 import type { RequestLanguage } from './company';
-import { REQUEST_TYPES, TRANSPORT_MEDIA, CUSTOM_TEMPLATE_OPTIONS } from '../Utility/requests';
 
 export type RequestType = typeof REQUEST_TYPES[number];
 export type TransportMedium = typeof TRANSPORT_MEDIA[number];

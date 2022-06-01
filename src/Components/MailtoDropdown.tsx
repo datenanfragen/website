@@ -1,10 +1,10 @@
 import type { JSX } from 'preact';
-import { useRef, useCallback } from 'preact/hooks';
-import { Text, IntlProvider } from 'preact-i18n';
-import { useAppStore, Country } from '../store/app';
-import { useModal } from './Modal';
-import t, { t_r } from '../Utility/i18n';
+import { IntlProvider, Text } from 'preact-i18n';
+import { useCallback, useRef } from 'preact/hooks';
 import { RequestLetter } from '../DataType/RequestLetter';
+import { Country, useAppStore } from '../store/app';
+import t, { t_r } from '../Utility/i18n';
+import { useModal } from './Modal';
 
 type EmailData = { email: string; subject: string; body: string };
 type MailtoHandler = (

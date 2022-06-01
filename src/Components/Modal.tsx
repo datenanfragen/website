@@ -1,5 +1,5 @@
-import { Fragment, ComponentChildren, JSX } from 'preact';
-import { useState, useCallback, useMemo, useEffect } from 'preact/hooks';
+import { ComponentChildren, Fragment, JSX } from 'preact';
+import { useCallback, useEffect, useMemo, useState } from 'preact/hooks';
 import type { MergeExclusive } from 'type-fest';
 import t from '../Utility/i18n';
 
