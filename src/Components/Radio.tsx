@@ -1,6 +1,8 @@
+import type { JSX } from 'preact';
+
 type RadioProps = {
     id: string;
-    label: string;
+    label: JSX.Element | string;
     radioVariable: string;
     value: string;
     name: string;
