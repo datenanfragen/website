@@ -1,4 +1,4 @@
-import { Text } from 'preact-i18n';
+import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { SetPageFunction } from './App';
 import { Radio } from '../../Components/Radio';
@@ -47,7 +47,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                     name="request-type"
                     onChange={(value) => setRequestType(value as RequestType)}
                     onClick={() => props.setPage('company_search')}
-                    label={t(`${type}-request`, 'generator')}
+                    label={<MarkupText id={`${type}-request-statement`} />}
                     addon={
                         <button
                             className="button button-secondary icon-question-mark"
@@ -60,17 +60,13 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
     };
 
     return (
-        <>
-            {t('request-type', 'generator')}
-            <br />
-            <div className="col60">
-                <div className="radio-group radio-group-vertical radio-group-padded">
-                    {request_types.map((type) => (
-                        <RadioWithModal type={type} />
-                    ))}
-                </div>
+        <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
+            <div className="radio-group radio-group-vertical radio-group-padded">
+                {request_types.map((type) => (
+                    <RadioWithModal type={type} />
+                ))}
             </div>
             <div className="clearfix" />
-        </>
+        </IntlProvider>
     );
 };

@@ -356,6 +356,10 @@
         "send-request": "Send request",
         "send-request-again": "Send request again",
         "request-type-chooser-page-title": "What do you want to do?",
+        "access-request-statement": "<strong>Get access</strong> to data about me.",
+        "erasure-request-statement": "<strong>Delete</strong> (parts of) data about me.",
+        "objection-request-statement": "Stop receiving <strong>direct marketing</strong>.",
+        "rectification-request-statement": "<strong>Correct</strong> data about me.",
         "company-chooser-page-title": "Who do you want to address your request to?",
         "selected-companies-page-title": "Companies you selected"
     },
