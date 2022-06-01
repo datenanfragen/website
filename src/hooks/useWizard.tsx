@@ -7,7 +7,7 @@ type UseWizardProps<PageId extends string, InitialPageId extends PageId> = {
 };
 
 export const useWizard = <PageId extends string, InitialPageId extends PageId>(
-    pages: Record<PageId, JSX.Element>,
+    pages: Record<PageId, { component: JSX.Element; title?: string }>,
     props: UseWizardProps<PageId, InitialPageId>
 ) => {
     const [pageId, setPageId] = useState<PageId>(props.initialPageId);
@@ -33,10 +33,11 @@ export const useWizard = <PageId extends string, InitialPageId extends PageId>(
     }, [history]);
 
     return {
-        Wizard: () => <section data-page-id={pageId}>{pages[pageId]}</section>,
+        Wizard: () => <section data-page-id={pageId}>{pages[pageId].component}</section>,
         set,
         back,
         pageId,
         canGoBack: history.length > 1,
+        pageTitle: pages[pageId].title,
     };
 };

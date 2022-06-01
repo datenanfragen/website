@@ -4,12 +4,22 @@ import { RequestTypeChooserPage } from './RequestTypeChooserPage';
 import { CompanySearchPage } from './CompanySearchPage';
 import { ReviewSelectionPage } from './ReviewSelectionPage';
 import { FillRequestsPage } from './FillRequestsPage';
+import t from '../../Utility/i18n';
 
 const pages = (setPage: SetPageFunction) => ({
-    request_type_chooser: <RequestTypeChooserPage setPage={setPage} />,
-    company_search: <CompanySearchPage setPage={setPage} />,
-    review_selection: <ReviewSelectionPage setPage={setPage} />,
-    fill_requests: <FillRequestsPage setPage={setPage} />,
+    request_type_chooser: {
+        component: <RequestTypeChooserPage setPage={setPage} />,
+        title: t('request-type-chooser-page-title', 'generator'),
+    },
+    company_search: {
+        component: <CompanySearchPage setPage={setPage} />,
+        title: t('company-chooser-page-title', 'generator'),
+    },
+    review_selection: {
+        component: <ReviewSelectionPage setPage={setPage} />,
+        title: t('selected-companies-page-title', 'generator'),
+    },
+    fill_requests: { component: <FillRequestsPage setPage={setPage} />, title: undefined },
 });
 
 export type AppPageId = keyof ReturnType<typeof pages>;
@@ -17,7 +27,9 @@ export type SetPageFunction = (newPage: AppPageId) => void;
 
 export const App = () => {
     // TODO: Undo.
-    const { Wizard, set, back, canGoBack } = useWizard(pages(setPage), { initialPageId: 'fill_requests' });
+    const { Wizard, set, back, canGoBack, pageTitle } = useWizard(pages(setPage), {
+        initialPageId: 'request_type_chooser',
+    });
 
     function setPage(new_page: AppPageId) {
         set(new_page);
@@ -25,15 +37,20 @@ export const App = () => {
 
     return (
         <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
-            <div className="narrow-page">
-                <Wizard />
-                <button
-                    onClick={back}
-                    disabled={!canGoBack}
-                    className="button button-secondary button-small icon icon-arrow-left">
-                    <Text id="back" />
-                </button>
-            </div>
+            <header className="wizard-header">
+                {canGoBack && (
+                    <button
+                        onClick={back}
+                        disabled={!canGoBack}
+                        className="button button-unstyled button-fit-content icon-arrow-left"
+                        style="padding: 5px 7px 5px 5px; margin-right: 10px;"
+                        title={t('back', 'generator')}
+                    />
+                )}
+                {pageTitle && <h2>{pageTitle}</h2>}
+            </header>
+
+            <Wizard />
         </IntlProvider>
     );
 };
