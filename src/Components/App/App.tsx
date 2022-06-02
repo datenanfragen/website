@@ -25,10 +25,14 @@ const pages = (setPage: SetPageFunction) => ({
 export type AppPageId = keyof ReturnType<typeof pages>;
 export type SetPageFunction = (newPage: AppPageId) => void;
 
-export const App = () => {
+type AppProps = {
+    initialPageId?: AppPageId;
+};
+
+export const App = (props: AppProps) => {
     // TODO: Undo.
     const { Wizard, set, back, canGoBack, pageTitle } = useWizard(pages(setPage), {
-        initialPageId: 'request_type_chooser',
+        initialPageId: props.initialPageId ?? 'request_type_chooser',
     });
 
     function setPage(new_page: AppPageId) {
