@@ -199,7 +199,8 @@
         "no-results": "Unfortunately, there were no results for your query.",
         "suggest-a-company": "Suggest a new company",
         "quality-tested": "At least one of our contributors has successfully sent a request using the contact details in this record.",
-        "quality-unverified": "The contact details in this record were imported automatically. They have not been verified by us."
+        "quality-unverified": "The contact details in this record were imported automatically. They have not been verified by us.",
+        "search-results": "Search results"
     },
     "cdb": {
         "title": "Company database",
@@ -348,9 +349,9 @@
         "request-type-info-learn-more": "Learn more about the request types",
         "request-type-info-learn-more-url": "/blog/your-gdpr-rights/",
         "review-n-companies": {
-            "none": "No companies selected yet",
-            "one": "Review {{count}} selected company",
-            "other": "Review {{count}} selected companies"
+            "none": "Start selecting companies!",
+            "one": "Request <strong>{{count}}</strong> company",
+            "other": "Request <strong>{{count}}</strong> companies"
         },
         "continue-with-requests": "Continue with requests",
         "send-request": "Send request",
@@ -361,7 +362,8 @@
         "objection-request-statement": "Stop receiving <strong>direct marketing</strong>.",
         "rectification-request-statement": "<strong>Correct</strong> data about me.",
         "company-chooser-page-title": "Who do you want to address your request to?",
-        "selected-companies-page-title": "Companies you selected"
+        "selected-companies-page-title": "Companies you selected",
+        "empty-query-suggested-companies": "No idea who to request? We have some suggestions for you:"
     },
     "mailto": {
         "mailto": "Default email software",

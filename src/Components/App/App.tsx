@@ -42,15 +42,17 @@ export const App = (props: AppProps) => {
     return (
         <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
             <header className="wizard-header">
-                {canGoBack && (
-                    <button
-                        onClick={back}
-                        disabled={!canGoBack}
-                        className="button button-unstyled button-fit-content icon-arrow-left"
-                        style="padding: 5px 7px 5px 5px; margin-right: 10px;"
-                        title={t('back', 'generator')}
-                    />
-                )}
+                <nav>
+                    {canGoBack && (
+                        <button
+                            onClick={back}
+                            disabled={!canGoBack}
+                            className="button button-unstyled button-fit-content icon-arrow-left"
+                            style="padding: 5px 7px 5px 5px; margin-right: 10px;"
+                            title={t('back', 'generator')}
+                        />
+                    )}
+                </nav>
                 {pageTitle && <h2>{pageTitle}</h2>}
             </header>
 
