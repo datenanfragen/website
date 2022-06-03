@@ -1,5 +1,5 @@
 import { Client } from 'typesense';
-import TypesenseInstantSearchAdapter from 'typesense-instantsearch-adapter';
+import TypesenseInstantSearchAdapter, { SearchParametersWithQueryBy } from 'typesense-instantsearch-adapter';
 import type { ConfigurationOptions } from 'typesense/lib/Typesense/Configuration';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 
@@ -14,11 +14,12 @@ const serverConfig: ConfigurationOptions = {
     ],
 };
 
-export const defaultSearchParams = {
+export const defaultSearchParams: SearchParametersWithQueryBy = {
     query_by: 'name, runs, web, slug, address, comments',
     sort_by: '_text_match:desc,sort-index:asc',
     num_typos: 4,
     per_page: 5,
+    snippet_threshold: 5,
 };
 
 export const searchClient = new Client({

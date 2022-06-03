@@ -6,3 +6,11 @@ main#app {
     display: flex;
     flex-direction: row;
 }
+
+#review-company-button {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    font-size: 17px;
+}
