@@ -49,7 +49,7 @@ export const renderMoney = (amount: number, currency = '') =>
     Number(amount || 0).toLocaleString(window.LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
     (currency ? ` ${currency}` : '');
 
-export const parameters = (() => {
+export const parameters = () => {
     const get_params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
 
     // Inspired by: https://gist.github.com/miohtama/1570295
@@ -63,7 +63,7 @@ export const parameters = (() => {
 
     // In order not to break old URLs, we also use GET params if they exist but fragment params override GET params.
     return { ...get_params, ...fragment_params };
-})();
+};
 
 export const parseBcp47Tag = (bcp47_tag: string) => {
     // Taken from: https://github.com/gagle/node-bcp47/blob/a74d98d43d16b0094b2f4ea8e7a58f4b5830c15b/lib/index.js#L4

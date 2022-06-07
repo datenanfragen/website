@@ -12,10 +12,10 @@ type ActWidgetProps = {
     requestTypes: RequestType[];
     transportMedium: TransportMedium;
     company: string | Company;
-    textBeforeDynamicInputContainer: string;
+    textBeforeDynamicInputContainer?: string;
 };
 
-export const ActWidget = (props: ActWidgetProps) => {
+const _ActWidget = (props: ActWidgetProps) => {
     const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
     const setRequestType = useGeneratorStore((state) => state.setRequestType);
     const setTransportMedium = useGeneratorStore((state) => state.setTransportMedium);
@@ -52,6 +52,12 @@ export const ActWidget = (props: ActWidgetProps) => {
         </div>
     );
 };
+
+export const ActWidget = (props: ActWidgetProps) => (
+    <RequestGeneratorProvider createStore={createGeneratorStore}>
+        <_ActWidget {...props} />
+    </RequestGeneratorProvider>
+);
 
 (window as typeof window & { renderActWidget: (props: ActWidgetProps, id?: string) => void }).renderActWidget = (
     props,

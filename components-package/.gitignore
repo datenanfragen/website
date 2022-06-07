@@ -1,0 +1,7 @@
+.parcel-cache
+dist/
+src/generated/
+package.json
+ATTRIBUTION
+AUTHORS
+LICENSE
