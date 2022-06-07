@@ -2,7 +2,7 @@
     "compilerOptions": {
         "jsx": "preserve",
         "jsxImportSource": "preact",
-
+        "module": "es2020",
         "moduleResolution": "node",
         "esModuleInterop": true,
         "lib": ["webworker", "dom", "dom.iterable", "es2020"],

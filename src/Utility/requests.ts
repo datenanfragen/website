@@ -8,10 +8,10 @@ import type {
     CustomTemplateName,
 } from '../types/request';
 import type { Company, RequestLanguage, SupervisoryAuthority } from '../types/company';
-import t, { t_r } from './i18n';
-import { CriticalException, rethrow } from './errors';
 import { generateReference } from 'letter-generator';
-import { deepCopyObject } from '../Utility/common';
+import { t_r } from './i18n';
+import { deepCopyObject } from './common';
+import { requestTemplate } from './fetch';
 
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
 export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
@@ -145,43 +145,8 @@ export const fetchTemplate = (
             : request_type + (suffix ? '-' + suffix : '');
 
     if (!Object.keys(window.I18N_DEFINITION_REQUESTS).includes(locale)) locale = window.LOCALE;
-    const template_url = `${window.BASE_URL}templates/${locale || window.LOCALE}/${template}.txt`;
 
-    return fetch(template_url)
-        .then((response) => {
-            switch (response.status) {
-                case 200:
-                    return response.text();
-                case 404:
-                    if (locale !== REQUEST_FALLBACK_LANGUAGE) {
-                        return fetchTemplate(REQUEST_FALLBACK_LANGUAGE, request_type, undefined, '');
-                    }
-                    throw new CriticalException(
-                        'Request template could not be found.',
-                        {
-                            locale,
-                            template,
-                            template_url,
-                            response,
-                        },
-                        t('error-template-not-found', 'generator')
-                    );
-                default:
-                    throw new CriticalException(
-                        'Fetching the request template failed.',
-                        {
-                            locale,
-                            template,
-                            template_url,
-                            response,
-                        },
-                        t('error-template-fetch-failed', 'generator')
-                    );
-            }
-        })
-        .catch((error) =>
-            rethrow(error, 'fetchTemplate() failed.', { template_url }, t('error-template-fetch-failed', 'generator'))
-        );
+    return requestTemplate(locale, template as string, request_type);
 };
 
 export const requestLanguageFallback = (language?: string) =>

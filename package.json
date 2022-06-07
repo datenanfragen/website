@@ -15,6 +15,10 @@
         "type": "git",
         "url": "git+https://github.com/datenanfragen/website.git"
     },
+    "bugs": {
+        "url": "https://github.com/datenanfragen/website/issues"
+    },
+    "homepage": "https://www.datenanfragen.de",
     "author": "The Datenanfragen.de project <dev@datenanfragen.de> (https://www.datenanfragen.de)",
     "contributors": [
         {
@@ -36,23 +40,20 @@
         "lint": "yarn tsc && yarn eslint src --ext .json --ext .js --ext .jsx --ext .ts --ext .tsx && yarn stylelint assets/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix",
         "prettier": "prettier --write {src,scripts,cypress,assets}/**/*.{js,jsx,ts,tsx,css,scss,json}",
-        "deploy-dattel": "node deploy-dattel.js"
+        "deploy-dattel": "node deploy-dattel.js",
+        "postinstall": "patch-package",
+        "build-components-package": "yarn tsm scripts/build-components-package.ts"
     },
-    "bugs": {
-        "url": "https://github.com/datenanfragen/website/issues"
-    },
-    "homepage": "https://www.datenanfragen.de",
     "dependencies": {
         "autocomplete.js": "^0.37.0",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
         "deepmerge": "^4.2.2",
         "immer": "^9.0.12",
         "js-cookie": "^2.2.1",
-        "letter-generator": "^2.0.1",
+        "letter-generator": "^2.0.2",
         "libphonenumber-js": "^1.7.23",
         "localforage": "^1.7.1",
         "pdfkit": "^0.12.1",
-        "pdfmake": "^0.1.58",
         "preact": "^10.5.5",
         "preact-i18n": "^2.3.0-preactx",
         "prop-types": "^15.7.2",
@@ -63,7 +64,7 @@
         "zustand": "^3.7.1"
     },
     "devDependencies": {
-        "@babel/core": "^7.5.5",
+        "@babel/core": "^7.12.0",
         "@babel/eslint-parser": "^7.16.3",
         "@babel/plugin-proposal-class-properties": "^7.5.5",
         "@babel/plugin-proposal-optional-chaining": "^7.9.0",
@@ -75,6 +76,7 @@
         "@babel/runtime": "^7.6.2",
         "@cypress/skip-test": "^2.5.0",
         "@percy/cypress": "^2.2.0",
+        "@types/fs-extra": "^9.0.13",
         "@types/js-cookie": "^3.0.1",
         "@types/preact-i18n": "^2.3.0-preactx",
         "@typescript-eslint/eslint-plugin": "^5.15.0",
@@ -85,6 +87,7 @@
         "cssnano": "^5.0.12",
         "cypress": "^8.5.0",
         "dattel-client": "^0.7.0",
+        "es-dirname": "^0.1.0",
         "eslint": "^8.3.0",
         "eslint-config-preact": "^1.3.0",
         "eslint-config-prettier": "^8.3.0",
@@ -100,18 +103,23 @@
         "eslint-plugin-preact-i18n": "^1.1.0",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.27.1",
+        "execa": "^6.1.0",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
         "husky": "^4.2.5",
         "imagemin-lint-staged": "^0.4.0",
         "lint-staged": ">=9.4.3",
         "matcher": "^4.0.0",
         "node-sass": "^7.0.0",
+        "patch-package": "^6.4.7",
         "path": "^0.12.7",
         "postcss": "^8.4.4",
-        "postcss-cli": "^9.0.2",
-        "postcss-fonticons": "^1.2.0",
+        "postcss-cli": "^9.1.0",
+        "postcss-fonticons": "^2.0.1",
         "postcss-loader": "^6.2.1",
         "postcss-preset-env": "^7.0.1",
         "postcss-url": "^10.1.3",
+        "postinstall-postinstall": "^2.1.0",
         "prettier": "^2.5.0",
         "speed-measure-webpack-plugin": "^1.5.0",
         "stylelint": "^14.1.0",
@@ -125,12 +133,14 @@
         "svgicons2svgfont": "^9.1.1",
         "svgo": "^1.3.0",
         "terser-webpack-plugin": "^3.0.1",
+        "tsm": "^2.2.1",
         "type-fest": "^2.12.2",
         "typescript": "^4.6.2",
         "webpack": "^4.39.3",
         "webpack-cli": "^3.3.5",
         "webpack-merge": "^4.2.1",
-        "worker-loader": "^3.0.5"
+        "worker-loader": "^3.0.5",
+        "yesno": "^0.3.1"
     },
     "browserslist": [
         "last 2 versions",

@@ -1,0 +1,54 @@
+{
+    "name": "@datenanfragen/components",
+    "version": "",
+    "description": "This package allows you to use the components making up Datenanfragen.de outside of the website repository.",
+    "keywords": [],
+    "repository": {},
+    "bugs": {},
+    "homepage": "",
+    "author": "",
+    "contributors": {},
+    "license": "",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "targets": {
+        "css": {
+            "source": "src/index.scss",
+            "distDir": "dist"
+        },
+        "module": {
+            "source": "src/index.ts",
+            "outputFormat": "esmodule",
+            "isLibrary": false,
+            "optimize": false,
+            "distDir": "dist"
+        },
+        "types": {
+            "source": "src/index.ts",
+            "distDir": "dist"
+        },
+        "worker": {
+            "outputFormat": "global",
+            "isLibrary": false,
+            "optimize": false,
+            "distDir": "src/generated"
+        }
+    },
+    "dependencies": {},
+    "peerDependencies": {},
+    "devDependencies": {
+        "@parcel/packager-ts": "2.6.0",
+        "@parcel/transformer-sass": "2.6.0",
+        "@parcel/transformer-typescript-types": "2.6.0",
+        "parcel": "^2.6.0"
+    },
+    "files": ["/dist", "ATTRIBUTION", "AUTHORS"],
+    "alias": {
+        "react": "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
+        "react-dom": "preact/compat",
+        "react/jsx-runtime": "preact/jsx-runtime",
+        "../src/Utility/fetch.ts": "./src/overrides/fetch.ts",
+        "../src/Utility/workers.ts": "./src/overrides/workers.ts"
+    }
+}

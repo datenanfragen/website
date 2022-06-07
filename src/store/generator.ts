@@ -7,10 +7,8 @@ import createContext from 'zustand/context';
 import { CompanyState, createCompanyStore } from './company';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
-// This will be replaced with an URL by the worker-loader plugin in webpack which is why eslint can't find a default import (TS can be tricked by defining a module).
-// eslint-disable-next-line import/default
-import PdfWorker from '../Utility/pdf.worker.ts';
 import { ErrorException, rethrow } from '../Utility/errors';
+import { makePdfWorker } from '../Utility/workers';
 import { UserRequests } from '../DataType/UserRequests';
 
 export interface GeneratorSpecificState {
@@ -20,7 +18,7 @@ export interface GeneratorSpecificState {
     download_filename?: string;
     fillFields: IdDataElement[];
     fillSignature: Signature;
-    pdfWorker?: PdfWorker;
+    pdfWorker?: Worker;
     setReady: () => void;
     setBusy: () => void;
     setDownload: (download_active: boolean, download_url?: string, download_filename?: string) => void;
@@ -64,11 +62,11 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
     },
     initiatePdfGeneration: () => {
         let pdfWorker = get().pdfWorker;
-        if (!pdfWorker) pdfWorker = new PdfWorker();
+        if (!pdfWorker) pdfWorker = makePdfWorker();
 
         if ((window as typeof window & { hugoDevMode: boolean }).hugoDevMode) {
             // copy the worker to window if we are in a dev env to enable easy testing
-            (window as typeof window & { pdfWorker: PdfWorker }).pdfWorker = pdfWorker;
+            (window as typeof window & { pdfWorker: Worker }).pdfWorker = pdfWorker;
         }
         const onMessage = (message: MessageEvent<{ blob_url: string; filename: string }>) => {
             get().setDownload(true, message.data.blob_url, message.data.filename);

@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') require('preact/debug');
 // TypeScript complains that `PARAMETERS` is readonly but we do need to set it once.
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-window.PARAMETERS = parameters;
+window.PARAMETERS = parameters();
 
 document.querySelectorAll('.i18n-button-container').forEach((el) => render(<I18nButton />, el));
 
