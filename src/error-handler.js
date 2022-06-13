@@ -170,7 +170,7 @@ try {
             debug_info.code_version = CODE_VERSION;
             debug_info.user_agent = window.navigator.userAgent;
             debug_info.url = window.location;
-            debug_info.error.context = event.error.context;
+            debug_info.error.context = event.error?.context;
 
             logError(event, debug_info);
 
@@ -186,7 +186,7 @@ try {
             const mailto_url = `mailto:dev@datenanfragen.de?subject=${report_title}&body=${email_body}`;
 
             if (!debug_info.error.code || debug_info.error.code <= 3) {
-                primitiveErrorModal(event.error.enduser_message, github_issue_url, mailto_url);
+                primitiveErrorModal(event.error?.enduser_message, github_issue_url, mailto_url);
                 previous_github_report_body = github_body + encodeURIComponent('\n\n---\n\n');
                 previous_email_report_body = email_body + encodeURIComponent('\n\n---\n\n');
             }
