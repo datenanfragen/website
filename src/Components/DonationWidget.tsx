@@ -370,6 +370,4 @@ const printBankTransfer = (amount: number, donation_reference: string) => {
 };
 
 (window as typeof window & { renderDonationWidget: () => void }).renderDonationWidget = () =>
-    document.querySelectorAll('.donation-widget').forEach((el) => {
-        render(<DonationWidget />, el.parentElement ?? el, el);
-    });
+    document.querySelectorAll('.donation-widget').forEach((el) => render(<DonationWidget />, el.parentElement ?? el, el));

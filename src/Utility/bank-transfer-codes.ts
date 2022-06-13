@@ -1,7 +1,7 @@
 import QRCode from 'qrcode';
 
 /**
- * Generates a EPCR data string for a bank transfer to convert into a qrcode.
+ * Generates an EPCR data string for a bank transfer to convert into a QR code.
  * @param amount The amount to transfer.
  * @param reference The bank transfer reference.
  */
@@ -35,7 +35,7 @@ export const renderEpcrQr = (
     });
 
 /**
- * Generates a bezahlcode data string for a bank transfer to convert into a qrcode.
+ * Generates a bezahlcode data string for a bank transfer to convert into a QR code.
  * @param amount The amount to transfer.
  * @param reference The bank transfer reference.
  */
