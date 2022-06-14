@@ -46,7 +46,7 @@ export const almostUniqueId = (length = 9) => {
 };
 
 export const renderMoney = (amount: number, currency = '') =>
-    Number(amount).toLocaleString(window.LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
+    Number(amount || 0).toLocaleString(window.LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
     (currency ? ` ${currency}` : '');
 
 export const parameters = (() => {

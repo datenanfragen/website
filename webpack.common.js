@@ -14,7 +14,7 @@ module.exports = {
         'id-data-controls': './src/id-data-controls.tsx',
         'sva-finder': './src/Components/SvaFinder.tsx',
         'act-widget': './src/Components/ActWidget.tsx',
-        'donation-widget': './src/Components/DonationWidget.js',
+        'donation-widget': './src/Components/DonationWidget.tsx',
         'test-interface': './src/test-interface.tsx',
         // We need to define a dummy entrypoint that requires all our translation files, otherwise Webpack will not
         // process them.
