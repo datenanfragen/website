@@ -30,25 +30,25 @@
 .icon-arrow-down:before {
     @extend %icon;
     font-icon: url('arrow-down.svg');
-    vertical-align: -3px;
+    vertical-align: -1px;
 }
 
 .icon-arrow-up:before {
     @extend %icon;
     font-icon: url('arrow-up.svg');
-    vertical-align: -3px;
+    vertical-align: -1px;
 }
 
 .icon-arrow-right:before {
     @extend %icon;
     font-icon: url('arrow-right.svg');
-    vertical-align: -3px;
+    vertical-align: -1px;
 }
 
 .icon-arrow-left:before {
     @extend %icon;
     font-icon: url('arrow-left.svg');
-    vertical-align: -3px;
+    vertical-align: -1px;
 }
 
 .icon-menu:before {
@@ -163,4 +163,22 @@
     @extend %icon;
     font-icon: url('question-mark.svg');
     vertical-align: -2px;
+}
+
+.icon-id-card:before {
+    @extend %icon;
+    font-icon: url('id-card.svg');
+    vertical-align: -1px;
+}
+
+.icon-post-person:before {
+    @extend %icon;
+    font-icon: url('post-person.svg');
+    vertical-align: -1px;
+}
+
+.icon-fax:before {
+    @extend %icon;
+    font-icon: url('fax.svg');
+    vertical-align: -1px;
 }

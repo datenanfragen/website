@@ -3,7 +3,9 @@ import t from '../../Utility/i18n';
 import type { HighlightProps, Hit } from 'react-instantsearch-core';
 import type { JSX } from 'preact';
 import type { Company } from '../../types/company';
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
+import { useGeneratorStore } from '../../store/generator';
+import { Text } from 'preact-i18n';
 
 type CompanyResultProps = {
     company: Company | Hit<Company>;
@@ -11,6 +13,7 @@ type CompanyResultProps = {
     active?: boolean;
     focussed?: boolean;
     id?: string;
+    showDetails?: boolean;
 
     onClick?: (company: Company) => void;
 };
@@ -41,12 +44,58 @@ const RunsSnippet = connectHighlight(({ highlight, hit }: HighlightProps<Company
     );
 });
 
+type CompanyInfoIconsProps = { company: Company };
+const CompanyInfoIcons = (props: CompanyInfoIconsProps) => (
+    <>
+        {props.company['needs-id-document'] && (
+            <span className="icon-id-card company-info-icon" title={t('needs-id-document', 'generator')} />
+        )}
+        {!props.company.email && props.company.address && (
+            <span className="icon-post-person company-info-icon" title={t('only-snail-mail', 'generator')} />
+        )}
+        {!props.company.email && props.company.fax && (
+            <span className="icon-fax company-info-icon" title={t('only-fax', 'generator')} />
+        )}
+    </>
+);
+
 export const CompanyResult = (props: CompanyResultProps) => {
     const listElement = useRef<HTMLLIElement>(null);
+    const [detailsShown, setDetailsShown] = useState(false);
+    const selectBatchCompanyRuns = useGeneratorStore((state) => state.selectBatchCompanyRuns);
+
+    const detailsAvailable = props.showDetails && props.company.runs;
 
     useEffect(() => {
         if (listElement.current && props.focussed) listElement.current.focus();
     }, [listElement, props.focussed]);
+
+    const heading = (
+        <h4 id={`company-result-${props.company.slug}-label`}>
+            {'_highlightResult' in props.company ? (
+                <Highlight attribute="name" hit={props.company} tagName="mark" />
+            ) : (
+                props.company.name
+            )}
+            {props.company.quality === 'tested' ? (
+                <>
+                    &nbsp;
+                    <span className="icon icon-check-badge color-green-800" title={t('quality-tested', 'search')} />
+                </>
+            ) : (
+                props.company.quality !== 'verified' && (
+                    <>
+                        &nbsp;
+                        <span
+                            className="icon icon-question-badge color-orange-800"
+                            title={t('quality-unverified', 'search')}
+                        />
+                    </>
+                )
+            )}
+            <CompanyInfoIcons company={props.company} />
+        </h4>
+    );
 
     return (
         // Key events are handled in the parent component
@@ -58,41 +107,66 @@ export const CompanyResult = (props: CompanyResultProps) => {
             aria-labelledby={`company-result-${props.company.slug}-label`}
             className={`box box-thin company-result${props.active ? ' company-result-active' : ''}${
                 props.focussed ? ' company-result-focussed' : ''
-            }`}
+            }${props.onClick ? ' company-result-clickable' : ''}`}
             style="margin-bottom: 10px;"
             onClick={() => props.onClick?.(props.company)}
             ref={listElement}>
             {props.actionElement !== undefined && <div className="company-result-action">{props.actionElement}</div>}
             <div className="company-result-content">
-                <h4 id={`company-result-${props.company.slug}-label`}>
-                    {'_highlightResult' in props.company ? (
-                        <Highlight attribute="name" hit={props.company} tagName="mark" />
-                    ) : (
-                        props.company.name
-                    )}
+                {detailsAvailable ? (
+                    <header>
+                        <button
+                            className={`icon icon-arrow-${detailsShown ? 'down' : 'right'} button-unstyled`}
+                            onClick={() => detailsAvailable && setDetailsShown(!detailsShown)}
+                            title={t('choose-runs', 'generator')}
+                            aria-expanded={detailsShown}
+                            aria-controls={`company-result-details-${props.company.slug}`}>
+                            {heading}
+                        </button>
+                    </header>
+                ) : (
+                    <header>{heading}</header>
+                )}
 
-                    {props.company.quality === 'tested' ? (
-                        <>
-                            &nbsp;
-                            <span
-                                className="icon icon-check-badge color-green-800"
-                                title={t('quality-tested', 'search')}
-                            />
-                        </>
-                    ) : (
-                        props.company.quality !== 'verified' && (
-                            <>
-                                &nbsp;
-                                <span
-                                    className="icon icon-question-badge color-orange-800"
-                                    title={t('quality-unverified', 'search')}
-                                />
-                            </>
-                        )
-                    )}
-                </h4>
+                {!props.showDetails && '_snippetResult' in props.company && <RunsSnippet hit={props.company} />}
 
-                {'_snippetResult' in props.company && <RunsSnippet hit={props.company} />}
+                {detailsAvailable && (
+                    <div
+                        className="company-result-details"
+                        id={`company-result-details-${props.company.slug}`}
+                        hidden={!detailsShown}>
+                        <Text id="also-runs-choose" />
+                        <ul className="unstyled-list">
+                            {props.company.runs?.map((runs_entry, index) => {
+                                const checked = props.company.runs_selected?.includes(runs_entry);
+                                return (
+                                    <li>
+                                        <input
+                                            type="checkbox"
+                                            className="form-element"
+                                            checked={checked}
+                                            onClick={() =>
+                                                checked
+                                                    ? selectBatchCompanyRuns(
+                                                          props.company.slug,
+                                                          props.company.runs_selected?.filter(
+                                                              (item) => item !== runs_entry
+                                                          ) || []
+                                                      )
+                                                    : selectBatchCompanyRuns(
+                                                          props.company.slug,
+                                                          (props.company.runs_selected ?? []).concat([runs_entry])
+                                                      )
+                                            }
+                                            id={`runs-${props.company.slug}-${index}`}
+                                        />
+                                        <label for={`runs-${props.company.slug}-${index}`}>{runs_entry}</label>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                )}
             </div>
         </li>
     );

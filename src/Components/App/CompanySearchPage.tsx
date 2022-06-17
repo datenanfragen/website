@@ -3,13 +3,14 @@ import { InstantSearch, SearchBox, connectHits, connectStateResults } from 'reac
 import { useGeneratorStore } from '../../store/generator';
 import { SetPageFunction } from './App';
 import { CompanyResult } from './CompanyResult';
-import { instantSearchClient } from '../../Utility/search';
+import { countryFilter, instantSearchClient } from '../../Utility/search';
 import { companyFromHit } from '../../Utility/companies';
 import type { HitsProvided, StateResultsProvided, Hit } from 'react-instantsearch-core';
 import type { Company } from '../../types/company';
 import { ComponentChildren } from 'preact';
 import t from '../../Utility/i18n';
 import { useState } from 'preact/hooks';
+import { useAppStore } from '../../store/app';
 
 type CompanySearchPageProps = {
     setPage: SetPageFunction;
@@ -75,7 +76,8 @@ const Results = connectStateResults(
         searchState,
         searchResults,
         children,
-    }: Partial<StateResultsProvided<Company>> & { children?: ComponentChildren }) =>
+        batch_length,
+    }: Partial<StateResultsProvided<Company>> & { children?: ComponentChildren; batch_length: number }) =>
         searchState?.query ? (
             searchResults && searchResults.nbHits > 0 ? (
                 children
@@ -93,11 +95,14 @@ const Results = connectStateResults(
                     </p>
                 </IntlProvider>
             )
+        ) : batch_length > 0 ? (
+            <>Request now!</>
         ) : (
             <>
                 <h3>
                     <Text id="empty-query-suggested-companies" />
                 </h3>
+                TODO
             </>
         )
 );
@@ -105,19 +110,22 @@ const Results = connectStateResults(
 export const CompanySearchPage = (props: CompanySearchPageProps) => {
     const batch = useGeneratorStore((state) => state.batch);
     const batch_length = Object.keys(batch || {}).length || 0;
+    const country = useAppStore((state) => state.country);
 
     return (
-        <InstantSearch indexName="companies" searchClient={instantSearchClient()}>
+        <InstantSearch
+            indexName="companies"
+            searchClient={instantSearchClient({ filter_by: country === 'all' ? '' : countryFilter(country) })}>
             <SearchBox />
 
             {/* TODO: Display suggested companies in "no query" case. */}
-            <Results>
+            <Results batch_length={batch_length}>
                 <Hits />
             </Results>
 
             <button
                 id="review-company-button"
-                className="button button-secondary"
+                className="button button-primary app-cta"
                 disabled={batch_length < 1}
                 onClick={() => props.setPage('review_selection')}>
                 <MarkupText id="review-n-companies" plural={batch_length} fields={{ count: batch_length }} />

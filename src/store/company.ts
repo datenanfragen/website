@@ -22,6 +22,7 @@ export interface CompanyState {
     removeFromBatch: (companySlug: string) => void;
     advanceBatch: () => Promise<void>;
     markCurrentBatchCompanyDone: () => void;
+    selectBatchCompanyRuns: (slug: string, runs_selected: string[]) => void;
     clearBatch: () => void;
     hasBatch: () => boolean | undefined;
 }
@@ -157,6 +158,13 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                     'SomePublisher (somepublisher.com)',
                     'Damnick Verlag (damnick.de)',
                 ],
+                runs_selected: [
+                    'Foodblog kochfokus.de',
+                    'Foodblog deliciouslygabi.com',
+                    'Foodcommunity topfies.de',
+                    'SomePublisher (somepublisher.com)',
+                    'Damnick Verlag (damnick.de)',
+                ],
                 slug: 'gabriele-altpeter-internet-marketing-services',
                 sources: [
                     'https://gabriele-altpeter.info/privacy.html',
@@ -179,7 +187,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 state.current_company = company;
                 state.request.language = inferRequestLanguage(company);
                 state.request.slug = company.slug;
-                state.request.recipient_runs = company.runs || [];
+                state.request.recipient_runs = company.runs_selected || company.runs || [];
 
                 // This is not the most elegant thing in the world, but we need to support 'no ID data' requests for
                 // more than adtech companies. Ideally, this would be another bool in the schema but we can't really
@@ -294,6 +302,14 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 if (!get().hasBatch() || !get().current_company) return;
 
                 state.batch![get().current_company!.slug].done = true;
+            })
+        ),
+    selectBatchCompanyRuns: (slug, runs_selected) =>
+        set(
+            produce((state: GeneratorState) => {
+                if (!get().hasBatch() || !get().batch![slug]) return; // TODO: Error here?
+
+                state.batch![slug].company.runs_selected = runs_selected;
             })
         ),
     hasBatch: () => {
