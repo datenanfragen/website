@@ -21,9 +21,10 @@ export const ReviewSelectionPage = (props: ReviewSelectionPageProps) => {
             {Object.values(batch).map((c) => (
                 <CompanyResult
                     company={c.company}
+                    showDetails={true}
                     actionElement={
                         <button
-                            className="company-remove button button-primary button-small icon-trash"
+                            className="company-remove button button-secondary button-small icon-trash"
                             onClick={() => removeFromBatch(c.company.slug)}
                             title={t('deselect-company', 'generator')}
                         />
@@ -32,7 +33,7 @@ export const ReviewSelectionPage = (props: ReviewSelectionPageProps) => {
             ))}
 
             <button
-                className="button button-secondary button-small"
+                className="button button-primary app-cta"
                 disabled={(Object.keys(batch || {}).length || 0) < 1}
                 onClick={() => {
                     // This also advances the batch.

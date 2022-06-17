@@ -353,7 +353,7 @@
             "one": "Request <strong>{{count}}</strong> company",
             "other": "Request <strong>{{count}}</strong> companies"
         },
-        "continue-with-requests": "Continue with requests",
+        "continue-with-requests": "Continue with these companies",
         "send-request": "Send request",
         "send-request-again": "Send request again",
         "request-type-chooser-page-title": "What do you want to do?",
@@ -363,7 +363,12 @@
         "rectification-request-statement": "<strong>Correct</strong> data about me.",
         "company-chooser-page-title": "Who do you want to address your request to?",
         "selected-companies-page-title": "Companies you selected",
-        "empty-query-suggested-companies": "No idea who to request? We have some suggestions for you:"
+        "empty-query-suggested-companies": "No idea who to request? We have some suggestions for you:",
+        "needs-id-document": "An id document is required to request this entity.",
+        "only-snail-mail": "You might need to send your request via physical mail.",
+        "only-fax": "You might need to send your request by fax.",
+        "choose-runs": "Show and select other entities run by this controller.",
+        "also-runs-choose": "This controller is also responsible for these other entities (deselect the ones you do not want to request):"
     },
     "mailto": {
         "mailto": "Default email software",

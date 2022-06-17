@@ -5,9 +5,17 @@ main#app {
 .wizard-header {
     display: flex;
     flex-direction: row;
+    align-items: baseline;
+
+    .app-back-button {
+        padding: 5px;
+        margin-right: 10px;
+        height: 100%;
+        line-height: normal;
+    }
 }
 
-#review-company-button {
+.app-cta {
     display: block;
     width: 100%;
     max-width: 400px;
