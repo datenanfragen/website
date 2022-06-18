@@ -68,7 +68,10 @@ export class RequestLetter extends Letter {
                 case 'erasure':
                     flags.erase_all = request.erase_all;
                     flags.erase_some = !request.erase_all;
+                    flags.include_objection = request.include_objection;
+                    flags.has_objection_reason = request.objection_reason !== '';
                     variables.erasure_data = '<italic>' + request.erasure_data + '</italic>';
+                    variables.objection_reason = request.objection_reason;
                     break;
             }
 

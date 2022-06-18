@@ -66,6 +66,41 @@ export function RequestFlags() {
                             </label>
                         </div>
                     )}
+
+                    <div className="form-group">
+                        <input
+                            type="checkbox"
+                            id="request-flags-include-objection"
+                            className="request-flags form-element"
+                            checked={request.include_objection}
+                            onChange={(event) =>
+                                setRequestFlag({ name: 'include_objection', value: event.currentTarget.checked })
+                            }
+                        />
+                        <label htmlFor="request-flags-include-objection">
+                            <Text id="include-objection" />
+                        </label>
+                    </div>
+                    {request.include_objection && (
+                        <div className="form-group">
+                            <Text id="objection-reason-explanation" />
+                            <textarea
+                                id="request-objection-reason"
+                                className="form-element"
+                                onChange={(event) =>
+                                    setRequestFlag({
+                                        name: 'objection_reason',
+                                        value: event.currentTarget.value.trim(),
+                                    })
+                                }
+                                placeholder={t('objection-reason', 'generator')}>
+                                {request.objection_reason}
+                            </textarea>
+                            <label htmlFor="request-objection-reason" className="sr-only">
+                                <Text id="objection-reason" />
+                            </label>
+                        </div>
+                    )}
                 </Fragment>
             );
     }
