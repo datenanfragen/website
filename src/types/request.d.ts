@@ -88,6 +88,10 @@ export interface ErasureRequest extends RequestInterface {
     erase_all: boolean;
     /** The data the user has specified to be erased (if `this.erase_all` is `false`). */
     erasure_data: string;
+    /** The 'Additionally include an objection' flag. */
+    include_objection: boolean;
+    /** The reason the user has specified for the objection (if `this.include_objection` is `true`). */
+    objection_reason: string;
 }
 
 export type CustomLetterData = {
@@ -126,4 +130,6 @@ export type RequestFlag =
           value: boolean;
       }
     | { name: 'erase_all'; value: boolean }
-    | { name: 'erasure_data'; value: string };
+    | { name: 'erasure_data'; value: string }
+    | { name: 'include_objection'; value: boolean }
+    | { name: 'objection_reason'; value: string };

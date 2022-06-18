@@ -169,6 +169,8 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 if (state.request.type === 'erasure') {
                     state.request.erase_all = true;
                     state.request.erasure_data = '';
+                    state.request.include_objection = false;
+                    state.request.objection_reason = '';
                 }
             })
         );
@@ -217,6 +219,8 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                     case 'erasure':
                         if (flag.name === 'erase_all') state.request.erase_all = flag.value;
                         if (flag.name === 'erasure_data') state.request.erasure_data = flag.value;
+                        if (flag.name === 'include_objection') state.request.include_objection = flag.value;
+                        if (flag.name === 'objection_reason') state.request.objection_reason = flag.value;
                 }
             })
         ),
