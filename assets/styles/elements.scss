@@ -974,3 +974,42 @@ details.footnote {
         flex-grow: 2;
     }
 }
+
+.company-suggestion-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 15px;
+
+    .company-suggestion-pack {
+        border: 2px solid $primary-color;
+        border-radius: 2px;
+        min-width: 230px;
+        max-width: 300px;
+        flex-grow: 1;
+        position: relative;
+        padding-bottom: 35px;
+
+        h1 {
+            padding: 10px;
+            font-size: 1.2em;
+            display: block;
+            border-bottom: 2px solid $primary-color;
+        }
+
+        button.company-suggestion-pack-cta {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            border-radius: 0;
+            border-width: 1px;
+            border-top-width: 3px;
+        }
+    }
+}

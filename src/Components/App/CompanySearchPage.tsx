@@ -9,7 +9,7 @@ import type { HitsProvided, StateResultsProvided, Hit } from 'react-instantsearc
 import type { Company } from '../../types/company';
 import { ComponentChildren } from 'preact';
 import t from '../../Utility/i18n';
-import { useState } from 'preact/hooks';
+import { useMemo, useState } from 'preact/hooks';
 import { useAppStore } from '../../store/app';
 
 type CompanySearchPageProps = {
@@ -76,7 +76,6 @@ const Results = connectStateResults(
         searchState,
         searchResults,
         children,
-        batch_length,
     }: Partial<StateResultsProvided<Company>> & { children?: ComponentChildren; batch_length: number }) =>
         searchState?.query ? (
             searchResults && searchResults.nbHits > 0 ? (
@@ -95,17 +94,59 @@ const Results = connectStateResults(
                     </p>
                 </IntlProvider>
             )
-        ) : batch_length > 0 ? (
-            <>Request now!</>
         ) : (
             <>
                 <h3>
                     <Text id="empty-query-suggested-companies" />
                 </h3>
-                TODO
+                <div className="company-suggestion-container">
+                    <CompanySuggestionsPack
+                        title="Our recommodation"
+                        companies={[
+                            'ABIS GmbH',
+                            'Acxiom Deutschland GmbH',
+                            'adpublisher AG',
+                            'SCHUFA',
+                            'ARD ZDF Beitragsservice',
+                        ]}
+                    />
+                    <CompanySuggestionsPack title="Big five" companies={['Google', 'Facebook', 'Amazon', 'Apple']} />
+                    <CompanySuggestionsPack title="Other companies" companies={['Lorem', 'ipsum', 'dolor', 'sit']} />
+                    <CompanySuggestionsPack
+                        title="Other companies 2"
+                        companies={['Lorem', 'ipsum', 'dolor', 'sit', 'amet']}
+                    />
+                </div>
             </>
         )
 );
+
+type CompanySuggestionsPackProps = { title: string; companies: string[] };
+
+const CompanySuggestionsPack = (props: CompanySuggestionsPackProps) => {
+    const [showAllCompanies, setShowAllCompanies] = useState(false);
+
+    return (
+        <section className="company-suggestion-pack">
+            <h1>{props.title}</h1>
+            <ul>
+                {
+                    props.companies.map((item, i) => (
+                        <li className={i > 3 && !showAllCompanies ? 'sr-only' : ''}>{item}</li>
+                    )) /* We only need to hide the other items for visual clarity, screen readers can easily skip it. See: https://ux.stackexchange.com/a/127486*/
+                }
+                {props.companies.length > 4 && (
+                    <li aria-hidden={true}>
+                        <button className="button-unstyled" onClick={() => setShowAllCompanies(!showAllCompanies)}>
+                            Show more…
+                        </button>
+                    </li>
+                )}
+            </ul>
+            <button className="company-suggestion-pack-cta button">Add to your requests</button>
+        </section>
+    );
+};
 
 export const CompanySearchPage = (props: CompanySearchPageProps) => {
     const batch = useGeneratorStore((state) => state.batch);
@@ -119,7 +160,7 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
             <SearchBox />
 
             {/* TODO: Display suggested companies in "no query" case. */}
-            <Results batch_length={batch_length}>
+            <Results>
                 <Hits />
             </Results>
 
