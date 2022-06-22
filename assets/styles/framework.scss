@@ -63,7 +63,7 @@
 .col100-mobile {
     @include mobile {
         width: 100%;
-        flex: 1;
+        flex: 0 0 100%;
         float: none;
 
         hyphens: auto;
@@ -348,8 +348,20 @@ pre {
 
 .form-group {
     position: relative;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    &.form-row {
+        display: flex;
+        column-gap: 10px;
+        row-gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .form-group-label {
+        display: flex;
+        align-items: flex-start;
+    }
 }
 .form-group-vertical {
     margin-top: 0;
