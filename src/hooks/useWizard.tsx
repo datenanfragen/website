@@ -7,7 +7,7 @@ type UseWizardProps<PageId extends string, InitialPageId extends PageId> = {
 };
 
 export const useWizard = <PageId extends string, InitialPageId extends PageId>(
-    pages: Record<PageId, { component: JSX.Element; title?: string }>,
+    pages: Record<PageId, { component: JSX.Element; title?: string; canGoBack?: boolean }>,
     props: UseWizardProps<PageId, InitialPageId>
 ) => {
     const [pageId, setPageId] = useState<PageId>(props.initialPageId);
@@ -37,7 +37,7 @@ export const useWizard = <PageId extends string, InitialPageId extends PageId>(
         set,
         back,
         pageId,
-        canGoBack: history.length > 1,
+        canGoBack: history.length > 1 && pages[pageId].canGoBack,
         pageTitle: pages[pageId].title,
     };
 };

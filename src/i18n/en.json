@@ -368,7 +368,17 @@
         "only-snail-mail": "You might need to send your request via physical mail.",
         "only-fax": "You might need to send your request by fax.",
         "choose-runs": "Show and select other entities run by this controller.",
-        "also-runs-choose": "This controller is also responsible for these other entities (deselect the ones you do not want to request):"
+        "also-runs-choose": "This controller is also responsible for these other entities (deselect the ones you do not want to request):",
+        "batch-breadcrumbs-remaining": {
+            "none": "No more requests",
+            "one": "{{left}} more request",
+            "other": "{{left}} more requests"
+        },
+        "batch-breadcrumbs-sent": {
+            "none": "No requests sent",
+            "one": "{{sent}} request sent",
+            "other": "{{sent}} requests sent"
+        }
     },
     "mailto": {
         "mailto": "Default email software",

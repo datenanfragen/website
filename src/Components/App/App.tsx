@@ -1,4 +1,4 @@
-import { IntlProvider, Text } from 'preact-i18n';
+import { IntlProvider } from 'preact-i18n';
 import { useWizard } from '../../hooks/useWizard';
 import { RequestTypeChooserPage } from './RequestTypeChooserPage';
 import { CompanySearchPage } from './CompanySearchPage';
@@ -10,16 +10,19 @@ const pages = (setPage: SetPageFunction) => ({
     request_type_chooser: {
         component: <RequestTypeChooserPage setPage={setPage} />,
         title: t('request-type-chooser-page-title', 'generator'),
+        canGoBack: true,
     },
     company_search: {
         component: <CompanySearchPage setPage={setPage} />,
         title: t('company-chooser-page-title', 'generator'),
+        canGoBack: true,
     },
     review_selection: {
         component: <ReviewSelectionPage setPage={setPage} />,
         title: t('selected-companies-page-title', 'generator'),
+        canGoBack: true,
     },
-    fill_requests: { component: <FillRequestsPage setPage={setPage} />, title: undefined },
+    fill_requests: { component: <FillRequestsPage setPage={setPage} />, title: undefined, canGoBack: false },
 });
 
 export type AppPageId = keyof ReturnType<typeof pages>;
