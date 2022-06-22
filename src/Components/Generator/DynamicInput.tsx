@@ -41,11 +41,11 @@ export const DynamicInput = (props: DynamicInputProps) => {
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div
-                className={`dynamic-input dynamic-input-${props.value.type}`}
+                className={`dynamic-input dynamic-input-${props.value.type} form-group form-row`}
                 id={`dynamic-input-${props.id}-${props.suffix}`}>
-                <div className="col40 form-group">
-                    {props.allowRemoving && (
-                        <div style="display: table-cell; width: 27px;">
+                <div className="col40 col100-mobile">
+                    <div className="form-group-label">
+                        {props.allowRemoving && (
                             <button
                                 id={`${props.id}-delete-${props.suffix}`}
                                 data-dynamic-input-id={props.id}
@@ -53,14 +53,12 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                 onClick={props.onRemove}
                                 title={t('delete-field', 'generator')}
                             />
-                        </div>
-                    )}
-                    <div style="display: table-cell;">
-                        {props.allowChangingDescription ? (
-                            [
+                        )}
+                        {props.allowChangingDescription && (
+                            <>
                                 <label htmlFor={`${props.id}-desc-${props.suffix}`} className="sr-only">
                                     <Text id="description" />
-                                </label>,
+                                </label>
                                 <input
                                     name="desc"
                                     type="text"
@@ -78,40 +76,40 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                             })(props.value)
                                         )
                                     }
-                                />,
-                            ]
-                        ) : (
-                            <label htmlFor={`${props.id}-value-${props.suffix}`}>{props.value.desc}</label>
+                                />
+                            </>
                         )}
+                        <label
+                            className={`dynamic-input-label${props.allowChangingDescription ? ' sr-only' : ''}`}
+                            htmlFor={`${props.id}-${props.value.type === 'address' ? 'container' : 'value'}-${
+                                props.suffix
+                            }`}
+                            aria-live="polite">
+                            {props.value.desc}
+                        </label>
                     </div>
                     {props.hasPrimary && props.value.type === 'address' && (
-                        <div className="col50">
-                            <button
-                                id={`${props.id}-primaryButton`}
-                                name="primary_button"
-                                data-dynamic-input-id={props.id}
-                                className="button button-secondary dynamic-input-primaryButton"
-                                data-isprimary={props.value.value.primary}
-                                onClick={() => {
-                                    if (props.value.type === 'address') {
-                                        props.onChange(
-                                            produce((id_data: AddressIdData) => {
-                                                id_data.value.primary = true;
-                                            })(props.value)
-                                        );
-                                    }
-                                }}>
-                                <Text id="primary-address" />
-                            </button>
-                        </div>
+                        <button
+                            id={`${props.id}-primaryButton`}
+                            data-dynamic-input-id={props.id}
+                            className="button button-secondary dynamic-input-primaryButton"
+                            data-isprimary={props.value.value.primary}
+                            onClick={() => {
+                                if (props.value.type === 'address') {
+                                    props.onChange(
+                                        produce((id_data: AddressIdData) => {
+                                            id_data.value.primary = true;
+                                        })(props.value)
+                                    );
+                                }
+                            }}>
+                            <Text id="primary-address" />
+                        </button>
                     )}
                 </div>
-                <div className="col60">
-                    <div style="padding-left: 10px;" className="form-group">
-                        <InputControl {...inputProps} />
-                    </div>
+                <div className="form-group-input col60 col100-mobile">
+                    <InputControl {...inputProps} />
                 </div>
-                <div className="clearfix" />
             </div>
         </IntlProvider>
     );
@@ -143,7 +141,7 @@ export const InputControl = (props: InputControlProps) => {
             );
 
         return (
-            <div id={`${props.id}-container-${props.suffix}`}>
+            <div id={`${props.id}-container-${props.suffix}`} className="address-input-container">
                 {ADDRESS_STRING_PROPERTIES.map((property) => (
                     <div className="form-group fancy-fg">
                         <input
@@ -162,14 +160,6 @@ export const InputControl = (props: InputControlProps) => {
                         </label>
                     </div>
                 ))}
-                <input
-                    data-dynamic-input-id={props.id}
-                    type="hidden"
-                    id={`${props.id}-primary-${props.suffix}`}
-                    className="dynamic-input-primary form-element"
-                    value={props.value ? 'true' : 'false'}
-                    onChange={(e) => handleChange('primary', e.currentTarget.value)}
-                />
             </div>
         );
     }
@@ -184,22 +174,12 @@ export const InputControl = (props: InputControlProps) => {
         value: props.value,
     };
 
-    return (
-        <div className="form-group">
-            {!props.suppressLabel && props.desc && (
-                <label for={`${props.id}-value-${props.suffix}`} className="sr-only">
-                    {props.desc}
-                </label>
-            )}
-
-            {props.type === 'textarea' ? (
-                <textarea {...componentProps} />
-            ) : (
-                <input
-                    type={props.type === 'birthdate' ? 'date' : props.type === 'email' ? 'email' : 'text'}
-                    {...componentProps}
-                />
-            )}
-        </div>
+    return props.type === 'textarea' ? (
+        <textarea {...componentProps} />
+    ) : (
+        <input
+            type={props.type === 'birthdate' ? 'date' : props.type === 'email' ? 'email' : 'text'}
+            {...componentProps}
+        />
     );
 };
