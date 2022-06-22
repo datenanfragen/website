@@ -1013,3 +1013,105 @@ details.footnote {
         }
     }
 }
+
+.batch-breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    align-items: stretch;
+    width: 100%;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+
+    .batch-breadcrumb {
+        flex-grow: 1;
+        a,
+        span {
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            padding: 8px 0 8px 65px;
+            color: $text-color;
+            background-color: color('gray', 400);
+            text-decoration: none !important;
+            position: relative;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+
+            &::after {
+                content: ' ';
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid color('gray', 400);
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                left: 100%;
+                z-index: 2;
+            }
+
+            &::before {
+                content: ' ';
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid $bg-color;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                margin-left: 1px;
+                left: 100%;
+                z-index: 1;
+            }
+
+            &.batch-breadcrumb-sent {
+                background-color: $bg-accent-color;
+
+                &::after {
+                    border-left-color: $bg-accent-color;
+                }
+            }
+
+            &.batch-breadcrumb-active {
+                background-color: $accent_color;
+                color: $bg-color;
+
+                &::after {
+                    border-left-color: $accent_color;
+                }
+            }
+        }
+
+        &:first-child {
+            a,
+            span {
+                padding-left: 10px;
+            }
+        }
+
+        /* This is for either desktop or mobile, of which only one is visible at each time. */
+        &:nth-last-child(1).mobile-only,
+        &:nth-last-child(2).desktop-only {
+            a,
+            span {
+                padding-right: 10px;
+                padding-left: 40px;
+
+                &::after {
+                    border: 0;
+                    content: none;
+                }
+                &::before {
+                    border: 0;
+                    content: none;
+                }
+            }
+        }
+    }
+}
