@@ -182,3 +182,15 @@
     font-icon: url('fax.svg');
     vertical-align: -1px;
 }
+
+.icon-plus-circle:before {
+    @extend %icon;
+    font-icon: url('plus-circle.svg');
+    vertical-align: -2px;
+}
+
+.icon-close-circle:before {
+    @extend %icon;
+    font-icon: url('close-circle.svg');
+    vertical-align: -2px;
+}

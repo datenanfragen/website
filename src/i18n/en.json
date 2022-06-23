@@ -378,7 +378,9 @@
             "none": "No requests sent",
             "one": "{{sent}} request sent",
             "other": "{{sent}} requests sent"
-        }
+        },
+        "edit-fields": "Edit fields",
+        "stop-editing-fields": "Stop editing"
     },
     "mailto": {
         "mailto": "Default email software",
