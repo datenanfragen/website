@@ -130,13 +130,13 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                 </div>
                 <div className="dynamic-input-controls">
                     {props.allowAddingFields && (
-                        <div className="dropdown-container">
+                        <div className="dropup-container">
                             <button
                                 className="button button-unstyled icon icon-fill"
                                 id={'add-dynamic-inputs-' + props.id}>
                                 <Text id="add-input" />
                             </button>
-                            <div className="dropdown">
+                            <div className="dropup">
                                 <div style="display: table; border-spacing: 5px; width: 100%;">
                                     {(
                                         [

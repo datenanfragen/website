@@ -8,6 +8,7 @@ type ActionButtonProps = {
     onSuccess?: () => void;
     buttonText?: JSX.Element | JSX.Element[];
     mailtoDropdownProps?: Partial<MailtoDropdownProps>;
+    dropup?: boolean;
 };
 
 export const ActionButton = (_props: ActionButtonProps) => {
@@ -46,6 +47,7 @@ export const ActionButton = (_props: ActionButtonProps) => {
                     className={class_name}
                     buttonText={props.buttonText}
                     enabled={enabled}
+                    dropup={props.dropup}
                     {...props.mailtoDropdownProps}
                 />
             ) : (
