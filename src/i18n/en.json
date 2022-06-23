@@ -578,6 +578,20 @@
         "id-data": "<p>Now it’s your turn. In order to give you access to your data, the company needs to be able to identify you. Here, you can provide them the necessary details. That could be your name, account number, email address or something completely different. If you don’t know, just stick to the default fields.<br>And always remember: It’s better to err on the side of providing less data—the company will contact you if they need more.</p><p>We will save the data you enter here, so you don’t have to reenter it for the next request. Don’t worry: All this happens exclusively on <strong>your</strong> computer though, we will never see your data. Of course, you can still always <a href=\"/privacy-controls\" target=\"_blank\">turn that feature off</a> if you don’t like it.</p>",
         "next-request": "<p>And that’s it already for this request!</p><p>Depending on the transport medium, here you can either send your request as an email or download the PDF for it. After that, let us head to the next request.</p>"
     },
+    "company-packs": {
+        "address-brokers-title": "Address broking and management",
+        "address-brokers-description": "These companies collect the postal and/or email addresses of individuals and sell services based on them to other businesses. Some sell or rent their address data to advertisers (often in combination with additional attributes such as interests), others offer companies to check their already stored addresses and correct them if necessary.",
+        "credit-agencies-title": "Credit agencies",
+        "credit-agencies-description": "These companies collect data on your payment history, your banking transactions, mobile phone contracts, and much more in order to calculate a score for your creditworthiness, which can supposedly estimate how likely it is that you will meet a payment obligation, for example.",
+        "public-authorities-title": "Public authorities",
+        "public-authorities-description": "Given the large number of public bodies that potentially collect your data, we can only suggest a small selection here. However, you should also think about authorities at the state and local level, such as registration offices.",
+        "social-media-title": "Social media and communication",
+        "entertainment-title": "Entertainment",
+        "finance-title": "Finance",
+        "telecommunication-title": "Telecommunication",
+        "commerce-title": "Commerce",
+        "insurance-title": "Insurance"
+    },
     "sva-finder": {
         "sva-finder": "Supervisory authority finder",
         "reset": "Reset choices",
