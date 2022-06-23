@@ -22,3 +22,24 @@ main#app {
     margin: 10px auto;
     font-size: 17px;
 }
+
+.action-button-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+
+    @include mobile {
+        flex-wrap: wrap;
+
+        .button,
+        button {
+            width: 100%;
+            flex: 0 0 100%;
+        }
+    }
+
+    .button-primary {
+        order: -1;
+    }
+}

@@ -57,35 +57,31 @@ textarea:placeholder-shown + label.fancy-label {
 
 /* Inputs */
 .dynamic-input-controls {
-    .select-container {
-        float: left;
-        margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
 
-        select {
-            height: $button-height;
+    .button-unstyled {
+        &:hover,
+        &:focus {
+            background: none;
+            color: $primary-color !important;
         }
-
-        @include mobile {
-            margin-bottom: 10px;
-        }
-    }
-
-    .button {
-        float: left;
     }
 
     .dropdown-container {
-        .button-primary {
-            padding: 11px 15px;
-            position: absolute;
-            right: 0;
-        }
-
         .dropdown {
-            width: 300px;
-            top: 43px;
-            right: 0;
+            width: 400px;
+            bottom: 25px;
             padding: 15px;
+            left: -200px;
+            margin-left: 90%;
+
+            @include mobile {
+                width: 80vw;
+                left: -40vw;
+            }
 
             .fill-field {
                 display: table-row;
@@ -97,6 +93,22 @@ textarea:placeholder-shown + label.fancy-label {
                 .button {
                     float: none;
                     position: relative;
+                }
+            }
+
+            .field-add-group {
+                display: flex;
+                flex-direction: row;
+                justify-content: stretch;
+                margin-top: 5px;
+                margin-bottom: 5px;
+
+                label {
+                    flex-grow: 1;
+                }
+
+                button {
+                    flex-grow: 0;
                 }
             }
         }
