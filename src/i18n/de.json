@@ -575,6 +575,20 @@
         "id-data": "<p>Jetzt bist Du an der Reihe. Um Dir Zugriff auf Deine Daten geben zu können, muss das Unternehmen Dich identifizieren können. Hier gibst Du die dafür notwendigen Informationen an. Das könnten z.&nbsp;B. Dein Name, Deine Kundennummer, Deine E-Mail-Adresse oder etwas ganz anderes sein. Wenn Du Dir nicht sicher bist, übernimm’ einfach die Standardfelder.<br>Und nie vergessen: Im Zweifelsfall lieber weniger angeben – die Unternehmen werden schon nachfragen, wenn sie mehr Daten benötigen.</p><p>Wir werden die Daten, die Du hier angibst, speichern, damit Du sie bei der nächsten Anfrage nicht nochmal eingeben musst. Keine Sorge: Das passiert alles nur auf <strong>Deinem</strong> Rechner, wir haben zu keinem Zeitpunkt Zugriff auf Deine Daten. Wenn Du das trotzdem nicht möchtest, kannst Du diese <a href=\"/privacy-controls\" target=\"_blank\">Funktion aber jederzeit deaktivieren</a>.</p>",
         "next-request": "<p>Und das war’s auch schon für diese Anfrage!</p><p>Je nachdem, wie Du Deine Anfrage verschicken möchtest, kannst Du sie hier direkt per E-Mail verschicken oder das PDF dazu herunterladen. Danach geht es weiter zur nächsten Anfrage.</p>"
     },
+    "company-packs": {
+        "address-brokers-title": "Adresshandel und -management",
+        "address-brokers-description": "Diese Unternehmen sammeln die Anschriften und/oder E-Mail-Adressen von Privatpersonen und verkaufen basierend darauf Dienstleistungen an Unternehmen. Manche verkaufen oder vermieten ihre Adressdaten an Werbetreibende (häufig in Kombination mit zusätzlichen Merkmalen wie Interessen), andere bieten anderen Unternehmen an, deren bereits gespeicherte Adressen zu überprüfen und ggf. zu korrigieren.",
+        "credit-agencies-title": "Auskunfteien",
+        "credit-agencies-description": "Diese Unternehmen sammeln Daten etwa zu Deinem Zahlungsverhaltung, Deinen Bankgeschäften, Mobilfunkverträgen und vielem anderem, um daraus einen Score für Deine Bonität zu berechnen, der angeblich abschätzen kann, wie wahrscheinlich es ist, dass Du beispielweise einer Zahlungsverpflichtung nachkommst.",
+        "public-authorities-title": "Öffentliche Stellen",
+        "public-authorities-description": "Aufgrund der Vielzahl an Behörden und anderen öffentlichen Stellen, die potentiell Deine Daten sammeln, können wir Dir hier nur eine kleine Auswahl vorschlagen. Denk aber auch an Stellen auf der Landes- und Kommunalebene, wie etwa Einwohnermeldeämter.",
+        "social-media-title": "Social Media und Kommunikation",
+        "entertainment-title": "Unterhaltung",
+        "finance-title": "Finanzen",
+        "telecommunication-title": "Telekommunikation",
+        "commerce-title": "Handel",
+        "insurance-title": "Versicherungen"
+    },
     "sva-finder": {
         "sva-finder": "Datenschutz-Aufsichtsbehörden-Finder",
         "reset": "Angaben zurücksetzen",
