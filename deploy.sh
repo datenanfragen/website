@@ -28,6 +28,7 @@ done
 mkdir -p static/templates
 mkdir -p static/db
 mkdir -p static/db/suggested-companies
+mkdir -p static/db/company-packs
 mkdir -p static/db/sva
 
 echo "Copying files…"
@@ -45,9 +46,10 @@ cp -r data_tmp/templates/* static/templates
 
 mv data_tmp/schema.json data_tmp/schema-supervisory-authorities.json static
 
-rm -rf data_tmp
-
 node prepare-deploy.js
+yarn tsm scripts/compile-company-packs.ts
+
+rm -rf data_tmp
 
 cd content || exit
 
