@@ -93,7 +93,7 @@ export const SendRequestButton = () => {
         {
             positiveText: t('next-request', 'generator'),
             // TODO: Do we want to keep all handlers? We at least need to disable "copy manually".
-            negativeButton: <ActionButton />,
+            negativeButton: <ActionButton dropup={true} />,
             // TODO: New request modal stuff.
             onPositiveFeedback: () => {
                 markCurrentBatchCompanyDone();

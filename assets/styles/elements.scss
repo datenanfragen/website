@@ -682,6 +682,10 @@ input[type='search'].aa-input-search {
             position: absolute;
             z-index: 998;
         }
+
+        .dropup {
+            bottom: 100%;
+        }
     }
 
     &:hover.disabled,
