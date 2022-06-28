@@ -360,7 +360,8 @@ pre {
 
     .form-group-label {
         display: flex;
-        align-items: flex-start;
+        align-items: baseline;
+        column-gap: 5px;
     }
 }
 .form-group-vertical {
@@ -437,4 +438,31 @@ ul.unstyled-list {
 
 [hidden] {
     display: none !important;
+}
+
+// taken from: https://www.a11yproject.com/posts/how-to-hide-content/
+%visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+.visually-hidden {
+    @extend %visually-hidden;
+}
+
+%visually-unhidden {
+    clip: initial;
+    clip-path: initial;
+    height: initial;
+    overflow: initial;
+    position: initial;
+    white-space: initial;
+    width: initial;
+}
+.visually-unhidden {
+    @extend %visually-unhidden;
 }
