@@ -1,5 +1,6 @@
-import type { JSX } from 'preact';
 import type { Address, AddressIdData, IdDataElement } from '../../types/request';
+import type { JSX } from 'preact';
+import { useState } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { ADDRESS_STRING_PROPERTIES } from '../../Utility/requests';
@@ -14,6 +15,7 @@ type DynamicInputProps = {
     allowRemoving?: boolean;
     allowChangingDescription?: boolean;
     hasPrimary?: boolean;
+    initiallyEditable?: boolean;
 
     onChange: (value: IdDataElement) => void;
     onRemove: () => void;
@@ -38,13 +40,32 @@ export const DynamicInput = (props: DynamicInputProps) => {
         suppressLabel: props.allowChangingDescription,
     } as InputControlProps;
 
+    const [isEditable, setIsEditable] = useState(props.initiallyEditable || false);
+    const [showControls, setShowControls] = useState(false);
+
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div
-                className={`dynamic-input dynamic-input-${props.value.type} form-group form-row`}
+                className={`dynamic-input dynamic-input-${props.value.type} form-group form-row ${
+                    props.allowRemoving || props.allowChangingDescription ? 'dynamic-input-editable ' : ''
+                }${isEditable ? 'dynamic-input-edit-mode ' : ''}${showControls ? 'dynamic-input-show-controls ' : ''}`}
                 id={`dynamic-input-${props.id}-${props.suffix}`}>
                 <div className="col40 col100-mobile">
-                    <div className="form-group-label">
+                    {/* This is just a JavaScript hack because CSS dosn't have a 'clicked-once' pseudo class. Since we hide the buttons only visually anyway, there is no need to also have keyboard interactions. */}
+                    {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
+                    <div
+                        className="form-group-label"
+                        aria-haspopup={true}
+                        onClick={() => setShowControls(!showControls)}>
+                        {(props.allowChangingDescription || props.allowRemoving) && (
+                            <button
+                                className={`button button-secondary button-small ${
+                                    isEditable ? 'icon-close-circle' : 'icon-pencil'
+                                }`}
+                                onClick={() => setIsEditable(!isEditable)}
+                                title={t(isEditable ? 'stop-editing-fields' : 'edit-fields', 'generator')}
+                            />
+                        )}
                         {props.allowRemoving && (
                             <button
                                 id={`${props.id}-delete-${props.suffix}`}
@@ -54,7 +75,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                 title={t('delete-field', 'generator')}
                             />
                         )}
-                        {props.allowChangingDescription && (
+                        {props.allowChangingDescription && isEditable && (
                             <>
                                 <label htmlFor={`${props.id}-desc-${props.suffix}`} className="sr-only">
                                     <Text id="description" />
@@ -67,7 +88,6 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                     className="form-element"
                                     value={props.value.desc}
                                     placeholder={t('description', 'generator')}
-                                    style="margin-left: 5px;"
                                     required={!props.optional || !props.value.optional}
                                     onBlur={(e) =>
                                         props.onChange(
@@ -80,7 +100,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                             </>
                         )}
                         <label
-                            className={`dynamic-input-label${props.allowChangingDescription ? ' sr-only' : ''}`}
+                            className={`dynamic-input-label${isEditable ? ' sr-only' : ''}`}
                             htmlFor={`${props.id}-${props.value.type === 'address' ? 'container' : 'value'}-${
                                 props.suffix
                             }`}

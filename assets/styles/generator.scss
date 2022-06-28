@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'framework';
 
 /* Fancy placeholder labels, see https://jonathan-harrell.com/advanced-css-form-styling/ */
 label.fancy-label {
@@ -73,10 +74,10 @@ textarea:placeholder-shown + label.fancy-label {
     .dropup-container {
         .dropup {
             width: 400px;
-            bottom: 25px;
+            bottom: 30px;
             padding: 15px;
             left: -200px;
-            margin-left: 90%;
+            margin-left: 35%;
 
             @include mobile {
                 width: 80vw;
@@ -114,6 +115,42 @@ textarea:placeholder-shown + label.fancy-label {
         }
     }
 }
+
+.dynamic-input {
+    &.dynamic-input-editable {
+        .form-group-label {
+            button,
+            .button {
+                @extend %visually-hidden;
+            }
+
+            &:hover,
+            &:focus,
+            &:focus-within,
+            &:active {
+                button,
+                .button {
+                    @extend %visually-unhidden;
+                }
+            }
+
+            .dynamic-input-label {
+                text-decoration: underline dotted 2px $text-color;
+            }
+        }
+
+        &.dynamic-input-edit-mode,
+        &.dynamic-input-show-controls {
+            .form-group-label {
+                button,
+                .button {
+                    @extend %visually-unhidden;
+                }
+            }
+        }
+    }
+}
+
 .request-form {
     .col50 {
         @include mobile {

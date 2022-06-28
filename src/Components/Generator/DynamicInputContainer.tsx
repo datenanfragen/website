@@ -2,7 +2,7 @@ import type { ComponentChildren } from 'preact';
 import type { IdDataElement } from '../../types/request';
 import { useMemo, useState } from 'preact/hooks';
 import { DynamicInput } from './DynamicInput';
-import { Text, MarkupText, IntlProvider } from 'preact-i18n';
+import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { adressesEqual, isFieldEmpty, EMTPY_ADDRESS } from '../../Utility/requests';
 import { useGeneratorStore } from '../../store/generator';
@@ -33,7 +33,6 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
         allowChangingFieldDescriptions: true,
         ..._props,
     };
-    const [isEditable, setIsEditable] = useState(false);
 
     const address_count = useMemo(
         () => props.fields.reduce((total, field) => total + (field.type === 'address' ? 1 : 0), 0),
@@ -122,8 +121,8 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                                 }}
                                 hasPrimary={props.hasPrimary && address_count > 1}
                                 value={field}
-                                allowRemoving={props.allowRemovingFields && isEditable}
-                                allowChangingDescription={props.allowChangingFieldDescriptions && isEditable}
+                                allowRemoving={props.allowRemovingFields}
+                                allowChangingDescription={props.allowChangingFieldDescriptions}
                             />
                         );
                     })}
@@ -132,7 +131,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                     {props.allowAddingFields && (
                         <div className="dropup-container">
                             <button
-                                className="button button-unstyled icon icon-fill"
+                                className="button button-small button-secondary icon icon-fill"
                                 id={'add-dynamic-inputs-' + props.id}>
                                 <Text id="add-input" />
                             </button>
@@ -173,19 +172,15 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                                             />
                                         </div>
                                     ))}
-                                    {fill_fields}
+                                    {fill_fields && fill_fields.length > 0 && (
+                                        <>
+                                            <hr />
+                                            {fill_fields}
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>
-                    )}
-                    {(props.allowChangingFieldDescriptions || props.allowRemovingFields) && (
-                        <button
-                            className={`button button-unstyled icon ${
-                                isEditable ? 'icon-close-circle' : 'icon-pencil'
-                            }`}
-                            onClick={() => setIsEditable(!isEditable)}>
-                            {isEditable ? <Text id="stop-editing-fields" /> : <Text id="edit-fields" />}
-                        </button>
                     )}
                 </div>
             </div>
