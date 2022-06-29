@@ -1,19 +1,36 @@
 import { useEffect } from 'preact/hooks';
 import { MarkupText, Text } from 'preact-i18n';
+import t from '../../Utility/i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { SetPageFunction } from './App';
-import { StatefulDynamicInputContainer } from '../Generator/DynamicInputContainer';
+import { DynamicInputContainer, StatefulDynamicInputContainer } from '../Generator/DynamicInputContainer';
 import { SendRequestButton } from '../App/SendRequestButton';
 import { ErrorException } from '../../Utility/errors';
+import { StatefulSignatureInput } from '../Generator/SignatureInput';
+import { RequestFlags } from '../Generator/RequestFlags';
 
 type FillRequestsPageProps = {
     setPage: SetPageFunction;
 };
 
 export const FillRequestsPage = (props: FillRequestsPageProps) => {
-    const [batch, current_company] = useGeneratorStore((state) => [state.batch, state.current_company]);
+    const [batch, current_company, request_type, transport_medium, fillSignature] = useGeneratorStore((state) => [
+        state.batch,
+        state.current_company,
+        state.request.type,
+        state.request.transport_medium,
+        state.fillSignature,
+    ]);
     const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
     const fillFields = useGeneratorStore((state) => state.fillFields);
+    const rectification_data = useGeneratorStore((state) =>
+        state.request.type === 'rectification' ? state.request.rectification_data : undefined
+    );
+    const [addField, removeField, setField] = useGeneratorStore((state) => [
+        state.addField,
+        state.removeField,
+        state.setField,
+    ]);
 
     useEffect(() => {
         if (!current_company) resetRequestToDefault(true);
@@ -27,15 +44,37 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
             <BatchBreadcrumbs />
             <h2>{current_company.name}</h2>
             {/* TODO: Better explanation. */}
-            <MarkupText id="id-data-explanation" />
-            {/* TODO: Maybe the "add new input" stuff should be more like the fill fields dropdown? That thing currently takes up a lot of space and is confusing, especially since ideally, users should even need it. We could even combine it with the fill fields dropdown! */}
+            {request_type === 'erasure' && <RequestFlags />}
+
             <StatefulDynamicInputContainer
                 allowAddingFields={true}
                 allowChangingFieldDescriptions={true}
                 allowRemovingFields={true}
                 hasPrimary={true}
-                fillFields={fillFields}
-            />
+                fillFields={fillFields}>
+                {' '}
+                <MarkupText id="id-data-explanation" />
+            </StatefulDynamicInputContainer>
+
+            {request_type === 'rectification' && rectification_data && (
+                <DynamicInputContainer
+                    key="rectification_data"
+                    id="rectification_data"
+                    title={t('rectification-data', 'generator')}
+                    fields={rectification_data}
+                    hasPrimary={false}
+                    onAddField={(field) => addField(field, 'rectification_data')}
+                    onRemoveField={(id) => removeField(id, 'rectification_data')}
+                    onChange={(id, field) => setField(id, field, 'rectification_data')}
+                    allowAddingFields={true}>
+                    <MarkupText id="rectification-data-explanation" />
+                </DynamicInputContainer>
+            )}
+
+            {(transport_medium === 'fax' || transport_medium === 'letter') && (
+                <StatefulSignatureInput fillSignature={fillSignature} />
+            )}
+
             {/* TODO: Don't we need to call `renderLetter()`? (From a quick investigation: Emails don't need it (even though it does something for emails…) but PDFs do.) */}
             <div className="action-button-row">
                 <SendRequestButton />

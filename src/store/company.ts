@@ -294,7 +294,10 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
         if (!get().hasBatch()) return;
 
         const firstCompany = Object.values(get().batch!).filter((c) => !c.done)[0]?.company;
-        if (firstCompany) return get().setCompany(firstCompany);
+        if (firstCompany) {
+            get().setRequestType(get().batchRequestType || 'access');
+            return get().setCompany(firstCompany);
+        }
     },
     markCurrentBatchCompanyDone: () =>
         set(

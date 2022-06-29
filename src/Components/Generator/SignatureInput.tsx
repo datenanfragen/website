@@ -201,12 +201,12 @@ export const SignatureInput = (props: SignatureInputProps) => {
                             props.onChange({ type: 'text', name: props.value.name || '' });
                         }
                     }}
-                    style="float: right; margin: 0 0 5px 5px;">
+                    style="float: left; margin-right: 5px">
                     <Text id="reset-signature" />
                 </button>
                 {props.fillSignature?.type === 'image' && (
                     <button
-                        style="float: right;"
+                        style="float: left;"
                         className="button button-small button-secondary"
                         onClick={() => {
                             if (context.current && props.fillSignature?.type === 'image')

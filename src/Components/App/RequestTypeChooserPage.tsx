@@ -18,8 +18,8 @@ type RequestTypeChooserPageProps = {
 
 export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
     const request_types = (props.request_types || REQUEST_TYPES).filter((r) => r !== 'custom');
-    const setRequestType = useGeneratorStore((state) => state.setRequestType);
-    const request_type = useGeneratorStore((state) => state.request.type);
+    const setBatchRequestType = useGeneratorStore((state) => state.setBatchRequestType);
+    const request_type = useGeneratorStore((state) => state.batchRequestType);
 
     const RadioWithModal = ({ type }: { type: RequestType }) => {
         const [RequestTypeInfoModal, showRequestTypeInfoModal, dismissRequestTypeInfoModal] = useModal(
@@ -42,10 +42,10 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                 <RequestTypeInfoModal />
                 <Radio
                     id={`request-type-choice-${type}`}
-                    radioVariable={request_type}
+                    radioVariable={request_type || ''}
                     value={type}
                     name="request-type"
-                    onChange={(value) => setRequestType(value as RequestType)}
+                    onChange={(value) => setBatchRequestType(value as RequestType)}
                     onClick={() => props.setPage('company_search')}
                     label={<MarkupText id={`${type}-request-statement`} />}
                     addon={
