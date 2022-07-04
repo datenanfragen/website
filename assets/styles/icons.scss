@@ -9,6 +9,13 @@
     padding-left: 5px;
 }
 
+.padded-icon-left {
+    padding-right: 5px;
+}
+.padded-icon-right {
+    padding-left: 5px;
+}
+
 .icon-letter:before {
     @extend %icon;
     font-icon: 150% url('letter.svg');
@@ -42,13 +49,22 @@
 .icon-arrow-right:before {
     @extend %icon;
     font-icon: url('arrow-right.svg');
-    vertical-align: -1px;
+    vertical-align: -3px;
 }
 
 .icon-arrow-left:before {
     @extend %icon;
     font-icon: url('arrow-left.svg');
-    vertical-align: -1px;
+    vertical-align: -3px;
+}
+
+.button.button-unstyled {
+    &.icon-arrow-left,
+    &.icon-arrow-right {
+        &::before {
+            vertical-align: -1px;
+        }
+    }
 }
 
 .icon-menu:before {

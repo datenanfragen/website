@@ -27,7 +27,7 @@ export type MailtoDropdownProps = {
 // TS Helper to type `Record` values but keep strong key type without having to hardcode key values, see:
 // https://stackoverflow.com/a/49539369
 const createMailtoHandlers = <T extends Record<string, MailtoHandler>>(handlers: T) => handlers;
-const mailto_handlers = createMailtoHandlers({
+export const mailto_handlers = createMailtoHandlers({
     mailto: {
         link: (d) => `mailto:${d.email}?subject=${d.subject}&body=${d.body}`,
         countries: ['all'],

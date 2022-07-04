@@ -1,6 +1,6 @@
 import type { Address, AddressIdData, IdDataElement } from '../../types/request';
 import type { JSX } from 'preact';
-import { useState } from 'preact/hooks';
+import { useState, useRef } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { ADDRESS_STRING_PROPERTIES } from '../../Utility/requests';
@@ -41,72 +41,75 @@ export const DynamicInput = (props: DynamicInputProps) => {
     } as InputControlProps;
 
     const [isEditable, setIsEditable] = useState(props.initiallyEditable || false);
-    const [showControls, setShowControls] = useState(false);
+
+    const descInput = useRef<HTMLInputElement>(null);
 
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div
                 className={`dynamic-input dynamic-input-${props.value.type} form-group form-row ${
                     props.allowRemoving || props.allowChangingDescription ? 'dynamic-input-editable ' : ''
-                }${isEditable ? 'dynamic-input-edit-mode ' : ''}${showControls ? 'dynamic-input-show-controls ' : ''}`}
+                }${isEditable ? 'dynamic-input-edit-mode ' : ''}`}
                 id={`dynamic-input-${props.id}-${props.suffix}`}>
                 <div className="col40 col100-mobile">
-                    {/* This is just a JavaScript hack because CSS dosn't have a 'clicked-once' pseudo class. Since we hide the buttons only visually anyway, there is no need to also have keyboard interactions. */}
-                    {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
-                    <div
-                        className="form-group-label"
-                        aria-haspopup={true}
-                        onClick={() => setShowControls(!showControls)}>
-                        {(props.allowChangingDescription || props.allowRemoving) && (
-                            <button
-                                className={`button button-secondary button-small ${
-                                    isEditable ? 'icon-close-circle' : 'icon-pencil'
-                                }`}
-                                onClick={() => setIsEditable(!isEditable)}
-                                title={t(isEditable ? 'stop-editing-fields' : 'edit-fields', 'generator')}
-                            />
-                        )}
+                    <div className="form-group-label" aria-haspopup={true}>
                         {props.allowRemoving && (
                             <button
                                 id={`${props.id}-delete-${props.suffix}`}
                                 data-dynamic-input-id={props.id}
                                 className="dynamic-input-delete button button-secondary button-small icon-trash"
                                 onClick={props.onRemove}
-                                title={t('delete-field', 'generator')}
+                                title={t('delete-field', 'generator', {
+                                    field_name: props.value.desc || t('unnamed-field', 'generator'),
+                                })}
                             />
                         )}
-                        {props.allowChangingDescription && isEditable && (
-                            <>
-                                <label htmlFor={`${props.id}-desc-${props.suffix}`} className="sr-only">
-                                    <Text id="description" />
-                                </label>
-                                <input
-                                    name="desc"
-                                    type="text"
-                                    id={`${props.id}-desc-${props.suffix}`}
-                                    data-dynamic-input-id={props.id}
-                                    className="form-element"
-                                    value={props.value.desc}
-                                    placeholder={t('description', 'generator')}
-                                    required={!props.optional || !props.value.optional}
-                                    onBlur={(e) =>
-                                        props.onChange(
-                                            produce((id_data: IdDataElement) => {
-                                                id_data.desc = e.currentTarget.value;
-                                            })(props.value)
-                                        )
-                                    }
-                                />
-                            </>
-                        )}
+
+                        {/* The click event is only for us measly sighted people. Keyboard/screen reader users can just focus the input directly. */}
+                        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
                         <label
                             className={`dynamic-input-label${isEditable ? ' sr-only' : ''}`}
                             htmlFor={`${props.id}-${props.value.type === 'address' ? 'container' : 'value'}-${
                                 props.suffix
                             }`}
+                            onClick={(e) => {
+                                if (!props.allowChangingDescription) return;
+
+                                // By default, clicking the label will focus the associated input.
+                                e.preventDefault();
+                                setIsEditable(true);
+                                descInput.current?.focus();
+                                descInput.current?.select();
+                            }}
                             aria-live="polite">
                             {props.value.desc}
                         </label>
+                        <div
+                            className={!(props.allowChangingDescription && isEditable) ? 'sr-only' : ''}
+                            onFocus={() => setIsEditable(true)}>
+                            <label htmlFor={`${props.id}-desc-${props.suffix}`} className="sr-only">
+                                <Text id="description" />
+                            </label>
+                            <input
+                                name="desc"
+                                type="text"
+                                ref={descInput}
+                                id={`${props.id}-desc-${props.suffix}`}
+                                data-dynamic-input-id={props.id}
+                                className="form-element"
+                                value={props.value.desc}
+                                placeholder={t('description', 'generator')}
+                                disabled={!props.allowChangingDescription}
+                                onBlur={(e) => {
+                                    props.onChange(
+                                        produce((id_data: IdDataElement) => {
+                                            id_data.desc = e.currentTarget.value;
+                                        })(props.value)
+                                    );
+                                    setIsEditable(false);
+                                }}
+                            />
+                        </div>
                     </div>
                     {props.hasPrimary && props.value.type === 'address' && (
                         <button
@@ -127,7 +130,7 @@ export const DynamicInput = (props: DynamicInputProps) => {
                         </button>
                     )}
                 </div>
-                <div className="form-group-input col60 col100-mobile">
+                <div className="col60 col100-mobile">
                     <InputControl {...inputProps} />
                 </div>
             </div>

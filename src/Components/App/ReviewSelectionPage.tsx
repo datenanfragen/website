@@ -18,6 +18,10 @@ export const ReviewSelectionPage = (props: ReviewSelectionPageProps) => {
 
     return (
         <>
+            <p>
+                <Text id="review-selection-explanation" />
+            </p>
+
             {Object.values(batch).map((c) => (
                 <CompanyResult
                     company={c.company}
@@ -32,16 +36,19 @@ export const ReviewSelectionPage = (props: ReviewSelectionPageProps) => {
                 />
             ))}
 
-            <button
-                className="button button-primary app-cta"
-                disabled={(Object.keys(batch || {}).length || 0) < 1}
-                onClick={() => {
-                    // This also advances the batch.
-                    resetRequestToDefault(true);
-                    props.setPage('fill_requests');
-                }}>
-                <Text id="continue-with-requests" />
-            </button>
+            <div className="app-cta-container">
+                <button
+                    className="button button-primary"
+                    disabled={(Object.keys(batch || {}).length || 0) < 1}
+                    onClick={() => {
+                        // This also advances the batch.
+                        resetRequestToDefault(true);
+                        props.setPage('fill_requests');
+                    }}>
+                    <Text id="continue-with-requests" />
+                    <span className="icon icon-arrow-right padded-icon-right" />
+                </button>
+            </div>
         </>
     );
 };

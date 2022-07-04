@@ -360,12 +360,12 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
         get()
             .removeCompany()
             .then(() => {
-                if (advanceBatch) beforeAdvanceBatchHook?.();
-            })
-            .then(() => {
-                if (advanceBatch) get().advanceBatch();
-            })
-            .then(() => get().resetInitialConditions());
+                if (advanceBatch) {
+                    beforeAdvanceBatchHook?.();
+                    get().advanceBatch();
+                }
+                return get().resetInitialConditions();
+            });
     },
     initializeFields: async (data_field = 'id_data') => {
         if (isSaneDataField(data_field, get().request.type)) {

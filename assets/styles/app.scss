@@ -15,12 +15,10 @@ main#app {
     }
 }
 
-.app-cta {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    margin: 10px auto;
-    font-size: 17px;
+.app-cta-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
 }
 
 .action-button-row {

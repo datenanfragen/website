@@ -15,11 +15,13 @@
     display: inline-block;
     line-height: 1.2;
 
-    &:hover,
-    &:focus {
-        background-color: color('blue', 900);
-        color: color('gray', 200) !important;
-        border-color: color('blue', 900);
+    &:not(.button-hoverless) {
+        &:hover,
+        &:focus {
+            background-color: color('blue', 900);
+            color: color('gray', 200) !important;
+            border-color: color('blue', 900);
+        }
     }
 
     &.disabled,

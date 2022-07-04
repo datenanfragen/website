@@ -2,18 +2,13 @@ import { useEffect } from 'preact/hooks';
 import { MarkupText, Text } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { useGeneratorStore } from '../../store/generator';
-import { SetPageFunction } from './App';
 import { DynamicInputContainer, StatefulDynamicInputContainer } from '../Generator/DynamicInputContainer';
 import { SendRequestButton } from '../App/SendRequestButton';
 import { ErrorException } from '../../Utility/errors';
 import { StatefulSignatureInput } from '../Generator/SignatureInput';
 import { RequestFlags } from '../Generator/RequestFlags';
 
-type FillRequestsPageProps = {
-    setPage: SetPageFunction;
-};
-
-export const FillRequestsPage = (props: FillRequestsPageProps) => {
+export const FillRequestsPage = () => {
     const [batch, current_company, request_type, transport_medium, fillSignature] = useGeneratorStore((state) => [
         state.batch,
         state.current_company,
@@ -42,7 +37,9 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
     return (
         <>
             <BatchBreadcrumbs />
-            <h2>{current_company.name}</h2>
+            <h2>
+                <Text id="fill-in-request" fields={{ company: current_company.name }} />
+            </h2>
             {/* TODO: Better explanation. */}
             {request_type === 'erasure' && <RequestFlags />}
 
@@ -55,6 +52,7 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
                 {' '}
                 <MarkupText id="id-data-explanation" />
             </StatefulDynamicInputContainer>
+            <br />
 
             {request_type === 'rectification' && rectification_data && (
                 <DynamicInputContainer

@@ -3,6 +3,7 @@ import { Text, IntlProvider } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { useModal } from '../Modal';
 import { ActionButton } from '../Generator/ActionButton';
+import { mailto_handlers } from '../MailtoDropdown';
 import t from '../../Utility/i18n';
 import { JSX } from 'preact';
 
@@ -11,10 +12,13 @@ export const SendRequestButton = () => {
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const letter = useGeneratorStore((state) => state.letter);
     const request = useGeneratorStore((state) => state.request);
-    const [resetRequestToDefault, markCurrentBatchCompanyDone] = useGeneratorStore((state) => [
-        state.resetRequestToDefault,
-        state.markCurrentBatchCompanyDone,
-    ]);
+    const [resetRequestToDefault, markCurrentBatchCompanyDone, markCurrentBatchCompanySkipped] = useGeneratorStore(
+        (state) => [
+            state.resetRequestToDefault,
+            state.markCurrentBatchCompanyDone,
+            state.markCurrentBatchCompanySkipped,
+        ]
+    );
 
     useEffect(() => {
         if (request.transport_medium !== 'email') return initiatePdfGeneration();
@@ -34,8 +38,13 @@ export const SendRequestButton = () => {
     );
     const [Modal, showModal, dismissModal] = useModal(
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
-            {/* TODO: Change text. */}
-            <Text id="copymanually-explanation" />
+            <Text
+                id={
+                    request.transport_medium === 'email'
+                        ? 'send-request-email-explanation'
+                        : 'send-request-pdf-explanation'
+                }
+            />
 
             <div className="form-group">
                 <strong>
@@ -91,18 +100,33 @@ export const SendRequestButton = () => {
             </div>
         </IntlProvider>,
         {
-            positiveText: t('next-request', 'generator'),
-            // TODO: Do we want to keep all handlers? We at least need to disable "copy manually".
-            negativeButton: <ActionButton dropup={true} />,
-            // TODO: New request modal stuff.
-            onPositiveFeedback: () => {
-                markCurrentBatchCompanyDone();
-                resetRequestToDefault(true);
-                dismissModal();
-            },
+            positiveButton: (
+                <button
+                    className={`button ${request.sent ? 'button-primary' : 'button-secondary'}`}
+                    onClick={() => {
+                        if (request.sent) markCurrentBatchCompanyDone();
+                        else markCurrentBatchCompanySkipped();
+                        resetRequestToDefault(true);
+                        dismissModal();
+                    }}
+                    style="float: right">
+                    <Text id={request.sent ? 'next-request' : 'skip-request'} />
+                </button>
+            ),
+            negativeButton: (
+                <ActionButton
+                    dropup={true}
+                    mailtoDropdownProps={{
+                        handlers: (Object.keys(mailto_handlers) as (keyof typeof mailto_handlers)[]).filter(
+                            (h) => h !== 'copymanually'
+                        ),
+                    }}
+                />
+            ),
             onDismiss: () => {
                 previousActiveElementId.current = undefined;
             },
+            backdropDismisses: false,
         }
     );
 

@@ -22,7 +22,7 @@ const pages = (setPage: SetPageFunction) => ({
         title: t('selected-companies-page-title', 'generator'),
         canGoBack: true,
     },
-    fill_requests: { component: <FillRequestsPage setPage={setPage} />, title: undefined, canGoBack: false },
+    fill_requests: { component: <FillRequestsPage />, title: undefined, canGoBack: false },
 });
 
 export type AppPageId = keyof ReturnType<typeof pages>;
@@ -33,7 +33,6 @@ type AppProps = {
 };
 
 export const App = (props: AppProps) => {
-    // TODO: Undo.
     const { Wizard, set, back, canGoBack, pageTitle } = useWizard(pages(setPage), {
         initialPageId: props.initialPageId ?? 'request_type_chooser',
     });

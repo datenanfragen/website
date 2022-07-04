@@ -40,6 +40,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
     );
 
     const addFillField = (newField: IdDataElement) => {
+        // TODO: newField.optional = true
         const index = props.fields.findIndex(
             (field) =>
                 ['name', 'birthdate', 'email'].includes(field.type) &&
@@ -60,7 +61,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
     // As this is at least the second time I have struggled to remember this: This is the button next to the 'add
     // new field' menu which allows you to add fields you have defined in the 'My saved data' section.
     const fill_fields = props.fillFields
-        ?.map((field) => {
+        ?.map((field, idx) => {
             const isFieldPresent = props.fields.some(
                 (existingField: IdDataElement) =>
                     field.type === existingField.type &&
@@ -74,7 +75,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
             if (!isFieldPresent && !isFieldEmpty(field)) {
                 return (
                     <div className="field-add-group">
-                        <label>
+                        <label htmlFor={`add-fill-field-${idx}`}>
                             {field.desc}:{' '}
                             <span className="fill-field-value">
                                 {field.type === 'address'
@@ -85,6 +86,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                             </span>
                         </label>
                         <button
+                            id={`add-fill-field-${idx}`}
                             style="float: none;"
                             className="button button-small button-secondary icon-arrow-right"
                             onClick={() => addFillField(field)}
