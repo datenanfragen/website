@@ -9,7 +9,7 @@ import type { HitsProvided, StateResultsProvided, Hit } from 'react-instantsearc
 import type { Company } from '../../types/company';
 import { ComponentChildren } from 'preact';
 import t from '../../Utility/i18n';
-import { useMemo, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 import { useAppStore } from '../../store/app';
 
 type CompanySearchPageProps = {
@@ -34,9 +34,7 @@ const Hits = connectHits(({ hits }: HitsProvided<Company>) => {
             className="company-result-list"
             aria-label={t('search-results', 'search')}
             aria-activedescendant={`company-result-option-${focussedOption}`}
-            onFocus={() => {
-                setFocussedOption(0);
-            }}
+            onFocus={() => setFocussedOption(0)}
             onBlur={() => setFocussedOption(-1)}
             onKeyDown={(e) => {
                 // Keys as per https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role
@@ -159,18 +157,19 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
             searchClient={instantSearchClient({ filter_by: country === 'all' ? '' : countryFilter(country) })}>
             <SearchBox />
 
-            {/* TODO: Display suggested companies in "no query" case. */}
             <Results>
                 <Hits />
             </Results>
 
-            <button
-                id="review-company-button"
-                className="button button-primary app-cta"
-                disabled={batch_length < 1}
-                onClick={() => props.setPage('review_selection')}>
-                <MarkupText id="review-n-companies" plural={batch_length} fields={{ count: batch_length }} />
-            </button>
+            <div className="app-cta-container">
+                <button
+                    className="button button-primary"
+                    disabled={batch_length < 1}
+                    onClick={() => props.setPage('review_selection')}>
+                    <MarkupText id="review-n-companies" plural={batch_length} fields={{ count: batch_length }} />
+                    <span className="icon icon-arrow-right padded-icon-right" />
+                </button>
+            </div>
 
             {/* TODO: Pagination? */}
         </InstantSearch>

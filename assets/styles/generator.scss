@@ -59,7 +59,7 @@ textarea:placeholder-shown + label.fancy-label {
 /* Inputs */
 .dynamic-input-controls {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     column-gap: 10px;
 
@@ -119,32 +119,20 @@ textarea:placeholder-shown + label.fancy-label {
 .dynamic-input {
     &.dynamic-input-editable {
         .form-group-label {
-            button,
-            .button {
-                @extend %visually-hidden;
-            }
-
-            &:hover,
-            &:focus,
-            &:focus-within,
-            &:active {
-                button,
-                .button {
-                    @extend %visually-unhidden;
-                }
-            }
-
             .dynamic-input-label {
+                padding-left: 5px;
                 text-decoration: underline dotted 2px $text-color;
-            }
-        }
+                cursor: text;
 
-        &.dynamic-input-edit-mode,
-        &.dynamic-input-show-controls {
-            .form-group-label {
-                button,
-                .button {
-                    @extend %visually-unhidden;
+                // Focussing these hides them.
+                // stylelint-disable a11y/selector-pseudo-class-focus
+                &:hover::after {
+                    // To hide the underline, see: https://stackoverflow.com/a/32203598/3211062
+                    display: inline-block;
+                    font-icon: url('pencil.svg');
+                    vertical-align: -5px;
+                    padding-left: 5px;
+                    line-height: 0;
                 }
             }
         }

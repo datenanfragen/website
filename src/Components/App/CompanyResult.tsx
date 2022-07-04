@@ -116,7 +116,9 @@ export const CompanyResult = (props: CompanyResultProps) => {
                 {detailsAvailable ? (
                     <header>
                         <button
-                            className={`icon icon-arrow-${detailsShown ? 'down' : 'right'} button-unstyled`}
+                            className={`icon icon-arrow-${
+                                detailsShown ? 'down' : 'right'
+                            } button button-unstyled button-hoverless`}
                             onClick={() => detailsAvailable && setDetailsShown(!detailsShown)}
                             title={t('choose-runs', 'generator')}
                             aria-expanded={detailsShown}

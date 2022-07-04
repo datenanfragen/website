@@ -13,9 +13,6 @@ type RequestTypeChooserPageProps = {
     setPage: SetPageFunction;
 };
 
-// TODO: Isn't "<x> request" an implementation detail? Shouldn't we rather ask "What do you want to do?", with answers
-// like "Find out what data companies have on me".
-
 export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
     const request_types = (props.request_types || REQUEST_TYPES).filter((r) => r !== 'custom');
     const setBatchRequestType = useGeneratorStore((state) => state.setBatchRequestType);
@@ -61,6 +58,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
 
     return (
         <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
+            <p>TODO: Quick introductory text.</p>
             <div className="radio-group radio-group-vertical radio-group-padded">
                 {request_types.map((type) => (
                     <RadioWithModal type={type} />

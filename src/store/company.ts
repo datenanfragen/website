@@ -8,7 +8,7 @@ import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { produce } from 'immer';
 import { SavedIdData } from '../DataType/SavedIdData';
 
-type BatchEntry = { company: Company; done: boolean };
+type BatchEntry = { company: Company; done: boolean; skipped: boolean };
 
 export interface CompanyState {
     current_company?: Company | SupervisoryAuthority;
@@ -22,6 +22,7 @@ export interface CompanyState {
     removeFromBatch: (companySlug: string) => void;
     advanceBatch: () => Promise<void>;
     markCurrentBatchCompanyDone: () => void;
+    markCurrentBatchCompanySkipped: () => void;
     selectBatchCompanyRuns: (slug: string, runs_selected: string[]) => void;
     clearBatch: () => void;
     hasBatch: () => boolean | undefined;
@@ -52,6 +53,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 quality: 'verified',
             },
             done: false,
+            skipped: false,
         },
         schufa: {
             company: {
@@ -88,6 +90,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 web: 'https://www.schufa.de',
             },
             done: false,
+            skipped: false,
         },
         datenanfragen: {
             company: {
@@ -118,6 +121,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 web: 'https://verein.datenanfragen.de',
             },
             done: false,
+            skipped: false,
         },
         'gabriele-altpeter-internethandel': {
             company: {
@@ -138,6 +142,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 web: 'https://gabriele-altpeter.info',
             },
             done: false,
+            skipped: false,
         },
         'gabriele-altpeter-internet-marketing-services': {
             company: {
@@ -178,6 +183,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 web: 'https://gabriele-altpeter.info',
             },
             done: false,
+            skipped: false,
         },
     },
 
@@ -281,7 +287,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
             produce((state: GeneratorState) => {
                 if (!state.batch) state.batch = {};
                 for (const company of Array.isArray(companies) ? companies : [companies])
-                    state.batch[company.slug] = { company, done: false };
+                    state.batch[company.slug] = { company, done: false, skipped: false };
             })
         ),
     appendToBatchBySlug: (companySlugs: string | string[]) =>
@@ -293,7 +299,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
     advanceBatch: async () => {
         if (!get().hasBatch()) return;
 
-        const firstCompany = Object.values(get().batch!).filter((c) => !c.done)[0]?.company;
+        const firstCompany = Object.values(get().batch!).filter((c) => !c.done && !c.skipped)[0]?.company;
         if (firstCompany) {
             get().setRequestType(get().batchRequestType || 'access');
             return get().setCompany(firstCompany);
@@ -305,6 +311,14 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 if (!get().hasBatch() || !get().current_company) return;
 
                 state.batch![get().current_company!.slug].done = true;
+            })
+        ),
+    markCurrentBatchCompanySkipped: () =>
+        set(
+            produce((state: GeneratorState) => {
+                if (!get().hasBatch() || !get().current_company) return;
+
+                state.batch![get().current_company!.slug].skipped = true;
             })
         ),
     selectBatchCompanyRuns: (slug, runs_selected) =>
