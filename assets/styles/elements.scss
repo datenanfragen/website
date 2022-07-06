@@ -512,20 +512,25 @@ input[type='search'].aa-input-search {
 /* Modal */
 /* adapted after: https://jsfiddle.net/developit/2kLkaxvd/ */
 
-.backdrop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-
-    @extend %fade-in;
-}
-
 .modal {
     display: block;
+
+    &.no-animation > .inner,
+    &.no-animation > .backdrop {
+        animation: none;
+    }
+
+    & > .backdrop {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+
+        @extend %fade-in;
+    }
 
     & > .inner {
         position: fixed;
