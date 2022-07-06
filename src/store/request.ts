@@ -420,5 +420,7 @@ function makeCustomDataFromIdData(request: CustomRequest) {
         if (f.type === 'name') custom_data.name = f.value;
         if (f.type === 'address' && f.value.primary) custom_data.sender_address = f.value;
     });
+    if (!custom_data.sender_address)
+        custom_data.sender_address = { street_1: '', street_2: '', place: '', country: '' };
     return custom_data;
 }
