@@ -384,7 +384,12 @@
         "send-request-pdf-explanation": "Here’s your generated request. Download the PDF and send it to the company via letter or fax.",
         "send-request-email-explanation": "Here’s your generated request. You’ll need to send it to the company by email yourself.",
         "fill-in-request": "Fill in request to “{{company}}”",
-        "unnamed-field": "unnamed field"
+        "unnamed-field": "unnamed field",
+        "add-n-companies": {
+            "none": "Add no companies",
+            "one": "Add one company",
+            "other": "Add {{n}} companies"
+        }
     },
     "mailto": {
         "mailto": "Default email software",
@@ -625,6 +630,10 @@
         "next-request": "<p>And that’s it already for this request!</p><p>Depending on the transport medium, here you can either send your request as an email or download the PDF for it. After that, let us head to the next request.</p>"
     },
     "company-packs": {
+        "add-all-star": "All companies in this pack are relevant to most people in your country.",
+        "add-companies-button": "Add companies to your requests",
+        "choose-companies-button": "Choose companies to add to your requests",
+        "and-n-more": ", and {{n}} more",
         "address-brokers-title": "Address broking and management",
         "address-brokers-description": "These companies collect the postal and/or email addresses of individuals and sell services based on them to other businesses. Some sell or rent their address data to advertisers (often in combination with additional attributes such as interests), others offer companies to check their already stored addresses and correct them if necessary.",
         "credit-agencies-title": "Credit agencies",

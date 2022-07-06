@@ -40,33 +40,36 @@ export const FillRequestsPage = () => {
             <h2>
                 <Text id="fill-in-request" fields={{ company: current_company.name }} />
             </h2>
-            {/* TODO: Better explanation. */}
-            {request_type === 'erasure' && <RequestFlags />}
 
+            {/* TODO: Better explanation. */}
             <StatefulDynamicInputContainer
                 allowAddingFields={true}
                 allowChangingFieldDescriptions={true}
                 allowRemovingFields={true}
                 hasPrimary={true}
                 fillFields={fillFields}>
-                {' '}
                 <MarkupText id="id-data-explanation" />
             </StatefulDynamicInputContainer>
             <br />
 
+            {request_type === 'erasure' && <RequestFlags />}
+
             {request_type === 'rectification' && rectification_data && (
-                <DynamicInputContainer
-                    key="rectification_data"
-                    id="rectification_data"
-                    title={t('rectification-data', 'generator')}
-                    fields={rectification_data}
-                    hasPrimary={false}
-                    onAddField={(field) => addField(field, 'rectification_data')}
-                    onRemoveField={(id) => removeField(id, 'rectification_data')}
-                    onChange={(id, field) => setField(id, field, 'rectification_data')}
-                    allowAddingFields={true}>
-                    <MarkupText id="rectification-data-explanation" />
-                </DynamicInputContainer>
+                <>
+                    <DynamicInputContainer
+                        key="rectification_data"
+                        id="rectification_data"
+                        title={t('rectification-data', 'generator')}
+                        fields={rectification_data}
+                        hasPrimary={false}
+                        onAddField={(field) => addField(field, 'rectification_data')}
+                        onRemoveField={(id) => removeField(id, 'rectification_data')}
+                        onChange={(id, field) => setField(id, field, 'rectification_data')}
+                        allowAddingFields={true}>
+                        <MarkupText id="rectification-data-explanation" />
+                    </DynamicInputContainer>
+                    <br />
+                </>
             )}
 
             {(transport_medium === 'fax' || transport_medium === 'letter') && (

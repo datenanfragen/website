@@ -35,3 +35,5 @@ export type Company = CommonSchema & {
 export type SupervisoryAuthority = CommonSchema & {
     'complaint-language'?: RequestLanguage;
 };
+
+export type CompanyPack = { slug: string; type: 'choose' | 'add-all'; companies: { slug: string; name: string }[] };

@@ -5,12 +5,17 @@ import { SetPageFunction } from './App';
 import { CompanyResult } from './CompanyResult';
 import { countryFilter, instantSearchClient } from '../../Utility/search';
 import { companyFromHit } from '../../Utility/companies';
+import { rethrow, ErrorException } from '../../Utility/errors';
 import type { HitsProvided, StateResultsProvided, Hit } from 'react-instantsearch-core';
-import type { Company } from '../../types/company';
+import { useFetch } from '../../hooks/useFetch';
+import { useModal } from '../Modal';
+import type { Company, CompanyPack } from '../../types/company';
 import { ComponentChildren } from 'preact';
 import t from '../../Utility/i18n';
 import { useState } from 'preact/hooks';
 import { useAppStore } from '../../store/app';
+
+// TODO: Respect privacy controls!
 
 type CompanySearchPageProps = {
     setPage: SetPageFunction;
@@ -74,8 +79,16 @@ const Results = connectStateResults(
         searchState,
         searchResults,
         children,
-    }: Partial<StateResultsProvided<Company>> & { children?: ComponentChildren; batch_length: number }) =>
-        searchState?.query ? (
+    }: Partial<StateResultsProvided<Company>> & { children?: ComponentChildren; batch_length: number }) => {
+        const country = useAppStore((state) => state.country);
+        const companyPacksUrl = `${window.BASE_URL}db/company-packs/${country}.json`;
+        const { data: companyPacks, error: companyPacksError } = useFetch<CompanyPack[]>(companyPacksUrl);
+        if (companyPacksError)
+            rethrow(ErrorException.fromError(companyPacksError), 'Loading the company packs failed.', {
+                suggested_companies_url: companyPacksUrl,
+            });
+
+        return searchState?.query ? (
             searchResults && searchResults.nbHits > 0 ? (
                 children
             ) : (
@@ -94,55 +107,105 @@ const Results = connectStateResults(
             )
         ) : (
             <>
-                <h3>
+                <h3 style="margin-top: 30px;">
                     <Text id="empty-query-suggested-companies" />
                 </h3>
                 <div className="company-suggestion-container">
-                    <CompanySuggestionsPack
-                        title="Our recommodation"
-                        companies={[
-                            'ABIS GmbH',
-                            'Acxiom Deutschland GmbH',
-                            'adpublisher AG',
-                            'SCHUFA',
-                            'ARD ZDF Beitragsservice',
-                        ]}
-                    />
-                    <CompanySuggestionsPack title="Big five" companies={['Google', 'Facebook', 'Amazon', 'Apple']} />
-                    <CompanySuggestionsPack title="Other companies" companies={['Lorem', 'ipsum', 'dolor', 'sit']} />
-                    <CompanySuggestionsPack
-                        title="Other companies 2"
-                        companies={['Lorem', 'ipsum', 'dolor', 'sit', 'amet']}
-                    />
+                    {companyPacks?.map((p) => (
+                        <CompanySuggestionsPack pack={p} />
+                    ))}
                 </div>
             </>
-        )
+        );
+    }
 );
 
-type CompanySuggestionsPackProps = { title: string; companies: string[] };
+type CompanySuggestionsPackProps = { pack: CompanyPack };
 
-const CompanySuggestionsPack = (props: CompanySuggestionsPackProps) => {
-    const [showAllCompanies, setShowAllCompanies] = useState(false);
+const CompanySuggestionsPack = ({ pack }: CompanySuggestionsPackProps) => {
+    const description = t(`${pack.slug as 'address-brokers'}-description`, 'company-packs');
+
+    const [batch, appendToBatchBySlug] = useGeneratorStore((state) => [state.batch, state.appendToBatchBySlug]);
+
+    const [selectedCompanies, setSelectedCompanies] = useState(
+        pack.type === 'choose' ? [] : pack.companies.map((c) => c.slug)
+    );
+
+    const [Modal, showModal, hideModal] = useModal(
+        <>
+            <h1>{t(`${pack.slug as 'address-brokers'}-title`, 'company-packs')}</h1>
+
+            {description && <p>{description}</p>}
+
+            <ul className="unstyled-list">
+                {pack.companies.map((c) => {
+                    return (
+                        <li>
+                            <input
+                                type="checkbox"
+                                className="form-element"
+                                checked={selectedCompanies.includes(c.slug)}
+                                onChange={(e) =>
+                                    setSelectedCompanies(
+                                        e.currentTarget.checked
+                                            ? [...selectedCompanies, c.slug]
+                                            : selectedCompanies.filter((s) => s !== c.slug)
+                                    )
+                                }
+                                id={`company-pack-choose-${c.slug}`}
+                            />
+                            <label for={`company-pack-choose-${c.slug}`}>{c.name}</label>
+                        </li>
+                    );
+                })}
+            </ul>
+        </>,
+        {
+            positiveText: t(
+                'add-n-companies',
+                'generator',
+                { n: `${selectedCompanies.length}` },
+                selectedCompanies.length
+            ),
+            onPositiveFeedback: () =>
+                Promise.all(
+                    selectedCompanies
+                        .filter((slug) => !Object.keys(batch || {}).includes(slug))
+                        .map((slug) => appendToBatchBySlug(slug))
+                ).then(hideModal),
+        }
+    );
 
     return (
-        <section className="company-suggestion-pack">
-            <h1>{props.title}</h1>
-            <ul>
-                {
-                    props.companies.map((item, i) => (
-                        <li className={i > 3 && !showAllCompanies ? 'sr-only' : ''}>{item}</li>
-                    )) /* We only need to hide the other items for visual clarity, screen readers can easily skip it. See: https://ux.stackexchange.com/a/127486*/
-                }
-                {props.companies.length > 4 && (
-                    <li aria-hidden={true}>
-                        <button className="button-unstyled" onClick={() => setShowAllCompanies(!showAllCompanies)}>
-                            Show more…
-                        </button>
-                    </li>
+        <IntlProvider scope="company-packs" definition={window.I18N_DEFINITION}>
+            {/* TODO: This breaks the flex layout. -.- */}
+            <Modal />
+
+            <section className="company-suggestion-pack">
+                <h1>{t(`${pack.slug as 'address-brokers'}-title`, 'company-packs')}</h1>
+                {pack.type === 'add-all' && (
+                    <span className="icon icon-star color-yellow-600" title={t('add-all-star', 'company-packs')} />
                 )}
-            </ul>
-            <button className="company-suggestion-pack-cta button">Add to your requests</button>
-        </section>
+                <p>
+                    {pack.companies
+                        .slice(0, 7)
+                        .map((c) => c.name)
+                        .join(', ')}
+                    {pack.companies.length > 7 && (
+                        <em>
+                            <Text id="and-n-more" fields={{ n: pack.companies.length - 7 }} />
+                        </em>
+                    )}
+                </p>
+                <button className="company-suggestion-pack-cta button" onClick={showModal}>
+                    {pack.type === 'add-all' ? (
+                        <Text id="add-companies-button" />
+                    ) : (
+                        <Text id="choose-companies-button" />
+                    )}
+                </button>
+            </section>
+        </IntlProvider>
     );
 };
 
@@ -155,7 +218,7 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
         <InstantSearch
             indexName="companies"
             searchClient={instantSearchClient({ filter_by: country === 'all' ? '' : countryFilter(country) })}>
-            <SearchBox />
+            <SearchBox translations={{ placeholder: t('select-company', 'cdb') }} />
 
             <Results>
                 <Hits />

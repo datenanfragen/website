@@ -513,6 +513,7 @@ input[type='search'].aa-input-search {
 /* adapted after: https://jsfiddle.net/developit/2kLkaxvd/ */
 
 .modal {
+    position: absolute;
     display: block;
 
     &.no-animation > .inner,
@@ -936,7 +937,7 @@ details.footnote {
 
     &:focus,
     &.company-result-focussed {
-        outline: 2px solid $primary-color;
+        outline: 3px solid color('teal', 500);
     }
 
     &.company-result-clickable {
@@ -987,29 +988,41 @@ details.footnote {
 }
 
 .company-suggestion-container {
+    width: 100%;
+    max-height: 450px;
+    overflow: scroll;
     display: flex;
     flex-direction: row;
-    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 15px;
     margin-top: 15px;
 
     .company-suggestion-pack {
         border: 2px solid $primary-color;
         border-radius: 2px;
-        min-width: 230px;
-        max-width: 300px;
+        width: 250px;
         flex-grow: 1;
         position: relative;
-        padding-bottom: 35px;
+        padding-bottom: 45px;
 
         h1 {
-            padding: 10px;
+            padding: 10px 42px 10px 10px;
             font-size: 1.2em;
             display: block;
             border-bottom: 2px solid $primary-color;
+        }
+
+        span.icon.icon-star {
+            position: absolute;
+            top: -12px;
+            right: 5px;
+            font-size: 24pt;
+        }
+
+        p {
+            margin: 10px;
         }
 
         button.company-suggestion-pack-cta {
