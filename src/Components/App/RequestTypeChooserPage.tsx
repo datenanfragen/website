@@ -35,7 +35,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
         );
 
         return (
-            <>
+            <div className="col66 col100-mobile">
                 <RequestTypeInfoModal />
                 <Radio
                     id={`request-type-choice-${type}`}
@@ -52,7 +52,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                         />
                     }
                 />
-            </>
+            </div>
         );
     };
 

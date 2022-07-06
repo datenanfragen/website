@@ -46,6 +46,5 @@ export function companyFromHit(hit: Hit<Company>) {
     delete company.id;
     delete company.text_match;
     delete company['sort-index'];
-    company.runs_selected = company.runs ? [...company.runs] : [];
     return company;
 }

@@ -32,161 +32,6 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
     set,
     get
 ) => ({
-    // TODO: Undo.
-    batch: {
-        'a1-austria': {
-            company: {
-                slug: 'a1-austria',
-                'relevant-countries': ['at'],
-                categories: ['telecommunication'],
-                name: 'A1 Telekom Austria AG',
-                address: 'Lassallestraße 9\n1020 Wien\nÖsterreich',
-                phone: '+43 050 664 0',
-                web: 'https://www.a1.net',
-                sources: [
-                    'https://cdn12.a1.net/m/resources/media/pdf/Informationspflichten-und-Zustimmungserklaerung-A1.pdf',
-                    'https://www.a1.net/impressum',
-                ],
-                'request-language': 'de',
-                'needs-id-document': true,
-                'suggested-transport-medium': 'letter',
-                quality: 'verified',
-            },
-            done: false,
-            skipped: false,
-        },
-        schufa: {
-            company: {
-                address: 'Kormoranweg 5\n65201 Wiesbaden\nDeutschland',
-                categories: ['credit agency'],
-                comments: [
-                    'Frühere Adresse nur angeben, wenn sie sich in den letzten 12 Monaten geändert hat.',
-                    'Entgegen der Angaben im Formular der Schufa ist in aller Regel keine Kopie des Personalausweises oder Reisepasses nötig.',
-                ],
-                email: 'datenschutz@schufa.de',
-                fax: '+49 611 9278 109',
-                name: 'SCHUFA Holding AG',
-                'needs-id-document': false,
-                phone: '+49 611 92789278',
-                quality: 'tested',
-                'relevant-countries': ['de'],
-                'required-elements': [
-                    {
-                        desc: 'Name',
-                        type: 'name',
-                    },
-                    {
-                        desc: 'Adresse',
-                        type: 'address',
-                    },
-                ],
-                slug: 'schufa',
-                sources: [
-                    'https://www.meineschufa.de/index.php?site=11_3_1',
-                    'https://www.schufa.de/de/datenschutz/',
-                    'https://www.schufa.de/de/impressum/',
-                ],
-                'suggested-transport-medium': 'email',
-                web: 'https://www.schufa.de',
-            },
-            done: false,
-            skipped: false,
-        },
-        datenanfragen: {
-            company: {
-                address: 'Schreinerweg 6\n38126 Braunschweig\nDeutschland',
-                categories: ['nonprofit'],
-                email: 'datenschutz@datenanfragen.de',
-                fax: '+49 531 20929936',
-                name: 'Datenanfragen.de e. V.',
-                'pgp-fingerprint': 'CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E',
-                'pgp-url': 'https://www.datenanfragen.de/pgp/CF2CBB2E.asc',
-                phone: '+49 531 20929935',
-                quality: 'verified',
-                'relevant-countries': ['all'],
-                runs: [
-                    'Datenanfragen.de',
-                    'datarequests.org',
-                    'pedidodedados.org',
-                    'demandetesdonnees.fr',
-                    'solicituddedatos.es',
-                ],
-                slug: 'datenanfragen',
-                sources: [
-                    'https://verein.datenanfragen.de/datenschutz',
-                    'https://github.com/datenanfragen/data/issues/595',
-                    'https://github.com/datenanfragen/data/pull/968',
-                ],
-                'suggested-transport-medium': 'email',
-                web: 'https://verein.datenanfragen.de',
-            },
-            done: false,
-            skipped: false,
-        },
-        'gabriele-altpeter-internethandel': {
-            company: {
-                address: 'Schreinerweg 6\n38126 Braunschweig\nDeutschland',
-                categories: ['commerce'],
-                email: 'datenschutz@gabriele-altpeter.info',
-                fax: '+49 531 615 4 288',
-                name: 'Gabriele Altpeter, Internethandel',
-                'pgp-fingerprint': 'BCA8 A5F2 2F7F D05A ED67  EE2B FE5B E03D 78C1 CF0F',
-                'pgp-url': 'https://gabriele-altpeter.info/pgp-key-privacy.asc',
-                phone: '+49 531 615 4 710',
-                quality: 'verified',
-                'relevant-countries': ['de'],
-                runs: ['hexteQ.'],
-                slug: 'gabriele-altpeter-internethandel',
-                sources: ['https://gabriele-altpeter.info/privacy.html', 'https://www.hexteq.de/privacy.html'],
-                'suggested-transport-medium': 'email',
-                web: 'https://gabriele-altpeter.info',
-            },
-            done: false,
-            skipped: false,
-        },
-        'gabriele-altpeter-internet-marketing-services': {
-            company: {
-                address: 'Schreinerweg 6\n38126 Braunschweig\nDeutschland',
-                categories: ['ads', 'entertainment'],
-                email: 'datenschutz@gabriele-altpeter.info',
-                fax: '+49 531 615 4 288',
-                name: 'Gabriele Altpeter, Internet Marketing-Services',
-                'pgp-fingerprint': 'BCA8 A5F2 2F7F D05A ED67  EE2B FE5B E03D 78C1 CF0F',
-                'pgp-url': 'https://gabriele-altpeter.info/pgp-key-privacy.asc',
-                phone: '+49 531 615 4 710',
-                quality: 'verified',
-                'relevant-countries': ['all'],
-                runs: [
-                    'Foodblog kochfokus.de',
-                    'Foodblog deliciouslygabi.com',
-                    'Foodcommunity topfies.de',
-                    'SomePublisher (somepublisher.com)',
-                    'Damnick Verlag (damnick.de)',
-                ],
-                runs_selected: [
-                    'Foodblog kochfokus.de',
-                    'Foodblog deliciouslygabi.com',
-                    'Foodcommunity topfies.de',
-                    'SomePublisher (somepublisher.com)',
-                    'Damnick Verlag (damnick.de)',
-                ],
-                slug: 'gabriele-altpeter-internet-marketing-services',
-                sources: [
-                    'https://gabriele-altpeter.info/privacy.html',
-                    'https://kochfokus.de/privacy/',
-                    'https://deliciouslygabi.com/privacy/',
-                    'https://www.topfies.de/privacy/',
-                    'https://somepublisher.com/privacy/',
-                    'https://damnick.de/privacy/',
-                ],
-                'suggested-transport-medium': 'email',
-                web: 'https://gabriele-altpeter.info',
-            },
-            done: false,
-            skipped: false,
-        },
-    },
-
     setCompany: async (company) => {
         set(
             produce((state: GeneratorState) => {
@@ -287,7 +132,11 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
             produce((state: GeneratorState) => {
                 if (!state.batch) state.batch = {};
                 for (const company of Array.isArray(companies) ? companies : [companies])
-                    state.batch[company.slug] = { company, done: false, skipped: false };
+                    state.batch[company.slug] = {
+                        company: { ...company, runs_selected: [...(company.runs || [])] },
+                        done: false,
+                        skipped: false,
+                    };
             })
         ),
     appendToBatchBySlug: (companySlugs: string | string[]) =>

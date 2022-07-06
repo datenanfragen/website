@@ -210,3 +210,8 @@
     font-icon: url('close-circle.svg');
     vertical-align: -2px;
 }
+
+.icon-star:before {
+    @extend %icon;
+    font-icon: url('star.svg');
+}
