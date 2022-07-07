@@ -4,6 +4,7 @@ import { RequestTypeChooserPage } from './RequestTypeChooserPage';
 import { CompanySearchPage } from './CompanySearchPage';
 import { ReviewSelectionPage } from './ReviewSelectionPage';
 import { FillRequestsPage } from './FillRequestsPage';
+import { WhatsNextPage } from './WhatsNextPage';
 import t from '../../Utility/i18n';
 
 const pages = (setPage: SetPageFunction) => ({
@@ -22,7 +23,12 @@ const pages = (setPage: SetPageFunction) => ({
         title: t('selected-companies-page-title', 'generator'),
         canGoBack: true,
     },
-    fill_requests: { component: <FillRequestsPage />, title: undefined, canGoBack: false },
+    fill_requests: { component: <FillRequestsPage setPage={setPage} />, title: undefined, canGoBack: false },
+    whats_next: {
+        component: <WhatsNextPage setPage={setPage} />,
+        title: t('whats-next-title', 'generator'),
+        canGoBack: false,
+    },
 });
 
 export type AppPageId = keyof ReturnType<typeof pages>;
