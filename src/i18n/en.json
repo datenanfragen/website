@@ -389,7 +389,13 @@
             "none": "Add no companies",
             "one": "Add one company",
             "other": "Add {{n}} companies"
-        }
+        },
+        "whats-next-title": "What’s next?",
+        "whats-next-deadline": "The companies now have one month to reply to your requests. They can extend this deadline to a total of three months when necessary but need to inform you of that within the first month.",
+        "whats-next-my-requests": "You can view your sent requests on the “My requests” page. There, you can follow up on them, including sending warnings or even complain to the data protection authorities if a company doesn’t respond correctly. You can also save a reminder for the request deadlines to your calendar.",
+        "export-to-calendar": "Export reminders to your calendar",
+        "view-requests": "View your requests",
+        "send-more": "Send more requests"
     },
     "mailto": {
         "mailto": "Default email software",

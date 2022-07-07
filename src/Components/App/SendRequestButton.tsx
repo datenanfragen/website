@@ -2,23 +2,29 @@ import { useCallback, useRef, useEffect } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { useModal } from '../Modal';
+import { SetPageFunction } from './App';
 import { ActionButton } from '../Generator/ActionButton';
 import { mailto_handlers } from '../MailtoDropdown';
 import t from '../../Utility/i18n';
 import { JSX } from 'preact';
 
-export const SendRequestButton = () => {
+type SendRequestButtonProps = {
+    setPage: SetPageFunction;
+};
+
+export const SendRequestButton = (props: SendRequestButtonProps) => {
     const initiatePdfGeneration = useGeneratorStore((state) => state.initiatePdfGeneration);
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const letter = useGeneratorStore((state) => state.letter);
     const request = useGeneratorStore((state) => state.request);
-    const [resetRequestToDefault, markCurrentBatchCompanyDone, markCurrentBatchCompanySkipped] = useGeneratorStore(
-        (state) => [
+    const [batch, resetRequestToDefault, markCurrentBatchCompanyDone, markCurrentBatchCompanySkipped] =
+        useGeneratorStore((state) => [
+            state.batch,
             state.resetRequestToDefault,
             state.markCurrentBatchCompanyDone,
             state.markCurrentBatchCompanySkipped,
-        ]
-    );
+        ]);
+    const remainingBatchEntries = Object.values(batch || {}).filter((e) => !e.done && !e.skipped).length || 0;
 
     useEffect(() => {
         if (request.transport_medium !== 'email') return initiatePdfGeneration();
@@ -107,6 +113,8 @@ export const SendRequestButton = () => {
                         if (request.sent) markCurrentBatchCompanyDone();
                         else markCurrentBatchCompanySkipped();
                         resetRequestToDefault(true);
+
+                        if (remainingBatchEntries === 1) props.setPage('whats_next');
                         dismissModal();
                     }}
                     style="float: right">
