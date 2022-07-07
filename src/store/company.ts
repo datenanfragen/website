@@ -8,7 +8,7 @@ import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { produce } from 'immer';
 import { SavedIdData } from '../DataType/SavedIdData';
 
-type BatchEntry = { company: Company; done: boolean; skipped: boolean };
+type BatchEntry = { company: Company; done: boolean };
 
 export interface CompanyState {
     current_company?: Company | SupervisoryAuthority;
@@ -22,7 +22,6 @@ export interface CompanyState {
     removeFromBatch: (companySlug: string) => void;
     advanceBatch: () => Promise<void>;
     markCurrentBatchCompanyDone: () => void;
-    markCurrentBatchCompanySkipped: () => void;
     selectBatchCompanyRuns: (slug: string, runs_selected: string[]) => void;
     clearBatch: () => void;
     hasBatch: () => boolean | undefined;
@@ -135,7 +134,6 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                     state.batch[company.slug] = {
                         company: { ...company, runs_selected: [...(company.runs || [])] },
                         done: false,
-                        skipped: false,
                     };
             })
         ),
@@ -148,7 +146,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
     advanceBatch: async () => {
         if (!get().hasBatch()) return;
 
-        const firstCompany = Object.values(get().batch!).filter((c) => !c.done && !c.skipped)[0]?.company;
+        const firstCompany = Object.values(get().batch!).filter((c) => !c.done)[0]?.company;
         if (firstCompany) {
             get().setRequestType(get().batchRequestType || 'access');
             return get().setCompany(firstCompany);
@@ -160,14 +158,6 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 if (!get().hasBatch() || !get().current_company) return;
 
                 state.batch![get().current_company!.slug].done = true;
-            })
-        ),
-    markCurrentBatchCompanySkipped: () =>
-        set(
-            produce((state: GeneratorState) => {
-                if (!get().hasBatch() || !get().current_company) return;
-
-                state.batch![get().current_company!.slug].skipped = true;
             })
         ),
     selectBatchCompanyRuns: (slug, runs_selected) =>

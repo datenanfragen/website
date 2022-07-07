@@ -17,14 +17,15 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const letter = useGeneratorStore((state) => state.letter);
     const request = useGeneratorStore((state) => state.request);
-    const [batch, resetRequestToDefault, markCurrentBatchCompanyDone, markCurrentBatchCompanySkipped] =
+    const [batch, current_company, resetRequestToDefault, markCurrentBatchCompanyDone, removeFromBatch] =
         useGeneratorStore((state) => [
             state.batch,
+            state.current_company,
             state.resetRequestToDefault,
             state.markCurrentBatchCompanyDone,
-            state.markCurrentBatchCompanySkipped,
+            state.removeFromBatch,
         ]);
-    const remainingBatchEntries = Object.values(batch || {}).filter((e) => !e.done && !e.skipped).length || 0;
+    const remainingBatchEntries = Object.values(batch || {}).filter((e) => !e.done).length || 0;
 
     useEffect(() => {
         if (request.transport_medium !== 'email') return initiatePdfGeneration();
@@ -111,7 +112,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                     className={`button ${request.sent ? 'button-primary' : 'button-secondary'}`}
                     onClick={() => {
                         if (request.sent) markCurrentBatchCompanyDone();
-                        else markCurrentBatchCompanySkipped();
+                        else removeFromBatch(current_company!.slug);
                         resetRequestToDefault(true);
 
                         if (remainingBatchEntries === 1) props.setPage('whats_next');
