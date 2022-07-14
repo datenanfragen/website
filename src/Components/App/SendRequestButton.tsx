@@ -144,7 +144,6 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
             <button
                 className={`button ${request.sent ? 'button-secondary' : 'button-primary'}`}
                 onClick={() => {
-                    // TODO: For PDFs, the modal flashes after generation due to the modal animation. That's not great.
                     renderLetter();
                     showModal();
                 }}>

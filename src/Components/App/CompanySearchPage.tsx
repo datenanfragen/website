@@ -178,7 +178,6 @@ const CompanySuggestionsPack = ({ pack }: CompanySuggestionsPackProps) => {
 
     return (
         <IntlProvider scope="company-packs" definition={window.I18N_DEFINITION}>
-            {/* TODO: This breaks the flex layout. -.- */}
             <Modal />
 
             <section className="company-suggestion-pack">
