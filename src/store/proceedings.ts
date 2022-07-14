@@ -1,14 +1,14 @@
 import type { Request } from '../types/request';
 import { Message, MessageId, Proceeding } from '../types/proceedings.d';
 import create, { GetState, SetState, StoreApi, Mutate } from 'zustand';
-import { persist, StateStorage } from 'zustand/middleware';
+import { persist } from 'zustand/middleware';
 import { produce } from 'immer';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import type { SetOptional } from 'type-fest';
 import { ErrorException } from '../Utility/errors';
 import { UserRequest } from '../DataType/UserRequests';
 import { isUserRequest } from '../Utility/requests';
-import localforage from 'localforage';
+import { LocalforagePrivacy } from '../Utility/LocalforagePrivacy';
 
 export interface ProceedingsState {
     proceedings: Record<string, Proceeding>;
@@ -26,6 +26,11 @@ export interface ProceedingsState {
 }
 
 const id_regex = /^(\d{4,}-[\dA-Za-z]{7,})-(\d+)$/;
+
+const proceedingsStorage = new LocalforagePrivacy(() => Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS), {
+    name: 'Datenanfragen.de',
+    storeName: 'proceedings',
+});
 
 const proceedingsStore = persist<ProceedingsState>(
     (set, get) => ({
@@ -84,8 +89,7 @@ const proceedingsStore = persist<ProceedingsState>(
     {
         name: 'Datenanfragen.de-proceedings',
         version: 0,
-        getStorage: () =>
-            localforage.createInstance({ name: 'Datenanfragen.de', storeName: 'proceedings' }) as StateStorage, // This casting is necessary, because zustand only accepts Promise<void> as a retunr type, while localforage returns Promise<string>, the APIs are otherwise compatible.
+        getStorage: () => proceedingsStorage,
         onRehydrateStorage: () => (state) => state && state.drink(),
     }
 );
