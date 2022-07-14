@@ -21,8 +21,12 @@ describe('Requests without a date should not be allowed', () => {
             .invoke('val')
             .then((reference) => {
                 cy.window()
-                    .then((win) => win.accessLocalForageStore('my-requests').getItem(`${reference}-access`))
-                    .then((i) => expect(i.date).to.equal(new Date().toISOString().substring(0, 10)))
+                    .then((win) => {
+                        const store = win.getProceedingsStore();
+                        expect(store._hasHydrated, 'Store should be hydrated').to.be.equal(true);
+                        return store.proceedings[reference].messages[`${reference}-00`];
+                    })
+                    .then((i) => expect(i.date.toDateString()).to.equal(new Date().toDateString()))
                     .then(() => {
                         cy.visit('/my-requests');
 
