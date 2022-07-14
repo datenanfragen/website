@@ -3,14 +3,18 @@
 import { useAppStore } from './store/app';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import localforage from 'localforage';
+import { useProceedingsStore } from './store/proceedings';
 
 type ExtendedWindow = typeof window & {
     getAppStore: () => ReturnType<typeof useAppStore.getState>;
+    getProceedingsStore: () => ReturnType<typeof useProceedingsStore.getState>;
     showFlash: (type: 'info' | 'error' | 'warning' | 'success', text: string, duration: number) => void;
     accessLocalForageStore: (store_name: string) => typeof localforage;
 };
 
 (window as ExtendedWindow).getAppStore = () => useAppStore.getState();
+
+(window as ExtendedWindow).getProceedingsStore = () => useProceedingsStore.getState();
 
 (window as ExtendedWindow).showFlash = (type, text, duration) =>
     flash(
