@@ -19,7 +19,7 @@ import {
     REQUEST_ARTICLES,
     inferRequestLanguage,
 } from '../Utility/requests';
-import { UserRequests, UserRequest } from '../DataType/UserRequests';
+import { UserRequest } from '../DataType/UserRequests';
 import { produce } from 'immer';
 import { RequestLetter } from '../DataType/RequestLetter';
 import { t_r } from '../Utility/i18n';
@@ -31,8 +31,6 @@ import { slugify } from '../Utility/common';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
 import { Template } from 'letter-generator';
-import type { Proceeding } from '../types/proceedings';
-import { proceedingFromRequest } from './proceedings';
 
 export interface RequestState<R extends Request> {
     request: R;

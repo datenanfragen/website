@@ -1,11 +1,13 @@
 import type { Request } from '../types/request';
 import { Message, MessageId, Proceeding } from '../types/proceedings.d';
-import create, { StateCreator, StoreApi } from 'zustand';
+import create, { GetState, SetState, StoreApi, Mutate } from 'zustand';
 import { persist, StateStorage } from 'zustand/middleware';
 import { produce } from 'immer';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import type { SetOptional } from 'type-fest';
 import { ErrorException } from '../Utility/errors';
+import { UserRequest } from '../DataType/UserRequests';
+import { isUserRequest } from '../Utility/requests';
 import localforage from 'localforage';
 
 export interface ProceedingsState {
@@ -18,6 +20,8 @@ export interface ProceedingsState {
     removeProceeding: (reference: string) => void;
     clearProceedings: () => void;
     _hasHydrated: boolean;
+    _migratedLegacyRequests: boolean;
+    migrationDone: () => void;
     drink: () => void;
 }
 
@@ -72,7 +76,10 @@ const proceedingsStore = persist<ProceedingsState>(
                 })
             ),
         clearProceedings: () => set({ proceedings: {} }),
+        // TODO: remove the my requests migration code and notify users about the migration
+        migrationDone: () => set({ _migratedLegacyRequests: true }),
         _hasHydrated: false,
+        _migratedLegacyRequests: false,
     }),
     {
         name: 'Datenanfragen.de-proceedings',
@@ -86,12 +93,31 @@ const proceedingsStore = persist<ProceedingsState>(
 const { devtools } =
     process.env.NODE_ENV === 'development' ? require('zustand/middleware') : { devtools: (d: unknown) => d };
 
+// These monster types are necessary because the type inference doesn't work anymore "if you do something fancy". The types are taken from https://github.com/pmndrs/zustand/blob/4d8003b363cb06ee5b1da498300a60576419485a/tests/middlewareTypes.test.tsx
+// TODO: This seems to change in zustand v4 and should make inference possible again? Revisit this if we update!
 export const useProceedingsStore =
     process.env.NODE_ENV === 'development'
-        ? create<ProceedingsState>(devtools(proceedingsStore))
-        : create<ProceedingsState>(proceedingsStore);
+        ? create<
+              ProceedingsState,
+              SetState<ProceedingsState>,
+              GetState<ProceedingsState>,
+              Mutate<
+                  StoreApi<ProceedingsState>,
+                  [['zustand/persist', Partial<ProceedingsState>], ['zustand/devtools', never]]
+              >
+          >(devtools(proceedingsStore))
+        : create<
+              ProceedingsState,
+              SetState<ProceedingsState>,
+              GetState<ProceedingsState>,
+              Mutate<StoreApi<ProceedingsState>, [['zustand/persist', Partial<ProceedingsState>]]>
+          >(proceedingsStore);
 
-export const proceedingFromRequest = (request: Request, subject?: string, content?: string): Proceeding => ({
+export const proceedingFromRequest = (
+    request: Request | UserRequest,
+    subject?: string,
+    content?: string
+): Proceeding => ({
     reference: request.reference,
     messages: {
         [`${request.reference}-00`]: {
@@ -100,9 +126,9 @@ export const proceedingFromRequest = (request: Request, subject?: string, conten
             date: new Date(request.date),
             type: request.type === 'custom' ? request.response_type || 'response' : request.type,
             slug: request.slug,
-            recipient: request.recipient_address,
+            recipient: isUserRequest(request) ? request.recipient : request.recipient_address,
             email: request.email,
-            transport_medium: request.transport_medium,
+            transport_medium: isUserRequest(request) ? request.via : request.transport_medium,
             subject,
             content,
         },
