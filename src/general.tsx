@@ -10,6 +10,8 @@ import { parameters, parseBcp47Tag, fallback_countries } from './Utility/common'
 import { guessUserCountry } from './Utility/browser';
 import { UserRequests } from './DataType/UserRequests';
 import { proceedingFromRequest, useProceedingsStore } from './store/proceedings';
+import type { Message } from './types/proceedings';
+import { REQUEST_TYPES } from './Utility/requests';
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');
@@ -70,24 +72,61 @@ const unsubscribeFromHydration = useProceedingsStore.persist.onFinishHydration((
         const userRequests = new UserRequests();
         userRequests
             .getRequests()
-            .then((requests) => {
+            .then(async (requests) => {
                 if (!requests) return;
-                Object.entries(requests).forEach(async ([db_id, request]) => {
+                for (const [db_id, request] of Object.entries(requests)) {
                     if (request.response_type) {
-                        proceedingsState.addMessage({
+                        const messageFromRequest: Omit<Message, 'id'> = {
                             reference: request.reference,
                             recipient: request.recipient,
                             transport_medium: request.via,
                             type: request.response_type,
                             date: new Date(request.date),
-                            slug: request.slug,
                             email: request.email,
-                        });
+                        };
+
+                        const createStubProceeding = () => {
+                            // If the parent request is missing we create a stub to put the message in.
+                            proceedingsState.addProceeding({
+                                reference: request.reference,
+                                messages: {},
+                                status: 'done',
+                            });
+                            proceedingsState.addMessage(messageFromRequest);
+                        };
+
+                        // Search for the parent request in the already created proceedings
+                        if (Object.keys(useProceedingsStore.getState().proceedings).includes(request.reference)) {
+                            proceedingsState.addMessage(messageFromRequest);
+                        } else {
+                            // If no proceeding was found, search the database and create a new proceeding
+                            const parentRequestId = await userRequests.localforage_instance
+                                ?.keys()
+                                .then((keys) =>
+                                    keys?.find(
+                                        (key) =>
+                                            key !== db_id &&
+                                            key.match(new RegExp(`^${request.reference}-${REQUEST_TYPES}`))
+                                    )
+                                );
+
+                            if (parentRequestId) {
+                                const parentRequest = await userRequests.getRequest(parentRequestId);
+                                if (!parentRequest) {
+                                    createStubProceeding();
+                                } else {
+                                    proceedingsState.addProceeding(proceedingFromRequest(parentRequest));
+                                    proceedingsState.addMessage(messageFromRequest);
+
+                                    await userRequests.removeRequest(parentRequestId);
+                                }
+                            } else createStubProceeding();
+                        }
                     } else {
                         proceedingsState.addProceeding(proceedingFromRequest(request));
                     }
                     await userRequests.removeRequest(db_id);
-                });
+                }
             })
             .then(() => userRequests.localforage_instance?.dropInstance())
             .then(() => proceedingsState.migrationDone())
