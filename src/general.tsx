@@ -8,6 +8,8 @@ import Footnote from './Components/Footnote';
 import { t_r } from './Utility/i18n';
 import { parameters, parseBcp47Tag, fallback_countries } from './Utility/common';
 import { guessUserCountry } from './Utility/browser';
+import { UserRequests } from './DataType/UserRequests';
+import { proceedingFromRequest, useProceedingsStore } from './store/proceedings';
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');
@@ -61,6 +63,39 @@ if (!useAppStore.getState().countrySet) {
     if (preferred_language !== website_language && preferred_language! in fallback_countries)
         notifyOtherLanguages(preferred_language, website_language);
 }
+
+// TODO: remove the my requests migration code and notify users about the migration
+const unsubscribeFromHydration = useProceedingsStore.persist.onFinishHydration((proceedingsState) => {
+    if (!proceedingsState._migratedLegacyRequests) {
+        const userRequests = new UserRequests();
+        userRequests
+            .getRequests()
+            .then((requests) => {
+                if (!requests) return;
+                Object.entries(requests).forEach(async ([db_id, request]) => {
+                    if (request.response_type) {
+                        proceedingsState.addMessage({
+                            reference: request.reference,
+                            recipient: request.recipient,
+                            transport_medium: request.via,
+                            type: request.response_type,
+                            date: new Date(request.date),
+                            slug: request.slug,
+                            email: request.email,
+                        });
+                    } else {
+                        proceedingsState.addProceeding(proceedingFromRequest(request));
+                    }
+                    await userRequests.removeRequest(db_id);
+                });
+            })
+            .then(() => userRequests.localforage_instance?.dropInstance())
+            .then(() => proceedingsState.migrationDone())
+            .then(() => unsubscribeFromHydration());
+    } else {
+        unsubscribeFromHydration();
+    }
+});
 
 const renderNewFootnotes = (hugoFootnotes: Element[]) => {
     hugoFootnotes.forEach((hugoFootnote, index) => {

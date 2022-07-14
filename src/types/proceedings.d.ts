@@ -16,7 +16,7 @@ type Message = {
     reference: string;
     date: Date;
     type: RequestType | ResponseType | 'response';
-    slug: string;
+    slug?: string;
     recipient: string;
     email: string;
     transport_medium: TransportMedium;

@@ -12,6 +12,7 @@ import { generateReference } from 'letter-generator';
 import { t_r } from './i18n';
 import { deepCopyObject } from './common';
 import { requestTemplate } from './fetch';
+import { UserRequest } from '../DataType/UserRequests';
 
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
 export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
@@ -43,6 +44,10 @@ export function isSaneDataField(
     request_type: RequestType
 ): data_field is DataFieldName<AccessRequest> {
     return data_field === 'id_data' || (request_type === 'rectification' && data_field === 'rectification_data');
+}
+
+export function isUserRequest(request: Request | UserRequest): request is UserRequest {
+    return 'via' in request;
 }
 
 export const adressesEqual = (one: Address, two: Address) =>
