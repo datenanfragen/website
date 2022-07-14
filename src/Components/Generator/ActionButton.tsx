@@ -1,5 +1,6 @@
 import type { JSX } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
+import { useProceedingsStore } from '../../store/proceedings';
 import { useGeneratorStore } from '../../store/generator';
 import { MailtoDropdown } from '../MailtoDropdown';
 
@@ -17,11 +18,15 @@ export const ActionButton = (_props: ActionButtonProps) => {
     const download_url = useGeneratorStore((state) => state.download_url);
     const download_filename = useGeneratorStore((state) => state.download_filename);
     const getLetter = useGeneratorStore((state) => state.letter);
-    const storeRequest = useGeneratorStore((state) => state.storeRequest);
     const setSent = useGeneratorStore((state) => state.setSent);
+    const getRequestForSaving = useGeneratorStore((state) => state.getRequestForSaving);
+    const addRequest = useProceedingsStore((state) => state.addRequest);
 
     const props = {
-        onSuccess: () => storeRequest().then(() => setSent(true)),
+        onSuccess: () => {
+            addRequest(getRequestForSaving());
+            setSent(true);
+        },
         ..._props,
     };
 

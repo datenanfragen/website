@@ -31,11 +31,12 @@ import { slugify } from '../Utility/common';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
 import { Template } from 'letter-generator';
+import type { Proceeding } from '../types/proceedings';
+import { proceedingFromRequest } from './proceedings';
 
 export interface RequestState<R extends Request> {
     request: R;
     template: string;
-    storeRequest: () => Promise<UserRequest | void>;
     addField: (field: IdDataElement, data_field: DataFieldName<R>) => void;
     removeField: (index: number, data_field: DataFieldName<R>) => void;
     setField: (index: number, field: IdDataElement, data_field: DataFieldName<R>) => void;
@@ -57,6 +58,8 @@ export interface RequestState<R extends Request> {
     refreshTemplate: () => Promise<void>;
     letter: () => RequestLetter;
     letter_filename: () => string;
+    saveIdData: () => void;
+    getRequestForSaving: (preventSideEffects?: boolean) => Request;
 }
 
 export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState & GeneratorSpecificState> = (
@@ -65,30 +68,6 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
 ) => ({
     request: defaultRequest(inferRequestLanguage()),
     template: '',
-    storeRequest: () => {
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-            const savedIdData = new SavedIdData();
-            savedIdData.storeArray(get().request.id_data);
-            // Don't clear the saved signature if the signature was only cleared for this request (#182).
-            if (get().request.signature.type === 'image') savedIdData.storeSignature(get().request.signature);
-        }
-
-        const state = get();
-        const db_id = `${state.request.reference}-${state.request.type}${
-            state.request.type === 'custom' && state.request.response_type ? `-${state.request.response_type}` : ''
-        }`;
-
-        return new UserRequests().storeRequest(db_id, {
-            reference: state.request.reference,
-            date: state.request.date,
-            type: state.request.type,
-            response_type: state.request.type === 'custom' ? state.request.response_type : undefined,
-            slug: state.request.slug,
-            recipient: state.request.recipient_address,
-            email: state.request.email,
-            via: state.request.transport_medium,
-        });
-    },
     addField: (_field, data_field) =>
         set(
             produce((state: RequestState<Request>) => {
@@ -404,6 +383,20 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 get().request.type
             }_${get().request.reference}.pdf`
         );
+    },
+    saveIdData: () => {
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            const savedIdData = new SavedIdData();
+            savedIdData.storeArray(get().request.id_data);
+            // Don't clear the saved signature if the signature was only cleared for this request (#182).
+            if (get().request.signature.type === 'image') savedIdData.storeSignature(get().request.signature);
+        }
+    },
+    getRequestForSaving: (preventSideEffects) => {
+        if (!preventSideEffects) {
+            get().saveIdData();
+        }
+        return get().request;
     },
 });
 

@@ -8,6 +8,7 @@ import t from '../../Utility/i18n';
 import type { JSX } from 'preact';
 import { Privacy, PRIVACY_ACTIONS } from '../../Utility/Privacy';
 import { SavedCompanies } from '../../DataType/SavedCompanies';
+import { useProceedingsStore } from '../../store/proceedings';
 
 type NewRequestButtonProps = {
     newRequestHook?: (arg?: unknown) => void;
@@ -54,11 +55,13 @@ export const useNewRequestModal = (
     const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
     const removeCompany = useGeneratorStore((state) => state.removeCompany);
     const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
-    const storeRequest = useGeneratorStore((state) => state.storeRequest);
     const setBusy = useGeneratorStore((state) => state.setBusy);
     const request_type = useGeneratorStore((state) => state.request.type);
     const current_company = useGeneratorStore((state) => state.current_company);
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
+    const getRequestForSaving = useGeneratorStore((state) => state.getRequestForSaving);
+
+    const addRequest = useProceedingsStore((state) => state.addRequest);
 
     const [payload, setPayload] = useState<Parameters<Exclude<typeof newRequestHook, undefined>>[0]>();
 
@@ -111,10 +114,9 @@ export const useNewRequestModal = (
                         }
                         onSuccess={() => {
                             dismissConfirmNewRequestModal();
-                            storeRequest()
-                                .then(() => setBusy())
-                                .then(() => newRequest())
-                                .then(() => renderLetter());
+                            addRequest(getRequestForSaving());
+                            setBusy();
+                            newRequest().then(() => renderLetter());
                         }}
                     />
                 </div>
