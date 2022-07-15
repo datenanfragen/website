@@ -81,7 +81,8 @@ textarea:placeholder-shown + label.fancy-label {
 
             @include mobile {
                 width: 80vw;
-                left: -40vw;
+                right: 0;
+                left: unset;
             }
 
             .fill-field {

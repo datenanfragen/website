@@ -78,7 +78,10 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
             )}
 
             {(transport_medium === 'fax' || transport_medium === 'letter') && (
-                <StatefulSignatureInput fillSignature={fillSignature} />
+                <>
+                    <StatefulSignatureInput fillSignature={fillSignature} />
+                    <br />
+                </>
             )}
 
             {/* TODO: Don't we need to call `renderLetter()`? (From a quick investigation: Emails don't need it (even though it does something for emails…) but PDFs do.) */}
