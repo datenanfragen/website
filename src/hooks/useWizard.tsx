@@ -6,8 +6,13 @@ type UseWizardProps<PageId extends string, InitialPageId extends PageId> = {
     onPageChange?: (old_page: PageId, new_page: PageId) => void;
 };
 
+export type WizardPages<PageId extends string> = Record<
+    PageId,
+    { component: JSX.Element; title?: string; canGoBack?: boolean }
+>;
+
 export const useWizard = <PageId extends string, InitialPageId extends PageId>(
-    pages: Record<PageId, { component: JSX.Element; title?: string; canGoBack?: boolean }>,
+    pages: WizardPages<PageId>,
     props: UseWizardProps<PageId, InitialPageId>
 ) => {
     const [pageId, setPageId] = useState<PageId>(props.initialPageId);
