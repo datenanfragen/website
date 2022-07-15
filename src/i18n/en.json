@@ -181,7 +181,8 @@
         "footer-social-github-desc": "Find us on GitHub.",
         "footer-social-matrix-desc": "Talk with us through Matrix.",
         "footer-social-mastodon-desc": "Follow us on Mastodon.",
-        "footer-social-twitter-desc": "Follow us on Twitter."
+        "footer-social-twitter-desc": "Follow us on Twitter.",
+        "noscript-app": "The app runs only on your computer and is therefore completely written in JavaScript. The code sends as little data as possible to our servers if you do not consent. This might include searches you make, but we will never send the data you enter for your requests. Those will only remain on the client. If you want to use the app, please activate JavaScript in your browser or add an exception to your blocker. If it still doesn’t work after that, send us an email at <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
     },
     "home": {
         "data-access": "data access.",
@@ -198,7 +199,8 @@
         "no-results": "Unfortunately, there were no results for your query.",
         "suggest-a-company": "Suggest a new company",
         "quality-tested": "At least one of our contributors has successfully sent a request using the contact details in this record.",
-        "quality-unverified": "The contact details in this record were imported automatically. They have not been verified by us."
+        "quality-unverified": "The contact details in this record were imported automatically. They have not been verified by us.",
+        "search-results": "Search results"
     },
     "cdb": {
         "title": "Company database",
@@ -275,8 +277,8 @@
         "input-single-line": "Text (single line)",
         "input-multi-line": "Text (multi line)",
         "input-address": "Address",
-        "add-input": "Add input",
-        "description": "Description",
+        "add-input": "Add field",
+        "description": "Field description",
         "value": "Value",
         "address-street_1": "Address line 1",
         "address-street_2": "Address line 2",
@@ -285,7 +287,7 @@
         "primary-address": "Sender address",
         "signature": "Signature",
         "reset": "Reset",
-        "delete-field": "Delete this field",
+        "delete-field": "Delete “{{field_name}}” field",
         "tagxplanation": "You can use the tags <code>&lt;italic&gt;&lt;/italic&gt;</code> and <code>&lt;bold&gt;&lt;/bold&gt;</code> in your text. Nested tags are not supported.",
         "subject": "Subject",
         "content": "Content",
@@ -311,6 +313,7 @@
         "letter": "Letter",
         "new-request": "New request",
         "next-request": "Next request",
+        "skip-request": "Skip request",
         "override-request": "Override current request",
         "modal-autocomplete-new-request": "A new company has been selected. Do you want to start a new request?",
         "modal-new-request": "You have not yet used your generated request. Do you still want to reset all fields and start new request or rather load the request first?",
@@ -338,7 +341,61 @@
         "body": "Text",
         "mailto-dropdown-explanation": "How do you want to send the email?",
         "mailto-dropdown-warning": "*This will transmit your request and the included data to the respective service.",
-        "copymanually-explanation": "Here you can copy the subject, recipient and text of your generated email manually."
+        "copymanually-explanation": "Here you can copy the subject, recipient and text of your generated email manually.",
+        "back": "Back",
+        "request-type-info-access": "Through an access request, you can find out whether a company has data on you and, if so, receive a copy of said data. In addition, the company will inform you about what they use your data for, to whom they disclose it, where it came from, and for how long they keep it.",
+        "request-type-info-erasure": "Through an erasure request, you can get a company to delete some or all of the data they have on you. This is possible if the data is no longer necessary for the purpose it was collected for, if the company relies on your consent for processing the data, or if it is being processing illegally.",
+        "request-type-info-rectification": "Through a rectification request, you can get a company to correct any wrong data they may have on you.",
+        "request-type-info-objection": "Through a direct marketing objection, you can forbid a company from using your data to send you advertisements.",
+        "request-type-info-learn-more": "Learn more about the request types",
+        "request-type-info-learn-more-url": "/blog/your-gdpr-rights/",
+        "review-n-companies": {
+            "none": "Start selecting companies!",
+            "one": "Request <strong>{{count}}</strong> company",
+            "other": "Request <strong>{{count}}</strong> companies"
+        },
+        "continue-with-requests": "Continue with these companies",
+        "send-request": "Send request",
+        "send-request-again": "Send request again",
+        "request-type-chooser-page-title": "What do you want to do?",
+        "access-request-statement": "<strong>Get access</strong> to data about me.",
+        "erasure-request-statement": "<strong>Delete</strong> (parts of) data about me.",
+        "objection-request-statement": "Stop receiving <strong>direct marketing</strong>.",
+        "rectification-request-statement": "<strong>Correct</strong> data about me.",
+        "company-chooser-page-title": "Who do you want to address your request to?",
+        "selected-companies-page-title": "Companies you selected",
+        "empty-query-suggested-companies": "No idea who to request? We have some suggestions for you:",
+        "needs-id-document": "An ID document is required to request this entity.",
+        "only-snail-mail": "You might need to send your request via physical mail.",
+        "only-fax": "You might need to send your request by fax.",
+        "choose-runs": "Show and select other entities run by this company.",
+        "also-runs-choose": "This company is also responsible for these other entities or services (deselect the ones you do not want to request):",
+        "batch-breadcrumbs-remaining": {
+            "none": "No more requests",
+            "one": "{{left}} more request",
+            "other": "{{left}} more requests"
+        },
+        "batch-breadcrumbs-sent": {
+            "none": "No requests sent",
+            "one": "{{sent}} request sent",
+            "other": "{{sent}} requests sent"
+        },
+        "review-selection-explanation": "These are the companies you have selected. For companies that are responsible for other entities or services, you can select which ones you want to include in your request. Once you’re happy with your selection, you can start generating the requests.",
+        "send-request-pdf-explanation": "Here’s your generated request. Download the PDF and send it to the company via letter or fax.",
+        "send-request-email-explanation": "Here’s your generated request. You’ll need to send it to the company by email yourself.",
+        "fill-in-request": "Fill in request to “{{company}}”",
+        "unnamed-field": "unnamed field",
+        "add-n-companies": {
+            "none": "Add no companies",
+            "one": "Add one company",
+            "other": "Add {{n}} companies"
+        },
+        "whats-next-title": "What’s next?",
+        "whats-next-deadline": "The companies now have one month to reply to your requests. They can extend this deadline to a total of three months when necessary but need to inform you of that within the first month.",
+        "whats-next-my-requests": "You can view your sent requests on the “My requests” page. There, you can follow up on them, including sending warnings or even complain to the data protection authorities if a company doesn’t respond correctly. You can also save a reminder for the request deadlines to your calendar.",
+        "export-to-calendar": "Export reminders to your calendar",
+        "view-requests": "View your requests",
+        "send-more": "Send more requests"
     },
     "mailto": {
         "mailto": "Default email software",
@@ -506,7 +563,7 @@
         "input-multi-line": "Text (multi line)",
         "custom-input-desc": "Custom field",
         "input-address": "Address",
-        "add-input": "Add input",
+        "add-input": "Add field",
         "description": "Description",
         "value": "Value",
         "address-street_1": "Address line 1",
@@ -579,6 +636,10 @@
         "next-request": "<p>And that’s it already for this request!</p><p>Depending on the transport medium, here you can either send your request as an email or download the PDF for it. After that, let us head to the next request.</p>"
     },
     "company-packs": {
+        "add-all-star": "All companies in this pack are relevant to most people in your country.",
+        "add-companies-button": "Add companies to your requests",
+        "choose-companies-button": "Choose companies to add to your requests",
+        "and-n-more": ", and {{n}} more",
         "address-brokers-title": "Address broking and management",
         "address-brokers-description": "These companies collect the postal and/or email addresses of individuals and sell services based on them to other businesses. Some sell or rent their address data to advertisers (often in combination with additional attributes such as interests), others offer companies to check their already stored addresses and correct them if necessary.",
         "credit-agencies-title": "Credit agencies",

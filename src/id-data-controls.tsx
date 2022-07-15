@@ -144,93 +144,93 @@ const IdDataControls = () => {
                     title={t('saved-data', 'id-data-controls')}
                     hasPrimary={false}>
                     <IntlProvider scope="id-data-controls" definition={window.I18N_DEFINITION}>
-                        <div>
-                            <p>
-                                <MarkupText id="saved-data-explanation" />
-                            </p>
-                            <div className="form-group">
-                                <input
-                                    type="checkbox"
-                                    id="always-fill-in"
-                                    className="form-element"
-                                    checked={SavedIdData.shouldAlwaysFill()}
-                                    onChange={() => SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill())}
-                                />
-                                <label htmlFor="always-fill-in">
-                                    <Text id="always-fill-in" />
-                                </label>
+                        <p>
+                            <MarkupText id="saved-data-explanation" />
+                        </p>
+                        <div className="form-group">
+                            <input
+                                type="checkbox"
+                                id="always-fill-in"
+                                className="form-element"
+                                checked={SavedIdData.shouldAlwaysFill()}
+                                onChange={() => SavedIdData.setAlwaysFill(!SavedIdData.shouldAlwaysFill())}
+                            />
+                            <label htmlFor="always-fill-in">
+                                <Text id="always-fill-in" />
+                            </label>
+                        </div>
+
+                        <div className="form-group form-row">
+                            <div className="col40 col100-mobile">
+                                <strong>
+                                    <label htmlFor="name-input-value-fixed-id-data">{t('name', 'generator')}</label>
+                                </strong>
                             </div>
+                            <div className="col60 col100-mobile">
+                                <InputControl
+                                    type="name"
+                                    id="name-input"
+                                    suffix="fixed-id-data"
+                                    onChange={(v) => handleFixedChange('name', v)}
+                                    value={fixedIdData.name}
+                                />
+                            </div>
+                        </div>
 
-                            <div className="form-group" style="width: 100%; display: table;">
-                                <div className="col40">
-                                    <strong>
-                                        <label htmlFor="name-input-value-fixed-id-data">{t('name', 'generator')}</label>
-                                    </strong>
-                                </div>
-                                <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                    <InputControl
-                                        type="name"
-                                        id="name-input"
-                                        suffix="fixed-id-data"
-                                        onChange={(v) => handleFixedChange('name', v)}
-                                        value={fixedIdData.name}
-                                    />
-                                </div>
-                                <div className="clearfix" />
+                        <div className="form-group form-row">
+                            <div className="col40 col100-mobile">
+                                <strong>
+                                    <label htmlFor="email-input-value-fixed-id-data">
+                                        {t('email-address', 'generator')}
+                                    </label>
+                                </strong>
+                            </div>
+                            <div className="col60 col100-mobile">
+                                <InputControl
+                                    type="email"
+                                    id="email-input"
+                                    suffix="fixed-id-data"
+                                    onChange={(v) => handleFixedChange('email', v)}
+                                    value={fixedIdData.email}
+                                />
+                            </div>
+                        </div>
 
-                                <div className="col40">
-                                    <strong>
-                                        <label htmlFor="email-input-value-fixed-id-data">
-                                            {t('email-address', 'generator')}
-                                        </label>
-                                    </strong>
-                                </div>
-                                <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                    <InputControl
-                                        type="email"
-                                        id="email-input"
-                                        suffix="fixed-id-data"
-                                        onChange={(v) => handleFixedChange('email', v)}
-                                        value={fixedIdData.email}
-                                    />
-                                </div>
-                                <div className="clearfix" />
+                        <div className="form-group form-row">
+                            <div className="col40 col100-mobile">
+                                <strong>
+                                    <label htmlFor="main-address-input-container-fixed-id-data">
+                                        {t('address', 'generator')}
+                                    </label>
+                                </strong>
+                            </div>
+                            <div className="col60 col100-mobile">
+                                <InputControl
+                                    type="address"
+                                    id="main-address-input"
+                                    suffix="fixed-id-data"
+                                    onChange={(v) => handleFixedChange('address', v)}
+                                    value={fixedIdData.address}
+                                />
+                            </div>
+                        </div>
 
-                                <div className="col40">
-                                    <strong>
-                                        <label htmlFor="main-address-input-container-fixed-id-data">
-                                            {t('address', 'generator')}
-                                        </label>
-                                    </strong>
-                                </div>
-                                <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                    <InputControl
-                                        type="address"
-                                        id="main-address-input"
-                                        suffix="fixed-id-data"
-                                        onChange={(v) => handleFixedChange('address', v)}
-                                        value={fixedIdData.address}
-                                    />
-                                </div>
-                                <div className="clearfix" />
-
-                                <div className="col40">
-                                    <strong>
-                                        <label htmlFor="birthdate-input-value-fixed-id-data">
-                                            {t('birthdate', 'generator')}
-                                        </label>
-                                    </strong>
-                                </div>
-                                <div className="col60" style="padding-left: 10px; box-sizing: border-box;">
-                                    <InputControl
-                                        type="birthdate"
-                                        id="birthdate-input"
-                                        suffix="fixed-id-data"
-                                        onChange={(v) => handleFixedChange('birthdate', v)}
-                                        value={fixedIdData.birthdate}
-                                    />
-                                </div>
-                                <div className="clearfix" />
+                        <div className="form-group form-row">
+                            <div className="col40 col100-mobile">
+                                <strong>
+                                    <label htmlFor="birthdate-input-value-fixed-id-data">
+                                        {t('birthdate', 'generator')}
+                                    </label>
+                                </strong>
+                            </div>
+                            <div className="col60 col100-mobile">
+                                <InputControl
+                                    type="birthdate"
+                                    id="birthdate-input"
+                                    suffix="fixed-id-data"
+                                    onChange={(v) => handleFixedChange('birthdate', v)}
+                                    value={fixedIdData.birthdate}
+                                />
                             </div>
                         </div>
                     </IntlProvider>

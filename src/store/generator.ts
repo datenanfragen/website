@@ -1,4 +1,4 @@
-import type { IdDataElement, Request, ResponseType, Signature } from '../types/request';
+import type { IdDataElement, Request, ResponseType, Signature, RequestType } from '../types/request';
 import type { StoreSlice } from '../types/utility';
 import create, { GetState, SetState } from 'zustand';
 import { RequestState, createRequestStore } from './request';
@@ -19,9 +19,11 @@ export interface GeneratorSpecificState {
     fillFields: IdDataElement[];
     fillSignature: Signature;
     pdfWorker?: Worker;
+    batchRequestType?: RequestType;
     setReady: () => void;
     setBusy: () => void;
     setDownload: (download_active: boolean, download_url?: string, download_filename?: string) => void;
+    setBatchRequestType: (request_type: RequestType) => void;
     refreshFillFields: () => void;
     initiatePdfGeneration: () => void;
     renderLetter: () => void;
@@ -54,6 +56,7 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
             download_url,
             download_filename,
         }),
+    setBatchRequestType: (batchRequestType) => set({ batchRequestType }),
     refreshFillFields: () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             savedIdData.getAll(false).then((fillFields) => fillFields && set({ fillFields }));
@@ -90,6 +93,8 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
         const letter = get().letter();
 
         if (get().request.transport_medium === 'email') {
+            // TODO: Why are we doing this for emails? Maybe I'm missing something but I don't think this is used
+            // anywhere. The `MailtoDropdown` generates this itself and doesn't rely on `downloadActive`.
             get().setDownload(
                 true,
                 URL.createObjectURL(

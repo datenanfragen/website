@@ -69,7 +69,7 @@ export const useModal = (
         if (!shown) return <Fragment />;
 
         return (
-            <div className="modal">
+            <div className={`modal${document.getElementsByClassName('modal').length > 0 ? ' no-animation' : ''}`}>
                 <div className="backdrop" onClick={() => options.backdropDismisses && dismiss()} role="presentation" />
 
                 <div className="inner" style={options.innerStyle}>

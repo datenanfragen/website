@@ -18,7 +18,8 @@ type RequestGeneratorBuilderProps = {
 export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps) => {
     const setCompanyBySlug = useGeneratorStore((state) => state.setCompanyBySlug);
     const refreshFillFields = useGeneratorStore((state) => state.refreshFillFields);
-    const startBatch = useGeneratorStore((state) => state.startBatch);
+    const appendToBatchBySlug = useGeneratorStore((state) => state.appendToBatchBySlug);
+    const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
     const setBusy = useGeneratorStore((state) => state.setBusy);
     const setReady = useGeneratorStore((state) => state.setReady);
     const setCustomLetterTemplate = useGeneratorStore((state) => state.setCustomLetterTemplate);
@@ -111,7 +112,7 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
                             // Re-calling this code (due to the async nature of the `then` block, it may well run later) would
                             // result in skipping the first company (see #253). Instead, we only want to prepare batch mode here if
                             // it was enabled through the URL (i.e. `batch_companies` is set).
-                            if (batch.length > 0) startBatch(batch);
+                            if (batch.length > 0) appendToBatchBySlug(batch).then(() => advanceBatch());
                         }
                     }
                 }
@@ -124,7 +125,8 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
         onInitialized,
         refreshFillFields,
         renderLetter,
-        startBatch,
+        appendToBatchBySlug,
+        advanceBatch,
         resetInitialConditions,
         setCompanyBySlug,
         showAuthorityChooser,

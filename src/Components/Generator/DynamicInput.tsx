@@ -1,5 +1,6 @@
-import type { JSX } from 'preact';
 import type { Address, AddressIdData, IdDataElement } from '../../types/request';
+import type { JSX } from 'preact';
+import { useState, useRef } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { ADDRESS_STRING_PROPERTIES } from '../../Utility/requests';
@@ -14,6 +15,7 @@ type DynamicInputProps = {
     allowRemoving?: boolean;
     allowChangingDescription?: boolean;
     hasPrimary?: boolean;
+    initiallyEditable?: boolean;
 
     onChange: (value: IdDataElement) => void;
     onRemove: () => void;
@@ -38,80 +40,99 @@ export const DynamicInput = (props: DynamicInputProps) => {
         suppressLabel: props.allowChangingDescription,
     } as InputControlProps;
 
+    const [isEditable, setIsEditable] = useState(props.initiallyEditable || false);
+
+    const descInput = useRef<HTMLInputElement>(null);
+
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div
-                className={`dynamic-input dynamic-input-${props.value.type}`}
+                className={`dynamic-input dynamic-input-${props.value.type} form-group form-row ${
+                    props.allowRemoving || props.allowChangingDescription ? 'dynamic-input-editable ' : ''
+                }${isEditable ? 'dynamic-input-edit-mode ' : ''}`}
                 id={`dynamic-input-${props.id}-${props.suffix}`}>
-                <div className="col40 form-group">
-                    {props.allowRemoving && (
-                        <div style="display: table-cell; width: 27px;">
+                <div className="col40 col100-mobile">
+                    <div className="form-group-label" aria-haspopup={true}>
+                        {props.allowRemoving && (
                             <button
                                 id={`${props.id}-delete-${props.suffix}`}
                                 data-dynamic-input-id={props.id}
                                 className="dynamic-input-delete button button-secondary button-small icon-trash"
                                 onClick={props.onRemove}
-                                title={t('delete-field', 'generator')}
+                                title={t('delete-field', 'generator', {
+                                    field_name: props.value.desc || t('unnamed-field', 'generator'),
+                                })}
+                            />
+                        )}
+
+                        {/* The click event is only for us measly sighted people. Keyboard/screen reader users can just focus the input directly. */}
+                        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
+                        <label
+                            className={`dynamic-input-label${isEditable ? ' sr-only' : ''}`}
+                            htmlFor={`${props.id}-${props.value.type === 'address' ? 'container' : 'value'}-${
+                                props.suffix
+                            }`}
+                            onClick={(e) => {
+                                if (!props.allowChangingDescription) return;
+
+                                // By default, clicking the label will focus the associated input.
+                                e.preventDefault();
+                                setIsEditable(true);
+                                descInput.current?.focus();
+                                descInput.current?.select();
+                            }}
+                            aria-live="polite">
+                            {props.value.desc}
+                        </label>
+                        <div
+                            className={!(props.allowChangingDescription && isEditable) ? 'sr-only' : ''}
+                            onFocus={() => setIsEditable(true)}>
+                            <label htmlFor={`${props.id}-desc-${props.suffix}`} className="sr-only">
+                                <Text id="description" />
+                            </label>
+                            <input
+                                name="desc"
+                                type="text"
+                                ref={descInput}
+                                id={`${props.id}-desc-${props.suffix}`}
+                                data-dynamic-input-id={props.id}
+                                className="form-element"
+                                value={props.value.desc}
+                                placeholder={t('description', 'generator')}
+                                disabled={!props.allowChangingDescription}
+                                onBlur={(e) => {
+                                    props.onChange(
+                                        produce((id_data: IdDataElement) => {
+                                            id_data.desc = e.currentTarget.value;
+                                        })(props.value)
+                                    );
+                                    setIsEditable(false);
+                                }}
                             />
                         </div>
-                    )}
-                    <div style="display: table-cell;">
-                        {props.allowChangingDescription ? (
-                            [
-                                <label htmlFor={`${props.id}-desc-${props.suffix}`} className="sr-only">
-                                    <Text id="description" />
-                                </label>,
-                                <input
-                                    name="desc"
-                                    type="text"
-                                    id={`${props.id}-desc-${props.suffix}`}
-                                    data-dynamic-input-id={props.id}
-                                    className="form-element"
-                                    value={props.value.desc}
-                                    placeholder={t('description', 'generator')}
-                                    style="margin-left: 5px;"
-                                    required={!props.optional || !props.value.optional}
-                                    onBlur={(e) =>
-                                        props.onChange(
-                                            produce((id_data: IdDataElement) => {
-                                                id_data.desc = e.currentTarget.value;
-                                            })(props.value)
-                                        )
-                                    }
-                                />,
-                            ]
-                        ) : (
-                            <label htmlFor={`${props.id}-value-${props.suffix}`}>{props.value.desc}</label>
-                        )}
                     </div>
                     {props.hasPrimary && props.value.type === 'address' && (
-                        <div className="col50">
-                            <button
-                                id={`${props.id}-primaryButton`}
-                                name="primary_button"
-                                data-dynamic-input-id={props.id}
-                                className="button button-secondary dynamic-input-primaryButton"
-                                data-isprimary={props.value.value.primary}
-                                onClick={() => {
-                                    if (props.value.type === 'address') {
-                                        props.onChange(
-                                            produce((id_data: AddressIdData) => {
-                                                id_data.value.primary = true;
-                                            })(props.value)
-                                        );
-                                    }
-                                }}>
-                                <Text id="primary-address" />
-                            </button>
-                        </div>
+                        <button
+                            id={`${props.id}-primaryButton`}
+                            data-dynamic-input-id={props.id}
+                            className="button button-secondary dynamic-input-primaryButton"
+                            data-isprimary={props.value.value.primary}
+                            onClick={() => {
+                                if (props.value.type === 'address') {
+                                    props.onChange(
+                                        produce((id_data: AddressIdData) => {
+                                            id_data.value.primary = true;
+                                        })(props.value)
+                                    );
+                                }
+                            }}>
+                            <Text id="primary-address" />
+                        </button>
                     )}
                 </div>
-                <div className="col60">
-                    <div style="padding-left: 10px;" className="form-group">
-                        <InputControl {...inputProps} />
-                    </div>
+                <div className="col60 col100-mobile">
+                    <InputControl {...inputProps} />
                 </div>
-                <div className="clearfix" />
             </div>
         </IntlProvider>
     );
@@ -143,7 +164,7 @@ export const InputControl = (props: InputControlProps) => {
             );
 
         return (
-            <div id={`${props.id}-container-${props.suffix}`}>
+            <div id={`${props.id}-container-${props.suffix}`} className="address-input-container">
                 {ADDRESS_STRING_PROPERTIES.map((property) => (
                     <div className="form-group fancy-fg">
                         <input
@@ -162,14 +183,6 @@ export const InputControl = (props: InputControlProps) => {
                         </label>
                     </div>
                 ))}
-                <input
-                    data-dynamic-input-id={props.id}
-                    type="hidden"
-                    id={`${props.id}-primary-${props.suffix}`}
-                    className="dynamic-input-primary form-element"
-                    value={props.value ? 'true' : 'false'}
-                    onChange={(e) => handleChange('primary', e.currentTarget.value)}
-                />
             </div>
         );
     }
@@ -184,22 +197,12 @@ export const InputControl = (props: InputControlProps) => {
         value: props.value,
     };
 
-    return (
-        <div className="form-group">
-            {!props.suppressLabel && props.desc && (
-                <label for={`${props.id}-value-${props.suffix}`} className="sr-only">
-                    {props.desc}
-                </label>
-            )}
-
-            {props.type === 'textarea' ? (
-                <textarea {...componentProps} />
-            ) : (
-                <input
-                    type={props.type === 'birthdate' ? 'date' : props.type === 'email' ? 'email' : 'text'}
-                    {...componentProps}
-                />
-            )}
-        </div>
+    return props.type === 'textarea' ? (
+        <textarea {...componentProps} />
+    ) : (
+        <input
+            type={props.type === 'birthdate' ? 'date' : props.type === 'email' ? 'email' : 'text'}
+            {...componentProps}
+        />
     );
 };

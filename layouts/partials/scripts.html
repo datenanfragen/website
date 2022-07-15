@@ -61,6 +61,10 @@
 <script>window.renderDonationWidget();</script>
 {{ end }}
 
+{{ if eq .Type "app" }}
+<script src="{{ "js/app.bundle.gen.js" | absURL }}"></script>
+{{ end }}
+
 {{ if .IsHome }}
 <script src="{{ "js/home.bundle.gen.js" | absURL }}"></script>
 {{ end }}

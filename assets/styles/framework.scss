@@ -63,7 +63,7 @@
 .col100-mobile {
     @include mobile {
         width: 100%;
-        flex: 1;
+        flex: 0 0 100%;
         float: none;
 
         hyphens: auto;
@@ -118,7 +118,8 @@
     position: relative;
     float: left;
 }
-.hidden {
+.hidden,
+[hidden] {
     display: none !important;
 }
 .mobile-only {
@@ -348,8 +349,21 @@ pre {
 
 .form-group {
     position: relative;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    &.form-row {
+        display: flex;
+        column-gap: 10px;
+        row-gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .form-group-label {
+        display: flex;
+        align-items: baseline;
+        column-gap: 5px;
+    }
 }
 .form-group-vertical {
     margin-top: 0;
@@ -412,5 +426,13 @@ blockquote {
 @keyframes fadeOut {
     100% {
         opacity: 0;
+    }
+}
+
+ul.unstyled-list {
+    padding-left: 0;
+
+    & > li {
+        list-style: none;
     }
 }

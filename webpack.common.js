@@ -7,6 +7,7 @@ module.exports = {
         general: './src/general.tsx',
         home: './src/home.js',
         generator: './src/generator.tsx',
+        app: './src/app.tsx',
         'company-list': './src/company-list.js',
         'my-requests': './src/my-requests.tsx',
         'privacy-controls': './src/privacy-controls.js',

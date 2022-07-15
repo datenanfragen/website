@@ -7,6 +7,8 @@ type CommonSchema = {
     slug: string;
     name: string;
     runs?: string[];
+    /// We copy the runs in this field to allow users to create their own selection of companies in the original runs field. Leave this undefined to default to the standard `runs` field. Make this an empty array to unselect all runs entities.
+    runs_selected?: string[];
     email?: string;
     address?: string;
     fax?: string;
@@ -20,7 +22,7 @@ type CommonSchema = {
 };
 
 // Sadly the only way to to this is via a mapped type, so this looks a bit hacky. (See: https://github.com/microsoft/TypeScript/pull/44512#issuecomment-928890218)
-type CustomTemplateProperties = { [P in `custom-${RequestType}-template`]: string | undefined };
+type CustomTemplateProperties = { [P in `custom-${RequestType}-template`]?: string | undefined };
 
 export type Company = CommonSchema & {
     'required-elements'?: SetOptional<IdDataElement, 'value'>[];
@@ -33,3 +35,5 @@ export type Company = CommonSchema & {
 export type SupervisoryAuthority = CommonSchema & {
     'complaint-language'?: RequestLanguage;
 };
+
+export type CompanyPack = { slug: string; type: 'choose' | 'add-all'; companies: { slug: string; name: string }[] };

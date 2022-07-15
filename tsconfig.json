@@ -9,6 +9,8 @@
         "target": "es2015",
         "strict": true,
         "strictNullChecks": true,
+        // TODO:
+        "noUncheckedIndexedAccess": false,
         "skipLibCheck": true,
         "noImplicitAny": true,
         "forceConsistentCasingInFileNames": true,

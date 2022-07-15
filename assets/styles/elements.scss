@@ -15,11 +15,13 @@
     display: inline-block;
     line-height: 1.2;
 
-    &:hover,
-    &:focus {
-        background-color: color('blue', 900);
-        color: color('gray', 200) !important;
-        border: 2px solid color('blue', 900);
+    &:not(.button-hoverless) {
+        &:hover,
+        &:focus {
+            background-color: color('blue', 900);
+            color: color('gray', 200) !important;
+            border-color: color('blue', 900);
+        }
     }
 
     &.disabled,
@@ -28,6 +30,10 @@
         border: 2px solid color('gray', 800);
         color: color('gray', 800) !important;
         cursor: not-allowed;
+    }
+
+    &.icon:before {
+        margin-right: 12px;
     }
 }
 .button-unstyled {
@@ -39,6 +45,11 @@
     margin: 0;
     padding: 0;
     text-align: left;
+    color: inherit;
+
+    &.icon:before {
+        margin-right: 8px;
+    }
 }
 .button-full-width {
     width: 100%;
@@ -60,15 +71,17 @@ a.button-secondary {
     background-color: $bg-color;
     color: $primary-color !important;
 }
-.button.icon:before {
-    margin-right: 12px;
-}
 .button-small {
     padding: 5px 8px;
 
     &.icon:before {
         margin-right: 8px;
     }
+}
+.button-fit-content {
+    height: fit-content;
+    margin: auto 0;
+    padding: 5px 0;
 }
 
 canvas {
@@ -203,6 +216,9 @@ input:disabled {
 .box-compact {
     padding: 10px;
 }
+.box-thin {
+    border-width: 2px;
+}
 
 .star {
     position: absolute;
@@ -244,55 +260,121 @@ input:disabled {
 }
 
 /* Radio Buttons */
-.radio-label {
-    input.form-element {
-        display: none;
-    }
+.radio-group {
+    display: flex;
+    flex-direction: row;
 
-    display: inline-block;
-    border: 2px solid $primary-color;
-    padding: 10px;
-    border-radius: 0;
-    background-color: $bg-color;
-    color: $primary-color;
-    border-left: none;
-    margin-bottom: 5px;
+    .radio-wrapper {
+        .radio-label {
+            input.form-element {
+                display: none;
+            }
 
-    &:first-child {
-        border-radius: 2px 0 0 2px;
-        border-left: 2px solid $primary-color;
-    }
+            display: inline-block;
+            border: 2px solid $primary-color;
+            padding: 10px;
+            border-radius: 0;
+            background-color: $bg-color;
+            color: $primary-color;
+            border-left: none;
+            margin-bottom: 5px;
 
-    &:last-child {
-        border-radius: 0 2px 2px 0;
-    }
+            &.active {
+                background-color: $primary-color;
+                color: $bg-color;
+            }
+            &:hover,
+            &:focus {
+                background-color: color('blue', 900);
+                color: $bg-color;
+            }
+        }
 
-    &.active {
-        background-color: $primary-color;
-        color: $bg-color;
-    }
-    &:hover,
-    &:focus {
-        background-color: color('blue', 900);
-        color: $bg-color;
+        /* stylelint-disable csstools/use-nesting */
+        &:first-child .radio-label {
+            /* stylelint-enable csstools/use-nesting */
+            border-radius: 2px 0 0 2px;
+            border-left: 2px solid $primary-color;
+        }
+
+        &:last-child .radio-label {
+            border-radius: 0 2px 2px 0;
+        }
     }
 }
 
 /* yet another backport from chitin */
-.radio-group-vertical .radio-label {
-    display: block;
-    margin-bottom: 0;
-    border-left: 2px solid $primary-color;
-    border-bottom: 0;
+.radio-group-vertical {
+    flex-direction: column;
+    &:not(.radio-group-padded) .radio-wrapper {
+        .radio-label {
+            border-bottom: 0;
+        }
 
-    padding-left: 15px;
+        &:first-child {
+            .radio-label,
+            .radio-addon .button {
+                border-radius: 2px 2px 0 0;
+            }
+        }
+        &:last-child {
+            .radio-label,
+            .radio-addon .button {
+                border-radius: 0 0 2px 2px;
+                border-bottom: 2px solid $primary-color;
+            }
+        }
 
-    &:first-child {
-        border-radius: 2px 2px 0 0;
+        .radio-addon .button {
+            border-bottom: 0;
+            border-radius: 0;
+        }
     }
-    &:last-child {
-        border-radius: 0 0 2px 2px;
-        border-bottom: 2px solid $primary-color;
+
+    /* stylelint-disable csstools/use-nesting */
+    &.radio-group-padded .radio-wrapper {
+        /* stylelint-enable csstools/use-nesting */
+        margin-bottom: 12px;
+
+        .radio-label {
+            border-radius: 2px;
+        }
+
+        .radio-addon {
+            margin-left: 6px;
+
+            .button {
+                border: 2px solid $primary-color;
+
+                padding-left: 13px;
+                padding-right: 13px;
+            }
+        }
+    }
+
+    .radio-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+
+        .radio-label {
+            display: block;
+            margin-bottom: 0;
+            border-left: 2px solid $primary-color;
+            flex-grow: 1;
+            height: 50px;
+            box-sizing: border-box;
+
+            padding-left: 15px;
+        }
+
+        .radio-addon {
+            .button {
+                border-left: 0;
+                font-size: 20px;
+                height: 50px;
+            }
+        }
     }
 }
 
@@ -363,11 +445,6 @@ input[type='search'].aa-input-search {
         background-color: color('gray', 400);
     }
 
-    & mark {
-        background-color: color('blue', 100);
-        color: inherit;
-    }
-
     h4 {
         margin: 0;
 
@@ -399,23 +476,62 @@ input[type='search'].aa-input-search {
     }
 }
 
+/* InstantSearch */
+.ais-SearchBox {
+    margin-bottom: 20px;
+
+    input.ais-SearchBox-input {
+        border-width: 4px;
+        padding: 12px 28px 12px 12px;
+
+        &:required {
+            background: unset;
+        }
+    }
+}
+.ais-SearchBox-input {
+    width: 100%;
+    &:focus {
+        outline: $primary-color solid 1px;
+    }
+}
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
+    display: none;
+}
+
+/* InstantSearch and Autocomplete */
+.ais-Highlight,
+.aa-suggestion {
+    & mark {
+        background-color: color('blue', 100);
+        color: inherit;
+    }
+}
+
 /* Modal */
 /* adapted after: https://jsfiddle.net/developit/2kLkaxvd/ */
 
-.backdrop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-
-    @extend %fade-in;
-}
-
 .modal {
+    position: absolute;
     display: block;
+
+    &.no-animation > .inner,
+    &.no-animation > .backdrop {
+        animation: none;
+    }
+
+    & > .backdrop {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+
+        @extend %fade-in;
+    }
 
     & > .inner {
         position: fixed;
@@ -573,6 +689,10 @@ input[type='search'].aa-input-search {
             display: block;
             position: absolute;
             z-index: 998;
+        }
+
+        .dropup {
+            bottom: 100%;
         }
     }
 
@@ -798,6 +918,233 @@ details.footnote {
         }
         p:last-of-type {
             margin-bottom: 0;
+        }
+    }
+}
+
+/* Company Result */
+.company-result-list {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.company-result {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    list-style: none;
+    align-items: baseline;
+
+    &:focus,
+    &.company-result-focussed {
+        outline: 3px solid color('teal', 500);
+    }
+
+    &.company-result-clickable {
+        cursor: pointer;
+    }
+
+    .ais-Highlight mark {
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    .company-info-icon {
+        display: inline-block;
+        margin-left: 5px;
+        color: $error-color;
+
+        &.icon-check-badge {
+            color: color('green', 800);
+        }
+
+        &.icon-question-badge {
+            color: color('orange', 800);
+        }
+    }
+
+    h4 {
+        display: inline;
+        font-size: 16px;
+
+        .ais-Highlight mark {
+            font-style: italic;
+        }
+    }
+
+    &.company-result-active {
+        background-color: $primary-color;
+        color: $bg-color;
+
+        .company-info-icon {
+            color: $bg-color;
+        }
+    }
+
+    .company-result-action {
+        display: block;
+        color: $primary-color;
+        flex-shrink: 0;
+        margin-left: 20px;
+    }
+
+    .company-result-content {
+        padding: 20px;
+        width: 100%;
+        flex-grow: 2;
+    }
+}
+
+.company-suggestion-container {
+    width: 100%;
+    max-height: 450px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
+    margin-top: 15px;
+
+    .company-suggestion-pack {
+        border: 2px solid $primary-color;
+        border-radius: 2px;
+        width: 250px;
+        flex-grow: 1;
+        position: relative;
+        padding-bottom: 45px;
+
+        h1 {
+            padding: 10px 42px 10px 10px;
+            font-size: 1.2em;
+            display: block;
+            border-bottom: 2px solid $primary-color;
+        }
+
+        span.icon.icon-star {
+            position: absolute;
+            top: -12px;
+            right: 5px;
+            font-size: 24pt;
+        }
+
+        p {
+            margin: 10px;
+        }
+
+        button.company-suggestion-pack-cta {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            border-radius: 0;
+            border-width: 1px;
+            border-top-width: 3px;
+        }
+    }
+}
+
+/* Batch Breadcrumbs */
+.batch-breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    align-items: stretch;
+    width: 100%;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+
+    .batch-breadcrumb {
+        flex-grow: 1;
+        a,
+        span {
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            padding: 8px 0 8px 65px;
+            color: $text-color;
+            background-color: color('gray', 400);
+            text-decoration: none !important;
+            position: relative;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+
+            &::after {
+                content: ' ';
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid color('gray', 400);
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                left: 100%;
+                z-index: 2;
+            }
+
+            &::before {
+                content: ' ';
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid $bg-color;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                margin-left: 1px;
+                left: 100%;
+                z-index: 1;
+            }
+
+            &.batch-breadcrumb-sent {
+                background-color: $bg-accent-color;
+
+                &::after {
+                    border-left-color: $bg-accent-color;
+                }
+            }
+
+            &.batch-breadcrumb-active {
+                background-color: $accent_color;
+                color: $bg-color;
+
+                &::after {
+                    border-left-color: $accent_color;
+                }
+            }
+        }
+
+        &:first-child {
+            a,
+            span {
+                padding-left: 10px;
+            }
+        }
+
+        /* This is for either desktop or mobile, of which only one is visible at each time. */
+        &:nth-last-child(1).mobile-only,
+        &:nth-last-child(2).desktop-only {
+            a,
+            span {
+                padding-right: 10px;
+                padding-left: 40px;
+
+                &::after {
+                    border: 0;
+                    content: none;
+                }
+                &::before {
+                    border: 0;
+                    content: none;
+                }
+            }
         }
     }
 }

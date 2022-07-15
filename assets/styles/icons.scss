@@ -9,6 +9,13 @@
     padding-left: 5px;
 }
 
+.padded-icon-left {
+    padding-right: 5px;
+}
+.padded-icon-right {
+    padding-left: 5px;
+}
+
 .icon-letter:before {
     @extend %icon;
     font-icon: 150% url('letter.svg');
@@ -30,13 +37,13 @@
 .icon-arrow-down:before {
     @extend %icon;
     font-icon: url('arrow-down.svg');
-    vertical-align: -3px;
+    vertical-align: -1px;
 }
 
 .icon-arrow-up:before {
     @extend %icon;
     font-icon: url('arrow-up.svg');
-    vertical-align: -3px;
+    vertical-align: -1px;
 }
 
 .icon-arrow-right:before {
@@ -49,6 +56,15 @@
     @extend %icon;
     font-icon: url('arrow-left.svg');
     vertical-align: -3px;
+}
+
+.button.button-unstyled {
+    &.icon-arrow-left,
+    &.icon-arrow-right {
+        &::before {
+            vertical-align: -1px;
+        }
+    }
 }
 
 .icon-menu:before {
@@ -157,4 +173,45 @@
     @extend %icon;
     font-icon: url('question-badge.svg');
     vertical-align: -2px;
+}
+
+.icon-question-mark:before {
+    @extend %icon;
+    font-icon: url('question-mark.svg');
+    vertical-align: -2px;
+}
+
+.icon-id-card:before {
+    @extend %icon;
+    font-icon: url('id-card.svg');
+    vertical-align: -1px;
+}
+
+.icon-post-person:before {
+    @extend %icon;
+    font-icon: url('post-person.svg');
+    vertical-align: -1px;
+}
+
+.icon-fax:before {
+    @extend %icon;
+    font-icon: url('fax.svg');
+    vertical-align: -1px;
+}
+
+.icon-plus-circle:before {
+    @extend %icon;
+    font-icon: url('plus-circle.svg');
+    vertical-align: -2px;
+}
+
+.icon-close-circle:before {
+    @extend %icon;
+    font-icon: url('close-circle.svg');
+    vertical-align: -2px;
+}
+
+.icon-star:before {
+    @extend %icon;
+    font-icon: url('star.svg');
 }

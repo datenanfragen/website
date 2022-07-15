@@ -12,7 +12,7 @@ type MailtoHandler = (
     | { onClick: (data: EmailData, showCopyManuallyModal: () => void) => void }
 ) & { countries: Country[] };
 
-type MailtoDropdownProps = {
+export type MailtoDropdownProps = {
     letter: RequestLetter;
     handlers?: (keyof typeof mailto_handlers)[];
     email: string;
@@ -21,12 +21,13 @@ type MailtoDropdownProps = {
     className: string;
     enabled: boolean;
     buttonText?: JSX.Element | JSX.Element[];
+    dropup?: boolean;
 };
 
 // TS Helper to type `Record` values but keep strong key type without having to hardcode key values, see:
 // https://stackoverflow.com/a/49539369
 const createMailtoHandlers = <T extends Record<string, MailtoHandler>>(handlers: T) => handlers;
-const mailto_handlers = createMailtoHandlers({
+export const mailto_handlers = createMailtoHandlers({
     mailto: {
         link: (d) => `mailto:${d.email}?subject=${d.subject}&body=${d.body}`,
         countries: ['all'],
@@ -163,14 +164,18 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <CopyManuallyModal />
 
-            <div className={`dropdown-container${!props.enabled ? ' disabled' : ''}`} style="display: inline-block;">
+            <div
+                className={`${props.dropup ? 'dropup' : 'dropdown'}-container${!props.enabled ? ' disabled' : ''}`}
+                style="display: inline-block;">
                 <button disabled={!props.enabled} className={props.className}>
                     {props.buttonText || <Text id={props.done ? 'send-email-again' : 'send-email'} />}
                     &nbsp;&nbsp;
                     <span className={`icon ${props.done ? 'icon-paper-plane' : 'icon-email'}`} />
                 </button>
                 {props.enabled && (
-                    <div className="dropdown" style="padding: 15px; width: 270px; max-width: 90vw;">
+                    <div
+                        className={props.dropup ? 'dropup' : 'dropdown'}
+                        style="padding: 15px; width: 270px; max-width: 90vw;">
                         <Text id="mailto-dropdown-explanation" />
 
                         {handler_buttons}

@@ -51,7 +51,7 @@ export interface RequestState<R extends Request> {
     setCustomLetterProperty: (property: keyof Omit<CustomLetterData, 'sender_address'>, value: string) => void;
     setCustomLetterAddress: (address: Address) => void;
     setSent: (sent: boolean) => void;
-    resetRequestToDefault: (language?: string) => void;
+    resetRequestToDefault: (advanceBatch: boolean, language?: string, beforeAdvanceBatchHook?: () => void) => void;
     initializeFields: (data_field?: DataFieldName<R>) => Promise<void>;
     refreshTemplate: () => Promise<void>;
     letter: () => RequestLetter;
@@ -326,11 +326,23 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 state.request.sent = sent;
             })
         ),
-    resetRequestToDefault: (language) => {
+    resetRequestToDefault: (advanceBatch, language, beforeAdvanceBatchHook) => {
         set(() => ({
             request: defaultRequest(language || REQUEST_FALLBACK_LANGUAGE),
         }));
         get().refreshTemplate();
+
+        get().setDownload(false);
+        get().setBusy();
+        get()
+            .removeCompany()
+            .then(() => {
+                if (advanceBatch) {
+                    beforeAdvanceBatchHook?.();
+                    get().advanceBatch();
+                }
+                return get().resetInitialConditions();
+            });
     },
     initializeFields: async (data_field = 'id_data') => {
         if (isSaneDataField(data_field, get().request.type)) {
