@@ -25,7 +25,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
             state.markCurrentBatchCompanyDone,
             state.removeFromBatch,
         ]);
-    const remainingBatchEntries = Object.values(batch || {}).filter((e) => !e.done).length || 0;
+    const remainingBatchEntriesCount = Object.values(batch || {}).filter((e) => !e.done).length || 0;
 
     useEffect(() => {
         if (request.transport_medium !== 'email') return initiatePdfGeneration();
@@ -115,7 +115,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                         else removeFromBatch(current_company!.slug);
                         resetRequestToDefault(true);
 
-                        if (remainingBatchEntries === 1) props.setPage('whats_next');
+                        if (remainingBatchEntriesCount === 1) props.setPage('whats_next');
                         dismissModal();
                     }}
                     style="float: right">

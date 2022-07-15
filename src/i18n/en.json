@@ -182,7 +182,7 @@
         "footer-social-matrix-desc": "Talk with us through Matrix.",
         "footer-social-mastodon-desc": "Follow us on Mastodon.",
         "footer-social-twitter-desc": "Follow us on Twitter.",
-        "noscript-app": "The app runs only on your computer and is therefore completely written in JavaScript. The code sends as little data as possible to our servers if you do not consent. This might include searches you make, but we will never send the data you enter for you requests. That will only remain on the client. If you want to use the app, please activate JavaScript in your browser or add an exception to your blocker. If it still doesn’t work after that, send us an email at <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
+        "noscript-app": "The app runs only on your computer and is therefore completely written in JavaScript. The code sends as little data as possible to our servers if you do not consent. This might include searches you make, but we will never send the data you enter for your requests. Those will only remain on the client. If you want to use the app, please activate JavaScript in your browser or add an exception to your blocker. If it still doesn’t work after that, send us an email at <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
     },
     "home": {
         "data-access": "data access.",
