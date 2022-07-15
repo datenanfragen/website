@@ -7,7 +7,7 @@ type CommonSchema = {
     slug: string;
     name: string;
     runs?: string[];
-    /** We copy the runs in this field to allow users to create thei own selection of companies in the orginal runs field. Leave this undefined to default to the standard `runs` field. Make this an empty array to unselect all runs entities. */
+    /// We copy the runs in this field to allow users to create their own selection of companies in the original runs field. Leave this undefined to default to the standard `runs` field. Make this an empty array to unselect all runs entities.
     runs_selected?: string[];
     email?: string;
     address?: string;

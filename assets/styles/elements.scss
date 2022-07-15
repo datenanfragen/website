@@ -953,6 +953,14 @@ details.footnote {
         display: inline-block;
         margin-left: 5px;
         color: $error-color;
+
+        &.icon-check-badge {
+            color: color('green', 800);
+        }
+
+        &.icon-question-badge {
+            color: color('orange', 800);
+        }
     }
 
     h4 {

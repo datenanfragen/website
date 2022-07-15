@@ -47,6 +47,13 @@ const RunsSnippet = connectHighlight(({ highlight, hit }: HighlightProps<Company
 type CompanyInfoIconsProps = { company: Company };
 const CompanyInfoIcons = (props: CompanyInfoIconsProps) => (
     <>
+        {props.company.quality === 'tested' ? (
+            <span className="icon-check-badge company-info-icon" title={t('quality-tested', 'search')} />
+        ) : (
+            props.company.quality !== 'verified' && (
+                <span className="icon-question-badge company-info-icon" title={t('quality-unverified', 'search')} />
+            )
+        )}
         {props.company['needs-id-document'] && (
             <span className="icon-id-card company-info-icon" title={t('needs-id-document', 'generator')} />
         )}
@@ -76,22 +83,6 @@ export const CompanyResult = (props: CompanyResultProps) => {
                 <Highlight attribute="name" hit={props.company} tagName="mark" />
             ) : (
                 props.company.name
-            )}
-            {props.company.quality === 'tested' ? (
-                <>
-                    &nbsp;
-                    <span className="icon icon-check-badge color-green-800" title={t('quality-tested', 'search')} />
-                </>
-            ) : (
-                props.company.quality !== 'verified' && (
-                    <>
-                        &nbsp;
-                        <span
-                            className="icon icon-question-badge color-orange-800"
-                            title={t('quality-unverified', 'search')}
-                        />
-                    </>
-                )
             )}
             <CompanyInfoIcons company={props.company} />
         </h4>
