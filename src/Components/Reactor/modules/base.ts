@@ -1,9 +1,9 @@
-import type { ReactorModule } from '../../../types/reactor.d';
+import { createReactorModule } from '../../../Utility/reactor';
 
-const module: ReactorModule = {
+export const module = createReactorModule<undefined>('base', {
     steps: [
         {
-            id: 'base::start',
+            id: 'start',
             body: 'Has the company fully complied with your request?',
             options: [
                 { text: 'yes', targetStepId: 'base::company-complied' },
@@ -11,13 +11,13 @@ const module: ReactorModule = {
             ],
         },
         {
-            id: 'base::company-complied',
+            id: 'company-complied',
             body: "TODO: Make sure that's actually the case.",
             // TODO
             options: [],
         },
         {
-            id: 'base::select-issue',
+            id: 'select-issue',
             // TODO: Change text to 'Anything else?' if the user has already selected one previously.
             body: 'Which of these options applies?',
             options: [
@@ -29,7 +29,7 @@ const module: ReactorModule = {
                 // TODO: Show only one of those depending on whether we've already collected an issue.
                 {
                     text: 'Generate a response based on your answers.',
-                    targetStepId: 'base::generate-response',
+                    targetStepId: 'base::generate-letter',
                 },
                 {
                     text: 'Quit wizard and mark request as completed.',
@@ -39,20 +39,20 @@ const module: ReactorModule = {
         },
 
         {
-            id: 'base::generate-response',
-            body: 'TODO: Generate the response.',
+            id: 'generate-letter',
+            body: 'TODO: Properly display letter.',
             // TODO
             options: [],
         },
         {
-            id: 'base::nevermind',
+            id: 'nevermind',
             body: 'TODO: Quit wizard and mark request as completed.',
             // TODO
             options: [],
         },
 
         {
-            id: 'base::dead-end',
+            id: 'dead-end',
             body: 'In this case, we don’t see an issue with the company’s response based on the reason you selected. But you can continue with another reason, if applicable.',
             options: [
                 {
@@ -62,5 +62,4 @@ const module: ReactorModule = {
             ],
         },
     ],
-};
-export default module;
+});
