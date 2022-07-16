@@ -619,7 +619,10 @@
         "reference": "Znak",
         "recipient-fax": "Primatelj (adresa i broj faksa)",
         "recipient-letter": "Primatelj (adresa)",
-        "recipient-email": "Primatelj (email adresa)"
+        "recipient-email": "Primatelj (email adresa)",
+        "objection-reason": "Razlog za tvoj prigovor",
+        "objection-reason-explanation": "Prigovor mora biti opravdan na temelju tvoje konkretne situacije. Objasni zašto se konkretno protiviš tvrtki koja obrađuje tvoje podatke.",
+        "include-objection": "Dodatno dodaj prigovor na osnovi tvoje konkretne situacije"
     },
     "my-requests": {
         "more": "više",
@@ -884,5 +887,16 @@
     },
     "blog": {
         "footnote": "Fusnota"
+    },
+    "company-packs": {
+        "address-brokers-title": "Posredovanje i upravljanje adresama",
+        "credit-agencies-title": "Kreditne agencije",
+        "social-media-title": "Društveni mediji i komunikacija",
+        "entertainment-title": "Zabava",
+        "finance-title": "Financije",
+        "telecommunication-title": "Telekomunikacija",
+        "commerce-title": "Trgovina",
+        "insurance-title": "Osiguranje",
+        "public-authorities-title": "Javna nadzorna tijela"
     }
 }
