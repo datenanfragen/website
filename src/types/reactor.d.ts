@@ -1,8 +1,26 @@
 import type { ComponentChild } from 'preact';
+import { ReactorState } from '../store/reactor';
+import { IdDataElement } from '../types/request.d';
+
+export interface ReactorModuleData {
+    includeIssue: boolean;
+    issue: {
+        variables: Record<string, string>;
+        flags: Record<string, boolean>;
+    };
+    additionalData: IdDataElement[];
+}
+
+// This is filled by the individual modules using declaration merging.
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface ReactorModuleDataMapping {}
+
+export type ReactorModuleId = keyof ReactorModuleDataMapping;
 
 export type ReactorOption = {
-    targetStepId: string;
     text: ComponentChild;
+    targetStepId: string;
+    onChoose?: (state: ReactorState) => void;
 };
 
 export type ReactorStep = {
@@ -19,7 +37,10 @@ export type ReactorHook = {
     options: ReactorOption[];
 };
 
-export type ReactorModule = {
+export type ReactorModule<ModuleDataT extends ReactorModuleData | undefined = undefined> = {
+    id: string;
     steps: ReactorStep[];
     hooks?: ReactorHook[];
+
+    defaultModuleData?: ModuleDataT;
 };
