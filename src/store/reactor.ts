@@ -1,6 +1,8 @@
 import create from 'zustand';
 import { produce } from 'immer';
 import { reactorModules } from '../Components/Reactor/modules/index';
+import { objFilter } from '../Utility/common';
+import type { StoreSlice } from '../types/utility';
 import { ReactorModuleData, ReactorModuleDataMapping, ReactorModuleId } from '../types/reactor.d';
 import { IdDataElement } from '../types/request.d';
 
@@ -20,9 +22,11 @@ export type ReactorState = {
     ) => void;
 
     addAdditionalData: (module: ReactorModuleId, data: IdDataElement[]) => void;
+
+    activeModules: () => Record<ReactorModuleId, ReactorModuleData>;
 };
 
-export const useReactorStore = create<ReactorState>((set) => ({
+const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
     moduleData: reactorModules.reduce<ReactorState['moduleData']>(
         (acc, m) => ({ ...acc, [m.id]: m.defaultModuleData }),
         {} as ReactorState['moduleData']
@@ -54,4 +58,16 @@ export const useReactorStore = create<ReactorState>((set) => ({
                     state.moduleData[module]!.additionalData = state.moduleData[module]!.additionalData.concat(data);
             })
         ),
-}));
+
+    activeModules: () =>
+        objFilter(
+            get().moduleData,
+            ([, data]) => data?.includeIssue || (data?.additionalData.length || -1) > 0
+        ) as Record<ReactorModuleId, ReactorModuleData>,
+});
+
+const { devtools } =
+    process.env.NODE_ENV === 'development' ? require('zustand/middleware') : { devtools: (d: unknown) => d };
+// TODO: Annoyingly, this creates a new instance in the Redux devtools. Don't know why.
+export const useReactorStore =
+    process.env.NODE_ENV === 'development' ? create(devtools(reactorStoreSlice)) : create(reactorStoreSlice);

@@ -1,4 +1,4 @@
-import { useCallback } from 'preact/hooks';
+import { useCallback, useMemo } from 'preact/hooks';
 import { IntlProvider } from 'preact-i18n';
 import { Radio } from '../Radio';
 import { useReactorStore } from '../../store/reactor';
@@ -7,21 +7,34 @@ import { reactorModules } from './modules/index';
 import { generateLetter } from '../../Utility/reactor';
 import type { ReactorHook } from '../../types/reactor.d';
 
-const hooks = reactorModules.flatMap((m) => m.hooks).filter((h): h is ReactorHook => h !== undefined);
-const steps = reactorModules
-    .flatMap((m) => m.steps)
-    .map((step) => ({
-        ...step,
-        options: [
-            ...hooks.filter((h) => h.stepId === step.id && h.position === 'before').flatMap((h) => h.options),
-            ...step.options,
-            ...hooks.filter((h) => h.stepId === step.id && h.position === 'after').flatMap((h) => h.options),
-        ],
-    }));
-
 export const Reactor = () => {
     const store = useReactorStore();
 
+    const hooks = useMemo(
+        () => reactorModules.flatMap((m) => m.hooks).filter((h): h is ReactorHook => h !== undefined),
+        []
+    );
+    const steps = useMemo(
+        () =>
+            reactorModules
+                .flatMap((m) => m.steps)
+                .map((step) => ({
+                    ...step,
+                    options: [
+                        ...hooks
+                            .filter((h) => h.stepId === step.id && h.position === 'before')
+                            .flatMap((h) => h.options),
+                        ...step.options,
+                        ...hooks
+                            .filter((h) => h.stepId === step.id && h.position === 'after')
+                            .flatMap((h) => h.options),
+                    ].filter(
+                        (o) =>
+                            !(o.hideIf !== undefined && (typeof o.hideIf === 'function' ? o.hideIf(store) : o.hideIf))
+                    ),
+                })),
+        [hooks, store]
+    );
     const pages = useCallback(
         (setPage: (newPage: string) => void) =>
             steps.reduce<WizardPages<string>>(
@@ -30,7 +43,7 @@ export const Reactor = () => {
                     [step.id]: {
                         component: (
                             <>
-                                {typeof step.body === 'string' ? <p>{step.body}</p> : step.body}
+                                <p>{typeof step.body === 'function' ? step.body(store) : step.body}</p>
                                 {step.id === 'base::generate-letter' && (
                                     <pre>{generateLetter(store, 'en', 'TODO').toEmailString()}</pre>
                                 )}
@@ -58,7 +71,7 @@ export const Reactor = () => {
                 }),
                 {}
             ),
-        [store]
+        [steps, store]
     );
 
     const { Wizard, set } = useWizard(pages(setPage), { initialPageId: 'base::start' });

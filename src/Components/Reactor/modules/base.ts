@@ -18,22 +18,23 @@ export const module = createReactorModule<undefined>('base', {
         },
         {
             id: 'select-issue',
-            // TODO: Change text to 'Anything else?' if the user has already selected one previously.
-            body: 'Which of these options applies?',
+            body: (state) =>
+                Object.keys(state.activeModules()).length > 0 ? 'Anything else?' : 'Which of these options applies?',
             options: [
                 // These are filled by hooks from the individual modules.
 
                 // TODO: Disable those already selected by the user. Or do we want to allow them to go through again and
                 // change their answers?
 
-                // TODO: Show only one of those depending on whether we've already collected an issue.
                 {
                     text: 'Generate a response based on your answers.',
                     targetStepId: 'base::generate-letter',
+                    hideIf: (state) => Object.keys(state.activeModules()).length < 1,
                 },
                 {
-                    text: 'Quit wizard and mark request as completed.',
+                    text: 'None. Quit wizard and mark request as completed.',
                     targetStepId: 'base::nevermind',
+                    hideIf: (state) => Object.keys(state.activeModules()).length > 0,
                 },
             ],
         },

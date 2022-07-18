@@ -2,6 +2,9 @@ import type { ComponentChild } from 'preact';
 import { ReactorState } from '../store/reactor';
 import { IdDataElement } from '../types/request.d';
 
+type StateCallback<ReturnType> = (state: ReactorState) => ReturnType;
+type Text = string | StateCallback<ComponentChild>;
+
 export interface ReactorModuleData {
     includeIssue: boolean;
     issue: {
@@ -20,14 +23,13 @@ export type ReactorModuleId = keyof ReactorModuleDataMapping;
 export type ReactorOption = {
     text: ComponentChild;
     targetStepId: string;
-    onChoose?: (state: ReactorState) => void;
+    onChoose?: StateCallback<void>;
+    hideIf?: boolean | StateCallback<boolean>;
 };
 
 export type ReactorStep = {
     id: string;
-    // TODO: Do we want to enforce the `<module>::<id>` pattern by exporting a { moduleId: string, flows: Flow[] } and
-    // automatically prepending module ID to the flow IDs?
-    body: ComponentChild;
+    body: Text;
     options: ReactorOption[];
 };
 
