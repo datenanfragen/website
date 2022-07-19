@@ -33,7 +33,10 @@ export const module = createReactorModule('additional-id', {
                 {
                     text: 'no',
                     targetStepId: 'additional-id::no-reasonable-doubts',
-                    onChoose: (state) => state.setIssueFlag('additional-id', 'no_doubts', true),
+                    onChoose: (state) => {
+                        state.setIncludeIssue('additional-id', true);
+                        state.setIssueFlag('additional-id', 'no_doubts', true);
+                    },
                 },
             ],
         },
@@ -43,7 +46,11 @@ export const module = createReactorModule('additional-id', {
             type: 'options',
             body: 'Do you have any objections to these doubts? Do you think the company can sufficiently identify you without this data?',
             options: [
-                { text: 'yes', targetStepId: 'additional-id::no-reasonable-doubts' },
+                {
+                    text: 'yes',
+                    targetStepId: 'additional-id::no-reasonable-doubts',
+                    onChoose: (state) => state.setIncludeIssue('additional-id', true),
+                },
                 { text: 'no', targetStepId: 'additional-id::user-objections' },
             ],
         },
@@ -58,12 +65,9 @@ export const module = createReactorModule('additional-id', {
         },
         {
             id: 'provide-data',
-            type: 'options',
+            type: 'dynamic-inputs',
             body: 'Please enter the additional identification data requested by the company.',
-            options: [
-                // TODO: dynamic input container
-                // TODO: "Next" leads to base::select-issue
-            ],
+            nextStepId: 'base::select-issue',
         },
 
         {
@@ -100,7 +104,6 @@ export const module = createReactorModule('additional-id', {
                 {
                     text: 'Company requires additional data for identification.',
                     targetStepId: 'additional-id::start',
-                    onChoose: (state) => state.setIncludeIssue('additional-id', true),
                 },
             ],
         },

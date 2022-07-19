@@ -7,7 +7,8 @@ import type { ReactorModuleData, ReactorModuleDataMapping, ReactorModuleWithData
 import type { IdDataElement } from '../types/request.d';
 
 export type ReactorState = {
-    moduleData: Record<ReactorModuleId, ReactorModuleData | undefined>;
+    moduleData: Record<ReactorModuleWithDataId, ReactorModuleData> &
+        Record<Exclude<ReactorModuleId, ReactorModuleWithDataId>, undefined>;
 
     activeModules: () => Record<ReactorModuleWithDataId, ReactorModuleData>;
 
@@ -23,7 +24,9 @@ export type ReactorState = {
         value: boolean
     ) => void;
 
-    addAdditionalData: (module: ReactorModuleWithDataId, data: IdDataElement[]) => void;
+    addAdditionalDataField: (module: ReactorModuleWithDataId, data: IdDataElement) => void;
+    removeAdditionalDataField: (module: ReactorModuleWithDataId, index: number) => void;
+    setAdditionalDataField: (module: ReactorModuleWithDataId, index: number, data: IdDataElement) => void;
 };
 
 const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
@@ -51,11 +54,22 @@ const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
             })
         ),
 
-    addAdditionalData: (module, data) =>
+    addAdditionalDataField: (module: ReactorModuleWithDataId, data: IdDataElement) =>
         set(
             produce((state: ReactorState) => {
-                if (state.moduleData[module])
-                    state.moduleData[module]!.additionalData = state.moduleData[module]!.additionalData.concat(data);
+                if (state.moduleData[module]) state.moduleData[module]!.additionalData.push(data);
+            })
+        ),
+    removeAdditionalDataField: (module: ReactorModuleWithDataId, index: number) =>
+        set(
+            produce((state: ReactorState) => {
+                if (state.moduleData[module]) state.moduleData[module]!.additionalData.splice(index, 1);
+            })
+        ),
+    setAdditionalDataField: (module: ReactorModuleWithDataId, index: number, data: IdDataElement) =>
+        set(
+            produce((state: ReactorState) => {
+                if (state.moduleData[module]) state.moduleData[module]!.additionalData[index] = data;
             })
         ),
 
