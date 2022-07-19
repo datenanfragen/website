@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'preact/hooks';
 import { IntlProvider, Text } from 'preact-i18n';
 import { Radio } from '../Radio';
+import { DynamicInputContainer } from '../Generator/DynamicInputContainer';
 import { useReactorStore } from '../../store/reactor';
 import { useWizard, WizardPages } from '../../hooks/useWizard';
 import { reactorModules } from './modules/index';
@@ -17,7 +18,7 @@ export const Reactor = () => {
     const steps = useMemo(
         () =>
             reactorModules
-                .flatMap((m) => m.steps.map((s) => ({ ...s, moduleId: m.id })))
+                .flatMap((m) => m.steps.map((s) => ({ ...s, moduleId: m.id as ReactorModuleWithDataId })))
                 .map((step) => {
                     if (step.type === 'options')
                         step.options = [
@@ -54,9 +55,9 @@ export const Reactor = () => {
                                     <pre>{generateLetter(store, 'en', 'TODO').toEmailString()}</pre>
                                 )}
 
-                                {step.type === 'options' && (
-                                    <>
-                                        <div className="radio-group radio-group-vertical radio-group-padded col66 col100-mobile">
+                                <div className="col66 col100-mobile">
+                                    {step.type === 'options' && (
+                                        <div className="radio-group radio-group-vertical radio-group-padded">
                                             {step.options.map((option) => (
                                                 <Radio
                                                     onClick={() => {
@@ -67,36 +68,48 @@ export const Reactor = () => {
                                                 />
                                             ))}
                                         </div>
-                                        <div className="clearfix" />
-                                    </>
-                                )}
+                                    )}
 
-                                {step.type === 'textarea' && (
-                                    <>
-                                        <div className="col66 col100-mobile">
-                                            <textarea
-                                                className="form-element"
-                                                value={
-                                                    store.moduleData[step.moduleId]?.issue.variables[step.variableName]
-                                                }
-                                                rows={step.rows}
-                                                onBlur={(e) =>
-                                                    store.setIssueVariable(
-                                                        step.moduleId as ReactorModuleWithDataId,
-                                                        step.variableName,
-                                                        e.currentTarget.value
-                                                    )
-                                                }
-                                            />
-                                            <button
-                                                className="button button-primary"
-                                                onClick={() => setPage(step.nextStepId)}>
-                                                <Text id="next" />
-                                            </button>
-                                        </div>
-                                        <div className="clearfix" />
-                                    </>
-                                )}
+                                    {step.type === 'textarea' && (
+                                        <textarea
+                                            className="form-element"
+                                            value={store.moduleData[step.moduleId]?.issue.variables[step.variableName]}
+                                            rows={step.rows}
+                                            onBlur={(e) =>
+                                                store.setIssueVariable(
+                                                    step.moduleId,
+                                                    step.variableName,
+                                                    e.currentTarget.value
+                                                )
+                                            }
+                                        />
+                                    )}
+
+                                    {step.type === 'dynamic-inputs' && (
+                                        <DynamicInputContainer
+                                            id={`${step.moduleId}-additional-data`}
+                                            fields={store.moduleData[step.moduleId].additionalData}
+                                            hasPrimary={false}
+                                            onAddField={(field) => store.addAdditionalDataField(step.moduleId, field)}
+                                            onRemoveField={(index) =>
+                                                store.removeAdditionalDataField(step.moduleId, index)
+                                            }
+                                            onChange={(index, field) =>
+                                                store.setAdditionalDataField(step.moduleId, index, field)
+                                            }
+                                            allowAddingFields={true}
+                                        />
+                                    )}
+
+                                    {(step.type === 'textarea' || step.type === 'dynamic-inputs') && (
+                                        <button
+                                            className="button button-primary"
+                                            onClick={() => setPage(step.nextStepId)}>
+                                            <Text id="next" />
+                                        </button>
+                                    )}
+                                </div>
+                                <div className="clearfix" />
                             </>
                         ),
                         canGoBack: false,

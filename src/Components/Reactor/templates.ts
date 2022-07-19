@@ -64,8 +64,7 @@ Leider bin ich aus den folgenden Gründen nicht der Meinung, dass Sie meine Anfr
 ][has:additional_data_list>
 Ich reiche die folgenden Informationen nach, wie von Ihnen erbeten:
 
-{additional_data_list}
-][has:issue_list>
+{additional_data_list}][has:issue_list>
 Ich wende mich daher hiermit erneut an Sie und fordere Sie auf, meine Anfrage innerhalb von zwei Wochen ab Eintreffen dieser Mahnung zufriedenstellend zu beantworten. Andernfalls behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.
 ]
 Vielen Dank.

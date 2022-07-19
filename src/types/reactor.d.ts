@@ -35,7 +35,8 @@ type TextareaStep<ModuleIdT extends string> = StepWithBody & {
     nextStepId: string;
     rows?: number;
 };
-export type ReactorStep<ModuleIdT extends string> = OptionStep | TextareaStep<ModuleIdT>;
+type DynamicInputStep = StepWithBody & { type: 'dynamic-inputs'; nextStepId: string };
+export type ReactorStep<ModuleIdT extends string> = OptionStep | TextareaStep<ModuleIdT> | DynamicInputStep;
 
 export type ReactorHook = {
     stepId: string;
