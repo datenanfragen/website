@@ -1,9 +1,10 @@
 import { createReactorModule } from '../../../Utility/reactor';
 
-export const module = createReactorModule<undefined>('base', {
+export const module = createReactorModule('base', {
     steps: [
         {
             id: 'start',
+            type: 'options',
             body: 'Has the company fully complied with your request?',
             options: [
                 { text: 'yes', targetStepId: 'base::company-complied' },
@@ -12,12 +13,14 @@ export const module = createReactorModule<undefined>('base', {
         },
         {
             id: 'company-complied',
+            type: 'options',
             body: "TODO: Make sure that's actually the case.",
             // TODO
             options: [],
         },
         {
             id: 'select-issue',
+            type: 'options',
             body: (state) =>
                 Object.keys(state.activeModules()).length > 0 ? 'Anything else?' : 'Which of these options applies?',
             options: [
@@ -41,12 +44,14 @@ export const module = createReactorModule<undefined>('base', {
 
         {
             id: 'generate-letter',
+            type: 'options',
             body: 'TODO: Properly display letter.',
             // TODO
             options: [],
         },
         {
             id: 'nevermind',
+            type: 'options',
             body: 'TODO: Quit wizard and mark request as completed.',
             // TODO
             options: [],
@@ -54,6 +59,7 @@ export const module = createReactorModule<undefined>('base', {
 
         {
             id: 'dead-end',
+            type: 'options',
             body: 'In this case, we don’t see an issue with the company’s response based on the reason you selected. But you can continue with another reason, if applicable.',
             options: [
                 {
@@ -63,4 +69,6 @@ export const module = createReactorModule<undefined>('base', {
             ],
         },
     ],
+
+    defaultModuleData: undefined,
 });

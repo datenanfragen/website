@@ -5,15 +5,15 @@ export const templates = {
         'base::response': `Guten Tag,
 
 am {request_date} hatte ich eine Anfrage nach Art. {request_article} DSGVO an Sie gerichtet.[controller_responded> Ich nehme Bezug auf Ihre Antwort darauf vom {response_date}.]
-[has_issues>
+[has:issue_list>
 Leider bin ich aus den folgenden Gründen nicht der Meinung, dass Sie meine Anfrage ausreichend entsprechend der Vorgaben der DSGVO beantwortet haben:
 
 {issue_list}
-][has_additional_data>
+][has:additional_data_list>
 Ich reiche die folgenden Informationen nach, wie von Ihnen erbeten:
 
 {additional_data_list}
-][has_issues>
+][has:issue_list>
 Ich wende mich daher hiermit erneut an Sie und fordere Sie auf, meine Anfrage innerhalb von zwei Wochen ab Eintreffen dieser Mahnung zufriedenstellend zu beantworten. Andernfalls behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.
 ]
 Vielen Dank.
@@ -57,15 +57,15 @@ Mit freundlichen Grüßen`,
         'base::response': `Guten Tag,
 
 am {request_date} hatte ich eine Anfrage nach Art. {request_article} DSGVO an Sie gerichtet.[controller_responded> Ich nehme Bezug auf Ihre Antwort darauf vom {response_date}.]
-[has_issues>
+[has:issue_list>
 Leider bin ich aus den folgenden Gründen nicht der Meinung, dass Sie meine Anfrage ausreichend entsprechend der Vorgaben der DSGVO beantwortet haben:
 
 {issue_list}
-][has_additional_data>
+][has:additional_data_list>
 Ich reiche die folgenden Informationen nach, wie von Ihnen erbeten:
 
 {additional_data_list}
-][has_issues>
+][has:issue_list>
 Ich wende mich daher hiermit erneut an Sie und fordere Sie auf, meine Anfrage innerhalb von zwei Wochen ab Eintreffen dieser Mahnung zufriedenstellend zu beantworten. Andernfalls behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.
 ]
 Vielen Dank.
@@ -103,7 +103,7 @@ Mit freundlichen Grüßen`,
 
         'additional-id::response': `You have refused to answer my request until I provide additional identification data. Please be aware that Art. 12(6) GDPR mandates that you may only request additional information if you have reasonable doubts concerning my identity.[no_doubts> You have not set forth any such doubts. They are not apparent, either.]
 
-I am of the opinion that the data I have already provided in my request is sufficient to identify me and that you can thus not require me to provide any additional data.[has_reasoning> {reasoning}][concerns_online_account> Also note that Recital 64 GDPR explains that online identifiers should be used for identification, in particular in the context of online services, as is the case here.]`,
+I am of the opinion that the data I have already provided in my request is sufficient to identify me and that you can thus not require me to provide any additional data.[has:reasoning> {reasoning}][concerns_online_account> Also note that Recital 64 GDPR explains that online identifiers should be used for identification, in particular in the context of online services, as is the case here.]`,
         'additional-id::complaint::': `TODO`,
     },
 };

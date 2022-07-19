@@ -1,5 +1,5 @@
 import { createReactorModule } from '../../../Utility/reactor';
-import type { ReactorModuleData, ReactorModuleDataMapping } from '../../../types/reactor';
+import type { ReactorModuleData } from '../../../types/reactor';
 
 export interface AdditionalIdModuleData extends ReactorModuleData {
     issue: {
@@ -13,10 +13,20 @@ declare module '../../../types/reactor' {
     }
 }
 
-export const module = createReactorModule<ReactorModuleDataMapping['additional-id']>('additional-id', {
+const defaultModuleData: AdditionalIdModuleData = {
+    includeIssue: false,
+    issue: {
+        flags: { concerns_online_account: false, no_doubts: false, has_reasoning: false },
+        variables: { reasoning: '' },
+    },
+    additionalData: [],
+};
+
+export const module = createReactorModule('additional-id', {
     steps: [
         {
             id: 'start',
+            type: 'options',
             body: 'Has the company set forth any reasonable doubts concerning your identity that could be remedied using additional identification data? Or are they apparent?',
             options: [
                 { text: 'yes', targetStepId: 'additional-id::reasonable-doubts' },
@@ -30,6 +40,7 @@ export const module = createReactorModule<ReactorModuleDataMapping['additional-i
 
         {
             id: 'reasonable-doubts',
+            type: 'options',
             body: 'Do you have any objections to these doubts? Do you think the company can sufficiently identify you without this data?',
             options: [
                 { text: 'yes', targetStepId: 'additional-id::no-reasonable-doubts' },
@@ -38,6 +49,7 @@ export const module = createReactorModule<ReactorModuleDataMapping['additional-i
         },
         {
             id: 'user-objections',
+            type: 'options',
             body: 'Can you/do you want to provide the identification data requested by the company?',
             options: [
                 { text: 'yes', targetStepId: 'additional-id::provide-data' },
@@ -46,6 +58,7 @@ export const module = createReactorModule<ReactorModuleDataMapping['additional-i
         },
         {
             id: 'provide-data',
+            type: 'options',
             body: 'Please enter the additional identification data requested by the company.',
             options: [
                 // TODO: dynamic input container
@@ -55,6 +68,7 @@ export const module = createReactorModule<ReactorModuleDataMapping['additional-i
 
         {
             id: 'no-reasonable-doubts',
+            type: 'options',
             body: 'Why do you think that you’ve sufficiently identified yourself in your request?',
             options: [
                 {
@@ -71,10 +85,10 @@ export const module = createReactorModule<ReactorModuleDataMapping['additional-i
         {
             id: 'explain-reasoning',
             body: 'Please explain why the identification data requested by the company is not necessary for the request.',
-            options: [
-                // TODO: input
-                // TODO: "Next" leads to base::select-issue
-            ],
+            type: 'textarea',
+            nextStepId: 'base::select-issue',
+            variableName: 'reasoning',
+            rows: 7,
         },
     ],
 
@@ -92,12 +106,5 @@ export const module = createReactorModule<ReactorModuleDataMapping['additional-i
         },
     ],
 
-    defaultModuleData: {
-        includeIssue: false,
-        issue: {
-            flags: { concerns_online_account: false, no_doubts: false, has_reasoning: false },
-            variables: { reasoning: '' },
-        },
-        additionalData: [],
-    },
+    defaultModuleData,
 });

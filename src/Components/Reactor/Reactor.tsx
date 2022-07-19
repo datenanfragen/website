@@ -1,11 +1,11 @@
 import { useCallback, useMemo } from 'preact/hooks';
-import { IntlProvider } from 'preact-i18n';
+import { IntlProvider, Text } from 'preact-i18n';
 import { Radio } from '../Radio';
 import { useReactorStore } from '../../store/reactor';
 import { useWizard, WizardPages } from '../../hooks/useWizard';
 import { reactorModules } from './modules/index';
 import { generateLetter } from '../../Utility/reactor';
-import type { ReactorHook } from '../../types/reactor.d';
+import type { ReactorHook, ReactorModuleWithDataId } from '../../types/reactor.d';
 
 export const Reactor = () => {
     const store = useReactorStore();
@@ -17,22 +17,26 @@ export const Reactor = () => {
     const steps = useMemo(
         () =>
             reactorModules
-                .flatMap((m) => m.steps)
-                .map((step) => ({
-                    ...step,
-                    options: [
-                        ...hooks
-                            .filter((h) => h.stepId === step.id && h.position === 'before')
-                            .flatMap((h) => h.options),
-                        ...step.options,
-                        ...hooks
-                            .filter((h) => h.stepId === step.id && h.position === 'after')
-                            .flatMap((h) => h.options),
-                    ].filter(
-                        (o) =>
-                            !(o.hideIf !== undefined && (typeof o.hideIf === 'function' ? o.hideIf(store) : o.hideIf))
-                    ),
-                })),
+                .flatMap((m) => m.steps.map((s) => ({ ...s, moduleId: m.id })))
+                .map((step) => {
+                    if (step.type === 'options')
+                        step.options = [
+                            ...hooks
+                                .filter((h) => h.stepId === step.id && h.position === 'before')
+                                .flatMap((h) => h.options),
+                            ...step.options,
+                            ...hooks
+                                .filter((h) => h.stepId === step.id && h.position === 'after')
+                                .flatMap((h) => h.options),
+                        ].filter(
+                            (o) =>
+                                !(
+                                    o.hideIf !== undefined &&
+                                    (typeof o.hideIf === 'function' ? o.hideIf(store) : o.hideIf)
+                                )
+                        );
+                    return step;
+                }),
         [hooks, store]
     );
     const pages = useCallback(
@@ -44,11 +48,13 @@ export const Reactor = () => {
                         component: (
                             <>
                                 <p>{typeof step.body === 'function' ? step.body(store) : step.body}</p>
+
+                                {/* TODO: v */}
                                 {step.id === 'base::generate-letter' && (
                                     <pre>{generateLetter(store, 'en', 'TODO').toEmailString()}</pre>
                                 )}
 
-                                {step.options && (
+                                {step.type === 'options' && (
                                     <>
                                         <div className="radio-group radio-group-vertical radio-group-padded col66 col100-mobile">
                                             {step.options.map((option) => (
@@ -60,6 +66,33 @@ export const Reactor = () => {
                                                     label={option.text}
                                                 />
                                             ))}
+                                        </div>
+                                        <div className="clearfix" />
+                                    </>
+                                )}
+
+                                {step.type === 'textarea' && (
+                                    <>
+                                        <div className="col66 col100-mobile">
+                                            <textarea
+                                                className="form-element"
+                                                value={
+                                                    store.moduleData[step.moduleId]?.issue.variables[step.variableName]
+                                                }
+                                                rows={step.rows}
+                                                onBlur={(e) =>
+                                                    store.setIssueVariable(
+                                                        step.moduleId as ReactorModuleWithDataId,
+                                                        step.variableName,
+                                                        e.currentTarget.value
+                                                    )
+                                                }
+                                            />
+                                            <button
+                                                className="button button-primary"
+                                                onClick={() => setPage(step.nextStepId)}>
+                                                <Text id="next" />
+                                            </button>
                                         </div>
                                         <div className="clearfix" />
                                     </>
