@@ -18,7 +18,7 @@ export interface ReactorModuleData {
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ReactorModuleDataMapping {}
 
-export type ReactorModuleId = keyof ReactorModuleDataMapping;
+export type ReactorModuleWithDataId = keyof ReactorModuleDataMapping;
 
 export type ReactorOption = {
     text: ComponentChild;
@@ -27,11 +27,15 @@ export type ReactorOption = {
     hideIf?: boolean | StateCallback<boolean>;
 };
 
-export type ReactorStep = {
-    id: string;
-    body: Text;
-    options: ReactorOption[];
+type StepWithBody = { id: string; body: Text };
+type OptionStep = StepWithBody & { type: 'options'; options: ReactorOption[] };
+type TextareaStep<ModuleIdT extends string> = StepWithBody & {
+    type: 'textarea';
+    variableName: keyof ReactorModuleDataMapping[ModuleIdT]['issue']['variables'];
+    nextStepId: string;
+    rows?: number;
 };
+export type ReactorStep<ModuleIdT extends string> = OptionStep | TextareaStep<ModuleIdT>;
 
 export type ReactorHook = {
     stepId: string;
@@ -39,9 +43,12 @@ export type ReactorHook = {
     options: ReactorOption[];
 };
 
-export type ReactorModule<ModuleDataT extends ReactorModuleData | undefined = undefined> = {
-    id: string;
-    steps: ReactorStep[];
+export type ReactorModule<
+    ModuleDataT extends ReactorModuleData | undefined = undefined,
+    ModuleIdT extends string = string
+> = {
+    id: ModuleIdT;
+    steps: ReactorStep<ModuleIdT>[];
     hooks?: ReactorHook[];
 
     defaultModuleData?: ModuleDataT;

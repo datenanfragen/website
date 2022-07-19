@@ -51,7 +51,7 @@
         "idb": "^7.0.2",
         "immer": "^9.0.12",
         "js-cookie": "^2.2.1",
-        "letter-generator": "^2.0.2",
+        "letter-generator": "^2.1.0",
         "libphonenumber-js": "^1.7.23",
         "localforage": "^1.7.1",
         "pdfkit": "^0.12.1",

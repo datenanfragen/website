@@ -1,29 +1,29 @@
-import create from 'zustand';
+import create, { UseBoundStore, StoreApi } from 'zustand';
 import { produce } from 'immer';
-import { reactorModules } from '../Components/Reactor/modules/index';
+import { reactorModules, ReactorModuleId } from '../Components/Reactor/modules/index';
 import { objFilter } from '../Utility/common';
 import type { StoreSlice } from '../types/utility';
-import { ReactorModuleData, ReactorModuleDataMapping, ReactorModuleId } from '../types/reactor.d';
-import { IdDataElement } from '../types/request.d';
+import type { ReactorModuleData, ReactorModuleDataMapping, ReactorModuleWithDataId } from '../types/reactor.d';
+import type { IdDataElement } from '../types/request.d';
 
 export type ReactorState = {
     moduleData: Record<ReactorModuleId, ReactorModuleData | undefined>;
 
-    setIncludeIssue: (module: ReactorModuleId, includeIssue: boolean) => void;
-    setIssueVariable: <ModuleIdT extends ReactorModuleId>(
+    activeModules: () => Record<ReactorModuleWithDataId, ReactorModuleData>;
+
+    setIncludeIssue: (module: ReactorModuleWithDataId, includeIssue: boolean) => void;
+    setIssueVariable: <ModuleIdT extends ReactorModuleWithDataId>(
         module: ModuleIdT,
         variable: keyof ReactorModuleDataMapping[ModuleIdT]['issue']['variables'],
         value: string
     ) => void;
-    setIssueFlag: <ModuleIdT extends ReactorModuleId>(
+    setIssueFlag: <ModuleIdT extends ReactorModuleWithDataId>(
         flag: ModuleIdT,
         variable: keyof ReactorModuleDataMapping[ModuleIdT]['issue']['flags'],
         value: boolean
     ) => void;
 
-    addAdditionalData: (module: ReactorModuleId, data: IdDataElement[]) => void;
-
-    activeModules: () => Record<ReactorModuleId, ReactorModuleData>;
+    addAdditionalData: (module: ReactorModuleWithDataId, data: IdDataElement[]) => void;
 };
 
 const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
@@ -63,11 +63,13 @@ const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
         objFilter(
             get().moduleData,
             ([, data]) => data?.includeIssue || (data?.additionalData.length || -1) > 0
-        ) as Record<ReactorModuleId, ReactorModuleData>,
+        ) as Record<ReactorModuleWithDataId, ReactorModuleData>,
 });
 
 const { devtools } =
     process.env.NODE_ENV === 'development' ? require('zustand/middleware') : { devtools: (d: unknown) => d };
 // TODO: Annoyingly, this creates a new instance in the Redux devtools. Don't know why.
-export const useReactorStore =
-    process.env.NODE_ENV === 'development' ? create(devtools(reactorStoreSlice)) : create(reactorStoreSlice);
+export const useReactorStore: UseBoundStore<ReactorState, StoreApi<ReactorState>> = process.env.NODE_ENV ===
+'development'
+    ? create(devtools(reactorStoreSlice))
+    : create(reactorStoreSlice);

@@ -694,6 +694,9 @@
         "commerce-title": "Commerce",
         "insurance-title": "Insurance"
     },
+    "reactor": {
+        "next": "Next"
+    },
     "sva-finder": {
         "sva-finder": "Supervisory authority finder",
         "reset": "Reset choices",
