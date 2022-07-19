@@ -215,3 +215,24 @@
     @extend %icon;
     font-icon: url('star.svg');
 }
+
+.icon-access:before {
+    @extend %icon;
+    vertical-align: -3px;
+    font-icon: url('access.svg');
+}
+
+.icon-rectification:before {
+    @extend %icon;
+    font-icon: url('rectification.svg');
+}
+
+.icon-erasure:before {
+    @extend %icon;
+    font-icon: url('erasure.svg');
+}
+
+.icon-objection:before {
+    @extend %icon;
+    font-icon: url('objection.svg');
+}
