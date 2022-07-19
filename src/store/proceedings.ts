@@ -9,6 +9,7 @@ import { ErrorException } from '../Utility/errors';
 import { UserRequest } from '../DataType/UserRequests';
 import { isUserRequest } from '../Utility/requests';
 import { LocalforagePrivacy } from '../Utility/LocalforagePrivacy';
+import { t_r } from '../Utility/i18n';
 
 export interface ProceedingsState {
     proceedings: Record<string, Proceeding>;
@@ -24,6 +25,9 @@ export interface ProceedingsState {
     migrationDone: () => void;
     drink: () => void;
 }
+
+/** This is necessary because zustand/persist doesn't export `StorageValue` properly */
+type ProceedingsStorageValue = { state: Partial<ProceedingsState>; version?: number };
 
 const id_regex = /^(\d{4,}-[\dA-Za-z]{7,})-(\d+)$/;
 
@@ -43,7 +47,13 @@ const proceedingsStore = persist<ProceedingsState>(
                     state.proceedings[proceeding.reference] = proceeding;
                 })
             ),
-        addRequest: (request) => get().addProceeding(proceedingFromRequest(request)),
+        addRequest: (request) =>
+            get().addProceeding(
+                proceedingFromRequest(
+                    request,
+                    request.type !== 'custom' ? t_r(`letter-subject-${request.type}`, request.language) : undefined
+                )
+            ),
         addMessage: (message) =>
             set(
                 produce((state: ProceedingsState) => {
@@ -91,6 +101,16 @@ const proceedingsStore = persist<ProceedingsState>(
         version: 0,
         getStorage: () => proceedingsStorage,
         onRehydrateStorage: () => (state) => state && state.drink(),
+        deserialize: (str) =>
+            produce(JSON.parse(str) as ProceedingsStorageValue, (stored_object) => {
+                if (!stored_object.state.proceedings) return;
+
+                for (const [reference, proceeding] of Object.entries(stored_object.state.proceedings)) {
+                    for (const [id, message] of Object.entries(proceeding.messages)) {
+                        stored_object.state.proceedings[reference].messages[id].date = new Date(message.date);
+                    }
+                }
+            }),
     }
 );
 
