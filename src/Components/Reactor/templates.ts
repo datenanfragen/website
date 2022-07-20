@@ -22,9 +22,9 @@ Mit freundlichen Grüßen`,
         'base::complaint': `Guten Tag,
 
 hiermit reiche ich Beschwerde nach Art. 77 DSGVO gegen folgende Verantwortliche ein:
-{company}
+{request_recipient_address}
 
-Meine Beschwerde bezieht sich auf eine Anfrage nach Art. <request_article> DSGVO, die ich an die Verantwortliche gerichtet habe. Im Rahmen dieser Anfrage hat die folgende Korrespondenz zwischen der Verantwortlichen und mir stattgefunden:
+Meine Beschwerde bezieht sich auf eine Anfrage nach Art. {request_article} DSGVO, die ich an die Verantwortliche gerichtet habe. Im Rahmen dieser Anfrage hat die folgende Korrespondenz zwischen der Verantwortlichen und mir stattgefunden:
 
 {correspondence_list}
 
@@ -52,53 +52,52 @@ Mit freundlichen Grüßen`,
         'additional-id::response': `TODO`,
         'additional-id::complaint::': `TODO`,
     },
-    // TODO: Translate.
     en: {
-        'base::response': `Guten Tag,
+        'base::response': `To Whom It May Concern:
 
-am {request_date} hatte ich eine Anfrage nach Art. {request_article} DSGVO an Sie gerichtet.[controller_responded> Ich nehme Bezug auf Ihre Antwort darauf vom {response_date}.]
+on {request_date} I sent you a request according to Art. {request_article} GDPR.[controller_responded> I refer to your response dated {response_date}.]
 [has:issue_list>
-Leider bin ich aus den folgenden Gründen nicht der Meinung, dass Sie meine Anfrage ausreichend entsprechend der Vorgaben der DSGVO beantwortet haben:
+Unfortunately, for the following reasons, I do not believe that you have sufficiently responded to my request in accordance with the requirements of the GDPR:
 
 {issue_list}
 ][has:additional_data_list>
-Ich reiche die folgenden Informationen nach, wie von Ihnen erbeten:
+I am providing the following additional information as requested by you:
 
 {additional_data_list}][has:issue_list>
-Ich wende mich daher hiermit erneut an Sie und fordere Sie auf, meine Anfrage innerhalb von zwei Wochen ab Eintreffen dieser Mahnung zufriedenstellend zu beantworten. Andernfalls behalte ich mir vor rechtliche Schritte gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen.
+That is why I am contacting you again. I request that you adequately respond to my request within two weeks from the date of receipt of this message. Otherwise, I reserve the right to take legal action against you and to lodge a complaint with the responsible supervisory authority.
 ]
-Vielen Dank.
+Thank you.
 
-Mit freundlichen Grüßen`,
-        'base::complaint': `Guten Tag,
+Yours sincerely,`,
+        'base::complaint': `To Whom It May Concern:
 
-hiermit reiche ich Beschwerde nach Art. 77 DSGVO gegen folgende Verantwortliche ein:
-{company}
+I am hereby lodging a complaint according to Art. 77 GDPR against the following controller:
+{request_recipient_address}
 
-Meine Beschwerde bezieht sich auf eine Anfrage nach Art. <request_article> DSGVO, die ich an die Verantwortliche gerichtet habe. Im Rahmen dieser Anfrage hat die folgende Korrespondenz zwischen der Verantwortlichen und mir stattgefunden:
+My complaint concerns a request according to Art. {request_article} GDPR that I sent to the controller. In the context of this request, the following correspondence has taken place between the controller and me:
 
 {correspondence_list}
 
-Die Korrespondenz mit der Verantwortlichen habe ich Ihnen an diese Beschwerde angehängt.
+I have attached the correspondence with the controller to this complaint.
 
-Ich bin der Ansicht, dass die Verantwortliche meine Rechte durch ihre Handhabung meiner Anfrage aus den folgenden Gründen verletzt hat:
+I believe that the controller has violated my rights by its handling of my request for the following reasons:
 
 {issue_list}
 
-Aufgrund des beschriebenen Sachverhalts gehe ich davon aus, dass die Verantwortliche gegen die DSGVO verstoßen hat. Daher wende ich mich nun mit meiner Beschwerde an Sie und bitte Sie, das beschriebene Verfahren im Rahmen Ihrer Befugnisse gemäß Art. 58 Abs. 1 DSGVO zu prüfen. Ich rege die folgenden sowie ggf. alle weiteren nach Ihrem Ermessen nötigen aufsichtsbehördlichen Maßnahmen an:
+Based on the above, I believe that the controller has violated the GDPR. That is why I am lodging this complaint with you. I ask you to check the described procedure within the scope of your powers pursuant to Art. 58(1) GDPR. I suggest the following, as well as any further supervisory action that you may deem necessary:
 
 {petition_list}
 
-Ich bitte Sie weiterhin, mich nach Art. 77 Abs. 2 DSGVO und Art. 57 Abs. 1 lit. f DSGVO im Laufe des Beschwerdeverfahrens, spätestens aber innerhalb von drei Monaten (vgl. Art. 78 Abs. 2 DSGVO), über dessen Stand und Ergebnisse zu informieren.
+I further request that you inform me about the progress and the outcome of the complaint in accordance with Art. 77(2) GDPR and Art. 57(1)(f) GDPR during the course of the complaint procedure, but no later than within three months (Art. 78(2) GDPR).
 [allow_sharing_data_with_controller>
-Sie dürfen meine Daten zur Bearbeitung der Beschwerde an die Verantwortliche weitergeben.
+You may share my data with the controller for the purpose of processing the complaint.
 ]
-Sollten Sie weitere Informationen von mir benötigen, wenden Sie sich gerne an mich. Sie erreichen mich wie folgt:
+If you need any more details, please feel free to contact me. You can reach me as follows:
 {contact_details}
 
-Ich bedanke mich bereits im Voraus für Ihre Unterstützung.
+Thank you in advance for your assistance.
 
-Mit freundlichen Grüßen`,
+Yours sincerely,`,
 
         'additional-id::response': `You have refused to answer my request until I provide additional identification data. Please be aware that Art. 12(6) GDPR mandates that you may only request additional information if you have reasonable doubts concerning my identity.[no_doubts> You have not set forth any such doubts. They are not apparent, either.]
 
