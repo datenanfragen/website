@@ -17,9 +17,10 @@ type Message = {
     date: Date;
     type: RequestType | ResponseType | 'response';
     slug?: string;
-    recipient: string;
-    email: string;
+    correspondent_address: string;
+    correspondent_email: string;
     transport_medium: TransportMedium;
     subject?: string;
     content?: string;
+    sentByMe: boolean;
 };

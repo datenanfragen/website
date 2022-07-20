@@ -78,11 +78,12 @@ const unsubscribeFromHydration = useProceedingsStore.persist.onFinishHydration((
                     if (request.response_type) {
                         const messageFromRequest: Omit<Message, 'id'> = {
                             reference: request.reference,
-                            recipient: request.recipient,
+                            correspondent_address: request.recipient,
                             transport_medium: request.via,
                             type: request.response_type,
                             date: new Date(request.date),
-                            email: request.email,
+                            correspondent_email: request.email,
+                            sentByMe: true,
                         };
 
                         const createStubProceeding = () => {

@@ -25,11 +25,11 @@ const RequestList = () => {
                         [
                             msg.date,
                             msg.slug,
-                            msg.recipient.replace(/[\n\r]+/g, ', '),
-                            msg.email,
+                            msg.correspondent_address.replace(/[\n\r]+/g, ', '),
+                            msg.correspondent_email,
                             msg.reference,
                             msg.type,
-                            msg.email,
+                            msg.transport_medium,
                         ].join(';') +
                         '\r\n',
                     ''
@@ -169,7 +169,7 @@ const ProceedingRow = (props: ProceedingRowProps) => {
     const locale_country = country.toUpperCase();
     const date_locale = locale_country === 'ALL' ? window.LOCALE : `${window.LOCALE}-${locale_country}`;
 
-    const recipient_name = original_request?.recipient.split('\n')[0];
+    const recipient_name = original_request?.correspondent_address.split('\n')[0];
 
     return (
         <details className="proceeding-row">

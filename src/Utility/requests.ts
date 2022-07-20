@@ -185,12 +185,12 @@ export const icsFromProceedings = (proceedings: Proceeding[]) => {
     const events = Object.keys(grouped_requests)
         .map((group) => {
             const items = grouped_requests[group].map((request) => {
-                return `* ${request.recipient.split('\n', 1)[0]} (${t(request.type, 'my-requests')} – ${
+                return `* ${request.correspondent_address.split('\n', 1)[0]} (${t(request.type, 'my-requests')} – ${
                     request.reference
                 })`;
             });
             const titles = grouped_requests[group]
-                .map((request) => request.recipient.split('\n', 1)[0])
+                .map((request) => request.correspondent_address.split('\n', 1)[0])
                 .map((title) => (title.length > 15 ? `${title.slice(0, 15)}...` : title));
 
             const heading_base = `${t('for', 'my-requests')} ${titles.slice(0, 2).join(', ')}`;
