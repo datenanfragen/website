@@ -436,3 +436,23 @@ ul.unstyled-list {
         list-style: none;
     }
 }
+
+.flex-spacer-mobile {
+    display: none;
+    @include mobile {
+        display: block;
+        width: 100%;
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+}
+
+.flex-spacer-desktop {
+    display: none;
+    @include desktop {
+        display: block;
+        width: 100%;
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+}

@@ -1,5 +1,5 @@
 import { render } from 'preact';
-import { useState, useCallback } from 'preact/hooks';
+import { useState, useCallback, useMemo } from 'preact/hooks';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { useAppStore } from './store/app';
 import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
@@ -15,39 +15,62 @@ const RequestList = () => {
     const clearProceedings = useProceedingsStore((state) => state.clearProceedings);
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
 
+    const sortedRequestIds = useMemo(
+        () =>
+            Object.keys(proceedings).sort((a, b) => {
+                const req_a = Object.values(proceedings[a].messages)[0];
+                const req_b = Object.values(proceedings[a].messages)[0];
+
+                if (req_a.date < req_b.date) return -1;
+                else if (req_a.date == req_b.date) {
+                    if ((req_a.slug ?? 0) < (req_b.slug ?? 0)) return -1;
+                    else if (req_a.slug == req_b.slug) {
+                        if (req_a.reference < req_b.reference) return -1;
+                        else if (req_a.reference == req_b.reference) return 0;
+                        return 1;
+                    }
+                    return 1;
+                }
+                return 1;
+            }),
+        [proceedings]
+    );
+
     const buildCsv = useCallback(() => {
         const csv =
             'date;slug;recipient;email;reference;type;via\r\n' +
-            selectedRequestIds.map((id) =>
-                Object.entries(proceedings[id].messages).reduce(
-                    (acc, [id, msg]) =>
-                        acc +
-                        [
-                            msg.date,
-                            msg.slug,
-                            msg.correspondent_address.replace(/[\n\r]+/g, ', '),
-                            msg.correspondent_email,
-                            msg.reference,
-                            msg.type,
-                            msg.transport_medium,
-                        ].join(';') +
-                        '\r\n',
-                    ''
-                )
-            );
+            sortedRequestIds
+                .filter((id) => selectedRequestIds.includes(id))
+                .map((id) =>
+                    Object.entries(proceedings[id].messages).reduce(
+                        (acc, [id, msg]) =>
+                            acc +
+                            [
+                                msg.date,
+                                msg.slug,
+                                msg.correspondent_address.replace(/[\n\r]+/g, ', '),
+                                msg.correspondent_email,
+                                msg.reference,
+                                msg.type,
+                                msg.transport_medium,
+                            ].join(';') +
+                            '\r\n',
+                        ''
+                    )
+                );
 
         return new Blob([csv], { type: 'text/csv;charset=utf-8' });
-    }, [proceedings, selectedRequestIds]);
+    }, [proceedings, selectedRequestIds, sortedRequestIds]);
 
     const buildIcs = useCallback(
         () =>
             icsFromProceedings(
-                Object.entries(proceedings).reduce<Proceeding[]>(
-                    (acc, [id, proceeding]) => (selectedRequestIds.includes(id) ? [...acc, proceeding] : acc),
+                sortedRequestIds.reduce<Proceeding[]>(
+                    (acc, id) => (selectedRequestIds.includes(id) ? [...acc, proceedings[id]] : acc),
                     []
                 )
             ),
-        [proceedings, selectedRequestIds]
+        [proceedings, selectedRequestIds, sortedRequestIds]
     );
 
     if (!Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
@@ -100,14 +123,14 @@ const RequestList = () => {
                     ) : (
                         <>
                             <ul className="proceeding-rows">
-                                {Object.entries(proceedings).map(([id, proceeding]) => (
+                                {sortedRequestIds.map((id) => (
                                     <li className="proceeding-row-list-item">
                                         <input
                                             className="form-element"
                                             type="checkbox"
-                                            aria-labelledby={`proceeding-row-heading-${proceeding.reference}`}
-                                            checked={selectedRequestIds.includes(proceeding.reference)}
-                                            data-reference={proceeding.reference}
+                                            aria-labelledby={`proceeding-row-heading-${proceedings[id].reference}`}
+                                            checked={selectedRequestIds.includes(proceedings[id].reference)}
+                                            data-reference={proceedings[id].reference}
                                             onChange={(e) =>
                                                 setSelectedRequestIds((prev) =>
                                                     e.currentTarget.checked
@@ -116,11 +139,29 @@ const RequestList = () => {
                                                 )
                                             }
                                         />
-                                        <ProceedingRow proceeding={proceeding} />
+                                        <ProceedingRow proceeding={proceedings[id]} />
                                     </li>
                                 ))}
                             </ul>
+
                             <div id="my-requests-buttons">
+                                <button
+                                    id="toggle-all-button"
+                                    className="button button-secondary"
+                                    style="margin-right: 10px;"
+                                    onClick={() =>
+                                        setSelectedRequestIds(
+                                            selectedRequestIds.length === sortedRequestIds.length
+                                                ? []
+                                                : sortedRequestIds
+                                        )
+                                    }>
+                                    <Text
+                                        id={`${
+                                            selectedRequestIds.length === sortedRequestIds.length ? 'de' : ''
+                                        }select-all`}
+                                    />
+                                </button>
                                 <a
                                     id="download-button"
                                     className="button button-secondary"
@@ -163,6 +204,7 @@ type ProceedingRowProps = {
 const ProceedingRow = (props: ProceedingRowProps) => {
     const country = useAppStore((state) => state.country);
     const removeMessage = useProceedingsStore((state) => state.removeMessage);
+    const removeProceeding = useProceedingsStore((state) => state.removeProceeding);
 
     const original_request = findOriginalRequest(props.proceeding);
 
@@ -206,6 +248,7 @@ const ProceedingRow = (props: ProceedingRowProps) => {
                     }`}>
                     <Text id={props.proceeding.status} />
                 </span>
+                <div className="flex-spacer-mobile" aria-hidden={true} />
                 <span className="proceeding-reference">{props.proceeding.reference}</span>
             </summary>
 
@@ -259,6 +302,19 @@ const ProceedingRow = (props: ProceedingRowProps) => {
                     </li>
                 ))}
             </ul>
+            <div className="proceeding-actions">
+                <button className="button button-small button-secondary icon icon-plus-circle">
+                    <Text id="import-message" />
+                </button>
+                <button
+                    className="button button-small button-error icon icon-trash"
+                    onClick={() =>
+                        confirm(t('delete-proceeding-confirm', 'my-requests')) &&
+                        removeProceeding(props.proceeding.reference)
+                    }>
+                    <Text id="delete-proceeding" />
+                </button>
+            </div>
         </details>
     );
 };
