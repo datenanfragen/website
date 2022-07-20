@@ -71,6 +71,34 @@ a.button-secondary {
     background-color: $bg-color;
     color: $primary-color !important;
 }
+.button-warning,
+a.button-warning {
+    background-color: $bg-color;
+    border-color: $warning-color;
+    color: $warning-color !important;
+
+    &:not(.button-hoverless) {
+        &:hover,
+        &:focus {
+            background-color: $warning-color !important;
+            border-color: $warning-color !important;
+        }
+    }
+}
+.button-error,
+a.button-error {
+    background-color: $bg-color;
+    border-color: $error-color;
+    color: $error-color !important;
+
+    &:not(.button-hoverless) {
+        &:hover,
+        &:focus {
+            background-color: $error-color !important;
+            border-color: $error-color !important;
+        }
+    }
+}
 .button-small {
     padding: 5px 8px;
 
@@ -1243,9 +1271,6 @@ details.footnote {
 
             .proceeding-reference {
                 text-align: right;
-                @include mobile {
-                    flex-grow: 2;
-                }
             }
 
             .proceeding-message {
@@ -1259,10 +1284,6 @@ details.footnote {
                 align-items: center;
                 column-gap: 5px;
 
-                &:last-of-type {
-                    border-radius: 0px 0px 2px 2px;
-                }
-
                 h4 {
                     display: inline;
                     margin-left: 5px;
@@ -1271,6 +1292,17 @@ details.footnote {
                 .icon::before {
                     margin-right: 8px;
                 }
+            }
+
+            .proceeding-actions {
+                border: 2px solid $primary-color;
+                border-top: 0;
+                border-radius: 0 0 2px 2px;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 10px;
             }
         }
     }
