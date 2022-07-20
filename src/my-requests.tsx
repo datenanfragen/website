@@ -1,149 +1,54 @@
 import { render } from 'preact';
-import { useState, useEffect, useMemo, useCallback } from 'preact/hooks';
+import { useState, useCallback } from 'preact/hooks';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { useAppStore } from './store/app';
 import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
-import { UserRequests, UserRequest } from './DataType/UserRequests';
 import t from './Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
-import { rethrow } from './Utility/errors';
-import { hash, objFilter } from './Utility/common';
-
-const user_requests = new UserRequests();
+import { icsFromProceedings, findOriginalRequest } from './Utility/requests';
+import { useProceedingsStore } from './store/proceedings';
+import type { Proceeding } from './types/proceedings';
+import { RequestType } from 'request';
 
 const RequestList = () => {
-    const country = useAppStore((state) => state.country);
-
-    const [requests, setRequests] = useState<Record<string, UserRequest>>({});
+    const proceedings = useProceedingsStore((state) => state.proceedings);
+    const clearProceedings = useProceedingsStore((state) => state.clearProceedings);
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
-
-    useEffect(() => {
-        user_requests.getRequests()?.then((new_requests) => new_requests && setRequests(new_requests));
-    }, []);
-
-    const sortedRequestIds = useMemo(
-        () =>
-            Object.keys(requests).sort((a, b) => {
-                const req_a = requests[a];
-                const req_b = requests[b];
-
-                if (req_a.date < req_b.date) return -1;
-                else if (req_a.date == req_b.date) {
-                    if (req_a.slug < req_b.slug) return -1;
-                    else if (req_a.slug == req_b.slug) {
-                        if (req_a.reference < req_b.reference) return -1;
-                        else if (req_a.reference == req_b.reference) return 0;
-                        return 1;
-                    }
-                    return 1;
-                }
-                return 1;
-            }),
-        [requests]
-    );
 
     const buildCsv = useCallback(() => {
         const csv =
             'date;slug;recipient;email;reference;type;via\r\n' +
-            sortedRequestIds
-                .filter((id) => selectedRequestIds.includes(id))
-                .map((id) => {
-                    const request = requests[id];
-                    return (
+            selectedRequestIds.map((id) =>
+                Object.entries(proceedings[id].messages).reduce(
+                    (acc, [id, msg]) =>
+                        acc +
                         [
-                            request.date,
-                            request.slug,
-                            request.recipient.replace(/[\n\r]+/g, ', '),
-                            request.email,
-                            request.reference,
-                            request.type,
-                            request.via,
-                        ].join(';') + '\r\n'
-                    );
-                });
+                            msg.date,
+                            msg.slug,
+                            msg.recipient.replace(/[\n\r]+/g, ', '),
+                            msg.email,
+                            msg.reference,
+                            msg.type,
+                            msg.email,
+                        ].join(';') +
+                        '\r\n',
+                    ''
+                )
+            );
 
         return new Blob([csv], { type: 'text/csv;charset=utf-8' });
-    }, [requests, selectedRequestIds, sortedRequestIds]);
+    }, [proceedings, selectedRequestIds]);
 
-    const buildIcs = useCallback(() => {
-        // Maps from date to request IDs.
-        const grouped_requests = selectedRequestIds.reduce<Record<string, string[]>>(
-            (acc, id) => ({ ...acc, [requests[id].date]: [...(acc[requests[id].date] || []), id] }),
-            {}
-        );
-
-        const events = Object.keys(grouped_requests)
-            .map((group) => {
-                const items = grouped_requests[group].map((id) => {
-                    const request = requests[id];
-                    return `* ${request.recipient.split('\n', 1)[0]} (${
-                        request.type === 'custom' && request.response_type
-                            ? t(request.response_type, 'generator')
-                            : t(request.type, 'my-requests')
-                    } – ${request.reference})`;
-                });
-                const titles = grouped_requests[group]
-                    .map((id) => requests[id].recipient.split('\n', 1)[0])
-                    .map((title) => (title.length > 15 ? `${title.slice(0, 15)}...` : title));
-
-                const heading_base = `${t('for', 'my-requests')} ${titles.slice(0, 2).join(', ')}`;
-                const heading_ellipsis =
-                    titles.length > 2
-                        ? ` ${t('and', 'my-requests')} ${titles.length - 2} ${t('more', 'my-requests')}`
-                        : '';
-                const reminder_date = new Date(group);
-                reminder_date.setDate(reminder_date.getDate() + 32);
-
-                return `
-BEGIN:VEVENT
-UID:${hash(items.join(','))}@ics.datenanfragen.de
-DTSTAMP:${new Date().toISOString().replace(/[:-]/g, '').substring(0, 15)}Z
-DTSTART:${reminder_date.toISOString().replace(/-/g, '').substring(0, 8)}
-SUMMARY:${t('ics-summary', 'my-requests')} ${heading_base}${heading_ellipsis}
-DESCRIPTION:${t('ics-desc', 'my-requests').replace(/([,;])/g, '\\$1')}\\n\\n\n ${items
-                    .join('\\n\n ')
-                    .replace(/([,;])/g, '\\$1')}
-BEGIN:VALARM
-TRIGGER:+PT720M
-ACTION:DISPLAY
-DESCRIPTION:${t('ics-summary', 'my-requests')}
-END:VALARM
-URL;VALUE=URI:${t('ics-url', 'my-requests')}
-END:VEVENT`;
-            })
-            .join('\n');
-
-        const ics = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Datenanfragen.de e. V.//${t('ics-title', 'my-requests')}//${t('ics-lang', 'my-requests')}
-X-WR-CALNAME:${t('ics-title', 'my-requests')} (${new Date().toISOString().substring(0, 10)})${events}
-END:VCALENDAR`;
-
-        return new Blob([ics.split('\n').join('\r\n')], { type: 'text/calendar;charset=utf-8' });
-    }, [requests, selectedRequestIds]);
-
-    const removeRequest = useCallback(
-        (request_id: string) => {
-            if (window.confirm(t('modal-delete-single-request', 'privacy-controls'))) {
-                user_requests
-                    .removeRequest(request_id)
-                    ?.then(() => {
-                        setRequests(objFilter(requests, ([id, b]) => id !== request_id));
-                        setSelectedRequestIds(selectedRequestIds.filter((id) => id !== request_id));
-                    })
-                    .catch((error) => rethrow(error, 'Could not remove request', { db_id: request_id }));
-            }
-        },
-        [selectedRequestIds, requests]
+    const buildIcs = useCallback(
+        () =>
+            icsFromProceedings(
+                Object.entries(proceedings).reduce<Proceeding[]>(
+                    (acc, [id, proceeding]) => (selectedRequestIds.includes(id) ? [...acc, proceeding] : acc),
+                    []
+                )
+            ),
+        [proceedings, selectedRequestIds]
     );
-    const clearRequests = useCallback(() => {
-        if (window.confirm(t('modal-clear-requests', 'privacy-controls'))) {
-            user_requests
-                .clearRequests()
-                ?.then(() => setRequests({}))
-                .catch((error) => rethrow(error, 'Could not clear requests.'));
-        }
-    }, []);
 
     if (!Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
         return (
@@ -152,82 +57,6 @@ END:VCALENDAR`;
             </main>
         );
     }
-
-    const locale_country = country.toUpperCase();
-    const date_locale = locale_country === 'ALL' ? window.LOCALE : `${window.LOCALE}-${locale_country}`;
-
-    const request_rows = sortedRequestIds.map((id) => {
-        const request = requests[id];
-        const recipient = request.recipient.split('\n', 1)[0];
-
-        return (
-            <tr>
-                <td>
-                    <input
-                        id={`request-${id}-checkbox`}
-                        checked={selectedRequestIds.includes(id)}
-                        type="checkbox"
-                        className="form-element"
-                        onChange={(e) =>
-                            setSelectedRequestIds((prev) =>
-                                e.currentTarget.checked
-                                    ? [...prev, e.currentTarget.dataset.dbId!]
-                                    : prev.filter((i) => i !== e.currentTarget.dataset.dbId!)
-                            )
-                        }
-                        data-db-id={id}
-                    />
-                </td>
-                <td data-label={t('date', 'my-requests')}>
-                    {new Date(request.date).toLocaleDateString(date_locale, {
-                        weekday: 'long',
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                    })}
-                </td>
-                <td data-label={t('recipient', 'my-requests')}>
-                    {request.slug ? (
-                        <a
-                            href={
-                                window.BASE_URL +
-                                (request.response_type === 'complaint' ? 'supervisory-authority/' : 'company/') +
-                                request.slug
-                            }>
-                            {recipient}
-                        </a>
-                    ) : (
-                        recipient
-                    )}
-                </td>
-                <td data-label={t('reference', 'my-requests')}>{request.reference}</td>
-                <td data-label={t('type', 'my-requests')}>
-                    {request.type === 'custom' && request.response_type
-                        ? t(request.response_type, 'generator')
-                        : t(request.type, 'my-requests')}
-                </td>
-                <td data-label={t('via', 'my-requests')}>{t(request.via, 'my-requests')}</td>
-                <td className="my-requests-button-column">
-                    {!request.response_type && [
-                        <a
-                            href={`${window.BASE_URL}generator/#!response_type=admonition&response_to=${id}`}
-                            className="button button-small button-secondary">
-                            {t('admonition', 'generator')}
-                        </a>,
-                        <a
-                            href={`${window.BASE_URL}generator/#!response_type=complaint&response_to=${id}`}
-                            className="button button-small button-secondary">
-                            {t('complaint', 'generator')}
-                        </a>,
-                    ]}
-                    <button
-                        className="button button-secondary button-small icon-trash"
-                        onClick={() => removeRequest(id)}
-                    />
-                </td>
-            </tr>
-        );
-    });
 
     const csv_download_filename = `${new URL(window.BASE_URL).hostname.replace('www.', '')}_export_${new Date()
         .toISOString()
@@ -247,7 +76,7 @@ END:VCALENDAR`;
                         <MarkupText id="explanation-saving" />
                     </p>
 
-                    {Object.values(requests).length === 0 ? (
+                    {Object.values(proceedings).length === 0 ? (
                         <div className="box box-info" style="width: 80%; margin: auto;">
                             <h2>
                                 <Text id="no-requests-heading" />
@@ -269,46 +98,28 @@ END:VCALENDAR`;
                             <div className="clearfix" />
                         </div>
                     ) : (
-                        [
-                            <table id="my-requests-table" className="table fancy-table fancy-table-mobile">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <input
-                                                id="toggle-all-checkbox"
-                                                checked={selectedRequestIds.length == sortedRequestIds.length}
-                                                type="checkbox"
-                                                className="form-element"
-                                                title={t('toggle-all', 'my-requests')}
-                                                onChange={() =>
-                                                    setSelectedRequestIds(
-                                                        selectedRequestIds.length === sortedRequestIds.length
-                                                            ? []
-                                                            : sortedRequestIds
-                                                    )
-                                                }
-                                            />
-                                        </th>
-                                        <th>
-                                            <Text id="date" />
-                                        </th>
-                                        <th>
-                                            <Text id="recipient" />
-                                        </th>
-                                        <th>
-                                            <Text id="reference" />
-                                        </th>
-                                        <th>
-                                            <Text id="type" />
-                                        </th>
-                                        <th>
-                                            <Text id="via" />
-                                        </th>
-                                        <th />
-                                    </tr>
-                                </thead>
-                                <tbody>{request_rows}</tbody>
-                            </table>,
+                        <>
+                            <ul className="proceeding-rows">
+                                {Object.entries(proceedings).map(([id, proceeding]) => (
+                                    <li className="proceeding-row-list-item">
+                                        <input
+                                            className="form-element"
+                                            type="checkbox"
+                                            aria-labelledby={`proceeding-row-heading-${proceeding.reference}`}
+                                            checked={selectedRequestIds.includes(proceeding.reference)}
+                                            data-reference={proceeding.reference}
+                                            onChange={(e) =>
+                                                setSelectedRequestIds((prev) =>
+                                                    e.currentTarget.checked
+                                                        ? [...prev, e.currentTarget.dataset.reference!]
+                                                        : prev.filter((i) => i !== e.currentTarget.dataset.reference!)
+                                                )
+                                            }
+                                        />
+                                        <ProceedingRow proceeding={proceeding} />
+                                    </li>
+                                ))}
+                            </ul>
                             <div id="my-requests-buttons">
                                 <a
                                     id="download-button"
@@ -326,16 +137,129 @@ END:VCALENDAR`;
                                     style="margin-right: 10px;">
                                     <Text id="export-ics" />
                                 </a>
-                                <button id="clear-button" className="button button-secondary" onClick={clearRequests}>
+                                <button
+                                    id="clear-button"
+                                    className="button button-secondary"
+                                    onClick={() =>
+                                        window.confirm(t('modal-clear-requests', 'privacy-controls')) &&
+                                        clearProceedings()
+                                    }>
                                     <Text id="delete-all-btn" />
                                 </button>
-                            </div>,
-                        ]
+                            </div>
+                        </>
                     )}
                     <div className="clearfix" />
                 </div>
             </main>
         </IntlProvider>
+    );
+};
+
+type ProceedingRowProps = {
+    proceeding: Proceeding;
+};
+
+const ProceedingRow = (props: ProceedingRowProps) => {
+    const country = useAppStore((state) => state.country);
+    const removeMessage = useProceedingsStore((state) => state.removeMessage);
+
+    const original_request = findOriginalRequest(props.proceeding);
+
+    const locale_country = country.toUpperCase();
+    const date_locale = locale_country === 'ALL' ? window.LOCALE : `${window.LOCALE}-${locale_country}`;
+
+    const recipient_name = original_request?.recipient.split('\n')[0];
+
+    return (
+        <details className="proceeding-row">
+            <summary>
+                <h3 id={`proceeding-row-heading-${props.proceeding.reference}`}>
+                    {original_request && (
+                        <span
+                            className={`icon-${original_request.type}`}
+                            title={t(original_request.type as RequestType, 'my-requests')}
+                            style="float: right;"
+                        />
+                    )}
+                    {recipient_name?.length === 0 ? 'No Name' : recipient_name}
+                </h3>
+                <time
+                    className={`proceeding-date ${
+                        props.proceeding.status === 'overdue' ? 'proceeding-date-overdue' : ''
+                    }`}
+                    dateTime={original_request?.date.toISOString()}>
+                    {original_request?.date.toLocaleDateString(date_locale, {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                    })}
+                </time>
+                <span
+                    className={`proceeding-status badge ${
+                        props.proceeding.status === 'done'
+                            ? 'badge-success'
+                            : props.proceeding.status === 'overdue'
+                            ? 'badge-error'
+                            : 'badge-warning'
+                    }`}>
+                    <Text id={props.proceeding.status} />
+                </span>
+                <span className="proceeding-reference">{props.proceeding.reference}</span>
+            </summary>
+
+            <ul style="padding: 0">
+                {Object.entries(props.proceeding.messages).map(([ref, msg], index) => (
+                    <li className="proceeding-message">
+                        <div style="width: 100%">
+                            <time dateTime={msg?.date.toISOString()}>
+                                {msg?.date.toLocaleDateString(date_locale, {
+                                    weekday: 'long',
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric',
+                                })}
+                            </time>
+                            <h4>
+                                {msg.type === original_request?.type
+                                    ? t('original-request', 'my-requests')
+                                    : t(msg.type, 'my-requests')}
+                            </h4>
+                            {msg.subject && msg.content ? (
+                                <>
+                                    <br />
+                                    <button
+                                        className="button button-unstyled icon icon-email"
+                                        onClick={() => alert('TODO')}>
+                                        {msg.subject}
+                                    </button>
+                                </>
+                            ) : (
+                                msg.subject && (
+                                    <>
+                                        <br />
+                                        <span className="icon icon-email">{msg.subject}</span>
+                                    </>
+                                )
+                            )}
+                        </div>
+                        {msg != original_request && (
+                            <button
+                                className="button button-secondary button-small icon-trash"
+                                title={t('delete-message', 'my-requests')}
+                                onClick={() => removeMessage(msg.id)}
+                            />
+                        )}
+                        {index === Object.entries(props.proceeding.messages).length - 1 && (
+                            <button className="button button-small button-primary" onClick={() => alert('TODO')}>
+                                <Text id="message-react" />
+                            </button>
+                        )}
+                    </li>
+                ))}
+            </ul>
+        </details>
     );
 };
 

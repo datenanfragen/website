@@ -9,10 +9,11 @@ import type {
 } from '../types/request';
 import type { Company, RequestLanguage, SupervisoryAuthority } from '../types/company';
 import { generateReference } from 'letter-generator';
-import { t_r } from './i18n';
-import { deepCopyObject } from './common';
+import t, { t_r } from './i18n';
+import { deepCopyObject, hash } from './common';
 import { requestTemplate } from './fetch';
-import { UserRequest } from '../DataType/UserRequests';
+import type { UserRequest } from '../DataType/UserRequests';
+import type { Message, Proceeding } from '../types/proceedings';
 
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
 export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
@@ -166,3 +167,62 @@ export function inferRequestLanguage(entity?: Company | SupervisoryAuthority) {
     if (entity && isSva(entity)) return requestLanguageFallback(entity['complaint-language']);
     return requestLanguageFallback(entity?.['request-language']);
 }
+
+export const findOriginalRequest = (proceeding: Proceeding) =>
+    Object.entries(proceeding.messages).find(([id, message]) =>
+        REQUEST_TYPES.includes(message.type as RequestType)
+    )?.[1]; // The casting in necessary because `REQUEST_TYPES` is readonly and therefore narrows the type for `Array.includes`.
+
+export const icsFromProceedings = (proceedings: Proceeding[]) => {
+    // Maps from date to request IDs.
+    const grouped_requests = proceedings.reduce<Record<string, Message[]>>((acc, prcd) => {
+        const request = findOriginalRequest(prcd);
+        return request
+            ? { ...acc, [request.date.toDateString()]: [...(acc[request.date.toDateString()] || []), request] }
+            : acc;
+    }, {});
+
+    const events = Object.keys(grouped_requests)
+        .map((group) => {
+            const items = grouped_requests[group].map((request) => {
+                return `* ${request.recipient.split('\n', 1)[0]} (${t(request.type, 'my-requests')} – ${
+                    request.reference
+                })`;
+            });
+            const titles = grouped_requests[group]
+                .map((request) => request.recipient.split('\n', 1)[0])
+                .map((title) => (title.length > 15 ? `${title.slice(0, 15)}...` : title));
+
+            const heading_base = `${t('for', 'my-requests')} ${titles.slice(0, 2).join(', ')}`;
+            const heading_ellipsis =
+                titles.length > 2 ? ` ${t('and', 'my-requests')} ${titles.length - 2} ${t('more', 'my-requests')}` : '';
+            const reminder_date = new Date(group);
+            reminder_date.setDate(reminder_date.getDate() + 32);
+
+            return `
+BEGIN:VEVENT
+UID:${hash(items.join(','))}@ics.datenanfragen.de
+DTSTAMP:${new Date().toISOString().replace(/[:-]/g, '').substring(0, 15)}Z
+DTSTART:${reminder_date.toISOString().replace(/-/g, '').substring(0, 8)}
+SUMMARY:${t('ics-summary', 'my-requests')} ${heading_base}${heading_ellipsis}
+DESCRIPTION:${t('ics-desc', 'my-requests').replace(/([,;])/g, '\\$1')}\\n\\n\n ${items
+                .join('\\n\n ')
+                .replace(/([,;])/g, '\\$1')}
+BEGIN:VALARM
+TRIGGER:+PT720M
+ACTION:DISPLAY
+DESCRIPTION:${t('ics-summary', 'my-requests')}
+END:VALARM
+URL;VALUE=URI:${t('ics-url', 'my-requests')}
+END:VEVENT`;
+        })
+        .join('\n');
+
+    const ics = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Datenanfragen.de e. V.//${t('ics-title', 'my-requests')}//${t('ics-lang', 'my-requests')}
+X-WR-CALNAME:${t('ics-title', 'my-requests')} (${new Date().toISOString().substring(0, 10)})${events}
+END:VCALENDAR`;
+
+    return new Blob([ics.split('\n').join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+};
