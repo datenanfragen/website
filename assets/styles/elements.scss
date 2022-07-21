@@ -287,6 +287,19 @@ input:disabled {
     }
 }
 
+/* Only semantical fieldset */
+.label-only-fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+
+    & > legend {
+        padding: 0;
+        display: table; // This needs to be done for correct wrapping in some browsers, see https://thatemil.com/blog/2015/01/03/reset-your-fieldset/
+    }
+}
+
 /* Radio Buttons */
 .radio-group {
     display: flex;
@@ -306,6 +319,10 @@ input:disabled {
             color: $primary-color;
             border-left: none;
             margin-bottom: 5px;
+
+            .icon::before {
+                margin-right: 8px;
+            }
 
             &.active {
                 background-color: $primary-color;
