@@ -236,3 +236,15 @@
     @extend %icon;
     font-icon: url('objection.svg');
 }
+
+.icon-person:before {
+    @extend %icon;
+    font-icon: url('person.svg');
+    vertical-align: 0;
+}
+
+.icon-factory:before {
+    @extend %icon;
+    font-icon: url('factory.svg');
+    vertical-align: 0;
+}
