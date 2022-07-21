@@ -1,14 +1,14 @@
-import type { JSX } from 'preact';
+import type { ComponentChildren } from 'preact';
 
 type RadioProps = {
     id: string;
-    label: JSX.Element | string;
+    label: ComponentChildren;
     radioVariable: string;
     value: string;
     name: string;
     onChange: (value: string) => void;
     onClick?: (value: string) => void;
-    addon?: JSX.Element | string;
+    addon?: ComponentChildren;
 };
 
 export const Radio = (props: RadioProps) => (

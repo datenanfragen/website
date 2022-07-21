@@ -7,8 +7,10 @@ import t from './Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
 import { icsFromProceedings, findOriginalRequest } from './Utility/requests';
 import { useProceedingsStore } from './store/proceedings';
-import type { Proceeding } from './types/proceedings';
+import type { Proceeding, Message } from './types/proceedings';
 import { RequestType } from 'request';
+import { useModal } from './Components/Modal';
+import { MessageMetadataInput } from './Components/MessageMetadataInput';
 
 const RequestList = () => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
@@ -208,114 +210,180 @@ const ProceedingRow = (props: ProceedingRowProps) => {
 
     const original_request = findOriginalRequest(props.proceeding);
 
+    const initialMessage = useMemo<Omit<Message, 'id'>>(
+        () => ({
+            transport_medium: 'email',
+            date: new Date(),
+            reference: props.proceeding.reference,
+            sentByMe: false,
+            correspondent_address: original_request?.correspondent_address || '',
+            correspondent_email: original_request?.correspondent_email || '',
+            type: 'response',
+        }),
+        [props.proceeding.reference, original_request]
+    );
+
+    const ImportModalContent = () => {
+        const [newMessage, setNewMessage] = useState<Omit<Message, 'id'>>(initialMessage);
+        const addMessage = useProceedingsStore((state) => state.addMessage);
+
+        return (
+            <>
+                <p>
+                    <Text id="import-message-modal-explanation" />
+                </p>
+                <MessageMetadataInput
+                    message={newMessage}
+                    onChange={(message) => setNewMessage(message)}
+                    includeContent={true}
+                />
+                <button
+                    className="button button-secondary"
+                    style="margin-top: 10px;"
+                    onClick={() => {
+                        setNewMessage(initialMessage);
+                        dismissImportMessageModal();
+                    }}>
+                    <Text id="cancel" />
+                </button>
+                <button
+                    className="button button-primary"
+                    style="margin-left: 5px; margin-top: 10px;"
+                    onClick={() => {
+                        addMessage(newMessage);
+                        setNewMessage(initialMessage);
+                        dismissImportMessageModal();
+                    }}>
+                    <Text id="add-message" />
+                </button>
+            </>
+        );
+    };
+
+    const [ImportMessageModal, showImportMessageModal, dismissImportMessageModal] = useModal(<ImportModalContent />, {
+        defaultButton: 'positive',
+        backdropDismisses: true,
+        escDismisses: true,
+        hasDismissButton: true,
+    });
+
     const locale_country = country.toUpperCase();
     const date_locale = locale_country === 'ALL' ? window.LOCALE : `${window.LOCALE}-${locale_country}`;
 
     const recipient_name = original_request?.correspondent_address.split('\n')[0];
 
     return (
-        <details className="proceeding-row">
-            <summary>
-                <h3 id={`proceeding-row-heading-${props.proceeding.reference}`}>
-                    {original_request && (
-                        <span
-                            className={`icon-${original_request.type}`}
-                            title={t(original_request.type as RequestType, 'my-requests')}
-                            style="float: right;"
-                        />
-                    )}
-                    {recipient_name?.length === 0 ? 'No Name' : recipient_name}
-                </h3>
-                <time
-                    className={`proceeding-date ${
-                        props.proceeding.status === 'overdue' ? 'proceeding-date-overdue' : ''
-                    }`}
-                    dateTime={original_request?.date.toISOString()}>
-                    {original_request?.date.toLocaleDateString(date_locale, {
-                        weekday: 'long',
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                    })}
-                </time>
-                <span
-                    className={`proceeding-status badge ${
-                        props.proceeding.status === 'done'
-                            ? 'badge-success'
-                            : props.proceeding.status === 'overdue'
-                            ? 'badge-error'
-                            : 'badge-warning'
-                    }`}>
-                    <Text id={props.proceeding.status} />
-                </span>
-                <div className="flex-spacer-mobile" aria-hidden={true} />
-                <span className="proceeding-reference">{props.proceeding.reference}</span>
-            </summary>
-
-            <ul style="padding: 0">
-                {Object.entries(props.proceeding.messages).map(([ref, msg], index) => (
-                    <li className="proceeding-message">
-                        <div style="width: 100%">
-                            <time dateTime={msg?.date.toISOString()}>
-                                {msg?.date.toLocaleDateString(date_locale, {
-                                    weekday: 'long',
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: 'numeric',
-                                })}
-                            </time>
-                            <h4>
-                                {msg.type === original_request?.type
-                                    ? t('original-request', 'my-requests')
-                                    : t(msg.type, 'my-requests')}
-                            </h4>
-                            {msg.subject && msg.content ? (
-                                <>
-                                    <br />
-                                    <button
-                                        className="button button-unstyled icon icon-email"
-                                        onClick={() => alert('TODO')}>
-                                        {msg.subject}
-                                    </button>
-                                </>
-                            ) : (
-                                msg.subject && (
-                                    <>
-                                        <br />
-                                        <span className="icon icon-email">{msg.subject}</span>
-                                    </>
-                                )
-                            )}
-                        </div>
-                        {msg != original_request && (
-                            <button
-                                className="button button-secondary button-small icon-trash"
-                                title={t('delete-message', 'my-requests')}
-                                onClick={() => removeMessage(msg.id)}
+        <>
+            <ImportMessageModal />
+            <details className="proceeding-row">
+                <summary>
+                    <h3 id={`proceeding-row-heading-${props.proceeding.reference}`}>
+                        {original_request && (
+                            <span
+                                className={`icon-${original_request.type}`}
+                                title={t(original_request.type as RequestType, 'my-requests')}
+                                style="float: right;"
                             />
                         )}
-                        {index === Object.entries(props.proceeding.messages).length - 1 && (
-                            <button className="button button-small button-primary" onClick={() => alert('TODO')}>
-                                <Text id="message-react" />
-                            </button>
-                        )}
-                    </li>
-                ))}
-            </ul>
-            <div className="proceeding-actions">
-                <button className="button button-small button-secondary icon icon-plus-circle">
-                    <Text id="import-message" />
-                </button>
-                <button
-                    className="button button-small button-error icon icon-trash"
-                    onClick={() =>
-                        confirm(t('delete-proceeding-confirm', 'my-requests')) &&
-                        removeProceeding(props.proceeding.reference)
-                    }>
-                    <Text id="delete-proceeding" />
-                </button>
-            </div>
-        </details>
+                        {recipient_name?.length === 0 ? 'No Name' : recipient_name}
+                    </h3>
+                    <time
+                        className={`proceeding-date ${
+                            props.proceeding.status === 'overdue' ? 'proceeding-date-overdue' : ''
+                        }`}
+                        dateTime={original_request?.date.toISOString()}>
+                        {original_request?.date.toLocaleDateString(date_locale, {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                        })}
+                    </time>
+                    <span
+                        className={`proceeding-status badge ${
+                            props.proceeding.status === 'done'
+                                ? 'badge-success'
+                                : props.proceeding.status === 'overdue'
+                                ? 'badge-error'
+                                : 'badge-warning'
+                        }`}>
+                        <Text id={props.proceeding.status} />
+                    </span>
+                    <div className="flex-spacer-mobile" aria-hidden={true} />
+                    <span className="proceeding-reference">{props.proceeding.reference}</span>
+                </summary>
+
+                <ul style="padding: 0">
+                    {Object.entries(props.proceeding.messages).map(([ref, msg], index) => (
+                        <li className="proceeding-message">
+                            <div style="width: 100%">
+                                <time dateTime={msg?.date.toISOString()}>
+                                    {msg?.date.toLocaleDateString(date_locale, {
+                                        weekday: 'long',
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric',
+                                    })}
+                                </time>
+                                <h4>
+                                    <span
+                                        className={`icon icon-${msg.sentByMe ? 'person' : 'factory'}`}
+                                        title={t(`sent-by-${msg.sentByMe ? 'me' : 'someone-else'}`, 'my-requests')}
+                                    />
+                                    {msg.type === original_request?.type
+                                        ? t('original-request', 'my-requests')
+                                        : t(msg.type, 'my-requests')}
+                                </h4>
+                                {msg.subject && msg.content ? (
+                                    <>
+                                        <br />
+                                        <button
+                                            className="button button-unstyled icon icon-email"
+                                            onClick={() => alert('TODO')}>
+                                            {msg.subject}
+                                        </button>
+                                    </>
+                                ) : (
+                                    msg.subject && (
+                                        <>
+                                            <br />
+                                            <span className="icon icon-email">{msg.subject}</span>
+                                        </>
+                                    )
+                                )}
+                            </div>
+                            {msg != original_request && (
+                                <button
+                                    className="button button-secondary button-small icon-trash"
+                                    title={t('delete-message', 'my-requests')}
+                                    onClick={() => removeMessage(msg.id)}
+                                />
+                            )}
+                            {index === Object.entries(props.proceeding.messages).length - 1 && (
+                                <button className="button button-small button-primary" onClick={() => alert('TODO')}>
+                                    <Text id="message-react" />
+                                </button>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+                <div className="proceeding-actions">
+                    <button
+                        className="button button-small button-secondary icon icon-plus-circle"
+                        onClick={showImportMessageModal}>
+                        <Text id="import-message" />
+                    </button>
+                    <button
+                        className="button button-small button-error icon icon-trash"
+                        onClick={() =>
+                            confirm(t('delete-proceeding-confirm', 'my-requests')) &&
+                            removeProceeding(props.proceeding.reference)
+                        }>
+                        <Text id="delete-proceeding" />
+                    </button>
+                </div>
+            </details>
+        </>
     );
 };
 
