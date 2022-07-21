@@ -60,7 +60,7 @@ export const module = createReactorModule('base', {
         {
             id: 'dead-end',
             type: 'options',
-            body: 'In this case, we don’t see an issue with the company’s response based on the reason you selected. But you can continue with another reason, if applicable.',
+            body: 'In this case, we can unfortunately not proceed with the problem you selected. But you can continue with another reason, if applicable.',
             options: [
                 {
                     text: 'Check if there is another problem with the company’s response.',

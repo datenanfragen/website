@@ -3,8 +3,8 @@ import type { ReactorModuleData } from '../../../types/reactor';
 
 export interface AdditionalIdModuleData extends ReactorModuleData {
     issue: {
-        variables: { reasoning: string };
         flags: { no_doubts: boolean; has_reasoning: boolean; concerns_online_account: boolean };
+        variables: { reasoning: string };
     };
 }
 declare module '../../../types/reactor' {

@@ -51,6 +51,8 @@ Mit freundlichen Grüßen`,
 
         'additional-id::response': `TODO`,
         'additional-id::complaint::': `TODO`,
+        'id-copy::response': `TODO`,
+        'id-copy::complaint': `TODO`,
     },
     en: {
         'base::response': `To Whom It May Concern:
@@ -103,5 +105,11 @@ Yours sincerely,`,
 
 I am of the opinion that the data I have already provided in my request is sufficient to identify me and that you can thus not require me to provide any additional data.[has:reasoning> {reasoning}][concerns_online_account> Also note that Recital 64 GDPR explains that online identifiers should be used for identification, in particular in the context of online services, as is the case here.]`,
         'additional-id::complaint::': `TODO`,
+        'id-copy::response': `You have refused to answer my request until I provide a copy of an identity document. Please note that providing a copy of an identity document is an invasive measure that creates a risk for the security of my personal data, and is as such only appropriate if strictly necessary, suitable, and in line with national law (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 73).[user_objects> I do not believe that this is the case for my request.]
+[not_linked_to_real_life_identity>My request concerns data that is not linked to my real-life identity. As such, it is not apparent how providing a copy of an identity document would help you in authenticating my request.][concerns_online_account>My request concerns an online account, which means that a better and less intrusive authentication procedure already exists (cf. Recital 64 GDPR). Consequently, it is disproportionate to require a copy of an identity document (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 72).][has:reasoning>
+{reasoning}][ask_about_redactions>I am willing to provide a redacted copy of an identity document for this request but unfortunately you have not told me which information is necessary for confirming my identity. According to the European Data Protection Board, generally, the date of issue or expiry date, the issuing authority and the full name are sufficient, and all other information should be redacted (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 75). Please tell me which information you deem necessary so I can redact the rest.
+
+I also want to point out in advance that storing the copy of my identity document longer than is necessary for verifying my identity for this request is an infringement of the GDPR considering the principles of storage and purpose limitation (Art. 5(1)(b) and (e) GDPR). The European Data Protection Board recommends making a note that you have verified my identity document and then immediately deleting the copy (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 78).]`,
+        'id-copy::complaint': `TODO`,
     },
 };
