@@ -9,7 +9,7 @@ type Proceeding = {
     status: ProceedingStatus;
 };
 
-type ProceedingStatus = typeof PROCEEDING_STATUS[string];
+export type ProceedingStatus = typeof PROCEEDING_STATUS[string];
 
 type Message = {
     id: MessageId;

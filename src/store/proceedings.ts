@@ -1,5 +1,5 @@
 import type { Request } from '../types/request';
-import { Message, MessageId, Proceeding } from '../types/proceedings.d';
+import { Message, MessageId, Proceeding, ProceedingStatus } from '../types/proceedings.d';
 import create, { GetState, SetState, StoreApi, Mutate } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { produce } from 'immer';
@@ -20,6 +20,7 @@ export interface ProceedingsState {
     addAttachment: (id: MessageId, file: unknown) => void;
     removeProceeding: (reference: string) => void;
     clearProceedings: () => void;
+    updateStatuses: () => void;
     _hasHydrated: boolean;
     _migratedLegacyRequests: boolean;
     migrationDone: () => void;
@@ -70,6 +71,9 @@ const proceedingsStore = persist<ProceedingsState>(
                     const message_id_string = `${message.reference}-${`${message_id_number}`.padStart(2, '0')}`;
                     message.id = message_id_string;
                     state.proceedings[message.reference].messages[message_id_string] = message as Message;
+                    state.proceedings[message.reference].status = shouldHaveStatus(
+                        state.proceedings[message.reference]
+                    );
                 })
             ),
         removeMessage: (id) =>
@@ -78,6 +82,7 @@ const proceedingsStore = persist<ProceedingsState>(
                     const reference = id.match(id_regex)?.[1];
                     if (!reference) return;
                     delete state.proceedings[reference].messages[id];
+                    state.proceedings[reference].status = shouldHaveStatus(state.proceedings[reference]);
                 })
             ),
         // TODO: Implement a file API…
@@ -91,6 +96,14 @@ const proceedingsStore = persist<ProceedingsState>(
                 })
             ),
         clearProceedings: () => set({ proceedings: {} }),
+        updateStatuses: () =>
+            set(
+                produce((state: ProceedingsState) => {
+                    for (const [ref, prcd] of Object.entries(state.proceedings)) {
+                        state.proceedings[ref].status = shouldHaveStatus(prcd);
+                    }
+                })
+            ),
         // TODO: remove the my requests migration code and notify users about the migration
         migrationDone: () => set({ _migratedLegacyRequests: true }),
         _hasHydrated: false,
@@ -100,7 +113,12 @@ const proceedingsStore = persist<ProceedingsState>(
         name: 'Datenanfragen.de-proceedings',
         version: 0,
         getStorage: () => proceedingsStorage,
-        onRehydrateStorage: () => (state) => state && state.drink(),
+        onRehydrateStorage: () => (state) => {
+            if (!state) return;
+
+            state.drink();
+            state.updateStatuses();
+        },
         deserialize: (str) =>
             produce(JSON.parse(str) as ProceedingsStorageValue, (stored_object) => {
                 if (!stored_object.state.proceedings) return;
@@ -113,6 +131,19 @@ const proceedingsStore = persist<ProceedingsState>(
             }),
     }
 );
+
+const shouldHaveStatus = (proceeding: Proceeding): ProceedingStatus => {
+    if (proceeding.status === 'done') return 'done';
+    const msgArray = Object.entries(proceeding.messages);
+    const lastMessage = msgArray[msgArray.length - 1][1]; // TODO: I should probably sort by date first…
+    if (lastMessage.sentByMe) {
+        const dueDate = new Date(lastMessage.date);
+        dueDate.setDate(dueDate.getDate() + 32); // TODO: Make this a setting? Should this depend on context?
+        return dueDate > new Date() ? 'waitingForResponse' : 'overdue';
+    }
+
+    return 'actionNeeded';
+};
 
 const { devtools } =
     process.env.NODE_ENV === 'development' ? require('zustand/middleware') : { devtools: (d: unknown) => d };
