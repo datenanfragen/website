@@ -8,7 +8,7 @@ import type { SetOptional } from 'type-fest';
 import { ErrorException } from '../Utility/errors';
 import { UserRequest } from '../DataType/UserRequests';
 import { isUserRequest } from '../Utility/requests';
-import { LocalforagePrivacy } from '../Utility/LocalforagePrivacy';
+import { PrivacyAsyncStorage } from '../Utility/PrivacyAsyncStorage';
 import { t_r } from '../Utility/i18n';
 
 export interface ProceedingsState {
@@ -31,7 +31,7 @@ type ProceedingsStorageValue = { state: Partial<ProceedingsState>; version?: num
 
 const id_regex = /^(\d{4,}-[\dA-Za-z]{7,})-(\d+)$/;
 
-const proceedingsStorage = new LocalforagePrivacy(() => Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS), {
+const proceedingsStorage = new PrivacyAsyncStorage(() => Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS), {
     name: 'Datenanfragen.de',
     storeName: 'proceedings',
 });
