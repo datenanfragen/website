@@ -10,7 +10,7 @@ module.exports = {
         app: './src/app.tsx',
         'company-list': './src/company-list.js',
         'my-requests': './src/my-requests.tsx',
-        'privacy-controls': './src/privacy-controls.js',
+        'privacy-controls': './src/privacy-controls.tsx',
         'suggest-edit': './src/suggest-edit.js',
         'id-data-controls': './src/id-data-controls.tsx',
         'sva-finder': './src/Components/SvaFinder.tsx',
