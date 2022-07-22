@@ -48,6 +48,7 @@
         "autocomplete.js": "^0.37.0",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
         "deepmerge": "^4.2.2",
+        "idb": "^7.0.2",
         "immer": "^9.0.12",
         "js-cookie": "^2.2.1",
         "letter-generator": "^2.0.2",

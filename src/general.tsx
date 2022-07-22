@@ -12,6 +12,7 @@ import { UserRequests } from './DataType/UserRequests';
 import { proceedingFromRequest, useProceedingsStore } from './store/proceedings';
 import type { Message } from './types/proceedings';
 import { REQUEST_TYPES } from './Utility/requests';
+import { PrivacyAsyncStorage } from './Utility/PrivacyAsyncStorage';
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');
@@ -69,67 +70,73 @@ if (!useAppStore.getState().countrySet) {
 // TODO: remove the my requests migration code and notify users about the migration
 const unsubscribeFromHydration = useProceedingsStore.persist.onFinishHydration((proceedingsState) => {
     if (!proceedingsState._migratedLegacyRequests) {
-        const userRequests = new UserRequests();
-        userRequests
-            .getRequests()
-            .then(async (requests) => {
-                if (!requests) return;
-                for (const [db_id, request] of Object.entries(requests)) {
-                    if (request.response_type) {
-                        const messageFromRequest: Omit<Message, 'id'> = {
-                            reference: request.reference,
-                            correspondent_address: request.recipient,
-                            transport_medium: request.via,
-                            type: request.response_type,
-                            date: new Date(request.date),
-                            correspondent_email: request.email,
-                            sentByMe: true,
-                        };
+        PrivacyAsyncStorage.doesStoreExist('Datenanfragen.de', 'my-requests')
+            .then((exists) => {
+                if (!exists) return;
+                const userRequests = new UserRequests();
+                return userRequests
+                    .getRequests()
+                    .then(async (requests) => {
+                        if (!requests) return;
+                        for (const [db_id, request] of Object.entries(requests)) {
+                            if (request.response_type) {
+                                const messageFromRequest: Omit<Message, 'id'> = {
+                                    reference: request.reference,
+                                    correspondent_address: request.recipient,
+                                    transport_medium: request.via,
+                                    type: request.response_type,
+                                    date: new Date(request.date),
+                                    correspondent_email: request.email,
+                                    sentByMe: true,
+                                };
 
-                        const createStubProceeding = () => {
-                            // If the parent request is missing we create a stub to put the message in.
-                            proceedingsState.addProceeding({
-                                reference: request.reference,
-                                messages: {},
-                                status: 'done',
-                            });
-                            proceedingsState.addMessage(messageFromRequest);
-                        };
-
-                        // Search for the parent request in the already created proceedings
-                        if (Object.keys(useProceedingsStore.getState().proceedings).includes(request.reference)) {
-                            proceedingsState.addMessage(messageFromRequest);
-                        } else {
-                            // If no proceeding was found, search the database and create a new proceeding
-                            const parentRequestId = await userRequests.localforage_instance
-                                ?.keys()
-                                .then((keys) =>
-                                    keys?.find(
-                                        (key) =>
-                                            key !== db_id &&
-                                            key.match(new RegExp(`^${request.reference}-${REQUEST_TYPES}`))
-                                    )
-                                );
-
-                            if (parentRequestId) {
-                                const parentRequest = await userRequests.getRequest(parentRequestId);
-                                if (!parentRequest) {
-                                    createStubProceeding();
-                                } else {
-                                    proceedingsState.addProceeding(proceedingFromRequest(parentRequest));
+                                const createStubProceeding = () => {
+                                    // If the parent request is missing we create a stub to put the message in.
+                                    proceedingsState.addProceeding({
+                                        reference: request.reference,
+                                        messages: {},
+                                        status: 'done',
+                                    });
                                     proceedingsState.addMessage(messageFromRequest);
+                                };
 
-                                    await userRequests.removeRequest(parentRequestId);
+                                // Search for the parent request in the already created proceedings
+                                if (
+                                    Object.keys(useProceedingsStore.getState().proceedings).includes(request.reference)
+                                ) {
+                                    proceedingsState.addMessage(messageFromRequest);
+                                } else {
+                                    // If no proceeding was found, search the database and create a new proceeding
+                                    const parentRequestId = await userRequests.localforage_instance
+                                        ?.keys()
+                                        .then((keys) =>
+                                            keys?.find(
+                                                (key) =>
+                                                    key !== db_id &&
+                                                    key.match(new RegExp(`^${request.reference}-${REQUEST_TYPES}`))
+                                            )
+                                        );
+
+                                    if (parentRequestId) {
+                                        const parentRequest = await userRequests.getRequest(parentRequestId);
+                                        if (!parentRequest) {
+                                            createStubProceeding();
+                                        } else {
+                                            proceedingsState.addProceeding(proceedingFromRequest(parentRequest));
+                                            proceedingsState.addMessage(messageFromRequest);
+
+                                            await userRequests.removeRequest(parentRequestId);
+                                        }
+                                    } else createStubProceeding();
                                 }
-                            } else createStubProceeding();
+                            } else {
+                                proceedingsState.addProceeding(proceedingFromRequest(request));
+                            }
+                            await userRequests.removeRequest(db_id);
                         }
-                    } else {
-                        proceedingsState.addProceeding(proceedingFromRequest(request));
-                    }
-                    await userRequests.removeRequest(db_id);
-                }
+                    })
+                    .then(() => userRequests.localforage_instance?.dropInstance());
             })
-            .then(() => userRequests.localforage_instance?.dropInstance())
             .then(() => proceedingsState.migrationDone())
             .then(() => unsubscribeFromHydration());
     } else {
