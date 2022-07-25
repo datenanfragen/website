@@ -123,7 +123,7 @@ describe('Generator component', () => {
 
         // shows up only when 'Rectification request' is selected
         cy.contains('Correct data');
-        cy.get('#dynamic-input-type-rectification_data');
+        cy.get('#request-dynamic-input-rectification_data');
 
         cy.contains('Erasure request').click();
 
