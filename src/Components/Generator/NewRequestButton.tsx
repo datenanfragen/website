@@ -22,6 +22,8 @@ export const NewRequestButton = (props: NewRequestButtonProps) => {
     const [ConfirmNewRequestModal, showConfirmNewRequestModal, , , newRequest] = useNewRequestModal(
         props.newRequestHook
     );
+    const current_company = useGeneratorStore((state) => state.current_company);
+    const removeFromBatch = useGeneratorStore((state) => state.removeFromBatch);
 
     return (
         <>
@@ -30,6 +32,7 @@ export const NewRequestButton = (props: NewRequestButtonProps) => {
                 id="new-request-button"
                 onClick={() => {
                     if (!request_sent) return showConfirmNewRequestModal();
+                    if (current_company) removeFromBatch(current_company.slug);
                     newRequest().then(renderLetter);
                 }}
                 {...props.buttonProps}>
@@ -56,6 +59,7 @@ export const useNewRequestModal = (
     const current_company = useGeneratorStore((state) => state.current_company);
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const getRequestForSaving = useGeneratorStore((state) => state.getRequestForSaving);
+    const removeFromBatch = useGeneratorStore((state) => state.removeFromBatch);
 
     const addRequest = useProceedingsStore((state) => state.addRequest);
 
@@ -94,6 +98,7 @@ export const useNewRequestModal = (
                         onSuccess={() => {
                             dismissConfirmNewRequestModal();
                             addRequest(getRequestForSaving());
+                            if (current_company) removeFromBatch(current_company.slug);
                             setBusy();
                             newRequest().then(() => renderLetter());
                         }}
@@ -103,6 +108,7 @@ export const useNewRequestModal = (
             negativeText: t('new-request', 'generator'),
             onNegativeFeedback: () => {
                 dismissConfirmNewRequestModal();
+                if (current_company) removeFromBatch(current_company.slug);
                 setBusy();
                 newRequest().then(() => renderLetter());
             },
