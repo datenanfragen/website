@@ -31,7 +31,7 @@
     <link rel="preload" as="font" crossorigin="anonymous" integrity="sha384-sWa20lMbvqJHIjx/smLcYHI2mJE8aJTZ1nvZaP6APJ0D45qxe+r7+/UYGy47CuLc" type="font/woff2" href="https://static.dacdn.de/fonts/spartan-mb/SpartanMB-1005-ExtraBold.woff">
     {{ if eq .Type "generator" -}}
     {{- end }}
-    {{ $style := resources.Get "styles/main.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
+    {{ $style := resources.Get "styles/index.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
     {{ $style_link := $style.RelPermalink | absURL }}
     {{ if (or (eq hugo.Environment "production") (eq hugo.Environment "staging")) }}
         {{ $style_link = $style_link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
