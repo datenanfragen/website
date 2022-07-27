@@ -30,7 +30,7 @@ export function RequestTypeChooser(props: RequestTypeChooserProps) {
             <br />
             <div
                 className={`radio-group${
-                    request_types.length > 2 ? ' radio-group-vertical' : 'radio-group-horizontal'
+                    request_types.length > 2 ? ' radio-group-vertical' : ' radio-group-horizontal'
                 }`}>
                 {radios}
             </div>

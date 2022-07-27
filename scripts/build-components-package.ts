@@ -40,8 +40,8 @@ const generated_dir = join(package_dir, 'src', 'generated');
         pjson[property] = website_pjson[property];
     const dependencies = objFilter(website_pjson.dependencies, ([pkg]) => pkg !== 'preact');
     const peerDependencies = objFilter(website_pjson.dependencies, ([pkg]) => pkg === 'preact');
-    pjson.dependencies = dependencies;
-    pjson.peerDependencies = peerDependencies;
+    pjson.dependencies = { ...dependencies, ...pjson.dependencies };
+    pjson.peerDependencies = { ...peerDependencies, ...pjson.peerDependencies };
     fs.writeFileSync(join(package_dir, 'package.json'), JSON.stringify(pjson, null, 4));
 
     // Copy license and attribution files over.

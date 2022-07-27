@@ -1,0 +1,34 @@
+@use 'npm:@fontsource/firago/scss/mixins' as FiraGo;
+// TODO: This should actually be Spartan MB, but it is not yet supported by fontsource
+@use 'npm:@fontsource/league-spartan/scss/mixins' as Spartan;
+
+@include FiraGo.fontFaceCustom(
+    $display: swap,
+    $style: 'italic',
+    $weight: 400,
+    $woff2Path: 'npm:@fontsource/firago/files/firago-all-400-italic.woff2',
+    $woffPath: 'npm:@fontsource/firago/files/firago-all-400-italic.woff'
+);
+
+@include FiraGo.fontFaceCustom(
+    $display: swap,
+    $style: 'normal',
+    $weight: 400,
+    $woff2Path: 'npm:@fontsource/firago/files/firago-all-400-normal.woff2',
+    $woffPath: 'npm:@fontsource/firago/files/firago-all-400-normal.woff'
+);
+
+@include FiraGo.fontFaceCustom(
+    $display: swap,
+    $weight: 600,
+    $style: 'normal',
+    $woff2Path: 'npm:@fontsource/firago/files/firago-all-600-normal.woff2',
+    $woffPath: 'npm:@fontsource/firago/files/firago-all-600-normal.woff'
+);
+
+@include Spartan.fontFace(
+    $weight: 800,
+    $display: swap,
+    $fontName: 'Spartan MB',
+    $fontDir: 'npm:@fontsource/league-spartan/files'
+);
