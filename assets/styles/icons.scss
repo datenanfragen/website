@@ -248,3 +248,13 @@
     font-icon: url('factory.svg');
     vertical-align: -2px;
 }
+
+.icon-settings:before {
+    @extend %icon;
+    font-icon: url('settings.svg');
+}
+
+.icon-conversation:before {
+    @extend %icon;
+    font-icon: url('conversation.svg');
+}
