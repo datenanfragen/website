@@ -14,6 +14,7 @@ import { deepCopyObject, hash } from './common';
 import { requestTemplate } from './fetch';
 import type { UserRequest } from '../DataType/UserRequests';
 import type { Message, Proceeding } from '../types/proceedings';
+import { useAppStore } from '../store/app';
 
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
 export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
@@ -145,22 +146,20 @@ export const fetchTemplate = (
     request_type: RequestType | Exclude<CustomTemplateName, 'no-template'>,
     company?: Company | SupervisoryAuthority,
     suffix = 'default'
-): Promise<void | string> => {
-    const template =
-        company && company[`custom-${request_type}-template`]
+): Promise<void | string> =>
+    requestTemplate(
+        locale,
+        (company && company[`custom-${request_type}-template`]
             ? company[`custom-${request_type}-template`]
-            : request_type + (suffix ? '-' + suffix : '');
-
-    if (!Object.keys(window.I18N_DEFINITION_REQUESTS).includes(locale)) locale = window.LOCALE;
-
-    return requestTemplate(locale, template as string, request_type);
-};
+            : request_type + (suffix ? '-' + suffix : '')) as string,
+        request_type
+    );
 
 export const requestLanguageFallback = (language?: string) =>
     language && Object.keys(window.I18N_DEFINITION_REQUESTS).includes(language)
         ? language
-        : Object.keys(window.I18N_DEFINITION_REQUESTS).includes(window.LOCALE)
-        ? window.LOCALE
+        : Object.keys(window.I18N_DEFINITION_REQUESTS).includes(useAppStore.getState().savedLocale)
+        ? useAppStore.getState().savedLocale
         : REQUEST_FALLBACK_LANGUAGE;
 
 export function inferRequestLanguage(entity?: Company | SupervisoryAuthority) {

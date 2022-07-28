@@ -1,6 +1,7 @@
 import { render } from 'preact';
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import { useEffect, useRef, useState } from 'preact/hooks';
+import { useAppStore } from '../store/app';
 import { clientPost } from '../Utility/browser';
 import { almostUniqueId, renderMoney } from '../Utility/common';
 import { CriticalException, rethrow } from '../Utility/errors';
@@ -29,6 +30,7 @@ export const DonationWidget = () => {
     const [ongoingRequest, setOngoingRequest] = useState(false);
     const [step, setStep] = useState('select-params');
     const [donationReference, setDonationReference] = useState('');
+    const savedLocale = useAppStore((state) => state.savedLocale);
 
     useEffect(() => {
         const previousDonationReference = window.PARAMETERS['donation_reference'];
@@ -194,7 +196,7 @@ export const DonationWidget = () => {
                                 </div>
                             </div>
                             <div className="col40 donation-widget-info-column">
-                                <MarkupText id="amount" fields={{ amount: renderMoney(amount) }} />
+                                <MarkupText id="amount" fields={{ amount: renderMoney(amount, savedLocale) }} />
                             </div>
                         </div>
                         <div className="clearfix" />
@@ -227,7 +229,8 @@ export const DonationWidget = () => {
                                                                 }
                                                                 fields={{
                                                                     amount: renderMoney(
-                                                                        PAYMENT_NETTO[methodToChoose](amount)
+                                                                        PAYMENT_NETTO[methodToChoose](amount),
+                                                                        savedLocale
                                                                     ),
                                                                 }}
                                                             />
@@ -302,7 +305,7 @@ export const DonationWidget = () => {
                                 <td>
                                     <Text id="bank-transfer-amount" />
                                 </td>
-                                <td>{renderMoney(amount)}&nbsp;€</td>
+                                <td>{renderMoney(amount, savedLocale)}&nbsp;€</td>
                             </tr>
                         </table>
                         <div id="bank-transfer-qrcode-section">

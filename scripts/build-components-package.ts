@@ -12,6 +12,16 @@ const website_dir = join(dirname(), '..');
 const package_dir = join(website_dir, 'components-package');
 const generated_dir = join(package_dir, 'src', 'generated');
 
+const getSupportedCountries = () => {
+    const db_dir = join(website_dir, 'static', 'db');
+    const country_counts = glob.sync('*.json', { cwd: db_dir }).reduce((acc: Record<string, number>, cur: string) => {
+        const entry = JSON.parse(fs.readFileSync(join(db_dir, cur), 'utf-8'));
+        entry['relevant-countries'].forEach((country) => (acc[country] ? (acc[country] += 1) : (acc[country] = 1)));
+        return acc;
+    }, {});
+    return Object.keys(objFilter(country_counts, ([i, num]) => num > 10));
+};
+
 (async () => {
     if (
         !process.argv.includes('--skip-deploy-question') &&
@@ -38,8 +48,10 @@ const generated_dir = join(package_dir, 'src', 'generated');
         'license',
     ])
         pjson[property] = website_pjson[property];
-    const dependencies = objFilter(website_pjson.dependencies, ([pkg]) => pkg !== 'preact');
-    const peerDependencies = objFilter(website_pjson.dependencies, ([pkg]) => pkg === 'preact');
+
+    const moveToPeerDependencies = ['preact', 'preact-i18n'];
+    const dependencies = objFilter(website_pjson.dependencies, ([pkg]) => !moveToPeerDependencies.includes(pkg));
+    const peerDependencies = objFilter(website_pjson.dependencies, ([pkg]) => moveToPeerDependencies.includes(pkg));
     pjson.dependencies = { ...dependencies, ...pjson.dependencies };
     pjson.peerDependencies = { ...peerDependencies, ...pjson.peerDependencies };
     fs.writeFileSync(join(package_dir, 'package.json'), JSON.stringify(pjson, null, 4));
@@ -60,6 +72,10 @@ const generated_dir = join(package_dir, 'src', 'generated');
         return acc;
     }, {});
     fs.writeFileSync(join(generated_dir, 'templates.json'), JSON.stringify(templates, null, 4));
+    fs.writeFileSync(
+        join(generated_dir, 'globals.json'),
+        JSON.stringify({ supported_countries: getSupportedCountries() })
+    );
 
     // Install dependencies.
     await execa('yarn', { cwd: package_dir, stdio: 'inherit' });

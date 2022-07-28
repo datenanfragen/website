@@ -1,4 +1,6 @@
-import '../../src/types/globals.d';
+import type { I18nLanguage } from '../../src/types/globals';
+
+import { supported_countries } from './generated/globals.json';
 
 import { version } from '../package.json';
 import { CriticalException } from '../../src/Utility/errors';
@@ -20,28 +22,32 @@ export const languages = {
     nl: { base_url: 'https://www.gegevensaanvragen.nl/', translations: i18n_definition_nl },
 } as const;
 
-export const setupWindow = () => {
-    if (!window.LOCALE) throw new CriticalException('You need to set `window.LOCALE`.');
-
+export const setupWindow = ({
+    supported_languages,
+    locale,
+}: {
+    supported_languages?: Partial<typeof window.SUPPORTED_LANGUAGES>;
+    locale: I18nLanguage;
+}) => {
     // The ignores are necessary because the properties are declared as readonly and we want to keep them that way.
     /* eslint-disable @typescript-eslint/ban-ts-comment */
     // @ts-ignore
-    window.BASE_URL = languages[window.LOCALE].base_url;
+    window.BASE_URL = languages[locale].base_url;
 
     // @ts-ignore
     window.CODE_VERSION = version;
 
     // @ts-ignore
-    window.SUPPORTED_COUNTRIES = [];
+    window.SUPPORTED_COUNTRIES = supported_countries || [];
 
     // @ts-ignore
-    window.SUPPORTED_LANGUAGES = {};
+    window.SUPPORTED_LANGUAGES = supported_languages || {};
 
     // @ts-ignore
     window.COUNTRIES_WITH_SUGGESTED_COMPANIES = [];
 
     // @ts-ignore
-    window.I18N_DEFINITION = languages[window.LOCALE].translations;
+    window.I18N_DEFINITION = languages[locale].translations;
 
     // @ts-ignore
     window.I18N_DEFINITION_REQUESTS = Object.keys(languages).reduce(
@@ -59,3 +65,9 @@ export { SvaFinder } from '../../src/Components/SvaFinder';
 
 export { FlashMessage, flash } from '../../src/Components/FlashMessage';
 export { useModal } from '../../src/Components/Modal';
+
+export { createGeneratorStore, RequestGeneratorProvider } from '../../src/store/generator';
+export { App } from '../../src/Components/App/App';
+export { useWizard } from '../../src/hooks/useWizard';
+export { useAppStore } from '../../src/store/app';
+export { I18nWidget } from '../../src/Components/I18nWidget';

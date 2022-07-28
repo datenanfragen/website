@@ -1334,11 +1334,6 @@ dijkstrajs@^1.0.1:
   resolved "https://registry.yarnpkg.com/dijkstrajs/-/dijkstrajs-1.0.2.tgz#2e48c0d3b825462afe75ab4ad5e829c8ece36257"
   integrity sha512-QV6PMaHTCNmKSeP6QoXhVTw9snc9VD8MulTT0Bd99Pacp4SS1cjcrYPgBPmibqKVtMJJfqC6XvOXgPMEEPH/fg==
 
-dlv@^1.1.2:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/dlv/-/dlv-1.1.3.tgz#5c198a8a11453596e751494d49874bc7732f2e79"
-  integrity sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==
-
 dom-serializer@^1.0.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-1.4.1.tgz#de5d41b1aea290215dc45a6dae8adcf1d32e2d30"
@@ -2471,13 +2466,6 @@ posthtml@^0.16.4, posthtml@^0.16.5:
   dependencies:
     posthtml-parser "^0.11.0"
     posthtml-render "^3.0.0"
-
-preact-i18n@^2.3.0-preactx:
-  version "2.3.0-preactx"
-  resolved "https://registry.yarnpkg.com/preact-i18n/-/preact-i18n-2.3.0-preactx.tgz#cdf842a2d696e201efc7a0a6c6cdf84eb99a2842"
-  integrity sha512-0q23eJ92YVarzGgC1h5Yi1YPtupz4gmcPs9mrlhwNe/WHpF0dFqgr13FYrCJ8Cadv6R+/Ak4J8s+IO/3amqtGA==
-  dependencies:
-    dlv "^1.1.2"
 
 prelude-ls@~1.1.2:
   version "1.1.2"

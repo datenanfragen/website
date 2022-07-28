@@ -1,3 +1,4 @@
+import type { I18nLanguage } from '../types/globals';
 import type { Country } from '../store/app';
 
 // Adapted after: https://gist.github.com/mathewbyrne/1280286
@@ -45,8 +46,8 @@ export const almostUniqueId = (length = 9) => {
     );
 };
 
-export const renderMoney = (amount: number, currency = '') =>
-    Number(amount || 0).toLocaleString(window.LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
+export const renderMoney = (amount: number, locale: I18nLanguage, currency = '') =>
+    Number(amount || 0).toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
     (currency ? ` ${currency}` : '');
 
 export const parameters = () => {
