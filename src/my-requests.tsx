@@ -15,6 +15,7 @@ import { MessageMetadataInput } from './Components/MessageMetadataInput';
 const RequestList = () => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
     const clearProceedings = useProceedingsStore((state) => state.clearProceedings);
+
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
 
     const sortedRequestIds = useMemo(
@@ -196,6 +197,7 @@ type ProceedingRowProps = {
 
 const ProceedingRow = (props: ProceedingRowProps) => {
     const country = useAppStore((state) => state.country);
+    const savedLocale = useAppStore((state) => state.savedLocale);
     const removeMessage = useProceedingsStore((state) => state.removeMessage);
     const removeProceeding = useProceedingsStore((state) => state.removeProceeding);
 
@@ -266,7 +268,7 @@ const ProceedingRow = (props: ProceedingRowProps) => {
     });
 
     const locale_country = country.toUpperCase();
-    const date_locale = locale_country === 'ALL' ? window.LOCALE : `${window.LOCALE}-${locale_country}`;
+    const date_locale = locale_country === 'ALL' ? savedLocale : `${savedLocale}-${locale_country}`;
 
     const recipient_name = original_request?.correspondent_address?.split('\n')[0];
     const correspondent_email = original_request?.correspondent_email;
