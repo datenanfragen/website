@@ -71,7 +71,7 @@ export const I18nWidget = (props: I18nWidgetProps) => {
                         <Text id="language" />
                     </h2>
                     <div className="select-container">
-                        <select value={savedLocale} onBlur={changeLanguage} onChange={changeLanguage}>
+                        <select value={savedLocale} onBlur={changeLanguage}>
                             <option value={savedLocale}>
                                 <Text id={`language-desc-${savedLocale}`} />
                             </option>

@@ -6,7 +6,7 @@ import { useModal } from './Modal';
 import t, { t_r } from '../Utility/i18n';
 import { RequestLetter } from '../DataType/RequestLetter';
 
-type EmailData = { email: string; subject: string; body: string };
+type EmailData = { to: string; subject: string; text: string };
 type MailtoHandler = (
     | { link: (data: EmailData) => string }
     | { onClick: (data: EmailData, showCopyManuallyModal: () => void) => void }
@@ -22,6 +22,7 @@ export type MailtoDropdownProps = {
     enabled: boolean;
     buttonText?: JSX.Element | JSX.Element[];
     dropup?: boolean;
+    additionalHandlers?: Record<string, MailtoHandler>;
 };
 
 // TS Helper to type `Record` values but keep strong key type without having to hardcode key values, see:
@@ -29,19 +30,28 @@ export type MailtoDropdownProps = {
 const createMailtoHandlers = <T extends Record<string, MailtoHandler>>(handlers: T) => handlers;
 export const mailto_handlers = createMailtoHandlers({
     mailto: {
-        link: (d) => `mailto:${d.email}?subject=${d.subject}&body=${d.body}`,
+        link: (d) => `mailto:${d.to}?subject=${encodeURIComponent(d.subject)}&body=${encodeURIComponent(d.text)}`,
         countries: ['all'],
     },
     gmail: {
-        link: (d) => `https://mail.google.com/mail/?view=cm&fs=1&to=${d.email}&su=${d.subject}&body=${d.body}`,
+        link: (d) =>
+            `https://mail.google.com/mail/?view=cm&fs=1&to=${d.to}&su=${encodeURIComponent(
+                d.subject
+            )}&body=${encodeURIComponent(d.text)}`,
         countries: ['all'],
     },
     yahoo: {
-        link: (d) => `https://compose.mail.yahoo.com/?to=${d.email}&subject=${d.subject}&body=${d.body}`,
+        link: (d) =>
+            `https://compose.mail.yahoo.com/?to=${d.to}&subject=${encodeURIComponent(
+                d.subject
+            )}&body=${encodeURIComponent(d.text)}`,
         countries: ['all'],
     },
     yandex: {
-        link: (d) => `https://mail.yandex.com/#compose?to=${d.email}&subject=${d.subject}&body=${d.body}`,
+        link: (d) =>
+            `https://mail.yandex.com/#compose?to=${d.to}&subject=${encodeURIComponent(
+                d.subject
+            )}&body=${encodeURIComponent(d.text)}`,
         countries: ['all'],
     },
     copymanually: {
@@ -53,6 +63,8 @@ export const mailto_handlers = createMailtoHandlers({
 export const MailtoDropdown = (props: MailtoDropdownProps) => {
     const country = useAppStore((state) => state.country);
 
+    const availableHandlers = { ...mailto_handlers, ...props.additionalHandlers };
+
     // We only want to select everything in the copymanually inputs if they aren't yet focused. That way, the user can still
     // make an individual selection if they prefer.
     // However, the event we get in the onclick handler means that the focus has already been changed to the element the
@@ -61,11 +73,9 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
 
     const my_ref_text = `${t_r('my-reference', props.letter.language)}: ${props.letter.reference}`;
     const data = {
-        email: props.email,
-        subject: encodeURIComponent(
-            props.letter.props.subject ? `${props.letter.props.subject} (${my_ref_text})` : my_ref_text
-        ),
-        body: encodeURIComponent(props.letter.toEmailString()),
+        to: props.email,
+        subject: props.letter.props.subject ? `${props.letter.props.subject} (${my_ref_text})` : my_ref_text,
+        text: props.letter.toEmailString(),
     };
 
     const onCopyManuallyInputClick = useCallback(
@@ -102,7 +112,7 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
                     type="text"
                     id="mailto-dropdown-copymanually-recipient"
                     className="form-element"
-                    value={data.email}
+                    value={data.to}
                     onClick={onCopyManuallyInputClick}
                     readOnly
                 />
@@ -115,7 +125,7 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
                     rows={10}
                     onClick={onCopyManuallyInputClick}
                     readOnly>
-                    {decodeURIComponent(data.body)}
+                    {decodeURIComponent(data.text)}
                 </textarea>
             </div>
         </IntlProvider>,
@@ -137,7 +147,7 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
         );
 
     const handler_buttons = handlers.map((h) => {
-        const handler = mailto_handlers[h];
+        const handler = availableHandlers[h];
 
         const common_props: Omit<JSX.HTMLAttributes, 'ref'> = {
             onClick: (e) => {

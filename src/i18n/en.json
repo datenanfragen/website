@@ -437,7 +437,8 @@
         "outlook": "Outlook (Hotmail)*",
         "yahoo": "Yahoo! Mail*",
         "yandex": "Yandex.Mail*",
-        "copymanually": "Copy text manually"
+        "copymanually": "Copy text manually",
+        "sendmail": "Send via SMTP"
     },
     "requests": {
         "letter-subject-erasure": "Request for erasure of personal data according to Art. 17 GDPR",

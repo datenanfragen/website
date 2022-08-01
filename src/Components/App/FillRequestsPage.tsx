@@ -3,7 +3,7 @@ import { MarkupText, Text } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { DynamicInputContainer, StatefulDynamicInputContainer } from '../Generator/DynamicInputContainer';
-import { SetPageFunction } from './App';
+import { PageOptions, SetPageFunction } from './App';
 import { SendRequestButton } from '../App/SendRequestButton';
 import { ErrorException } from '../../Utility/errors';
 import { StatefulSignatureInput } from '../Generator/SignatureInput';
@@ -11,6 +11,7 @@ import { RequestFlags } from '../Generator/RequestFlags';
 
 type FillRequestsPageProps = {
     setPage: SetPageFunction;
+    pageOptions?: PageOptions;
 };
 
 export const FillRequestsPage = (props: FillRequestsPageProps) => {
@@ -86,7 +87,7 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
 
             {/* TODO: Don't we need to call `renderLetter()`? (From a quick investigation: Emails don't need it (even though it does something for emails…) but PDFs do.) */}
             <div className="action-button-row">
-                <SendRequestButton setPage={props.setPage} />
+                <SendRequestButton setPage={props.setPage} mailtoDropdownOptions={props.pageOptions?.mailtoDropdown} />
             </div>
         </>
     );
