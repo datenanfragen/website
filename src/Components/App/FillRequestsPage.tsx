@@ -34,7 +34,7 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
     ]);
 
     useEffect(() => {
-        if (!current_company) resetRequestToDefault(true);
+        if (!current_company) resetRequestToDefault({ advanceBatch: true });
     }, [current_company, resetRequestToDefault]);
 
     if (!batch) throw new ErrorException('Got to fill requests page without batch.');

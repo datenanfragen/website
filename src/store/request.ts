@@ -43,7 +43,13 @@ export interface RequestState<R extends Request> {
     setSignature: (signature: Signature) => void;
     setCustomLetterProperty: (property: keyof Omit<CustomLetterData, 'sender_address'>, value: string) => void;
     setSent: (sent: boolean) => void;
-    resetRequestToDefault: (advanceBatch: boolean, language?: string, beforeAdvanceBatchHook?: () => void) => void;
+    resetRequestToDefault: (options: {
+        advanceBatch: boolean;
+        language?: string;
+        beforeAdvanceBatchHook?: () => void;
+        type?: RequestType;
+        reference?: string;
+    }) => void;
     initializeFields: () => Promise<void>;
     refreshTemplate: () => Promise<void>;
     letter: () => RequestLetter;
@@ -228,10 +234,11 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 state.request.sent = sent;
             })
         ),
-    resetRequestToDefault: (advanceBatch, language, beforeAdvanceBatchHook) => {
+    resetRequestToDefault: ({ advanceBatch, language, beforeAdvanceBatchHook, type, reference }) => {
         set(() => ({
-            request: defaultRequest(language || REQUEST_FALLBACK_LANGUAGE),
+            request: { ...defaultRequest(language || REQUEST_FALLBACK_LANGUAGE), ...(reference && { reference }) },
         }));
+        if (type) get().setRequestType(type);
         get().refreshTemplate();
 
         get().setDownload(false);

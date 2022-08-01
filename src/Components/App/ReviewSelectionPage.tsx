@@ -41,8 +41,7 @@ export const ReviewSelectionPage = (props: ReviewSelectionPageProps) => {
                     className="button button-primary"
                     disabled={(Object.keys(batch || {}).length || 0) < 1}
                     onClick={() => {
-                        // This also advances the batch.
-                        resetRequestToDefault(true);
+                        resetRequestToDefault({ advanceBatch: true });
                         props.setPage('fill_requests');
                     }}>
                     <Text id="continue-with-requests" />

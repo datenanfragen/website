@@ -114,7 +114,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                     onClick={() => {
                         if (request.sent) markCurrentBatchCompanyDone();
                         else removeFromBatch(current_company!.slug);
-                        resetRequestToDefault(true);
+                        resetRequestToDefault({ advanceBatch: true });
 
                         if (remainingBatchEntriesCount === 1) props.setPage('whats_next');
                         dismissModal();

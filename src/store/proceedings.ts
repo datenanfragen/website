@@ -1,14 +1,16 @@
-import type { Request, RequestType } from '../types/request';
 import { Message, MessageId, Proceeding, ProceedingStatus } from '../types/proceedings.d';
+import type { Request, RequestType } from '../types/request.d';
 import create, { GetState, SetState, StoreApi, Mutate } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { produce } from 'immer';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import type { SetOptional } from 'type-fest';
+import type { ReactorState } from './reactor';
 import { ErrorException } from '../Utility/errors';
 import { UserRequest } from '../DataType/UserRequests';
-import { isUserRequest, REQUEST_TYPES } from '../Utility/requests';
 import { PrivacyAsyncStorage } from '../Utility/PrivacyAsyncStorage';
+import { isUserRequest, REQUEST_TYPES } from '../Utility/requests';
+import { LocalforagePrivacy } from '../Utility/LocalforagePrivacy';
 import { t_r } from '../Utility/i18n';
 import type { ComponentChildren } from 'preact';
 
@@ -20,6 +22,7 @@ export interface ProceedingsState {
     removeMessage: (id: MessageId) => void;
     addAttachment: (id: MessageId, file: unknown) => void;
     setProceedingStatus: (reference: string, status: ProceedingStatus) => void;
+    setReactorData: (id: MessageId, reactor_data: ReactorState['moduleData']) => void;
     removeProceeding: (reference: string) => void;
     clearProceedings: () => void;
     updateStatuses: () => void;
@@ -99,6 +102,14 @@ const proceedingsStore = persist<ProceedingsState>(
                 })
             );
         },
+        setReactorData: (id, reactor_data) =>
+            set(
+                produce((state: ProceedingsState) => {
+                    const reference = id.match(id_regex)?.[1];
+                    if (!reference) return;
+                    state.proceedings[reference].messages[id].reactor_data = reactor_data;
+                })
+            ),
         removeProceeding: (reference) =>
             set(
                 produce((state: ProceedingsState) => {

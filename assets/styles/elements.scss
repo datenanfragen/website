@@ -319,6 +319,7 @@ input:disabled {
             color: $primary-color;
             border-left: none;
             margin-bottom: 5px;
+            cursor: pointer;
 
             .icon::before {
                 margin-right: 8px;
@@ -328,10 +329,18 @@ input:disabled {
                 background-color: $primary-color;
                 color: $bg-color;
             }
-            &:hover,
-            &:focus {
-                background-color: color('blue', 900);
-                color: $bg-color;
+            &.disabled {
+                background-color: color('gray', 400);
+                border: 2px solid color('gray', 800);
+                color: color('gray', 800) !important;
+                cursor: not-allowed;
+            }
+            &:not(.disabled) {
+                &:hover,
+                &:focus {
+                    background-color: color('blue', 900);
+                    color: $bg-color;
+                }
             }
         }
 

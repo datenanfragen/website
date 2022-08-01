@@ -33,9 +33,9 @@ export const module = createReactorModule('additional-id', {
                 {
                     text: 'no',
                     targetStepId: 'additional-id::no-reasonable-doubts',
-                    onChoose: (state) => {
-                        state.setIncludeIssue('additional-id', true);
-                        state.setIssueFlag('additional-id', 'no_doubts', true);
+                    onChoose: ({ reactorState }) => {
+                        reactorState.setIncludeIssue('additional-id', true);
+                        reactorState.setIssueFlag('additional-id', 'no_doubts', true);
                     },
                 },
             ],
@@ -49,13 +49,17 @@ export const module = createReactorModule('additional-id', {
                 {
                     text: 'yes',
                     targetStepId: 'additional-id::no-reasonable-doubts',
-                    onChoose: (state) => state.setIncludeIssue('additional-id', true),
+                    onChoose: ({ reactorState }) => reactorState.setIncludeIssue('additional-id', true),
                 },
-                { text: 'no', targetStepId: 'additional-id::user-objections' },
+                {
+                    text: 'no',
+                    targetStepId: 'additional-id::user-no-objections',
+                    disableIf: ({ reactorState }) => reactorState.type === 'complaint',
+                },
             ],
         },
         {
-            id: 'user-objections',
+            id: 'user-no-objections',
             type: 'options',
             body: 'Can you/do you want to provide the identification data requested by the company?',
             options: [
@@ -67,7 +71,8 @@ export const module = createReactorModule('additional-id', {
             id: 'provide-data',
             type: 'dynamic-inputs',
             body: 'Please enter the additional identification data requested by the company.',
-            nextStepId: 'base::select-issue',
+            storeIn: 'module',
+            nextStepId: 'base::issue-done',
         },
 
         {
@@ -77,8 +82,9 @@ export const module = createReactorModule('additional-id', {
             options: [
                 {
                     text: 'The request concerns an online account but the company wants “real-world” identification data.',
-                    targetStepId: 'base::select-issue',
-                    onChoose: (state) => state.setIssueFlag('additional-id', 'concerns_online_account', true),
+                    targetStepId: 'base::issue-done',
+                    onChoose: ({ reactorState }) =>
+                        reactorState.setIssueFlag('additional-id', 'concerns_online_account', true),
                 },
                 {
                     text: 'The company wants more data than is necessary to identify me for the request.',
@@ -90,7 +96,7 @@ export const module = createReactorModule('additional-id', {
             id: 'explain-reasoning',
             body: 'Please explain why the identification data requested by the company is not necessary for the request.',
             type: 'textarea',
-            nextStepId: 'base::select-issue',
+            nextStepId: 'base::issue-done',
             variableName: 'reasoning',
             rows: 7,
         },
@@ -110,4 +116,5 @@ export const module = createReactorModule('additional-id', {
     ],
 
     defaultModuleData,
+    offerToIncludeInComplaintIf: true,
 });

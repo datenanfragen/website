@@ -39,31 +39,38 @@ const setCounterargument = (state: ReactorState, argumentFlag?: keyof IdCopyModu
     if (argumentFlag) state.setIssueFlag('id-copy', argumentFlag, true);
 };
 
+// TODO: Hide additional ID step if complaint.
+
 export const module = createReactorModule('id-copy', {
     steps: [
         {
             id: 'start',
             type: 'options',
-            body: 'Requiring a copy of an identity document is an invasive measure that poses a risk for the security of your personal data. It is only appropriate if strictly necessary. Do any of the following counterarguments apply?',
+            body: ({ reactorState }) =>
+                reactorState.type === 'admonition'
+                    ? 'Requiring a copy of an identity document is an invasive measure that poses a risk for the security of your personal data. It is only appropriate if strictly necessary. Do any of the following counterarguments apply?'
+                    : 'Requiring a copy of an identity document is only appropriate if strictly necessary. Which of the following counterarguments applies?',
             options: [
                 {
                     text: 'The company doesn’t know me by my real-life identity.',
-                    targetStepId: 'base::select-issue',
-                    onChoose: (state) => setCounterargument(state, 'not_linked_to_real_life_identity'),
+                    targetStepId: 'base::issue-done',
+                    onChoose: ({ reactorState }) =>
+                        setCounterargument(reactorState, 'not_linked_to_real_life_identity'),
                 },
                 {
                     text: 'My request concerns an online account.',
-                    targetStepId: 'base::select-issue',
-                    onChoose: (state) => setCounterargument(state, 'concerns_online_account'),
+                    targetStepId: 'base::issue-done',
+                    onChoose: ({ reactorState }) => setCounterargument(reactorState, 'concerns_online_account'),
                 },
                 {
                     text: 'I can provide my own counterargument.',
                     targetStepId: 'id-copy::explain-reasoning',
-                    onChoose: (state) => setCounterargument(state),
+                    onChoose: ({ reactorState }) => setCounterargument(reactorState),
                 },
                 {
                     text: 'No, none of the above apply.',
                     targetStepId: 'id-copy::no-counterargument',
+                    hideIf: ({ reactorState }) => reactorState.type === 'complaint',
                 },
             ],
         },
@@ -72,7 +79,7 @@ export const module = createReactorModule('id-copy', {
             id: 'explain-reasoning',
             body: 'Please explain why you think a copy of an identity document is not necessary for your request.',
             type: 'textarea',
-            nextStepId: 'base::select-issue',
+            nextStepId: 'base::issue-done',
             variableName: 'reasoning',
             rows: 7,
         },
@@ -94,8 +101,8 @@ export const module = createReactorModule('id-copy', {
                 {
                     text: 'yes',
                     targetStepId: 'id-copy::attach-copy',
-                    onChoose: (state) =>
-                        state.addAdditionalDataField('id-copy', {
+                    onChoose: ({ reactorState }) =>
+                        reactorState.addAdditionalDataField('id-copy', {
                             type: 'input',
                             // TODO: Translate these. v
                             desc: 'Copy of ID document',
@@ -104,10 +111,10 @@ export const module = createReactorModule('id-copy', {
                 },
                 {
                     text: 'no',
-                    targetStepId: 'base::select-issue',
-                    onChoose: (state) => {
-                        state.setIncludeIssue('id-copy', true);
-                        state.setIssueFlag('id-copy', 'ask_about_redactions', true);
+                    targetStepId: 'base::issue-done',
+                    onChoose: ({ reactorState }) => {
+                        reactorState.setIncludeIssue('id-copy', true);
+                        reactorState.setIssueFlag('id-copy', 'ask_about_redactions', true);
                     },
                 },
             ],
@@ -121,7 +128,7 @@ export const module = createReactorModule('id-copy', {
             options: [
                 {
                     text: 'Check if there is another problem with the company’s response.',
-                    targetStepId: 'base::select-issue',
+                    targetStepId: 'base::issue-done',
                 },
             ],
         },
@@ -141,4 +148,7 @@ export const module = createReactorModule('id-copy', {
     ],
 
     defaultModuleData,
+    offerToIncludeInComplaintIf: ({ moduleData }): boolean => {
+        return moduleData.issue.flags.user_objects;
+    },
 });

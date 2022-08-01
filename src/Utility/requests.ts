@@ -20,7 +20,7 @@ export const EMTPY_ADDRESS: Address = {
     place: '',
     country: '',
 } as const;
-export const PROCEEDING_STATUS = ['overdue', 'actionNeeded', 'waitingForResponse', 'done'];
+export const PROCEEDING_STATUS = ['overdue', 'actionNeeded', 'waitingForResponse', 'done'] as const;
 
 export function isAddress(value: IdDataElement['value']): value is Address {
     return typeof value === 'object' && 'country' in value;

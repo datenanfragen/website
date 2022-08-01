@@ -1,4 +1,5 @@
 import type { RequestType, TransportMedium } from '../types/request';
+import type { ReactorState } from '../store/reactor';
 import { PROCEEDING_STATUS } from '../Utility/requests';
 
 type MessageId = string;
@@ -9,7 +10,7 @@ type Proceeding = {
     status: ProceedingStatus;
 };
 
-export type ProceedingStatus = typeof PROCEEDING_STATUS[string];
+export type ProceedingStatus = typeof PROCEEDING_STATUS[number];
 
 type Message = {
     id: MessageId;
@@ -23,4 +24,5 @@ type Message = {
     subject?: string;
     content?: string;
     sentByMe: boolean;
+    reactor_data?: ReactorState['moduleData'];
 };

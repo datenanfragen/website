@@ -76,7 +76,7 @@ export const useNewRequestModal = (
         )
             new SavedCompanies().remove(current_company.slug);
 
-        resetRequestToDefault(true, undefined, () => newRequestHook?.(payload));
+        resetRequestToDefault({ advanceBatch: true, beforeAdvanceBatchHook: () => newRequestHook?.(payload) });
     }, [newRequestHook, resetRequestToDefault, current_company, request_type, payload]);
 
     const [ConfirmNewRequestModal, showModal, dismissConfirmNewRequestModal, shown] = useModal(
