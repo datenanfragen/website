@@ -4,12 +4,13 @@ import { useGeneratorStore } from '../../store/generator';
 import { useModal } from '../Modal';
 import { SetPageFunction } from './App';
 import { ActionButton } from '../Generator/ActionButton';
-import { mailto_handlers } from '../MailtoDropdown';
+import { MailtoDropdownProps, mailto_handlers } from '../MailtoDropdown';
 import t from '../../Utility/i18n';
 import { JSX } from 'preact';
 
 type SendRequestButtonProps = {
     setPage: SetPageFunction;
+    mailtoDropdownOptions?: Partial<MailtoDropdownProps>;
 };
 
 export const SendRequestButton = (props: SendRequestButtonProps) => {
@@ -125,11 +126,13 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
             negativeButton: (
                 <ActionButton
                     dropup={true}
-                    mailtoDropdownProps={{
-                        handlers: (Object.keys(mailto_handlers) as (keyof typeof mailto_handlers)[]).filter(
-                            (h) => h !== 'copymanually'
-                        ),
-                    }}
+                    mailtoDropdownProps={
+                        props.mailtoDropdownOptions || {
+                            handlers: (Object.keys(mailto_handlers) as (keyof typeof mailto_handlers)[]).filter(
+                                (h) => h !== 'copymanually'
+                            ),
+                        }
+                    }
                 />
             ),
             onDismiss: () => {

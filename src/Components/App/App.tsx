@@ -6,8 +6,9 @@ import { ReviewSelectionPage } from './ReviewSelectionPage';
 import { FillRequestsPage } from './FillRequestsPage';
 import { WhatsNextPage } from './WhatsNextPage';
 import t from '../../Utility/i18n';
+import type { MailtoDropdownProps, mailto_handlers } from '../MailtoDropdown';
 
-const pages = (setPage: SetPageFunction) => ({
+const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
     request_type_chooser: {
         component: <RequestTypeChooserPage setPage={setPage} />,
         title: t('request-type-chooser-page-title', 'generator'),
@@ -23,7 +24,11 @@ const pages = (setPage: SetPageFunction) => ({
         title: t('selected-companies-page-title', 'generator'),
         canGoBack: true,
     },
-    fill_requests: { component: <FillRequestsPage setPage={setPage} />, title: undefined, canGoBack: false },
+    fill_requests: {
+        component: <FillRequestsPage setPage={setPage} pageOptions={pageOptions} />,
+        title: undefined,
+        canGoBack: false,
+    },
     whats_next: {
         component: <WhatsNextPage setPage={setPage} />,
         title: t('whats-next-title', 'generator'),
@@ -34,12 +39,17 @@ const pages = (setPage: SetPageFunction) => ({
 export type AppPageId = keyof ReturnType<typeof pages>;
 export type SetPageFunction = (newPage: AppPageId) => void;
 
+export type PageOptions = {
+    mailtoDropdown: Partial<MailtoDropdownProps>;
+};
+
 type AppProps = {
     initialPageId?: AppPageId;
+    pageOptions?: PageOptions;
 };
 
 export const App = (props: AppProps) => {
-    const { Wizard, set, back, canGoBack, pageTitle } = useWizard(pages(setPage), {
+    const { Wizard, set, back, canGoBack, pageTitle } = useWizard(pages(setPage, props.pageOptions), {
         initialPageId: props.initialPageId ?? 'request_type_chooser',
     });
 

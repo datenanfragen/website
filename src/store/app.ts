@@ -1,8 +1,10 @@
 import type { I18nLanguage } from '../types/globals';
-import create, { SetState, StateCreator } from 'zustand';
+import create, { GetState, SetState, StateCreator } from 'zustand';
 import { persist, PersistOptions } from 'zustand/middleware';
 import type i18n_definition_type from '../i18n/en.json';
 
+// TODO: This is done more cleverly in newer versions of zustand
+type CombinedStateCreator<T extends object> = StateCreator<T, SetState<CountryStateSlice>, GetState<CountryStateSlice>>;
 export type Country = Exclude<keyof typeof i18n_definition_type['countries'], '__taken_from'>;
 export type CountryStateSlice = {
     countrySet: boolean;
@@ -13,7 +15,7 @@ export type CountryStateSlice = {
     saveLanguage: (savedLocale: I18nLanguage) => void;
 };
 
-export const createCountrySlice: StateCreator<CountryStateSlice> = (set) => ({
+export const createCountrySlice: CombinedStateCreator<CountryStateSlice> = (set) => ({
     countrySet: false,
     country: 'all' as Country,
     savedLocale: window.LOCALE || 'en',
