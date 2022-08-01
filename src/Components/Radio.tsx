@@ -6,6 +6,7 @@ type RadioProps = {
     radioVariable?: string;
     value?: string;
     name?: string;
+    disabled?: boolean;
     onChange?: (value: string) => void;
     onClick?: (value: string) => void;
     addon?: ComponentChildren;
@@ -15,7 +16,9 @@ export const Radio = (props: RadioProps) => (
     <div className="radio-wrapper">
         <label
             for={props.id}
-            className={`radio-label${props.radioVariable && props.radioVariable === props.value ? ' active' : ''}`}>
+            className={`radio-label${props.radioVariable && props.radioVariable === props.value ? ' active' : ''}${
+                props.disabled ? ' disabled' : ''
+            }`}>
             <input
                 type="radio"
                 id={props.id}
@@ -23,6 +26,7 @@ export const Radio = (props: RadioProps) => (
                 value={props.value}
                 className="form-element"
                 checked={props.radioVariable === props.value}
+                disabled={props.disabled}
                 onChange={(e) => props.onChange?.(e.currentTarget.value)}
                 onClick={(e) => props.onClick?.(e.currentTarget.value)}
             />

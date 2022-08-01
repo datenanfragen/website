@@ -6,13 +6,24 @@ import type { StoreSlice } from '../types/utility';
 import type { ReactorModuleData, ReactorModuleDataMapping, ReactorModuleWithDataId } from '../types/reactor.d';
 import type { IdDataElement } from '../types/request.d';
 
+// TODO: If we persist this, we need to do it per request reference.
+
+type Type = 'response' | 'admonition' | 'complaint';
+type ModuleData = Record<ReactorModuleWithDataId, ReactorModuleData> &
+    Record<Exclude<ReactorModuleId, ReactorModuleWithDataId>, undefined>;
 export type ReactorState = {
-    moduleData: Record<ReactorModuleWithDataId, ReactorModuleData> &
-        Record<Exclude<ReactorModuleId, ReactorModuleWithDataId>, undefined>;
+    type: Type;
+    moduleData: ModuleData;
+    currentIssueForComplaint?: ReactorModuleWithDataId;
 
     activeModules: () => Record<ReactorModuleWithDataId, ReactorModuleData>;
 
+    setType: (type: Type) => void;
+    overrideModuleData: (newModuleData: ModuleData) => void;
+    setCurrentIssueForComplaint: (issue: ReactorModuleWithDataId | undefined) => void;
+
     setIncludeIssue: (module: ReactorModuleWithDataId, includeIssue: boolean) => void;
+    setResolved: (module: ReactorModuleWithDataId, resolved: boolean) => void;
     setIssueVariable: <ModuleIdT extends ReactorModuleWithDataId>(
         module: ModuleIdT,
         variable: keyof ReactorModuleDataMapping[ModuleIdT]['issue']['variables'],
@@ -30,15 +41,26 @@ export type ReactorState = {
 };
 
 const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
+    type: 'admonition',
     moduleData: reactorModules.reduce<ReactorState['moduleData']>(
         (acc, m) => ({ ...acc, [m.id]: m.defaultModuleData }),
         {} as ReactorState['moduleData']
     ),
 
+    setType: (type) => set({ type }),
+    overrideModuleData: (moduleData) => set({ moduleData }),
+    setCurrentIssueForComplaint: (issue) => set({ currentIssueForComplaint: issue }),
+
     setIncludeIssue: (module, includeIssue) =>
         set(
             produce((state: ReactorState) => {
                 if (state.moduleData[module]) state.moduleData[module]!.includeIssue = includeIssue;
+            })
+        ),
+    setResolved: (module, resolved) =>
+        set(
+            produce((state: ReactorState) => {
+                if (state.moduleData[module]) state.moduleData[module]!.resolved = resolved;
             })
         ),
     setIssueVariable: (module, variable, value) =>
@@ -54,19 +76,19 @@ const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
             })
         ),
 
-    addAdditionalDataField: (module: ReactorModuleWithDataId, data: IdDataElement) =>
+    addAdditionalDataField: (module, data) =>
         set(
             produce((state: ReactorState) => {
                 if (state.moduleData[module]) state.moduleData[module]!.additionalData.push(data);
             })
         ),
-    removeAdditionalDataField: (module: ReactorModuleWithDataId, index: number) =>
+    removeAdditionalDataField: (module, index) =>
         set(
             produce((state: ReactorState) => {
                 if (state.moduleData[module]) state.moduleData[module]!.additionalData.splice(index, 1);
             })
         ),
-    setAdditionalDataField: (module: ReactorModuleWithDataId, index: number, data: IdDataElement) =>
+    setAdditionalDataField: (module, index, data) =>
         set(
             produce((state: ReactorState) => {
                 if (state.moduleData[module]) state.moduleData[module]!.additionalData[index] = data;

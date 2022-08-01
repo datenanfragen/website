@@ -23,6 +23,11 @@ export const objFilter = <KeyT extends string | number | symbol, ValT>(
     filter: (item: [string, ValT]) => boolean
 ) => Object.fromEntries(Object.entries<ValT>(obj).filter(filter)) as Record<KeyT, ValT>;
 
+export const objMap = <KeyT extends string | number | symbol, ValT, NewKeyT extends string | number | symbol, NewValT>(
+    obj: Record<KeyT, ValT>,
+    map: (item: [string, ValT]) => [NewKeyT, NewValT]
+) => Object.fromEntries(Object.entries<ValT>(obj).map(map)) as Record<NewKeyT, NewValT>;
+
 // Adapted after: https://stackoverflow.com/a/15710692
 export const hash = (s: string) =>
     btoa(
