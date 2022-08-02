@@ -1,5 +1,5 @@
 import localforage from 'localforage';
-import type { RequestType, ResponseType } from '../types/request';
+import type { RequestType } from '../types/request';
 import { rethrow } from '../Utility/errors';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 
@@ -7,7 +7,7 @@ export type UserRequest = {
     reference: string;
     date: string;
     type: RequestType;
-    response_type?: ResponseType;
+    response_type?: 'admonition' | 'complaint';
     slug: string;
     recipient: string;
     email: string;

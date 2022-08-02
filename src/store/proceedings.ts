@@ -260,7 +260,12 @@ export const proceedingFromRequest = (
             id: `${request.reference}-00`,
             reference: request.reference,
             date: new Date(request.date),
-            type: request.type === 'custom' ? request.response_type || 'response' : request.type,
+            type:
+                request.type === 'custom'
+                    ? // TODO: The `response_type` is only necessary to migrate the legacy requests. Remove it once the migration is done.
+                      (request as typeof request & { response_type?: 'admonition' | 'complaint' }).response_type ||
+                      'response'
+                    : request.type,
             slug: request.slug,
             correspondent_address: isUserRequest(request) ? request.recipient : request.recipient_address,
             correspondent_email: request.email,

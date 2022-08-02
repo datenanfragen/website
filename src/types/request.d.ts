@@ -1,5 +1,5 @@
 import type { RequestLanguage } from './company';
-import { REQUEST_TYPES, TRANSPORT_MEDIA, CUSTOM_TEMPLATE_OPTIONS } from '../Utility/requests';
+import { REQUEST_TYPES, TRANSPORT_MEDIA } from '../Utility/requests';
 
 export type RequestType = typeof REQUEST_TYPES[number];
 export type TransportMedium = typeof TRANSPORT_MEDIA[number];
@@ -31,7 +31,6 @@ export interface AddressIdData extends GeneralIdData {
 }
 
 export type IdDataElement = TextIdData | AddressIdData;
-export type ResponseType = 'admonition' | 'complaint';
 
 export type TextSignature = {
     type: 'text';
@@ -104,10 +103,7 @@ export type CustomLetterData = {
 export interface CustomRequest extends RequestInterface {
     type: 'custom';
     custom_data: CustomLetterData;
-    response_type?: ResponseType;
 }
-
-type CustomTemplateName = typeof CUSTOM_TEMPLATE_OPTIONS[number];
 
 export interface ObjectionRequest extends RequestInterface {
     type: 'objection';

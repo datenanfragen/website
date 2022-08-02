@@ -574,7 +574,6 @@
         "modal-new-request": "Nie używałeś jeszcze wygenerowanego zapytania. Czy nadal chcesz zresetować wszystkie pola i rozpocząć nowy wniosek, czy  najpierw załadować zapytanie?",
         "confirm-input-remove": "Czy na pewno usunąć pole?",
         "information-block": "Blok informacyjny",
-        "modal-select-authority": "Ten asystent pomoże Ci wybrać organ nadzorczy ds. ochrony danych, do którego chcesz złożyć skargę. Nie musisz składać skargi do organu, który jest odpowiedzialny za firmę, na którą chcesz złożyć skargę, ale powinieneś wybrać ten, który znajduje się w miejscu Twojego zamieszkania. <a href=\"/supervisory-authorities\" target=\"_blank\"> Dowiedz się więcej</a>",
         "company-read-more": "Więcej informacji",
         "print-pdf": "Drukuj PDF",
         "pgp-fingerprint": "PGP fingerprint (ang.)",

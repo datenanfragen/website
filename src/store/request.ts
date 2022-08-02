@@ -7,7 +7,6 @@ import type {
     TransportMedium,
     RequestFlag,
     Signature,
-    CustomTemplateName,
     CustomLetterData,
     CustomRequest,
 } from '../types/request';
@@ -16,10 +15,8 @@ import {
     REQUEST_FALLBACK_LANGUAGE,
     fetchTemplate,
     isSaneDataField,
-    REQUEST_ARTICLES,
     inferRequestLanguage,
 } from '../Utility/requests';
-import { UserRequest } from '../DataType/UserRequests';
 import { produce } from 'immer';
 import { RequestLetter } from '../DataType/RequestLetter';
 import { t_r } from '../Utility/i18n';
@@ -30,7 +27,6 @@ import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { slugify } from '../Utility/common';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
-import { Template } from 'letter-generator';
 
 export interface RequestState<R extends Request> {
     request: R;
@@ -46,8 +42,6 @@ export interface RequestState<R extends Request> {
     setDate: (date: string) => void;
     setInformationBlock: (information_block: string) => void;
     setSignature: (signature: Signature) => void;
-    // I would've liked to avoid specific functions here, but I guess I can't help it
-    setCustomLetterTemplate: (template_name: CustomTemplateName, response_to?: UserRequest) => Promise<void>;
     setCustomLetterProperty: (property: keyof Omit<CustomLetterData, 'sender_address'>, value: string) => void;
     setCustomLetterAddress: (address: Address) => void;
     setSent: (sent: boolean) => void;
@@ -219,91 +213,16 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 state.request.signature = signature;
             })
         ),
-    setCustomLetterTemplate: async (template_name, response_to) => {
-        if (get().request.type === 'custom') {
-            if (template_name !== 'no-template') {
-                get().setBusy();
-                return fetchTemplate(get().request.language, template_name, undefined, '').then((text) => {
-                    set(
-                        produce((state: RequestState<Request>) => {
-                            if (state.request.type === 'custom') {
-                                if (response_to) {
-                                    const variables = {
-                                        request_date: response_to.date,
-                                        request_recipient: response_to.recipient?.split('\n')[0],
-                                        request_recipient_address: response_to.recipient,
-                                    };
-                                    state.request.custom_data.content = text
-                                        ? new Template(
-                                              text,
-                                              {},
-                                              {
-                                                  ...variables,
-                                                  request_article:
-                                                      response_to.type !== 'custom'
-                                                          ? REQUEST_ARTICLES[response_to.type]
-                                                          : '',
-                                              }
-                                          ).getText()
-                                        : '';
-
-                                    state.request.custom_data.subject = t_r(
-                                        `letter-subject-${template_name}`,
-                                        state.request.language,
-                                        response_to.type === 'custom'
-                                            ? variables
-                                            : {
-                                                  ...variables,
-                                                  request_article: REQUEST_ARTICLES[response_to.type],
-                                              }
-                                    );
-
-                                    if (template_name === 'admonition') {
-                                        get().setTransportMedium(response_to.via);
-                                        state.request.email = response_to.email;
-                                        state.request.recipient_address = response_to.via;
-                                    }
-
-                                    state.request.reference = response_to.reference;
-                                    state.request.response_type = template_name;
-                                } else {
-                                    state.request.custom_data.content = text ?? '';
-                                    state.request.response_type = template_name;
-                                }
-                            }
-                        })
-                    );
-                    get().setReady();
-                });
-            }
-
-            set(
-                produce((state: RequestState<Request>) => {
-                    if (state.request.type === 'custom') {
-                        state.request.response_type = undefined;
-                    }
-                })
-            );
-        } else {
-            throw new WarningException(
-                "Custom request templates can only be set for a custom request (request.type === 'custom')."
-            );
-        }
-    },
     setCustomLetterProperty: (property, value) => {
-        if (get().request.type === 'custom') {
-            set(
-                produce((state: RequestState<Request>) => {
-                    if (state.request.type === 'custom') {
-                        state.request.custom_data[property] = value;
-                    }
-                })
-            );
-        } else {
-            throw new WarningException(
-                "Custom letter property can only be set for a custom request (request.type === 'custom')."
-            );
-        }
+        set(
+            produce((state: RequestState<Request>) => {
+                if (state.request.type === 'custom') state.request.custom_data[property] = value;
+                else
+                    throw new WarningException(
+                        "Custom letter property can only be set for a custom request (request.type === 'custom')."
+                    );
+            })
+        );
     },
     setCustomLetterAddress: (address) => {
         if (get().request.type === 'custom') {

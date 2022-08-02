@@ -67,10 +67,7 @@ export const useNewRequestModal = (
 
     const newRequest = useCallback(async () => {
         // Remove GET parameter-selected company from the URL after the request is finished.
-        // Also remove warning and complaint GET parameters from the URL after the request is finished.
-        if (window.PARAMETERS['company'] || window.PARAMETERS['response_type'] || window.PARAMETERS['response_to']) {
-            clearUrlParameters();
-        }
+        if (window.PARAMETERS['company']) clearUrlParameters();
 
         if (
             request_type === 'access' &&

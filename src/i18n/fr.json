@@ -134,7 +134,6 @@
         "complaint": "Plainte",
         "select": "Sélectionner",
         "select-authority": "Sélectionner l'autorité de contrôle…",
-        "modal-select-authority": "Cet assistant va t'aider à sélectionner l'autorité de contrôle chargée de la protection des données auprès de laquelle déposer ta plainte. Tu n'as pas besoin de déposer ta plainte auprès de l'autorité responsable de l'entreprise dont tu veux te plaindre, mais tu devrais le faire auprès de celle de ton lieu de résidence. <a href=\"/supervisory-authorities\" target=\"_blank\">En savoir plus</a>",
         "company-read-more": "Plus d'informations",
         "print-pdf": "Imprimer le PDF",
         "pgp-fingerprint": "Empreinte PGP",

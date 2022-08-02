@@ -303,7 +303,6 @@
         "complaint": "Reclamação",
         "select": "Selecionar",
         "select-authority": "Selecionar autoridade supervisora…",
-        "modal-select-authority": "Este assistente irá auxiliá-lo a selecionar a autoridade supervisora de proteção de dados que você deseja enviar uma reclamação. Você não precisa escolher a autoridade supervisora que é responsável pela empresa que você deseja reclamar, mas, você deve selecionar a do local de sua residência.<a href=\"/autoridades-supervisoras\" target=\"_blank\"> Saiba mais</a>",
         "company-read-more": "Mais informações",
         "print-pdf": "Imprimir PDF",
         "pgp-fingerprint": "Impressão digital PGP",

@@ -1,8 +1,7 @@
-import type { CustomTemplateName } from '../../types/request';
 import { MarkupText, Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { useGeneratorStore } from '../../store/generator';
-import { EMTPY_ADDRESS, CUSTOM_TEMPLATE_OPTIONS } from '../../Utility/requests';
+import { EMTPY_ADDRESS } from '../../Utility/requests';
 import { InputControl } from './DynamicInput';
 
 export const CustomRequestInput = () => {
@@ -18,7 +17,6 @@ export const CustomRequestInput = () => {
         state.request.type === 'custom' ? state.request.custom_data.sender_address : EMTPY_ADDRESS
     );
 
-    const setCustomLetterTemplate = useGeneratorStore((state) => state.setCustomLetterTemplate);
     const setCustomLetterProperty = useGeneratorStore((state) => state.setCustomLetterProperty);
     const setCustomLetterAddress = useGeneratorStore((state) => state.setCustomLetterAddress);
 
@@ -29,28 +27,6 @@ export const CustomRequestInput = () => {
                 <h2>
                     <Text id="custom-request" />
                 </h2>
-                <div className="form-group">
-                    <label htmlFor="custom-template-select" className="sr-only">
-                        <Text id="template" />
-                    </label>
-                    <div className="select-container" style="width: initial;">
-                        <select
-                            type="text"
-                            id="custom-template-select"
-                            name="template"
-                            className="form-element"
-                            placeholder={t('template', 'generator')}
-                            onBlur={(e) => setCustomLetterTemplate(e.currentTarget.value as CustomTemplateName)}
-                            onChange={(e) => setCustomLetterTemplate(e.currentTarget.value as CustomTemplateName)}>
-                            {CUSTOM_TEMPLATE_OPTIONS.map((template, index) => (
-                                <option value={template} checked={index === 0}>
-                                    <Text id={template} />
-                                </option>
-                            ))}
-                        </select>
-                        <div className="icon icon-arrow-down" />
-                    </div>
-                </div>
                 <div className="form-group">
                     <label htmlFor="custom-subject-input" className="sr-only">
                         <Text id="subject" />

@@ -502,7 +502,6 @@
         "current-company-comments": "Opmerkingen",
         "deselect-company": "Deselecteer",
         "admonition": "Vermaning",
-        "modal-select-authority": "Deze assistent helpt u bij het selecteren van de toezichthoudende autoriteit voor gegevensbescherming bij wie u uw klacht wilt indienen. U hoeft uw klacht niet in te dienen bij de autoriteit die verantwoordelijk is voor het bedrijf waarover u een klacht wilt indienen, maar u kunt het beste kiezen voor de autoriteit van de plek waar u woont. <a href=\"/supervisory-authorities\" target=\"_blank\">Meer informatie</a>",
         "mailto-dropdown-warning": "*Hiermee worden uw verzoek en de meegeleverde gegevens verstuurd naar de betreffende dienst.",
         "tagxplanation": "U kunt de tags <code>&lt;italic&gt;&lt;/italic&gt;</code> en <code>&lt;bold&gt;&lt;/bold&gt;</code> gebruiken in uw tekst. Geneste tags worden niet ondersteund.",
         "current-company-comments-colon": "Opmerkingen:",
