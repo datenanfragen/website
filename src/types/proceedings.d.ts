@@ -1,4 +1,4 @@
-import type { ResponseType, RequestType, TransportMedium } from '../types/request';
+import type { RequestType, TransportMedium } from '../types/request';
 import { PROCEEDING_STATUS } from '../Utility/requests';
 
 type MessageId = string;
@@ -15,7 +15,7 @@ type Message = {
     id: MessageId;
     reference: string;
     date: Date;
-    type: RequestType | ResponseType | 'response';
+    type: RequestType | 'response' | 'admonition' | 'complaint';
     slug?: string;
     correspondent_address: string;
     correspondent_email: string;

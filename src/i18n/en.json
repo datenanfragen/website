@@ -368,7 +368,6 @@
         "complaint": "Complaint",
         "select": "Select",
         "select-authority": "Select supervisory authority…",
-        "modal-select-authority": "This assistant will help you select the supervisory data protection authority to lodge your complaint with. You don’t need to lodge your complaint with the authority that is responsible for the company you want to complain about but should go with the one from where you live. <a href=\"/supervisory-authorities\" target=\"_blank\">Learn more</a>",
         "company-read-more": "More information",
         "print-pdf": "Print PDF",
         "pgp-fingerprint": "PGP fingerprint",

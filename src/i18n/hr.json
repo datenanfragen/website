@@ -537,7 +537,6 @@
         "pgp-fingerprint": "PGP otisak",
         "print-pdf": "Ispiši PDF",
         "company-read-more": "Daljnje informacije",
-        "modal-select-authority": "Ovaj pomoćnik služi za biranje nadzornog tijela za zaštitu podataka za podnošenje žalbe. Žalba se ne mora slati nadležnom tijelu koje je odgovorno za poduzeće na koje se žališ, već odgovornom tijelu mjesta u kojem stanuješ. <a href=\"/supervisory-authorities\" target=\"_blank\">Saznaj više</a>",
         "select-authority": "Odaberi nadzorno tijelo …",
         "select": "Odaberi",
         "complaint": "Žalba",

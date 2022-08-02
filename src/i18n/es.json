@@ -238,7 +238,6 @@
         "pgp-fingerprint": "Huella digital de la llave PGP (\"PGP fingerprint\")",
         "print-pdf": "Imprimir PDF",
         "company-read-more": "Más información",
-        "modal-select-authority": "Este asistente te ayudará a seleccionar la autoridad supervisora de protección de datos ante la que presentar tu reclamación. No es necesario que presentes tu queja ante la autoridad responsable de la empresa sobre la que deseas presentar la queja, sino que debes acudir con la de donde vives. <a href=\"/autoridades-supervisoras\" target=\"_blank\">Más información</a>",
         "select-authority": "Seleccionar autoridad supervisora…",
         "select": "Seleccionar",
         "complaint": "Queja",

@@ -1,13 +1,9 @@
-import type { RequestType, CustomTemplateName } from '../types/request';
+import type { RequestType } from '../types/request';
 import t from './i18n';
 import { fetchTemplate, REQUEST_FALLBACK_LANGUAGE } from './requests';
 import { CriticalException, rethrow } from './errors';
 
-export const requestTemplate = (
-    locale: string,
-    template: string,
-    request_type: RequestType | Exclude<CustomTemplateName, 'no-template'>
-) => {
+export const requestTemplate = (locale: string, template: string, request_type: RequestType) => {
     const template_url = `${window.BASE_URL}templates/${locale}/${template}.txt`;
 
     return fetch(template_url)

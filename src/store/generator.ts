@@ -1,15 +1,13 @@
-import type { IdDataElement, Request, ResponseType, Signature, RequestType } from '../types/request';
+import type { IdDataElement, Request, Signature, RequestType } from '../types/request';
 import type { StoreSlice } from '../types/utility';
 import create, { GetState, SetState } from 'zustand';
 import { RequestState, createRequestStore } from './request';
-import { CUSTOM_TEMPLATE_OPTIONS } from '../Utility/requests';
 import createContext from 'zustand/context';
 import { CompanyState, createCompanyStore } from './company';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
 import { ErrorException, rethrow } from '../Utility/errors';
 import { makePdfWorker } from '../Utility/workers';
-import { UserRequests } from '../DataType/UserRequests';
 
 export interface GeneratorSpecificState {
     ready: boolean;
@@ -27,7 +25,7 @@ export interface GeneratorSpecificState {
     refreshFillFields: () => void;
     initiatePdfGeneration: () => void;
     renderLetter: () => void;
-    resetInitialConditions: (response_to?: string, response_type?: ResponseType) => Promise<void>;
+    resetInitialConditions: () => Promise<void>;
 }
 
 export type GeneratorState = RequestState<Request> & CompanyState & GeneratorSpecificState;
@@ -112,44 +110,12 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
             });
         }
     },
-    resetInitialConditions: (response_to, response_type) => {
+    resetInitialConditions: () => {
         get().refreshFillFields();
         get().setBusy();
         return get()
             .initializeFields()
-            .then(() => {
-                // This is a response to a previous request (warning or complaint).
-                if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) && response_to && response_type) {
-                    // Just for the looks: Switch the view before fetching the template
-                    get().setRequestType('custom');
-
-                    return new UserRequests()
-                        .getRequest(response_to)
-                        .then((request) => {
-                            if (request) {
-                                return get()
-                                    .setCustomLetterTemplate(
-                                        CUSTOM_TEMPLATE_OPTIONS.includes(response_type) ? response_type : 'no-template',
-                                        request
-                                    )
-                                    .then(() => request);
-                            }
-                            throw new Error('No user request found');
-                        })
-                        .then((request) => {
-                            if (response_type === 'admonition' && request?.slug) {
-                                return get().setCompanyBySlug(request.slug);
-                            }
-                        })
-                        .catch((e) => {
-                            /* Fail silently when no user request was found */
-                            if (e.message !== 'No user request found') rethrow(e);
-                        });
-                }
-
-                // This is just a regular ol' request.
-                return get().refreshTemplate();
-            });
+            .then(() => get().refreshTemplate());
     },
 });
 

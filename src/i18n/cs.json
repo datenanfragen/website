@@ -594,7 +594,6 @@
         "complaint": "Stížnost",
         "select": "Vybrat",
         "select-authority": "Vybrat kontrolní orgán…",
-        "modal-select-authority": "Tento pomocník Vám pomůže vybrat kontrolní orgán, ke kterému můžete podat stížnost. Nemusíte podávat žádost ke kontrolnímu orgánu, kterému se zodpovídá společnost, na níž si chcete stěžovat, ale měl(a) byste si vybrat orgán podle místa, kde žijete. <a href=\"/supervisory-authorities\" target=\"_blank\">Dovězte se více</a>",
         "company-read-more": "Více informací",
         "print-pdf": "Vytisknout PDF",
         "pgp-fingerprint": "Otisk PGP",

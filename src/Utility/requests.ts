@@ -1,12 +1,4 @@
-import type {
-    IdDataElement,
-    Address,
-    AccessRequest,
-    RequestType,
-    DataFieldName,
-    Request,
-    CustomTemplateName,
-} from '../types/request';
+import type { IdDataElement, Address, AccessRequest, RequestType, DataFieldName, Request } from '../types/request';
 import type { Company, RequestLanguage, SupervisoryAuthority } from '../types/company';
 import { generateReference } from 'letter-generator';
 import t, { t_r } from './i18n';
@@ -20,7 +12,6 @@ import { getGeneratedMessage } from '../store/proceedings';
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
 export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
 export const ADDRESS_STRING_PROPERTIES = ['street_1', 'street_2', 'place', 'country'] as const;
-export const CUSTOM_TEMPLATE_OPTIONS = ['no-template', 'admonition', 'complaint'] as const;
 export const REQUEST_ARTICLES = { access: '15', erasure: '17', rectification: '16', objection: '21(2)' } as const;
 export const REQUEST_FALLBACK_LANGUAGE = 'en' as const; // We'll use English as hardcoded fallback language
 export const EMTPY_ADDRESS: Address = {
@@ -144,7 +135,7 @@ export const trackingFields = (locale: RequestLanguage): IdDataElement[] => [
  */
 export const fetchTemplate = (
     locale: string,
-    request_type: RequestType | Exclude<CustomTemplateName, 'no-template'>,
+    request_type: RequestType,
     company?: Company | SupervisoryAuthority,
     suffix = 'default'
 ): Promise<void | string> =>
