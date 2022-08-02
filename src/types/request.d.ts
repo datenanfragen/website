@@ -96,8 +96,6 @@ export interface ErasureRequest extends RequestInterface {
 export type CustomLetterData = {
     content: string;
     subject: string;
-    sender_address: Address;
-    name: string;
 };
 
 export interface CustomRequest extends RequestInterface {

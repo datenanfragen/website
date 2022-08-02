@@ -8,7 +8,6 @@ import type {
     RequestFlag,
     Signature,
     CustomLetterData,
-    CustomRequest,
 } from '../types/request';
 import {
     defaultRequest,
@@ -43,10 +42,9 @@ export interface RequestState<R extends Request> {
     setInformationBlock: (information_block: string) => void;
     setSignature: (signature: Signature) => void;
     setCustomLetterProperty: (property: keyof Omit<CustomLetterData, 'sender_address'>, value: string) => void;
-    setCustomLetterAddress: (address: Address) => void;
     setSent: (sent: boolean) => void;
     resetRequestToDefault: (advanceBatch: boolean, language?: string, beforeAdvanceBatchHook?: () => void) => void;
-    initializeFields: (data_field?: DataFieldName<R>) => Promise<void>;
+    initializeFields: () => Promise<void>;
     refreshTemplate: () => Promise<void>;
     letter: () => RequestLetter;
     letter_filename: () => string;
@@ -133,8 +131,8 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
         set(
             produce((state: RequestState<Request>) => {
                 state.request.type = type;
-                if (state.request.type === 'custom')
-                    state.request.custom_data = makeCustomDataFromIdData(state.request);
+                if (state.request.type === 'custom' && state.request.custom_data === undefined)
+                    state.request.custom_data = { content: '', subject: '' };
                 if (state.request.type === 'rectification' && state.request.rectification_data === undefined)
                     state.request.rectification_data = [];
                 if (state.request.type === 'erasure') {
@@ -224,21 +222,6 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             })
         );
     },
-    setCustomLetterAddress: (address) => {
-        if (get().request.type === 'custom') {
-            set(
-                produce((state: RequestState<Request>) => {
-                    if (state.request.type === 'custom') {
-                        state.request.custom_data.sender_address = address;
-                    }
-                })
-            );
-        } else {
-            throw new WarningException(
-                "Custom letter address can only be set for a custom request (request.type === 'custom')."
-            );
-        }
-    },
     setSent: (sent = true) =>
         set(
             produce((state: RequestState<Request>) => {
@@ -263,33 +246,24 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 return get().resetInitialConditions();
             });
     },
-    initializeFields: async (data_field = 'id_data') => {
-        if (isSaneDataField(data_field, get().request.type)) {
-            const fields = get().request[data_field];
+    initializeFields: async () => {
+        const fields = get().request.id_data;
 
-            if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && SavedIdData.shouldAlwaysFill()) {
-                const saved_id_data = new SavedIdData();
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && SavedIdData.shouldAlwaysFill()) {
+            const saved_id_data = new SavedIdData();
 
-                return saved_id_data
-                    .getAllFixed()
-                    .then((fill_data) =>
-                        SavedIdData.mergeFields(fields, fill_data ?? [], true, true, true, true, false)
+            return saved_id_data
+                .getAllFixed()
+                .then((fill_data) => SavedIdData.mergeFields(fields, fill_data ?? [], true, true, true, true, false))
+                .then((new_fields) =>
+                    set(
+                        produce((state: GeneratorState) => {
+                            state.request.id_data = new_fields;
+                        })
                     )
-                    .then((new_fields) =>
-                        set(
-                            produce((state: GeneratorState) => {
-                                if (isSaneDataField(data_field, state.request.type))
-                                    state.request[data_field] = new_fields;
-                                if (state.request.type === 'custom') {
-                                    state.request['id_data'] = new_fields;
-                                    state.request.custom_data = makeCustomDataFromIdData(state.request);
-                                }
-                            })
-                        )
-                    )
-                    .then(() => saved_id_data.getSignature())
-                    .then((signature) => get().setSignature(signature ?? { type: 'text', name: '' }));
-            }
+                )
+                .then(() => saved_id_data.getSignature())
+                .then((signature) => get().setSignature(signature ?? { type: 'text', name: '' }));
         }
     },
     refreshTemplate: async () => {
@@ -334,15 +308,4 @@ function ensurePrimaryAddress(fields: IdDataElement[]) {
         const address = fields.find((f) => f.type === 'address');
         if (address) (address.value as Address).primary = true;
     }
-}
-
-function makeCustomDataFromIdData(request: CustomRequest) {
-    const custom_data = { ...request.custom_data };
-    request.id_data.forEach((f) => {
-        if (f.type === 'name') custom_data.name = f.value;
-        if (f.type === 'address' && f.value.primary) custom_data.sender_address = f.value;
-    });
-    if (!custom_data.sender_address)
-        custom_data.sender_address = { street_1: '', street_2: '', place: '', country: '' };
-    return custom_data;
 }
