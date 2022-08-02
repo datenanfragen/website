@@ -1205,6 +1205,12 @@ details.footnote {
         margin-bottom: 10px;
         column-gap: 5px;
 
+        input[type='checkbox'] {
+            /* This is a little clunky here because of the way CSS defines baselines. */
+            position: relative;
+            top: 5px;
+        }
+
         .proceeding-row {
             flex-basis: 100%;
 
@@ -1228,7 +1234,7 @@ details.footnote {
                 list-style: none;
                 border: 4px solid $primary-color;
                 border-radius: 2px;
-                padding: 5px;
+                padding: 10px;
                 display: flex;
                 align-items: baseline;
                 justify-content: flex-start;
@@ -1245,10 +1251,12 @@ details.footnote {
                     flex-grow: 1;
                 }
 
-                & > h3 {
+                & > h1 {
                     display: block;
                     flex-grow: 3;
                     flex-basis: 50%;
+                    font-size: 18px;
+
                     &::before {
                         /* stylelint-disable scss/at-extend-no-missing-placeholder */
                         @extend .icon-arrow-right;
@@ -1256,6 +1264,10 @@ details.footnote {
                         font-size: 0.9rem !important;
                         vertical-align: -1px !important;
                         margin-right: 3px;
+                    }
+
+                    span {
+                        font-size: 1.1rem;
                     }
                 }
 
@@ -1293,7 +1305,7 @@ details.footnote {
             .proceeding-message {
                 border: 2px solid $primary-color;
                 border-top: 0;
-                padding: 5px;
+                padding: 10px;
                 list-style: none;
 
                 display: flex;
@@ -1301,9 +1313,10 @@ details.footnote {
                 align-items: center;
                 column-gap: 5px;
 
-                h4 {
+                h2 {
                     display: inline;
                     margin-left: 5px;
+                    font-size: 16px;
                 }
 
                 .icon::before {

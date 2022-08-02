@@ -15,14 +15,14 @@ export const MessageMetadataInput = (props: MessageMetadataInputProps) => {
     return (
         <div className="message-metadata-input">
             <div className="form-group">
-                <label htmlFor={`message-metatdata-input-date${props.idSuffix ? '-' + props.idSuffix : ''}`}>
+                <label htmlFor={`message-metadata-input-date${props.idSuffix ? '-' + props.idSuffix : ''}`}>
                     <Text id="date" />
                 </label>
                 <input
-                    id={`message-metatdata-input-date${props.idSuffix ? '-' + props.idSuffix : ''}`}
+                    id={`message-metadata-input-date${props.idSuffix ? '-' + props.idSuffix : ''}`}
                     type="date"
                     className="form-element"
-                    value={props.message.date.toISOString().split('T')[0]}
+                    value={props.message.date.toISOString().substring(0, 10)}
                     onChange={(e) => props.onChange({ ...props.message, date: new Date(e.currentTarget.value) })}
                 />
             </div>
@@ -34,11 +34,11 @@ export const MessageMetadataInput = (props: MessageMetadataInputProps) => {
                 />
             </div>
             <div className="form-group">
-                <label htmlFor={`message-metatdata-input-subject${props.idSuffix ? '-' + props.idSuffix : ''}`}>
+                <label htmlFor={`message-metadata-input-subject${props.idSuffix ? '-' + props.idSuffix : ''}`}>
                     <Text id="subject" />
                 </label>
                 <input
-                    id={`message-metatdata-input-subject${props.idSuffix ? '-' + props.idSuffix : ''}`}
+                    id={`message-metadata-input-subject${props.idSuffix ? '-' + props.idSuffix : ''}`}
                     type="text"
                     className="form-element"
                     value={props.message.subject}
@@ -47,11 +47,11 @@ export const MessageMetadataInput = (props: MessageMetadataInputProps) => {
             </div>
             {props.includeContent && (
                 <div className="form-group">
-                    <label htmlFor={`message-metatdata-input-content${props.idSuffix ? '-' + props.idSuffix : ''}`}>
+                    <label htmlFor={`message-metadata-input-content${props.idSuffix ? '-' + props.idSuffix : ''}`}>
                         <Text id="content" />
                     </label>
                     <textarea
-                        id={`message-metatdata-input-content${props.idSuffix ? '-' + props.idSuffix : ''}`}
+                        id={`message-metadata-input-content${props.idSuffix ? '-' + props.idSuffix : ''}`}
                         className="form-element"
                         placeholder={t('content-placeholder', 'my-requests')}
                         value={props.message.content}
@@ -66,7 +66,7 @@ export const MessageMetadataInput = (props: MessageMetadataInputProps) => {
                 <div className="radio-group">
                     {(['by-me', 'by-someone-else'] as const).map((v) => (
                         <Radio
-                            id={`message-metatdata-input-sentByMe-${v}${props.idSuffix ? '-' + props.idSuffix : ''}`}
+                            id={`message-metadata-input-sentByMe-${v}${props.idSuffix ? '-' + props.idSuffix : ''}`}
                             radioVariable={props.message.sentByMe ? 'by-me' : 'by-someone-else'}
                             value={v}
                             name="sentByMe"
@@ -87,33 +87,35 @@ export const MessageMetadataInput = (props: MessageMetadataInputProps) => {
                 </legend>
                 <div className="form-group">
                     <label
-                        htmlFor={`message-metatdata-input-correspondent-email${
+                        htmlFor={`message-metadata-input-correspondent-email${
                             props.idSuffix ? '-' + props.idSuffix : ''
                         }`}>
                         <Text id="correspondent-email" />
                     </label>
                     <input
-                        id={`message-metatdata-input-subject${props.idSuffix ? '-' + props.idSuffix : ''}`}
-                        type="text"
+                        id={`message-metadata-input-correspondent-email${props.idSuffix ? '-' + props.idSuffix : ''}`}
+                        type="email"
                         className="form-element"
                         value={props.message.correspondent_email}
-                        onChange={(e) => props.onChange({ ...props.message, subject: e.currentTarget.value })}
+                        onChange={(e) =>
+                            props.onChange({ ...props.message, correspondent_email: e.currentTarget.value })
+                        }
                     />
                 </div>
                 <div className="form-group">
                     <label
-                        htmlFor={`message-metatdata-input-correspondent-address${
+                        htmlFor={`message-metadata-input-correspondent-address${
                             props.idSuffix ? '-' + props.idSuffix : ''
                         }`}>
                         <Text id="correspondent-address" />
                     </label>
                     <textarea
-                        id={`message-metatdata-input-correspondent-address${
-                            props.idSuffix ? '-' + props.idSuffix : ''
-                        }`}
+                        id={`message-metadata-input-correspondent-address${props.idSuffix ? '-' + props.idSuffix : ''}`}
                         className="form-element"
                         value={props.message.correspondent_address}
-                        onChange={(e) => props.onChange({ ...props.message, content: e.currentTarget.value })}
+                        onChange={(e) =>
+                            props.onChange({ ...props.message, correspondent_address: e.currentTarget.value })
+                        }
                     />
                 </div>
             </fieldset>

@@ -3,11 +3,11 @@ import type { SetOptional } from 'type-fest';
 import { rethrow } from './errors';
 
 export type PrivacyAsyncStorageOption = {
-    /** Name of the Database */
+    /** Name of the database */
     name: string;
     /** Name of the objectStore */
     storeName: string;
-    /** Version of the database to try and use. If left blank the most current database is used. */
+    /** Version of the database to try and use. If left blank, the most current database is used. */
     version?: number;
 };
 
@@ -20,10 +20,10 @@ export class PrivacyAsyncStorage {
     #storageType: 'idb' | 'localStorage';
 
     /**
-     * Recreates a simple localforage style storage driver that uses IndexdDB per default and switches to localStorage if the database is unavialable or unwriteable.
+     * Emulates a simple localforage style storage driver that uses IndexedDB by default and switches to localStorage if the database is unavailable or unwritable.
      * Blocks any connection to the database if the condition is false.
-     * @param condition A function returning `true`, if a localforage instance should be created.
-     * @param options The options to pass to `localforage.createInstance()`
+     * @param condition A function returning `true`, if a connection to the database/localStorage is allowed.
+     * @param options Options for creating the database objectStore.
      */
     constructor(condition: () => boolean, options: SetOptional<PrivacyAsyncStorageOption, 'storeName' | 'name'>) {
         this.#condition = condition;
@@ -49,7 +49,7 @@ export class PrivacyAsyncStorage {
                 })
                     .catch((e) => {
                         if (e.name === 'InvalidStateError') {
-                            // Database is not writeable, we a probably in Firefox' private browsing mode
+                            // Database is not writable, we a probably in Firefox' private browsing mode
                             this.#storageType = 'localStorage';
                             this.#db = localStorage;
                             return this.#db;
@@ -73,7 +73,7 @@ export class PrivacyAsyncStorage {
         return this.#db;
     }
 
-    isIDB(db: KeyValueDatabase | Storage | undefined): db is KeyValueDatabase {
+    isIdb(db: KeyValueDatabase | Storage | undefined): db is KeyValueDatabase {
         return this.#storageType === 'idb' && typeof db !== 'undefined' && 'get' in (db as KeyValueDatabase);
     }
 
@@ -87,7 +87,7 @@ export class PrivacyAsyncStorage {
 
     async getItem(key: string): Promise<string | null> {
         const db = await this.getDb();
-        if (this.isIDB(db)) {
+        if (this.isIdb(db)) {
             return (await db?.get(this.#options.storeName, key)) || null;
         }
         return (db as Storage | undefined)?.getItem(this.getLocalStorageItemKey(key)) || null;
@@ -95,7 +95,7 @@ export class PrivacyAsyncStorage {
 
     async setItem(key: string, value: string): Promise<void> {
         const db = await this.getDb();
-        if (this.isIDB(db)) {
+        if (this.isIdb(db)) {
             return db?.put(this.#options.storeName, value, key).then();
         }
         return (db as Storage | undefined)?.setItem(this.getLocalStorageItemKey(key), value);
@@ -103,7 +103,7 @@ export class PrivacyAsyncStorage {
 
     async removeItem(key: string): Promise<void> {
         const db = await this.getDb();
-        if (this.isIDB(db)) {
+        if (this.isIdb(db)) {
             return db?.delete(this.#options.storeName, key);
         }
         return (db as Storage | undefined)?.removeItem(this.getLocalStorageItemKey(key));
@@ -112,7 +112,7 @@ export class PrivacyAsyncStorage {
     async clear(): Promise<void> {
         if (await PrivacyAsyncStorage.doesStoreExist(this.#options.name, this.#options.storeName)) {
             const db = await this.getDb(true);
-            if (this.isIDB(db)) {
+            if (this.isIdb(db)) {
                 return db?.clear(this.#options.storeName);
             }
             return (
