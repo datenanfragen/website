@@ -132,12 +132,30 @@ const proceedingsStore = persist<ProceedingsState>(
     }
 );
 
+export const compareMessage = (msgA: Message, msgB: Message) => {
+    if (msgA.date < msgB.date) return -1;
+    else if (msgA.date == msgB.date) {
+        if ((msgA.slug ?? 0) < (msgB.slug ?? 0)) return -1;
+        else if (msgA.slug == msgB.slug) {
+            if (msgA.reference < msgB.reference) return -1;
+            else if (msgA.reference == msgB.reference) return 0;
+            return 1;
+        }
+        return 1;
+    }
+    return 1;
+};
+
+export const getNewestMessage = (proceeding: Proceeding): Message | undefined => {
+    const msgArray = Object.values(proceeding.messages).sort(compareMessage);
+    return msgArray[msgArray.length - 1];
+};
+
 const shouldHaveStatus = (proceeding: Proceeding): ProceedingStatus => {
     if (proceeding.status === 'done') return 'done';
-    const msgArray = Object.entries(proceeding.messages);
-    const lastMessage = msgArray[msgArray.length - 1][1]; // TODO: I should probably sort by date first…
-    if (lastMessage.sentByMe) {
-        const dueDate = new Date(lastMessage.date);
+    const newestMessage = getNewestMessage(proceeding);
+    if (newestMessage?.sentByMe) {
+        const dueDate = new Date(newestMessage.date);
         dueDate.setDate(dueDate.getDate() + 32); // TODO: Make this a setting? Should this depend on context?
         return dueDate > new Date() ? 'waitingForResponse' : 'overdue';
     }

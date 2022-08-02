@@ -6,7 +6,7 @@ import { FeatureDisabledWidget } from './Components/FeatureDisabledWidget';
 import t from './Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
 import { icsFromProceedings, findOriginalRequest } from './Utility/requests';
-import { useProceedingsStore } from './store/proceedings';
+import { compareMessage, getNewestMessage, useProceedingsStore } from './store/proceedings';
 import type { Proceeding, Message } from './types/proceedings';
 import { RequestType } from 'request';
 import { useModal } from './Components/Modal';
@@ -23,17 +23,7 @@ const RequestList = () => {
                 const req_a = Object.values(proceedings[a].messages)[0];
                 const req_b = Object.values(proceedings[a].messages)[0];
 
-                if (req_a.date < req_b.date) return -1;
-                else if (req_a.date == req_b.date) {
-                    if ((req_a.slug ?? 0) < (req_b.slug ?? 0)) return -1;
-                    else if (req_a.slug == req_b.slug) {
-                        if (req_a.reference < req_b.reference) return -1;
-                        else if (req_a.reference == req_b.reference) return 0;
-                        return 1;
-                    }
-                    return 1;
-                }
-                return 1;
+                return compareMessage(req_a, req_b);
             }),
         [proceedings]
     );
@@ -44,11 +34,11 @@ const RequestList = () => {
             sortedRequestIds
                 .filter((id) => selectedRequestIds.includes(id))
                 .map((id) =>
-                    Object.entries(proceedings[id].messages).reduce(
-                        (acc, [id, msg]) =>
+                    Object.values(proceedings[id].messages).reduce(
+                        (acc, msg) =>
                             acc +
                             [
-                                msg.date,
+                                msg.date.toISOString().substring(0, 10),
                                 msg.slug,
                                 msg.correspondent_address.replace(/[\n\r]+/g, ', '),
                                 msg.correspondent_email,
@@ -59,7 +49,8 @@ const RequestList = () => {
                             '\r\n',
                         ''
                     )
-                );
+                )
+                .join('');
 
         return new Blob([csv], { type: 'text/csv;charset=utf-8' });
     }, [proceedings, selectedRequestIds, sortedRequestIds]);
@@ -210,21 +201,23 @@ const ProceedingRow = (props: ProceedingRowProps) => {
 
     const original_request = findOriginalRequest(props.proceeding);
 
-    const initialMessage = useMemo<Omit<Message, 'id'>>(
+    const newMessageTemplate = useMemo<Omit<Message, 'id'>>(
         () => ({
             transport_medium: 'email',
             date: new Date(),
             reference: props.proceeding.reference,
-            sentByMe: false,
+            sentByMe: !getNewestMessage(props.proceeding)?.sentByMe,
             correspondent_address: original_request?.correspondent_address || '',
             correspondent_email: original_request?.correspondent_email || '',
             type: 'response',
+            subject: '',
+            content: '',
         }),
-        [props.proceeding.reference, original_request]
+        [props.proceeding, original_request]
     );
 
     const ImportModalContent = () => {
-        const [newMessage, setNewMessage] = useState<Omit<Message, 'id'>>(initialMessage);
+        const [newMessage, setNewMessage] = useState<Omit<Message, 'id'>>(newMessageTemplate);
         const addMessage = useProceedingsStore((state) => state.addMessage);
 
         return (
@@ -241,8 +234,13 @@ const ProceedingRow = (props: ProceedingRowProps) => {
                     className="button button-secondary"
                     style="margin-top: 10px;"
                     onClick={() => {
-                        setNewMessage(initialMessage);
-                        dismissImportMessageModal();
+                        if (
+                            JSON.stringify(newMessage) === JSON.stringify(newMessageTemplate) ||
+                            confirm(t('confirm-cancel-add-message', 'my-requests'))
+                        ) {
+                            setNewMessage(newMessageTemplate);
+                            dismissImportMessageModal();
+                        }
                     }}>
                     <Text id="cancel" />
                 </button>
@@ -251,7 +249,7 @@ const ProceedingRow = (props: ProceedingRowProps) => {
                     style="margin-left: 5px; margin-top: 10px;"
                     onClick={() => {
                         addMessage(newMessage);
-                        setNewMessage(initialMessage);
+                        setNewMessage(newMessageTemplate);
                         dismissImportMessageModal();
                     }}>
                     <Text id="add-message" />
@@ -262,22 +260,23 @@ const ProceedingRow = (props: ProceedingRowProps) => {
 
     const [ImportMessageModal, showImportMessageModal, dismissImportMessageModal] = useModal(<ImportModalContent />, {
         defaultButton: 'positive',
-        backdropDismisses: true,
-        escDismisses: true,
-        hasDismissButton: true,
+        backdropDismisses: false,
+        escDismisses: false,
+        hasDismissButton: false,
     });
 
     const locale_country = country.toUpperCase();
     const date_locale = locale_country === 'ALL' ? window.LOCALE : `${window.LOCALE}-${locale_country}`;
 
-    const recipient_name = original_request?.correspondent_address.split('\n')[0];
+    const recipient_name = original_request?.correspondent_address?.split('\n')[0];
+    const correspondent_email = original_request?.correspondent_email;
 
     return (
         <>
             <ImportMessageModal />
             <details className="proceeding-row">
                 <summary>
-                    <h3 id={`proceeding-row-heading-${props.proceeding.reference}`}>
+                    <h1 id={`proceeding-row-heading-${props.proceeding.reference}`}>
                         {original_request && (
                             <span
                                 className={`icon-${original_request.type}`}
@@ -285,11 +284,19 @@ const ProceedingRow = (props: ProceedingRowProps) => {
                                 style="float: right;"
                             />
                         )}
-                        {recipient_name?.length === 0 ? 'No Name' : recipient_name}
-                    </h3>
+                        {recipient_name && recipient_name.length > 0 ? (
+                            recipient_name
+                        ) : correspondent_email && correspondent_email.length > 0 ? (
+                            correspondent_email
+                        ) : (
+                            <em>
+                                <Text id="no-company-name" />
+                            </em>
+                        )}
+                    </h1>
                     <time
-                        className={`proceeding-date ${
-                            props.proceeding.status === 'overdue' ? 'proceeding-date-overdue' : ''
+                        className={`proceeding-date${
+                            props.proceeding.status === 'overdue' ? ' proceeding-date-overdue' : ''
                         }`}
                         dateTime={original_request?.date.toISOString()}>
                         {original_request?.date.toLocaleDateString(date_locale, {
@@ -314,7 +321,7 @@ const ProceedingRow = (props: ProceedingRowProps) => {
                 </summary>
 
                 <ul style="padding: 0">
-                    {Object.entries(props.proceeding.messages).map(([ref, msg], index) => (
+                    {Object.values(props.proceeding.messages).map((msg, index) => (
                         <li className="proceeding-message">
                             <div style="width: 100%">
                                 <time dateTime={msg?.date.toISOString()}>
@@ -325,7 +332,7 @@ const ProceedingRow = (props: ProceedingRowProps) => {
                                         day: 'numeric',
                                     })}
                                 </time>
-                                <h4>
+                                <h2>
                                     <span
                                         className={`icon icon-${msg.sentByMe ? 'person' : 'factory'}`}
                                         title={t(`sent-by-${msg.sentByMe ? 'me' : 'someone-else'}`, 'my-requests')}
@@ -333,7 +340,7 @@ const ProceedingRow = (props: ProceedingRowProps) => {
                                     {msg.type === original_request?.type
                                         ? t('original-request', 'my-requests')
                                         : t(msg.type, 'my-requests')}
-                                </h4>
+                                </h2>
                                 {msg.subject && msg.content ? (
                                     <>
                                         <br />
@@ -356,10 +363,12 @@ const ProceedingRow = (props: ProceedingRowProps) => {
                                 <button
                                     className="button button-secondary button-small icon-trash"
                                     title={t('delete-message', 'my-requests')}
-                                    onClick={() => removeMessage(msg.id)}
+                                    onClick={() =>
+                                        confirm(t('delete-message-confirm', 'my-requests')) && removeMessage(msg.id)
+                                    }
                                 />
                             )}
-                            {index === Object.entries(props.proceeding.messages).length - 1 && (
+                            {index === Object.keys(props.proceeding.messages).length - 1 && (
                                 <button className="button button-small button-primary" onClick={() => alert('TODO')}>
                                     <Text id="message-react" />
                                 </button>

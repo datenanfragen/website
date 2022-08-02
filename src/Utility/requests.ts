@@ -169,12 +169,9 @@ export function inferRequestLanguage(entity?: Company | SupervisoryAuthority) {
 }
 
 export const findOriginalRequest = (proceeding: Proceeding) =>
-    Object.entries(proceeding.messages).find(([id, message]) =>
-        REQUEST_TYPES.includes(message.type as RequestType)
-    )?.[1]; // The casting in necessary because `REQUEST_TYPES` is readonly and therefore narrows the type for `Array.includes`.
+    Object.values(proceeding.messages).find((message) => REQUEST_TYPES.includes(message.type as RequestType)); // The casting in necessary because `REQUEST_TYPES` is readonly and therefore narrows the type for `Array.includes`.
 
 export const icsFromProceedings = (proceedings: Proceeding[]) => {
-    // Maps from date to request IDs.
     const grouped_requests = proceedings.reduce<Record<string, Message[]>>((acc, prcd) => {
         const request = findOriginalRequest(prcd);
         return request
