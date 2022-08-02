@@ -219,6 +219,7 @@ function suggestSimilarNamedCompanies() {
                                         <Fragment>
                                             {' '}
                                             ({t('also-runs', 'suggest')}
+                                            {/* eslint-disable-next-line react/no-danger */}
                                             <span dangerouslySetInnerHTML={{ __html: similarMatch.runs.join(', ') }} />)
                                         </Fragment>
                                     )}
@@ -288,7 +289,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
     const body = JSON.stringify(
         {
             for: 'cdb',
-            data: data,
+            data,
             new: !PARAMETERS['slug'],
         },
         ['for', 'data'].concat(properties, ['new'])

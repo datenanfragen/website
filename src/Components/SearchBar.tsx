@@ -3,7 +3,7 @@ import type { SearchParams, SearchResponseHit } from 'typesense/lib/Typesense/Do
 import type { Company } from '../types/company';
 import { useEffect, useRef } from 'preact/hooks';
 import { IntlProvider, MarkupText } from 'preact-i18n';
-import { useAppStore, Country } from '../store/app';
+import { useAppStore } from '../store/app';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { searchClient, defaultSearchParams, countryFilter } from '../Utility/search';

@@ -1,6 +1,6 @@
 import type { ComponentChildren } from 'preact';
 import type { IdDataElement } from '../../types/request';
-import { useMemo, useState } from 'preact/hooks';
+import { useMemo } from 'preact/hooks';
 import { DynamicInput } from './DynamicInput';
 import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';

@@ -22,9 +22,7 @@ function typewriter(text, i, fnCallback) {
     if (text && i < text.length) {
         document.getElementById('home-hero-word').textContent = text.substring(0, i + 1);
 
-        setTimeout(function () {
-            typewriter(text, i + 1, fnCallback);
-        }, 150);
+        setTimeout(() => typewriter(text, i + 1, fnCallback), 150);
     } else if (typeof fnCallback == 'function') {
         setTimeout(fnCallback, 700);
     }
@@ -35,9 +33,7 @@ function startTextAnimation(i) {
             startTextAnimation(i + 1);
         });
     } else {
-        setTimeout(function () {
-            startTextAnimation(0);
-        }, 20000);
+        setTimeout(() => startTextAnimation(0), 20000);
     }
 }
 
