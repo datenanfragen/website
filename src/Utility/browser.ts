@@ -1,7 +1,7 @@
 import { parseBcp47Tag, fallback_countries, isSupportedCountry } from './common';
 import type { LiteralUnion } from 'type-fest';
 import type { Country } from '../store/app';
-import { I18nLanguage } from 'globals';
+import type { I18nLanguage } from '../types/globals.d';
 
 export const clearUrlParameters = () => {
     window.history.pushState({}, document.title, `${window.BASE_URL}generator`);

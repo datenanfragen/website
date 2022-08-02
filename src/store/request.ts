@@ -110,7 +110,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                         if ((state.request[data_field][index].value as Address).primary !== field.value.primary) {
                             // Only change the primary adresses if the primary value of the current field changed
                             let addresses = 0;
-                            state.request[data_field].forEach((f: IdDataElement, i: number) => {
+                            state.request[data_field].forEach((f: IdDataElement) => {
                                 if (f.type === 'address' && f !== state.request[data_field][index]) {
                                     // Set the first address (not equal to the current one) to primary if the current change is to non-primary,
                                     // otherwise change all adresses to non-primary (we overwrite this with our change later)

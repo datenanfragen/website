@@ -269,7 +269,7 @@ function getCroppedCanvas(canvas: HTMLCanvasElement, cropArea: CropArea) {
 }
 
 function drawSignature(ctx: CanvasRenderingContext2D, signature: Signature): Promise<CropArea | null> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         if (signature?.type === 'image' && signature?.value) {
             // see https://stackoverflow.com/a/4776378
             const img = new Image();

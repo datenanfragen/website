@@ -89,7 +89,7 @@ const proceedingsStore = persist<ProceedingsState>(
                 })
             ),
         // TODO: Implement a file API…
-        addAttachment: (id, file) => {
+        addAttachment: () => {
             throw new ReferenceError('Not implemented');
         },
         setProceedingStatus: (reference, status) => {

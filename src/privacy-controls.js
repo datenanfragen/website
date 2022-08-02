@@ -180,7 +180,7 @@ class PrivacyControls extends Component {
                 positiveText={t('confirm-clear-requests', 'privacy-controls')}
                 negativeText={t('cancel', 'privacy-controls')}
                 onNegativeFeedback={this.hideModal}
-                onPositiveFeedback={(e) => {
+                onPositiveFeedback={() => {
                     this.hideModal();
                     PrivacyControls.clearRequests();
                 }}
@@ -197,7 +197,7 @@ class PrivacyControls extends Component {
                 positiveText={t('clear-id_data', 'privacy-controls')}
                 negativeText={t('cancel', 'privacy-controls')}
                 onNegativeFeedback={this.hideModal}
-                onPositiveFeedback={(e) => {
+                onPositiveFeedback={() => {
                     this.hideModal();
                     PrivacyControls.clearSavedIdData();
                 }}
@@ -214,7 +214,7 @@ class PrivacyControls extends Component {
                 positiveText={t('confirm-clear-save_wizard_entries', 'privacy-controls')}
                 negativeText={t('cancel', 'privacy-controls')}
                 onNegativeFeedback={this.hideModal}
-                onPositiveFeedback={(e) => {
+                onPositiveFeedback={() => {
                     this.hideModal();
                     PrivacyControls.clearSavedCompanies();
                 }}
