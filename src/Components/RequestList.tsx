@@ -13,7 +13,7 @@ import {
     useProceedingsStore,
 } from '../store/proceedings';
 import type { Proceeding, Message } from '../types/proceedings';
-import { RequestType } from 'request';
+import type { RequestType } from '../types/request.d';
 import { useModal } from './Modal';
 import { MessageMetadataInput } from './MessageMetadataInput';
 import type { ComponentChildren } from 'preact';
@@ -186,7 +186,7 @@ export const RequestList = (props: RequestListProps) => {
                         ))}
                     </ul>
 
-                    <div id="my-requests-buttons"></div>
+                    <div id="my-requests-buttons" />
                 </>
             )}
         </IntlProvider>

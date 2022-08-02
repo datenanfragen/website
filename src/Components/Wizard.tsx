@@ -97,7 +97,7 @@ export const Wizard = () => {
                         <SearchBar
                             id="aa-search-input"
                             index="companies"
-                            onAutocompleteSelected={(event, suggestion, dataset) =>
+                            onAutocompleteSelected={(event, suggestion) =>
                                 addCompany(suggestion.document.slug, suggestion.document.name)
                             }
                             debug={true}

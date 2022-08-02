@@ -336,7 +336,7 @@ export const DonationWidget = () => {
                         <button
                             id="donation-widget-print-button"
                             className="button button-secondary icon icon-print"
-                            onClick={() => printBankTransfer(amount, donationReference)}>
+                            onClick={() => printBankTransfer()}>
                             <Text id="print" />
                         </button>
                         <a
@@ -355,7 +355,7 @@ export const DonationWidget = () => {
 };
 
 // Adapted after: https://stackoverflow.com/a/12997207
-const printBankTransfer = (amount: number, donation_reference: string) => {
+const printBankTransfer = () => {
     const content = document.getElementById('bank-transfer-info');
     const print_window = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
     const style = `<style>
