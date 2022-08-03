@@ -897,6 +897,9 @@
         "telecommunication-title": "Telekomunikacija",
         "commerce-title": "Trgovina",
         "insurance-title": "Osiguranje",
-        "public-authorities-title": "Javna nadzorna tijela"
+        "public-authorities-title": "Javna nadzorna tijela",
+        "address-brokers-description": "Ova poduzeća prikupljaju poštanske adrese i/ili e-mail adrese pojedinaca i na temelju njih prodaju usluge drugim poduzećima. Neka poduzeća prodaju ili iznajmljuju svoje adresne podatke oglašivačima (često u kombinaciji s dodatnim atributima kao što su interesi), drugi nude poduzećima da provjere njihove već spremljene adrese i da ih isprave ako je potrebno.",
+        "credit-agencies-description": "Ova poduzeća prikupljaju podatke o tvojoj povijesti plaćanja, tvojim bankovnim transakcijama, ugovorima o mobilnim telefonima i još mnogo toga kako bi izračunale tvoju kreditnu sposobnost, koja navodno može procijeniti koliko je vjerojatno da ćeš, na primjer, ispuniti obavezu plaćanja.",
+        "public-authorities-description": "S obzirom na veliki broj javnih tijela koja potencijalno prikupljaju tvoje podatke, ovdje možemo predložiti samo mali izbor. Međutim, misli i na tijela na državnoj i lokalnoj razini, kao što su uredi za prijavu prebivališta/boravišta."
     }
 }
