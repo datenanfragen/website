@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useEffect } from 'preact/hooks';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
+import t from '../../Utility/i18n';
 import { Radio } from '../Radio';
 import { SvaFinder } from '../SvaFinder';
 import { mailto_handlers } from '../MailtoDropdown';
@@ -56,13 +57,18 @@ const _Reactor = ({ reference }: ReactorProps) => {
 
     useEffect(() => {
         resetRequestToDefault({ advanceBatch: false, type: 'custom', reference });
-        const requestMessage = getGeneratedMessage(proceedingsState.proceedings[reference], 'request');
+        const proceeding = proceedingsState.proceedings[reference];
+        if (!proceeding)
+            throw new ErrorException(
+                'Tried to use reactor with non-existent proceeding.',
+                { reference },
+                t('error-invalid-reference', 'reactor')
+            );
 
-        // TODO: Do we want to attach the proceeding (cf. `base.ts`)?
+        const requestMessage = getGeneratedMessage(proceeding, 'request');
         if (!requestMessage)
-            throw new ErrorException('Tried to use reactor with proceeding without initial request.', {
-                proceeding: proceedingsState.proceedings[reference],
-            });
+            // TODO: Do we want to attach the proceeding (cf. `base.ts`)?
+            throw new ErrorException('Tried to use reactor with proceeding without initial request.', { proceeding });
 
         if (requestMessage.slug) setCompanyBySlug(requestMessage.slug);
         else {
