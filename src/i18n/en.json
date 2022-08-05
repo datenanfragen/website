@@ -694,7 +694,8 @@
         "insurance-title": "Insurance"
     },
     "reactor": {
-        "next": "Next"
+        "next": "Next",
+        "error-invalid-reference": "The proceeding you specified in the URL doesn’t exist."
     },
     "sva-finder": {
         "sva-finder": "Supervisory authority finder",
