@@ -33,7 +33,7 @@ export const RequestList = (props: RequestListProps) => {
         () =>
             Object.keys(proceedings).sort((a, b) => {
                 const req_a = Object.values(proceedings[a].messages)[0];
-                const req_b = Object.values(proceedings[a].messages)[0];
+                const req_b = Object.values(proceedings[b].messages)[0];
 
                 return compareMessage(req_a, req_b);
             }),
