@@ -10,7 +10,6 @@ import { ErrorException } from '../Utility/errors';
 import { UserRequest } from '../DataType/UserRequests';
 import { PrivacyAsyncStorage } from '../Utility/PrivacyAsyncStorage';
 import { isUserRequest, REQUEST_TYPES } from '../Utility/requests';
-import { LocalforagePrivacy } from '../Utility/LocalforagePrivacy';
 import { t_r } from '../Utility/i18n';
 import type { ComponentChildren } from 'preact';
 
