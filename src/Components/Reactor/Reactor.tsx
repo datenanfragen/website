@@ -175,7 +175,7 @@ const _Reactor = ({ reference }: ReactorProps) => {
                                                         subject: request.custom_data?.subject,
                                                         content: request.custom_data?.content,
                                                         sentByMe: true,
-                                                        reactor_data: reactorState.moduleData,
+                                                        reactorData: reactorState.moduleData,
                                                     });
                                                     setSent(true);
                                                 }}

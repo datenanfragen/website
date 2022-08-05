@@ -119,7 +119,7 @@ export const module = createReactorModule('base', {
                     // TODO: For debugging, we obviously need the proceeding. But this also contains very sensitive
                     // data, so the user shouldn't submit that without redacting it. Not sure what to do here.
                     throw new ErrorException('Tried to generate complaint without prior admonition.', { proceeding });
-                const admonitionModuleData = admonition.reactor_data;
+                const admonitionModuleData = admonition.reactorData;
                 if (!admonitionModuleData || Object.values(admonitionModuleData).length < 1)
                     throw new ErrorException('Tried to generate complaint based on admonition without data.', {
                         proceeding,

@@ -24,5 +24,5 @@ type Message = {
     subject?: string;
     content?: string;
     sentByMe: boolean;
-    reactor_data?: ReactorState['moduleData'];
+    reactorData?: ReactorState['moduleData'];
 };
