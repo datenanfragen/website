@@ -143,6 +143,11 @@ export const RequestForm = (props: RequestFormProps) => {
                             onRemoveField={(id) => removeField(id, 'id_data')}
                             onChange={(id, field) => setField(id, field, 'id_data')}
                             fields={id_data}
+                            fieldFilter={
+                                request_type === 'custom'
+                                    ? (f) => f.type === 'name' || (transport_medium !== 'email' && f.type === 'address')
+                                    : undefined
+                            }
                             title={t(
                                 request_type === 'custom'
                                     ? 'sender-address'
