@@ -1,7 +1,9 @@
 import { reactorModules } from './index';
 import { createReactorModule, generateLetterContent } from '../../../Utility/reactor';
 import { ErrorException } from '../../../Utility/errors';
+import { t_r } from '../../../Utility/i18n';
 import { objFilter, objMap } from '../../../Utility/common';
+import { REQUEST_ARTICLES } from '../../../Utility/requests';
 import { getGeneratedMessage } from '../../../store/proceedings';
 import type { ReactorModuleWithDataId, ReactorModuleData } from '../../../types/reactor';
 
@@ -255,8 +257,26 @@ export const module = createReactorModule('base', {
                     reactorState.type === 'complaint' ? 'supervisory authority' : 'company'
                 }.`,
             onEnter: (callbackState) => {
-                // TODO: Set subject.
+                const originalRequest = getGeneratedMessage(callbackState.proceeding, 'request')!;
+
                 callbackState.generatorState.setCustomLetterProperty('content', generateLetterContent(callbackState));
+                callbackState.generatorState.setCustomLetterProperty(
+                    'subject',
+                    callbackState.reactorState.type === 'response'
+                        ? `Re: ${t_r(
+                              `letter-subject-${originalRequest.type as 'access'}`,
+                              callbackState.generatorState.request.language
+                          )}`
+                        : t_r(
+                              `letter-subject-${callbackState.reactorState.type}`,
+                              callbackState.generatorState.request.language,
+                              {
+                                  request_recipient: originalRequest.correspondent_address.split('\n')[0],
+                                  request_article: REQUEST_ARTICLES[originalRequest.type as 'access'],
+                              }
+                          )
+                );
+
                 callbackState.generatorState.renderLetter();
             },
         },
