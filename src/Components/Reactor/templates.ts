@@ -47,9 +47,11 @@ Ich bedanke mich bereits im Voraus für Ihre Unterstützung.
 Mit freundlichen Grüßen`,
 
         'additional-id::admonition': `TODO`,
-        'additional-id::complaint': `TODO`,
+        'additional-id::complaint::persists': `TODO`,
+        'additional-id::complaint::resolved': `TODO`,
         'id-copy::admonition': `TODO`,
-        'id-copy::complaint': `TODO`,
+        'id-copy::complaint::persists': `TODO`,
+        'id-copy::complaint::resolved': `TODO`,
     },
     en: {
         'base::admonition': `To Whom It May Concern:
@@ -98,16 +100,18 @@ Yours sincerely,`,
         'additional-id::admonition': `You have refused to answer my request until I provide additional identification data. Please be aware that Art. 12(6) GDPR mandates that you may only request additional information if you have reasonable doubts concerning my identity.[no_doubts> You have not set forth any such doubts. They are not apparent, either.]
 
 I am of the opinion that the data I have already provided in my request is sufficient to identify me and that you can thus not require me to provide any additional data.[has:reasoning> {reasoning}][concerns_online_account> Also note that Recital 64 GDPR explains that online identifiers should be used for identification, in particular in the context of online services, as is the case here.]`,
-        'additional-id::complaint': `The controller has refused to answer my request unless I provide additional identification data. But according to Art. 12(6) GDPR, they can only request additional information if they have reasonable doubts concerning my identity.[no_doubts> The controller has not set forth any such doubts. They are not apparent, either.]
+        'additional-id::complaint::persists': `The controller has refused to answer my request unless I provide additional identification data. But according to Art. 12(6) GDPR, they can only request additional information if they have reasonable doubts concerning my identity.[no_doubts> The controller has not set forth any such doubts. They are not apparent, either.]
 
 I am of the opinion that the data I have already provided in my request is sufficient to identify me and that the controller can thus not require me to provide any additional data.[has:reasoning> {reasoning}][concerns_online_account> My request concerns an online account. Recital 64 GDPR explains that online identifiers should be used for identification.]`,
+        'additional-id::complaint::resolved': `The controller had initially refused to answer my request unless I provide additional identification data, violating Art. 12(6) GDPR. This issue has since been resolved.`,
         'id-copy::admonition': `You have refused to answer my request until I provide a copy of an identity document. Please note that providing a copy of an identity document is an invasive measure that creates a risk for the security of my personal data, and is as such only appropriate if strictly necessary, suitable, and in line with national law (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 73).[user_objects> I do not believe that this is the case for my request.]
 [not_linked_to_real_life_identity>My request concerns data that is not linked to my real-life identity. As such, it is not apparent how providing a copy of an identity document would help you in authenticating my request.][concerns_online_account>My request concerns an online account, which means that a better and less intrusive authentication procedure already exists (cf. Recital 64 GDPR). Consequently, it is disproportionate to require a copy of an identity document (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 72).][has:reasoning>
 {reasoning}][ask_about_redactions>I am willing to provide a redacted copy of an identity document for this request but unfortunately you have not told me which information is necessary for confirming my identity. According to the European Data Protection Board, generally, the date of issue or expiry date, the issuing authority and the full name are sufficient, and all other information should be redacted (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 75). Please tell me which information you deem necessary so I can redact the rest.
 
 I also want to point out in advance that storing the copy of my identity document longer than is necessary for verifying my identity for this request is an infringement of the GDPR considering the principles of storage and purpose limitation (Art. 5(1)(b) and (e) GDPR). The European Data Protection Board recommends making a note that you have verified my identity document and then immediately deleting the copy (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 78).]`,
-        'id-copy::complaint': `The controller has refused to answer my request unless I provide a copy of an identity document. According to the EDPB, this is only appropriate if strictly necessary, suitable, and in line with national law (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 73).[user_objects> I do not believe that this is the case for my request.]
+        'id-copy::complaint::persists': `The controller has refused to answer my request unless I provide a copy of an identity document. According to the EDPB, this is only appropriate if strictly necessary, suitable, and in line with national law (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 73).[user_objects> I do not believe that this is the case for my request.]
 [not_linked_to_real_life_identity>My request concerns data that is not linked to my real-life identity. As such, it is not apparent how providing a copy of an identity document would help the controller in authenticating my request.][concerns_online_account>My request concerns an online account, which means that a better and less intrusive authentication procedure already exists (cf. Recital 64 GDPR). Consequently, it is disproportionate to require a copy of an identity document (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 72).][has:reasoning>
 {reasoning}]`,
+        'id-copy::complaint::resolved': `The controller had initially refused to answer my request unless I provide a copy of an identity document, which according to the EDPB, is only appropriate if strictly necessary, suitable, and in line with national law (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 73). This issue has since been resolved.`,
     },
 };
