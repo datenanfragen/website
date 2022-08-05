@@ -17,6 +17,7 @@ export const createReactorModule = <ModuleDataT extends ReactorModuleData | unde
     return module as ReactorModule<ModuleDataT, ModuleIdT>;
 };
 
+const dateFormat: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: '2-digit' };
 export const generateLetterContent = ({ reactorState, proceeding, generatorState }: CallbackState) => {
     const type = reactorState.type;
     // TODO: Remove the cast once we have fallbacks.
@@ -60,9 +61,9 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
         ...reactorState.moduleData.base.issue.variables,
 
         // Admonitions
-        request_date: originalRequest?.date.toLocaleDateString(language),
+        request_date: originalRequest?.date.toLocaleDateString(language, dateFormat),
         ...(companyMessages.length > 0 && {
-            response_date: companyMessages[companyMessages.length - 1].date.toLocaleDateString(language),
+            response_date: companyMessages[companyMessages.length - 1].date.toLocaleDateString(language, dateFormat),
         }),
         ...(additionalData.length > 0 && {
             additional_data_list: RequestLetter.formatData(additionalData).formatted,
@@ -75,7 +76,7 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
         correspondence_list: Object.values(proceeding.messages)
             .map(
                 (m) =>
-                    `* ${m.date.toLocaleDateString(language)}: ${m.transport_medium} by ${
+                    `* ${m.date.toLocaleDateString(language, dateFormat)}: ${m.transport_medium} by ${
                         m.sentByMe ? 'me' : 'the controller'
                     }${m.subject ? ` (subject: “${m.subject}”)` : ''}`
             )
