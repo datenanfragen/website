@@ -22,7 +22,7 @@ export interface ProceedingsState {
     removeMessage: (id: MessageId) => void;
     addAttachment: (id: MessageId, file: unknown) => void;
     setProceedingStatus: (reference: string, status: ProceedingStatus) => void;
-    setReactorData: (id: MessageId, reactor_data: ReactorState['moduleData']) => void;
+    setReactorData: (id: MessageId, reactorData: ReactorState['moduleData']) => void;
     removeProceeding: (reference: string) => void;
     clearProceedings: () => void;
     updateStatuses: () => void;
@@ -102,12 +102,12 @@ const proceedingsStore = persist<ProceedingsState>(
                 })
             );
         },
-        setReactorData: (id, reactor_data) =>
+        setReactorData: (id, reactorData) =>
             set(
                 produce((state: ProceedingsState) => {
                     const reference = id.match(id_regex)?.[1];
                     if (!reference) return;
-                    state.proceedings[reference].messages[id].reactor_data = reactor_data;
+                    state.proceedings[reference].messages[id].reactorData = reactorData;
                 })
             ),
         removeProceeding: (reference) =>
