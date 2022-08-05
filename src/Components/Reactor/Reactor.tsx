@@ -4,7 +4,7 @@ import t from '../../Utility/i18n';
 import { Radio } from '../Radio';
 import { SvaFinder } from '../SvaFinder';
 import { mailto_handlers } from '../MailtoDropdown';
-import { DynamicInputContainer } from '../Generator/DynamicInputContainer';
+import { DynamicInputContainer, StatefulDynamicInputContainer } from '../Generator/DynamicInputContainer';
 import { StatefulSignatureInput } from '../Generator/SignatureInput';
 import { ActionButton } from '../Generator/ActionButton';
 import { useReactorStore } from '../../store/reactor';
@@ -155,37 +155,55 @@ const _Reactor = ({ reference }: ReactorProps) => {
                                                 </IntlProvider>
                                             </div>
 
-                                            {(request.transport_medium === 'fax' ||
-                                                request.transport_medium === 'letter') && (
-                                                <>
-                                                    <StatefulSignatureInput fillSignature={fillSignature} />
-                                                    <br />
-                                                </>
-                                            )}
+                                            <div className="col66 col100-mobile">
+                                                {reactorState.type !== 'complaint' && (
+                                                    <StatefulDynamicInputContainer
+                                                        title={t('sender', 'reactor')}
+                                                        allowAddingFields={false}
+                                                        allowChangingFieldDescriptions={false}
+                                                        allowRemovingFields={false}
+                                                        fieldFilter={(f) =>
+                                                            f.type === 'name' ||
+                                                            (request.transport_medium !== 'email' &&
+                                                                f.type === 'address')
+                                                        }
+                                                    />
+                                                )}
 
-                                            <ActionButton
-                                                dropup={true}
-                                                mailtoDropdownProps={{
-                                                    handlers: (
-                                                        Object.keys(mailto_handlers) as (keyof typeof mailto_handlers)[]
-                                                    ).filter((h) => h !== 'copymanually'),
-                                                }}
-                                                onSuccess={() => {
-                                                    proceedingsState.addMessage({
-                                                        reference,
-                                                        date: new Date(request.date),
-                                                        type: reactorState.type,
-                                                        transport_medium: request.transport_medium,
-                                                        correspondent_address: request.recipient_address,
-                                                        correspondent_email: request.email,
-                                                        subject: request.custom_data?.subject,
-                                                        content: request.custom_data?.content,
-                                                        sentByMe: true,
-                                                        reactorData: reactorState.moduleData,
-                                                    });
-                                                    setSent(true);
-                                                }}
-                                            />
+                                                {(request.transport_medium === 'fax' ||
+                                                    request.transport_medium === 'letter') && (
+                                                    <>
+                                                        <StatefulSignatureInput fillSignature={fillSignature} />
+                                                        <br />
+                                                    </>
+                                                )}
+
+                                                <ActionButton
+                                                    dropup={true}
+                                                    mailtoDropdownProps={{
+                                                        handlers: (
+                                                            Object.keys(
+                                                                mailto_handlers
+                                                            ) as (keyof typeof mailto_handlers)[]
+                                                        ).filter((h) => h !== 'copymanually'),
+                                                    }}
+                                                    onSuccess={() => {
+                                                        proceedingsState.addMessage({
+                                                            reference,
+                                                            date: new Date(request.date),
+                                                            type: reactorState.type,
+                                                            transport_medium: request.transport_medium,
+                                                            correspondent_address: request.recipient_address,
+                                                            correspondent_email: request.email,
+                                                            subject: request.custom_data?.subject,
+                                                            content: request.custom_data?.content,
+                                                            sentByMe: true,
+                                                            reactorData: reactorState.moduleData,
+                                                        });
+                                                        setSent(true);
+                                                    }}
+                                                />
+                                            </div>
                                         </>
                                     )}
 

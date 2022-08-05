@@ -11,6 +11,7 @@ type DynamicInputContainerProps = {
     id: string;
     fields: IdDataElement[];
     fillFields?: IdDataElement[];
+    fieldFilter?: (field: IdDataElement) => boolean;
 
     onAddField: (field: IdDataElement) => void;
     onRemoveField: (id: number) => void;
@@ -104,7 +105,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                 {props.title && <h2 className={props.headingClass}>{props.title}</h2>}
                 {props.children}
                 <div id={'request-dynamic-input-' + props.id}>
-                    {props.fields.map((field, i) => {
+                    {props.fields.filter(props.fieldFilter || (() => true)).map((field, i) => {
                         const field_uid = field.type + i; // TODO: This is not ok. It needs to be proper unique id! cf. #880 and #881
                         return (
                             <DynamicInput
