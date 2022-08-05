@@ -3,8 +3,12 @@ import { RequestLetter } from '../DataType/RequestLetter';
 import { getGeneratedMessage } from '../store/proceedings';
 import { templates } from '../Components/Reactor/templates';
 import type { SetOptional } from 'type-fest';
-import type { ReactorModule, ReactorModuleData, CallbackState } from '../types/reactor.d';
-import type { ReactorModuleId } from '../Components/Reactor/modules';
+import type {
+    ReactorModule,
+    ReactorModuleData,
+    CallbackState,
+    ReactorRegularModuleWithDataId,
+} from '../types/reactor.d';
 import { REQUEST_ARTICLES } from './requests';
 import { ErrorException } from './errors';
 
@@ -28,7 +32,7 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
     const issues = Object.entries(reactorState.moduleData)
         .filter(([moduleId, moduleData]) => moduleData?.includeIssue === true && moduleId !== 'custom-text')
         .map(([moduleId, moduleData]) => ({
-            moduleId: moduleId as Exclude<ReactorModuleId, 'base' | 'custom-text'>,
+            moduleId: moduleId as ReactorRegularModuleWithDataId,
             ...moduleData!,
         }));
     const additionalData = Object.values(reactorState.moduleData)

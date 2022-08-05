@@ -1,11 +1,13 @@
+import { Template } from 'letter-generator';
 import { reactorModules } from './index';
+import { templates } from '../templates';
 import { createReactorModule, generateLetterContent } from '../../../Utility/reactor';
 import { ErrorException } from '../../../Utility/errors';
 import { t_r } from '../../../Utility/i18n';
 import { objFilter, objMap } from '../../../Utility/common';
 import { REQUEST_ARTICLES } from '../../../Utility/requests';
 import { getGeneratedMessage } from '../../../store/proceedings';
-import type { ReactorModuleWithDataId, ReactorModuleData } from '../../../types/reactor';
+import type { ReactorModuleData, ReactorRegularModuleWithDataId } from '../../../types/reactor';
 
 export interface BaseModuleData extends ReactorModuleData {
     issue: {
@@ -162,7 +164,7 @@ export const module = createReactorModule('base', {
             condition: ({ reactorState }) => {
                 const issues = Object.keys(
                     objFilter(reactorState.moduleData, ([, m]) => m?.fromAdmonition === true)
-                ) as ReactorModuleWithDataId[];
+                ) as ReactorRegularModuleWithDataId[];
                 const nextIssueIndex = issues.findIndex((i) => i === reactorState.currentIssueForComplaint) + 1;
                 reactorState.setCurrentIssueForComplaint(
                     nextIssueIndex < issues.length ? issues[nextIssueIndex] : undefined
@@ -177,7 +179,11 @@ export const module = createReactorModule('base', {
             id: 'complaint-issue-resolved',
             type: 'options',
             body: ({ reactorState }) =>
-                `In your admonition, you said that TODO ${reactorState.currentIssueForComplaint}. Has that issue been resolved? And do you want to include it in your complaint?`,
+                `In your admonition, you said that ${
+                    templates[window.LOCALE as 'de'][`${reactorState.currentIssueForComplaint!}::you-said-that::issue`]
+                }
+
+Has that issue been resolved? And do you want to include it in your complaint?`,
             options: [
                 {
                     text: 'Issue resolved, include in complaint.',
@@ -201,7 +207,13 @@ export const module = createReactorModule('base', {
         {
             id: 'complaint-issue-changed',
             type: 'options',
-            body: 'If the situation regarding this issue changed since your admonition to the controller, you need to answer the questions again. Otherwise, we can just use your previous answers.',
+            body: ({ reactorState }): string => `${new Template(
+                templates[window.LOCALE as 'de'][`${reactorState.currentIssueForComplaint!}::you-said-that::meta`],
+                reactorState.moduleData[reactorState.currentIssueForComplaint!]?.issue.flags,
+                reactorState.moduleData[reactorState.currentIssueForComplaint!]?.issue.variables
+            ).getText()}
+
+If the situation regarding this issue changed since your admonition to the controller, you need to answer the questions again. Otherwise, we can just use your previous answers.`,
             options: [
                 { text: 'Use previous answers.', targetStepId: 'base::complaint-next-issue' },
                 {

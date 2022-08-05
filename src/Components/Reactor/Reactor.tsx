@@ -135,7 +135,7 @@ const _Reactor = ({ reference }: ReactorProps) => {
                         [step.id]: {
                             component: (
                                 <>
-                                    <p>{toPrimitive(step.body)}</p>
+                                    <p style="white-space: pre-wrap;">{toPrimitive(step.body)}</p>
 
                                     {step.type === 'letter' && (
                                         <>
