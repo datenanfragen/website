@@ -32,6 +32,7 @@ export interface ReactorModuleData {
 export interface ReactorModuleDataMapping {}
 
 export type ReactorModuleWithDataId = keyof ReactorModuleDataMapping;
+export type ReactorRegularModuleWithDataId = Exclude<ReactorModuleWithDataId, 'base' | 'custom-text'>;
 
 export type ReactorOption = {
     text: Text;

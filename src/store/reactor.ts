@@ -3,7 +3,12 @@ import { produce } from 'immer';
 import { reactorModules, ReactorModuleId } from '../Components/Reactor/modules/index';
 import { objFilter } from '../Utility/common';
 import type { StoreSlice } from '../types/utility';
-import type { ReactorModuleData, ReactorModuleDataMapping, ReactorModuleWithDataId } from '../types/reactor.d';
+import type {
+    ReactorModuleData,
+    ReactorModuleDataMapping,
+    ReactorModuleWithDataId,
+    ReactorRegularModuleWithDataId,
+} from '../types/reactor.d';
 import type { IdDataElement } from '../types/request.d';
 
 // TODO: If we persist this, we need to do it per request reference.
@@ -14,13 +19,13 @@ type ModuleData = Record<ReactorModuleWithDataId, ReactorModuleData> &
 export type ReactorState = {
     type: Type;
     moduleData: ModuleData;
-    currentIssueForComplaint?: ReactorModuleWithDataId;
+    currentIssueForComplaint?: ReactorRegularModuleWithDataId;
 
     activeModules: () => Record<ReactorModuleWithDataId, ReactorModuleData>;
 
     setType: (type: Type) => void;
     overrideModuleData: (newModuleData: ModuleData) => void;
-    setCurrentIssueForComplaint: (issue: ReactorModuleWithDataId | undefined) => void;
+    setCurrentIssueForComplaint: (issue: ReactorRegularModuleWithDataId | undefined) => void;
 
     setIncludeIssue: (module: ReactorModuleWithDataId, includeIssue: boolean) => void;
     setResolved: (module: ReactorModuleWithDataId, resolved: boolean) => void;
