@@ -28,8 +28,8 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
     const issues = Object.entries(reactorState.moduleData)
         .filter(([moduleId, moduleData]) => moduleData?.includeIssue === true && moduleId !== 'custom-text')
         .map(([moduleId, moduleData]) => ({
-            moduleId: moduleId as Exclude<ReactorModuleId, 'custom-text'>,
-            ...moduleData!.issue,
+            moduleId: moduleId as Exclude<ReactorModuleId, 'base' | 'custom-text'>,
+            ...moduleData!,
         }));
     const additionalData = Object.values(reactorState.moduleData)
         .filter((moduleData) => (moduleData?.additionalData.length || -1) > 0)
@@ -51,9 +51,13 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
                     (i, idx) =>
                         // TODO: This looks silly for multi-line issue descriptions.
                         `${idx + 1}. ${new Template(
-                            templates[language][`${i.moduleId}::${type}`],
-                            i.flags,
-                            i.variables
+                            templates[language][
+                                type === 'admonition'
+                                    ? (`${i.moduleId}::${type}` as const)
+                                    : (`${i.moduleId}::${type}::${i.resolved ? 'resolved' : 'persists'}` as const)
+                            ],
+                            i.issue.flags,
+                            i.issue.variables
                         ).getText()}`
                 )
                 .join('\n'),
