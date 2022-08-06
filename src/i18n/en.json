@@ -696,7 +696,9 @@
     "reactor": {
         "next": "Next",
         "sender": "Sender",
-        "error-invalid-reference": "The proceeding you specified in the URL doesn’t exist."
+        "error-invalid-reference": "The proceeding you specified in the URL doesn’t exist.",
+        "additional-data-id-copy-desc": "Copy of ID document",
+        "additional-data-id-copy-value": "attached"
     },
     "sva-finder": {
         "sva-finder": "Supervisory authority finder",

@@ -1,9 +1,9 @@
-import type { ComponentChild } from 'preact';
 import type { ReactorState } from '../store/reactor';
 import type { ProceedingsState } from '../store/proceedings';
 import type { Proceeding } from './proceedings';
 import type { GeneratorState } from '../store/generator';
 import type { IdDataElement } from '../types/request.d';
+import type { ReactorModuleId } from '../Components/Reactor/modules';
 
 export type CallbackState = {
     reactorState: ReactorState;
@@ -14,7 +14,7 @@ export type CallbackState = {
 };
 export type StateCallback<ReturnType> = (state: CallbackState) => ReturnType;
 type Condition = boolean | StateCallback<boolean>;
-type Text = string | StateCallback<ComponentChild>;
+type Text = string | StateCallback<string>;
 
 export interface ReactorModuleData {
     includeIssue: boolean;
@@ -44,7 +44,11 @@ export type ReactorOption = {
 
 type MinimalStep = { id: string; onEnter?: StateCallback<void> };
 type StepWithBody = MinimalStep & { body: Text };
-type OptionStep = StepWithBody & { type: 'options'; options: ReactorOption[] };
+type OptionStep = StepWithBody & {
+    type: 'options';
+    options: ReactorOption[];
+    optionFilter?: (option: ReactorOption & { moduleId: ReactorModuleId }, state: CallbackState) => boolean;
+};
 type TextareaStep<ModuleIdT extends string> = StepWithBody & {
     type: 'textarea';
     variableName: keyof ReactorModuleDataMapping[ModuleIdT]['issue']['variables'];
@@ -54,6 +58,7 @@ type TextareaStep<ModuleIdT extends string> = StepWithBody & {
 type DynamicInputStep = StepWithBody & { type: 'dynamic-inputs'; storeIn: 'module' | 'id_data'; nextStepId: string };
 type SvaFinderStep = StepWithBody & { type: 'sva-finder'; nextStepId: string };
 type ConditionStep = MinimalStep & { type: 'condition'; condition: Condition; trueStepId: string; falseStepId: string };
+type RedirectStep = MinimalStep & { type: 'redirect'; redirectUrl: Text };
 type LetterStep = StepWithBody & { type: 'letter' };
 export type ReactorStep<ModuleIdT extends string> =
     | OptionStep
@@ -61,6 +66,7 @@ export type ReactorStep<ModuleIdT extends string> =
     | DynamicInputStep
     | SvaFinderStep
     | ConditionStep
+    | RedirectStep
     | LetterStep;
 
 export type ReactorHook = {

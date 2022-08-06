@@ -11,7 +11,7 @@ import { useReactorStore } from '../../store/reactor';
 import { getGeneratedMessage, useProceedingsStore } from '../../store/proceedings';
 import { useGeneratorStore, createGeneratorStore, RequestGeneratorProvider } from '../../store/generator';
 import { useWizard, WizardPages } from '../../hooks/useWizard';
-import { reactorModules } from './modules/index';
+import { ReactorModuleId, reactorModules } from './modules/index';
 import type { ReactorHook, ReactorModuleWithDataId, StateCallback } from '../../types/reactor.d';
 import type { CustomRequest } from '../../types/request';
 import { ErrorException } from '../../Utility/errors';
@@ -103,7 +103,10 @@ const _Reactor = ({ reference }: ReactorProps) => {
     );
 
     const hooks = useMemo(
-        () => reactorModules.flatMap((m) => m.hooks).filter((h): h is ReactorHook => h !== undefined),
+        () =>
+            reactorModules
+                .flatMap((m) => m.hooks?.map((h) => ({ ...h, moduleId: m.id })))
+                .filter((h): h is ReactorHook & { moduleId: ReactorModuleId } => h !== undefined),
         []
     );
     const steps = useMemo(
@@ -115,20 +118,25 @@ const _Reactor = ({ reference }: ReactorProps) => {
                         step.options = [
                             ...hooks
                                 .filter((h) => h.stepId === step.id && h.position === 'before')
-                                .flatMap((h) => h.options),
-                            ...step.options,
+                                .flatMap((h) => h.options.map((o) => ({ ...o, moduleId: h.moduleId }))),
+                            ...step.options.map((o) => ({ ...o, moduleId: step.moduleId })),
                             ...hooks
                                 .filter((h) => h.stepId === step.id && h.position === 'after')
-                                .flatMap((h) => h.options),
-                        ].filter((o) => !(o.hideIf !== undefined && toPrimitive(o.hideIf)));
+                                .flatMap((h) => h.options.map((o) => ({ ...o, moduleId: h.moduleId }))),
+                        ]
+                            .filter((o) => !(o.hideIf !== undefined && toPrimitive(o.hideIf)))
+                            .filter(step.optionFilter ? (o) => step.optionFilter!(o, callbackState) : () => true);
                     return step;
                 }),
-        [hooks, toPrimitive]
+        [callbackState, hooks, toPrimitive]
     );
     const pages = useCallback(
         (setPage: (newPage: string) => void) =>
             steps
-                .filter((s): s is Exclude<typeof s, { type: 'condition' }> => s.type !== 'condition')
+                .filter(
+                    (s): s is Exclude<typeof s, { type: 'condition' | 'redirect' }> =>
+                        s.type !== 'condition' && s.type != 'redirect'
+                )
                 .reduce<WizardPages<string>>(
                     (acc, step) => ({
                         ...acc,
@@ -340,6 +348,7 @@ const _Reactor = ({ reference }: ReactorProps) => {
         step.onEnter?.({ ...callbackState, reactorState: useReactorStore.getState() });
 
         if (step.type === 'condition') setPage(toPrimitive(step.condition) ? step.trueStepId : step.falseStepId);
+        else if (step.type === 'redirect') window.location.href = toPrimitive(step.redirectUrl);
         else set(new_page);
     }
 
