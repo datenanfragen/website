@@ -19,13 +19,14 @@ type ModuleData = Record<ReactorModuleWithDataId, ReactorModuleData> &
 export type ReactorState = {
     type: Type;
     moduleData: ModuleData;
-    currentIssueForComplaint?: ReactorRegularModuleWithDataId;
+    currentIssueForComplaintIndex?: number;
 
     activeModules: () => Record<ReactorModuleWithDataId, ReactorModuleData>;
+    currentIssueForComplaint: () => ReactorRegularModuleWithDataId | undefined;
 
     setType: (type: Type) => void;
     overrideModuleData: (newModuleData: ModuleData) => void;
-    setCurrentIssueForComplaint: (issue: ReactorRegularModuleWithDataId | undefined) => void;
+    setCurrentIssueIndexForComplaint: (issue: number | undefined) => void;
 
     setIncludeIssue: (module: ReactorModuleWithDataId, includeIssue: boolean) => void;
     setResolved: (module: ReactorModuleWithDataId, resolved: boolean) => void;
@@ -54,7 +55,7 @@ const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
 
     setType: (type) => set({ type }),
     overrideModuleData: (moduleData) => set({ moduleData }),
-    setCurrentIssueForComplaint: (issue) => set({ currentIssueForComplaint: issue }),
+    setCurrentIssueIndexForComplaint: (index) => set({ currentIssueForComplaintIndex: index }),
 
     setIncludeIssue: (module, includeIssue) =>
         set(
@@ -105,6 +106,12 @@ const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
             get().moduleData,
             ([, data]) => data?.includeIssue || (data?.additionalData.length || -1) > 0
         ) as Record<ReactorModuleWithDataId, ReactorModuleData>,
+    currentIssueForComplaint: () => {
+        const issues = Object.keys(
+            objFilter(get().moduleData, ([, m]) => m?.fromAdmonition === true)
+        ) as ReactorRegularModuleWithDataId[];
+        return issues[get().currentIssueForComplaintIndex ?? -1];
+    },
 });
 
 const { devtools } =

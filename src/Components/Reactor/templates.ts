@@ -38,7 +38,7 @@ Aufgrund des beschriebenen Sachverhalts gehe ich davon aus, dass die Verantwortl
 
 Ich bitte Sie weiterhin, mich nach Art. 77 Abs. 2 DSGVO und Art. 57 Abs. 1 lit. f DSGVO im Laufe des Beschwerdeverfahrens, spätestens aber innerhalb von drei Monaten (vgl. Art. 78 Abs. 2 DSGVO), über dessen Stand und Ergebnisse zu informieren.
 
-[allow_sharing_data_with_controller>Sie dürfen meine Daten zur Bearbeitung der Beschwerde an die Verantwortliche weitergeben.[not:allow_sharing_data_with_controller>Ich bitte Sie, meine Daten <bold>nicht</bold> an die Verantwortliche weitergeben.]
+[allow_sharing_data_with_controller>Sie dürfen meine Daten zur Bearbeitung der Beschwerde an die Verantwortliche weitergeben.][not:allow_sharing_data_with_controller>Ich bitte Sie, meine Daten <bold>nicht</bold> an die Verantwortliche weitergeben.]
 
 Sollten Sie weitere Informationen von mir benötigen, wenden Sie sich gerne an mich. Sie erreichen mich wie folgt:
 {contact_details}

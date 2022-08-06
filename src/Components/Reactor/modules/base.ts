@@ -61,14 +61,19 @@ export const module = createReactorModule('base', {
         {
             id: 'response-or-complaint',
             type: 'options',
-            body: 'You have already sent an admonition to the company. Do you want to send a free text response or lodge a complaint with the supervisory authorities now?',
+            body: ({ proceeding }) =>
+                getGeneratedMessage(proceeding, 'complaint')
+                    ? 'You have already sent an admonition to the company and lodged a complaint with the supervisory authorities. Do you want to send a free text response to the company now?'
+                    : 'You have already sent an admonition to the company. Do you want to send a free text response or lodge a complaint with the supervisory authorities now?',
             options: [
                 { text: 'Write a free text response to the company.', targetStepId: 'custom-text::start' },
                 {
                     text: 'Generate a complaint.',
                     targetStepId: 'base::complaint-intro',
                     onChoose: ({ reactorState }) => reactorState.setType('complaint'),
+                    hideIf: ({ proceeding }) => getGeneratedMessage(proceeding, 'complaint') !== undefined,
                 },
+                { text: 'Nevermind, mark the request as completed.', targetStepId: 'base::nevermind' },
             ],
         },
 
@@ -95,7 +100,6 @@ export const module = createReactorModule('base', {
 
                 // TODO: Disable those already selected by the user. Or do we want to allow them to go through again and
                 // change their answers?
-                // TODO: Definitely exclude the "imported" ones for complaints.
 
                 {
                     text: ({ reactorState }) => `Generate ${reactorState.type} based on your answers.`,
@@ -109,9 +113,15 @@ export const module = createReactorModule('base', {
                     hideIf: ({ reactorState }) => Object.keys(reactorState.activeModules()).length > 0,
                 },
             ],
+            optionFilter: (o, { reactorState }): boolean =>
+                // TODO: Do we want to allow users to go through the already answered questions again to change them? If
+                // so, how do we display these options to make it clear that they are done already?
+                !reactorState.moduleData[o.moduleId].includeIssue &&
+                (reactorState.type !== 'complaint' || reactorState.moduleData[o.moduleId].fromAdmonition !== true),
         },
 
         // TODO: Skip straight to base::select-issue if there are no issues we can include in complaint.
+        // ^ Actually, no. The user will always be able to add their own issues, that just isn't implemented yet.
         {
             id: 'complaint-intro',
             type: 'options',
@@ -165,11 +175,8 @@ export const module = createReactorModule('base', {
                 const issues = Object.keys(
                     objFilter(reactorState.moduleData, ([, m]) => m?.fromAdmonition === true)
                 ) as ReactorRegularModuleWithDataId[];
-                const nextIssueIndex = issues.findIndex((i) => i === reactorState.currentIssueForComplaint) + 1;
-                reactorState.setCurrentIssueForComplaint(
-                    nextIssueIndex < issues.length ? issues[nextIssueIndex] : undefined
-                );
-
+                const nextIssueIndex = (reactorState.currentIssueForComplaintIndex ?? -1) + 1;
+                reactorState.setCurrentIssueIndexForComplaint(nextIssueIndex);
                 return nextIssueIndex < issues.length;
             },
             trueStepId: 'base::complaint-issue-resolved',
@@ -180,7 +187,9 @@ export const module = createReactorModule('base', {
             type: 'options',
             body: ({ reactorState }) =>
                 `In your admonition, you said that ${
-                    templates[window.LOCALE as 'de'][`${reactorState.currentIssueForComplaint!}::you-said-that::issue`]
+                    templates[window.LOCALE as 'de'][
+                        `${reactorState.currentIssueForComplaint()!}::you-said-that::issue`
+                    ]
                 }
 
 Has that issue been resolved? And do you want to include it in your complaint?`,
@@ -189,16 +198,16 @@ Has that issue been resolved? And do you want to include it in your complaint?`,
                     text: 'Issue resolved, include in complaint.',
                     targetStepId: 'base::complaint-next-issue',
                     onChoose: ({ reactorState }) => {
-                        reactorState.setIncludeIssue(reactorState.currentIssueForComplaint!, true);
-                        reactorState.setResolved(reactorState.currentIssueForComplaint!, true);
+                        reactorState.setIncludeIssue(reactorState.currentIssueForComplaint()!, true);
+                        reactorState.setResolved(reactorState.currentIssueForComplaint()!, true);
                     },
                 },
                 {
                     text: 'Issue persists, include in complaint.',
                     targetStepId: 'base::complaint-issue-changed',
                     onChoose: ({ reactorState }) => {
-                        reactorState.setIncludeIssue(reactorState.currentIssueForComplaint!, true);
-                        reactorState.setResolved(reactorState.currentIssueForComplaint!, false);
+                        reactorState.setIncludeIssue(reactorState.currentIssueForComplaint()!, true);
+                        reactorState.setResolved(reactorState.currentIssueForComplaint()!, false);
                     },
                 },
                 { text: 'Ignore issue in complaint.', targetStepId: 'base::complaint-next-issue' },
@@ -208,9 +217,9 @@ Has that issue been resolved? And do you want to include it in your complaint?`,
             id: 'complaint-issue-changed',
             type: 'options',
             body: ({ reactorState }): string => `${new Template(
-                templates[window.LOCALE as 'de'][`${reactorState.currentIssueForComplaint!}::you-said-that::meta`],
-                reactorState.moduleData[reactorState.currentIssueForComplaint!]?.issue.flags,
-                reactorState.moduleData[reactorState.currentIssueForComplaint!]?.issue.variables
+                templates[window.LOCALE as 'de'][`${reactorState.currentIssueForComplaint()!}::you-said-that::meta`],
+                reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
+                reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
             ).getText()}
 
 If the situation regarding this issue changed since your admonition to the controller, you need to answer the questions again. Otherwise, we can just use your previous answers.`,
@@ -225,7 +234,7 @@ If the situation regarding this issue changed since your admonition to the contr
         {
             id: 'complaint-choose-sva',
             type: 'sva-finder',
-            body: 'TODO',
+            body: 'Now, we need to find the supervisory authority that is responsible for your complaint. We’ll guide you through the process, just answer the questions.',
             nextStepId: 'base::complaint-id-data',
         },
         {
@@ -295,8 +304,14 @@ If the situation regarding this issue changed since your admonition to the contr
         {
             id: 'nevermind',
             type: 'options',
-            body: 'TODO: Quit wizard and mark request as completed.',
-            options: [],
+            body: 'You’ve marked this request as completed.',
+            onEnter: ({ reference, proceedingsState }) => proceedingsState.setProceedingStatus(reference, 'done'),
+            options: [{ text: 'Back to “My requests”', targetStepId: 'base::to-my-requests' }],
+        },
+        {
+            id: 'to-my-requests',
+            type: 'redirect',
+            redirectUrl: `${window.BASE_URL}/my-requests`,
         },
 
         {

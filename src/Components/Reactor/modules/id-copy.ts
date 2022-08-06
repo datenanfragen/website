@@ -1,4 +1,5 @@
 import { createReactorModule } from '../../../Utility/reactor';
+import t from '../../../Utility/i18n';
 import type { ReactorState } from '../../../store/reactor';
 import type { ReactorModuleData } from '../../../types/reactor';
 
@@ -38,8 +39,6 @@ const setCounterargument = (state: ReactorState, argumentFlag?: keyof IdCopyModu
     state.setIssueFlag('id-copy', 'user_objects', true);
     if (argumentFlag) state.setIssueFlag('id-copy', argumentFlag, true);
 };
-
-// TODO: Hide additional ID step if complaint.
 
 export const module = createReactorModule('id-copy', {
     steps: [
@@ -104,9 +103,8 @@ export const module = createReactorModule('id-copy', {
                     onChoose: ({ reactorState }) =>
                         reactorState.addAdditionalDataField('id-copy', {
                             type: 'input',
-                            // TODO: Translate these. v
-                            desc: 'Copy of ID document',
-                            value: 'attached',
+                            desc: t('additional-data-id-copy-desc', 'reactor'),
+                            value: t('additional-data-id-copy-value', 'reactor'),
                         }),
                 },
                 {
