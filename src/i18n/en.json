@@ -273,7 +273,9 @@
         "sent-by-someone-else": "Sent by someone else.",
         "no-company-name": "No name",
         "delete-message-confirm": "Are you sure you want to delete the message?",
-        "confirm-cancel-add-message": "This deletes what you just entered. Do you still want to cancel?"
+        "confirm-cancel-add-message": "This deletes what you just entered. Do you still want to cancel?",
+        "selection-mode": "Select",
+        "more-options": "More options"
     },
     "generator": {
         "reference": "Reference",

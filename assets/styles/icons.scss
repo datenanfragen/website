@@ -258,3 +258,8 @@
     @extend %icon;
     font-icon: url('conversation.svg');
 }
+
+.icon-ellipsis:before {
+    @extend %icon;
+    font-icon: 140% url('ellipsis.svg');
+}

@@ -407,7 +407,7 @@ input:disabled {
             margin-bottom: 0;
             border-left: 2px solid $primary-color;
             flex-grow: 1;
-            height: 50px;
+            min-height: 50px;
             box-sizing: border-box;
 
             padding-left: 15px;
@@ -417,7 +417,7 @@ input:disabled {
             .button {
                 border-left: 0;
                 font-size: 20px;
-                height: 50px;
+                height: 100%;
             }
         }
     }
@@ -1195,6 +1195,30 @@ details.footnote {
 }
 
 /* Proceeding Row */
+.proceedings-toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .dropdown-container {
+        &:focus > .dropdown,
+        &:hover > .dropdown,
+        &:focus-within > .dropdown {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            row-gap: 5px;
+
+            button,
+            .button {
+                text-align: center;
+            }
+        }
+    }
+}
+
 .proceeding-rows {
     padding-left: 0;
 
@@ -1218,7 +1242,7 @@ details.footnote {
                 summary {
                     border-radius: 2px 2px 0px 0px;
 
-                    & > h3 {
+                    & > h1 {
                         &::before {
                             /* stylelint-disable scss/at-extend-no-missing-placeholder */
                             @extend .icon-arrow-down;
@@ -1274,7 +1298,7 @@ details.footnote {
                 @include mobile {
                     flex-wrap: wrap;
                     justify-content: flex-start;
-                    & > h3 {
+                    & > h1 {
                         width: 100%;
                         flex-basis: 100%;
                         flex-grow: unset;

@@ -10,11 +10,12 @@ import { UserRequest } from '../DataType/UserRequests';
 import { isUserRequest } from '../Utility/requests';
 import { PrivacyAsyncStorage } from '../Utility/PrivacyAsyncStorage';
 import { t_r } from '../Utility/i18n';
+import type { ComponentChildren } from 'preact';
 
 export interface ProceedingsState {
     proceedings: Record<string, Proceeding>;
     addProceeding: (proceeding: Proceeding) => void;
-    addRequest: (request: Request) => void;
+    addRequest: (request: Request, content?: string) => void;
     addMessage: (message: SetOptional<Message, 'id'>) => void;
     removeMessage: (id: MessageId) => void;
     addAttachment: (id: MessageId, file: unknown) => void;
@@ -48,11 +49,12 @@ const proceedingsStore = persist<ProceedingsState>(
                     state.proceedings[proceeding.reference] = proceeding;
                 })
             ),
-        addRequest: (request) =>
+        addRequest: (request, content) =>
             get().addProceeding(
                 proceedingFromRequest(
                     request,
-                    request.type !== 'custom' ? t_r(`letter-subject-${request.type}`, request.language) : undefined
+                    request.type !== 'custom' ? t_r(`letter-subject-${request.type}`, request.language) : undefined,
+                    content
                 )
             ),
         addMessage: (message) =>
@@ -131,6 +133,17 @@ const proceedingsStore = persist<ProceedingsState>(
             }),
     }
 );
+
+export const getNameFromMesssage = <T = ComponentChildren>(msg: Message | undefined, fallback?: T) => {
+    const recipient_name = msg?.correspondent_address?.split('\n')[0];
+    const correspondent_email = msg?.correspondent_email;
+
+    return recipient_name && recipient_name.length > 0
+        ? recipient_name
+        : correspondent_email && correspondent_email.length > 0
+        ? correspondent_email
+        : fallback;
+};
 
 export const compareMessage = (msgA: Message, msgB: Message) => {
     if (msgA.date < msgB.date) return -1;
