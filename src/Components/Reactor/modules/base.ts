@@ -185,12 +185,14 @@ export const module = createReactorModule('base', {
         {
             id: 'complaint-issue-resolved',
             type: 'options',
-            body: ({ reactorState }) =>
-                `In your admonition, you said that ${
+            body: ({ reactorState }): string =>
+                `In your admonition, you said that ${new Template(
                     templates[window.LOCALE as 'de'][
                         `${reactorState.currentIssueForComplaint()!}::you-said-that::issue`
-                    ]
-                }
+                    ],
+                    reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
+                    reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
+                ).getText()}
 
 Has that issue been resolved? And do you want to include it in your complaint?`,
             options: [
@@ -227,7 +229,7 @@ If the situation regarding this issue changed since your admonition to the contr
                 { text: 'Use previous answers.', targetStepId: 'base::complaint-next-issue' },
                 {
                     text: 'Go through questions again.',
-                    targetStepId: ({ reactorState }) => `${reactorState.currentIssueForComplaint}::start`,
+                    targetStepId: ({ reactorState }) => `${reactorState.currentIssueForComplaint()}::start`,
                 },
             ],
         },
@@ -283,7 +285,9 @@ If the situation regarding this issue changed since your admonition to the contr
                 callbackState.generatorState.setCustomLetterProperty('content', generateLetterContent(callbackState));
                 callbackState.generatorState.setCustomLetterProperty(
                     'subject',
-                    callbackState.reactorState.type === 'response'
+                    callbackState.reactorState.type === 'response' ||
+                        (callbackState.reactorState.type === 'admonition' &&
+                            Object.keys(callbackState.reactorState.activeModules(true)).length === 0)
                         ? `Re: ${t_r(
                               `letter-subject-${originalRequest.type as 'access'}`,
                               callbackState.generatorState.request.language

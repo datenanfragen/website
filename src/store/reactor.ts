@@ -21,7 +21,9 @@ export type ReactorState = {
     moduleData: ModuleData;
     currentIssueForComplaintIndex?: number;
 
-    activeModules: () => Record<ReactorModuleWithDataId, ReactorModuleData>;
+    activeModules: (
+        ignoreModulesWithAdditionalDataOnly?: boolean
+    ) => Record<ReactorModuleWithDataId, ReactorModuleData>;
     currentIssueForComplaint: () => ReactorRegularModuleWithDataId | undefined;
 
     setType: (type: Type) => void;
@@ -101,10 +103,11 @@ const reactorStoreSlice: StoreSlice<ReactorState> = (set, get) => ({
             })
         ),
 
-    activeModules: () =>
+    activeModules: (ignoreModulesWithAdditionalDataOnly) =>
         objFilter(
             get().moduleData,
-            ([, data]) => data?.includeIssue || (data?.additionalData.length || -1) > 0
+            ([, data]) =>
+                data?.includeIssue || (!ignoreModulesWithAdditionalDataOnly && (data?.additionalData.length || -1) > 0)
         ) as Record<ReactorModuleWithDataId, ReactorModuleData>,
     currentIssueForComplaint: () => {
         const issues = Object.keys(

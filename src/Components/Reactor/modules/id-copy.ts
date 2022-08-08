@@ -10,6 +10,7 @@ export interface IdCopyModuleData extends ReactorModuleData {
             not_linked_to_real_life_identity: boolean;
             concerns_online_account: boolean;
             ask_about_redactions: boolean;
+            controller_requires_unredacted: false;
         };
         variables: { reasoning: string };
     };
@@ -28,6 +29,7 @@ const defaultModuleData: IdCopyModuleData = {
             not_linked_to_real_life_identity: false,
             concerns_online_account: false,
             ask_about_redactions: false,
+            controller_requires_unredacted: false,
         },
         variables: { reasoning: '' },
     },
@@ -48,7 +50,7 @@ export const module = createReactorModule('id-copy', {
             body: ({ reactorState }) =>
                 reactorState.type === 'admonition'
                     ? 'Requiring a copy of an identity document is an invasive measure that poses a risk for the security of your personal data. It is only appropriate if strictly necessary. Do any of the following counterarguments apply?'
-                    : 'Requiring a copy of an identity document is only appropriate if strictly necessary. Which of the following counterarguments applies?',
+                    : 'Requiring a copy of an identity document is only appropriate if strictly necessary. Which of the following applies?',
             options: [
                 {
                     text: 'The company doesn’t know me by my real-life identity.',
@@ -62,9 +64,23 @@ export const module = createReactorModule('id-copy', {
                     onChoose: ({ reactorState }) => setCounterargument(reactorState, 'concerns_online_account'),
                 },
                 {
-                    text: 'I can provide my own counterargument.',
+                    text: ({ reactorState }) =>
+                        `I can provide my own ${
+                            reactorState.type === 'complaint'
+                                ? 'argument for why requiring an ID copy is not appropriate'
+                                : 'counterargument'
+                        }.`,
                     targetStepId: 'id-copy::explain-reasoning',
                     onChoose: ({ reactorState }) => setCounterargument(reactorState),
+                },
+                {
+                    text: 'I am willing to provide an ID copy but the company explicitly said that it has to be unredacted.',
+                    targetStepId: 'base::issue-done',
+                    onChoose: ({ reactorState }) => {
+                        reactorState.setIncludeIssue('id-copy', true);
+                        reactorState.setIssueFlag('id-copy', 'controller_requires_unredacted', true);
+                    },
+                    hideIf: ({ reactorState }) => reactorState.type !== 'complaint',
                 },
                 {
                     text: 'No, none of the above apply.',
@@ -115,6 +131,14 @@ export const module = createReactorModule('id-copy', {
                         reactorState.setIssueFlag('id-copy', 'ask_about_redactions', true);
                     },
                 },
+                {
+                    text: 'The company explicitly said I cannot redact anything on the ID copy.',
+                    targetStepId: 'base::issue-done',
+                    onChoose: ({ reactorState }) => {
+                        reactorState.setIncludeIssue('id-copy', true);
+                        reactorState.setIssueFlag('id-copy', 'controller_requires_unredacted', true);
+                    },
+                },
             ],
         },
 
@@ -146,7 +170,6 @@ export const module = createReactorModule('id-copy', {
     ],
 
     defaultModuleData,
-    offerToIncludeInComplaintIf: ({ moduleData }): boolean => {
-        return moduleData.issue.flags.user_objects;
-    },
+    offerToIncludeInComplaintIf: ({ moduleData }): boolean =>
+        moduleData.issue.flags.user_objects || moduleData.issue.flags.controller_requires_unredacted,
 });
