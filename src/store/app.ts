@@ -2,9 +2,14 @@ import type { I18nLanguage } from '../types/globals';
 import create, { GetState, SetState, StateCreator } from 'zustand';
 import { persist, PersistOptions } from 'zustand/middleware';
 import type i18n_definition_type from '../i18n/en.json';
+import type { RequireExactlyOne } from 'type-fest';
 
 // TODO: This is done more cleverly in newer versions of zustand
-type CombinedStateCreator<T extends object> = StateCreator<T, SetState<CountryStateSlice>, GetState<CountryStateSlice>>;
+type CombinedStateCreator<T extends object> = StateCreator<
+    T,
+    SetState<CountryStateSlice & PreferenceStateSlice>,
+    GetState<CountryStateSlice & PreferenceStateSlice>
+>;
 export type Country = Exclude<keyof typeof i18n_definition_type['countries'], '__taken_from'>;
 export type CountryStateSlice = {
     countrySet: boolean;
@@ -24,7 +29,20 @@ export const createCountrySlice: CombinedStateCreator<CountryStateSlice> = (set)
     saveLanguage: (savedLocale) => set({ savedLocale }),
 });
 
-export const appSettingsPersistOptions: PersistOptions<CountryStateSlice> = {
+export type Preferences = {
+    /** Whether or not to save the content of request to the database. Should be set to false on the web. Does not take precedent over whether we save requests at all. */
+    saveRequestContent: boolean | undefined;
+};
+type PreferenceStateSlice = Preferences & {
+    setPreference: (preference: RequireExactlyOne<Preferences>) => void;
+};
+
+export const createPreferenceSlice: CombinedStateCreator<PreferenceStateSlice> = (set) => ({
+    saveRequestContent: undefined,
+    setPreference: (preference) => set(preference),
+});
+
+export const appSettingsPersistOptions: PersistOptions<CountryStateSlice & PreferenceStateSlice> = {
     name: 'Datenanfragen.de-settings',
     version: 0,
     // It would be possible to use localforage here but only at a very significant cost: As localforage is
@@ -38,10 +56,11 @@ export const appSettingsPersistOptions: PersistOptions<CountryStateSlice> = {
 };
 
 // TODO: Also move privacy controls and other settings in here (and remember to migrate their existing values!).
-export const useAppStore = create<CountryStateSlice>(
+export const useAppStore = create<CountryStateSlice & PreferenceStateSlice>(
     persist(
         (...a) => ({
             ...createCountrySlice(...a),
+            ...createPreferenceSlice(...a),
         }),
         appSettingsPersistOptions
     )

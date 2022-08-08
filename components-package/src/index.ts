@@ -71,3 +71,4 @@ export { App } from '../../src/Components/App/App';
 export { useWizard } from '../../src/hooks/useWizard';
 export { useAppStore } from '../../src/store/app';
 export { I18nWidget } from '../../src/Components/I18nWidget';
+export { RequestList } from '../../src/Components/RequestList';

@@ -3,6 +3,7 @@ import { Text, IntlProvider } from 'preact-i18n';
 import { useProceedingsStore } from '../../store/proceedings';
 import { useGeneratorStore } from '../../store/generator';
 import { MailtoDropdown, MailtoDropdownProps } from '../MailtoDropdown';
+import { useAppStore } from '../../store/app';
 
 type ActionButtonProps = {
     onSuccess?: () => void;
@@ -19,6 +20,7 @@ export const ActionButton = (_props: ActionButtonProps) => {
     const download_active = useGeneratorStore((state) => state.download_active);
     const download_url = useGeneratorStore((state) => state.download_url);
     const download_filename = useGeneratorStore((state) => state.download_filename);
+    const saveRequestContent = useAppStore((state) => state.saveRequestContent);
     const getLetter = useGeneratorStore((state) => state.letter);
     const setSent = useGeneratorStore((state) => state.setSent);
     const getRequestForSaving = useGeneratorStore((state) => state.getRequestForSaving);
@@ -26,7 +28,14 @@ export const ActionButton = (_props: ActionButtonProps) => {
 
     const props = {
         onSuccess: () => {
-            addRequest(getRequestForSaving());
+            addRequest(
+                getRequestForSaving(),
+                typeof saveRequestContent === 'undefined' || saveRequestContent
+                    ? transport_medium === 'email'
+                        ? getLetter().toEmailString()
+                        : getLetter().toString() // TODO: Save a file…
+                    : undefined
+            );
             setSent(true);
         },
         ..._props,
