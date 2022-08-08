@@ -44,8 +44,8 @@ export const module = createReactorModule('base', {
                 { text: 'yes', targetStepId: 'base::company-complied' },
                 {
                     text: 'no',
-                    targetStepId: ({ proceeding }) =>
-                        getGeneratedMessage(proceeding, 'admonition')
+                    targetStepId: ({ proceeding }): string =>
+                        getGeneratedMessage(proceeding, 'admonition')?.reactorData
                             ? 'base::response-or-complaint'
                             : 'base::select-issue',
                 },
@@ -71,7 +71,9 @@ export const module = createReactorModule('base', {
                     text: 'Generate a complaint.',
                     targetStepId: 'base::complaint-intro',
                     onChoose: ({ reactorState }) => reactorState.setType('complaint'),
-                    hideIf: ({ proceeding }) => getGeneratedMessage(proceeding, 'complaint') !== undefined,
+                    hideIf: ({ proceeding }): boolean =>
+                        getGeneratedMessage(proceeding, 'complaint') !== undefined ||
+                        !getGeneratedMessage(proceeding, 'admonition')?.reactorData,
                 },
                 { text: 'Nevermind, mark the request as completed.', targetStepId: 'base::nevermind' },
             ],
