@@ -249,6 +249,24 @@ const _Reactor = ({ reference }: ReactorProps) => {
                                                 }
                                             />
                                         )}
+                                        {step.type === 'input' && (
+                                            <input
+                                                type="text"
+                                                className="form-element"
+                                                value={
+                                                    reactorState.moduleData[step.moduleId]?.issue.variables[
+                                                        step.variableName
+                                                    ]
+                                                }
+                                                onBlur={(e) =>
+                                                    reactorState.setIssueVariable(
+                                                        step.moduleId as 'custom-text',
+                                                        step.variableName as 'text',
+                                                        e.currentTarget.value
+                                                    )
+                                                }
+                                            />
+                                        )}
 
                                         {step.type === 'dynamic-inputs' && (
                                             <DynamicInputContainer
@@ -295,7 +313,9 @@ const _Reactor = ({ reference }: ReactorProps) => {
                                             />
                                         )}
 
-                                        {(step.type === 'textarea' || step.type === 'dynamic-inputs') && (
+                                        {(step.type === 'textarea' ||
+                                            step.type === 'input' ||
+                                            step.type === 'dynamic-inputs') && (
                                             <button
                                                 className="button button-primary"
                                                 onClick={() => setPage(step.nextStepId)}>

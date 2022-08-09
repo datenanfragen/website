@@ -323,7 +323,8 @@ If the situation regarding this issue changed since your admonition to the contr
         {
             id: 'dead-end',
             type: 'options',
-            body: 'In this case, we cannot proceed with the problem you selected. But you can continue with another reason, if applicable.',
+            // TODO: 'or provide your own'
+            body: 'In this case, we cannot proceed with the problem you selected. This could mean that the company acted correctly. But it could also just be that this tool doesn’t support your particular case (yet). You can continue with another reason, if applicable.',
             options: [
                 {
                     text: 'Check if there is another problem with the company’s response.',
