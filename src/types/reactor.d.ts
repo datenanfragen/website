@@ -55,6 +55,11 @@ type TextareaStep<ModuleIdT extends string> = StepWithBody & {
     nextStepId: string;
     rows?: number;
 };
+type InputStep<ModuleIdT extends string> = StepWithBody & {
+    type: 'input';
+    variableName: keyof ReactorModuleDataMapping[ModuleIdT]['issue']['variables'];
+    nextStepId: string;
+};
 type DynamicInputStep = StepWithBody & { type: 'dynamic-inputs'; storeIn: 'module' | 'id_data'; nextStepId: string };
 type SvaFinderStep = StepWithBody & { type: 'sva-finder'; nextStepId: string };
 type ConditionStep = MinimalStep & { type: 'condition'; condition: Condition; trueStepId: string; falseStepId: string };
@@ -63,6 +68,7 @@ type LetterStep = StepWithBody & { type: 'letter' };
 export type ReactorStep<ModuleIdT extends string> =
     | OptionStep
     | TextareaStep<ModuleIdT>
+    | InputStep<ModuleIdT>
     | DynamicInputStep
     | SvaFinderStep
     | ConditionStep
