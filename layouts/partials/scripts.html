@@ -21,6 +21,10 @@
 <script src="{{ "js/general.bundle.gen.js" | absURL }}"></script>
 
 {{ if eq .Type "generator" }}
+<script src="{{ "js/app.bundle.gen.js" | absURL }}"></script>
+{{ end }}
+
+{{ if eq .Type "g" }}
 <script src="{{ "js/generator.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
@@ -59,10 +63,6 @@
 {{ if eq .Type "donate" }}
 <script src="{{ "js/donation-widget.bundle.gen.js" | absURL }}"></script>
 <script>window.renderDonationWidget();</script>
-{{ end }}
-
-{{ if eq .Type "app" }}
-<script src="{{ "js/app.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 
 {{ if .IsHome }}

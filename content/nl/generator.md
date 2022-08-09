@@ -1,6 +1,5 @@
 {
     "title": "Verzoekgenerator",
-    "type": "generator"
+    "type": "generator",
+    "static": true
 }
- 
-Verzoekgenerator
