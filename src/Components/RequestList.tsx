@@ -357,6 +357,16 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                     )
                                 )}
                             </div>
+                            {index === Object.keys(props.proceeding.messages).length - 1 && (
+                                <a
+                                    className="button button-small button-primary"
+                                    style="word-wrap: unset;"
+                                    // TODO: This is broken for the language versions that redirect their /generator to
+                                    // something else.
+                                    href={`${window.BASE_URL}generator#!reference=${props.proceeding.reference}`}>
+                                    <Text id="message-react" />
+                                </a>
+                            )}
                             {msg != original_request && (
                                 <button
                                     className="button button-secondary button-small icon-trash"
@@ -365,11 +375,6 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                         confirm(t('delete-message-confirm', 'my-requests')) && removeMessage(msg.id)
                                     }
                                 />
-                            )}
-                            {index === Object.keys(props.proceeding.messages).length - 1 && (
-                                <button className="button button-small button-primary" onClick={() => alert('TODO')}>
-                                    <Text id="message-react" />
-                                </button>
                             )}
                         </li>
                     ))}

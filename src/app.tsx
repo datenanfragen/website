@@ -1,20 +1,18 @@
 import { render } from 'preact';
 import { createGeneratorStore, RequestGeneratorProvider } from './store/generator';
-import { App, AppPageId } from './Components/App/App';
-import Cookie from 'js-cookie';
+import { App } from './Components/App/App';
+import { Reactor } from './Components/Reactor/Reactor';
 
 const elem = document.querySelector('main');
 if (elem) {
     render(
-        <RequestGeneratorProvider createStore={createGeneratorStore}>
-            <App
-                initialPageId={
-                    process.env.NODE_ENV === 'development'
-                        ? (Cookie.get('DEBUG_INITAL_PAGE_ID') as AppPageId)
-                        : undefined
-                }
-            />
-        </RequestGeneratorProvider>,
+        window.PARAMETERS.reference ? (
+            <Reactor reference={window.PARAMETERS.reference} />
+        ) : (
+            <RequestGeneratorProvider createStore={createGeneratorStore}>
+                <App />
+            </RequestGeneratorProvider>
+        ),
         elem
     );
 }
