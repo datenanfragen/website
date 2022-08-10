@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useEffect } from 'preact/hooks';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
+import { Template } from 'letter-generator';
 import t from '../../Utility/i18n';
 import { Radio } from '../Radio';
 import { SvaFinder } from '../SvaFinder';
@@ -143,7 +144,13 @@ const _Reactor = ({ reference }: ReactorProps) => {
                         [step.id]: {
                             component: (
                                 <>
-                                    <p style="white-space: pre-wrap;">{toPrimitive(step.body)}</p>
+                                    <p style="white-space: pre-wrap;">
+                                        {new Template(
+                                            toPrimitive(step.body),
+                                            reactorState.moduleData[step.moduleId].issue.flags,
+                                            reactorState.moduleData[step.moduleId].issue.variables
+                                        ).getText()}
+                                    </p>
 
                                     {step.type === 'letter' && (
                                         <>

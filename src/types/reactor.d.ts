@@ -92,12 +92,14 @@ export type ReactorModule<
 } & (
     | {
           defaultModuleData: ModuleDataT;
+          offerIf?: boolean | ((state: { moduleData: ReactorModuleDataMapping[ModuleIdT] } & CallbackState) => boolean);
           offerToIncludeInComplaintIf:
               | boolean
-              | ((state: { moduleData: ReactorModuleDataMapping[ModuleIdT] }) => boolean);
+              | ((state: { moduleData: ReactorModuleDataMapping[ModuleIdT] } & CallbackState) => boolean);
       }
     | {
           defaultModuleData: undefined;
+          offerIf: false;
           offerToIncludeInComplaintIf: false;
       }
 );

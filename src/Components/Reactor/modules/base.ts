@@ -99,10 +99,6 @@ export const module = createReactorModule('base', {
                     : 'Do you want to mention any additional issues in your complaint?',
             options: [
                 // These are filled by hooks from the individual modules.
-
-                // TODO: Disable those already selected by the user. Or do we want to allow them to go through again and
-                // change their answers?
-
                 {
                     text: ({ reactorState }) => `Generate ${reactorState.type} based on your answers.`,
                     targetStepId: ({ reactorState }) =>
@@ -115,11 +111,26 @@ export const module = createReactorModule('base', {
                     hideIf: ({ reactorState }) => Object.keys(reactorState.activeModules()).length > 0,
                 },
             ],
-            optionFilter: (o, { reactorState }): boolean =>
+            optionFilter: (o, state): boolean => {
+                const module = reactorModules.find((m) => m.id === o.moduleId);
+
                 // TODO: Do we want to allow users to go through the already answered questions again to change them? If
                 // so, how do we display these options to make it clear that they are done already?
-                !reactorState.moduleData[o.moduleId].includeIssue &&
-                (reactorState.type !== 'complaint' || reactorState.moduleData[o.moduleId].fromAdmonition !== true),
+                return (
+                    !state.reactorState.moduleData[o.moduleId].includeIssue &&
+                    (module?.offerIf === undefined ||
+                        (typeof module.offerIf === 'function'
+                            ? module.offerIf({
+                                  // :(
+                                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                  moduleData: state.reactorState.moduleData[o.moduleId] as any,
+                                  ...state,
+                              })
+                            : module.offerIf)) &&
+                    (state.reactorState.type !== 'complaint' ||
+                        state.reactorState.moduleData[o.moduleId].fromAdmonition !== true)
+                );
+            },
         },
 
         // TODO: Skip straight to base::select-issue if there are no issues we can include in complaint.
@@ -129,16 +140,18 @@ export const module = createReactorModule('base', {
             type: 'options',
             body: 'We’ll go through each of the issues you raised in your previous response to the controller.',
             options: [{ text: 'Next', targetStepId: 'base::complaint-next-issue' }],
-            onEnter: ({ proceeding, reactorState }) => {
-                const admonition = getGeneratedMessage(proceeding, 'admonition');
+            onEnter: (state) => {
+                const admonition = getGeneratedMessage(state.proceeding, 'admonition');
                 if (!admonition)
                     // TODO: For debugging, we obviously need the proceeding. But this also contains very sensitive
                     // data, so the user shouldn't submit that without redacting it. Not sure what to do here.
-                    throw new ErrorException('Tried to generate complaint without prior admonition.', { proceeding });
+                    throw new ErrorException('Tried to generate complaint without prior admonition.', {
+                        proceeding: state.proceeding,
+                    });
                 const admonitionModuleData = admonition.reactorData;
                 if (!admonitionModuleData || Object.values(admonitionModuleData).length < 1)
                     throw new ErrorException('Tried to generate complaint based on admonition without data.', {
-                        proceeding,
+                        proceeding: state.proceeding,
                     });
 
                 const complaintModuleData = objMap(admonitionModuleData, ([moduleId, moduleData]) => {
@@ -161,13 +174,14 @@ export const module = createReactorModule('base', {
                                           // :(
                                           // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                           moduleData: moduleData as any,
+                                          ...state,
                                       })
                                     : module.offerToIncludeInComplaintIf),
                             resolved: false,
                         },
                     ];
-                }) as unknown as typeof reactorState['moduleData'];
-                reactorState.overrideModuleData(complaintModuleData);
+                }) as unknown as typeof state.reactorState['moduleData'];
+                state.reactorState.overrideModuleData(complaintModuleData);
             },
         },
         {
