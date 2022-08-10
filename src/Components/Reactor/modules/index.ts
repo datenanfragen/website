@@ -4,6 +4,7 @@ import { module as idCopyModule } from './id-copy';
 import { module as signatureModule } from './signature';
 import { module as wrongMediumModule } from './wrong-medium';
 import { module as otherLanguageModule } from './other-language';
+import { module as excessiveModule } from './excessive';
 import { module as customTextModule } from './custom-text';
 
 export const reactorModules = [
@@ -13,6 +14,7 @@ export const reactorModules = [
     signatureModule,
     wrongMediumModule,
     otherLanguageModule,
+    excessiveModule,
 
     customTextModule,
 ] as const;
