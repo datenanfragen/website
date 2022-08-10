@@ -66,6 +66,11 @@ Mit freundlichen Grüßen`,
         'signature::you-said-that::meta': `TODO`,
         'signature::complaint::persists': `TODO`,
         'signature::complaint::resolved': `TODO`,
+        'other-language::admonition': `TODO`,
+        'other-language::you-said-that::issue': `TODO`,
+        'other-language::you-said-that::meta': `TODO`,
+        'other-language::complaint::persists': `TODO`,
+        'other-language::complaint::resolved': `TODO`,
     },
     en: {
         'base::admonition': `To Whom It May Concern:
@@ -146,5 +151,12 @@ As a precaution, I also want to already point out that storing the copy of my id
         'signature::you-said-that::meta': `[not:signature_on_file>You said that the company doesn’t have your signature on file.][signature_on_file>You said that the company may have your signature on file.]`,
         'signature::complaint::persists': `The controller has refused to answer my request unless I sign it. The GDPR doesn’t allow controllers to impose any additional formal requirements on requests (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 50). A signature can also not be used for authentication or identification.[not:signature_on_file> This is especially true since I have never provided them with my signature in the first place, so they have nothing they could even compare my signature against.]`,
         'signature::complaint::resolved': `The controller had initially refused to answer my request unless I sign it. But the GDPR doesn’t allow controllers to impose any additional formal requirements on requests (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 50), and a signature can also not be used for authentication or identification[not:signature_on_file>, especially since I have never even provided the controller with a signature that they could compare against]. This issue has since been resolved.`,
+
+        'other-language::admonition': `You have answered my request in {response_language}, even though my request was in {request_language}.[user_does_not_understand_response_language> I cannot understand your response in {response_language}.] According to Art. 12(1) GDPR, you have to provide communication related to requests in “easily accessible form, using clear and plain language”. According to the European Data Protection Board: “A controller that offers a service in a country should also offer answers in the language that is understood by the data subjects in that country.” (European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 140)
+Please respond to my request in {request_language} instead.`,
+        'other-language::you-said-that::issue': `the company responded to your request in a different language.`,
+        'other-language::you-said-that::meta': `You said that the company responded in {response_language} to your request in {request_language}. You said that you[user_does_not_understand_response_language> don’t] understand the company’s response in {response_language}.`,
+        'other-language::complaint::persists': `The controller has answered my request in {response_language}, even though my request was in {request_language}.[user_does_not_understand_response_language> I cannot understand the controller’s response in {response_language}.] According to Art. 12(1) GDPR, they have to provide communication related to requests in “easily accessible form, using clear and plain language”. According to the European Data Protection Board: “A controller that offers a service in a country should also offer answers in the language that is understood by the data subjects in that country.” (European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 140)`,
+        'other-language::complaint::resolved': `The controller had initially answered my request in {response_language}, even though my request was in {request_language}[user_does_not_understand_response_language> and I couldn’t understand the controller’s response in {response_language}]. This issue has since been resolved.`,
     },
 };
