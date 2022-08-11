@@ -76,6 +76,11 @@ Mit freundlichen Grüßen`,
         'excessive::you-said-that::meta': `TODO`,
         'excessive::complaint::persists': `TODO`,
         'excessive::complaint::resolved': `TODO`,
+        'overdue::admonition': `TODO`,
+        'overdue::you-said-that::issue': `TODO`,
+        'overdue::you-said-that::meta': `TODO`,
+        'overdue::complaint::persists': `TODO`,
+        'overdue::complaint::resolved': `TODO`,
     },
     en: {
         'base::admonition': `To Whom It May Concern:
@@ -173,5 +178,14 @@ I don’t believe that you can [controller_refuses>refuse to act on my request][
 
 I don’t believe that they can [controller_refuses>refuse to act on my request][controller_wants_to_charge>charge me for my request] in this case[controller_gave_no_reasoning> and they have not argued to the contrary]. [first_request>This is the first request I have ever sent to the controller. As such, it is not apparent to me how it could possibly be considered unfounded or excessive. The controller can also never charge a fee for the first copy, regardless of whether they consider the cost of producing it to be too high (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 22).][additional_copy_no_prior_request>I have never sent a request to the controller before. As such, it is not apparent how I could be asking for an additional copy of my data. The controller can never charge a fee for the first copy, regardless of whether they consider the cost of producing it to be too high (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 22).][concerns_different_data>The controller claims that I am asking for an additional copy of my data. However, this would only apply if this request concerned the same data as my previous request. If the request instead concerns different data (e.g. different data types or a different timeframe), you have to consider it a new request and the right to a free copy applies again (cf. European Data Protection Board, “Guidelines 01/2022 on data subject rights - Right of access”, Version 1.0, para. 28). I believe that to be the case here.][has:reasoning>{reasoning}]`,
         'excessive::complaint::resolved': `[controller_refuses>The controller had initially refused to act on my request.][controller_wants_to_charge>The controller had initially wanted to charge a fee for my request.] According to Art. 12(5) GDPR, they can only do that for manifestly unfounded or excessive requests.[controller_wants_to_charge> Alternatively, they could charge a fee based on Art. 15(3) GDPR for further copies that I have requested.] This was not the case here. This issue has since been resolved.`,
+
+        'overdue::admonition': `You have not answered my request yet. According to Art. 12(3) GDPR, you have one month from the receipt of my request to answer it. I sent my request on {request_date}, which means that you have exceeded that period. According to Art. 12(3) GDPR, the period can be extended for an additional two months only if necessary and if you inform me of the extension and its reason. [no_information_about_extension>You have not done that.][has:reasoning>The reason you gave for the extension is not acceptable in my opinion: {reasoning}][more_than_three_months>
+You have now exceeded even the extended three-month period.]`,
+        'overdue::you-said-that::issue': `the company took too long to answer your request.`,
+        'overdue::you-said-that::meta': `You sent your request on {request_date}. [no_information_about_extension>You said that the company didn’t inform you why they needed longer than one month to answer your request.][has:reasoning>You gave your own reasoning why you think the company’s justification of the extension was not appropriate: “{reasoning}”]`,
+        'overdue::complaint::persists': `The controller took too long to answer my request. According to Art. 12(3) GDPR, they have one month from the receipt of my request to answer it. I sent my request on {request_date}. According to Art. 12(3) GDPR, the period can be extended for an additional two months only if necessary and if they inform me of the extension and its reason. [no_information_about_extension>The controller did not do that.][has:reasoning>The reason the controller gave for the extension is not acceptable in my opinion: {reasoning}]
+I have still not received an answer to my request.`,
+        'overdue::complaint::resolved': `The controller took too long to answer my request. According to Art. 12(3) GDPR, they had one month from the receipt of my request to answer it. I sent my request on {request_date}. According to Art. 12(3) GDPR, the period can be extended for an additional two months only if necessary and if they inform me of the extension and its reason. [no_information_about_extension>The controller did not do that.][has:reasoning>The reason the controller gave for the extension is not acceptable in my opinion: {reasoning}]
+The controller has now answered my request but still violated the GDPR by exceeding the period.`,
     },
 };
