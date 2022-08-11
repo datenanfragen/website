@@ -161,6 +161,8 @@ export const module = createReactorModule('base', {
             body: 'We’ll go through each of the issues you raised in your previous response to the controller.',
             options: [{ text: 'Next', targetStepId: 'base::complaint-next-issue' }],
             onEnter: (state) => {
+                const defaultModuleData = state.reactorState.moduleData;
+
                 const admonition = getGeneratedMessage(state.proceeding, 'admonition');
                 if (!admonition)
                     // TODO: For debugging, we obviously need the proceeding. But this also contains very sensitive
@@ -201,7 +203,9 @@ export const module = createReactorModule('base', {
                         },
                     ];
                 }) as unknown as typeof state.reactorState['moduleData'];
-                state.reactorState.overrideModuleData(complaintModuleData);
+                // It's possible that new modules have been added since the admonition. We expect their default data to
+                // exist in the state.
+                state.reactorState.overrideModuleData({ ...defaultModuleData, ...complaintModuleData });
             },
         },
         {
