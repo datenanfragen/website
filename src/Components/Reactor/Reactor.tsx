@@ -205,31 +205,33 @@ const _Reactor = ({ reference }: ReactorProps) => {
                                                     </>
                                                 )}
 
-                                                <ActionButton
-                                                    dropup={true}
-                                                    mailtoDropdownProps={{
-                                                        handlers: (
-                                                            Object.keys(
-                                                                mailto_handlers
-                                                            ) as (keyof typeof mailto_handlers)[]
-                                                        ).filter((h) => h !== 'copymanually'),
-                                                    }}
-                                                    onSuccess={() => {
-                                                        proceedingsState.addMessage({
-                                                            reference,
-                                                            date: new Date(request.date),
-                                                            type: reactorState.type,
-                                                            transport_medium: request.transport_medium,
-                                                            correspondent_address: request.recipient_address,
-                                                            correspondent_email: request.email,
-                                                            subject: request.custom_data?.subject,
-                                                            content: request.custom_data?.content,
-                                                            sentByMe: true,
-                                                            reactorData: reactorState.moduleData,
-                                                        });
-                                                        setSent(true);
-                                                    }}
-                                                />
+                                                <div style="margin-top: 10px;">
+                                                    <ActionButton
+                                                        dropup={true}
+                                                        mailtoDropdownProps={{
+                                                            handlers: (
+                                                                Object.keys(
+                                                                    mailto_handlers
+                                                                ) as (keyof typeof mailto_handlers)[]
+                                                            ).filter((h) => h !== 'copymanually'),
+                                                        }}
+                                                        onSuccess={() => {
+                                                            proceedingsState.addMessage({
+                                                                reference,
+                                                                date: new Date(request.date),
+                                                                type: reactorState.type,
+                                                                transport_medium: request.transport_medium,
+                                                                correspondent_address: request.recipient_address,
+                                                                correspondent_email: request.email,
+                                                                subject: request.custom_data?.subject,
+                                                                content: request.custom_data?.content,
+                                                                sentByMe: true,
+                                                                reactorData: reactorState.moduleData,
+                                                            });
+                                                            setSent(true);
+                                                        }}
+                                                    />
+                                                </div>
                                             </div>
                                         </>
                                     )}
@@ -253,11 +255,13 @@ const _Reactor = ({ reference }: ReactorProps) => {
                                         {step.type === 'textarea' && (
                                             <textarea
                                                 className="form-element"
+                                                style="margin-bottom: 10px;"
                                                 value={
                                                     reactorState.moduleData[step.moduleId]?.issue.variables[
                                                         step.variableName
                                                     ]
                                                 }
+                                                required
                                                 rows={step.rows}
                                                 onBlur={(e) =>
                                                     reactorState.setIssueVariable(
@@ -272,11 +276,13 @@ const _Reactor = ({ reference }: ReactorProps) => {
                                             <input
                                                 type="text"
                                                 className="form-element"
+                                                style="margin-bottom: 10px;"
                                                 value={
                                                     reactorState.moduleData[step.moduleId]?.issue.variables[
                                                         step.variableName
                                                     ]
                                                 }
+                                                required
                                                 onBlur={(e) =>
                                                     reactorState.setIssueVariable(
                                                         step.moduleId as 'custom-text',
@@ -394,7 +400,9 @@ const _Reactor = ({ reference }: ReactorProps) => {
     return (
         <IntlProvider definition={window.I18N_DEFINITION} scope="reactor">
             <header className="wizard-header">
-                <h2>TODO</h2>
+                <h2>
+                    <Text id="generate-response" />
+                </h2>
             </header>
 
             <Wizard />

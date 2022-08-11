@@ -694,6 +694,7 @@
         "insurance-title": "Insurance"
     },
     "reactor": {
+        "generate-response": "Generate a response",
         "next": "Next",
         "sender": "Sender",
         "error-invalid-reference": "The proceeding you specified in the URL doesn’t exist.",
