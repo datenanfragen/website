@@ -23,8 +23,6 @@ declare module '../../../types/reactor' {
     }
 }
 
-// TODO: Only for access requests!
-
 const defaultModuleData: ExcessiveModuleData = {
     includeIssue: false,
     issue: {

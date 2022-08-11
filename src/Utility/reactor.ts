@@ -43,7 +43,6 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
     const originalRequest = getGeneratedMessage(proceeding, 'request');
     if (!originalRequest) throw new ErrorException('Proceeding without original request.', { proceeding });
 
-    // TODO: How do we exclude authority messages here?
     const companyMessages = Object.values(proceeding.messages)
         .filter((m) => !m.sentByMe)
         .sort((a, b) => b.date.getTime() - a.date.getTime());
