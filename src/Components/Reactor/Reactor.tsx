@@ -157,6 +157,15 @@ const _Reactor = ({ reference }: ReactorProps) => {
 
                                     {step.type === 'letter' && (
                                         <>
+                                            {reactorState.type !== 'response' && (
+                                                <div className="box box-warning" style="margin-bottom: 15px;">
+                                                    While our wizard can cover a lot of the common problems that occur
+                                                    during requests, it is of course not legal advice. If you are unsure
+                                                    about anything, please always consult a lawyer. We can unfortunately
+                                                    not help with any legal questions relating to particular cases.
+                                                </div>
+                                            )}
+
                                             <textarea
                                                 id="send-request-modal-body"
                                                 className="form-element"
