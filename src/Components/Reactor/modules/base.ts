@@ -303,7 +303,7 @@ If the situation regarding this issue changed since your admonition to the contr
             body: ({ reactorState }) =>
                 `Here’s your generated ${
                     reactorState.type
-                }. Please read over it and edit the text if necessary. Afterwards, you’ll need to send it to the ${
+                }. Please check the text and edit it if necessary. Afterwards, you’ll need to send it to the ${
                     reactorState.type === 'complaint' ? 'supervisory authority' : 'company'
                 }.`,
             onEnter: (callbackState) => {
