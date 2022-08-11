@@ -56,6 +56,9 @@ const _Reactor = ({ reference }: ReactorProps) => {
         state.initiatePdfGeneration,
     ]);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => setPage('base::start'), []);
+
     useEffect(() => {
         resetRequestToDefault({ advanceBatch: false, type: 'custom', reference });
         const proceeding = proceedingsState.proceedings[reference];
@@ -364,7 +367,7 @@ const _Reactor = ({ reference }: ReactorProps) => {
         ]
     );
 
-    const { Wizard, set } = useWizard(pages(setPage), { initialPageId: 'base::start' });
+    const { Wizard, set } = useWizard(pages(setPage));
 
     function setPage(new_page: string) {
         const step = steps.find((s) => s.id === new_page);
