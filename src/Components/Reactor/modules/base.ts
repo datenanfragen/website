@@ -69,7 +69,7 @@ export const module = createReactorModule('base', {
                 { text: 'Write a free text response to the company.', targetStepId: 'custom-text::start' },
                 {
                     text: 'Generate a complaint.',
-                    targetStepId: 'base::complaint-intro',
+                    targetStepId: 'base::complaint-check-time-since-admonition',
                     onChoose: ({ reactorState }) => reactorState.setType('complaint'),
                     hideIf: ({ proceeding }): boolean =>
                         getGeneratedMessage(proceeding, 'complaint') !== undefined ||
@@ -133,6 +133,26 @@ export const module = createReactorModule('base', {
             },
         },
 
+        {
+            id: 'complaint-check-time-since-admonition',
+            type: 'condition',
+            condition: ({ proceeding }): boolean => {
+                const admonition = getGeneratedMessage(proceeding, 'admonition')!;
+                const differenceInDays = (Date.now() - admonition.date.getTime()) / (1000 * 60 * 60 * 24);
+                return differenceInDays >= 14;
+            },
+            trueStepId: 'base::complaint-intro',
+            falseStepId: 'base::complaint-less-than-two-weeks',
+        },
+        {
+            id: 'complaint-less-than-two-weeks',
+            type: 'options',
+            body: 'In your admonition, you gave the company a deadline of two weeks. Those have not passed yet. If the company has since denied to comply with your request, it is of course fine to lodge a complaint now. Otherwise, you should wait until the deadline has passed. What do you want to do?',
+            options: [
+                { text: 'Continue with the complaint.', targetStepId: 'base::complaint-intro' },
+                { text: 'Write a free text response to the company instead.', targetStepId: 'custom-text::start' },
+            ],
+        },
         // TODO: Skip straight to base::select-issue if there are no issues we can include in complaint.
         // ^ Actually, no. The user will always be able to add their own issues, that just isn't implemented yet.
         {
