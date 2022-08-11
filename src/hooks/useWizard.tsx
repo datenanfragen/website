@@ -2,8 +2,8 @@ import type { JSX } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
 
 type UseWizardProps<PageId extends string, InitialPageId extends PageId> = {
-    initialPageId: InitialPageId;
-    onPageChange?: (old_page: PageId, new_page: PageId) => void;
+    initialPageId?: InitialPageId;
+    onPageChange?: (old_page: PageId | undefined, new_page: PageId) => void;
 };
 
 export type WizardPages<PageId extends string> = Record<
@@ -13,11 +13,11 @@ export type WizardPages<PageId extends string> = Record<
 
 export const useWizard = <PageId extends string, InitialPageId extends PageId>(
     pages: WizardPages<PageId>,
-    props: UseWizardProps<PageId, InitialPageId>
+    props?: UseWizardProps<PageId, InitialPageId>
 ) => {
-    const [pageId, setPageId] = useState<PageId>(props.initialPageId);
-    const [history, setHistory] = useState<PageId[]>([props.initialPageId]);
-    const { onPageChange } = props;
+    const [pageId, setPageId] = useState<PageId | undefined>(props?.initialPageId);
+    const [history, setHistory] = useState<PageId[]>(props?.initialPageId ? [props.initialPageId] : []);
+    const { onPageChange } = props || {};
 
     const set = useCallback(
         (newPageId: PageId) => {
@@ -38,11 +38,11 @@ export const useWizard = <PageId extends string, InitialPageId extends PageId>(
     }, [history]);
 
     return {
-        Wizard: () => <section data-page-id={pageId}>{pages[pageId].component}</section>,
+        Wizard: () => <section data-page-id={pageId}>{pageId ? pages[pageId].component : <></>}</section>,
         set,
         back,
         pageId,
-        canGoBack: history.length > 1 && pages[pageId].canGoBack,
-        pageTitle: pages[pageId].title,
+        canGoBack: history.length > 1 && pageId && pages[pageId].canGoBack,
+        pageTitle: pageId ? pages[pageId].title : '',
     };
 };
