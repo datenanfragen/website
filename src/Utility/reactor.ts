@@ -21,7 +21,8 @@ export const createReactorModule = <ModuleDataT extends ReactorModuleData | unde
     return module as ReactorModule<ModuleDataT, ModuleIdT>;
 };
 
-const dateFormat: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: '2-digit' };
+export const dateFormat: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: '2-digit' };
+
 export const generateLetterContent = ({ reactorState, proceeding, generatorState }: CallbackState) => {
     const type = reactorState.type;
     // TODO: Remove the cast once we have fallbacks.
