@@ -38,26 +38,13 @@ export const module = createReactorModule('base', {
     steps: [
         {
             id: 'start',
-            type: 'options',
-            body: 'Has the company fully complied with your request?',
-            options: [
-                { text: 'yes', targetStepId: 'base::company-complied' },
-                {
-                    text: 'no',
-                    targetStepId: ({ proceeding }): string =>
-                        getGeneratedMessage(proceeding, 'admonition')?.reactorData
-                            ? 'base::response-or-complaint'
-                            : 'base::select-issue',
-                },
-            ],
+            type: 'condition',
+            condition: ({ proceeding }): boolean =>
+                getGeneratedMessage(proceeding, 'admonition')?.reactorData === undefined,
+            trueStepId: 'base::select-issue',
+            falseStepId: 'base::response-or-complaint',
         },
 
-        {
-            id: 'company-complied',
-            type: 'options',
-            body: "TODO: Make sure that's actually the case.",
-            options: [],
-        },
         {
             id: 'response-or-complaint',
             type: 'options',
@@ -95,7 +82,7 @@ export const module = createReactorModule('base', {
                 reactorState.type === 'admonition'
                     ? Object.keys(reactorState.activeModules()).length > 0
                         ? 'Anything else?'
-                        : 'Which of these options applies?'
+                        : 'Has there been a problem with your request?'
                     : 'Do you want to mention any additional issues in your complaint?',
             options: [
                 // These are filled by hooks from the individual modules.
@@ -106,7 +93,7 @@ export const module = createReactorModule('base', {
                     hideIf: ({ reactorState }) => Object.keys(reactorState.activeModules()).length < 1,
                 },
                 {
-                    text: 'None. Quit wizard and mark request as completed.',
+                    text: 'No. Quit wizard and mark request as completed.',
                     targetStepId: 'base::nevermind',
                     hideIf: ({ reactorState }) => Object.keys(reactorState.activeModules()).length > 0,
                 },
