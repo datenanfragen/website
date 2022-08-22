@@ -3,7 +3,6 @@ import type { I18nLanguage } from '../../src/types/globals';
 import { supported_countries } from './generated/globals.json';
 
 import { version } from '../package.json';
-import { CriticalException } from '../../src/Utility/errors';
 import i18n_definition_de from '../../src/i18n/de.json';
 import i18n_definition_en from '../../src/i18n/en.json';
 import i18n_definition_fr from '../../src/i18n/fr.json';
@@ -11,6 +10,8 @@ import i18n_definition_pt from '../../src/i18n/pt.json';
 import i18n_definition_es from '../../src/i18n/es.json';
 import i18n_definition_hr from '../../src/i18n/hr.json';
 import i18n_definition_nl from '../../src/i18n/nl.json';
+
+import i18nDefinitionAppEn from './App/i18n/en.json';
 
 export const languages = {
     de: { base_url: 'https://www.datenanfragen.de/', translations: i18n_definition_de },
@@ -72,3 +73,16 @@ export { useWizard } from '../../src/hooks/useWizard';
 export { useAppStore } from '../../src/store/app';
 export { I18nWidget } from '../../src/Components/I18nWidget';
 export { RequestList } from '../../src/Components/RequestList';
+
+// App-specific exports.
+export const appTranslations = {
+    en: i18nDefinitionAppEn,
+};
+export const setupWindowForApp = (locale: I18nLanguage) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    window.I18N_DEFINITION_APP = appTranslations[locale];
+};
+
+export { EmailAccountSettingsInput } from './App/Components/EmailAccountSettingsInput';
+export { t_a } from './App/Utility/i18n';
