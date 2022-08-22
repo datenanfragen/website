@@ -1,0 +1,43 @@
+{
+    "app": {
+        "new-requests": "New requests",
+        "proceedings": "Proceedings",
+        "settings": "Settings"
+    },
+    "settings": {
+        "title": "Settings",
+        "email-settings": "Email settings (optional)",
+        "email-settings-explanation": "If you enter your email account credentials here, you can send and receive request-related emails directly through the app. Your credentials are of course only stored on your device and are never transmitted to our servers.",
+        "imap-heading": "Incoming server",
+        "imap-user": "IMAP user",
+        "imap-user-placeholder": "test@example.org",
+        "imap-password": "IMAP password",
+        "imap-host": "IMAP server hostname",
+        "imap-port": "IMAP server port",
+        "imap-connection-security": "IMAP connection security",
+        "smtp-heading": "Outgoing server",
+        "smtp-user": "SMTP user",
+        "smtp-user-placeholder": "test@example.org",
+        "smtp-password": "SMTP password",
+        "smtp-host": "SMTP server hostname",
+        "smtp-port": "SMTP server port",
+        "smtp-connection-security": "SMTP connection security",
+        "show-password": "Show password while typing",
+        "email-connection-security-none": "None",
+        "email-connection-security-starttls": "STARTTLS",
+        "email-connection-security-ssl": "SSL/TLS",
+        "test-smtp-connection": "Test connection settings",
+        "test-smtp-connection-loading": "Testing…",
+        "smtp-connection-success": "Your connection is set up correctly!",
+        "smtp-connection-error": "The connection failed, please check your credentials."
+    },
+    "generator": {
+        "send-email-success": "Email was successfully sent!",
+        "send-email-error": "There was an error while sending your email. Maybe check your SMTP settings?"
+    },
+    "proceedings": {
+        "title": "Proceedings",
+        "explanation": "Here is a list of all requests you have generated so far with this app. You can collect all communication concerning your requests in here and generate replys.",
+        "explanation-saving": "This data is saved <strong>exclusively</strong> on your own computer and will never be sent to us. It will remain saved until you delete it, which you can do on this page. You can also export all data as a CSV file."
+    }
+}
