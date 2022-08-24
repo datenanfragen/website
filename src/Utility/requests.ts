@@ -15,6 +15,7 @@ import { requestTemplate } from './fetch';
 import type { UserRequest } from '../DataType/UserRequests';
 import type { Message, Proceeding } from '../types/proceedings';
 import { useAppStore } from '../store/app';
+import { getGeneratedMessage } from '../store/proceedings';
 
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
 export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
@@ -167,12 +168,9 @@ export function inferRequestLanguage(entity?: Company | SupervisoryAuthority) {
     return requestLanguageFallback(entity?.['request-language']);
 }
 
-export const findOriginalRequest = (proceeding: Proceeding) =>
-    Object.values(proceeding.messages).find((message) => REQUEST_TYPES.includes(message.type as RequestType)); // The casting in necessary because `REQUEST_TYPES` is readonly and therefore narrows the type for `Array.includes`.
-
 export const icsFromProceedings = (proceedings: Proceeding[]) => {
     const grouped_requests = proceedings.reduce<Record<string, Message[]>>((acc, prcd) => {
-        const request = findOriginalRequest(prcd);
+        const request = getGeneratedMessage(prcd, 'request');
         return request
             ? { ...acc, [request.date.toDateString()]: [...(acc[request.date.toDateString()] || []), request] }
             : acc;

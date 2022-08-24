@@ -4,8 +4,14 @@ import { useAppStore } from '../store/app';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { icsFromProceedings, findOriginalRequest } from '../Utility/requests';
-import { compareMessage, getNameFromMesssage, getNewestMessage, useProceedingsStore } from '../store/proceedings';
+import { icsFromProceedings } from '../Utility/requests';
+import {
+    compareMessage,
+    getGeneratedMessage,
+    getNameFromMesssage,
+    getNewestMessage,
+    useProceedingsStore,
+} from '../store/proceedings';
 import type { Proceeding, Message } from '../types/proceedings';
 import { RequestType } from 'request';
 import { useModal } from './Modal';
@@ -197,7 +203,7 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
     const removeMessage = useProceedingsStore((state) => state.removeMessage);
     const removeProceeding = useProceedingsStore((state) => state.removeProceeding);
 
-    const original_request = findOriginalRequest(props.proceeding);
+    const original_request = getGeneratedMessage(props.proceeding, 'request');
 
     const newMessageTemplate = useMemo<Omit<Message, 'id'>>(
         () => ({
