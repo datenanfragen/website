@@ -76,6 +76,8 @@ export { useAppStore } from '../../src/store/app';
 export { I18nWidget } from '../../src/Components/I18nWidget';
 export { RequestList } from '../../src/Components/RequestList';
 export { ReminderWidget } from '../../src/Components/ReminderWidget';
+export { mailto_handlers } from '../../src/Components/MailtoDropdown';
+export type { EmailData } from '../../src/Components/MailtoDropdown';
 
 // App-specific exports.
 export const appTranslations = {
