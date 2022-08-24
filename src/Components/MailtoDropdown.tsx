@@ -6,7 +6,7 @@ import { useModal } from './Modal';
 import t, { t_r } from '../Utility/i18n';
 import { RequestLetter } from '../DataType/RequestLetter';
 
-type EmailData = { to: string; subject: string; text: string };
+export type EmailData = { to: string; subject: string; text: string };
 type MailtoHandler = (
     | { link: (data: EmailData) => string }
     | { onClick: (data: EmailData, showCopyManuallyModal: () => void) => void }
