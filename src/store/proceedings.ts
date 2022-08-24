@@ -19,6 +19,7 @@ export interface ProceedingsState {
     addMessage: (message: SetOptional<Message, 'id'>) => void;
     removeMessage: (id: MessageId) => void;
     addAttachment: (id: MessageId, file: unknown) => void;
+    setProceedingStatus: (reference: string, status: ProceedingStatus) => void;
     removeProceeding: (reference: string) => void;
     clearProceedings: () => void;
     updateStatuses: () => void;
@@ -90,6 +91,13 @@ const proceedingsStore = persist<ProceedingsState>(
         // TODO: Implement a file API…
         addAttachment: (id, file) => {
             throw new ReferenceError('Not implemented');
+        },
+        setProceedingStatus: (reference, status) => {
+            set(
+                produce((state: ProceedingsState) => {
+                    state.proceedings[reference].status = status;
+                })
+            );
         },
         removeProceeding: (reference) =>
             set(
