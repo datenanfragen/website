@@ -159,6 +159,20 @@ export const compareMessage = (msgA: Message, msgB: Message) => {
     return 1;
 };
 
+/**
+ * A proceeding can have an unlimited number of `response`s written by the user or company, but only one each of the
+ * messages we generate (initial request, admonition, complaint).
+ *
+ * Note: This restriction is currently not actually enforced by the store. If a proceeding (wrongly) has more than
+ * one generated message of a type, this helper returns the first one.
+ */
+export const getGeneratedMessage = (
+    proceeding: Proceeding,
+    type: RequestType | 'request' | 'admonition' | 'complaint'
+): Message | undefined =>
+    Object.values(proceeding.messages).find((m) =>
+        type === 'request' ? REQUEST_TYPES.includes(m.type as 'access') : m.type === type
+    );
 export const getNewestMessage = (proceeding: Proceeding): Message | undefined => {
     const msgArray = Object.values(proceeding.messages).sort(compareMessage);
     return msgArray[msgArray.length - 1];
