@@ -1,3 +1,4 @@
+import type { Proceeding, ProceedingStatus } from './proceedings.d';
 import type i18n_definition_type from '../i18n/en.json';
 import type { Country } from '../store/app';
 import type { fallback_countries } from '../Utility/common';
@@ -38,5 +39,7 @@ declare global {
 
         /** List of parameters specified in the URL, including both hash fragment and GET parameters. */
         readonly PARAMETERS: Record<string, string>;
+
+        ON_PROCEEDING_STATUS_CHANGE?: (proceeding: Proceeding, oldStatus: ProceedingStatus) => void;
     }
 }
