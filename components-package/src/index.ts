@@ -68,8 +68,8 @@ export { FlashMessage, flash } from '../../src/Components/FlashMessage';
 export { useModal } from '../../src/Components/Modal';
 
 export { createGeneratorStore, RequestGeneratorProvider } from '../../src/store/generator';
-export { useProceedingsStore } from '../../src/store/proceedings';
-export type { Proceeding } from '../../src/types/proceedings.d';
+export { useProceedingsStore, getGeneratedMessage, getNameFromMesssage } from '../../src/store/proceedings';
+export type { Proceeding, ProceedingStatus } from '../../src/types/proceedings.d';
 export { App } from '../../src/Components/App/App';
 export { useWizard } from '../../src/hooks/useWizard';
 export { useAppStore } from '../../src/store/app';
@@ -78,6 +78,8 @@ export { RequestList } from '../../src/Components/RequestList';
 export { ReminderWidget } from '../../src/Components/ReminderWidget';
 export { mailto_handlers } from '../../src/Components/MailtoDropdown';
 export type { EmailData } from '../../src/Components/MailtoDropdown';
+
+export { default as t, t_r } from '../../src/Utility/i18n';
 
 // App-specific exports.
 export const appTranslations = {

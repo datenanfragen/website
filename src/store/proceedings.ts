@@ -110,7 +110,12 @@ const proceedingsStore = persist<ProceedingsState>(
             set(
                 produce((state: ProceedingsState) => {
                     for (const [ref, prcd] of Object.entries(state.proceedings)) {
-                        state.proceedings[ref].status = shouldHaveStatus(prcd);
+                        const oldStatus = state.proceedings[ref].status;
+                        const newStatus = shouldHaveStatus(prcd);
+                        if (oldStatus !== newStatus) {
+                            state.proceedings[ref].status = newStatus;
+                            window.ON_PROCEEDING_STATUS_CHANGE?.(state.proceedings[ref], oldStatus);
+                        }
                     }
                 })
             ),
