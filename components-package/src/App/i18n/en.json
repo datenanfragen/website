@@ -38,6 +38,7 @@
     "proceedings": {
         "title": "Proceedings",
         "explanation": "Here is a list of all requests you have generated so far with this app. You can collect all communication concerning your requests in here and generate replys.",
-        "explanation-saving": "This data is saved <strong>exclusively</strong> on your own computer and will never be sent to us. It will remain saved until you delete it, which you can do on this page. You can also export all data as a CSV file."
+        "explanation-saving": "This data is saved <strong>exclusively</strong> on your own computer and will never be sent to us. It will remain saved until you delete it, which you can do on this page. You can also export all data as a CSV file.",
+        "overdue-requests": "overdue requests"
     }
 }

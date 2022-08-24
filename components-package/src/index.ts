@@ -68,11 +68,14 @@ export { FlashMessage, flash } from '../../src/Components/FlashMessage';
 export { useModal } from '../../src/Components/Modal';
 
 export { createGeneratorStore, RequestGeneratorProvider } from '../../src/store/generator';
+export { useProceedingsStore } from '../../src/store/proceedings';
+export type { Proceeding } from '../../src/types/proceedings.d';
 export { App } from '../../src/Components/App/App';
 export { useWizard } from '../../src/hooks/useWizard';
 export { useAppStore } from '../../src/store/app';
 export { I18nWidget } from '../../src/Components/I18nWidget';
 export { RequestList } from '../../src/Components/RequestList';
+export { ReminderWidget } from '../../src/Components/ReminderWidget';
 
 // App-specific exports.
 export const appTranslations = {
