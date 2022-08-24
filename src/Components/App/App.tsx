@@ -6,7 +6,7 @@ import { ReviewSelectionPage } from './ReviewSelectionPage';
 import { FillRequestsPage } from './FillRequestsPage';
 import { WhatsNextPage } from './WhatsNextPage';
 import t from '../../Utility/i18n';
-import type { MailtoDropdownProps, mailto_handlers } from '../MailtoDropdown';
+import type { MailtoDropdownProps } from '../MailtoDropdown';
 
 const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
     request_type_chooser: {
