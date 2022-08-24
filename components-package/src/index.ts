@@ -93,4 +93,5 @@ export const setupWindowForApp = (locale: I18nLanguage) => {
 
 export { EmailAccountSettingsInput } from './App/Components/EmailAccountSettingsInput';
 export { AppMenu } from './App/Components/AppMenu';
+export { ProceedingsList } from './App/Components/ProceedingsList';
 export { t_a } from './App/Utility/i18n';
