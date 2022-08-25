@@ -16,7 +16,9 @@ import { useState } from 'preact/hooks';
 import { useAppStore } from '../../store/app';
 import { TransportMediumChooser } from '../Generator/TransportMediumChooser';
 import type { TransportMedium } from '../../types/request.d';
-import { slugify, almostUniqueId } from '../../Utility/common';
+import { slugify, almostUniqueId, objFilter } from '../../Utility/common';
+import { submitUrl } from '../../Utility/suggest';
+import { flash, FlashMessage } from '../FlashMessage';
 
 // TODO: Respect privacy controls!
 
@@ -214,6 +216,10 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
         const [address, setAddress] = useState('');
         const [fax, setFax] = useState('');
 
+        const promptForCompanySuggestions = useAppStore((state) => state.promptForCompanySuggestions);
+        const [suggest, setSuggest] = useState(false);
+        const [sources, setSources] = useState('');
+
         return (
             <>
                 <Text id="add-custom-company-explanation" />
@@ -284,6 +290,40 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
                     </div>
                 )}
 
+                {promptForCompanySuggestions && (
+                    <>
+                        <hr />
+
+                        <label>
+                            <input
+                                checked={suggest}
+                                type="checkbox"
+                                className="form-element"
+                                onChange={(e) => setSuggest(e.currentTarget.checked)}
+                            />
+                            <Text id="want-to-suggest-checkbox" />
+                        </label>
+
+                        {suggest && (
+                            <>
+                                <div className="form-group">
+                                    <label htmlFor="custom-company-suggest-sources">
+                                        <Text id="want-to-suggest-provide-sources" />
+                                    </label>
+                                    <textarea
+                                        id="custom-company-suggest-sources"
+                                        className="form-element"
+                                        value={sources}
+                                        onChange={(e) => setSources(e.currentTarget.value)}
+                                    />
+
+                                    <MarkupText id="want-to-suggest-disclaimer" />
+                                </div>
+                            </>
+                        )}
+                    </>
+                )}
+
                 {/* Great. Now these out-of-line modal buttons are becoming a pattern. -.- */}
                 <div className="button-group">
                     <button
@@ -300,9 +340,66 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
                                 'suggested-transport-medium': transportMedium,
                                 quality: 'verified',
                             });
+
+                            if (suggest) {
+                                const body = JSON.stringify({
+                                    for: 'cdb',
+                                    data: objFilter(
+                                        {
+                                            slug: slugify(name),
+                                            name,
+                                            address,
+                                            fax,
+                                            email,
+                                            sources: sources.split('\n').filter((l) => l.trim()),
+                                            quality: 'verified',
+                                        },
+                                        ([, val]) => !!val.toString().trim()
+                                    ),
+                                    new: true,
+                                });
+                                fetch(submitUrl, {
+                                    method: 'PUT',
+                                    headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+                                    body,
+                                })
+                                    .then((res) => Promise.all([res, res.json()]))
+                                    .then(([res, json]) => {
+                                        switch (res.status) {
+                                            case 201:
+                                            case 502:
+                                                if (json.url) {
+                                                    flash(
+                                                        <FlashMessage type="success">
+                                                            <p>{t('success', 'suggest')}</p>
+                                                            <p>
+                                                                <a href={json.url}>{t('view-on-github', 'suggest')}</a>
+                                                            </p>
+                                                        </FlashMessage>
+                                                    );
+                                                    break;
+                                                }
+                                            // eslint-disable-next-line no-fallthrough
+                                            default:
+                                                flash(
+                                                    <FlashMessage type="error">{t('error', 'suggest')}</FlashMessage>
+                                                );
+                                                break;
+                                        }
+                                    })
+                                    .catch((err) => {
+                                        rethrow(
+                                            err,
+                                            'PUTing the suggestion failed.',
+                                            { submitUrl, body },
+                                            t('error', 'suggest')
+                                        );
+                                    });
+                            }
+
                             dismissCustomCompanyModal();
                         }}>
-                        <Text id="add-company" />
+                        <Text id={suggest ? 'add-company-and-suggest' : 'add-company'} />
                     </button>
                     <button
                         className="button button-secondary"

@@ -7,14 +7,11 @@ import { parsePhoneNumberFromString } from 'libphonenumber-js';
 require('brutusin-json-forms');
 /* global brutusin */
 import { ErrorException, rethrow } from './Utility/errors';
+import { submitUrl } from './Utility/suggest';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import { searchClient } from 'Utility/search';
 let bf;
 let schema;
-const SUBMIT_URL =
-    process.env.NODE_ENV === 'development'
-        ? 'http://localhost:3000/suggest'
-        : 'https://backend.datenanfragen.de/suggest';
 
 window.addEventListener('load', () => {
     const SCHEMA_URL = window.BASE_URL + 'schema.json';
@@ -295,7 +292,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
         ['for', 'data'].concat(properties, ['new'])
     );
 
-    fetch(SUBMIT_URL, {
+    fetch(submitUrl, {
         method: 'PUT',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
         body,
@@ -328,7 +325,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
         })
         .catch((err) => {
             document.getElementById('loading-indicator').classList.add('hidden');
-            rethrow(err, 'POSTing the suggestion failed.', { submit_url: SUBMIT_URL, body }, t('error', 'suggest'));
+            rethrow(err, 'POSTing the suggestion failed.', { submitUrl, body }, t('error', 'suggest'));
         });
 };
 
