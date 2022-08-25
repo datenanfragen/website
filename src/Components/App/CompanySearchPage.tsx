@@ -14,6 +14,9 @@ import { ComponentChildren } from 'preact';
 import t from '../../Utility/i18n';
 import { useState } from 'preact/hooks';
 import { useAppStore } from '../../store/app';
+import { TransportMediumChooser } from '../Generator/TransportMediumChooser';
+import type { TransportMedium } from '../../types/request.d';
+import { slugify, almostUniqueId } from '../../Utility/common';
 
 // TODO: Respect privacy controls!
 
@@ -94,14 +97,7 @@ const Results = connectStateResults(
             ) : (
                 <IntlProvider scope="search" definition={window.I18N_DEFINITION}>
                     <p style="margin-left: 10px;">
-                        <Text id="no-results" />
-                        <br />
-                        <a
-                            href={`${window.BASE_URL}suggest#!type=new&for=cdb&name=${searchState.query}`}
-                            target="_blank"
-                            rel="noreferrer">
-                            <Text id="suggest-a-company" />
-                        </a>
+                        <Text id="no-company" />
                     </p>
                 </IntlProvider>
             )
@@ -208,32 +204,172 @@ const CompanySuggestionsPack = ({ pack }: CompanySuggestionsPackProps) => {
     );
 };
 
+const useCustomCompanyModal = (props?: { initialName?: string }) => {
+    const appendToBatch = useGeneratorStore((state) => state.appendToBatch);
+
+    const CustomCompanyModalContent = () => {
+        const [name, setName] = useState(props?.initialName || '');
+        const [transportMedium, setTransportMedium] = useState<TransportMedium>('email');
+        const [email, setEmail] = useState('');
+        const [address, setAddress] = useState('');
+        const [fax, setFax] = useState('');
+
+        return (
+            <>
+                <Text id="add-custom-company-explanation" />
+
+                <div className="form-group">
+                    <label htmlFor="custom-company-input-name">
+                        <Text id="company-name" />
+                    </label>
+                    <input
+                        id="custom-company-input-name"
+                        type="text"
+                        className="form-element"
+                        value={name}
+                        onChange={(e) => setName(e.currentTarget.value)}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <TransportMediumChooser
+                        value={transportMedium}
+                        onChange={(newTransportMedium) => setTransportMedium(newTransportMedium)}
+                        label={<Text id="request-transport-medium" />}
+                    />
+                </div>
+
+                {transportMedium === 'email' && (
+                    <div className="form-group">
+                        <label htmlFor="custom-company-input-email">
+                            <Text id="company-email" />
+                        </label>
+                        <input
+                            id="custom-company-input-email"
+                            type="text"
+                            className="form-element"
+                            value={email}
+                            onChange={(e) => setEmail(e.currentTarget.value)}
+                        />
+                    </div>
+                )}
+
+                {transportMedium === 'fax' && (
+                    <div className="form-group">
+                        <label htmlFor="custom-company-input-fax">
+                            <Text id="company-fax" />
+                        </label>
+                        <input
+                            id="custom-company-input-fax"
+                            type="text"
+                            className="form-element"
+                            value={fax}
+                            onChange={(e) => setFax(e.currentTarget.value)}
+                        />
+                    </div>
+                )}
+
+                {transportMedium !== 'email' && (
+                    <div className="form-group">
+                        <label htmlFor="custom-company-input-address">
+                            <Text id="company-letter" />
+                        </label>
+                        <textarea
+                            id="custom-company-input-address"
+                            className="form-element"
+                            value={address}
+                            onChange={(e) => setAddress(e.currentTarget.value)}
+                            rows={6}
+                        />
+                    </div>
+                )}
+
+                {/* Great. Now these out-of-line modal buttons are becoming a pattern. -.- */}
+                <div className="button-group">
+                    <button
+                        className="button button-primary"
+                        style="float: right;"
+                        disabled={!name.trim()}
+                        onClick={() => {
+                            appendToBatch({
+                                slug: `<${slugify(name)}-${almostUniqueId()}>`,
+                                name,
+                                address,
+                                fax,
+                                email,
+                                'suggested-transport-medium': transportMedium,
+                                quality: 'verified',
+                            });
+                            dismissCustomCompanyModal();
+                        }}>
+                        <Text id="add-company" />
+                    </button>
+                    <button
+                        className="button button-secondary"
+                        style="float: left;"
+                        onClick={() =>
+                            ((!name.trim() && !email.trim() && !address.trim()) ||
+                                confirm(t('confirm-cancel-add-custom-company', 'generator'))) &&
+                            dismissCustomCompanyModal()
+                        }>
+                        <Text id="cancel" />
+                    </button>
+                </div>
+            </>
+        );
+    };
+
+    const [CustomCompanyModal, showCustomCompanyModal, dismissCustomCompanyModal] = useModal(
+        <CustomCompanyModalContent />,
+        { backdropDismisses: false, escDismisses: false, hasDismissButton: false }
+    );
+
+    return [CustomCompanyModal, showCustomCompanyModal, dismissCustomCompanyModal] as const;
+};
+
+const CustomCompanyButton = connectStateResults(({ searchState }: StateResultsProvided<Company>) => {
+    const [CustomCompanyModal, showCustomCompanyModal] = useCustomCompanyModal({ initialName: searchState?.query });
+    return (
+        <>
+            <CustomCompanyModal />
+            <button
+                className="button button-secondary button-small"
+                onClick={showCustomCompanyModal}
+                style="margin-right: 10px;">
+                <Text id="add-custom-company" />
+            </button>
+        </>
+    );
+});
 export const CompanySearchPage = (props: CompanySearchPageProps) => {
     const batch = useGeneratorStore((state) => state.batch);
     const batch_length = Object.keys(batch || {}).length || 0;
     const country = useAppStore((state) => state.country);
 
     return (
-        <InstantSearch
-            indexName="companies"
-            searchClient={instantSearchClient({ filter_by: country === 'all' ? '' : countryFilter(country) })}>
-            <SearchBox translations={{ placeholder: t('select-company', 'cdb') }} />
+        <>
+            <InstantSearch
+                indexName="companies"
+                searchClient={instantSearchClient({ filter_by: country === 'all' ? '' : countryFilter(country) })}>
+                <SearchBox translations={{ placeholder: t('select-company', 'cdb') }} />
 
-            <Results>
-                <Hits />
-            </Results>
+                <Results>
+                    <Hits />
+                </Results>
 
-            <div className="app-cta-container">
-                <button
-                    className="button button-primary"
-                    disabled={batch_length < 1}
-                    onClick={() => props.setPage('review_selection')}>
-                    <MarkupText id="review-n-companies" plural={batch_length} fields={{ count: batch_length }} />
-                    <span className="icon icon-arrow-right padded-icon-right" />
-                </button>
-            </div>
+                <div className="app-cta-container">
+                    <CustomCompanyButton />
+                    <button
+                        className="button button-primary"
+                        disabled={batch_length < 1}
+                        onClick={() => props.setPage('review_selection')}>
+                        <MarkupText id="review-n-companies" plural={batch_length} fields={{ count: batch_length }} />
+                        <span className="icon icon-arrow-right padded-icon-right" />
+                    </button>
+                </div>
 
-            {/* TODO: Pagination? */}
-        </InstantSearch>
+                {/* TODO: Pagination? */}
+            </InstantSearch>
+        </>
     );
 };
