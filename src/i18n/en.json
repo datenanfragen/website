@@ -401,7 +401,11 @@
         "company-fax": "Company fax number",
         "confirm-cancel-add-custom-company": "Are you sure you want to cancel? The data you entered will be lost.",
         "add-company": "Add company",
+        "add-company-and-suggest": "Add company and submit suggestion",
         "add-custom-company-explanation": "Fill in the company’s details here. You only need to fill in the name, all other fields are optional. Many companies have privacy-specific contact details that you should use instead of the general support ones. You can typically find those in the company’s privacy policy.",
+        "want-to-suggest-checkbox": "Suggest the company for our database?",
+        "want-to-suggest-provide-sources": "Please provide sources so we can verify your suggestion.",
+        "want-to-suggest-disclaimer": "<p>After you submit the form, the data you entered below will be publicly visible in our <a href=\"https://github.com/datenanfragen/data/pulls\" target=\"_blank\" rel=\"noreferrer noopener\">GitHub repository</a>. So, please do not enter any personal data here. For more information, please refer to our <a href=\"/privacy/#user-content-like-comments-and-contributions-to-our-company-database\" target=\"_blank\" rel=\"noreferrer noopener\">privacy policy</a>.</p><p>You agree for your suggestion to be published in our company database under a <a href=\"https://creativecommons.org/publicdomain/zero/1.0\" target=\"_blank\" rel=\"noreferrer noopener\">CC0 license</a>, which allows anyone to use it without restrictions.</p>",
         "continue-with-requests": "Continue with these companies",
         "send-request": "Send request",
         "send-request-again": "Send request again",
@@ -519,7 +523,7 @@
         "sva-not-found": "Loading the data on the supervisory authority failed."
     },
     "suggest": {
-        "success": "Your contribution has been sent successfully. Thank you once again! We will now review it as soon as possible.",
+        "success": "Your contribution has been sent successfully. Thank you! We will now review it as soon as possible.",
         "error": "Unfortunately, sending your contribution has failed. Please make sure that you are connected to the internet and not blocking requests to backend.datenanfragen.de through an add-on like uMatrix or NoScript.",
         "no-input": "You need to enter something to submit a suggestion.",
         "name-or-web-missing": "Please enter at least a name or website.",

@@ -2,7 +2,7 @@ import type { I18nLanguage } from '../types/globals';
 import create, { GetState, SetState, StateCreator } from 'zustand';
 import { persist, PersistOptions } from 'zustand/middleware';
 import type i18n_definition_type from '../i18n/en.json';
-import type { RequireExactlyOne } from 'type-fest';
+import { produce } from 'immer';
 
 // TODO: This is done more cleverly in newer versions of zustand
 type CombinedStateCreator<T extends object> = StateCreator<
@@ -32,14 +32,24 @@ export const createCountrySlice: CombinedStateCreator<CountryStateSlice> = (set)
 export type Preferences = {
     /** Whether or not to save the content of request to the database. Should be set to false on the web. Does not take precedent over whether we save requests at all. */
     saveRequestContent: boolean | undefined;
+    promptForCompanySuggestions: boolean;
 };
 type PreferenceStateSlice = Preferences & {
-    setPreference: (preference: RequireExactlyOne<Preferences>) => void;
+    setPreference: <Preference extends keyof Preferences>(
+        preference: Preference,
+        value: Preferences[Preference]
+    ) => void;
 };
 
 export const createPreferenceSlice: CombinedStateCreator<PreferenceStateSlice> = (set) => ({
     saveRequestContent: undefined,
-    setPreference: (preference) => set(preference),
+    promptForCompanySuggestions: true, // TODO: Set to false.
+    setPreference: (preference, value) =>
+        set(
+            produce((state: Preferences) => {
+                state[preference] = value;
+            })
+        ),
 });
 
 export const appSettingsPersistOptions: PersistOptions<CountryStateSlice & PreferenceStateSlice> = {
