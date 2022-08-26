@@ -205,7 +205,8 @@ textarea::placeholder {
 // We can (unfortunately) neither use `:read-only` nor `:moz-read-only`, since the implementations vary wildly and tend to match way too many things.
 // Thus, always add the class `readonly` to readonly inputs.
 input.readonly,
-input:disabled {
+input:disabled,
+select:disabled {
     @include disabled-input;
 }
 

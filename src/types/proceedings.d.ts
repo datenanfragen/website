@@ -4,7 +4,7 @@ import { PROCEEDING_STATUS } from '../Utility/requests';
 
 type MessageId = string;
 
-type Proceeding = {
+export type Proceeding = {
     reference: string;
     messages: Record<MessageId, Message>;
     status: ProceedingStatus;
@@ -12,7 +12,7 @@ type Proceeding = {
 
 export type ProceedingStatus = typeof PROCEEDING_STATUS[number];
 
-type Message = {
+export type Message = {
     id: MessageId;
     reference: string;
     date: Date;
@@ -25,4 +25,22 @@ type Message = {
     content?: string;
     sentByMe: boolean;
     reactorData?: ReactorState['moduleData'];
+    extra?: Record<string, string | undefined>;
+};
+
+export type GetMessageResult = {
+    seq: number;
+    uid: number;
+    envelope: {
+        from?: EmailAddress[];
+        to?: EmailAddress[];
+        subject?: string;
+        messageId?: string;
+        inReplyTo?: string;
+        date?: Date;
+    };
+};
+type EmailAddress = {
+    name?: string;
+    address?: string;
 };

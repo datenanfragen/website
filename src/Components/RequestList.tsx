@@ -21,6 +21,7 @@ import type { ComponentChildren } from 'preact';
 type RequestListProps = {
     /** Component to show if no proceedings are available */
     emptyComponent: ComponentChildren;
+    importEmailsButton?: ComponentChildren;
 };
 export const RequestList = (props: RequestListProps) => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
@@ -95,73 +96,78 @@ export const RequestList = (props: RequestListProps) => {
 
     return (
         <IntlProvider scope="my-requests" definition={window.I18N_DEFINITION}>
-            <div className="proceedings-toolbar">
-                <button
-                    className="button button-secondary button-small"
-                    onClick={() => setSelectionMode(!selectionMode)}>
-                    {selectionMode ? <Text id="cancel" /> : <Text id="selection-mode" />}
-                </button>
-                {!selectionMode && (
-                    <button
-                        id="clear-button"
-                        className="button button-error button-small"
-                        onClick={() =>
-                            window.confirm(t('modal-clear-requests', 'privacy-controls')) && clearProceedings()
-                        }>
-                        <Text id="delete-all-btn" />
-                    </button>
-                )}
-
-                {selectionMode && (
-                    <div className="dropdown-container" style="float:right;">
-                        <button className="icon-ellipsis button button-small button-secondary" />
-                        <div className="dropdown" style="right: 0; max-width: 400px; width: 90vw;">
-                            <button
-                                id="toggle-all-button"
-                                className="button button-secondary"
-                                style="margin-right: 10px;"
-                                onClick={() => {
-                                    setSelectionMode(true);
-                                    setSelectedRequestIds(
-                                        selectedRequestIds.length === sortedRequestIds.length ? [] : sortedRequestIds
-                                    );
-                                }}
-                                title={t('more-options', 'my-requests')}>
-                                <Text
-                                    id={`${
-                                        selectedRequestIds.length === sortedRequestIds.length ? 'de' : ''
-                                    }select-all`}
-                                />
-                            </button>
-                            {selectedRequestIds.length > 0 && (
-                                <>
-                                    <a
-                                        id="download-button"
-                                        className="button button-secondary"
-                                        href={URL.createObjectURL(buildCsv())}
-                                        download={csv_download_filename}
-                                        style="margin-right: 10px;">
-                                        <Text id="export-btn" />
-                                    </a>
-                                    <a
-                                        id="export-ics-button"
-                                        className="button button-secondary"
-                                        href={URL.createObjectURL(buildIcs())}
-                                        download={ics_download_filename}
-                                        style="margin-right: 10px;">
-                                        <Text id="export-ics" />
-                                    </a>
-                                </>
-                            )}
-                        </div>
-                    </div>
-                )}
-            </div>
-
             {Object.values(proceedings).length === 0 ? (
                 <>{props.emptyComponent}</>
             ) : (
                 <>
+                    <div className="proceedings-toolbar">
+                        <button
+                            className="button button-secondary button-small"
+                            onClick={() => setSelectionMode(!selectionMode)}>
+                            {selectionMode ? <Text id="cancel" /> : <Text id="selection-mode" />}
+                        </button>
+                        {!selectionMode && (
+                            <>
+                                {props.importEmailsButton}
+                                <button
+                                    id="clear-button"
+                                    className="button button-error button-small"
+                                    onClick={() =>
+                                        window.confirm(t('modal-clear-requests', 'privacy-controls')) &&
+                                        clearProceedings()
+                                    }>
+                                    <Text id="delete-all-btn" />
+                                </button>
+                            </>
+                        )}
+
+                        {selectionMode && (
+                            <div className="dropdown-container" style="float:right;">
+                                <button className="icon-ellipsis button button-small button-secondary" />
+                                <div className="dropdown" style="right: 0; max-width: 400px; width: 90vw;">
+                                    <button
+                                        id="toggle-all-button"
+                                        className="button button-secondary"
+                                        style="margin-right: 10px;"
+                                        onClick={() => {
+                                            setSelectionMode(true);
+                                            setSelectedRequestIds(
+                                                selectedRequestIds.length === sortedRequestIds.length
+                                                    ? []
+                                                    : sortedRequestIds
+                                            );
+                                        }}
+                                        title={t('more-options', 'my-requests')}>
+                                        <Text
+                                            id={`${
+                                                selectedRequestIds.length === sortedRequestIds.length ? 'de' : ''
+                                            }select-all`}
+                                        />
+                                    </button>
+                                    {selectedRequestIds.length > 0 && (
+                                        <>
+                                            <a
+                                                id="download-button"
+                                                className="button button-secondary"
+                                                href={URL.createObjectURL(buildCsv())}
+                                                download={csv_download_filename}
+                                                style="margin-right: 10px;">
+                                                <Text id="export-btn" />
+                                            </a>
+                                            <a
+                                                id="export-ics-button"
+                                                className="button button-secondary"
+                                                href={URL.createObjectURL(buildIcs())}
+                                                download={ics_download_filename}
+                                                style="margin-right: 10px;">
+                                                <Text id="export-ics" />
+                                            </a>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
                     <ul className="proceeding-rows">
                         {sortedRequestIds.map((id) => (
                             <li className="proceeding-row-list-item">
@@ -185,8 +191,6 @@ export const RequestList = (props: RequestListProps) => {
                             </li>
                         ))}
                     </ul>
-
-                    <div id="my-requests-buttons" />
                 </>
             )}
         </IntlProvider>
