@@ -1,5 +1,5 @@
-import { Message, MessageId, Proceeding, ProceedingStatus } from '../types/proceedings.d';
-import type { Request, RequestType } from '../types/request.d';
+import type { Request, RequestType } from '../types/request';
+import type { GetMessageResult, Message, MessageId, Proceeding, ProceedingStatus } from '../types/proceedings';
 import create, { GetState, SetState, StoreApi, Mutate } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { produce } from 'immer';
@@ -24,6 +24,7 @@ export interface ProceedingsState {
     setReactorData: (id: MessageId, reactorData: ReactorState['moduleData']) => void;
     removeProceeding: (reference: string) => void;
     clearProceedings: () => void;
+    mapEmailToProceeding: (email: GetMessageResult) => string | undefined;
     updateStatuses: () => void;
     _hasHydrated: boolean;
     _migratedLegacyRequests: boolean;
@@ -116,6 +117,25 @@ const proceedingsStore = persist<ProceedingsState>(
                 })
             ),
         clearProceedings: () => set({ proceedings: {} }),
+        mapEmailToProceeding: (email) => {
+            const proceedings = get().proceedings;
+            for (const [reference, prcd] of Object.entries(proceedings)) {
+                if (prcd.status === 'done') continue;
+
+                let replyFound = false;
+                for (const msg of Object.values(prcd.messages)) {
+                    if (msg.extra?.emailId && msg.extra.emailId === email.envelope.messageId) return;
+                    if (
+                        email.envelope.inReplyTo !== undefined &&
+                        msg.extra?.emailId !== undefined &&
+                        email.envelope.inReplyTo === msg.extra.emailId
+                    )
+                        replyFound = true;
+                }
+                if (replyFound) return reference;
+                if (email.envelope.subject?.match(reference)) return reference;
+            }
+        },
         updateStatuses: () =>
             set(
                 produce((state: ProceedingsState) => {

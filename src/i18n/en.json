@@ -251,7 +251,7 @@
         "complaint": "Complaint",
         "message-react": "React",
         "delete-message": "Delete this message.",
-        "import-message": "Import message",
+        "import-message": "Add message",
         "delete-proceeding": "Delete proceeding",
         "delete-proceeding-confirm": "This will delete this proceeding and all messages it contains. Are you sure?",
         "select-all": "Select all",
