@@ -1,7 +1,7 @@
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import { InstantSearch, SearchBox, connectHits, connectStateResults } from 'react-instantsearch-dom';
 import { useGeneratorStore } from '../../store/generator';
-import { SetPageFunction } from './App';
+import type { PageOptions, SetPageFunction } from './App';
 import { CompanyResult } from './CompanyResult';
 import { countryFilter, instantSearchClient } from '../../Utility/search';
 import { companyFromHit } from '../../Utility/companies';
@@ -24,6 +24,7 @@ import { flash, FlashMessage } from '../FlashMessage';
 
 type CompanySearchPageProps = {
     setPage: SetPageFunction;
+    pageOptions?: PageOptions;
 };
 
 const Hits = connectHits(({ hits }: HitsProvided<Company>) => {
@@ -443,13 +444,15 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
     const batch_length = Object.keys(batch || {}).length || 0;
     const country = useAppStore((state) => state.country);
 
+    const searchClientParams = { filter_by: country === 'all' ? '' : countryFilter(country) };
     return (
         <>
             <InstantSearch
                 indexName="companies"
-                searchClient={instantSearchClient({ filter_by: country === 'all' ? '' : countryFilter(country) })}>
+                searchClient={
+                    props.pageOptions?.searchClient?.(searchClientParams) || instantSearchClient(searchClientParams)
+                }>
                 <SearchBox translations={{ placeholder: t('select-company', 'cdb') }} />
-
                 <Results>
                     <Hits />
                 </Results>

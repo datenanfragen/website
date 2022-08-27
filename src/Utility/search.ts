@@ -3,6 +3,7 @@ import { Client } from 'typesense';
 import TypesenseInstantSearchAdapter, { SearchParametersWithQueryBy } from 'typesense-instantsearch-adapter';
 import type { ConfigurationOptions } from 'typesense/lib/Typesense/Configuration';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
+import type { Hit } from 'react-instantsearch-core';
 
 const serverConfig: ConfigurationOptions = {
     apiKey: '',
@@ -40,7 +41,15 @@ export const searchClient = new Client({
     connectionTimeoutSeconds: 2,
 });
 
-export const instantSearchClient = (searchParams?: Omit<Partial<SearchParams>, 'q'>) =>
+// This is pieced together from the `algoliasearch` package and obviously incomplete but enough for our purposes (for
+// now, anyway).
+export type Query = { type: 'default'; indexName: string; params: { query: string } };
+export type Result<TObject> = { results: { hits: Hit<TObject>[]; page: number }[] };
+export type SearchClient = {
+    search: <TObject>(queries: Query[]) => Promise<Result<TObject>>;
+};
+
+export const instantSearchClient = (searchParams?: Omit<Partial<SearchParams>, 'q'>): SearchClient =>
     new TypesenseInstantSearchAdapter({
         server: serverConfig,
 

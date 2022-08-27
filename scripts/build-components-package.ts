@@ -90,4 +90,7 @@ const getSupportedCountries = () => {
 
     // Do the actual build.
     await execa('yarn', ['parcel', 'build', '--no-cache', '--no-source-maps'], { cwd: package_dir, stdio: 'inherit' });
+
+    // Copy the data dump over.
+    fs.copySync(join(website_dir, 'static', 'offline-data.json'), join(package_dir, 'dist', 'offline-data.json'));
 })();
