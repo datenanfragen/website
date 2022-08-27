@@ -80,6 +80,8 @@ export { mailto_handlers } from '../../src/Components/MailtoDropdown';
 export type { EmailData } from '../../src/Components/MailtoDropdown';
 
 export { default as t, t_r } from '../../src/Utility/i18n';
+export { PrivacyAsyncStorage } from '../../src/Utility/PrivacyAsyncStorage';
+export type { PrivacyAsyncStorageOption } from '../../src/Utility/PrivacyAsyncStorage';
 export * from '../../src/Utility/errors';
 
 // App-specific exports.
