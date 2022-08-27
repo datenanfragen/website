@@ -2,11 +2,20 @@
     "app": {
         "new-requests": "New requests",
         "proceedings": "Proceedings",
-        "settings": "Settings"
+        "settings": "Settings",
+        "error-unsupported-offline-data": "The offline data you are trying to import is for a newer version of this app and may not work. Please update the app."
     },
     "settings": {
         "title": "Settings",
+        "i18n": "Internationalization",
+        "features": "Features",
         "receive-notifications": "Receive notifications for overdue requests",
+        "use-offline-search": "Use a local cache of the company database to search without any server connections",
+        "offline-search-updated-at": "Your local cache is from: {{date}}",
+        "offline-search-update": "Update local company database",
+        "offline-search-update-success": "Your local cache of the company database has been updated.",
+        "offline-search-update-error": "There was an error updating your local cache of the company database.",
+        "offline-data-outdated": "Your local cache of our company database is older than two weeks. Since we regularly add new companies and update their details where necessary, we recommend you update it.",
         "email-settings": "Email settings (optional)",
         "email-settings-explanation": "If you enter your email account credentials here, you can send and receive request-related emails directly through the app. Your credentials are of course only stored on your device and are never transmitted to our servers.",
         "imap-heading": "Incoming server",

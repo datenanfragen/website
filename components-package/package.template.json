@@ -36,7 +36,8 @@
     },
     "dependencies": {
         "@fontsource/league-spartan": "^4.5.10",
-        "@fontsource/firago": "^4.5.3"
+        "@fontsource/firago": "^4.5.3",
+        "minisearch": "^5.0.0"
     },
     "peerDependencies": {},
     "devDependencies": {

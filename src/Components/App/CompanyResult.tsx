@@ -20,13 +20,16 @@ type CompanyResultProps = {
 
 // see https://www.algolia.com/doc/api-reference/widgets/snippet/react/#full-example
 const RunsSnippet = connectHighlight(({ highlight, hit }: HighlightProps<Company>) => {
-    const highlights = (
-        highlight({
-            highlightProperty: '_snippetResult',
-            attribute: 'runs',
-            hit,
-        }) as unknown as { value: string; isHighlighted: boolean }[][]
-    ).filter((h) => h.reduce((acc: boolean, part) => acc || part.isHighlighted, false));
+    const highlights =
+        '_snippetResult' in hit
+            ? (
+                  highlight({
+                      highlightProperty: '_snippetResult',
+                      attribute: 'runs',
+                      hit,
+                  }) as unknown as { value: string; isHighlighted: boolean }[][]
+              ).filter((h) => h.reduce((acc: boolean, part) => acc || part.isHighlighted, false))
+            : hit.runs?.map((run) => [{ value: run, isHighlighted: false }]).slice(0, 5) || [];
 
     return (
         highlights.length > 0 && (
@@ -79,7 +82,8 @@ export const CompanyResult = (props: CompanyResultProps) => {
 
     const heading = (
         <h4 id={`company-result-${props.company.slug}-label`}>
-            {'_highlightResult' in props.company ? (
+            {'_highlightResult' in props.company &&
+            Object.keys(props.company._highlightResult as Record<string, unknown>).length > 0 ? (
                 <Highlight attribute="name" hit={props.company} tagName="mark" />
             ) : (
                 props.company.name
@@ -121,7 +125,7 @@ export const CompanyResult = (props: CompanyResultProps) => {
                     <header>{heading}</header>
                 )}
 
-                {!props.showDetails && '_snippetResult' in props.company && <RunsSnippet hit={props.company} />}
+                {!props.showDetails && <RunsSnippet hit={props.company} />}
 
                 {detailsAvailable && (
                     <div

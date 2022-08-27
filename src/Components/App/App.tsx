@@ -7,6 +7,8 @@ import { FillRequestsPage } from './FillRequestsPage';
 import { WhatsNextPage } from './WhatsNextPage';
 import t from '../../Utility/i18n';
 import type { MailtoDropdownProps } from '../MailtoDropdown';
+import type { SearchClient } from '../../Utility/search';
+import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 
 const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
     request_type_chooser: {
@@ -15,7 +17,7 @@ const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
         canGoBack: true,
     },
     company_search: {
-        component: <CompanySearchPage setPage={setPage} />,
+        component: <CompanySearchPage setPage={setPage} pageOptions={pageOptions} />,
         title: t('company-chooser-page-title', 'generator'),
         canGoBack: true,
     },
@@ -40,7 +42,8 @@ export type AppPageId = keyof ReturnType<typeof pages>;
 export type SetPageFunction = (newPage: AppPageId) => void;
 
 export type PageOptions = {
-    mailtoDropdown: Partial<MailtoDropdownProps>;
+    mailtoDropdown?: Partial<MailtoDropdownProps>;
+    searchClient?: (params: Partial<SearchParams>) => SearchClient;
 };
 
 type AppProps = {
