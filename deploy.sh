@@ -48,6 +48,7 @@ mv data_tmp/schema.json data_tmp/schema-supervisory-authorities.json static
 
 node prepare-deploy.js
 yarn tsm scripts/compile-company-packs.ts
+yarn tsm scripts/compile-data-dump.ts
 
 rm -rf data_tmp
 

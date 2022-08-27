@@ -115,6 +115,7 @@
         "imagemin-lint-staged": "^0.4.0",
         "lint-staged": ">=9.4.3",
         "matcher": "^4.0.0",
+        "minisearch": "^5.0.0",
         "node-sass": "^7.0.0",
         "patch-package": "^6.4.7",
         "path": "^0.12.7",

@@ -80,6 +80,7 @@ export { mailto_handlers } from '../../src/Components/MailtoDropdown';
 export type { EmailData } from '../../src/Components/MailtoDropdown';
 
 export { default as t, t_r } from '../../src/Utility/i18n';
+export * from '../../src/Utility/errors';
 
 // App-specific exports.
 export const appTranslations = {
@@ -95,3 +96,7 @@ export { EmailAccountSettingsInput } from './App/Components/EmailAccountSettings
 export { AppMenu } from './App/Components/AppMenu';
 export { ProceedingsList } from './App/Components/ProceedingsList';
 export { t_a } from './App/Utility/i18n';
+export { miniSearchClient, miniSearchIndexFromOfflineData } from './App/Utility/search';
+export type { OfflineData } from './App/Utility/search';
+export { fetchOfflineData, useCacheStore } from './App/Utility/cache';
+export type { CacheStore } from './App/Utility/cache';
