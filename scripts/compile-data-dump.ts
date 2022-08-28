@@ -8,6 +8,11 @@ const companies = glob
     .map((p) => readFileSync(p, 'utf8'))
     .map((f) => JSON.parse(f));
 
+const svas = glob
+    .sync('*.json', { cwd: join(dirname(dirname()), '..', 'static', 'sva', 'db'), absolute: true })
+    .map((p) => readFileSync(p, 'utf8'))
+    .map((f) => JSON.parse(f));
+
 const companyPacks = glob
     .sync('*.json', { cwd: join(dirname(dirname()), '..', 'static', 'db', 'company-packs'), absolute: true })
     .reduce((acc, p) => ({ ...acc, [basename(p, '.json')]: JSON.parse(readFileSync(p, 'utf8')) }), {});
@@ -18,6 +23,7 @@ writeFileSync(
         date: new Date().toISOString(),
         'dump-format': 1,
         companies: JSON.stringify(companies),
+        'supervisory-authorities': JSON.stringify(svas),
         'company-packs': JSON.stringify(companyPacks),
     })
 );
