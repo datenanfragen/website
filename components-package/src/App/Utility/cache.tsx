@@ -1,27 +1,30 @@
-import { Options as MiniSearchOptions } from 'minisearch';
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
-import { PrivacyAsyncStorage, t_a, ErrorException, flash, FlashMessage } from '../../index';
-import type { CompanyPack } from '../../../../src/types/company';
+import MiniSearch from 'minisearch';
+import { PrivacyAsyncStorage, t_a, ErrorException, flash, FlashMessage, WarningException } from '../../index';
+import type { Company, CompanyPack } from '../../../../src/types/company';
 import type { Country } from '../../../../src/store/app';
+import hardcodedOfflineData from '../../../../static/offline-data.json';
+import { miniSearchOptions } from './search';
 
 export type OfflineData = {
     date: string;
-    'format-version': number;
-    'company-search': {
-        options: MiniSearchOptions;
-        index: string;
-    };
-    'company-packs': Record<Country, CompanyPack>;
+    'dump-format': number;
+
+    companies: Company[];
+    'company-packs': Partial<Record<Country, CompanyPack[]>>;
 };
 
-const cacheStorage = new PrivacyAsyncStorage(() => true, { name: 'Datenanfragen.de', storeName: 'cache' });
-
-export const fetchOfflineData = async (): Promise<string> => {
+export const fetchOfflineData = async (): Promise<OfflineData> => {
     const dataUrl = `${window.BASE_URL}offline-data.json`;
 
     return fetch(dataUrl).then((res) => {
-        if (res.status === 200) return res.text();
+        if (res.status === 200)
+            return res.json().then((r) => ({
+                ...r,
+                companies: JSON.parse(r.companies),
+                'company-packs': JSON.parse(r['company-packs']),
+            }));
 
         throw new ErrorException(
             'Fetching the request template failed.',
@@ -31,18 +34,42 @@ export const fetchOfflineData = async (): Promise<string> => {
     });
 };
 
-export type CacheStore = {
-    offlineData: string | undefined;
+const cacheStorage = new PrivacyAsyncStorage(() => true, { name: 'Datenanfragen.de', storeName: 'cache' });
+
+export type CacheStore = OfflineData & {
+    miniSearch: MiniSearch;
+
     updateOfflineData: () => Promise<void>;
+};
+
+const makeMiniSearch = (companies: Company[]) => {
+    const miniSearch = new MiniSearch(miniSearchOptions);
+    miniSearch.addAll(companies);
+    return miniSearch;
 };
 
 export const useCacheStore = create<CacheStore>(
     persist(
-        (set, get) => ({
-            offlineData: undefined,
+        (set) => ({
+            date: hardcodedOfflineData.date,
+            'dump-format': hardcodedOfflineData['dump-format'],
+            companies: JSON.parse(hardcodedOfflineData.companies),
+            'company-packs': JSON.parse(hardcodedOfflineData['company-packs']),
+
+            miniSearch: makeMiniSearch(JSON.parse(hardcodedOfflineData.companies)),
+
             updateOfflineData: () =>
                 fetchOfflineData()
-                    .then((offlineData) => set({ offlineData }))
+                    .then((offlineData) => {
+                        if (offlineData['dump-format'] !== 1)
+                            throw new WarningException(
+                                'Unsupported offline dump format.',
+                                { version: offlineData['dump-format'], date: offlineData.date },
+                                t_a('error-unsupported-offline-data', 'app')
+                            );
+
+                        set({ ...offlineData, miniSearch: makeMiniSearch(offlineData.companies) });
+                    })
                     .then(() =>
                         flash(
                             <FlashMessage type="success">
