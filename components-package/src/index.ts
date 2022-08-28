@@ -11,8 +11,6 @@ import i18n_definition_es from '../../src/i18n/es.json';
 import i18n_definition_hr from '../../src/i18n/hr.json';
 import i18n_definition_nl from '../../src/i18n/nl.json';
 
-import i18nDefinitionAppEn from './App/i18n/en.json';
-
 export const languages = {
     de: { base_url: 'https://www.datenanfragen.de/', translations: i18n_definition_de },
     en: { base_url: 'https://www.datarequests.org/', translations: i18n_definition_en },
@@ -84,21 +82,4 @@ export { PrivacyAsyncStorage } from '../../src/Utility/PrivacyAsyncStorage';
 export type { PrivacyAsyncStorageOption } from '../../src/Utility/PrivacyAsyncStorage';
 export * from '../../src/Utility/errors';
 
-// App-specific exports.
-export const appTranslations = {
-    en: i18nDefinitionAppEn,
-};
-export const setupWindowForApp = (locale: I18nLanguage) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    window.I18N_DEFINITION_APP = appTranslations[locale];
-};
-
-export { EmailAccountSettingsInput } from './App/Components/EmailAccountSettingsInput';
-export { AppMenu } from './App/Components/AppMenu';
-export { ProceedingsList } from './App/Components/ProceedingsList';
-export { t_a } from './App/Utility/i18n';
-export { miniSearchClient, miniSearchIndexFromOfflineData } from './App/Utility/search';
-export type { OfflineData } from './App/Utility/search';
-export { fetchOfflineData, useCacheStore } from './App/Utility/cache';
-export type { CacheStore } from './App/Utility/cache';
+export * from './App/index';

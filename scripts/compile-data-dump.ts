@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
+import { join, basename } from 'path';
 import glob from 'glob';
 import dirname from 'es-dirname';
 import MiniSearch from 'minisearch';
@@ -22,11 +22,17 @@ const options = {
 };
 const miniSearch = new MiniSearch(options);
 miniSearch.addAll(companies);
+
+const companyPacks = glob
+    .sync('*.json', { cwd: join(dirname(dirname()), '..', 'static', 'db', 'company-packs'), absolute: true })
+    .reduce((acc, p) => ({ ...acc, [basename(p, '.json')]: JSON.parse(readFileSync(p, 'utf8')) }), {});
+
 writeFileSync(
     join(dirname(dirname()), '..', 'static', 'offline-data.json'),
     JSON.stringify({
         date: new Date().toISOString(),
         'format-version': 1,
         'company-search': { options, index: JSON.stringify(miniSearch) },
+        'company-packs': companyPacks,
     })
 );

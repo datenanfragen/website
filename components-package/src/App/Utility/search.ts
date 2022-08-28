@@ -1,16 +1,9 @@
-import MiniSearch, { Options as MiniSearchOptions } from 'minisearch';
+import MiniSearch from 'minisearch';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 import { defaultSearchParams, SearchClient, Query } from '../../../../src/Utility/search';
 import { t_a, WarningException } from '../../index';
+import type { OfflineData } from './cache';
 
-export type OfflineData = {
-    date: string;
-    'format-version': number;
-    'company-search': {
-        options: MiniSearchOptions;
-        index: string;
-    };
-};
 export const miniSearchIndexFromOfflineData = (offlineData: OfflineData) => {
     if (offlineData['format-version'] !== 1)
         throw new WarningException(
