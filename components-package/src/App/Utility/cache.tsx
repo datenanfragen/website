@@ -1,6 +1,19 @@
-import { PrivacyAsyncStorage, t_a, ErrorException, flash, FlashMessage } from '../../index';
+import { Options as MiniSearchOptions } from 'minisearch';
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
+import { PrivacyAsyncStorage, t_a, ErrorException, flash, FlashMessage } from '../../index';
+import type { CompanyPack } from '../../../../src/types/company';
+import type { Country } from '../../../../src/store/app';
+
+export type OfflineData = {
+    date: string;
+    'format-version': number;
+    'company-search': {
+        options: MiniSearchOptions;
+        index: string;
+    };
+    'company-packs': Record<Country, CompanyPack>;
+};
 
 const cacheStorage = new PrivacyAsyncStorage(() => true, { name: 'Datenanfragen.de', storeName: 'cache' });
 
