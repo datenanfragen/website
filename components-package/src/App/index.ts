@@ -24,6 +24,17 @@ export const setupWindowForApp = (locale: I18nLanguage) => {
                 const companyPacks = useCacheStore.getState()['company-packs'][isCompanyPack[1] as Country];
                 if (companyPacks) return Promise.resolve(new Response(JSON.stringify(companyPacks)));
             }
+
+            const isCompany = path.match(/db\/([a-z-]+).json/);
+            if (isCompany) {
+                const company = useCacheStore.getState().companies.find((c) => c.slug === isCompany[1]);
+                if (company) return Promise.resolve(new Response(JSON.stringify(company)));
+            }
+            const isSva = path.match(/db\/sva\/([a-z-]+).json/);
+            if (isSva) {
+                const sva = useCacheStore.getState()['supervisory-authorities'].find((c) => c.slug === isSva[1]);
+                if (sva) return Promise.resolve(new Response(JSON.stringify(sva)));
+            }
         }
 
         return originalFetch(input, init);

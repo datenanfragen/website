@@ -2,7 +2,7 @@ import create from 'zustand';
 import { persist } from 'zustand/middleware';
 import MiniSearch from 'minisearch';
 import { PrivacyAsyncStorage, t_a, ErrorException, flash, FlashMessage, WarningException } from '../../index';
-import type { Company, CompanyPack } from '../../../../src/types/company';
+import type { Company, CompanyPack, SupervisoryAuthority } from '../../../../src/types/company';
 import type { Country } from '../../../../src/store/app';
 import hardcodedOfflineData from '../../../../static/offline-data.json';
 import { miniSearchOptions } from './search';
@@ -12,6 +12,7 @@ export type OfflineData = {
     'dump-format': number;
 
     companies: Company[];
+    'supervisory-authorities': SupervisoryAuthority[];
     'company-packs': Partial<Record<Country, CompanyPack[]>>;
 };
 
@@ -54,6 +55,7 @@ export const useCacheStore = create<CacheStore>(
             date: hardcodedOfflineData.date,
             'dump-format': hardcodedOfflineData['dump-format'],
             companies: JSON.parse(hardcodedOfflineData.companies),
+            'supervisory-authorities': JSON.parse(hardcodedOfflineData['supervisory-authorities']),
             'company-packs': JSON.parse(hardcodedOfflineData['company-packs']),
 
             miniSearch: makeMiniSearch(JSON.parse(hardcodedOfflineData.companies)),
