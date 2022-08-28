@@ -1,17 +1,16 @@
-import MiniSearch from 'minisearch';
+import MiniSearch, { Options } from 'minisearch';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 import { defaultSearchParams, SearchClient, Query } from '../../../../src/Utility/search';
-import { t_a, WarningException } from '../../index';
-import type { OfflineData } from './cache';
+import schema from '../../../../static/schema.json';
 
-export const miniSearchIndexFromOfflineData = (offlineData: OfflineData) => {
-    if (offlineData['format-version'] !== 1)
-        throw new WarningException(
-            'Unsupported offline dump format.',
-            { version: offlineData['format-version'], date: offlineData.date },
-            t_a('error-unsupported-offline-data', 'app')
-        );
-    return MiniSearch.loadJSON(offlineData['company-search'].index, offlineData['company-search'].options);
+export const miniSearchOptions: Options = {
+    idField: 'slug',
+    fields: defaultSearchParams.query_by.split(',').map((f) => f.trim()),
+    storeFields: Object.keys(schema.properties),
+    searchOptions: {
+        prefix: true,
+        fuzzy: true,
+    },
 };
 export const miniSearchClient = (
     miniSearch: MiniSearch,

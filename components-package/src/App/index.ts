@@ -1,7 +1,7 @@
 import type { I18nLanguage } from '../../../src/types/globals';
 import type { Country } from '../../../src/store/app';
 import i18nDefinitionAppEn from './i18n/en.json';
-import { useCacheStore, OfflineData } from './Utility/cache';
+import { useCacheStore } from './Utility/cache';
 
 export const appTranslations = {
     en: i18nDefinitionAppEn,
@@ -13,18 +13,16 @@ export const setupWindowForApp = (locale: I18nLanguage) => {
 
     const originalFetch = window.fetch;
     window.fetch = (input, init) => {
-        const offlineData: OfflineData | undefined = useCacheStore.getState().offlineData
-            ? JSON.parse(useCacheStore.getState().offlineData!)
-            : undefined;
-
-        if (offlineData && input.toString().startsWith(window.BASE_URL)) {
+        // TODO: Move the template logic here?
+        // TODO: Disable this if the user has disabled the local cache? If we want this to be disablable, I would rather
+        // flip the setting to "load data from our server".
+        if (input.toString().startsWith(window.BASE_URL)) {
             const path = input.toString().replace(window.BASE_URL, '');
 
             const isCompanyPack = path.match(/db\/company-packs\/([a-z]{2}|all).json/);
             if (isCompanyPack) {
-                const country = isCompanyPack[1] as Country;
-                if (offlineData['company-packs'][country])
-                    return Promise.resolve(new Response(JSON.stringify(offlineData['company-packs'][country])));
+                const companyPacks = useCacheStore.getState()['company-packs'][isCompanyPack[1] as Country];
+                if (companyPacks) return Promise.resolve(new Response(JSON.stringify(companyPacks)));
             }
         }
 
@@ -36,6 +34,6 @@ export { EmailAccountSettingsInput } from './Components/EmailAccountSettingsInpu
 export { AppMenu } from './Components/AppMenu';
 export { ProceedingsList } from './Components/ProceedingsList';
 export { t_a } from './Utility/i18n';
-export { miniSearchClient, miniSearchIndexFromOfflineData } from './Utility/search';
+export { miniSearchClient } from './Utility/search';
 export { fetchOfflineData, useCacheStore } from './Utility/cache';
 export type { CacheStore, OfflineData } from './Utility/cache';
