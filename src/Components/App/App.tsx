@@ -33,7 +33,7 @@ const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
         canGoBack: false,
     },
     whats_next: {
-        component: <WhatsNextPage setPage={setPage} />,
+        component: <WhatsNextPage setPage={setPage} onViewRequests={pageOptions?.onViewRequests} />,
         title: t('whats-next-title', 'generator'),
         canGoBack: false,
     },
@@ -46,6 +46,8 @@ export type PageOptions = {
     mailtoDropdown?: Partial<MailtoDropdownProps>;
     searchClient?: (params: Partial<SearchParams>) => SearchClient;
     actionButton?: Partial<ActionButtonProps>;
+    /** Function to execute when the 'View your requests' button on the 'What’s next?' page is clicked. */
+    onViewRequests?: () => void;
 };
 
 type AppProps = {
