@@ -5,7 +5,7 @@ import type { ComponentChildren } from 'preact';
 
 type AppMenuProps<PageId extends string> = {
     setPage: (newPage: PageId) => void;
-    activePage: PageId;
+    activePage: PageId | undefined;
 };
 
 export const AppMenu = <PageId extends string>(props: AppMenuProps<PageId>) => {

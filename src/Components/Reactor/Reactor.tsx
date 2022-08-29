@@ -4,22 +4,28 @@ import { Template } from 'letter-generator';
 import t from '../../Utility/i18n';
 import { Radio } from '../Radio';
 import { SvaFinder } from '../SvaFinder';
-import { mailto_handlers } from '../MailtoDropdown';
+import { MailtoDropdownProps, mailto_handlers } from '../MailtoDropdown';
 import { DynamicInputContainer, StatefulDynamicInputContainer } from '../Generator/DynamicInputContainer';
 import { StatefulSignatureInput } from '../Generator/SignatureInput';
 import { ActionButton } from '../Generator/ActionButton';
 import { useReactorStore } from '../../store/reactor';
 import { getGeneratedMessage, useProceedingsStore } from '../../store/proceedings';
 import { useGeneratorStore, createGeneratorStore, RequestGeneratorProvider } from '../../store/generator';
+import { useAppStore } from '../../store/app';
 import { useWizard, WizardPages } from '../../hooks/useWizard';
 import { ReactorModuleId, reactorModules } from './modules/index';
 import type { ReactorHook, ReactorModuleWithDataId, StateCallback } from '../../types/reactor.d';
 import type { CustomRequest } from '../../types/request';
 import { ErrorException } from '../../Utility/errors';
 
-type ReactorProps = { reference: string };
+type ReactorProps = {
+    reference: string;
+    pageOptions?: {
+        mailtoDropdown: Partial<MailtoDropdownProps>;
+    };
+};
 
-const _Reactor = ({ reference }: ReactorProps) => {
+const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
     const reactorState = useReactorStore();
     const proceedingsState = useProceedingsStore();
     const [fillFields, fillSignature, request] = useGeneratorStore((state) => [
@@ -55,6 +61,7 @@ const _Reactor = ({ reference }: ReactorProps) => {
         state.setSent,
         state.initiatePdfGeneration,
     ]);
+    const locale = useAppStore((state) => state.savedLocale);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => setPage('base::start'), []);
@@ -96,8 +103,9 @@ const _Reactor = ({ reference }: ReactorProps) => {
             reference,
             proceeding: proceedingsState.proceedings[reference],
             generatorState: { setCustomLetterProperty, request, renderLetter },
+            locale,
         }),
-        [reactorState, proceedingsState, reference, setCustomLetterProperty, request, renderLetter]
+        [reactorState, proceedingsState, reference, setCustomLetterProperty, request, renderLetter, locale]
     );
 
     const toPrimitive = useCallback(
@@ -208,13 +216,15 @@ const _Reactor = ({ reference }: ReactorProps) => {
                                                 <div style="margin-top: 10px;">
                                                     <ActionButton
                                                         dropup={true}
-                                                        mailtoDropdownProps={{
-                                                            handlers: (
-                                                                Object.keys(
-                                                                    mailto_handlers
-                                                                ) as (keyof typeof mailto_handlers)[]
-                                                            ).filter((h) => h !== 'copymanually'),
-                                                        }}
+                                                        mailtoDropdownProps={
+                                                            pageOptions?.mailtoDropdown || {
+                                                                handlers: (
+                                                                    Object.keys(
+                                                                        mailto_handlers
+                                                                    ) as (keyof typeof mailto_handlers)[]
+                                                                ).filter((h) => h !== 'copymanually'),
+                                                            }
+                                                        }
                                                         onSuccess={() => {
                                                             proceedingsState.addMessage({
                                                                 reference,
@@ -359,6 +369,7 @@ const _Reactor = ({ reference }: ReactorProps) => {
         [
             steps,
             toPrimitive,
+            reactorState,
             request.custom_data?.content,
             request.custom_data?.subject,
             request.transport_medium,
@@ -367,7 +378,7 @@ const _Reactor = ({ reference }: ReactorProps) => {
             request.recipient_address,
             request.email,
             fillSignature,
-            reactorState,
+            pageOptions?.mailtoDropdown,
             fillFields,
             setCustomLetterProperty,
             renderLetter,

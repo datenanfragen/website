@@ -212,11 +212,9 @@ export const module = createReactorModule('base', {
         {
             id: 'complaint-issue-resolved',
             type: 'options',
-            body: ({ reactorState }): string =>
+            body: ({ reactorState, locale }): string =>
                 `In your admonition, you said that ${new Template(
-                    templates[window.LOCALE as 'de'][
-                        `${reactorState.currentIssueForComplaint()!}::you-said-that::issue`
-                    ],
+                    templates[locale as 'de'][`${reactorState.currentIssueForComplaint()!}::you-said-that::issue`],
                     reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
                     reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
                 ).getText()}
@@ -245,8 +243,8 @@ Has that issue been resolved? And do you want to include it in your complaint?`,
         {
             id: 'complaint-issue-changed',
             type: 'options',
-            body: ({ reactorState }): string => `${new Template(
-                templates[window.LOCALE as 'de'][`${reactorState.currentIssueForComplaint()!}::you-said-that::meta`],
+            body: ({ reactorState, locale }): string => `${new Template(
+                templates[locale as 'de'][`${reactorState.currentIssueForComplaint()!}::you-said-that::meta`],
                 reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
                 reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
             ).getText()}
