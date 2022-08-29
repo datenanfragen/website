@@ -226,19 +226,21 @@ const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
                                                             }
                                                         }
                                                         onSuccess={() => {
-                                                            proceedingsState.addMessage({
-                                                                reference,
-                                                                date: new Date(request.date),
-                                                                type: reactorState.type,
-                                                                transport_medium: request.transport_medium,
-                                                                correspondent_address: request.recipient_address,
-                                                                correspondent_email: request.email,
-                                                                subject: request.custom_data?.subject,
-                                                                content: request.custom_data?.content,
-                                                                sentByMe: true,
-                                                                reactorData: reactorState.moduleData,
-                                                            });
-                                                            setSent(true);
+                                                            if (!request.sent) {
+                                                                proceedingsState.addMessage({
+                                                                    reference,
+                                                                    date: new Date(request.date),
+                                                                    type: reactorState.type,
+                                                                    transport_medium: request.transport_medium,
+                                                                    correspondent_address: request.recipient_address,
+                                                                    correspondent_email: request.email,
+                                                                    subject: request.custom_data?.subject,
+                                                                    content: request.custom_data?.content,
+                                                                    sentByMe: true,
+                                                                    reactorData: reactorState.moduleData,
+                                                                });
+                                                                setSent(true);
+                                                            }
                                                         }}
                                                     />
                                                 </div>
@@ -374,6 +376,7 @@ const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
             request.custom_data?.subject,
             request.transport_medium,
             request.id_data,
+            request.sent,
             request.date,
             request.recipient_address,
             request.email,
