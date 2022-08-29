@@ -3,6 +3,8 @@ import { SetPageFunction } from './App';
 
 type WhatsNextPageProps = {
     setPage: SetPageFunction;
+    /** Function to execute when the 'View your requests' button is clicked. */
+    onViewRequests?: () => void;
 };
 
 export const WhatsNextPage = (props: WhatsNextPageProps) => {
@@ -14,11 +16,21 @@ export const WhatsNextPage = (props: WhatsNextPageProps) => {
             <p>
                 <Text id="whats-next-my-requests" />
             </p>
-            <button className="button button-secondary" onClick={() => alert('TODO')} style="margin-bottom: 10px;">
+            {/* TODO: Add the "export to calendar" button. */}
+            {/* <button className="button button-secondary" onClick={() => alert('TODO')} style="margin-bottom: 10px;">
                 <Text id="export-to-calendar" />
-            </button>
+            </button> */}
             <br />
-            <a className="button button-secondary" href={`${window.BASE_URL}my-requests`} style="margin-bottom: 10px;">
+            <a
+                className="button button-secondary"
+                href={`${window.BASE_URL}my-requests`}
+                onClick={(e) => {
+                    if (props.onViewRequests) {
+                        props.onViewRequests();
+                        e.preventDefault();
+                    }
+                }}
+                style="margin-bottom: 10px;">
                 <Text id="view-requests" />
             </a>
             <br />
