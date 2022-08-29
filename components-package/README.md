@@ -17,12 +17,6 @@ yarn add @datenanfragen/components
 
 First, you either need to call the exported `setupWindow()` function or do the setup in there yourself.
 
-Then, you need to set `window.LOCALE` to the two-letter ISO code of the desired language, e.g.:
-
-```ts
-window.LOCALE = 'en';
-```
-
 You also need the following HTML:
 
 ```html

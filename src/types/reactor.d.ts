@@ -4,6 +4,7 @@ import type { Proceeding } from './proceedings';
 import type { GeneratorState } from '../store/generator';
 import type { IdDataElement } from '../types/request.d';
 import type { ReactorModuleId } from '../Components/Reactor/modules';
+import type { I18nLanguage } from './globals.d';
 
 export type CallbackState = {
     reactorState: ReactorState;
@@ -11,6 +12,7 @@ export type CallbackState = {
     reference: string;
     proceeding: Proceeding;
     generatorState: Pick<GeneratorState, 'setCustomLetterProperty' | 'request' | 'renderLetter'>;
+    locale: I18nLanguage;
 };
 export type StateCallback<ReturnType> = (state: CallbackState) => ReturnType;
 type Condition = boolean | StateCallback<boolean>;

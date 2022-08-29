@@ -25,6 +25,8 @@ type RequestListProps = {
     emptyComponent: ComponentChildren;
     importEmailsButton?: ComponentChildren;
     getBlobFromStorage?: (blobId: string) => Promise<Blob | undefined>;
+    /** Function to execute when the 'React' button is clicked. */
+    onReact?: (reference: string) => void;
 };
 export const RequestList = (props: RequestListProps) => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
@@ -193,6 +195,7 @@ export const RequestList = (props: RequestListProps) => {
                                 <ProceedingRow
                                     proceeding={proceedings[id]}
                                     getBlobFromStorage={props.getBlobFromStorage}
+                                    onReact={props.onReact}
                                 />
                             </li>
                         ))}
@@ -206,6 +209,7 @@ export const RequestList = (props: RequestListProps) => {
 type ProceedingRowProps = {
     proceeding: Proceeding;
     getBlobFromStorage?: (blobId: string) => Promise<Blob | undefined>;
+    onReact?: (reference: string) => void;
 };
 
 export const ProceedingRow = (props: ProceedingRowProps) => {
@@ -401,7 +405,13 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                     style="word-wrap: unset;"
                                     // TODO: This is broken for the language versions that redirect their /generator to
                                     // something else.
-                                    href={`${window.BASE_URL}generator#!reference=${props.proceeding.reference}`}>
+                                    href={`${window.BASE_URL}generator#!reference=${props.proceeding.reference}`}
+                                    onClick={(e) => {
+                                        if (props.onReact) {
+                                            props.onReact(props.proceeding.reference);
+                                            e.preventDefault();
+                                        }
+                                    }}>
                                     <Text id="message-react" />
                                 </a>
                             )}

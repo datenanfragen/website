@@ -13,7 +13,7 @@ import { useCallback, useEffect, useMemo, useState } from 'preact/hooks';
 import { slugify } from '../../../../src/Utility/common';
 
 type ProceedingsListProps<PageId extends string> = {
-    setPage: (newPage: PageId) => void;
+    setPage: (newPage: PageId, params?: Record<string, string>) => void;
     userEmailRegex: string;
 };
 export const ProceedingsList = <PageId extends string>(props: ProceedingsListProps<PageId>) => {
@@ -210,6 +210,9 @@ export const ProceedingsList = <PageId extends string>(props: ProceedingsListPro
                         <div className="clearfix" />
                     </div>
                 }
+                onReact={(reference) => {
+                    props.setPage('reactor' as PageId, { reference });
+                }}
             />
         </IntlProvider>
     );

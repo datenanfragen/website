@@ -11,6 +11,8 @@ import i18n_definition_es from '../../src/i18n/es.json';
 import i18n_definition_hr from '../../src/i18n/hr.json';
 import i18n_definition_nl from '../../src/i18n/nl.json';
 
+import { parameters } from '../../src/Utility/common';
+
 export const languages = {
     de: { base_url: 'https://www.datenanfragen.de/', translations: i18n_definition_de },
     en: { base_url: 'https://www.datarequests.org/', translations: i18n_definition_en },
@@ -55,7 +57,7 @@ export const setupWindow = ({
     );
 
     // @ts-ignore
-    window.PARAMETERS = {};
+    window.PARAMETERS = parameters();
     /* eslint-enable @typescript-eslint/ban-ts-comment */
 };
 
@@ -75,7 +77,8 @@ export { I18nWidget } from '../../src/Components/I18nWidget';
 export { RequestList } from '../../src/Components/RequestList';
 export { ReminderWidget } from '../../src/Components/ReminderWidget';
 export { mailto_handlers } from '../../src/Components/MailtoDropdown';
-export type { EmailData } from '../../src/Components/MailtoDropdown';
+export type { EmailData, MailtoDropdownProps } from '../../src/Components/MailtoDropdown';
+export { Reactor } from '../../src/Components/Reactor/Reactor';
 
 export { default as t, t_r } from '../../src/Utility/i18n';
 export { PrivacyAsyncStorage } from '../../src/Utility/PrivacyAsyncStorage';
