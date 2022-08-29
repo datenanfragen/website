@@ -6,6 +6,7 @@ import type { Company, CompanyPack, SupervisoryAuthority } from '../../../../src
 import type { Country } from '../../../../src/store/app';
 import hardcodedOfflineData from '../../../../static/offline-data.json';
 import { miniSearchOptions } from './search';
+import { objFilter } from '../../../../src/Utility/common';
 
 export type OfflineData = {
     date: string;
@@ -41,6 +42,7 @@ export type CacheStore = OfflineData & {
     miniSearch: MiniSearch;
 
     updateOfflineData: () => Promise<void>;
+    _makeMiniSearch: () => void;
 };
 
 const makeMiniSearch = (companies: Company[]) => {
@@ -51,7 +53,7 @@ const makeMiniSearch = (companies: Company[]) => {
 
 export const useCacheStore = create<CacheStore>(
     persist(
-        (set) => ({
+        (set, get) => ({
             date: hardcodedOfflineData.date,
             'dump-format': hardcodedOfflineData['dump-format'],
             companies: JSON.parse(hardcodedOfflineData.companies),
@@ -79,11 +81,21 @@ export const useCacheStore = create<CacheStore>(
                             </FlashMessage>
                         )
                     ),
+            _makeMiniSearch: () => set({ miniSearch: makeMiniSearch(get().companies) }),
         }),
         {
             name: 'Datenanfragen.de-cache',
             version: 0,
             getStorage: () => cacheStorage,
+            // If we were to store the miniSearch object, only its properties would be stored but all functions would be
+            // lost. Thus, we instead recreate it when rehydrating.
+            // Alternatively, we could also store the JSON-ified index and recreate from that (if we value CPU time more
+            // than storage *shrug*).
+            partialize: (state) => objFilter(state, ([key]) => key !== 'miniSearch'),
+            onRehydrateStorage: () => (state) => {
+                if (!state) return;
+                state._makeMiniSearch();
+            },
         }
     )
 );
