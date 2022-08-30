@@ -1,6 +1,6 @@
 import { Template } from 'letter-generator';
 import { reactorModules } from './index';
-import { templates } from '../templates';
+import { template } from '../templates';
 import { createReactorModule, generateLetterContent } from '../../../Utility/reactor';
 import { ErrorException } from '../../../Utility/errors';
 import { t_r } from '../../../Utility/i18n';
@@ -214,7 +214,7 @@ export const module = createReactorModule('base', {
             type: 'options',
             body: ({ reactorState, locale }): string =>
                 `In your admonition, you said that ${new Template(
-                    templates[locale as 'de'][`${reactorState.currentIssueForComplaint()!}::you-said-that::issue`],
+                    template(locale as 'de', `${reactorState.currentIssueForComplaint()!}::you-said-that::issue`),
                     reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
                     reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
                 ).getText()}
@@ -244,7 +244,7 @@ Has that issue been resolved? And do you want to include it in your complaint?`,
             id: 'complaint-issue-changed',
             type: 'options',
             body: ({ reactorState, locale }): string => `${new Template(
-                templates[locale as 'de'][`${reactorState.currentIssueForComplaint()!}::you-said-that::meta`],
+                template(locale as 'de', `${reactorState.currentIssueForComplaint()!}::you-said-that::meta`),
                 reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
                 reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
             ).getText()}

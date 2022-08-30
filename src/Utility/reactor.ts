@@ -1,7 +1,7 @@
 import { Template } from 'letter-generator';
 import { RequestLetter } from '../DataType/RequestLetter';
 import { getGeneratedMessage } from '../store/proceedings';
-import { templates } from '../Components/Reactor/templates';
+import { template } from '../Components/Reactor/templates';
 import type { SetOptional } from 'type-fest';
 import type {
     ReactorModule,
@@ -55,11 +55,12 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
                     (i, idx) =>
                         // TODO: This looks silly for multi-line issue descriptions.
                         `${idx + 1}. ${new Template(
-                            templates[language][
+                            template(
+                                language,
                                 type === 'admonition'
                                     ? (`${i.moduleId}::${type}` as const)
                                     : (`${i.moduleId}::${type}::${i.resolved ? 'resolved' : 'persists'}` as const)
-                            ],
+                            ),
                             i.issue.flags,
                             i.issue.variables
                         ).getText()}`
@@ -96,5 +97,5 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
         ...reactorState.moduleData.base.issue.flags,
     };
 
-    return new Template(templates[language][`base::${type}`], baseFlags, baseVariables).getText();
+    return new Template(template(language, `base::${type}`), baseFlags, baseVariables).getText();
 };
