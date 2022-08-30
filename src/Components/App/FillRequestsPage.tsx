@@ -87,7 +87,11 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
 
             {/* TODO: Don't we need to call `renderLetter()`? (From a quick investigation: Emails don't need it (even though it does something for emails…) but PDFs do.) */}
             <div className="action-button-row">
-                <SendRequestButton setPage={props.setPage} mailtoDropdownOptions={props.pageOptions?.mailtoDropdown} />
+                <SendRequestButton
+                    setPage={props.setPage}
+                    mailtoDropdownOptions={props.pageOptions?.mailtoDropdown}
+                    actionButtonOptions={props.pageOptions?.actionButton}
+                />
             </div>
         </>
     );

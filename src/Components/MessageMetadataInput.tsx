@@ -45,20 +45,6 @@ export const MessageMetadataInput = (props: MessageMetadataInputProps) => {
                     onChange={(e) => props.onChange({ ...props.message, subject: e.currentTarget.value })}
                 />
             </div>
-            {props.includeContent && (
-                <div className="form-group">
-                    <label htmlFor={`message-metadata-input-content${props.idSuffix ? '-' + props.idSuffix : ''}`}>
-                        <Text id="content" />
-                    </label>
-                    <textarea
-                        id={`message-metadata-input-content${props.idSuffix ? '-' + props.idSuffix : ''}`}
-                        className="form-element"
-                        placeholder={t('content-placeholder', 'my-requests')}
-                        value={props.message.content}
-                        onChange={(e) => props.onChange({ ...props.message, content: e.currentTarget.value })}
-                    />
-                </div>
-            )}
             <fieldset className="form-group label-only-fieldset">
                 <legend>
                     <Text id="sender-direction-label" />

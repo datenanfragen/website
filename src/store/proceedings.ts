@@ -1,5 +1,5 @@
 import type { Request, RequestType } from '../types/request';
-import type { GetMessageResult, Message, MessageId, Proceeding, ProceedingStatus } from '../types/proceedings';
+import type { Content, GetMessageResult, Message, MessageId, Proceeding, ProceedingStatus } from '../types/proceedings';
 import create, { GetState, SetState, StoreApi, Mutate } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { produce } from 'immer';
@@ -16,7 +16,7 @@ import type { ComponentChildren } from 'preact';
 export interface ProceedingsState {
     proceedings: Record<string, Proceeding>;
     addProceeding: (proceeding: Proceeding) => void;
-    addRequest: (request: Request, content?: string) => void;
+    addRequest: (request: Request, content?: Content, extra?: Record<string, string>) => void;
     addMessage: (message: SetOptional<Message, 'id'>) => void;
     removeMessage: (id: MessageId) => void;
     addAttachment: (id: MessageId, file: unknown) => void;
@@ -53,12 +53,13 @@ const proceedingsStore = persist<ProceedingsState>(
                     state.proceedings[proceeding.reference] = proceeding;
                 })
             ),
-        addRequest: (request, content) =>
+        addRequest: (request, content, extra) =>
             get().addProceeding(
                 proceedingFromRequest(
                     request,
                     request.type !== 'custom' ? t_r(`letter-subject-${request.type}`, request.language) : undefined,
-                    content
+                    content,
+                    extra
                 )
             ),
         addMessage: (message) =>
@@ -282,7 +283,8 @@ export const useProceedingsStore =
 export const proceedingFromRequest = (
     request: Request | UserRequest,
     subject?: string,
-    content?: string
+    content?: Content,
+    extra?: Record<string, string>
 ): Proceeding => ({
     reference: request.reference,
     messages: {
@@ -307,6 +309,7 @@ export const proceedingFromRequest = (
             subject,
             content,
             sentByMe: true,
+            extra,
         },
     },
     status: 'waitingForResponse',

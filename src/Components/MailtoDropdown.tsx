@@ -9,14 +9,19 @@ import { RequestLetter } from '../DataType/RequestLetter';
 export type EmailData = { to: string; subject: string; text: string };
 type MailtoHandler = (
     | { link: (data: EmailData) => string }
-    | { onClick: (data: EmailData, showCopyManuallyModal: () => void) => void }
+    | {
+          onClick: (
+              data: EmailData,
+              showCopyManuallyModal: () => void
+          ) => void | Promise<void | { content: ArrayBuffer; messageId: string }>;
+      }
 ) & { countries: Country[] };
 
 export type MailtoDropdownProps = {
     letter: RequestLetter;
     handlers?: (keyof typeof mailto_handlers)[];
     email: string;
-    onSuccess: () => void;
+    onSuccess: (result?: { content: ArrayBuffer; messageId: string }) => void;
     done?: boolean;
     className: string;
     enabled: boolean;
@@ -153,9 +158,10 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
             onClick: (e) => {
                 if (!props.letter) e.preventDefault();
                 else {
-                    if ('onClick' in handler) handler.onClick(data, showCopyManuallyModal);
-
-                    props.onSuccess?.();
+                    let result: Promise<{ content: ArrayBuffer; messageId: string }> | void;
+                    if ('onClick' in handler) result = handler.onClick(data, showCopyManuallyModal);
+                    if (result) result.then((result) => props.onSuccess?.(result));
+                    else props.onSuccess?.();
                 }
             },
             className: 'button button-secondary button-full-width',

@@ -1,3 +1,5 @@
+@import 'variables';
+
 main#app {
     margin-top: 20px;
 }
@@ -39,5 +41,22 @@ main#app {
 
     .button-primary {
         order: -1;
+    }
+}
+
+.imap-import-modal {
+    .imap-import-progress {
+        border-radius: 25px;
+        width: 100%;
+        height: 5px;
+
+        &::-webkit-progress-value {
+            background-color: $primary-color;
+            border-radius: 25px;
+        }
+        &::-moz-progress-bar {
+            background-color: $primary-color;
+            border-radius: 25px;
+        }
     }
 }

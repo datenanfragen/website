@@ -17,11 +17,14 @@ import type { RequestType } from '../types/request.d';
 import { useModal } from './Modal';
 import { MessageMetadataInput } from './MessageMetadataInput';
 import type { ComponentChildren } from 'preact';
+import { ErrorException } from '../Utility/errors';
+import { slugify } from '../Utility/common';
 
 type RequestListProps = {
     /** Component to show if no proceedings are available */
     emptyComponent: ComponentChildren;
     importEmailsButton?: ComponentChildren;
+    getBlobFromStorage?: (blobId: string) => Promise<Blob | undefined>;
 };
 export const RequestList = (props: RequestListProps) => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
@@ -187,7 +190,10 @@ export const RequestList = (props: RequestListProps) => {
                                         }
                                     />
                                 )}
-                                <ProceedingRow proceeding={proceedings[id]} />
+                                <ProceedingRow
+                                    proceeding={proceedings[id]}
+                                    getBlobFromStorage={props.getBlobFromStorage}
+                                />
                             </li>
                         ))}
                     </ul>
@@ -199,6 +205,7 @@ export const RequestList = (props: RequestListProps) => {
 
 type ProceedingRowProps = {
     proceeding: Proceeding;
+    getBlobFromStorage?: (blobId: string) => Promise<Blob | undefined>;
 };
 
 export const ProceedingRow = (props: ProceedingRowProps) => {
@@ -348,7 +355,34 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                         <br />
                                         <button
                                             className="button button-unstyled icon icon-email"
-                                            onClick={() => alert(msg.content)}>
+                                            onClick={() => {
+                                                if (!msg.content) return;
+                                                else if (typeof msg.content === 'string') alert(msg.content);
+                                                else {
+                                                    const filename = msg.content.filename;
+                                                    const blobId = msg.content.blobId;
+                                                    props.getBlobFromStorage?.(blobId).then((pdf) => {
+                                                        if (!pdf)
+                                                            throw new ErrorException(
+                                                                'Content PDF not found in blob storage.',
+                                                                {
+                                                                    message: msg,
+                                                                },
+                                                                'Failed to load content PDF.'
+                                                            );
+                                                        const link = document.createElement('a');
+                                                        link.href = URL.createObjectURL(pdf);
+                                                        link.setAttribute(
+                                                            'download',
+                                                            filename ||
+                                                                `${msg.reference}-${slugify(
+                                                                    msg.subject || 'no-subject'
+                                                                )}-${blobId}.pdf`
+                                                        );
+                                                        link.click();
+                                                    });
+                                                }
+                                            }}>
                                             {msg.subject}
                                         </button>
                                     </>

@@ -9,6 +9,7 @@ import t from '../../Utility/i18n';
 import type { MailtoDropdownProps } from '../MailtoDropdown';
 import type { SearchClient } from '../../Utility/search';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
+import { ActionButtonProps } from '../Generator/ActionButton';
 
 const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
     request_type_chooser: {
@@ -44,6 +45,7 @@ export type SetPageFunction = (newPage: AppPageId) => void;
 export type PageOptions = {
     mailtoDropdown?: Partial<MailtoDropdownProps>;
     searchClient?: (params: Partial<SearchParams>) => SearchClient;
+    actionButton?: Partial<ActionButtonProps>;
 };
 
 type AppProps = {

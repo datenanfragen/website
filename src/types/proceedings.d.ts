@@ -22,11 +22,18 @@ export type Message = {
     correspondent_email: string;
     transport_medium: TransportMedium;
     subject?: string;
-    content?: string;
+    content?: Content;
     sentByMe: boolean;
     reactorData?: ReactorState['moduleData'];
     extra?: Record<string, string | undefined>;
 };
+
+export type Content =
+    | string
+    | {
+          blobId: string;
+          filename?: string;
+      };
 
 export type GetMessageResult = {
     seq: number;
