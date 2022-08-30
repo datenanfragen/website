@@ -4,7 +4,7 @@
         <div id="home-hero-content">
             <div id="home-hero-line-1">{{ T "home-hero-line-1" }} </div>
             <div id="home-hero-line-2"><span id="home-hero-word" aria-hidden="true"><noscript>{{T "home-hero-word"}}</noscript><br></span></div>
-            <a class="button button-primary icon icon-pencil" href="#wizard-anchor">{{ T "home-hero-line-2" }}</a>
+            <a class="button button-primary icon icon-pencil" href="{{ "generator" | absURL }}">{{ T "home-hero-line-2" }}</a>
         </div>
     </div>
 
@@ -16,8 +16,6 @@
     </div>
 
     <div id="wizard-anchor"></div>
-    <noscript class="noscript noscript-wizard">{{ T "noscript-wizard" | safeHTML }}</noscript>
-    <div id="home-wizard"></div>
 
     <div id="home-features">
         <section id="how-it-works" class="feature-section">
