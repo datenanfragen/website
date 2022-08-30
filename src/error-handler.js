@@ -100,6 +100,10 @@ try {
                 return;
             }
 
+            // Ignore annoying idb error on first load, which seems to be harmless. TODO: Fix this properly.
+            if (/The requested version (\d+) is less than the existing version (\d+)/.match(event.error?.message || ''))
+                return;
+
             if (event.error?.no_side_effects && isNetworkError(event.error.message)) {
                 if (!window.navigator.onLine) {
                     // seems like we don't have a network connection in the first place
