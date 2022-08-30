@@ -58,7 +58,9 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
 
     return (
         <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
-            <p>TODO: Quick introductory text.</p>
+            <p>
+                <Text id="app-introduction" />
+            </p>
             <div className="radio-group radio-group-vertical radio-group-padded">
                 {request_types.map((type) => (
                     <RadioWithModal type={type} />

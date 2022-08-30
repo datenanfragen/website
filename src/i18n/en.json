@@ -447,7 +447,8 @@
         "whats-next-my-requests": "You can view your sent requests on the “My requests” page. There, you can follow up on them, including sending warnings or even complain to the data protection authorities if a company doesn’t respond correctly. You can also save a reminder for the request deadlines to your calendar.",
         "export-to-calendar": "Export reminders to your calendar",
         "view-requests": "View your requests",
-        "send-more": "Send more requests"
+        "send-more": "Send more requests",
+        "app-introduction": "We’ll guide you through sending your request(s). Start by choosing what kind of request you want to send."
     },
     "mailto": {
         "mailto": "Default email software",
