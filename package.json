@@ -45,7 +45,6 @@
         "build-components-package": "yarn tsm scripts/build-components-package.ts"
     },
     "dependencies": {
-        "@datenanfragen/components": "/home/benni/coding/git-repos/Datenanfragen.de/website/components-package",
         "autocomplete.js": "^0.37.0",
         "brutusin-json-forms": "https://github.com/brutusin/json-forms",
         "deepmerge": "^4.2.2",
