@@ -11,6 +11,7 @@ import type {
 } from '../types/reactor.d';
 import { REQUEST_ARTICLES } from './requests';
 import { ErrorException } from './errors';
+import t from './i18n';
 
 export const createReactorModule = <ModuleDataT extends ReactorModuleData | undefined, ModuleIdT extends string>(
     id: ModuleIdT,
@@ -99,3 +100,6 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
 
     return new Template(template(language, `base::${type}`), baseFlags, baseVariables).getText();
 };
+
+export const yes = t('yes', 'reactor');
+export const no = t('no', 'reactor');

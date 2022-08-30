@@ -1,4 +1,4 @@
-import { createReactorModule } from '../../../Utility/reactor';
+import { createReactorModule, yes, no } from '../../../Utility/reactor';
 import type { ReactorModuleData } from '../../../types/reactor';
 
 export interface OtherLanguageModuleData extends ReactorModuleData {
@@ -29,26 +29,24 @@ export const module = createReactorModule('other-language', {
         {
             id: 'start',
             type: 'input',
-            body: `Companies have to communicate with you in easily accessible form, using clear and plain language. A company that offers a service in a country should also offer answers in the language that is understood by the people in that country.
-
-What language was your request in?`,
+            body: true,
             variableName: 'request_language',
-            nextStepId: 'other-language::response_language',
+            nextStepId: 'other-language::response-language',
         },
         {
-            id: 'response_language',
+            id: 'response-language',
             type: 'input',
-            body: `What language was the company’s response in?`,
+            body: true,
             variableName: 'response_language',
             nextStepId: 'other-language::does-user-understand-response-language',
         },
         {
             id: 'does-user-understand-response-language',
             type: 'options',
-            body: 'Do you understand the company’s response?',
+            body: true,
             options: [
                 {
-                    text: 'yes',
+                    text: yes,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueFlag(
@@ -58,7 +56,7 @@ What language was your request in?`,
                         ),
                 },
                 {
-                    text: 'no',
+                    text: no,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueFlag('other-language', 'user_does_not_understand_response_language', true),
@@ -73,7 +71,8 @@ What language was your request in?`,
             position: 'before',
             options: [
                 {
-                    text: 'Company answered in a different language.',
+                    id: 'other-language',
+                    text: true,
                     targetStepId: 'other-language::start',
                     onChoose: ({ reactorState }) => reactorState.setIncludeIssue('other-language', true),
                 },

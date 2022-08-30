@@ -36,8 +36,15 @@ export interface ReactorModuleDataMapping {}
 export type ReactorModuleWithDataId = keyof ReactorModuleDataMapping;
 export type ReactorRegularModuleWithDataId = Exclude<ReactorModuleWithDataId, 'base' | 'custom-text'>;
 
-export type ReactorOption = {
-    text: Text;
+export type ReactorOption = (
+    | {
+          id: string;
+          /** If `text` is true, , the option gets a body from the translation with key `<module_id>_<step_id>_option_<option_id>` in the
+           * `reactor` scope. */
+          text: true;
+      }
+    | { text: Text }
+) & {
     targetStepId: string | StateCallback<string>;
     onChoose?: StateCallback<void>;
     hideIf?: Condition;
@@ -45,7 +52,11 @@ export type ReactorOption = {
 };
 
 type MinimalStep = { id: string; onEnter?: StateCallback<void> };
-type StepWithBody = MinimalStep & { body: Text };
+type StepWithBody = MinimalStep & {
+    /** If body is `true`, the step gets a body from the translation with key `<module_id>_<step_id>_body` in the
+     * `reactor` scope. */
+    body: true | Text;
+};
 type OptionStep = StepWithBody & {
     type: 'options';
     options: ReactorOption[];
