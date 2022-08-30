@@ -3,7 +3,7 @@ import { Text, IntlProvider } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { useModal } from '../Modal';
 import { SetPageFunction } from './App';
-import { ActionButton } from '../Generator/ActionButton';
+import { ActionButton, ActionButtonProps } from '../Generator/ActionButton';
 import { MailtoDropdownProps, mailto_handlers } from '../MailtoDropdown';
 import t from '../../Utility/i18n';
 import { JSX } from 'preact';
@@ -11,6 +11,7 @@ import { JSX } from 'preact';
 type SendRequestButtonProps = {
     setPage: SetPageFunction;
     mailtoDropdownOptions?: Partial<MailtoDropdownProps>;
+    actionButtonOptions?: Partial<ActionButtonProps>;
 };
 
 export const SendRequestButton = (props: SendRequestButtonProps) => {
@@ -133,6 +134,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                             ),
                         }
                     }
+                    {...props.actionButtonOptions}
                 />
             ),
             onDismiss: () => {

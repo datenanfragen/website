@@ -48,3 +48,5 @@ export { t_a } from './Utility/i18n';
 export { miniSearchClient } from './Utility/search';
 export { fetchOfflineData, useCacheStore } from './Utility/cache';
 export type { CacheStore, OfflineData } from './Utility/cache';
+export { BlobStorage } from './Utility/BlobStorage';
+export { mail2pdf } from './Utility/mail2pdf';

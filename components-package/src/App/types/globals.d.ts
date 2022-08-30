@@ -1,4 +1,4 @@
-import type { appTranslations } from '../../index';
+import type { appTranslations } from '../index';
 import type { GetMessageResult } from '../../../../src/types/proceedings';
 
 declare global {
@@ -12,6 +12,8 @@ declare global {
             sendMessage: (options: SendMessageOptions) => SendMessageReturn;
             getFolders: () => Promise<string[]>;
             getMessages: (options: GetMessageOptions) => Promise<GetMessageResult[]>;
+            downloadMessage: (folder: string, seq: number) => Promise<ArrayBuffer>;
+            htmlToPdf: (html: string, title?: string, address?: string) => Promise<Blob>;
         };
     }
 }
