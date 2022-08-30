@@ -1,3 +1,5 @@
+import deepmerge from 'deepmerge';
+
 import type { I18nLanguage } from '../../src/types/globals';
 
 import { supported_countries } from './generated/globals.json';
@@ -14,13 +16,22 @@ import i18n_definition_nl from '../../src/i18n/nl.json';
 import { parameters } from '../../src/Utility/common';
 
 export const languages = {
-    de: { base_url: 'https://www.datenanfragen.de/', translations: i18n_definition_de },
+    de: { base_url: 'https://www.datenanfragen.de/', translations: deepmerge(i18n_definition_en, i18n_definition_de) },
     en: { base_url: 'https://www.datarequests.org/', translations: i18n_definition_en },
-    fr: { base_url: 'https://www.demandetesdonnees.fr/', translations: i18n_definition_fr },
-    pt: { base_url: 'https://www.pedidodedados.org/', translations: i18n_definition_pt },
-    es: { base_url: 'https://www.solicituddedatos.es/', translations: i18n_definition_es },
-    hr: { base_url: 'https://www.osobnipodaci.org/', translations: i18n_definition_hr },
-    nl: { base_url: 'https://www.gegevensaanvragen.nl/', translations: i18n_definition_nl },
+    fr: {
+        base_url: 'https://www.demandetesdonnees.fr/',
+        translations: deepmerge(i18n_definition_en, i18n_definition_fr),
+    },
+    pt: { base_url: 'https://www.pedidodedados.org/', translations: deepmerge(i18n_definition_en, i18n_definition_pt) },
+    es: {
+        base_url: 'https://www.solicituddedatos.es/',
+        translations: deepmerge(i18n_definition_en, i18n_definition_es),
+    },
+    hr: { base_url: 'https://www.osobnipodaci.org/', translations: deepmerge(i18n_definition_en, i18n_definition_hr) },
+    nl: {
+        base_url: 'https://www.gegevensaanvragen.nl/',
+        translations: deepmerge(i18n_definition_en, i18n_definition_nl),
+    },
 } as const;
 
 export const setupWindow = ({
