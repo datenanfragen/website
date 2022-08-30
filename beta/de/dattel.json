@@ -1,0 +1,6 @@
+{
+    "$schema": "https://raw.githubusercontent.com/binaro-xyz/dattel-client/master/config-schema.json",
+    "site_id": "beta-de",
+    "headers_file": "../../_headers",
+    "publish_dir": "../../public/de"
+}

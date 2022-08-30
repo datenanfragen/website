@@ -1,8 +1,8 @@
 [de]
-	baseURL = "https://www.datenanfragen.de/"
+	baseURL = "https://beta.datenanfragen.de/"
 
 [en]
-	baseURL = "https://www.datarequests.org/"
+	baseURL = "https://beta.datarequests.org/"
 
 [fr]
 	baseURL = "https://www.demandetesdonnees.fr/"

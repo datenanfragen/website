@@ -53,6 +53,7 @@
                 {{ with imageConfig (replace (printf "static/%s" (T "logo")) ".svg" ".png") }}
                     <img id="logo" src="{{ T "logo" . | absURL }}" title="{{ T "logo-title" . }}" height="{{ .Height }}" width="{{ .Width }}">
                 {{ end }}
+                <span class="dev-mode-indicator" style="font-family: monospace; font-weight: bold; color: #d53f8c; position: absolute; bottom: 22px; right: -25px;">BETA</span>
                 {{ if .Site.Params.devMode }}
                     <span class="dev-mode-indicator" style="font-family: monospace; font-weight: bold; color: #d53f8c; position: absolute; bottom: 22px; right: -25px;">DEV</span>
                 {{ end }}
