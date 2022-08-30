@@ -1,4 +1,4 @@
-import { createReactorModule } from '../../../Utility/reactor';
+import { createReactorModule, yes, no } from '../../../Utility/reactor';
 import type { ReactorModuleData } from '../../../types/reactor';
 
 export interface AdditionalIdModuleData extends ReactorModuleData {
@@ -27,11 +27,11 @@ export const module = createReactorModule('additional-id', {
         {
             id: 'start',
             type: 'options',
-            body: 'Has the company set forth any reasonable doubts concerning your identity that could be remedied using additional identification data? Or are they apparent?',
+            body: true,
             options: [
-                { text: 'yes', targetStepId: 'additional-id::reasonable-doubts' },
+                { text: yes, targetStepId: 'additional-id::reasonable-doubts' },
                 {
-                    text: 'no',
+                    text: no,
                     targetStepId: 'additional-id::no-reasonable-doubts',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIncludeIssue('additional-id', true);
@@ -44,15 +44,15 @@ export const module = createReactorModule('additional-id', {
         {
             id: 'reasonable-doubts',
             type: 'options',
-            body: 'Do you have any objections to these doubts? Do you think the company can sufficiently identify you without this data?',
+            body: true,
             options: [
                 {
-                    text: 'yes',
+                    text: yes,
                     targetStepId: 'additional-id::no-reasonable-doubts',
                     onChoose: ({ reactorState }) => reactorState.setIncludeIssue('additional-id', true),
                 },
                 {
-                    text: 'no',
+                    text: no,
                     targetStepId: 'additional-id::user-no-objections',
                     disableIf: ({ reactorState }) => reactorState.type === 'complaint',
                 },
@@ -61,16 +61,16 @@ export const module = createReactorModule('additional-id', {
         {
             id: 'user-no-objections',
             type: 'options',
-            body: 'Can you/do you want to provide the identification data requested by the company?',
+            body: true,
             options: [
-                { text: 'yes', targetStepId: 'additional-id::provide-data' },
-                { text: 'no', targetStepId: 'base::dead-end' },
+                { text: yes, targetStepId: 'additional-id::provide-data' },
+                { text: no, targetStepId: 'base::dead-end' },
             ],
         },
         {
             id: 'provide-data',
             type: 'dynamic-inputs',
-            body: 'Please enter the additional identification data requested by the company.',
+            body: true,
             storeIn: 'module',
             nextStepId: 'base::issue-done',
         },
@@ -78,23 +78,25 @@ export const module = createReactorModule('additional-id', {
         {
             id: 'no-reasonable-doubts',
             type: 'options',
-            body: 'Why do you think that you’ve sufficiently identified yourself in your request?',
+            body: true,
             options: [
                 {
-                    text: 'The request concerns an online account but the company wants “real-world” identification data.',
+                    id: 'concerns-online-account',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueFlag('additional-id', 'concerns_online_account', true),
                 },
                 {
-                    text: 'The company wants more data than is necessary to identify me for the request.',
+                    id: 'other-reason',
+                    text: true,
                     targetStepId: 'additional-id::explain-reasoning',
                 },
             ],
         },
         {
             id: 'explain-reasoning',
-            body: 'Please explain why the identification data requested by the company is not necessary for the request.',
+            body: true,
             type: 'textarea',
             nextStepId: 'base::issue-done',
             variableName: 'reasoning',
@@ -108,7 +110,8 @@ export const module = createReactorModule('additional-id', {
             position: 'before',
             options: [
                 {
-                    text: 'Company requires additional data for identification.',
+                    id: 'additional-id',
+                    text: true,
                     targetStepId: 'additional-id::start',
                 },
             ],

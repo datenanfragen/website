@@ -157,7 +157,15 @@ const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
                                 <>
                                     <p style="white-space: pre-wrap;">
                                         {new Template(
-                                            toPrimitive(step.body),
+                                            step.body === true
+                                                ? t(
+                                                      `${step.id.replace(
+                                                          '::',
+                                                          '_'
+                                                      )}_body` as 'other-language_start_body',
+                                                      'reactor'
+                                                  )
+                                                : toPrimitive(step.body),
                                             reactorState.moduleData[step.moduleId].issue.flags,
                                             reactorState.moduleData[step.moduleId].issue.variables
                                         ).getText()}
@@ -257,7 +265,16 @@ const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
                                                             option.onChoose?.(callbackState);
                                                             setPage(toPrimitive(option.targetStepId));
                                                         }}
-                                                        label={toPrimitive(option.text)}
+                                                        label={
+                                                            option.text === true
+                                                                ? t(
+                                                                      `${step.id.replace('::', '_')}_option_${
+                                                                          option.id
+                                                                      }` as 'base_select-issue_option_other-language',
+                                                                      'reactor'
+                                                                  )
+                                                                : toPrimitive(option.text)
+                                                        }
                                                         disabled={toPrimitive(option.disableIf)}
                                                     />
                                                 ))}
