@@ -1,0 +1,66 @@
+{
+    "app": {
+        "new-requests": "Neue Anfragen",
+        "proceedings": "Vorgänge",
+        "settings": "Einstellungen"
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "receive-notifications": "Benachrichtungen für fällige Antworten erhalten",
+        "email-settings": "E-Mail Einstellungen (optional)",
+        "email-settings-explanation": "Wenn Du hier deine E-Mail-Zugangsdaten eingibst, kannst Du anfragenbezogene E-Mails in der App senden und empfangen. Deine Zugangsdaten werden natürlich nur auf Deinem Gerät sicher gespeichert und nicht auf unsere Server übertragen.",
+        "imap-heading": "Eingehender Server",
+        "imap-user": "IMAP Benutzer_in",
+        "imap-user-placeholder": "test@example.org",
+        "imap-password": "IMAP Passwort",
+        "imap-host": "IMAP Server Hostname",
+        "imap-port": "IMAP Server Port",
+        "imap-connection-security": "IMAP Übertragungsverschlüsselung",
+        "smtp-heading": "Ausgehender Server",
+        "smtp-user": "SMTP Benutzer_in",
+        "smtp-user-placeholder": "test@example.org",
+        "smtp-password": "SMTP Passwort",
+        "smtp-host": "SMTP Server Hostname",
+        "smtp-port": "SMTP Server Port",
+        "smtp-connection-security": "SMTP Übertragungsverschlüsselung",
+        "show-password": "Passwort beim Tippen anzeigen",
+        "email-connection-security-none": "Keine",
+        "email-connection-security-starttls": "STARTTLS",
+        "email-connection-security-ssl": "SSL/TLS",
+        "test-smtp-connection": "Verbingungseinstellungen testen",
+        "test-smtp-connection-loading": "Test läuft…",
+        "smtp-connection-success": "Deine Verbindung ist richtig eingerichtet!",
+        "smtp-connection-error": "Die Verbindung ist fehlgeschlagen, prüfe Deine Verbingungseinstellungen."
+    },
+    "generator": {
+        "send-email-success": "Die E-Mail wurde erfolgreich abgeschickt!",
+        "send-email-error": "Beim Versender der E-Mail trat ein Fehler auf. Prüfe vielleicht deine SMTP-Einstellungen?"
+    },
+    "proceedings": {
+        "title": "Vorgänge",
+        "explanation": "Hier ist eine Liste aller Anfragen, die Du bisher mit dieser App generiert hast. Du kannst alle Kommunikation Deine Anfragen betreffend hier sammeln und Antworten generieren.",
+        "explanation-saving": "Diese Daten werden <strong>ausschließlich</strong> auf Deine Computer gespeichert und nie an uns geschickt. Sie werden gespeichert bis Du Sie löschst, was Du hier tun kannst. Du kannst auch alle Daten als CSV expoertieren.",
+        "overdue-requests": "überfällige Antworten",
+        "overdue-notification-body": "Eine Antwort auf diese Anfrage ist überfällig. Du kannst reagieren, indem du eine Mahnung oder Beschwerde verschickst, oder sie als beendet markieren, wenn du inzwischen eine zufriedenstellende Antwort des Unternehmens erhalten hast.",
+        "overdue-notification-body-short": "Deine Anfrage hat überfällige Antworten. Reagiere jetzt.",
+        "import-via-imap": "Anfragen aus E-Mail-Ordner importieren",
+        "imap-import-explanation": "Wenn Deine IMAP Verbindung richtig eingerichtet bist, kannst du hier Anfragen aus Deinen E-Mail importieren. Wähle einfachen einen Ordner aus der Liste unten aus. Wir empfehlen für den Import einen extra Ordner zu erstellen und alle zu importierenden E-Mails dorthin zu kopieren.",
+        "imap-import-folder": "Ordner importieren",
+        "imap-folders-loading": "Lade Ordner…",
+        "imap-import-confirm": "Importiere Nachrichten aus diesem Ordner…",
+        "imap-folder-load-error": "IMAP-Ordner konnten nicht geladen werden. Versuch es vielleicht nochmal.",
+        "imap-message-download-error": "Herunterladen einer Nachricht ist fehlgeschlagen.",
+        "imap-message-list-error": "Die Nachrichten konnten nicht vom Server geladen werden.",
+        "imap-import-progress": "{{current}} von {{max}} Nachrichten importiert.",
+        "imap-import-success": "Nachrichten aus \"{{folder}}\" erfolgreich importiert."
+    },
+    "mail2pdf": {
+        "subject": "Betreff",
+        "from": "Von",
+        "date": "Datum",
+        "to": "An",
+        "cc": "CC",
+        "bcc": "BCC",
+        "attachments": "Anhänge"
+    }
+}
