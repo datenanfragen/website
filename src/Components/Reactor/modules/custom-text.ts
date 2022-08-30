@@ -26,7 +26,7 @@ export const module = createReactorModule('custom-text', {
     steps: [
         {
             id: 'start',
-            body: 'Please enter the message you want to send to the company.',
+            body: true,
             type: 'textarea',
             nextStepId: 'base::generate-letter',
             variableName: 'text',
@@ -41,7 +41,8 @@ export const module = createReactorModule('custom-text', {
             position: 'before',
             options: [
                 {
-                    text: 'I want to write my own message.',
+                    id: 'custom-text',
+                    text: true,
                     targetStepId: 'custom-text::start',
                     hideIf: ({ reactorState }) =>
                         reactorState.type === 'complaint' || Object.keys(reactorState.activeModules()).length > 0,

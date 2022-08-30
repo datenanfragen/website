@@ -1,13 +1,13 @@
 import { Template } from 'letter-generator';
-import { reactorModules } from './index';
-import { template } from '../templates';
-import { createReactorModule, generateLetterContent } from '../../../Utility/reactor';
-import { ErrorException } from '../../../Utility/errors';
-import { t_r } from '../../../Utility/i18n';
-import { objFilter, objMap } from '../../../Utility/common';
-import { REQUEST_ARTICLES } from '../../../Utility/requests';
 import { getGeneratedMessage } from '../../../store/proceedings';
 import type { ReactorModuleData, ReactorRegularModuleWithDataId } from '../../../types/reactor';
+import { objFilter, objMap } from '../../../Utility/common';
+import { ErrorException } from '../../../Utility/errors';
+import t, { t_r } from '../../../Utility/i18n';
+import { createReactorModule, generateLetterContent, yes, no } from '../../../Utility/reactor';
+import { REQUEST_ARTICLES } from '../../../Utility/requests';
+import { template } from '../templates';
+import { reactorModules } from './index';
 
 export interface BaseModuleData extends ReactorModuleData {
     issue: {
@@ -50,19 +50,20 @@ export const module = createReactorModule('base', {
             type: 'options',
             body: ({ proceeding }) =>
                 getGeneratedMessage(proceeding, 'complaint')
-                    ? 'You have already sent an admonition to the company and lodged a complaint with the supervisory authorities. Do you want to send a free text response to the company now?'
-                    : 'You have already sent an admonition to the company. Do you want to send a free text response or lodge a complaint with the supervisory authorities now?',
+                    ? t('base_response-or-complaint_body_has-complaint', 'reactor')
+                    : t('base_response-or-complaint_body_has-admonition', 'reactor'),
             options: [
-                { text: 'Write a free text response to the company.', targetStepId: 'custom-text::start' },
+                { id: 'free', text: true, targetStepId: 'custom-text::start' },
                 {
-                    text: 'Generate a complaint.',
+                    id: 'complaint',
+                    text: true,
                     targetStepId: 'base::complaint-check-time-since-admonition',
                     onChoose: ({ reactorState }) => reactorState.setType('complaint'),
                     hideIf: ({ proceeding }): boolean =>
                         getGeneratedMessage(proceeding, 'complaint') !== undefined ||
                         !getGeneratedMessage(proceeding, 'admonition')?.reactorData,
                 },
-                { text: 'Nevermind, mark the request as completed.', targetStepId: 'base::nevermind' },
+                { id: 'nevermind', text: true, targetStepId: 'base::nevermind' },
             ],
         },
 
@@ -81,19 +82,20 @@ export const module = createReactorModule('base', {
             body: ({ reactorState }) =>
                 reactorState.type === 'admonition'
                     ? Object.keys(reactorState.activeModules()).length > 0
-                        ? 'Anything else?'
-                        : 'Has there been a problem with your request?'
-                    : 'Do you want to mention any additional issues in your complaint?',
+                        ? t('base_select-issue_body_anything-else', 'reactor')
+                        : t('base_select-issue_body_problem', 'reactor')
+                    : t('base_select-issue_body_additional-issues', 'reactor'),
             options: [
                 // These are filled by hooks from the individual modules.
                 {
-                    text: ({ reactorState }) => `Generate ${reactorState.type} based on your answers.`,
+                    text: ({ reactorState }) => t(`base_select-issue_option_generate-${reactorState.type}`, 'reactor'),
                     targetStepId: ({ reactorState }) =>
                         reactorState.type === 'admonition' ? 'base::generate-letter' : 'base::complaint-choose-sva',
                     hideIf: ({ reactorState }) => Object.keys(reactorState.activeModules()).length < 1,
                 },
                 {
-                    text: 'No. Quit wizard and mark request as completed.',
+                    id: 'completed',
+                    text: true,
                     targetStepId: 'base::nevermind',
                     hideIf: ({ reactorState }) => Object.keys(reactorState.activeModules()).length > 0,
                 },
@@ -134,10 +136,10 @@ export const module = createReactorModule('base', {
         {
             id: 'complaint-less-than-two-weeks',
             type: 'options',
-            body: 'In your admonition, you gave the company a deadline of two weeks. Those have not passed yet. If the company has since denied to comply with your request, it is of course fine to lodge a complaint now. Otherwise, you should wait until the deadline has passed. What do you want to do?',
+            body: true,
             options: [
-                { text: 'Continue with the complaint.', targetStepId: 'base::complaint-intro' },
-                { text: 'Write a free text response to the company instead.', targetStepId: 'custom-text::start' },
+                { id: 'complaint', text: true, targetStepId: 'base::complaint-intro' },
+                { id: 'free', text: true, targetStepId: 'custom-text::start' },
             ],
         },
         // TODO: Skip straight to base::select-issue if there are no issues we can include in complaint.
@@ -145,8 +147,8 @@ export const module = createReactorModule('base', {
         {
             id: 'complaint-intro',
             type: 'options',
-            body: 'We’ll go through each of the issues you raised in your previous response to the controller.',
-            options: [{ text: 'Next', targetStepId: 'base::complaint-next-issue' }],
+            body: true,
+            options: [{ id: 'next', text: true, targetStepId: 'base::complaint-next-issue' }],
             onEnter: (state) => {
                 const defaultModuleData = state.reactorState.moduleData;
 
@@ -213,16 +215,17 @@ export const module = createReactorModule('base', {
             id: 'complaint-issue-resolved',
             type: 'options',
             body: ({ reactorState, locale }): string =>
-                `In your admonition, you said that ${new Template(
-                    template(locale as 'de', `${reactorState.currentIssueForComplaint()!}::you-said-that::issue`),
-                    reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
-                    reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
-                ).getText()}
-
-Has that issue been resolved? And do you want to include it in your complaint?`,
+                t('base_complaint-issue-resolved_body', 'reactor', {
+                    youSaidThat: new Template(
+                        template(locale as 'de', `${reactorState.currentIssueForComplaint()!}::you-said-that::issue`),
+                        reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
+                        reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
+                    ).getText(),
+                }),
             options: [
                 {
-                    text: 'Issue resolved, include in complaint.',
+                    id: 'resolved-include',
+                    text: true,
                     targetStepId: 'base::complaint-next-issue',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIncludeIssue(reactorState.currentIssueForComplaint()!, true);
@@ -230,30 +233,33 @@ Has that issue been resolved? And do you want to include it in your complaint?`,
                     },
                 },
                 {
-                    text: 'Issue persists, include in complaint.',
+                    id: 'persists-include',
+                    text: true,
                     targetStepId: 'base::complaint-issue-changed',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIncludeIssue(reactorState.currentIssueForComplaint()!, true);
                         reactorState.setResolved(reactorState.currentIssueForComplaint()!, false);
                     },
                 },
-                { text: 'Ignore issue in complaint.', targetStepId: 'base::complaint-next-issue' },
+                { id: 'ignore', text: true, targetStepId: 'base::complaint-next-issue' },
             ],
         },
         {
             id: 'complaint-issue-changed',
             type: 'options',
-            body: ({ reactorState, locale }): string => `${new Template(
-                template(locale as 'de', `${reactorState.currentIssueForComplaint()!}::you-said-that::meta`),
-                reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
-                reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
-            ).getText()}
-
-If the situation regarding this issue changed since your admonition to the controller, you need to answer the questions again. Otherwise, we can just use your previous answers.`,
+            body: ({ reactorState, locale }): string =>
+                t('base_complaint-issue-changed_body', 'reactor', {
+                    youSaidThat: new Template(
+                        template(locale as 'de', `${reactorState.currentIssueForComplaint()!}::you-said-that::meta`),
+                        reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.flags,
+                        reactorState.moduleData[reactorState.currentIssueForComplaint()!]?.issue.variables
+                    ).getText(),
+                }),
             options: [
-                { text: 'Use previous answers.', targetStepId: 'base::complaint-next-issue' },
+                { id: 'use-prev', text: true, targetStepId: 'base::complaint-next-issue' },
                 {
-                    text: 'Go through questions again.',
+                    id: 'again',
+                    text: true,
                     targetStepId: ({ reactorState }) => `${reactorState.currentIssueForComplaint()}::start`,
                 },
             ],
@@ -261,23 +267,23 @@ If the situation regarding this issue changed since your admonition to the contr
         {
             id: 'complaint-choose-sva',
             type: 'sva-finder',
-            body: 'Now, we need to find the supervisory authority that is responsible for your complaint. We’ll guide you through the process, just answer the questions.',
+            body: true,
             nextStepId: 'base::complaint-id-data',
         },
         {
             id: 'complaint-id-data',
             type: 'dynamic-inputs',
-            body: 'How do you want the supervisory authority to contact you?',
+            body: true,
             storeIn: 'id_data',
             nextStepId: 'base::complaint-share-data',
         },
         {
             id: 'complaint-share-data',
             type: 'options',
-            body: 'Can the supervisory authority share your details with the company? Note that most authorities say that they usually cannot process your individual complaint unless you allow this. They will however still view it as a suggestion to look into the company.',
+            body: true,
             options: [
                 {
-                    text: 'yes',
+                    text: yes,
                     targetStepId: 'base::generate-letter',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIssueFlag('base', 'allow_sharing_data_with_controller', true);
@@ -285,7 +291,7 @@ If the situation regarding this issue changed since your admonition to the contr
                     },
                 },
                 {
-                    text: 'no',
+                    text: no,
                     targetStepId: 'base::generate-letter',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIssueFlag('base', 'allow_sharing_data_with_controller', false);
@@ -298,12 +304,7 @@ If the situation regarding this issue changed since your admonition to the contr
         {
             id: 'generate-letter',
             type: 'letter',
-            body: ({ reactorState }) =>
-                `Here’s your generated ${
-                    reactorState.type
-                }. Please check the text and edit it if necessary. Afterwards, you’ll need to send it to the ${
-                    reactorState.type === 'complaint' ? 'supervisory authority' : 'company'
-                }.`,
+            body: ({ reactorState }) => t(`base_generate-letter_body_${reactorState.type}`, 'reactor'),
             onEnter: (callbackState) => {
                 const originalRequest = getGeneratedMessage(callbackState.proceeding, 'request')!;
 
@@ -333,9 +334,9 @@ If the situation regarding this issue changed since your admonition to the contr
         {
             id: 'nevermind',
             type: 'options',
-            body: 'You’ve marked this request as completed.',
+            body: true,
             onEnter: ({ reference, proceedingsState }) => proceedingsState.setProceedingStatus(reference, 'done'),
-            options: [{ text: 'Back to “My requests”', targetStepId: 'base::to-my-requests' }],
+            options: [{ id: 'back', text: true, targetStepId: 'base::to-my-requests' }],
         },
         {
             id: 'to-my-requests',
@@ -347,10 +348,11 @@ If the situation regarding this issue changed since your admonition to the contr
             id: 'dead-end',
             type: 'options',
             // TODO: 'or provide your own'
-            body: 'In this case, we cannot proceed with the problem you selected. This could mean that the company acted correctly. But it could also just be that this tool doesn’t support your particular case (yet). You can continue with another reason, if applicable.',
+            body: true,
             options: [
                 {
-                    text: 'Check if there is another problem with the company’s response.',
+                    id: 'next',
+                    text: true,
                     targetStepId: 'base::issue-done',
                 },
             ],
