@@ -44,7 +44,7 @@ export const ReminderWidget = () => {
                                 <br />
                                 <a
                                     className="button button-small"
-                                    href={`${window.BASE_URL}app?reference=${p.reference}`}>
+                                    href={`${window.BASE_URL}generator?reference=${p.reference}`}>
                                     <Text id="message-react" />
                                 </a>{' '}
                                 <button
