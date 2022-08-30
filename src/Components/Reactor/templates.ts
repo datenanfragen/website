@@ -1,6 +1,6 @@
 // TODO: These don't belong here!
 
-export const templates = {
+const templates = {
     de: {
         'base::admonition': `Guten Tag,
 
@@ -45,42 +45,6 @@ Sollten Sie weitere Informationen von mir benötigen, wenden Sie sich gerne an m
 Ich bedanke mich bereits im Voraus für Ihre Unterstützung.
 
 Mit freundlichen Grüßen`,
-
-        'additional-id::admonition': `TODO`,
-        'additional-id::you-said-that::issue': `TODO`,
-        'additional-id::you-said-that::meta': `TODO`,
-        'additional-id::complaint::persists': `TODO`,
-        'additional-id::complaint::resolved': `TODO`,
-        'id-copy::admonition': `TODO`,
-        'id-copy::you-said-that::issue': `TODO`,
-        'id-copy::you-said-that::meta': `TODO`,
-        'id-copy::complaint::persists': `TODO`,
-        'id-copy::complaint::resolved': `TODO`,
-        'wrong-medium::admonition': `TODO`,
-        'wrong-medium::you-said-that::issue': `TODO`,
-        'wrong-medium::you-said-that::meta': `TODO`,
-        'wrong-medium::complaint::persists': `TODO`,
-        'wrong-medium::complaint::resolved': `TODO`,
-        'signature::admonition': `TODO`,
-        'signature::you-said-that::issue': `TODO`,
-        'signature::you-said-that::meta': `TODO`,
-        'signature::complaint::persists': `TODO`,
-        'signature::complaint::resolved': `TODO`,
-        'other-language::admonition': `TODO`,
-        'other-language::you-said-that::issue': `TODO`,
-        'other-language::you-said-that::meta': `TODO`,
-        'other-language::complaint::persists': `TODO`,
-        'other-language::complaint::resolved': `TODO`,
-        'excessive::admonition': `TODO`,
-        'excessive::you-said-that::issue': `TODO`,
-        'excessive::you-said-that::meta': `TODO`,
-        'excessive::complaint::persists': `TODO`,
-        'excessive::complaint::resolved': `TODO`,
-        'overdue::admonition': `TODO`,
-        'overdue::you-said-that::issue': `TODO`,
-        'overdue::you-said-that::meta': `TODO`,
-        'overdue::complaint::persists': `TODO`,
-        'overdue::complaint::resolved': `TODO`,
     },
     en: {
         'base::admonition': `To Whom It May Concern:
@@ -188,4 +152,10 @@ I have still not received an answer to my request.`,
         'overdue::complaint::resolved': `The controller took too long to answer my request. According to Art. 12(3) GDPR, they had one month from the receipt of my request to answer it. I sent my request on {request_date}. According to Art. 12(3) GDPR, the period can be extended for an additional two months only if necessary and if they inform me of the extension and its reason. [no_information_about_extension>The controller did not do that.][has:reasoning>The reason the controller gave for the extension is not acceptable in my opinion: {reasoning}]
 The controller has now answered my request but still violated the GDPR by exceeding the period.`,
     },
+};
+
+export const template = (lang: keyof typeof templates, template: keyof typeof templates.en) => {
+    const res = templates[lang as 'en']?.[template];
+    if (res) return res;
+    return templates.en[template];
 };
