@@ -1,10 +1,12 @@
 import type { I18nLanguage } from '../../../src/types/globals';
 import type { Country } from '../../../src/store/app';
 import i18nDefinitionAppEn from './i18n/en.json';
+import i18nDefinitionAppDe from './i18n/de.json';
 import { useCacheStore } from './Utility/cache';
 
 export const appTranslations = {
     en: i18nDefinitionAppEn,
+    de: i18nDefinitionAppDe,
 };
 export const setupWindowForApp = (locale: I18nLanguage) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
