@@ -53,7 +53,7 @@
         "overdue-notification-body": "Your request is overdue. You can now react by sending an admonition or complaint, or mark it as completed if you have since received a satisfactory response from the company.",
         "overdue-notification-body-short": "Your request is overdue. React now.",
         "import-via-imap": "Import requests from email folder",
-        "imap-import-explanation": "If your IMAP connection is correctly setup, you can import requests from your email folder here. Just choose a folder from the list below. We recommend to create a folder for this purpose and move emails you want to import into it.",
+        "imap-import-explanation": "If your IMAP connection is correctly setup, you can import requests from your email folder here. Just choose a folder from the list below. We recommend to create a folder for this purpose and copy or move emails you want to import into it.",
         "imap-import-folder": "Import Folder",
         "imap-folders-loading": "Loading folders…",
         "imap-import-confirm": "Import messages from this folder…",
