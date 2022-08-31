@@ -9,7 +9,7 @@ const companies = glob
     .map((f) => JSON.parse(f));
 
 const svas = glob
-    .sync('*.json', { cwd: join(dirname(dirname()), '..', 'static', 'sva', 'db'), absolute: true })
+    .sync('*.json', { cwd: join(dirname(dirname()), '..', 'static', 'db', 'sva'), absolute: true })
     .map((p) => readFileSync(p, 'utf8'))
     .map((f) => JSON.parse(f));
 
