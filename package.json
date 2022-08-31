@@ -53,6 +53,7 @@
         "letter-generator": "^2.0.2",
         "libphonenumber-js": "^1.7.23",
         "localforage": "^1.7.1",
+        "minisearch": "^5.0.0",
         "pdfkit": "^0.12.1",
         "preact": "^10.5.5",
         "preact-i18n": "^2.3.0-preactx",
