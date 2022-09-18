@@ -16,9 +16,9 @@
         </a>
         <aside class="list-article-meta">
             {{ if eq .Type "event" }}
-                <strong>{{ T "event-date" }}</strong>: <span class="meta-date">{{ with .Params.date }}<time pubdate
-                    datetime="{{ .Format "2006-01-02T15:04" }}">{{ .Format "2006-01-02" }} {{ T "blog-time-at" }}
-                    {{ .Format "15:04" }}</time>{{- end -}}
+                <strong>{{ T "event-date" }}</strong>: <span class="meta-date">{{ with .Params.event_date }}<time pubdate
+                    datetime="{{ time.Format "2006-01-02T15:04" . }}">{{ time.Format "2006-01-02" . }} {{ T "blog-time-at" }}
+                    {{ time.Format "15:04" . }}</time>{{- end -}}
                 {{ with .Params.place }}<br><strong>{{ T "event-place" }}</strong>:
                 <span class="meta-event-place">
                     {{ if isset . "online" }}
