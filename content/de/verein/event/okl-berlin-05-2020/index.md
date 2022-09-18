@@ -1,7 +1,7 @@
 {
     "title": "Online-Vortrag beim Open Knowledge Lab Berlin (Auf Englisch)",
     "type": "event",
-    "date": "2020-05-11T19:00:00+02:00",
+    "event_date": "2020-05-11T19:00:00+02:00",
     "duration": "43m",
     "place": {
         "online": "https://bbb.ulm.dev/b/ok-lab-berlin"
