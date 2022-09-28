@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import '@percy/cypress';
-
+import '@this-dot/cypress-indexeddb';
 /**
  * Click a link without following its `href`. This is useful for `mailto` links and file downloads as Cypress doesn't
  * support those.

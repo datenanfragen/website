@@ -34,29 +34,22 @@ const complaint = {
 
 describe('Saved requests in the legacy database should be correctly migrated', () => {
     beforeEach(() => {
-        cy.visit('/');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(500);
-
-        // Clear the persisted data so that migration will start again
-        cy.window().then((win) => win.accessPrivacyAsyncStorage('proceedings').clear());
+        // Set IndexedDB to the state localforage creates
+        cy.clearIndexedDb('Datenanfragen.de');
+        cy.openIndexedDb('Datenanfragen.de').as('dadeDB').createObjectStore('id-data');
+        cy.getIndexedDb('@dadeDB').createObjectStore('local-forage-detect-blob-support');
+        cy.getIndexedDb('@dadeDB').createObjectStore('wizard-companies');
+        cy.getIndexedDb('@dadeDB').createObjectStore('my-requests').as('myRequestsStore');
     });
 
-    it('Migrate a normal proceeding', () => {
+    it('Migrates a normal proceeding', () => {
         // Add test data
-        cy.window().then((win) =>
-            win
-                .accessLocalForageStore('my-requests')
-                .setItem(`${reference}-access`, accessRequest)
-                .then(() =>
-                    win.accessLocalForageStore('my-requests').setItem(`${reference}-custom-admonition`, admonition)
-                )
-                .then(() =>
-                    win.accessLocalForageStore('my-requests').setItem(`${reference}-custom-complaint`, complaint)
-                )
-        );
+        cy.getStore('@myRequestsStore')
+            .createItem(`${reference}-custom-admonition`, admonition)
+            .createItem(`${reference}-access`, accessRequest)
+            .createItem(`${reference}-custom-complaint`, complaint);
 
-        // Reload to start migration
+        // Load to start migration
         cy.visit('/');
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
@@ -84,6 +77,7 @@ describe('Saved requests in the legacy database should be correctly migrated', (
                         subject: undefined,
                         content: undefined,
                         sentByMe: true,
+                        extra: undefined,
                     },
                     '2022-KKD2YF1-01': {
                         reference: '2022-KKD2YF1',
@@ -109,6 +103,41 @@ describe('Saved requests in the legacy database should be correctly migrated', (
                     },
                 },
                 status: 'waitingForResponse',
+            });
+    });
+
+    it('Migrates a single admoinition', () => {
+        // Add test data
+        cy.getStore('@myRequestsStore').createItem(`${reference}-custom-admonition`, admonition);
+
+        // Load to start migration
+        cy.visit('/');
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(500);
+        cy.window()
+            .then((win) => win.getProceedingsStore()._migratedLegacyRequests)
+            .should('be.equal', true);
+        cy.window()
+            .then((win) => win.getProceedingsStore().proceedings)
+            .should('haveOwnProperty', reference)
+            .then((proceedings) => proceedings[reference])
+            .should('deep.equal', {
+                reference: '2022-KKD2YF1',
+                messages: {
+                    '2022-KKD2YF1-00': {
+                        reference: '2022-KKD2YF1',
+                        correspondent_address:
+                            'Datenanfragen.de e. V.\nSchreinerweg 6\n38126 Braunschweig\nDeutschland',
+                        transport_medium: 'email',
+                        type: 'admonition',
+                        date: new Date('2022-07-14T00:00:00.000Z'),
+                        correspondent_email: 'datenschutz@datenanfragen.de',
+                        id: '2022-KKD2YF1-00',
+                        sentByMe: true,
+                    },
+                },
+                status: 'done',
             });
     });
 });
