@@ -47,17 +47,26 @@ export class PrivacyAsyncStorage {
                         this.#db = undefined;
                     },
                 })
-                    .catch((e) => {
+                    .catch((e: DOMException) => {
                         if (e.name === 'InvalidStateError') {
-                            // Database is not writable, we a probably in Firefox' private browsing mode
+                            // Database is not writable, we are probably in Firefox' private browsing mode
                             this.#storageType = 'localStorage';
                             this.#db = localStorage;
                             return this.#db;
+                        } else if (e.name === 'VersionError') {
+                            // The version is too low, let's guess the correct version from the error message.
+                            const version_match = e.message.match(
+                                /The requested version \((\d+)\) is less than the existing version \((\d+)\)./g
+                            );
+                            this.#options.version = version_match
+                                ? parseInt(version_match[2], 10)
+                                : (this.#options.version || 1) + 1;
+                            return;
                         }
                         rethrow(e);
                     })
                     .then((db) => {
-                        if (!db?.objectStoreNames.contains(this.#options.storeName)) {
+                        if (db && !db.objectStoreNames.contains(this.#options.storeName)) {
                             // The store is mssing, enforce an update!
                             this.#options.version = db?.version + 1;
                             db?.close();
@@ -128,7 +137,7 @@ export class PrivacyAsyncStorage {
 
     static async doesStoreExist(name: string, storeName: string) {
         const db: IDBPDatabase | void = await openDB(name, undefined, { blocking: () => db?.close() }).catch((e) => {
-            if (e.name === 'InvalidStateError') {
+            if (e.name === 'InvalidStateError' && e.name === 'VersionError') {
                 db?.close();
                 return;
             }
