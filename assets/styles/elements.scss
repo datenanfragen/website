@@ -1114,71 +1114,63 @@ details.footnote {
 
     .batch-breadcrumb {
         flex-grow: 1;
-        a,
-        span {
-            width: 100%;
-            display: inline-block;
-            text-align: center;
-            padding: 8px 0 8px 65px;
-            color: $text-color;
-            background-color: color('gray', 400);
-            text-decoration: none !important;
-            position: relative;
-            box-sizing: border-box;
-            font-size: 0.9rem;
+        flex-basis: 0;
+        flex-shrink: 1;
+        min-width: 0;
+        position: relative;
+        background-color: color('gray', 400);
+
+        &.batch-breadcrumb-active {
+            background-color: $accent_color;
+            .batch-breadcrumb-content {
+                color: $bg-color;
+            }
 
             &::after {
-                content: ' ';
-                display: block;
-                width: 0;
-                height: 0;
-                border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
-                border-bottom: 50px solid transparent;
-                border-left: 30px solid color('gray', 400);
-                position: absolute;
-                top: 50%;
-                margin-top: -50px;
-                left: 100%;
-                z-index: 2;
-            }
-
-            &::before {
-                content: ' ';
-                display: block;
-                width: 0;
-                height: 0;
-                border-top: 50px solid transparent;
-                border-bottom: 50px solid transparent;
-                border-left: 30px solid $bg-color;
-                position: absolute;
-                top: 50%;
-                margin-top: -50px;
-                margin-left: 1px;
-                left: 100%;
-                z-index: 1;
-            }
-
-            &.batch-breadcrumb-sent {
-                background-color: $bg-accent-color;
-
-                &::after {
-                    border-left-color: $bg-accent-color;
-                }
-            }
-
-            &.batch-breadcrumb-active {
                 background-color: $accent_color;
-                color: $bg-color;
-
-                &::after {
-                    border-left-color: $accent_color;
-                }
             }
         }
 
+        &.batch-breadcrumb-sent {
+            background-color: $bg-accent-color;
+
+            &::after {
+                background-color: $bg-accent-color;
+            }
+        }
+
+        &::after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 100%;
+            z-index: 3;
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+            background-color: color('gray', 400);
+            height: 100%;
+            width: 25px;
+            top: 0;
+        }
+
+        &::before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            z-index: 2;
+            clip-path: polygon(0 0, 2px 0, 100% 50%, 2px 100%, 0 100%);
+            height: 100%;
+            width: 27px;
+            background-color: $bg-color;
+            top: 0;
+        }
+
         &:first-child {
-            a,
-            span {
+            &::before {
+                display: none;
+            }
+
+            .batch-breadcrumb-content {
                 padding-left: 10px;
             }
         }
@@ -1186,20 +1178,27 @@ details.footnote {
         /* This is for either desktop or mobile, of which only one is visible at each time. */
         &:nth-last-child(1).mobile-only,
         &:nth-last-child(2).desktop-only {
-            a,
-            span {
+            .batch-breadcrumb-content {
                 padding-right: 10px;
-                padding-left: 40px;
-
-                &::after {
-                    border: 0;
-                    content: none;
-                }
-                &::before {
-                    border: 0;
-                    content: none;
-                }
             }
+
+            &::after {
+                display: none;
+            }
+        }
+
+        .batch-breadcrumb-content {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 8px 0 8px 33px;
+            color: $text-color;
+            text-decoration: none !important;
+            font-size: 0.9rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
     }
 }
