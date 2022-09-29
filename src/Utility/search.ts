@@ -55,3 +55,11 @@ export const instantSearchClient = (searchParams?: Omit<Partial<SearchParams>, '
 
         additionalSearchParameters: { ...defaultSearchParams, ...searchParams },
     }).searchClient;
+
+/**
+ * This is a dummy search client that doesn't do anything and only ever returns an empty results array. We use it when
+ * the user has disabled the search via the privacy controls.
+ */
+export const disabledSearchClient = {
+    search: () => Promise.resolve({ results: [] }),
+};
