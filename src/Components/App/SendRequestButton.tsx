@@ -7,6 +7,7 @@ import { ActionButton, ActionButtonProps } from '../Generator/ActionButton';
 import { MailtoDropdownProps, mailto_handlers } from '../MailtoDropdown';
 import t from '../../Utility/i18n';
 import { JSX } from 'preact';
+import { useProceedingsStore } from '../../store/proceedings';
 
 type SendRequestButtonProps = {
     setPage: SetPageFunction;
@@ -19,15 +20,30 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const letter = useGeneratorStore((state) => state.letter);
     const request = useGeneratorStore((state) => state.request);
-    const [batch, current_company, resetRequestToDefault, markCurrentBatchCompanyDone, removeFromBatch] =
-        useGeneratorStore((state) => [
-            state.batch,
-            state.current_company,
-            state.resetRequestToDefault,
-            state.markCurrentBatchCompanyDone,
-            state.removeFromBatch,
-        ]);
+    const [
+        batch,
+        current_company,
+        resetRequestToDefault,
+        markCurrentBatchCompanyDone,
+        removeFromBatch,
+        getRequestForSaving,
+        setSent,
+    ] = useGeneratorStore((state) => [
+        state.batch,
+        state.current_company,
+        state.resetRequestToDefault,
+        state.markCurrentBatchCompanyDone,
+        state.removeFromBatch,
+        state.getRequestForSaving,
+        state.setSent,
+    ]);
     const remainingBatchEntriesCount = Object.values(batch || {}).filter((e) => !e.done).length || 0;
+    const addRequest = useProceedingsStore((state) => state.addRequest);
+
+    const finishRequest = useCallback(() => {
+        addRequest(getRequestForSaving());
+        setSent(true);
+    }, [addRequest, setSent, getRequestForSaving]);
 
     useEffect(() => {
         if (request.transport_medium !== 'email') return initiatePdfGeneration();
@@ -102,6 +118,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                     className="form-element"
                     rows={10}
                     onClick={onModalInputClick}
+                    onCopy={finishRequest}
                     readOnly>
                     {/* TODO: For PDFs, this renders the barcode as `[object Object]`. *sigh* */}
                     {request.transport_medium === 'email' ? letter().toEmailString() : letter().toString()}
