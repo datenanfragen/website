@@ -108,47 +108,54 @@ const BatchBreadcrumbs = () => {
         <nav>
             <ol className="batch-breadcrumbs">
                 {completed_request_num >= 1 && (
-                    <li className="batch-breadcrumb">
-                        <span className="batch-breadcrumb-sent">
+                    <li className="batch-breadcrumb batch-breadcrumb-sent">
+                        <div className="batch-breadcrumb-content ">
                             <Text
                                 id="batch-breadcrumbs-sent"
                                 plural={completed_request_num}
                                 fields={{ sent: completed_request_num }}
                             />
-                        </span>
+                        </div>
                     </li>
                 )}
                 {current_company && (
-                    <li className="batch-breadcrumb" aria-current="page">
-                        <span className="batch-breadcrumb-active">{current_company.name}</span>
+                    <li
+                        className="batch-breadcrumb batch-breadcrumb-active"
+                        aria-current="page"
+                        title={current_company.name}>
+                        <div className="batch-breadcrumb-content">{current_company.name}</div>
                     </li>
                 )}
                 {batch && current_company_index + 1 < batch_length && (
-                    <li className="batch-breadcrumb desktop-only">
-                        <span>{Object.entries(batch)[current_company_index + 1][1].company.name}</span>
+                    <li
+                        className="batch-breadcrumb desktop-only"
+                        title={Object.entries(batch)[current_company_index + 1][1].company.name}>
+                        <div className="batch-breadcrumb-content">
+                            {Object.entries(batch)[current_company_index + 1][1].company.name}
+                        </div>
                     </li>
                 )}
                 {remaining_requests_num >= 2 && (
                     <li className="batch-breadcrumb desktop-only">
-                        <span>
+                        <div className="batch-breadcrumb-content">
                             <Text
                                 id="batch-breadcrumbs-remaining"
                                 plural={remaining_requests_num - 1}
                                 fields={{ left: remaining_requests_num - 1 }}
                             />
-                        </span>
+                        </div>
                     </li>
                 )}
                 {/* We do this to save space on mobile and hide the upcoming request, but then the request count is off, so we have it here twice. */}
                 {remaining_requests_num > 1 && (
                     <li className="batch-breadcrumb mobile-only">
-                        <span>
+                        <div className="batch-breadcrumb-content">
                             <Text
                                 id="batch-breadcrumbs-remaining"
                                 plural={remaining_requests_num - 1}
                                 fields={{ left: remaining_requests_num - 1 }}
                             />
-                        </span>
+                        </div>
                     </li>
                 )}
             </ol>
