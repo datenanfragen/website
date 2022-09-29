@@ -87,3 +87,14 @@ Cypress.Commands.add('seedWizardCompaniesWithKnownList', () => {
             cy.get('#wizard').scrollIntoView();
         });
 });
+
+Cypress.Commands.add('generatorStore', () => cy.window().then((win) => win.generatorStoreApi.getState()));
+Cypress.Commands.add('proceedingsStore', () => cy.window().then((win) => win.getProceedingsStore()));
+Cypress.Commands.add('searchAndRequestCompanies', (searchTerms) => {
+    for (const search of searchTerms) {
+        cy.get('.ais-SearchBox-input').clear().type(search);
+        cy.get('.company-result-content').contains(search).click();
+    }
+    cy.get('#review-n-companies-button').click();
+    cy.contains('Continue with these companies').click();
+});

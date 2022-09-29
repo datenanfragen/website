@@ -54,11 +54,11 @@ describe('Saved requests in the legacy database should be correctly migrated', (
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(500);
-        cy.window()
-            .then((win) => win.getProceedingsStore()._migratedLegacyRequests)
+        cy.proceedingsStore()
+            .then((state) => state._migratedLegacyRequests)
             .should('be.equal', true);
-        cy.window()
-            .then((win) => win.getProceedingsStore().proceedings)
+        cy.proceedingsStore()
+            .then((state) => state.proceedings)
             .should('haveOwnProperty', reference)
             .then((proceedings) => proceedings[reference])
             .should('deep.equal', {
@@ -115,11 +115,11 @@ describe('Saved requests in the legacy database should be correctly migrated', (
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(500);
-        cy.window()
-            .then((win) => win.getProceedingsStore()._migratedLegacyRequests)
+        cy.proceedingsStore()
+            .then((state) => state._migratedLegacyRequests)
             .should('be.equal', true);
-        cy.window()
-            .then((win) => win.getProceedingsStore().proceedings)
+        cy.proceedingsStore()
+            .then((state) => state.proceedings)
             .should('haveOwnProperty', reference)
             .then((proceedings) => proceedings[reference])
             .should('deep.equal', {

@@ -460,6 +460,7 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
                 <div className="app-cta-container">
                     <CustomCompanyButton />
                     <button
+                        id="review-n-companies-button"
                         className="button button-primary"
                         disabled={batch_length < 1}
                         onClick={() => props.setPage('review_selection')}>
