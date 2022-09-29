@@ -42,52 +42,6 @@ Cypress.Commands.add(
     }
 );
 
-/**
- * This command will add a company to the wizard by searching for `company` and clicking the result containing
- * `result_str`.
- *
- * Make sure that you are on the homepage and in a tab that can find this company.
- */
-Cypress.Commands.add('addCompanyToWizard', (company, result_str) => {
-    cy.get('#aa-search-input').clear().type(company).blur();
-    cy.contains(result_str).click();
-});
-
-/**
- * This command will make sure that the company list in the wizard contains exactly the following elements:
- *   - Datenanfragen.de e. V.
- *   - Gabriele Altpeter, Internethandel
- *   - SCHUFA Holding AG
- *   - Niedersächsisches Ministerium für Inneres und Sport – Abteilung Verfassungsschutz
- *
- * This will cause navigation to occur.
- */
-Cypress.Commands.add('seedWizardCompaniesWithKnownList', () => {
-    cy.visit('/contact');
-    cy.window()
-        .then((win) => win.accessLocalForageStore('wizard-companies'))
-        .then((instance) =>
-            Promise.all([
-                instance.clear(),
-
-                instance.setItem('datenanfragen', 'Datenanfragen.de e. V.'),
-                instance.setItem('gabriele-altpeter-internethandel', 'Gabriele Altpeter, Internethandel'),
-                instance.setItem('schufa', 'SCHUFA Holding AG'),
-                instance.setItem(
-                    'verfassungsschutz-nds',
-                    'Niedersächsisches Ministerium für Inneres und Sport – Abteilung Verfassungsschutz'
-                ),
-            ])
-        )
-        .then(() => {
-            cy.clearCookies();
-            cy.setCookie('changed_saved_companies', 'true');
-            cy.visit('/');
-
-            cy.get('#wizard').scrollIntoView();
-        });
-});
-
 Cypress.Commands.add('generatorStore', () => cy.window().then((win) => win.generatorStoreApi.getState()));
 Cypress.Commands.add('proceedingsStore', () => cy.window().then((win) => win.getProceedingsStore()));
 Cypress.Commands.add('searchAndRequestCompanies', (searchTerms) => {
