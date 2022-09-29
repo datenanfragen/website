@@ -194,7 +194,7 @@ ${
     );
 };
 
-const DisabledSearchBar = () => {
+export const DisabledSearchBar = () => {
     return (
         <IntlProvider scope="search" definition={window.I18N_DEFINITION}>
             <FeatureDisabledWidget includeImage={false}>

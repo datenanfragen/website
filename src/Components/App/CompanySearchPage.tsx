@@ -3,7 +3,7 @@ import { InstantSearch, SearchBox, connectHits, connectStateResults } from 'reac
 import { useGeneratorStore } from '../../store/generator';
 import type { PageOptions, SetPageFunction } from './App';
 import { CompanyResult } from './CompanyResult';
-import { countryFilter, instantSearchClient } from '../../Utility/search';
+import { countryFilter, instantSearchClient, disabledSearchClient } from '../../Utility/search';
 import { companyFromHit } from '../../Utility/companies';
 import { rethrow, ErrorException } from '../../Utility/errors';
 import type { HitsProvided, StateResultsProvided, Hit } from 'react-instantsearch-core';
@@ -18,9 +18,9 @@ import { TransportMediumChooser } from '../Generator/TransportMediumChooser';
 import type { TransportMedium } from '../../types/request.d';
 import { slugify, almostUniqueId, objFilter } from '../../Utility/common';
 import { submitUrl } from '../../Utility/suggest';
+import { Privacy, PRIVACY_ACTIONS } from '../../Utility/Privacy';
 import { flash, FlashMessage } from '../FlashMessage';
-
-// TODO: Respect privacy controls!
+import { DisabledSearchBar } from '../SearchBar';
 
 type CompanySearchPageProps = {
     setPage: SetPageFunction;
@@ -450,9 +450,17 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
             <InstantSearch
                 indexName="companies"
                 searchClient={
-                    props.pageOptions?.searchClient?.(searchClientParams) || instantSearchClient(searchClientParams)
+                    Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH)
+                        ? props.pageOptions?.searchClient?.(searchClientParams) ||
+                          instantSearchClient(searchClientParams)
+                        : disabledSearchClient
                 }>
-                <SearchBox translations={{ placeholder: t('select-company', 'cdb') }} />
+                {Privacy.isAllowed(PRIVACY_ACTIONS.SEARCH) ? (
+                    <SearchBox translations={{ placeholder: t('select-company', 'cdb') }} />
+                ) : (
+                    <DisabledSearchBar />
+                )}
+
                 <Results>
                     <Hits />
                 </Results>
