@@ -1,6 +1,5 @@
 import { render } from 'preact';
 import t from 'Utility/i18n';
-import { Wizard } from 'Components/Wizard';
 import { ReminderWidget } from './Components/ReminderWidget';
 
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
@@ -11,9 +10,6 @@ const hero_rights = [
     t('objection', 'home'),
     t('privacy', 'home'),
 ];
-
-const wizard_div = document.getElementById('home-wizard');
-render(<Wizard />, wizard_div);
 
 const reminderDiv = document.getElementById('home-reminders');
 render(<ReminderWidget />, reminderDiv);

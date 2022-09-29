@@ -23,8 +23,6 @@ declare global {
          * to their respective translation URLs.
          */
         readonly SUPPORTED_LANGUAGES: Record<I18nLanguage, string>;
-        /** List of two-letter ISO codes of the countries that have suggested companies in the wizard. */
-        readonly COUNTRIES_WITH_SUGGESTED_COMPANIES: Country[];
 
         /**
          * Translations for the current language, with the scope being the first-, and the translation key being the

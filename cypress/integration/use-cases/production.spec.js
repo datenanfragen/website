@@ -20,7 +20,6 @@ describe('Make sure all productions sites are still alive', () => {
             onlyOn('production');
 
             cy.visit(site);
-            cy.get('#wizard-tabs > :nth-last-child(1)').click();
 
             cy.visit(`${site}/generator`);
             cy.get('[for="request-type-choice-erasure"]').click();

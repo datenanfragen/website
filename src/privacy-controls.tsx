@@ -4,7 +4,6 @@ import t from './Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from './Utility/Privacy';
 import { UserRequests } from './DataType/UserRequests';
 import { SavedIdData } from './DataType/SavedIdData';
-import { SavedCompanies } from './DataType/SavedCompanies';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import { useModal } from './Components/Modal';
 import { useState } from 'preact/hooks';
@@ -86,26 +85,10 @@ const PrivacyControls = () => {
         }
     );
 
-    const [ClearWizardEntriesModal, showClearWizardEntriesModal, dismissClearWizardEntriesModal] = useModal(
-        <Text id={clickFromButton ? 'modal-clear-save_wizard_entries' : 'confirm-delete-save_wizard_entries'} />,
-        {
-            positiveText: <Text id="confirm-clear-save_wizard_entries" />,
-            negativeText: <Text id="cancel" />,
-            onNegativeFeedback: () => dismissClearWizardEntriesModal(),
-            onPositiveFeedback: () => {
-                new SavedCompanies().clearAll();
-                successFlash();
-                dismissClearWizardEntriesModal();
-            },
-            onDismiss: () => setClickFromButton(false),
-        }
-    );
-
     return (
         <main>
             <ClearIdDataModal />
             <ClearMyRequestsModal />
-            <ClearWizardEntriesModal />
             <MarkupText id="explanation" />
 
             <table>
@@ -117,8 +100,6 @@ const PrivacyControls = () => {
                                 ? showClearIdDataModal
                                 : action === 'SAVE_MY_REQUESTS'
                                 ? showClearMyRequestsModal
-                                : action === 'SAVE_WIZARD_ENTRIES'
-                                ? showClearWizardEntriesModal
                                 : undefined
                         }
                     />
@@ -142,15 +123,6 @@ const PrivacyControls = () => {
                         showClearIdDataModal();
                     }}>
                     <Text id="clear-id_data" />
-                </button>
-                <button
-                    id="clear-saved_wizard_entries-button"
-                    className="button button-secondary"
-                    onClick={() => {
-                        setClickFromButton(true);
-                        showClearWizardEntriesModal();
-                    }}>
-                    <Text id="clear-save_wizard_entries" />
                 </button>
                 <button id="clear-cookies-button" className="button button-secondary" onClick={clearCookies}>
                     <Text id="clear-cookies" />
