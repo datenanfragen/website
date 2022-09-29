@@ -41,7 +41,6 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
     );
 
     const addFillField = (newField: IdDataElement) => {
-        // TODO: newField.optional = true
         const index = props.fields.findIndex(
             (field) =>
                 ['name', 'birthdate', 'email'].includes(field.type) &&
@@ -56,7 +55,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
             return;
         }
 
-        props.onAddField(newField);
+        props.onAddField({ ...newField, optional: true });
     };
 
     // As this is at least the second time I have struggled to remember this: This is the button next to the 'add
