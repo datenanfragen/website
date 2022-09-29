@@ -18,7 +18,6 @@ export const ActionButton = (_props: ActionButtonProps) => {
     const email = useGeneratorStore((state) => state.request.email);
     const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
     const request_sent = useGeneratorStore((state) => state.request.sent);
-    const request_reference = useGeneratorStore((state) => state.request.reference);
     const ready = useGeneratorStore((state) => state.ready);
     const download_active = useGeneratorStore((state) => state.download_active);
     const download_url = useGeneratorStore((state) => state.download_url);
