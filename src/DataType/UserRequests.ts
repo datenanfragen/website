@@ -12,6 +12,7 @@ export type UserRequest = {
     recipient: string;
     email: string;
     via: 'fax' | 'letter' | 'email';
+    migrated?: true;
 };
 
 const makeLocalforageInstance = () =>
