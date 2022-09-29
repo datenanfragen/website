@@ -6,8 +6,6 @@ import { useCallback, useState } from 'preact/hooks';
 import { useModal } from '../Modal';
 import t from '../../Utility/i18n';
 import type { JSX } from 'preact';
-import { Privacy, PRIVACY_ACTIONS } from '../../Utility/Privacy';
-import { SavedCompanies } from '../../DataType/SavedCompanies';
 import { useProceedingsStore } from '../../store/proceedings';
 
 type NewRequestButtonProps = {
@@ -55,7 +53,6 @@ export const useNewRequestModal = (
     const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
     const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
     const setBusy = useGeneratorStore((state) => state.setBusy);
-    const request_type = useGeneratorStore((state) => state.request.type);
     const current_company = useGeneratorStore((state) => state.current_company);
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const getRequestForSaving = useGeneratorStore((state) => state.getRequestForSaving);
@@ -69,15 +66,8 @@ export const useNewRequestModal = (
         // Remove GET parameter-selected company from the URL after the request is finished.
         if (window.PARAMETERS['company']) clearUrlParameters();
 
-        if (
-            request_type === 'access' &&
-            Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) &&
-            current_company?.slug
-        )
-            new SavedCompanies().remove(current_company.slug);
-
         resetRequestToDefault({ advanceBatch: true, beforeAdvanceBatchHook: () => newRequestHook?.(payload) });
-    }, [newRequestHook, resetRequestToDefault, current_company, request_type, payload]);
+    }, [newRequestHook, resetRequestToDefault, payload]);
 
     const [ConfirmNewRequestModal, showModal, dismissConfirmNewRequestModal, shown] = useModal(
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>

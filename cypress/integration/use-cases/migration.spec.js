@@ -38,7 +38,6 @@ describe('Saved requests in the legacy database should be correctly migrated', (
         cy.clearIndexedDb('Datenanfragen.de');
         cy.openIndexedDb('Datenanfragen.de').as('dadeDB').createObjectStore('id-data');
         cy.getIndexedDb('@dadeDB').createObjectStore('local-forage-detect-blob-support');
-        cy.getIndexedDb('@dadeDB').createObjectStore('wizard-companies');
         cy.getIndexedDb('@dadeDB').createObjectStore('my-requests').as('myRequestsStore');
     });
 

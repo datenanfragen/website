@@ -5,8 +5,6 @@
 @import 'generator';
 @import 'app';
 
-@import '../../node_modules/react-joyride/lib/react-joyride';
-
 /* Header */
 header#nav-header {
     margin-top: 25px;
@@ -395,82 +393,6 @@ details summary {
 /* Open Source page */
 .attribution-box {
     word-break: break-all;
-}
-
-/* Wizard */
-#wizard-tabs {
-    $tab-border: 4px;
-
-    display: flex;
-    flex-direction: row;
-    width: calc(100% - #{$tab-border});
-
-    @include mobile {
-        flex-wrap: wrap;
-    }
-
-    .wizard-tab {
-        display: inline-block;
-        flex: 1;
-
-        @include fake-border($primary-color, $tab-border, $tab-border, $tab-border, $tab-border);
-
-        color: $primary-color;
-        font-size: 0.9em;
-        text-align: center;
-        padding: (12px + $tab-border) 7px 12px (7px + $tab-border);
-
-        cursor: pointer;
-
-        &.wizard-tab-current {
-            background-color: $primary-color;
-            color: $bg-color;
-        }
-    }
-}
-
-#wizard-buttons {
-    float: right;
-
-    button {
-        margin-left: 15px;
-    }
-}
-#wizard {
-    margin: 0;
-    position: relative;
-    padding: 20px;
-    min-height: 450px;
-}
-#wizard-selector {
-    @include mobile {
-        width: 100%;
-    }
-}
-#wizard-selected {
-    position: absolute;
-    height: calc(100% - 35px);
-    top: 20px;
-    right: 0;
-    overflow: hidden;
-
-    .wizard-selected-list {
-        height: 90%;
-        overflow-y: scroll;
-        overflow-x: hidden;
-
-        p:first-of-type {
-            margin-top: 0;
-        }
-    }
-
-    @include mobile {
-        position: relative;
-        width: 100%; // TODO: The explanation text in the first tab is now wrong but I am too lazy to fix that right now.
-    }
-    & button {
-        margin-right: 5px;
-    }
 }
 
 .home-feature {
@@ -957,32 +879,6 @@ footer {
         a.icon:focus {
             color: color('blue', 800);
         }
-    }
-}
-
-/* Tutorial */
-$joyride-color: $primary-color;
-button.joyride-tooltip__button {
-    &:hover,
-    &:focus {
-        border: none;
-        background-color: inherit;
-        color: color('blue', 900) !important;
-    }
-}
-button.joyride-tooltip__button--primary {
-    border-radius: 2px;
-
-    &:hover,
-    &:focus {
-        background-color: color('blue', 900);
-        color: $bg-color !important;
-    }
-}
-button.joyride-tooltip__button--skip {
-    &:hover,
-    &:focus {
-        color: color('gray', 600) !important;
     }
 }
 

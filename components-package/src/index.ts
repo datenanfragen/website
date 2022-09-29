@@ -56,9 +56,6 @@ export const setupWindow = ({
     window.SUPPORTED_LANGUAGES = supported_languages || {};
 
     // @ts-ignore
-    window.COUNTRIES_WITH_SUGGESTED_COMPANIES = [];
-
-    // @ts-ignore
     window.I18N_DEFINITION = languages[locale].translations;
 
     // @ts-ignore

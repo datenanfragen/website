@@ -5,7 +5,7 @@ import { useGeneratorStore } from '../../store/generator';
 import { SearchBarProps, SearchBar } from '../SearchBar';
 import { useNewRequestModal } from './NewRequestButton';
 
-type CompanySelectorProps = { newRequestHook: () => void } & Partial<Except<SearchBarProps, 'anchorize' | 'index'>>;
+type CompanySelectorProps = { newRequestHook?: () => void } & Partial<Except<SearchBarProps, 'anchorize' | 'index'>>;
 
 export const CompanySelector = (props: CompanySelectorProps) => {
     const setCompany = useGeneratorStore((state) => state.setCompany);

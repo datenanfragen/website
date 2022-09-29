@@ -60,7 +60,6 @@
         "prop-types": "^15.7.2",
         "qrcode": "^1.4.4",
         "react-instantsearch-dom": "^6.26.0",
-        "react-joyride": "^1.11.4",
         "react-scrollspy": "^3.4.0",
         "typesense": "^1.2.2",
         "typesense-instantsearch-adapter": "^2.4.0",
