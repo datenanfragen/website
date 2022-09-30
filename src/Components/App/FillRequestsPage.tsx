@@ -41,7 +41,7 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
     if (!current_company) return <></>;
 
     return (
-        <>
+        <div className="fill-requests-page">
             <BatchBreadcrumbs />
             <h2>
                 <Text id="fill-in-request" fields={{ company: current_company.name }} />
@@ -92,7 +92,7 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
                     actionButtonOptions={props.pageOptions?.actionButton}
                 />
             </div>
-        </>
+        </div>
     );
 };
 

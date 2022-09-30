@@ -36,7 +36,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
         );
 
         return (
-            <>
+            <div className="request-type-chooser-page">
                 <RequestTypeInfoModal />
                 <div id={`request-type-choice-${type}`} className="request-type-button-group">
                     <button
@@ -54,7 +54,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                         title={t(`${type}-request-explanation-button`, 'generator')}
                     />
                 </div>
-            </>
+            </div>
         );
     };
 

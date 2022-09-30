@@ -455,7 +455,7 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
 
     const searchClientParams = { filter_by: country === 'all' ? '' : countryFilter(country) };
     return (
-        <>
+        <div className="company-search-page">
             <InstantSearch
                 indexName="companies"
                 searchClient={
@@ -480,6 +480,6 @@ export const CompanySearchPage = (props: CompanySearchPageProps) => {
 
                 {/* TODO: Pagination? */}
             </InstantSearch>
-        </>
+        </div>
     );
 };

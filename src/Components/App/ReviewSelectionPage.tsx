@@ -17,7 +17,7 @@ export const ReviewSelectionPage = (props: ReviewSelectionPageProps) => {
     if (!batch) throw new ErrorException('Got to review selection page without batch.');
 
     return (
-        <>
+        <div className="review-selection-page">
             <p>
                 <Text id="review-selection-explanation" />
             </p>
@@ -48,6 +48,6 @@ export const ReviewSelectionPage = (props: ReviewSelectionPageProps) => {
                     <span className="icon icon-arrow-right padded-icon-right" />
                 </button>
             </div>
-        </>
+        </div>
     );
 };
