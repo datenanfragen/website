@@ -348,6 +348,7 @@
         "letter": "Brief",
         "new-request": "Neue Anfrage",
         "next-request": "Nächste Anfrage",
+        "skip-request": "Anfrage überspringen",
         "override-request": "Aktuelle Anfrage überschreiben",
         "modal-autocomplete-new-request": "Ein neues Unternehmen wurde ausgewählt. Soll eine neue Anfrage erstellt werden?",
         "modal-new-request": "Du hast deine generierte Anfrage noch nicht verwendet. Möchtest du dennoch alle Felder zurücksetzen und eine neue Anfrage starten oder lieber vorher die Anfrage laden?",
