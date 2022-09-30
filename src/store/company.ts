@@ -17,7 +17,7 @@ export interface CompanyState {
     setCompany: (company: Company) => Promise<void>;
     setSva: (sva: SupervisoryAuthority) => Promise<void>;
     removeCompany: () => Promise<void>;
-    appendToBatch: (companies: Company | Company[]) => void;
+    appendToBatch: (companies: Company | (Company | undefined)[]) => void;
     appendToBatchBySlug: (companySlugs: string | string[]) => Promise<void>;
     removeFromBatch: (companySlug: string) => void;
     advanceBatch: () => Promise<void>;
@@ -135,7 +135,9 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
         set(
             produce((state: GeneratorState) => {
                 if (!state.batch) state.batch = {};
-                for (const company of Array.isArray(companies) ? companies : [companies])
+                for (const company of (Array.isArray(companies) ? companies : [companies]).filter(
+                    (c): c is Company => c !== undefined
+                ))
                     state.batch[company.slug] = {
                         company: { ...company, runs_selected: [...(company.runs || [])] },
                         done: false,
