@@ -1,4 +1,4 @@
-import type { Request } from '../types/request';
+import type { Request, RequestType } from '../types/request';
 import type { Company, SupervisoryAuthority } from '../types/company';
 import type { StoreSlice } from '../types/utility';
 import { RequestState } from './request';
@@ -23,6 +23,11 @@ export interface CompanyState {
     advanceBatch: () => Promise<void>;
     markCurrentBatchCompanyDone: () => void;
     selectBatchCompanyRuns: (slug: string, runs_selected: string[]) => void;
+    setBatchCompanyCustomTemplate: (
+        slug: string,
+        requestType: Exclude<RequestType, 'custom'>,
+        template: string | undefined
+    ) => void;
     clearBatch: () => void;
     hasBatch: () => boolean | undefined;
 }
@@ -166,6 +171,14 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 if (!get().hasBatch() || !get().batch![slug]) return; // TODO: Error here?
 
                 state.batch![slug].company.runs_selected = runs_selected;
+            })
+        ),
+    setBatchCompanyCustomTemplate: (slug, type, template) =>
+        set(
+            produce((state: GeneratorState) => {
+                if (!get().hasBatch() || !get().batch![slug]) return; // TODO: Error here?
+
+                state.batch![slug].company[`custom-${type}-template`] = template;
             })
         ),
     hasBatch: () => {
