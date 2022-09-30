@@ -48,7 +48,7 @@ export const RequestGeneratorBuilder = memo((props: RequestGeneratorBuilderProps
                 // …or multiple ones.
                 const batch_companies = window.PARAMETERS['companies'];
                 if (batch_companies) {
-                    const batch = batch_companies.split(',');
+                    const batch = batch_companies.split(',').map((slug) => slug.trim());
 
                     // We are in batch mode, move to the next company.
                     // Note: Previously, we checked for `this.state.batch` here. This is wrong however: The `generator.js`

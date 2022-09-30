@@ -1,4 +1,5 @@
 import { IntlProvider, Text } from 'preact-i18n';
+import { clearUrlParameters } from '../../Utility/browser';
 import { SetPageFunction } from './App';
 
 type WhatsNextPageProps = {
@@ -34,7 +35,12 @@ export const WhatsNextPage = (props: WhatsNextPageProps) => {
                 <Text id="view-requests" />
             </a>
             <br />
-            <button className="button button-secondary" onClick={() => props.setPage('request_type_chooser')}>
+            <button
+                className="button button-secondary"
+                onClick={() => {
+                    clearUrlParameters();
+                    props.setPage('request_type_chooser');
+                }}>
                 <Text id="send-more" />
             </button>
         </IntlProvider>

@@ -13,11 +13,12 @@ type RequestTypeChooserPageProps = {
 };
 
 export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
-    const request_types = (props.request_types || REQUEST_TYPES).filter((r) => r !== 'custom') as Exclude<
+    const requestTypes = (props.request_types || REQUEST_TYPES).filter((r) => r !== 'custom') as Exclude<
         RequestType,
         'custom'
     >[];
     const setBatchRequestType = useGeneratorStore((state) => state.setBatchRequestType);
+    const batchLength = useGeneratorStore((state) => Object.keys(state.batch || {}).length);
 
     const RequestButtonWithModal = ({ type }: { type: Exclude<RequestType, 'custom'> }) => {
         const [RequestTypeInfoModal, showRequestTypeInfoModal, dismissRequestTypeInfoModal] = useModal(
@@ -44,7 +45,9 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                         className="button button-secondary"
                         onClick={() => {
                             setBatchRequestType(type);
-                            props.setPage('company_search');
+                            if (window.PARAMETERS.company && batchLength === 1) props.setPage('fill_requests');
+                            else if (window.PARAMETERS.companies && batchLength > 0) props.setPage('review_selection');
+                            else props.setPage('company_search');
                         }}>
                         <MarkupText id={`${type}-request-statement`} />
                     </button>
@@ -65,7 +68,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
             </p>
             <div className="col66 col100-mobile">
                 <div className="request-type-chooser-vertical">
-                    {request_types.map((type) => (
+                    {requestTypes.map((type) => (
                         <RequestButtonWithModal type={type} />
                     ))}
                 </div>
