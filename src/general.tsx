@@ -13,6 +13,7 @@ import { proceedingFromRequest, useProceedingsStore } from './store/proceedings'
 import type { Message } from './types/proceedings';
 import { REQUEST_TYPES } from './Utility/requests';
 import { PrivacyAsyncStorage } from './Utility/PrivacyAsyncStorage';
+import type localforage from 'localforage';
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');
@@ -80,7 +81,9 @@ const unsubscribeFromHydration = useProceedingsStore.persist.onFinishHydration((
                     .getRequests()
                     .then(async (requests) => {
                         if (!requests) return;
-                        for (const [db_id, request] of Object.entries(requests)) {
+                        for (const [dbId, request] of Object.entries(requests)) {
+                            if (request.migrated) continue;
+
                             if (request.response_type) {
                                 const messageFromRequest: Omit<Message, 'id'> = {
                                     reference: request.reference,
@@ -114,7 +117,7 @@ const unsubscribeFromHydration = useProceedingsStore.persist.onFinishHydration((
                                         .then((keys) =>
                                             keys?.find(
                                                 (key) =>
-                                                    key !== db_id &&
+                                                    key !== dbId &&
                                                     key.match(new RegExp(`^${request.reference}-${REQUEST_TYPES}`))
                                             )
                                         );
@@ -127,17 +130,31 @@ const unsubscribeFromHydration = useProceedingsStore.persist.onFinishHydration((
                                             proceedingsState.addProceeding(proceedingFromRequest(parentRequest));
                                             proceedingsState.addMessage(messageFromRequest);
 
-                                            await userRequests.removeRequest(parentRequestId);
+                                            await userRequests.storeRequest(parentRequestId, {
+                                                ...parentRequest,
+                                                migrated: true,
+                                            });
                                         }
                                     } else createStubProceeding();
                                 }
                             } else {
                                 proceedingsState.addProceeding(proceedingFromRequest(request));
                             }
-                            await userRequests.removeRequest(db_id);
+                            await userRequests.storeRequest(dbId, {
+                                ...request,
+                                migrated: true,
+                            });
                         }
                     })
-                    .then(() => userRequests.localforage_instance?.dropInstance());
+                    .then(
+                        () =>
+                            userRequests.localforage_instance?.driver() === 'asyncStorage' &&
+                            (
+                                userRequests.localforage_instance as typeof localforage & {
+                                    _dbInfo: { db: IDBDatabase };
+                                }
+                            )._dbInfo.db.close()
+                    );
             })
             .then(() => proceedingsState.migrationDone())
             .then(() => unsubscribeFromHydration());
