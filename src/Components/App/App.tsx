@@ -12,7 +12,9 @@ import type { SearchClient } from '../../Utility/search';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 import { ActionButtonProps } from '../Generator/ActionButton';
 import { useGeneratorStore } from '../../store/generator';
+import { getGeneratedMessage, useProceedingsStore } from '../../store/proceedings';
 import { flash, FlashMessage } from '../FlashMessage';
+import { Hint } from '../Hint';
 
 const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
     request_type_chooser: {
@@ -60,6 +62,12 @@ type AppProps = {
 
 export const App = (props: AppProps) => {
     const appendToBatchBySlug = useGeneratorStore((state) => state.appendToBatchBySlug);
+    const hasUsedOldGenerator = useProceedingsStore(
+        (state) =>
+            !!Object.values(state.proceedings).find(
+                (p) => (getGeneratedMessage(p, 'request')?.date || new Date('9999-12-31')) <= new Date('2022-09-30')
+            )
+    );
 
     useEffect(() => {
         if (window.PARAMETERS.company || window.PARAMETERS.companies) {
@@ -80,20 +88,24 @@ export const App = (props: AppProps) => {
     }
 
     return (
-        <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
-            <header className="wizard-header">
-                {canGoBack && (
-                    <button
-                        onClick={back}
-                        disabled={!canGoBack}
-                        className="button button-unstyled button-fit-content app-back-button icon-arrow-left"
-                        title={t('back', 'generator')}
-                    />
-                )}
-                {pageTitle && <h2>{pageTitle}</h2>}
-            </header>
+        <>
+            {hasUsedOldGenerator && <Hint id="advanced-generator" />}
 
-            <Wizard />
-        </IntlProvider>
+            <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
+                <header className="wizard-header">
+                    {canGoBack && (
+                        <button
+                            onClick={back}
+                            disabled={!canGoBack}
+                            className="button button-unstyled button-fit-content app-back-button icon-arrow-left"
+                            title={t('back', 'generator')}
+                        />
+                    )}
+                    {pageTitle && <h2>{pageTitle}</h2>}
+                </header>
+
+                <Wizard />
+            </IntlProvider>
+        </>
     );
 };

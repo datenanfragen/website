@@ -249,6 +249,12 @@ select:disabled {
     border-width: 2px;
 }
 
+.hint {
+    position: relative;
+    margin-bottom: 2em;
+    padding-right: 45px;
+}
+
 .star {
     position: absolute;
     top: 0;
@@ -796,7 +802,10 @@ input[type='search'].aa-input-search {
     padding-right: 45px;
 
     @extend %fade-in;
+}
 
+.flash-message,
+.hint {
     button.close-button {
         color: $primary-color;
         font-size: 8px;

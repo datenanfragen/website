@@ -3,6 +3,7 @@ import create, { GetState, SetState, StateCreator } from 'zustand';
 import { persist, PersistOptions } from 'zustand/middleware';
 import type i18n_definition_type from '../i18n/en.json';
 import { produce } from 'immer';
+import type { HintId } from '../Components/Hint';
 
 // TODO: This is done more cleverly in newer versions of zustand
 type CombinedStateCreator<T extends object> = StateCreator<
@@ -33,21 +34,31 @@ export type Preferences = {
     /** Whether or not to save the content of request to the database. Should be set to false on the web. Does not take precedent over whether we save requests at all. */
     saveRequestContent: boolean | undefined;
     promptForCompanySuggestions: boolean;
+    dismissedHints: HintId[];
 };
 type PreferenceStateSlice = Preferences & {
     setPreference: <Preference extends keyof Preferences>(
         preference: Preference,
         value: Preferences[Preference]
     ) => void;
+    dismissHint: (hint: HintId) => void;
 };
 
 export const createPreferenceSlice: CombinedStateCreator<PreferenceStateSlice> = (set) => ({
     saveRequestContent: false,
     promptForCompanySuggestions: false,
+    dismissedHints: [],
+
     setPreference: (preference, value) =>
         set(
             produce((state: Preferences) => {
                 state[preference] = value;
+            })
+        ),
+    dismissHint: (hint) =>
+        set(
+            produce((state) => {
+                if (!state.dismissedHints.includes(hint)) state.dismissedHints.push(hint);
             })
         ),
 });
