@@ -4,7 +4,7 @@ import type { Country } from '../store/app';
 import type { I18nLanguage } from '../types/globals.d';
 
 export const clearUrlParameters = () => {
-    window.history.pushState({}, document.title, `${window.BASE_URL}generator`);
+    window.history.pushState({}, document.title, `${window.location.origin}${window.location.pathname}`);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.PARAMETERS = {};
