@@ -4,7 +4,7 @@ import t from '../../Utility/i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { DynamicInputContainer, StatefulDynamicInputContainer } from '../Generator/DynamicInputContainer';
 import { PageOptions, SetPageFunction } from './App';
-import { SendRequestButton } from '../App/SendRequestButton';
+import { NextRequestButton, SendRequestButton } from '../App/SendRequestButton';
 import { ErrorException } from '../../Utility/errors';
 import { StatefulSignatureInput } from '../Generator/SignatureInput';
 import { RequestFlags } from '../Generator/RequestFlags';
@@ -85,7 +85,9 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
                 </>
             )}
 
-            <div className="action-button-row">
+            <div className="action-button-row" style="gap: 10px;">
+                <NextRequestButton setPage={props.setPage} />
+
                 <SendRequestButton
                     setPage={props.setPage}
                     mailtoDropdownOptions={props.pageOptions?.mailtoDropdown}
