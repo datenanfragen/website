@@ -309,7 +309,7 @@ select:disabled {
     .radio-wrapper {
         .radio-label {
             input.form-element {
-                display: none;
+                appearance: none;
             }
 
             display: inline-block;

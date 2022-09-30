@@ -243,3 +243,24 @@ h2 {
 .request-transport-medium-chooser {
     margin-top: 17px;
 }
+
+.request-type-chooser-vertical {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    .request-type-button-group {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+
+        button {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .request-type-help-button {
+            flex-grow: 0;
+        }
+    }
+}
