@@ -420,6 +420,7 @@
         "only-fax": "You might need to send your request by fax.",
         "choose-runs": "Show and select other entities run by this company.",
         "also-runs-choose": "This company is also responsible for these other entities or services (deselect the ones you do not want to request):",
+        "consider-as-tracking-company": "My request to this company concerns tracking data and I don’t know how the company can identify me for this purpose.",
         "batch-breadcrumbs-remaining": {
             "none": "No more requests",
             "one": "{{left}} more request",

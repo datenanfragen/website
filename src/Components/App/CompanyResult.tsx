@@ -72,9 +72,20 @@ const CompanyInfoIcons = (props: CompanyInfoIconsProps) => (
 export const CompanyResult = (props: CompanyResultProps) => {
     const listElement = useRef<HTMLLIElement>(null);
     const [detailsShown, setDetailsShown] = useState(false);
-    const selectBatchCompanyRuns = useGeneratorStore((state) => state.selectBatchCompanyRuns);
+    const [selectBatchCompanyRuns, setBatchCompanyCustomTemplate] = useGeneratorStore((state) => [
+        state.selectBatchCompanyRuns,
+        state.setBatchCompanyCustomTemplate,
+    ]);
+    const batchRequestType = useGeneratorStore((state) => state.batchRequestType);
 
-    const detailsAvailable = props.showDetails && props.company.runs;
+    const customTemplateField = `custom-${batchRequestType}-template`;
+    const trackingTemplateName = `${batchRequestType}-tracking`;
+    const hasNoOrTrackingTemplate =
+        batchRequestType &&
+        batchRequestType !== 'custom' &&
+        (!props.company[customTemplateField] || props.company[customTemplateField] === trackingTemplateName);
+    const canSetTrackingStatus = hasNoOrTrackingTemplate && batchRequestType === 'access';
+    const detailsAvailable = props.showDetails && (props.company.runs || canSetTrackingStatus);
 
     useEffect(() => {
         if (listElement.current && props.focussed) listElement.current.focus();
@@ -132,36 +143,68 @@ export const CompanyResult = (props: CompanyResultProps) => {
                         className="company-result-details"
                         id={`company-result-details-${props.company.slug}`}
                         hidden={!detailsShown}>
-                        <Text id="also-runs-choose" />
-                        <ul className="unstyled-list">
-                            {props.company.runs?.map((runs_entry, index) => {
-                                const checked = props.company.runs_selected?.includes(runs_entry);
-                                return (
-                                    <li>
-                                        <input
-                                            type="checkbox"
-                                            className="form-element"
-                                            checked={checked}
-                                            onClick={() =>
-                                                checked
-                                                    ? selectBatchCompanyRuns(
-                                                          props.company.slug,
-                                                          props.company.runs_selected?.filter(
-                                                              (item) => item !== runs_entry
-                                                          ) || []
-                                                      )
-                                                    : selectBatchCompanyRuns(
-                                                          props.company.slug,
-                                                          (props.company.runs_selected ?? []).concat([runs_entry])
-                                                      )
-                                            }
-                                            id={`runs-${props.company.slug}-${index}`}
-                                        />
-                                        <label for={`runs-${props.company.slug}-${index}`}>{runs_entry}</label>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                        {props.company.runs && (
+                            <>
+                                <Text id="also-runs-choose" />
+                                <ul className="unstyled-list">
+                                    {props.company.runs?.map((runs_entry, index) => {
+                                        const checked = props.company.runs_selected?.includes(runs_entry);
+                                        return (
+                                            <li>
+                                                <input
+                                                    type="checkbox"
+                                                    className="form-element"
+                                                    checked={checked}
+                                                    onClick={() =>
+                                                        checked
+                                                            ? selectBatchCompanyRuns(
+                                                                  props.company.slug,
+                                                                  props.company.runs_selected?.filter(
+                                                                      (item) => item !== runs_entry
+                                                                  ) || []
+                                                              )
+                                                            : selectBatchCompanyRuns(
+                                                                  props.company.slug,
+                                                                  (props.company.runs_selected ?? []).concat([
+                                                                      runs_entry,
+                                                                  ])
+                                                              )
+                                                    }
+                                                    id={`runs-${props.company.slug}-${index}`}
+                                                />
+                                                <label for={`runs-${props.company.slug}-${index}`}>{runs_entry}</label>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+
+                                {canSetTrackingStatus && <hr />}
+                            </>
+                        )}
+
+                        {canSetTrackingStatus && (
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    className="form-element"
+                                    checked={props.company[customTemplateField] === trackingTemplateName}
+                                    onClick={(e) =>
+                                        e.currentTarget.checked
+                                            ? setBatchCompanyCustomTemplate(
+                                                  props.company.slug,
+                                                  batchRequestType,
+                                                  trackingTemplateName
+                                              )
+                                            : setBatchCompanyCustomTemplate(
+                                                  props.company.slug,
+                                                  batchRequestType,
+                                                  undefined
+                                              )
+                                    }
+                                />
+                                <Text id="consider-as-tracking-company" />
+                            </label>
+                        )}
                     </div>
                 )}
             </div>
