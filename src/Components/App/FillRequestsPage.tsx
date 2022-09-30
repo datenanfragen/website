@@ -4,7 +4,7 @@ import t from '../../Utility/i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { DynamicInputContainer, StatefulDynamicInputContainer } from '../Generator/DynamicInputContainer';
 import { PageOptions, SetPageFunction } from './App';
-import { SendRequestButton } from '../App/SendRequestButton';
+import { NextRequestButton, SendRequestButton } from '../App/SendRequestButton';
 import { ErrorException } from '../../Utility/errors';
 import { StatefulSignatureInput } from '../Generator/SignatureInput';
 import { RequestFlags } from '../Generator/RequestFlags';
@@ -15,11 +15,12 @@ type FillRequestsPageProps = {
 };
 
 export const FillRequestsPage = (props: FillRequestsPageProps) => {
-    const [batch, current_company, request_type, transport_medium, fillSignature] = useGeneratorStore((state) => [
+    const [batch, current_company, request_type, transport_medium, sent, fillSignature] = useGeneratorStore((state) => [
         state.batch,
         state.current_company,
         state.request.type,
         state.request.transport_medium,
+        state.request.sent,
         state.fillSignature,
     ]);
     const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
@@ -85,7 +86,9 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
                 </>
             )}
 
-            <div className="action-button-row">
+            <div className="action-button-row" style="gap: 10px;">
+                {sent && <NextRequestButton setPage={props.setPage} />}
+
                 <SendRequestButton
                     setPage={props.setPage}
                     mailtoDropdownOptions={props.pageOptions?.mailtoDropdown}

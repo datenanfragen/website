@@ -19,15 +19,6 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const letter = useGeneratorStore((state) => state.letter);
     const request = useGeneratorStore((state) => state.request);
-    const [batch, current_company, resetRequestToDefault, markCurrentBatchCompanyDone, removeFromBatch] =
-        useGeneratorStore((state) => [
-            state.batch,
-            state.current_company,
-            state.resetRequestToDefault,
-            state.markCurrentBatchCompanyDone,
-            state.removeFromBatch,
-        ]);
-    const remainingBatchEntriesCount = Object.values(batch || {}).filter((e) => !e.done).length || 0;
 
     useEffect(() => {
         if (request.transport_medium !== 'email') return initiatePdfGeneration();
@@ -109,21 +100,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
             </div>
         </IntlProvider>,
         {
-            positiveButton: (
-                <button
-                    className={`button ${request.sent ? 'button-primary' : 'button-secondary'}`}
-                    onClick={() => {
-                        if (request.sent) markCurrentBatchCompanyDone();
-                        else removeFromBatch(current_company!.slug);
-                        resetRequestToDefault({ advanceBatch: true });
-
-                        if (remainingBatchEntriesCount === 1) props.setPage('whats_next');
-                        dismissModal();
-                    }}
-                    style="float: right">
-                    <Text id={request.sent ? 'next-request' : 'skip-request'} />
-                </button>
-            ),
+            positiveButton: <NextRequestButton setPage={props.setPage} afterNext={() => dismissModal()} />,
             negativeButton: (
                 <ActionButton
                     dropup={true}
@@ -148,6 +125,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <button
                 className={`button ${request.sent ? 'button-secondary' : 'button-primary'}`}
+                style="order: 1;"
                 onClick={() => {
                     renderLetter();
                     showModal();
@@ -160,5 +138,39 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
 
             <Modal />
         </IntlProvider>
+    );
+};
+
+type NextRequestButtonProps = {
+    setPage: SetPageFunction;
+    afterNext?: () => void;
+};
+
+export const NextRequestButton = (props: NextRequestButtonProps) => {
+    const request = useGeneratorStore((state) => state.request);
+    const [batch, current_company, resetRequestToDefault, markCurrentBatchCompanyDone, removeFromBatch] =
+        useGeneratorStore((state) => [
+            state.batch,
+            state.current_company,
+            state.resetRequestToDefault,
+            state.markCurrentBatchCompanyDone,
+            state.removeFromBatch,
+        ]);
+    const remainingBatchEntriesCount = Object.values(batch || {}).filter((e) => !e.done).length || 0;
+
+    return (
+        <button
+            className={`button ${request.sent ? 'button-primary' : 'button-secondary'}`}
+            onClick={() => {
+                if (request.sent) markCurrentBatchCompanyDone();
+                else removeFromBatch(current_company!.slug);
+                resetRequestToDefault({ advanceBatch: true });
+
+                if (remainingBatchEntriesCount === 1) props.setPage('whats_next');
+                props.afterNext?.();
+            }}
+            style="float: right;">
+            <Text id={request.sent ? 'next-request' : 'skip-request'} />
+        </button>
     );
 };
