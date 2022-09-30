@@ -413,7 +413,7 @@
         "only-snail-mail": "Diese Anfrage muss eventuell per Post versendet werden.",
         "only-fax": "Diese Anfrage muss eventuell per Fax versendet werden.",
         "choose-runs": "Andere Entitäten, die dieses Unternehmen betreibt, anzeigen und auswählen.",
-        "also-runs-choose": "Dieses Unternehmen ist außerdem für diese weiteren Entitäten und Dienste verantwortlich (wähle diejenigen ab, die Du nicht in dDeine Anfrage einschließen willst):",
+        "also-runs-choose": "Dieses Unternehmen ist außerdem für diese weiteren Entitäten und Dienste verantwortlich (wähle diejenigen ab, die Du nicht in Deine Anfrage einschließen willst):",
         "batch-breadcrumbs-remaining": {
             "none": "Keine weiteren Anfragen",
             "one": "{{left}} weitere Anfrage",
