@@ -43,7 +43,7 @@ type PreferenceStateSlice = Preferences & {
 
 export const createPreferenceSlice: CombinedStateCreator<PreferenceStateSlice> = (set) => ({
     saveRequestContent: false,
-    promptForCompanySuggestions: true, // TODO: Set to false.
+    promptForCompanySuggestions: false,
     setPreference: (preference, value) =>
         set(
             produce((state: Preferences) => {
