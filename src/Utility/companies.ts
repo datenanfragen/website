@@ -5,13 +5,17 @@ import type { Hit } from 'react-instantsearch-core';
 
 export function fetchCompanyDataBySlug(slug: string): Promise<Company> {
     return fetch(window.BASE_URL + 'db/' + slug + '.json')
-        .then((res) => res.json())
+        .then((res) => {
+            if (!res.ok) throw new Error('Unexpected response while trying to fetch company.');
+            return res.json();
+        })
         .catch((err) => {
             rethrow(
                 ErrorException.fromError(err),
                 'fetchCompanyDataBySlug() failed.',
                 { slug },
-                t('company-not-found', 'error-msg')
+                t('company-not-found', 'error-msg'),
+                true
             );
         });
 }
@@ -22,13 +26,17 @@ export function fetchCompanyNameBySlug(slug: string) {
 
 export function fetchSvaDataBySlug(slug: string): Promise<SupervisoryAuthority | void> {
     return fetch(window.BASE_URL + 'db/sva/' + slug + '.json')
-        .then((res) => res.json())
+        .then((res) => {
+            if (!res.ok) throw new Error('Unexpected response while trying to fetch SVA.');
+            return res.json();
+        })
         .catch((err) =>
             rethrow(
                 ErrorException.fromError(err),
                 'fetchSvaDataBySlug() failed.',
                 { slug },
-                t('sva-not-found', 'error-msg')
+                t('sva-not-found', 'error-msg'),
+                true
             )
         );
 }
