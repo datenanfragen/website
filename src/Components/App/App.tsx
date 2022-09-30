@@ -1,3 +1,4 @@
+import { useEffect } from 'preact/hooks';
 import { IntlProvider } from 'preact-i18n';
 import { useWizard } from '../../hooks/useWizard';
 import { RequestTypeChooserPage } from './RequestTypeChooserPage';
@@ -10,6 +11,8 @@ import type { MailtoDropdownProps } from '../MailtoDropdown';
 import type { SearchClient } from '../../Utility/search';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 import { ActionButtonProps } from '../Generator/ActionButton';
+import { useGeneratorStore } from '../../store/generator';
+import { flash, FlashMessage } from '../FlashMessage';
 
 const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
     request_type_chooser: {
@@ -56,6 +59,18 @@ type AppProps = {
 };
 
 export const App = (props: AppProps) => {
+    const appendToBatchBySlug = useGeneratorStore((state) => state.appendToBatchBySlug);
+
+    useEffect(() => {
+        if (window.PARAMETERS.company || window.PARAMETERS.companies) {
+            const companies =
+                window.PARAMETERS.company || window.PARAMETERS.companies.split(',').map((slug) => slug.trim());
+            appendToBatchBySlug(companies).catch(() =>
+                flash(<FlashMessage type="error">{t('company-not-found', 'error-msg')}</FlashMessage>)
+            );
+        }
+    }, [appendToBatchBySlug]);
+
     const { Wizard, set, back, canGoBack, pageTitle } = useWizard(pages(setPage, props.pageOptions), {
         initialPageId: props.initialPageId ?? 'request_type_chooser',
     });

@@ -14,9 +14,12 @@ type RequestTypeChooserPageProps = {
 };
 
 export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
-    const request_types = (props.request_types || REQUEST_TYPES).filter((r) => r !== 'custom');
+    const requestTypes = (props.request_types || REQUEST_TYPES).filter((r) => r !== 'custom');
     const setBatchRequestType = useGeneratorStore((state) => state.setBatchRequestType);
-    const request_type = useGeneratorStore((state) => state.batchRequestType);
+    const [requestType, batchLength] = useGeneratorStore((state) => [
+        state.batchRequestType,
+        Object.keys(state.batch || {}).length,
+    ]);
 
     const RadioWithModal = ({ type }: { type: RequestType }) => {
         const [RequestTypeInfoModal, showRequestTypeInfoModal, dismissRequestTypeInfoModal] = useModal(
@@ -39,11 +42,15 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                 <RequestTypeInfoModal />
                 <Radio
                     id={`request-type-choice-${type}`}
-                    radioVariable={request_type || ''}
+                    radioVariable={requestType || ''}
                     value={type}
                     name="request-type"
                     onChange={(value) => setBatchRequestType(value as RequestType)}
-                    onClick={() => props.setPage('company_search')}
+                    onClick={() => {
+                        if (window.PARAMETERS.company && batchLength === 1) props.setPage('fill_requests');
+                        else if (window.PARAMETERS.companies && batchLength > 0) props.setPage('review_selection');
+                        else props.setPage('company_search');
+                    }}
                     label={<MarkupText id={`${type}-request-statement`} />}
                     addon={
                         <button
@@ -62,7 +69,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                 <Text id="app-introduction" />
             </p>
             <div className="radio-group radio-group-vertical radio-group-padded">
-                {request_types.map((type) => (
+                {requestTypes.map((type) => (
                     <RadioWithModal type={type} />
                 ))}
             </div>
