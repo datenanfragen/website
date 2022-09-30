@@ -2,15 +2,19 @@ export function rethrow(
     error: GenericException,
     description?: string,
     context?: Record<string, unknown>,
-    enduser_message?: string
+    enduser_message?: string,
+    catchable = false
 ) {
+    if (description) error.description = description;
+    if (context) error.context = context;
+    if (enduser_message) error.enduser_message = enduser_message;
+
     // Allow throwing from inside promise `catch` functions, see https://stackoverflow.com/a/30741722.
-    setTimeout(() => {
-        if (description) error.description = description;
-        if (context) error.context = context;
-        if (enduser_message) error.enduser_message = enduser_message;
-        throw error;
-    }, 0);
+    if (catchable) throw error;
+    else
+        setTimeout(() => {
+            throw error;
+        }, 0);
 }
 
 class GenericException extends Error {
