@@ -272,7 +272,7 @@
         "confirm-cancel-add-message": "Dadurch werden Deine Eingaben gelöscht. Bist Du sicher, dass Du abbrechen möchtest?",
         "selection-mode": "Auswählen",
         "more-options": "Weitere Optionen",
-        "you-have-open-requests": "Du hast offene Anfragen, die überfällig sind. Du kannst nun darauf reagieren, in dem Du Mahnungen oder Beschwerden verschickst oder sie als abgeschlossen markierst, wenn Du mittlerweile zufriedenstellende Antworten von den Unternehmen erhalten hast.",
+        "you-have-open-requests": "Du hast offene Anfragen, die überfällig sind. Du kannst nun darauf reagieren, indem Du Mahnungen oder Beschwerden verschickst oder sie als abgeschlossen markierst, wenn Du mittlerweile zufriedenstellende Antworten von den Unternehmen erhalten hast.",
         "mark-completed": "Als abgeschlossen markieren",
         "mark-completed-are-you-sure": "Bist Du sicher, dass Du diese Nachricht als abgeschlossen markieren möchtest?",
         "request-summary-line": "{{type}} an „{{recipient}}” am {{date}} ({{reference}})"
