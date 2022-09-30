@@ -1,5 +1,5 @@
 import { Fragment, ComponentChildren, JSX } from 'preact';
-import { useState, useCallback, useMemo, useEffect } from 'preact/hooks';
+import { useState, useCallback, useMemo, useEffect, useRef, useLayoutEffect } from 'preact/hooks';
 import type { MergeExclusive } from 'type-fest';
 import t from '../Utility/i18n';
 
@@ -73,6 +73,7 @@ export const useModal = (
                 <div className="backdrop" onClick={() => options.backdropDismisses && dismiss()} role="presentation" />
 
                 <div className="inner" style={options.innerStyle}>
+                    <FocusAnchor />
                     {options.hasDismissButton && (
                         <button
                             className="button-unstyled close-button icon-close"
@@ -113,4 +114,14 @@ export const useModal = (
     }, [options, dismiss, children, shown]);
 
     return [Modal, show, dismiss, shown] as const;
+};
+
+const FocusAnchor = () => {
+    const focusAnchor = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        focusAnchor.current?.focus();
+    }, [focusAnchor]);
+
+    return <div ref={focusAnchor} tabIndex={-1} className="focus-anchor" />;
 };

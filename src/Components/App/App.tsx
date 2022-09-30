@@ -10,6 +10,7 @@ import type { MailtoDropdownProps } from '../MailtoDropdown';
 import type { SearchClient } from '../../Utility/search';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 import { ActionButtonProps } from '../Generator/ActionButton';
+import { useRef } from 'preact/hooks';
 
 const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
     request_type_chooser: {
@@ -59,9 +60,11 @@ export const App = (props: AppProps) => {
     const { Wizard, set, back, canGoBack, pageTitle } = useWizard(pages(setPage, props.pageOptions), {
         initialPageId: props.initialPageId ?? 'request_type_chooser',
     });
+    const pageTitleElement = useRef<HTMLHeadingElement>(null);
 
     function setPage(new_page: AppPageId) {
         set(new_page);
+        pageTitleElement.current?.focus();
     }
 
     return (
@@ -69,13 +72,20 @@ export const App = (props: AppProps) => {
             <header className="wizard-header">
                 {canGoBack && (
                     <button
-                        onClick={back}
+                        onClick={() => {
+                            back();
+                            pageTitleElement.current?.focus();
+                        }}
                         disabled={!canGoBack}
                         className="button button-unstyled button-fit-content app-back-button icon-arrow-left"
                         title={t('back', 'generator')}
                     />
                 )}
-                {pageTitle && <h2>{pageTitle}</h2>}
+                {pageTitle && (
+                    <h2 ref={pageTitleElement} tabIndex={-1} style="outline: none">
+                        {pageTitle}
+                    </h2>
+                )}
             </header>
 
             <Wizard />
