@@ -141,7 +141,7 @@ describe('Saved requests in the legacy database should be correctly migrated', (
             });
     });
 
-    it('Does not migrated already migrated requests', () => {
+    it('Does not migrate already migrated requests', () => {
         // Add test data
         cy.getStore('@myRequestsStore')
             .createItem(`${reference}-custom-admonition`, { ...admonition, migrated: true })
