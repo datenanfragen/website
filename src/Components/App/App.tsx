@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useRef, useMemo } from 'preact/hooks';
 import { IntlProvider } from 'preact-i18n';
 import { useWizard } from '../../hooks/useWizard';
 import { RequestTypeChooserPage } from './RequestTypeChooserPage';
@@ -12,7 +12,9 @@ import type { SearchClient } from '../../Utility/search';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 import { ActionButtonProps } from '../Generator/ActionButton';
 import { useGeneratorStore } from '../../store/generator';
+import { getGeneratedMessage, useProceedingsStore } from '../../store/proceedings';
 import { flash, FlashMessage } from '../FlashMessage';
+import { Hint } from '../Hint';
 
 const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
     request_type_chooser: {
@@ -60,6 +62,7 @@ type AppProps = {
 
 export const App = (props: AppProps) => {
     const appendToBatchBySlug = useGeneratorStore((state) => state.appendToBatchBySlug);
+    const proceedings = useProceedingsStore((state) => state.proceedings);
 
     useEffect(() => {
         if (window.PARAMETERS.company || window.PARAMETERS.companies) {
@@ -81,28 +84,39 @@ export const App = (props: AppProps) => {
         pageTitleElement.current?.focus();
     }
 
-    return (
-        <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
-            <header className="wizard-header">
-                {canGoBack && (
-                    <button
-                        onClick={() => {
-                            back();
-                            pageTitleElement.current?.focus();
-                        }}
-                        disabled={!canGoBack}
-                        className="button button-unstyled button-fit-content app-back-button icon-arrow-left"
-                        title={t('back', 'generator')}
-                    />
-                )}
-                {pageTitle && (
-                    <h2 ref={pageTitleElement} tabIndex={-1} style="outline: none">
-                        {pageTitle}
-                    </h2>
-                )}
-            </header>
+    const hasUsedOldGenerator = useMemo(
+        () =>
+            !!Object.values(proceedings).find(
+                (p) => (getGeneratedMessage(p, 'request')?.date || new Date('9999-12-31')) <= new Date('2022-09-30')
+            ),
+        [proceedings]
+    );
 
-            <Wizard />
-        </IntlProvider>
+    return (
+        <>
+            {hasUsedOldGenerator && <Hint id="advanced-generator" />}
+            <IntlProvider definition={window.I18N_DEFINITION} scope="generator">
+                <header className="wizard-header">
+                    {canGoBack && (
+                        <button
+                            onClick={() => {
+                                back();
+                                pageTitleElement.current?.focus();
+                            }}
+                            disabled={!canGoBack}
+                            className="button button-unstyled button-fit-content app-back-button icon-arrow-left"
+                            title={t('back', 'generator')}
+                        />
+                    )}
+                    {pageTitle && (
+                        <h2 ref={pageTitleElement} tabIndex={-1} style="outline: none">
+                            {pageTitle}
+                        </h2>
+                    )}
+                </header>
+
+                <Wizard />
+            </IntlProvider>
+        </>
     );
 };

@@ -7,12 +7,15 @@ import { NewRequestButton } from './Components/Generator/NewRequestButton';
 import { RequestForm } from './Components/Generator/RequestForm';
 import { CompanyWidget } from './Components/Generator/CompanyWidget';
 import { CompanySelector } from './Components/Generator/CompanySelector';
+import { Hint } from './Components/Hint';
 
 const Generator = () => {
     const current_company = useGeneratorStore((state) => state.current_company);
 
     return (
         <main>
+            <Hint id="new-generator" />
+
             <RequestGeneratorBuilder>
                 <header id="generator-header">
                     <div id="generator-controls" style="margin-bottom: 10px;">

@@ -783,6 +783,11 @@
         "yes": "ja",
         "no": "nein"
     },
+    "hints": {
+        "dismiss-hint": "Diesen Hinweis nicht mehr anzeigen.",
+        "new-generator": "Wir haben eine <a href='/generator'>neue Oberfläche für den Generator</a> entwickelt, die intuitiver zu bedienen ist und das Stellen von vielen Anfragen erleichtert. Probiere sie doch einmal aus.<br>Aber keine Sorge: Falls Dir die bisherige Oberfläche besser gefällt, kannst Du sie weiterhin benutzen. Wir haben nicht vor, sie einzustellen.",
+        "advanced-generator": "Willkommen bei der neuen Oberfläche für unseren Generator. Wir hoffen, dass sie intuitiver zu bedienen ist und das Stellen von vielen Anfragen erleichtert.<br>Aber keine Sorge: Falls Dir die <a href='/g'>alte Oberfläche</a> besser gefällt, kannst Du sie weiterhin benutzen. Wir haben nicht vor, sie einzustellen."
+    },
     "countries": {
         "__taken_from": "https://github.com/stefangabos/world_countries",
         "all": "alle",
