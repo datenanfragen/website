@@ -838,6 +838,11 @@
         "mollie": "Other payments",
         "mollie-info": "Our partner Mollie also offers several other payment methods, including Sofortüberweisung, giropay, iDEAL, EPS, CDC and Bancontact."
     },
+    "hints": {
+        "dismiss-hint": "Dismiss hint.",
+        "new-generator": "We have developed a <a href='/generator'>new interface for the generator</a> that is more intuitive to use and makes it easier to send many requests. Why not give it a try?<br>But don’t worry: If you prefer the old interface, you can still use it. We don’t plan on discontinuing it.",
+        "advanced-generator": "Welcome to the new interface for our generator. We hope that it is more intuitive to use and makes it easier to send many requests.<br>But don’t worry: If you prefer the <a href='/g'>old interface</a>, you can still use it. We don’t plan on discontinuing it."
+    },
     "countries": {
         "__taken_from": "https://github.com/stefangabos/world_countries",
         "all": "all",
