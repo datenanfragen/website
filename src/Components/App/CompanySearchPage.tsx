@@ -126,54 +126,62 @@ const CompanySuggestionsPack = ({ pack }: CompanySuggestionsPackProps) => {
 
     const [batch, appendToBatchBySlug] = useGeneratorStore((state) => [state.batch, state.appendToBatchBySlug]);
 
-    const [selectedCompanies, setSelectedCompanies] = useState(
-        pack.type === 'choose' ? [] : pack.companies.map((c) => c.slug)
-    );
+    const ModalContent = () => {
+        const [selectedCompanies, setSelectedCompanies] = useState(
+            pack.type === 'choose' ? [] : pack.companies.map((c) => c.slug)
+        );
 
-    const [Modal, showModal, hideModal] = useModal(
-        <>
-            <h1>{t(`${pack.slug as 'address-brokers'}-title`, 'company-packs')}</h1>
+        return (
+            <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
+                <>
+                    <h1>{t(`${pack.slug as 'address-brokers'}-title`, 'company-packs')}</h1>
 
-            {description && <p>{description}</p>}
+                    {description && <p>{description}</p>}
 
-            <ul className="unstyled-list">
-                {pack.companies.map((c) => {
-                    return (
-                        <li>
-                            <input
-                                type="checkbox"
-                                className="form-element"
-                                checked={selectedCompanies.includes(c.slug)}
-                                onChange={(e) =>
-                                    setSelectedCompanies(
-                                        e.currentTarget.checked
-                                            ? [...selectedCompanies, c.slug]
-                                            : selectedCompanies.filter((s) => s !== c.slug)
-                                    )
-                                }
-                                id={`company-pack-choose-${c.slug}`}
-                            />
-                            <label for={`company-pack-choose-${c.slug}`}>{c.name}</label>
-                        </li>
-                    );
-                })}
-            </ul>
-        </>,
-        {
-            positiveText: t(
-                'add-n-companies',
-                'generator',
-                { n: `${selectedCompanies.length}` },
-                selectedCompanies.length
-            ),
-            onPositiveFeedback: () =>
-                Promise.all(
-                    selectedCompanies
-                        .filter((slug) => !Object.keys(batch || {}).includes(slug))
-                        .map((slug) => appendToBatchBySlug(slug))
-                ).then(hideModal),
-        }
-    );
+                    <ul className="unstyled-list">
+                        {pack.companies.map((c) => {
+                            return (
+                                <li>
+                                    <input
+                                        type="checkbox"
+                                        className="form-element"
+                                        checked={selectedCompanies.includes(c.slug)}
+                                        onChange={(e) =>
+                                            setSelectedCompanies(
+                                                e.currentTarget.checked
+                                                    ? [...selectedCompanies, c.slug]
+                                                    : selectedCompanies.filter((s) => s !== c.slug)
+                                            )
+                                        }
+                                        id={`company-pack-choose-${c.slug}`}
+                                    />
+                                    <label for={`company-pack-choose-${c.slug}`}>{c.name}</label>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    <button
+                        className="button button-primary"
+                        style="float: right"
+                        onClick={() =>
+                            Promise.all(
+                                selectedCompanies
+                                    .filter((slug) => !Object.keys(batch || {}).includes(slug))
+                                    .map((slug) => appendToBatchBySlug(slug))
+                            ).then(hideModal)
+                        }>
+                        <Text
+                            id="add-n-companies"
+                            fields={{ n: `${selectedCompanies.length}` }}
+                            plural={selectedCompanies.length}
+                        />
+                    </button>
+                </>
+            </IntlProvider>
+        );
+    };
+
+    const [Modal, showModal, hideModal] = useModal(<ModalContent />);
 
     return (
         <IntlProvider scope="company-packs" definition={window.I18N_DEFINITION}>
