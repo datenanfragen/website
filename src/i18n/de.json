@@ -442,7 +442,11 @@
         "export-to-calendar": "Erinnerungen in meinen Kalender exportieren",
         "view-requests": "Deine Anfrage ansehen",
         "send-more": "Weitere Anfragen stellen",
-        "app-introduction": "Wir leiten Dich durch das Senden der Anfragen. Leg’ los, indem Du auswählst was für eine Anfrage Du schicken möchtest."
+        "app-introduction": "Wir leiten Dich durch das Senden der Anfragen. Leg’ los, indem Du auswählst was für eine Anfrage Du schicken möchtest.",
+        "access-request-explanation-button": "Was ist eine Auskunftsanfrage?",
+        "erasure-request-explanation-button": "Was ist eine Löschanfrage?",
+        "rectification-request-explanation-button": "Was ist eine Berichtigungsanfrage?",
+        "objection-request-explanation-button": "Was ist ein Werbewiderspruch?"
     },
     "mailto": {
         "mailto": "Standard-E-Mail-Programm",

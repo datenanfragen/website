@@ -448,7 +448,11 @@
         "export-to-calendar": "Export reminders to your calendar",
         "view-requests": "View your requests",
         "send-more": "Send more requests",
-        "app-introduction": "We’ll guide you through sending your request(s). Start by choosing what kind of request you want to send."
+        "app-introduction": "We’ll guide you through sending your request(s). Start by choosing what kind of request you want to send.",
+        "access-request-explanation-button": "What is an access request?",
+        "erasure-request-explanation-button": "What is an erasure request?",
+        "rectification-request-explanation-button": "What is a rectification request?",
+        "objection-request-explanation-button": "What is a direct marketing objection?"
     },
     "mailto": {
         "mailto": "Default email software",

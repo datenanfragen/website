@@ -1,7 +1,6 @@
 import { IntlProvider, MarkupText, Text } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { SetPageFunction } from './App';
-import { Radio } from '../../Components/Radio';
 import { useModal } from '../../Components/Modal';
 import { REQUEST_TYPES } from '../../Utility/requests';
 import t from '../../Utility/i18n';
@@ -14,11 +13,13 @@ type RequestTypeChooserPageProps = {
 };
 
 export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
-    const request_types = (props.request_types || REQUEST_TYPES).filter((r) => r !== 'custom');
+    const request_types = (props.request_types || REQUEST_TYPES).filter((r) => r !== 'custom') as Exclude<
+        RequestType,
+        'custom'
+    >[];
     const setBatchRequestType = useGeneratorStore((state) => state.setBatchRequestType);
-    const request_type = useGeneratorStore((state) => state.batchRequestType);
 
-    const RadioWithModal = ({ type }: { type: RequestType }) => {
+    const RequestButtonWithModal = ({ type }: { type: Exclude<RequestType, 'custom'> }) => {
         const [RequestTypeInfoModal, showRequestTypeInfoModal, dismissRequestTypeInfoModal] = useModal(
             <>
                 <Text id={`request-type-info-${type}`} />
@@ -35,24 +36,25 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
         );
 
         return (
-            <div className="col66 col100-mobile">
+            <>
                 <RequestTypeInfoModal />
-                <Radio
-                    id={`request-type-choice-${type}`}
-                    radioVariable={request_type || ''}
-                    value={type}
-                    name="request-type"
-                    onChange={(value) => setBatchRequestType(value as RequestType)}
-                    onClick={() => props.setPage('company_search')}
-                    label={<MarkupText id={`${type}-request-statement`} />}
-                    addon={
-                        <button
-                            className="button button-secondary icon-question-mark"
-                            onClick={showRequestTypeInfoModal}
-                        />
-                    }
-                />
-            </div>
+                <div id={`request-type-choice-${type}`} className="request-type-button-group">
+                    <button
+                        name="request-type"
+                        className="button button-secondary"
+                        onClick={() => {
+                            setBatchRequestType(type);
+                            props.setPage('company_search');
+                        }}>
+                        <MarkupText id={`${type}-request-statement`} />
+                    </button>
+                    <button
+                        className="button button-secondary icon-question-mark request-type-help-button"
+                        onClick={showRequestTypeInfoModal}
+                        title={t(`${type}-request-explanation-button`, 'generator')}
+                    />
+                </div>
+            </>
         );
     };
 
@@ -61,11 +63,14 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
             <p>
                 <Text id="app-introduction" />
             </p>
-            <div className="radio-group radio-group-vertical radio-group-padded">
-                {request_types.map((type) => (
-                    <RadioWithModal type={type} />
-                ))}
+            <div className="col66 col100-mobile">
+                <div className="request-type-chooser-vertical">
+                    {request_types.map((type) => (
+                        <RequestButtonWithModal type={type} />
+                    ))}
+                </div>
             </div>
+
             <div className="clearfix" />
         </IntlProvider>
     );
