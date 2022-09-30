@@ -230,7 +230,7 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
         const [sources, setSources] = useState('');
 
         return (
-            <>
+            <div className="custom-company-modal-content">
                 <Text id="add-custom-company-explanation" />
 
                 <div className="form-group">
@@ -420,8 +420,9 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
                         }>
                         <Text id="cancel" />
                     </button>
+                    <div className="clearfix" />
                 </div>
-            </>
+            </div>
         );
     };
 
