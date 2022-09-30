@@ -74,10 +74,11 @@ textarea:placeholder-shown + label.fancy-label {
     .dropup-container {
         .dropup {
             width: 400px;
-            bottom: 30px;
+            bottom: 31px;
             padding: 15px;
-            left: -200px;
-            margin-left: 35%;
+            right: 0;
+            max-height: 140px;
+            overflow-y: scroll;
 
             @include mobile {
                 width: 80vw;
