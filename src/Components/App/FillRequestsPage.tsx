@@ -15,13 +15,15 @@ type FillRequestsPageProps = {
 };
 
 export const FillRequestsPage = (props: FillRequestsPageProps) => {
-    const [batch, current_company, request_type, transport_medium, fillSignature] = useGeneratorStore((state) => [
-        state.batch,
-        state.current_company,
-        state.request.type,
-        state.request.transport_medium,
-        state.fillSignature,
-    ]);
+    const [batch, current_company, request_type, transport_medium, isTrackingRequest, fillSignature] =
+        useGeneratorStore((state) => [
+            state.batch,
+            state.current_company,
+            state.request.type,
+            state.request.transport_medium,
+            state.request.is_tracking_request,
+            state.fillSignature,
+        ]);
     const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
     const fillFields = useGeneratorStore((state) => state.fillFields);
     const rectification_data = useGeneratorStore((state) =>
@@ -54,7 +56,7 @@ export const FillRequestsPage = (props: FillRequestsPageProps) => {
                 allowRemovingFields={true}
                 hasPrimary={true}
                 fillFields={fillFields}>
-                <MarkupText id="id-data-explanation" />
+                <MarkupText id={isTrackingRequest ? 'id-data-tracking-explanation' : 'id-data-explanation'} />
             </StatefulDynamicInputContainer>
             <br />
 
