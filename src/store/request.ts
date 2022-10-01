@@ -21,6 +21,7 @@ import {
     trackingFields,
     defaultFields,
     isSva,
+    shouldBeTrackingRequest,
 } from '../Utility/requests';
 import { UserRequests, UserRequest } from '../DataType/UserRequests';
 import { produce } from 'immer';
@@ -164,8 +165,9 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
         ),
     setRequestType: (type) => {
         set(
-            produce((state: RequestState<Request>) => {
+            produce((state: GeneratorState) => {
                 state.request.type = type;
+                state.request.is_tracking_request = shouldBeTrackingRequest(state.current_company, state.request.type);
                 if (state.request.type === 'custom')
                     state.request.custom_data = makeCustomDataFromIdData(state.request);
                 if (state.request.type === 'rectification' && state.request.rectification_data === undefined)

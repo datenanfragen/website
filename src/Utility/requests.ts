@@ -160,3 +160,18 @@ export function inferRequestLanguage(entity?: Company | SupervisoryAuthority) {
     if (entity && isSva(entity)) return requestLanguageFallback(entity['complaint-language']);
     return requestLanguageFallback(entity?.['request-language']);
 }
+
+// This is not the most elegant thing in the world, but we need to support 'no ID data' requests for more than adtech
+// companies. Ideally, this would be another bool in the schema but we can't really change that right now because of
+// Typesense. Thus, we have to stick to matching the template for now. And I have realized that our current adtech case
+// also applies to pretty much all other 'no ID data' requests anyway in that they are either also to tracking companies
+// or those companies at least identify the user by the same details (i.e. cookie IDs, device IDs, etc.) I couldn't come
+// up with a better name, so we'll just leave them as tracking requests, I guess…
+export const shouldBeTrackingRequest = (
+    company: Company | SupervisoryAuthority | undefined,
+    requestType: RequestType
+) =>
+    !isSva(company) &&
+    ['access-tracking', 'erasure-tracking', 'rectification-tracking', 'objection-tracking'].includes(
+        company?.[`custom-${requestType}-template`] ?? ''
+    );
