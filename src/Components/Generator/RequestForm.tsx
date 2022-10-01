@@ -25,10 +25,11 @@ export const RequestForm = (props: RequestFormProps) => {
     const date = useGeneratorStore((state) => state.request.date);
     const signature = useGeneratorStore((state) => state.request.signature);
     const id_data = useGeneratorStore((state) => state.request.id_data);
-    const is_tracking_request = useGeneratorStore((state) => state.request.is_tracking_request);
+    const isTrackingRequest = useGeneratorStore((state) => state.request.is_tracking_request);
     const rectification_data = useGeneratorStore((state) =>
         state.request.type == 'rectification' ? state.request.rectification_data : []
     );
+    const current_company = useGeneratorStore((state) => state.current_company);
     const fillFields = useGeneratorStore((state) => state.fillFields);
     const fillSignature = useGeneratorStore((state) => state.fillSignature);
     const setTransportMedium = useGeneratorStore((state) => state.setTransportMedium);
@@ -37,9 +38,16 @@ export const RequestForm = (props: RequestFormProps) => {
     const setDate = useGeneratorStore((state) => state.setDate);
     const setInformationBlock = useGeneratorStore((state) => state.setInformationBlock);
     const setSignature = useGeneratorStore((state) => state.setSignature);
+    const setIsTrackingRequest = useGeneratorStore((state) => state.setIsTrackingRequest);
     const setField = useGeneratorStore((state) => state.setField);
     const addField = useGeneratorStore((state) => state.addField);
     const removeField = useGeneratorStore((state) => state.removeField);
+
+    const customTemplateField = `custom-${request_type}-template`;
+    const trackingTemplateName = `${request_type}-tracking`;
+    const hasNoOrTrackingTemplate =
+        request_type !== 'custom' &&
+        (!current_company?.[customTemplateField] || current_company[customTemplateField] === trackingTemplateName);
 
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
@@ -65,6 +73,17 @@ export const RequestForm = (props: RequestFormProps) => {
                         />
 
                         <RequestFlags />
+                        {hasNoOrTrackingTemplate && request_type === 'access' && (
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    className="form-element"
+                                    checked={isTrackingRequest}
+                                    onClick={(e) => setIsTrackingRequest(e.currentTarget.checked)}
+                                />
+                                <Text id="consider-as-tracking-company" />
+                            </label>
+                        )}
 
                         <Accordion
                             title={t('information-block', 'generator')}
@@ -144,13 +163,13 @@ export const RequestForm = (props: RequestFormProps) => {
                                 onRemoveField={(id) => removeField(id, 'id_data')}
                                 onChange={(id, field) => setField(id, field, 'id_data')}
                                 fields={id_data}
-                                title={t(is_tracking_request ? 'id-data-tracking' : 'id-data', 'generator')}
+                                title={t(isTrackingRequest ? 'id-data-tracking' : 'id-data', 'generator')}
                                 hasPrimary={true}
                                 fillFields={fillFields}
                                 allowAddingFields={true}
                                 headingClass={request_type === 'rectification' ? 'has-margin' : ''}>
                                 <MarkupText
-                                    id={is_tracking_request ? 'id-data-tracking-explanation' : 'id-data-explanation'}
+                                    id={isTrackingRequest ? 'id-data-tracking-explanation' : 'id-data-explanation'}
                                 />
                             </DynamicInputContainer>
                         )}

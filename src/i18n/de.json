@@ -338,7 +338,8 @@
         "body": "Text",
         "mailto-dropdown-explanation": "Wie möchtest Du die E-Mail verschicken?",
         "mailto-dropdown-warning": "*Dadurch werden die Daten Deiner Anfrage an den jeweiligen Anbieter weitergegeben.",
-        "copymanually-explanation": "Hier kannst Du den Betreff, Empfänger und Text Deiner generierten E-Mail von Hand kopieren."
+        "copymanually-explanation": "Hier kannst Du den Betreff, Empfänger und Text Deiner generierten E-Mail von Hand kopieren.",
+        "consider-as-tracking-company": "Meine Anfrage an dieses Unternehmen bezieht sich auf Trackingdaten und ich weiß nicht, wie das Unternehmen mich dafür identifizieren kann."
     },
     "mailto": {
         "mailto": "Standard-E-Mail-Programm",

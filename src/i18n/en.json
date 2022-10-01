@@ -338,7 +338,8 @@
         "body": "Text",
         "mailto-dropdown-explanation": "How do you want to send the email?",
         "mailto-dropdown-warning": "*This will transmit your request and the included data to the respective service.",
-        "copymanually-explanation": "Here you can copy the subject, recipient and text of your generated email manually."
+        "copymanually-explanation": "Here you can copy the subject, recipient and text of your generated email manually.",
+        "consider-as-tracking-company": "My request to this company concerns tracking data and I don’t know how the company can identify me for this purpose."
     },
     "mailto": {
         "mailto": "Default email software",
