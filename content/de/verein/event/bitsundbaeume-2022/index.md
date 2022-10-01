@@ -15,3 +15,5 @@ Viele Apps auf Smartphones sind unentwegt damit befasst, unser Verhalten zu anal
 Zu diesen wichtigen Fragen steuern wir im Workshop die Datenschutzperspektive bei. Wir erklären, wie man mithilfe der DSGVO Auskunft über Tracking erhalten und sich dagegen wehren kann.
 
 [Workshop im Konferenz-Programm](https://fahrplan22.bits-und-baeume.org/bitsundbaeume/talk/CGDAWX/)
+
+**Material**: [Vortragsfolien](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume.pdf)

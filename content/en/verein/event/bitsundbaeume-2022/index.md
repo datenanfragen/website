@@ -12,6 +12,8 @@
 
 Many apps on smartphones are constantly analyzing our behavior and sending it off to others. This consumes a considerable portion of the mobile energy budget. But how high is that share exactly? Should we turn off these cell phone activities to protect the environment? And how can this be done?
 
-In the workshop, we contribute a data protection perspective to these important questions. We explain how to get access to tracking data and how to defend against it with the help of the GDPR.
+In the workshop, we contribute a data protection perspective to these important questions. We explain how to get access to tracking data and how to defend against it with the help of the GDPR. The workshop is in German.
 
 [Workshop in the conference program](https://fahrplan22.bits-und-baeume.org/bitsundbaeume/talk/CGDAWX/)
+
+**Material**: [Slides (German)](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume.pdf)
