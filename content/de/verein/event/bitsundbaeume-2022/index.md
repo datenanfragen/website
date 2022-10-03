@@ -16,4 +16,8 @@ Zu diesen wichtigen Fragen steuern wir im Workshop die Datenschutzperspektive be
 
 [Workshop im Konferenz-Programm](https://fahrplan22.bits-und-baeume.org/bitsundbaeume/talk/CGDAWX/)
 
-**Material**: [Vortragsfolien](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume.pdf)
+**Vortragsfolien**:
+
+* [Einleitung](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume-einleitung.pdf)
+* [Gruppe 1 und 2: Stromverbrauch-messende Apps, Wie erfolgt die Ausspähung genau?](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume-energie.pdf)
+* [Gruppe 3: Mobiles Tracking aus Datenschutzsicht](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume.pdf)
