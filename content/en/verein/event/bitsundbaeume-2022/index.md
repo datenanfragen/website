@@ -16,4 +16,8 @@ In the workshop, we contribute a data protection perspective to these important 
 
 [Workshop in the conference program](https://fahrplan22.bits-und-baeume.org/bitsundbaeume/talk/CGDAWX/)
 
-**Material**: [Slides (German)](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume.pdf)
+**Slides (German)**:
+
+* [Introduction](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume-einleitung.pdf)
+* [Group 1 and 2: Apps for measuring energy consumption, How does the spying work?](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume-energie.pdf)
+* [Gruppe 3: Mobile tracking from a data protection perspective](https://static.dacdn.de/talks/slides/2022-10-02-bits-und-baeume.pdf)
