@@ -876,5 +876,15 @@
     },
     "blog": {
         "footnote": "Note de bas de page"
+    },
+    "company-packs": {
+        "credit-agencies-title": "Agences de crédit",
+        "commerce-title": "Commerce",
+        "entertainment-title": "Divertissement",
+        "public-authorities-title": "Services publics",
+        "finance-title": "Finance",
+        "social-media-title": "Réseaux sociaux et communication",
+        "telecommunication-title": "Télécommunication",
+        "insurance-title": "Assurance"
     }
 }
