@@ -41,4 +41,27 @@ describe('language suggestion modal', () => {
         });
         cy.get('#flash-messages').should('not.contain', 'Diese Seite ist auch in Deiner Sprache verfügbar!');
     });
+
+    it('should appear if DE content is available in current language', () => {
+        cy.visit(`${Cypress.env('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313')}/`, {
+            onBeforeLoad(win) {
+                Object.defineProperty(win.navigator, 'language', { value: ['en-GB'] });
+            },
+        });
+        cy.get('#flash-messages').should('contain', 'This site is also available in your language!');
+    });
+
+    it('should not appear if the content is not available in current language', () => {
+        cy.visit(
+            `${
+                Cypress.env('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313')
+            }/blog/e-mail-werbung-einwilligung-beschwerde/`,
+            {
+                onBeforeLoad(win) {
+                    Object.defineProperty(win.navigator, 'language', { value: ['en-GB'] });
+                },
+            }
+        );
+        cy.get('#flash-messages').should('not.contain', 'This site is also available in your language!');
+    });
 });

@@ -6,7 +6,7 @@ import { CommentsWidget } from './Components/CommentsWidget';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import Footnote from './Components/Footnote';
 import { t_r } from './Utility/i18n';
-import { parameters, parseBcp47Tag, fallback_countries } from './Utility/common';
+import { parameters, parseBcp47Tag } from './Utility/common';
 import { guessUserCountry } from './Utility/browser';
 
 // Has to run before any rendering, will be removed in prod by bundlers.
@@ -58,7 +58,10 @@ if (!useAppStore.getState().countrySet) {
     const { language: preferred_language } = parseBcp47Tag(navigator.language);
     const { language: website_language } = parseBcp47Tag(document.documentElement.lang);
 
-    if (preferred_language !== website_language && preferred_language! in fallback_countries)
+    if (
+        preferred_language !== website_language &&
+        Object.prototype.isPrototypeOf.call(window.SUPPORTED_LANGUAGES, preferred_language!)
+    )
         notifyOtherLanguages(preferred_language, website_language);
 }
 
