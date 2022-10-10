@@ -124,8 +124,9 @@ a #logo {
 }
 
 /* Home */
+$home-hero-height: 85vh;
 #home-hero-bg {
-    height: 95vh;
+    height: $home-hero-height;
     min-height: 440px;
     position: absolute;
     top: 0;
@@ -140,31 +141,50 @@ a #logo {
     background-color: $bg-accent-color;
 
     @include mobile {
-        background-image: none; // TODO: I really don't know how to make this work, so let's skip it for now.
+        background-image: none;
     }
 }
 
 #home-hero {
     position: relative;
-    height: 95vh;
-    min-height: 420px;
+    height: $home-hero-height;
+    min-height: 450px;
 
-    font-family: $heading-font;
-    font-weight: $heading-weight;
-    color: $primary-color;
-    font-size: 3em;
+    #home-hero-content {
+        position: absolute;
+        top: 30%;
+        left: 0;
 
-    @include mobile {
-        font-size: 2em;
+        #home-hero-line-1,
+        #home-hero-line-2 {
+            font-family: $heading-font;
+            font-weight: $heading-weight;
+            color: $primary-color;
+            font-size: 3em;
+
+            @include mobile {
+                font-size: 2em;
+            }
+        }
+
+        .col60 {
+            box-sizing: border-box;
+            padding-right: 50px;
+
+            #home-hero-desc {
+                font-size: 1.2em;
+            }
+        }
+        .col40 {
+            .button {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
     }
 }
-#home-hero-content {
-    position: absolute;
-    top: 30%;
-    left: 0;
-}
 
-#home-main-copy {
+.home-big-text {
     text-align: center;
     font-weight: 200;
     font-size: 1.8em;
@@ -396,8 +416,7 @@ details summary {
 }
 
 .home-feature {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 100px 0;
     display: flex;
 
     @include mobile {
@@ -419,7 +438,7 @@ details summary {
     }
 
     .feature-image {
-        height: 100px;
+        height: 150px;
         display: block;
         position: absolute;
         top: 50%;

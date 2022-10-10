@@ -1,6 +1,6 @@
-import { render } from 'preact';
+// import { render } from 'preact';
 import t from 'Utility/i18n';
-import { ReminderWidget } from './Components/ReminderWidget';
+// import { ReminderWidget } from './Components/ReminderWidget';
 
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
 const hero_rights = [
@@ -11,8 +11,8 @@ const hero_rights = [
     t('privacy', 'home'),
 ];
 
-const reminderDiv = document.getElementById('home-reminders');
-render(<ReminderWidget />, reminderDiv);
+// const reminderDiv = document.getElementById('home-reminders');
+// render(<ReminderWidget />, reminderDiv);
 
 function typewriter(text, i, fnCallback) {
     if (text && i < text.length) {
