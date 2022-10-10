@@ -2,8 +2,17 @@
 <main>
     <div id="home-hero">
         <div id="home-hero-content">
-            <div id="home-hero-line-1">{{ T "home-hero-line-1" }} </div>
-            <div id="home-hero-line-2"><span id="home-hero-word" aria-hidden="true"><noscript>{{T "home-hero-word"}}</noscript><br></span></div>
+            <div class="col60">
+                <div id="home-hero-line-1">{{ T "home-hero-line-1" }} </div>
+                <div id="home-hero-line-2"><span id="home-hero-word" aria-hidden="true"><noscript>{{ T "home-hero-word" }}</noscript><br></span></div>
+                <div id="home-hero-desc">{{ T "home-hero-desc" | safeHTML }}</div>
+            </div>
+            <div class="col40">
+                <a class="button button-primary" href="/TODO"><strong>Auskunft</strong> über meine Daten erhalten.</a>
+                <a class="button button-secondary" href="/TODO">(Teile von) Daten über mich <strong>löschen</strong>.</a>
+                <a class="button button-secondary" href="/TODO">Daten über mich <strong>korrigieren</strong>.</a>
+                <a class="button button-secondary" href="/TODO">Widerspruch gegen <strong>Direktwerbung</strong> einlegen.</a>
+            </div>
         </div>
     </div>
     <div id="home-content">
@@ -52,12 +61,103 @@
             </div>
         </div>
 
-        <!-- TODO: This obviously isn't the final design. -->
-        <div id="home-reminders" style="margin-bottom: 50px;"></div>
+    <!-- TODO: This obviously isn't the final design. -->
+    {{/* TODO: We should also do the badge-thingy like in the apps. Maybe then we don't even need this?  */}}
+    <div id="home-reminders" style="margin-bottom: 50px;"></div>
 
-        <div id="home-main-copy">
-            {{ T "home-main-copy" }}
+
+    <section class="feature-section">
+        <div class="home-big-text">
+            {{ T "home-how-it-works-intro" }}
         </div>
-    </div>
+
+        <div class="home-feature">
+            <div class="col40">
+                <img class="feature-image" src="{{ "card-icons/speech-bubble.svg" | absURL }}" alt="TODO">
+            </div>
+            <div class="col60">
+                <h2>{{ T "home-how-it-works-1-title" }}</h2>
+                <p>{{ T "home-how-it-works-1" }}</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="home-feature">
+            <div class="col60">
+                <h2>{{ T "home-how-it-works-2-title" }}</h2>
+                <p>{{ T "home-how-it-works-2" }}</p>
+            </div>
+            <div class="col40">
+                <img class="feature-image" src="{{ "card-icons/check.svg" | absURL }}" alt="TODO">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="home-feature">
+            <div class="col40">
+                <img class="feature-image" src="{{ "card-icons/authority.svg" | absURL }}" alt="TODO">
+            </div>
+            <div class="col60">
+                <h2>{{ T "home-how-it-works-3-title" }}</h2>
+                <p>{{ T "home-how-it-works-3" }}</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        {{/*  <a href="{{ "/generator" | absURL }}"
+            class="button button-primary">{{ T "home-how-it-works-get-started" }}&nbsp;<span
+                class="icon icon-arrow-right"></span></a>  */}}
+    </section>
+
+    <!--
+    <section id="your-rights" class="feature-section">
+        <h1>{{ T "home-feature-your-rights-title" }}</h1>
+        <div class="home-feature">
+            <div class="col40">
+                <h2>{{ T "home-feature-your-rights-access-title" }}</h2>
+            </div>
+            <div class="col60">
+                <p>{{ T "home-feature-your-rights-access" }}</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="home-feature">
+            <div class="col40">
+                <h2>{{ T "home-feature-your-rights-rectification-title" }}</h2>
+            </div>
+            <div class="col60">
+                <p>{{ T "home-feature-your-rights-rectification" }}</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="home-feature">
+            <div class="col40">
+                <h2>{{ T "home-feature-your-rights-erasure-title" }}</h2>
+            </div>
+            <div class="col60">
+                <p>{{ T "home-feature-your-rights-erasure" }}</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="home-feature">
+            <div class="col40">
+                <h2>{{ T "home-feature-your-rights-object-title" }}</h2>
+            </div>
+            <div class="col60">
+                <p>{{ T "home-feature-your-rights-object" }}</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="home-feature">
+            <div class="col40">
+                <h2>{{ T "home-feature-your-rights-portabillity-title" }}</h2>
+            </div>
+            <div class="col60">
+                <p>{{ T "home-feature-your-rights-portabillity" }}</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <a href="{{ T "home-read-more-url" | absLangURL }}"
+            class="button button-primary">{{ T "blog-read-more" }}&nbsp;<span
+                class="icon icon-arrow-right"></span></a>
+    </section>
+-->
 </main>
 {{ end }}
