@@ -8,7 +8,7 @@ describe('Requests without a date should not be allowed', () => {
     it('Deleting the date should reset to today', () => {
         skipOn(isOn('production'));
 
-        cy.visit('/generator');
+        cy.visit('/g');
 
         cy.contains('Information block').click();
         cy.get('#request-date').clear();
