@@ -7,7 +7,7 @@
 
 describe('Readonly inputs', () => {
     beforeEach(() => {
-        cy.visit('/generator');
+        cy.visit('/g');
     });
 
     it('Regular checkbox should not have readonly styling', () => {
