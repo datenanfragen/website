@@ -75,7 +75,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
             if (!isFieldPresent && !isFieldEmpty(field)) {
                 return (
                     <div className="field-add-group">
-                        <label htmlFor={`add-fill-field-${idx}`}>
+                        <label htmlFor={`add-fill-field-${props.id}-${idx}`}>
                             {field.desc}:{' '}
                             <span className="fill-field-value">
                                 {field.type === 'address'
@@ -86,7 +86,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                             </span>
                         </label>
                         <button
-                            id={`add-fill-field-${idx}`}
+                            id={`add-fill-field-${props.id}-${idx}`}
                             style="float: none;"
                             className="button button-small button-secondary icon-arrow-right"
                             onClick={() => addFillField(field)}
@@ -147,12 +147,12 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                                         ] as Array<{ inputType: IdDataElement['type']; text: string }>
                                     ).map((input) => (
                                         <div className="field-add-group">
-                                            <label htmlFor={`add-input-${input.inputType}`}>
+                                            <label htmlFor={`add-input-${props.id}-${input.inputType}`}>
                                                 <Text id={input.text} />
                                             </label>
                                             <button
                                                 style="float: none;"
-                                                id={`add-input-${input.inputType}`}
+                                                id={`add-input-${props.id}-${input.inputType}`}
                                                 className="button button-small button-secondary icon-arrow-right"
                                                 onClick={() =>
                                                     props.onAddField(
