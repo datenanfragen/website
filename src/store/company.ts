@@ -4,6 +4,7 @@ import type { StoreSlice } from '../types/utility';
 import { RequestState } from './request';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
 import { trackingFields, defaultFields, inferRequestLanguage } from '../Utility/requests';
+import { ErrorException } from '../Utility/errors';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { produce } from 'immer';
 import { SavedIdData } from '../DataType/SavedIdData';
@@ -170,7 +171,11 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
     selectBatchCompanyRuns: (slug, runs_selected) =>
         set(
             produce((state: GeneratorState) => {
-                if (!get().hasBatch() || !get().batch![slug]) return; // TODO: Error here?
+                if (!get().hasBatch() || !get().batch![slug])
+                    throw new ErrorException(
+                        'Tried to selectBatchCompanyRuns without batch or for company not in batch.',
+                        { batch: get().batch, slug }
+                    );
 
                 state.batch![slug].company.runs_selected = runs_selected;
             })
@@ -178,7 +183,11 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
     setBatchCompanyCustomTemplate: (slug, type, template) =>
         set(
             produce((state: GeneratorState) => {
-                if (!get().hasBatch() || !get().batch![slug]) return; // TODO: Error here?
+                if (!get().hasBatch() || !get().batch![slug])
+                    throw new ErrorException(
+                        'Tried to setBatchCompanyCustomTemplate without batch or for company not in batch.',
+                        { batch: get().batch, slug }
+                    );
 
                 state.batch![slug].company[`custom-${type}-template`] = template;
             })
