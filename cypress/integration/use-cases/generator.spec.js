@@ -273,4 +273,61 @@ describe('Using the generator', () => {
             // eslint-disable-next-line optimize-regex/optimize-regex
             .and('match', /^blob:https?:\/\/[\S]+?\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
     });
+
+    it('Requests get stored correctly', () => {
+        cy.contains('Get access').click();
+        cy.searchAndRequestCompanies(['Commerzbank', 'Allianz SE', 'Oracle Corporation', 'CRIF GmbH', 'bonprix']);
+
+        const check = (action, shouldBeStored) => {
+            cy.contains('Send request').click();
+            cy.generatorStore()
+                .then((state) => state.request.reference)
+                .then((reference) =>
+                    cy
+                        .proceedingsStore()
+                        .then((state) => state.proceedings)
+                        .should('not.haveOwnProperty', reference)
+                );
+            // The button gets rerendered before Cypress can click it. I haven't found a reliable way to wait for the
+            // rerender.
+            // eslint-disable-next-line cypress/no-unnecessary-waiting
+            cy.wait(500);
+            action();
+            cy.generatorStore()
+                .then((state) => state.request.reference)
+                .then((reference) =>
+                    cy
+                        .proceedingsStore()
+                        .then((state) => state.proceedings)
+                        .should(shouldBeStored ? 'haveOwnProperty' : 'not.haveOwnProperty', reference)
+                );
+            cy.contains(shouldBeStored ? 'Next request' : 'Skip request').click();
+        };
+
+        // mailto
+        check(() => {
+            cy.contains('Send email').click();
+            cy.contains('Default email software').clickLinkWithoutFollowingHref({ force: true });
+        }, true);
+
+        // webmailer
+        check(() => {
+            cy.contains('Send email').click();
+            cy.contains('Google Mail').clickLinkWithoutFollowingHref({ force: true });
+        }, true);
+
+        // PDF
+        check(() => {
+            cy.contains('Download PDF', { timeout: 10000 }).should('not.have.class', 'disabled');
+            cy.contains('Download PDF').clickLinkWithoutFollowingHref();
+        }, true);
+
+        // copy text
+        check(() => {
+            cy.get('#send-request-modal-body').trigger('copy');
+        }, true);
+
+        // nothing
+        check(() => {}, false);
+    });
 });
