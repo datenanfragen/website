@@ -54,7 +54,7 @@ describe('Proceedings page', () => {
                 date: new Date('2022-01-14T00:00:00.000Z'),
             });
         });
-        cy.get('.proceeding-rows').should('contain.text', 'Overdue').should('contain.text', '14 January 2022');
+        cy.get('.proceeding-rows').should('contain.text', 'Overdue').should('contain.text', 'January 14, 2022');
 
         cy.proceedingsStore().then((store) => {
             store.addMessage({
