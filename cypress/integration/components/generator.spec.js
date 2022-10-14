@@ -56,4 +56,32 @@ describe('Request generator tool component', () => {
             expect(win.pdfWorker).to.be.undefined;
         });
     });
+
+    it('changes company packs based on the country', () => {
+        cy.visit('/generator', {
+            onBeforeLoad(win) {
+                Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
+            },
+        });
+        cy.contains('access').click();
+
+        const assertPacksForAll = () => {
+            cy.contains('Entertainment');
+            cy.contains('Finance');
+            cy.contains('Telecommunication');
+            cy.contains('Social media and communication');
+        };
+
+        cy.contains('Address broking and management');
+        cy.contains('Credit agencies');
+        cy.contains('Commerce').parent().contains('ABOUT YOU');
+        assertPacksForAll();
+
+        cy.get('footer .i18n-button').click();
+        cy.get('footer .i18n-widget-country select').select('all').blur();
+
+        cy.contains('Address broking and management').should('not.exist');
+        cy.contains('Credit agencies').should('not.exist');
+        assertPacksForAll();
+    });
 });
