@@ -396,20 +396,21 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                     )
                                 )}
                             </div>
-                            {index === Object.keys(props.proceeding.messages).length - 1 && (
-                                <a
-                                    className="button button-small button-primary"
-                                    style="word-wrap: unset;"
-                                    href={`${window.BASE_URL}generator#!reference=${props.proceeding.reference}`}
-                                    onClick={(e) => {
-                                        if (props.onReact) {
-                                            props.onReact(props.proceeding.reference);
-                                            e.preventDefault();
-                                        }
-                                    }}>
-                                    <Text id="message-react" />
-                                </a>
-                            )}
+                            {index === Object.keys(props.proceeding.messages).length - 1 &&
+                                props.proceeding.status !== 'done' && (
+                                    <a
+                                        className="button button-small button-primary"
+                                        style="word-wrap: unset;"
+                                        href={`${window.BASE_URL}generator#!reference=${props.proceeding.reference}`}
+                                        onClick={(e) => {
+                                            if (props.onReact) {
+                                                props.onReact(props.proceeding.reference);
+                                                e.preventDefault();
+                                            }
+                                        }}>
+                                        <Text id="message-react" />
+                                    </a>
+                                )}
                             {msg != original_request && (
                                 <button
                                     className="button button-secondary button-small icon-trash"
