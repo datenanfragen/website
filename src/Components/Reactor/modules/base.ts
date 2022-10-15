@@ -107,6 +107,7 @@ export const module = createReactorModule('base', {
                 // so, how do we display these options to make it clear that they are done already?
                 return (
                     !state.reactorState.moduleData[o.moduleId].includeIssue &&
+                    state.reactorState.moduleData[o.moduleId].additionalData.length === 0 &&
                     (module?.offerIf === undefined ||
                         (typeof module.offerIf === 'function'
                             ? module.offerIf({
