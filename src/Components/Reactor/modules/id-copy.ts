@@ -108,7 +108,11 @@ export const module = createReactorModule('id-copy', {
             body: true,
             options: [
                 { text: yes, targetStepId: 'id-copy::redaction-info' },
-                { text: no, targetStepId: 'base::dead-end' },
+                {
+                    text: no,
+                    targetStepId: 'base::dead-end',
+                    onChoose: ({ reactorState }) => reactorState.setIncludeIssue('id-copy', false),
+                },
             ],
         },
         {
