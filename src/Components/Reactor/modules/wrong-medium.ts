@@ -153,6 +153,7 @@ export const module = createReactorModule('wrong-medium', {
                     id: 'none',
                     text: true,
                     targetStepId: 'base::dead-end',
+                    onChoose: ({ reactorState }) => reactorState.setIncludeIssue('wrong-medium', false),
                 },
             ],
         },
