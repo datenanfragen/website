@@ -80,9 +80,9 @@ jobs:
               hugo server --baseURL "http://localhost" --disableFastRender --minify > /dev/null &
               # Wait for server to deploy before continuing (with 1 minute timeout)
               yarn wait-on tcp:1314 -t 120000
-              # Only record the Cypress tests and submit to Percy if the Cypress env var is set, see:
+              # Only record the Cypress tests if the Cypress env var is set, see:
               # https://stackoverflow.com/a/13864829
-              if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn percy exec yarn cypress run --record; fi
+              if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn cypress run --record; fi
 
   deploy:
       executor: docker_hugo_node
