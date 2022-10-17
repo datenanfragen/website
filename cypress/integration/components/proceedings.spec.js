@@ -29,7 +29,7 @@ describe('Proceedings page', () => {
         cy.proceedingsStore().then((store) =>
             store.addProceeding({
                 reference: '2022-KKD2YF1',
-                state: 'done',
+                status: 'done',
                 messages: {
                     '2022-KKD2YF1-00': {
                         id: '2022-KKD2YF1-00',
