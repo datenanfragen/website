@@ -64,7 +64,7 @@ export const useNewRequestModal = (
 
     const newRequest = useCallback(async () => {
         // Remove GET parameter-selected company from the URL after the request is finished.
-        if (window.PARAMETERS['company']) clearUrlParameters();
+        if (window.PARAMETERS['company'] || window.PARAMETERS['companies']) clearUrlParameters();
 
         resetRequestToDefault({ advanceBatch: true, beforeAdvanceBatchHook: () => newRequestHook?.(payload) });
     }, [newRequestHook, resetRequestToDefault, payload]);
