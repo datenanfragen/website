@@ -46,10 +46,10 @@ Cypress.Commands.add('proceedingsStore', () => cy.window().then((win) => win.get
 Cypress.Commands.add('searchAndRequestCompanies', (searchTerms, skipReview = true) => {
     for (const search of searchTerms) {
         cy.get('.ais-SearchBox-input').clear().type(search);
-        cy.get('.company-result-content').contains(search).click();
+        cy.containsSettled(search, '.company-result-content').click();
     }
     cy.get('#review-n-companies-button').click();
-    if (skipReview) cy.contains('Continue with these companies').click();
+    if (skipReview) cy.containsSettled('Continue with these companies').click();
 });
 
 // Cypress can get confused about rerendered elements, causing chained commands to fail because the found element has
