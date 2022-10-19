@@ -186,4 +186,31 @@ describe('Request generator tool component', () => {
             cy.contains('tracking data').should('not.exist');
         }
     });
+
+    it('loads company from slug and clears URL parameters afterwards', () => {
+        cy.visit('/generator#!company=airbnb');
+        cy.containsSettled('Get access').click();
+        cy.contains('Fill in request to “Airbnb Ireland UC”');
+
+        cy.containsSettled('Skip request').click();
+        cy.containsSettled('Send more requests').click();
+
+        cy.url().should('not.include', 'airbnb').should('not.include', 'company');
+    });
+
+    it('loads companies from slug and clears URL parameters afterwards', () => {
+        cy.visit('/generator#!companies=airbnb,apple');
+        cy.containsSettled('Get access').click();
+
+        cy.contains('Companies you selected');
+        cy.contains('Airbnb Ireland UC');
+        cy.contains('Apple Distribution');
+        cy.containsSettled('Continue with these companies').click();
+
+        cy.containsSettled('Skip request').click();
+        cy.containsSettled('Skip request').click();
+        cy.containsSettled('Send more requests').click();
+
+        cy.url().should('not.include', 'airbnb').should('not.include', 'apple').should('not.include', 'companies');
+    });
 });
