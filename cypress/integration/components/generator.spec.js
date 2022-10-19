@@ -28,7 +28,7 @@ describe('Request generator tool component', () => {
         for (const type of types) {
             cy.visit('/generator');
 
-            cy.contains(type.buttonText).click();
+            cy.containsSettled(type.buttonText).click();
             cy.generatorStore()
                 .then((state) => state.batchRequestType)
                 .should('be.equal', type.type);
@@ -41,7 +41,7 @@ describe('Request generator tool component', () => {
             for (const flagText of type.flagTexts) cy.get('#app').contains(flagText).should('be.visible');
 
             cy.contains('Send request').click();
-            cy.contains('Skip request').click({ force: true });
+            cy.get('.modal').containsSettled('Skip request').click();
 
             cy.generatorStore()
                 .then((state) => state.request.type)
@@ -53,7 +53,7 @@ describe('Request generator tool component', () => {
     it('loads pdf worker for pdf only companies', () => {
         cy.visit('/generator');
 
-        cy.contains('access').click();
+        cy.containsSettled('access').click();
         cy.searchAndRequestCompanies(['Instagram']);
         cy.window().then((win) => {
             expect(win.pdfWorker).not.to.be.undefined;
@@ -64,7 +64,7 @@ describe('Request generator tool component', () => {
     it('does not load pdf worker by default', () => {
         cy.visit('/generator');
 
-        cy.contains('access').click();
+        cy.containsSettled('access').click();
         cy.searchAndRequestCompanies(['Netflix']);
         cy.window().then((win) => {
             expect(win.pdfWorker).to.be.undefined;
@@ -77,7 +77,7 @@ describe('Request generator tool component', () => {
                 Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
             },
         });
-        cy.contains('access').click();
+        cy.containsSettled('access').click();
 
         const assertPacksForAll = () => {
             cy.contains('Entertainment');
