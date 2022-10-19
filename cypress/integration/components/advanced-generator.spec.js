@@ -56,19 +56,31 @@ describe('Advanced generator', () => {
             .and('match', /^.*?machine-readable.*$/);
     });
 
-    it('loads company from slug', () => {
+    it('loads company from slug and clears URL parameters afterwards', () => {
         cy.visit('/g/#!company=facebook');
         cy.reload();
         cy.contains('Facebook Ireland Ltd.');
+
+        cy.contains('New request').click();
+        cy.get('.modal').contains('New request').click();
+        cy.contains('Facebook Ireland Ltd.').should('not.exist');
+        cy.url().should('not.include', 'facebook').should('not.include', 'company');
     });
 
-    it('loads companies from slug', () => {
+    it('loads companies from slug and clears URL parameters afterwards', () => {
         cy.visit('/g/#!companies=facebook,google');
         cy.reload();
         cy.contains('Facebook Ireland Ltd.');
+
         cy.contains('Next request').click();
         cy.contains('New request').click();
         cy.contains('Google LLC');
+
+        cy.contains('Send email').click();
+        cy.contains('Default email software').clickLinkWithoutFollowingHref({ force: true });
+        cy.contains('Next request').click();
+        cy.contains('Google LLC').should('not.exist');
+        cy.url().should('not.include', 'facebook').should('not.include', 'google').should('not.include', 'companies');
     });
 
     it("reflects the 'Information block' values in the generated request", () => {
