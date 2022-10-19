@@ -1,8 +1,10 @@
 const reference = '2022-KKD2YF1';
+const todayString = new Date().toISOString().substring(0, 10);
+const today = new Date(todayString);
 
 const accessRequest = {
     reference,
-    date: '2022-07-14',
+    date: todayString,
     type: 'access',
     slug: 'datenanfragen',
     recipient: 'Datenanfragen.de e. V.\nSchreinerweg 6\n38126 Braunschweig\nDeutschland',
@@ -12,7 +14,7 @@ const accessRequest = {
 
 const admonition = {
     reference,
-    date: '2022-07-14',
+    date: todayString,
     type: 'custom',
     response_type: 'admonition',
     slug: 'datenanfragen',
@@ -23,7 +25,7 @@ const admonition = {
 
 const complaint = {
     reference,
-    date: '2022-07-14',
+    date: todayString,
     type: 'custom',
     response_type: 'complaint',
     slug: 'dendslfd',
@@ -67,7 +69,7 @@ describe('Saved requests in the legacy database should be correctly migrated', (
                     '2022-KKD2YF1-00': {
                         id: '2022-KKD2YF1-00',
                         reference: '2022-KKD2YF1',
-                        date: new Date('2022-07-14T00:00:00.000Z'),
+                        date: today,
                         type: 'access',
                         slug: 'datenanfragen',
                         correspondent_address:
@@ -85,7 +87,7 @@ describe('Saved requests in the legacy database should be correctly migrated', (
                             'Datenanfragen.de e. V.\nSchreinerweg 6\n38126 Braunschweig\nDeutschland',
                         transport_medium: 'email',
                         type: 'admonition',
-                        date: new Date('2022-07-14T00:00:00.000Z'),
+                        date: today,
                         correspondent_email: 'datenschutz@datenanfragen.de',
                         id: '2022-KKD2YF1-01',
                         sentByMe: true,
@@ -96,7 +98,7 @@ describe('Saved requests in the legacy database should be correctly migrated', (
                             'Die Landesbeauftragte für den Datenschutz Niedersachsen\nPostfach 221\n30002 Hannover\nDeutschland',
                         transport_medium: 'email',
                         type: 'complaint',
-                        date: new Date('2022-07-14T00:00:00.000Z'),
+                        date: today,
                         correspondent_email: 'poststelle@lfd.niedersachsen.de',
                         id: '2022-KKD2YF1-02',
                         sentByMe: true,
@@ -131,7 +133,7 @@ describe('Saved requests in the legacy database should be correctly migrated', (
                             'Datenanfragen.de e. V.\nSchreinerweg 6\n38126 Braunschweig\nDeutschland',
                         transport_medium: 'email',
                         type: 'admonition',
-                        date: new Date('2022-07-14T00:00:00.000Z'),
+                        date: today,
                         correspondent_email: 'datenschutz@datenanfragen.de',
                         id: '2022-KKD2YF1-00',
                         sentByMe: true,
@@ -166,7 +168,7 @@ describe('Saved requests in the legacy database should be correctly migrated', (
                     '2022-KKD2YF1-00': {
                         id: '2022-KKD2YF1-00',
                         reference: '2022-KKD2YF1',
-                        date: new Date('2022-07-14T00:00:00.000Z'),
+                        date: today,
                         type: 'access',
                         slug: 'datenanfragen',
                         correspondent_address:
@@ -184,7 +186,7 @@ describe('Saved requests in the legacy database should be correctly migrated', (
                             'Die Landesbeauftragte für den Datenschutz Niedersachsen\nPostfach 221\n30002 Hannover\nDeutschland',
                         transport_medium: 'email',
                         type: 'complaint',
-                        date: new Date('2022-07-14T00:00:00.000Z'),
+                        date: today,
                         correspondent_email: 'poststelle@lfd.niedersachsen.de',
                         id: '2022-KKD2YF1-01',
                         sentByMe: true,
