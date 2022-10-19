@@ -1,3 +1,17 @@
+const assertIsTrackingRequest = (company, isTrackingRequest) => {
+    cy.contains(`Fill in request to “${company}”`);
+    cy.get('#name0-value-id_data').type('{selectall}Kim Mustermensch');
+    cy.containsSettled('Send request').click();
+
+    cy.get('#send-request-modal-body')
+        .should(
+            `${isTrackingRequest ? 'not.' : ''}contain.value`,
+            'I include the following information necessary to identify me'
+        )
+        .should(`${!isTrackingRequest ? 'not.' : ''}contain.value`, 'Please tell me which information');
+    cy.get('.modal').contains('Skip request').click();
+};
+
 describe('Request generator tool component', () => {
     it('sets correct request type and shows flags', () => {
         const types = [
@@ -83,5 +97,93 @@ describe('Request generator tool component', () => {
         cy.contains('Address broking and management').should('not.exist');
         cy.contains('Credit agencies').should('not.exist');
         assertPacksForAll();
+    });
+
+    it('respects request tracking status', () => {
+        cy.visit('/generator', {
+            onBeforeLoad(win) {
+                Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
+            },
+        });
+        cy.containsSettled('Get access').click();
+
+        cy.contains('Add a custom company').click();
+        cy.get('.modal').containsSettled('Fill in the company’s details here.');
+        cy.get('#custom-company-input-name').type('Darkenanfragen AG');
+        cy.get('#custom-company-input-email').type('privacy@darkenanfragen.tld');
+        cy.contains('Add company').click();
+
+        cy.searchAndRequestCompanies(['tagesschau.de', 'Adjust GmbH'], false);
+
+        const assertChecked = (company, checked) => {
+            cy.contains(company).click();
+            cy.contains(company)
+                .parent()
+                .parent()
+                .contains('tracking data')
+                .within(() => {
+                    cy.get('input[type="checkbox"]').should(`${!checked ? 'not.' : ''}be.checked`);
+                });
+        };
+
+        assertChecked('Darkenanfragen AG', false);
+        assertChecked('Norddeutscher Rundfunk (NDR)', false);
+        assertChecked('Adjust GmbH', true);
+
+        cy.containsSettled('Continue with these companies').click();
+
+        assertIsTrackingRequest('Darkenanfragen AG', false);
+        assertIsTrackingRequest('Norddeutscher Rundfunk (NDR)', false);
+        assertIsTrackingRequest('Adjust GmbH', true);
+    });
+
+    it('can toggle request tracking status', () => {
+        cy.visit('/generator', {
+            onBeforeLoad(win) {
+                Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
+            },
+        });
+        cy.containsSettled('Get access').click();
+
+        cy.contains('Add a custom company').click();
+        cy.get('.modal').containsSettled('Fill in the company’s details here.');
+        cy.get('#custom-company-input-name').type('Darkenanfragen AG');
+        cy.get('#custom-company-input-email').type('privacy@darkenanfragen.tld');
+        cy.contains('Add company').click();
+
+        cy.searchAndRequestCompanies(['tagesschau.de', 'Adjust GmbH'], false);
+
+        const toggleTrackingStatusStatus = (company) => {
+            cy.contains(company).click();
+            cy.contains(company)
+                .parent()
+                .parent()
+                .contains('tracking data')
+                .within(() => {
+                    cy.get('input[type="checkbox"]').click();
+                });
+        };
+
+        toggleTrackingStatusStatus('Darkenanfragen AG');
+        toggleTrackingStatusStatus('Norddeutscher Rundfunk (NDR)');
+        toggleTrackingStatusStatus('Adjust GmbH');
+
+        cy.containsSettled('Continue with these companies').click();
+
+        assertIsTrackingRequest('Darkenanfragen AG', true);
+        assertIsTrackingRequest('Norddeutscher Rundfunk (NDR)', true);
+        assertIsTrackingRequest('Adjust GmbH', false);
+    });
+
+    it('cannot toggle tracking status for non-access requests', () => {
+        const types = ['Delete (parts of)', 'Correct data', 'Stop receiving direct marketing'];
+        for (const type of types) {
+            cy.visit('/generator');
+            cy.containsSettled(type).click();
+
+            cy.searchAndRequestCompanies(['TikTok'], false);
+            cy.contains('TikTok').click();
+            cy.contains('tracking data').should('not.exist');
+        }
     });
 });
