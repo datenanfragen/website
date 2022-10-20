@@ -622,7 +622,8 @@
         "recipient-email": "Primatelj (email adresa)",
         "objection-reason": "Razlog za tvoj prigovor",
         "objection-reason-explanation": "Prigovor mora biti opravdan na temelju tvoje konkretne situacije. Objasni zašto se konkretno protiviš tvrtki koja obrađuje tvoje podatke.",
-        "include-objection": "Dodatno dodaj prigovor na osnovi tvoje konkretne situacije"
+        "include-objection": "Dodatno dodaj prigovor na osnovi tvoje konkretne situacije",
+        "consider-as-tracking-company": "Moj zahtjev ovom poduzeću odnosi se na praćenje podataka i ne znam kako me poduzeće može identificirati u tu svrhu."
     },
     "my-requests": {
         "more": "više",
