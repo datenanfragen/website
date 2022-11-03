@@ -160,8 +160,93 @@ a #logo {
 }
 #home-hero-content {
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 0;
+}
+#home-content {
+    position: relative;
+    padding-top: 0;
+}
+#hero-claim-box {
+    background-color: $bg-color;
+    border: 4px solid $info-color;
+    padding: 15px;
+    font-weight: normal;
+    font-family: $body-font;
+    color: $primary-color;
+    margin-top: -40vh;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        position: relative;
+    }
+
+    a:not(.button) {
+        color: $primary-color;
+        font-weight: bold;
+        border: 0;
+        background: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline !important;
+        }
+    }
+
+    font-size: 1rem;
+
+    .claim-row {
+        display: flex;
+        @include mobile {
+            flex-direction: column;
+        }
+        column-gap: 8px;
+
+        .claim-column {
+            flex-basis: 0;
+            flex-shrink: 1;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+
+            @include mobile {
+                flex-direction: row;
+                column-gap: 8px;
+            }
+
+            .claim-illustration {
+                flex-basis: 1;
+                flex-shrink: 0;
+                padding: 10px;
+                font-size: 1.3rem;
+                font-weight: bold;
+                color: $primary-color;
+                background-color: $info-color;
+                height: 1.3rem;
+                width: 1.3rem;
+                line-height: 1;
+                text-align: center;
+                display: block;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .claim-actions {
+        margin-top: 10px;
+        #home-claim-cta {
+            width: 100%;
+            max-width: 500px;
+            font-size: 1.2em;
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+    }
 }
 
 #home-main-copy {
