@@ -293,6 +293,41 @@ $home-hero-height: 85vh;
     }
 }
 
+#home-blog-section {
+    position: relative;
+
+    header {
+        background-color: color('teal', 200);
+        padding: 30px;
+        padding-bottom: 70px;
+    }
+
+    .border-dash {
+        top: 0;
+        left: 40px;
+        z-index: -10;
+        display: block;
+        height: 100%;
+        width: 1px;
+        border-left: 6px dotted color('teal', 200);
+        position: absolute;
+    }
+
+    .article-list {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: -60px;
+        padding: 0;
+
+        li {
+            list-style: none;
+            article {
+                background-color: $bg-color;
+            }
+        }
+    }
+}
+
 .home-big-text {
     text-align: center;
     font-weight: 200;
