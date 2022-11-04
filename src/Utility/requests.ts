@@ -30,6 +30,10 @@ export function isSva(sva: unknown): sva is SupervisoryAuthority {
     return !!sva && typeof sva === 'object' && 'complaint-language' in sva;
 }
 
+export function isValidRequestType(type: string): type is RequestType {
+    return REQUEST_TYPES.includes(type as RequestType); // We need this seemingly stupid casting here because TypeScript is stricter than it should on ReadonlyArray.includes()
+}
+
 /**
  * This is not a true typeguard, but it is a hack to get typescript to shut up because it does not understand that this function actually checks that 'rectification_data' might also be a sane case, depending on the request type.
  */
