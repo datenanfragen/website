@@ -77,7 +77,7 @@ jobs:
               yarn lint
               yarn add wait-on
               yarn cypress verify
-              hugo server --baseURL "http://localhost" --disableFastRender --minify > /dev/null &
+              hugo server --baseURL "http://localhost" --disableFastRender --minify &
               # Wait for server to deploy before continuing (with 1 minute timeout)
               yarn wait-on tcp:1314 -t 120000
               # Only record the Cypress tests if the Cypress env var is set, see:
