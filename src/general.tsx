@@ -14,6 +14,7 @@ import type { Message } from './types/proceedings';
 import { REQUEST_TYPES } from './Utility/requests';
 import { PrivacyAsyncStorage } from './Utility/PrivacyAsyncStorage';
 import type localforage from 'localforage';
+import { ProceedingsBadge } from './Components/ProceedingsBadge';
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');
@@ -38,6 +39,12 @@ if (comments_div) {
         comments_div.parentElement!,
         comments_div
     );
+}
+
+const myRequestsLinks = document.getElementsByClassName('my-requests-link');
+const menuLink = document.getElementById('main-nav-menu-link');
+for (const link of myRequestsLinks) {
+    render(<ProceedingsBadge visualParent={menuLink?.parentElement?.contains(link) ? menuLink : undefined} />, link);
 }
 
 /**

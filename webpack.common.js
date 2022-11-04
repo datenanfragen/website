@@ -5,7 +5,7 @@ module.exports = {
     entry: {
         'error-handler': './src/error-handler.js',
         general: './src/general.tsx',
-        home: './src/home.js',
+        home: './src/home.ts',
         generator: './src/generator.tsx',
         app: './src/app.tsx',
         'company-list': './src/company-list.js',
