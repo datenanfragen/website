@@ -60,16 +60,16 @@
             <nav id="main-nav">
                 <div id="menu-items">
                     <a href="{{ (partial "functions/link" (dict "slug" "/generator")).url }}" class="menu-link desktop-only">{{ T "header-generator" }}</a>
-                    <a href="{{ (partial "functions/link" (dict "slug" "/my-requests")).url }}" class="menu-link desktop-only">{{ T "header-my-requests" }}</a>
+                    <a href="{{ (partial "functions/link" (dict "slug" "/my-requests")).url }}" class="menu-link desktop-only  my-requests-link">{{ T "header-my-requests" }}</a>
                     <a href="{{ (partial "functions/link" (dict "slug" "/blog")).url }}" class="menu-link desktop-only">{{ T "header-blog" }}</a>
 
                     <div class="dropdown-container">
-                        <a class="button button-secondary menu-link" href="javascript:void(0)"><span class="icon icon-menu" title="{{ T "header-open-menu" . }}"></span></a>
+                        <a class="button button-secondary menu-link" href="javascript:void(0)" id="main-nav-menu-link"><span class="icon icon-menu" title="{{ T "header-open-menu" . }}"></span></a>
                         <div class="dropdown" id="personal-menu">
                             <div class="mobile-only">
                                 <a class="button button-primary icon icon-letter menu-link" href="{{ (partial "functions/link" (dict "slug" "/generator")).url }}" style="border-radius: 0;">{{ T "header-generator" }}</a>
                                 <a href="{{ (partial "functions/link" (dict "slug" "/company")).url }}" class="menu-link">{{ T "header-cdb" }}</a>
-                                <a href="{{ (partial "functions/link" (dict "slug" "/my-requests")).url }}" class="menu-link">{{ T "header-my-requests" }}</a>
+                                <a href="{{ (partial "functions/link" (dict "slug" "/my-requests")).url }}" class="menu-link my-requests-link">{{ T "header-my-requests" }}</a>
                             </div>
                             <a href="{{ (partial "functions/link" (dict "slug" "/company")).url }}" class="menu-link">{{ T "header-cdb" }}</a>
                             <a href="{{ (partial "functions/link" (dict "slug" "/id-data-controls")).url }}" class="menu-link">{{ T "header-id-data-controls" }}</a>

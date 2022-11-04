@@ -267,7 +267,11 @@
         "you-have-open-requests": "Du hast offene Anfragen, die überfällig sind. Du kannst nun darauf reagieren, indem Du Mahnungen oder Beschwerden verschickst oder sie als abgeschlossen markierst, wenn Du mittlerweile zufriedenstellende Antworten von den Unternehmen erhalten hast.",
         "mark-completed": "Als abgeschlossen markieren",
         "mark-completed-are-you-sure": "Bist Du sicher, dass Du diese Nachricht als abgeschlossen markieren möchtest?",
-        "request-summary-line": "{{type}} an „{{recipient}}” am {{date}} ({{reference}})"
+        "request-summary-line": "{{type}} an „{{recipient}}” am {{date}} ({{reference}})",
+        "overdue-proceedings": {
+            "one": "fälliger Vorgang",
+            "other": "fällige Vorgänge"
+        }
     },
     "generator": {
         "reference": "Zeichen",

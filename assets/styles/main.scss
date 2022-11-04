@@ -32,9 +32,39 @@ a #logo {
     float: right;
 }
 
+#main-nav-menu-link {
+    &.has-batch {
+        @include mobile {
+            &::before {
+                content: '';
+                border-radius: 50%;
+                height: 15px;
+                width: 15px;
+                display: block;
+                position: absolute;
+                top: -15px;
+                right: -5px;
+                background-color: color('red', 700);
+            }
+        }
+    }
+}
+
 #menu-items {
     #{$button} {
         display: inline;
+    }
+
+    .badge {
+        margin-left: 5px;
+        min-width: 0.7rem;
+        display: inline-block;
+        font-size: 0.8rem;
+
+        &.badge-error {
+            background-color: color('red', 700);
+            color: $bg-color;
+        }
     }
 
     .dropdown-container {
