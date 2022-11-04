@@ -140,4 +140,9 @@ describe('SvaFinder component', () => {
                 cy.get('#request-recipient').should('have.value', 'poststelle@datenschutz.saarland.de');
             });
     });
+
+    it('hides the underlying inputs', () => {
+        cy.get('.sva-finder').scrollIntoView();
+        cy.get('.sva-finder .radio-label input.form-element').should('not.be.visible');
+    });
 });

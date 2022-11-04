@@ -220,7 +220,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
         const options = sorted_keys.map((key) => (
             <div className="radio-wrapper">
                 <label className={`radio-label${[country, 'private'].includes(key) ? ' active' : ''}`}>
-                    <input className="form-element" onClick={() => selectOption(key)} />
+                    <input className="form-element" type="radio" onClick={() => selectOption(key)} />
                     {entries[key]}
                 </label>
             </div>
