@@ -56,5 +56,23 @@
                 <a id="home-claim-cta" class="button button-primary icon icon-arrow-right" href="{{ "generator" | absURL }}">{{ T "home-claim-button" }}</a>
             </div>
         </div>
+
+    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+
+    {{ with $pages }}
+        <section id="home-blog-section">
+            <header>
+                <h1>{{ T "home-blog-section-title" }}</h1>
+                <p>{{ T "home-blog-section-desc" }}</p>
+            </header>
+            <div class="border-dash"></div>
+            <ul class="article-list">
+                {{ range first 3 $pages }}
+                    <li>{{ partial "summary.html" . }}</li>
+                {{ end }}
+            </ul>
+            <a class="button button-secondary icon-right icon-arrow-right" href="{{ "blog" | absURL }}" style="margin-left: 20px;">{{ T "home-blog-section-read-more" }}</a>
+        </section>
+    {{ end }}
 </main>
 {{ end }}

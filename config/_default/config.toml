@@ -16,3 +16,6 @@ timeout = "500s"
 
 [imaging]
 hint = "picture"
+
+[params]
+mainSections = ['blog']
