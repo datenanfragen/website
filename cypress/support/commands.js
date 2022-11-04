@@ -41,7 +41,25 @@ Cypress.Commands.add(
     }
 );
 
-Cypress.Commands.add('generatorStore', () => cy.window().then((win) => win.generatorStoreApi.getState()));
+Cypress.Commands.add('generatorStore', () =>
+    cy.window().then((win) => {
+        // The generator store is set through a `useEffect` hook, so we need to wait for it to be set (cf.
+        // https://github.com/datenanfragen/website/pull/947#issuecomment-1303275763).
+        return new Cypress.Promise((res, rej) => {
+            let tries = 0;
+            const interval = setInterval(() => {
+                if (win.generatorStoreApi?.getState) {
+                    clearInterval(interval);
+                    res(win.generatorStoreApi.getState());
+                } else if (tries > 1000) {
+                    clearInterval(interval);
+                    rej(new Error('Timed out waiting for generatorStoreApi.'));
+                }
+                tries++;
+            }, 10);
+        });
+    })
+);
 Cypress.Commands.add('proceedingsStore', () => cy.window().then((win) => win.getProceedingsStore()));
 Cypress.Commands.add('searchAndRequestCompanies', (searchTerms, skipReview = true) => {
     for (const search of searchTerms) {
