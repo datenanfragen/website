@@ -15,6 +15,7 @@ import { useGeneratorStore } from '../../store/generator';
 import { getGeneratedMessage, useProceedingsStore } from '../../store/proceedings';
 import { flash, FlashMessage } from '../FlashMessage';
 import { Hint } from '../Hint';
+import { isValidRequestType } from '../../Utility/requests';
 
 const pages = (setPage: SetPageFunction, pageOptions?: PageOptions) => ({
     request_type_chooser: {
@@ -62,17 +63,26 @@ type AppProps = {
 
 export const App = (props: AppProps) => {
     const appendToBatchBySlug = useGeneratorStore((state) => state.appendToBatchBySlug);
+    const setBatchRequestType = useGeneratorStore((state) => state.setBatchRequestType);
     const proceedings = useProceedingsStore((state) => state.proceedings);
 
     useEffect(() => {
         if (window.PARAMETERS.company || window.PARAMETERS.companies) {
             const companies =
                 window.PARAMETERS.company || window.PARAMETERS.companies.split(',').map((slug) => slug.trim());
-            appendToBatchBySlug(companies).catch(() =>
-                flash(<FlashMessage type="error">{t('company-not-found', 'error-msg')}</FlashMessage>)
-            );
+            appendToBatchBySlug(companies)
+                .catch(() => flash(<FlashMessage type="error">{t('company-not-found', 'error-msg')}</FlashMessage>))
+                .then(() => {
+                    if (window.PARAMETERS.request_type && isValidRequestType(window.PARAMETERS.request_type)) {
+                        setBatchRequestType(window.PARAMETERS.request_type);
+                        setPage('review_selection');
+                    }
+                });
+        } else if (window.PARAMETERS.request_type && isValidRequestType(window.PARAMETERS.request_type)) {
+            setBatchRequestType(window.PARAMETERS.request_type);
+            setPage('company_search');
         }
-    }, [appendToBatchBySlug]);
+    }, [appendToBatchBySlug, setBatchRequestType]);
 
     const { Wizard, set, back, canGoBack, pageTitle } = useWizard(pages(setPage, props.pageOptions), {
         initialPageId: props.initialPageId ?? 'request_type_chooser',
