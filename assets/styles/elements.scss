@@ -47,6 +47,10 @@
     text-align: left;
     color: inherit;
 
+    &:visited {
+        color: inherit;
+    }
+
     &.icon:before {
         margin-right: 8px;
     }
