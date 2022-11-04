@@ -83,7 +83,8 @@
             <div class="clearfix"></div>
         </div>
         {{ if .IsHome }}
-            <div id="home-hero-bg"></div>
+            {{ block "hero" . }}
+            {{ end }}
         {{ else }}
             <div id="heading-bg">
                 {{ block "header-with-bg" . }}

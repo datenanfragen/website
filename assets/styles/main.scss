@@ -5,6 +5,7 @@
 @import 'generator';
 @import 'app';
 
+$nav-height: 65px;
 /* Header */
 header#nav-header {
     margin-top: 25px;
@@ -13,7 +14,7 @@ header#nav-header {
     position: absolute;
     top: 0;
     z-index: -2;
-    height: 65px;
+    height: $nav-height;
     width: 100%;
     background-color: $bg-accent-color;
 }
@@ -125,72 +126,89 @@ a #logo {
 
 /* Home */
 $home-hero-height: 85vh;
-#home-hero-bg {
-    height: $home-hero-height;
-    min-height: 440px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    z-index: -1;
-
-    background-image: url('../../assets/img/wave-bg.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: $bg-accent-color;
-
-    @include mobile {
-        background-image: none; // TODO: I really don't know how to make this work, so let's skip it for now.
-    }
-}
-
 #home-hero {
-    position: relative;
-    height: $home-hero-height;
+    background-color: $bg-accent-color;
     min-height: 450px;
 
-    #home-hero-content {
-        position: absolute;
-        top: 30%;
-        left: 0;
+    .container {
+        min-height: $home-hero-height;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-        #home-hero-line-1,
-        #home-hero-line-2 {
-            font-family: $heading-font;
-            font-weight: $heading-weight;
-            color: $primary-color;
-            font-size: 3em;
+        #home-hero-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            row-gap: 30px;
+            padding-top: 30px;
 
             @include mobile {
-                font-size: 2em;
+                flex-wrap: wrap;
+                align-content: center;
+            }
+
+            #home-hero-line-1,
+            #home-hero-line-2 {
+                font-family: $heading-font;
+                font-weight: $heading-weight;
+                color: $primary-color;
+                font-size: 3em;
+
+                @include mobile {
+                    font-size: 2em;
+                }
+            }
+
+            .hero-left-col {
+                box-sizing: border-box;
+                padding-right: 50px;
+                width: 60%;
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: 1;
+                height: fit-content;
+
+                @include mobile {
+                    width: 100%;
+                }
+
+                #home-hero-desc {
+                    font-size: 1.2em;
+                }
+            }
+            .hero-right-col {
+                width: 40%;
+                height: fit-content;
+                flex-grow: 0;
+                flex-basis: 1;
+                flex-shrink: 0;
+
+                @include mobile {
+                    width: 100%;
+                }
+
+                .button {
+                    margin-bottom: 10px;
+                    width: 100%;
+                }
             }
         }
 
-        .col60 {
-            box-sizing: border-box;
-            padding-right: 50px;
-
-            #home-hero-desc {
-                font-size: 1.2em;
-            }
-        }
-        .col40 {
-            .button {
-                margin-bottom: 10px;
-                width: 100%;
-            }
+        #hero-scroll-button {
+            font-size: 25px;
+            width: 100px;
+            margin-bottom: 5px;
+            text-align: center;
         }
     }
 }
-#home-hero-content {
-    position: absolute;
-    top: 20%;
-    left: 0;
-}
+
 #home-content {
     position: relative;
-    padding-top: 0;
+    padding-top: 25px;
 }
 #hero-claim-box {
     background-color: $bg-color;
@@ -199,10 +217,11 @@ $home-hero-height: 85vh;
     font-weight: normal;
     font-family: $body-font;
     color: $primary-color;
-    margin-top: -40vh;
+    margin: 50px 0;
 
     h1 {
         font-size: 2rem;
+        margin-bottom: 20px;
     }
 
     h2 {
@@ -262,7 +281,7 @@ $home-hero-height: 85vh;
     }
 
     .claim-actions {
-        margin-top: 10px;
+        margin-top: 20px;
         #home-claim-cta {
             width: 100%;
             max-width: 500px;
