@@ -263,3 +263,15 @@
     @extend %icon;
     font-icon: 140% url('ellipsis.svg');
 }
+
+.icon-check-mark:before {
+    @extend %icon;
+    font-icon: url('check-mark.svg');
+    vertical-align: -2px;
+}
+
+.icon-gavel:before {
+    @extend %icon;
+    font-icon: url('gavel.svg');
+    vertical-align: -2px;
+}

@@ -49,7 +49,7 @@
     <header id="nav-header">
         <div id="nav-header-bg"></div>
         <div id="header-main" class="container">
-            <a href="{{ "/" | absURL }}" title="{{ T "logo-a-title" . }}" style="position: relative;">
+            <a href="{{ "/" | absURL }}" title="{{ T "logo-a-title" . }}" style="position: relative; display: inline-block">
                 {{ with imageConfig (replace (printf "static/%s" (T "logo")) ".svg" ".png") }}
                     <img id="logo" src="{{ T "logo" . | absURL }}" title="{{ T "logo-title" . }}" height="{{ .Height }}" width="{{ .Width }}">
                 {{ end }}

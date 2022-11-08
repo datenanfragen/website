@@ -403,6 +403,17 @@ blockquote {
     border: 0;
 } /* With thanks to Bootstrap. */
 
+%remove-sr-only {
+    position: unset;
+    width: unset;
+    height: unset;
+    padding: unset;
+    overflow: unset;
+    clip: unset;
+    white-space: unset;
+    border: unset;
+} /* With thanks to Bootstrap. */
+
 .fade-in,
 %fade-in {
     animation: fadeIn 300ms ease forwards 1;
