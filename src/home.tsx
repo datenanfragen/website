@@ -1,3 +1,5 @@
+import { render } from 'preact';
+import { ReminderWidget } from './Components/ReminderWidget';
 import t from './Utility/i18n';
 
 /* modified after https://codepen.io/danielgroen/pen/VeRPOq */
@@ -36,3 +38,6 @@ window.addEventListener('load', () => {
         startTextAnimation(0);
     }
 });
+
+const reminderContainer = document.getElementById('home-reminders');
+if (reminderContainer) render(<ReminderWidget />, reminderContainer);

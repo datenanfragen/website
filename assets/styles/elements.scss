@@ -32,6 +32,10 @@
         cursor: not-allowed;
     }
 
+    &:visited {
+        color: $primary-color;
+    }
+
     &.icon:before {
         margin-right: 12px;
     }
@@ -1407,4 +1411,77 @@ details.footnote {
 .badge-error {
     background-color: color('red', 300);
     color: color('red', 900);
+}
+
+/* ReinderWidget */
+
+#home-reminders {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: 55px;
+}
+
+.reminder-widget {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    padding: 0;
+    border: 4px solid $primary-color;
+    box-sizing: border-box;
+
+    summary {
+        background-color: $primary-color;
+        color: $bg-color;
+        padding: 10px;
+    }
+
+    .reminder-widget-content {
+        background-color: $bg-color;
+        max-height: 300px;
+        overflow-y: scroll;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                column-gap: 10px;
+                align-items: center;
+                padding: 5px;
+
+                @include mobile {
+                    flex-wrap: wrap;
+                }
+
+                &:nth-child(2n) {
+                    background-color: $bg-accent-color;
+                }
+
+                .button {
+                    &.icon {
+                        &::before {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .reminder-widget-bottom-link {
+        background-color: $primary-color;
+        color: $bg-color;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+    }
 }
