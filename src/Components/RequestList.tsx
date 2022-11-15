@@ -230,7 +230,6 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
             correspondent_email: original_request?.correspondent_email || '',
             type: 'response',
             subject: '',
-            content: '',
         }),
         [props.proceeding, original_request]
     );
@@ -361,31 +360,29 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                             className="button button-unstyled icon icon-email"
                                             onClick={() => {
                                                 if (!msg.content) return;
-                                                else if (typeof msg.content === 'string') alert(msg.content);
-                                                else {
-                                                    const filename = msg.content.filename;
-                                                    const blobId = msg.content.blobId;
-                                                    props.getBlobFromStorage?.(blobId).then((pdf) => {
-                                                        if (!pdf)
-                                                            throw new ErrorException(
-                                                                'Content PDF not found in blob storage.',
-                                                                {
-                                                                    message: msg,
-                                                                },
-                                                                'Failed to load content PDF.'
-                                                            );
-                                                        const link = document.createElement('a');
-                                                        link.href = URL.createObjectURL(pdf);
-                                                        link.setAttribute(
-                                                            'download',
-                                                            filename ||
-                                                                `${msg.reference}-${slugify(
-                                                                    msg.subject || 'no-subject'
-                                                                )}-${blobId}.pdf`
+
+                                                const filename = msg.content.filename;
+                                                const blobId = msg.content.blobId;
+                                                props.getBlobFromStorage?.(blobId).then((pdf) => {
+                                                    if (!pdf)
+                                                        throw new ErrorException(
+                                                            'Content PDF not found in blob storage.',
+                                                            {
+                                                                message: msg,
+                                                            },
+                                                            'Failed to load content PDF.'
                                                         );
-                                                        link.click();
-                                                    });
-                                                }
+                                                    const link = document.createElement('a');
+                                                    link.href = URL.createObjectURL(pdf);
+                                                    link.setAttribute(
+                                                        'download',
+                                                        filename ||
+                                                            `${msg.reference}-${slugify(
+                                                                msg.subject || 'no-subject'
+                                                            )}-${blobId}.pdf`
+                                                    );
+                                                    link.click();
+                                                });
                                             }}>
                                             {msg.subject}
                                         </button>

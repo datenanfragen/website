@@ -28,12 +28,10 @@ export type Message = {
     extra?: Record<string, string | undefined>;
 };
 
-export type Content =
-    | string
-    | {
-          blobId: string;
-          filename?: string;
-      };
+export type Content = {
+    blobId: string;
+    filename?: string;
+};
 
 export type GetMessageResult = {
     seq: number;

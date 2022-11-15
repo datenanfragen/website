@@ -244,7 +244,6 @@ const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
                                                                     correspondent_address: request.recipient_address,
                                                                     correspondent_email: request.email,
                                                                     subject: request.custom_data?.subject,
-                                                                    content: request.custom_data?.content,
                                                                     sentByMe: true,
                                                                     reactorData: reactorState.moduleData,
                                                                 });
