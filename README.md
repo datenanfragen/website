@@ -73,6 +73,8 @@ While you can just contribute translations through this repository, an easier wa
 
 If you're interested in chatting about our translation efforts, join our [i18n room on Matrix](https://matrix.to/#/#dade-i18n:matrix.altpeter.me).
 
+Notice to translators: When adding a new language, the `slug` of the `generator.md` page must not be translated, as our redirection code depends on it.
+
 <!-- 
 TODO:
 

@@ -403,8 +403,6 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                 <a
                                     className="button button-small button-primary"
                                     style="word-wrap: unset;"
-                                    // TODO: This is broken for the language versions that redirect their /generator to
-                                    // something else.
                                     href={`${window.BASE_URL}generator#!reference=${props.proceeding.reference}`}
                                     onClick={(e) => {
                                         if (props.onReact) {
