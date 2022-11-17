@@ -99,7 +99,9 @@ const proceedingsStore = persist<ProceedingsState>(
         setProceedingStatus: (reference, status) => {
             set(
                 produce((state: ProceedingsState) => {
+                    const oldStatus = state.proceedings[reference].status;
                     state.proceedings[reference].status = status;
+                    window.ON_PROCEEDING_STATUS_CHANGE?.(state.proceedings[reference], oldStatus);
                 })
             );
         },
