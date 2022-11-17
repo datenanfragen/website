@@ -21,6 +21,7 @@ export interface ProceedingsState {
     removeMessage: (id: MessageId) => void;
     addAttachment: (id: MessageId, file: unknown) => void;
     setProceedingStatus: (reference: string, status: ProceedingStatus) => void;
+    reactivateProceeding: (reference: string) => void;
     setReactorData: (id: MessageId, reactorData: ReactorState['moduleData']) => void;
     removeProceeding: (reference: string) => void;
     clearProceedings: () => void;
@@ -105,6 +106,13 @@ const proceedingsStore = persist<ProceedingsState>(
                 })
             );
         },
+        reactivateProceeding: (reference) =>
+            set(
+                produce((state: ProceedingsState) => {
+                    state.proceedings[reference].status = shouldHaveStatus(state.proceedings[reference], true);
+                    window.ON_PROCEEDING_STATUS_CHANGE?.(state.proceedings[reference], 'done');
+                })
+            ),
         setReactorData: (id, reactorData) =>
             set(
                 produce((state: ProceedingsState) => {
@@ -246,8 +254,8 @@ export const getProceedingDueDate = (proceeding: Proceeding): Date | undefined =
 
     return dueDate;
 };
-const shouldHaveStatus = (proceeding: Proceeding): ProceedingStatus => {
-    if (proceeding.status === 'done') return 'done';
+const shouldHaveStatus = (proceeding: Proceeding, ignoreDone = false): ProceedingStatus => {
+    if (!ignoreDone && proceeding.status === 'done') return 'done';
 
     const newestMessage = getNewestMessage(proceeding);
     if (newestMessage?.sentByMe) {

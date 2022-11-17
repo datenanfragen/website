@@ -217,6 +217,7 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
     const savedLocale = useAppStore((state) => state.savedLocale);
     const removeMessage = useProceedingsStore((state) => state.removeMessage);
     const removeProceeding = useProceedingsStore((state) => state.removeProceeding);
+    const reactivateProceeding = useProceedingsStore((state) => state.reactivateProceeding);
 
     const original_request = getGeneratedMessage(props.proceeding, 'request');
 
@@ -396,21 +397,32 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                     )
                                 )}
                             </div>
-                            {index === Object.keys(props.proceeding.messages).length - 1 &&
-                                props.proceeding.status !== 'done' && (
-                                    <a
-                                        className="button button-small button-primary"
-                                        style="word-wrap: unset;"
-                                        href={`${window.BASE_URL}generator#!reference=${props.proceeding.reference}`}
-                                        onClick={(e) => {
-                                            if (props.onReact) {
-                                                props.onReact(props.proceeding.reference);
-                                                e.preventDefault();
-                                            }
-                                        }}>
-                                        <Text id="message-react" />
-                                    </a>
-                                )}
+                            {index === Object.keys(props.proceeding.messages).length - 1 && (
+                                <>
+                                    {props.proceeding.status !== 'done' && (
+                                        <a
+                                            className="button button-small button-primary"
+                                            style="word-wrap: unset;"
+                                            href={`${window.BASE_URL}generator#!reference=${props.proceeding.reference}`}
+                                            onClick={(e) => {
+                                                if (props.onReact) {
+                                                    props.onReact(props.proceeding.reference);
+                                                    e.preventDefault();
+                                                }
+                                            }}>
+                                            <Text id="message-react" />
+                                        </a>
+                                    )}
+                                    {props.proceeding.status === 'done' && (
+                                        <button
+                                            className="button button-small button-secondary"
+                                            style="word-wrap: unset;"
+                                            onClick={() => reactivateProceeding(props.proceeding.reference)}>
+                                            <Text id="message-reactivate" />
+                                        </button>
+                                    )}
+                                </>
+                            )}
                             {msg != original_request && (
                                 <button
                                     className="button button-secondary button-small icon-trash"
