@@ -250,6 +250,7 @@
         "admonition": "Admonition",
         "complaint": "Complaint",
         "message-react": "React",
+        "message-reactivate": "Reactivate",
         "delete-message": "Delete this message.",
         "import-message": "Add message",
         "delete-proceeding": "Delete proceeding",
