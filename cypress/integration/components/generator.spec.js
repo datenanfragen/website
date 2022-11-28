@@ -59,13 +59,13 @@ describe('Generator component', () => {
     it('loads company from slug', () => {
         cy.visit('/generator/#!company=facebook');
         cy.reload();
-        cy.contains('Facebook Ireland Ltd.');
+        cy.contains('Meta Platforms Ireland Limited');
     });
 
     it('loads companies from slug', () => {
         cy.visit('/generator/#!companies=facebook,google');
         cy.reload();
-        cy.contains('Facebook Ireland Ltd.');
+        cy.contains('Meta Platforms Ireland Limited');
         cy.contains('Next request').click();
         cy.contains('New request').click();
         cy.contains('Google LLC');
