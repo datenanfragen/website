@@ -7,7 +7,7 @@
 
 In order for you to be able to trust us, we pledged to be as transparent as possible about our procedures, finances and decisions. Because of that, we have joined the [Initiative for a Transparent Civil Society](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), an initiative by the German branch of Transparency International, which is allowed to audit us on a sample basis. They ensure that we will keep our promise of transparent management. On this page we summarized all the important information that we publish as part of that.
 
-This information has been last updated on May 30, 2021.
+This information has been last updated on November 28, 2022.
 
 ## 1. Name, registered seat, address and date of foundation
 
@@ -135,3 +135,12 @@ The board has to publicly document lectures here for which board members have re
 ### 2020
 
 * In March 2020, the Humboldt University of Berlin invited Benjamin Altpeter and Lorenz Sieben to give a [seminar on Datenanfragen.de](https://www.datenanfragen.de/verein/event/hlci-berlin-2020/) (post in German) as a guest lecture at the [HLCI](http://www.hlci.de/). The Humboldt University has covered the train travel and accommodation costs and paid them a compensation of 250&nbsp;€ each. Benni and Lorenz voluntarily decided to donate half of the compensation to the association.
+
+## 12. External grants that members have received
+
+The association benefits when members apply for external grants on their own to fund their work on our projects. Awarded grants are documented here. The listed grants did not go to the association, but are the sole responsibility of the respective members.
+
+### 2022
+
+* The German Federal Ministry of Education and Research funded the work of the Lorenz Sieben und Benjamin Altpeter GbR on the [“An app for Datenanfragen.de”](https://prototypefund.de/project/eine-app-fuer-datenanfragen-de/) project with 29,426.00&nbsp;€ between March 2022 and August 2022 through the Prototype Fund (grant number 01IS22S20). The purpose of the project was to evaluate whether exercising one’s privacy rights could be further simplified with a native app. In the course of the project, the existing code base of the website was also refactored and modernised, a new, more intuitive interface for the request generator was implemented, the “My requests” feature was expanded, and a generator for admonitions and complaints was developed.  
+  [Project report (German)](https://static.bn.al/doc/abschlussbericht-ptf11-dade-app.pdf)
