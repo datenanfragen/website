@@ -59,18 +59,18 @@ describe('Advanced generator', () => {
     it('loads company from slug and clears URL parameters afterwards', () => {
         cy.visit('/g/#!company=facebook');
         cy.reload();
-        cy.contains('Facebook Ireland Ltd.');
+        cy.contains('Meta Platforms Ireland Limited');
 
         cy.contains('New request').click();
         cy.get('.modal').contains('New request').click();
-        cy.contains('Facebook Ireland Ltd.').should('not.exist');
+        cy.contains('Meta Platforms Ireland Limited').should('not.exist');
         cy.url().should('not.include', 'facebook').should('not.include', 'company');
     });
 
     it('loads companies from slug and clears URL parameters afterwards', () => {
         cy.visit('/g/#!companies=facebook,google');
         cy.reload();
-        cy.contains('Facebook Ireland Ltd.');
+        cy.contains('Meta Platforms Ireland Limited');
 
         cy.contains('Next request').click();
         cy.contains('New request').click();
