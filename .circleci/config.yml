@@ -10,6 +10,7 @@ jobs:
   # can cause lots of unnecessary builds. Thus, we emulate this feature here for master.
   cancel_redundant_builds:
     executor: docker_hugo_node
+    resource_class: small
     steps:
       - checkout
       - run:
@@ -21,6 +22,7 @@ jobs:
 
   build:
     executor: docker_hugo_node
+    resource_class: large
     environment:
         - HUGO_VERSION: '0.88.1'
         - HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
@@ -56,6 +58,7 @@ jobs:
   test:
       docker:
         - image: cypress/base:14.17.0
+      resource_class: large
       environment:
         - HUGO_VERSION: '0.88.1'
         - HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
@@ -86,6 +89,7 @@ jobs:
 
   deploy:
       executor: docker_hugo_node
+      resource_class: large
       steps:
         - attach_workspace:
             at: ~/
@@ -97,6 +101,7 @@ jobs:
   production_test:
       docker:
         - image: cypress/base:14.17.0
+      resource_class: large
       environment:
         - CYPRESS_baseUrl: 'https://www.datarequests.org'
         - CYPRESS_baseUrl_DE: 'https://www.datenanfragen.de'
