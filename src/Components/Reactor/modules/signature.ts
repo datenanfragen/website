@@ -1,4 +1,4 @@
-import { createReactorModule } from '../../../Utility/reactor';
+import { createReactorModule, yes, no } from '../../../Utility/reactor';
 import type { ReactorModuleData } from '../../../types/reactor';
 
 export interface SignatureModuleData extends ReactorModuleData {
@@ -28,12 +28,10 @@ export const module = createReactorModule('signature', {
         {
             id: 'start',
             type: 'options',
-            body: `Companies are not allowed to require you to sign your request because they cannot impose their own formal requirements on requests. Besides, signatures are obviously not an appropriate way to identify you.
-
-Does the company have your signature on file? Note that the company cannot require your signature either way, the issue would just be even more clear-cut if they don’t even have your signature on file in the first place.`,
+            body: true,
             options: [
                 {
-                    text: 'yes',
+                    text: yes,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIssueFlag('signature', 'signature_on_file', true);
@@ -41,7 +39,7 @@ Does the company have your signature on file? Note that the company cannot requi
                     },
                 },
                 {
-                    text: 'no',
+                    text: no,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIssueFlag('signature', 'signature_on_file', false);
@@ -49,7 +47,8 @@ Does the company have your signature on file? Note that the company cannot requi
                     },
                 },
                 {
-                    text: 'I don’t know',
+                    id: 'unknown',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIssueFlag('signature', 'signature_on_file', true);
@@ -66,7 +65,8 @@ Does the company have your signature on file? Note that the company cannot requi
             position: 'before',
             options: [
                 {
-                    text: 'Company requires request to be signed.',
+                    id: 'signature-required',
+                    text: true,
                     targetStepId: 'signature::start',
                     onChoose: ({ reactorState }) => reactorState.setIncludeIssue('signature', true),
                 },

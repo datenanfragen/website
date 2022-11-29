@@ -1,4 +1,4 @@
-import { createReactorModule } from '../../../Utility/reactor';
+import { createReactorModule, yes, no } from '../../../Utility/reactor';
 import t from '../../../Utility/i18n';
 import type { ReactorState } from '../../../store/reactor';
 import type { ReactorModuleData } from '../../../types/reactor';
@@ -48,33 +48,35 @@ export const module = createReactorModule('id-copy', {
             id: 'start',
             type: 'options',
             body: ({ reactorState }) =>
-                reactorState.type === 'admonition'
-                    ? 'Requiring a copy of an identity document is an invasive measure that poses a risk for the security of your personal data. It is only appropriate if strictly necessary. Do any of the following counterarguments apply?'
-                    : 'Requiring a copy of an identity document is only appropriate if strictly necessary. Which of the following applies?',
+                t(`id-copy_start_body_${reactorState.type === 'admonition' ? 'admonition' : 'other'}`, 'reactor'),
             options: [
                 {
-                    text: 'The company doesn’t know me by my real-life identity.',
+                    id: 'unknown-id',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         setCounterargument(reactorState, 'not_linked_to_real_life_identity'),
                 },
                 {
-                    text: 'My request concerns an online account.',
+                    id: 'online-account',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) => setCounterargument(reactorState, 'concerns_online_account'),
                 },
                 {
                     text: ({ reactorState }) =>
-                        `I can provide my own ${
-                            reactorState.type === 'complaint'
-                                ? 'argument for why requiring an ID copy is not appropriate'
-                                : 'counterargument'
-                        }.`,
+                        t(
+                            `id-copy_start_option_explain-reasoning-${
+                                reactorState.type === 'complaint' ? 'complaint' : 'other'
+                            }`,
+                            'reactor'
+                        ),
                     targetStepId: 'id-copy::explain-reasoning',
                     onChoose: ({ reactorState }) => setCounterargument(reactorState),
                 },
                 {
-                    text: 'I am willing to provide an ID copy but the company explicitly said that it has to be unredacted.',
+                    id: 'unredacted-required',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIncludeIssue('id-copy', true);
@@ -83,7 +85,8 @@ export const module = createReactorModule('id-copy', {
                     hideIf: ({ reactorState }) => reactorState.type !== 'complaint',
                 },
                 {
-                    text: 'No, none of the above apply.',
+                    id: 'none',
+                    text: true,
                     targetStepId: 'id-copy::no-counterargument',
                     hideIf: ({ reactorState }) => reactorState.type === 'complaint',
                 },
@@ -92,7 +95,7 @@ export const module = createReactorModule('id-copy', {
 
         {
             id: 'explain-reasoning',
-            body: 'Please explain why you think a copy of an identity document is not necessary for your request.',
+            body: true,
             type: 'textarea',
             nextStepId: 'base::issue-done',
             variableName: 'reasoning',
@@ -102,19 +105,19 @@ export const module = createReactorModule('id-copy', {
         {
             id: 'no-counterargument',
             type: 'options',
-            body: 'In this case, we’ll assume that the company can legitimately ask for an ID copy. Can you/do you want to provide a copy of an identity document for the request? You will be able to redact all information that is not necessary for confirming your identity.',
+            body: true,
             options: [
-                { text: 'yes', targetStepId: 'id-copy::redaction-info' },
-                { text: 'no', targetStepId: 'base::dead-end' },
+                { text: yes, targetStepId: 'id-copy::redaction-info' },
+                { text: no, targetStepId: 'base::dead-end' },
             ],
         },
         {
             id: 'redaction-info',
             type: 'options',
-            body: 'The company can only require you to provide the information that is necessary for confirming your identity. All other information of the ID copy can be redacted. Has the company informed you which data you can redact?',
+            body: true,
             options: [
                 {
-                    text: 'yes',
+                    text: yes,
                     targetStepId: 'id-copy::attach-copy',
                     onChoose: ({ reactorState }) =>
                         reactorState.addAdditionalDataField('id-copy', {
@@ -124,7 +127,7 @@ export const module = createReactorModule('id-copy', {
                         }),
                 },
                 {
-                    text: 'no',
+                    text: no,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIncludeIssue('id-copy', true);
@@ -132,7 +135,8 @@ export const module = createReactorModule('id-copy', {
                     },
                 },
                 {
-                    text: 'The company explicitly said I cannot redact anything on the ID copy.',
+                    id: 'explicit-redaction',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) => {
                         reactorState.setIncludeIssue('id-copy', true);
@@ -146,10 +150,11 @@ export const module = createReactorModule('id-copy', {
         {
             id: 'attach-copy',
             type: 'options',
-            body: 'Please create a copy of your identity copy with all unnecessary information redacted and attach that to the message to the company.',
+            body: true,
             options: [
                 {
-                    text: 'Check if there is another problem with the company’s response.',
+                    id: 'another-problem',
+                    text: true,
                     targetStepId: 'base::issue-done',
                 },
             ],
@@ -162,7 +167,8 @@ export const module = createReactorModule('id-copy', {
             position: 'before',
             options: [
                 {
-                    text: 'Company requires a copy of an identity document.',
+                    id: 'id-document-required',
+                    text: true,
                     targetStepId: 'id-copy::start',
                 },
             ],

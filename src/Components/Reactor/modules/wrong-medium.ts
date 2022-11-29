@@ -48,27 +48,29 @@ export const module = createReactorModule('wrong-medium', {
         {
             id: 'start',
             type: 'options',
-            body: `Companies are not allowed to impose their own formal requirements on how you send requests like requiring requests to be sent via a particular medium.
-
-Why has the company refused to answer your request?`,
+            body: true,
             options: [
                 {
-                    text: 'It was not sent using a particular transport medium.',
+                    id: 'wrong-transport-medium',
+                    text: true,
                     targetStepId: 'wrong-medium::wrong-transport-medium',
                     onChoose: ({ reactorState }) => setReason(reactorState, 'wrong_transport_medium'),
                 },
                 {
-                    text: 'It was not sent through their web form/self-service tool.',
+                    id: 'web-form',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) => setReason(reactorState, 'not_form'),
                 },
                 {
-                    text: 'It was sent to another contact than they want.',
+                    id: 'wrong-contact',
+                    text: true,
                     targetStepId: 'wrong-medium::wrong-contact',
                     onChoose: ({ reactorState }) => setReason(reactorState, 'wrong_contact'),
                 },
                 {
-                    text: 'None of the above.',
+                    id: 'none',
+                    text: true,
                     targetStepId: 'base::dead-end',
                 },
             ],
@@ -77,28 +79,32 @@ Why has the company refused to answer your request?`,
         {
             id: 'wrong-transport-medium',
             type: 'options',
-            body: 'How does the company want you to send your request?',
+            body: true,
             options: [
                 {
-                    text: 'email',
+                    id: 'email',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueVariable('wrong-medium', 'medium', t('email', 'reactor')),
                 },
                 {
-                    text: 'letter',
+                    id: 'letter',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueVariable('wrong-medium', 'medium', t('letter', 'reactor')),
                 },
                 {
-                    text: 'fax',
+                    id: 'fax',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueVariable('wrong-medium', 'medium', t('fax', 'reactor')),
                 },
                 {
-                    text: 'other',
+                    id: 'other',
+                    text: true,
                     targetStepId: 'wrong-medium::other-medium',
                 },
             ],
@@ -107,7 +113,7 @@ Why has the company refused to answer your request?`,
         {
             id: 'other-medium',
             type: 'input',
-            body: 'Please enter the transport medium the company wants you to use.',
+            body: true,
             variableName: 'medium',
             nextStepId: 'base::issue-done',
         },
@@ -115,32 +121,37 @@ Why has the company refused to answer your request?`,
         {
             id: 'wrong-contact',
             type: 'options',
-            body: 'Companies are not required to answer requests sent to random contacts not involved in the matter, but they can’t only answer requests sent to a particular point of contact, either. Where have you sent your request?',
+            body: true,
             options: [
                 {
-                    text: 'privacy contact per their privacy policy',
+                    id: 'privacy-contact',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueFlag('wrong-medium', 'wrong_contact_privacy', true),
                 },
                 {
-                    text: 'data protection officer per their privacy policy',
+                    id: 'dpo',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueFlag('wrong-medium', 'wrong_contact_dpo', true),
                 },
                 {
-                    text: 'general customer service/support contact',
+                    id: 'support',
+                    text: true,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueFlag('wrong-medium', 'wrong_contact_customer_service', true),
                 },
                 {
-                    text: 'another point of contact I believe is reasonable',
+                    id: 'other',
+                    text: true,
                     targetStepId: 'wrong-medium::wrong-contact-reasoning',
                 },
                 {
-                    text: 'none of the above',
+                    id: 'none',
+                    text: true,
                     targetStepId: 'base::dead-end',
                 },
             ],
@@ -148,7 +159,7 @@ Why has the company refused to answer your request?`,
         {
             id: 'wrong-contact-reasoning',
             type: 'textarea',
-            body: 'Please explain why you think the point of contact you sent your request to was reasonable.',
+            body: true,
             variableName: 'wrong_contact_reasoning',
             nextStepId: 'base::issue-done',
         },
@@ -160,7 +171,8 @@ Why has the company refused to answer your request?`,
             position: 'before',
             options: [
                 {
-                    text: 'Company claims request was sent via the wrong medium or to the wrong contact.',
+                    id: 'wrong-medium',
+                    text: true,
                     targetStepId: 'wrong-medium::start',
                 },
             ],

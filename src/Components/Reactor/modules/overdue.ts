@@ -1,4 +1,4 @@
-import { createReactorModule, dateFormat } from '../../../Utility/reactor';
+import { createReactorModule, dateFormat, yes, no } from '../../../Utility/reactor';
 import { ErrorException } from '../../../Utility/errors';
 import { getGeneratedMessage } from '../../../store/proceedings';
 import type { ReactorModuleData } from '../../../types/reactor';
@@ -29,16 +29,16 @@ export const module = createReactorModule('overdue', {
         {
             id: 'start',
             type: 'options',
-            body: 'In general, companies have one month to answer your request. That period has now been exceeded. They can extend the deadline by an additional two months only if necessary and if they inform you of the extension and its reasons. Did they do that?',
+            body: true,
             options: [
                 {
-                    text: 'yes',
+                    text: yes,
                     targetStepId: 'overdue::controller-gave-reason',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueFlag('overdue', 'no_information_about_extension', false),
                 },
                 {
-                    text: 'no',
+                    text: no,
                     targetStepId: 'base::issue-done',
                     onChoose: ({ reactorState }) =>
                         reactorState.setIssueFlag('overdue', 'no_information_about_extension', true),
@@ -49,10 +49,10 @@ export const module = createReactorModule('overdue', {
         {
             id: 'controller-gave-reason',
             type: 'options',
-            body: 'Do you think the reason the company gave is appropriate?',
+            body: true,
             options: [
-                { text: 'yes', targetStepId: 'overdue::controller-gave-valid-reason' },
-                { text: 'no', targetStepId: 'overdue::controller-gave-invalid-reason' },
+                { text: yes, targetStepId: 'overdue::controller-gave-valid-reason' },
+                { text: no, targetStepId: 'overdue::controller-gave-invalid-reason' },
             ],
         },
         {
@@ -69,7 +69,7 @@ export const module = createReactorModule('overdue', {
         {
             id: 'controller-gave-invalid-reason',
             type: 'textarea',
-            body: 'Please explain why you don’t think the reasoning the company gave for extending the period is appropriate.',
+            body: true,
             variableName: 'reasoning',
             nextStepId: 'base::issue-done',
         },
@@ -81,7 +81,8 @@ export const module = createReactorModule('overdue', {
             position: 'before',
             options: [
                 {
-                    text: 'Company has not answered the request yet.',
+                    id: 'not-answered',
+                    text: true,
                     targetStepId: 'overdue::start',
                     hideIf: ({ proceeding }) => {
                         const request = getGeneratedMessage(proceeding, 'request');
