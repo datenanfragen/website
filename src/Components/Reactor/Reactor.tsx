@@ -69,6 +69,8 @@ const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
     useEffect(() => {
         resetRequestToDefault({ advanceBatch: false, type: 'custom', reference });
         const proceeding = proceedingsState.proceedings[reference];
+
+        // TODO: Fail more gently here, e.g a 404
         if (!proceeding)
             throw new ErrorException(
                 'Tried to use reactor with non-existent proceeding.',
@@ -175,10 +177,9 @@ const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
                                         <>
                                             {reactorState.type !== 'response' && (
                                                 <div className="box box-warning" style="margin-bottom: 15px;">
-                                                    While our wizard can cover a lot of the common problems that occur
-                                                    during requests, it is of course not legal advice. If you are unsure
-                                                    about anything, please always consult a lawyer. We can unfortunately
-                                                    not help with any legal questions relating to particular cases.
+                                                    <IntlProvider definition={window.I18N_DEFINITION} scope="reactor">
+                                                        <Text id="ianal-warning" />
+                                                    </IntlProvider>
                                                 </div>
                                             )}
 
