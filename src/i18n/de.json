@@ -780,6 +780,13 @@
         "error-invalid-reference": "Die Anfrage, die Du in der URL angegeben hast, existiert nicht.",
         "additional-data-id-copy-desc": "Ausweiskopie",
         "additional-data-id-copy-value": "im Anhang",
+        "ianal-warning": "Unser Assistent deckt zwar viele typische Probleme ab, die bei Anfragen auftreten können, er kann aber natürlich keine Rechtsberatung geben. Falls Du wegen irgendetwas unsicher sein solltest, zieh bitte eine Anwält_in zu Rate. Wir dürfen Dir leider nicht mit individueller Rechtsberatung in konkreten Fällen helfen.",
+        "email": "E-Mail",
+        "letter": "Brief",
+        "fax": "Fax",
+        "message-by-me": "{{medium}} von mir",
+        "message-by-controller": "{{medium}} von der Verantwortlichen",
+        "subject-is": " (Betreff: „{{subject}}“)",
         "yes": "ja",
         "no": "nein"
     },

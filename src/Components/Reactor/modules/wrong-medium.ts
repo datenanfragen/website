@@ -1,4 +1,5 @@
 import { createReactorModule } from '../../../Utility/reactor';
+import t from '../../../Utility/i18n';
 import type { ReactorState } from '../../../store/reactor';
 import type { ReactorModuleData } from '../../../types/reactor';
 
@@ -81,17 +82,20 @@ Why has the company refused to answer your request?`,
                 {
                     text: 'email',
                     targetStepId: 'base::issue-done',
-                    onChoose: ({ reactorState }) => reactorState.setIssueVariable('wrong-medium', 'medium', 'email'),
+                    onChoose: ({ reactorState }) =>
+                        reactorState.setIssueVariable('wrong-medium', 'medium', t('email', 'reactor')),
                 },
                 {
                     text: 'letter',
                     targetStepId: 'base::issue-done',
-                    onChoose: ({ reactorState }) => reactorState.setIssueVariable('wrong-medium', 'medium', 'letter'),
+                    onChoose: ({ reactorState }) =>
+                        reactorState.setIssueVariable('wrong-medium', 'medium', t('letter', 'reactor')),
                 },
                 {
                     text: 'fax',
                     targetStepId: 'base::issue-done',
-                    onChoose: ({ reactorState }) => reactorState.setIssueVariable('wrong-medium', 'medium', 'fax'),
+                    onChoose: ({ reactorState }) =>
+                        reactorState.setIssueVariable('wrong-medium', 'medium', t('fax', 'reactor')),
                 },
                 {
                     text: 'other',

@@ -59,8 +59,8 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
                             template(
                                 language,
                                 type === 'admonition'
-                                    ? (`${i.moduleId}::${type}` as const)
-                                    : (`${i.moduleId}::${type}::${i.resolved ? 'resolved' : 'persists'}` as const)
+                                    ? `${i.moduleId}::${type}`
+                                    : `${i.moduleId}::${type}::${i.resolved ? 'resolved' : 'persists'}`
                             ),
                             i.issue.flags,
                             i.issue.variables
@@ -86,9 +86,11 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
         correspondence_list: Object.values(proceeding.messages)
             .map(
                 (m) =>
-                    `* ${m.date.toLocaleDateString(language, dateFormat)}: ${m.transport_medium} by ${
-                        m.sentByMe ? 'me' : 'the controller'
-                    }${m.subject ? ` (subject: “${m.subject}”)` : ''}`
+                    `* ${m.date.toLocaleDateString(language, dateFormat)}: ${t(
+                        `message-by-${m.sentByMe ? 'me' : 'controller'}`,
+                        'reactor',
+                        { medium: t(m.transport_medium, 'reactor') }
+                    )}${m.subject ? t('subject-is', 'reactor', { subject: m.subject }) : ''}`
             )
             .join('\n'),
         contact_details: RequestLetter.formatData(generatorState.request.id_data).formatted,

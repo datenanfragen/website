@@ -38,8 +38,8 @@ export type ReactorState = {
         value: string
     ) => void;
     setIssueFlag: <ModuleIdT extends ReactorModuleWithDataId>(
-        flag: ModuleIdT,
-        variable: keyof ReactorModuleDataMapping[ModuleIdT]['issue']['flags'],
+        module: ModuleIdT,
+        flag: keyof ReactorModuleDataMapping[ModuleIdT]['issue']['flags'],
         value: boolean
     ) => void;
 
