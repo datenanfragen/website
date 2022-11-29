@@ -20,3 +20,7 @@
 * Mention the new domain in the `README`.
 * Add the domain in dattel (see `infrastructure` on how to do that) and set the appropriate DNS records.
 * In `deploy-dattel.js`, add the new language to the `languages` array and trigger a deploy using `CONTEXT=production ./deploy.sh && yarn deploy-dattel`.
+
+## Notes
+
+* When adding a new language, the `slug` of the `generator.md` page must not be translated, as our redirection code depends on it.
