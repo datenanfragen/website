@@ -316,6 +316,7 @@ select:disabled {
         .radio-label {
             input.form-element {
                 appearance: none;
+                @extend %sr-only;
             }
 
             display: inline-block;

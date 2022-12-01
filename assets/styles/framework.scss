@@ -391,7 +391,8 @@ blockquote {
     padding-left: 20px;
 }
 
-.sr-only {
+.sr-only,
+%sr-only {
     position: absolute;
     width: 1px;
     height: 1px;
