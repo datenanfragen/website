@@ -276,6 +276,15 @@ const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
                                                                 : toPrimitive(option.text)
                                                         }
                                                         disabled={toPrimitive(option.disableIf)}
+                                                        value={
+                                                            [
+                                                                'base::generate-letter',
+                                                                'base::complaint-choose-sva',
+                                                            ].includes(toPrimitive(option.targetStepId))
+                                                                ? 'checked'
+                                                                : ''
+                                                        }
+                                                        radioVariable="checked"
                                                     />
                                                 ))}
                                             </div>
