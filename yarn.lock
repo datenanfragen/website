@@ -8166,10 +8166,10 @@ lazystream@^1.0.0:
   dependencies:
     readable-stream "^2.0.5"
 
-letter-generator@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/letter-generator/-/letter-generator-2.1.0.tgz#875d00ef0312af631862f3c51b5a5c450e8dd452"
-  integrity sha512-4NCbPY8lU0KHm/NYOKD7Qto30IIoieY/DF1uUlGH+TKwxyuNoq3m2A6Txs7MgOdQJWsUJi/Hf9xumCbSF0FhDA==
+letter-generator@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/letter-generator/-/letter-generator-2.2.1.tgz#98e8faa86c600ef6158cbe33661f04fa0575f4bf"
+  integrity sha512-PXr8i3F3jiB/gsiAJ01IcocJdWKLNz5tbfCi50UyILDSIVV6z5o8S1B2oq+NRtu6ge5mLglOhP8aF0TtIJMiqw==
   dependencies:
     pdfmake "^0.2.5"
 
