@@ -353,7 +353,8 @@ select:disabled {
             }
             &:not(.disabled) {
                 &:hover,
-                &:focus {
+                &:focus,
+                &:focus-within {
                     background-color: color('blue', 900);
                     color: $bg-color;
                 }
