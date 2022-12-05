@@ -1,30 +1,6 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-
+import 'cypress-wait-until';
 import '@this-dot/cypress-indexeddb';
+
 /**
  * Click a link without following its `href`. This is useful for `mailto` links and file downloads as Cypress doesn't
  * support those.
@@ -41,23 +17,13 @@ Cypress.Commands.add(
     }
 );
 
-Cypress.Commands.add('generatorStore', () =>
+Cypress.Commands.add('generatorStore', (id) =>
     cy.window().then((win) => {
         // The generator store is set through a `useEffect` hook, so we need to wait for it to be set (cf.
         // https://github.com/datenanfragen/website/pull/947#issuecomment-1303275763).
-        return new Cypress.Promise((res, rej) => {
-            let tries = 0;
-            const interval = setInterval(() => {
-                if (win.generatorStoreApi?.getState) {
-                    clearInterval(interval);
-                    res(win.generatorStoreApi.getState());
-                } else if (tries > 1000) {
-                    clearInterval(interval);
-                    rej(new Error('Timed out waiting for generatorStoreApi.'));
-                }
-                tries++;
-            }, 10);
-        });
+        return cy
+            .waitUntil(() => win.generatorStoreApi?.[id || 'default']?.getState, { timeout: 20000 })
+            .then(() => win.generatorStoreApi[id || 'default'].getState());
     })
 );
 Cypress.Commands.add('proceedingsStore', () => cy.window().then((win) => win.getProceedingsStore()));
