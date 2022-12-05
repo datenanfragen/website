@@ -90,6 +90,7 @@
         "cross-env": "^7.0.2",
         "cssnano": "^5.0.12",
         "cypress": "^8.5.0",
+        "cypress-wait-until": "^1.7.2",
         "dattel-client": "^0.7.0",
         "es-dirname": "^0.1.0",
         "eslint": "^8.3.0",

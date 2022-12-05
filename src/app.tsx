@@ -1,22 +1,8 @@
 import { render } from 'preact';
-import { createGeneratorStore, RequestGeneratorProvider, useGeneratorStoreApi } from './store/generator';
+import { createGeneratorStore, RequestGeneratorProvider } from './store/generator';
 import { App } from './Components/App/App';
 import { Reactor } from './Components/Reactor/Reactor';
-import { useEffect } from 'preact/hooks';
-
-// Expose the store for the test interface
-const GeneratorStoreTestInterface = () => {
-    const generatorStoreApi = useGeneratorStoreApi();
-
-    useEffect(() => {
-        if (process.env.NODE_ENV === 'development') {
-            (window as typeof window & { generatorStoreApi: typeof generatorStoreApi }).generatorStoreApi =
-                generatorStoreApi;
-        }
-    });
-
-    return <></>;
-};
+import { GeneratorStoreTestInterface } from './Components/Generator/GeneratorTestInterface';
 
 const elem = document.querySelector('main');
 if (elem) {
