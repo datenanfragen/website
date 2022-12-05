@@ -225,16 +225,19 @@
 .icon-rectification:before {
     @extend %icon;
     font-icon: url('rectification.svg');
+    vertical-align: -3px;
 }
 
 .icon-erasure:before {
     @extend %icon;
     font-icon: url('erasure.svg');
+    vertical-align: -3px;
 }
 
 .icon-objection:before {
     @extend %icon;
     font-icon: url('objection.svg');
+    vertical-align: -2px;
 }
 
 .icon-person:before {
