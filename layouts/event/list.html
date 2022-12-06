@@ -3,7 +3,7 @@
     {{ .Content }}
     <div class="events">
         {{ if .Paginator.Pages }}
-            {{ range .Paginator.Pages }}
+            {{ range (.Paginator.Pages.ByParam "event_date").Reverse }}
             {{ partial "summary.html" . }}
             {{ end }}
             {{ partial "pagination.html" . }}

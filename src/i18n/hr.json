@@ -580,7 +580,11 @@
         "reference": "Znak",
         "recipient-fax": "Primatelj (adresa i broj faksa)",
         "recipient-letter": "Primatelj (adresa)",
-        "recipient-email": "Primatelj (email adresa)"
+        "recipient-email": "Primatelj (email adresa)",
+        "objection-reason": "Razlog za tvoj prigovor",
+        "objection-reason-explanation": "Prigovor mora biti opravdan na temelju tvoje konkretne situacije. Objasni zašto se konkretno protiviš tvrtki koja obrađuje tvoje podatke.",
+        "include-objection": "Dodatno dodaj prigovor na osnovi tvoje konkretne situacije",
+        "consider-as-tracking-company": "Moj zahtjev ovom poduzeću odnosi se na praćenje podataka i ne znam kako me poduzeće može identificirati u tu svrhu."
     },
     "my-requests": {
         "more": "više",
@@ -844,5 +848,19 @@
     },
     "blog": {
         "footnote": "Fusnota"
+    },
+    "company-packs": {
+        "address-brokers-title": "Posredovanje i upravljanje adresama",
+        "credit-agencies-title": "Kreditne agencije",
+        "social-media-title": "Društveni mediji i komunikacija",
+        "entertainment-title": "Zabava",
+        "finance-title": "Financije",
+        "telecommunication-title": "Telekomunikacija",
+        "commerce-title": "Trgovina",
+        "insurance-title": "Osiguranje",
+        "public-authorities-title": "Javna nadzorna tijela",
+        "address-brokers-description": "Ova poduzeća prikupljaju poštanske adrese i/ili e-mail adrese pojedinaca i na temelju njih prodaju usluge drugim poduzećima. Neka poduzeća prodaju ili iznajmljuju svoje adresne podatke oglašivačima (često u kombinaciji s dodatnim atributima kao što su interesi), drugi nude poduzećima da provjere njihove već spremljene adrese i da ih isprave ako je potrebno.",
+        "credit-agencies-description": "Ova poduzeća prikupljaju podatke o tvojoj povijesti plaćanja, tvojim bankovnim transakcijama, ugovorima o mobilnim telefonima i još mnogo toga kako bi izračunale tvoju kreditnu sposobnost, koja navodno može procijeniti koliko je vjerojatno da ćeš, na primjer, ispuniti obavezu plaćanja.",
+        "public-authorities-description": "S obzirom na veliki broj javnih tijela koja potencijalno prikupljaju tvoje podatke, ovdje možemo predložiti samo mali izbor. Međutim, misli i na tijela na državnoj i lokalnoj razini, kao što su uredi za prijavu prebivališta/boravišta."
     }
 }

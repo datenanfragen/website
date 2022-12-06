@@ -48,6 +48,7 @@ The association is managed by the chairpersons of the {{< link slug="verein/boar
 
 ## 5. Report of activities
 
+see [Yearly report 2021 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=5)  
 see [Yearly report 2020 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=5)  
 see [Yearly report 2019 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
 see [Yearly report 2018 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=5)
@@ -60,16 +61,19 @@ Number of volunteers: 3
 
 ## 7. Funding sources
 
+see [Yearly report 2021 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 see [Yearly report 2020 (German, p. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
-Financial assets at the end of 2019: 327,78 €  
-Financial assets at the end of 2019: 87,90 €  
-Financial assets at the end of 2018: 119,70 €
+Financial assets at the end of 2021: 218.43 €  
+Financial assets at the end of 2020: 327.78 €  
+Financial assets at the end of 2019: 87.90 €  
+Financial assets at the end of 2018: 119.70 €
 
 ## 8. Use of funds
 
+see [Yearly report 2021 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 see [Yearly report 2020 (German, p. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
@@ -82,16 +86,26 @@ The association is in no corporate relationships with any third parties.
 
 We publish this information on a yearly basis in conjunction with the publishing of the yearly report.
 
+### 2021
+
+#### People
+
+- Anonymous membership fee: 128.00 € (24.2 %)
+
+#### Organisations
+
+In 2021, we have not received any donations or membership fees that make up more than 10 % of our yearly budget from organisations.
+
 ### 2020
 
 #### People
 
-- Anonymous donation and membership fee: 210,00 € (27,9 %)
-- Anonymous donation and membership fee: 167,00 € (22,2 %)
+- Anonymous donation and membership fee: 210.00 € (27.9 %)
+- Anonymous donation and membership fee: 167.00 € (22.2 %)
 
 #### Organisations
 
-- Donation and membership fee by KlexHub UG (haftungsbeschränkt): 81,80 € (10,9 %)
+- Donation and membership fee by KlexHub UG (haftungsbeschränkt): 81.80 € (10.9 %)
 
 ### 2019
 

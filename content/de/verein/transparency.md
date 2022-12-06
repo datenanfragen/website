@@ -50,6 +50,7 @@ Die Geschäftsführung des Vereins haben die Vorsitzenden des {{< link slug="ver
 
 ## 5. Tätigkeitsbericht
 
+s. [Jahresbericht 2021 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=5)  
 s. [Jahresbericht 2020 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=5)  
 s. [Jahresbericht 2019 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
 s. [Jahresbericht 2018 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=5)
@@ -62,16 +63,19 @@ Anzahl Ehrenamtliche: 3
 
 ## 7. Angaben zur Mittelherkunft
 
+s. [Jahresbericht 2021 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 s. [Jahresbericht 2020 (S. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
+Vermögensstand Ende 2021: 218,43 €  
 Vermögensstand Ende 2020: 327,78 €  
 Vermögensstand Ende 2019: 87,90 €  
 Vermögensstand Ende 2018: 119,70 €
 
 ## 8. Angaben zur Mittelverwendung
 
+s. [Jahresbericht 2021 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 s. [Jahresbericht 2020 (S. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
@@ -83,6 +87,16 @@ Der Verein steht in keinerlei gesellschaftsrechtlicher Verbundenheit mit Dritten
 ## 10. Namen von Personen, deren jährliche Zahlungen mehr als 10 % des Gesamtjahresbudgets ausmachen
 
 Diese Informationen veröffentlichen wir jährlich zusammen mit dem Jahresbericht.
+
+### 2021
+
+#### Natürliche Personen
+
+- Anonymer Mitgliedsbeitrag: 128,00 € (24,2 %)
+
+#### Juristische Personen
+
+In 2021 haben wir keine Spenden oder Beiträge von juristischen Personen erhalten, die mehr als 10 % unseres Gesamtjahresbudgets ausmachen.
 
 ### 2020
 

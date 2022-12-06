@@ -175,7 +175,8 @@
         "lic-cc-by-sa-40": "Licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional",
         "lic-url-cc-by-sa-40": "https://creativecommons.org/licenses/by-sa/4.0/deed.pt",
         "lic-cc0-10": "CC0 1.0 Dedicação ao Domínio Público",
-        "lic-url-cc0-10": "https://creativecommons.org/publicdomain/zero/1.0/deed.pt"
+        "lic-url-cc0-10": "https://creativecommons.org/publicdomain/zero/1.0/deed.pt",
+        "license": "Licença"
     },
     "home": {
         "data-access": "de acesso a dados.",

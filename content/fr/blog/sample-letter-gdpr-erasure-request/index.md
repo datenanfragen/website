@@ -33,7 +33,7 @@ Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 15 d
 
 <p>Je viens par la présente, demander la suppression immédiate des données personnelles me concernant conformément à l'Article 17 du RGPD.</p>
 
-<p>[Veuillez supprimer toutes les données personnelles me concernant comme définit pat l'Article 4, alinéa 1 du RGPD.]</p>
+<p>[Veuillez supprimer toutes les données personnelles me concernant comme définit par l'Article 4, alinéa 1 du RGPD.]</p>
 
 <p>[Veuillez supprimer les données personnelles suivantes me concernant :<br>
 <span class="blog-letter-fill-in">Saisis ici les données à supprimer.</span>]</p>

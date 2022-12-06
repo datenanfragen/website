@@ -1,7 +1,7 @@
 {
     "title": "Humboldt Law Clinic Internetrecht",
     "type": "event",
-    "date": "2020-03-04T10:30:00+02:00",
+    "event_date": "2020-03-04T10:30:00+02:00",
     "duration": "2 Tage",
     "place": {
         "name": "Juristische Fakultät, HU Berlin",

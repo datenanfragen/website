@@ -25,7 +25,7 @@ All parameters are required.
     {{ range $format := (slice "webp" "jpg") }}
         <source srcset="
                 {{- range $index, $width := $.srcset -}}
-                    {{- partial "functions/imgURL" (dict "page" $.page "name" $.name "command" "Resize" "options" (printf "%dx %s" $width $format)) }} {{ $width }}w{{ cond (lt (add $index 1) (len $.srcset)) "," "" }}
+                    {{- partial "functions/imgURL" (dict "page" $.page "name" $.name "command" "Resize" "options" (printf "%dx %s CatmullRom" $width $format)) }} {{ $width }}w{{ cond (lt (add $index 1) (len $.srcset)) "," "" }}
                 {{- end -}}
             "
             sizes="

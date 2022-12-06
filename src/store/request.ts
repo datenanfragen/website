@@ -15,13 +15,17 @@ import {
     fetchTemplate,
     isSaneDataField,
     inferRequestLanguage,
+    trackingFields,
+    defaultFields,
+    isSva,
+    shouldBeTrackingRequest,
 } from '../Utility/requests';
 import { produce } from 'immer';
 import { RequestLetter } from '../DataType/RequestLetter';
 import { t_r } from '../Utility/i18n';
 import { ErrorException, WarningException } from '../Utility/errors';
 import type { StoreSlice } from '../types/utility';
-import { CompanyState } from './company';
+import type { CompanyState } from './company';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { slugify } from '../Utility/common';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
@@ -41,6 +45,7 @@ export interface RequestState<R extends Request> {
     setDate: (date: string) => void;
     setInformationBlock: (information_block: string) => void;
     setSignature: (signature: Signature) => void;
+    setIsTrackingRequest: (isTrackingRequest: boolean) => void;
     setCustomLetterProperty: (property: keyof Omit<CustomLetterData, 'sender_address'>, value: string) => void;
     setSent: (sent: boolean) => void;
     resetRequestToDefault: (options: {
@@ -135,8 +140,9 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
         ),
     setRequestType: (type) => {
         set(
-            produce((state: RequestState<Request>) => {
+            produce((state: GeneratorState) => {
                 state.request.type = type;
+                state.request.is_tracking_request = shouldBeTrackingRequest(state.current_company, state.request.type);
                 if (state.request.type === 'custom' && state.request.custom_data === undefined)
                     state.request.custom_data = { content: '', subject: '' };
                 if (state.request.type === 'rectification' && state.request.rectification_data === undefined)
@@ -217,6 +223,31 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 state.request.signature = signature;
             })
         ),
+    setIsTrackingRequest: (isTrackingRequest) => {
+        if (get().request.type !== 'access') return;
+        const company = get().current_company;
+        if (isSva(company)) return;
+
+        set(
+            produce((state: GeneratorState) => {
+                state.request.is_tracking_request = isTrackingRequest;
+                state.request.id_data = SavedIdData.mergeFields(
+                    state.request.id_data,
+                    company?.['required-elements'] && company['required-elements'].length > 0
+                        ? company['required-elements']
+                        : state.request.is_tracking_request
+                        ? trackingFields(state.request.language)
+                        : defaultFields(state.request.language),
+                    false,
+                    true,
+                    false,
+                    false,
+                    true
+                );
+            })
+        );
+        get().refreshTemplate();
+    },
     setCustomLetterProperty: (property, value) => {
         set(
             produce((state: RequestState<Request>) => {
@@ -276,7 +307,12 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
     refreshTemplate: async () => {
         if (get().request.type === 'custom') return;
         get().setBusy();
-        return fetchTemplate(get().request.language, get().request.type, get().current_company)
+        return fetchTemplate(
+            get().request.language,
+            get().request.type,
+            get().current_company,
+            get().request.is_tracking_request ? 'tracking' : undefined
+        )
             .then((template) => {
                 if (template)
                     set({

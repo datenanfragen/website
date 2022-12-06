@@ -1,10 +1,4 @@
 {{ define "main" }}
-{{ if .Params.license }}
-{{ $.Scratch.Set "license" .Params.license }}
-{{ else }}
-{{ $.Scratch.Set "license" "cc-by-40"}}
-{{ end }}
-
 <main>
     <article class="page">
         {{ with .Params.video_url }}
@@ -12,11 +6,11 @@
         {{ end }}
 
         <div id="event-meta">
-            {{ with .Params.date }}<div>
+            {{ with .Params.event_date }}<div>
                 <strong>{{ T "event-date" }}</strong><br>
-                <time pubdate datetime="{{ .Format "2006-01-02T15:04" }}">{{ .Format "2006-01-02" }}
+                <time pubdate datetime="{{ time.Format "2006-01-02T15:04" . }}">{{ time.Format "2006-01-02" . }}
                     {{ T "blog-time-at" }}
-                    {{ .Format "15:04" }}</time>
+                    {{ time.Format "15:04" . }}</time>
                 </div>{{- end -}}
             {{ with .Params.place }}<div>
                 <strong>{{ T "event-place" }}</strong><br>
@@ -30,11 +24,12 @@
             {{ with .Params.duration }}<div>
                 <strong>{{ T "event-duration" }}</strong><br> {{ . }}
             </div>{{ end }}
-            <div><strong>{{ T "license" }} </strong> <a
-                    href="{{ T (printf "lic-url-%s" ($.Scratch.Get "license")) }}">{{ T (printf "lic-%s" ($.Scratch.Get "license")) }}</a>
-                <span class="hidden" xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset"
-                    property="dct:title" rel="dct:type">{{ .Title }}</span>
-                     </div>
+            {{ with $.Params.license }}
+                <div>
+                    <strong>{{ T "license" }} </strong> <a href="{{ T (printf "lic-url-%s" $.Params.license) }}">{{ T (printf "lic-%s" $.Params.license) }}</a>
+                    <span class="hidden" xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">{{ $.Title }}</span>
+                </div>
+            {{ end }}
         </div>
 
         <div id="page-content">
