@@ -75,7 +75,7 @@
         "cdb-email": "Correo electrónico:",
         "cdb-web": "Sitio web:",
         "cdb-pgp-fingerprint": "Huella de PGP:",
-        "cdb-pgp-url": "Descarga de clave PGP:",
+        "cdb-pgp-url": "Descarga de llave PGP:",
         "cdb-sources": "Fuentes:",
         "cdb-notes": "Notas:",
         "cdb-suggest-change": "Sugerir un cambio",
@@ -113,8 +113,8 @@
         "footer-social-rss-desc": "Suscríbete a nuestro blog a través de tu lector de RSS.",
         "footer-social-github-desc": "Encuéntranos en GitHub.",
         "footer-social-matrix-desc": "Encuéntranos en Matrix.",
-        "footer-social-mastodon-desc": "Síganos en Mastodon.",
-        "footer-social-twitter-desc": "Síganos en Twitter.",
+        "footer-social-mastodon-desc": "Sígenos en Mastodon.",
+        "footer-social-twitter-desc": "Sígenos en Twitter.",
         "logo": "img/logo-solicituddedatos.svg",
         "logo-title": "${site_name} - logotipo",
         "home-feature-your-rights-object-title": "Derecho de oposición",
@@ -938,7 +938,7 @@
         "custom-input-desc": "Campo personalizado"
     },
     "error-handler": {
-        "report-via-email": "Reportar por correo",
+        "report-via-email": "Reportar por correo electrónico",
         "report-on-github": "Reportar en GitHub",
         "explain-context": "Si aplica, proporciona un contexto para el error. Es decir, describe lo que hiciste antes de que ocurriera el error. Elimina también cualquier información confidencial de los logs a continuación.",
         "privacy": "Para obtener detalles sobre qué contienen los informes de errores de datos y cómo procesamos dichos datos, consulta nuestra <a href='/privacy#error-reports' target='_blank'>política de privacidad</a>.",
