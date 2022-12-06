@@ -144,74 +144,61 @@ describe('Request generator tool component', () => {
                 Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
             },
         });
+
+        cy.containsSettled('Get access').click();
+
+        cy.contains('Add a custom company').click();
+        cy.get('.modal').containsSettled('Fill in the company’s details here.');
+        cy.get('#custom-company-input-name').type('Darkenanfragen AG');
+        cy.get('#custom-company-input-email').type('privacy@darkenanfragen.tld');
+        cy.contains('Add company').click();
+
+        cy.searchAndRequestCompanies(['tagesschau.de', 'Adjust GmbH'], false);
+
+        const toggleTrackingStatusStatus = (company) => {
+            cy.contains(company).click();
+            cy.contains(company)
+                .parent()
+                .parent()
+                .contains('tracking data')
+                .within(() => {
+                    cy.get('input[type="checkbox"]').click();
+                });
+        };
+
+        toggleTrackingStatusStatus('Darkenanfragen AG');
+        toggleTrackingStatusStatus('Norddeutscher Rundfunk (NDR)');
+        toggleTrackingStatusStatus('Adjust GmbH');
+
+        cy.containsSettled('Continue with these companies').click();
+
+        assertIsTrackingRequest('Darkenanfragen AG', true);
+        assertIsTrackingRequest('Norddeutscher Rundfunk (NDR)', true);
+        assertIsTrackingRequest('Adjust GmbH', false);
     });
-    cy.containsSettled('Get access').click();
 
-    cy.contains('Add a custom company').click();
-    cy.get('.modal').containsSettled('Fill in the company’s details here.');
-    cy.get('#custom-company-input-name').type('Darkenanfragen AG');
-    cy.get('#custom-company-input-email').type('privacy@darkenanfragen.tld');
-    cy.contains('Add company').click();
+    it('cannot toggle tracking status for non-access requests', () => {
+        const types = ['Delete (parts of)', 'Correct data', 'Stop receiving direct marketing'];
+        for (const type of types) {
+            cy.visit('/generator');
+            cy.containsSettled(type).click();
 
-    cy.searchAndRequestCompanies(['tagesschau.de', 'Adjust GmbH'], false);
+            cy.searchAndRequestCompanies(['TikTok'], false);
+            cy.contains('TikTok').click();
+            cy.contains('tracking data').should('not.exist');
+        }
+    });
 
-    const toggleTrackingStatusStatus = (company) => {
-        cy.contains(company).click();
-        cy.contains(company)
-            .parent()
-            .parent()
-            .contains('tracking data')
-            .within(() => {
-                cy.get('input[type="checkbox"]').click();
-            });
-    };
+    it('loads company from slug and clears URL parameters afterwards', () => {
+        cy.visit('/generator#!company=airbnb');
+        cy.containsSettled('Get access').click();
+        cy.contains('Fill in request to “Airbnb Ireland UC”');
 
-    toggleTrackingStatusStatus('Darkenanfragen AG');
-    toggleTrackingStatusStatus('Norddeutscher Rundfunk (NDR)');
-    toggleTrackingStatusStatus('Adjust GmbH');
+        cy.containsSettled('Skip request').click();
+        cy.containsSettled('Send more requests').click();
 
-    cy.containsSettled('Continue with these companies').click();
-
-    assertIsTrackingRequest('Darkenanfragen AG', true);
-    assertIsTrackingRequest('Norddeutscher Rundfunk (NDR)', true);
-    assertIsTrackingRequest('Adjust GmbH', false);
-});
-
-it('cannot toggle tracking status for non-access requests', () => {
-    const types = ['Delete (parts of)', 'Correct data', 'Stop receiving direct marketing'];
-    for (const type of types) {
-        cy.visit('/generator');
-        cy.containsSettled(type).click();
-
-        cy.searchAndRequestCompanies(['TikTok'], false);
-        cy.contains('TikTok').click();
-        cy.contains('tracking data').should('not.exist');
-    }
-});
-
-it('loads company from slug and clears URL parameters afterwards', () => {
-    cy.visit('/generator#!company=airbnb');
-    cy.containsSettled('Get access').click();
-    cy.contains('Fill in request to “Airbnb Ireland UC”');
-
-    cy.containsSettled('Skip request').click();
-    cy.containsSettled('Send more requests').click();
-
-    cy.url().should('not.include', 'airbnb').should('not.include', 'company');
-});
-it('loads company from slug', () => {
-    cy.visit('/generator/#!company=facebook');
-    cy.reload();
-    cy.contains('Meta Platforms Ireland Limited');
-});
-
-it('loads companies from slug', () => {
-    cy.visit('/generator/#!companies=facebook,google');
-    cy.reload();
-    cy.contains('Meta Platforms Ireland Limited');
-    cy.contains('Next request').click();
-    cy.contains('New request').click();
-    cy.contains('Google LLC');
+        cy.url().should('not.include', 'airbnb').should('not.include', 'company');
+    });
 
     it('loads companies from slug and clears URL parameters afterwards', () => {
         cy.visit('/generator#!companies=airbnb,apple');
