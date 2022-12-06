@@ -95,6 +95,7 @@ try {
                     'safari-extension://',
                     '@safari-web-extension://',
                     'ms-browser-extension://',
+                    '@webkit-masked-url://hidden/',
                 ].some((s) => event.error?.stack?.includes(s))
             ) {
                 return;
