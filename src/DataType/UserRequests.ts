@@ -6,12 +6,12 @@ import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 export type UserRequest = {
     reference: string;
     date: string;
-    type: RequestType;
+    type?: RequestType;
     response_type?: 'admonition' | 'complaint';
-    slug: string;
-    recipient: string;
-    email: string;
-    via: 'fax' | 'letter' | 'email';
+    slug?: string;
+    recipient?: string;
+    email?: string;
+    via?: 'fax' | 'letter' | 'email';
     migrated?: true;
 };
 
