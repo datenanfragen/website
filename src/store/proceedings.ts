@@ -307,15 +307,15 @@ export const proceedingFromRequest = (
                     ? // TODO: The `response_type` is only necessary to migrate the legacy requests. Remove it once the migration is done.
                       (request as typeof request & { response_type?: 'admonition' | 'complaint' }).response_type ||
                       'response'
-                    : request.type,
+                    : request.type || 'access',
             // Our batch implementation heavily depends on each company having a slug, which obviously breaks for custom
             // companies. I'm not happy with this but changing it be a huge hassle (I tried…). So instead, we generate a
             // slug in angle brackets for custom companies and then discard that slug here. This will work since the
             // company schema doesn't allow angle brackets in slugs.
-            slug: request.slug.startsWith('<') ? undefined : request.slug,
-            correspondent_address: isUserRequest(request) ? request.recipient : request.recipient_address,
-            correspondent_email: request.email,
-            transport_medium: isUserRequest(request) ? request.via : request.transport_medium,
+            slug: request.slug?.startsWith('<') ? undefined : request.slug,
+            correspondent_address: isUserRequest(request) ? request.recipient || '' : request.recipient_address,
+            correspondent_email: request.email || '',
+            transport_medium: isUserRequest(request) ? request.via || 'email' : request.transport_medium,
             subject,
             content,
             sentByMe: true,
