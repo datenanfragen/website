@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 01. November 2022.
+Die Informationen sind auf dem Stand vom 28. November 2022.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
@@ -151,3 +151,12 @@ Der Vorstand ist verpflichtet, Vorträge, für die Vorstandsmitglieder eine Verg
 ### 2020
 
 * Im März 2020 hat die Humboldt-Universität zu Berlin Benjamin Altpeter und Lorenz Sieben im Rahmen der [HLCI](http://www.hlci.de/) privat eingeladen, ein {{< link slug="verein/event/hlci-berlin-2020" text="Seminar zu Datenanfragen.de" >}} als Gastvortrag zu halten. Die Humboldt-Universität hat die Kosten für die Zugreise und Übernachtung übernommen und den beiden ein Honorar von jeweils 250&nbsp;€ gezahlt. Benni und Lorenz haben sich freiwillig entschieden, die Hälfte des Honorars an den Verein zu spenden.
+
+## 12. Externe Fördermittel, die Mitglieder erhalten haben
+
+Der Verein profitiert davon, wenn sich Mitglieder selbstständig auf externe Fördermittel bewerben, um damit ihre Arbeit an unseren Projekten zu finanzieren. Gewährte Fördermittel dokumentieren wir hier. Die aufgelisteten Fördermittel gingen nicht an den Verein, sondern liegen alleine in der Verantwortung der entsprechenden Mitglieder.
+
+### 2022
+
+* Das Bundesministerium für Bildung und Forschung hat die Arbeit der Lorenz Sieben und Benjamin Altpeter GbR am Projekt [„Eine App für Datenanfragen.de“](https://prototypefund.de/project/eine-app-fuer-datenanfragen-de/) im Rahmen des Prototype Fund zwischen März 2022 und August 2022 mit 29.426,00&nbsp;€ gefördert (Förderkennzeichen 01IS22S20). Zweck des Projektes war es zu evaluieren, ob die Wahrnehmung der eigenen Datenschutzrechte mit einer nativen App noch weiter vereinfacht werden kann. Im Zuge des Projektes wurden darüber hinaus die bestehende Codebasis der Webseite grundlegend aufgeräumt und erneuert, eine neue intuitivere Oberfläche für den Anfragenenerator umgesetzt, die Anfragenübersicht erweitert und ein Generator für Mahnungen und Beschwerden entwickelt.  
+  [Abschlussbericht](https://static.bn.al/doc/abschlussbericht-ptf11-dade-app.pdf)

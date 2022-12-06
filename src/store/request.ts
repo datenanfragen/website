@@ -7,23 +7,19 @@ import type {
     TransportMedium,
     RequestFlag,
     Signature,
-    CustomTemplateName,
     CustomLetterData,
-    CustomRequest,
 } from '../types/request';
 import {
     defaultRequest,
     REQUEST_FALLBACK_LANGUAGE,
     fetchTemplate,
     isSaneDataField,
-    REQUEST_ARTICLES,
     inferRequestLanguage,
     trackingFields,
     defaultFields,
     isSva,
     shouldBeTrackingRequest,
 } from '../Utility/requests';
-import { UserRequests, UserRequest } from '../DataType/UserRequests';
 import { produce } from 'immer';
 import { RequestLetter } from '../DataType/RequestLetter';
 import { t_r } from '../Utility/i18n';
@@ -34,12 +30,10 @@ import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { slugify } from '../Utility/common';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
-import { Template } from 'letter-generator';
 
 export interface RequestState<R extends Request> {
     request: R;
     template: string;
-    storeRequest: () => Promise<UserRequest | void>;
     addField: (field: IdDataElement, data_field: DataFieldName<R>) => void;
     removeField: (index: number, data_field: DataFieldName<R>) => void;
     setField: (index: number, field: IdDataElement, data_field: DataFieldName<R>) => void;
@@ -52,16 +46,21 @@ export interface RequestState<R extends Request> {
     setInformationBlock: (information_block: string) => void;
     setSignature: (signature: Signature) => void;
     setIsTrackingRequest: (isTrackingRequest: boolean) => void;
-    // I would've liked to avoid specific functions here, but I guess I can't help it
-    setCustomLetterTemplate: (template_name: CustomTemplateName, response_to?: UserRequest) => Promise<void>;
     setCustomLetterProperty: (property: keyof Omit<CustomLetterData, 'sender_address'>, value: string) => void;
-    setCustomLetterAddress: (address: Address) => void;
     setSent: (sent: boolean) => void;
-    resetRequestToDefault: (language?: string) => void;
-    initializeFields: (data_field?: DataFieldName<R>) => Promise<void>;
+    resetRequestToDefault: (options: {
+        advanceBatch: boolean;
+        language?: string;
+        beforeAdvanceBatchHook?: () => void;
+        type?: RequestType;
+        reference?: string;
+    }) => void;
+    initializeFields: () => Promise<void>;
     refreshTemplate: () => Promise<void>;
     letter: () => RequestLetter;
     letter_filename: () => string;
+    saveIdData: () => void;
+    getRequestForSaving: (preventSideEffects?: boolean) => Request;
 }
 
 export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState & GeneratorSpecificState> = (
@@ -70,30 +69,6 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
 ) => ({
     request: defaultRequest(inferRequestLanguage()),
     template: '',
-    storeRequest: () => {
-        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
-            const savedIdData = new SavedIdData();
-            savedIdData.storeArray(get().request.id_data);
-            // Don't clear the saved signature if the signature was only cleared for this request (#182).
-            if (get().request.signature.type === 'image') savedIdData.storeSignature(get().request.signature);
-        }
-
-        const state = get();
-        const db_id = `${state.request.reference}-${state.request.type}${
-            state.request.type === 'custom' && state.request.response_type ? `-${state.request.response_type}` : ''
-        }`;
-
-        return new UserRequests().storeRequest(db_id, {
-            reference: state.request.reference,
-            date: state.request.date,
-            type: state.request.type,
-            response_type: state.request.type === 'custom' ? state.request.response_type : undefined,
-            slug: state.request.slug,
-            recipient: state.request.recipient_address,
-            email: state.request.email,
-            via: state.request.transport_medium,
-        });
-    },
     addField: (_field, data_field) =>
         set(
             produce((state: RequestState<Request>) => {
@@ -144,7 +119,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                         if ((state.request[data_field][index].value as Address).primary !== field.value.primary) {
                             // Only change the primary adresses if the primary value of the current field changed
                             let addresses = 0;
-                            state.request[data_field].forEach((f: IdDataElement, i: number) => {
+                            state.request[data_field].forEach((f: IdDataElement) => {
                                 if (f.type === 'address' && f !== state.request[data_field][index]) {
                                     // Set the first address (not equal to the current one) to primary if the current change is to non-primary,
                                     // otherwise change all adresses to non-primary (we overwrite this with our change later)
@@ -168,8 +143,8 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             produce((state: GeneratorState) => {
                 state.request.type = type;
                 state.request.is_tracking_request = shouldBeTrackingRequest(state.current_company, state.request.type);
-                if (state.request.type === 'custom')
-                    state.request.custom_data = makeCustomDataFromIdData(state.request);
+                if (state.request.type === 'custom' && state.request.custom_data === undefined)
+                    state.request.custom_data = { content: '', subject: '' };
                 if (state.request.type === 'rectification' && state.request.rectification_data === undefined)
                     state.request.rectification_data = [];
                 if (state.request.type === 'erasure') {
@@ -273,106 +248,16 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
         );
         get().refreshTemplate();
     },
-    setCustomLetterTemplate: async (template_name, response_to) => {
-        if (get().request.type === 'custom') {
-            if (template_name !== 'no-template') {
-                get().setBusy();
-                return fetchTemplate(get().request.language, template_name, undefined, '').then((text) => {
-                    set(
-                        produce((state: RequestState<Request>) => {
-                            if (state.request.type === 'custom') {
-                                if (response_to) {
-                                    const variables = {
-                                        request_date: response_to.date,
-                                        request_recipient: response_to.recipient?.split('\n')[0],
-                                        request_recipient_address: response_to.recipient,
-                                    };
-                                    state.request.custom_data.content = text
-                                        ? new Template(
-                                              text,
-                                              {},
-                                              {
-                                                  ...variables,
-                                                  request_article:
-                                                      response_to.type !== 'custom'
-                                                          ? REQUEST_ARTICLES[response_to.type]
-                                                          : '',
-                                              }
-                                          ).getText()
-                                        : '';
-
-                                    state.request.custom_data.subject = t_r(
-                                        `letter-subject-${template_name}`,
-                                        state.request.language,
-                                        response_to.type === 'custom'
-                                            ? variables
-                                            : {
-                                                  ...variables,
-                                                  request_article: REQUEST_ARTICLES[response_to.type],
-                                              }
-                                    );
-
-                                    if (template_name === 'admonition') {
-                                        get().setTransportMedium(response_to.via);
-                                        state.request.email = response_to.email;
-                                        state.request.recipient_address = response_to.via;
-                                    }
-
-                                    state.request.reference = response_to.reference;
-                                    state.request.response_type = template_name;
-                                } else {
-                                    state.request.custom_data.content = text ?? '';
-                                    state.request.response_type = template_name;
-                                }
-                            }
-                        })
-                    );
-                    get().setReady();
-                });
-            }
-
-            set(
-                produce((state: RequestState<Request>) => {
-                    if (state.request.type === 'custom') {
-                        state.request.response_type = undefined;
-                    }
-                })
-            );
-        } else {
-            throw new WarningException(
-                "Custom request templates can only be set for a custom request (request.type === 'custom')."
-            );
-        }
-    },
     setCustomLetterProperty: (property, value) => {
-        if (get().request.type === 'custom') {
-            set(
-                produce((state: RequestState<Request>) => {
-                    if (state.request.type === 'custom') {
-                        state.request.custom_data[property] = value;
-                    }
-                })
-            );
-        } else {
-            throw new WarningException(
-                "Custom letter property can only be set for a custom request (request.type === 'custom')."
-            );
-        }
-    },
-    setCustomLetterAddress: (address) => {
-        if (get().request.type === 'custom') {
-            set(
-                produce((state: RequestState<Request>) => {
-                    if (state.request.type === 'custom') {
-                        state.request.custom_data.sender_address = address;
-                    }
-                })
-            );
-        } else {
-            throw new WarningException(
-                "Custom letter address can only be set for a custom request (request.type === 'custom')."
-            );
-        }
+        set(
+            produce((state: RequestState<Request>) => {
+                if (state.request.type === 'custom') state.request.custom_data[property] = value;
+                else
+                    throw new WarningException(
+                        "Custom letter property can only be set for a custom request (request.type === 'custom')."
+                    );
+            })
+        );
     },
     setSent: (sent = true) =>
         set(
@@ -380,39 +265,43 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 state.request.sent = sent;
             })
         ),
-    resetRequestToDefault: (language) => {
+    resetRequestToDefault: ({ advanceBatch, language, beforeAdvanceBatchHook, type, reference }) => {
         set(() => ({
-            request: defaultRequest(language || REQUEST_FALLBACK_LANGUAGE),
+            request: { ...defaultRequest(language || REQUEST_FALLBACK_LANGUAGE), ...(reference && { reference }) },
         }));
+        if (type) get().setRequestType(type);
         get().refreshTemplate();
+
+        get().setDownload(false);
+        get().setBusy();
+        get()
+            .removeCompany()
+            .then(() => {
+                if (advanceBatch) {
+                    beforeAdvanceBatchHook?.();
+                    get().advanceBatch();
+                }
+                return get().resetInitialConditions();
+            });
     },
-    initializeFields: async (data_field = 'id_data') => {
-        if (isSaneDataField(data_field, get().request.type)) {
-            const fields = get().request[data_field];
+    initializeFields: async () => {
+        const fields = get().request.id_data;
 
-            if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && SavedIdData.shouldAlwaysFill()) {
-                const saved_id_data = new SavedIdData();
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA) && SavedIdData.shouldAlwaysFill()) {
+            const saved_id_data = new SavedIdData();
 
-                return saved_id_data
-                    .getAllFixed()
-                    .then((fill_data) =>
-                        SavedIdData.mergeFields(fields, fill_data ?? [], true, true, true, true, false)
+            return saved_id_data
+                .getAllFixed()
+                .then((fill_data) => SavedIdData.mergeFields(fields, fill_data ?? [], true, true, true, true, false))
+                .then((new_fields) =>
+                    set(
+                        produce((state: GeneratorState) => {
+                            state.request.id_data = new_fields;
+                        })
                     )
-                    .then((new_fields) =>
-                        set(
-                            produce((state: GeneratorState) => {
-                                if (isSaneDataField(data_field, state.request.type))
-                                    state.request[data_field] = new_fields;
-                                if (state.request.type === 'custom') {
-                                    state.request['id_data'] = new_fields;
-                                    state.request.custom_data = makeCustomDataFromIdData(state.request);
-                                }
-                            })
-                        )
-                    )
-                    .then(() => saved_id_data.getSignature())
-                    .then((signature) => get().setSignature(signature ?? { type: 'text', name: '' }));
-            }
+                )
+                .then(() => saved_id_data.getSignature())
+                .then((signature) => get().setSignature(signature ?? { type: 'text', name: '' }));
         }
     },
     refreshTemplate: async () => {
@@ -441,6 +330,20 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             }_${get().request.reference}.pdf`
         );
     },
+    saveIdData: () => {
+        if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
+            const savedIdData = new SavedIdData();
+            savedIdData.storeArray(get().request.id_data);
+            // Don't clear the saved signature if the signature was only cleared for this request (#182).
+            if (get().request.signature.type === 'image') savedIdData.storeSignature(get().request.signature);
+        }
+    },
+    getRequestForSaving: (preventSideEffects) => {
+        if (!preventSideEffects) {
+            get().saveIdData();
+        }
+        return get().request;
+    },
 });
 
 function ensurePrimaryAddress(fields: IdDataElement[]) {
@@ -448,15 +351,4 @@ function ensurePrimaryAddress(fields: IdDataElement[]) {
         const address = fields.find((f) => f.type === 'address');
         if (address) (address.value as Address).primary = true;
     }
-}
-
-function makeCustomDataFromIdData(request: CustomRequest) {
-    const custom_data = { ...request.custom_data };
-    request.id_data.forEach((f) => {
-        if (f.type === 'name') custom_data.name = f.value;
-        if (f.type === 'address' && f.value.primary) custom_data.sender_address = f.value;
-    });
-    if (!custom_data.sender_address)
-        custom_data.sender_address = { street_1: '', street_2: '', place: '', country: '' };
-    return custom_data;
 }

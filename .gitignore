@@ -209,6 +209,7 @@ static/templates/*
 static/db/*
 static/schema.json
 static/schema-supervisory-authorities.json
+static/offline-data.json
 i18n/*.json
 /.hugo_build.lock
 # These are just too annoying to deal with, so we ignore them, even though Hugo recommend keeping those in the repo

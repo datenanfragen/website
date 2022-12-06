@@ -4,7 +4,7 @@
 
 describe("'Send mail first' button", () => {
     beforeEach(() => {
-        cy.visit('/generator');
+        cy.visit('/g');
     });
 
     it('Modal appears and button works', () => {

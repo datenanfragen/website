@@ -7,7 +7,7 @@ describe('Request should be saved without clicking ok in the copy manually modal
     it('After click on the ActionButton', () => {
         skipOn(isOn('production'));
 
-        cy.visit('/generator');
+        cy.visit('/g');
         cy.contains('Information block').click();
 
         cy.contains('Send email').click();
@@ -26,7 +26,7 @@ describe('Request should be saved without clicking ok in the copy manually modal
     it('After click in the new request modal', () => {
         skipOn(isOn('production'));
 
-        cy.visit('/generator');
+        cy.visit('/g');
         cy.contains('Information block').click();
 
         cy.contains('New request').click();

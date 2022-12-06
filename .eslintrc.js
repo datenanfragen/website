@@ -42,14 +42,14 @@ module.exports = {
         'jsx-a11y',
     ],
     rules: {
-        'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
+        'no-unused-vars': 'off',
         'no-empty': ['error', { allowEmptyCatch: true }],
         // Re-enable the `no-console` rule which gets disabled by the Node env.
         'no-console': 'error',
         'no-lonely-if': 'off',
 
         '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
+        '@typescript-eslint/no-unused-vars': ['error'],
         '@typescript-eslint/no-empty-function': 'off',
         // TODO: Re-enable this once we've completely migrated to TypeScript.
         '@typescript-eslint/no-var-requires': 'off',
@@ -94,7 +94,6 @@ module.exports = {
         LOCALE: 'readonly',
         SUPPORTED_LANGUAGES: 'readonly',
         SUPPORTED_COUNTRIES: 'readonly',
-        COUNTRIES_WITH_SUGGESTED_COMPANIES: 'readonly',
 
         // defined in `src/general.js`
         I18N_DEFINITION: 'readonly',

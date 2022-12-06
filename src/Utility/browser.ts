@@ -1,9 +1,10 @@
 import { parseBcp47Tag, fallback_countries, isSupportedCountry } from './common';
 import type { LiteralUnion } from 'type-fest';
 import type { Country } from '../store/app';
+import type { I18nLanguage } from '../types/globals.d';
 
 export const clearUrlParameters = () => {
-    window.history.pushState({}, document.title, `${window.BASE_URL}generator`);
+    window.history.pushState({}, document.title, `${window.location.origin}${window.location.pathname}`);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.PARAMETERS = {};
@@ -96,11 +97,11 @@ export const clientPost = (
 // JS) which may not necessarily represent the user's country (or even include region information at all).
 // The more reliable way would be to feed the user's IP into a geolocation service but that is not an option, so we have
 // to stick with this.
-export const guessUserCountry = (): Country => {
+export const guessUserCountry = (locale: I18nLanguage): Country => {
     const { country } = parseBcp47Tag(navigator.language);
 
     // If we cannot guess the user's country, it makes sense to fallback to the language.
-    if (!navigator.language || !country) return fallback_countries[window.LOCALE];
+    if (!navigator.language || !country) return fallback_countries[locale];
 
     // If however we *can* guess the country but just don't support it, we show all companies.
     return isSupportedCountry(country) ? country : 'all';

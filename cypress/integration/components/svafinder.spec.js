@@ -104,40 +104,4 @@ describe('SvaFinder component', () => {
                 .should('have.class', 'active');
         });
     });
-
-    it('works in the generator for complaints', () => {
-        skipOn(isOn('production'));
-
-        cy.window()
-            .then((win) =>
-                win.accessLocalForageStore('my-requests').setItem('2020-YWT4H4U-access', {
-                    reference: '2020-YWT4H4U',
-                    date: '2020-03-14',
-                    type: 'access',
-                    slug: 'datenanfragen',
-                    recipient: 'Datenanfragen.de e. V.',
-                    email: '',
-                    via: 'email',
-                })
-            )
-            .then(() => {
-                cy.visit('/generator/#!response_type=complaint&response_to=2020-YWT4H4U-access');
-
-                cy.get('.modal').contains(
-                    'This assistant will help you select the supervisory data protection authority'
-                );
-                cy.get('.sva-finder').contains('Where do you live?');
-                cy.get('.sva-finder').contains('Germany').click();
-                cy.get('.sva-finder').contains('Which of the following areas does your request concern?');
-                cy.get('.sva-finder').contains('public or private entity').click();
-                cy.get('.sva-finder').contains('Is the entity that your request concerns also based in Germany?');
-                cy.get('.sva-finder').contains('Entity is based in other country').click();
-                cy.get('.sva-finder').contains('In which state do you live?');
-                cy.get('.sva-finder').contains('Saarland').click();
-
-                cy.get('.sva-finder').should('not.exist');
-                cy.get('#company-info .accordion-title').contains('Unabhängiges Datenschutzzentrum Saarland');
-                cy.get('#request-recipient').should('have.value', 'poststelle@datenschutz.saarland.de');
-            });
-    });
 });

@@ -22,11 +22,6 @@ export const PRIVACY_ACTIONS: Record<string, PrivacyAction> = {
         default: navigator.cookieEnabled,
         dnt: true,
     },
-    SAVE_WIZARD_ENTRIES: {
-        id: 'save_wizard_entries',
-        default: navigator.cookieEnabled,
-        dnt: true,
-    },
     // TELEMETRY: {
     //     'id': 'telemetry',
     //     'default': false,

@@ -16,6 +16,9 @@ https://www.humaaans.com
 iconmonstr Icons by Alexander Kahlkopf ([iconmonstr License](https://iconmonstr.com/license))
 https://iconmonstr.com
 
+idb by jakearchibald ([ISC License](https://github.com/jakearchibald/idb/blob/main/LICENSE))
+https://www.npmjs.com/package/idb
+
 immer by Michel Weststrate ([MIT License](https://github.com/immerjs/immer/blob/master/LICENSE))
 https://github.com/immerjs/immer
 
@@ -33,6 +36,9 @@ https://github.com/catamphetamine/libphonenumber-js
 
 localForage by Mozilla ([Apache License 2.0](https://github.com/localForage/localForage/blob/master/LICENSE))
 https://github.com/localForage/localForage
+
+MiniSearch by Luca Ongaro ([MIT License](https://github.com/lucaong/minisearch/blob/master/LICENSE.txt))
+https://github.com/lucaong/minisearch
 
 node-qrcode by Ryan Day ([MIT License](https://github.com/soldair/node-qrcode/blob/master/license))
 https://github.com/soldair/node-qrcode
@@ -52,11 +58,11 @@ https://github.com/synacor/preact-i18n
 preact-portal by Jason Miller ([MIT License](https://github.com/developit/preact-portal/blob/master/LICENSE))
 https://github.com/developit/preact-portal
 
-React Joyride by Gil Barbara ([MIT License](https://github.com/gilbarbara/react-joyride/blob/master/LICENSE))
-https://github.com/gilbarbara/react-joyride
-
 react-scrollspy by makotot ([MIT License](https://github.com/makotot/react-scrollspy#license))
 https://github.com/makotot/react-scrollspy
+
+React InstantSearch by Algolia, Inc. ([MIT License](https://github.com/algolia/react-instantsearch/blob/master/LICENSE))
+https://github.com/algolia/react-instantsearch
 
 Roboto by Christian Robertson ([Apache License 2.0](https://github.com/google/roboto/blob/master/LICENSE))
 https://github.com/google/roboto
@@ -70,7 +76,10 @@ https://github.com/tobiasahlin/SpinKit
 Tailwind CSS by Adam Wathan, Jonathan Reinink ([MIT License](https://github.com/tailwindcss/tailwindcss/blob/master/LICENSE))
 https://github.com/tailwindcss/tailwindcss
 
-typesense-js by Wreally Studios ([Apache License 2.0](https://github.com/typesense/typesense-js/blob/master/LICENSE))
+Typesense Instantsearch Adapter by Typesense, Inc. ([MIT License](https://github.com/typesense/typesense-instantsearch-adapter/blob/master/LICENSE))
+https://github.com/typesense/typesense-instantsearch-adapter
+
+typesense-js by Typesense, Inc. ([Apache License 2.0](https://github.com/typesense/typesense-js/blob/master/LICENSE))
 https://github.com/typesense/typesense-js
 
 World Countries by stefangabos ([LGPL-3.0](https://github.com/stefangabos/world_countries/blob/master/LICENSE.md))

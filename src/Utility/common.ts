@@ -1,3 +1,4 @@
+import type { I18nLanguage } from '../types/globals';
 import type { Country } from '../store/app';
 
 // Adapted after: https://gist.github.com/mathewbyrne/1280286
@@ -17,8 +18,15 @@ export const domainWithoutTldFromUrl = (url?: string) =>
 
 export const deepCopyObject = <T>(object: T): T => JSON.parse(JSON.stringify(object));
 
-export const objFilter = <ValT>(obj: Record<string, ValT>, filter: (item: [string, ValT]) => boolean) =>
-    Object.fromEntries(Object.entries<ValT>(obj).filter(filter));
+export const objFilter = <KeyT extends string | number | symbol, ValT>(
+    obj: Record<KeyT, ValT>,
+    filter: (item: [string, ValT]) => boolean
+) => Object.fromEntries(Object.entries<ValT>(obj).filter(filter)) as Record<KeyT, ValT>;
+
+export const objMap = <KeyT extends string | number | symbol, ValT, NewKeyT extends string | number | symbol, NewValT>(
+    obj: Record<KeyT, ValT>,
+    map: (item: [string, ValT]) => [NewKeyT, NewValT]
+) => Object.fromEntries(Object.entries<ValT>(obj).map(map)) as Record<NewKeyT, NewValT>;
 
 // Adapted after: https://stackoverflow.com/a/15710692
 export const hash = (s: string) =>
@@ -45,8 +53,8 @@ export const almostUniqueId = (length = 9) => {
     );
 };
 
-export const renderMoney = (amount: number, currency = '') =>
-    Number(amount || 0).toLocaleString(window.LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
+export const renderMoney = (amount: number, locale: I18nLanguage, currency = '') =>
+    Number(amount || 0).toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
     (currency ? ` ${currency}` : '');
 
 export const parameters = () => {

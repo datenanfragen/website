@@ -32,6 +32,23 @@ module.exports = function (content) {
             }),
             {}
         );
+
+        // To avoid translating the same strings multiple times, we can import other translations into hugo here
+        const importKeys = {
+            generator: [
+                'access-request-statement',
+                'erasure-request-statement',
+                'rectification-request-statement',
+                'objection-request-statement',
+            ],
+        };
+
+        Object.keys(importKeys).forEach((scope) => {
+            importKeys[scope]
+                .filter((key) => data[scope][key] !== undefined)
+                .forEach((key) => (hugo_data[`imported--${scope}-${key}`] = data[scope][key]));
+        });
+
         this.emitFile(path.join('..', 'i18n', path.basename(this.resource)), JSON.stringify(hugo_data));
     }
 

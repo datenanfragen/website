@@ -1,11 +1,17 @@
 import type { JSX } from 'preact';
 import { Text, IntlProvider } from 'preact-i18n';
+import { useProceedingsStore } from '../../store/proceedings';
 import { useGeneratorStore } from '../../store/generator';
-import { MailtoDropdown } from '../MailtoDropdown';
+import { MailtoDropdown, MailtoDropdownProps } from '../MailtoDropdown';
+import type { Content } from '../../types/proceedings';
+import { useAppStore } from '../../store/app';
 
-type ActionButtonProps = {
-    onSuccess?: () => void;
+export type ActionButtonProps = {
+    onSuccess?: (res?: { content: ArrayBuffer; messageId: string } | Blob) => void;
+    createContentBlob?: (emailOrPdfBlob: ArrayBuffer | Blob, filename?: string) => Promise<Content>;
     buttonText?: JSX.Element | JSX.Element[];
+    mailtoDropdownProps?: Partial<MailtoDropdownProps>;
+    dropup?: boolean;
 };
 
 export const ActionButton = (_props: ActionButtonProps) => {
@@ -17,11 +23,27 @@ export const ActionButton = (_props: ActionButtonProps) => {
     const download_url = useGeneratorStore((state) => state.download_url);
     const download_filename = useGeneratorStore((state) => state.download_filename);
     const getLetter = useGeneratorStore((state) => state.letter);
-    const storeRequest = useGeneratorStore((state) => state.storeRequest);
     const setSent = useGeneratorStore((state) => state.setSent);
+    const getRequestForSaving = useGeneratorStore((state) => state.getRequestForSaving);
+    const addRequest = useProceedingsStore((state) => state.addRequest);
+    const saveRequestContent = useAppStore((state) => state.saveRequestContent);
 
     const props = {
-        onSuccess: () => storeRequest().then(() => setSent(true)),
+        onSuccess: (res?: { content: ArrayBuffer; messageId: string } | Blob) => {
+            if (saveRequestContent && res && props.createContentBlob)
+                props
+                    .createContentBlob(res instanceof Blob ? res : res.content, download_filename)
+                    .then((content) =>
+                        addRequest(
+                            getRequestForSaving(),
+                            content,
+                            res instanceof Blob ? undefined : { emailId: res.messageId }
+                        )
+                    );
+            else addRequest(getRequestForSaving());
+
+            setSent(true);
+        },
         ..._props,
     };
 
@@ -40,6 +62,8 @@ export const ActionButton = (_props: ActionButtonProps) => {
                     className={class_name}
                     buttonText={props.buttonText}
                     enabled={enabled}
+                    dropup={props.dropup}
+                    {...props.mailtoDropdownProps}
                 />
             ) : (
                 <a
@@ -49,6 +73,10 @@ export const ActionButton = (_props: ActionButtonProps) => {
                     download={download_filename}
                     onClick={(e) => {
                         if (!enabled) e.preventDefault();
+                        else if (download_url)
+                            fetch(download_url)
+                                .then((r) => r.blob())
+                                .then((blob) => props.onSuccess(blob));
                         else props.onSuccess();
                     }}>
                     {props.buttonText || <Text id={request_sent ? 'download-pdf-again' : 'download-pdf'} />}

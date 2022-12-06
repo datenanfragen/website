@@ -33,62 +33,50 @@ export class RequestLetter extends Letter {
     }
 
     static fromRequest(request: Request, template_string: string, flags: Record<string, boolean>): RequestLetter {
-        let content: string;
-        let sender_address: string | string[];
         const signature = { ...request.signature };
 
-        if (request.type === 'custom') {
-            sender_address = [
-                request.custom_data.name,
-                request.custom_data.sender_address.street_1,
-                request.custom_data.sender_address.street_2,
-                request.custom_data.sender_address.place,
-                request.custom_data.sender_address.country,
-            ];
-            content = request.custom_data.content;
+        const id_data = RequestLetter.formatData(request.id_data);
+        flags.runs = request.recipient_runs ? request.recipient_runs.length > 0 : false;
+        flags.has_fields = !!id_data.formatted;
 
-            if (!signature.name || signature.name === '') signature.name = request.custom_data.name;
-        } else {
-            const id_data = RequestLetter.formatData(request.id_data);
-            flags.runs = request.recipient_runs ? request.recipient_runs.length > 0 : false;
-            flags.has_fields = !!id_data.formatted;
+        const variables: Record<string, string> = {
+            id_data: id_data.formatted,
+            runs_list: '<italic>' + (request.recipient_runs.join(', ') || '') + '</italic>',
+        };
 
-            const variables: Record<string, string> = {
-                id_data: id_data.formatted,
-                runs_list: '<italic>' + (request.recipient_runs.join(', ') || '') + '</italic>',
-            };
-
-            switch (request.type) {
-                case 'rectification':
-                    variables.rectification_data = RequestLetter.formatData(request.rectification_data ?? []).formatted;
-                    break;
-                case 'access':
-                    flags.data_portability = request.data_portability;
-                    break;
-                case 'erasure':
-                    flags.erase_all = request.erase_all;
-                    flags.erase_some = !request.erase_all;
-                    flags.include_objection = request.include_objection;
-                    flags.has_objection_reason = request.objection_reason !== '';
-                    variables.erasure_data = '<italic>' + request.erasure_data + '</italic>';
-                    variables.objection_reason = request.objection_reason;
-                    break;
-            }
-
-            if (!signature.name || signature.name === '') signature.name = id_data.name;
-
-            sender_address = id_data.primary_address
-                ? [
-                      id_data.name,
-                      id_data.primary_address.street_1,
-                      id_data.primary_address.street_2,
-                      id_data.primary_address.place,
-                      id_data.primary_address.country,
-                  ]
-                : [id_data.name];
-
-            content = new Template(template_string || '', flags, variables).getText();
+        switch (request.type) {
+            case 'rectification':
+                variables.rectification_data = RequestLetter.formatData(request.rectification_data ?? []).formatted;
+                break;
+            case 'access':
+                flags.data_portability = request.data_portability;
+                break;
+            case 'erasure':
+                flags.erase_all = request.erase_all;
+                flags.erase_some = !request.erase_all;
+                flags.include_objection = request.include_objection;
+                flags.has_objection_reason = request.objection_reason !== '';
+                variables.erasure_data = '<italic>' + request.erasure_data + '</italic>';
+                variables.objection_reason = request.objection_reason;
+                break;
         }
+
+        if (!signature.name || signature.name === '') signature.name = id_data.name;
+
+        const sender_address = id_data.primary_address
+            ? [
+                  id_data.name,
+                  id_data.primary_address.street_1,
+                  id_data.primary_address.street_2,
+                  id_data.primary_address.place,
+                  id_data.primary_address.country,
+              ]
+            : [id_data.name];
+
+        const content =
+            request.type === 'custom'
+                ? request.custom_data.content
+                : new Template(template_string || '', flags, variables).getText();
 
         return new RequestLetter(
             {

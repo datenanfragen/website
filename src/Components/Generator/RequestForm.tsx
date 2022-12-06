@@ -153,26 +153,40 @@ export const RequestForm = (props: RequestFormProps) => {
                             </DynamicInputContainer>
                         )}
 
-                        {request_type === 'custom' ? (
-                            <CustomRequestInput />
-                        ) : (
-                            <DynamicInputContainer
-                                key="id_data"
-                                id="id_data"
-                                onAddField={(field) => addField(field, 'id_data')}
-                                onRemoveField={(id) => removeField(id, 'id_data')}
-                                onChange={(id, field) => setField(id, field, 'id_data')}
-                                fields={id_data}
-                                title={t(isTrackingRequest ? 'id-data-tracking' : 'id-data', 'generator')}
-                                hasPrimary={true}
-                                fillFields={fillFields}
-                                allowAddingFields={true}
-                                headingClass={request_type === 'rectification' ? 'has-margin' : ''}>
+                        {request_type === 'custom' && <CustomRequestInput />}
+
+                        <DynamicInputContainer
+                            key="id_data"
+                            id="id_data"
+                            onAddField={(field) => addField(field, 'id_data')}
+                            onRemoveField={(id) => removeField(id, 'id_data')}
+                            onChange={(id, field) => setField(id, field, 'id_data')}
+                            fields={id_data}
+                            fieldFilter={
+                                request_type === 'custom'
+                                    ? (f) => f.type === 'name' || (transport_medium !== 'email' && f.type === 'address')
+                                    : undefined
+                            }
+                            title={t(
+                                request_type === 'custom'
+                                    ? 'sender-address'
+                                    : isTrackingRequest
+                                    ? 'id-data-tracking'
+                                    : 'id-data',
+                                'generator'
+                            )}
+                            hasPrimary={true}
+                            fillFields={fillFields}
+                            allowAddingFields={request_type !== 'custom'}
+                            allowChangingFieldDescriptions={request_type !== 'custom'}
+                            allowRemovingFields={request_type !== 'custom'}
+                            headingClass={request_type === 'rectification' ? 'has-margin' : ''}>
+                            {request_type !== 'custom' && (
                                 <MarkupText
                                     id={isTrackingRequest ? 'id-data-tracking-explanation' : 'id-data-explanation'}
                                 />
-                            </DynamicInputContainer>
-                        )}
+                            )}
+                        </DynamicInputContainer>
 
                         {transport_medium !== 'email' && (
                             <SignatureInput

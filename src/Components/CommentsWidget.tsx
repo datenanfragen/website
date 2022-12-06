@@ -5,9 +5,9 @@ import { FlashMessage, flash } from '../Components/FlashMessage';
 import { StarWidget } from './StarWidget';
 import t from '../Utility/i18n';
 import { rethrow, WarningException } from '../Utility/errors';
+import { useAppStore } from '../store/app';
 
 const api_url = 'https://backend.datenanfragen.de/comments';
-const target = `${window.LOCALE}/${document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '')}`;
 
 type CommentType = {
     id: string;
@@ -41,6 +41,9 @@ const ratingDetails = (comments: CommentType[], allowRating: boolean) => {
 };
 export function CommentsWidget(props: CommentsWidgetProps) {
     const [comments, setComments] = useState<CommentType[]>([]);
+    const savedLocale = useAppStore((state) => state.savedLocale);
+
+    const target = `${savedLocale}/${document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '')}`;
 
     useEffect(() => {
         const url = `${api_url}/get/${target}`;
@@ -201,6 +204,9 @@ export function CommentForm(props: CommentFormProps) {
     const [author, setAuthor] = useState('');
     const [message, setMessage] = useState('');
     const [rating, setRating] = useState(0);
+    const savedLocale = useAppStore((state) => state.savedLocale);
+
+    const target = `${savedLocale}/${document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '')}`;
 
     const submitComment = useCallback(() => {
         if (!message) {

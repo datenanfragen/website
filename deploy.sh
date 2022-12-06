@@ -27,13 +27,11 @@ done
 
 mkdir -p static/templates
 mkdir -p static/db
-mkdir -p static/db/suggested-companies
 mkdir -p static/db/company-packs
 mkdir -p static/db/sva
 
 echo "Copying files…"
 cp data_tmp/companies/* static/db
-cp data_tmp/suggested-companies/* static/db/suggested-companies
 cp data_tmp/supervisory-authorities/* static/db/sva
 
 for lang in ${languages[@]}
@@ -46,8 +44,8 @@ cp -r data_tmp/templates/* static/templates
 
 mv data_tmp/schema.json data_tmp/schema-supervisory-authorities.json static
 
-node prepare-deploy.js
 yarn tsm scripts/compile-company-packs.ts
+yarn tsm scripts/compile-data-dump.ts
 
 rm -rf data_tmp
 

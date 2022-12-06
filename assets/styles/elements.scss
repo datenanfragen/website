@@ -15,11 +15,13 @@
     display: inline-block;
     line-height: 1.2;
 
-    &:hover,
-    &:focus {
-        background-color: color('blue', 900);
-        color: color('gray', 200) !important;
-        border: 2px solid color('blue', 900);
+    &:not(.button-hoverless) {
+        &:hover,
+        &:focus {
+            background-color: color('blue', 900);
+            color: color('gray', 200) !important;
+            border-color: color('blue', 900);
+        }
     }
 
     &.disabled,
@@ -28,6 +30,14 @@
         border: 2px solid color('gray', 800);
         color: color('gray', 800) !important;
         cursor: not-allowed;
+    }
+
+    &:visited {
+        color: $primary-color;
+    }
+
+    &.icon:before {
+        margin-right: 12px;
     }
 }
 .button-unstyled {
@@ -39,6 +49,15 @@
     margin: 0;
     padding: 0;
     text-align: left;
+    color: inherit;
+
+    &:visited {
+        color: inherit;
+    }
+
+    &.icon:before {
+        margin-right: 8px;
+    }
 }
 .button-full-width {
     width: 100%;
@@ -60,8 +79,33 @@ a.button-secondary {
     background-color: $bg-color;
     color: $primary-color !important;
 }
-.button.icon:before {
-    margin-right: 12px;
+.button-warning,
+a.button-warning {
+    background-color: $bg-color;
+    border-color: $warning-color;
+    color: $warning-color !important;
+
+    &:not(.button-hoverless) {
+        &:hover,
+        &:focus {
+            background-color: $warning-color !important;
+            border-color: $warning-color !important;
+        }
+    }
+}
+.button-error,
+a.button-error {
+    background-color: $bg-color;
+    border-color: $error-color;
+    color: $error-color !important;
+
+    &:not(.button-hoverless) {
+        &:hover,
+        &:focus {
+            background-color: $error-color !important;
+            border-color: $error-color !important;
+        }
+    }
 }
 .button-small {
     padding: 5px 8px;
@@ -69,6 +113,11 @@ a.button-secondary {
     &.icon:before {
         margin-right: 8px;
     }
+}
+.button-fit-content {
+    height: fit-content;
+    margin: auto 0;
+    padding: 5px 0;
 }
 
 canvas {
@@ -164,7 +213,8 @@ textarea::placeholder {
 // We can (unfortunately) neither use `:read-only` nor `:moz-read-only`, since the implementations vary wildly and tend to match way too many things.
 // Thus, always add the class `readonly` to readonly inputs.
 input.readonly,
-input:disabled {
+input:disabled,
+select:disabled {
     @include disabled-input;
 }
 
@@ -180,7 +230,7 @@ input:disabled {
     h4,
     h5,
     h6 {
-        margin-top: 0;
+        margin-top: 0 !important;
 
         &.has-margin {
             margin-top: 20px;
@@ -202,6 +252,15 @@ input:disabled {
 
 .box-compact {
     padding: 10px;
+}
+.box-thin {
+    border-width: 2px;
+}
+
+.hint {
+    position: relative;
+    margin-bottom: 2em;
+    padding-right: 45px;
 }
 
 .star {
@@ -243,56 +302,150 @@ input:disabled {
     }
 }
 
+/* Only semantical fieldset */
+.label-only-fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+
+    & > legend {
+        padding: 0;
+        display: table; // This needs to be done for correct wrapping in some browsers, see https://thatemil.com/blog/2015/01/03/reset-your-fieldset/
+    }
+}
+
 /* Radio Buttons */
-.radio-label {
-    input.form-element {
-        display: none;
-    }
+.radio-group {
+    display: flex;
+    flex-direction: row;
 
-    display: inline-block;
-    border: 2px solid $primary-color;
-    padding: 10px;
-    border-radius: 0;
-    background-color: $bg-color;
-    color: $primary-color;
-    border-left: none;
-    margin-bottom: 5px;
+    .radio-wrapper {
+        .radio-label {
+            input.form-element {
+                appearance: none;
+                @extend %sr-only;
+            }
 
-    &:first-child {
-        border-radius: 2px 0 0 2px;
-        border-left: 2px solid $primary-color;
-    }
+            display: inline-block;
+            border: 2px solid $primary-color;
+            padding: 10px;
+            border-radius: 0;
+            background-color: $bg-color;
+            color: $primary-color;
+            border-left: none;
+            margin-bottom: 5px;
+            cursor: pointer;
 
-    &:last-child {
-        border-radius: 0 2px 2px 0;
-    }
+            .icon::before {
+                margin-right: 8px;
+            }
 
-    &.active {
-        background-color: $primary-color;
-        color: $bg-color;
-    }
-    &:hover,
-    &:focus {
-        background-color: color('blue', 900);
-        color: $bg-color;
+            &.active {
+                background-color: $primary-color;
+                color: $bg-color;
+            }
+            &.disabled {
+                background-color: color('gray', 400);
+                border: 2px solid color('gray', 800);
+                color: color('gray', 800) !important;
+                cursor: not-allowed;
+            }
+            &:not(.disabled) {
+                &:hover,
+                &:focus,
+                &:focus-within {
+                    background-color: color('blue', 900);
+                    color: $bg-color;
+                }
+            }
+        }
+
+        /* stylelint-disable csstools/use-nesting */
+        &:first-child .radio-label {
+            /* stylelint-enable csstools/use-nesting */
+            border-radius: 2px 0 0 2px;
+            border-left: 2px solid $primary-color;
+        }
+
+        &:last-child .radio-label {
+            border-radius: 0 2px 2px 0;
+        }
     }
 }
 
 /* yet another backport from chitin */
-.radio-group-vertical .radio-label {
-    display: block;
-    margin-bottom: 0;
-    border-left: 2px solid $primary-color;
-    border-bottom: 0;
+.radio-group-vertical {
+    flex-direction: column;
+    &:not(.radio-group-padded) .radio-wrapper {
+        .radio-label {
+            border-bottom: 0;
+        }
 
-    padding-left: 15px;
+        &:first-child {
+            .radio-label,
+            .radio-addon .button {
+                border-radius: 2px 2px 0 0;
+            }
+        }
+        &:last-child {
+            .radio-label,
+            .radio-addon .button {
+                border-radius: 0 0 2px 2px;
+                border-bottom: 2px solid $primary-color;
+            }
+        }
 
-    &:first-child {
-        border-radius: 2px 2px 0 0;
+        .radio-addon .button {
+            border-bottom: 0;
+            border-radius: 0;
+        }
     }
-    &:last-child {
-        border-radius: 0 0 2px 2px;
-        border-bottom: 2px solid $primary-color;
+
+    /* stylelint-disable csstools/use-nesting */
+    &.radio-group-padded .radio-wrapper {
+        /* stylelint-enable csstools/use-nesting */
+        margin-bottom: 12px;
+
+        .radio-label {
+            border-radius: 2px;
+        }
+
+        .radio-addon {
+            margin-left: 6px;
+
+            .button {
+                border: 2px solid $primary-color;
+
+                padding-left: 13px;
+                padding-right: 13px;
+            }
+        }
+    }
+
+    .radio-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+
+        .radio-label {
+            display: block;
+            margin-bottom: 0;
+            border-left: 2px solid $primary-color;
+            flex-grow: 1;
+            min-height: 50px;
+            box-sizing: border-box;
+
+            padding-left: 15px;
+        }
+
+        .radio-addon {
+            .button {
+                border-left: 0;
+                font-size: 20px;
+                height: 100%;
+            }
+        }
     }
 }
 
@@ -363,11 +516,6 @@ input[type='search'].aa-input-search {
         background-color: color('gray', 400);
     }
 
-    & mark {
-        background-color: color('blue', 100);
-        color: inherit;
-    }
-
     h4 {
         margin: 0;
 
@@ -399,23 +547,62 @@ input[type='search'].aa-input-search {
     }
 }
 
+/* InstantSearch */
+.ais-SearchBox {
+    margin-bottom: 20px;
+
+    input.ais-SearchBox-input {
+        border-width: 4px;
+        padding: 12px 28px 12px 12px;
+
+        &:required {
+            background: unset;
+        }
+    }
+}
+.ais-SearchBox-input {
+    width: 100%;
+    &:focus {
+        outline: $primary-color solid 1px;
+    }
+}
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
+    display: none;
+}
+
+/* InstantSearch and Autocomplete */
+.ais-Highlight,
+.aa-suggestion {
+    & mark {
+        background-color: color('blue', 100);
+        color: inherit;
+    }
+}
+
 /* Modal */
 /* adapted after: https://jsfiddle.net/developit/2kLkaxvd/ */
 
-.backdrop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-
-    @extend %fade-in;
-}
-
 .modal {
+    position: absolute;
     display: block;
+
+    &.no-animation > .inner,
+    &.no-animation > .backdrop {
+        animation: none;
+    }
+
+    & > .backdrop {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+
+        @extend %fade-in;
+    }
 
     & > .inner {
         position: fixed;
@@ -574,6 +761,10 @@ input[type='search'].aa-input-search {
             position: absolute;
             z-index: 998;
         }
+
+        .dropup {
+            bottom: 100%;
+        }
     }
 
     &:hover.disabled,
@@ -621,7 +812,10 @@ input[type='search'].aa-input-search {
     padding-right: 45px;
 
     @extend %fade-in;
+}
 
+.flash-message,
+.hint {
     button.close-button {
         color: $primary-color;
         font-size: 8px;
@@ -799,5 +993,496 @@ details.footnote {
         p:last-of-type {
             margin-bottom: 0;
         }
+    }
+}
+
+/* Company Result */
+.company-result-list {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.company-result {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    list-style: none;
+    align-items: baseline;
+
+    &:focus,
+    &.company-result-focussed {
+        outline: 3px solid color('teal', 500);
+    }
+
+    &.company-result-clickable {
+        cursor: pointer;
+    }
+
+    .ais-Highlight mark {
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    .company-info-icon {
+        display: inline-block;
+        margin-left: 5px;
+        color: $error-color;
+
+        &.icon-check-badge {
+            color: color('green', 800);
+        }
+
+        &.icon-question-badge {
+            color: color('orange', 800);
+        }
+    }
+
+    h4 {
+        display: inline;
+        font-size: 16px;
+
+        .ais-Highlight mark {
+            font-style: italic;
+        }
+    }
+
+    &.company-result-active {
+        background-color: $primary-color;
+        color: $bg-color;
+
+        .company-info-icon {
+            color: $bg-color;
+        }
+    }
+
+    .company-result-action {
+        display: block;
+        color: $primary-color;
+        flex-shrink: 0;
+        margin-left: 20px;
+    }
+
+    .company-result-content {
+        padding: 20px;
+        width: 100%;
+        flex-grow: 2;
+    }
+}
+
+.company-suggestion-container {
+    width: 100%;
+    max-height: 450px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
+    margin-top: 15px;
+
+    .company-suggestion-pack {
+        border: 2px solid $primary-color;
+        border-radius: 2px;
+        width: 250px;
+        flex-grow: 1;
+        position: relative;
+        padding-bottom: 55px;
+
+        h1 {
+            padding: 10px 42px 10px 10px;
+            font-size: 1.2em;
+            display: block;
+            border-bottom: 2px solid $primary-color;
+        }
+
+        span.icon.icon-star {
+            position: absolute;
+            top: -12px;
+            right: 5px;
+            font-size: 24pt;
+        }
+
+        p {
+            margin: 10px;
+        }
+
+        button.company-suggestion-pack-cta {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            border-radius: 0;
+            border-width: 1px;
+            border-top-width: 3px;
+        }
+    }
+}
+
+/* Batch Breadcrumbs */
+.batch-breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    align-items: stretch;
+    width: 100%;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+
+    .batch-breadcrumb {
+        flex-grow: 1;
+        flex-basis: 0;
+        flex-shrink: 1;
+        min-width: 0;
+        position: relative;
+        background-color: color('gray', 400);
+
+        &.batch-breadcrumb-active {
+            background-color: $accent_color;
+            .batch-breadcrumb-content {
+                color: $bg-color;
+            }
+
+            &::after {
+                background-color: $accent_color;
+            }
+        }
+
+        &.batch-breadcrumb-sent {
+            background-color: $bg-accent-color;
+
+            &::after {
+                background-color: $bg-accent-color;
+            }
+        }
+
+        &::after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 100%;
+            z-index: 3;
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+            background-color: color('gray', 400);
+            height: 100%;
+            width: 25px;
+            top: 0;
+        }
+
+        &::before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            z-index: 2;
+            clip-path: polygon(0 0, 2px 0, 100% 50%, 2px 100%, 0 100%);
+            height: 100%;
+            width: 27px;
+            background-color: $bg-color;
+            top: 0;
+        }
+
+        &:first-child {
+            &::before {
+                display: none;
+            }
+
+            .batch-breadcrumb-content {
+                padding-left: 10px;
+            }
+        }
+
+        /* This is for either desktop or mobile, of which only one is visible at each time. */
+        &:nth-last-child(1).mobile-only,
+        &:nth-last-child(2).desktop-only {
+            .batch-breadcrumb-content {
+                padding-right: 10px;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+
+        .batch-breadcrumb-content {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 8px 0 8px 33px;
+            color: $text-color;
+            text-decoration: none !important;
+            font-size: 0.9rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+/* Proceeding Row */
+.proceedings-toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    .dropdown-container {
+        &:focus > .dropdown,
+        &:hover > .dropdown,
+        &:focus-within > .dropdown {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            row-gap: 5px;
+
+            button,
+            .button {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.proceeding-rows {
+    padding-left: 0;
+
+    .proceeding-row-list-item {
+        list-style: none;
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 10px;
+        column-gap: 5px;
+
+        input[type='checkbox'] {
+            /* This is a little clunky here because of the way CSS defines baselines. */
+            position: relative;
+            top: 5px;
+        }
+
+        .proceeding-row {
+            flex-basis: 100%;
+
+            &[open] {
+                summary {
+                    border-radius: 2px 2px 0px 0px;
+
+                    & > h1 {
+                        &::before {
+                            /* stylelint-disable scss/at-extend-no-missing-placeholder */
+                            @extend .icon-arrow-down;
+                            /* stylelint-enable scss/at-extend-no-missing-placeholder */
+                            font-size: 0.9rem !important;
+                            vertical-align: -1px !important;
+                        }
+                    }
+                }
+            }
+
+            summary {
+                list-style: none;
+                border: 4px solid $primary-color;
+                border-radius: 2px;
+                padding: 10px;
+                display: flex;
+                align-items: baseline;
+                justify-content: flex-start;
+                column-gap: 5px;
+
+                &::-webkit-details-marker {
+                    display: none;
+                }
+
+                & > span,
+                time {
+                    display: block;
+                    flex-shrink: 0;
+                    flex-grow: 1;
+                }
+
+                & > h1 {
+                    display: block;
+                    flex-grow: 3;
+                    flex-basis: 50%;
+                    font-size: 18px;
+
+                    &::before {
+                        /* stylelint-disable scss/at-extend-no-missing-placeholder */
+                        @extend .icon-arrow-right;
+                        /* stylelint-enable scss/at-extend-no-missing-placeholder */
+                        font-size: 0.9rem !important;
+                        vertical-align: -1px !important;
+                        margin-right: 3px;
+                    }
+
+                    span {
+                        font-size: 1.1rem;
+                    }
+                }
+
+                @include mobile {
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    & > h1 {
+                        width: 100%;
+                        flex-basis: 100%;
+                        flex-grow: unset;
+                    }
+
+                    & > span,
+                    time {
+                        flex-grow: unset;
+                    }
+                }
+            }
+
+            .proceeding-date {
+                text-align: left;
+                &.proceeding-date-overdue {
+                    color: color('red', 800);
+                }
+            }
+            .proceeding-status {
+                width: auto;
+                flex-basis: content;
+            }
+
+            .proceeding-reference {
+                text-align: right;
+            }
+
+            .proceeding-message {
+                border: 2px solid $primary-color;
+                border-top: 0;
+                padding: 10px;
+                list-style: none;
+
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                column-gap: 5px;
+
+                h2 {
+                    display: inline;
+                    margin-left: 5px;
+                    font-size: 16px;
+                }
+
+                .icon::before {
+                    margin-right: 8px;
+                }
+            }
+
+            .proceeding-actions {
+                border: 2px solid $primary-color;
+                border-top: 0;
+                border-radius: 0 0 2px 2px;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 10px;
+            }
+        }
+    }
+}
+
+/* Badge */
+
+.badge {
+    background-color: color('gray', 300);
+    color: ('gray', 800);
+    padding: 3px 7px;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.badge-success {
+    background-color: color('green', 300);
+    color: color('green', 900);
+}
+.badge-warning {
+    background-color: color('orange', 300);
+    color: color('orange', 900);
+}
+.badge-error {
+    background-color: color('red', 300);
+    color: color('red', 900);
+}
+
+/* ReinderWidget */
+
+#home-reminders {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: 55px;
+}
+
+.reminder-widget {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    padding: 0;
+    border: 4px solid $primary-color;
+    box-sizing: border-box;
+
+    summary {
+        background-color: $primary-color;
+        color: $bg-color;
+        padding: 10px;
+    }
+
+    .reminder-widget-content {
+        background-color: $bg-color;
+        max-height: 300px;
+        overflow-y: scroll;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                column-gap: 10px;
+                align-items: center;
+                padding: 5px;
+
+                @include mobile {
+                    flex-wrap: wrap;
+                }
+
+                &:nth-child(2n) {
+                    background-color: $bg-accent-color;
+                }
+
+                .button {
+                    &.icon {
+                        &::before {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .reminder-widget-bottom-link {
+        background-color: $primary-color;
+        color: $bg-color;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
     }
 }

@@ -1,8 +1,8 @@
 import type { ComponentChildren } from 'preact';
 import type { IdDataElement } from '../../types/request';
-import { useMemo, useState } from 'preact/hooks';
+import { useMemo } from 'preact/hooks';
 import { DynamicInput } from './DynamicInput';
-import { Text, MarkupText, IntlProvider } from 'preact-i18n';
+import { Text, IntlProvider } from 'preact-i18n';
 import t from '../../Utility/i18n';
 import { adressesEqual, isFieldEmpty, EMTPY_ADDRESS } from '../../Utility/requests';
 import { useGeneratorStore } from '../../store/generator';
@@ -11,6 +11,7 @@ type DynamicInputContainerProps = {
     id: string;
     fields: IdDataElement[];
     fillFields?: IdDataElement[];
+    fieldFilter?: (field: IdDataElement) => boolean;
 
     onAddField: (field: IdDataElement) => void;
     onRemoveField: (id: number) => void;
@@ -27,11 +28,10 @@ type DynamicInputContainerProps = {
 };
 
 export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
-    const [inputTypeToAdd, setInputTypeToAdd] = useState<IdDataElement['type']>('input');
     const props = {
         allowAddingFields: true,
         allowRemovingFields: true,
-        allowChaningFieldDescriptions: true,
+        allowChangingFieldDescriptions: true,
         ..._props,
     };
 
@@ -39,27 +39,6 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
         () => props.fields.reduce((total, field) => total + (field.type === 'address' ? 1 : 0), 0),
         [props.fields]
     );
-    const input_elements = props.fields.map((field, i) => {
-        const field_uid = field.type + i; // TODO: This is not ok. It needs to be proper unique id! cf. #880 and #881
-        return (
-            <DynamicInput
-                key={field_uid}
-                id={field_uid}
-                suffix={props.id}
-                optional={field.optional}
-                onChange={(field) => props.onChange(i, field)}
-                onRemove={() => {
-                    if (isFieldEmpty(props.fields[i]) || window.confirm(t('confirm-input-remove', 'generator'))) {
-                        props.onRemoveField(i);
-                    }
-                }}
-                hasPrimary={props.hasPrimary && address_count > 1}
-                value={field}
-                allowRemoving={props.allowRemovingFields ?? true}
-                allowChangingDescription={props.allowChangingFieldDescriptions ?? true}
-            />
-        );
-    });
 
     const addFillField = (newField: IdDataElement) => {
         const index = props.fields.findIndex(
@@ -76,13 +55,13 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
             return;
         }
 
-        props.onAddField(newField);
+        props.onAddField({ ...newField, optional: true });
     };
 
     // As this is at least the second time I have struggled to remember this: This is the button next to the 'add
     // new field' menu which allows you to add fields you have defined in the 'My saved data' section.
     const fill_fields = props.fillFields
-        ?.map((field) => {
+        ?.map((field, idx) => {
             const isFieldPresent = props.fields.some(
                 (existingField: IdDataElement) =>
                     field.type === existingField.type &&
@@ -95,8 +74,8 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
 
             if (!isFieldPresent && !isFieldEmpty(field)) {
                 return (
-                    <div className="fill-field">
-                        <div style="display: table-cell">
+                    <div className="field-add-group">
+                        <label htmlFor={`add-fill-field-${props.id}-${idx}`}>
                             {field.desc}:{' '}
                             <span className="fill-field-value">
                                 {field.type === 'address'
@@ -105,91 +84,113 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                                         : ''
                                     : field.value}
                             </span>
-                        </div>
-                        <div style="display: table-cell; width: 60px;">
-                            <button
-                                style="float: none;"
-                                className="button button-small button-primary icon-arrow-right"
-                                onClick={() => addFillField(field)}
-                                title={t('add-input', 'generator')}
-                            />
-                        </div>
+                        </label>
+                        <button
+                            id={`add-fill-field-${props.id}-${idx}`}
+                            style="float: none;"
+                            className="button button-small button-secondary icon-arrow-right"
+                            onClick={() => addFillField(field)}
+                            title={t('add-input', 'generator')}
+                        />
                     </div>
                 );
             }
-
-            return null;
         })
-        .filter((elem) => elem !== null);
+        .filter((elem) => elem);
 
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div className="dynamic-input-container">
                 {props.title && <h2 className={props.headingClass}>{props.title}</h2>}
                 {props.children}
-                <div id={'request-dynamic-input-' + props.id}>{input_elements}</div>
-                {props.allowAddingFields && (
-                    <div className="dynamic-input-controls">
-                        <MarkupText id="add-dynamic-input-explanation" />
-                        <br />
-                        <div className="select-container">
-                            <select
-                                id={'dynamic-input-type-' + props.id}
-                                onBlur={(e) => setInputTypeToAdd(e.currentTarget.value as IdDataElement['type'])}
-                                onChange={(e) => setInputTypeToAdd(e.currentTarget.value as IdDataElement['type'])}>
-                                <option value="input" selected>
-                                    <Text id="input-single-line" />
-                                </option>
-                                <option value="textarea">
-                                    <Text id="input-multi-line" />
-                                </option>
-                                <option value="address">
-                                    <Text id="input-address" />
-                                </option>
-                            </select>
-                            <div className="icon icon-arrow-down" style="top: 10px;" />
-                        </div>
-                        <button
-                            className="button button-secondary"
-                            id={'add-dynamic-inputs-' + props.id}
-                            onClick={() =>
-                                props.onAddField(
-                                    inputTypeToAdd === 'address'
-                                        ? {
-                                              desc: '',
-                                              type: inputTypeToAdd,
-                                              optional: true,
-                                              value: EMTPY_ADDRESS,
-                                          }
-                                        : {
-                                              desc: '',
-                                              type: inputTypeToAdd,
-                                              optional: true,
-                                              value: '',
-                                          }
-                                )
-                            }>
-                            <Text id="add-input" />
-                        </button>
-                        {props.fillFields && fill_fields && fill_fields.length > 0 && (
-                            <div className="dropdown-container">
-                                <button className="button button-primary" title={t('add-fill-field', 'generator')}>
-                                    <span className="icon icon-fill" />
-                                </button>
-                                <div className="dropdown">
-                                    <div style="display: table; border-spacing: 5px; width: 100%;">{fill_fields}</div>
+                <div id={'request-dynamic-input-' + props.id}>
+                    {props.fields.filter(props.fieldFilter || (() => true)).map((field, i) => {
+                        const field_uid = field.type + i; // TODO: This is not ok. It needs to be proper unique id! cf. #880 and #881
+                        return (
+                            <DynamicInput
+                                key={field_uid}
+                                id={field_uid}
+                                suffix={props.id}
+                                optional={field.optional}
+                                onChange={(field) => props.onChange(i, field)}
+                                onRemove={() => {
+                                    if (
+                                        isFieldEmpty(props.fields[i]) ||
+                                        window.confirm(t('confirm-input-remove', 'generator'))
+                                    ) {
+                                        props.onRemoveField(i);
+                                    }
+                                }}
+                                hasPrimary={props.hasPrimary && address_count > 1}
+                                value={field}
+                                allowRemoving={props.allowRemovingFields}
+                                allowChangingDescription={props.allowChangingFieldDescriptions}
+                            />
+                        );
+                    })}
+                </div>
+                <div className="dynamic-input-controls">
+                    {props.allowAddingFields && (
+                        <div className="dropup-container">
+                            <button
+                                className="button button-small button-secondary icon icon-fill"
+                                id={'add-dynamic-inputs-' + props.id}>
+                                <Text id="add-input" />
+                            </button>
+                            <div className="dropup">
+                                <div style="display: table; border-spacing: 5px; width: 100%;">
+                                    {(
+                                        [
+                                            { inputType: 'input', text: 'input-single-line' },
+                                            { inputType: 'textarea', text: 'input-multi-line' },
+                                            { inputType: 'address', text: 'input-address' },
+                                        ] as Array<{ inputType: IdDataElement['type']; text: string }>
+                                    ).map((input) => (
+                                        <div className="field-add-group">
+                                            <label htmlFor={`add-input-${props.id}-${input.inputType}`}>
+                                                <Text id={input.text} />
+                                            </label>
+                                            <button
+                                                style="float: none;"
+                                                id={`add-input-${props.id}-${input.inputType}`}
+                                                className="button button-small button-secondary icon-arrow-right"
+                                                onClick={() =>
+                                                    props.onAddField(
+                                                        input.inputType === 'address'
+                                                            ? {
+                                                                  desc: t('custom-input-desc', 'id-data-controls'),
+                                                                  type: input.inputType,
+                                                                  optional: true,
+                                                                  value: EMTPY_ADDRESS,
+                                                              }
+                                                            : {
+                                                                  desc: t('custom-input-desc', 'id-data-controls'),
+                                                                  type: input.inputType,
+                                                                  optional: true,
+                                                                  value: '',
+                                                              }
+                                                    )
+                                                }
+                                            />
+                                        </div>
+                                    ))}
+                                    {fill_fields && fill_fields.length > 0 && (
+                                        <>
+                                            <hr />
+                                            {fill_fields}
+                                        </>
+                                    )}
                                 </div>
                             </div>
-                        )}
-                        <div className="clearfix" />
-                    </div>
-                )}
+                        </div>
+                    )}
+                </div>
             </div>
         </IntlProvider>
     );
 };
 
-export const StatefulDynamicInputContainer = (props: Partial<DynamicInputContainerProps>) => {
+export const StatefulDynamicInputContainer = (props: Exclude<Partial<DynamicInputContainerProps>, 'id_data'>) => {
     const id_data = useGeneratorStore((state) => state.request.id_data);
     const setField = useGeneratorStore((state) => state.setField);
     const addField = useGeneratorStore((state) => state.addField);

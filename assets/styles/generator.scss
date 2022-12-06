@@ -1,9 +1,10 @@
 @import 'variables';
+@import 'framework';
 
 /* Fancy placeholder labels, see https://jonathan-harrell.com/advanced-css-form-styling/ */
 label.fancy-label {
     position: absolute;
-    bottom: -5px;
+    bottom: -14px;
     left: 7px;
     font-size: 0.75em;
     opacity: 1;
@@ -15,7 +16,7 @@ label.fancy-label {
     }
 }
 .form-group.fancy-fg {
-    padding-bottom: 13px;
+    padding-bottom: 4px;
 }
 
 input:placeholder-shown + label.fancy-label,
@@ -57,35 +58,33 @@ textarea:placeholder-shown + label.fancy-label {
 
 /* Inputs */
 .dynamic-input-controls {
-    .select-container {
-        float: left;
-        margin-right: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    column-gap: 10px;
 
-        select {
-            height: $button-height;
-        }
-
-        @include mobile {
-            margin-bottom: 10px;
+    .button-unstyled {
+        &:hover,
+        &:focus {
+            background: none;
+            color: $primary-color !important;
         }
     }
 
-    .button {
-        float: left;
-    }
-
-    .dropdown-container {
-        .button-primary {
-            padding: 11px 15px;
-            position: absolute;
-            right: 0;
-        }
-
-        .dropdown {
-            width: 300px;
-            top: 43px;
-            right: 0;
+    .dropup-container {
+        .dropup {
+            width: 400px;
+            bottom: 31px;
             padding: 15px;
+            right: 0;
+            max-height: 140px;
+            overflow-y: scroll;
+
+            @include mobile {
+                width: 80vw;
+                right: 0;
+                left: unset;
+            }
 
             .fill-field {
                 display: table-row;
@@ -99,9 +98,49 @@ textarea:placeholder-shown + label.fancy-label {
                     position: relative;
                 }
             }
+
+            .field-add-group {
+                display: flex;
+                flex-direction: row;
+                justify-content: stretch;
+                margin-top: 5px;
+                margin-bottom: 5px;
+
+                label {
+                    flex-grow: 1;
+                }
+
+                button {
+                    flex-grow: 0;
+                }
+            }
         }
     }
 }
+
+.dynamic-input {
+    &.dynamic-input-editable {
+        .form-group-label {
+            .dynamic-input-label {
+                padding-left: 5px;
+                text-decoration: underline dotted 2px $text-color;
+                cursor: text;
+
+                // Focussing these hides them.
+                // stylelint-disable a11y/selector-pseudo-class-focus
+                &:hover::after {
+                    // To hide the underline, see: https://stackoverflow.com/a/32203598/3211062
+                    display: inline-block;
+                    font-icon: url('pencil.svg');
+                    vertical-align: -5px;
+                    padding-left: 5px;
+                    line-height: 0;
+                }
+            }
+        }
+    }
+}
+
 .request-form {
     .col50 {
         @include mobile {
@@ -170,6 +209,9 @@ textarea:placeholder-shown + label.fancy-label {
 /* Miscellaneous */
 
 .dynamic-input-primaryButton {
+    width: 100%;
+    margin-top: 10px;
+
     @include mobile {
         hyphens: auto;
     }
@@ -178,6 +220,15 @@ textarea:placeholder-shown + label.fancy-label {
 .button.button-secondary.dynamic-input-primaryButton[data-isprimary='true'] {
     background: $primary-color;
     color: $bg-color !important;
+}
+
+.address-input-container {
+    .form-group:first-child {
+        margin-top: 0;
+    }
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
 }
 
 #tagxplanation {
@@ -191,4 +242,25 @@ h2 {
 
 .request-transport-medium-chooser {
     margin-top: 17px;
+}
+
+.request-type-chooser-vertical {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    .request-type-button-group {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+
+        button {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .request-type-help-button {
+            flex-grow: 0;
+        }
+    }
 }

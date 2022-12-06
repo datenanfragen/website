@@ -1,12 +1,11 @@
-@import 'fonts';
 @import 'variables';
 @import 'framework';
 @import 'elements';
 @import 'icons';
 @import 'generator';
+@import 'app';
 
-@import '../../node_modules/react-joyride/lib/react-joyride';
-
+$nav-height: 65px;
 /* Header */
 header#nav-header {
     margin-top: 25px;
@@ -15,7 +14,7 @@ header#nav-header {
     position: absolute;
     top: 0;
     z-index: -2;
-    height: 65px;
+    height: $nav-height;
     width: 100%;
     background-color: $bg-accent-color;
 }
@@ -31,11 +30,42 @@ a #logo {
 }
 #main-nav {
     float: right;
+    height: 40px;
+}
+
+#main-nav-menu-link {
+    &.has-batch {
+        @include mobile {
+            &::before {
+                content: '';
+                border-radius: 50%;
+                height: 15px;
+                width: 15px;
+                display: block;
+                position: absolute;
+                top: -15px;
+                right: -5px;
+                background-color: color('red', 700);
+            }
+        }
+    }
 }
 
 #menu-items {
     #{$button} {
         display: inline;
+    }
+
+    .badge {
+        margin-left: 5px;
+        min-width: 0.7rem;
+        display: inline-block;
+        font-size: 0.8rem;
+
+        &.badge-error {
+            background-color: color('red', 700);
+            color: $bg-color;
+        }
     }
 
     .dropdown-container {
@@ -126,47 +156,210 @@ a #logo {
 }
 
 /* Home */
-#home-hero-bg {
-    height: 95vh;
-    min-height: 440px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    z-index: -1;
-
-    background-image: url('../../assets/img/wave-bg.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: $bg-accent-color;
-
-    @include mobile {
-        background-image: none; // TODO: I really don't know how to make this work, so let's skip it for now.
-    }
-}
-
+$home-hero-height: 85vh;
 #home-hero {
-    position: relative;
-    height: 95vh;
-    min-height: 420px;
+    background-color: $bg-accent-color;
+    min-height: 450px;
 
-    font-family: $heading-font;
-    font-weight: $heading-weight;
-    color: $primary-color;
-    font-size: 3em;
+    .container {
+        min-height: $home-hero-height;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-    @include mobile {
-        font-size: 2em;
+        #home-hero-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            row-gap: 30px;
+            padding-top: 30px;
+
+            @include mobile {
+                flex-wrap: wrap;
+                align-content: center;
+            }
+
+            #home-hero-line-1,
+            #home-hero-line-2 {
+                font-family: $heading-font;
+                font-weight: $heading-weight;
+                color: $primary-color;
+                font-size: 3em;
+
+                @include mobile {
+                    font-size: 2em;
+                }
+            }
+
+            .hero-left-col {
+                box-sizing: border-box;
+                padding-right: 50px;
+                width: 58%;
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: 1;
+                height: fit-content;
+
+                @include mobile {
+                    width: 100%;
+                }
+
+                #home-hero-desc {
+                    font-size: 1.2em;
+                }
+            }
+            .hero-right-col {
+                width: 42%;
+                height: fit-content;
+                flex-grow: 0;
+                flex-basis: 1;
+                flex-shrink: 0;
+
+                @include mobile {
+                    width: 100%;
+                }
+
+                .button {
+                    margin-bottom: 10px;
+                    width: 100%;
+                }
+            }
+        }
+
+        #hero-scroll-button {
+            font-size: 25px;
+            width: 100px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
     }
 }
-#home-hero-content {
-    position: absolute;
-    top: 30%;
-    left: 0;
+
+#home-content {
+    position: relative;
+    padding-top: 25px;
+}
+#hero-claim-box {
+    background-color: $bg-color;
+    border: 4px solid $info-color;
+    padding: 15px;
+    font-weight: normal;
+    font-family: $body-font;
+    color: $primary-color;
+    margin: 50px 0;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        position: relative;
+    }
+
+    a:not(.button) {
+        color: $primary-color;
+        font-weight: bold;
+        border: 0;
+        background: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline !important;
+        }
+    }
+
+    font-size: 1rem;
+
+    .claim-row {
+        display: flex;
+        @include mobile {
+            flex-direction: column;
+        }
+        column-gap: 8px;
+
+        .claim-column {
+            flex-basis: 0;
+            flex-shrink: 1;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+
+            @include mobile {
+                flex-direction: row;
+                column-gap: 8px;
+            }
+
+            .claim-illustration {
+                flex-basis: 1;
+                flex-shrink: 0;
+                padding: 10px;
+                font-size: 1.3rem;
+                font-weight: bold;
+                color: $primary-color;
+                background-color: $info-color;
+                height: 1.3rem;
+                width: 1.3rem;
+                line-height: 1;
+                text-align: center;
+                display: block;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .claim-actions {
+        margin-top: 20px;
+        #home-claim-cta {
+            width: 100%;
+            max-width: 500px;
+            font-size: 1.2em;
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+    }
 }
 
-#home-main-copy {
+#home-blog-section {
+    position: relative;
+
+    header {
+        background-color: color('teal', 200);
+        padding: 30px;
+        padding-bottom: 70px;
+    }
+
+    .border-dash {
+        top: 0;
+        left: 40px;
+        z-index: -10;
+        display: block;
+        height: 100%;
+        width: 1px;
+        border-left: 6px dotted color('teal', 200);
+        position: absolute;
+    }
+
+    .article-list {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: -60px;
+        padding: 0;
+
+        li {
+            list-style: none;
+            article {
+                background-color: $bg-color;
+            }
+        }
+    }
+}
+
+.home-big-text {
     text-align: center;
     font-weight: 200;
     font-size: 1.8em;
@@ -397,85 +590,8 @@ details summary {
     word-break: break-all;
 }
 
-/* Wizard */
-#wizard-tabs {
-    $tab-border: 4px;
-
-    display: flex;
-    flex-direction: row;
-    width: calc(100% - #{$tab-border});
-
-    @include mobile {
-        flex-wrap: wrap;
-    }
-
-    .wizard-tab {
-        display: inline-block;
-        flex: 1;
-
-        @include fake-border($primary-color, $tab-border, $tab-border, $tab-border, $tab-border);
-
-        color: $primary-color;
-        font-size: 0.9em;
-        text-align: center;
-        padding: (12px + $tab-border) 7px 12px (7px + $tab-border);
-
-        cursor: pointer;
-
-        &.wizard-tab-current {
-            background-color: $primary-color;
-            color: $bg-color;
-        }
-    }
-}
-
-#wizard-buttons {
-    float: right;
-
-    button {
-        margin-left: 15px;
-    }
-}
-#wizard {
-    margin: 0;
-    position: relative;
-    padding: 20px;
-    min-height: 450px;
-}
-#wizard-selector {
-    @include mobile {
-        width: 100%;
-    }
-}
-#wizard-selected {
-    position: absolute;
-    height: calc(100% - 35px);
-    top: 20px;
-    right: 0;
-    overflow: hidden;
-
-    .wizard-selected-list {
-        height: 90%;
-        overflow-y: scroll;
-        overflow-x: hidden;
-
-        p:first-of-type {
-            margin-top: 0;
-        }
-    }
-
-    @include mobile {
-        position: relative;
-        width: 100%; // TODO: The explanation text in the first tab is now wrong but I am too lazy to fix that right now.
-    }
-    & button {
-        margin-right: 5px;
-    }
-}
-
 .home-feature {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 100px 0;
     display: flex;
 
     @include mobile {
@@ -497,7 +613,7 @@ details summary {
     }
 
     .feature-image {
-        height: 100px;
+        height: 150px;
         display: block;
         position: absolute;
         top: 50%;
@@ -957,32 +1073,6 @@ footer {
         a.icon:focus {
             color: color('blue', 800);
         }
-    }
-}
-
-/* Tutorial */
-$joyride-color: $primary-color;
-button.joyride-tooltip__button {
-    &:hover,
-    &:focus {
-        border: none;
-        background-color: inherit;
-        color: color('blue', 900) !important;
-    }
-}
-button.joyride-tooltip__button--primary {
-    border-radius: 2px;
-
-    &:hover,
-    &:focus {
-        background-color: color('blue', 900);
-        color: $bg-color !important;
-    }
-}
-button.joyride-tooltip__button--skip {
-    &:hover,
-    &:focus {
-        color: color('gray', 600) !important;
     }
 }
 
