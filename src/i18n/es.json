@@ -415,7 +415,39 @@
         "only-snail-mail": "Puede que tengas que enviar tu solicitud por correo postal.",
         "only-fax": "Puede que tengas que enviar tu solicitud por fax.",
         "choose-runs": "Muestra y selecciona otras entidades administradas por esta empresa.",
-        "want-to-suggest-disclaimer": "<p>Después de enviar el formulario, los datos que hayas introducido serán visibles públicamente en nuestro <a href=\"https://github.com/datenanfragen/data/pulls\" target=\"_blank\" rel=\"noreferrer noopener\">GitHub repository</a>. Por tanto, no introduzcas aquí ningún dato personal. Para más información, consulta nuestra <a href=\"/privacy/#user-content-like-comments-and-contributions-to-our-company-database\" target=\"_blank\" rel=\"noreferrer noopener\">política de privacidad</a>.</p><p>Aceptas que tu sugerencia se publique en la base de datos de nuestra empresa bajo un <a href=\"https://creativecommons.org/publicdomain/zero/1.0\" target=\"_blank\" rel=\"noreferrer noopener\">licencia CC0</a>, que permite a cualquiera utilizarlo sin restricciones.</p>"
+        "want-to-suggest-disclaimer": "<p>Después de enviar el formulario, los datos que hayas introducido serán visibles públicamente en nuestro <a href=\"https://github.com/datenanfragen/data/pulls\" target=\"_blank\" rel=\"noreferrer noopener\">GitHub repository</a>. Por tanto, no introduzcas aquí ningún dato personal. Para más información, consulta nuestra <a href=\"/privacy/#user-content-like-comments-and-contributions-to-our-company-database\" target=\"_blank\" rel=\"noreferrer noopener\">política de privacidad</a>.</p><p>Aceptas que tu sugerencia se publique en la base de datos de nuestra empresa bajo un <a href=\"https://creativecommons.org/publicdomain/zero/1.0\" target=\"_blank\" rel=\"noreferrer noopener\">licencia CC0</a>, que permite a cualquiera utilizarlo sin restricciones.</p>",
+        "review-selection-explanation": "Estas son las empresas que has seleccionado. Para las empresas responsables de otras entidades o servicios, puedes seleccionar cuáles quieres incluir en tu solicitud. Cuando estés satisfecho/a con tu selección, puedes empezar a generar las solicitudes.",
+        "unnamed-field": "campo sin nombre",
+        "consider-as-tracking-company": "Mi solicitud a esta empresa se refiere a los datos de seguimiento y no sé cómo puede identificarme la empresa con este fin.",
+        "batch-breadcrumbs-remaining": {
+            "none": "No hay más solicitudes",
+            "one": "{{left}} solicitud más",
+            "other": "{{left}} solicitudes más"
+        },
+        "batch-breadcrumbs-sent": {
+            "none": "No se han enviado solicitudes",
+            "one": "{{sent}} solicitud enviada",
+            "other": "{{sent}} solicitudes enviadas"
+        },
+        "send-request-pdf-explanation": "Aquí tienes tu solicitud generada. Descarga el PDF y envíalo a la empresa por correo o fax.",
+        "send-request-email-explanation": "Aquí tienes tu solicitud generada. Tendrás que enviarla tú mismo a la empresa por correo electrónico.",
+        "add-n-companies": {
+            "none": "No añadir ninguna empresa",
+            "one": "Añadir una empresa",
+            "other": "Añadir {{n}} empresas"
+        },
+        "whats-next-title": "¿Y ahora qué?",
+        "whats-next-deadline": "Las empresas tienen ahora un mes para responder a tus solicitudes. Pueden ampliar este plazo a un total de tres meses cuando sea necesario, pero tienen que informarte de ello dentro del primer mes.",
+        "whats-next-my-requests": "Puedes ver tus solicitudes enviadas en la página \"Mis solicitudes\". Allí puedes hacer un seguimiento de ellas, incluso enviar avisos o reclamar a las autoridades de protección de datos si una empresa no responde correctamente. También puedes guardar en tu calendario un recordatorio de los plazos de las solicitudes.",
+        "export-to-calendar": "Exportar recordatorios a tu calendario",
+        "view-requests": "Ver tus solicitudes",
+        "send-more": "Enviar más solicitudes",
+        "app-introduction": "Te guiaremos en el envío de tu(s) solicitud(es). Empieza por elegir qué tipo de solicitud quieres enviar.",
+        "access-request-explanation-button": "¿Qué es una solicitud de aceso?",
+        "erasure-request-explanation-button": "¿Qué es una solicitud de eliminación?",
+        "rectification-request-explanation-button": "¿Qué es una solicitud de rectificación?",
+        "fill-in-request": "Rellena la solicitud a “{{company}}”",
+        "objection-request-explanation-button": "¿Qué es una objeción al marketing directo?"
     },
     "requests": {
         "letter-subject-erasure": "Solicitud de supresión de datos personales de acuerdo con el Art. 17 del RGPD",
@@ -434,7 +466,10 @@
         "stay": "Quedarse aquí",
         "change-lang": "Cambiar idioma",
         "language-change-modal": "Cambiar el idioma te redireccionará a otro dominio. Tu configuración y los datos guardados de este dominio no se transferirán. <br>En particular, esto significa que elementos como la configuración de privacidad y las solicitudes guardadas no estarán disponibles en el nuevo idioma. Siempre puedes volver a este idioma y verlos aquí, pero no puedes compartir configuraciones y datos guardados entre diferentes idiomas.",
-        "language": "Idioma"
+        "language": "Idioma",
+        "letter-subject-admonition": "Amonestación: Petición según el Art. {{request_article}} RGPD",
+        "letter-subject-complaint": "Reclamación según el Art. 77 RGPD contra {{request_recipient}}",
+        "recommend-language": "¡Este sitio también está disponible en tu idioma!"
     },
     "home": {
         "data-access": "acceso a tus datos.",
@@ -835,7 +870,11 @@
         "submit": "Enviar",
         "author": "Autor",
         "comment": "Comentario",
-        "comments": "Comentarios"
+        "comments": "Comentarios",
+        "average-rating-title": {
+            "singular": "Valoración media: {{rating}} (de {{count}} reseña)",
+            "plural": "Valoración media: {{rating}} (de {{count}} reseñas)"
+        }
     },
     "i18n-widget": {
         "not-supported-cta": "¡Ayúdanos a agregarlo!",
@@ -851,7 +890,11 @@
         "language-desc-de": "Alemán (Deutsch)",
         "language-desc-es": "Español",
         "language": "Idioma",
-        "country": "País"
+        "country": "País",
+        "language-desc-hr": "Croata (Hrvatski)",
+        "language-desc-nl": "Holandés (Nederlands)",
+        "language-hr": "Croata",
+        "language-nl": "Holandés"
     },
     "signature": {
         "overlay-allow": "Permitir",
@@ -880,14 +923,16 @@
         "saved-data": "Datos guardados",
         "always-fill-in": "¿Rellenar siempre los campos conocidos?",
         "always-fill-in-explain": "Los datos guardados se pueden completar automáticamente en los campos de nuevas solicitudes.",
-        "id-data-deactivated": "El almacenamiento de datos de identificación está desactivado. Si deseas acelerar el proceso de generación y guardar datos de identificación, activa el guardado de datos de identificación en los <a href=\"/controles-privacidad/\">controles de privacidad</a>."
+        "id-data-deactivated": "El almacenamiento de datos de identificación está desactivado. Si deseas acelerar el proceso de generación y guardar datos de identificación, activa el guardado de datos de identificación en los <a href=\"/controles-privacidad/\">controles de privacidad</a>.",
+        "custom-input-desc": "Campo personalizado"
     },
     "error-handler": {
         "report-via-email": "Reportar por correo",
         "report-on-github": "Reportar en GitHub",
         "explain-context": "Si aplica, proporciona un contexto para el error. Es decir, describe lo que hiciste antes de que ocurriera el error. Elimina también cualquier información confidencial de los logs a continuación.",
         "privacy": "Para obtener detalles sobre qué contienen los informes de errores de datos y cómo procesamos dichos datos, consulta nuestra <a href='/privacy#error-reports' target='_blank'>política de privacidad</a>.",
-        "explanation": "Desafortunadamente, acaba de ocurrir un error inesperado. Realmente agradeceríamos que te tomaras el tiempo de enviarnos un informe de error a través de GitHub o correo electrónico, para que podamos diagnosticar el problema. ¡Muchas gracias de antemano!"
+        "explanation": "Desafortunadamente, acaba de ocurrir un error inesperado. Realmente agradeceríamos que te tomaras el tiempo de enviarnos un informe de error a través de GitHub o correo electrónico, para que podamos diagnosticar el problema. ¡Muchas gracias de antemano!",
+        "no-internet": "Parece que no tienes conexión a Internet."
     },
     "privacy-controls": {
         "feature-disabled-alt": "Función deshabilitada a través de los controles de privacidad",
@@ -919,6 +964,30 @@
         "yahoo": "Yahoo! Mail*",
         "outlook": "Outlook (Hotmail)*",
         "gmail": "Google Mail (Gmail)*",
-        "mailto": "Programa de correo electrónico predeterminado"
+        "mailto": "Programa de correo electrónico predeterminado",
+        "sendmail": "Enviar via SMTP"
+    },
+    "company-packs": {
+        "address-brokers-title": "Gestión e intermediación de direcciones",
+        "social-media-title": "Redes sociales y comunicación",
+        "entertainment-title": "Entretenimiento",
+        "telecommunication-title": "Telecomunicaciones",
+        "finance-title": "Finanzas",
+        "add-all-star": "Todas las empresas de este paquete son relevantes para la mayoría de la gente de tu país.",
+        "choose-companies-button": "Elige empresas para añadir a tus solicitudes",
+        "credit-agencies-description": "Estas empresas recopilan datos sobre tu historial de pagos, tus transacciones bancarias, contratos de telefonía móvil y mucho más para calcular una puntuación de tu solvencia, que supuestamente puede estimar la probabilidad de que cumplas una obligación de pago, por ejemplo.",
+        "credit-agencies-title": "Agencia de crédito",
+        "public-authorities-title": "Autoridades públicas",
+        "commerce-title": "Comercio",
+        "insurance-title": "Aseguradoras",
+        "add-companies-button": "Añade empresas a tus solicitudes",
+        "and-n-more": ", y {{n}} más",
+        "address-brokers-description": "Estas empresas recogen las direcciones postales y/o de correo electrónico de las personas y venden servicios basados en ellas a otras empresas. Algunas venden o alquilan sus datos de direcciones a los anunciantes (a menudo en combinación con atributos adicionales como los intereses), otras ofrecen a las empresas comprobar sus direcciones ya almacenadas y corregirlas si es necesario.",
+        "public-authorities-description": "Dado el gran número de organismos públicos que potencialmente recogen tus datos, aquí sólo podemos sugerirte una pequeña selección. Sin embargo, también deberías pensar en las autoridades a nivel estatal y local, como las oficinas de registro."
+    },
+    "reactor": {
+        "generate-response": "Generar una respuesta",
+        "next": "Siguiente",
+        "sender": "Remitente"
     }
 }
