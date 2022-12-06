@@ -1,0 +1,35 @@
+{
+    "title": "Datenanfragen v2: Refreshed interface",
+    "type": "blog",
+    "date": "2022-12-06T12:00:00+02:00",
+    "description": "Today we release the next version of our website with many improvements: A new face for request generator, more comprehensive request history, a fancy new frontpage and a generator for complaints and admonitions.",
+    "featured_image": "",
+    "tags": [ "complaint generator", "new user experience", "update", "open source" ],
+    "authors": [ "zner0L" ]
+}
+
+In an old Christian tradition, German children get presents in their shoes on the morning of the 6th of December. Today, we put something in your shoes: The new release of our websites with many great new features! We spent a lot of time in the last few months to update the user interface and took great care to make it as easy and accessible as possible to send requests to comapnies and other data controllers. Thanks to the [Prototype Fund](https://prototypefund.de/en/) run by the [Open Knowledge Foundation Germany](https://okfn.de/en/) and funded by the [German Federal Ministry of Education and Research](https://www.bmbf.de/bmbf/en/home/home_node.html), who gave a grant to Lorenz and Benni, we were able to put more time than usual into this release (read more in our {{< link slug="verein/transparency#12-external-grants-that-members-have-received" text="transparency information" >}}). Now we are just really excited and proud to present you all the new features. If you want to take a look at the code, you can [find all changes on GitHub](TODO: Link to release).
+
+## Multi-page request generator
+
+We completely redesigned the generator flow to make it less cluttered and also easier to send lots of requests to different companies. While we are keeping the old one-page-generator up at {{< link slug="/g" text="/g" >}} for those who prefer it, in the new interface we split the request generation process into several pages and we guide you through the process of sending your requests. In the company selection phase, we also now recommend packs of companies that collect the data of lots of people, so that new users have it easier to start requesting. In the next step, you can now also choose what sub-entities of the controller you want to include in your request and mark if you want to enquire about tracking and don't know how the controller can identify you.
+
+## Comprehensive request history
+
+If you use our website regularly, you might be familiar with the “My requests” page. If you didn't disable it in the {{< link slug="/privacy-controls" text="privacy controls" >}}, we save all the requests you sent in your browser and give you an overview of them. Up until now, this was just a pretty convoluted table, but for years we wanted to improve upon it and rebuild it as a proper request management page. In our new release, we create a proceeding for each of your requests which holds all messages you sent relating to it, e.g. admonitions and complaints. You can add information about messages you received from the controller, so you have it all in one place once you want to complain. We save a state for all requests, so you know your current progress, and we remind you with a badge on all pages if there are requests overdue you should send an admonition for.  
+
+## Complaint generator & request reactions
+
+The new “My requests” page shines even more when used in combination with the feature we are most proud of: Based on the history of your request, we offer you the option to “react”. If you choose to do so, we help you asses what missteps a controller might have taken by asking you some questions and then generate an admonition or even a proper complaint from your answers. While we want to be clear that we are no lawyers and can't offer help in specific cases, we do hope this makes it easier for you to actually complain to the authorities. You are not alone with being overwhelmed by controller replys anymore.
+
+## Clean frontpage
+
+Another thing we had on our wishlist for years was to enhance our frontpage that never really seemed to fit what we do. Now we guide users to the generator with clear calls-to-action and give a short overview of how it works. Even for experienced users it might be worthwhile to visit the frontpage once in a while: You can react to your overdue requests right from the frontpage with our new reminder widget and show you the newest blog articles.
+
+## Refactoring: Typescript, zustand and other improvements
+
+Under the hood (in the code), we also changed a lot. Some of the changes have already been released in last few months. We switched to [Typescript](https://www.typescriptlang.org/) to catch bugs early (and girl did we catch some) and now use [zustand](https://github.com/pmndrs/zustand) for state management in the hope that this will prevent race condition bugs in the code. This also means that we moved your old saved requests into a new form of storage. We hope everything went well, but if you encountered any problems and/or are missing any requests, [drop us an email](mailto:dev@datenanfragen.de). Furthermore, we cleaned up the code quite a bit and got rid of a lot of old and disfunctional corners of it. And we now release a [packaged version of our generator](https://www.npmjs.com/package/@datenanfragen/components) the you can plug into your own code, e.g. if you want to embed it into your own website.
+
+## Help wanted: Bug reports, suggestion packs and translations
+
+Now that we released the new features we need your help: We tried to test everything thoroughly, but sometimes a bug still slips through. So if you encounter any, please send us a bug report, either via our error popup or just by sending an email to [dev@datenanfragen.de](mailto:dev@datenanfragen.de). Also, lots of strings changed or have been newly added to our translation. If you want to contribute by translating a few of them [via Weblate](https://hosted.weblate.org/projects/datenanfragen-de/website/), that would be really great! Finally, we can only recommend companies for contries where we have suggestion packs for. If you think you have a good overview of what companies regularly process data in country, add a company pack into [our database](https://github.com/datenanfragen/data#company-packs) (please provide comprehensive sources).
