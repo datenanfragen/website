@@ -1,7 +1,8 @@
 describe('Using the suggest form', () => {
     it('navigates to the suggest form and sends its content', () => {
         cy.visit('/');
-        cy.contains('a', 'Company database').click();
+        cy.get('#main-nav-menu-link').click();
+        cy.contains('a', 'Company database').click({ force: true });
         cy.contains('Suggest a new company').click();
 
         // cypress doesn't support interception of fetch()
