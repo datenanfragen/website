@@ -97,7 +97,7 @@ export const App = (props: AppProps) => {
     const hasUsedOldGenerator = useMemo(
         () =>
             !!Object.values(proceedings).find(
-                (p) => (getGeneratedMessage(p, 'request')?.date || new Date('9999-12-31')) <= new Date('2022-12-06')
+                (p) => (getGeneratedMessage(p, 'request')?.date || new Date('9999-12-31')) <= new Date('2022-12-05')
             ),
         [proceedings]
     );
