@@ -1,7 +1,7 @@
 {
     "title": "Datenanfragen.de 2.0: Nagelneue Oberfläche und Beschwerdegenerator",
     "type": "blog",
-    "date": "2022-12-07T12:00:00+02:00",
+    "date": "2022-12-07T17:00:00+02:00",
     "description": "Gestern haben wir die neue Version der Webseite mit vielen neuen Features veröffentlicht: Eine neue Oberfläche für den Anfragengenerator, eine umfangreichere Anfragenhistorie, eine schicke neue Startseite und ein Generator für Beschwerden und Mahnungen.",
     "featured_image": "stockings-feature",
     "tags": [ "Beschwerdegenerator", "Neue Oberfläche", "Update", "Open Source" ],
@@ -9,6 +9,8 @@
 }
 
 Gestern haben wir Euch etwas ganz Besonderes in den Nikolausstiefel getan: Das neue Release von unserer Webseite mit vielen tollen neuen Features! Wir haben in den letzten Monaten viel Zeit damit verbracht, die Nutzer_innenoberfläche zu updaten und haben uns viel Mühe gegeben es so einfach und barrierearm wie möglich zu machen, Anfragen an Unternehmen und andere Datenverantwortliche zu schicken. Dank des [Prototype Fund](https://prototypefund.de/), der von der [Open Knowledge Foundation Deutschland](https://okfn.de/) betreut und vom [Bundesministerium für Bildung und Forschung](https://bmbf.de) finanziert wird, und Lorenz und Benni gefördert hat, konnten wir mehr Zeit als üblich in dieses Release stecken (mehr dazu auf unserer {{< link slug="verein/transparency#12-externe-f%c3%b6rdermittel-die-mitglieder-erhalten-haben" text="Transparenzseite" >}}). Jetzt sind wir sehr aufgeregt und stolz, Euch alle neuen Features vorstellen zu können. Wenn Du einen Blick auf den Code werfen möchtest, kannst Du [alle Änderungen auf GitHub finden](https://github.com/datenanfragen/website/pull/921).
+
+{{< featuredImg alt="Foto von Weihnachtssocken, die vor einem Kamin hängen, darüber der Text: „Release Version 2“" >}}
 
 ## Mehrseitiger Anfragengenerator
 

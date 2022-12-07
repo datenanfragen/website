@@ -1,7 +1,7 @@
 {
     "title": "datarequests.org v2: Refreshed interface and complaint generator",
     "type": "blog",
-    "date": "2022-12-07T12:00:00+02:00",
+    "date": "2022-12-07T17:00:00+02:00",
     "description": "Yesterday, we released the next version of our website with many improvements: A new interface for the request generator, more comprehensive request history, a fancy new homepage and a generator for complaints and admonitions.",
     "featured_image": "stockings-feature",
     "tags": [ "complaint generator", "new user experience", "update", "open source" ],
@@ -9,6 +9,8 @@
 }
 
 In an old Christian tradition, German children get presents and candy in their shoes on the morning of the 6th of December. Yesterday, we put something else into your shoes: The new release of our websites with many great new features! We spent a lot of time in the last few months to update the user interface and took great care to make it as easy and accessible as possible to send requests to companies and other data controllers. Thanks to the [Prototype Fund](https://prototypefund.de/en/) run by the [Open Knowledge Foundation Germany](https://okfn.de/en/) and funded by the [German Federal Ministry of Education and Research](https://www.bmbf.de/bmbf/en/home/home_node.html), who gave a grant to Lorenz and Benni, we were able to put more time than usual into this release (read more in our {{< link slug="verein/transparency#12-external-grants-that-members-have-received" text="transparency information" >}}). Now we are just really excited and proud to present you all the new features. If you want to take a look at the code, you can [find all changes on GitHub](https://github.com/datenanfragen/website/pull/921).
+
+{{< featuredImg alt="Picture of stockings on a fireplace, on it the text: „Release Version 2“" >}}
 
 ## Multi-page request generator
 
