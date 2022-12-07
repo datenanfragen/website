@@ -3,7 +3,7 @@
     "type": "blog",
     "date": "2022-12-07T12:00:00+02:00",
     "description": "Gestern haben wir die neue Version der Webseite mit vielen neuen Features veröffentlicht: Eine neue Oberfläche für den Anfragengenerator, eine umfangreichere Anfragenhistorie, eine schicke neue Startseite und ein Generator für Beschwerden und Mahnungen.",
-    "featured_image": "",
+    "featured_image": "stockings-feature",
     "tags": [ "Beschwerdegenerator", "Neue Nutzer_innenoberfläche", "Update", "Open Source" ],
     "authors": [ "zner0L" ]
 }

@@ -3,7 +3,7 @@
     "type": "blog",
     "date": "2022-12-07T12:00:00+02:00",
     "description": "Yesterday, we released the next version of our website with many improvements: A new interface for the request generator, more comprehensive request history, a fancy new homepage and a generator for complaints and admonitions.",
-    "featured_image": "",
+    "featured_image": "stockings-feature",
     "tags": [ "complaint generator", "new user experience", "update", "open source" ],
     "authors": [ "zner0L" ]
 }
