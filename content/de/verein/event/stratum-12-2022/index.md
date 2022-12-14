@@ -4,7 +4,7 @@
     "event_date": "2022-12-14T19:00:00+02:00",
     "place": {
         "name": "Stratum 0",
-        "address": "Hamburger Straße 273A (Eingang A2), 38114 Braunschweig , Deutschland"
+        "address": "Hamburger Straße 273A (Eingang A2), 38114 Braunschweig, Deutschland"
     },
     "description": "Im Stratum 0 stellen wir unser Projekt vor. Wir erklären unsere Generatoren für Anfragen, Mahnungen und Beschwerden und geben einen kurzen Überblick über unsere Datenschutzforschung."
 }
