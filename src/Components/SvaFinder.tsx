@@ -51,9 +51,9 @@ const steps: Record<string, Steps> = {
             kirche: {
                 ev: {
                     // Source: https://dsbkd.de/geschaeftsverteilung/
-                    evdsbkd: 'deevpfalz',
+                    evdsbkd: 'dedsbkd',
                     // Source: https://datenschutz.ekd.de/vernetzung/andere-evangelisch/
-                    evpfalz: 'dedsbkd',
+                    evpfalz: 'deevpfalz',
                     evsonst: 'deekdbfd',
                 },
                 kath: {
