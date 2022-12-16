@@ -6,6 +6,8 @@
         "name": "c-base",
         "address": "Rungestraße 20, 10179 Berlin, Deutschland"
     },
+    "video_url": "https://media.datenanfragen.de/embed/20221206-npa-122",
+    "license": "cc-by-40",
     "description": "Beim 122. Netzpolitischen Abend der Digitalen Gesellschaft stellen wir unsere Werkzeuge und Ressourcen vor und erzählen von unserer Forschung zu Datenschutzverstößen von Unternehmen, zum Beispiel beim Tracking in mobilen Apps."
 }
 
@@ -13,4 +15,6 @@ Wir sind beim 122. Netzpolitischen Abend der Digitalen Gesellschaft auf der c-ba
 
 [Mehr Infos bei der Digitalen Gesellschaft](https://digitalegesellschaft.de/2022/11/122-netzpolitischer-abend/)
 
-**Material**: [Vortragsfolien](https://static.dacdn.de/talks/slides/2022-12-06-npa-122.pdf)
+**Material**: [Vortragsfolien](https://static.dacdn.de/talks/slides/2022-12-06-npa-122.pdf), [Aufzeichnung bei YouTube](https://www.youtube.com/watch?v=J6TldpPks1A)
+
+Die [Aufzeichnung](https://www.youtube.com/watch?v=J6TldpPks1A) von der Digitalen Gesellschaft steht unter einer [Creative Commons Namensnennung 4.0 International Lizenz](https://creativecommons.org/licenses/by/4.0/deed.de).
