@@ -38,7 +38,7 @@
 {{ else if .IsPage }}
     {{ $description = .Summary }}
 {{ end }}
-
+                        
 {{ $img_src := "" }}
 {{ if .Params.featured_image }}
     <!-- 1200x630 seems to be a good size for all platform (see https://iamturns.com/open-graph-image-size/). -->
