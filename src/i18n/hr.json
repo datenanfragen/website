@@ -643,7 +643,6 @@
         "data-access": "pristup podacima."
     },
     "hugo": {
-        "footer-social-twitter-desc": "Prati nas na Twitteru.",
         "footer-social-mastodon-desc": "Prati nas na Mastodonu.",
         "footer-social-matrix-desc": "Raspravljaj s nama putem Matrixa.",
         "footer-social-github-desc": "Pronađi nas na GitHubu.",

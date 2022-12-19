@@ -137,11 +137,6 @@
     font-icon: url('mastodon.svg');
 }
 
-.icon-twitter:before {
-    @extend %icon;
-    font-icon: url('twitter.svg');
-}
-
 .icon-github:before {
     @extend %icon;
     font-icon: url('github.svg');
