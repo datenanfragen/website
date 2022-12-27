@@ -3,6 +3,9 @@
     "type": "event",
     "event_date": "2022-12-29T13:00:00+02:00",
     "duration": "105m",
+    "place": {
+        "online": "https://streaming.media.ccc.de/jev22/fireshonks"
+    },
     "description": "Egal was wir im Internet machen, Webseiten und Apps versuchen uns durchgehend zu tracken. Wir haben schon viel über Tracking im Web gehört, aber wie sieht das bei Handy-Apps aus? Obwohl wir regelmäßig mit unseren Handys interagieren, wissen wir viel weniger über Datensammelei in unseren Smartphones. In diesem Vortrag wollen wir unsere Forschung im App-Tracking-Bereich vorstellen und Euch zeigen, wie wir automatisiert Tausende von Apps analysiert haben. Ihr werdet lernen, welche Daten Apps über Euch versenden und wer diese erhält. Außerdem schauen wir uns mal diese Einwilligungsdialogen an – sind die überhaupt legal?"
 }
 
