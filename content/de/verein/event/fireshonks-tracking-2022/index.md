@@ -6,6 +6,8 @@
     "place": {
         "online": "https://streaming.media.ccc.de/jev22/fireshonks"
     },
+    "featured_image": "tracking-in-apps-ist-das-legal.png",
+    "license": "cc-by-40",
     "description": "Egal was wir im Internet machen, Webseiten und Apps versuchen uns durchgehend zu tracken. Wir haben schon viel über Tracking im Web gehört, aber wie sieht das bei Handy-Apps aus? Obwohl wir regelmäßig mit unseren Handys interagieren, wissen wir viel weniger über Datensammelei in unseren Smartphones. In diesem Vortrag wollen wir unsere Forschung im App-Tracking-Bereich vorstellen und Euch zeigen, wie wir automatisiert Tausende von Apps analysiert haben. Ihr werdet lernen, welche Daten Apps über Euch versenden und wer diese erhält. Außerdem schauen wir uns mal diese Einwilligungsdialogen an – sind die überhaupt legal?"
 }
 
@@ -18,3 +20,5 @@ Zum Glück müssen wir uns nicht mit dieser Situation abfinden. Wir werden Euch 
 Aber obwohl die gesetzliche Lage sehr klar ist, ist die Durchsetzung leider noch mangelhaft. Das führt dazu, dass viele Firmen davon ausgehen, dass sie konsequenzlos damit davon kommen können, sich nicht an das Gesetz zu halten. Wir wollen Euch zeigen, welche Ideen wir haben, um das zu ändern.
 
 [Vortrag im Konferenz-Programm](https://pretalx.c3voc.de/fire-shonks-2022/talk/FRQGY9/)
+
+**Material**: [Vortragsfolien](https://static.dacdn.de/talks/slides/2022-12-29-fireshonks-tracking.pdf)
