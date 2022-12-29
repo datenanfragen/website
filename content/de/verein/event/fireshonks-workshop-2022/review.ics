@@ -1,12 +1,12 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-NAME:Datenanfragen.de FireShonks Workshop
+NAME:Datenanfragen.de FireShonks-Workshop
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20230129
-DTEND;VALUE=DATE:20230130
+DTSTART;VALUE=DATE:20230204
+DTEND;VALUE=DATE:20230205
 SUMMARY:Datenanfragen.de: Antworten auf Anfragen bearbeiten
 URL:https://www.datenanfragen.de/my-requests
-DESCRIPTION:Vor einem Monat auf dem FireShonks hast Du Anfragen gestellt. Hast Du auf alle eine Antwort bekommen\, die Dich zufrieden stellt? Schätze die Antworten auf https://www.datenanfragen.de/my-requests ein. Du willst nochmal eine kurze Erklärung? Die Vortragsfolien sind hier: www.datenanfragen.de/verein/event/fireshonks-workshop-2022\n
+DESCRIPTION:Vor einem Monat auf dem FireShonks hast Du Anfragen gestellt. Hast Du auf alle eine Antwort bekommen, die Dich zufrieden stellt? Schätze die Antworten auf https://www.datenanfragen.de/my-requests ein. Du willst nochmal eine kurze Erklärung? Die Vortragsfolien sind hier: https://www.datenanfragen.de/verein/event/fireshonks-workshop-2022\n
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Datenanfragen.de: Antworten auf Anfragen bearbeiten
