@@ -7,6 +7,8 @@ Willkommen auf unserer Presseseite. Für Presseanfragen, kontaktiere uns bitte u
 
 ## Presse- und Forschungsspiegel
 
+* Deutschlandfunk Nova: [*Datenanfragen.de: Bei Google und Meta erfragen, welche Daten sie sammeln – ganz einfach*](https://www.deutschlandfunknova.de/beitrag/datenschutz-datenanfragen-de-will-uns-gegen-tracking-helfen), 02. Januar 2023
+* netzpolitik.org: [*Datenanfragen.de: Rechtlich gegen Sammelwut vorgehen*](https://netzpolitik.org/2022/datenanfragen-de-rechtlich-gegen-sammelwut-vorgehen/), 30. Dezember 2022
 * Cambridge University Press: [*Data Ownership and Data Access Rights*](https://www.cambridge.org/core/books/big-data-and-global-trade-law/data-ownership-and-data-access-rights/BC314C63C58A09C4B9C5D55894FE68C6), 09. Juli 2021
 * SSRN: [*The Myth of Individual Control: Mapping the Limitations of Privacy Self-management*](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3881776), 07. Juli 2021
 * So Many Tabs: [*Wie Amazon euch abzockt! (und ihr sparen könnt!)*](https://www.youtube.com/watch?v=bGFgKOyVY8w&t=453s), 17. März 2021
