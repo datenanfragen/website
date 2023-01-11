@@ -761,7 +761,8 @@
         "church": "église",
         "noscript-actwidget": "Voici un outil permettant de générer rapidement des demandes relatives au RGPD. Il ne fonctionne que sur votre ordinateur et est entièrement écrit en JavaScript. Si vous souhaitez l'utiliser, veuillez activer JavaScript dans votre navigateur. Si cela ne fonctionne toujours pas malgré tout, envoyez-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "footer-material": "Matériel d'information",
-        "skip-to-content": "Aller au contenu"
+        "skip-to-content": "Aller au contenu",
+        "home-claim-title": "C'est ainsi que les demandes de données fonctionnent :"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
