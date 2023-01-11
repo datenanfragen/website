@@ -189,7 +189,8 @@
         "no-results": "Wir haben leider keine Ergebnisse für Deine Anfrage gefunden.",
         "suggest-a-company": "Ein neues Unternehmen vorschlagen",
         "quality-tested": "Mindestens eine_r unserer Mitwirkenden hat über die Kontaktdaten in diesem Eintrag bereits erfolgreich eine Anfrage gestellt.",
-        "quality-unverified": "Die Kontaktdaten in diesem Eintrag wurden automatisch übernommen. Wir haben sie nicht überprüft."
+        "quality-unverified": "Die Kontaktdaten in diesem Eintrag wurden automatisch übernommen. Wir haben sie nicht überprüft.",
+        "no-company": "Leider haben wir noch keine Details zu dem Unternehmen, das Sie suchen. Sie können aber jederzeit ein benutzerdefiniertes Unternehmen hinzufügen und die Details selbst eingeben."
     },
     "cdb": {
         "title": "Unternehmensdatenbank",
