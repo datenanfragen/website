@@ -190,7 +190,8 @@
         "suggest-a-company": "Ein neues Unternehmen vorschlagen",
         "quality-tested": "Mindestens eine_r unserer Mitwirkenden hat über die Kontaktdaten in diesem Eintrag bereits erfolgreich eine Anfrage gestellt.",
         "quality-unverified": "Die Kontaktdaten in diesem Eintrag wurden automatisch übernommen. Wir haben sie nicht überprüft.",
-        "no-company": "Leider haben wir das Unternehmen, nach dem Du suchst, noch nicht in unserer Datenbank. Du kannst aber jederzeit ein eigenes Unternehmen hinzufügen und die Details selbst eingeben."
+        "no-company": "Leider haben wir das Unternehmen, nach dem Du suchst, noch nicht in unserer Datenbank. Du kannst aber jederzeit ein eigenes Unternehmen hinzufügen und die Details selbst eingeben.",
+        "search-results": "Suchergebnisse"
     },
     "cdb": {
         "title": "Unternehmensdatenbank",
@@ -275,7 +276,9 @@
             "one": "fälliger Vorgang",
             "other": "fällige Vorgänge"
         },
-        "see-more-details": "Mehr Informationen"
+        "see-more-details": "Mehr Informationen",
+        "content": "Inhalt",
+        "content-placeholder": "Kopieren Sie den Inhalt der Nachricht oder fassen Sie ihn hier zusammen, damit Sie ihn sich später merken können."
     },
     "generator": {
         "reference": "Zeichen",
