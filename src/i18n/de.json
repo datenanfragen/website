@@ -172,7 +172,7 @@
         "footer-social-matrix-desc": "Unterhalte Dich mit uns über Matrix.",
         "footer-social-mastodon-desc": "Folge uns bei Mastodon.",
         "license": "Lizenz",
-        "noscript-app": "Der Anfrage-Generator läuft nur auf Ihrem Computer und ist daher vollständig in JavaScript geschrieben. Der Code sendet so wenig Daten wie möglich an unsere Server, wenn Sie nicht zustimmen. Dazu können Ihre Suchanfragen gehören, aber es werden niemals die Daten gesendet, die Sie für Ihre Anfragen eingeben. Diese Daten verbleiben nur lokal in Ihrem Browser.\nWenn Sie den Generator nutzen möchten, aktivieren Sie bitte JavaScript in Ihrem Browser oder fügen Sie eine Ausnahme zu Ihrem JavaScript-Blocker hinzu. Sollte es danach immer noch nicht funktionieren, schicken Sie uns eine E-Mail an <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
+        "noscript-app": "Der Anfragengenerator läuft nur auf Deinem Computer und ist daher vollständig in JavaScript geschrieben. Der Code sendet so wenig Daten wie möglich an unsere Server, wenn Du nicht zustimmst. Dazu können Deine Suchanfragen gehören, aber es werden niemals die Daten gesendet, die Du für Deine Anfragen eingibst. Diese Daten verbleiben nur lokal in Deinem Browser.\nWenn Du den Generator nutzen möchtest, aktiviere bitte JavaScript in Deinem Browser oder füge eine Ausnahme zu Deinem JavaScript-Blocker hinzu. Sollte es danach immer noch nicht funktionieren, schicke uns eine E-Mail an <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
     },
     "home": {
         "data-access": "Datenauskunft.",
