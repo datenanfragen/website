@@ -458,7 +458,8 @@
         "outlook": "Outlook (Hotmail)*",
         "yahoo": "Yahoo! Mail*",
         "yandex": "Yandex.Mail*",
-        "copymanually": "Text von Hand kopieren"
+        "copymanually": "Text von Hand kopieren",
+        "sendmail": "Versand über SMTP"
     },
     "requests": {
         "letter-subject-erasure": "Antrag auf Löschung personenbezogener Daten gemäß Art. 17 DSGVO",
