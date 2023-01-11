@@ -76,7 +76,7 @@
         "cdb-intro": "Nós temos as seguintes informações de contacto em “{{ .Params.name }}” para que você utilize nas solicitações relativas à privacidade:",
         "adb-intro": "Nós temos as seguintes informações de contacto em “{{ .Params.name }}” para que você utilize para fazer reclamações:",
         "cdb-address": "Endereço:",
-        "cdb-attn": "À atenção do: Encarregado de Proteção de Dados",
+        "cdb-attn": "Atenção: Proteção de Dados",
         "cdb-phone": "Telefone:",
         "cdb-privacy-email": "Email de privacidade:",
         "cdb-fax": "Fax:",
@@ -125,7 +125,7 @@
         "verein-home-card-mission-button": "Leia mais sobre nossos objetivos",
         "verein-home-card-donate-heading": "Faça-nos uma doação",
         "verein-home-card-donate-content": "Nós gostaríamos de manter nosso projeto gratuito e aberto a todos. Se você quiser nos apoiar com esse e com novos projetos, por favor, nos ajude através da sua doação. Nós agradecemos muito por cada contribuição.",
-        "verein-home-card-donate-button": "Eu quero doar.",
+        "verein-home-card-donate-button": "Eu quero doar",
         "verein-home-card-join-heading": "Torne-se um membro",
         "verein-home-card-join-content": "Nosso projeto sobrevive por meio de participação. Se você quiser colaborar e ajudar com o desenvolvimento ou se você, simplesmente, deseja acompanhar mais de perto todo o projeto, nós ficaremos felizes com sua colaboração.",
         "verein-home-card-join-button": "Eu quero participar.",
@@ -175,7 +175,8 @@
         "lic-url-cc-by-sa-40": "https://creativecommons.org/licenses/by-sa/4.0/deed.pt",
         "lic-cc0-10": "CC0 1.0 Dedicação ao Domínio Público",
         "lic-url-cc0-10": "https://creativecommons.org/publicdomain/zero/1.0/deed.pt",
-        "license": "Licença"
+        "license": "Licença",
+        "skip-to-content": "Ir para conteúdo"
     },
     "home": {
         "data-access": "de acesso a dados.",
