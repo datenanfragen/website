@@ -7,6 +7,7 @@ Willkommen auf unserer Presseseite. Für Presseanfragen, kontaktiere uns bitte u
 
 ## Presse- und Forschungsspiegel
 
+* Mimikama: [*Daten abfragen und mit wenigen Klicks löschen lassen*](https://www.mimikama.org/daten-abfragen-mit-wenigen-klicks/), 03. Januar 2023
 * Deutschlandfunk Nova: [*Datenanfragen.de: Bei Google und Meta erfragen, welche Daten sie sammeln – ganz einfach*](https://www.deutschlandfunknova.de/beitrag/datenschutz-datenanfragen-de-will-uns-gegen-tracking-helfen), 02. Januar 2023
 * netzpolitik.org: [*Datenanfragen.de: Rechtlich gegen Sammelwut vorgehen*](https://netzpolitik.org/2022/datenanfragen-de-rechtlich-gegen-sammelwut-vorgehen/), 30. Dezember 2022
 * Cambridge University Press: [*Data Ownership and Data Access Rights*](https://www.cambridge.org/core/books/big-data-and-global-trade-law/data-ownership-and-data-access-rights/BC314C63C58A09C4B9C5D55894FE68C6), 09. Juli 2021
