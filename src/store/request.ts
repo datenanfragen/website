@@ -270,12 +270,11 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
             request: { ...defaultRequest(language || REQUEST_FALLBACK_LANGUAGE), ...(reference && { reference }) },
         }));
         if (type) get().setRequestType(type);
-        get().refreshTemplate();
 
         get().setDownload(false);
         get().setBusy();
         get()
-            .removeCompany()
+            .removeCompany() // This will also refresh the template.
             .then(() => {
                 if (advanceBatch) {
                     beforeAdvanceBatchHook?.();
