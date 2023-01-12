@@ -57,6 +57,9 @@ export const renderMoney = (amount: number, locale: I18nLanguage, currency = '')
     Number(amount || 0).toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
     (currency ? ` ${currency}` : '');
 
+// Adapted after: https://stackoverflow.com/a/10589791
+export const isValidDate = (date: unknown): date is Date => date instanceof Date && !isNaN(date.valueOf());
+
 export const parameters = () => {
     const get_params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
 

@@ -278,7 +278,8 @@
         },
         "see-more-details": "Mehr Informationen",
         "content": "Inhalt",
-        "content-placeholder": "Kopiere den Inhalt der Nachricht oder fasse ihn hier zusammen, damit Du Dich später daran erinnern kannst."
+        "content-placeholder": "Kopiere den Inhalt der Nachricht oder fasse ihn hier zusammen, damit Du Dich später daran erinnern kannst.",
+        "invalid-date-entered": "Du hast ein ungültiges Datum eingegeben."
     },
     "generator": {
         "reference": "Zeichen",

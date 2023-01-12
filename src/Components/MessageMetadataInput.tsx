@@ -3,6 +3,8 @@ import { TransportMediumChooser } from './Generator/TransportMediumChooser';
 import { Radio } from './Radio';
 import { Text } from 'preact-i18n';
 import t from '../Utility/i18n';
+import { isValidDate } from '../Utility/common';
+import { flash, FlashMessage } from './FlashMessage';
 
 type MessageMetadataInputProps = {
     message: Omit<Message, 'id'>;
@@ -23,7 +25,16 @@ export const MessageMetadataInput = (props: MessageMetadataInputProps) => {
                     type="date"
                     className="form-element"
                     value={props.message.date.toISOString().substring(0, 10)}
-                    onChange={(e) => props.onChange({ ...props.message, date: new Date(e.currentTarget.value) })}
+                    onBlur={(e) => {
+                        const date = new Date(e.currentTarget.value);
+                        if (isValidDate(date)) props.onChange({ ...props.message, date });
+                        else {
+                            e.currentTarget.value = props.message.date.toISOString().substring(0, 10);
+                            flash(
+                                <FlashMessage type="warning">{t('invalid-date-entered', 'my-requests')}</FlashMessage>
+                            );
+                        }
+                    }}
                 />
             </div>
             <div className="form-group">

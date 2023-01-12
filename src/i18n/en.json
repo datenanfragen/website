@@ -277,7 +277,8 @@
             "one": "overdue proceeding",
             "other": "overdue proceedings"
         },
-        "see-more-details": "See more details"
+        "see-more-details": "See more details",
+        "invalid-date-entered": "The date you entered was invalid."
     },
     "generator": {
         "reference": "Reference",
