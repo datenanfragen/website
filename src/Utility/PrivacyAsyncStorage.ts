@@ -1,6 +1,7 @@
 import { IDBPDatabase, openDB } from 'idb';
 import type { SetOptional } from 'type-fest';
 import { rethrow } from './errors';
+import t from './i18n';
 
 export type PrivacyAsyncStorageOption = {
     /** Name of the database */
@@ -63,7 +64,14 @@ export class PrivacyAsyncStorage {
                                 : (this.#options.version || 1) + 1;
                             return;
                         }
-                        rethrow(e);
+                        rethrow(
+                            e,
+                            'Unexpected error while opening IndexedDB in PrivacyAsyncStorage.getDb',
+                            {
+                                options: this.#options,
+                            },
+                            t('indexeddb-error', 'error-msg')
+                        );
                     })
                     .then((db) => {
                         if (db && !db.objectStoreNames.contains(this.#options.storeName)) {
@@ -141,7 +149,7 @@ export class PrivacyAsyncStorage {
                 db?.close();
                 return;
             }
-            rethrow(e);
+            rethrow(e, 'Error in doesStoreExist', { name, storeName, db }, t('indexeddb-error', 'error-msg'));
         });
 
         if (db) {
