@@ -11,7 +11,6 @@ import type {
 } from '../types/request';
 import {
     defaultRequest,
-    REQUEST_FALLBACK_LANGUAGE,
     fetchTemplate,
     isSaneDataField,
     inferRequestLanguage,
@@ -19,6 +18,7 @@ import {
     defaultFields,
     isSva,
     shouldBeTrackingRequest,
+    requestLanguageFallback,
 } from '../Utility/requests';
 import { produce } from 'immer';
 import { RequestLetter } from '../DataType/RequestLetter';
@@ -267,7 +267,7 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
         ),
     resetRequestToDefault: ({ advanceBatch, language, beforeAdvanceBatchHook, type, reference }) => {
         set(() => ({
-            request: { ...defaultRequest(language || REQUEST_FALLBACK_LANGUAGE), ...(reference && { reference }) },
+            request: { ...defaultRequest(requestLanguageFallback(language)), ...(reference && { reference }) },
         }));
         if (type) get().setRequestType(type);
 
