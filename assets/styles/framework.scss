@@ -176,19 +176,42 @@ h2 {
 }
 
 .sub-heading {
-    h2 {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         display: inline-block;
         width: fit-content;
     }
 
-    .heading-anchor-link {
-        display: none;
-        font-size: 1.4em;
+    .heading-anchor-link-container {
+        position: relative;
+        width: 0;
+        display: inline-block;
+
+        .heading-anchor-link {
+            display: none;
+            font-size: 15px;
+            color: $accent-color;
+            position: absolute;
+            width: 20px;
+            text-align: center;
+            bottom: 0;
+            left: -20px;
+            padding-right: 5px;
+            line-height: 1;
+
+            &:hover,
+            &:focus {
+                color: color('teal', 900);
+            }
+        }
     }
 
     &:hover,
     &:focus {
-        .heading-anchor-link {
+        a.heading-anchor-link {
             display: inline-block;
         }
     }

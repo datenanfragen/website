@@ -278,4 +278,8 @@
     @extend %icon;
     font-icon: url('paper-plane-letter.svg');
     vertical-align: -2px;
+.icon-link:before {
+    @extend %icon;
+    font-icon: url('link.svg');
+    vertical-align: -3px;
 }
