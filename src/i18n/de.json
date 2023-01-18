@@ -518,7 +518,8 @@
     },
     "error-msg": {
         "company-not-found": "Das gewünschte Unternehmen wurde nicht gefunden.",
-        "sva-not-found": "Beim Laden der Informationen zu der Datenschutz-Aufsichtsbehörde ist ein Fehler aufgetreten."
+        "sva-not-found": "Beim Laden der Informationen zu der Datenschutz-Aufsichtsbehörde ist ein Fehler aufgetreten.",
+        "indexeddb-error": "Beim Zugreifen auf die Datenbank in Deinem Browser ist ein unerwarteter Fehler aufgetreten."
     },
     "suggest": {
         "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank noch einmal! Wir werden ihn jetzt schnellstmöglich überprüfen.",

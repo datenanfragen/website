@@ -517,7 +517,8 @@
     },
     "error-msg": {
         "company-not-found": "The company you were looking for could not be found.",
-        "sva-not-found": "Loading the data on the supervisory authority failed."
+        "sva-not-found": "Loading the data on the supervisory authority failed.",
+        "indexeddb-error": "An unexpected error occured while trying to access the database in your browser."
     },
     "suggest": {
         "success": "Your contribution has been sent successfully. Thank you! We will now review it as soon as possible.",
