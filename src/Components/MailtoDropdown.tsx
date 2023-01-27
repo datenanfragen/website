@@ -1,10 +1,10 @@
 import type { JSX } from 'preact';
-import { useRef, useCallback } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
 import { useAppStore, Country } from '../store/app';
 import { useModal } from './Modal';
 import t, { t_r } from '../Utility/i18n';
 import { RequestLetter } from '../DataType/RequestLetter';
+import { useInputSelectAll } from '../hooks/useInputSelectAll';
 
 export type EmailData = { to: string; subject: string; text: string };
 type MailtoHandler = (
@@ -70,12 +70,6 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
 
     const availableHandlers = { ...mailto_handlers, ...props.additionalHandlers };
 
-    // We only want to select everything in the copymanually inputs if they aren't yet focused. That way, the user can still
-    // make an individual selection if they prefer.
-    // However, the event we get in the onclick handler means that the focus has already been changed to the element the
-    // user clicked, so we need to remember the previous one for the check to make any sense at all.
-    const previous_active_element_id = useRef<string>();
-
     const my_ref_text = `${t_r('my-reference', props.letter.language)}: ${props.letter.reference}`;
     const data = {
         to: props.email,
@@ -83,16 +77,7 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
         text: props.letter.toEmailString(),
     };
 
-    const onCopyManuallyInputClick = useCallback(
-        (e: JSX.TargetedMouseEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-            if (previous_active_element_id.current === e.currentTarget.id) return;
-
-            e.currentTarget.select();
-            e.currentTarget.focus();
-            previous_active_element_id.current = e.currentTarget.id;
-        },
-        [previous_active_element_id]
-    );
+    const [onCopyManuallyInputClick, unsetCopyManuallyPreviousActiveElement] = useInputSelectAll();
 
     const [CopyManuallyModal, showCopyManuallyModal, dismissCopyManuallyModal] = useModal(
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
@@ -138,9 +123,7 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
             onPositiveFeedback: () => {
                 dismissCopyManuallyModal();
             },
-            onDismiss: () => {
-                previous_active_element_id.current = undefined;
-            },
+            onDismiss: unsetCopyManuallyPreviousActiveElement,
             positiveText: t('ok', 'generator'),
         }
     );

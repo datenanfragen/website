@@ -1,4 +1,4 @@
-import { useCallback, useRef, useEffect } from 'preact/hooks';
+import { useCallback, useEffect } from 'preact/hooks';
 import { Text, IntlProvider } from 'preact-i18n';
 import { useGeneratorStore } from '../../store/generator';
 import { useModal } from '../Modal';
@@ -6,8 +6,8 @@ import { SetPageFunction } from './App';
 import { ActionButton, ActionButtonProps } from '../Generator/ActionButton';
 import { MailtoDropdownProps, mailto_handlers } from '../MailtoDropdown';
 import t from '../../Utility/i18n';
-import { JSX } from 'preact';
 import { useProceedingsStore } from '../../store/proceedings';
+import { useInputSelectAll } from '../../hooks/useInputSelectAll';
 
 type SendRequestButtonProps = {
     setPage: SetPageFunction;
@@ -32,18 +32,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
         if (request.transport_medium !== 'email') return initiatePdfGeneration();
     }, [initiatePdfGeneration, request]);
 
-    const previousActiveElementId = useRef<string>();
-
-    const onModalInputClick = useCallback(
-        (e: JSX.TargetedMouseEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-            if (previousActiveElementId.current === e.currentTarget.id) return;
-
-            e.currentTarget.select();
-            e.currentTarget.focus();
-            previousActiveElementId.current = e.currentTarget.id;
-        },
-        [previousActiveElementId]
-    );
+    const [onModalInputClick, unsetModalPreviousActiveElement] = useInputSelectAll();
     const [Modal, showModal, dismissModal] = useModal(
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <Text
@@ -123,9 +112,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                     {...props.actionButtonOptions}
                 />
             ),
-            onDismiss: () => {
-                previousActiveElementId.current = undefined;
-            },
+            onDismiss: unsetModalPreviousActiveElement,
             backdropDismisses: false,
         }
     );
