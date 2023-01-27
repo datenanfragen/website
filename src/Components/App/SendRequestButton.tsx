@@ -20,6 +20,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
     const letter = useGeneratorStore((state) => state.letter);
     const request = useGeneratorStore((state) => state.request);
+    const currentCompany = useGeneratorStore((state) => state.current_company);
     const [getRequestForSaving, setSent] = useGeneratorStore((state) => [state.getRequestForSaving, state.setSent]);
     const addRequest = useProceedingsStore((state) => state.addRequest);
 
@@ -39,6 +40,8 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                 id={
                     request.transport_medium === 'email'
                         ? 'send-request-email-explanation'
+                        : request.transport_medium === 'webform'
+                        ? 'send-request-webform-explanation'
                         : 'send-request-pdf-explanation'
                 }
             />
@@ -55,31 +58,36 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                     onClick={onModalInputClick}
                     readOnly
                 />
-                <strong>
-                    <label htmlFor="send-request-modal-recipient">{t('recipient', 'generator')}</label>
-                </strong>
-                {request.transport_medium === 'email' ? (
-                    <input
-                        type="text"
-                        id="send-request-modal-recipient"
-                        className="form-element"
-                        value={
-                            request.transport_medium === 'email'
-                                ? request.email
-                                : request.recipient_address.split('\n')[0]
-                        }
-                        onClick={onModalInputClick}
-                        readOnly
-                    />
-                ) : (
-                    <textarea
-                        id="send-request-modal-recipient"
-                        className="form-element"
-                        rows={4}
-                        onClick={onModalInputClick}
-                        readOnly>
-                        {request.recipient_address}
-                    </textarea>
+
+                {request.transport_medium !== 'webform' && (
+                    <>
+                        <strong>
+                            <label htmlFor="send-request-modal-recipient">{t('recipient', 'generator')}</label>
+                        </strong>
+                        {request.transport_medium === 'email' ? (
+                            <input
+                                type="text"
+                                id="send-request-modal-recipient"
+                                className="form-element"
+                                value={
+                                    request.transport_medium === 'email'
+                                        ? request.email
+                                        : request.recipient_address.split('\n')[0]
+                                }
+                                onClick={onModalInputClick}
+                                readOnly
+                            />
+                        ) : (
+                            <textarea
+                                id="send-request-modal-recipient"
+                                className="form-element"
+                                rows={4}
+                                onClick={onModalInputClick}
+                                readOnly>
+                                {request.recipient_address}
+                            </textarea>
+                        )}
+                    </>
                 )}
 
                 <strong>
@@ -92,25 +100,39 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                     onClick={onModalInputClick}
                     onCopy={finishRequest}
                     readOnly>
-                    {/* TODO: For PDFs, this renders the barcode as `[object Object]`. *sigh* */}
-                    {request.transport_medium === 'email' ? letter().toEmailString() : letter().toString()}
+                    {['email', 'webform'].includes(request.transport_medium)
+                        ? letter().toEmailString()
+                        : letter().toString()}
                 </textarea>
             </div>
         </IntlProvider>,
         {
             positiveButton: <NextRequestButton setPage={props.setPage} afterNext={() => dismissModal()} />,
             negativeButton: (
-                <ActionButton
-                    dropup={true}
-                    mailtoDropdownProps={
-                        props.mailtoDropdownOptions || {
-                            handlers: (Object.keys(mailto_handlers) as (keyof typeof mailto_handlers)[]).filter(
-                                (h) => h !== 'copymanually'
-                            ),
-                        }
-                    }
-                    {...props.actionButtonOptions}
-                />
+                <>
+                    {request.transport_medium === 'webform' ? (
+                        <a
+                            className={`button ${request.sent ? 'button-secondary' : 'button-primary'}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={() => finishRequest()}
+                            href={currentCompany?.webform}>
+                            <Text id="open-webform" />
+                        </a>
+                    ) : (
+                        <ActionButton
+                            dropup={true}
+                            mailtoDropdownProps={
+                                props.mailtoDropdownOptions || {
+                                    handlers: (Object.keys(mailto_handlers) as (keyof typeof mailto_handlers)[]).filter(
+                                        (h) => h !== 'copymanually'
+                                    ),
+                                }
+                            }
+                            {...props.actionButtonOptions}
+                        />
+                    )}
+                </>
             ),
             onDismiss: unsetModalPreviousActiveElement,
             backdropDismisses: false,

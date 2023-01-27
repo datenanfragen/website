@@ -10,7 +10,7 @@ import { useAppStore } from '../store/app';
 import { getGeneratedMessage } from '../store/proceedings';
 
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
-export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
+export const TRANSPORT_MEDIA = ['email', 'letter', 'fax', 'webform'] as const;
 export const ADDRESS_STRING_PROPERTIES = ['street_1', 'street_2', 'place', 'country'] as const;
 export const REQUEST_ARTICLES = { access: '15', erasure: '17', rectification: '16', objection: '21(2)' } as const;
 export const REQUEST_FALLBACK_LANGUAGE = 'en' as const; // We'll use English as hardcoded fallback language
