@@ -11,6 +11,8 @@ type RecipientInputProps = {
 };
 
 export function RecipientInput(props: RecipientInputProps) {
+    if (props.transportMedium === 'webform') return <></>;
+
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
             <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">

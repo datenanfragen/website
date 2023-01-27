@@ -7,6 +7,7 @@ import { Accordion } from '../Accordion';
 import { RequestTypeChooser } from './RequestTypeChooser';
 import { RecipientInput } from './RecipientInput';
 import { TransportMediumChooser } from './TransportMediumChooser';
+import { TRANSPORT_MEDIA } from '../../Utility/requests';
 import { useGeneratorStore } from '../../store/generator';
 import { RequestFlags } from './RequestFlags';
 import { CustomRequestInput } from './CustomRequestInput';
@@ -17,7 +18,7 @@ type RequestFormProps = {
 
 export const RequestForm = (props: RequestFormProps) => {
     const request_type = useGeneratorStore((state) => state.request.type);
-    const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
+    const transportMedium = useGeneratorStore((state) => state.request.transport_medium);
     const recipient_address = useGeneratorStore((state) => state.request.recipient_address);
     const recipient_email = useGeneratorStore((state) => state.request.email);
     const reference = useGeneratorStore((state) => state.request.reference);
@@ -60,14 +61,15 @@ export const RequestForm = (props: RequestFormProps) => {
                         <RequestTypeChooser />
 
                         <TransportMediumChooser
-                            value={transport_medium}
+                            value={transportMedium}
                             onChange={(value) => setTransportMedium(value)}
+                            media={TRANSPORT_MEDIA.filter((m) => m !== 'webform' || current_company?.webform)}
                         />
 
                         <RecipientInput
                             onAddressChange={(address) => setRecipientAddress(address)}
                             onEmailChange={(email) => setRecipientEmail(email)}
-                            transportMedium={transport_medium}
+                            transportMedium={transportMedium}
                             recipientAddress={recipient_address}
                             email={recipient_email}
                         />
@@ -164,7 +166,7 @@ export const RequestForm = (props: RequestFormProps) => {
                             fields={id_data}
                             fieldFilter={
                                 request_type === 'custom'
-                                    ? (f) => f.type === 'name' || (transport_medium !== 'email' && f.type === 'address')
+                                    ? (f) => f.type === 'name' || (transportMedium !== 'email' && f.type === 'address')
                                     : undefined
                             }
                             title={t(
@@ -188,7 +190,7 @@ export const RequestForm = (props: RequestFormProps) => {
                             )}
                         </DynamicInputContainer>
 
-                        {transport_medium !== 'email' && (
+                        {(transportMedium === 'fax' || transportMedium === 'letter') && (
                             <SignatureInput
                                 id="signature"
                                 width={428}

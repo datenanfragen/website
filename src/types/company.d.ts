@@ -13,6 +13,7 @@ type CommonSchema = {
     address?: string;
     fax?: string;
     phone?: string;
+    webform?: string;
     web?: string;
     comments?: string[];
     'suggested-transport-medium'?: TransportMedium;

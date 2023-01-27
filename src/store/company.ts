@@ -81,6 +81,8 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 ? company['suggested-transport-medium']
                 : company.email
                 ? 'email'
+                : company.webform
+                ? 'webform'
                 : 'letter'
         );
         if (get().current_company && get().request.type !== 'custom') {

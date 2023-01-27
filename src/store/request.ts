@@ -174,7 +174,8 @@ export const createRequestStore: StoreSlice<RequestState<Request>, CompanyState 
                 }
 
                 state.request.transport_medium = transport_medium;
-                if (state.request.type === 'access') state.request.data_portability = transport_medium === 'email';
+                if (state.request.type === 'access')
+                    state.request.data_portability = ['email', 'webform'].includes(transport_medium);
             })
         );
     },

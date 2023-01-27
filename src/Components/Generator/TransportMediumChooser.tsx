@@ -9,6 +9,7 @@ type TransportMediumChooserProps = {
     value: TransportMedium;
     onChange: (value: TransportMedium) => void;
     label?: ComponentChildren;
+    media?: TransportMedium[];
 };
 
 export function TransportMediumChooser(props: TransportMediumChooserProps) {
@@ -17,14 +18,14 @@ export function TransportMediumChooser(props: TransportMediumChooserProps) {
             <fieldset className="request-transport-medium-chooser label-only-fieldset">
                 <legend>{props.label ? props.label : <Text id="request-transport-medium" />}</legend>
                 <div className="radio-group">
-                    {TRANSPORT_MEDIA.map((transport_medium) => (
+                    {(props.media || TRANSPORT_MEDIA.filter((m) => m !== 'webform')).map((transportMedium) => (
                         <Radio
-                            id={`request-transport-medium-choice-${transport_medium}`}
+                            id={`request-transport-medium-choice-${transportMedium}`}
                             radioVariable={props.value}
-                            value={transport_medium}
+                            value={transportMedium}
                             name="transport-medium"
                             onChange={(value) => props.onChange(value as TransportMedium)}
-                            label={t(transport_medium, 'generator')}
+                            label={t(transportMedium, 'generator')}
                         />
                     ))}
                 </div>
