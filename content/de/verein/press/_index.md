@@ -7,6 +7,7 @@ Willkommen auf unserer Presseseite. Für Presseanfragen, kontaktiere uns bitte u
 
 ## Presse- und Forschungsspiegel
 
+* Deutschlandfunk Nova: [*Unsere Daten im Netz: Tipps fürs digitale Aufräumen*](https://www.deutschlandfunknova.de/beitrag/spam-wie-wir-unsere-daten-im-netz-loeschen-koennen), 19. Januar 2023
 * Mimikama: [*Daten abfragen und mit wenigen Klicks löschen lassen*](https://www.mimikama.org/daten-abfragen-mit-wenigen-klicks/), 03. Januar 2023
 * Deutschlandfunk Nova: [*Datenanfragen.de: Bei Google und Meta erfragen, welche Daten sie sammeln – ganz einfach*](https://www.deutschlandfunknova.de/beitrag/datenschutz-datenanfragen-de-will-uns-gegen-tracking-helfen), 02. Januar 2023
 * netzpolitik.org: [*Datenanfragen.de: Rechtlich gegen Sammelwut vorgehen*](https://netzpolitik.org/2022/datenanfragen-de-rechtlich-gegen-sammelwut-vorgehen/), 30. Dezember 2022
