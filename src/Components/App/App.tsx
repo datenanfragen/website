@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from 'preact/hooks';
+import { useEffect, useRef } from 'preact/hooks';
 import { IntlProvider } from 'preact-i18n';
 import { useWizard } from '../../hooks/useWizard';
 import { RequestTypeChooserPage } from './RequestTypeChooserPage';
@@ -12,7 +12,7 @@ import type { SearchClient } from '../../Utility/search';
 import type { SearchParams } from 'typesense/lib/Typesense/Documents';
 import { ActionButtonProps } from '../Generator/ActionButton';
 import { useGeneratorStore } from '../../store/generator';
-import { getGeneratedMessage, useProceedingsStore } from '../../store/proceedings';
+import { useProceedingsStore } from '../../store/proceedings';
 import { flash, FlashMessage } from '../FlashMessage';
 import { Hint } from '../Hint';
 import { isValidRequestType } from '../../Utility/requests';
@@ -64,7 +64,7 @@ type AppProps = {
 export const App = (props: AppProps) => {
     const appendToBatchBySlug = useGeneratorStore((state) => state.appendToBatchBySlug);
     const setBatchRequestType = useGeneratorStore((state) => state.setBatchRequestType);
-    const proceedings = useProceedingsStore((state) => state.proceedings);
+    const hasUsedOldGenerator = useProceedingsStore((state) => state._hasUsedOldGenerator);
 
     useEffect(() => {
         if (window.PARAMETERS.company || window.PARAMETERS.companies) {
@@ -93,14 +93,6 @@ export const App = (props: AppProps) => {
         set(new_page);
         pageTitleElement.current?.focus();
     }
-
-    const hasUsedOldGenerator = useMemo(
-        () =>
-            !!Object.values(proceedings).find(
-                (p) => (getGeneratedMessage(p, 'request')?.date || new Date('9999-12-31')) <= new Date('2022-12-05')
-            ),
-        [proceedings]
-    );
 
     return (
         <>

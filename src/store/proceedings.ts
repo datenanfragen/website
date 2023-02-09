@@ -29,6 +29,9 @@ export interface ProceedingsState {
     updateStatuses: () => void;
     _hasHydrated: boolean;
     _migratedLegacyRequests: boolean;
+    // TODO: This is only for showing the "advanced-generator" hint in `App.tsx`. Once we remove that hint, we can also
+    // remove this.
+    _hasUsedOldGenerator?: boolean;
     migrationDone: () => void;
     drink: () => void;
 }
@@ -158,12 +161,20 @@ const proceedingsStore = persist<ProceedingsState>(
                             window.ON_PROCEEDING_STATUS_CHANGE?.(state.proceedings[ref], oldStatus);
                         }
                     }
+
+                    if (state._hasUsedOldGenerator === undefined)
+                        state._hasUsedOldGenerator = !!Object.values(state.proceedings).find(
+                            (p) =>
+                                (getGeneratedMessage(p, 'request')?.date || new Date('9999-12-31')) <=
+                                new Date('2022-12-05')
+                        );
                 })
             ),
         // TODO: remove the my requests migration code and notify users about the migration
         migrationDone: () => set({ _migratedLegacyRequests: true }),
         _hasHydrated: false,
         _migratedLegacyRequests: false,
+        _hasUsedOldGenerator: undefined,
     }),
     {
         name: 'Datenanfragen.de-proceedings',
