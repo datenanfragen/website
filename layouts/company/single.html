@@ -36,7 +36,7 @@
             <strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ T "cdb-attn" }}<br>{{ replace . "\n" "<br>" | safeHTML }}
         </div>
         {{ end }}
-        {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
+        {{ if or .Params.phone .Params.fax .Params.email .Params.webform .Params.web }}
         <div class="col50 col100-mobile">
             <table class="contact-table narrow-table">
                 {{ with .Params.phone }}<tr>
@@ -50,6 +50,10 @@
                 {{ with .Params.email }}<tr>
                     <td><strong>{{ T "cdb-email" }}</strong></td>
                     <td><a href="mailto:{{ . }}">{{ . }}</a></td>
+                </tr>{{ end }}
+                {{ with .Params.webform }}<tr>
+                    <td><strong>{{ T "cdb-webform" }}</strong></td>
+                    <td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td>
                 </tr>{{ end }}
                 {{ with .Params.web }}<tr>
                     <td><strong>{{ T "cdb-web" }}</strong></td>

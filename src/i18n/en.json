@@ -73,6 +73,7 @@
         "cdb-fax": "Fax:",
         "cdb-email": "Email:",
         "cdb-privacy-email": "Privacy email:",
+        "cdb-webform": "Web form:",
         "cdb-web": "Website:",
         "cdb-pgp-fingerprint": "PGP fingerprint:",
         "cdb-pgp-url": "PGP key download:",
