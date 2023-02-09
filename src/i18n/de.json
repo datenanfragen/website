@@ -435,7 +435,7 @@
             "one": "{{sent}} Anfrage versendet",
             "other": "{{sent}} Anfragen versendet"
         },
-        "review-selection-explanation": "Das sind die Unternehmen, die Du ausgewählt hast. Für Unternehmen, die auch noch für weitere Enitäten und Dienste verantwortlich sind, kannst Du auswählen, welche Du in Deine Anfrage einschließen möchtest. Sobald Du mit Deiner Auswahl zufrieden bist, kannst Du mit den Anfragen loslegen.",
+        "review-selection-explanation": "Das sind die Unternehmen, die Du ausgewählt hast. Für Unternehmen, die auch noch für weitere Entitäten und Dienste verantwortlich sind, kannst Du auswählen, welche Du in Deine Anfrage einschließen möchtest. Sobald Du mit Deiner Auswahl zufrieden bist, kannst Du mit den Anfragen loslegen.",
         "send-request-pdf-explanation": "Hier ist Deine generierte Anfrage. Lade des PDF herunter und sende es dem Unternehmen per Fax oder Post.",
         "send-request-email-explanation": "Hier ist Deine generierte Anfrage. Du musst sie selbst per E-Mail an das Unternehmen schicken.",
         "send-request-webform-explanation": "Hier ist Deine generierte Anfrage. Du musst sie selbst über das Webformular an das Unternehmen schicken.",
