@@ -60,6 +60,12 @@
         {{ end }}
         <div class="clearfix"></div>
 
+        {{ if and (index .Params "pgp-fingerprint") (index .Params "pgp-url") }}
+            <p>
+                <strong>{{ T "cdb-pgp-key" }}</strong> <code><a href="{{ (index .Params "pgp-url") }}" rel="nofollow">{{ index .Params "pgp-fingerprint" }}</a></code>
+            </p>
+        {{ end }}
+
         <!-- Ugly workaround since `(apply .Params.categories "T" ".")` stopped working at some point (see #135). -->
         {{ .Scratch.Set "categories" slice }}
         {{ range .Params.categories }}
