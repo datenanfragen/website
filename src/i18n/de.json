@@ -549,6 +549,8 @@
         "phone": "Telefon",
         "fax": "Fax",
         "email": "E-Mail",
+        "web-form": "Web-Formular",
+        "webform": "Web-Formular",
         "pgp-fingerprint": "PGP-Key-Fingerprint",
         "pgp-url": "PGP-Key-URL",
         "letter": "Brief",
