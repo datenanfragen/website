@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 28. November 2022.
+Die Informationen sind auf dem Stand vom 13. Februar 2023.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
@@ -35,7 +35,7 @@ Unsere Ziele entsprechen den Zwecken, die die Satzung festlegt, wir haben sie ab
 
 ## 3. Angaben zur Steuerbegünstigung
 
-Das Finanzamt Braunschweig-Wilhelmstraße hat zuletzt uns per [Freistellungsbescheid vom 13. Januar 2020](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) zur Förderung von Verbraucherberatung und -schutz sowie des demokratischen Staatswesens als gemeinnützig anerkannt. Unsere Steuernummer ist: 14/209/11640
+Das Finanzamt Braunschweig-Wilhelmstraße hat zuletzt uns per [Freistellungsbescheid vom 30. Januar 2023](https://static.dacdn.de/docs/freistellungsbescheid_2023-01-30.pdf) zur Förderung von Verbraucherberatung und -schutz sowie des demokratischen Staatswesens als gemeinnützig anerkannt. Unsere Steuernummer ist: 14/209/11640
 
 ## 4. Name und Funktion wesentlicher Entscheidungsträger
 

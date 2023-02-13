@@ -7,7 +7,7 @@
 
 In order for you to be able to trust us, we pledged to be as transparent as possible about our procedures, finances and decisions. Because of that, we have joined the [Initiative for a Transparent Civil Society](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), an initiative by the German branch of Transparency International, which is allowed to audit us on a sample basis. They ensure that we will keep our promise of transparent management. On this page we summarized all the important information that we publish as part of that.
 
-This information has been last updated on November 28, 2022.
+This information has been last updated on February 13, 2023.
 
 ## 1. Name, registered seat, address and date of foundation
 
@@ -33,7 +33,7 @@ Our purpose is the same as stated in our constitution but we also compiled and e
 
 ## 3. Information on tax privileges
 
-The tax office Braunschweig-Wilhelmstraße approved us as a public benefit organisation by the most recent [notice from January 13, 2020 (German)](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) for the promotion of consumer counselling and protection as well as the advancement of the democratic government. We have been assigned the following tax identification number: 14/209/11640
+The tax office Braunschweig-Wilhelmstraße approved us as a public benefit organisation by the most recent [notice from January 30, 2023 (German)](https://static.dacdn.de/docs/freistellungsbescheid_2023-01-30.pdf) for the promotion of consumer counselling and protection as well as the advancement of the democratic government. We have been assigned the following tax identification number: 14/209/11640
 
 ## 4. Name and function of significant decision makers
 
