@@ -193,7 +193,7 @@
         "home-blog-section-read-more": "Más artículos",
         "footer-advanced-generator": "Generador avanzado",
         "home-blog-section-desc": "Informamos sobre nuestras experiencias y publicamos consejos o investigaciones sobre solicitudes de datos y otros temas relacionados con la privacidad. También publicamos periódicamente actualizaciones de nuestra asociación o nuestro sitio web.",
-        "noscript-app": "La aplicación sólo se ejecuta en tu ordenador y, por tanto, está completamente escrita en JavaScript. El código envía la menor cantidad posible de datos a nuestros servidores si no das tu consentimiento. Esto puede incluir las búsquedas que realices, pero nunca enviaremos los datos que introduzcas para tus solicitudes. Éstos sólo permanecerán en el cliente. Si quieres utilizar la aplicación, activa JavaScript en tu navegador o añade una excepción a tu bloqueador. Si después de eso sigue sin funcionar, envíanos un correo electrónico a <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
+        "noscript-app": "El generador de solicitudes sólo se ejecuta en su ordenador y, por lo tanto, está completamente escrito en JavaScript. El código envía la menor cantidad posible de datos a nuestros servidores si usted no da su consentimiento. Esto puede incluir las búsquedas que realices, pero nunca enviará los datos que introduzcas para tus solicitudes. Estos datos sólo permanecerán localmente en su navegador.\nSi desea utilizar el generador, active JavaScript en su navegador o añada una excepción a su bloqueador de JavaScript. Si después de eso sigue sin funcionar, envíanos un correo electrónico a <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
     },
     "my-requests": {
         "title": "Mis solicitudes",
@@ -274,7 +274,8 @@
             "one": "procedimiento vencido",
             "other": "procedimientos vencidos"
         },
-        "see-more-details": "Ver más detalles"
+        "see-more-details": "Ver más detalles",
+        "invalid-date-entered": "La fecha introducida no es válida."
     },
     "generator": {
         "date": "Fecha",
@@ -797,7 +798,8 @@
     },
     "error-msg": {
         "company-not-found": "No se pudo encontrar la empresa que buscabas.",
-        "sva-not-found": "Error al cargar los datos de la autoridad supervisora."
+        "sva-not-found": "Error al cargar los datos de la autoridad supervisora.",
+        "indexeddb-error": "Se ha producido un error inesperado al intentar acceder a la base de datos en su navegador."
     },
     "sva-finder": {
         "kathsonst": "Otras diócesis y solicitudes generales",
