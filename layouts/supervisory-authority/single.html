@@ -35,10 +35,9 @@
         {{ end }}
         <div class="clearfix"></div>
 
-        {{ if or (index .Params "pgp-fingerprint") (index .Params "pgp-url") }}
+        {{ if and (index .Params "pgp-fingerprint") (index .Params "pgp-url") }}
             <p>
-                {{ with (index .Params "pgp-fingerprint") }}<strong>{{ T "cdb-pgp-fingerprint" }}</strong> <code>{{ . }}</code>{{ end }}<br>
-                {{ with (index .Params "pgp-url") }}<strong>{{ T "cdb-pgp-url" }}</strong> <a href="{{ . }}" rel="nofollow">{{ . }}</a>{{ end }}
+                <strong>{{ T "cdb-pgp-key" }}</strong> <code><a href="{{ (index .Params "pgp-url") }}" rel="nofollow">{{ index .Params "pgp-fingerprint" }}</a></code>
             </p>
         {{ end }}
 
