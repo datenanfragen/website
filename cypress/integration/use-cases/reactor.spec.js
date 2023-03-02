@@ -151,7 +151,7 @@ describe('Reacting to request responses', () => {
         cy.containsSettled('Generate complaint').click();
 
         cy.contains('we need to find the supervisory authority');
-        cy.containsSettled('United Kingdom', '.radio-label').scrollIntoView().click();
+        cy.containsSettled('Belgium', '.radio-label').scrollIntoView().click();
 
         cy.contains('How do you want the supervisory authority to contact you?');
         cy.get('#name0-value-base-additional-data').type('{selectall}Kim Mustermensch');
