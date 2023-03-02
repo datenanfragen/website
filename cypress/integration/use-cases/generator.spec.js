@@ -2,7 +2,7 @@ describe('Using the generator', () => {
     beforeEach(() => {
         cy.visit('/generator', {
             onBeforeLoad(win) {
-                Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
+                Object.defineProperty(win.navigator, 'language', { value: ['de-AT'] });
             },
         });
     });
@@ -231,8 +231,8 @@ describe('Using the generator', () => {
     it('Direct marketing objection as PDF, after initially selecting erasure', () => {
         cy.containsSettled('Delete (parts of)').click();
 
-        cy.get('.ais-SearchBox-input').type('{selectall}skype');
-        cy.containsSettled('Microsoft Ireland Operations').click();
+        cy.get('.ais-SearchBox-input').type('{selectall}a1 austria');
+        cy.containsSettled('A1 Telekom Austria').click();
         cy.get('.ais-SearchBox-input').type('{selectall}joyn');
         cy.contains('Joyn GmbH').click();
         cy.contains('Request 2 companies').click();
@@ -246,7 +246,7 @@ describe('Using the generator', () => {
         cy.containsSettled('Stop receiving direct marketing.').click();
 
         cy.contains('Request 2 companies').click();
-        cy.contains('Microsoft Ireland Operations');
+        cy.contains('A1 Telekom Austria');
         cy.contains('Joyn GmbH');
 
         cy.containsSettled('Continue with these companies').click();
@@ -258,14 +258,11 @@ describe('Using the generator', () => {
         cy.containsSettled('Send request').click();
 
         cy.get('.modal').contains('Here’s your generated request. Download the PDF');
-        cy.get('#send-request-modal-subject').should(
-            'have.value',
-            'Objection against direct marketing according to Art. 21(2) GDPR'
-        );
-        cy.get('#send-request-modal-recipient').should('contain.value', 'One Microsoft Place');
+        cy.get('#send-request-modal-subject').should('have.value', 'Werbewiderspruch gemäß Art. 21 Abs. 2 DSGVO');
+        cy.get('#send-request-modal-recipient').should('contain.value', 'Österreich');
         cy.get('#send-request-modal-body')
-            .should('contain.value', 'I am hereby objecting')
-            .should('not.contain.value', 'Please delete the following personal data')
+            .should('contain.value', 'ich lege hiermit Widerspruch')
+            .should('not.contain.value', 'Bitte löschen Sie')
             .should('not.contain.value', '[object Object]');
 
         cy.contains('Download PDF', { timeout: 10000 })
