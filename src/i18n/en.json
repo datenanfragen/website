@@ -216,6 +216,8 @@
         "fax": "fax",
         "email": "email",
         "letter": "letter",
+        "webform": "web form",
+        "sent-via-medium": "sent via {{medium}}",
         "delete-all-btn": "Delete all requests",
         "export-btn": "Export selected requests as CSV",
         "export-ics": "Export selected requests to calendar",

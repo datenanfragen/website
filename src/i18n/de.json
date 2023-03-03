@@ -217,6 +217,8 @@
         "fax": "Fax",
         "email": "E-Mail",
         "letter": "Brief",
+        "webform": "Webformular",
+        "sent-via-medium": "per {{medium}} verschickt",
         "delete-all-btn": "Alle Anfragen löschen",
         "export-btn": "Ausgewählte als CSV exportieren",
         "export-ics": "Ausgewählte in Kalender übernehmen",

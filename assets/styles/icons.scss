@@ -273,3 +273,9 @@
     font-icon: url('gavel.svg');
     vertical-align: -2px;
 }
+
+.icon-paper-plane-letter:before {
+    @extend %icon;
+    font-icon: url('paper-plane-letter.svg');
+    vertical-align: -2px;
+}
