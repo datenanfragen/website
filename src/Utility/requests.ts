@@ -230,3 +230,10 @@ export const shouldBeTrackingRequest = (
     ['access-tracking', 'erasure-tracking', 'rectification-tracking', 'objection-tracking'].includes(
         company?.[`custom-${requestType}-template`] ?? ''
     );
+
+export const iconClassForTransportMedium = {
+    email: 'icon-email',
+    fax: 'icon-fax',
+    letter: 'icon-post-person',
+    webform: 'icon-paper-plane-letter',
+} as const;

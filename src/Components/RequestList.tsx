@@ -4,7 +4,7 @@ import { useAppStore } from '../store/app';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { icsFromProceedings } from '../Utility/requests';
+import { iconClassForTransportMedium, icsFromProceedings } from '../Utility/requests';
 import {
     compareMessage,
     getGeneratedMessage,
@@ -358,7 +358,15 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                     <>
                                         <br />
                                         <button
-                                            className="button button-unstyled icon icon-email"
+                                            className={`button button-unstyled icon ${
+                                                iconClassForTransportMedium[msg.transport_medium]
+                                            }`}
+                                            title={t('sent-via-medium', 'my-requests', {
+                                                medium: t(msg.transport_medium, 'my-requests'),
+                                            })}
+                                            aria-label={t('sent-via-medium', 'my-requests', {
+                                                medium: t(msg.transport_medium, 'my-requests'),
+                                            })}
                                             onClick={() => {
                                                 if (!msg.content) return;
 
@@ -392,7 +400,16 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                     msg.subject && (
                                         <>
                                             <br />
-                                            <span className="icon icon-email">{msg.subject}</span>
+                                            <span
+                                                className={`icon ${iconClassForTransportMedium[msg.transport_medium]}`}
+                                                title={t('sent-via-medium', 'my-requests', {
+                                                    medium: t(msg.transport_medium, 'my-requests'),
+                                                })}
+                                                aria-label={t('sent-via-medium', 'my-requests', {
+                                                    medium: t(msg.transport_medium, 'my-requests'),
+                                                })}>
+                                                {msg.subject}
+                                            </span>
                                         </>
                                     )
                                 )}
