@@ -60,11 +60,14 @@ const CompanyInfoIcons = (props: CompanyInfoIconsProps) => (
         {props.company['needs-id-document'] && (
             <span className="icon-id-card company-info-icon" title={t('needs-id-document', 'generator')} />
         )}
-        {!props.company.email && props.company.address && (
+        {!props.company.email && !props.company.webform && props.company.address && (
             <span className="icon-post-person company-info-icon" title={t('only-snail-mail', 'generator')} />
         )}
-        {!props.company.email && props.company.fax && (
+        {!props.company.email && !props.company.webform && props.company.fax && (
             <span className="icon-fax company-info-icon" title={t('only-fax', 'generator')} />
+        )}
+        {!props.company.email && props.company.webform && (
+            <span className="icon-paper-plane-letter company-info-icon" title={t('only-webform', 'generator')} />
         )}
     </>
 );
