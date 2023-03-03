@@ -425,6 +425,7 @@
         "needs-id-document": "Für diese Anfrage wird ein Ausweisdokument benötigt.",
         "only-snail-mail": "Diese Anfrage muss eventuell per Post versendet werden.",
         "only-fax": "Diese Anfrage muss eventuell per Fax versendet werden.",
+        "only-webform": "Diese Anfrage muss eventuell über ein Web-Formular versendet werden.",
         "choose-runs": "Andere Entitäten, die dieses Unternehmen betreibt, anzeigen und auswählen.",
         "also-runs-choose": "Dieses Unternehmen ist außerdem für diese weiteren Entitäten und Dienste verantwortlich (wähle diejenigen ab, die Du nicht in Deine Anfrage einschließen willst):",
         "consider-as-tracking-company": "Meine Anfrage an dieses Unternehmen bezieht sich auf Trackingdaten und ich weiß nicht, wie das Unternehmen mich dafür identifizieren kann.",
