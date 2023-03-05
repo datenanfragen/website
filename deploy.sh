@@ -31,7 +31,7 @@ mkdir -p static/db/company-packs
 mkdir -p static/db/sva
 
 echo "Copying files…"
-cp SECURITY.md static/security.txt
+cp .github/SECURITY.md static/security.txt
 cp data_tmp/companies/* static/db
 cp data_tmp/supervisory-authorities/* static/db/sva
 
