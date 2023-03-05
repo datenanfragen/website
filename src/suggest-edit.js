@@ -10,8 +10,10 @@ import { ErrorException, rethrow } from './Utility/errors';
 import { submitUrl } from './Utility/suggest';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import { searchClient } from 'Utility/search';
+const equal = require('fast-deep-equal');
 let bf;
 let schema;
+let company_data_old;
 
 window.addEventListener('load', () => {
     const SCHEMA_URL = window.BASE_URL + 'schema.json';
@@ -46,12 +48,15 @@ function prepareForm(schema) {
     sortRelevantCountries(schema.properties['relevant-countries']);
     sortCategories(schema.properties['categories']);
     if (window.PARAMETERS['slug']) {
-        return fetchCompanyDataBySlug(window.PARAMETERS['slug']).then((company) => renderForm(schema, company));
+        return fetchCompanyDataBySlug(window.PARAMETERS['slug']).then((company_data) => {
+            company_data_old = company_data;
+            return renderForm(schema, company_data);
+        });
     }
     renderForm(schema);
 }
 
-function renderForm(schema, company = undefined) {
+function renderForm(schema, company_data = undefined) {
     let BrutusinForms = brutusin['json-forms'];
 
     const TO_HIDE = [
@@ -141,7 +146,7 @@ function renderForm(schema, company = undefined) {
     bf = BrutusinForms.create(schema);
     bf.render(
         document.getElementById('suggest-form'),
-        company || (PARAMETERS['name'] ? { name: PARAMETERS['name'] } : {})
+        company_data || (PARAMETERS['name'] ? { name: PARAMETERS['name'] } : {})
     );
     suggestSimilarNamedCompanies();
 }
@@ -232,6 +237,15 @@ function suggestSimilarNamedCompanies() {
     render(<SimilarList />, container);
 }
 
+function isCompanyDataEquivalent(a, b) {
+    function normalizeCompany(c) {
+        if (c.fax) c.fax = c.fax.replace(/\s/g, '');
+        if (c.phone) c.phone = c.phone.replace(/\s/g, '');
+        return c;
+    }
+    return equal(normalizeCompany(a), normalizeCompany(b));
+}
+
 document.getElementById('submit-suggest-form').onclick = () => {
     let data = bf.getData();
     if (!data) {
@@ -239,6 +253,9 @@ document.getElementById('submit-suggest-form').onclick = () => {
         return;
     } else if (!data.name && !data.web) {
         flash(<FlashMessage type="warning">{t('name-or-web-missing', 'suggest')}</FlashMessage>);
+        return;
+    } else if (isCompanyDataEquivalent(data, company_data_old)) {
+        flash(<FlashMessage type="warning">{t('no-change', 'suggest')}</FlashMessage>);
         return;
     }
 

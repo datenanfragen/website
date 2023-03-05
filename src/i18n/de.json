@@ -537,7 +537,8 @@
         "github-error": "Beim Absenden gab es ein Problem mit GitHub. Dein Vorschlag wurde nicht abgeschickt. Versuch es doch noch einmal.",
         "view-on-github": "Hier kannst Du den Fortschritt auf GitHub verfolgen",
         "ok": "Ok",
-        "similarly-named-companies": "Wir haben schon diese Firmen mit ähnlichem Namen:"
+        "similarly-named-companies": "Wir haben schon diese Firmen mit ähnlichem Namen:",
+        "no-change": "Es gibt keine Änderungen die vorgeschlagen werden können."
     },
     "schema": {
         "relevant-countries": "Relevant in Ländern",
