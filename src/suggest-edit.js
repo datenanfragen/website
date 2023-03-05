@@ -254,7 +254,7 @@ document.getElementById('submit-suggest-form').onclick = () => {
     } else if (!data.name && !data.web) {
         flash(<FlashMessage type="warning">{t('name-or-web-missing', 'suggest')}</FlashMessage>);
         return;
-    } else if (isCompanyDataEquivalent(data, company_data_old)) {
+    } else if (company_data_old && isCompanyDataEquivalent(data, company_data_old)) {
         flash(<FlashMessage type="warning">{t('no-change', 'suggest')}</FlashMessage>);
         return;
     }
