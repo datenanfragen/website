@@ -537,7 +537,7 @@
         "github-error": "There was a problem with GitHub while sending your suggestion, it was not registered. Please try again.",
         "view-on-github": "You can follow the progress on GitHub",
         "ok": "Ok",
-        "no-change": "There are no changes to suggest."
+        "no-change": "You didn’t change anything."
     },
     "schema": {
         "relevant-countries": "Relevant countries",
