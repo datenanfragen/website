@@ -1,3 +1,5 @@
+import { isOn, skipOn } from '@cypress/skip-test';
+
 const message_template = {
     reference: '2022-KKD2YF1',
     date: new Date(),
@@ -14,6 +16,8 @@ const message_template = {
 
 describe('Proceedings page', () => {
     beforeEach(() => {
+        skipOn(isOn('production'));
+
         cy.clearIndexedDb('Datenanfragen.de');
         cy.visit('/my-requests');
         // Wait for proceedingsStore hydration TODO: Can this be more elegant? This seems bound to be undeterministic

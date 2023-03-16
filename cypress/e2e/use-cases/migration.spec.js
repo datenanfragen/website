@@ -1,3 +1,5 @@
+import { isOn, skipOn } from '@cypress/skip-test';
+
 const reference = '2022-KKD2YF1';
 const todayString = new Date().toISOString().substring(0, 10);
 const today = new Date(todayString);
@@ -45,6 +47,9 @@ describe('Saved requests in the legacy database should be correctly migrated', (
     });
 
     it('Migrates a normal proceeding', () => {
+        // `window.getProceedingsStore()` is not populated in prod.
+        skipOn(isOn('production'));
+
         // Add test data
         cy.getStore('@myRequestsStore')
             .createItem(`${reference}-custom-admonition`, admonition)
@@ -109,6 +114,8 @@ describe('Saved requests in the legacy database should be correctly migrated', (
     });
 
     it('Migrates a single admoinition', () => {
+        skipOn(isOn('production'));
+
         // Add test data
         cy.getStore('@myRequestsStore').createItem(`${reference}-custom-admonition`, admonition);
 
@@ -144,6 +151,8 @@ describe('Saved requests in the legacy database should be correctly migrated', (
     });
 
     it('Does not migrate already migrated requests', () => {
+        skipOn(isOn('production'));
+
         // Add test data
         cy.getStore('@myRequestsStore')
             .createItem(`${reference}-custom-admonition`, { ...admonition, migrated: true })

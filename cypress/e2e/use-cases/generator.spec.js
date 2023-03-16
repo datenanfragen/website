@@ -36,7 +36,7 @@ describe('Using the generator', () => {
         cy.contains('Continue with these companies').click();
 
         cy.contains('Fill in request to');
-        cy.get('#name0-value-id_data').type('{selectall}Kim Mustermensch').blur();
+        cy.get('#name0-value-id_data').clear().type('{selectall}Kim Mustermensch').blur();
 
         cy.contains('Send request').click();
 

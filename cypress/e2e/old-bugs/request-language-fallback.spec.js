@@ -32,10 +32,7 @@ describe('Request language fallback', () => {
     });
 
     it('Request language should be set to the language defined in the database entry', () => {
-        cy.visit('/g');
-
-        cy.get('#aa-search-input').type('gmx');
-        cy.contains('GMX').click();
+        cy.visit('/g#!company=1und1-gmx');
 
         cy.contains('Send email').click();
         cy.get('.dropdown-container').contains('Copy text manually').click({ force: true });

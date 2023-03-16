@@ -1,6 +1,8 @@
+import { isOn, skipOn } from '@cypress/skip-test';
+
 const assertIsTrackingRequest = (company, isTrackingRequest) => {
     cy.contains(`Fill in request to “${company}”`);
-    cy.get('#name0-value-id_data').type('{selectall}Kim Mustermensch');
+    cy.get('#name0-value-id_data').clear().type('{selectall}Kim Mustermensch');
     cy.contains('Send request').click();
 
     cy.get('#send-request-modal-body')
@@ -52,6 +54,9 @@ describe('Request generator tool component', () => {
     }); */
 
     it('loads pdf worker for pdf only companies', () => {
+        // `window.pdfWorker` is not populated in prod.
+        skipOn(isOn('production'));
+
         cy.visit('/generator');
 
         cy.contains('access').click();
@@ -63,6 +68,9 @@ describe('Request generator tool component', () => {
     });
 
     it('does not load pdf worker by default', () => {
+        // `window.pdfWorker` is not populated in prod.
+        skipOn(isOn('production'));
+
         cy.visit('/generator');
 
         cy.contains('access').click();
@@ -189,30 +197,66 @@ describe('Request generator tool component', () => {
         }
     });
 
-    it('loads company from slug and clears URL parameters afterwards', () => {
-        cy.visit('/generator#!company=airbnb');
-        cy.contains('Get access').click();
-        cy.contains('Fill in request to “Airbnb Ireland UC”');
+    // `cy.generatorStore()` still doesn't work in CI, unfortunately
+    // (https://github.com/datenanfragen/website/issues/1043#issuecomment-1472355575,
+    // https://github.com/datenanfragen/website/issues/1043#issuecomment-1472476245).
+    // it('loads company from slug and clears URL parameters afterwards', () => {
+    //     skipOn(isOn('production'));
+
+    //     cy.visit('/generator#!company=airbnb');
+    //     cy.waitUntil(() =>
+    //         cy
+    //             .generatorStore()
+    //             .then((state) => state.batch)
+    //             .should('have.property', 'airbnb')
+    //     );
+
+    //     cy.contains('Get access').click();
+    //     cy.contains('Fill in request to “Airbnb Ireland UC”');
+
+    //     cy.contains('Skip request').click();
+    //     cy.contains('Send more requests').click();
+
+    //     cy.url().should('not.include', 'airbnb').should('not.include', 'company');
+    // });
+
+    // it('loads companies from slug and clears URL parameters afterwards', () => {
+    //     skipOn(isOn('production'));
+
+    //     cy.visit('/generator#!companies=airbnb,apple');
+
+    //     cy.waitUntil(() =>
+    //         cy
+    //             .generatorStore()
+    //             .then((state) => state.batch)
+    //             .should('have.property', 'apple')
+    //     );
+    //     cy.contains('Get access').click();
+
+    //     cy.contains('Companies you selected');
+    //     cy.contains('Airbnb Ireland UC');
+    //     cy.contains('Apple Distribution');
+    //     cy.contains('Continue with these companies').click();
+
+    //     cy.contains('Skip request').click();
+    //     cy.contains('Skip request').click();
+    //     cy.contains('Send more requests').click();
+
+    //     cy.url().should('not.include', 'airbnb').should('not.include', 'apple').should('not.include', 'companies');
+    // });
+
+    it('load company from slug, sets request type and clears URL parameters afterwards', () => {
+        cy.visit('/generator#!company=mtch-technology&request_type=erasure');
+        cy.contains('Fill in request to “OkCupid”');
+        cy.contains('Erase all data');
 
         cy.contains('Skip request').click();
         cy.contains('Send more requests').click();
 
-        cy.url().should('not.include', 'airbnb').should('not.include', 'company');
-    });
-
-    it('loads companies from slug and clears URL parameters afterwards', () => {
-        cy.visit('/generator#!companies=airbnb,apple');
-        cy.contains('Get access').click();
-
-        cy.contains('Companies you selected');
-        cy.contains('Airbnb Ireland UC');
-        cy.contains('Apple Distribution');
-        cy.contains('Continue with these companies').click();
-
-        cy.contains('Skip request').click();
-        cy.contains('Skip request').click();
-        cy.contains('Send more requests').click();
-
-        cy.url().should('not.include', 'airbnb').should('not.include', 'apple').should('not.include', 'companies');
+        cy.url()
+            .should('not.include', 'mtch-technology')
+            .should('not.include', 'company')
+            .should('not.include', 'access')
+            .should('not.include', 'request_type');
     });
 });
