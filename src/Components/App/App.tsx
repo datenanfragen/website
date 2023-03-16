@@ -75,7 +75,9 @@ export const App = (props: AppProps) => {
                 .then(() => {
                     if (window.PARAMETERS.request_type && isValidRequestType(window.PARAMETERS.request_type)) {
                         setBatchRequestType(window.PARAMETERS.request_type);
-                        setPage('review_selection');
+
+                        if (typeof companies === 'string' || companies.length === 1) setPage('fill_requests');
+                        else setPage('review_selection');
                     }
                 });
         } else if (window.PARAMETERS.request_type && isValidRequestType(window.PARAMETERS.request_type)) {
