@@ -1,3 +1,5 @@
+import { isOn, skipOn } from '@cypress/skip-test';
+
 const addProceeding = () =>
     cy.proceedingsStore().then((store) =>
         store.addProceeding({
@@ -24,6 +26,8 @@ const addProceeding = () =>
 
 describe('Reacting to request responses', () => {
     beforeEach(() => {
+        skipOn(isOn('production'));
+
         cy.clearIndexedDb('Datenanfragen.de');
         cy.visit('/my-requests');
         // TODO: Can this be more elegant?

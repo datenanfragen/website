@@ -1,9 +1,13 @@
+import { isOn, skipOn } from '@cypress/skip-test';
+
 /*
  * In #1015, we noticed that typing an invalid date in the `ImportMessageModal` would cause an error.
  */
 
 describe('ImportMessageModal', () => {
     beforeEach(() => {
+        skipOn(isOn('production'));
+
         cy.visit('/my-requests');
         // TODO: Can this be more elegant?
         // eslint-disable-next-line cypress/no-unnecessary-waiting

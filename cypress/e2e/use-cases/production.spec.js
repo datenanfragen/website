@@ -22,10 +22,19 @@ describe('Make sure all productions sites are still alive', () => {
             cy.visit(site);
 
             cy.visit(`${site}/generator`);
-            cy.get('[for="request-type-choice-erasure"]').click();
-            cy.get('[for="request-transport-medium-choice-fax"]').click();
-            cy.get('#name0-delete-id_data').click();
-            cy.get('#download-button').clickLinkWithoutFollowingHref({ force: true });
+            cy.get('#request-type-choice-erasure').click();
+
+            cy.get('.ais-SearchBox-input').clear().type('apple');
+            cy.contains('Apple Distribution International').click();
+            cy.get('#review-n-companies-button').click();
+            cy.get('.app-cta-container > .button-primary').click();
+            cy.get('#name0-value-id_data').clear().type('Kim');
+            cy.get('#request-flags-erase-all').uncheck();
+            cy.get('#request-erasure-data').clear().type('certain data');
+            cy.get('#request-flags-include-objection').click();
+            cy.get('#request-objection-reason').clear().type('very important reason here');
+            cy.get('.action-button-row > .button-primary').click();
+            cy.get('.modal button.button-secondary').click();
 
             // Some languages don't have any blog posts, so we have to exclude them here.
             if (!['https://www.gegevensaanvragen.nl'].includes(site)) {
