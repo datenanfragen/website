@@ -15,6 +15,7 @@ export default defineConfig({
         specPattern: 'cypress/e2e/**/*.spec.{js,jsx,ts,tsx}',
 
         experimentalRunAllSpecs: true,
+        experimentalStudio: true,
         testIsolation: true,
     },
 });
