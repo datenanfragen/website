@@ -8,22 +8,22 @@ describe('Using the generator', () => {
     });
 
     it('Simple access requests to companies in "add-all" company pack', () => {
-        cy.containsSettled('Get access');
+        cy.contains('Get access');
         cy.get('.request-type-help-button').first().click();
         cy.contains('Through an access request, you can find out');
         cy.contains('Ok').click();
 
-        cy.containsSettled('Get access').click();
+        cy.contains('Get access').click();
         cy.contains('Start selecting companies!').should('be.disabled');
-        cy.containsSettled('Add companies to your requests').first().click();
+        cy.contains('Add companies to your requests').first().click();
 
         cy.get('.modal input[type="checkbox"]')
             .its('length')
             .then((numCompanies) => {
                 cy.get('.modal input[type="checkbox"]').first().click();
-                cy.containsSettled(`Add ${numCompanies - 1} companies`).click();
+                cy.contains(`Add ${numCompanies - 1} companies`).click();
 
-                cy.containsSettled(`Request ${numCompanies - 1} companies`).click();
+                cy.contains(`Request ${numCompanies - 1} companies`).click();
                 cy.get('li.company-result')
                     .its('length')
                     .should('eq', numCompanies - 1);
@@ -33,12 +33,12 @@ describe('Using the generator', () => {
                     .should('eq', numCompanies - 2);
             });
 
-        cy.containsSettled('Continue with these companies').click();
+        cy.contains('Continue with these companies').click();
 
         cy.contains('Fill in request to');
-        cy.containsSettled('', '#name0-value-id_data').type('{selectall}Kim Mustermensch').blur();
+        cy.get('#name0-value-id_data').type('{selectall}Kim Mustermensch').blur();
 
-        cy.containsSettled('Send request').click();
+        cy.contains('Send request').click();
 
         cy.get('.modal').contains('Here’s your generated request.');
         // Depending on which company loads first, we may get one with `request-language == de` or one without a
@@ -62,39 +62,39 @@ describe('Using the generator', () => {
             );
         cy.get('#send-request-modal-body').should('contain.value', 'Kim Mustermensch');
 
-        cy.contains('Skip request');
+        cy.get('.modal').contains('Skip request');
         cy.contains('Next request').should('not.exist');
         cy.contains('Send email').click();
         cy.contains('Default email software').clickLinkWithoutFollowingHref({ force: true });
         cy.contains('Skip request').should('not.exist');
-        cy.containsSettled('Next request').click();
+        cy.get('.modal').contains('Next request').click();
 
         cy.get('#name0-value-id_data').should('have.value', 'Kim Mustermensch');
     });
 
     it('Two erasure requests with various features, followed by an access request', () => {
-        cy.containsSettled('Delete (parts of)').click();
+        cy.contains('Delete (parts of)').click();
 
         cy.get('.ais-SearchBox-input').type('{selectall}soundcloud');
-        cy.containsSettled('SoundCloud Limited').click();
+        cy.contains('SoundCloud Limited').click();
         cy.get('.ais-SearchBox-input').type('{selectall}spiegel.de');
-        cy.containsSettled('DER SPIEGEL GmbH & Co. KG').click();
+        cy.contains('DER SPIEGEL GmbH & Co. KG').click();
 
         cy.contains('Request 2 companies').click();
 
         cy.contains('Companies you selected');
         cy.contains('DER SPIEGEL');
-        cy.containsSettled('SoundCloud Limited').click();
-        cy.containsSettled('SoundCloud Go+').click();
+        cy.contains('SoundCloud Limited').click();
+        cy.contains('SoundCloud Go+').click();
 
-        cy.containsSettled('Continue with these companies').click();
+        cy.contains('Continue with these companies').click();
 
         cy.contains('Erase all data');
         cy.get('#request-objection-reason').should('not.exist');
         cy.contains('Additionally include an objection').click();
         cy.get('#request-objection-reason').type('{selectall}[my objection reason here]');
 
-        cy.containsSettled('Send request').click();
+        cy.contains('Send request').click();
 
         cy.get('.modal').contains('Here’s your generated request.');
         cy.get('#send-request-modal-subject').should(
@@ -111,12 +111,12 @@ describe('Using the generator', () => {
             .should('not.contain.value', 'Please delete the following personal data')
             .should('contain.value', 'Please erase all personal data');
 
-        cy.containsSettled('Skip request').click();
+        cy.get('.modal').contains('Skip request').click();
 
         cy.contains('Erase all data').click().click().click();
         cy.get('#request-erasure-data').type('{selectall}All tracking data concerning me.');
 
-        cy.containsSettled('Send request').click();
+        cy.contains('Send request').click();
 
         cy.get('#send-request-modal-body')
             .should('contain.value', 'I am hereby requesting immediate erasure')
@@ -125,22 +125,22 @@ describe('Using the generator', () => {
             .should('not.contain.value', 'Please erase all personal data')
             .should('contain.value', 'All tracking data concerning me.');
 
-        cy.containsSettled('Skip request').click();
+        cy.get('.modal').contains('Skip request').click();
 
         cy.contains('What’s next?');
-        cy.containsSettled('Send more requests').click();
+        cy.contains('Send more requests').click();
 
-        cy.containsSettled('Get access').click();
+        cy.contains('Get access').click();
         cy.contains('Start selecting companies!').should('be.disabled');
         cy.get('.ais-SearchBox-input').type('{selectall}amazon.de');
-        cy.containsSettled('Amazon Europe Core SARL').click();
-        cy.containsSettled('Request 1 company').click();
-        cy.containsSettled('Continue with these companies').click();
+        cy.contains('Amazon Europe Core SARL').click();
+        cy.contains('Request 1 company').click();
+        cy.contains('Continue with these companies').click();
 
         cy.contains('Erase all data').should('not.exist');
         cy.contains('Additionally include an objection').should('not.exist');
 
-        cy.containsSettled('Send request').click();
+        cy.contains('Send request').click();
         cy.get('#send-request-modal-subject').should(
             'have.value',
             'Request to access to personal data according to Art. 15 GDPR'
@@ -149,9 +149,9 @@ describe('Using the generator', () => {
     });
 
     it('Rectification request to custom company, appears in “My requests”', () => {
-        cy.containsSettled('Correct data').click();
+        cy.contains('Correct data').click();
 
-        cy.containsSettled('Add a custom company').click();
+        cy.contains('Add a custom company').click();
 
         cy.get('.modal').contains('Fill in the company’s details here.');
         cy.get('#custom-company-input-name').type('Darkenanfragen AG');
@@ -182,7 +182,7 @@ describe('Using the generator', () => {
         cy.contains('Darkenanfragen AG');
         cy.contains('ACME Inc.').should('not.exist');
 
-        cy.containsSettled('Continue with these companies').click();
+        cy.contains('Continue with these companies').click();
 
         cy.contains('Fill in request to “Darkenanfragen AG”');
 
@@ -201,7 +201,7 @@ describe('Using the generator', () => {
         cy.contains('New address');
         cy.get('#address0-street_1-rectification_data').type('{selectall}123 New Lane');
 
-        cy.containsSettled('Send request').click();
+        cy.contains('Send request').click();
         cy.get('.modal').contains('Here’s your generated request.');
         cy.get('#send-request-modal-subject').should(
             'have.value',
@@ -218,21 +218,21 @@ describe('Using the generator', () => {
 
         cy.contains('Send email').click();
         cy.contains('Default email software').clickLinkWithoutFollowingHref({ force: true });
-        cy.containsSettled('Next request').click();
+        cy.get('.modal').contains('Next request').click();
 
         cy.contains('What’s next?');
         cy.contains('Send more requests');
-        cy.containsSettled('View your requests').click();
+        cy.contains('View your requests').click();
 
         cy.contains('My requests');
         cy.contains('Darkenanfragen AG');
     });
 
     it('Direct marketing objection as PDF, after initially selecting erasure', () => {
-        cy.containsSettled('Delete (parts of)').click();
+        cy.contains('Delete (parts of)').click();
 
         cy.get('.ais-SearchBox-input').type('{selectall}a1 austria');
-        cy.containsSettled('A1 Telekom Austria').click();
+        cy.contains('A1 Telekom Austria').click();
         cy.get('.ais-SearchBox-input').type('{selectall}joyn');
         cy.contains('Joyn GmbH').click();
         cy.contains('Request 2 companies').click();
@@ -243,19 +243,19 @@ describe('Using the generator', () => {
         cy.get('.wizard-header .app-back-button').click();
         cy.contains('What do you want to do?');
 
-        cy.containsSettled('Stop receiving direct marketing.').click();
+        cy.contains('Stop receiving direct marketing.').click();
 
         cy.contains('Request 2 companies').click();
         cy.contains('A1 Telekom Austria');
         cy.contains('Joyn GmbH');
 
-        cy.containsSettled('Continue with these companies').click();
+        cy.contains('Continue with these companies').click();
 
         cy.contains('Erase all data').should('not.exist');
         cy.contains('Additionally include an objection').should('not.exist');
         cy.contains('Signature');
 
-        cy.containsSettled('Send request').click();
+        cy.contains('Send request').click();
 
         cy.get('.modal').contains('Here’s your generated request. Download the PDF');
         cy.get('#send-request-modal-subject').should('have.value', 'Werbewiderspruch gemäß Art. 21 Abs. 2 DSGVO');
@@ -274,11 +274,11 @@ describe('Using the generator', () => {
 
     // TODO: Same problem as in the component test. We get errors on the remote.
     /* it('Requests get stored correctly', () => {
-        cy.containsSettled('Get access').click();
+        cy.contains('Get access').click();
         cy.searchAndRequestCompanies(['Commerzbank', 'Allianz SE', 'Oracle Corporation', 'CRIF GmbH', 'bonprix']);
 
         const check = (action, shouldBeStored) => {
-            cy.containsSettled('Send request').click();
+            cy.contains('Send request').click();
             cy.generatorStore()
                 .then((state) => state.request.reference)
                 .then((reference) =>
@@ -300,25 +300,25 @@ describe('Using the generator', () => {
                         .then((state) => state.proceedings)
                         .should(shouldBeStored ? 'haveOwnProperty' : 'not.haveOwnProperty', reference)
                 );
-            cy.containsSettled(shouldBeStored ? 'Next request' : 'Skip request').click();
+            cy.contains(shouldBeStored ? 'Next request' : 'Skip request').click();
         };
 
         // mailto
         check(() => {
             cy.contains('Send email').click();
-            cy.containsSettled('Default email software').clickLinkWithoutFollowingHref({ force: true });
+            cy.contains('Default email software').clickLinkWithoutFollowingHref({ force: true });
         }, true);
 
         // webmailer
         check(() => {
             cy.contains('Send email').click();
-            cy.containsSettled('Google Mail').clickLinkWithoutFollowingHref({ force: true });
+            cy.contains('Google Mail').clickLinkWithoutFollowingHref({ force: true });
         }, true);
 
         // PDF
         check(() => {
             cy.contains('Download PDF').should('not.have.class', 'disabled');
-            cy.containsSettled('Download PDF').clickLinkWithoutFollowingHref({ force: true });
+            cy.contains('Download PDF').clickLinkWithoutFollowingHref({ force: true });
         }, true);
 
         // copy text

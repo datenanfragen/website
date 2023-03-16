@@ -1,7 +1,7 @@
 const assertIsTrackingRequest = (company, isTrackingRequest) => {
     cy.contains(`Fill in request to “${company}”`);
     cy.get('#name0-value-id_data').type('{selectall}Kim Mustermensch');
-    cy.containsSettled('Send request').click();
+    cy.contains('Send request').click();
 
     cy.get('#send-request-modal-body')
         .should(
@@ -29,7 +29,7 @@ describe('Request generator tool component', () => {
         for (const type of types) {
             cy.visit('/generator');
 
-            cy.containsSettled(type.buttonText).click();
+            cy.contains(type.buttonText).click();
             cy.generatorStore()
                 .then((state) => state.batchRequestType)
                 .should('be.equal', type.type);
@@ -42,7 +42,7 @@ describe('Request generator tool component', () => {
             for (const flagText of type.flagTexts) cy.get('#app').contains(flagText).should('be.visible');
 
             cy.contains('Send request').click();
-            cy.get('.modal').containsSettled('Skip request').click();
+            cy.get('.modal').contains('Skip request').click();
 
             cy.generatorStore()
                 .then((state) => state.request.type)
@@ -54,7 +54,7 @@ describe('Request generator tool component', () => {
     it('loads pdf worker for pdf only companies', () => {
         cy.visit('/generator');
 
-        cy.containsSettled('access').click();
+        cy.contains('access').click();
         cy.searchAndRequestCompanies(['Instagram']);
         cy.window().then((win) => {
             expect(win.pdfWorker).not.to.be.undefined;
@@ -65,7 +65,7 @@ describe('Request generator tool component', () => {
     it('does not load pdf worker by default', () => {
         cy.visit('/generator');
 
-        cy.containsSettled('access').click();
+        cy.contains('access').click();
         cy.searchAndRequestCompanies(['Netflix']);
         cy.window().then((win) => {
             expect(win.pdfWorker).to.be.undefined;
@@ -78,7 +78,7 @@ describe('Request generator tool component', () => {
                 Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
             },
         });
-        cy.containsSettled('access').click();
+        cy.contains('access').click();
 
         const assertPacksForAll = () => {
             cy.contains('Entertainment');
@@ -106,10 +106,10 @@ describe('Request generator tool component', () => {
                 Object.defineProperty(win.navigator, 'language', { value: ['de-DE'] });
             },
         });
-        cy.containsSettled('Get access').click();
+        cy.contains('Get access').click();
 
         cy.contains('Add a custom company').click();
-        cy.get('.modal').containsSettled('Fill in the company’s details here.');
+        cy.get('.modal').contains('Fill in the company’s details here.');
         cy.get('#custom-company-input-name').type('Darkenanfragen AG');
         cy.get('#custom-company-input-email').type('privacy@darkenanfragen.tld');
         cy.contains('Add company').click();
@@ -131,7 +131,7 @@ describe('Request generator tool component', () => {
         assertChecked('Norddeutscher Rundfunk (NDR)', false);
         assertChecked('Adjust GmbH', true);
 
-        cy.containsSettled('Continue with these companies').click();
+        cy.contains('Continue with these companies').click();
 
         assertIsTrackingRequest('Darkenanfragen AG', false);
         assertIsTrackingRequest('Norddeutscher Rundfunk (NDR)', false);
@@ -145,10 +145,10 @@ describe('Request generator tool component', () => {
             },
         });
 
-        cy.containsSettled('Get access').click();
+        cy.contains('Get access').click();
 
         cy.contains('Add a custom company').click();
-        cy.get('.modal').containsSettled('Fill in the company’s details here.');
+        cy.get('.modal').contains('Fill in the company’s details here.');
         cy.get('#custom-company-input-name').type('Darkenanfragen AG');
         cy.get('#custom-company-input-email').type('privacy@darkenanfragen.tld');
         cy.contains('Add company').click();
@@ -170,7 +170,7 @@ describe('Request generator tool component', () => {
         toggleTrackingStatusStatus('Norddeutscher Rundfunk (NDR)');
         toggleTrackingStatusStatus('Adjust GmbH');
 
-        cy.containsSettled('Continue with these companies').click();
+        cy.contains('Continue with these companies').click();
 
         assertIsTrackingRequest('Darkenanfragen AG', true);
         assertIsTrackingRequest('Norddeutscher Rundfunk (NDR)', true);
@@ -181,7 +181,7 @@ describe('Request generator tool component', () => {
         const types = ['Delete (parts of)', 'Correct data', 'Stop receiving direct marketing'];
         for (const type of types) {
             cy.visit('/generator');
-            cy.containsSettled(type).click();
+            cy.contains(type).click();
 
             cy.searchAndRequestCompanies(['TikTok'], false);
             cy.contains('TikTok').click();
@@ -191,27 +191,27 @@ describe('Request generator tool component', () => {
 
     it('loads company from slug and clears URL parameters afterwards', () => {
         cy.visit('/generator#!company=airbnb');
-        cy.containsSettled('Get access').click();
+        cy.contains('Get access').click();
         cy.contains('Fill in request to “Airbnb Ireland UC”');
 
-        cy.containsSettled('Skip request').click();
-        cy.containsSettled('Send more requests').click();
+        cy.contains('Skip request').click();
+        cy.contains('Send more requests').click();
 
         cy.url().should('not.include', 'airbnb').should('not.include', 'company');
     });
 
     it('loads companies from slug and clears URL parameters afterwards', () => {
         cy.visit('/generator#!companies=airbnb,apple');
-        cy.containsSettled('Get access').click();
+        cy.contains('Get access').click();
 
         cy.contains('Companies you selected');
         cy.contains('Airbnb Ireland UC');
         cy.contains('Apple Distribution');
-        cy.containsSettled('Continue with these companies').click();
+        cy.contains('Continue with these companies').click();
 
-        cy.containsSettled('Skip request').click();
-        cy.containsSettled('Skip request').click();
-        cy.containsSettled('Send more requests').click();
+        cy.contains('Skip request').click();
+        cy.contains('Skip request').click();
+        cy.contains('Send more requests').click();
 
         cy.url().should('not.include', 'airbnb').should('not.include', 'apple').should('not.include', 'companies');
     });

@@ -43,7 +43,7 @@ describe('Reacting to request responses', () => {
         cy.contains('React').click();
 
         cy.contains('Has there been a problem with your request?');
-        cy.containsSettled('mark request as completed').click();
+        cy.contains('mark request as completed').click();
         cy.contains('Back to').click();
 
         cy.contains('My requests');
@@ -60,10 +60,10 @@ describe('Reacting to request responses', () => {
 
         cy.contains('Has there been a problem with your request?');
 
-        cy.containsSettled('Company requires additional').click();
-        cy.containsSettled('yes', '.radio-label').click();
-        cy.containsSettled('no', '.radio-label').click();
-        cy.containsSettled('yes', '.radio-label').click();
+        cy.contains('Company requires additional').click();
+        cy.get('.radio-label').contains('yes').click();
+        cy.get('.radio-label').contains('no').click();
+        cy.get('.radio-label').contains('yes').click();
         cy.get('#add-dynamic-inputs-additional-id-additional-data').click();
         cy.get('#add-input-additional-id-additional-data-input').click();
         cy.contains('Custom field').click();
@@ -73,29 +73,29 @@ describe('Reacting to request responses', () => {
         cy.contains('Next').click();
         cy.contains('Company requires additional').should('not.exist');
 
-        cy.containsSettled('Company requires request to be signed').click();
-        cy.containsSettled('no', '.radio-label:not(:contains(I don’t know))').click();
+        cy.contains('Company requires request to be signed').click();
+        cy.get('.radio-label:not(:contains(I don’t know))').contains('no').click();
         cy.contains('Company requires request to be signed').should('not.exist');
 
-        cy.containsSettled('Company claims request was sent via the wrong medium').click();
-        cy.containsSettled('It was sent to another contact').click();
-        cy.containsSettled('none of the above').click();
-        cy.containsSettled('Check if there is another problem').click();
+        cy.contains('Company claims request was sent via the wrong medium').click();
+        cy.contains('It was sent to another contact').click();
+        cy.contains('none of the above').click();
+        cy.contains('Check if there is another problem').click();
         cy.contains('Company claims request was sent via the wrong medium');
 
-        cy.containsSettled('Company requires a copy of an identity document').click();
-        cy.containsSettled('The company doesn’t know me by my real-life identity.').click();
+        cy.contains('Company requires a copy of an identity document').click();
+        cy.contains('The company doesn’t know me by my real-life identity.').click();
 
-        cy.containsSettled('Company answered in a different language').click();
+        cy.contains('Company answered in a different language').click();
         cy.contains('What language was your request in?');
         cy.get('.form-element').type('{selectall}English').blur();
-        cy.containsSettled('Next').click();
+        cy.contains('Next').click();
         cy.contains('What language was the company’s response in?');
         cy.get('.form-element').type('{selectall}German').blur();
-        cy.containsSettled('Next').click();
-        cy.containsSettled('no', '.radio-label').click();
+        cy.contains('Next').click();
+        cy.get('.radio-label').contains('no').click();
 
-        cy.containsSettled('Generate admonition').click();
+        cy.contains('Generate admonition').click();
 
         cy.contains('Here’s your generated admonition.');
         cy.get('#send-request-modal-body')
@@ -130,35 +130,35 @@ describe('Reacting to request responses', () => {
         cy.contains('2022-29KVS000').parent().parent().contains('Admonition: Request according to Art. 15 GDPR');
         cy.contains('React').click();
 
-        cy.containsSettled('Generate a complaint').click();
+        cy.contains('Generate a complaint').click();
         cy.contains('wait until the deadline has passed');
-        cy.containsSettled('Continue with the complaint').click();
-        cy.containsSettled('Next').click();
+        cy.contains('Continue with the complaint').click();
+        cy.contains('Next').click();
 
         cy.contains(
             'you said that the company refused to answer your request until you provide a copy of an identity document'
         );
-        cy.containsSettled('Issue resolved, include in complaint.').click();
+        cy.contains('Issue resolved, include in complaint.').click();
 
         cy.contains('you said that the company refused to answer your request unless you sign it');
-        cy.containsSettled('Issue persists, include in complaint.').click();
-        cy.containsSettled('Use previous answers.').click();
+        cy.contains('Issue persists, include in complaint.').click();
+        cy.contains('Use previous answers.').click();
 
         cy.contains('you said that the company responded to your request in a different language');
-        cy.containsSettled('Ignore issue in complaint.').click();
+        cy.contains('Ignore issue in complaint.').click();
 
         cy.contains('Do you want to mention any additional issues in your complaint?');
-        cy.containsSettled('Generate complaint').click();
+        cy.contains('Generate complaint').click();
 
         cy.contains('we need to find the supervisory authority');
-        cy.containsSettled('Belgium', '.radio-label').scrollIntoView().click();
+        cy.get('.radio-label').contains('Belgium').scrollIntoView().click();
 
         cy.contains('How do you want the supervisory authority to contact you?');
         cy.get('#name0-value-base-additional-data').type('{selectall}Kim Mustermensch');
-        cy.containsSettled('Next').click();
+        cy.contains('Next').click();
 
         cy.contains('Can the supervisory authority share your details with the company?');
-        cy.containsSettled('yes', '.radio-label').click();
+        cy.get('.radio-label').contains('yes').click();
 
         cy.contains('Here’s your generated complaint.');
         cy.get('#send-request-modal-body')
@@ -198,11 +198,11 @@ describe('Reacting to request responses', () => {
         cy.contains('React').click();
 
         cy.contains('Has there been a problem with your request?');
-        cy.containsSettled('I want to write my own message').click();
+        cy.contains('I want to write my own message').click();
 
         cy.contains('Please enter the message');
         cy.get('.form-element').type('Dear Verein,\nyou violated my rights.');
-        cy.containsSettled('Next').click();
+        cy.contains('Next').click();
 
         cy.contains('Here’s your generated response.');
         cy.get('#send-request-modal-body').should('contain.value', 'Dear Verein,\nyou violated my rights.');
