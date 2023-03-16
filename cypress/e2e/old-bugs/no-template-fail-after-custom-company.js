@@ -9,15 +9,15 @@ describe('Custom template load error', () => {
 
         cy.contains('Bundesamt für Justiz');
         cy.contains('SCHUFA Holding AG');
-        cy.containsSettled('Continue with these companies').click();
+        cy.contains('Continue with these companies').click();
 
         cy.contains('Bundesamt für Justiz');
-        cy.containsSettled('Skip request').click();
+        cy.contains('Skip request').click();
         // The bug would have occurred here.
         cy.get('.modal').should('not.exist');
 
         cy.contains('SCHUFA Holding AG');
-        cy.containsSettled('Skip request').click();
+        cy.contains('Skip request').click();
 
         cy.contains('What’s next?');
     });
