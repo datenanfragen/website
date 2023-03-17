@@ -10,7 +10,7 @@ import { ErrorException, rethrow } from './Utility/errors';
 import { submitUrl } from './Utility/suggest';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import { searchClient } from 'Utility/search';
-import { equal } from 'fast-deep-equal';
+import equal from 'fast-deep-equal';
 let bf;
 let schema;
 let company_data_old;
