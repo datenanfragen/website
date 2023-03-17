@@ -819,5 +819,9 @@
         "language-hr": "Chorvatsky",
         "not-supported-prompt": "Je Váš jazyk nebo země zatím nedostupná?",
         "not-supported-cta": "Pomozte nám to umožnit!"
+    },
+    "macros": {
+        "base_url": "https://www.datarequests.org",
+        "site_name": "datarequests.org"
     }
 }
