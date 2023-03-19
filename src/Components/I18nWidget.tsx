@@ -27,7 +27,8 @@ export const I18nWidget = (props: I18nWidgetProps) => {
         ),
         negativeText: <Text id="stay" />,
         onNegativeFeedback: () => {
-            setNewLanguage(savedLocale);
+			// Reset the select to show the current language instead of the just selected one.
+            setNewLanguage(savedLocale); 
             dismissModal();
         },
         hasDismissButton: false,
@@ -71,7 +72,7 @@ export const I18nWidget = (props: I18nWidgetProps) => {
                         <Text id="language" />
                     </h2>
                     <div className="select-container">
-                        <select value={savedLocale} onBlur={changeLanguage}>
+                        <select value={savedLocale} onChange={changeLanguage}>
                             <option value={savedLocale}>
                                 <Text id={`language-desc-${savedLocale}`} />
                             </option>
