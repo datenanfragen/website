@@ -27,7 +27,8 @@ export const I18nWidget = (props: I18nWidgetProps) => {
         ),
         negativeText: <Text id="stay" />,
         onNegativeFeedback: () => {
-            setNewLanguage(savedLocale); // TODO: Is this call needed?
+			// Reset the select to show the current language instead of the just selected one.
+            setNewLanguage(savedLocale); 
             dismissModal();
         },
         hasDismissButton: false,
