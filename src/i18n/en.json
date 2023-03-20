@@ -536,7 +536,8 @@
         "invalid-request": "Some of your entries are not in the right format or incomplete. Correct them and send your suggestion again.",
         "github-error": "There was a problem with GitHub while sending your suggestion, it was not registered. Please try again.",
         "view-on-github": "You can follow the progress on GitHub",
-        "ok": "Ok"
+        "ok": "Ok",
+        "no-change": "You didn’t change anything."
     },
     "schema": {
         "relevant-countries": "Relevant countries",
