@@ -113,7 +113,7 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
 @see {@link https://www.pedidodedados.org/|Portuguese website}
 @see {@link https://www.solicituddedatos.es/|Spanish website}
 @see {@link https://www.osobnipodaci.org/|Croatian website}
-@see {@link https://www.todo.tl/|Dutch website}`),
+@see {@link https://www.gegevensaanvragen.nl//|Dutch website}`),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
         new webpack.DefinePlugin({
