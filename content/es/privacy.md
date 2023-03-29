@@ -23,8 +23,8 @@ Esta política de privacidad se aplica a todas las actividades de Datenanfragen.
 
 Esto incluye los datos que recopilamos y procesamos de nuestros miembros, pero también los datos que se obtienen de donaciones y similares.
 
-Además, esto incluye nuestros sitios web [solicituddedatos.es](https://www.solicituddedatos.es), [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl), [pedidodedados.org](https://www.pedidodedados.org/) y [trackers.tweasel.org](https://trackers.tweasel.org).
-
+Además, esto incluye nuestros sitios web [solicituddedatos.es](https://www.solicituddedatos.es), [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl), [pedidodedados.org](https://www.pedidodedados.org/), [zadostioudaje.org](https://zadostioudaje.org/)
+ y [trackers.tweasel.org](https://trackers.tweasel.org).
 El propósito de la asociación es ayudar al público en general a ejercer su derecho a la privacidad (“derecho a la autodeterminación informativa”) informándoles y asesorándolos con todas las preguntas relacionadas con la protección de datos personales. Estamos sujetos a nuestra {{< link slug="verein/constitution" text="constitución" >}} en todas nuestras actividades.
 
 Con nuestro sitio web solicituddedatos.es (así como sus traducciones), queremos ayudarte a ejercer tu derecho a la privacidad. Para ello, ofrecemos un generador que te ayuda a generar automáticamente solicitudes, una base de datos de empresas con datos de contacto para solicitudes relacionadas con la privacidad y material educativo sobre temas relacionados con la privacidad y la protección de datos. Finalmente, tiene información sobre la asociación y te permite unirte o donar entre otras cosas.

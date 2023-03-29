@@ -12,13 +12,13 @@ if (!process.env.DATTEL_SERVER || !process.env.DATTEL_TOKEN) {
 
 async function main() {
     try {
-        const languages = ['de', 'en', 'fr', 'pt', 'es', 'hr', 'nl'];
+        const languages = ['de', 'en', 'fr', 'pt', 'es', 'hr', 'nl', 'cs'];
 
         for (const language of languages) {
             const site_id = `dade-website-${language}`;
 
             // Cancel any stale deploys. This call will fail if there was no stale deploy, so we just ignore the error.
-            await dattel.cancelDeploy(site_id).catch((_) => {});
+            await dattel.cancelDeploy(site_id).catch((_) => { });
 
             console.log(`Starting dattel deploy for ${site_id}…`);
             const deploy_info = (await dattel.startDeploy(site_id)).data.deploy;

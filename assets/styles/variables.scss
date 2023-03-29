@@ -28,7 +28,7 @@ $button-height: 45px;
 
 $button: '.button, button';
 $text-inputs: 'input[type=search], input[type=text], input[type=email], input[type=password], input[type=tel], input[type=url], input[type=number], input[type=date], textarea, select';
-$external-link-selector: '&:not([href^="https://www.datenanfragen.de"]):not([href^="https://www.datarequests.org"]):not([href^="https://www.demandetesdonnees.fr"]):not([href^="https://www.pedidodedados.org"]):not([href^="https://www.solicituddedatos.es"]):not([href^="https://www.osobnipodaci.org"]):not([href^="https://www.gegevensaanvragen.nl"]):not([href^="https://static.dacdn.de"]):not([href^="http://localhost:"]):not([href^="http://datenanfragen.test:"]):not([href^="https://verein.datenanfragen.de"]):not([href^="#"]):not([href*="--datenanfragen.netlify.app/"]):not([href^="mailto:"]):not([href^="/"])[href*="."]';
+$external-link-selector: '&:not([href^="https://www.datenanfragen.de"]):not([href^="https://www.datarequests.org"]):not([href^="https://www.demandetesdonnees.fr"]):not([href^="https://www.pedidodedados.org"]):not([href^="https://www.solicituddedatos.es"]):not([href^="https://www.osobnipodaci.org"]):not([href^="https://www.gegevensaanvragen.nl"]):not([href^="https://zadostioudaje.org"]):not([href^="https://static.dacdn.de"]):not([href^="http://localhost:"]):not([href^="http://datenanfragen.test:"]):not([href^="https://verein.datenanfragen.de"]):not([href^="#"]):not([href*="--datenanfragen.netlify.app/"]):not([href^="mailto:"]):not([href^="/"])[href*="."]';
 
 $dark-mode: false;
 

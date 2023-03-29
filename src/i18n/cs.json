@@ -1,4 +1,8 @@
 {
+    "macros": {
+        "site_name": "zadostioudaje.org",
+        "base_url": "https://zadostioudaje.org/"
+    },
     "sva-finder": {
         "rundfunk-br": "Bayerischer Rundfunk (BR)",
         "rundfunk-dw": "Deutsche Welle",
@@ -817,6 +821,7 @@
         "language-es": "Španělsky",
         "language-pt": "Portugalsky",
         "language-hr": "Chorvatsky",
+        "language-cs": "Čeština",
         "not-supported-prompt": "Je Váš jazyk nebo země zatím nedostupná?",
         "not-supported-cta": "Pomozte nám to umožnit!"
     },
