@@ -11,10 +11,6 @@ short_name = "Lorenz"
 byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://github.com/xeluna' property='cc:attributionName' rel='cc:attributionURL'>WL</a>"
 short_name = "WL"
 
-[authors.nishantwrp]
-byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://github.com/nishantwrp' property='cc:attributionName' rel='cc:attributionURL'>Nishant Mittal</a>"
-short_name = "nishantwrp"
-
 [authors.nadjarode]
 byline = "Nadja Rode (<a href=\"http://www.hlci.de/\">Humboldt Law Clinic Internetrecht</a>, Berlin)"
 short_name = "Nadja"
