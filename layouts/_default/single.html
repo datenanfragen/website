@@ -12,7 +12,7 @@
         </div>
 
         <!-- `.Params.*_like` is a hacky workaround but I don't see how we could inject scripts into blog posts without a custom `type` for each one. -->
-        {{ if or (eq .Type "blog") (eq .Type "act") .Params.blog_like }}
+        {{ if or (eq .Type "blog") (eq .Type "devlog") (eq .Type "act") .Params.blog_like }}
         {{ if isset .Params "authors" }}
         <header id="page-meta">
             <address class="author">
