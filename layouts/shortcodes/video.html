@@ -1,0 +1,3 @@
+<video aria-label="{{ .Get "alt" }}" title="{{ .Get "alt" }}" width="100%" {{ if ne (.Get "controls") "false" }}controls {{ end }}{{ if eq (.Get "autoplay") "true" }}autoplay {{ end }}{{ if eq (.Get "loop") "true" }}loop {{ end }}>
+    <source src="{{ (.Page.Resources.GetMatch (printf "%s*" (.Get "name"))).Permalink }}" type="video/mp4">
+</video>

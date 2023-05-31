@@ -1,5 +1,9 @@
 {{ define "heading" }}
-    {{ T "blog-post" }}
+    {{ if eq .Type "devlog" }}
+        {{ T "blog-devlog" }}
+    {{ else }}
+        {{ T "blog-post" }}
+    {{ end }}
 {{ end }}
 
 {{ define "main" }}
