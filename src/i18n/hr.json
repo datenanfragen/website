@@ -1093,7 +1093,9 @@
         "id-copy_redaction-info_body": "Poduzeće može od tebe zahtijevati samo podatke koji su nužni za potvrđivanje tvog identiteta. Svi ostali podaci kopije identifikcijskog dokumenta mogu se zacrniti. Je li te poduzeće obavijestilo koje podatke smiješ zacrniti?",
         "base_select-issue_option_not-free": "Poduzeće želi naplatiti zahtjev.",
         "base_dead-end_option_next": "Označi ako postoji jedan drugi problem s odgovorom poduzeća.",
-        "base_select-issue_option_action-refusal": "Poduzeće odbija reagirati na zahtjev."
+        "base_select-issue_option_action-refusal": "Poduzeće odbija reagirati na zahtjev.",
+        "overdue_controller-gave-reason_body": "Smatraš li da je navedeni razlog poduzeća primjeren?",
+        "overdue_controller-gave-invalid-reason_body": "Objasni zašto smatraš da obrazloženje poduzeća za produljenje razdoblja nije primjereno."
     },
     "hints": {
         "advanced-generator": "Dobro došao, dobro došla u novo sučelje za naš generator. Nadamo se da se može intuitivnije koristiti i da olakšava slanje mnogih zahtjeva.<br>Bez brige: ako više voliš <a href='/g'>staro sučelje</a>, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja.",
