@@ -395,8 +395,8 @@
         "quality": "Kvaliteta",
         "comments": "Komentari",
         "suggested-transport-medium": "Predloženi medij za prijenos",
-        "required-id-document-elements": "Obavezni elementi na osobnoj iskaznici",
-        "needs-id-document": "Je li za zahtjeve potrebna osobna iskaznica?",
+        "required-id-document-elements": "Potrebni elementi na identifikacijskom dokumentu",
+        "needs-id-document": "Je li za zahtjeve potreban identifikacijski dokument?",
         "request-language": "Jezik za zahtjeve",
         "required-elements": "Obavezni elementi",
         "sources": "Izvori",
@@ -668,7 +668,8 @@
         "request-type-info-rectification": "Putem zahtjeva za ispravljanje podataka, možeš primorati poduzeće da ispravi sve pogrešne podatke koje o tebi možda ima.",
         "request-type-info-learn-more": "Saznaj više o vrstama zahtjeva",
         "request-type-info-objection": "Putem prigovora na izravni marketing možeš zabraniti poduzeću da koristi tvoje podatke za slanje reklama.",
-        "whats-next-deadline": "Poduzeća sada imaju mjesec dana vremena da odgovore na tvoje zahtjeve. Kada je potrebno, mogu produžiti ovaj rok na ukupno tri mjeseca, ali te o tome moraju obavijestiti unutar prvog mjeseca."
+        "whats-next-deadline": "Poduzeća sada imaju mjesec dana vremena da odgovore na tvoje zahtjeve. Kada je potrebno, mogu produžiti ovaj rok na ukupno tri mjeseca, ali te o tome moraju obavijestiti unutar prvog mjeseca.",
+        "needs-id-document": "Za podnošenje zahtjeva je potreban identifikacijski dokument."
     },
     "my-requests": {
         "more": "više",
@@ -1045,7 +1046,7 @@
         "generate-response": "Generiraj odgovor",
         "next": "Dalje",
         "sender": "Pošiljatelj",
-        "additional-data-id-copy-desc": "Kopija dokumenta idntifikacije",
+        "additional-data-id-copy-desc": "Kopija identifikacijskog dokumenta",
         "email": "e-mail",
         "base_select-issue_option_additional-id": "Poduzeće zahtijeva dodatne podatke za identifikaciju.",
         "base_select-issue_option_custom-text": "Želim napisati vlastitu poruku.",
@@ -1079,7 +1080,8 @@
         "base_complaint-choose-sva_body": "Sada moramo pronaći nadzorno tijelo koje je odgovorno za tvoju žalbu. Vodit ćemo te kroz postupak, samo odgovori na pitanja.",
         "base_dead-end_body": "U tom slučaju ne možemo nastaviti s odabranim problemom. To bi moglo značiti da je poduzeće postupilo ispravno. Ali također može biti da ovaj alat (još) ne podržava tvoj konkretan slučaj. Ako je primjenjivo, možeš nastaviti s jednim drugim razlogom.",
         "base_complaint-issue-resolved_body": "Tvoja opomena glasi: {{youSaidThat}}\n\nJe li taj problem riješen? I želiš li to uključiti u tvoju žalbu?",
-        "base_complaint-share-data_body": "Može li nadzorno tijelo dijeliti tvoje podatke s poduzećem? Većina nadležnih tijela kaže da ne mogu obraditi tvoju pojedinačnu žalbu osim ako to ne dopustiš. Međutim, nadležna tijela će to i dalje smatrati prijedlogom za provjeru poduzeća."
+        "base_complaint-share-data_body": "Može li nadzorno tijelo dijeliti tvoje podatke s poduzećem? Većina nadležnih tijela kaže da ne mogu obraditi tvoju pojedinačnu žalbu osim ako to ne dopustiš. Međutim, nadležna tijela će to i dalje smatrati prijedlogom za provjeru poduzeća.",
+        "id-copy_no-counterargument_body": "U ovom slučaju ćemo pretpostavit da poduzeće ima pravo zatražiti kopiju identifikacijskog dokumenta. Možeš li/želiš li priložiti kopiju identifikacijskog dokumenta za zahtjev? Moći ćeš zacrniti sve informacije koje nisu potrebne za potvrđivanje tvog identiteta."
     },
     "hints": {
         "advanced-generator": "Dobro došao, dobro došla u novo sučelje za naš generator. Nadamo se da se može intuitivnije koristiti i da olakšava slanje mnogih zahtjeva.<br>Bez brige: ako više voliš <a href='/g'>staro sučelje</a>, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja.",
