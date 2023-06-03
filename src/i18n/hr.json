@@ -669,7 +669,8 @@
         "request-type-info-learn-more": "Saznaj više o vrstama zahtjeva",
         "request-type-info-objection": "Putem prigovora na izravni marketing možeš zabraniti poduzeću da koristi tvoje podatke za slanje reklama.",
         "whats-next-deadline": "Poduzeća sada imaju mjesec dana vremena da odgovore na tvoje zahtjeve. Kada je potrebno, mogu produžiti ovaj rok na ukupno tri mjeseca, ali te o tome moraju obavijestiti unutar prvog mjeseca.",
-        "needs-id-document": "Za podnošenje zahtjeva je potreban identifikacijski dokument."
+        "needs-id-document": "Za podnošenje zahtjeva je potreban identifikacijski dokument.",
+        "choose-runs": "Prikaži i odaberi druge subjekte kojima upravlja ovo poduzeće."
     },
     "my-requests": {
         "more": "više",
@@ -1081,7 +1082,15 @@
         "base_dead-end_body": "U tom slučaju ne možemo nastaviti s odabranim problemom. To bi moglo značiti da je poduzeće postupilo ispravno. Ali također može biti da ovaj alat (još) ne podržava tvoj konkretan slučaj. Ako je primjenjivo, možeš nastaviti s jednim drugim razlogom.",
         "base_complaint-issue-resolved_body": "Tvoja opomena glasi: {{youSaidThat}}\n\nJe li taj problem riješen? I želiš li to uključiti u tvoju žalbu?",
         "base_complaint-share-data_body": "Može li nadzorno tijelo dijeliti tvoje podatke s poduzećem? Većina nadležnih tijela kaže da ne mogu obraditi tvoju pojedinačnu žalbu osim ako to ne dopustiš. Međutim, nadležna tijela će to i dalje smatrati prijedlogom za provjeru poduzeća.",
-        "id-copy_no-counterargument_body": "U ovom slučaju ćemo pretpostavit da poduzeće ima pravo zatražiti kopiju identifikacijskog dokumenta. Možeš li/želiš li priložiti kopiju identifikacijskog dokumenta za zahtjev? Moći ćeš zacrniti sve informacije koje nisu potrebne za potvrđivanje tvog identiteta."
+        "id-copy_no-counterargument_body": "U ovom ćemo slučaju pretpostavit da poduzeće ima pravo zatražiti kopiju identifikacijskog dokumenta. Možeš li/želiš li priložiti kopiju identifikacijskog dokumenta za zahtjev? Moći ćeš zacrniti sve podatke koji nisu potrebni za potvrđivanje tvog identiteta.",
+        "id-copy_explain-reasoning_body": "Objasni zašto smatraš da kopija identifikacijskog dokumenta nije potrebna za tvoj zahtjev.",
+        "message-by-me": "{{medium}} od mene",
+        "id-copy_attach-copy_body": "Izradi kopiju svog identifikacijskog dokumenta sa svim zacrnjenim podacima koji nisu nepotrebni i priloži je u poruci poduzeću.",
+        "id-copy_start_option_unredacted-required": "Voljan/na sam priložiti kopiju identifikacijskog dokumenta, ali poduzeće izričito traži da se nikoji podaci ne smiju zacrniti.",
+        "id-copy_attach-copy_option_another-problem": "Označi ako postoji jedan drugi problem s odgovorom poduzeća.",
+        "base_select-issue_option_id-document-required": "Poduzeće zahtijeva kopiju identifikacijskog dokumenta.",
+        "id-copy_redaction-info_option_explicit-redaction": "Poduzeće izričito zabranjuje zacrnjivanje podataka na kopiji identifikacijskog dokumenta.",
+        "id-copy_redaction-info_body": "Poduzeće može od tebe zahtijevati samo podatke koji su nužni za potvrđivanje tvog identiteta. Svi ostali podaci kopije identifikcijskog dokumenta mogu se zacrniti. Je li te poduzeće obavijestilo koje podatke smiješ zacrniti?"
     },
     "hints": {
         "advanced-generator": "Dobro došao, dobro došla u novo sučelje za naš generator. Nadamo se da se može intuitivnije koristiti i da olakšava slanje mnogih zahtjeva.<br>Bez brige: ako više voliš <a href='/g'>staro sučelje</a>, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja.",
