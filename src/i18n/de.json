@@ -354,6 +354,7 @@
         "webform": "Web-Formular",
         "new-request": "Neue Anfrage",
         "next-request": "Nächste Anfrage",
+        "next-step": "Zum nächsten Schritt",
         "skip-request": "Anfrage überspringen",
         "override-request": "Aktuelle Anfrage überschreiben",
         "modal-autocomplete-new-request": "Ein neues Unternehmen wurde ausgewählt. Soll eine neue Anfrage erstellt werden?",

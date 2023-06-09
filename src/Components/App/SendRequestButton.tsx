@@ -188,7 +188,9 @@ export const NextRequestButton = (props: NextRequestButtonProps) => {
                 props.afterNext?.();
             }}
             style="float: right;">
-            <Text id={request.sent ? 'next-request' : 'skip-request'} />
+            <Text
+                id={request.sent ? (remainingBatchEntriesCount > 1 ? 'next-request' : 'next-step') : 'skip-request'}
+            />
         </button>
     );
 };

@@ -353,6 +353,7 @@
         "webform": "Web form",
         "new-request": "New request",
         "next-request": "Next request",
+        "next-step": "Next step",
         "skip-request": "Skip request",
         "override-request": "Override current request",
         "modal-autocomplete-new-request": "A new company has been selected. Do you want to start a new request?",
