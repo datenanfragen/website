@@ -40,8 +40,11 @@ Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 15 d
 
 <p>Je suis convaincu que les conditions énoncées à l'Article 17, alinéa 1, du RGPD sont remplies.</p>
 
-<p>Si j'ai consenti au traitement de mes données à caractère personnel (par exemple, conformément à l'Article 6, alinéa 1, ou à l'Article 9, alinéa 2 du RGPD), je retire ce consentement par la présente.<br>
-En outre, je m'oppose au traitement des données à caractère personnel me concernant (ce qui inclut le profilage), conformément à l'Article 21 du RGPD.</p>
+<p>Si j'ai consenti au traitement de mes données à caractère personnel, je retire ce consentement par la présente.</p>
+
+<p>[En outre, je m'oppose au traitement des données à caractère personnel me concernant (ce qui inclut le profilage), conformément à l'Article 21, alinéa 1, du RGPD. <span class="blog-letter-fill-in">Justify your objection here.</span>]</p>
+
+<p>If you have made the aforementioned data public, you are obliged pursuant to Article 17(2) GDPR to take all reasonable steps to inform other controllers, including search engine operators, who process the personal data listed above, that I have requested the erasure of all links, copies or replications. This applies not only to exact copies of the data concerned, but also to those from which information contained in the data concerned can be derived.</p>
 
 <p>Si vous avez communiqué les données à caractère personnel concernées à des tiers, vous devez communiquer ma demande de suppression de ces données, ainsi que toute référence à celles-ci, à chaque destinataire, conformément à l'Article 19 du RGPD. Veuillez également m'informer au sujet de ces destinataires.</p>
 

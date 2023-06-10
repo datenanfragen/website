@@ -13,7 +13,7 @@ then
 fi
 
 mkdir -p i18n
-languages=(de en fr pt es hr nl)
+languages=(de en fr pt es hr nl cs)
 
 echo "Fetching data…"
 git clone --depth 1 https://github.com/datenanfragen/data data_tmp

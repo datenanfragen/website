@@ -23,7 +23,7 @@ Esta política de privacidad se aplica a todas las actividades de Datenanfragen.
 
 Esto incluye los datos que recopilamos y procesamos de nuestros miembros, pero también los datos que se obtienen de donaciones y similares.
 
-Además, esto incluye nuestros sitios web [solicituddedatos.es](https://www.solicituddedatos.es), [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl), [pedidodedados.org](https://www.pedidodedados.org/) y [trackers.tweasel.org](https://trackers.tweasel.org).
+Además, esto incluye nuestros sitios web [solicituddedatos.es](https://www.solicituddedatos.es), [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl), [pedidodedados.org](https://www.pedidodedados.org/), [zadostioudaje.org](https://zadostioudaje.org/)  y [trackers.tweasel.org](https://trackers.tweasel.org).
 
 El propósito de la asociación es ayudar al público en general a ejercer su derecho a la privacidad (“derecho a la autodeterminación informativa”) informándoles y asesorándolos con todas las preguntas relacionadas con la protección de datos personales. Estamos sujetos a nuestra {{< link slug="verein/constitution" text="constitución" >}} en todas nuestras actividades.
 
@@ -134,7 +134,7 @@ Si nos envías donaciones, recibiremos datos que tenemos que almacenar y procesa
 
 Nos complace aceptar donaciones anónimas, por lo que proporcionar esta información es completamente voluntario.
 
-- Datos afectados: el monto de la donación, tus datos de pago, la forma de pago, la fecha de pago
+- Datos afectados: el monto de la donación, tus datos de pago, la forma dunde pago, la fecha de pago
 - Base legal: Estamos sujetos a ciertas obligaciones contables legales, por lo que el almacenamiento y procesamiento se basa en el Art. 6 (1) literal. c RGPD.
 - Duración del almacenamiento: siempre que existan obligaciones legales de almacenamiento (consulta en particular el § 147 (3) de la AO alemana)
 - Divulgación de datos: solo la junta tiene acceso a estos datos. Es posible que tengamos que pasarlo a la oficina de impuestos responsable de nosotros como parte de las declaraciones de impuestos o similar.

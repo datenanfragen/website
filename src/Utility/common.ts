@@ -88,7 +88,16 @@ export const parseBcp47Tag = (bcp47_tag: string) => {
  * Determines the country we fallback to based on the user's language if we can't detect their country. Maps from
  * language to country.
  */
-export const fallback_countries = { de: 'de', en: 'gb', fr: 'fr', pt: 'pt', es: 'es', hr: 'hr', nl: 'nl' } as const;
+export const fallback_countries = {
+    de: 'de',
+    en: 'gb',
+    fr: 'fr',
+    pt: 'pt',
+    es: 'es',
+    hr: 'hr',
+    nl: 'nl',
+    cs: 'cz',
+} as const;
 
 export const isSupportedCountry = (country: string): country is Country =>
     window.SUPPORTED_COUNTRIES.includes(country as Country);

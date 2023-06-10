@@ -639,6 +639,7 @@
         "language-desc-pt": "Portuguese (Português)",
         "language-desc-hr": "Croatian (Hrvatski)",
         "language-desc-nl": "Dutch (Nederlands)",
+        "language-desc-cs": "Czech (Čeština)",
         "language-de": "German",
         "language-en": "English",
         "language-fr": "French",
@@ -646,6 +647,7 @@
         "language-pt": "Portuguese",
         "language-hr": "Croatian",
         "language-nl": "Dutch",
+        "language-cs": "Czech",
         "not-supported-prompt": "Your language or country is not supported yet?",
         "not-supported-cta": "Help us support it!"
     },

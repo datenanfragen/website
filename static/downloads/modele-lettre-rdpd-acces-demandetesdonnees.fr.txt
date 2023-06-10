@@ -21,7 +21,7 @@ Si c'est le cas, je demande l'accès aux informations suivantes conformément à
 6. Lorsque les données à caractère personnel ne sont pas collectées auprès de la personne concernée, toute information disponible sur l'origine de ces données;
 7. L'existence d'un processus décisionnel automatisé, y compris le profilage, mentionné l'Article 22, alinéas 1 et 4, du RGPD et, au moins dans ces cas, des informations utiles sur la logique appliquée, ainsi que la signification et les conséquences envisagées de ce traitement pour moi.
 
-In case you are processing anonymised data concerning me, please not only inform me about that but also explain the procedure used in an easily understandable way.
+
 
 Si vous transférez mes données à caractère personnel vers un pays tiers ou une organisation internationale, je demande à être informé des garanties appropriées concernant le transfert, conformément à l'Article 46 du RGPD.
 

@@ -1,4 +1,8 @@
 {
+    "macros": {
+        "site_name": "zadostioudaje.org",
+        "base_url": "https://zadostioudaje.org/"
+    },
     "sva-finder": {
         "rundfunk-br": "Bayerischer Rundfunk (BR)",
         "rundfunk-dw": "Deutsche Welle",
@@ -318,7 +322,7 @@
         "telecommunication": "telekomunikace",
         "travel": "cestování",
         "utility": "služby",
-        "logo": "img/logo-datarequests.svg",
+        "logo": "img/logo-zadostioudaje.svg",
         "logo-title": "logo ${site_name}",
         "logo-a-title": "Zpět na hlavní stranu",
         "header-name": "${site_name}",
@@ -577,7 +581,7 @@
         "email": "Email",
         "email-colon": "Email:",
         "letter": "Dopis",
-        "new-request": "Dopis:",
+        "new-request": "Nová žádost",
         "override-request": "Nebrat v úvahu současnou žádost",
         "modal-autocomplete-new-request": "Nová společnost byla vybrána. Chcete založit novou žádost?",
         "modal-new-request": "Zatím jste nevyužil(a) Vaší vygenerovanou žádost. Chcete vymazat všechna pole a založit novou žádost nebo spíše načíst žádost jako první?",
@@ -806,17 +810,19 @@
         "country": "Země",
         "language": "Jazyk",
         "language-desc-de": "Německy (Deutsch)",
-        "language-desc-en": "Anglicky",
+        "language-desc-en": "Anglicky (English)",
         "language-desc-fr": "Francouzsky (Français)",
         "language-desc-es": "Španělsky (Español)",
         "language-desc-pt": "Portugalsky (Português)",
         "language-desc-hr": "Chorvatsky (Hrvatski)",
+        "language-desc-cs": "Čeština",
         "language-de": "Německy",
         "language-en": "Anglicky",
         "language-fr": "Francouzsky",
         "language-es": "Španělsky",
         "language-pt": "Portugalsky",
         "language-hr": "Chorvatsky",
+        "language-cs": "Čeština",
         "not-supported-prompt": "Je Váš jazyk nebo země zatím nedostupná?",
         "not-supported-cta": "Pomozte nám to umožnit!"
     },

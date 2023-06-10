@@ -13,6 +13,7 @@ describe('Make sure all productions sites are still alive', () => {
         'https://www.solicituddedatos.es',
         'https://www.osobnipodaci.org',
         'https://www.gegevensaanvragen.nl',
+        'https://zadostioudaje.org',
     ];
 
     for (const site of sites) {
@@ -37,7 +38,7 @@ describe('Make sure all productions sites are still alive', () => {
             cy.get('.modal button.button-secondary').click();
 
             // Some languages don't have any blog posts, so we have to exclude them here.
-            if (!['https://www.gegevensaanvragen.nl'].includes(site)) {
+            if (!['https://www.gegevensaanvragen.nl', 'https://zadostioudaje.org'].includes(site)) {
                 cy.visit(`${site}/blog`);
                 cy.get(':nth-child(1) > .padded > a > h1').click();
                 cy.url().should('match', new RegExp(`${site.replace('.', '\\.')}/blog/.+`));

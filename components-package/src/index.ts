@@ -12,6 +12,7 @@ import i18n_definition_pt from '../../src/i18n/pt.json';
 import i18n_definition_es from '../../src/i18n/es.json';
 import i18n_definition_hr from '../../src/i18n/hr.json';
 import i18n_definition_nl from '../../src/i18n/nl.json';
+import i18n_definition_cs from '../../src/i18n/cs.json';
 
 import { parameters } from '../../src/Utility/common';
 
@@ -31,6 +32,10 @@ export const languages = {
     nl: {
         base_url: 'https://www.gegevensaanvragen.nl/',
         translations: deepmerge(i18n_definition_en, i18n_definition_nl),
+    },
+    cs: {
+        base_url: 'http://zadostioudaje.org/',
+        translations: deepmerge(i18n_definition_en, i18n_definition_cs),
     },
 } as const;
 
