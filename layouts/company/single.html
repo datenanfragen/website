@@ -110,7 +110,7 @@
     </div>
     {{ if or (eq .Params.quality "verified") (eq .Params.quality "tested")  }}
     <div id="companies-help-needed" class="box box-info" style="margin-bottom: 20px;">
-        {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "#!type=new&for=cdb")) | safeHTML }}
+        {{ if eq .Params.quality "tested" }}{{ T "cdb-tested" }} {{ end }}{{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "#!type=new&for=cdb")) | safeHTML }}
     </div>
     {{ else }}
     <div id="companies-unverified" class="box box-error" style="margin-bottom: 20px;">{{ T "cdb-warning-unverified" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug)) | safeHTML }}</div>
