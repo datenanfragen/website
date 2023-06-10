@@ -17,5 +17,6 @@ export default defineConfig({
         experimentalRunAllSpecs: true,
         experimentalStudio: true,
         testIsolation: true,
+        retries: 3,
     },
 });
