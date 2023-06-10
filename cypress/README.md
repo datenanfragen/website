@@ -6,7 +6,8 @@ Our browser tests are based on [Cypress](https://www.cypress.io/). We are using 
 
 The tests are automatically run by the CI environment.
 
-To run them locally, you can use the Cypress test runner. Make sure you have the correct dependencies installed by running: `yarn cypress verify`
+To run them locally, you can use the Cypress test runner. Make sure you have the correct dependencies installed by running: `yarn cypress verify`.
+Known dependencies for Ubuntu: `libgdk-pixbuf2.0-0 libgtk-3-0 libgbm1`.
 
 If you want to, you can override the launch URLs:
 
