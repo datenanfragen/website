@@ -356,6 +356,7 @@
         "letter": "Letter",
         "webform": "Web form",
         "new-request": "New request",
+        "continue": "Continue",
         "next-request": "Next request",
         "skip-request": "Skip request",
         "override-request": "Override current request",
