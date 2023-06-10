@@ -1,8 +1,6 @@
 {
     "title": "Gerador de solicitação",
     "type": "generator",
-    "slug": "gerador",
-    "aliases": ["generator"]
+    "static": true,
+    "aliases": ["gerador"]
 }
- 
-Gerador de solicitação

@@ -5,11 +5,12 @@ module.exports = {
     entry: {
         'error-handler': './src/error-handler.js',
         general: './src/general.tsx',
-        home: './src/home.js',
+        home: './src/home.tsx',
         generator: './src/generator.tsx',
+        app: './src/app.tsx',
         'company-list': './src/company-list.js',
         'my-requests': './src/my-requests.tsx',
-        'privacy-controls': './src/privacy-controls.js',
+        'privacy-controls': './src/privacy-controls.tsx',
         'suggest-edit': './src/suggest-edit.js',
         'id-data-controls': './src/id-data-controls.tsx',
         'sva-finder': './src/Components/SvaFinder.tsx',
@@ -112,7 +113,7 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
 @see {@link https://www.pedidodedados.org/|Portuguese website}
 @see {@link https://www.solicituddedatos.es/|Spanish website}
 @see {@link https://www.osobnipodaci.org/|Croatian website}
-@see {@link https://www.todo.tl/|Dutch website}`),
+@see {@link https://www.gegevensaanvragen.nl//|Dutch website}`),
 
         // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
         new webpack.DefinePlugin({

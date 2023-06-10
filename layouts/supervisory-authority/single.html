@@ -23,22 +23,22 @@
             <div class="col50 col100-mobile"><strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ replace . "\n" "<br>" | safeHTML }}</div>
         {{ end }}
 
-        {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
+        {{ if or .Params.phone .Params.fax .Params.email .Params.webform .Params.web }}
             <div class="col50 col100-mobile">
                 <table class="contact-table narrow-table">
                     {{ with .Params.phone }}<tr><td><strong>{{ T "cdb-phone" }}</strong></td><td>{{ . }}</td></tr>{{ end }}
                     {{ with .Params.fax }}<tr><td><strong>{{ T "cdb-fax" }}</strong></td><td>{{ . }}</td></tr>{{ end }}
                     {{ with .Params.email }}<tr><td><strong>{{ T "cdb-email" }}</strong></td><td><a href="mailto:{{ . }}">{{ . }}</a></td></tr>{{ end }}
+                    {{ with .Params.webform }}<tr><td><strong>{{ T "cdb-webform" }}</strong></td><td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td></tr>{{ end }}
                     {{ with .Params.web }}<tr><td><strong>{{ T "cdb-web" }}</strong></td><td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td></tr>{{ end }}
                 </table>
             </div>
         {{ end }}
         <div class="clearfix"></div>
 
-        {{ if or (index .Params "pgp-fingerprint") (index .Params "pgp-url") }}
+        {{ if and (index .Params "pgp-fingerprint") (index .Params "pgp-url") }}
             <p>
-                {{ with (index .Params "pgp-fingerprint") }}<strong>{{ T "cdb-pgp-fingerprint" }}</strong> <code>{{ . }}</code>{{ end }}<br>
-                {{ with (index .Params "pgp-url") }}<strong>{{ T "cdb-pgp-url" }}</strong> <a href="{{ . }}" rel="nofollow">{{ . }}</a>{{ end }}
+                <strong>{{ T "cdb-pgp-key" }}</strong> <code><a href="{{ (index .Params "pgp-url") }}" rel="nofollow">{{ index .Params "pgp-fingerprint" }}</a></code>
             </p>
         {{ end }}
 

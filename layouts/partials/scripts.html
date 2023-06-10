@@ -9,7 +9,6 @@
         {{- end -}}
     };
 
-    window.COUNTRIES_WITH_SUGGESTED_COMPANIES = ['de', 'gb'];
     window.BASE_URL = {{ "/" | absURL }};
 </script>
 <script src="{{ "js/runtime.gen.js" | absURL }}"></script>
@@ -21,6 +20,10 @@
 <script src="{{ "js/general.bundle.gen.js" | absURL }}"></script>
 
 {{ if eq .Type "generator" }}
+<script src="{{ "js/app.bundle.gen.js" | absURL }}"></script>
+{{ end }}
+
+{{ if eq .Type "g" }}
 <script src="{{ "js/generator.bundle.gen.js" | absURL }}"></script>
 {{ end }}
 

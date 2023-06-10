@@ -36,7 +36,7 @@
             <strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ T "cdb-attn" }}<br>{{ replace . "\n" "<br>" | safeHTML }}
         </div>
         {{ end }}
-        {{ if or .Params.phone .Params.fax .Params.email .Params.web }}
+        {{ if or .Params.phone .Params.fax .Params.email .Params.webform .Params.web }}
         <div class="col50 col100-mobile">
             <table class="contact-table narrow-table">
                 {{ with .Params.phone }}<tr>
@@ -51,6 +51,10 @@
                     <td><strong>{{ T "cdb-email" }}</strong></td>
                     <td><a href="mailto:{{ . }}">{{ . }}</a></td>
                 </tr>{{ end }}
+                {{ with .Params.webform }}<tr>
+                    <td><strong>{{ T "cdb-webform" }}</strong></td>
+                    <td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td>
+                </tr>{{ end }}
                 {{ with .Params.web }}<tr>
                     <td><strong>{{ T "cdb-web" }}</strong></td>
                     <td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td>
@@ -59,6 +63,12 @@
         </div>
         {{ end }}
         <div class="clearfix"></div>
+
+        {{ if and (index .Params "pgp-fingerprint") (index .Params "pgp-url") }}
+            <p>
+                <strong>{{ T "cdb-pgp-key" }}</strong> <code><a href="{{ (index .Params "pgp-url") }}" rel="nofollow">{{ index .Params "pgp-fingerprint" }}</a></code>
+            </p>
+        {{ end }}
 
         <!-- Ugly workaround since `(apply .Params.categories "T" ".")` stopped working at some point (see #135). -->
         {{ .Scratch.Set "categories" slice }}
@@ -100,7 +110,7 @@
     </div>
     {{ if or (eq .Params.quality "verified") (eq .Params.quality "tested")  }}
     <div id="companies-help-needed" class="box box-info" style="margin-bottom: 20px;">
-        {{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "#!type=new&for=cdb")) | safeHTML }}
+        {{ if eq .Params.quality "tested" }}{{ T "cdb-tested" }} {{ end }}{{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "#!type=new&for=cdb")) | safeHTML }}
     </div>
     {{ else }}
     <div id="companies-unverified" class="box box-error" style="margin-bottom: 20px;">{{ T "cdb-warning-unverified" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug)) | safeHTML }}</div>

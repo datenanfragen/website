@@ -8,6 +8,13 @@ import Footnote from './Components/Footnote';
 import { t_r } from './Utility/i18n';
 import { parameters, parseBcp47Tag } from './Utility/common';
 import { guessUserCountry } from './Utility/browser';
+import { UserRequests } from './DataType/UserRequests';
+import { proceedingFromRequest, useProceedingsStore } from './store/proceedings';
+import type { Message } from './types/proceedings';
+import { REQUEST_TYPES } from './Utility/requests';
+import { PrivacyAsyncStorage } from './Utility/PrivacyAsyncStorage';
+import type localforage from 'localforage';
+import { ProceedingsBadge } from './Components/ProceedingsBadge';
 
 // Has to run before any rendering, will be removed in prod by bundlers.
 if (process.env.NODE_ENV === 'development') require('preact/debug');
@@ -34,6 +41,12 @@ if (comments_div) {
     );
 }
 
+const myRequestsLinks = document.getElementsByClassName('my-requests-link');
+const menuLink = document.getElementById('main-nav-menu-link');
+for (const link of myRequestsLinks) {
+    render(<ProceedingsBadge visualParent={menuLink?.parentElement?.contains(link) ? menuLink : undefined} />, link);
+}
+
 /**
  * Notify the user if they are visiting a language version different from the language their browser reports, i.e. if
  * someone visits the English site, but their browser reports German, let's notify them to change the lang.
@@ -52,7 +65,9 @@ function notifyOtherLanguages(preferred_language?: string, website_language?: st
 
 if (!useAppStore.getState().countrySet) {
     // TODO: Remove the cookie migration code in a year or so.
-    useAppStore.getState().changeCountry((Cookie.get('country') as Country) || guessUserCountry());
+    useAppStore
+        .getState()
+        .changeCountry((Cookie.get('country') as Country) || guessUserCountry(useAppStore.getState().savedLocale));
     Cookie.remove('country');
 
     const { language: preferred_language } = parseBcp47Tag(navigator.language);
@@ -64,6 +79,99 @@ if (!useAppStore.getState().countrySet) {
     )
         notifyOtherLanguages(preferred_language, website_language);
 }
+
+// TODO: remove the my requests migration code and notify users about the migration
+const unsubscribeFromHydration = useProceedingsStore.persist.onFinishHydration((proceedingsState) => {
+    if (!proceedingsState._migratedLegacyRequests) {
+        PrivacyAsyncStorage.doesStoreExist('Datenanfragen.de', 'my-requests')
+            .then((exists) => {
+                if (!exists) return;
+                const userRequests = new UserRequests();
+                return userRequests
+                    .getRequests()
+                    .then(async (requests) => {
+                        if (!requests) return;
+                        for (const [dbId, request] of Object.entries(requests)) {
+                            if (request.migrated) continue;
+
+                            if (request.response_type) {
+                                const messageFromRequest: Omit<Message, 'id'> = {
+                                    reference: request.reference,
+                                    correspondent_address: request.recipient || '',
+                                    transport_medium: request.via || 'email',
+                                    type: request.response_type,
+                                    date: new Date(request.date),
+                                    correspondent_email: request.email || '',
+                                    sentByMe: true,
+                                };
+
+                                const createStubProceeding = () => {
+                                    // If the parent request is missing we create a stub to put the message in.
+                                    proceedingsState.addProceeding({
+                                        reference: request.reference,
+                                        messages: {},
+                                        status: 'done',
+                                    });
+                                    proceedingsState.addMessage(messageFromRequest);
+                                };
+
+                                // Search for the parent request in the already created proceedings
+                                if (
+                                    Object.keys(useProceedingsStore.getState().proceedings).includes(request.reference)
+                                ) {
+                                    proceedingsState.addMessage(messageFromRequest);
+                                } else {
+                                    // If no proceeding was found, search the database and create a new proceeding
+                                    const parentRequestId = await userRequests.localforage_instance
+                                        ?.keys()
+                                        .then((keys) =>
+                                            keys?.find(
+                                                (key) =>
+                                                    key !== dbId &&
+                                                    key.match(new RegExp(`^${request.reference}-${REQUEST_TYPES}`))
+                                            )
+                                        );
+
+                                    if (parentRequestId) {
+                                        const parentRequest = await userRequests.getRequest(parentRequestId);
+                                        if (!parentRequest) {
+                                            createStubProceeding();
+                                        } else {
+                                            proceedingsState.addProceeding(proceedingFromRequest(parentRequest));
+                                            proceedingsState.addMessage(messageFromRequest);
+
+                                            await userRequests.storeRequest(parentRequestId, {
+                                                ...parentRequest,
+                                                migrated: true,
+                                            });
+                                        }
+                                    } else createStubProceeding();
+                                }
+                            } else {
+                                proceedingsState.addProceeding(proceedingFromRequest(request));
+                            }
+                            await userRequests.storeRequest(dbId, {
+                                ...request,
+                                migrated: true,
+                            });
+                        }
+                    })
+                    .then(
+                        () =>
+                            userRequests.localforage_instance?.driver() === 'asyncStorage' &&
+                            (
+                                userRequests.localforage_instance as typeof localforage & {
+                                    _dbInfo: { db: IDBDatabase };
+                                }
+                            )._dbInfo.db.close()
+                    );
+            })
+            .then(() => proceedingsState.migrationDone())
+            .then(() => unsubscribeFromHydration());
+    } else {
+        unsubscribeFromHydration();
+    }
+});
 
 const renderNewFootnotes = (hugoFootnotes: Element[]) => {
     hugoFootnotes.forEach((hugoFootnote, index) => {

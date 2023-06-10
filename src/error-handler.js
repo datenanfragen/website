@@ -24,7 +24,7 @@ function dejsonify(object) {
 function logError(event, debug_info = undefined) {
     /* eslint-disable no-console */
     console.group(
-        '%cAn unexpected error occurred: ' + '%c' + (event?.error?.description || event?.error?.message || ''),
+        '%cAn unexpected error occurred:%c ' + (event?.error?.description || event?.error?.message || ''),
         'color: red; font-weight: bold; font-size: 1.5em;',
         'font-size: 1.5em;'
     );
@@ -95,6 +95,7 @@ try {
                     'safari-extension://',
                     '@safari-web-extension://',
                     'ms-browser-extension://',
+                    '@webkit-masked-url://hidden/',
                 ].some((s) => event.error?.stack?.includes(s))
             ) {
                 return;

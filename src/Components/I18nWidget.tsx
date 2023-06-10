@@ -8,12 +8,16 @@ import t from '../Utility/i18n';
 type I18nWidgetProps = {
     minimal: boolean;
     showLanguageOnly: boolean;
+    saveLanguagesToStore?: boolean;
+    onSavedLanguage?: () => void;
 };
 
 export const I18nWidget = (props: I18nWidgetProps) => {
     const [country, changeCountry] = useAppStore((state) => [state.country, state.changeCountry]);
+    const saveLanguage = useAppStore((state) => state.saveLanguage);
+    const savedLocale = useAppStore((state) => state.savedLocale);
 
-    const [newLanguage, setNewLanguage] = useState(window.LOCALE);
+    const [newLanguage, setNewLanguage] = useState(savedLocale);
 
     const [Modal, showModal, dismissModal] = useModal(<MarkupText id="language-change-modal" />, {
         positiveButton: (
@@ -23,7 +27,8 @@ export const I18nWidget = (props: I18nWidgetProps) => {
         ),
         negativeText: <Text id="stay" />,
         onNegativeFeedback: () => {
-            setNewLanguage(window.LOCALE);
+            // Reset the select to show the current language instead of the just selected one.
+            setNewLanguage(savedLocale);
             dismissModal();
         },
         hasDismissButton: false,
@@ -31,16 +36,21 @@ export const I18nWidget = (props: I18nWidgetProps) => {
     });
     const changeLanguage = useCallback(
         (e: JSX.TargetedEvent<HTMLSelectElement>) => {
-            const selected_language = e.currentTarget.value as typeof window.LOCALE;
-            if (selected_language === window.LOCALE || selected_language === newLanguage) return;
+            const selected_language = e.currentTarget.value as typeof savedLocale;
+            if (selected_language === savedLocale || selected_language === newLanguage) return;
 
             setNewLanguage(selected_language);
-            showModal();
+            if (window.SUPPORTED_LANGUAGES[selected_language] && !props.saveLanguagesToStore) showModal();
+            else {
+                saveLanguage(selected_language);
+                props.onSavedLanguage?.();
+            }
         },
         [newLanguage, showModal]
     );
 
     const language_options = (Object.keys(window.SUPPORTED_LANGUAGES) as (keyof typeof window.SUPPORTED_LANGUAGES)[])
+        .filter((key) => key !== savedLocale)
         .sort((a, b) => t(`language-desc-${a}`, 'i18n-widget').localeCompare(t(`language-desc-${b}`, 'i18n-widget')))
         .map((lang) => <option value={lang}>{t(`language-desc-${lang}`, 'i18n-widget')}</option>);
 
@@ -62,9 +72,9 @@ export const I18nWidget = (props: I18nWidgetProps) => {
                         <Text id="language" />
                     </h2>
                     <div className="select-container">
-                        <select value={window.LOCALE} onBlur={changeLanguage} onChange={changeLanguage}>
-                            <option value={window.LOCALE}>
-                                <Text id={`language-desc-${window.LOCALE}`} />
+                        <select value={savedLocale} onChange={changeLanguage}>
+                            <option value={savedLocale}>
+                                <Text id={`language-desc-${savedLocale}`} />
                             </option>
                             {language_options}
                         </select>
@@ -98,7 +108,7 @@ export const I18nWidget = (props: I18nWidgetProps) => {
 };
 
 export const I18nButton = () => {
-    const { country } = useAppStore();
+    const { country, savedLocale } = useAppStore();
 
     return (
         <IntlProvider scope="i18n-widget" definition={window.I18N_DEFINITION}>
@@ -106,7 +116,7 @@ export const I18nButton = () => {
                 <button
                     className="i18n-button button button-secondary icon icon-i18n menu-link"
                     href="javascript:void(0)">
-                    <Text id={`language-${window.LOCALE}`} /> / {t(country, 'countries')}
+                    <Text id={`language-${savedLocale}`} /> / {t(country, 'countries')}
                 </button>
                 <div className="dropup i18n-widget-container">
                     <I18nWidget minimal={false} showLanguageOnly={false} />

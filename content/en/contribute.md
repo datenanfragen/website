@@ -31,7 +31,7 @@ Also feel free to join our [Matrix space](https://matrix.to/#/#datenanfragen:mat
         <p>You know a language we are not yet supporting and would like to help us translate? Great! We manage our translations through the <em><a href="https://hosted.weblate.org/engage/datenanfragen-de/">Weblate</a></em> platform. There, you can easily help us translate—be it a couple of strings or whole components.
         <br>In order for us to officially support a new language, in addition to the actual translations, we also need a maintainer for that language, for helping us come up with a name and checking incoming translations for example. If you’re up for that, send us an <a href="mailto:dev@datarequests.org">e-mail</a>.</p>
         <p>An equally important task is adding companies from as many countries as possible to the database. Please refer to the information <a href="#cdb">above</a> on how to submit new entries.
-        <br>We automatically start officially supporting a new country once we have a sufficient number of companies from that country in our database (the threshold is currently set to ten). We would also like to compile a list of suggested companies that every person in that country should send a request to.</p>
+        <br>We automatically start officially supporting a new country once we have a sufficient number of companies from that country in our database (the threshold is currently set to ten). We would also like to compile a packs with suggestions of which companies people could request.</p>
     </div>
     <div class="clearfix"></div>
     <a class="button button-primary read-more-button" href="https://hosted.weblate.org/engage/datenanfragen-de/">Help us translate&nbsp;<span class="icon icon-arrow-right"></span></a>

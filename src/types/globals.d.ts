@@ -1,3 +1,4 @@
+import type { Proceeding, ProceedingStatus } from './proceedings.d';
 import type i18n_definition_type from '../i18n/en.json';
 import type { Country } from '../store/app';
 import type { fallback_countries } from '../Utility/common';
@@ -22,8 +23,6 @@ declare global {
          * to their respective translation URLs.
          */
         readonly SUPPORTED_LANGUAGES: Record<I18nLanguage, string>;
-        /** List of two-letter ISO codes of the countries that have suggested companies in the wizard. */
-        readonly COUNTRIES_WITH_SUGGESTED_COMPANIES: Country[];
 
         /**
          * Translations for the current language, with the scope being the first-, and the translation key being the
@@ -38,5 +37,7 @@ declare global {
 
         /** List of parameters specified in the URL, including both hash fragment and GET parameters. */
         readonly PARAMETERS: Record<string, string>;
+
+        ON_PROCEEDING_STATUS_CHANGE?: (proceeding: Proceeding, oldStatus: ProceedingStatus) => void;
     }
 }

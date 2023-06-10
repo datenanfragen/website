@@ -38,7 +38,7 @@
 {{ else if .IsPage }}
     {{ $description = .Summary }}
 {{ end }}
-                        
+
 {{ $img_src := "" }}
 {{ if .Params.featured_image }}
     <!-- 1200x630 seems to be a good size for all platform (see https://iamturns.com/open-graph-image-size/). -->
@@ -47,8 +47,13 @@
     {{ $img_src = .Params.featured_image_url }}
 {{ end }}
 
-<link href="{{ "blog/index.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-<link href="{{ "blog/index.xml" | absURL }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ if eq .Type "devlog" }}
+    <link href="{{ "devlog/index.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    <link href="{{ "devlog/index.xml" | absURL }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ else }}
+    <link href="{{ "blog/index.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    <link href="{{ "blog/index.xml" | absURL }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ end }}
 {{ hugo.Generator }}
 
 <meta name="description" content="{{ $description }}">
@@ -85,16 +90,3 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 {{ end }}
-
-<!-- Twitter cards -->
-{{- with $img_src }}
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{{ . | absURL }}">
-{{- else }}
-<meta name="twitter:card" content="summary">
-{{- end }}
-
-<meta name="twitter:title" content="{{ $title }}">
-<meta name="twitter:description" content="{{ $description }}">
-<meta name="twitter:site" content="@Datenanfragen">
-<meta name="twitter:creator" content="@Datenanfragen">

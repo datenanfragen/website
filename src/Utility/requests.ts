@@ -1,22 +1,17 @@
-import type {
-    IdDataElement,
-    Address,
-    AccessRequest,
-    RequestType,
-    DataFieldName,
-    Request,
-    CustomTemplateName,
-} from '../types/request';
+import type { IdDataElement, Address, AccessRequest, RequestType, DataFieldName, Request } from '../types/request';
 import type { Company, RequestLanguage, SupervisoryAuthority } from '../types/company';
 import { generateReference } from 'letter-generator';
-import { t_r } from './i18n';
-import { deepCopyObject } from './common';
+import t, { t_r } from './i18n';
+import { deepCopyObject, hash } from './common';
 import { requestTemplate } from './fetch';
+import type { UserRequest } from '../DataType/UserRequests';
+import type { Message, Proceeding } from '../types/proceedings';
+import { useAppStore } from '../store/app';
+import { getGeneratedMessage } from '../store/proceedings';
 
 export const REQUEST_TYPES = ['access', 'erasure', 'rectification', 'objection', 'custom'] as const;
-export const TRANSPORT_MEDIA = ['email', 'letter', 'fax'] as const;
+export const TRANSPORT_MEDIA = ['email', 'letter', 'fax', 'webform'] as const;
 export const ADDRESS_STRING_PROPERTIES = ['street_1', 'street_2', 'place', 'country'] as const;
-export const CUSTOM_TEMPLATE_OPTIONS = ['no-template', 'admonition', 'complaint'] as const;
 export const REQUEST_ARTICLES = { access: '15', erasure: '17', rectification: '16', objection: '21(2)' } as const;
 export const REQUEST_FALLBACK_LANGUAGE = 'en' as const; // We'll use English as hardcoded fallback language
 export const EMTPY_ADDRESS: Address = {
@@ -25,6 +20,7 @@ export const EMTPY_ADDRESS: Address = {
     place: '',
     country: '',
 } as const;
+export const PROCEEDING_STATUS = ['overdue', 'actionNeeded', 'waitingForResponse', 'done'] as const;
 
 export function isAddress(value: IdDataElement['value']): value is Address {
     return typeof value === 'object' && 'country' in value;
@@ -32,6 +28,10 @@ export function isAddress(value: IdDataElement['value']): value is Address {
 
 export function isSva(sva: unknown): sva is SupervisoryAuthority {
     return !!sva && typeof sva === 'object' && 'complaint-language' in sva;
+}
+
+export function isValidRequestType(type: string): type is RequestType {
+    return REQUEST_TYPES.includes(type as RequestType); // We need this seemingly stupid casting here because TypeScript is stricter than it should on ReadonlyArray.includes()
 }
 
 /**
@@ -42,6 +42,10 @@ export function isSaneDataField(
     request_type: RequestType
 ): data_field is DataFieldName<AccessRequest> {
     return data_field === 'id_data' || (request_type === 'rectification' && data_field === 'rectification_data');
+}
+
+export function isUserRequest(request: Request | UserRequest): request is UserRequest {
+    return 'via' in request;
 }
 
 export const adressesEqual = (one: Address, two: Address) =>
@@ -135,31 +139,82 @@ export const trackingFields = (locale: RequestLanguage): IdDataElement[] => [
  */
 export const fetchTemplate = (
     locale: string,
-    request_type: RequestType | Exclude<CustomTemplateName, 'no-template'>,
+    request_type: RequestType,
     company?: Company | SupervisoryAuthority,
     suffix = 'default'
-): Promise<void | string> => {
-    const template =
-        company && company[`custom-${request_type}-template`]
+): Promise<void | string> =>
+    requestTemplate(
+        locale,
+        (company && company[`custom-${request_type}-template`]
             ? company[`custom-${request_type}-template`]
-            : request_type + (suffix ? '-' + suffix : '');
-
-    if (!Object.keys(window.I18N_DEFINITION_REQUESTS).includes(locale)) locale = window.LOCALE;
-
-    return requestTemplate(locale, template as string, request_type);
-};
+            : request_type + (suffix ? '-' + suffix : '')) as string,
+        request_type
+    );
 
 export const requestLanguageFallback = (language?: string) =>
     language && Object.keys(window.I18N_DEFINITION_REQUESTS).includes(language)
         ? language
-        : Object.keys(window.I18N_DEFINITION_REQUESTS).includes(window.LOCALE)
-        ? window.LOCALE
+        : Object.keys(window.I18N_DEFINITION_REQUESTS).includes(useAppStore.getState().savedLocale)
+        ? useAppStore.getState().savedLocale
         : REQUEST_FALLBACK_LANGUAGE;
 
 export function inferRequestLanguage(entity?: Company | SupervisoryAuthority) {
     if (entity && isSva(entity)) return requestLanguageFallback(entity['complaint-language']);
     return requestLanguageFallback(entity?.['request-language']);
 }
+
+export const icsFromProceedings = (proceedings: Proceeding[]) => {
+    const grouped_requests = proceedings.reduce<Record<string, Message[]>>((acc, prcd) => {
+        const request = getGeneratedMessage(prcd, 'request');
+        return request
+            ? { ...acc, [request.date.toDateString()]: [...(acc[request.date.toDateString()] || []), request] }
+            : acc;
+    }, {});
+
+    const events = Object.keys(grouped_requests)
+        .map((group) => {
+            const items = grouped_requests[group].map((request) => {
+                return `* ${request.correspondent_address.split('\n', 1)[0]} (${t(request.type, 'my-requests')} – ${
+                    request.reference
+                })`;
+            });
+            const titles = grouped_requests[group]
+                .map((request) => request.correspondent_address.split('\n', 1)[0])
+                .map((title) => (title.length > 15 ? `${title.slice(0, 15)}...` : title));
+
+            const heading_base = `${t('for', 'my-requests')} ${titles.slice(0, 2).join(', ')}`;
+            const heading_ellipsis =
+                titles.length > 2 ? ` ${t('and', 'my-requests')} ${titles.length - 2} ${t('more', 'my-requests')}` : '';
+            const reminder_date = new Date(group);
+            reminder_date.setDate(reminder_date.getDate() + 32);
+
+            return `
+BEGIN:VEVENT
+UID:${hash(items.join(','))}@ics.datenanfragen.de
+DTSTAMP:${new Date().toISOString().replace(/[:-]/g, '').substring(0, 15)}Z
+DTSTART:${reminder_date.toISOString().replace(/-/g, '').substring(0, 8)}
+SUMMARY:${t('ics-summary', 'my-requests')} ${heading_base}${heading_ellipsis}
+DESCRIPTION:${t('ics-desc', 'my-requests').replace(/([,;])/g, '\\$1')}\\n\\n\n ${items
+                .join('\\n\n ')
+                .replace(/([,;])/g, '\\$1')}
+BEGIN:VALARM
+TRIGGER:+PT720M
+ACTION:DISPLAY
+DESCRIPTION:${t('ics-summary', 'my-requests')}
+END:VALARM
+URL;VALUE=URI:${t('ics-url', 'my-requests')}
+END:VEVENT`;
+        })
+        .join('\n');
+
+    const ics = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Datenanfragen.de e. V.//${t('ics-title', 'my-requests')}//${t('ics-lang', 'my-requests')}
+X-WR-CALNAME:${t('ics-title', 'my-requests')} (${new Date().toISOString().substring(0, 10)})${events}
+END:VCALENDAR`;
+
+    return new Blob([ics.split('\n').join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+};
 
 // This is not the most elegant thing in the world, but we need to support 'no ID data' requests for more than adtech
 // companies. Ideally, this would be another bool in the schema but we can't really change that right now because of
@@ -175,3 +230,10 @@ export const shouldBeTrackingRequest = (
     ['access-tracking', 'erasure-tracking', 'rectification-tracking', 'objection-tracking'].includes(
         company?.[`custom-${requestType}-template`] ?? ''
     );
+
+export const iconClassForTransportMedium = {
+    email: 'icon-email',
+    fax: 'icon-fax',
+    letter: 'icon-post-person',
+    webform: 'icon-paper-plane-letter',
+} as const;

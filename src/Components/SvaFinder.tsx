@@ -49,15 +49,43 @@ const steps: Record<string, Steps> = {
             // this allows us to determine which ones the BfDI is not responsible for.
             'bund-kk': 'debfdi',
             kirche: {
-                ev: 'deekdbfd',
+                ev: {
+                    // Source: https://dsbkd.de/geschaeftsverteilung/
+                    evdsbkd: 'dedsbkd',
+                    // Source: https://datenschutz.ekd.de/vernetzung/andere-evangelisch/
+                    evpfalz: 'deevpfalz',
+                    evsonst: 'deekdbfd',
+                },
                 kath: {
                     kathbay: 'dekathbayddsb',
                     kathnrw: 'dekathdsz',
                     kathmsw: 'dekathffdsz',
                     kathnd: 'dekathnordddsb',
                     kathod: 'dekathostddsb',
-                    kathsonst: 'dekathverbdsb',
                 },
+                // TODO: A few other churches also have their own data protection authorities (very helpful source:
+                // https://artikel91.eu/rechtssammlung/andere-religionsgemeinschaften/). Once we have added those, we
+                // can defer to the regular state authorities for all other cases without their own autority.
+                // Note: I am assuming that the responsible authority for other churches in Bavaria is debayldb as
+                // churches tend to be Körperschaften des öffentlichen Rechts—I have not verified that.
+                // kirchesonst: {
+                //     bawue: 'debawueldb',
+                //     bay: 'debayldb',
+                //     ber: 'deberlbdi',
+                //     bra: 'debralda',
+                //     bre: 'debrelfdi',
+                //     hess: 'dehessbdi',
+                //     hh: 'dehmbbfdi',
+                //     mv: 'demvldi',
+                //     nds: 'dendslfd',
+                //     nrw: 'denrwldi',
+                //     rlp: 'derlpbdi',
+                //     saar: 'desaarudz',
+                //     sachs: 'desaechsdsb',
+                //     sa: 'desalbd',
+                //     sh: 'deshuld',
+                //     thue: 'detlfdi',
+                // },
             },
             private: {
                 'private-de': {
@@ -104,18 +132,18 @@ const steps: Record<string, Steps> = {
                 'rundfunk-br': 'derf',
                 'rundfunk-dw': 'derfdw',
                 'rundfunk-dr': 'derf',
-                'rundfunk-hr': 'derfhr',
-                'rundfunk-mdr': 'derfmdr',
+                'rundfunk-hr': 'derf',
+                'rundfunk-mdr': 'derf',
                 'rundfunk-ndr': 'derfndr',
                 'rundfunk-rb': 'derfrb',
                 'rundfunk-rbb': 'derfrbb',
                 'rundfunk-sr': 'derf',
-                'rundfunk-swr': 'derfswr',
+                'rundfunk-swr': 'derf',
                 'rundfunk-wdr': 'derf',
                 'rundfunk-zdf': 'derf',
                 // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272352&cms_klvl1=272342#kontaktfinderDown
                 'rundfunk-beitragsservice': {
-                    bawue: 'derfswr',
+                    bawue: 'derf',
                     bay: 'derf',
                     ber: 'deberlbdi',
                     bra: 'debralda',
@@ -125,12 +153,12 @@ const steps: Record<string, Steps> = {
                     mv: 'derfndr',
                     nds: 'derfndr',
                     nrw: 'derf',
-                    rlp: 'derfswr',
+                    rlp: 'derf',
                     saar: 'derf',
-                    sachs: 'derfmdr',
-                    sa: 'derfmdr',
+                    sachs: 'derf',
+                    sa: 'derf',
                     sh: 'derfndr',
-                    thue: 'derfmdr',
+                    thue: 'derf',
                 },
             },
         },
@@ -209,19 +237,25 @@ export const SvaFinder = (props: SvaFinderProps) => {
             if (a === country) return -1;
             else if (b === country) return 1;
 
-            // In the first step for Germany, "Any other public or private entity" has to be sorted last.
-            if (a === 'private') return 1;
-            else if (b === 'private') return -1;
+            // We have a few "Any other …" steps that need to be sorted last.
+            const sortLastKeys = ['kirchesonst', 'evsonst', 'private'];
+            if (sortLastKeys.includes(a)) return 1;
+            else if (sortLastKeys.includes(b)) return -1;
 
             // Otherwise, just sort alphabetically.
             return entries[a].localeCompare(entries[b]);
         });
 
         const options = sorted_keys.map((key) => (
-            <label className={`radio-label${[country, 'private'].includes(key) ? ' active' : ''}`}>
-                <input className="form-element" onClick={() => selectOption(key)} />
-                {entries[key]}
-            </label>
+            <div className="radio-wrapper">
+                <label
+                    className={`radio-label${
+                        [country, 'private', 'kirchesonst', 'evsonst'].includes(key) ? ' active' : ''
+                    }`}>
+                    <input className="form-element" type="radio" onClick={() => selectOption(key)} />
+                    {entries[key]}
+                </label>
+            </div>
         ));
         content = (
             <Fragment>
@@ -285,7 +319,9 @@ const svas = {
     debfdi: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
     debralda: 'Die Landesbeauftragte für den Datenschutz und für das Recht auf Akteneinsicht Brandenburg',
     debrelfdi: 'Die Landesbeauftragte für Datenschutz und Informationsfreiheit Bremen',
+    dedsbkd: 'Der Datenschutzbeauftragte für Kirche und Diakonie',
     deekdbfd: 'Der Beauftragte für den Datenschutz der EKD',
+    deevpfalz: 'Datenschutzbeauftragte Evangelische Kirche der Pfalz',
     dehessbdi: 'Der Hessische Beauftragte für Datenschutz und Informationsfreiheit',
     dehmbbfdi: 'Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit',
     dekathbayddsb: 'Diözesandatenschutzbeauftragter Bayerische Bistümer',
@@ -294,7 +330,6 @@ const svas = {
     dekathnordddsb:
         'Der Diözesandatenschutzbeauftragte der (Erz-)Bistümer Hamburg, Hildesheim, Osnabrück und des Bischöflich Münsterschen Offizialats in Vechta i.O.',
     dekathostddsb: 'Diözesandatenschutzbeauftragter der ostdeutschen Bistümer',
-    dekathverbdsb: 'Die Datenschutzbeauftragte des Verbandes der Diözesen Deutschlands',
     demvldi: 'Der Landesbeauftragte für Datenschutz und Informationsfreiheit Mecklenburg-Vorpommern',
     dendslfd: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
     denrwldi: 'Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen',
@@ -304,14 +339,11 @@ const svas = {
     desalbd: 'Landesbeauftragter für den Datenschutz Sachsen-Anhalt',
     deshuld: 'Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein',
     detlfdi: 'Thüringer Landesbeauftragter für den Datenschutz und die Informationsfreiheit',
-    derf: 'Der Rundfunkdatenschutzbeauftragte von BR, SR, WDR, Deutschlandradio und ZDF',
+    derf: 'Der Rundfunkdatenschutzbeauftragte von BR, HR, MDR, SR, SWR, WDR, Deutschlandradio und ZDF',
     derfdw: 'Rundfunkdatenschutzbeauftragter Deutsche Welle',
-    derfhr: 'Datenschutzbeauftragter Hessischer Rundfunk',
-    derfmdr: 'Rundfunkbeauftragter für den Datenschutz beim MDR',
     derfndr: 'Rundfunkdatenschutzbeauftragter Norddeutscher Rundfunk',
     derfrb: 'Datenschutzbeauftragte Radio Bremen',
     derfrbb: 'Datenschutzbeauftragte Rundfunk Berlin-Brandenburg',
-    derfswr: 'Rundfunkbeauftragter für den Datenschutz beim Südwestrundfunk',
     dkdi: 'Datatilsynet (Data Inspectorate of Denmark)',
     eeaki: 'Andmekaitse Inspektsioon (Estonian Data Protection Inspectorate)',
     esaepa: 'Agencia Española de Protección de Datos (Spanish Agency for Data Protection)',

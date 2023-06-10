@@ -39,7 +39,6 @@
         "footer-social-github-desc": "Znajdź nas na GitHub.",
         "verein-home-card-mission-heading": "Nasze cele",
         "blog-page": "Strona ",
-        "noscript-wizard": "Tutaj znalazłbyś kreator pomagający w tworzeniu żądań, który jest generowany przez JavaScript. Tworzenie żądań tylko na twoim komputerze wymaga JavaScript. Możesz korzystać z witryny bez JavaScript, ale będzie miała ona ograniczoną funkcjonalność. Kod nie będzie wysyłał żadnych danych na żadne serwery, bez uprzedniej zgody. Jeśli chcesz korzystać z witryny i wszystkich jej funkcji, włącz JavaScript w przeglądarce lub dodaj wyjątek do swojego blokera. Jeśli po tych czynnościach strona dalej nie działa, napisz do nas na adres <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "press-no-releases": "W chwili obecnej nie mamy informacji prasowych w języku angielskim.",
         "lic-cc-by-nd-40": "Creative Commons Bez utworów zależnych 4.0 Międzynarodowe (CC BY-NC-ND 4.0)",
         "lic-cc0-10": "CC0 1.0 Universal Przekazanie do Domeny Publicznej",
@@ -105,7 +104,6 @@
         "footer-press": "Prasa",
         "footer-material": "Materiały informacyjne",
         "footer-social-mastodon-desc": "Śledź nas na Mastodon.",
-        "footer-social-twitter-desc": "Dołącz do nas na Twitterze",
         "footer-tab-community": "Społeczność",
         "footer-contribute": "Wspomóż nas",
         "footer-my-requests": "Moje zapytania",
@@ -574,19 +572,19 @@
         "modal-new-request": "Nie używałeś jeszcze wygenerowanego zapytania. Czy nadal chcesz zresetować wszystkie pola i rozpocząć nowy wniosek, czy  najpierw załadować zapytanie?",
         "confirm-input-remove": "Czy na pewno usunąć pole?",
         "information-block": "Blok informacyjny",
-        "modal-select-authority": "Ten asystent pomoże Ci wybrać organ nadzorczy ds. ochrony danych, do którego chcesz złożyć skargę. Nie musisz składać skargi do organu, który jest odpowiedzialny za firmę, na którą chcesz złożyć skargę, ale powinieneś wybrać ten, który znajduje się w miejscu Twojego zamieszkania. <a href=\"/supervisory-authorities\" target=\"_blank\"> Dowiedz się więcej</a>",
         "company-read-more": "Więcej informacji",
         "print-pdf": "Drukuj PDF",
         "pgp-fingerprint": "PGP fingerprint (ang.)",
         "pgp-fingerprint-colon": "PGP fingerprint (ang.):",
         "ok": "Ok",
-        "wizard-done-modal": "I to już wszystko! Wypełniłeś wnioski dla wszystkich firm, które wybrałeś w kreatorze. Jeśli chcesz, możesz teraz wygenerować dodatkowe (bardziej złożone) wnioski.",
         "error-template-not-found": "Nie można znaleźć szablonu zapytania.",
         "error-template-fetch-failed": "Pobieranie szablonu żądania nie powiodło się (nieznany błąd).",
         "email-address": "Adres e-mail",
         "body": "Tekst",
         "mailto-dropdown-explanation": "W jaki sposób chcesz wysłać e-mail?",
-        "signature": "Podpis"
+        "signature": "Podpis",
+        "include-objection": "Dodatkowo, dodaj sprzeciw w Twojej konkretnej sprawie",
+        "objection-reason": "Powód sprzeciwu"
     },
     "blog": {
         "footnote": "Notatka"
@@ -665,16 +663,10 @@
         "title": "Ustawienia prywatności",
         "search-description": "W naszej bazie danych firm znajdują się dane kontaktowe wielu firm związane z ochroną prywatności, co znacznie ułatwia wysyłanie do nich zapytań. Aby znaleźć firmy, których szukasz, możesz skorzystać z naszej wyszukiwarki.<br>Aby to zadziałało, musimy wysłać wpisane przez Ciebie słowa kluczowe do jednego z naszych serwerów. Nie prowadzimy jednak żadnych rejestrów takich zapytań.",
         "save_my_requests-description": "Aby ułatwić Ci zarządzanie Twoimi wcześniejszymi zgłoszeniami, oferujemy funkcję \"Moje zgłoszenia\". Jeśli ją włączysz, wszystkie wygenerowane przez Ciebie zgłoszenia zostaną zapisane na Twoim komputerze (za pomocą funkcji lokalnego zapisu w Twojej przeglądarce) i będziesz mógł je później przeglądać <a href='/my-requests'>tutaj</a>. Tam możesz również w każdej chwili usunąć wszystkie zapisane dane żądań lub wyeksportować je jako plik CSV.",
-        "save_wizard_entries-description": "Nasz kreator pozwala na łatwe wysyłanie zapytań o dostęp do firm. Aby zachować wybrane przez Ciebie firmy pomiędzy kolejnymi załadowaniami przeglądarki, możemy je przechowywać. Dane zostaną zapisane wyłącznie na Twoim komputerze (przy użyciu funkcji lokalnego przechowywania danych w Twojej przeglądarce) i nigdy nie zostaną wysłane na żadne serwery, w tym na nasz.",
-        "modal-clear-save_wizard_entries": "Spowoduje to usunięcie wszystkich wybranych firm z kreatora. Tej operacji nie można tego cofnąć. Czy chcesz kontynuować?",
-        "confirm-clear-save_wizard_entries": "Usuń zapisane firmy",
-        "confirm-delete-save_wizard_entries": "Wyłączyłeś zapisywanie wybranych firm w kreatorze. Czy chcesz również wyczyścić wszystkie zapisane wcześniej firmy? Tej operacji nie da się cofnąć.",
-        "save_wizard_entries": "Zapisz wybrane firmy w kreatorze",
         "save_id_data": "Zapamiętaj dane identyfikacyjne",
         "clear-cookies": "Wyczyść ciasteczka",
         "save_my_requests": "Funkcja „Moje prośby”",
-        "clear-id_data": "Usuń wszystkie dane identyfikacyjne",
-        "clear-save_wizard_entries": "Wyczyść wybrane firmy"
+        "clear-id_data": "Usuń wszystkie dane identyfikacyjne"
     },
     "schema": {
         "sources": "Źródła",
@@ -710,7 +702,6 @@
     "categories": {
         "nonprofit": "organizacja non-profit",
         "utility": "media",
-        "suggested": "Sugerowane",
         "other": "inne",
         "ads": "reklamy",
         "church": "kościół",
@@ -800,17 +791,6 @@
         "rss-link": "Subskrybuj komentarze do tego postu za pomocą czytnika RSS/Atom.",
         "warning": "Prosimy pamiętać, że jesteśmy <em>niezależną organizacją non-profit</em> i nie jesteśmy powiązani z firmą wymienioną poniżej.<br>Jeśli potrzebujesz wsparcia lub chcesz wysłać wniosek, prosimy o kontakt bezpośrednio z firmą. Niestety <strong>nie możemy</strong> pomóc w takich przypadkach. Dziękujemy za zrozumienie."
     },
-    "wizard_tutorial": {
-        "back": "Powrót",
-        "close": "Zamknij",
-        "finish": "Zakończ",
-        "next": "Następny",
-        "company-info": "<p> W tym miejscu możesz znaleźć więcej szczegółów na temat aktualnie wybranej firmy. Czasami mamy również kilka ważnych uwag na temat niektórych firm. Będą one wyświetlane w tym miejscu.</p>",
-        "next-request": "<p>I to już wszystko w przypadku tej prośby!</p><p>W zależności od nośnika, tutaj możesz wysłać swoje żądanie jako e-mail lub pobrać dla niego plik PDF. Następnie przejdziemy do następnej prośby.</p>",
-        "skip": "Pomiń samouczek",
-        "id-data": "<p>Teraz kolej na Ciebie. Aby udzielić Ci dostępu do Twoich danych, firma musi być w stanie Cię zidentyfikować. W tym miejscu możesz podać niezbędne dane. Może to być Twoje imię i nazwisko, numer konta, adres e-mail lub coś zupełnie innego. Jeśli nie wiesz, których danych użyć, po prostu trzymaj się domyślnych pól.<br>I zawsze pamiętaj: im mniej danych podasz, tym lepiej - firma skontaktuje się z Tobą, jeśli będzie potrzebować więcej szczegółów.</p><p>Zapiszemy dane, które tu wprowadzisz, więc nie będziesz musiał wprowadzać ich ponownie przy następnym zapytaniu. Bez obaw: wszystkie dane zapisują się wyłącznie na <strong>Twoim</strong> komputerze, a my nigdy ich nie zobaczymy. Oczywiście, zawsze możesz <a href=\"/privacy-controls\" target=\"_blank\">wyłączyć tę funkcję</a>, jeśli nie chcesz z niej korzystać.</p>",
-        "request-parameters": "<p> Zacznijmy generować Twoje zgłoszenia. Postaramy się, aby było to dla Ciebie jak najłatwiejsze.</p><p class='desktop-only'>Po lewej stronie mamy już wstępnie wypełnione dane kontaktowe dla pierwszej firmy.</p><p class='mobile-only'>Na górze mamy już wstępnie wypełnione dane kontaktowe dla pierwszej firmy.</p>."
-    },
     "requests": {
         "letter-subject-objection": "Sprzeciw wobec marketingu bezpośredniego zgodnie z art. 21 ust. 2 RODO",
         "language-change-modal": "Zmiana języka spowoduje przekierowanie do innej domeny. Twoje ustawienia i zapisane dane z tej domeny nie zostaną przeniesione. <br>W szczególności oznacza to, że takie rzeczy, jak ustawienia prywatności i zapisane żądania, nie będą dostępne w nowym języku. Zawsze możesz wrócić do tego języka i wyświetlić je tutaj, ale nie możesz udostępniać ustawień i zapisanych danych pomiędzy różnymi językami.",
@@ -832,25 +812,6 @@
         "change-lang": "Zmień język",
         "stay": "Zostań tutaj",
         "language": "Język"
-    },
-    "wizard": {
-        "commerce": "<p>Zacznijmy od handlu. Często robisz zakupy na Amazon lub Ebay? Prawdopodobnie wiesz już, że sklepy internetowe lubią zbierać mnóstwo danych osobowych swoich użytkowników, więc upewnij się, że dodałeś te, z których korzystasz lub korzystałeś w przeszłości.</p><p>Co niepokojące, sklepy stacjonarne również coraz częściej profilują swoich klientów, dlatego sugerujemy dodanie przynajmniej tych, które odwiedzasz regularnie lub w których aktywnie proszono Cię o podanie swoich danych.</p><p>Aby dodać firmę, użyj paska wyszukiwania powyżej.<br>Pamiętaj, że wyszukiwanie jest filtrowane według kategorii. Oznacza to, że w tym kroku znajdziesz tylko firmy z kategorii 'handel', a w następnym tylko firmy z branży rozrywkowej i tak dalej.</p>",
-        "social media": "<p>Jeśli jesteś członkiem jakiejkolwiek sieci społecznościowej (jak Facebook, WhatsApp, Twitter lub Instagram), nie zapomnij ich dodać.</p>",
-        "finance": "<p>Prawdopodobnie posiadasz przynajmniej konto bankowe i być może osobną kartę kredytową. Ale ta kategoria obejmuje również dostawców płatności, takich jak PayPal i Patreon.<br>A może handlowałeś kryptowalutami na jakiejś giełdzie?</p>",
-        "telecommunication": "<p>Twój operator telefoniczny i dostawca usług internetowych mogą pamiętać wszystkie Twoje połączenia dla celów rozliczeniowych. Zalecamy również zapytanie swojego dostawcy poczty elektronicznej o to, jakie dane na Twój temat zapisuje - miejmy nadzieję, że nie skanuje Twoich maili! <br>Jeśli prowadzisz stronę internetową, zapytaj również swojego dostawcę usług hostingowych i rejestratora domen.</p>",
-        "utility": "<p> Trzymaj się, już prawie skończyliśmy. Przez media rozumiemy gaz, prąd, wodę, kanalizację itd., ale także takie rzeczy jak transport publiczny. </p>.",
-        "none-selected": "Jeszcze żadnych. Może chciałbyś kilka dpdać?",
-        "finish": "Zakończono dodawanie firm",
-        "suggested": "<p>Pierwszym krokiem do odzyskania kontroli nad danymi jest wiedza o tym, jakie dane przechowują firmy. Nasz kreator pomoże Ci zidentyfikować firmy, które mogą przechowywać dane osobowe na Twój temat, a następnie wysłać do nich wnioski o dostęp zgodnie z RODO.</p>{{suggested}}<p> W kolejnych krokach zasugerujemy Ci kategorie firm, z którymi mogłeś wejść w interakcję. Możesz następnie dodać więcej firm z tych kategorii i zawsze usunąć wcześniej dodane firmy.</p><p>Gdy będziesz zadowolony z wyboru, kliknij 'Dalej', aby przejść do pierwszej kategorii.</p>",
-        "search-company": "Wyszukaj firmy z kategorii „{{category}}”…",
-        "suggestions": "<p>Uruchomiliśmy Twoją listę z kilkoma firmami. Jest ich dużo, a Ty nie rozpoznajesz większości z nich? Powiedz nam o tym! Z naszego doświadczenia wynika, że te firmy posiadają dane o prawie wszystkich w twoim kraju (jeśli nie jesteś w <em id='wizard-user-country'>{{country}}</em>, możesz <a href='#footer'>zmienić to ustawienie</a> na samym dole strony). Uważamy, że tym ważniejsze jest, by złożyć zapytanie o Twoje dane osobowe.</p>",
-        "insurance": "<p>Ta kategoria powinna być dość oczywista. Nie zapominaj tylko, że w dzisiejszych czasach firmy często sprzedają Ci ubezpieczenia na nieoczywiste rzeczy, w tym podróże i zakupy małych urządzeń elektronicznych.</p>",
-        "selected-companies": "Aktualnie wybrane firmy",
-        "entertainment": "<p>Czy pamiętasz jaki film ostatnio oglądałeś na Netflixie, jaka piosenka ma najwięcej odtworzeń na Twoim koncie Spotify lub ile godzin spędziłeś grając w swoją ulubioną grę na Steamie? Te firmy z pewnością tak.</p><p>Przy okazji: będziemy pamiętać firmy, które już wybrałeś. Jeśli przeładujesz stronę lub będziesz chciał kontynuować później, nie będziesz musiał zaczynać od początku.<br>I oczywiście dane te są zapisywane tylko na <strong>Twoim</strong> komputerze. Jeśli mimo to chcesz wyłączyć tę funkcję, zajrzyj do naszych <a href=\"/privacy-controls\">ustawień prywatności</a>.</p>",
-        "next": "Dalej",
-        "other": "<p> Uff, dotarłeś do ostatniej kategorii. Dziękujemy za trzymanie się z nami! </p> <p> Oczywiście istnieje zbyt wiele różnych firm, abyśmy mogli dopasować je wszystkie do kategorii. W tym ostatnim kroku możesz przeszukać całą naszą bazę danych, aby wychwycić wszystkie firmy, które przegapiliśmy w poprzednich krokach. </p> <p> Po dodaniu wszystkich firm, które chcesz, kliknij przycisk, aby przejść do generatora, w którym wygenerujemy żądania do wybranych firm. </p>",
-        "remove-company": "Usuń firmę",
-        "no-suggestions": "<p>Niestety, nie mamy jeszcze żadnych sugerowanych firm dla twojego kraju (<em id='wizard-user-country'>{{country}}</em>). Jeśli znajdujesz się w innym kraju, możesz <a href='#footer'> zmienić to ustawienie</a> na samym dole strony.</p>"
     },
     "suggest": {
         "error": "Niestety, wysłanie Twojego wkładu nie powiodło się. Upewnij się, że jesteś podłączony do Internetu i nie blokujesz żądań do backend.datenanfragen.de poprzez dodatek taki jak uMatrix lub NoScript.",
@@ -879,5 +840,10 @@
     "macros": {
         "site_name": "prawododanych.org",
         "base_url": "https://www.prawododanych.org"
+    },
+    "company-packs": {
+        "address-brokers-title": "Pośrednictwo i zarządzanie adresami",
+        "credit-agencies-title": "Wywiadownia gospodarcza",
+        "address-brokers-description": "Te firmy gromadzą adresy pocztowe i/lub mailowe osób fizycznych i sprzedają oparte na nich usługi innym firmom. Niektóre z nich sprzedają lub wypożyczają swoje dane adresowe reklamodawcom (często w połączeniu z dodatkowymi atrybutami, takimi jak zainteresowania), inne oferują firmom sprawdzenie już przechowywanych adresów i ich ewentualną korektę."
     }
 }

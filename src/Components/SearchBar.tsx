@@ -3,10 +3,10 @@ import type { SearchParams, SearchResponseHit } from 'typesense/lib/Typesense/Do
 import type { Company } from '../types/company';
 import { useEffect, useRef } from 'preact/hooks';
 import { IntlProvider, MarkupText } from 'preact-i18n';
-import { useAppStore, Country } from '../store/app';
+import { useAppStore } from '../store/app';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { searchClient } from '../Utility/search';
+import { searchClient, defaultSearchParams, countryFilter } from '../Utility/search';
 import { rethrow } from '../Utility/errors';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 
@@ -36,18 +36,6 @@ export type SearchBarProps = {
 >;
 
 type Hit = SearchResponseHit<Company>;
-
-const countryFilter = (country: Country) => {
-    const items = ['all', country];
-
-    // Our records often simply specify Germany for companies that are also relevant for Austria and/or Switzerland.
-    // Thus, we explicitly include results from Germany for these countries.
-    //
-    // Ideally, we would rank those additional results lower but as far as I am aware, Typesense doesn't support that.
-    if (['at', 'ch'].includes(country)) items.push('de');
-
-    return `relevant-countries:[${items.join(', ')}]`;
-};
 
 const RealSearchBar = ({
     id,
@@ -86,10 +74,11 @@ const RealSearchBar = ({
                             source: (q: string, callback: (hits?: Hit[]) => void) => {
                                 const options: SearchParams = {
                                     q,
-                                    query_by: queryBy || 'name, runs, web, slug, address, comments',
-                                    sort_by: '_text_match:desc,sort-index:asc',
-                                    num_typos: 4,
-                                    per_page: numberOfHits || 5,
+
+                                    ...defaultSearchParams,
+                                    ...(queryBy && { query_by: queryBy }),
+                                    ...(numberOfHits && { per_page: numberOfHits }),
+
                                     filter_by: (filters || [])
                                         .concat(
                                             disableCountryFiltering || country === 'all' ? [] : [countryFilter(country)]
@@ -205,7 +194,7 @@ ${
     );
 };
 
-const DisabledSearchBar = () => {
+export const DisabledSearchBar = () => {
     return (
         <IntlProvider scope="search" definition={window.I18N_DEFINITION}>
             <FeatureDisabledWidget includeImage={false}>

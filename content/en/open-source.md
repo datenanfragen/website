@@ -7,9 +7,9 @@
 
 <img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
 
-Open Source is at the very core of datarequests.org. We have designed the project from the ground up to be as open as possible. Our {{< link slug="verein/constitution" text="constitution" >}} requires us to publish our content under free licenses.
+Open Source is at the very core of datarequests.org. We have designed the project from the ground up to be as open as possible. Our {{< link slug="verein/constitution" text="constitution" >}} requires us to publish our content under free licenses. We are huge proponents of Open Source and believe in it.
 
-We are huge proponents of Open Source and believe in it.
+We sometimes posts updates on what we're doing and interesting technical challenges we encountered in {{< link slug="devlog" text="devlog" >}} and on [Mastodon](https://chaos.social/@dev_at_datarequestsORG).
 
 ## Our Open Source repositories
 

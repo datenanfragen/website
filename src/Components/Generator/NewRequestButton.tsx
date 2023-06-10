@@ -6,8 +6,7 @@ import { useCallback, useState } from 'preact/hooks';
 import { useModal } from '../Modal';
 import t from '../../Utility/i18n';
 import type { JSX } from 'preact';
-import { Privacy, PRIVACY_ACTIONS } from '../../Utility/Privacy';
-import { SavedCompanies } from '../../DataType/SavedCompanies';
+import { useProceedingsStore } from '../../store/proceedings';
 
 type NewRequestButtonProps = {
     newRequestHook?: (arg?: unknown) => void;
@@ -21,6 +20,8 @@ export const NewRequestButton = (props: NewRequestButtonProps) => {
     const [ConfirmNewRequestModal, showConfirmNewRequestModal, , , newRequest] = useNewRequestModal(
         props.newRequestHook
     );
+    const current_company = useGeneratorStore((state) => state.current_company);
+    const removeFromBatch = useGeneratorStore((state) => state.removeFromBatch);
 
     return (
         <>
@@ -29,6 +30,7 @@ export const NewRequestButton = (props: NewRequestButtonProps) => {
                 id="new-request-button"
                 onClick={() => {
                     if (!request_sent) return showConfirmNewRequestModal();
+                    if (current_company) removeFromBatch(current_company.slug);
                     newRequest().then(renderLetter);
                 }}
                 {...props.buttonProps}>
@@ -48,53 +50,24 @@ export const useNewRequestModal = (
     boolean,
     () => Promise<void>
 ] => {
-    const resetInitialConditions = useGeneratorStore((state) => state.resetInitialConditions);
     const transport_medium = useGeneratorStore((state) => state.request.transport_medium);
-    const setDownload = useGeneratorStore((state) => state.setDownload);
     const resetRequestToDefault = useGeneratorStore((state) => state.resetRequestToDefault);
-    const removeCompany = useGeneratorStore((state) => state.removeCompany);
-    const advanceBatch = useGeneratorStore((state) => state.advanceBatch);
-    const storeRequest = useGeneratorStore((state) => state.storeRequest);
     const setBusy = useGeneratorStore((state) => state.setBusy);
-    const request_type = useGeneratorStore((state) => state.request.type);
     const current_company = useGeneratorStore((state) => state.current_company);
     const renderLetter = useGeneratorStore((state) => state.renderLetter);
+    const getRequestForSaving = useGeneratorStore((state) => state.getRequestForSaving);
+    const removeFromBatch = useGeneratorStore((state) => state.removeFromBatch);
+
+    const addRequest = useProceedingsStore((state) => state.addRequest);
 
     const [payload, setPayload] = useState<Parameters<Exclude<typeof newRequestHook, undefined>>[0]>();
 
     const newRequest = useCallback(async () => {
         // Remove GET parameter-selected company from the URL after the request is finished.
-        // Also remove warning and complaint GET parameters from the URL after the request is finished.
-        if (window.PARAMETERS['company'] || window.PARAMETERS['response_type'] || window.PARAMETERS['response_to']) {
-            clearUrlParameters();
-        }
+        if (window.PARAMETERS['company'] || window.PARAMETERS['companies']) clearUrlParameters();
 
-        if (
-            request_type === 'access' &&
-            Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_WIZARD_ENTRIES) &&
-            current_company?.slug
-        )
-            new SavedCompanies().remove(current_company.slug);
-
-        resetRequestToDefault();
-        setDownload(false);
-        setBusy();
-        removeCompany()
-            .then(() => newRequestHook?.(payload))
-            .then(() => advanceBatch())
-            .then(() => resetInitialConditions());
-    }, [
-        newRequestHook,
-        resetInitialConditions,
-        resetRequestToDefault,
-        setDownload,
-        removeCompany,
-        current_company,
-        request_type,
-        payload,
-        advanceBatch,
-        setBusy,
-    ]);
+        resetRequestToDefault({ advanceBatch: true, beforeAdvanceBatchHook: () => newRequestHook?.(payload) });
+    }, [newRequestHook, resetRequestToDefault, payload]);
 
     const [ConfirmNewRequestModal, showModal, dismissConfirmNewRequestModal, shown] = useModal(
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
@@ -111,10 +84,10 @@ export const useNewRequestModal = (
                         }
                         onSuccess={() => {
                             dismissConfirmNewRequestModal();
-                            storeRequest()
-                                .then(() => setBusy())
-                                .then(() => newRequest())
-                                .then(() => renderLetter());
+                            addRequest(getRequestForSaving());
+                            if (current_company) removeFromBatch(current_company.slug);
+                            setBusy();
+                            newRequest().then(() => renderLetter());
                         }}
                     />
                 </div>
@@ -122,6 +95,7 @@ export const useNewRequestModal = (
             negativeText: t('new-request', 'generator'),
             onNegativeFeedback: () => {
                 dismissConfirmNewRequestModal();
+                if (current_company) removeFromBatch(current_company.slug);
                 setBusy();
                 newRequest().then(() => renderLetter());
             },

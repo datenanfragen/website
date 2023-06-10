@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 30. Mai 2021.
+Die Informationen sind auf dem Stand vom 13. Februar 2023.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
@@ -35,7 +35,7 @@ Unsere Ziele entsprechen den Zwecken, die die Satzung festlegt, wir haben sie ab
 
 ## 3. Angaben zur Steuerbegünstigung
 
-Das Finanzamt Braunschweig-Wilhelmstraße hat zuletzt uns per [Freistellungsbescheid vom 13. Januar 2020](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) zur Förderung von Verbraucherberatung und -schutz sowie des demokratischen Staatswesens als gemeinnützig anerkannt. Unsere Steuernummer ist: 14/209/11640
+Das Finanzamt Braunschweig-Wilhelmstraße hat zuletzt uns per [Freistellungsbescheid vom 30. Januar 2023](https://static.dacdn.de/docs/freistellungsbescheid_2023-01-30.pdf) zur Förderung von Verbraucherberatung und -schutz sowie des demokratischen Staatswesens als gemeinnützig anerkannt. Unsere Steuernummer ist: 14/209/11640
 
 ## 4. Name und Funktion wesentlicher Entscheidungsträger
 
@@ -50,6 +50,7 @@ Die Geschäftsführung des Vereins haben die Vorsitzenden des {{< link slug="ver
 
 ## 5. Tätigkeitsbericht
 
+s. [Jahresbericht 2021 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=5)  
 s. [Jahresbericht 2020 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=5)  
 s. [Jahresbericht 2019 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
 s. [Jahresbericht 2018 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=5)
@@ -62,16 +63,19 @@ Anzahl Ehrenamtliche: 3
 
 ## 7. Angaben zur Mittelherkunft
 
+s. [Jahresbericht 2021 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 s. [Jahresbericht 2020 (S. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
+Vermögensstand Ende 2021: 218,43 €  
 Vermögensstand Ende 2020: 327,78 €  
 Vermögensstand Ende 2019: 87,90 €  
 Vermögensstand Ende 2018: 119,70 €
 
 ## 8. Angaben zur Mittelverwendung
 
+s. [Jahresbericht 2021 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 s. [Jahresbericht 2020 (S. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 s. [Jahresbericht 2018 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
@@ -83,6 +87,16 @@ Der Verein steht in keinerlei gesellschaftsrechtlicher Verbundenheit mit Dritten
 ## 10. Namen von Personen, deren jährliche Zahlungen mehr als 10 % des Gesamtjahresbudgets ausmachen
 
 Diese Informationen veröffentlichen wir jährlich zusammen mit dem Jahresbericht.
+
+### 2021
+
+#### Natürliche Personen
+
+- Anonymer Mitgliedsbeitrag: 128,00 € (24,2 %)
+
+#### Juristische Personen
+
+In 2021 haben wir keine Spenden oder Beiträge von juristischen Personen erhalten, die mehr als 10 % unseres Gesamtjahresbudgets ausmachen.
 
 ### 2020
 
@@ -137,3 +151,12 @@ Der Vorstand ist verpflichtet, Vorträge, für die Vorstandsmitglieder eine Verg
 ### 2020
 
 * Im März 2020 hat die Humboldt-Universität zu Berlin Benjamin Altpeter und Lorenz Sieben im Rahmen der [HLCI](http://www.hlci.de/) privat eingeladen, ein {{< link slug="verein/event/hlci-berlin-2020" text="Seminar zu Datenanfragen.de" >}} als Gastvortrag zu halten. Die Humboldt-Universität hat die Kosten für die Zugreise und Übernachtung übernommen und den beiden ein Honorar von jeweils 250&nbsp;€ gezahlt. Benni und Lorenz haben sich freiwillig entschieden, die Hälfte des Honorars an den Verein zu spenden.
+
+## 12. Externe Fördermittel, die Mitglieder erhalten haben
+
+Der Verein profitiert davon, wenn sich Mitglieder selbstständig auf externe Fördermittel bewerben, um damit ihre Arbeit an unseren Projekten zu finanzieren. Gewährte Fördermittel dokumentieren wir hier. Die aufgelisteten Fördermittel gingen nicht an den Verein, sondern liegen alleine in der Verantwortung der entsprechenden Mitglieder.
+
+### 2022
+
+* Das Bundesministerium für Bildung und Forschung hat die Arbeit der Lorenz Sieben und Benjamin Altpeter GbR am Projekt [„Eine App für Datenanfragen.de“](https://prototypefund.de/project/eine-app-fuer-datenanfragen-de/) im Rahmen des Prototype Fund zwischen März 2022 und August 2022 mit 29.426,00&nbsp;€ gefördert (Förderkennzeichen 01IS22S20). Zweck des Projektes war es zu evaluieren, ob die Wahrnehmung der eigenen Datenschutzrechte mit einer nativen App noch weiter vereinfacht werden kann. Im Zuge des Projektes wurden darüber hinaus die bestehende Codebasis der Webseite grundlegend aufgeräumt und erneuert, eine neue intuitivere Oberfläche für den Anfragenenerator umgesetzt, die Anfragenübersicht erweitert und ein Generator für Mahnungen und Beschwerden entwickelt.  
+  [Abschlussbericht](https://static.bn.al/doc/abschlussbericht-ptf11-dade-app.pdf)

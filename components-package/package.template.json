@@ -34,7 +34,12 @@
             "distDir": "src/generated"
         }
     },
-    "dependencies": {},
+    "dependencies": {
+        "@fontsource/league-spartan": "^4.5.10",
+        "@fontsource/firago": "^4.5.3",
+        "minisearch": "^5.0.0",
+        "postal-mime": "^1.0.13"
+    },
     "peerDependencies": {},
     "devDependencies": {
         "@parcel/packager-ts": "2.6.0",

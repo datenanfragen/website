@@ -160,7 +160,7 @@
 
         "erasure-subject": "Demande de suppression des données personnelles conformément à l'Art. 17 du RGPD",
         "erasure-body-000": "Je viens par la présente, demander la suppression immédiate des données personnelles me concernant conformément à l'Article 17 du RGPD.",
-        "erasure-body-010": "[erase_all>Veuillez supprimer toutes les données personnelles me concernant comme définit pat l'Article 4, alinéa 1 du RGPD.]",
+        "erasure-body-010": "[erase_all>Veuillez supprimer toutes les données personnelles me concernant comme définit par l'Article 4, alinéa 1 du RGPD.]",
         "erasure-body-020": "[erase_some>Veuillez supprimer les données personnelles suivantes me concernant :\n{erasure_data}]",
         "erasure-body-030": "Je suis convaincu que les conditions énoncées à l'Article 17, alinéa 1, du RGPD sont remplies.",
         "erasure-body-040": "Si j'ai consenti au traitement de mes données à caractère personnel (par exemple, conformément à l'Article 6, alinéa 1, ou à l'Article 9, alinéa 2 du RGPD), je retire ce consentement par la présente.\nEn outre, je m'oppose au traitement des données à caractère personnel me concernant (ce qui inclut le profilage), conformément à l'Article 21 du RGPD.",

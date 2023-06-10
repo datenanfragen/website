@@ -9,6 +9,8 @@
         "target": "es2015",
         "strict": true,
         "strictNullChecks": true,
+        // TODO:
+        "noUncheckedIndexedAccess": false,
         "skipLibCheck": true,
         "noImplicitAny": true,
         "forceConsistentCasingInFileNames": true,
@@ -21,7 +23,6 @@
         "rootDir": "./",
         "baseUrl": ".",
         "paths": {
-            "*": ["./src/types/*"],
             "react": ["node_modules/preact/compat"],
             "react-dom": ["node_modules/preact/compat"]
         }

@@ -201,12 +201,12 @@ export const SignatureInput = (props: SignatureInputProps) => {
                             props.onChange({ type: 'text', name: props.value.name || '' });
                         }
                     }}
-                    style="float: right; margin: 0 0 5px 5px;">
+                    style="float: left; margin-right: 5px">
                     <Text id="reset-signature" />
                 </button>
                 {props.fillSignature?.type === 'image' && (
                     <button
-                        style="float: right;"
+                        style="float: left;"
                         className="button button-small button-secondary"
                         onClick={() => {
                             if (context.current && props.fillSignature?.type === 'image')
@@ -269,7 +269,7 @@ function getCroppedCanvas(canvas: HTMLCanvasElement, cropArea: CropArea) {
 }
 
 function drawSignature(ctx: CanvasRenderingContext2D, signature: Signature): Promise<CropArea | null> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         if (signature?.type === 'image' && signature?.value) {
             // see https://stackoverflow.com/a/4776378
             const img = new Image();

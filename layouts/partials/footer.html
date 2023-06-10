@@ -16,7 +16,6 @@
                 <a rel="me" href="https://github.com/datenanfragen/" class="icon icon-github" title="{{ T "footer-social-github-desc" . }}"><span class="sr-only">{{ T "footer-social-github-desc" . }}</span></a>
                 <a href="https://matrix.to/#/#datenanfragen:matrix.altpeter.me" class="icon icon-matrix" title="{{ T "footer-social-matrix-desc" . }}"><span class="sr-only">{{ T "footer-social-matrix-desc" . }}</span></a>
                 <a rel="me" href="{{ cond (eq .Lang "de") "https://mastodon.social/@DatenanfragenDE" "https://mastodon.social/@datarequestsORG" }}" class="icon icon-mastodon" title="{{ T "footer-social-mastodon-desc" . }}"><span class="sr-only">{{ T "footer-social-mastodon-desc" . }}</span></a>
-                <a rel="me" href="{{ cond (eq .Lang "de") "https://twitter.com/@DatenanfragenDE" "https://twitter.com/datarequestsORG" }}" class="icon icon-twitter" title="{{ T "footer-social-twitter-desc" . }}"><span class="sr-only">{{ T "footer-social-twitter-desc" . }}</span></a>
             </div>
             <div class="i18n-button-container"></div>
         </div>
@@ -28,6 +27,7 @@
                     {{ partial "footer-url" (slice "/my-requests" "footer-my-requests") }}
                     {{ partial "footer-url" (slice "/id-data-controls" "footer-my-saved-data") }}
                     {{ partial "footer-url" (slice "/company" "footer-company-database") }}
+                    {{ partial "footer-url" (slice "/g" "footer-advanced-generator") }}
                     <!-- {.{ partial "footer-url" (slice "/settings" "footer-settings") }} -->
                 </ul>
             </div>

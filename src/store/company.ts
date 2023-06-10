@@ -1,22 +1,34 @@
-import type { Request } from '../types/request';
+import type { Request, RequestType } from '../types/request';
 import type { Company, SupervisoryAuthority } from '../types/company';
 import type { StoreSlice } from '../types/utility';
 import { RequestState } from './request';
 import { fetchCompanyDataBySlug } from '../Utility/companies';
+import { ErrorException } from '../Utility/errors';
 import { trackingFields, defaultFields, inferRequestLanguage, shouldBeTrackingRequest } from '../Utility/requests';
 import type { GeneratorSpecificState, GeneratorState } from './generator';
 import { produce } from 'immer';
 import { SavedIdData } from '../DataType/SavedIdData';
 
+type BatchEntry = { company: Company; done: boolean };
+
 export interface CompanyState {
     current_company?: Company | SupervisoryAuthority;
-    batch?: string[];
+    batch?: Record<string, BatchEntry>;
     setCompanyBySlug: (slug: string) => Promise<void>;
     setCompany: (company: Company) => Promise<void>;
     setSva: (sva: SupervisoryAuthority) => Promise<void>;
     removeCompany: () => Promise<void>;
-    startBatch: (batch: string[]) => Promise<void>;
+    appendToBatch: (companies: Company | (Company | undefined)[]) => void;
+    appendToBatchBySlug: (companySlugs: string | string[]) => Promise<void>;
+    removeFromBatch: (companySlug: string) => void;
     advanceBatch: () => Promise<void>;
+    markCurrentBatchCompanyDone: () => void;
+    selectBatchCompanyRuns: (slug: string, runs_selected: string[]) => void;
+    setBatchCompanyCustomTemplate: (
+        slug: string,
+        requestType: Exclude<RequestType, 'custom'>,
+        template: string | undefined
+    ) => void;
     clearBatch: () => void;
     hasBatch: () => boolean | undefined;
 }
@@ -31,7 +43,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 state.current_company = company;
                 state.request.language = inferRequestLanguage(company);
                 state.request.slug = company.slug;
-                state.request.recipient_runs = company.runs || [];
+                state.request.recipient_runs = company.runs_selected || company.runs || [];
 
                 state.request.is_tracking_request = shouldBeTrackingRequest(company, state.request.type);
 
@@ -69,6 +81,8 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
                 ? company['suggested-transport-medium']
                 : company.email
                 ? 'email'
+                : company.webform
+                ? 'webform'
                 : 'letter'
         );
         if (get().current_company && get().request.type !== 'custom') {
@@ -96,10 +110,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
             sva['suggested-transport-medium'] ? sva['suggested-transport-medium'] : sva.email ? 'email' : 'letter'
         );
     },
-    setCompanyBySlug: (slug) =>
-        fetchCompanyDataBySlug(slug).then((company) => {
-            return get().setCompany(company);
-        }),
+    setCompanyBySlug: (slug) => fetchCompanyDataBySlug(slug).then((company) => get().setCompany(company)),
     removeCompany: () => {
         set(
             produce((state: GeneratorState) => {
@@ -111,27 +122,68 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
         );
         return get().refreshTemplate();
     },
-    startBatch: async (batch) => {
-        if (batch.length > 0) {
-            const first_company = batch.shift() as string;
-            set({ batch });
-            return get().setCompanyBySlug(first_company);
-        }
-    },
-    advanceBatch: async () => {
-        if (get().hasBatch()) {
-            let company: string | undefined;
-            set(
-                produce((state: GeneratorState) => {
-                    company = state.batch?.shift();
-                })
-            );
-            return company ? get().setCompanyBySlug(company) : undefined;
-        }
-    },
+    appendToBatch: (companies) =>
+        set(
+            produce((state: GeneratorState) => {
+                if (!state.batch) state.batch = {};
+                for (const company of (Array.isArray(companies) ? companies : [companies]).filter(
+                    (c): c is Company => c !== undefined
+                ))
+                    state.batch[company.slug] = {
+                        company: { ...company, runs_selected: [...(company.runs || [])] },
+                        done: false,
+                    };
+            })
+        ),
+    appendToBatchBySlug: (companySlugs: string | string[]) =>
+        Promise.all(
+            (Array.isArray(companySlugs) ? companySlugs : [companySlugs]).map((s) => fetchCompanyDataBySlug(s))
+        ).then((companies) => get().appendToBatch(companies)),
+    removeFromBatch: (companySlug) => set(produce((state: GeneratorState) => void delete state.batch?.[companySlug])),
     clearBatch: () => set({ batch: undefined }),
+    advanceBatch: async () => {
+        if (!get().hasBatch()) return;
+
+        const firstCompany = Object.values(get().batch!).filter((c) => !c.done)[0]?.company;
+        if (firstCompany) {
+            get().setRequestType(get().batchRequestType || 'access');
+            return get().setCompany(firstCompany);
+        }
+    },
+    markCurrentBatchCompanyDone: () =>
+        set(
+            produce((state: GeneratorState) => {
+                if (!get().hasBatch() || !get().current_company) return;
+
+                state.batch![get().current_company!.slug].done = true;
+            })
+        ),
+    selectBatchCompanyRuns: (slug, runs_selected) =>
+        set(
+            produce((state: GeneratorState) => {
+                if (!get().hasBatch() || !get().batch![slug])
+                    throw new ErrorException(
+                        'Tried to selectBatchCompanyRuns without batch or for company not in batch.',
+                        { batch: get().batch, slug }
+                    );
+
+                state.batch![slug].company.runs_selected = runs_selected;
+            })
+        ),
+    setBatchCompanyCustomTemplate: (slug, type, template) =>
+        set(
+            produce((state: GeneratorState) => {
+                if (!get().hasBatch() || !get().batch![slug])
+                    throw new ErrorException(
+                        'Tried to setBatchCompanyCustomTemplate without batch or for company not in batch.',
+                        { batch: get().batch, slug }
+                    );
+
+                state.batch![slug].company[`custom-${type}-template`] = template;
+            })
+        ),
     hasBatch: () => {
         const batch = get().batch;
-        return batch && batch.length > 0;
+        return batch && Object.keys(batch).length > 0;
     },
 });

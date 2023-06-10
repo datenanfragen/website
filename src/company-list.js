@@ -43,7 +43,7 @@ class CompanyList extends Component {
         ]);
         let anchor_links = [];
         let anchor_ids = [];
-        anchor_map.forEach((value, key, map) => {
+        anchor_map.forEach((value, key) => {
             anchor_links.push(
                 <li>
                     <a href={'#' + value} className="no-link-decoration">
@@ -116,7 +116,7 @@ class CompanySearch extends Component {
                 <SearchBar
                     id="aa-search-input"
                     index="companies"
-                    onAutocompleteSelected={(event, suggestion, dataset) => {
+                    onAutocompleteSelected={(event, suggestion) => {
                         location.href = '/company/' + suggestion.document.slug;
                     }}
                     placeholder={t('select-company', 'cdb')}

@@ -7,7 +7,7 @@
 
 In order for you to be able to trust us, we pledged to be as transparent as possible about our procedures, finances and decisions. Because of that, we have joined the [Initiative for a Transparent Civil Society](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), an initiative by the German branch of Transparency International, which is allowed to audit us on a sample basis. They ensure that we will keep our promise of transparent management. On this page we summarized all the important information that we publish as part of that.
 
-This information has been last updated on May 30, 2021.
+This information has been last updated on February 13, 2023.
 
 ## 1. Name, registered seat, address and date of foundation
 
@@ -33,7 +33,7 @@ Our purpose is the same as stated in our constitution but we also compiled and e
 
 ## 3. Information on tax privileges
 
-The tax office Braunschweig-Wilhelmstraße approved us as a public benefit organisation by the most recent [notice from January 13, 2020 (German)](https://static.dacdn.de/docs/freistellungsbescheid_2020-01-13.pdf) for the promotion of consumer counselling and protection as well as the advancement of the democratic government. We have been assigned the following tax identification number: 14/209/11640
+The tax office Braunschweig-Wilhelmstraße approved us as a public benefit organisation by the most recent [notice from January 30, 2023 (German)](https://static.dacdn.de/docs/freistellungsbescheid_2023-01-30.pdf) for the promotion of consumer counselling and protection as well as the advancement of the democratic government. We have been assigned the following tax identification number: 14/209/11640
 
 ## 4. Name and function of significant decision makers
 
@@ -48,6 +48,7 @@ The association is managed by the chairpersons of the {{< link slug="verein/boar
 
 ## 5. Report of activities
 
+see [Yearly report 2021 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=5)  
 see [Yearly report 2020 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=5)  
 see [Yearly report 2019 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
 see [Yearly report 2018 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=5)
@@ -60,16 +61,19 @@ Number of volunteers: 3
 
 ## 7. Funding sources
 
+see [Yearly report 2021 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 see [Yearly report 2020 (German, p. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
 
-Financial assets at the end of 2019: 327,78 €  
-Financial assets at the end of 2019: 87,90 €  
-Financial assets at the end of 2018: 119,70 €
+Financial assets at the end of 2021: 218.43 €  
+Financial assets at the end of 2020: 327.78 €  
+Financial assets at the end of 2019: 87.90 €  
+Financial assets at the end of 2018: 119.70 €
 
 ## 8. Use of funds
 
+see [Yearly report 2021 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 see [Yearly report 2020 (German, p. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 see [Yearly report 2019 (German, p. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
 see [Yearly report 2018 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2018.pdf#page=9)
@@ -82,16 +86,26 @@ The association is in no corporate relationships with any third parties.
 
 We publish this information on a yearly basis in conjunction with the publishing of the yearly report.
 
+### 2021
+
+#### People
+
+- Anonymous membership fee: 128.00 € (24.2 %)
+
+#### Organisations
+
+In 2021, we have not received any donations or membership fees that make up more than 10 % of our yearly budget from organisations.
+
 ### 2020
 
 #### People
 
-- Anonymous donation and membership fee: 210,00 € (27,9 %)
-- Anonymous donation and membership fee: 167,00 € (22,2 %)
+- Anonymous donation and membership fee: 210.00 € (27.9 %)
+- Anonymous donation and membership fee: 167.00 € (22.2 %)
 
 #### Organisations
 
-- Donation and membership fee by KlexHub UG (haftungsbeschränkt): 81,80 € (10,9 %)
+- Donation and membership fee by KlexHub UG (haftungsbeschränkt): 81.80 € (10.9 %)
 
 ### 2019
 
@@ -135,3 +149,12 @@ The board has to publicly document lectures here for which board members have re
 ### 2020
 
 * In March 2020, the Humboldt University of Berlin invited Benjamin Altpeter and Lorenz Sieben to give a [seminar on Datenanfragen.de](https://www.datenanfragen.de/verein/event/hlci-berlin-2020/) (post in German) as a guest lecture at the [HLCI](http://www.hlci.de/). The Humboldt University has covered the train travel and accommodation costs and paid them a compensation of 250&nbsp;€ each. Benni and Lorenz voluntarily decided to donate half of the compensation to the association.
+
+## 12. External grants that members have received
+
+The association benefits when members apply for external grants on their own to fund their work on our projects. Awarded grants are documented here. The listed grants did not go to the association, but are the sole responsibility of the respective members.
+
+### 2022
+
+* The German Federal Ministry of Education and Research funded the work of the Lorenz Sieben und Benjamin Altpeter GbR on the [“An app for Datenanfragen.de”](https://prototypefund.de/project/eine-app-fuer-datenanfragen-de/) project with 29,426.00&nbsp;€ between March 2022 and August 2022 through the Prototype Fund (grant number 01IS22S20). The purpose of the project was to evaluate whether exercising one’s privacy rights could be further simplified with a native app. In the course of the project, the existing code base of the website was also refactored and modernised, a new, more intuitive interface for the request generator was implemented, the “My requests” feature was expanded, and a generator for admonitions and complaints was developed.  
+  [Project report (German)](https://static.bn.al/doc/abschlussbericht-ptf11-dade-app.pdf)

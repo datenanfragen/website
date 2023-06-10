@@ -1,30 +1,5 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-
-import '@percy/cypress';
+import 'cypress-wait-until';
+import '@this-dot/cypress-indexeddb';
 
 /**
  * Click a link without following its `href`. This is useful for `mailto` links and file downloads as Cypress doesn't
@@ -42,48 +17,21 @@ Cypress.Commands.add(
     }
 );
 
-/**
- * This command will add a company to the wizard by searching for `company` and clicking the result containing
- * `result_str`.
- *
- * Make sure that you are on the homepage and in a tab that can find this company.
- */
-Cypress.Commands.add('addCompanyToWizard', (company, result_str) => {
-    cy.get('#aa-search-input').clear().type(company).blur();
-    cy.contains(result_str).click();
-});
-
-/**
- * This command will make sure that the company list in the wizard contains exactly the following elements:
- *   - Datenanfragen.de e. V.
- *   - Gabriele Altpeter, Internethandel
- *   - SCHUFA Holding AG
- *   - Niedersächsisches Ministerium für Inneres und Sport – Abteilung Verfassungsschutz
- *
- * This will cause navigation to occur.
- */
-Cypress.Commands.add('seedWizardCompaniesWithKnownList', () => {
-    cy.visit('/contact');
-    cy.window()
-        .then((win) => win.accessLocalForageStore('wizard-companies'))
-        .then((instance) =>
-            Promise.all([
-                instance.clear(),
-
-                instance.setItem('datenanfragen', 'Datenanfragen.de e. V.'),
-                instance.setItem('gabriele-altpeter-internethandel', 'Gabriele Altpeter, Internethandel'),
-                instance.setItem('schufa', 'SCHUFA Holding AG'),
-                instance.setItem(
-                    'verfassungsschutz-nds',
-                    'Niedersächsisches Ministerium für Inneres und Sport – Abteilung Verfassungsschutz'
-                ),
-            ])
-        )
-        .then(() => {
-            cy.clearCookies();
-            cy.setCookie('changed_saved_companies', 'true');
-            cy.visit('/');
-
-            cy.get('#wizard').scrollIntoView();
-        });
+Cypress.Commands.add('generatorStore', (id) =>
+    cy.window().then((win) => {
+        // The generator store is set through a `useEffect` hook, so we need to wait for it to be set (cf.
+        // https://github.com/datenanfragen/website/pull/947#issuecomment-1303275763).
+        return cy
+            .waitUntil(() => win.generatorStoreApi?.[id || 'default']?.getState, { timeout: 20000 })
+            .then(() => win.generatorStoreApi[id || 'default'].getState());
+    })
+);
+Cypress.Commands.add('proceedingsStore', () => cy.window().then((win) => win.getProceedingsStore()));
+Cypress.Commands.add('searchAndRequestCompanies', (searchTerms, skipReview = true) => {
+    for (const search of searchTerms) {
+        cy.get('.ais-SearchBox-input').clear().type(search);
+        cy.get('.company-result-content').contains(search).click();
+    }
+    cy.get('#review-n-companies-button').click();
+    if (skipReview) cy.contains('Continue with these companies').click();
 });

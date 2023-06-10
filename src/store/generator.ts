@@ -1,15 +1,13 @@
-import type { IdDataElement, Request, ResponseType, Signature } from '../types/request';
+import type { IdDataElement, Request, Signature, RequestType } from '../types/request';
 import type { StoreSlice } from '../types/utility';
 import create, { GetState, SetState } from 'zustand';
 import { RequestState, createRequestStore } from './request';
-import { CUSTOM_TEMPLATE_OPTIONS } from '../Utility/requests';
 import createContext from 'zustand/context';
 import { CompanyState, createCompanyStore } from './company';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
 import { SavedIdData } from '../DataType/SavedIdData';
 import { ErrorException, rethrow } from '../Utility/errors';
 import { makePdfWorker } from '../Utility/workers';
-import { UserRequests } from '../DataType/UserRequests';
 
 export interface GeneratorSpecificState {
     ready: boolean;
@@ -19,13 +17,15 @@ export interface GeneratorSpecificState {
     fillFields: IdDataElement[];
     fillSignature: Signature;
     pdfWorker?: Worker;
+    batchRequestType?: RequestType;
     setReady: () => void;
     setBusy: () => void;
     setDownload: (download_active: boolean, download_url?: string, download_filename?: string) => void;
+    setBatchRequestType: (request_type: RequestType) => void;
     refreshFillFields: () => void;
     initiatePdfGeneration: () => void;
     renderLetter: () => void;
-    resetInitialConditions: (response_to?: string, response_type?: ResponseType) => Promise<void>;
+    resetInitialConditions: () => Promise<void>;
 }
 
 export type GeneratorState = RequestState<Request> & CompanyState & GeneratorSpecificState;
@@ -54,6 +54,7 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
             download_url,
             download_filename,
         }),
+    setBatchRequestType: (batchRequestType) => set({ batchRequestType }),
     refreshFillFields: () => {
         if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_ID_DATA)) {
             savedIdData.getAll(false).then((fillFields) => fillFields && set({ fillFields }));
@@ -90,6 +91,8 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
         const letter = get().letter();
 
         if (get().request.transport_medium === 'email') {
+            // TODO: Why are we doing this for emails? Maybe I'm missing something but I don't think this is used
+            // anywhere. The `MailtoDropdown` generates this itself and doesn't rely on `downloadActive`.
             get().setDownload(
                 true,
                 URL.createObjectURL(
@@ -107,44 +110,12 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
             });
         }
     },
-    resetInitialConditions: (response_to, response_type) => {
+    resetInitialConditions: () => {
         get().refreshFillFields();
         get().setBusy();
         return get()
             .initializeFields()
-            .then(() => {
-                // This is a response to a previous request (warning or complaint).
-                if (Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) && response_to && response_type) {
-                    // Just for the looks: Switch the view before fetching the template
-                    get().setRequestType('custom');
-
-                    return new UserRequests()
-                        .getRequest(response_to)
-                        .then((request) => {
-                            if (request) {
-                                return get()
-                                    .setCustomLetterTemplate(
-                                        CUSTOM_TEMPLATE_OPTIONS.includes(response_type) ? response_type : 'no-template',
-                                        request
-                                    )
-                                    .then(() => request);
-                            }
-                            throw new Error('No user request found');
-                        })
-                        .then((request) => {
-                            if (response_type === 'admonition' && request?.slug) {
-                                return get().setCompanyBySlug(request.slug);
-                            }
-                        })
-                        .catch((e) => {
-                            /* Fail silently when no user request was found */
-                            if (e.message !== 'No user request found') rethrow(e);
-                        });
-                }
-
-                // This is just a regular ol' request.
-                return get().refreshTemplate();
-            });
+            .then(() => get().refreshTemplate());
     },
 });
 

@@ -31,7 +31,7 @@
     <link rel="preload" as="font" crossorigin="anonymous" integrity="sha384-sWa20lMbvqJHIjx/smLcYHI2mJE8aJTZ1nvZaP6APJ0D45qxe+r7+/UYGy47CuLc" type="font/woff2" href="https://static.dacdn.de/fonts/spartan-mb/SpartanMB-1005-ExtraBold.woff">
     {{ if eq .Type "generator" -}}
     {{- end }}
-    {{ $style := resources.Get "styles/main.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
+    {{ $style := resources.Get "styles/index.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
     {{ $style_link := $style.RelPermalink | absURL }}
     {{ if (or (eq hugo.Environment "production") (eq hugo.Environment "staging")) }}
         {{ $style_link = $style_link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
@@ -49,7 +49,7 @@
     <header id="nav-header">
         <div id="nav-header-bg"></div>
         <div id="header-main" class="container">
-            <a href="{{ "/" | absURL }}" title="{{ T "logo-a-title" . }}" style="position: relative;">
+            <a href="{{ "/" | absURL }}" title="{{ T "logo-a-title" . }}" style="position: relative; display: inline-block">
                 {{ with imageConfig (replace (printf "static/%s" (T "logo")) ".svg" ".png") }}
                     <img id="logo" src="{{ T "logo" . | absURL }}" title="{{ T "logo-title" . }}" height="{{ .Height }}" width="{{ .Width }}">
                 {{ end }}
@@ -59,19 +59,19 @@
             </a>
             <nav id="main-nav">
                 <div id="menu-items">
-                    <a href="{{ (partial "functions/link" (dict "slug" "/company")).url }}" class="menu-link desktop-only">{{ T "header-cdb" }}</a>
+                    <a href="{{ (partial "functions/link" (dict "slug" "/generator")).url }}" class="menu-link desktop-only">{{ T "header-generator" }}</a>
+                    <a href="{{ (partial "functions/link" (dict "slug" "/my-requests")).url }}" class="menu-link desktop-only my-requests-link">{{ T "header-my-requests" }}</a>
                     <a href="{{ (partial "functions/link" (dict "slug" "/blog")).url }}" class="menu-link desktop-only">{{ T "header-blog" }}</a>
 
-                    <a class="{{ if .IsHome }}button button-primary icon icon-letter {{ end }}menu-link desktop-only" href="{{ (partial "functions/link" (dict "slug" "/generator")).url }}">{{ T "header-generator" }}</a>
                     <div class="dropdown-container">
-                        <a class="button button-secondary menu-link" href="javascript:void(0)"><span class="icon icon-menu" title="{{ T "header-open-menu" . }}"></span></a>
+                        <a class="button button-secondary menu-link" href="javascript:void(0)" id="main-nav-menu-link"><span class="icon icon-menu" title="{{ T "header-open-menu" . }}"></span></a>
                         <div class="dropdown" id="personal-menu">
                             <div class="mobile-only">
                                 <a class="button button-primary icon icon-letter menu-link" href="{{ (partial "functions/link" (dict "slug" "/generator")).url }}" style="border-radius: 0;">{{ T "header-generator" }}</a>
-                                <a href="{{ (partial "functions/link" (dict "slug" "/company")).url }}" class="menu-link">{{ T "header-cdb" }}</a>
-                                <a href="{{ (partial "functions/link" (dict "slug" "/blog")).url }}" class="menu-link">{{ T "header-blog" }}</a>
+                                <a href="{{ (partial "functions/link" (dict "slug" "/my-requests")).url }}" class="menu-link my-requests-link">{{ T "header-my-requests" }}</a>
+                                <a href="{{ (partial "functions/link" (dict "slug" "/blog" )).url }}" class="menu-link">{{ T "header-blog" }}</a>
                             </div>
-                            <a href="{{ (partial "functions/link" (dict "slug" "/my-requests")).url }}" class="menu-link">{{ T "header-my-requests" }}</a>
+                            <a href="{{ (partial "functions/link" (dict "slug" "/company")).url }}" class="menu-link">{{ T "header-cdb" }}</a>
                             <a href="{{ (partial "functions/link" (dict "slug" "/id-data-controls")).url }}" class="menu-link">{{ T "header-id-data-controls" }}</a>
                             <a href="{{ (partial "functions/link" (dict "slug" "/privacy-controls")).url }}" class="menu-link">{{ T "header-privacy-controls" }}</a>
 
@@ -83,7 +83,8 @@
             <div class="clearfix"></div>
         </div>
         {{ if .IsHome }}
-            <div id="home-hero-bg"></div>
+            {{ block "hero" . }}
+            {{ end }}
         {{ else }}
             <div id="heading-bg">
                 {{ block "header-with-bg" . }}
