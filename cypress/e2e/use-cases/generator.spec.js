@@ -63,11 +63,11 @@ describe('Using the generator', () => {
         cy.get('#send-request-modal-body').should('contain.value', 'Kim Mustermensch');
 
         cy.get('.modal').contains('Skip request');
-        cy.contains('Next request').should('not.exist');
+        cy.contains('Continue').should('not.exist');
         cy.contains('Send email').click();
         cy.contains('Default email software').clickLinkWithoutFollowingHref({ force: true });
         cy.contains('Skip request').should('not.exist');
-        cy.get('.modal').contains('Next request').click();
+        cy.get('.modal').contains('Continue').click();
 
         cy.get('#name0-value-id_data').should('have.value', 'Kim Mustermensch');
     });
@@ -300,7 +300,7 @@ describe('Using the generator', () => {
                         .then((state) => state.proceedings)
                         .should(shouldBeStored ? 'haveOwnProperty' : 'not.haveOwnProperty', reference)
                 );
-            cy.contains(shouldBeStored ? 'Next request' : 'Skip request').click();
+            cy.contains(shouldBeStored ? 'Continue' : 'Skip request').click();
         };
 
         // mailto
