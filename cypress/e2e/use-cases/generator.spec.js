@@ -218,7 +218,7 @@ describe('Using the generator', () => {
 
         cy.contains('Send email').click();
         cy.contains('Default email software').clickLinkWithoutFollowingHref({ force: true });
-        cy.get('.modal').contains('Next request').click();
+        cy.get('.modal').contains('Next step').click();
 
         cy.contains('What’s next?');
         cy.contains('Send more requests');
