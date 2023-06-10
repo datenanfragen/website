@@ -1,0 +1,26 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Contact: mailto:vorstand@datenanfragen.de
+Expires: 2025-06-01T11:37:00.000Z
+Encryption: https://www.datenanfragen.de/pgp/3E2B296B.asc
+Acknowledgments: https://www.datarequests.org/open-source/#contributors
+Preferred-Languages: en, de
+Canonical: https://www.datenanfragen.de/.well-known/security.txt
+Policy: https://github.com/datenanfragen/website/blob/master/.github/SECURITY.md
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEELnLqW93jFzBY1/h9oMHAEj4rKWsFAmSEZaQACgkQoMHAEj4r
+KWuKRQ/6A6WzKWlopWgn5VKecibBYfUbUWdMC+aer1iA6wzWWEGWsIC5Yq/RDWb0
+Bo3EwU4yNhQXT7RF3rqUpWhBwBDMDwOU25NHcluM4VcV9tgpauEAFbzdCj/9fmRg
+BSFygausSWgv67yRADwFa0kgqi0pfikD/cHh50pq5TK/11UQZhOCdfCn0C4xtZYM
+nUHrAAtqKmfShEStGElBcOlUhc88oky/opj9DroPthqHTqr3+12IAJbYqjqjU2Mj
+8emCZu1UKIGRroFIwW5L6R/Nx/F/+gcSlDh5yHikSafYXpQ4yCnje7Uohz9TiSU+
+NB49mOM82V858FDvWwNQ/6K7tBXNVdOZCWlGdlLW373Ak/1HSdF08j4sBEJi//jO
+MQUulXO916nC0Q4vY7zKFttqSXFu/4EkgvvYd1EoRpTgBBrbiX7D9AbQJ0QeL6sS
+PT+d1Mw3Z2D7ce7KEH4Nfazb9O/g/I6xNik7NEzLdp4qOCMr/qBM33mgIlLET9yv
+tR7eDrLX14yqsHueFnQErBgBgIBm9X4M+prpANrUfowpP8B3q/vMRnWyHqeo2hX7
+ppHq7dL9/sXvw8gO51V4iSaD8YfEkE3PkJhn8u56p7m+2Vg5uwm53vZteZoQv5oz
++6aiARwqCGMt+d48dqDhilWtWmaDUq4qV4DoAmgbZD9LcmnjSV0=
+=T559
+-----END PGP SIGNATURE-----
