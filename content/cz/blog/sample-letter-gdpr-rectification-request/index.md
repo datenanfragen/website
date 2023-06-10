@@ -1,8 +1,7 @@
 {
     "title": "Vzorový dopis pro žádost o opravu podle čl. 16 GDPR",
     "slug": "sample-letter-gdpr-rectification-request",
-    "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2020-10-11T01:28:42",
+    "date": "2020-10-11T01:28:42",
     "type": "blog",
     "description": "Pokud firma má uložené chybné (nebo nekompletní) osobní údaje týkající se Vás, podle Obecného nařízení o ochraně osobních údajů (GDPR) máte právo požadovat neodkladnou opravu takových chybných dat. Nabízíme Vám vzorový dopis, s pomocí kterého se můžete domáhat svých práv.",
     "featured_image": "gdpr-rectification-request-letter",
@@ -57,10 +56,10 @@ Zde je náš vzorový dopis pro žádost o přístup podle článku 16 GDPR. Ale
 
 Abychom to ulehčili, můžete si stáhnout dopis a použít ho přímo ve Vašem preferovaném textovém editoru. Můžete si vybrat z následujících vzorů:<!-- TODO: Host these ourselves and give them some nice buttons. -->
 
-* [šablona pro LibreOffice a OpenOffice (.ott)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-datarequests.org.ott)
-* [šablona pro Word (.dotx)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-datarequests.org.dotx)
-* [formulář v PDF (.pdf)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-datarequests.org.pdf)
-* [Obyčejný textový soubor (.txt)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-datarequests.org.txt)
+* [šablona pro LibreOffice a OpenOffice (.ott)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-zadostioudaje.org.ott)
+* [šablona pro Word (.dotx)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-zadostioudaje.org.dotx)
+* [formulář v PDF (.pdf)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-zadostioudaje.org.pdf)
+* [Obyčejný textový soubor (.txt)](/downloads/vzorovy-dopis-zadost-o-opravu-gdpr-zadostioudaje.org.txt)
 
 S těmito vzory můžete libovolně nakládat. Publikujeme je pod [Licencí CC0](https://creativecommons.org/publicdomain/zero/1.0/). Vzory pro LibreOffice a Word jsou založené na tomto [vzoru pro LibreOffice](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
 

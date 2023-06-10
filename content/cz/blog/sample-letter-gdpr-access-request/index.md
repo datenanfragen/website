@@ -1,8 +1,7 @@
 {
     "title": "Vzorový dopis pro žádost o přístup k osobním údajům podle článku 15 GDPR",
     "slug": "sample-letter-gdpr-access-request",
-    "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2021-10-11T14:52:52+02:00",
+    "date": "2021-10-11T14:52:52+02:00",
     "type": "blog",
     "description": "Podle Obecného nařízení o ochraně osobních údajů (GDPR) máte právo na přístup k osobním údajům, které o Vás společnosti skladují. Nabízíme Vám vzorový dopis, který Vám umožní vznést takový požadavek.",
     "featured_image": "gdpr-access-request-letter",
@@ -66,10 +65,10 @@ Zde je náš vzorový dopis pro žádost o přístup podle článku 15 GDPR. Pas
 
 Abychom to ulehčili, můžete si stáhnout dopis a použít ho přímo ve Vašem preferovaném textovém editoru. Můžete si vybrat z následujících vzorů:<!-- TODO: Host these ourselves and give them some nice buttons. -->
 
-* [šablona pro LibreOffice a OpenOffice (.ott)](/downloads/vzorovy-dopis-zadost-o-pristup-gdpr-datarequests.org.ott)
-* [šablona pro Word (.dotx)](/downloads/vzorovy-dopis-zadost-o-pristup-gdpr-datarequests.org.dotx)
-* [formulář v PDF (.pdf)](/downloads/vzorovy-dopis-zadost-o-pristup-gdpr-datarequests.org.pdf)
-* [Obyčejný textový soubor (.txt)](/downloads/vzorovy-dopis-zadost-o-pristup-gdpr-datarequests.org.txt)
+* [šablona pro LibreOffice a OpenOffice (.ott)](/downloads/vzorovy-dopis-zadost-o-pristup-gdpr-zadostioudaje.org.ott)
+* [šablona pro Word (.dotx)](/downloads/vzorovy-dopis-zadost-o-pristup-gdpr-zadostioudaje.org.dotx)
+* [formulář v PDF (.pdf)](/downloads/vzorovy-dopis-zadost-o-pristup-gdpr-zadostioudaje.org.pdf)
+* [Obyčejný textový soubor (.txt)](/downloads/vzorovy-dopis-zadost-o-pristup-gdpr-zadostioudaje.org.txt)
 
 S těmito vzory můžete libovolně nakládat. Publikujeme je pod [Licencí CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.cs). Vzory pro LibreOffice a Word jsou založené na tomto [vzoru pro LibreOffice](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
 

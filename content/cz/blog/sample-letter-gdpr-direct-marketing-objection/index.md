@@ -1,8 +1,7 @@
 {
     "title": "Vzorový dopis pro námitku proti přímému marketingu podle čl. 21, odst. 2 GDPR",
     "slug": "sample-letter-gdpr-direct-marketing-objection",
-    "date": "2019-10-24T18:47:21+02:00",
-    "last_edited": "2021-10-11T13:22:30+02:00",
+    "date": "2021-10-11T13:22:30+02:00",
     "type": "blog",
     "description": "Nemusíte se smiřovat s přímým marketingem. Díky GDPR můžete podat námitku proti používání Vašich osobních údajů pro účely přímého marketingu. Náš vzorový dopis Vám pomůže uplatnit Vaše právo.",
     "featured_image": "sample-letter-gdpr-direct-marketing-objection-en",
@@ -61,10 +60,10 @@ Zde je náš vzorový dopis pro námitku proti přímému marketingu podle čl. 
 
 Abychom to ulehčili, můžete si stáhnout dopis a použít ho přímo ve Vašem preferovaném textovém editoru. Můžete si vybrat z následujících vzorů:
 
-<a href="/downloads/vzorovy-dopis-namitka-gdpr-datarequests.org.ott" class="button button-primary" style="margin-bottom: 10px;">Stáhnotu šablonu pro LibreOffice nebo OpenOffice (.ott)</a><br>
-<a href="/downloads/vzorovy-dopis-namitka-gdpr-datarequests.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Stáhnotu šablonu pro Word (.dotx)</a><br>
-<a href="/downloads/vzorovy-dopis-namitka-gdpr-datarequests.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Stáhnout PDF formulář (.pdf)</a><br>
-<a href="/downloads/vzorovy-dopis-namitka-gdpr-datarequests.org.txt" class="button button-secondary">Stáhnout obyčejný textový soubor (.txt)</a>
+<a href="/downloads/vzorovy-dopis-namitka-gdpr-zadostioudaje.org.ott" class="button button-primary" style="margin-bottom: 10px;">Stáhnotu šablonu pro LibreOffice nebo OpenOffice (.ott)</a><br>
+<a href="/downloads/vzorovy-dopis-namitka-gdpr-zadostioudaje.org.dotx" class="button button-secondary" style="margin-bottom: 10px;">Stáhnotu šablonu pro Word (.dotx)</a><br>
+<a href="/downloads/vzorovy-dopis-namitka-gdpr-zadostioudaje.org.pdf" class="button button-secondary" style="margin-bottom: 10px;">Stáhnout PDF formulář (.pdf)</a><br>
+<a href="/downloads/vzorovy-dopis-namitka-gdpr-zadostioudaje.org.txt" class="button button-secondary">Stáhnout obyčejný textový soubor (.txt)</a>
 
 S těmito vzory můžete libovolně nakládat. Publikujeme je pod [Licencí CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.cs). Vzory pro LibreOffice a Word jsou založené na tomto [vzoru pro LibreOffice](https://extensions.libreoffice.org/templates/geschaeftsbrief-din-5008-2011-b-a4-ib).
 
