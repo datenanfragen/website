@@ -33,7 +33,7 @@ Zde je náš vzorový dopis pro žádost o přístup podle článku 15 GDPR. Pas
 
 <p>tímto žádám o přístup k osobním údajům podle článku 15 Obecného nařízení o ochraně osobních údajů (GDPR). Prosím potvrďte, zda zpracováváte či nezpracováváte osobní údaje (jak jsou definovány v čl. 4, odst. 1 a 2 GDPR), které se týkají mé osoby.</p>
 
-<p>V případě, že ano, v souladu s čl. 15, odst. 3, prosím o poskytnutí kopie <italic>všech</italic> osobních údajů týkajících se mé osoby, které zpracováváte včetně jakýchkoliv pseudonymizovaných dat o mé osobě podle článku 4, odst. 5 GDPR. Dále žádám o přístup k následujícím informacím podle článku 15, odst. 1 GDPR:<br>
+<p>V případě, že ano, v souladu s čl. 15, odst. 3, prosím o poskytnutí kopie všech osobních údajů týkajících se mé osoby, které zpracováváte včetně jakýchkoliv pseudonymizovaných dat o mé osobě podle článku 4, odst. 5 GDPR. Dále žádám o přístup k následujícím informacím podle článku 15, odst. 1 GDPR:<br>
 1. účely zpracování;<br>
 2. kategorie dotčených osobních údajů;<br>
 3. příjemci nebo kategorie příjemců, kterým osobní údaje byly nebo budou zpřístupněny, zejména příjemci ve třetích zemích nebo v mezinárodních organizacích;<br>
@@ -41,18 +41,18 @@ Zde je náš vzorový dopis pro žádost o přístup podle článku 15 GDPR. Pas
 5. veškeré dostupné informace o zdroji osobních údajů, pokud nejsou získány od subjektu údajů;<br>
 6. skutečnost, že dochází k automatizovanému rozhodování, včetně profilování, uvedenému v čl. 22 odst. 1 a 4, a přinejmenším v těchto případech smysluplné informace týkající se použitého postupu, jakož i významu a předpoklá­daných důsledků takového zpracování pro subjekt údajů.</p>
 
-<p>V případě, že zpracováváte anonymizovaná data týkající se mé osoby, prosím nejen o informování mě o tom, ale také o vysvětlení použité procedury ve srozumitelné podobě.</p>
+<p></p>
 
 <p>Pokud předáváte mé osobní údaje do třetí země nebo mezinárodní organizaci, žádám být informován o vhodných zárukách podle článku 46 GDPR, které se vztahují k předávání.</p>
 
 <p>[Prosím o zpřístupnění dat o mé osobě, které jsem Vám poskytl, ve strukturovaném, běžně používaném a strojově čitelném formátu v souladu s článkem 20, odst. 1 GDPR.]</p>
 
-<p>oje žádost explicitně zahrnuje jakékoliv další služby a společnosti, pro něž jste správcem podle článku 4, odst. 7 GDPR.</p>
+<p>Moje žádost explicitně zahrnuje jakékoliv další služby a společnosti, pro něž jste správcem podle článku 4, odst. 7 GDPR.</p>
 
 <p>Podle článku 12, odst. 3 GDPR, máte povinnost mi poskytnout vyžadované informace bez zbytečného odkladu a v každém případě do jednoho měsíce od obdržení žádosti. Podle článku 15, odst. 3 GDPR máte povinnost odpovědět na tuto žádost bezplatně.</p>
 
 <p>Přikládám následující informace nezbytné k identifikování mé osoby:<br>
-<span class="blog-letter-fill-in">Sem zadejte Vaše identifikační údaje. To často zahrnuje informace jako je Vaše jméno, datum narození, Vaše adresa, emailová adresa a tak dále.</span></p>
+<span class="blog-letter-fill-in">Zde zadejte své identifikační údaje. Často se jedná o informace jako vaše jméno, datum narození, adresa, e-mailová adresa atd.</span></p>
 
 <p>Pokud neodpovíte na moji žádost ve stanovené lhůtě, vyhrazuji si právo učinit právní kroky a podat stížnost k odpovídajícímu kontrolnímu orgánu.</p>
 
@@ -60,7 +60,7 @@ Zde je náš vzorový dopis pro žádost o přístup podle článku 15 GDPR. Pas
 
 <p>S pozdravem,</p>
 
-<p><span class="blog-letter-fill-in">Sem zadejte Vaše jméno.</span></p>
+<p><span class="blog-letter-fill-in">Zde zadejte své jméno.</span></p>
 </div>
 
 Abychom to ulehčili, můžete si stáhnout dopis a použít ho přímo ve Vašem preferovaném textovém editoru. Můžete si vybrat z následujících vzorů:<!-- TODO: Host these ourselves and give them some nice buttons. -->

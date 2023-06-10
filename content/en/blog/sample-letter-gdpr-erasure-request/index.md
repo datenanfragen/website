@@ -41,8 +41,9 @@ Here is our sample letter for requests for erasure according to Art. 17 GDPR. Yo
 
 <p>I am of the opinion that the requirements set forth in Article 17(1) GDPR are fulfilled. You cannot claim an exception based on Article 17(3) GDPR either, particularly as I am not a public figure.</p>
 
-<p>If I have given consent to the processing of my personal data (e.g. according to Article 6(1) or Article 9(2) GDPR), I am hereby withdrawing said consent for the entire process.<br>
-In addition, I am objecting to the processing of personal data concerning me (which includes profiling), according to Article 21 GDPR. I request that you restrict the processing of the data concerning me pending the verification whether your legitimate grounds override mine, pursuant to Art. 18(1)(d) GDPR.</p>
+<p>If I have given consent to the processing of my personal data, I am hereby withdrawing said consent for the entire process.</p>
+
+<p>[In addition, I am objecting to the processing of personal data concerning me (which includes profiling), according to Article 21(1) GDPR. <span class="blog-letter-fill-in">Justify your objection here.</span> I request that you restrict the processing of the data concerning me pending the verification whether your legitimate grounds override mine, pursuant to Art. 18(1)(d) GDPR.]</p>
 
 <p>If you have made the aforementioned data public, you are obliged pursuant to Article 17(2) GDPR to take all reasonable steps to inform other controllers, including search engine operators, who process the personal data listed above, that I have requested the erasure of all links, copies or replications. This applies not only to exact copies of the data concerned, but also to those from which information contained in the data concerned can be derived.</p>
 

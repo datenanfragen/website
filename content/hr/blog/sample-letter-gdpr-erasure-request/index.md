@@ -17,8 +17,9 @@
 
 <p>Smatram da su ispunjeni zahtjevi iz članka 17. stavka 1. GDPR-a. Ne možete zatražiti ni iznimku temeljenu na članku 17. stavka 3. GDPR-a, osobito jer nisam javna osoba.</p>
 
-<p>Ako sam dao/dala pristanak za obradu mojih osobnih podataka (npr. prema članku 6. stavka 1. ili članku 9. stavka 2. GDPR-a), ovime povlačim navedeni pristanak za cijeli postupak.<br>
-Osim toga, protivim se obradi osobnih podataka koji se odnose na mene (što uključuje i profiliranje), u skladu s člankom 21. GDPR-a. Tražim da ograničite obradu podataka koji se odnose na mene sve do provjere jesu li vaši legitimni razlozi nadjačali moje, sukladno članku 18.(1)(d) GDPR-a.</p>
+<p>Ako sam pristao/pristala na obradu osobnih podataka, ovime povlačim navedeni pristanak za cjelokupni postupak.</p>
+
+<p>[Uz to, protivim se obradi osobnih podataka koji se odnose na mene (što uključuje izradu profila), u skladu s člankom 21. stavka 1. GDPR-a. <span class="blog-letter-fill-in">Justify your objection here.</span> Zahtijevam da ograničite obradu podataka koji se odnose na mene, sve dok se ne provjeri, jesu li vaša pravna osnova nadjačava moju, u skladu s člankom 18(1)(d) GDPR-a.]</p>
 
 <p>Ako ste gore navedene podatke učinili javnim, dužni ste u skladu s člankom 17. stavka 2. GDPR-a poduzeti sve razumne korake da obavijestite druge voditelje, uključujući i operatore tražilica, koji obrađuju gore navedene osobne podatke, da sam zatražio/zatražila brisanje svih poveznica, kopija ili replikacija. To se ne odnosi samo na točne kopije dotičnih podataka, već i na one iz kojih se mogu dobiti informacije sadržane u dotičnim podacima.</p>
 

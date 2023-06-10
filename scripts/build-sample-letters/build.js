@@ -7,6 +7,7 @@ const carbone = require('carbone');
 const renderCarbone = util.promisify(carbone.render).bind(carbone);
 const PDFDocument = require('pdfkit');
 const { templatify, mm2pt } = require('./util');
+const vfsFonts = require('../../src/Utility/fonts.json');
 
 // This script generates the sample letters in the various formats from our request templates and update the
 // corresponding blog post, which was previously done manually (and a source of great pain and suffering).
@@ -19,6 +20,8 @@ const { templatify, mm2pt } = require('./util');
 
 // Should we ever find a way to move these translations to Weblate, we need to remember that the translations here are
 // currently *NOT* an exact copy of the templates in `data`. Some line breaks are different.
+
+const enabledLanguages = ['de', 'en', 'fr', 'hr', 'cs'];
 
 const languages = fs
     .readdirSync(path.join(__dirname, '..', '..', 'content'), { withFileTypes: true })
@@ -70,6 +73,7 @@ const templates = (t) => ({
             id_data: t('common-var-id-data'),
             rectification_data: t('rectification-var-rectification-data'),
             erasure_data: t('erasure-var-erasure-data'),
+            objection_reason: t('erasure-var-objection-reason'),
         },
 
         doc_title: t('common-doc-title'),
@@ -81,7 +85,7 @@ const templates = (t) => ({
     objection: regular_template(t, 'objection'),
     rectification: regular_template(t, 'rectification'),
 });
-const flags = { runs: 0, has_fields: 1, data_portability: 2, erase_all: 2, erase_some: 2 };
+const flags = { runs: 0, has_fields: 1, data_portability: 2, erase_all: 2, erase_some: 2, include_objection: 2 };
 
 const out_dir = path.join(__dirname, '..', '..', 'static', 'downloads');
 
@@ -89,7 +93,7 @@ const out_dir = path.join(__dirname, '..', '..', 'static', 'downloads');
     carbone.set({ templatePath: path.join(__dirname, 'res') });
 
     // TODO: Replace this with `languages` once we have the translations for all languages here.
-    for (const lang of ['de', 'en', 'fr', 'hr']) {
+    for (const lang of enabledLanguages) {
         const t = (key) => _t(lang, key);
         const common_template = templates(t).common;
 
@@ -126,11 +130,15 @@ const out_dir = path.join(__dirname, '..', '..', 'static', 'downloads');
                 margins: { left: mm2pt(25), top: mm2pt(27), right: mm2pt(20), bottom: mm2pt(16.9) },
                 bufferPages: true,
             });
+            pdf.registerFont('Roboto-Regular', Buffer.from(vfsFonts['Roboto-Regular.ttf'], 'base64'));
+            pdf.registerFont('Roboto-Medium', Buffer.from(vfsFonts['Roboto-Medium.ttf'], 'base64'));
+
             pdf.initForm();
             pdf.info.Title = data.subject;
             pdf.info.Subject = data.subject;
             pdf.info.Author = 'Datenanfragen.de e. V.';
             const field_bg = '#e0edf8';
+            pdf.font('Roboto-Regular');
 
             pdf.fontSize(6);
             pdf.formText('field-sender-address', mm2pt(25), mm2pt(30), mm2pt(85), 8, {
@@ -152,11 +160,11 @@ const out_dir = path.join(__dirname, '..', '..', 'static', 'downloads');
                 backgroundColor: field_bg,
             });
 
-            pdf.font('Helvetica-Bold').text(data.subject, mm2pt(25), mm2pt(85));
+            pdf.font('Roboto-Medium').text(data.subject, mm2pt(25), mm2pt(85));
             pdf.moveDown();
 
             let field_no = 0; // This is not great for a11y but currently I don't have a better way to name the fields.
-            pdf.font('Helvetica');
+            pdf.font('Roboto-Regular');
             const printTextField = (value, x, height = undefined, multiline = true, name = undefined) => {
                 const field_height = height || pdf.currentLineHeight(true) * 7;
                 const field_width = pdf.page.width - x - pdf.page.margins.right;
@@ -164,7 +172,7 @@ const out_dir = path.join(__dirname, '..', '..', 'static', 'downloads');
 
                 pdf.formText(name || 'field-' + field_no++, x, pdf.y, field_width, field_height, {
                     value,
-                    multiline: multiline,
+                    multiline,
                     backgroundColor: field_bg,
                 });
 

@@ -36,12 +36,13 @@ Zde je náš vzorový dopis pro žádost o výmaz podle článku 17 GDPR. Ale st
 <p>[Prosím o vymazání všech osobních údajů týkajících se mé osoby, jak jsou definovány v článku 4, odst. 1 GDPR.]</p>
 
 <p>[Prosím o vymazání následujících osobních údajů týkajících se mé osoby:<br>
-<span class="blog-letter-fill-in">Zde specifikujte údaje, které chcete vymazat.</span>]</p>
+<span class="blog-letter-fill-in">Zde zadejte data, která mají být odstraněna.</span>]</p>
 
 <p>Jsem toho názoru, že jsou naplněny požadavky definované v článku 17, odst. 1 GDPR. A tedy nelze uplatnit výjimku podle článku 17, odst. 3 GDPR, neboť nejsem veřejně činnou osobou.</p>
 
-<p>Pokud jsem souhlasil se zpracováním osobních údajů (např. podle článku 6, odst. 1 nebo článku 9, odst. 2 GDPR), tímto odvolávám souhlas se zpracováním.<br>
-Kromě toho vznáším námitku ke zpracování osobních údajů týkajících se mé osoby (což zahrnuje profilování), podle článku 21 GDPR. Žádám, abyste omezili zpracování údajů týkajících se mé osoby do ověření, zda Vaše legitimní zájmy mají přednost před mými zájmy podle čl. 18, odst. 1, bodu d) GDPR.</p>
+<p>Pokud jsem souhlasil se zpracováním osobních údajů, tímto odvolávám souhlas se zpracováním.</p>
+
+<p>[Kromě toho vznáším námitku ke zpracování osobních údajů týkajících se mé osoby (což zahrnuje profilování), podle článku 21, odst. 1 GDPR. <span class="blog-letter-fill-in">Zde svou námitku zdůvodněte.</span> Žádám, abyste omezili zpracování údajů týkajících se mé osoby do ověření, zda Vaše legitimní zájmy mají přednost před mými zájmy podle čl. 18, odst. 1, bodu d) GDPR.]</p>
 
 <p>Pokud jste výše zmíněné údaje zveřejnili, jste povinni podle článku 17, odst. 2 GDPR učinit všechny opodstatněné kroky k informování ostatních správců osobních údajů, včetně provozovatelů vyhledávačů, kteří zpracovávají osobní údaje uvedené výše, že žádám o vymazání všech odkazů, kopií nebo replikací. To se týká nejen přesných kopií zmíněných údajů, ale také těch, ze kterých mohou být odvozeny informace obsažené v údajích.</p>
 
@@ -54,7 +55,7 @@ Kromě toho vznáším námitku ke zpracování osobních údajů týkajících 
 <p>Jak je stanoveno v článku 12, odst. 3 GDPR, máte povinnost mi potvrdit výmaz bez zbytečného odkladu a v každém případě do jednoho měsíce od obdržení žádosti.</p>
 
 <p>Přikládám následující informace nezbytné k identifikování mé osoby:<br>
-<span class="blog-letter-fill-in">Sem zadejte Vaše identifikační údaje. To často zahrnuje informace jako je Vaše jméno, datum narození, Vaše adresa, emailová adresa a tak dále.</span></p>
+<span class="blog-letter-fill-in">Zde zadejte své identifikační údaje. Často se jedná o informace jako vaše jméno, datum narození, adresa, e-mailová adresa atd.</span></p>
 
 <p>Pokud neodpovíte na moji žádost ve stanovené lhůtě, vyhrazuji si právo učinit právní kroky a podat stížnost k odpovídajícímu kontrolnímu orgánu.</p>
 
@@ -62,7 +63,7 @@ Kromě toho vznáším námitku ke zpracování osobních údajů týkajících 
 
 <p>S pozdravem,</p>
 
-<p><span class="blog-letter-fill-in">Sem zadejte Vaše jméno.</span></p>
+<p><span class="blog-letter-fill-in">Zde zadejte své jméno.</span></p>
 </div>
 
 Abychom to ulehčili, můžete si stáhnout dopis a použít ho přímo ve Vašem preferovaném textovém editoru. Můžete si vybrat z následujících vzorů:<!-- TODO: Host these ourselves and give them some nice buttons. -->

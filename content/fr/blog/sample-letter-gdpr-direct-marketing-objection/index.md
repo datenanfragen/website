@@ -40,6 +40,8 @@ Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 21(2
 
 <p>Si j'ai consenti au traitement de mes données à caractère personnel à des fins de prospection (par exemple, conformément à l'Article 6, alinéa 1, ou à l'Article 9, alinéa 2 du RGPD), je retire ce consentement par la présente.</p>
 
+<p>Please tell me in advance if the objection will result in the deletion of an account I may have with you, the cancellation of a contract I may have with you, or similar. I will then decide whether this should be carried out.</p>
+
 <p>Ma demande inclut explicitement , ainsi que tous les autres services et sociétés dont vous êtes le responsable du traitement en vertu de l'Article 4, alinéa 7, du RGPD .</p>
 
 <p>Conformément à l'Article 12, alinéa 3, du RGPD, vous devez me confirmer cette opposition dans un délai raisonnable et, en tout état de cause, dans le mois qui suit la réception de la demande.</p>

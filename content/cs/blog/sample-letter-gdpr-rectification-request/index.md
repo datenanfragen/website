@@ -34,7 +34,7 @@ Zde je náš vzorový dopis pro žádost o přístup podle článku 16 GDPR. Ale
 <p>tímto žádám o opravu nebo doplnění nepřesných osobních údajů týkajících se mé osoby podle článku 16 Obecného nařízení o ochraně osobních údajů (GDPR).</p>
 
 <p>Prosím o provedení následujících změn:<br>
-<span class="blog-letter-fill-in">Zde uveďte údaje, které chcete opravit.</span></p>
+<span class="blog-letter-fill-in">Zde zadejte údaje, které mají být opraveny.</span></p>
 
 <p>V případě, že jste sdělili dotčené osobní údaje jednomu nebo více příjemcům definovných článkem 4, odst. 9 GDPR, máte povinnosti sdělit moji žádost o opravu dotčených osobních údajů každému příjemci, jak stanovuje článek 19 GDPR. Prosím informujte mě o těchto příjemcích.</p>
 
@@ -43,7 +43,7 @@ Zde je náš vzorový dopis pro žádost o přístup podle článku 16 GDPR. Ale
 <p>Jak je stanoveno v článku 12, odst. 3 GDPR, máte povinnost mi potvrdit opravu bez zbytečného odkladu a v každém případě do jednoho měsíce od obdržení žádosti.</p>
 
 <p>Přikládám následující informace nezbytné k identifikování mé osoby:<br>
-<span class="blog-letter-fill-in">Sem zadejte Vaše identifikační údaje. To často zahrnuje informace jako je Vaše jméno, datum narození, Vaše adresa, emailová adresa a tak dále.</span></p>
+<span class="blog-letter-fill-in">Zde zadejte své identifikační údaje. Často se jedná o informace jako vaše jméno, datum narození, adresa, e-mailová adresa atd.</span></p>
 
 <p>Pokud neodpovíte na moji žádost ve stanovené lhůtě, vyhrazuji si právo učinit právní kroky a podat stížnost k odpovídajícímu kontrolnímu orgánu.</p>
 
@@ -51,7 +51,7 @@ Zde je náš vzorový dopis pro žádost o přístup podle článku 16 GDPR. Ale
 
 <p>S pozdravem,</p>
 
-<p><span class="blog-letter-fill-in">Sem zadejte Vaše jméno.</span></p>
+<p><span class="blog-letter-fill-in">Zde zadejte své jméno.</span></p>
 </div>
 
 Abychom to ulehčili, můžete si stáhnout dopis a použít ho přímo ve Vašem preferovaném textovém editoru. Můžete si vybrat z následujících vzorů:<!-- TODO: Host these ourselves and give them some nice buttons. -->

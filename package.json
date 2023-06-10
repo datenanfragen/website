@@ -42,7 +42,8 @@
         "prettier": "prettier --write {src,scripts,cypress,assets}/**/*.{js,jsx,ts,tsx,css,scss,json}",
         "deploy-dattel": "node deploy-dattel.js",
         "postinstall": "patch-package",
-        "build-components-package": "yarn tsm scripts/build-components-package.ts"
+        "build-components-package": "yarn tsm scripts/build-components-package.ts",
+        "build-sample-letters": "node ./scripts/build-sample-letters/build.js"
     },
     "dependencies": {
         "autocomplete.js": "^0.37.0",
