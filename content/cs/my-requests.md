@@ -5,5 +5,4 @@
     "aliases": ["my-requests"]
 }
 
-<!--TODO should define a slug in the frontmatter? -->
 Moje žádosti

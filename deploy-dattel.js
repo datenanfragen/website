@@ -18,7 +18,7 @@ async function main() {
             const site_id = `dade-website-${language}`;
 
             // Cancel any stale deploys. This call will fail if there was no stale deploy, so we just ignore the error.
-            await dattel.cancelDeploy(site_id).catch((_) => { });
+            await dattel.cancelDeploy(site_id).catch();
 
             console.log(`Starting dattel deploy for ${site_id}…`);
             const deploy_info = (await dattel.startDeploy(site_id)).data.deploy;
@@ -46,3 +46,4 @@ async function main() {
 }
 
 main();
+/* eslint-enable no-console */

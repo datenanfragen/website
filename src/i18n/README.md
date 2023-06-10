@@ -18,7 +18,7 @@
 * Add the domain to `content/*/verein/_index.md`.
 * Extend `languages` with the new domain and its translations in `components-package/src/index.ts`. Import the language accordingly.
 * Mention the new domain in the `README`.
-* Add the domain in dattel (see `infrastructure` in our internal git on how to do that) and set the appropriate DNS records.
+* Add the domain in dattel (see [`infrastructure` in our internal git](https://git.my-server.in/datenanfragen/infrastructure) on how to do that) and set the appropriate DNS records.
 * In `deploy-dattel.js`, add the new language to the `languages` array and trigger a deploy using `CONTEXT=production ./deploy.sh && yarn deploy-dattel`.
 
 ## Notes
