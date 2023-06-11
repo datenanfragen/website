@@ -6,7 +6,7 @@ import { CommentsWidget } from './Components/CommentsWidget';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import Footnote from './Components/Footnote';
 import { t_r } from './Utility/i18n';
-import { parameters, parseBcp47Tag, fallback_countries } from './Utility/common';
+import { parameters, parseBcp47Tag } from './Utility/common';
 import { guessUserCountry } from './Utility/browser';
 import { UserRequests } from './DataType/UserRequests';
 import { proceedingFromRequest, useProceedingsStore } from './store/proceedings';
@@ -73,7 +73,7 @@ if (!useAppStore.getState().countrySet) {
     const { language: preferred_language } = parseBcp47Tag(navigator.language);
     const { language: website_language } = parseBcp47Tag(document.documentElement.lang);
 
-    if (preferred_language !== website_language && preferred_language! in fallback_countries)
+    if (preferred_language !== website_language && preferred_language! in window.SUPPORTED_LANGUAGES)
         notifyOtherLanguages(preferred_language, website_language);
 }
 
