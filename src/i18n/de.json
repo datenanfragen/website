@@ -640,6 +640,7 @@
         "language-desc-pt": "Portugiesisch (Português)",
         "language-desc-hr": "Kroatisch (Hrvatski)",
         "language-desc-nl": "Niederländisch (Nederlands)",
+        "language-desc-cs": "Tschechisch (Čeština)",
         "language-de": "Deutsch",
         "language-en": "Englisch",
         "language-fr": "Französisch",
@@ -647,6 +648,7 @@
         "language-pt": "Portugiesisch",
         "language-hr": "Kroatisch",
         "language-nl": "Niederländisch",
+        "language-cs": "Tschechisch",
         "not-supported-prompt": "Deine Sprache oder Dein Land wird noch nicht unterstützt?",
         "not-supported-cta": "Hilf uns dabei!"
     },

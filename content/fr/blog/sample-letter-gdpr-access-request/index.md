@@ -39,6 +39,8 @@ Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 15 d
 6. Lorsque les données à caractère personnel ne sont pas collectées auprès de la personne concernée, toute information disponible sur l'origine de ces données;<br>
 7. L'existence d'un processus décisionnel automatisé, y compris le profilage, mentionné l'Article 22, alinéas 1 et 4, du RGPD et, au moins dans ces cas, des informations utiles sur la logique appliquée, ainsi que la signification et les conséquences envisagées de ce traitement pour moi.</p>
 
+<p></p>
+
 <p>Si vous transférez mes données à caractère personnel vers un pays tiers ou une organisation internationale, je demande à être informé des garanties appropriées concernant le transfert, conformément à l'Article 46 du RGPD.</p>
 
 <p>[Veuillez mettre à ma disposition les données à caractère personnel me concernant que je vous ai fournies dans un format structuré, couramment utilisé et lisible par machine, conformément à l'Article 20, alinéa 1, du RGPD.]</p>

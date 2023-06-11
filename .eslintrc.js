@@ -138,6 +138,10 @@ module.exports = {
                     name: 'nl',
                     path: 'src/i18n/nl.json',
                 },
+                {
+                    name: 'cs',
+                    path: 'src/i18n/cs.json',
+                },
             ],
         },
         // The Preact config includes Jest rules but we don't have Jest installed. This stops them from complaining.

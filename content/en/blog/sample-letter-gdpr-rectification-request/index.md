@@ -2,11 +2,11 @@
     "title": "Sample letter for rectification requests as per Art. 16 GDPR",
     "slug": "sample-letter-gdpr-rectification-request",
     "date": "2018-05-16T22:06:12+02:00",
-    "last_edited": "2020-05-31T01:28:42",
+    "last_edited": "2021-10-11T01:28:42",
     "type": "blog",
     "description": "If a company has stored false (or incomplete) personal data on you, then under the GDPR you have a right to demand immediate correction of said incorrect data. We offer you a sample letter with which you can exercise said right.",
     "featured_image": "gdpr-rectification-request-letter",
-    "tags": [ "gdpr", "rectificacion request", "letter", "sample", "article 16" ],
+    "tags": [ "gdpr", "rectification request", "letter", "sample", "article 16" ],
     "authors": [ "baltpeter" ],
     "license": "cc0-10"
 }
@@ -27,7 +27,7 @@ In most cases, however, you should use the written form, if only to be able to p
 
 Don't worry, you don't have to write this letter yourself. We have prepared a sample letter for you to copy and adapt for your purposes.
 
-Here is our sample letter for requests for rectification according to Art. 16 GDPR. You still have to fill in the data in <span class="blog-letter-fill-in">curly braces</span>. You can decided whether you want all personal data concerning you to be deleted or just some. Depending on your choice, include one of the sections in [square brackets].
+Here is our sample letter for requests for rectification according to Art. 16 GDPR. You still have to fill in the data in <span class="blog-letter-fill-in">curly braces</span>.
 
 <div class="blog-letter">
 <p>To Whom It May Concern:</p>

@@ -47,3 +47,10 @@
     weight = 70
     title = "gegevensaanvragen.nl"
     copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."
+[cs]
+    languageCode = "cs-CZ"
+    languageName = "Čeština"
+    contentDir = "content/cs"
+    weight = 80
+    title = "zadostioudaje.org"
+    copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."

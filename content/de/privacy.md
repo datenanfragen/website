@@ -23,7 +23,7 @@ Diese Datenschutzerklärung gilt für alle Aktivitäten des Datenanfragen.de e.&
 
 Dazu zählen zunächst die Daten, die wir von unseren Mitgliedern erheben und verarbeiten, aber auch jene die anfallen, wenn Du z.&nbsp;B. an uns spendest.
 
-Weiterhin gilt die Datenschutzerklärung für unsere Webseiten [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl), [pedidodedados.org](https://www.pedidodedados.org/) und [trackers.tweasel.org](https://trackers.tweasel.org).
+Weiterhin gilt die Datenschutzerklärung für unsere Webseiten [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl) [pedidodedados.org](https://www.pedidodedados.org/), [zadostioudaje.org](https://zadostioudaje.org/) und [trackers.tweasel.org](https://trackers.tweasel.org).
 
 Zweck des Datenanfragen.de e.&nbsp;V. ist es, die Bürger_innen durch Aufklärung und Beratung in allen mit dem Datenschutz im Zusammenhang stehenden Fragen in der Ausübung ihres Rechts auf informationelle Selbstbestimmung zu stärken. Wir sind in allen unseren Tätigkeiten an unsere {{< link slug="verein/constitution" text="Satzung" >}} gebunden.
 
