@@ -73,10 +73,7 @@ if (!useAppStore.getState().countrySet) {
     const { language: preferred_language } = parseBcp47Tag(navigator.language);
     const { language: website_language } = parseBcp47Tag(document.documentElement.lang);
 
-    if (
-        preferred_language !== website_language &&
-        Object.prototype.isPrototypeOf.call(window.SUPPORTED_LANGUAGES, preferred_language!)
-    )
+    if (preferred_language !== website_language && preferred_language! in window.SUPPORTED_LANGUAGES)
         notifyOtherLanguages(preferred_language, website_language);
 }
 
