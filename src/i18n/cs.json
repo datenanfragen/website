@@ -1,7 +1,7 @@
 {
     "macros": {
         "site_name": "zadostioudaje.org",
-        "base_url": "https://zadostioudaje.org/"
+        "base_url": "https://www.zadostioudaje.org/"
     },
     "sva-finder": {
         "rundfunk-br": "Bayerischer Rundfunk (BR)",
@@ -825,9 +825,5 @@
         "language-cs": "Čeština",
         "not-supported-prompt": "Je Váš jazyk nebo země zatím nedostupná?",
         "not-supported-cta": "Pomozte nám to umožnit!"
-    },
-    "macros": {
-        "base_url": "https://www.zadostioudaje.org",
-        "site_name": "zadostioudaje.org"
     }
 }
