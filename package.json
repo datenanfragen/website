@@ -129,7 +129,7 @@
         "postinstall-postinstall": "^2.1.0",
         "prettier": "^2.5.0",
         "speed-measure-webpack-plugin": "^1.5.0",
-        "stylelint": "^14.1.0",
+        "stylelint": "^15.10.1",
         "stylelint-a11y": "^1.2.1",
         "stylelint-config-prettier": "^9.0.3",
         "stylelint-config-recommended-scss": "^5.0.2",
