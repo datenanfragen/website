@@ -670,7 +670,10 @@
         "request-type-info-objection": "Putem prigovora na izravni marketing možeš zabraniti poduzeću da koristi tvoje podatke za slanje reklama.",
         "whats-next-deadline": "Poduzeća sada imaju mjesec dana vremena da odgovore na tvoje zahtjeve. Kada je potrebno, mogu produžiti ovaj rok na ukupno tri mjeseca, ali te o tome moraju obavijestiti unutar prvog mjeseca.",
         "needs-id-document": "Za slanje zahtjeva ovom subjektu je potreban identifikacijski dokument.",
-        "choose-runs": "Prikaži i odaberi druge subjekte kojima upravlja ovo poduzeće."
+        "choose-runs": "Prikaži i odaberi druge subjekte kojima upravlja ovo poduzeće.",
+        "also-runs-choose": "Ovo je poduzeće također odgovorno za ove druge entitete ili usluge (odznači one koje ne želiš zatražiti):",
+        "continue": "Nastavi",
+        "only-webform": "Možda ćeš morati poslati zahtjev putem web obrasca."
     },
     "my-requests": {
         "more": "više",
@@ -752,7 +755,9 @@
             "one": "postupak s prekoračenim rokom",
             "other": "postupci s prekoračenim rokom"
         },
-        "delete-proceeding": "Izbriši postupak"
+        "delete-proceeding": "Izbriši postupak",
+        "webform": "web obrazac",
+        "sent-via-medium": "poslano putem {{medium}}"
     },
     "cdb": {
         "suggest-new": "Predloži novo poduzeće",
@@ -762,7 +767,7 @@
     },
     "search": {
         "quality-unverified": "Podaci kontakta u ovom zapisu uvezene su automatski. Mi ih nismo provjerili.",
-        "quality-tested": "Barem jedan od naših suradnika uspješno je poslao zahtjev koristeći podatke za kontakt u ovom zapisu.",
+        "quality-tested": "Barem jedan od naših doprinositelja je uspješno poslao zahtjev koristeći podatke za kontakt u ovom zapisu.",
         "suggest-a-company": "Predloži novo poduzeće",
         "no-results": "Nažalost nema rezultata za tvoju pretragu.",
         "search-disabled": "Funkcija za pretraživanje je deaktivirana. Ako je želiš aktivirati, pogledaj <a href='/privacy-controls'>postavke privatnosti</a>.",
@@ -977,7 +982,8 @@
         "home-claim-send-title": "Šalji zahtjeve",
         "home-claim-react-title": "Primaj odgovore i reagiraj",
         "home-claim-react": "<em>U roku od mjesec dana</em> bi trebao/la dobiti odgovore na tvoje zahtjeve. Redovito provjeravaj stanja zahtjeva i mi ćemo te podsjetiti da kontaktiraš poduzeće ako je potrebno. Također ti pomažemo procijeniti odgovor i poslati žalbu.",
-        "blog-devlog": "Dnevnik programera"
+        "blog-devlog": "Dnevnik programera",
+        "cdb-tested": "Barem jedan od naših doprinositelja je uspješno poslao zahtjev koristeći podatke za kontakt u ovom zapisu."
     },
     "i18n-widget": {
         "not-supported-cta": "Pomogni nam!",
@@ -998,7 +1004,8 @@
         "country": "Zemlja",
         "language-desc-nl": "Nizozemski (Nederlands)",
         "language-nl": "Nizozemski",
-        "language-cs": "Češki"
+        "language-cs": "Češki",
+        "language-desc-cs": "Češki (Čeština)"
     },
     "blog": {
         "footnote": "Fusnota"
@@ -1097,7 +1104,25 @@
         "base_dead-end_option_next": "Označi ako postoji jedan drugi problem s odgovorom poduzeća.",
         "base_select-issue_option_action-refusal": "Poduzeće odbija reagirati na zahtjev.",
         "overdue_controller-gave-reason_body": "Smatraš li da je navedeni razlog poduzeća primjeren?",
-        "overdue_controller-gave-invalid-reason_body": "Objasni zašto smatraš da obrazloženje poduzeća za produljenje razdoblja nije primjereno."
+        "overdue_controller-gave-invalid-reason_body": "Objasni zašto smatraš da obrazloženje poduzeća za produljenje razdoblja nije primjereno.",
+        "base_complaint-intro_body": "Pregledat ćemo svaki tvoj navedeni problem u tvom prethodnom odgovoru kontroloru.",
+        "excessive_start_option_additional-copy": "Kažu da sam zatražio/la dodatnu kopiju mojih podataka.",
+        "other-language_does-user-understand-response-language_body": "Razumiješ li odgovor poduzeća?",
+        "excessive_start_option_no-reason": "Nisu naveli razlog.",
+        "id-copy_start_option_unknown-id": "Poduzeće ne poznaje moj stvarni identitet.",
+        "excessive_start_option_too-many": "Tvrde da sam im poslao/la previše zahtjeva ili da sam ih slao prečesto.",
+        "custom-text_start_body": "Upiši poruku koju želiš poslati poduzeću.",
+        "id-copy_start_option_online-account": "Moj se zahtjev odnosi na online račun.",
+        "message-by-controller": "{{medium}} od kontrolera",
+        "additional-id_provide-data_body": "Upiši dodatne identifikacijske podatke koje poduzeće zahtijeva.",
+        "additional-id_no-reasonable-doubts_option_other-reason": "Poduzeće želi više podataka nego što je potrebno za moju identifikaciju za zahtjev.",
+        "other-language_response-language_body": "Na kojem je jeziku poduzeće odgovorilo?",
+        "additional-id_explain-reasoning_body": "Obrazloži zašto identifikacijski podaci koje poduzeće traži nisu potrebni za zahtjev.",
+        "excessive_additional-copy_body": "Jesi li ikada prije poslao/la zahtjev poduzeću?",
+        "base_select-issue_option_not-answered": "Poduzeće još nije odgovorilo na zahtjev.",
+        "wrong-medium_start_option_wrong-transport-medium": "Nije poslano koristeći određen prijenosni medij.",
+        "wrong-medium_start_option_web-form": "Nije poslano putem njihovog web obrasca/samoposlužnog alata.",
+        "excessive_start_option_other-reason": "Naveli su jedan drugi razlog."
     },
     "hints": {
         "advanced-generator": "Dobro došao, dobro došla u novo sučelje za naš generator. Nadamo se da se može intuitivnije koristiti i da olakšava slanje mnogih zahtjeva.<br>Bez brige: ako više voliš <a href='/g'>staro sučelje</a>, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja.",
