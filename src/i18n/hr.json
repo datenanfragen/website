@@ -327,8 +327,8 @@
         "comment": "Komentar",
         "comments": "Komentari",
         "average-rating-title": {
-            "singular": "Prosječna ocjena: {{rating}} ({{count}} recenzija)",
-            "plural": "Prosječna ocjena: {{rating}} ({{count}} recenzija)"
+            "singular": "Prosječna ocjena: {{rating}} (od {{count}} recenzija)",
+            "plural": "Prosječna ocjena: {{rating}} (od {{count}} recenzija)"
         }
     },
     "signature": {
@@ -784,7 +784,7 @@
         "footer-social-matrix-desc": "Raspravljaj s nama putem Matrixa.",
         "footer-social-github-desc": "Pronađi nas na GitHubu.",
         "footer-social-rss-desc": "Pretplati se na naš blog koristeći RSS čitač.",
-        "footer-licenses": "Licenca",
+        "footer-licenses": "Napomene o licenci",
         "footer-privacy-controls": "Postavke privatnosti",
         "footer-privacy-policy": "Pravila privatnosti",
         "footer-legal-notice": "Pravni podaci i kontakt",
@@ -855,7 +855,7 @@
         "blog-page": "Stranica ",
         "blog-next-page": "Sljedeća stranica",
         "blog-prev-page": "Prethodna stranica",
-        "blog-post": "Objava",
+        "blog-post": "Blog",
         "blog-last-edited": ", zadnje uređivanje: ",
         "blog-author": "autor: ",
         "blog-published": "Objavljeno: ",
@@ -976,7 +976,8 @@
         "home-claim-title": "Koraci za zahtijevanje osobnih podataka:",
         "home-claim-send-title": "Šalji zahtjeve",
         "home-claim-react-title": "Primaj odgovore i reagiraj",
-        "home-claim-react": "<em>U roku od mjesec dana</em> bi trebao/la dobiti odgovore na tvoje zahtjeve. Redovito provjeravaj stanja zahtjeva i mi ćemo te podsjetiti da kontaktiraš poduzeće ako je potrebno. Također ti pomažemo procijeniti odgovor i poslati žalbu."
+        "home-claim-react": "<em>U roku od mjesec dana</em> bi trebao/la dobiti odgovore na tvoje zahtjeve. Redovito provjeravaj stanja zahtjeva i mi ćemo te podsjetiti da kontaktiraš poduzeće ako je potrebno. Također ti pomažemo procijeniti odgovor i poslati žalbu.",
+        "blog-devlog": "Dnevnik programera"
     },
     "i18n-widget": {
         "not-supported-cta": "Pomogni nam!",
@@ -996,7 +997,8 @@
         "language": "Jezik",
         "country": "Zemlja",
         "language-desc-nl": "Nizozemski (Nederlands)",
-        "language-nl": "Nizozemski"
+        "language-nl": "Nizozemski",
+        "language-cs": "Češki"
     },
     "blog": {
         "footnote": "Fusnota"
