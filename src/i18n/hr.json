@@ -1122,10 +1122,26 @@
         "base_select-issue_option_not-answered": "Poduzeće još nije odgovorilo na zahtjev.",
         "wrong-medium_start_option_wrong-transport-medium": "Nije poslano koristeći određen prijenosni medij.",
         "wrong-medium_start_option_web-form": "Nije poslano putem njihovog web obrasca/samoposlužnog alata.",
-        "excessive_start_option_other-reason": "Naveli su jedan drugi razlog."
+        "excessive_start_option_other-reason": "Naveli su jedan drugi razlog.",
+        "id-copy_start_option_explain-reasoning-complaint": "Mogu navesti vlastiti argument zašto traženje kopije osobne iskaznice nije primjereno",
+        "id-copy_start_option_explain-reasoning-other": "Mogu navesti vlastiti protuargument",
+        "base_generate-letter_body_admonition": "Ovo je tvoja generirana opomena. Pregledaj tekst i po potrebi ga uredi. Nakon toga ćeš je morati poslati poduzeću.",
+        "overdue_start_body": "Općenito, poduzeća imaju mjesec dana da odgovore na tvoj zahtjev. To je razdoblje sada prekoračeno. Rok mogu produljiti za dodatna dva mjeseca samo ako je potrebno i ako te obavijeste o produženju i o razlozima. Jesu li to učinili?",
+        "base_generate-letter_body_response": "Ovo je tvoj generirani odgovor. Pregledaj tekst i po potrebi ga uredi. Nakon toga ćeš ga morati poslati poduzeću.",
+        "wrong-medium_wrong-contact_option_support": "opći kontakt korisničke usluge/podrške",
+        "wrong-medium_wrong-contact_option_privacy-contact": "kontakt za privatnost prema njihovoj politici privatnosti",
+        "wrong-medium_wrong-contact_body": "Poduzeća nisu dužna odgovarati na zahtjeve poslane nasumično odabranim kontaktima koji nisu obuhvaćeni predmetom, ali ne mogu odgovoriti samo na zahtjeve poslane određenom kontaktu. Kamo si poslao/la zahtjev?",
+        "base_select-issue_option_wrong-medium": "Poduzeće tvrdi da je zahtjev poslan putem pogrešnog medija ili krivom kontaktu.",
+        "wrong-medium_wrong-contact_option_other": "jedna drugi kontakt za koji vjerujem da je razuman",
+        "id-copy_start_body_other": "Zahtjev za kopijom identifikacijskog dokumenta primjeren je samo ako je prijeko potreban. Koja je od sljedećih tvrdnji točna?",
+        "additional-id_user-no-objections_body": "Možeš li/želiš li dati identifikacijske podatke koje poduzeće traži?",
+        "wrong-medium_start_option_wrong-contact": "Poslano je jednom krivom kontaktu.",
+        "wrong-medium_wrong-contact_option_dpo": "službenik za zaštitu podataka prema njihovoj politici privatnosti",
+        "excessive_other-reason_body": "U ovom slučaju nažalost ne možemo dati unaprijed sastavljen odgovor. Objasni zašto smatraš da tvoj zahtjev nije neutemeljen niti pretjeran."
     },
     "hints": {
         "advanced-generator": "Dobro došao, dobro došla u novo sučelje za naš generator. Nadamo se da se može intuitivnije koristiti i da olakšava slanje mnogih zahtjeva.<br>Bez brige: ako više voliš <a href='/g'>staro sučelje</a>, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja.",
-        "new-generator": "Razvili smo <a href='/generator'>novo sučelje za generator</a> koje je intuitivnije i olakšava slanje mnogih zahtjeva. Isprobaj ga!<br>Bez brige: ako više voliš staro sučelje, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja."
+        "new-generator": "Razvili smo <a href='/generator'>novo sučelje za generator</a> koje je intuitivnije i olakšava slanje mnogih zahtjeva. Isprobaj ga!<br>Bez brige: ako više voliš staro sučelje, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja.",
+        "dismiss-hint": "Odbaci savjet."
     }
 }
