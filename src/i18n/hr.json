@@ -1137,7 +1137,8 @@
         "additional-id_user-no-objections_body": "Možeš li/želiš li dati identifikacijske podatke koje poduzeće traži?",
         "wrong-medium_start_option_wrong-contact": "Poslano je jednom krivom kontaktu.",
         "wrong-medium_wrong-contact_option_dpo": "službenik za zaštitu podataka prema njihovoj politici privatnosti",
-        "excessive_other-reason_body": "U ovom slučaju nažalost ne možemo dati unaprijed sastavljen odgovor. Objasni zašto smatraš da tvoj zahtjev nije neutemeljen niti pretjeran."
+        "excessive_other-reason_body": "U ovom slučaju nažalost ne možemo dati unaprijed sastavljen odgovor. Objasni zašto smatraš da tvoj zahtjev nije neutemeljen niti pretjeran.",
+        "wrong-medium_start_body": "Poduzeća ne smiju nametati vlastite formalne zahtjeve o tome kako slati zahtjeve, poput zahtijevanja da se zahtjevi šalju putem određenog medija.\n\nZašto je poduzeće odbilo odgovoriti na tvoj zahtjev?"
     },
     "hints": {
         "advanced-generator": "Dobro došao, dobro došla u novo sučelje za naš generator. Nadamo se da se može intuitivnije koristiti i da olakšava slanje mnogih zahtjeva.<br>Bez brige: ako više voliš <a href='/g'>staro sučelje</a>, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja.",
