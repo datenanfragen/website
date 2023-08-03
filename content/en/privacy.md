@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on September 20, 2021.
+Our privacy policy was last changed on August 03, 2023.
 
 ## General remarks
 
@@ -23,7 +23,7 @@ This privacy policy applies to all activities of Datenanfragen.de e.&nbsp;V. (�
 
 This includes the data we collect and process from our member but also the data that is incurred from donations and the like.
 
-In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl) [pedidodedados.org](https://www.pedidodedados.org/), [zadostioudaje.org](https://zadostioudaje.org/),  and [trackers.tweasel.org](https://trackers.tweasel.org).
+In addition, this includes our websites [Datenanfragen.de](https://www.datenanfragen.de), [datarequests.org](https://www.datarequests.org), [demandetesdonnees.fr](https://www.demandetesdonnees.fr), [solicituddedatos.es](https://www.solicituddedatos.es), [osobnipodaci.org](https://www.osobnipodaci.org), [gegevensaanvragen.nl](https://www.gegevensaanvragen.nl) [pedidodedados.org](https://www.pedidodedados.org/), [zadostioudaje.org](https://zadostioudaje.org/), [trackers.tweasel.org](https://trackers.tweasel.org), [docs.tweasel.org](https://docs.tweasel.org), and [data.tweasel.org](https://data.tweasel.org).
 
 The association's purpose is to support the general public in exercising their right to privacy (“right to informational self-determination”) by informing and advising them with all questions regarding personal data protection. We are bound by our {{< link slug="verein/constitution" text="constitution" >}} in all our activities.
 
