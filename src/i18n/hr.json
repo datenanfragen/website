@@ -1138,7 +1138,12 @@
         "wrong-medium_start_option_wrong-contact": "Poslano je jednom krivom kontaktu.",
         "wrong-medium_wrong-contact_option_dpo": "službenik za zaštitu podataka prema njihovoj politici privatnosti",
         "excessive_other-reason_body": "U ovom slučaju nažalost ne možemo dati unaprijed sastavljen odgovor. Objasni zašto smatraš da tvoj zahtjev nije neutemeljen niti pretjeran.",
-        "wrong-medium_start_body": "Poduzeća ne smiju nametati vlastite formalne zahtjeve o tome kako slati zahtjeve, poput zahtijevanja da se zahtjevi šalju putem određenog medija.\n\nZašto je poduzeće odbilo odgovoriti na tvoj zahtjev?"
+        "wrong-medium_start_body": "Poduzeća ne smiju nametati vlastite formalne zahtjeve o tome kako slati zahtjeve, poput zahtijevanja da se zahtjevi šalju putem određenog medija.\n\nZašto je poduzeće odbilo odgovoriti na tvoj zahtjev?",
+        "base_generate-letter_body_complaint": "Ovo je tvoja generirana žalba. Provjeri tekst i po potrebi ga uredi. Nakon toga ga moraš poslati nadzornom tijelu. Nemoj zaboraviti poruci priložiti tvoju korespondeciju s poduzećem.",
+        "additional-id_no-reasonable-doubts_option_concerns-online-account": "Zahtjev se odnosi na online račun, ali poduzeće traži „stvarne” identifikacijske podatke.",
+        "excessive_additional-copy-prior-request_body": "Poduzeća mogu naplatiti zahtijevanje dodatnih kopija tvojih podataka. To vrijedi samo ako se tvoj zahtjev odnosi na iste podatke kao prethodne. Međutim, ako vjeruješ da se tvoj novi zahtjev odnosi na druge podatke (npr. različite vrste podataka ili različito vremensko razdoblje), ponovno vrijedi pravo na besplatnu kopiju.\n\nVjeruješ li da se tvoj novi zahtjev odnosi na drugačije podatke od onih koje je poduzeće navelo?",
+        "additional-id_reasonable-doubts_body": "Imaš li primjedbe na te sumnje? Smatraš li da te poduzeće može dovoljno identificirati bez ovih podataka?",
+        "other-language_start_body": "Poduzeća moraju komunicirati u lako dostupnom obliku, koristeći jasan i jednostavan jezik. Poduzeće koje nudi uslugu u nekoj zemlji treba ponuditi i odgovore na jeziku koji ljudi u toj zemlji razumiju.\n\nKoji je jezik tvog zahtjeva?"
     },
     "hints": {
         "advanced-generator": "Dobro došao, dobro došla u novo sučelje za naš generator. Nadamo se da se može intuitivnije koristiti i da olakšava slanje mnogih zahtjeva.<br>Bez brige: ako više voliš <a href='/g'>staro sučelje</a>, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja.",
