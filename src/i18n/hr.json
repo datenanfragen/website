@@ -673,7 +673,8 @@
         "choose-runs": "Prikaži i odaberi druge subjekte kojima upravlja ovo poduzeće.",
         "also-runs-choose": "Ovo je poduzeće također odgovorno za ove druge entitete ili usluge (odznači one koje ne želiš zatražiti):",
         "continue": "Nastavi",
-        "only-webform": "Možda ćeš morati poslati zahtjev putem web obrasca."
+        "only-webform": "Možda ćeš morati poslati zahtjev putem web obrasca.",
+        "want-to-suggest-disclaimer": "<p>Nakon što pošalješ obrazac, dolje upisani podaci bit će javno vidljivi u našem <a href=\"https://github.com/datenanfragen/data/pulls\" target=\"_blank\" rel=\"noreferrer noopener\">GitHub repozitoriju</a>. Stoga ovdje nemoj upisati bilo koje osobne podatke. Za više informacija pogledaj naša <a href=\"/privacy/#user-content-like-comments-and-contributions-to-our-company-database\" target=\"_blank\" rel=\"noreferrer noopener\">pravila privatnosti</a>.</p><p>Slažeš se da se tvoj prijedlog objavi u bazi podataka našeg poduzeća pod <a href=\"https://creativecommons.org/publicdomain/zero/1.0\" target=\"_blank\" rel=\"noreferrer noopener\">CC0 licencom</a>, koja svakome dozvoljava korištenje tih podataka bez ograničenja.</p>"
     },
     "my-requests": {
         "more": "više",
