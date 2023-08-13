@@ -7,6 +7,7 @@
 
 Sve važne poslove udruge vodi izvršni odbor. Prema našem {{< link slug="verein/constitution#7-the-board" text="statutu" >}}, odbor se sastoji od dviju predsjedavajućih osoba, koje zajednički predstavljaju udrugu te proizvoljnog broja asesora, koji provjeravaju i podržavaju odbor u radu. Dosadašnji odbor izabran je na glavnoj skupštini 16. srpnja 2020. godine, a čine ga:
 
+<address>
 * Benjamin Altpeter, predsjednik ([benni@datenanfragen.de](mailto:benni@datenanfragen.de), [PGP key](/pgp/AF1381BD.asc)  
   `9F99 3663 0B82 D3C7 DFC9  23F6 EB5C F074 AF13 81BD`)
 * Lorenz Sieben, predsjednik ([lorenz@datenanfragen.de](mailto:lorenz@datenanfragen.de), [PGP key](/pgp/4C44A6EF.asc)   
@@ -28,3 +29,5 @@ Odbor se može kontaktirati na nekoliko načina:
     Schreinerweg 6  
     38126 Braunschweig  
     Germany*
+    
+</address>

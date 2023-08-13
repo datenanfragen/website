@@ -5,6 +5,7 @@
  
 ## Information according to § 5 of German Telemedia Act (TMG)
 
+<address>
 **Mail address** (no office hours):  
 Datenanfragen.de e.&nbsp;V.  
 Schreinerweg 6  
@@ -21,6 +22,7 @@ Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associatio
 
 **Responsible for the content according to § 18(2) of German State Media Treaty (MStV):**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Germany
+</address>
 
 <div class="box box-warning">
 	Please note that we are an <em>independent non-profit</em> and not affiliated with the companies listed in our <a href="/company">company database</a>.<br>

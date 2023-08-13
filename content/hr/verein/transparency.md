@@ -13,6 +13,7 @@ Ove su informacije zadnji put aktualizirane 30. svibnja 2021.
 
 Ovi su podaci također dostupni na našoj stranici {{< link slug="contact" text="Kontakt" >}}.
 
+<address>
  - Ime: Datenanfragen.de e.&thinsp;V.
  - Sjedište: Braunschweig, Njemačka
  - Registar: Registar udruga pri Okružnom sudu u Braunschweigu
@@ -24,6 +25,7 @@ Ovi su podaci također dostupni na našoj stranici {{< link slug="contact" text=
    Njemačka  
  - Datum osnivanja: 14. lipnja 2018.
  - Kontakt osoba za transparentnost: Benjamin Altpeter ([transparenz@datenanfragen.de](mailto:transparenz@datenanfragen.de) ili putem gore navedene adrese)
+ </address>
 
 ## 2. Statut i svrha
 

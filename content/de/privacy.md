@@ -33,6 +33,7 @@ Mit unserer Webseite Datenanfragen.de (sowie deren Übersetzungen) wollen wir Di
 
 Verantwortlicher für die im Abschnitt „Geltungsbereich“ genannten Angebote im Sinne des Art. 4 Nr. 7 DSGVO ist der:
 
+<address>
 Datenanfragen.de e.&nbsp;V.  
 Schreinerweg 6  
 38126 Braunschweig  
@@ -45,6 +46,7 @@ Telefon: +49 531 209299 35
 Telefax: +49 531 209299 36  
 E-Mail: [datenschutz@datenanfragen.de](mailto:datenschutz@datenanfragen.de) ([PGP-Key](https://www.datenanfragen.de/pgp/CF2CBB2E.asc) `CC13 973A F8FD 11D1 4D94  98A8 0269 92F0 CF2C BB2E`)  
 Web: [www.datenanfragen.de/verein](https://www.datenanfragen.de/verein)
+</address>
 
 Falls Du irgendwelche Fragen zu unserer Datenschutzerklärung hast, der Meinung bist, dass wir gegen Datenschutzrecht verstoßen oder Deine Rechte geltend machen möchtest, kannst Du Dich gerne jederzeit an uns wenden.
 

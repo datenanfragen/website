@@ -43,10 +43,12 @@ Como organización sin fines de lucro de beneficio público, también podemos em
 
     Si no deseas revelar tu identidad, puedes utilizar una moneda criptográfica anónima o enviarnos dinero en efectivo por correo a nuestra dirección:
 
+    <address>
     *Datenanfragen.de e.&thinsp;V.  
     Schreinerweg 6  
     38126 Braunschweig  
     Alemania*
+    </address>
 
     Para donaciones en efectivo, sugerimos utilizar el servicio postal alemán [WERT NATIONAL](https://www.deutschepost.de/de/w/wert-national.html) o un producto similar ofrecido por tu oficina de correos local. No recomendamos enviar donaciones en efectivo a nivel internacional. En cualquier caso, asegúrate de que el contenido de tu carta no sea visible desde el exterior.
 

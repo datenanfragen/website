@@ -21,6 +21,7 @@
     </div>
     <div id="company-search"></div>
     <div id="company-details">
+        <address>
         <div class="col100-mobile" style="float: right; text-align: right; padding: 0 0 15px 15px;">
             <a class="button button-primary button-small icon icon-letter"
                 href="{{ print ("generator" | absURL) "#!company=" .Params.slug }}"
@@ -62,6 +63,8 @@
             </table>
         </div>
         {{ end }}
+
+        </address>
         <div class="clearfix"></div>
 
         {{ if and (index .Params "pgp-fingerprint") (index .Params "pgp-url") }}

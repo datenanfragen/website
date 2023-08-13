@@ -7,6 +7,7 @@
  
 ## Información de acuerdo con § 5 de la ley alemana de telecomunicaciones (TMG)
 
+<address>
 **Dirección postal:**  
 Datenanfragen.de e.&nbsp;V.  
 Schreinerweg 6  
@@ -23,6 +24,7 @@ Datenanfragen.de e.&nbsp;V. es una organización sin fines de lucro que figura e
 
 **Responsable del contenido según § 18(2) Tratado Interestatal Alemán de Medios *(MStV)*:**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Alemania
+</address>
 
 <div class="box box-warning">
 	Ten en cuenta que somos una <em>organización sin fines de lucro independiente</em> y no estamos afiliados a las empresas que figuran en nuestra <a href="/company">base de datos de empresas</a>.<br>
