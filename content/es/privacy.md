@@ -33,6 +33,7 @@ Con nuestro sitio web solicituddedatos.es (así como sus traducciones), queremos
 
 El responsable del tratamiento según se define en el art. 4 (7) RGPD para los servicios mencionados en el "Alcance" es:
 
+<address>
 Datenanfragen.de e.&nbsp;V.  
 Schreinerweg 6  
 38126 Braunschweig  
@@ -47,6 +48,7 @@ Email: [privacy@datenanfragen.de](mailto:privacy@datenanfragen.de) ([PGP key](ht
 Web: [www.datarequests.org/verein](https://www.datarequests.org/verein)
 
 Si tienes alguna pregunta sobre nuestra política de privacidad, crees que estamos violando las leyes de protección de datos o deseas hacer valer tus derechos, no dudes en contactarnos en cualquier momento.
+</address>
 
 ### Do Not Track (DNT)
 

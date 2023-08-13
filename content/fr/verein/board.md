@@ -7,6 +7,7 @@
 
 Toutes les affaires importantes de l'association sont menées par le comité directeur. Conformément à notre {{< link slug="/verein/constitution" text="constitution" fragment="7-le-comité-directeur" >}}, le comité directeur est composé de deux présidents paritaires, qui représentent conjointement l'association, et d'un nombre arbitraire de conseillers, qui contrôlent et soutiennent le comité directeur dans son travail. Le comité actuel a été élu lors de l'assemblée générale du 16 juillet 2020 et se compose de :
 
+<address>
 * Benjamin Altpeter, Président associé ([benni@datenanfragen.de](mailto:benni@datenanfragen.de), [Clé PGP](/pgp/AF1381BD.asc)  
   `9F99 3663 0B82 D3C7 DFC9  23F6 EB5C F074 AF13 81BD`)
 * Lorenz Sieben, Président associé ([lorenz@datenanfragen.de](mailto:lorenz@datenanfragen.de), [Clé PGP](/pgp/4C44A6EF.asc)  
@@ -28,3 +29,5 @@ Tu peux contacter le comité directeur de différentes façons :
     Schreinerweg 6  
     38126 Braunschweig  
     Allemagne*
+
+</address>
