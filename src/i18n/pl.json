@@ -175,7 +175,8 @@
         "header-home": "Strona główna",
         "header-generator": "Generator zapytań",
         "public body": "instytucja publiczna",
-        "commerce": "handel"
+        "commerce": "handel",
+        "home-claim-choose-company-title": "Wybierz firmy"
     },
     "countries": {
         "et": "Etiopia",
