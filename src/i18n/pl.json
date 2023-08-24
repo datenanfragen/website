@@ -176,7 +176,11 @@
         "header-generator": "Generator zapytań",
         "public body": "instytucja publiczna",
         "commerce": "handel",
-        "home-claim-choose-company-title": "Wybierz firmy"
+        "home-claim-choose-company-title": "Wybierz firmy",
+        "home-blog-section-title": "Nasz blog",
+        "home-blog-section-read-more": "Więcej artykułów",
+        "footer-advanced-generator": "Zaawansowany generator",
+        "blog-devlog": "Dziennik deweloperski"
     },
     "countries": {
         "et": "Etiopia",
@@ -421,7 +425,8 @@
         "no-results": "Niestety nie znaleziono wyników dla Twojego zapytania.",
         "suggest-a-company": "Zasugeruj nową firmę",
         "also-runs": "Działa również: ",
-        "search-disabled": "Funkcja wyszukiwania została wyłączona. Jeśli chcesz ją włączyć, zapoznaj się z ustawieniami prywatności <a href='/privacy-controls'></a>."
+        "search-disabled": "Funkcja wyszukiwania została wyłączona. Jeśli chcesz ją włączyć, zapoznaj się z ustawieniami prywatności <a href='/privacy-controls'></a>.",
+        "search-results": "Wyniki wyszukiwania"
     },
     "sva-finder": {
         "private-other-q": "W jakim stanie Pan/Pani mieszka?",
@@ -585,7 +590,9 @@
         "mailto-dropdown-explanation": "W jaki sposób chcesz wysłać e-mail?",
         "signature": "Podpis",
         "include-objection": "Dodatkowo, dodaj sprzeciw w Twojej konkretnej sprawie",
-        "objection-reason": "Powód sprzeciwu"
+        "objection-reason": "Powód sprzeciwu",
+        "continue": "Kontynuuj",
+        "back": "Wstecz"
     },
     "blog": {
         "footnote": "Notatka"
@@ -635,7 +642,22 @@
         "delete-all-btn": "Usuń wszystkie prośby",
         "export-btn": "Eksportuj wybrane żądania jako CSV",
         "export-ics": "Eksportuj wybrane żądania do kalendarza",
-        "no-requests-heading": "Brak zapytań"
+        "no-requests-heading": "Brak zapytań",
+        "original-request": "Oryginalna prośba",
+        "selection-mode": "Wybierz",
+        "more-options": "Więcej opcji",
+        "message-reactivate": "Reaktywuj",
+        "import-message": "Dodaj wiadomość",
+        "complaint": "Skarga",
+        "content": "Treść",
+        "cancel": "Anuluj",
+        "overdue": "Zaległe",
+        "response": "Odpowiedź",
+        "select-all": "Wybierz wszystkie",
+        "deselect-all": "Odznacz wszystkie",
+        "correspondent-email": "Adres e-mail",
+        "subject": "Temat",
+        "add-message": "Dodaj wiadomość"
     },
     "mailto": {
         "mailto": "Domyślne oprogramowanie do obsługi poczty e-mail",
