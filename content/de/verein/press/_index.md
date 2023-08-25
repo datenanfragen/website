@@ -7,6 +7,10 @@ Willkommen auf unserer Presseseite. Für Presseanfragen, kontaktiere uns bitte u
 
 ## Presse- und Forschungsspiegel
 
+* CHIP: [*Ihre Sicherheit: Daten löschen bei Facebook, Netflix und Co.*](https://www.chip.de/news/Es-geht-um-Ihre-Sicherheit-So-nerven-Sie-Facebook-Netflix-und-Amazon_184919517.html), 25. August 2023
+* netzpolitik.org: [*So findest du heraus, was Datenhändler über dich gespeichert haben*](https://netzpolitik.org/2023/auskunftsanfragen-so-findest-du-heraus-was-datenhaendler-ueber-dich-gespeichert-haben/), 08. Juni 2023
+* Digitalcourage: [*Nutzen Sie Ihre Auskunftsrechte!*](https://digitalcourage.de/digitale-selbstverteidigung/nutzen-sie-ihre-auskunftsrechte), 05. Mai 2023
+* Artikel 91: [*So funktioniert das Auskunftsrecht nach KDG und DSG-EKD*](https://artikel91.eu/2023/04/12/so-funktioniert-das-auskunftsrecht-nach-kdg-und-dsg-ekd/), 12. April 2023
 * Deutschlandfunk Nova: [*Unsere Daten im Netz: Tipps fürs digitale Aufräumen*](https://www.deutschlandfunknova.de/beitrag/spam-wie-wir-unsere-daten-im-netz-loeschen-koennen), 19. Januar 2023
 * Mimikama: [*Daten abfragen und mit wenigen Klicks löschen lassen*](https://www.mimikama.org/daten-abfragen-mit-wenigen-klicks/), 03. Januar 2023
 * Deutschlandfunk Nova: [*Datenanfragen.de: Bei Google und Meta erfragen, welche Daten sie sammeln – ganz einfach*](https://www.deutschlandfunknova.de/beitrag/datenschutz-datenanfragen-de-will-uns-gegen-tracking-helfen), 02. Januar 2023
