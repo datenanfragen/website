@@ -1,0 +1,67 @@
+{{ $related_pages := slice }}
+
+{{ if not .Site.Params.devMode }}
+    <!-- TODO: This is currently a very naive approach, mostly since we don't exactly have any data to do this better. We will want to improve this in the future. -->
+    {{ $num_categories := (cond (isset .Params "categories") .Params.categories slice) | len }}
+    {{ $num_countries := (.Param "relevant-countries") | len }}
+
+    {{ $lowest_score := 999999 }}
+
+    {{ range (where (where .Site.Pages "Section" "company") "Params.categories" "intersect" .Params.categories) }}
+        {{ if not .Params.nsfw }}
+            {{ $num_common_categories := intersect $.Params.categories .Params.categories | len }}
+            {{ $num_common_countries := intersect ($.Param "relevant-countries") (.Param "relevant-countries") | len }}
+            {{ $score := add (div (float $num_common_categories) $num_categories) (div $num_common_countries $num_countries) }}
+
+            {{ if (or (lt ($related_pages | len) 5) (gt $score $lowest_score)) }}
+                {{ $related_pages = $related_pages | append (dict "page" . "score" $score) }}
+
+                {{ if lt $score $lowest_score }}
+                    {{ $lowest_score = $score }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+    {{ $related_pages = sort $related_pages "score" "desc" }}
+{{ else }}
+    {{ $datenanfragenPermalink := ref . "company/datenanfragen" }}
+    {{ $related_pages = slice
+        (dict
+            "page" (dict
+                "Permalink" $datenanfragenPermalink
+                "Params" (dict "name" "Darkenanfragen AG")
+            )
+            "score" 1.0
+        )
+        (dict
+            "page" (dict
+                "Permalink" $datenanfragenPermalink
+                "Params" (dict "name" "Acme Inc.")
+            )
+            "score" 1.0
+        )
+        (dict
+            "page" (dict
+                "Permalink" $datenanfragenPermalink
+                "Params" (dict "name" "Ace Corporation")
+            )
+            "score" 1.0
+        )
+        (dict
+            "page" (dict
+                "Permalink" $datenanfragenPermalink
+                "Params" (dict "name" "Foo Bar Co.")
+            )
+            "score" 1.0
+        )
+        (dict
+            "page" (dict
+                "Permalink" $datenanfragenPermalink
+                "Params" (dict "name" "Mum and Pop Ltd.")
+            )
+            "score" 1.0
+        )
+    }}
+{{ end }}
+
+{{ return $related_pages }}

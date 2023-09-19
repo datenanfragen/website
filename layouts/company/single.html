@@ -116,7 +116,19 @@
     <div id="companies-unverified" class="box box-error" style="margin-bottom: 20px;">{{ T "cdb-warning-unverified" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug)) | safeHTML }}</div>
     {{ end }}
 
-    {{ partialCached "related-companies.html" . .Params.categories (.Param "relevant-countries") }}
+    {{ $related_pages := partialCached "functions/related-companies.html" . .Params.categories (.Param "relevant-countries") }}
+    {{ $related_pages := where $related_pages "page.Params.slug" "!=" $.Params.slug }}
+    {{ with $related_pages }}
+        <div id="related-companies">
+            <h2>{{ T "cdb-related-companies" }}</h2>
+            <!-- TODO: Nicer styling -->
+            <ul>
+                {{ range (. | first 5) }}
+                    <li><a href="{{ .page.Permalink }}">{{ .page.Params.name }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    {{ end }}
 
     <div id="comments-widget" data-rating-enabled="1" data-display-warning="1"></div>
 </main>
