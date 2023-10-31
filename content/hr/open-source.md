@@ -130,5 +130,5 @@ Ponosni smo što možemo koristiti sljedeće projekte za ovu web-stranicu. Zahva
 Licence svih korištenih projekata nalaze se [ovdje]({{< absURL "NOTICES.txt" >}}).
 
 <div class="box box-info attribution-box">
-	{{< attribution "by" >}}
+	{{< attribution "od" >}}
 </div>
