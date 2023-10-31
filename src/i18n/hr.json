@@ -662,7 +662,7 @@
             "other": "Zatraži <strong>{{count}}</strong> poduzeća",
             "none": "Odaberi poduzeća!"
         },
-        "add-custom-company": "Dodaj prilagođeno poduzeće",
+        "add-custom-company": "Dodaj poduzeće",
         "request-type-info-erasure": "Putem zahtjeva za brisanjem podataka, možeš poduzeće primorati da izbriše neke ili sve podatke koje ima o tebi. To je moguće, ako podaci više nisu potrebni za svrhu za koju su prikupljeni, ako poduzeće obrađuje podatke na osnovi tvoje privole ili ako se obrađuju nezakonito.",
         "request-type-info-access": "Putem zahtjeva za pristup podacima možeš saznati ima li neko poduzeće podatke o tebi i, ako ih ima, dobiti kopiju tih podataka. Osim toga će te poduzeće obavijestiti za što koriste tvoje podatke, kome ih otkrivaju, odakle su došli i koliko ih dugo čuvaju.",
         "request-type-info-rectification": "Putem zahtjeva za ispravljanje podataka, možeš primorati poduzeće da ispravi sve pogrešne podatke koje o tebi možda ima.",
