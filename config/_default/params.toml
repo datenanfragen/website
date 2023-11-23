@@ -1,5 +1,5 @@
 [authors.baltpeter]
-byline = "<a xmlns:cc='http://creativecommons.org/ns#' href='https://benjamin-altpeter.de/' property='cc:attributionName' rel='cc:attributionURL'>Benjamin Altpeter</a>"
+byline = "<span xmlns:cc='http://creativecommons.org/ns#' property='cc:attributionName'>Benjamin Altpeter</span>"
 short_name = "Benni"
 
 # Sorry but there was no way to preserve the capitalization. :(
