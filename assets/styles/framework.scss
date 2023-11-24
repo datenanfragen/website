@@ -476,3 +476,17 @@ ul {
 .focus-anchor {
     outline: none;
 }
+
+// Distinguish consecutive footnotes.
+.footnote summary {
+    ::before {
+        content: '[';
+    }
+    ::after {
+        content: ']';
+    }
+}
+
+.footnotes ol > li::marker {
+    content: '[' counter(list-item) ']\2003';
+}
