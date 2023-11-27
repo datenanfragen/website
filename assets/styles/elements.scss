@@ -894,69 +894,6 @@ input[type='search'].aa-input-search {
     }
 }
 
-/* Star Widget, adapted after https://jsfiddle.net/leaverou/CGP87/ */
-fieldset.rating {
-    border: none;
-    padding: 0;
-    margin: 0;
-}
-
-.rating {
-    float: left;
-}
-
-/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
-   follow these rules. Every browser that supports :checked also supports :not(), so
-   it doesn’t make the test unnecessarily selective */
-.rating:not(:checked) > input {
-    display: none;
-}
-
-.rating:not(:checked) > label {
-    float: right;
-    width: 0.8em;
-    padding: 0 0.1em 0 0;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 250%;
-    margin-top: -15px;
-    color: color('gray', 400);
-
-    &.editable {
-        cursor: pointer;
-    }
-
-    &:before {
-        content: '◆ ';
-    }
-}
-
-.rating > input:checked ~ label {
-    color: $primary-color;
-}
-
-.rating:not(:checked) > label.editable:hover,
-.rating:not(:checked) > label.editable:focus,
-.rating:not(:checked) > label.editable:hover ~ label,
-.rating:not(:checked) > label.editable:focus ~ label {
-    color: color('blue', 400);
-}
-
-.rating > input:checked + label.editable:hover,
-.rating > input:checked + label.editable:hover ~ label,
-.rating > input:checked ~ label.editable:hover,
-.rating > input:checked ~ label.editable:hover ~ label,
-.rating > label.editable:hover ~ input:checked ~ label,
-.rating > label.editable:focus ~ input:checked ~ label {
-    color: color('blue', 900);
-}
-
-.rating > label.editable:active {
-    position: relative;
-    top: 2px;
-    left: 2px;
-}
-
 /* Footnotes, adapted after: https://news.ycombinator.com/item?id=24747376 */
 details.footnote {
     display: inline;

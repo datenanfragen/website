@@ -816,17 +816,12 @@
         "error-no-message": "Geef een reactie om te plaatsen.",
         "warning-loading-failed": "Het ophalen van reacties voor deze pagina is mislukt. Zorg ervoor dat u verbonden bent met het internet en dat u geen verzoeken blokkeert naar backend.datenanfragen.de via een add-on zoals uMatrix of NoScript.",
         "warning": "Wij zijn een <em>onafhankelijke non-profit</em> en niet verbonden met het bedrijf dat hier wordt vermeld.<br>Als u ondersteuning nodig heeft of een verzoek wilt sturen, neem dan rechtstreeks contact op met het bedrijf. Wij <strong>kunnen</strong> u in dergelijke gevallen niet helpen. Bedankt voor uw begrip.",
-        "rating": "Beoordeling",
         "rss-link": "Abonneer u op de reacties op dit bericht via uw RSS/Atom feed reader.",
         "comments": "Reacties",
         "comment": "Reactie",
         "send-success": "Reactie succesvol verzonden. Het moet eerst door een beheerder worden goedgekeurd voordat het hier wordt weergegeven.",
         "leave-comment": "Laat een reactie achter",
         "optional": "(optioneel)",
-        "average-rating-title": {
-            "singular": "Gemiddelde beoordeling: {{rating}} (van {{count}} beoordeling)",
-            "plural": "Gemiddelde beoordeling: {{rating}} (van {{count}} beoordelingen)"
-        },
         "send-error": "Er is een fout opgetreden tijdens het verzenden van uw reactie. Probeer het later nog eens.",
         "sending": "Uw reactie plaatsen…",
         "no-comments": "Nog geen reacties hier. Waarom laat u er geen achter?"

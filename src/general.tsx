@@ -32,10 +32,7 @@ if (i18n_widget_div) render(<I18nWidget minimal={true} showLanguageOnly={false} 
 const comments_div = document.getElementById('comments-widget');
 if (comments_div) {
     render(
-        <CommentsWidget
-            allowRating={comments_div.dataset.ratingEnabled === '1'}
-            displayWarning={comments_div.dataset.displayWarning === '1'}
-        />,
+        <CommentsWidget displayWarning={comments_div.dataset.displayWarning === '1'} />,
         comments_div.parentElement!,
         comments_div
     );

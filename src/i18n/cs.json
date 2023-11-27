@@ -759,7 +759,6 @@
     },
     "comments": {
         "no-comments": "Zatím tu nejsou žádné komentáře. Proč nějaký nenapíšete?",
-        "rating": "Hodnocení",
         "comments": "Komentáře",
         "comment": "Komentář",
         "author": "Autor",
@@ -771,10 +770,6 @@
         "error-no-message": "Prosím zadejte komentář k odeslání.",
         "warning-loading-failed": "Načtení komentářů pro tuto stránku selhalo. Prosím ujistěte se, že jste připojen(a) k internetu a neblokujete dotazy na backend.datenanfragen.de pomocí add-onu jako uMatrix nebo NoScript.",
         "leave-comment": "Napsat komentář",
-        "average-rating-title": {
-            "singular": "Průměrné hodnocení: {{rating}} (z {{count}} hodnocení)",
-            "plural": "Průměrné hodnocení: {{rating}} (z {{count}} hodnocení)"
-        },
         "rss-link": "Odebírejte komentáře na této stránce pomocí RSS/Atom čtečky.",
         "warning": "Prosím vezměte v potaz, že jsme <em>nezávislá nezisková organizace</em> a nejsme spojení se společnostmi uvedenými zde.<br>Pokud potřebujete pomoci nebo chcete poslat žádost, prosím kontaktuje společnost přímo. <strong>Nemůžeme</strong> Vám v takových případech pomoci. Děkujeme za pochopení."
     },
