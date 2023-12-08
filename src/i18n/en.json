@@ -659,6 +659,7 @@
         "sending": "Submitting your comment…",
         "send-success": "Comment sent successfully. It will have to be accepted by an administrator first before it is shown here.",
         "send-error": "An error occurred while sending your comment. Please try again later.",
+        "send-too-long": "An error occurred while sending your comment. Your comment is too long.",
         "error-no-message": "Please enter a comment to send.",
         "warning-loading-failed": "Loading the comments for this page failed. Please make sure that you are connected to the internet and not blocking requests to backend.datenanfragen.de through an add-on like uMatrix or NoScript.",
         "no-comments": "No comments here yet. Why don’t you leave one?",

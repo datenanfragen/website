@@ -4,7 +4,7 @@ import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { FlashMessage, flash } from '../Components/FlashMessage';
 import { StarWidget } from './StarWidget';
 import t from '../Utility/i18n';
-import { rethrow, WarningException } from '../Utility/errors';
+import { ErrorException, rethrow, WarningException } from '../Utility/errors';
 import { useAppStore } from '../store/app';
 
 const api_url = 'https://backend.datenanfragen.de/comments';
@@ -226,8 +226,12 @@ export function CommentForm(props: CommentFormProps) {
                 ...(props.allowRating && rating ? { additional: { rating } } : {}),
             }),
         })
-            .then((res) => {
-                if (!res.ok) throw new Error('Unexpected response from comments server.');
+            .then(async (res) => {
+                const payload = await res.json();
+
+                if (payload.message?.includes('length must be less than')) {
+                    flash(<FlashMessage type="error">{t('send-too-long', 'comments')}</FlashMessage>);
+                } else if (!res.ok) throw new ErrorException('Unexpected response from comments server.', payload);
 
                 flash(<FlashMessage type="success">{t('send-success', 'comments')}</FlashMessage>);
                 setMessage('');
