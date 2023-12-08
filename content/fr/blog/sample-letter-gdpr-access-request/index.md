@@ -47,7 +47,7 @@ Ci-dessous est notre lettre pour les demandes d'accès concernant l'Article 15 d
 
 <p>Ma demande comprend explicitement tous les autres services et sociétés dont vous êtes responsable comme défini dans l'Article 4, alinéa 7 du RGPD .</p>
 
-<p>Conformément à l'Article 12, alinéa 3 du RGPD, vous devez me fournir les informations demandées dans les meilleurs délais et, dans tout les cas, dans un délai d'un mois après réception de la demande. Conformément à l'Article 15, alinéa 3 du RGPD, vous devez répondre à cette demande sans frais de ma part.</p>
+<p>Conformément à l'Article 12, alinéa 3 du RGPD, vous devez me fournir les informations demandées dans les meilleurs délais et, en tout état de cause, dans un délai d'un mois après réception de la demande. Conformément à l'Article 15, alinéa 3 du RGPD, vous devez répondre à cette demande sans frais de ma part.</p>
 
 <p>J'inclus les informations suivantes nécessaires pour m'identifier :<br>
 <span class="blog-letter-fill-in">Insère ici tes données pour l'identification. Ce sont souvent des informations telles que ton nom, ta date de naissance, ton adresse, ton adresse e-mail, etc.</span></p>
