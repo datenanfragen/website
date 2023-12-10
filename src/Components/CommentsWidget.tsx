@@ -6,6 +6,8 @@ import { StarWidget } from './StarWidget';
 import t from '../Utility/i18n';
 import { ErrorException, rethrow, WarningException } from '../Utility/errors';
 import { useAppStore } from '../store/app';
+import { useProceedingsStore } from '../store/proceedings';
+import { PRIVACY_ACTIONS, Privacy } from '../Utility/Privacy';
 
 const api_url = 'https://backend.datenanfragen.de/comments';
 
@@ -206,7 +208,8 @@ export function CommentForm(props: CommentFormProps) {
     const [rating, setRating] = useState(0);
     const savedLocale = useAppStore((state) => state.savedLocale);
 
-    const target = `${savedLocale}/${document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '')}`;
+    const commentslug = document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '');
+    const target = `${savedLocale}/${commentslug}`;
 
     const submitComment = useCallback(() => {
         if (!message) {
@@ -242,6 +245,24 @@ export function CommentForm(props: CommentFormProps) {
                 flash(<FlashMessage type="error">{t('send-error', 'comments')}</FlashMessage>);
             });
     }, [message, author, rating, props.allowRating]);
+
+    /*
+         Since the user hasn't used the website yet to actually *make a request*, we hide the comment form.
+         This is an effort to combat spam, low-quality, or otherwise unwanted comments.
+         Keep in mind that we moderate comments manually.
+         *Limitation*: If an actice user decides to clear all of their proceedings without disabling them,
+         they won't be able to comment.
+
+         This only applies for company pages for now.
+         Exceptions: Users that disabled SAVE_MY_REQUESTS. They are obviously somewhat active-users.
+         */
+    if (
+        Object.keys(useProceedingsStore().proceedings).length === 0 &&
+        Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS) &&
+        commentslug.startsWith('company')
+    ) {
+        return;
+    }
 
     return (
         <form id="comment-form">
