@@ -12,7 +12,7 @@ import { Radio } from './Radio';
 
 const DONATIONS_API = 'https://backend.datenanfragen.de/donation';
 const SUGGESTED_AMOUNTS = [5, 10, 15, 25, 50, 75, 100, 150, 200, 250];
-const PAYMENT_METHODS = ['bank-transfer', /*'creditcard',*/ 'cryptocurrency', 'paypal', 'mollie'];
+const PAYMENT_METHODS = ['bank-transfer', /*'creditcard',*/ 'cryptocurrency', 'paypal'/*, 'mollie'*/];
 
 const amount_after_linear_fee = (fee_percent: number, fee_fixed: number, x: number) => x - fee_fixed - x * fee_percent;
 
