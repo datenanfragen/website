@@ -329,7 +329,8 @@
         "average-rating-title": {
             "singular": "Prosječna ocjena: {{rating}} (od {{count}} recenzija)",
             "plural": "Prosječna ocjena: {{rating}} (od {{count}} recenzija)"
-        }
+        },
+        "send-too-long": "Došlo je do greške prilikom slanja tvog komentara. Tvoj komentar je predug."
     },
     "signature": {
         "reset-signature": "Poništi potpis",
