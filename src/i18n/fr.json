@@ -43,6 +43,7 @@
         "email": "e-mail",
         "letter": "lettre",
         "delete-all-btn": "Supprimer toutes les demandes",
+        "new-request": "Nouvelle demande",
         "export-btn": "Exporter les demandes sélectionnées au format CSV",
         "export-ics": "Exporter les demandes sélectionnées au format calendrier",
         "no-requests-heading": "Aucune demande pour le moment",

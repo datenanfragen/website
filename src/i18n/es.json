@@ -208,6 +208,7 @@
         "email": "correo electrónico",
         "letter": "carta",
         "delete-all-btn": "Eliminar todas las solicitudes",
+        "new-request": "Solicitud nueva",
         "export-btn": "Exportar solicitudes seleccionadas como CSV",
         "export-ics": "Exportar solicitudes seleccionadas a calendario",
         "no-requests-heading": "Aún no hay solicitudes",

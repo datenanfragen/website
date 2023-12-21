@@ -692,6 +692,7 @@
         "export-ics": "Izvezi odabrane zahtjeve u kalendar",
         "export-btn": "Izvezi odabrane zahtjeve kao CSV",
         "delete-all-btn": "Izbriši sve zahtjeve",
+        "new-request": "Novi zahtjev",
         "letter": "pismo",
         "email": "e-mail",
         "fax": "faks",

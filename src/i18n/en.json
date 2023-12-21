@@ -220,6 +220,7 @@
         "webform": "web form",
         "sent-via-medium": "sent via {{medium}}",
         "delete-all-btn": "Delete all requests",
+        "new-request": "New request",
         "export-btn": "Export selected requests as CSV",
         "export-ics": "Export selected requests to calendar",
         "no-requests-heading": "No requests yet",

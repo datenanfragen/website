@@ -640,6 +640,7 @@
         "email": "e-mail",
         "letter": "pismo",
         "delete-all-btn": "Usuń wszystkie prośby",
+        "new-request": "Nowe zapytanie",
         "export-btn": "Eksportuj wybrane żądania jako CSV",
         "export-ics": "Eksportuj wybrane żądania do kalendarza",
         "no-requests-heading": "Brak zapytań",
