@@ -111,6 +111,18 @@ export const RequestList = (props: RequestListProps) => {
                             onClick={() => setSelectionMode(!selectionMode)}>
                             {selectionMode ? <Text id="cancel" /> : <Text id="selection-mode" />}
                         </button>
+
+                        {!selectionMode && (
+                            <>
+                                <button
+                                    id="new-request"
+                                    className="button button-secondary button-small"
+                                    onClick={() => window.location.href = `${window.BASE_URL}generator`}>
+                                    <Text id="new-request" />
+                                </button>
+                            </>
+                        )}
+
                         {!selectionMode && (
                             <>
                                 {props.importEmailsButton}
