@@ -217,7 +217,6 @@
         "email": "e-mail",
         "letter": "carta",
         "delete-all-btn": "Apagar todas as solicitações",
-        "new-request": "Nova solicitação",
         "export-btn": "Exportar as solicitações selecionadas em formato CSV",
         "export-ics": "Exportar as solicitações selecionadas para o calendário",
         "no-requests-heading": "Ainda não há solicitações",

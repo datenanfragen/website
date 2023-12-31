@@ -221,7 +221,6 @@
         "webform": "Webformular",
         "sent-via-medium": "per {{medium}} verschickt",
         "delete-all-btn": "Alle Anfragen löschen",
-        "new-request": "Neue Anfrage",
         "export-btn": "Ausgewählte als CSV exportieren",
         "export-ics": "Ausgewählte in Kalender übernehmen",
         "no-requests-heading": "Noch keine Anfragen",
