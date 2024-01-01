@@ -1229,6 +1229,7 @@ details.footnote {
     flex-wrap: nowrap;
     justify-content: space-between;
     margin-bottom: 15px;
+    column-gap: 5px;
 
     .dropdown-container {
         &:focus > .dropdown,
