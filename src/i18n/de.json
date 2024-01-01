@@ -331,7 +331,7 @@
         "signature": "Unterschrift",
         "primary-address": "Absenderadresse",
         "reset": "Zurücksetzen",
-        "delete-field": "Dieses Feld löschen",
+        "delete-field": "Feld “{{field_name}}” löschen",
         "tagxplanation": "Im Text können die Tags <code>&lt;italic&gt;&lt;/italic&gt;</code> sowie <code>&lt;bold&gt;&lt;/bold&gt;</code> verwendet werden. Geschachtelte Tags werden nicht unterstützt.",
         "subject": "Betreff",
         "content": "Inhalt",
@@ -534,7 +534,7 @@
         "indexeddb-error": "Beim Zugreifen auf die Datenbank in Deinem Browser ist ein unerwarteter Fehler aufgetreten."
     },
     "suggest": {
-        "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank noch einmal! Wir werden ihn jetzt schnellstmöglich überprüfen.",
+        "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank! Wir werden ihn schnellstmöglich überprüfen.",
         "error": "Beim Absenden deines Vorschlags ist leider ein Fehler aufgetreten. Bitte stelle sicher, dass Du mit dem Internet verbunden bist und Anfragen an backend.datenanfragen.de nicht mit einem Add-On wie uMatrix oder NoScript blockierst.",
         "no-input": "Bitte gib etwas ein, um Deinen Vorschlag abzusenden.",
         "name-or-web-missing": "Bitte gib mindestens einen Namen oder eine Webseite an.",
