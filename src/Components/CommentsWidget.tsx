@@ -208,10 +208,36 @@ export function CommentForm(props: CommentFormProps) {
 
     const target = `${savedLocale}/${document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '')}`;
 
+    function calculateMessageSusScore(message: string) {
+        let susScore = 0;
+        if (
+            ['@gmail.com', '@web.de', '@gmx.de', '@gmx.net', '@hotmail.com', '@me.com', '@mail.com'].filter((x) =>
+                message.includes(x)
+            )
+        ) {
+            susScore += 2;
+        }
+        if (
+            ['order', 'rechnung', 'euro', '€', 'package', 'return', 'parcel'].filter((x) =>
+                message.toLowerCase().includes(x.toLowerCase())
+            )
+        ) {
+            susScore += 1;
+        }
+
+        return susScore;
+    }
+
     const submitComment = useCallback(() => {
         if (!message) {
             flash(<FlashMessage type="error">{t('error-no-message', 'comments')}</FlashMessage>);
             return false;
+        }
+
+        const susScore = calculateMessageSusScore(message);
+        if (susScore > 0) {
+            const confirmation_result = confirm(t('confirm-private-data', 'comments'));
+            if (!confirmation_result) return;
         }
 
         flash(<FlashMessage type="info">{t('sending', 'comments')}</FlashMessage>);
