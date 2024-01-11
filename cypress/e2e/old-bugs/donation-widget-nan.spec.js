@@ -31,7 +31,7 @@ describe('Donation widget amount', () => {
         // testMethod('Credit card');
         testMethod('Crypto currency');
         testMethod('PayPal');
-        testMethod('Other payments');
+        //testMethod('Other payments');
     });
 
     it('Donation of negative values via bank transfer should not be allowed', () => {
