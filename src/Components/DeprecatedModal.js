@@ -1,7 +1,6 @@
 import { render, Component } from 'preact';
 import { createPortal } from 'preact/compat';
 import t from '../Utility/i18n';
-import PropTypes from 'prop-types';
 
 // TODO: Get rid of this once we've moved everything to the new modal hook.
 export default class DeprecatedModal extends Component {
@@ -63,22 +62,6 @@ export default class DeprecatedModal extends Component {
         );
         /* eslint-enable */
     }
-
-    static propTypes = {
-        positiveButton: PropTypes.element,
-        positiveText: PropTypes.string,
-        positiveDefault: PropTypes.bool,
-        onPositiveFeedback: PropTypes.func,
-
-        negativeButton: PropTypes.element,
-        negativeText: PropTypes.string,
-        onNegativeFeedback: PropTypes.func,
-
-        onDismiss: PropTypes.func,
-        innerStyle: PropTypes.string,
-
-        children: PropTypes.node.isRequired,
-    };
 }
 
 export function showModal(modal) {
