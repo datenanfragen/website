@@ -870,7 +870,6 @@
     "comments": {
         "warning": "Ten en cuenta que somos una <em>organización sin fines de lucro independiente</em> y no estamos afiliados a la empresa que se menciona aquí. <br>Si necesitas asistencia o deseas enviar una solicitud, comunícate directamente con la empresa. <strong>No podemos</strong> ayudarte en tales casos. Gracias por tu comprensión.",
         "rss-link": "Suscríbete a los comentarios de esta publicación utilizando tu lector de RSS/Atom.",
-        "rating": "Clasificación",
         "optional": "(opcional)",
         "leave-comment": "Dejar un comentario",
         "no-comments": "Aún no hay comentarios aquí. ¿Por qué no dejas uno?",
@@ -882,11 +881,7 @@
         "submit": "Enviar",
         "author": "Autor",
         "comment": "Comentario",
-        "comments": "Comentarios",
-        "average-rating-title": {
-            "singular": "Valoración media: {{rating}} (de {{count}} reseña)",
-            "plural": "Valoración media: {{rating}} (de {{count}} reseñas)"
-        }
+        "comments": "Comentarios"
     },
     "i18n-widget": {
         "not-supported-cta": "¡Ayúdanos a agregarlo!",

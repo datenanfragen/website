@@ -2,7 +2,6 @@ import { Fragment, JSX } from 'preact';
 import { useState, useEffect, useCallback } from 'preact/hooks';
 import { IntlProvider, Text, MarkupText } from 'preact-i18n';
 import { FlashMessage, flash } from '../Components/FlashMessage';
-import { StarWidget } from './StarWidget';
 import t from '../Utility/i18n';
 import { ErrorException, rethrow, WarningException } from '../Utility/errors';
 import { useAppStore } from '../store/app';
@@ -14,31 +13,16 @@ type CommentType = {
     author: string;
     message: string;
     added_at: string;
-    additional?: { rating?: string }; // TODO: Fix this in the backend, `rating` should obviously be a number.
 };
 
 type CommentsWidgetProps = {
     displayWarning: boolean;
-    allowRating: boolean;
 };
 type CommentProps = CommentType;
 type CommentFormProps = {
     displayWarning: boolean;
-    allowRating: boolean;
 };
 
-const ratingDetails = (comments: CommentType[], allowRating: boolean) => {
-    if (!allowRating) return { rating_count: 0, rating_sum: 0, average_rating: '' };
-
-    const [rating_count, rating_sum] = comments.reduce(
-        ([acc_count, acc_sum], c) =>
-            c.additional?.rating ? [acc_count + 1, acc_sum + Number(c.additional.rating)] : [acc_count, acc_sum],
-        [0, 0]
-    );
-    const average_rating = (rating_sum / rating_count).toFixed(1);
-
-    return { rating_count, rating_sum, average_rating };
-};
 export function CommentsWidget(props: CommentsWidgetProps) {
     const [comments, setComments] = useState<CommentType[]>([]);
     const savedLocale = useAppStore((state) => state.savedLocale);
@@ -60,35 +44,10 @@ export function CommentsWidget(props: CommentsWidgetProps) {
                 );
                 rethrow(WarningException.fromError(e), 'Loading the comments failed.', { url });
             });
-    }, []);
-    useEffect(() => {
-        const parts = target.split('/');
-        if (parts[1] !== 'company') return;
+    }, [target]);
 
-        const { rating_count, average_rating } = ratingDetails(comments, props.allowRating);
-        if (rating_count === 0) return;
-
-        const ldjson = {
-            '@context': 'http://schema.org',
-            '@type': 'Organization',
-            '@id': `${document.location.href}#company`,
-            aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingCount: rating_count,
-                ratingValue: average_rating,
-                reviewCount: comments.length,
-            },
-        };
-
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(ldjson);
-        document.body.appendChild(script);
-    }, [comments, props.allowRating]);
-
-    const { rating_count, average_rating } = ratingDetails(comments, props.allowRating);
     const comment_elements = comments.map((c) => (
-        <Comment id={c.id} author={c.author} message={c.message} added_at={c.added_at} additional={c.additional} />
+        <Comment id={c.id} author={c.author} message={c.message} added_at={c.added_at} />
     ));
 
     return (
@@ -97,27 +56,6 @@ export function CommentsWidget(props: CommentsWidgetProps) {
                 <h2>
                     <Text id="comments" />
                     <div style="float: right;">
-                        {props.allowRating && rating_count > 0 && (
-                            <div
-                                style="margin: 0 25px -20px 0; font-size: 16px; display: inline-block;"
-                                title={t(
-                                    'average-rating-title',
-                                    'comments',
-                                    { count: `${rating_count}`, rating: `${average_rating}` },
-                                    rating_count
-                                )}>
-                                {/* TODO: At the moment, the StarWidget can only render integer ratings. */}
-                                <StarWidget
-                                    id={'stars-aggregate'}
-                                    initial={parseInt(average_rating, 10)}
-                                    // On the first render, we don't have any comments and thus the average rating
-                                    // will be `NaN`. We force a rerender after the comments have been fetched by
-                                    // setting a different `key.`
-                                    key={average_rating}
-                                    readonly={true}
-                                />
-                            </div>
-                        )}
                         <a
                             href={`${api_url}/feed/${target}`}
                             className="icon icon-rss"
@@ -137,7 +75,7 @@ export function CommentsWidget(props: CommentsWidgetProps) {
                     comment_elements
                 )}
 
-                <CommentForm allowRating={props.allowRating} displayWarning={props.displayWarning} />
+                <CommentForm displayWarning={props.displayWarning} />
             </div>
         </IntlProvider>
     );
@@ -185,15 +123,6 @@ export function Comment(props: CommentProps) {
             <span>
                 <strong>{props.author}</strong> ({new Date(props.added_at).toLocaleString()})
             </span>
-            {props.additional?.rating && (
-                <div className="star">
-                    <StarWidget
-                        id={`stars-${props.id}`}
-                        initial={parseInt(props.additional?.rating, 10)}
-                        readonly={true}
-                    />
-                </div>
-            )}
 
             <p>{props.message.split('\n').map(processLine).flat()}</p>
         </div>
@@ -203,7 +132,6 @@ export function Comment(props: CommentProps) {
 export function CommentForm(props: CommentFormProps) {
     const [author, setAuthor] = useState('');
     const [message, setMessage] = useState('');
-    const [rating, setRating] = useState(0);
     const savedLocale = useAppStore((state) => state.savedLocale);
 
     const target = `${savedLocale}/${document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '')}`;
@@ -223,7 +151,6 @@ export function CommentForm(props: CommentFormProps) {
                 author,
                 message,
                 target,
-                ...(props.allowRating && rating ? { additional: { rating } } : {}),
             }),
         })
             .then(async (res) => {
@@ -241,7 +168,7 @@ export function CommentForm(props: CommentFormProps) {
                 rethrow(err);
                 flash(<FlashMessage type="error">{t('send-error', 'comments')}</FlashMessage>);
             });
-    }, [message, author, rating, props.allowRating]);
+    }, [message, author, target]);
 
     return (
         <form id="comment-form">
@@ -300,24 +227,6 @@ export function CommentForm(props: CommentFormProps) {
                 </div>
             </div>
             <div className="clearfix" />
-
-            {props.allowRating && [
-                <div className="col25 col100-mobile">
-                    <strong>
-                        <Text id="rating" />
-                    </strong>{' '}
-                    <Text id="optional" />
-                </div>,
-                <div className="col75 col100-mobile">
-                    <div className="form-group form-group-vertical" style="margin-bottom: 0;">
-                        <label htmlFor="star-widget" className="sr-only">
-                            <Text id="rating" />
-                        </label>
-                        <StarWidget id="star-widget" initial={0} onChange={(r) => setRating(r)} />
-                    </div>
-                </div>,
-                <div className="clearfix" />,
-            ]}
 
             <button
                 id="submit-comment"
