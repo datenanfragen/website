@@ -672,7 +672,9 @@
             "plural": "Durchschnittliche Bewertung: {{rating}} (aus {{count}} Bewertungen)"
         },
         "rss-link": "Abonniere die Kommentare zu diesem Artikel mit Deinem RSS-/Atom-Feed-Reader.",
-        "warning": "Beachte bitte, dass wir ein <em>unabhängiger Datenschutzverein</em> sind und nicht zu dem hier aufgeführten Unternehmen gehören.<br>Solltest Du also Support benötigen oder eine Anfrage stellen wollen, wende Dich bitte direkt an das Unternehmen. Wir können Dir hierbei <strong>nicht</strong> helfen. Danke für Dein Verständnis."
+        "warning": "Beachte bitte, dass wir ein <em>unabhängiger Datenschutzverein</em> sind und nicht zu dem hier aufgeführten Unternehmen gehören.<br>Solltest Du also Support benötigen oder eine Anfrage stellen wollen, wende Dich bitte direkt an das Unternehmen. Wir können Dir hierbei <strong>nicht</strong> helfen. Danke für Dein Verständnis.",
+        "confirm-private-data": "Huch, scheinbar enthält dein Kommentar sensible Daten. Willst du ihn wirklich ÖFFENTLICH posten? Er wird das Unternehmen nie erreichen.",
+        "regex-sus-words": "(bestell)|(retoure)|(paket)|(p(ä|ae)ckchen)"
     },
     "company-packs": {
         "address-brokers-title": "Adresshandel und -management",

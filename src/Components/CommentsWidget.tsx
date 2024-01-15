@@ -212,16 +212,15 @@ export function CommentForm(props: CommentFormProps) {
         let susScore = 0;
         if (
             ['@gmail.com', '@web.de', '@gmx.de', '@gmx.net', '@hotmail.com', '@me.com', '@mail.com'].filter((x) =>
-                message.includes(x)
+                message.toLowerCase().includes(x)
             )
         ) {
             susScore += 2;
         }
-        if (
-            ['order', 'rechnung', 'euro', '€', 'package', 'return', 'parcel'].filter((x) =>
-                message.toLowerCase().includes(x.toLowerCase())
-            )
-        ) {
+        if (new RegExp(t('regex-sus-words', 'comments'), 'i').test(message)) {
+            susScore += 1;
+        }
+        if (['$', '€', '£', 'chf', 'euro', 'pound', 'dollar'].filter((x) => message.toLowerCase().includes(x))) {
             susScore += 1;
         }
 
