@@ -672,7 +672,7 @@
         },
         "rss-link": "Subscribe to the comments on this post using your RSS/Atom feed reader.",
         "warning": "Please note that we are an <em>independent non-profit</em> and not affiliated with the company listed here.<br>If you need support or want to send a request, please contact the company directly. We <strong>cannot</strong> help you in such cases. Thanks for your understanding.",
-        "confirm-private-data": "Whoops, seems like your comment contains private data. Do you really want to post this PUBLICLY? It will not reach the company.",
+        "confirm-private-data": "Whoops, looks like your comment might contain private data or refer to an order. Do you really want to post this PUBLICLY? It will not reach the company.",
         "regex-sus-words": "(order)|(return)|(package)|(parcel)"
     },
     "company-packs": {
