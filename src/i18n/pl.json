@@ -806,11 +806,6 @@
         "no-comments": "Nie ma tu jeszcze żadnych komentarzy. Może jakiś zostawisz?",
         "leave-comment": "Zostaw komentarz",
         "optional": "(opcjonalne)",
-        "rating": "Ocena",
-        "average-rating-title": {
-            "singular": "Średnia ocena: {{rating}} (z {{count}} recenzji)",
-            "plural": "Średnia ocena: {{rating}} (z {{count}} opinii)"
-        },
         "rss-link": "Subskrybuj komentarze do tego postu za pomocą czytnika RSS/Atom.",
         "warning": "Prosimy pamiętać, że jesteśmy <em>niezależną organizacją non-profit</em> i nie jesteśmy powiązani z firmą wymienioną poniżej.<br>Jeśli potrzebujesz wsparcia lub chcesz wysłać wniosek, prosimy o kontakt bezpośrednio z firmą. Niestety <strong>nie możemy</strong> pomóc w takich przypadkach. Dziękujemy za zrozumienie."
     },
