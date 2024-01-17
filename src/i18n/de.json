@@ -211,9 +211,9 @@
         "type": "Art",
         "via": "Anfrage per",
         "access": "Datenauskunft",
-        "erasure": "Löschung",
-        "objection": "Widerspruch",
-        "rectification": "Berichtigung",
+        "erasure": "Löschungsanfrage",
+        "objection": "Widerspruchsanfrage",
+        "rectification": "Berichtigungsanfrage",
         "custom": "Sonstige",
         "fax": "Fax",
         "email": "E-Mail",
@@ -322,7 +322,7 @@
         "input-multi-line": "Freitext (mehrzeilig)",
         "input-address": "Adresse",
         "add-input": "Feld hinzufügen",
-        "description": "Beschreibung",
+        "description": "Feld-Beschreibung",
         "value": "Wert",
         "address-street_1": "Adresszeile 1",
         "address-street_2": "Adresszeile 2",
@@ -331,7 +331,7 @@
         "signature": "Unterschrift",
         "primary-address": "Absenderadresse",
         "reset": "Zurücksetzen",
-        "delete-field": "Dieses Feld löschen",
+        "delete-field": "Feld “{{field_name}}” löschen",
         "tagxplanation": "Im Text können die Tags <code>&lt;italic&gt;&lt;/italic&gt;</code> sowie <code>&lt;bold&gt;&lt;/bold&gt;</code> verwendet werden. Geschachtelte Tags werden nicht unterstützt.",
         "subject": "Betreff",
         "content": "Inhalt",
@@ -534,7 +534,7 @@
         "indexeddb-error": "Beim Zugreifen auf die Datenbank in Deinem Browser ist ein unerwarteter Fehler aufgetreten."
     },
     "suggest": {
-        "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank noch einmal! Wir werden ihn jetzt schnellstmöglich überprüfen.",
+        "success": "Dein Vorschlag wurde erfolgreich abgesendet. Vielen Dank! Wir werden ihn schnellstmöglich überprüfen.",
         "error": "Beim Absenden deines Vorschlags ist leider ein Fehler aufgetreten. Bitte stelle sicher, dass Du mit dem Internet verbunden bist und Anfragen an backend.datenanfragen.de nicht mit einem Add-On wie uMatrix oder NoScript blockierst.",
         "no-input": "Bitte gib etwas ein, um Deinen Vorschlag abzusenden.",
         "name-or-web-missing": "Bitte gib mindestens einen Namen oder eine Webseite an.",
@@ -666,11 +666,6 @@
         "no-comments": "Noch keine Kommentare vorhanden. Schreib’ doch einen!",
         "leave-comment": "Kommentar hinterlassen",
         "optional": "(optional)",
-        "rating": "Bewertung",
-        "average-rating-title": {
-            "singular": "Durchschnittliche Bewertung: {{rating}} (aus {{count}} Bewertung)",
-            "plural": "Durchschnittliche Bewertung: {{rating}} (aus {{count}} Bewertungen)"
-        },
         "rss-link": "Abonniere die Kommentare zu diesem Artikel mit Deinem RSS-/Atom-Feed-Reader.",
         "warning": "Beachte bitte, dass wir ein <em>unabhängiger Datenschutzverein</em> sind und nicht zu dem hier aufgeführten Unternehmen gehören.<br>Solltest Du also Support benötigen oder eine Anfrage stellen wollen, wende Dich bitte direkt an das Unternehmen. Wir können Dir hierbei <strong>nicht</strong> helfen. Danke für Dein Verständnis."
     },

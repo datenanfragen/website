@@ -4,7 +4,7 @@ describe('Search bar on company search page', () => {
         cy.contains('Get access').click();
 
         cy.get('.ais-SearchBox-input').type('twitter');
-        cy.contains('Twitter International Company');
+        cy.contains('Twitter International Unlimited Company');
     });
 
     it('is not active when the privacy control is disabled', () => {

@@ -319,12 +319,7 @@
         "optional": "(facultatif)",
         "rss-link": "Abonne-toi aux commentaires sur cet article en utilisant ton lecteur de flux RSS/Atom.",
         "warning": "Note que nous somme une <em>association à but non lucratif indépendante</em> et que nous ne sommes affiliés à aucune des entreprises listées ici.<br>Si tu souhaites obtenir de l'aide ou envoyer une demande, contacte l'entreprise directement. Nous <strong>ne pouvons pas</strong> t'aider dans ce cas. Merci de ta compréhension.",
-        "rating": "Évaluation",
-        "warning-loading-failed": "Le chargement des commentaires de cette page a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript.",
-        "average-rating-title": {
-            "plural": "Note moyenne : {{rating}} (à partir de {{count}} avis)",
-            "singular": "Note moyenne : {{rating}} (à partir de {{count}} avis)"
-        }
+        "warning-loading-failed": "Le chargement des commentaires de cette page a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript."
     },
     "sva-finder": {
         "sva-finder": "Assistant de recherche d'autorité de contrôle",
