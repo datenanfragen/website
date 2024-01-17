@@ -32,10 +32,7 @@ if (i18n_widget_div) render(<I18nWidget minimal={true} showLanguageOnly={false} 
 const comments_div = document.getElementById('comments-widget');
 if (comments_div) {
     render(
-        <CommentsWidget
-            allowRating={comments_div.dataset.ratingEnabled === '1'}
-            displayWarning={comments_div.dataset.displayWarning === '1'}
-        />,
+        <CommentsWidget displayWarning={comments_div.dataset.displayWarning === '1'} />,
         comments_div.parentElement!,
         comments_div
     );
@@ -171,14 +168,18 @@ const unsubscribeFromHydration = useProceedingsStore.persist.onFinishHydration((
 });
 
 const renderNewFootnotes = (hugoFootnotes: Element[]) => {
-    hugoFootnotes.forEach((hugoFootnote, index) => {
-        const footnoteContent = document.querySelector(`li[id="fn:${index + 1}"]`)?.cloneNode(true) as Element;
+    hugoFootnotes.forEach((hugoFootnote) => {
+        const index = +hugoFootnote.id.replace(/fnref\d*:/, '');
+
+        const footnoteContent = document.querySelector(`li[id="fn:${index}"]`)?.cloneNode(true) as Element | undefined;
+        if (!footnoteContent) return;
+
         // Since the text content is taken from the bottom footnotes, it contains an arrow at the end that needs to be
         // removed when the content is displayed within the embedded footnote.
-        footnoteContent?.querySelector('.footnote-backref')?.remove();
+        for (const backrefElement of footnoteContent.querySelectorAll('.footnote-backref')) backrefElement.remove();
 
         render(
-            <Footnote index={index + 1} id={hugoFootnote.id}>
+            <Footnote index={index} id={hugoFootnote.id}>
                 {/*
                     I unfortunately don't see a way to avoid the dangerouslySetInnerHTML here… I'd also love to avoid
                     the nested div.
