@@ -24,8 +24,8 @@ jobs:
     executor: docker_hugo_node
     resource_class: large
     environment:
-        - HUGO_VERSION: '0.88.1'
-        - HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
+        HUGO_VERSION: '0.88.1'
+        HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
     steps:
       - run:
           command: |
@@ -60,8 +60,8 @@ jobs:
         - image: cypress/base:14.17.0
       resource_class: large
       environment:
-        - HUGO_VERSION: '0.88.1'
-        - HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
+        HUGO_VERSION: '0.88.1'
+        HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
       steps:
         - run:
             command: |
@@ -103,9 +103,9 @@ jobs:
         - image: cypress/base:14.17.0
       resource_class: large
       environment:
-        - CYPRESS_baseUrl: 'https://www.datarequests.org'
-        - CYPRESS_baseUrl_DE: 'https://www.datenanfragen.de'
-        - CYPRESS_ENVIRONMENT: production
+        CYPRESS_baseUrl: 'https://www.datarequests.org'
+        CYPRESS_baseUrl_DE: 'https://www.datenanfragen.de'
+        CYPRESS_ENVIRONMENT: production
       steps:
         - checkout
 
