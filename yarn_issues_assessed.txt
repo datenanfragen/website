@@ -1,0 +1,21 @@
+# This file contains a list of YARN warnings and errors that are allowed to be skipped by our CI/CD pipeline.
+# All YARN warnings and errors not listed here will trigger a pipeline fail (by intention).
+# Add comments above each line to describe the reason why it is save to ignore this YARN warning or error
+
+# Skip list incl reason:
+
+# as of 2024-01-17 the team ignores this warning without providing a reason. Reason may get provided at a later point in time
+warning " > react-instantsearch-dom@6.26.0" has unmet peer dependency "algoliasearch@>= 3.1 < 5".
+warning " > react-instantsearch-dom@6.26.0" has unmet peer dependency "react@>= 16.3.0 < 19".
+warning " > react-instantsearch-dom@6.26.0" has unmet peer dependency "react-dom@>= 16.3.0 < 19".
+warning "react-instantsearch-dom > algoliasearch-helper@3.8.2" has unmet peer dependency "algoliasearch@>= 3.1 < 5".
+warning "react-instantsearch-dom > react-instantsearch-core@6.26.0" has unmet peer dependency "algoliasearch@>= 3.1 < 5".
+warning "react-instantsearch-dom > react-instantsearch-core@6.26.0" has unmet peer dependency "react@>= 16.3.0 < 19".
+warning " > react-scrollspy@3.4.3" has unmet peer dependency "react@>=0.14.0".
+warning " > react-scrollspy@3.4.3" has unmet peer dependency "react-dom@>=0.14.0".
+warning " > @this-dot/cypress-indexeddb@2.0.0" has incorrect peer dependency "cypress@< 12.6.0".
+warning " > eslint-plugin-preact-i18n@1.1.0" has incorrect peer dependency "eslint@^4.0.0 || ^5.0.0".
+warning " > postcss-fonticons@2.0.1" has incorrect peer dependency "postcss@^8.4.14".
+warning " > postcss-loader@6.2.1" has incorrect peer dependency "webpack@^5.0.0".
+warning " > stylelint-a11y@1.2.3" has incorrect peer dependency "stylelint@^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0".
+warning " > stylelint-use-nesting@3.0.0" has incorrect peer dependency "stylelint@10 - 13".

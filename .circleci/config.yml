@@ -44,6 +44,7 @@ jobs:
       - run:
           command: |
             export CONTEXT="production"
+            sh .circleci/check_yarn_issues.sh
             yarn install
             ./deploy.sh
 
