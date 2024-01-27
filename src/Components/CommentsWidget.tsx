@@ -207,11 +207,16 @@ export function CommentForm(props: CommentFormProps) {
     const savedLocale = useAppStore((state) => state.savedLocale);
 
     const target = `${savedLocale}/${document.location.pathname.replace(/^\s*\/*\s*|\s*\/*\s*$/gm, '')}`;
-
+    /**
+     * Calculate the suspiciousness of a comment. A value of 0 represents a seemingly harmless comment.
+     * Every potentially unwanted information increments the value.
+     * @param message
+     * @returns suspiciousness score
+     */
     function calculateMessageSusScore(message: string) {
         let susScore = 0;
         if (
-            ['@gmail.com', '@web.de', '@gmx.de', '@gmx.net', '@hotmail.com', '@me.com', '@mail.com'].filter((x) =>
+            ['@gmail.com', '@web.de', '@gmx.de', '@gmx.net', '@hotmail.com', '@me.com', '@mail.com'].some((x) =>
                 message.toLowerCase().includes(x)
             )
         ) {
@@ -220,7 +225,7 @@ export function CommentForm(props: CommentFormProps) {
         if (new RegExp(t('regex-sus-words', 'comments'), 'i').test(message)) {
             susScore += 1;
         }
-        if (['$', '€', '£', 'chf', 'euro', 'pound', 'dollar'].filter((x) => message.toLowerCase().includes(x))) {
+        if (['$', '€', '£', 'chf', 'euro', 'pound', 'dollar'].some((x) => message.toLowerCase().includes(x))) {
             susScore += 1;
         }
 
