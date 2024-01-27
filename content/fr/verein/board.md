@@ -29,5 +29,4 @@ Tu peux contacter le comité directeur de différentes façons :
     Schreinerweg 6  
     38126 Braunschweig  
     Allemagne*
-
 </address>
