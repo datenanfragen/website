@@ -29,5 +29,4 @@ Odbor se može kontaktirati na nekoliko načina:
     Schreinerweg 6  
     38126 Braunschweig  
     Germany*
-    
 </address>
