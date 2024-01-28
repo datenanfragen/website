@@ -29,5 +29,4 @@ You can contact the board through several different ways:
     Schreinerweg 6  
     38126 Braunschweig  
     Germany*
-
 </address>
