@@ -128,6 +128,42 @@ export function Comment(props: CommentProps) {
         </div>
     );
 }
+/**
+ * We regularly receive comments from people who actually want to reach a company in our database instead of posting
+ * a public message. This function uses a basic heuristic to try and detect those comments.
+ *
+ * @remarks `CommentForm` uses this to warn the user in those cases.
+ *
+ * @returns A "suspiciousness score", where `0` means that no indicators were found. The number is higher the more
+ * suspicious indicators were found.
+ */
+function calculateMessageSusScore(message: string) {
+    const heuristics = [
+        {
+            // Common email providers for private users.
+            regex: /@gmail\.com|@web\.de|@gmx\.de|@gmx\.net|@hotmail\.com|@me\.com|@mail\.com|@yahoo\.com|@aol\.com/gi,
+            score: 2,
+        },
+        {
+            // Common keywords referring to orders, parcel tracking, etc. (those need to be translated).
+            regex: new RegExp(t('regex-sus-words', 'comments'), 'ig'),
+            score: 1,
+        },
+        {
+            // Currencies. While this might happen in intended comments (for example to complain that the company tried
+            // to charge you for the request), multiple occurrences are suspicious.
+            regex: /\$|€|£|chf|euro|pound|dollar/gi,
+            score: 0.5,
+        },
+    ];
+
+    return heuristics
+        .map((h) => {
+            const matches = message.match(h.regex);
+            return matches ? matches.length * h.score : 0;
+        })
+        .reduce((a, b) => a + b, 0);
+}
 
 export function CommentForm(props: CommentFormProps) {
     const [author, setAuthor] = useState('');
@@ -140,6 +176,21 @@ export function CommentForm(props: CommentFormProps) {
         if (!message) {
             flash(<FlashMessage type="error">{t('error-no-message', 'comments')}</FlashMessage>);
             return false;
+        }
+
+        // Warn users who probably want to send a message to the company instead of posting a public comment.
+        if (document.location.pathname.startsWith('/company/')) {
+            const susScore = calculateMessageSusScore(message);
+
+            if (susScore >= 1) {
+                const confirmation_result = confirm(t('confirm-private-data', 'comments'));
+                if (!confirmation_result) return;
+            }
+        }
+        // Names are not allowed to contain email addresses.
+        if (author.includes('@')) {
+            flash(<FlashMessage type="error">{t('no-email-in-name', 'comments')}</FlashMessage>);
+            return;
         }
 
         flash(<FlashMessage type="info">{t('sending', 'comments')}</FlashMessage>);
