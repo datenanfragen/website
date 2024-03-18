@@ -237,7 +237,7 @@
         "how-much": "Na koji način želiš donirati?",
         "back": "Natrag na obrazac",
         "amount-no-fees": "Dobit ćemo cijeli iznos od {{amount}}&nbsp;€.",
-        "amount-after-fees": "Nakon pristojbi, dobit ćemo {{amount}}&nbsp;€."
+        "amount-after-fees": "Nakon naknada, dobit ćemo {{amount}}&nbsp;€."
     },
     "sva-finder": {
         "kathsonst": "Ostale biskupije i opći zahtjevi",
@@ -329,7 +329,10 @@
             "singular": "Prosječna ocjena: {{rating}} (od {{count}} recenzija)",
             "plural": "Prosječna ocjena: {{rating}} (od {{count}} recenzija)"
         },
-        "send-too-long": "Došlo je do greške prilikom slanja tvog komentara. Tvoj komentar je predug."
+        "send-too-long": "Došlo je do greške prilikom slanja tvog komentara. Tvoj komentar je predug.",
+        "confirm-private-data": "Čini se da tvoj komentar možda sadrži privatne podatke ili da se odnosi na narudžbu. Želiš li stvarno ovo objaviti kao JAVNI komentar? Komentari se NEĆE slati poduzeću.",
+        "regex-sus-words": "broj narudžbe|broj potvrde|broj praćenja|IBAN|bankovni račun|referenca uplate|bankovni prijenos|naknada pretplate|povratna adresa|transakcija|knjiženje|rezervacija|paket|paket",
+        "no-email-in-name": "Nemoj navesti e-mail adresu u polju imena. Komentari se objavljuju javno i neće se slati poduzeću."
     },
     "signature": {
         "reset-signature": "Poništi potpis",
