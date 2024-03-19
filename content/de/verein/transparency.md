@@ -14,7 +14,7 @@ Die Informationen sind auf dem Stand vom 13. Februar 2023.
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
 Diese Informationen sind auch in unserem {{< link slug="contact" text="Impressum" >}} zu finden.
-
+<address>
  - Name: Datenanfragen.de e.&thinsp;V.
  - Sitz: Braunschweig
  - Register: Vereinsregister am Amtsgericht Braunschweig
@@ -26,6 +26,7 @@ Diese Informationen sind auch in unserem {{< link slug="contact" text="Impressum
    Deutschland  
  - Gründungsdatum: 14. Juni 2018
  - Ansprechpartner für Transparenz: Benjamin Altpeter ([transparenz@datenanfragen.de](mailto:transparenz@datenanfragen.de) oder o.g. Anschrift)
+</address>
 
 ## 2. Satzung und Ziele
 

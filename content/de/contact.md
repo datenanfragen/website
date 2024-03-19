@@ -6,6 +6,7 @@
 
 ## Angaben gemäß § 5 TMG
 
+<address>
 **Postanschrift** (keine Bürozeiten):  
 Datenanfragen.de e.&nbsp;V.  
 Schreinerweg 6  
@@ -16,6 +17,7 @@ Deutschland
 **Telefax:** +49 531 209299 36  
 **E-Mail:** kontakt@datenanfragen.de ([PGP-Key](/pgp/62A7EC35.asc) `B64A 852D F7DF 855C A058  0A00 FC74 1754 62A7 EC35`)  
 **Web:** [www.datenanfragen.de/verein](https://www.datenanfragen.de/verein)
+</address>
 
 **Vertreten durch den Vorstand:** Benjamin Altpeter und Lorenz Sieben  
 Der Datenanfragen.de e.&nbsp;V. ist im Vereinsregister des Amtsgerichts Braunschweig unter der [Registernummer VR&nbsp;201732](https://static.dacdn.de/docs/vereinsregisterabdruck_2020-09-11.pdf "Aktueller Abdruck aus dem Vereinsregister vom 11. September 2020") eingetragen und zuletzt per [Bescheid vom 30. Januar 2023](https://static.dacdn.de/docs/freistellungsbescheid_2023-01-30.pdf) vom Finanzamt Braunschweig-Wilhelmstraße als gemeinnützig anerkannt.
