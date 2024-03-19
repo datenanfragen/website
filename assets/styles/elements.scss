@@ -1424,3 +1424,12 @@ details.footnote {
         box-sizing: border-box;
     }
 }
+
+// Annotated slides
+.annotated-slide {
+    & + .annotated-slide {
+        margin-top: 2em;
+        padding-top: 2em;
+        border-top: 1px solid color('gray', 400);
+    }
+}

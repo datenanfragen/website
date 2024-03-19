@@ -15,7 +15,7 @@ Datenanfragen.de is designed as a static website, running on [Hugo](https://gohu
 
 To build the project locally for development, follow these steps:
 
-1. Install [Yarn 1](https://classic.yarnpkg.com/en/docs/install) (Classic) and the extended(!) version of [Hugo](https://gohugo.io/getting-started/quick-start/) (v0.88.1).
+1. Install [Yarn 1](https://classic.yarnpkg.com/en/docs/install) (Classic) and the extended(!) version of [Hugo](https://gohugo.io/getting-started/quick-start/) (v0.110.0).
 2. Clone the repo and run `yarn` in the root directory of the repo to fetch all required dependencies.
 3. Run the deploy script (`./deploy.sh`) to fetch and prepare the required resources from our [data](https://github.com/datenanfragen/data) repository.
 4. Open two terminal windows. In the first, run `yarn dev` to start the Webpack file watcher, which will automatically build the JS files. In the second one, run `hugo server` to have Hugo continuously build the actual website and the SCSS.

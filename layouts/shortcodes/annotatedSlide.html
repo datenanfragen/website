@@ -1,0 +1,20 @@
+{{ $link := "" }}
+{{ with $.Page.Params.slidesUrl }}
+    {{ $slideNumberMatches := findRESubmatch `-slide-(\d+)` $.Params.file }}
+    {{ $slideNumber := index (index $slideNumberMatches 0) 1 }}
+    {{ if $slideNumber }}
+        {{ $link = printf "%s#page=%s" $.Page.Params.slidesUrl $slideNumber }}
+    {{ end }}
+{{ end }}
+
+<div class="annotated-slide">
+    {{ partial "img" (dict
+        "page" $.Page
+        "name" (printf "slides/%s" $.Params.file)
+        "alt" $.Params.alt
+        "link" $link
+        "loading" "lazy"
+    ) }}
+
+    {{ .Inner | markdownify }}
+</div>
