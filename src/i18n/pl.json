@@ -693,7 +693,6 @@
     },
     "schema": {
         "sources": "Źródła",
-        "comments": "Uwagi",
         "quality": "Jakość",
         "input": "Wartość wejściowa",
         "textarea": "Obszar tekstowy",
@@ -719,7 +718,6 @@
         "type": "Rodzaj",
         "optional": "Opcjonalnie?",
         "name": "Nazwa",
-        "required-elements": "Wymagane elementy",
         "request-language": "Język wniosków"
     },
     "categories": {
