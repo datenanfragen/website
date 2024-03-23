@@ -669,7 +669,7 @@
         "rss-link": "Abonniere die Kommentare zu diesem Artikel mit Deinem RSS-/Atom-Feed-Reader.",
         "warning": "Beachte bitte, dass wir ein <em>unabhängiger Datenschutzverein</em> sind und nicht zu dem hier aufgeführten Unternehmen gehören.<br>Solltest Du also Support benötigen oder eine Anfrage stellen wollen, wende Dich bitte direkt an das Unternehmen. Wir können Dir hierbei <strong>nicht</strong> helfen. Danke für Dein Verständnis.",
         "confirm-private-data": "Huch, es sieht so als, als würde Dein Kommentar eventuell persönliche Daten enthalten oder sich auf eine Bestellung beziehen. Bist Du sicher, dass Du die Nachricht als ÖFFENTLICHEN Kommentar absenden möchtest? Kommentare werden NICHT an das Unternehmen gesendet.",
-        "regex-sus-words": "bestellung|bestellen|bestellnummer|bestellnr|fallnummer|trackingnummer|sendungsnummer|IBAN|kontonummer|bankkonto|verwendungszweck|überweisung|ueberweisung|rücksendung|ruecksendung|retoure|transaktion|buchung|reservierung|paket|päckchen|paeckchen|rückruf|rueckruf",
+        "regex-sus-words": "bestellung|bestellen|bestellnummer|bestellnr|fallnummer|trackingnummer|sendungsnummer|transaktionsnummer|kundennummer|kundennr|IBAN|kontonummer|kontonr|bankkonto|verwendungszweck|überweisung|ueberweisung|abbuchung|einzahlung|rückbuchung|rueckbuchung|rücksendung|ruecksendung|retoure|erstattung|vergütung|verguetung|transaktion|buchung|reservierung|paket|päckchen|paeckchen|rückruf|rueckruf",
         "no-email-in-name": "Bitte gib keine E-Mail-Adresse als Namen an. Kommentare werden öffentlich angezeigt und nicht an das Unternehmen gesendet."
     },
     "company-packs": {

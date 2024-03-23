@@ -178,19 +178,19 @@ export function CommentForm(props: CommentFormProps) {
             return false;
         }
 
+        // Names are not allowed to contain email addresses.
+        if (author.includes('@')) {
+            flash(<FlashMessage type="error">{t('no-email-in-name', 'comments')}</FlashMessage>);
+            return;
+        }
         // Warn users who probably want to send a message to the company instead of posting a public comment.
         if (document.location.pathname.startsWith('/company/')) {
-            const susScore = calculateMessageSusScore(message);
+            const susScore = calculateMessageSusScore(message) + calculateMessageSusScore(author);
 
             if (susScore >= 1) {
                 const confirmation_result = confirm(t('confirm-private-data', 'comments'));
                 if (!confirmation_result) return;
             }
-        }
-        // Names are not allowed to contain email addresses.
-        if (author.includes('@')) {
-            flash(<FlashMessage type="error">{t('no-email-in-name', 'comments')}</FlashMessage>);
-            return;
         }
 
         flash(<FlashMessage type="info">{t('sending', 'comments')}</FlashMessage>);
