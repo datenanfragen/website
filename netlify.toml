@@ -1,4 +1,4 @@
 [build]
 publish = "public"
 command = "./deploy.sh"
-environment = {NODE_VERSION = "14.17.0", HUGO_VERSION = "0.88.1", YARN_VERSION = "1.22.4"}
+environment = {NODE_VERSION = "20.12.0", HUGO_VERSION = "0.111.3", YARN_VERSION = "1.22.22"}
