@@ -45,7 +45,7 @@
         "footer-social-matrix-desc": "Porozmawiaj z nami przez Matrix.",
         "skip-to-content": "Przejdź do treści",
         "home-how-it-works-parameters": "Wybierz firmy, do których chcesz wysłać zapytania. Wprowadź tylko tyle danych, ile potrzeba by firmy mogły Cię jednoznacznie zidentyfikować. Aby ułatwić Ci zadanie, przygotowaliśmy już dla Ciebie formularze. I nie martw się: wszystkie dane pozostają na Twoim komputerze i tylko tam są przetwarzane. Dzięki temu Twoje dane nigdy do nas nie trafią.",
-        "blog-post": "Post",
+        "blog-post": "Blog",
         "blog-of": " z ",
         "noscript-my-requests": "Wszystkie żądania są zapisywane i wyświetlane na Twoim komputerze za pomocą JavaScript (oczywiście tylko wtedy, gdy jest on aktywny). Kod nie wyśle żadnych danych na żadne serwery, jeśli nie wyrazisz na to zgody. Jeśli chcesz zapisać i zobaczyć swoje żądania na swoim komputerze, proszę aktywować JavaScript w swojej przeglądarce lub dodać wyjątek do swojego blokera. Jeśli po tych czynnościach strona nadal nie działa, wyślij do nas e-mail na adres <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "footer-request-generator": "Generator zapytań",
@@ -167,7 +167,7 @@
         "home-hero-word": "dostęp do danych",
         "home-hero-line-2": "Użyj tego",
         "header-my-requests": "Moje prośby",
-        "header-blog": "Artykuły",
+        "header-blog": "Blog",
         "footer-about-us": "Jesteśmy Datenanfragen.de e.&nbsp;V., zarejestrowaną w Niemczech organizacją non-profit. Naszą misją jest pomoc w korzystaniu z prawa do prywatności.",
         "logo": "img/logo-prawododanych.svg",
         "logo-title": "${site_name}-logo",
@@ -549,7 +549,7 @@
         "erasure-request": "Żądanie wykreślenia",
         "recipient-fax": "Odbiorca (adres i numer faksu)",
         "id-data-tracking": "Moje dane kontaktowe",
-        "add-input": "Dodaj dane wejściowe",
+        "add-input": "Dodaj pole",
         "value": "Wartość",
         "sender-address": "Adres nadawcy",
         "custom-request": "Twój własny tekst",
@@ -558,7 +558,7 @@
         "current-company-comments": "Uwagi",
         "add-fill-field": "Wypełnij swoje zapisane informacje",
         "birthdate": "Data urodzenia",
-        "description": "Opis",
+        "description": "Opis pola",
         "erase-all": "Usuń wszystkie dane",
         "rectification-data": "Poprawne dane",
         "date": "Data",
@@ -659,10 +659,10 @@
         "date": "Data",
         "type": "Rodzaj",
         "via": "przez",
-        "access": "dostęp",
-        "erasure": "usuwanie",
+        "access": "Prośba o dostęp",
+        "erasure": "Prośba o usunięcie",
         "objection": "sprzeciw",
-        "rectification": "sprostowanie",
+        "rectification": "Prośba o sprostowanie",
         "custom": "Niestandardowy",
         "fax": "faks",
         "email": "e-mail",
@@ -705,7 +705,10 @@
         "sent-via-medium": "wysłano za pomocą {{medium}}",
         "radio-sent-by-me": "Zostało wysłane przeze mnie.",
         "sender-direction-label": "Kto wysłał wiadomość?",
-        "invalid-date-entered": "Data, którą wprowadziłeś, jest nieodpowiednia."
+        "invalid-date-entered": "Data, którą wprowadziłeś, jest nieodpowiednia.",
+        "admonition": "Upomnienie",
+        "no-company-name": "Brak nazwy",
+        "done": "Wykonane"
     },
     "mailto": {
         "mailto": "Domyślne oprogramowanie do obsługi poczty e-mail",
@@ -807,7 +810,7 @@
         "address-place": "Miejscowość",
         "reset": "Wyczyść",
         "address-country": "Kraj",
-        "add-input": "Dodaj dane wejściowe",
+        "add-input": "Dodaj pole",
         "description": "Opis",
         "input-address": "Adres"
     },
@@ -839,7 +842,8 @@
         "language-de": "Niemiecki",
         "language-en": "Angielski",
         "language-fr": "Francuski",
-        "language-es": "Hiszpański"
+        "language-es": "Hiszpański",
+        "language-cs": "czeski"
     },
     "comments": {
         "comments": "Komentarze",
@@ -910,6 +914,27 @@
     "company-packs": {
         "address-brokers-title": "Pośrednictwo i zarządzanie adresami",
         "credit-agencies-title": "Wywiadownia gospodarcza",
-        "address-brokers-description": "Te firmy gromadzą adresy pocztowe i/lub mailowe osób fizycznych i sprzedają oparte na nich usługi innym firmom. Niektóre z nich sprzedają lub wypożyczają swoje dane adresowe reklamodawcom (często w połączeniu z dodatkowymi atrybutami, takimi jak zainteresowania), inne oferują firmom sprawdzenie już przechowywanych adresów i ich ewentualną korektę."
+        "address-brokers-description": "Te firmy gromadzą adresy pocztowe i/lub mailowe osób fizycznych i sprzedają oparte na nich usługi innym firmom. Niektóre z nich sprzedają lub wypożyczają swoje dane adresowe reklamodawcom (często w połączeniu z dodatkowymi atrybutami, takimi jak zainteresowania), inne oferują firmom sprawdzenie już przechowywanych adresów i ich ewentualną korektę.",
+        "insurance-title": "Ubezpieczenia",
+        "commerce-title": "Handel",
+        "telecommunication-title": "Telekomunikacja",
+        "entertainment-title": "Rozrywka",
+        "finance-title": "Finanse"
+    },
+    "reactor": {
+        "email": "e-mail",
+        "yes": "tak",
+        "no": "nie",
+        "wrong-medium_wrong-transport-medium_option_letter": "list",
+        "additional-data-id-copy-value": "załączone",
+        "wrong-medium_wrong-transport-medium_option_email": "e-mail",
+        "base_complaint-intro_option_next": "Dalej",
+        "sender": "Nadawca",
+        "letter": "list",
+        "fax": "faks",
+        "excessive_too-many_option_one": "jeden",
+        "wrong-medium_wrong-transport-medium_option_fax": "faks",
+        "next": "Dalej",
+        "wrong-medium_wrong-transport-medium_option_other": "inne"
     }
 }
