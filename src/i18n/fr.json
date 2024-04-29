@@ -759,7 +759,7 @@
         "skip-to-content": "Aller au contenu",
         "home-claim-title": "C'est ainsi que les demandes de données fonctionnent :",
         "home-claim-send-title": "Envoyez les demandes",
-        "home-claim-send": "À partir de vos données, nous générons une demande que vous envoyez ensuite vous-même, généralement par courrier électronique. Nous ne voyons jamais vos données.",
+        "home-claim-send": "À partir de vos données, nous générons une demande que vous envoyez ensuite vous-même, généralement par courrier électronique. Nous n'avons jamais accès à vos données.",
         "home-claim-react-title": "Recevoir des réponses et réagir"
     },
     "mailto": {
