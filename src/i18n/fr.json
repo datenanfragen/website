@@ -106,7 +106,8 @@
         "cancel": "Annuler",
         "sender-direction-label": "Qui a envoyé le message ?",
         "radio-sent-by-me": "Je l'ai envoyé.",
-        "content": "Contenu"
+        "content": "Contenu",
+        "invalid-date-entered": "La date que vous avez saisie est invalide."
     },
     "generator": {
         "reference": "Référence",
@@ -202,7 +203,75 @@
         "add-fill-field": "Complète tes données sauvegardées",
         "recipient-fax": "Destinataire (adresse et numéro de télécopie)",
         "recipient-letter": "Destinataire (adresse)",
-        "recipient-email": "Destinataire (adresse e-mail)"
+        "recipient-email": "Destinataire (adresse e-mail)",
+        "empty-query-suggested-companies": "Vous ne savez pas à qui faire la demande ? Nous avons quelques suggestions pour vous :",
+        "needs-id-document": "Une pièce d'identité est requise pour faire une demande à cette entité.",
+        "unnamed-field": "champ sans nom",
+        "webform": "Formulaire",
+        "company-fax": "Numéro de fax de l'entreprise",
+        "add-n-companies": {
+            "other": "Ajouter {{n}} entreprises",
+            "one": "Ajouter une entreprise"
+        },
+        "include-objection": "Vous pouvez également inclure une contestation basée sur votre situation personnelle",
+        "objection-reason": "Motif de votre contestation",
+        "access-request-explanation-button": "Qu'est-ce qu'une demande d'accès ?",
+        "erasure-request-explanation-button": "Qu'est-ce qu'une demande de suppression ?",
+        "add-custom-company": "Ajouter une entreprise",
+        "company-name": "Nom de l'entreprise",
+        "continue-with-requests": "Continuer avec ces entreprises",
+        "access-request-statement": "<strong>Obtenir l'accès</strong> à mes données.",
+        "objection-reason-explanation": "Une contestation doit être justifiée sur la base de votre situation personnelle. Expliquez pourquoi vous vous opposez spécifiquement au traitement de vos données par l'entreprise.",
+        "show-webform-text-again": "Afficher de nouveau le texte",
+        "webform-modal-explanation": "Vous pouvez copier ici le sujet et le contenu de votre demande générée pour les coller dans le formulaire.",
+        "request-type-info-learn-more": "En savoir plus sur les types de demande",
+        "company-email": "Adresse e-mail de l'entreprise",
+        "company-letter": "Adresse de l'entreprise",
+        "add-company": "Ajouter une entreprise",
+        "add-company-and-suggest": "Ajouter une entreprise et envoyer la suggestion",
+        "send-request": "Envoyer la demande",
+        "send-request-again": "Envoyer de nouveau la demande",
+        "request-type-chooser-page-title": "Que voulez-vous faire ?",
+        "erasure-request-statement": "<strong>Supprimer</strong> (en partie) mes données.",
+        "rectification-request-statement": "<strong>Corriger</strong> mes données.",
+        "only-snail-mail": "Il se peut que vous deviez envoyer votre demande par courrier physique.",
+        "only-fax": "Il se peut que vous deviez envoyer votre demande par fax.",
+        "consider-as-tracking-company": "La demande que j'ai adressée à cette entreprise concerne les données de suivi et je ne sais pas comment l'entreprise peut m'identifier à cette fin.",
+        "batch-breadcrumbs-remaining": {
+            "none": "Pas d'autres demandes",
+            "one": "{{left}} demande restante",
+            "other": "{{left}} demandes restantes"
+        },
+        "batch-breadcrumbs-sent": {
+            "none": "Aucune demande envoyée",
+            "one": "{{sent}} demande envoyée",
+            "other": "{{sent}} demandes envoyées"
+        },
+        "send-request-email-explanation": "Voici votre demande générée. Vous devrez l'envoyer vous-même à l'entreprise par e-mail.",
+        "send-request-webform-explanation": "Voici votre demande générée. Vous devrez l'envoyer vous-même à l'entreprise en utilisant le formulaire en ligne.",
+        "fill-in-request": "Compléter la demande à « {{compagnie}} »",
+        "export-to-calendar": "Exporter les rappels dans votre calendrier",
+        "view-requests": "Voir vos demandes",
+        "send-more": "Envoyer d'autres demandes",
+        "app-introduction": "Nous allons vous guider dans l'envoi de votre (vos) demande(s). Commencez par choisir le type de demande que vous souhaitez envoyer.",
+        "rectification-request-explanation-button": "Qu'est-ce qu'une demande de correction ?",
+        "objection-request-explanation-button": "Qu'est-ce que l'opposition à la prospection ?",
+        "continue": "Continuer",
+        "open-webform": "Ouvrir le formulaire",
+        "show-webform-text": "Afficher le texte",
+        "back": "Retour",
+        "confirm-cancel-add-custom-company": "Voulez-vous vraiment annuler ? Les données saisies seront perdues.",
+        "want-to-suggest-checkbox": "Suggérer une entreprise pour notre base de données ?",
+        "want-to-suggest-provide-sources": "Veuillez indiquer les sources afin que nous puissions vérifier votre suggestion.",
+        "company-chooser-page-title": "À qui souhaitez-vous adresser votre demande ?",
+        "selected-companies-page-title": "Les entreprises que vous avez sélectionnées",
+        "only-webform": "Il se peut que vous deviez envoyer votre demande par un formulaire en ligne.",
+        "choose-runs": "Afficher et sélectionner les autres entités gérées par cette entreprise.",
+        "also-runs-choose": "Cette entreprise est également responsable de ces autres entités ou services (désélectionnez ceux pour lesquels vous ne souhaitez pas faire la demande) :",
+        "send-request-pdf-explanation": "Voici votre demande générée. Téléchargez le PDF et envoyez-le à l'entreprise par courrier ou par fax.",
+        "whats-next-title": "Et ensuite ?",
+        "whats-next-deadline": "Les entreprises disposent désormais d'un mois pour répondre à vos demandes. Elles peuvent porter ce délai à trois mois au total si nécessaire, mais elles doivent vous en informer au cours du premier mois.",
+        "whats-next-my-requests": "Vous pouvez consulter les demandes que vous avez envoyées sur la page « Mes demandes ». Vous pouvez y assurer le suivi des demandes, y compris envoyer des avertissements ou même déposer une plainte auprès des autorités chargées de la protection des données si une entreprise ne répond pas correctement. Vous pouvez également enregistrer un rappel des échéances des demandes dans votre calendrier."
     },
     "privacy-controls": {
         "title": "Options de confidentialité",
@@ -238,7 +307,8 @@
     },
     "error-msg": {
         "company-not-found": "L'entreprise que tu cherches n'a pas été trouvée.",
-        "sva-not-found": "Le chargement des données sur l'autorité de contrôle a échoué."
+        "sva-not-found": "Le chargement des données sur l'autorité de contrôle a échoué.",
+        "indexeddb-error": "Une erreur inattendue s'est produite lors de la tentative de connexion à la base de données depuis votre navigateur."
     },
     "suggest": {
         "success": "Ta contribution a été envoyée avec succès. Merci encore ! Nous allons désormais l'examiner au plus vite.",
@@ -250,7 +320,8 @@
         "also-runs": "également applicable: ",
         "invalid-request": "Certaines informations ne sont pas au bon format ou sont incomplètes. Veuillez les corriger avant de d'envoyer de nouveau votre suggestion.",
         "name-or-web-missing": "Veuillez entrer au moins un nom ou un site Web.",
-        "similarly-named-companies": "Nous avons déjà ces entreprises avec un nom similaire :"
+        "similarly-named-companies": "Nous avons déjà ces entreprises avec un nom similaire :",
+        "no-change": "Vous n'avez rien modifié."
     },
     "schema": {
         "relevant-countries": "Pays concernés",
@@ -281,7 +352,9 @@
         "quality": "Qualité",
         "required-id-document-elements": "Éléments requis sur la pièce d'identité",
         "pgp-fingerprint": "Empreinte de la clé PGP",
-        "pgp-url": "URL de la clé PGP"
+        "pgp-url": "URL de la clé PGP",
+        "web-form": "Formulaire en ligne",
+        "webform": "Formulaire en ligne"
     },
     "categories": {
         "addresses": "adresses",
@@ -352,7 +425,9 @@
         "language-hr": "Croate",
         "language-desc-hr": "Croate (Hrvatski)",
         "language-desc-nl": "Néerlandais (Nederlands)",
-        "language-nl": "Néerlandais"
+        "language-nl": "Néerlandais",
+        "language-cs": "Tchèque",
+        "language-desc-cs": "Tchèque (Čeština)"
     },
     "comments": {
         "comments": "Commentaires",
@@ -368,7 +443,10 @@
         "optional": "(facultatif)",
         "rss-link": "Abonne-toi aux commentaires sur cet article en utilisant ton lecteur de flux RSS/Atom.",
         "warning": "Note que nous somme une <em>association à but non lucratif indépendante</em> et que nous ne sommes affiliés à aucune des entreprises listées ici.<br>Si tu souhaites obtenir de l'aide ou envoyer une demande, contacte l'entreprise directement. Nous <strong>ne pouvons pas</strong> t'aider dans ce cas. Merci de ta compréhension.",
-        "warning-loading-failed": "Le chargement des commentaires de cette page a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript."
+        "warning-loading-failed": "Le chargement des commentaires de cette page a échoué. Vérifie que tu es connecté à Internet et que tu ne bloques pas les requêtes vers backend.datenanfragen.de à travers une application comme uMatrix ou NoScript.",
+        "send-too-long": "Une erreur s'est produite lors de l'envoi de votre commentaire. Votre commentaire est trop long.",
+        "no-email-in-name": "Veuillez ne pas indiquer d'adresse e-mail dans le champ du nom. Les commentaires sont affichés publiquement et ne sont pas envoyés à l'entreprise.",
+        "confirm-private-data": "Oups, il semblerait que votre commentaire contienne des données privées ou fasse référence à une commande. Voulez-vous vraiment publier ce commentaire en tant que commentaire PUBLIC ? Les commentaires ne seront PAS envoyés à l'entreprise."
     },
     "sva-finder": {
         "sva-finder": "Assistant de recherche d'autorité de contrôle",
@@ -823,7 +901,8 @@
         "outlook": "Outlook (Hotmail)*",
         "yahoo": "Yahoo! Mail*",
         "yandex": "Yandex.Mail*",
-        "copymanually": "Copier le texte manuellement"
+        "copymanually": "Copier le texte manuellement",
+        "sendmail": "Envoyer via SMTP"
     },
     "requests": {
         "letter-subject-erasure": "Demande de suppression des données personnelles conformément à l'Art. 17 du RGPD",
@@ -898,6 +977,55 @@
         "finance-title": "Finance",
         "social-media-title": "Réseaux sociaux et communication",
         "telecommunication-title": "Télécommunication",
-        "insurance-title": "Assurance"
+        "insurance-title": "Assurance",
+        "add-all-star": "Toutes les entreprises présentées dans ce dossier sont pertinentes pour la plupart des habitants de votre pays.",
+        "add-companies-button": "Ajouter les entreprises à vos demandes",
+        "choose-companies-button": "Sélectionnez les entreprises à ajouter à vos demandes",
+        "and-n-more": ", et {{n}} de plus"
+    },
+    "reactor": {
+        "next": "Suivant",
+        "sender": "Émetteur",
+        "base_complaint-issue-changed_option_use-prev": "Utiliser les réponses précédentes.",
+        "base_select-issue_option_additional-id": "L'entreprise a besoin d'informations supplémentaires pour vous identifier.",
+        "error-invalid-reference": "La procédure spécifiée dans l'URL n'existe pas.",
+        "additional-data-id-copy-desc": "Copie d'une pièce d'identité",
+        "generate-response": "Générer une réponse",
+        "additional-data-id-copy-value": "pièce-jointe",
+        "subject-is": " (sujet : « {{subject}} »)",
+        "base_response-or-complaint_option_complaint": "Générer une plainte.",
+        "base_select-issue_body_additional-issues": "Voulez-vous faire mention d'autre chose dans votre plainte ?",
+        "base_complaint-issue-resolved_option_resolved-include": "Problème résolu, inclure dans la plainte.",
+        "base_complaint-issue-resolved_option_persists-include": "Problème non résolu, inclure dans la plainte.",
+        "base_select-issue_option_completed": "Non. Quitter l'assistant et marquer la demande comme terminée.",
+        "base_select-issue_option_generate-admonition": "Générer un avertissement en fonction de vos réponses.",
+        "base_complaint-issue-resolved_body": "Dans votre avertissement, vous avez dit ceci {{youSaidThat}}\n\nLe problème a-t'il été résolu ? Souhaitez-vous l'inclure dans votre plainte ?",
+        "base_generate-letter_body_complaint": "Voici votre plainte générée. Veuillez vérifier le texte et le modifier si nécessaire. Ensuite, vous devrez l'envoyer à l'autorité de régulation. N'oubliez pas d'y joindre votre correspondance avec l'entreprise.",
+        "letter": "courrier",
+        "base_nevermind_option_back": "Revenir à « Mes demandes »",
+        "base_nevermind_body": "Vous avez marqué cette demande comme terminée.",
+        "no": "non",
+        "base_select-issue_option_generate-response": "Générer une réponse en fonction de vos réponses.",
+        "message-by-controller": "{{medium}} par le contrôleur",
+        "yes": "oui",
+        "email": "e-mail",
+        "fax": "fax",
+        "webform": "Formulaire en ligne",
+        "message-by-me": "{{medium}} par moi",
+        "base_select-issue_option_other-language": "L'entreprise a répondu dans une langue différente.",
+        "base_response-or-complaint_option_free": "Rédiger une réponse libre à l'entreprise.",
+        "base_select-issue_body_anything-else": "Autre chose ?",
+        "base_select-issue_body_problem": "Il y a t'il eu un problème avec votre demande ?",
+        "base_complaint-less-than-two-weeks_option_free": "Rédigez plutôt une réponse libre à l'entreprise.",
+        "base_complaint-intro_option_next": "Suivant",
+        "base_complaint-issue-resolved_option_ignore": "Ne pas inclure le problème dans la plainte.",
+        "base_complaint-id-data_body": "Comment souhaitez-vous que l'autorité de régulation vous contacte ?",
+        "base_dead-end_option_next": "Vérifiez s'il y a un autre problème avec la réponse de l'entreprise.",
+        "base_select-issue_option_generate-complaint": "Générer une plainte en fonction de vos réponses.",
+        "base_response-or-complaint_option_nevermind": "Tant pis, marquer la demande comme terminée.",
+        "base_select-issue_option_custom-text": "Je souhaite rédiger mon propre message.",
+        "base_complaint-less-than-two-weeks_option_complaint": "Continuer avec la plainte.",
+        "base_complaint-issue-changed_option_again": "Poser les questions à nouveau.",
+        "base_generate-letter_body_response": "Voici votre réponse générée. Veuillez vérifier le texte et le modifier si nécessaire. Ensuite, vous devrez l'envoyer à l'entreprise."
     }
 }
