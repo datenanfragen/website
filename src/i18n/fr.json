@@ -895,7 +895,8 @@
         "footer-advanced-generator": "Générateur avancé",
         "blog-devlog": "Journal de développement",
         "home-claim-choose-company-title": "Choisissez des entreprises",
-        "home-hero-desc": "Les entreprises doivent vous donner accès à vos données et les corriger, voire les supprimer si nécessaire.<br>En tant qu'association à but non lucratif, nous vous aidons à utiliser ces droits - <strong>gratuitement et sans inscription</strong>, bien sûr."
+        "home-hero-desc": "Les entreprises doivent vous donner accès à vos données et les corriger, voire les supprimer si nécessaire.<br>En tant qu'association à but non lucratif, nous vous aidons à utiliser ces droits - <strong>gratuitement et sans inscription</strong>, bien sûr.",
+        "home-claim-choose-company": "Choisissez des entreprises dans notre base de données ou ajoutez les vôtres. Vous ne savez pas à qui vous adresser ? Dans ce cas, nous avons quelques suggestions."
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
