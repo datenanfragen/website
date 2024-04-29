@@ -10,7 +10,8 @@
         "categories": "Catégories : ",
         "search-disabled": "Tu as désactivé la fonctionnalité de recherche. Si tu souhaites l'activer, jette un œil aux <a href='/options-de-confidentialite'>options de confidentialité</a>.",
         "quality-unverified": "Les informations de contact de cet enregistrement ont été importées automatiquement. Nous ne les avons pas vérifiées.",
-        "quality-tested": "Au moins un de nos contributeurs a réussi à envoyer une demande en utilisant les informations de contact de cet enregistrement."
+        "quality-tested": "Au moins un de nos contributeurs a réussi à envoyer une demande en utilisant les informations de contact de cet enregistrement.",
+        "search-results": "Résultats de recherche"
     },
     "cdb": {
         "select-company": "Rechercher une entreprise…",
@@ -57,7 +58,55 @@
         "objection": "opposition",
         "more": "plus",
         "and": "et",
-        "for": "pour"
+        "for": "pour",
+        "recipient-information": "Informations de contact du destinataire",
+        "sender-information": "Informations de contact de l'émetteur",
+        "add-message": "Ajouter un message",
+        "no-company-name": "Pas de nom",
+        "delete-message-confirm": "Voulez-vous vraiment supprimer ce message ?",
+        "selection-mode": "Sélectionner",
+        "reminder-widget-summary": {
+            "one": "Vous avez une demande en retard. Réagissez maintenant ou marquez-la comme satisfaisante.",
+            "other": "Vous avez {{proceedings}} demandes en retard. Réagissez maintenant ou marquez-les comme satisfaisantes."
+        },
+        "see-more-details": "En savoir plus",
+        "done": "Terminé",
+        "waitingForResponse": "En attente de réponse",
+        "original-request": "Demande originale",
+        "response": "Réponse",
+        "admonition": "Avertissement",
+        "complaint": "Plainte",
+        "message-react": "Réaction",
+        "message-reactivate": "Réactiver",
+        "delete-message": "Supprimer ce message.",
+        "mark-completed": "Marquer comme terminé",
+        "request-summary-line": "{{type}} à « {{recipient}} » le {{date}} ({{reference}})",
+        "overdue-proceedings": {
+            "one": "procédure en retard",
+            "other": "procédures en retard"
+        },
+        "sent-via-medium": "envoyé via {{medium}}",
+        "overdue": "En retard",
+        "actionNeeded": "Action requise",
+        "import-message": "Ajouter un message",
+        "delete-proceeding": "Supprimer la procédure",
+        "delete-proceeding-confirm": "Cela supprimera cette procédure et tous les messages qu'elle contient. Voulez-vous continuer ?",
+        "select-all": "Tout sélectionner",
+        "deselect-all": "Tout désélectionner",
+        "content-placeholder": "Copiez ou résumez le contenu du message ici, afin que vous puissiez vous y référer plus tard.",
+        "radio-sent-by-someone-else": "Il a été envoyé par quelqu'un d'autre.",
+        "correspondent-email": "Adresse e-mail",
+        "correspondent-address": "Nom et adresse postale",
+        "sent-by-me": "Envoyé par moi.",
+        "sent-by-someone-else": "Envoyé par quelqu'un d'autre.",
+        "confirm-cancel-add-message": "Cette opération efface ce que vous venez de saisir. Voulez-vous annuler quand même ?",
+        "subject": "Sujet",
+        "more-options": "Plus d'options",
+        "transport-medium-input-label": "Comment le message a-t'il été transmis ?",
+        "cancel": "Annuler",
+        "sender-direction-label": "Qui a envoyé le message ?",
+        "radio-sent-by-me": "Je l'ai envoyé.",
+        "content": "Contenu"
     },
     "generator": {
         "reference": "Référence",
@@ -760,7 +809,13 @@
         "home-claim-title": "C'est ainsi que les demandes de données fonctionnent :",
         "home-claim-send-title": "Envoyez les demandes",
         "home-claim-send": "À partir de vos données, nous générons une demande que vous envoyez ensuite vous-même, généralement par courrier électronique. Nous n'avons jamais accès à vos données.",
-        "home-claim-react-title": "Recevoir des réponses et réagir"
+        "home-claim-react-title": "Recevez des réponses et réagissez",
+        "cdb-pgp-key": "Clé PGP :",
+        "home-claim-button": "Générez une demande maintenant !",
+        "home-blog-section-title": "Notre blog",
+        "home-blog-section-read-more": "Plus d'articles",
+        "footer-advanced-generator": "Générateur avancé",
+        "blog-devlog": "Journal de développement"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
