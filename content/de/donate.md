@@ -46,10 +46,12 @@ Als gemeinnütziger Verein stellen wir Dir natürlich auch gerne eine [Spendenbe
 
     Wenn Du uns Deine Identität nicht preisgeben möchtest, kannst Du entweder eine anonyme Cryptowährung verwenden oder Bargeld per Post an unsere Adresse schicken:
 
+    <address>
     *Datenanfragen.de e.&thinsp;V.  
     Schreinerweg 6  
     38126 Braunschweig  
     Deutschland*
+    </address>
 
     Für Bargeldspenden kannst Du auch ein Produkt wie [WERT NATIONAL](https://www.deutschepost.de/de/w/wert-national.html) von der Deutschen Post verwenden, um die Spende gegen Verlust abzusichern. Bitte sorg dafür, dass sich in keinem Fall von außen erkennen lässt, dass Deine Sendung Geld enthält.
     
