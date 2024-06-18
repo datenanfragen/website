@@ -82,6 +82,16 @@ const isNetworkError = (message) => {
     if (message === 'NetworkError when attempting to fetch resource.') return true;
     return false;
 };
+
+const isBrowserDeprecated = () => {
+    try {
+        Object.fromEntries(new Map([['a', 'b']]));
+    } catch (e) {
+        return true;
+    }
+    return false;
+};
+
 try {
     const handler = (event) => {
         try {
@@ -98,6 +108,14 @@ try {
                     '@webkit-masked-url://hidden/',
                 ].some((s) => event.error?.stack?.includes(s))
             ) {
+                return;
+            }
+
+            if (isBrowserDeprecated()) {
+                // eslint-disable-next-line no-console
+                console.error(
+                    'If you are reading this: An error occurred, but your browser is outdated and therefore unsupported.\nConsider upgrading your browser.'
+                );
                 return;
             }
 
