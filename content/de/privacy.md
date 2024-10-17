@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 03. August 2023 geändert.
+Unsere Datenschutzerklärung wurde zuletzt am 17. Oktober 2024 geändert.
 
 ## Allgemeine Hinweise
 
@@ -161,6 +161,15 @@ Die Anmeldung ist vollkommen freiwillig für Dich.
 - Dauer der Speicherung: bis Du Dich vom Newsletter abmeldest
 - Weitergabe der Daten: Auf die Kontaktdaten hat nur der Vorstand Zugriff. Der Newsletter wird über den Dienstleister Mailjet verschickt. Dafür werden die Kontaktdaten an Mailjet übertragen.  
   Mailjet wird betrieben von der {{< link slug="company/mailjet" text="Mailjet SAS" >}}, 13-13 bis rue de l’Aubrac, 75012 Paris, Frankreich. Mehr Informationen dazu, wie Mailjet Deine Daten verarbeitet, kannst Du deren [Datenschutzerklärung](https://www.mailjet.com/privacy-policy/) entnehmen.
+
+#### Videokonferenzen
+
+Wir verwenden ein Videokonferenzsystem, etwa für öffentliche Veranstaltungen und Mitgliederversammlungen. Im Rahmen von Videokonferenzen ist die flüchtige Verarbeitung einiger Daten nötig.
+
+- Betroffene Daten: Anzeigename/Pseudonym, ggf. Audio- und Videodaten (Mikrofon, Webcam, Bildschirm), hochgeladene Präsentationen/Bilder, Chatnachrichten, geteilte Notizen, Abstimmungsergebnisse, Raumname der Konferenz, technische Metadaten (Beginn und Ende der Konferenz, Anzahl der Teilnehmenden), Telefonnummer (nur bei Telefoneinwahl)
+- Rechtsgrundlage: Die flüchtige Verarbeitung dieser Daten ist erforderlich für die Bereitstellung der Videokonferenzen und ggf. der Telefoneinwahl, sie erfolgt auf Basis des Art. 6 Abs. 1 lit. f DSGVO.
+- Dauer der Speicherung: Die Daten werden für die Dauer der Videokonferenzen verarbeitet und im Anschluss gelöscht.
+- Weitergabe der Daten: Die technische Bereitstellung unserer Videokonferenzen erfolgt durch Senfcall, einem gemeinnützigen Projekt, das unseren hohen Datenschutzansprüchen entspricht. Senfcall wird betrieben vom {{< link slug="company/senfcall" text="Computerwerk Darmstadt e. V." >}}, Karolinenplatz 5, 64289 Darmstadt, Deutschland ([Datenschutzerklärung](https://www.senfcall.de/gdpr)).
 
 ### Externe Dienste
 
