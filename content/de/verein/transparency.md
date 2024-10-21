@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 13. Februar 2023.
+Die Informationen sind auf dem Stand vom 21. Oktober 2024.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
@@ -29,9 +29,19 @@ Diese Informationen sind auch in unserem {{< link slug="contact" text="Impressum
 
 ## 2. Satzung und Ziele
 
-Die vollständige Satzung veröffentlichen wir auf {{< link slug="verein/constitution" text="dieser Webseite" >}} sowie auf [GitHub](https://github.com/datenanfragen/verein/blob/master/satzung.md).
+Die vollständige Satzung veröffentlichen wir auf {{< link slug="verein/constitution" text="dieser Webseite" >}} ([Satzung als PDF](https://static.dacdn.de/docs/legal/satzung.pdf)).
 
 Unsere Ziele entsprechen den Zwecken, die die Satzung festlegt, wir haben sie aber {{< link slug="verein/mission-statement" text="hier" >}} noch einmal heruntergebrochen und ausgeführt.
+
+### Ordnungen der Mitgliederversammlung
+
+* [Geschäftsordnung des Vertrauensgremiums](https://static.dacdn.de/docs/legal/geschaeftsordnung-vertrauensgremium.pdf)
+* [Richtlinien für den Ersatz nachgewiesener Auslagen](https://static.dacdn.de/docs/legal/richtlinien-auslagenersatz.pdf)
+* [Reiseordnung](https://static.dacdn.de/docs/legal/reiseordnung.pdf)
+* [Vortragsordnung](https://static.dacdn.de/docs/legal/vortragsordnung.pdf)
+* [Fördermittelordnung](https://static.dacdn.de/docs/legal/foerdermittelordnung.pdf)
+* [Grundsätze in Beschäftigungsverhältnissen](https://static.dacdn.de/docs/legal/grundsaetze-beschaeftigungsverhaeltnisse.pdf)
+* [Kriterien für freie Lizenzen](https://static.dacdn.de/docs/legal/kriterien-freie-lizenzen.pdf)
 
 ## 3. Angaben zur Steuerbegünstigung
 
@@ -48,8 +58,13 @@ Die Geschäftsführung des Vereins haben die Vorsitzenden des {{< link slug="ver
 
 - Malte Wessels, Beisitzer
 
+Zusätzlich hat die Mitgliederversammlung vom 14. Dezember 2024 ein Vertrauensgremium eingerichtet. Satzungsmäßiger Zweck des Vertrauensgremiums ist es, die Einstellung von Mitgliedern des geschäftsführenden Vorstands durch den Verein zu überwachen und so Interessenkonflikten vorzubeugen. Das Vertrauensgremium muss vor allem der Anstellung von Vorstandsmitgliedern zustimmen und hat ein Vetorecht bei einigen Entscheidungen im Arbeitsverhältnis. Die Mitgliederversammlung hat dem Vertrauensgremium eine [Geschäftsordnung](https://static.dacdn.de/docs/legal/geschaeftsordnung-vertrauensgremium.pdf) gegeben, die Zusammensetzung, Wahl, Amtsdauer, Aufgaben und Beschlussfassung regelt. Das Vertrauensgremium besteht aus:
+
+- Malte Wessels, Sprecher
+
 ## 5. Tätigkeitsbericht
 
+s. [Jahresbericht 2022 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2022.pdf#page=5)  
 s. [Jahresbericht 2021 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=5)  
 s. [Jahresbericht 2020 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=5)  
 s. [Jahresbericht 2019 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=5)  
@@ -63,6 +78,7 @@ Anzahl Ehrenamtliche: 3
 
 ## 7. Angaben zur Mittelherkunft
 
+s. [Jahresbericht 2022 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2022.pdf#page=9)  
 s. [Jahresbericht 2021 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 s. [Jahresbericht 2020 (S. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
@@ -75,6 +91,7 @@ Vermögensstand Ende 2018: 119,70 €
 
 ## 8. Angaben zur Mittelverwendung
 
+s. [Jahresbericht 2022 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2022.pdf#page=9)  
 s. [Jahresbericht 2021 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2021.pdf#page=9)  
 s. [Jahresbericht 2020 (S. 11 f.)](https://static.dacdn.de/docs/bericht-2020.pdf#page=11)  
 s. [Jahresbericht 2019 (S. 10 f.)](https://static.dacdn.de/docs/bericht-2019.pdf#page=10)  
@@ -148,6 +165,11 @@ Unser {{< link slug="verein/board" text="Vorstand" >}} arbeitet grundsätzlich e
 
 Der Vorstand ist verpflichtet, Vorträge, für die Vorstandsmitglieder eine Vergütung von externen Organisationen erhalten haben, hier öffentlich zu dokumentieren. Dies ist in unserer {{< link slug="verein/compensated-lectures" text="Vortragsordnung" >}} geregelt.
 
+### 2023
+
+* Im Juni 2023 hat Die Landesbeauftragte für den Datenschutz Niedersachsen Benjamin Altpeter, Lorenz Sieben und Malte Wessels eingeladen, einen [Workshop zur Nutzung der Tweasel-Tools](https://docs.tweasel.org/usage/) zu halten. Dafür hat die Landesbeauftragte für den Datenschutz Niedersachsen Benni und Lorenz eine Kostenpauschale von 150,00&nbsp;€ gezahlt.
+* Im September 2023 hat der Topio e. V. Benjamin Altpeter und Lorenz Sieben eingeladen, im Rahmen der Vortragsreihe „Digital Rights: Menschenrechte im digitalen Zeitalter“ einen {{< link slug="verein/event/topio-09-2023" text="Vortrag über Datenschutzrechte und die Datensammlung" >}} durch mobiles Tracking zu halten. Dafür hat Topio den beiden privat ein Honorar von insgesamt 300&nbsp;€ gezahlt. Im Anschluss an den Vortrag wurden den beiden ein Abendessen bezahlt. Benni und Lorenz haben sich freiwillig entschieden, das Honorar vollständig an den Verein zu spenden.
+
 ### 2020
 
 * Im März 2020 hat die Humboldt-Universität zu Berlin Benjamin Altpeter und Lorenz Sieben im Rahmen der [HLCI](http://www.hlci.de/) privat eingeladen, ein {{< link slug="verein/event/hlci-berlin-2020" text="Seminar zu Datenanfragen.de" >}} als Gastvortrag zu halten. Die Humboldt-Universität hat die Kosten für die Zugreise und Übernachtung übernommen und den beiden ein Honorar von jeweils 250&nbsp;€ gezahlt. Benni und Lorenz haben sich freiwillig entschieden, die Hälfte des Honorars an den Verein zu spenden.
@@ -155,6 +177,15 @@ Der Vorstand ist verpflichtet, Vorträge, für die Vorstandsmitglieder eine Verg
 ## 12. Externe Fördermittel, die Mitglieder erhalten haben
 
 Der Verein profitiert davon, wenn sich Mitglieder selbstständig auf externe Fördermittel bewerben, um damit ihre Arbeit an unseren Projekten zu finanzieren. Gewährte Fördermittel dokumentieren wir hier. Die aufgelisteten Fördermittel gingen nicht an den Verein, sondern liegen alleine in der Verantwortung der entsprechenden Mitglieder.
+
+### 2024
+
+* Das Bundesministerium für Bildung und Forschung fördert die Arbeit der Lorenz Sieben und Benjamin Altpeter GbR am Projekt [„Tweasel for Web“](https://prototypefund.de/project/tweasel-for-web/) im Rahmen des Prototype Fund zwischen September 2024 und Februar 2025 mit 47.481,00&nbsp;€ (Förderkennzeichen 01IS24S28). Zweck des Projektes ist die Erweiterung der Tweasel-Tools für die Analyse von Tracking auf Webseiten sowie die Entwicklung eines Browser-Addons als Gegenstück zur Tweasel-Plattform für mobile Apps.
+
+### 2023
+
+* Die NLnet-Stiftung hat die Arbeit der Lorenz Sieben und Benjamin Altpeter GbR und von Carolin Gaus am Projekt [„Tracking weasel“](https://nlnet.nl/project/TrackingWeasel/) im Rahmen des NGI0-Entrust-Fund mit finanzieller Unterstützung aus dem Next-Generation-Internet-Programm der EU-Kommission zwischen Januar 2023 und Juni 2024 mit 48.750,00&nbsp;€ gefördert (Förderkennzeichen 2022-08-061). Zweck des Projektes war die Entwicklung von Tools und Bibliotheken zur automatischen Analyse von Datenschutzverstößen durch Tracking in mobilen Apps sowie die Entwicklung einer Plattform, um diese Infrastruktur für Nutzer_innen anwendbar zu machen.  
+  *Abschlussbericht folgt*
 
 ### 2022
 
