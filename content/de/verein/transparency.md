@@ -58,7 +58,7 @@ Die Geschäftsführung des Vereins haben die Vorsitzenden des {{< link slug="ver
 
 - Malte Wessels, Beisitzer
 
-Zusätzlich hat die Mitgliederversammlung vom 14. Dezember 2024 ein Vertrauensgremium eingerichtet. Satzungsmäßiger Zweck des Vertrauensgremiums ist es, die Einstellung von Mitgliedern des geschäftsführenden Vorstands durch den Verein zu überwachen und so Interessenkonflikten vorzubeugen. Das Vertrauensgremium muss vor allem der Anstellung von Vorstandsmitgliedern zustimmen und hat ein Vetorecht bei einigen Entscheidungen im Arbeitsverhältnis. Die die Mitgliederversammlung hat dem Vertrauensgremium eine [Geschäftsordnung](https://static.dacdn.de/docs/legal/geschaeftsordnung-vertrauensgremium.pdf) gegeben, die Zusammensetzung, Wahl, Amtsdauer, Aufgaben und Beschlussfassung regelt. Das Vertrauensgremium besteht aus:
+Zusätzlich hat die Mitgliederversammlung vom 14. Dezember 2024 ein Vertrauensgremium eingerichtet. Satzungsmäßiger Zweck des Vertrauensgremiums ist es, die Einstellung von Mitgliedern des geschäftsführenden Vorstands durch den Verein zu überwachen und so Interessenkonflikten vorzubeugen. Das Vertrauensgremium muss vor allem der Anstellung von Vorstandsmitgliedern zustimmen und hat ein Vetorecht bei einigen Entscheidungen im Arbeitsverhältnis. Die Mitgliederversammlung hat dem Vertrauensgremium eine [Geschäftsordnung](https://static.dacdn.de/docs/legal/geschaeftsordnung-vertrauensgremium.pdf) gegeben, die Zusammensetzung, Wahl, Amtsdauer, Aufgaben und Beschlussfassung regelt. Das Vertrauensgremium besteht aus:
 
 - Malte Wessels, Sprecher
 
