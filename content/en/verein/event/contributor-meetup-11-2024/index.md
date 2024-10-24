@@ -10,6 +10,6 @@
     "description": "A meetup for everybody already working on datarequests.org or wanting to, to come together, make plans and learn new things."
 }
 
-Regardless of whether you are already contributing to datarequests.org, whether you are interested in joining, or you just want to get to know us: Our contributor meetup is supposed to be a space to ask question on contributing, for learning on how you can participate, and where data protection nerds can network on various issues. To take part, you need nothing in particular. Just be in our online meeting on November 7 at 17:00 (CEST) and bring your curiosity, questions and motivation.
+Regardless of whether you are already contributing to datarequests.org, whether you are interested in joining, or you just want to get to know us: Our contributor meetup is supposed to be a space to ask questions on participating, for learning on how you can contribute to datarequests.org and Tweasel, and where data protection nerds can network on various issues. To take part, you need nothing in particular. Just be in our online meeting on November 6 at 17:00 (CEST) and bring your curiosity, questions and motivation.
 
 If you know that you will definitely come, we would appreciate a message to kontakt@datenanfragen.de for our planning (optional).
