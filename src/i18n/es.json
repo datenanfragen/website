@@ -84,7 +84,7 @@
         "cdb-send-request": "Enviar una solicitud",
         "cdb-category-title": "Empresas en la categoría “{{ .c }}”",
         "cdb-related-companies": "Empresas relacionadas",
-        "cdeb-tested": "Al menos uno de nuestro contribuyentes ha satisfactoriamente enviado una solicitud usando los datos de contacto en este registro",
+        "cdb-tested": "Al menos uno de nuestro contribuyentes ha satisfactoriamente enviado una solicitud usando los datos de contacto en este registro",
         "blog-published": "Publicado: ",
         "blog-author": "por: ",
         "blog-last-edited": ", última modificación: ",
