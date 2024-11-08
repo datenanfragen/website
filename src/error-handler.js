@@ -83,6 +83,10 @@ const isNetworkError = (message) => {
     return false;
 };
 
+/**
+ * Heuristic to determine if the browser is too old. Uses a somewhat recent language feature to check if it is supported.
+ * @returns {boolean}
+ */
 const isBrowserDeprecated = () => {
     try {
         Object.fromEntries(new Map([['a', 'b']]));
