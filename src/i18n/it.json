@@ -21,5 +21,8 @@
         "logo-a-title": "Torna alla home page",
         "header-name": "${site_name}",
         "logo-title": "${site_name} logo"
+    },
+    "macros": {
+        "site_name": "datarequests.org"
     }
 }
