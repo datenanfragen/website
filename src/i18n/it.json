@@ -15,6 +15,11 @@
         "political party": "partito politico",
         "public body": "ente pubblico",
         "travel": "viaggi",
-        "telecommunication": "telecomunicazione"
+        "telecommunication": "telecomunicazione",
+        "school": "istruzione",
+        "social media": "social media",
+        "logo-a-title": "Torna alla home page",
+        "header-name": "${site_name}",
+        "logo-title": "${site_name} logo"
     }
 }
