@@ -34,7 +34,19 @@
         "header-contact": "Contatto",
         "header-privacy-controls": "Impostazioni privacy",
         "home-hero-word": "accesso ai dati",
-        "home-hero-line-1": "Hai il diritto di"
+        "home-hero-line-1": "Hai il diritto di",
+        "utility": "utilità",
+        "blog-next-page": "Pagina successiva",
+        "blog-page": "Pagina ",
+        "blog-and": " e ",
+        "blog-written-on": "il",
+        "blog-of": " di ",
+        "blog-read-more": "Leggi di più…",
+        "blog-written-by": "scritto da",
+        "noscript-generator": "Il generatore opera esclusivamente sul tuo computer ed è scritto interamente in JavaScript. Il codice non invia alcun dato ad alcun server senza il tuo consenso. Se vuoi usare il generatore, attiva JavaScript sul tuo browser, o aggiungi un'eccezione al blocco delle pubblicità. Se, nonostante tutto, continua a non funzionare, contattaci via email a <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
+        "blog-prev-page": "Pagina precedente",
+        "blog-licensed-under": "secondo la licenza:",
+        "license": "Licenza"
     },
     "macros": {
         "site_name": "datarequests.org"
