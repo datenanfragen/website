@@ -20,7 +20,21 @@
         "social media": "social media",
         "logo-a-title": "Torna alla home page",
         "header-name": "${site_name}",
-        "logo-title": "${site_name} logo"
+        "logo-title": "${site_name} logo",
+        "header-home": "Pagina principale",
+        "header-blog": "Blog",
+        "header-id-data-controls": "I miei dati salvati",
+        "skip-to-content": "Salta al contenuto",
+        "header-cdb": "Database aziendale",
+        "header-open-menu": "Apri menu",
+        "header-generator": "Generatore di richieste",
+        "header-my-requests": "Le mie richieste",
+        "footer-learn-more": "Scopri di più.",
+        "footer-about-us": "Siamo Datenanfragen.de e. V., un'organizzazione no-profit registrata in Germania. La nostra missione è quella di aiutarvi a esercitare il vostro diritto alla privacy.",
+        "header-contact": "Contatto",
+        "header-privacy-controls": "Impostazioni privacy",
+        "home-hero-word": "accesso ai dati",
+        "home-hero-line-1": "Hai il diritto di"
     },
     "macros": {
         "site_name": "datarequests.org"
