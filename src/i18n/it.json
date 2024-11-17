@@ -46,7 +46,12 @@
         "noscript-generator": "Il generatore opera esclusivamente sul tuo computer ed è scritto interamente in JavaScript. Il codice non invia alcun dato ad alcun server senza il tuo consenso. Se vuoi usare il generatore, attiva JavaScript sul tuo browser, o aggiungi un'eccezione al blocco delle pubblicità. Se, nonostante tutto, continua a non funzionare, contattaci via email a <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
         "blog-prev-page": "Pagina precedente",
         "blog-licensed-under": "secondo la licenza:",
-        "license": "Licenza"
+        "license": "Licenza",
+        "home-hero-desc": "Le imprese sono tenute a darti accesso ai tuoi dati, correggerli o anche eliminarli se necessario.<br>Come organizzazione senza scopo di lucro, ti aiutiamo a esercitare i tuoi diritti – <strong>gratis e senza bisogno di registrarti<\\strong>.",
+        "home-claim-title": "Le richieste di dati funzionano in questo modo:",
+        "home-claim-choose-company-title": "Scegli le aziende",
+        "home-claim-choose-company": "Scegli le aziende dal nostro database, o aggiungine una. Non sai a chi chiedere? Ecco alcuni suggerimenti.",
+        "home-claim-send-title": "Invia le richieste"
     },
     "macros": {
         "site_name": "datarequests.org"
