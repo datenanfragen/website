@@ -331,7 +331,7 @@
         },
         "send-too-long": "Došlo je do greške prilikom slanja tvog komentara. Tvoj komentar je predug.",
         "confirm-private-data": "Čini se da tvoj komentar možda sadrži privatne podatke ili da se odnosi na narudžbu. Želiš li stvarno ovo objaviti kao JAVNI komentar? Komentari se NEĆE slati poduzeću.",
-        "regex-sus-words": "broj narudžbe|broj potvrde|broj praćenja|broj prijenosa|broj kupca|IBAN|bankovni račun|referenca uplate|bankovni prijenos|isplata|uplata|naknada pretplate|povratna adresa|povrat novca|transakcija|knjiženje|rezervacija|paket|paket",
+        "regex-sus-words": "broj narudžbe|broj potvrde|broj praćenja|broj prijenosa|broj kupca|IBAN|bankovni račun|referenca uplate|bankovni prijenos|isplata|uplata|naknada pretplate|povratna adresa|povrat novca|transakcija|knjiženje|rezervacija|paket|paket|bitcoin|scam|ulazni račun|naruđba",
         "no-email-in-name": "Nemoj navesti e-mail adresu u polju imena. Komentari se objavljuju javno i neće se slati poduzeću."
     },
     "signature": {
