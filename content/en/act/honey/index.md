@@ -236,7 +236,7 @@ window.addEventListener('load', function() {
 
 ## How can I file a complaint about this? {#complaint}
 
-The GDPR also gives you the right to file a complaint against a company with the {{< link slug="supervisory-authorities" text="supervisory authorities" >}} if you believe they have violated your data protection rights. Filing a complaint is free and you can of course also do that for Honey.
+The GDPR also gives you the right to file a complaint against a company with the {{< link slug="blog/supervisory-authorities" text="supervisory authorities" >}} if you believe they have violated your data protection rights. Filing a complaint is free and you can of course also do that for Honey.
 
 A complaint can be filed informally, you don't have to adhere to any specific guidelines. If you want to complain about Honey, your complaint should describe, if applicable, that you requested your data from Honey and that you think, after you've read their response, that they have violated your privacy rights. You should illustrate that with examples from Honey's data export.  
 We have prepared a template that you can use as a guide.
