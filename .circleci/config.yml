@@ -30,14 +30,14 @@ jobs:
           command: |
             apk update
             apk add bash git wget ca-certificates autoconf automake build-base libc6-compat libstdc++
-
+            # Workaround https://github.com/gohugoio/hugo/issues/10839
+            ln -s /lib/libc.so.6 /usr/lib/libresolv.so.2
             rm -rf /var/cache/apk/*
             mkdir /usr/local/hugo
-            # wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz -O /usr/local/hugo/${HUGO_BINARY}.tar.gz
-            # tar xzf /usr/local/hugo/${HUGO_BINARY}.tar.gz -C /usr/local/hugo/
-            doas apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community hugo
+            wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz -O /usr/local/hugo/${HUGO_BINARY}.tar.gz
+            tar xzf /usr/local/hugo/${HUGO_BINARY}.tar.gz -C /usr/local/hugo/
             ln -s /usr/local/hugo/hugo /usr/local/bin/hugo
-            # rm /usr/local/hugo/${HUGO_BINARY}.tar.gz
+            rm /usr/local/hugo/${HUGO_BINARY}.tar.gz
             rm -rf /tmp/* /var/cache/apk/*
 
       - checkout
