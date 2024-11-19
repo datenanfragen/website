@@ -29,7 +29,7 @@ jobs:
       - run:
           command: |
             apk update
-            apk add bash git wget ca-certificates autoconf automake build-base libc6-compat libstdc++
+            apk add bash git wget ca-certificates autoconf automake build-base libc6-compat libstdc++ gcompat
             # Workaround https://github.com/gohugoio/hugo/issues/10839
             ln -s /lib/libc.so.6 /usr/lib/libresolv.so.2
             rm -rf /var/cache/apk/*
