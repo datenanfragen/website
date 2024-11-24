@@ -100,7 +100,7 @@ const isNetworkError = (message) => {
 };
 
 /**
- * Heuristic to determine if the browser is too old. Uses a somewhat recent language feature to check if it is supported.
+ * Heuristic to determine if the browser is too old. Uses somewhat recent language features to check if the browser is deprecated.
  * @returns {boolean}
  */
 const isBrowserDeprecated = () => {
