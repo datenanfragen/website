@@ -542,7 +542,8 @@
         "explain-context": "If applicable, please provide some context for the error, i.e. describe what you did before the error occurred. Please also remove any sensitive information from the debug information below.",
         "report-on-github": "Report on GitHub",
         "report-via-email": "Report via email",
-        "no-internet": "Seems like you don't have a working internet connection."
+        "no-internet": "Seems like you don't have a working internet connection.",
+        "browser-too-old": "An error occured, but you are running an unsupported browser. Please update your browser or switch to a modern one."
     },
     "error-msg": {
         "company-not-found": "The company you were looking for could not be found.",
