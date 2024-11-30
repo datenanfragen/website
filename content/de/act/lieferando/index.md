@@ -40,4 +40,4 @@ window.addEventListener('load', function() { renderActWidget({
 
 ## Was dann?
 
-Wenn Du Dich von dem, was Du durch Deine Auskunftsanfrage erfährst, in Deinen Datenschutzrechten verletzt siehst, hast Du die Option Dich zu beschweren. Kontaktiere dafür die für Dich {{< link slug="supervisory-authorities" text="zuständige Datenschutzbehörde" >}}.
+Wenn Du Dich von dem, was Du durch Deine Auskunftsanfrage erfährst, in Deinen Datenschutzrechten verletzt siehst, hast Du die Option Dich zu beschweren. Kontaktiere dafür die für Dich {{< link slug="blog/supervisory-authorities" text="zuständige Datenschutzbehörde" >}}.

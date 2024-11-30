@@ -235,7 +235,7 @@ window.addEventListener('load', function() {
 
 ## Wie kann ich mich darüber beschweren? {#beschwerde}
 
-Die DSGVO gibt Dir auch das Recht Dich bei den unabhängigen {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} über Unternehmen zu beschweren, wenn Du der Meinung bist, dass diese Deine Datenschutzrechte verletzt haben. Das ist gratis für Dich und geht natürlich auch für Honey.
+Die DSGVO gibt Dir auch das Recht Dich bei den unabhängigen {{< link slug="blog/supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} über Unternehmen zu beschweren, wenn Du der Meinung bist, dass diese Deine Datenschutzrechte verletzt haben. Das ist gratis für Dich und geht natürlich auch für Honey.
 
 Eine Beschwerde kann formlos geschehen, du musst Dich dafür an keine bestimmten Vorgaben halten. Wenn Du Dich über Honey beschweren möchtest, solltest Du – sofern es zutrifft, in Deiner Beschwerde beschreiben, dass Du Deine Daten bei Honey angefragt hast und aufgrund der Antwort glaubst, dass Honey Deine Rechte verletzt hat. Am besten illustrierst Du das auch noch mit Beispielen aus dem Datensatz, den Honey Dir geschickt hat.  
 Wir haben eine Vorlage vorbereitet, an der Du Dich orientieren kannst.

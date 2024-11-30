@@ -125,7 +125,7 @@ Concretely, this concerns the following data:
 
 ### Supervisory authority
 
-The {{< link slug="supervisory-authorities" text="supervisory data protection authorities" >}} are independent bodies in each EU country. Their task is to ensure compliance with data protection laws, in particular the GDPR.
+The {{< link slug="blog/supervisory-authorities" text="supervisory data protection authorities" >}} are independent bodies in each EU country. Their task is to ensure compliance with data protection laws, in particular the GDPR.
 
 To accomplish this, they may monitor [controllers](#data-controller), require them to comply with data protection laws, and impose fines where necessary.
 
