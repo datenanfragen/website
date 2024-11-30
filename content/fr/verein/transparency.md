@@ -14,6 +14,7 @@ Ces informations ont été mises à jour pour la dernière fois le 30 mai 2021.
 
 Ces informations sont également disponibles sur notre page de {{< link slug="contact" text="contact" >}}.
 
+<address>
  - Nom : Datenanfragen.de e.&thinsp;V.
  - Siège social : Braunschweig, Allemagne
  - Registre : Registre des associations du tribunal du district de Braunschweig
@@ -25,6 +26,7 @@ Ces informations sont également disponibles sur notre page de {{< link slug="co
    Allemagne  
  - Date de création : 14 juin 2018
  - Contact pour la transparence : Benjamin Altpeter ([transparenz@datenanfragen.de](mailto:transparenz@datenanfragen.de) ou via l'adresse mentionnée plus haut)
+</address>
 
 ## 2. Constitution et objectifs
 

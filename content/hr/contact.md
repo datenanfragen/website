@@ -7,6 +7,7 @@
  
 ## Podaci na osnovi članka 5. njemačkog zakona o telekomunikaciji (TMG)
 
+<address>
 **Poštanska adresa**:  
 Datenanfragen.de e.&nbsp;V.  
 Schreinerweg 6  
@@ -23,6 +24,7 @@ Datenanfragen.de e.&nbsp;V. je neprofitna organizacija i registrirana je udruga 
 
 **Odgovornost za sadržaj prema članku 55. stavka 2. njemačkog državnog ugovora o medijima (MStV):**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Deutschland
+</address>
 
 <div class="box box-warning">
 	Napominjemo da smo <em>neovisna neprofitna organizacija</em> i da nismo povezani s poduzećima navedenima u našoj <a href="/company">bazi podataka poduzeća</a>.<br>
