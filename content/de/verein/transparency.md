@@ -172,7 +172,7 @@ Der Vorstand ist verpflichtet, Vorträge, für die Vorstandsmitglieder eine Verg
 - Malte war an der TU Braunschweig eingestellt, und hat im Rahmen dieser Einstellung Vorträge im Sinne der Vortragsordnung gehalten, sowie Reisekosten erstattet bekommen.
 
 ### 2022
-- Malte war an der TU Braunschweig eingestellt, und hat im Rahmen dieser Einstellung Vorträge im Sinne der Vortragsordnung gehalten, sowie Reisekosten erstattet bekommen.
+- Malte war an der TU Braunschweig eingestellt, und hat im Rahmen dieser Einstellung Vorträge im Sinne der Vortragsordnung gehalten.
 
 ### 2020
 
