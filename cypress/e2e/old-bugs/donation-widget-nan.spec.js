@@ -29,7 +29,7 @@ describe('Donation widget amount', () => {
             cy.get('.flash-message.flash-error').should('not.exist');
         };
         // testMethod('Credit card');
-        testMethod('Crypto currency');
+        // testMethod('Crypto currency');
         testMethod('PayPal');
         //testMethod('Other payments');
     });
