@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 17. Oktober 2024 geändert.
+Unsere Datenschutzerklärung wurde zuletzt am 23. Dezember 2024 geändert.
 
 ## Allgemeine Hinweise
 
@@ -174,21 +174,6 @@ Wir verwenden ein Videokonferenzsystem, etwa für öffentliche Veranstaltungen u
 ### Externe Dienste
 
 Um unsere Angebote attraktiver und effizienter gestalten, arbeiten wir mit einigen externen Dienstleistern.
-
-#### CoinGate
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform CoinGate zu tätigen. CoinGate ist ein Angebot der {{< link slug="company/coingate" text="UAB “Decentralized”" >}}, A. Goštauto g. 8, LT-01108 Vilnius, Litauen.  
-Wir setzen CoinGate für Zahlungen mit Crypowährungen ein. In jedem Fall wird Dir in dem Zahlungsformular angezeigt, wenn Deine ausgewählte Zahlungsmethode von CoinGate zur Verfügung gestellt wird.
-
-Wenn Du über CoinGate eine Zahlung tätigst, erhält die UAB “Decentralized” sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: der Betrag Deiner Zahlung, die Cryptowährung, mit der Du bezahlst, Deine Bezahldaten (z.&nbsp;B. die Adresse Deiner Bitcoin-Wallet), ggf. Deinen Namen, ggf. Deine E-Mail-Adresse.  
-Weitere Informationen dazu, wie CoinGate Deine Daten verarbeitet, findest Du in deren [Datenschutzerklärung](https://coingate.com/privacy).
-
-#### Mollie
-
-Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform Mollie zu tätigen. Mollie ist ein Angebot der {{< link slug="company/mollie" text="Mollie B.V." >}}, Keizersgracht 313, 1016 EE Amsterdam, Niederlande.  
-Wir setzen Mollie bspw. für Kreditkartenzahlungen ein. In jedem Fall wird Dir in dem Zahlungsformular angezeigt, wenn Deine ausgewählte Zahlungsmethode von Mollie zur Verfügung gestellt wird.
-
-Wenn Du über Mollie eine Zahlung tätigst, erhält die Mollie B.V. sämtliche Daten, die im Zahlungsvorgang anfallen, dazu zählen insbesondere: Deine Bezahldaten (z.&nbsp;B. Konto- oder Kreditkartennummer) inkl. dem Betrag, Deine IP-Adresse, Dein Browser und Gerätetyp, ggf. Dein Name, ggf. Deine Adressdaten, ggf. Informationen über die Art von Zahlung, die an uns tätigst, ggf. sonstige personenbezogene Daten, die Du aktiv bereitstellst (z.&nbsp;B. bei Korrespondenz mit dem Kundendienst von Mollie).  
-Weitere Informationen dazu, wie Mollie Deine Daten verarbeitet, findest Du in deren [Datenschutzerklärung](https://www.mollie.com/de/privacy).
 
 #### PayPal
 Wir bieten Dir die Möglichkeiten, Zahlungen an den Verein (insb. Spenden und Mitgliedsbeiträge) über die Zahlungsplattform PayPal zu tätigen. PayPal ist ein Angebot der {{< link slug="company/paypal" text="PayPal (Europe) S.à.r.l. et Cie, S.C.A." >}}, 22-24 Boulevard Royal L-2449, Luxemburg.  

@@ -5,6 +5,7 @@
     "aliases": ["privacy", "privacy-policy", "data-protection"]
 }
 
+<!-- This includes the update from Dec 23, 2024 but is missing some earlier updates. -->
 Nuestra política de privacidad se modificó por última vez el 03 de agosto de 2023.
 
 ## Observaciones generales
@@ -163,18 +164,6 @@ La suscripción es totalmente voluntaria para ti.
 ### Servicios externos
 
 Para hacer más eficientes nuestros servicios, trabajamos con algunos servicios externos.
-
-#### CoinGate
-Te permitimos realizar pagos a la asociación (especialmente donaciones y cuotas de membresía) a través de la pasarela de pago CoinGate. CoinGate está dirigido por {{< link slug="company/coingate" text="UAB “Decentralized”" >}}, A. Goštauto g. 8, LT-01108 Vilnius, Lituania.  
-Usamos CoinGate para transacciones de criptomonedas. Mostraremos una nota en el formulario de pago si tu pago se realiza a través de CoinGate.
-
-Si realizas un pago a través de CoinGate, la UAB "Descentralizada" recibe todos los datos incurridos en el proceso de pago, especialmente incluyendo: el monto del pago, la moneda criptográfica que estás utilizando, tus detalles de pago (como la dirección de tu billetera Bitcoin), potencialmente tu nombre, y potencialmente tu dirección de correo electrónico. Para obtener más detalles sobre cómo CoinGate procesa tus datos, consulta su [política de privacidad](https://coingate.com/privacy).
-
-#### Mollie
-Te permitimos realizar pagos a la asociación (especialmente donaciones y cuotas de membresía) a través de la pasarela de pago Mollie. Mollie está dirigido por {{< link slug="company/mollie" text="Mollie B.V." >}}, Keizersgracht 313, 1016 EE Amsterdam, Paises Bajos.  
-Mostraremos una nota en el formulario de pago si tu pago se realiza a través de Mollie.
-
-Si realizas un pago a través de Mollie, Mollie BV recibe todos los datos incurridos en el proceso de pago, especialmente incluyendo: tus detalles de pago (por ejemplo, tu cuenta bancaria o detalles de tarjeta de crédito) incluyendo el monto, tu dirección IP, tu navegador y tipo de dispositivo, potencialmente tu nombre, potencialmente tu dirección, potencialmente información sobre el tipo de pago que nos estás haciendo, potencialmente todos los demás datos que proporciones activamente (como cuando interactúas con el equipo de soporte de Mollie). Para obtener más detalles sobre cómo Mollie procesa tus datos, consulta su [política de privacidad](https://www.mollie.com/en/privacy).
 
 #### PayPal
 Te permitimos realizar pagos a la asociación (especialmente donaciones y cuotas de membresía) a través de la pasarela de pago PayPal. PayPal está dirijido por {{< link slug="company/paypal" text="PayPal (Europe) S.à.r.l. et Cie, S.C.A." >}}, 22-24 Boulevard Royal L-2449, Luxemburgo.  
