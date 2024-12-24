@@ -24,7 +24,7 @@ As a public-benefit organization, we can also issue you a [donation receipt](#do
     
 * <a id="donation-receipt-howto"></a>**How do I get a receipt for my donation?**
 
-    If you require a receipt from us in order to prove to your tax authority that you donated to a public-benefit organization, we can provide you with one. Generally, we only issue receipts for payments made via bank transfer, direct debit, PayPal or credit card.
+    If you require a receipt from us in order to prove to your tax authority that you donated to a public-benefit organization, we can provide you with one. Generally, we only issue receipts for payments made via bank transfer, direct debit, or PayPal.
 
     After your donation, you will be redirected to a page where you can download a (German) receipt for your donation if you donated an amount less than 300 €.  
     For a larger donation, you will have to send us an email at [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), and tell us your donation ID and address, so that we can create an extended receipt for you.
@@ -41,7 +41,7 @@ As a public-benefit organization, we can also issue you a [donation receipt](#do
 
 * **How can I donate anonymously?**
 
-    If you don't want to give away your identity, you can either use an anonymous crypto currency or send us cash via mail to our address:
+    If you don't want to give away your identity, you can send us cash via postal mail to our address:
 
     *Datenanfragen.de e.&thinsp;V.  
     Schreinerweg 6  

@@ -6,7 +6,7 @@
 
 Vielen Dank, dass Du daran interessiert bist uns zu unterstützen! Deine Spende hilft uns dabei, unsere aktuellen und kommenden Projekte zu finanzieren, damit sie für alle kostenlos bleiben können.
 
-Du kannst uns jederzeit auf unser Spendenkonto DE42&nbsp;8306&nbsp;5408&nbsp;0104&nbsp;0851&nbsp;40 überweisen, aber auch per PayPal, mit den gängigen europäischen Kreditkarten oder via Cryptowährung spenden. Dazu kannst Du einfach das Formular benutzen.  
+Du kannst uns jederzeit auf unser Spendenkonto DE42&nbsp;8306&nbsp;5408&nbsp;0104&nbsp;0851&nbsp;40 überweisen, aber auch per PayPal spenden. Dazu kannst Du einfach das Formular benutzen.  
 Wenn Du uns regelmäßig unterstützen willst, kannst Du auch {{< link slug="verein/become-a-member" text="Fördermitglied werden" >}}, dann kannst Du uns auch ein SEPA-Lastschriftmandat erteilen.
 
 Als gemeinnütziger Verein stellen wir Dir natürlich auch gerne eine [Spendenbescheinigung](#spendenbescheinigung-howto) aus.
@@ -31,7 +31,7 @@ Als gemeinnütziger Verein stellen wir Dir natürlich auch gerne eine [Spendenbe
 
     Nach der Spende wirst du auf eine Seite weitergeleitet, die Dir erklärt, wie Du an die Spendenbescheinigung kommst.
 
-    Grundsätzlich stellen wir nur Spendenbescheinigungen aus, wenn Du per Überweisung, Bankeinzug, PayPal oder Kreditkarte bezahlt hast. Nach der Bezahlung wirst Du auf eine Abschlusseite weitergeleitet. Falls Deine Spende kleiner als 300 € war, kannst Du dort einen [vereinfachten Zuwendungsnachweis](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) herunterladen.  
+    Grundsätzlich stellen wir nur Spendenbescheinigungen aus, wenn Du per Überweisung, Bankeinzug oder PayPal bezahlt hast. Nach der Bezahlung wirst Du auf eine Abschlusseite weitergeleitet. Falls Deine Spende kleiner als 300 € war, kannst Du dort einen [vereinfachten Zuwendungsnachweis](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) herunterladen.  
     Für größere Spenden brauchen wir leider Deine Adresse. Eine Erklärung erhältst Du auch nach Deiner Spende, bei Fragen kannst Du Dich natürlich gerne jederzeit an den {{< link slug="verein/board" text="Vorstand" >}} wenden.
  
 * **Wer hat außer mir gespendet?**
@@ -44,14 +44,14 @@ Als gemeinnütziger Verein stellen wir Dir natürlich auch gerne eine [Spendenbe
 
 * **Wie kann ich anonym spenden?**
 
-    Wenn Du uns Deine Identität nicht preisgeben möchtest, kannst Du entweder eine anonyme Cryptowährung verwenden oder Bargeld per Post an unsere Adresse schicken:
+    Wenn Du uns Deine Identität nicht preisgeben möchtest, kannst Du Bargeld per Post an unsere Adresse schicken:
 
     *Datenanfragen.de e.&thinsp;V.  
     Schreinerweg 6  
     38126 Braunschweig  
     Deutschland*
 
-    Für Bargeldspenden kannst Du auch ein Produkt wie [WERT NATIONAL](https://www.deutschepost.de/de/w/wert-national.html) von der Deutschen Post verwenden, um die Spende gegen Verlust abzusichern. Bitte sorg dafür, dass sich in keinem Fall von außen erkennen lässt, dass Deine Sendung Geld enthält.
+    Dafür kannst Du auch ein Produkt wie [WERT NATIONAL](https://www.deutschepost.de/de/w/wert-national.html) von der Deutschen Post verwenden, um die Spende gegen Verlust abzusichern. Bitte sorg dafür, dass sich in keinem Fall von außen erkennen lässt, dass Deine Sendung Geld enthält.
     
     Bargeldspenden können wir leider nur in Euro annehmen.
 

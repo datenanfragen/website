@@ -24,7 +24,7 @@ En tant qu'association reconnue d'utilité publique, nous pouvons également te 
 
 * <a id="donation-receipt-howto"></a>**Comment obtenir un reçu pour mon don ?**
 
-  Si tu as besoin d'un reçu de notre part pour prouver à ton administration fiscale que tu as effectué un don à une association reconnue d'utilité publique, nous pouvons t'en fournir un. En règle générale, nous ne délivrons des reçus que pour les paiements effectués par virement bancaire, prélèvement automatique, PayPal ou carte de crédit.
+  Si tu as besoin d'un reçu de notre part pour prouver à ton administration fiscale que tu as effectué un don à une association reconnue d'utilité publique, nous pouvons t'en fournir un. En règle générale, nous ne délivrons des reçus que pour les paiements effectués par virement bancaire, prélèvement automatique ou PayPal.
 
   Après ton don, tu seras redirigé vers une page où tu pourras télécharger un reçu (en allemand) pour ton don si tu as fait un don d'un montant inférieur à 300 €.  
   Pour un don plus important, tu devras nous envoyer un e-mail à [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), et nous indiquer ton numéro de don et ton adresse, afin que nous puissions te créer un reçu détaillé.
@@ -41,7 +41,7 @@ En tant qu'association reconnue d'utilité publique, nous pouvons également te 
 
 * **Comment puis-je donner de façon anonyme ?**
 
-  Si tu ne souhaites pas indiquer ton identité, tu peux soit utiliser une cryptomonnaie de manière anonyme, soit nous envoyer de l'argent liquide par courrier à notre adresse :
+  Si tu ne souhaites pas indiquer ton identité, tu peux nous envoyer de l'argent liquide par courrier à notre adresse :
 
     *Datenanfragen.de e.&thinsp;V.  
     Schreinerweg 6  

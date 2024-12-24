@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on October 17, 2024.
+Our privacy policy was last changed on December 23, 2024.
 
 ## General remarks
 
@@ -172,20 +172,6 @@ We are using a video conferencing system, for example for public events or our m
 ### External services
 
 In order to make our servives more interesting and efficient, we work with some external services.
-
-#### CoinGate
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. CoinGate is run by {{< link slug="company/coingate" text="UAB “Decentralized”" >}}, A. Goštauto g. 8, LT-01108 Vilnius, Lithuania.  
-We use CoinGate for crypto currency transactions. We will display a note in the payment form if your payment is made through CoinGate.
-
-If you make a payment through CoinGate, UAB “Decentralized” receives all data incurred in the payment process, especially including: the payment amount, the crypto currency you are using, your payment details (like your Bitcoin wallet address), potentially your name, potentially your email address.  
-For more details on how CoinGate processes your data, have a look at their [privacy policy](https://coingate.com/privacy).
-
-#### Mollie
-We allow you to make payments to the association (especially donations and membership fees) through the payment gateway CoinGate. Mollie is run by {{< link slug="company/mollie" text="Mollie B.V." >}}, Keizersgracht 313, 1016 EE Amsterdam, Netherlands.  
-We use CoinGate for example for credit card transactions. In any case, we will display a note in the payment form if your payment is made through Mollie.
-
-If you make a payment through Mollie, Mollie B.V. receives all data incurred in the payment process, especially including: your payment details (for example your bank account or credit card details) including the amount, your IP address, your browser and device type, potentially your name, potentially your address, potentially information on the kind of payment you are making to us, potentially all other data you actively provide (like when interacting with Mollie's support).  
-For more details on how CoinGate processes your data, have a look at their [privacy policy](https://www.mollie.com/en/privacy).
 
 #### PayPal
 We allow you to make payments to the association (especially donations and membership fees) through the payment gateway PayPal. PayPal is run by {{< link slug="company/paypal" text="PayPal (Europe) S.à.r.l. et Cie, S.C.A." >}}, 22-24 Boulevard Royal L-2449, Luxembourg.  
