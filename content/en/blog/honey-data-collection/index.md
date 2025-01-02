@@ -262,4 +262,4 @@ We at datarequests.org have made it our mission to make help you exercise your r
 <a href="{{< ref "act/honey" >}}" class="button button-primary icon icon-email" style="float: right;">Request your data from Honey</a><div class="clearfix"></div>
 
 And should you decide that you are not okay with Honey's vast data collection, you can make use of your {{< link slug="your-gdpr-rights#right-to-be-forgotten" text="*right to be forgotten*" >}} and demand the deletion of your data. You can use our {{< link slug="generator#!company=joinhoney" text="generator" >}} for that.  
-Finally, you also have the right to submit a complain yourself. We explain how that works in our {{< link slug="supervisory-authorities" text="post on the supervisory authorities" >}}.
+Finally, you also have the right to submit a complain yourself. We explain how that works in our {{< link slug="blog/supervisory-authorities" text="post on the supervisory authorities" >}}.

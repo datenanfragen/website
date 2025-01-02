@@ -3,7 +3,7 @@
 {{ if (or (eq hugo.Environment "production") (eq hugo.Environment "staging")) }}
     {{ $link = $link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
 {{ end }}
-<link rel="stylesheet" href="{{ $link }}" integrity="{{ $loader.Data.Integrity }}">
+<link rel="stylesheet" href="{{ $link }}" integrity="{{ $loader.Data.Integrity }}" crossorigin="anonymous">
 <style>
 .sk-folding-cube {
     position: fixed;
