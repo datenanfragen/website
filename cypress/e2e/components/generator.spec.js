@@ -247,7 +247,7 @@ describe('Request generator tool component', () => {
 
     it('load company from slug, sets request type and clears URL parameters afterwards', () => {
         cy.visit('/generator#!company=mtch-technology&request_type=erasure');
-        cy.contains('Fill in request to “OkCupid”');
+        cy.contains('Fill in request to “MTCH Technology Services Limited”');
         cy.contains('Erase all data');
 
         cy.contains('Skip request').click();
