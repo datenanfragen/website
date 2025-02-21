@@ -169,6 +169,10 @@ Der Vorstand ist verpflichtet, Vorträge, für die Vorstandsmitglieder eine Verg
 
 * Im Juni 2023 hat Die Landesbeauftragte für den Datenschutz Niedersachsen Benjamin Altpeter, Lorenz Sieben und Malte Wessels eingeladen, einen [Workshop zur Nutzung der Tweasel-Tools](https://docs.tweasel.org/usage/) zu halten. Dafür hat die Landesbeauftragte für den Datenschutz Niedersachsen Benni und Lorenz eine Kostenpauschale von 150,00&nbsp;€ gezahlt.
 * Im September 2023 hat der Topio e. V. Benjamin Altpeter und Lorenz Sieben eingeladen, im Rahmen der Vortragsreihe „Digital Rights: Menschenrechte im digitalen Zeitalter“ einen {{< link slug="verein/event/topio-09-2023" text="Vortrag über Datenschutzrechte und die Datensammlung" >}} durch mobiles Tracking zu halten. Dafür hat Topio den beiden privat ein Honorar von insgesamt 300&nbsp;€ gezahlt. Im Anschluss an den Vortrag wurden den beiden ein Abendessen bezahlt. Benni und Lorenz haben sich freiwillig entschieden, das Honorar vollständig an den Verein zu spenden.
+- Malte war an der TU Braunschweig eingestellt, und hat im Rahmen dieser Einstellung Vorträge im Sinne der Vortragsordnung gehalten und dafür Reisekosten erstattet bekommen.
+
+### 2022
+- Malte war an der TU Braunschweig eingestellt, und hat im Rahmen dieser Einstellung Vorträge im Sinne der Vortragsordnung gehalten.
 
 ### 2020
 
