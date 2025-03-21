@@ -1,1 +1,6 @@
-{}
+{
+    "hugo": {
+        "categories": "Kategóriák",
+        "addresses": "címek"
+    }
+}
