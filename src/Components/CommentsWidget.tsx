@@ -191,6 +191,24 @@ export function CommentForm(props: CommentFormProps) {
                 const confirmation_result = confirm(t('confirm-private-data', 'comments'));
                 if (!confirmation_result) return;
             }
+
+            // Temporary hack: We have received a lot of French comments from people trying to object to Facebook using
+            // their data for "AI" training. Since this is a current event, we'll try to direct them to the right place
+            // here until July 26, 2025.
+            const slug = document.location.pathname.split('/')[2];
+            if (
+                savedLocale === 'fr' &&
+                ['facebook', 'instagram', 'whatsapp'].includes(slug) &&
+                new Date() < new Date('2025-07-26T00:00:00Z')
+            ) {
+                const confirmationResult = confirm(
+                    `Il semble que tu essaies de contacter Meta concernant tes données Facebook, Instagram ou WhatsApp. Les messages que tu soumets ici N'atteindront PAS Meta. Utilise plutôt les formulaires suivants si tu souhaites t'opposer à l'utilisation de tes données pour l'« IA » :
+
+- https://fr-fr.facebook.com/help/contact/712876720715583
+- https://help.instagram.com/contact/767264225370182`
+                );
+                if (!confirmationResult) return;
+            }
         }
 
         flash(<FlashMessage type="info">{t('sending', 'comments')}</FlashMessage>);
