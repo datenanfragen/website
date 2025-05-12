@@ -70,6 +70,19 @@
             </p>
         {{ end }}
 
+        {{ if or (eq .Params.slug "whatsapp") (eq .Params.slug "facebook") (eq .Params.slug "instagram") }}
+        <div class="box" style="margin-top: 1em;">
+            {{ T "cdb-meta-ai-objection" }}
+
+            <ul>
+                <li><a href="{{ T "cdb-meta-ai-objection-facebook-link" }}" target="_blank">{{ T "cdb-meta-ai-objection-facebook" }}</a></li>
+                <li><a href="{{ T "cdb-meta-ai-objection-instagram-link" }}" target="_blank">{{ T "cdb-meta-ai-objection-instagram" }}</a></li>
+            </ul>
+
+            {{ T "cdb-meta-ai-objection-whatsapp" }}
+        </div>
+        {{ end }}
+
         <!-- Ugly workaround since `(apply .Params.categories "T" ".")` stopped working at some point (see #135). -->
         {{ .Scratch.Set "categories" slice }}
         {{ range .Params.categories }}
