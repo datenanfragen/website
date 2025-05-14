@@ -125,7 +125,7 @@ Concretamente, se trata de los siguientes datos:
 
 ### Autoridad supervisora
 
-Las {{< link slug="supervisory-authorities" text="autoridades supervisoras de protección de datos" >}} son organismos independientes en cada país de la UE. Su tarea es garantizar el cumplimiento de las leyes de protección de datos, en particular el RGPD.
+Las {{< link slug="blog/supervisory-authorities" text="autoridades supervisoras de protección de datos" >}} son organismos independientes en cada país de la UE. Su tarea es garantizar el cumplimiento de las leyes de protección de datos, en particular el RGPD.
 
 Para lograr esto, pueden monitorear a los controladores, exigirles que cumplan con las leyes de protección de datos e imponer multas cuando sea necesario.
 
