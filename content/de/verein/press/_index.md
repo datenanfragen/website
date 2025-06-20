@@ -7,6 +7,7 @@ Willkommen auf unserer Presseseite. Für Presseanfragen, kontaktiere uns bitte u
 
 ## Presse- und Forschungsspiegel
 
+* netzpolitik.org: [*Wetter Online lässt Daten tröpfeln*](https://netzpolitik.org/2025/databroker-files-wetter-online-laesst-daten-troepfeln/), 20. Juni 2025
 * CHIP: [*Ihre Sicherheit: Daten löschen bei Facebook, Netflix und Co.*](https://www.chip.de/news/Es-geht-um-Ihre-Sicherheit-So-nerven-Sie-Facebook-Netflix-und-Amazon_184919517.html), 25. August 2023
 * netzpolitik.org: [*So findest du heraus, was Datenhändler über dich gespeichert haben*](https://netzpolitik.org/2023/auskunftsanfragen-so-findest-du-heraus-was-datenhaendler-ueber-dich-gespeichert-haben/), 08. Juni 2023
 * Digitalcourage: [*Nutzen Sie Ihre Auskunftsrechte!*](https://digitalcourage.de/digitale-selbstverteidigung/nutzen-sie-ihre-auskunftsrechte), 05. Mai 2023
