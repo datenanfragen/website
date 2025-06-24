@@ -8,7 +8,7 @@ module.exports = {
         home: './src/home.tsx',
         generator: './src/generator.tsx',
         app: './src/app.tsx',
-        'company-list': './src/company-list.js',
+        'company-list': './src/company-list.tsx',
         'my-requests': './src/my-requests.tsx',
         'privacy-controls': './src/privacy-controls.tsx',
         'suggest-edit': './src/suggest-edit.js',
