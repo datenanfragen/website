@@ -36,7 +36,7 @@
     {{ if (or (eq hugo.Environment "production") (eq hugo.Environment "staging")) }}
         {{ $style_link = $style_link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
     {{ end }}
-    <link rel="stylesheet" href="{{ $style_link }}" integrity="{{ $style.Data.Integrity }}">
+    <link rel="stylesheet" href="{{ $style_link }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
 
     {{ partial "head/meta.html" . }}
     {{ partial "head/favicons.html" . }}
