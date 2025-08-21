@@ -18,6 +18,11 @@ languages=(de en fr pt es hr nl cs)
 echo "Fetching data…"
 git clone --depth 1 https://github.com/datenanfragen/data data_tmp
 
+# When developing locally, we need to make sure to remove any old company pages.
+rm -rf content/**/company
+rm -rf content/**/supervisory-authority
+rm -rf static/db
+
 echo "Creating directories…"
 for lang in ${languages[@]}
 do
