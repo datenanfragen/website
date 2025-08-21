@@ -39,6 +39,13 @@ echo "Copying files…"
 cp data_tmp/companies/* static/db
 cp data_tmp/supervisory-authorities/* static/db/sva
 
+# Unfortunately, Hugo only accepts .md files as posts, so we have to rename our JSONs, see https://stackoverflow.com/a/27285610
+# Since we're spawing a shell for each file, this is fairly expensive and considering we have thousands of company
+# records, it really adds up. To speed this up, we rename all files once in `data_tmp` and only _then_ copy them to the
+# language directories.
+find "data_tmp/companies" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
+find "data_tmp/supervisory-authorities" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
+
 for lang in ${languages[@]}
 do
     cp data_tmp/companies/* "content/$lang/company"
@@ -55,16 +62,6 @@ yarn tsm scripts/compile-data-dump.ts
 rm -rf data_tmp
 
 cd content || exit
-
-# Unfortunately, Hugo only accepts .md files as posts, so we have to rename our JSONs, see https://stackoverflow.com/a/27285610
-echo "Renaming JSON files…"
-
-for lang in ${languages[@]}
-do
-    find "$lang/company" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
-    find "$lang/supervisory-authority" -name '*.json' -exec sh -c 'mv "$0" "${0%.json}.md"' {} \;
-done
-
 cd .. || exit
 
 yarn licenses generate-disclaimer --ignore-optional --ignore-platform > static/NOTICES.txt
