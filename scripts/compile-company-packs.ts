@@ -1,7 +1,9 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import dirname from 'es-dirname';
+import { getDirname } from 'cross-dirname';
 import schema from '../static/schema.json';
+
+const dirname = getDirname();
 
 type CompanyPacks = { slug: string; type: 'add-all' | 'choose'; companies: string[] }[];
 type CompanyPacksWithNames = {
@@ -10,10 +12,10 @@ type CompanyPacksWithNames = {
     companies: { slug: string; name: string }[];
 }[];
 
-const packsDir = join(dirname(), '..', 'data_tmp', 'company-packs');
-const compiledPacksDir = join(dirname(), '..', 'static', 'db', 'company-packs');
+const packsDir = join(dirname, '..', 'data_tmp', 'company-packs');
+const compiledPacksDir = join(dirname, '..', 'static', 'db', 'company-packs');
 const packsForAll = JSON.parse(readFileSync(join(packsDir, 'all.json'), 'utf-8')) as CompanyPacks;
-const companiesDir = join(dirname(), '..', 'static', 'db');
+const companiesDir = join(dirname, '..', 'static', 'db');
 const countries = schema.properties['relevant-countries'].items.enum;
 
 for (const country of countries) {
