@@ -1,3 +1,7 @@
+# Redirects for obsolete records are automatically generated in `scripts/handle-obsolete-records.ts`.
+_redirects
+
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
