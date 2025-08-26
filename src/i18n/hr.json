@@ -987,7 +987,13 @@
         "home-claim-react-title": "Primaj odgovore i reagiraj",
         "home-claim-react": "<em>U roku od mjesec dana</em> bi trebao/la dobiti odgovore na tvoje zahtjeve. Redovito provjeravaj stanja zahtjeva i mi ćemo te podsjetiti da kontaktiraš poduzeće ako je potrebno. Također ti pomažemo procijeniti odgovor i poslati žalbu.",
         "blog-devlog": "Dnevnik programera",
-        "cdb-tested": "Barem jedan od naših doprinositelja je uspješno poslao zahtjev koristeći podatke za kontakt u ovom zapisu."
+        "cdb-tested": "Barem jedan od naših doprinositelja je uspješno poslao zahtjev koristeći podatke za kontakt u ovom zapisu.",
+        "cdb-meta-ai-objection-facebook": "Prigovori korištenju tvojih podataka za umjetnu inteligenciju na Facebooku",
+        "cdb-meta-ai-objection-facebook-link": "https://www.facebook.com/help/contact/712876720715583",
+        "cdb-meta-ai-objection-instagram": "Prigovori korištenju tvojih podataka za umjetnu inteligenciju na Instagramu",
+        "cdb-meta-ai-objection-instagram-link": "https://help.instagram.com/contact/767264225370182",
+        "cdb-meta-ai-objection-whatsapp": "Koliko znamo, trenutačno ne postoji obrazac za prigovor na korištenje tvojih podataka za umjetnu inteligenciju na WhatsAppu. Vjerujemo da se Meta-ina politika ne odnosi na tvoje privatne WhatsApp poruke jer se one ne mogu klasificirati kao javne objave.",
+        "cdb-meta-ai-objection": "Meta je objavila svoju namjeru da će od 27. svibnja 2025. koristiti sve javne objave koje su korisnici dijelili na njezinim uslugama za treniranje tzv. sustava „umjetne inteligencije (UI)“, osim ako se ne usprotiš. Iako mi i druge organizacije za zaštitu podataka diljem Europe smatramo da je to kršenje važećeg zakona, preporučujemo da što prije podneseš prigovor Meti ako ne želiš da se tvoji podaci koriste u tu svrhu. Jedini pouzdan način da to učiniš je korištenje web obrasca za odgovarajuću uslugu:"
     },
     "i18n-widget": {
         "not-supported-cta": "Pomogni nam!",
