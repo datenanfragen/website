@@ -29,7 +29,7 @@ Als EU-Verordnung muss die DSGVO nicht erst von den Mitgliedsstaaten umgesetzt w
 
 ### Aufsichtsbehörde
 
-Die {{< link slug="supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} sind unabhängige Stellen in jedem EU-Land, deren Aufgabe es ist, die Einhaltung der Datenschutzgesetze, insbesondere natürlich der DSGVO, sicherzustellen.
+Die {{< link slug="blog/supervisory-authorities" text="Datenschutz-Aufsichtsbehörden" >}} sind unabhängige Stellen in jedem EU-Land, deren Aufgabe es ist, die Einhaltung der Datenschutzgesetze, insbesondere natürlich der DSGVO, sicherzustellen.
 
 Dafür dürfen sie [Verantwortliche](#verantwortlicher) kontrollieren, sie ggf. zur Einhaltung der Datenschutzgesetze auffordern und wenn nötig sogar Bußgelder verhängen.  
 Dir als Verbraucher_in stehen sie als unkomplizierte Hilfe zur Seite: Wenn Du meinst, dass ein Verantwortlicher Deine Daten nicht richtig verarbeitet, kannst Du Dich jederzeit kostenlos an die Datenschutz-Aufsichtsbehörden wenden.
