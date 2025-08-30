@@ -32,6 +32,7 @@ mkdir -p static/db/sva
 
 echo "Copying files…"
 cp data_tmp/companies/* static/db
+cp data_tmp/obsolete-records/* static/db
 cp data_tmp/supervisory-authorities/* static/db/sva
 
 for lang in ${languages[@]}
@@ -44,6 +45,7 @@ cp -r data_tmp/templates/* static/templates
 
 mv data_tmp/schema.json data_tmp/schema-supervisory-authorities.json static
 
+yarn tsm scripts/handle-obsolete-records.ts
 yarn tsm scripts/compile-company-packs.ts
 yarn tsm scripts/compile-data-dump.ts
 
@@ -73,6 +75,7 @@ then
 else
     hugo -e staging --baseURL "$DEPLOY_PRIME_URL" --minify
     cp _headers public/_headers
+    cp _redirects public/_redirects
 fi
 
 # Finds all generated css files, matches and removes the second last non-dot characters (the md5 hash) and renames the files to the new filename without hash
