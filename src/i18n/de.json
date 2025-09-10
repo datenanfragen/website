@@ -156,6 +156,7 @@
         "footer-become-a-member": "Mitglied werden",
         "footer-open-source": "Open Source",
         "footer-contributors": "Mitwirkende",
+        "footer-coc": "Code of Conduct",
         "footer-tab-association": "Verein",
         "footer-association-overview": "Übersicht",
         "footer-association-goals": "Unsere Ziele",
@@ -931,6 +932,13 @@
         "dismiss-hint": "Diesen Hinweis nicht mehr anzeigen.",
         "new-generator": "Wir haben eine <a href='/generator'>neue Oberfläche für den Generator</a> entwickelt, die intuitiver zu bedienen ist und das Stellen von vielen Anfragen erleichtert. Probiere sie doch einmal aus.<br>Aber keine Sorge: Falls Dir die bisherige Oberfläche besser gefällt, kannst Du sie weiterhin benutzen. Wir haben nicht vor, sie einzustellen.",
         "advanced-generator": "Willkommen bei der neuen Oberfläche für unseren Generator. Wir hoffen, dass sie intuitiver zu bedienen ist und das Stellen von vielen Anfragen erleichtert.<br>Aber keine Sorge: Falls Dir die <a href='/g'>alte Oberfläche</a> besser gefällt, kannst Du sie weiterhin benutzen. Wir haben nicht vor, sie einzustellen."
+    },
+    "report-misconduct": {
+        "encryption-explanation": "Beim Absenden wird die Nachricht automatisch in Deinem Browser verschlüsselt und kann so nur von der/den Ansprechperson/en gelesen werden. Falls Du eine verschlüsselte Antwort erhalten möchtest, musst Du eine entsprechende Kontaktmöglichkeit angeben.",
+        "message": "Nachricht",
+        "submit": "Meldung absenden",
+        "send-success": "Deine Meldung wurde erfolgreich gesendet.",
+        "send-error": "Deine Meldung konnte aus technischen Gründen nicht abgesendet werden. Bitte versuche es später noch einmal oder nutze die alternativen Kontaktmöglichkeiten."
     },
     "countries": {
         "__taken_from": "https://github.com/stefangabos/world_countries",

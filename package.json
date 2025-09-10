@@ -56,6 +56,7 @@
         "letter-generator": "^2.2.1",
         "libphonenumber-js": "^1.7.23",
         "localforage": "^1.7.1",
+        "openpgp": "5.11.2",
         "pdfkit": "^0.12.1",
         "preact": "^10.5.5",
         "preact-i18n": "^2.3.0-preactx",

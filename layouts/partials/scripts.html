@@ -64,6 +64,10 @@
 <script>window.renderDonationWidget();</script>
 {{ end }}
 
+{{ if eq .Type "misconduct-report" }}
+<script src="{{ "js/misconduct-reporter.bundle.gen.js" | absURL }}"></script>
+{{ end }}
+
 {{ if .IsHome }}
 <script src="{{ "js/home.bundle.gen.js" | absURL }}"></script>
 {{ end }}

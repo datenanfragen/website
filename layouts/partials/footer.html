@@ -19,63 +19,67 @@
             </div>
             <div class="i18n-button-container"></div>
         </div>
-        <div class="footer-row">
-            <div class="col22 footer-col">
-                <strong>{{ T "footer-tab-website-name" . }}</strong>
-                <ul>
-                    {{ partial "footer-url" (slice "/generator" "footer-request-generator") }}
-                    {{ partial "footer-url" (slice "/my-requests" "footer-my-requests") }}
-                    {{ partial "footer-url" (slice "/id-data-controls" "footer-my-saved-data") }}
-                    {{ partial "footer-url" (slice "/company" "footer-company-database") }}
-                    {{ partial "footer-url" (slice "/g" "footer-advanced-generator") }}
-                    <!-- {.{ partial "footer-url" (slice "/settings" "footer-settings") }} -->
-                </ul>
+        <div class="col66">
+            <div class="footer-row">
+                <div class="col33 footer-col">
+                    <strong>{{ T "footer-tab-website-name" . }}</strong>
+                    <ul>
+                        {{ partial "footer-url" (slice "/generator" "footer-request-generator") }}
+                        {{ partial "footer-url" (slice "/my-requests" "footer-my-requests") }}
+                        {{ partial "footer-url" (slice "/id-data-controls" "footer-my-saved-data") }}
+                        {{ partial "footer-url" (slice "/company" "footer-company-database") }}
+                        {{ partial "footer-url" (slice "/g" "footer-advanced-generator") }}
+                        <!-- {.{ partial "footer-url" (slice "/settings" "footer-settings") }} -->
+                    </ul>
+                </div>
+                <div class="col33 footer-col">
+                    <strong>{{ T "footer-tab-community" . }}</strong>
+                    <ul>
+                        {{ partial "footer-url" (slice "/contribute" "footer-contribute") }}
+                        {{ partial "footer-url" (slice "/donate" "footer-donate") }}
+                        {{ partial "footer-url" (slice "/verein/become-a-member" "footer-become-a-member") }}
+                        {{ partial "footer-url" (slice "/open-source" "footer-open-source") }}
+                        {{ partial "footer-url" (slice "/open-source" "footer-contributors" "contributors") }}
+                        {{ partial "footer-url" (slice "/verein/code-of-conduct" "footer-coc") }}
+                    </ul>
+                </div>
+                <div class="col33 footer-col">
+                    <strong>{{ T "footer-tab-association" . }}</strong>
+                    <ul>
+                        {{ partial "footer-url" (slice "/verein" "footer-association-overview") }}
+                        {{ partial "footer-url" (slice "/verein/mission-statement" "footer-association-goals") }}
+                        {{ partial "footer-url" (slice "/verein/constitution" "footer-association-constitution") }}
+                        {{ partial "footer-url" (slice "/verein/transparency" "footer-association-transparency") }}
+                        {{ partial "footer-url" (slice "/verein/board" "footer-association-board") }}
+                    </ul>
+                </div>
             </div>
-            <div class="col22 footer-col">
-                <strong>{{ T "footer-tab-community" . }}</strong>
-                <ul>
-                    {{ partial "footer-url" (slice "/contribute" "footer-contribute") }}
-                    {{ partial "footer-url" (slice "/donate" "footer-donate") }}
-                    {{ partial "footer-url" (slice "/verein/become-a-member" "footer-become-a-member") }}
-                    {{ partial "footer-url" (slice "/open-source" "footer-open-source") }}
-                    {{ partial "footer-url" (slice "/open-source" "footer-contributors" "contributors") }}
-                </ul>
-            </div>
-            <div class="col22 footer-col">
-                <strong>{{ T "footer-tab-association" . }}</strong>
-                <ul>
-                    {{ partial "footer-url" (slice "/verein" "footer-association-overview") }}
-                    {{ partial "footer-url" (slice "/verein/mission-statement" "footer-association-goals") }}
-                    {{ partial "footer-url" (slice "/verein/constitution" "footer-association-constitution") }}
-                    {{ partial "footer-url" (slice "/verein/transparency" "footer-association-transparency") }}
-                    {{ partial "footer-url" (slice "/verein/board" "footer-association-board") }}
-                </ul>
-            </div>
-        </div>
-        <div class="footer-row">
-            <div class="col22 footer-col">
-                <strong>{{ T "footer-tab-learn" . }}</strong>
-                <ul>
-                    {{ partial "footer-url" (slice "/blog/your-gdpr-rights" "footer-your-gdpr-rights") }}
-                    {{ partial "footer-url" (slice "/sample-letters" "footer-sample-letters") }}
-                    {{ partial "footer-url" (slice "/supervisory-authorities" "footer-supervisory-authorities") }}
-                    {{ partial "footer-url" (slice "/blog" "footer-posts") }}
-                    {{ partial "footer-url" (slice "/verein/press" "footer-press") }}
-                    {{ partial "footer-url" (slice "/verein/event" "footer-event") }}
-                    {{ if eq .Lang "de" }}{{ partial "footer-url" (slice "/verein/material" "footer-material") }}{{ end }}
-                </ul>
-            </div>
-            <div class="col22 footer-col">
-                <strong>{{ T "footer-tab-legal" . }}</strong>
-                <ul>
-                    {{ partial "footer-url" (slice "/contact" "footer-legal-notice") }}
-                    {{ partial "footer-url" (slice "/privacy" "footer-privacy-policy") }}
-                    {{ partial "footer-url" (slice "/privacy-controls" "footer-privacy-controls") }}
-                    {{ partial "footer-url" (slice "/open-source" "footer-licenses" "license-notices") }}
-                </ul>
-            </div>
-            <div class="col22 footer-col" style="font-size: 10px; margin-top: 20px;">
-                {{ if eq .Lang "de" }}Wir arbeiten transparent nach Kriterien der <a href="{{ "/verein/transparenz" | absURL }}"><br><img src="{{ "/img/logo-itz.svg" | absURL }}" alt="ITZ (Initiative Transparente Zivilgesellschaft)" class="itz-logo" width="539" height="146" loading="lazy"></a>{{ end }}
+            <div class="clearfix"></div>
+            <div class="footer-row">
+                <div class="col33 footer-col">
+                    <strong>{{ T "footer-tab-learn" . }}</strong>
+                    <ul>
+                        {{ partial "footer-url" (slice "/blog/your-gdpr-rights" "footer-your-gdpr-rights") }}
+                        {{ partial "footer-url" (slice "/sample-letters" "footer-sample-letters") }}
+                        {{ partial "footer-url" (slice "/supervisory-authorities" "footer-supervisory-authorities") }}
+                        {{ partial "footer-url" (slice "/blog" "footer-posts") }}
+                        {{ partial "footer-url" (slice "/verein/press" "footer-press") }}
+                        {{ partial "footer-url" (slice "/verein/event" "footer-event") }}
+                        {{ if eq .Lang "de" }}{{ partial "footer-url" (slice "/verein/material" "footer-material") }}{{ end }}
+                    </ul>
+                </div>
+                <div class="col33 footer-col">
+                    <strong>{{ T "footer-tab-legal" . }}</strong>
+                    <ul>
+                        {{ partial "footer-url" (slice "/contact" "footer-legal-notice") }}
+                        {{ partial "footer-url" (slice "/privacy" "footer-privacy-policy") }}
+                        {{ partial "footer-url" (slice "/privacy-controls" "footer-privacy-controls") }}
+                        {{ partial "footer-url" (slice "/open-source" "footer-licenses" "license-notices") }}
+                    </ul>
+                </div>
+                <div class="col33 footer-col" style="font-size: 10px; margin-top: 20px;">
+                    {{ if eq .Lang "de" }}Wir arbeiten transparent nach Kriterien der <a href="{{ "/verein/transparenz" | absURL }}"><br><img src="{{ "/img/logo-itz.svg" | absURL }}" alt="ITZ (Initiative Transparente Zivilgesellschaft)" class="itz-logo" width="539" height="146" loading="lazy"></a>{{ end }}
+                </div>
             </div>
         </div>
         <div class="clearfix"></div>
