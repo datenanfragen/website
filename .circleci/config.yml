@@ -76,7 +76,6 @@ jobs:
             command: |
               yarn
               yarn lint
-              yarn add wait-on
               yarn cypress verify
               hugo server --baseURL "http://localhost" --disableFastRender --minify &
               # Wait for server to deploy before continuing (with 1 minute timeout)
