@@ -43,15 +43,12 @@ cp data_tmp/companies/* static/db
 cp data_tmp/supervisory-authorities/* static/db/sva
 
 # Unfortunately, Hugo only accepts .md files as posts, so we have to rename our JSONs, see https://stackoverflow.com/a/27285610
-# Since we're spawing a shell for each file, this is fairly expensive and considering we have thousands of company
-# records, it really adds up. To speed this up, we rename all files once in `data_tmp` and only _then_ copy them to the
-# language directories.
+# To speed this up, we rename all files once in `data_tmp` and only then copy them to the language directories.
 find "data_tmp" -regex '.*/\(companies\|supervisory-authorities\)/.*\.json$' -print | sed -e "p" -e "s/.json$/.md/g" | xargs -P $process_number -n 2  mv
 
 # We need to use the shell here because otherwise bash would expand the `*`, which crashes in Circle CI
 echo $company_content_dir | xargs -P $process_number -n 1 sh -c 'cp data_tmp/companies/* $0'
 echo $sva_content_dir | xargs -P $process_number -n 1 sh -c 'cp data_tmp/supervisory-authorities/* $0'
-
 
 cp -r data_tmp/templates/* static/templates
 
