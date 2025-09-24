@@ -213,6 +213,7 @@ static/templates/*
 static/db/*
 static/schema.json
 static/schema-supervisory-authorities.json
+static/schema-obsolete-records.json
 static/offline-data.json
 i18n/*.json
 /.hugo_build.lock

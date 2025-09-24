@@ -22,6 +22,23 @@
     <div id="company-search"></div>
     <div id="company-details">
         {{ if not (eq .Params.quality "obsolete") }}
+            {{ with (index .Params "redirecting-records") }}
+                {{ range . }}
+                    <div id="redirected-from:{{ .slug }}" class="box box-info cdb-redirected-from-notice">
+                        {{ T "cdb-redirected-from-obsolete-record" . }} {{ T (print "cdb-obsolete-reason-" .reason) }}
+
+                        {{ with .sources }}
+                            <p><strong>{{ T "cdb-references" }}</strong></p>
+                            <ul>
+                                {{ range . }}
+                                    <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
+                                {{ end }}
+                            </ul>
+                        {{ end }}
+                    </div>
+                {{ end }}
+            {{ end }}
+
             <div class="col100-mobile" style="float: right; text-align: right; padding: 0 0 15px 15px;">
                 <a class="button button-primary button-small icon icon-letter"
                     href="{{ print ("generator" | absURL) "#!company=" .Params.slug }}"
