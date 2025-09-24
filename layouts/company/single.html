@@ -94,7 +94,7 @@
             {{ end }}
             {{ end }}
             {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong>
-                {{ delimit (sort ($.Scratch.Get "categories")) ", " }}</p>{{ end }}
+                {{ delimit (sort ($.Scratch.Get "categories")) ", " | safeHTML }}</p>{{ end }}
             {{ with .Params.runs }}
             <p>{{ T "cdb-runs-extended" $ }}</p>
             <ul class="cdb-runs-list">
