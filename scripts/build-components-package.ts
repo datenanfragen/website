@@ -3,12 +3,14 @@ import fs from 'fs-extra';
 import yesno from 'yesno';
 import glob from 'glob';
 import { execa } from 'execa';
-import dirname from 'es-dirname';
+import { getDirname } from 'cross-dirname';
 import { objFilter, deepCopyObject } from '../src/Utility/common';
 import website_pjson from '../package.json';
 import pjson_template from '../components-package/package.template.json';
 
-const website_dir = join(dirname(), '..');
+const dirname = getDirname();
+
+const website_dir = join(dirname, '..');
 const package_dir = join(website_dir, 'components-package');
 const generated_dir = join(package_dir, 'src', 'generated');
 
@@ -19,7 +21,7 @@ const getSupportedCountries = () => {
         entry['relevant-countries'].forEach((country) => (acc[country] ? (acc[country] += 1) : (acc[country] = 1)));
         return acc;
     }, {});
-    return Object.keys(objFilter(country_counts, ([i, num]) => num > 10));
+    return Object.keys(objFilter(country_counts, ([, num]) => num > 10));
 };
 
 (async () => {

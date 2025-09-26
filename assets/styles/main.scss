@@ -1096,6 +1096,15 @@ footer {
     }
 }
 
+.cdb-redirected-from-notice {
+    display: none;
+
+    &:target {
+        display: block;
+        margin: 1em 0;
+    }
+}
+
 #page-meta {
     margin-top: 20px;
 }

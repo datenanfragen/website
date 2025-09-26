@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "heading" }}
-{{ T "cdb-company-heading" . | safeHTML }}
+{{ T (cond (eq .Params.quality "obsolete") "cdb-obsolete-record-heading" "cdb-company-heading") . }}
 {{ end }}
 
 {{ define "main" }}
@@ -21,129 +21,164 @@
     </div>
     <div id="company-search"></div>
     <div id="company-details">
-        <div class="col100-mobile" style="float: right; text-align: right; padding: 0 0 15px 15px;">
-            <a class="button button-primary button-small icon icon-letter"
-                href="{{ print ("generator" | absURL) "#!company=" .Params.slug }}"
-                style="margin-bottom: 5px;">{{ T "cdb-send-request" }}</a><br>
-            <a class="button button-secondary button-small icon icon-pencil"
-                href="{{ print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug }}">{{ T "cdb-suggest-change" }}</a>
-        </div>
+        {{ if not (eq .Params.quality "obsolete") }}
+            {{ with (index .Params "redirecting-records") }}
+                {{ range . }}
+                    <div id="redirected-from:{{ .slug }}" class="box box-info cdb-redirected-from-notice">
+                        {{ T "cdb-redirected-from-obsolete-record" . }} {{ T (print "cdb-obsolete-reason-" .reason) }}
 
-        <p>{{ T "cdb-intro" . }}</p>
-
-        {{ with .Params.address }}
-        <div class="col50 col100-mobile">
-            <strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ T "cdb-attn" }}<br>{{ replace . "\n" "<br>" | safeHTML }}
-        </div>
-        {{ end }}
-        {{ if or .Params.phone .Params.fax .Params.email .Params.webform .Params.web }}
-        <div class="col50 col100-mobile">
-            <table class="contact-table narrow-table">
-                {{ with .Params.phone }}<tr>
-                    <td><strong>{{ T "cdb-phone" }}</strong></td>
-                    <td>{{ . }}</td>
-                </tr>{{ end }}
-                {{ with .Params.fax }}<tr>
-                    <td><strong>{{ T "cdb-fax" }}</strong></td>
-                    <td>{{ . }}</td>
-                </tr>{{ end }}
-                {{ with .Params.email }}<tr>
-                    <td><strong>{{ T "cdb-email" }}</strong></td>
-                    <td><a href="mailto:{{ . }}">{{ . }}</a></td>
-                </tr>{{ end }}
-                {{ with .Params.webform }}<tr>
-                    <td><strong>{{ T "cdb-webform" }}</strong></td>
-                    <td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td>
-                </tr>{{ end }}
-                {{ with .Params.web }}<tr>
-                    <td><strong>{{ T "cdb-web" }}</strong></td>
-                    <td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td>
-                </tr>{{ end }}
-            </table>
-        </div>
-        {{ end }}
-        <div class="clearfix"></div>
-
-        {{ if and (index .Params "pgp-fingerprint") (index .Params "pgp-url") }}
-            <p>
-                <strong>{{ T "cdb-pgp-key" }}</strong> <code><a href="{{ (index .Params "pgp-url") }}" rel="nofollow">{{ index .Params "pgp-fingerprint" }}</a></code>
-            </p>
-        {{ end }}
-
-        {{ if or (eq .Params.slug "whatsapp") (eq .Params.slug "facebook") (eq .Params.slug "instagram") }}
-        <div class="box" style="margin-top: 1em;">
-            {{ T "cdb-meta-ai-objection" }}
-
-            <ul>
-                <li><a href="{{ T "cdb-meta-ai-objection-facebook-link" }}" target="_blank">{{ T "cdb-meta-ai-objection-facebook" }}</a></li>
-                <li><a href="{{ T "cdb-meta-ai-objection-instagram-link" }}" target="_blank">{{ T "cdb-meta-ai-objection-instagram" }}</a></li>
-            </ul>
-
-            {{ T "cdb-meta-ai-objection-whatsapp" }}
-        </div>
-        {{ end }}
-
-        <!-- Ugly workaround since `(apply .Params.categories "T" ".")` stopped working at some point (see #135). -->
-        {{ .Scratch.Set "categories" slice }}
-        {{ range .Params.categories }}
-        {{ $title := . }}
-        <!-- Yes, that is actually the *recommended* way to do this (https://gohugo.io/templates/taxonomy-templates/#example-list-tags-in-a-single-page-template)… *sigh* -->
-        {{ with $.Site.GetPage (printf "/categories/%s" (urlize .)) }}
-        {{ $.Scratch.Add "categories" (printf "<a href='%s'>%s</a>" .Permalink (T $title)) }}
-        {{ end }}
-        {{ end }}
-        {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong>
-            {{ delimit (sort ($.Scratch.Get "categories")) ", " }}</p>{{ end }}
-        {{ with .Params.runs }}
-        <p>{{ T "cdb-runs-extended" $ }}</p>
-        <ul class="cdb-runs-list">
-            {{ range . }}
-            <li>{{ . }}</li>
+                        {{ with .sources }}
+                            <p><strong>{{ T "cdb-references" }}</strong></p>
+                            <ul>
+                                {{ range . }}
+                                    <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
+                                {{ end }}
+                            </ul>
+                        {{ end }}
+                    </div>
+                {{ end }}
             {{ end }}
-        </ul>
-        {{ end }}
 
-        {{ with .Params.comments }}
-        <p><strong>{{ T "cdb-notes" }}</strong></p>
-        <ul>
-            {{ range . }}
-            <li>{{ replace . "\n" "<br>" | safeHTML }}</li>
+            <div class="col100-mobile" style="float: right; text-align: right; padding: 0 0 15px 15px;">
+                <a class="button button-primary button-small icon icon-letter"
+                    href="{{ print ("generator" | absURL) "#!company=" .Params.slug }}"
+                    style="margin-bottom: 5px;">{{ T "cdb-send-request" }}</a><br>
+                <a class="button button-secondary button-small icon icon-pencil"
+                    href="{{ print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug }}">{{ T "cdb-suggest-change" }}</a>
+            </div>
+
+            <p>{{ T "cdb-intro" . }}</p>
+
+            {{ with .Params.address }}
+            <div class="col50 col100-mobile">
+                <strong>{{ T "cdb-address" }}</strong><br>{{ $.Params.name }}<br>{{ T "cdb-attn" }}<br>{{ replace . "\n" "<br>" | safeHTML }}
+            </div>
             {{ end }}
-        </ul>
-        {{ end }}
-
-        {{ with .Params.sources }}
-        <p><strong>{{ T "cdb-sources" }}</strong></p>
-        <ul>
-            {{ range . }}
-            <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
+            {{ if or .Params.phone .Params.fax .Params.email .Params.webform .Params.web }}
+            <div class="col50 col100-mobile">
+                <table class="contact-table narrow-table">
+                    {{ with .Params.phone }}<tr>
+                        <td><strong>{{ T "cdb-phone" }}</strong></td>
+                        <td>{{ . }}</td>
+                    </tr>{{ end }}
+                    {{ with .Params.fax }}<tr>
+                        <td><strong>{{ T "cdb-fax" }}</strong></td>
+                        <td>{{ . }}</td>
+                    </tr>{{ end }}
+                    {{ with .Params.email }}<tr>
+                        <td><strong>{{ T "cdb-email" }}</strong></td>
+                        <td><a href="mailto:{{ . }}">{{ . }}</a></td>
+                    </tr>{{ end }}
+                    {{ with .Params.webform }}<tr>
+                        <td><strong>{{ T "cdb-webform" }}</strong></td>
+                        <td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td>
+                    </tr>{{ end }}
+                    {{ with .Params.web }}<tr>
+                        <td><strong>{{ T "cdb-web" }}</strong></td>
+                        <td><a href="{{ . }}" rel="nofollow">{{ . }}</a></td>
+                    </tr>{{ end }}
+                </table>
+            </div>
             {{ end }}
-        </ul>
-        {{ end }}
-    </div>
-    {{ if or (eq .Params.quality "verified") (eq .Params.quality "tested")  }}
-    <div id="companies-help-needed" class="box box-info" style="margin-bottom: 20px;">
-        {{ if eq .Params.quality "tested" }}{{ T "cdb-tested" }} {{ end }}{{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "#!type=new&for=cdb")) | safeHTML }}
-    </div>
-    {{ else }}
-    <div id="companies-unverified" class="box box-error" style="margin-bottom: 20px;">{{ T "cdb-warning-unverified" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug)) | safeHTML }}</div>
-    {{ end }}
+            <div class="clearfix"></div>
 
-    {{ $related_pages := partialCached "functions/related-companies.html" . .Params.categories (.Param "relevant-countries") }}
-    {{ $related_pages := where $related_pages "page.Params.slug" "!=" $.Params.slug }}
-    {{ with $related_pages }}
-        <div id="related-companies">
-            <h2>{{ T "cdb-related-companies" }}</h2>
-            <!-- TODO: Nicer styling -->
-            <ul>
-                {{ range (. | first 5) }}
-                    <li><a href="{{ .page.Permalink }}">{{ .page.Params.name }}</a></li>
+            {{ if and (index .Params "pgp-fingerprint") (index .Params "pgp-url") }}
+                <p>
+                    <strong>{{ T "cdb-pgp-key" }}</strong> <code><a href="{{ (index .Params "pgp-url") }}" rel="nofollow">{{ index .Params "pgp-fingerprint" }}</a></code>
+                </p>
+            {{ end }}
+
+            {{ if or (eq .Params.slug "whatsapp") (eq .Params.slug "facebook") (eq .Params.slug "instagram") }}
+            <div class="box" style="margin-top: 1em;">
+                {{ T "cdb-meta-ai-objection" }}
+
+                <ul>
+                    <li><a href="{{ T "cdb-meta-ai-objection-facebook-link" }}" target="_blank">{{ T "cdb-meta-ai-objection-facebook" }}</a></li>
+                    <li><a href="{{ T "cdb-meta-ai-objection-instagram-link" }}" target="_blank">{{ T "cdb-meta-ai-objection-instagram" }}</a></li>
+                </ul>
+
+                {{ T "cdb-meta-ai-objection-whatsapp" }}
+            </div>
+            {{ end }}
+
+            <!-- Ugly workaround since `(apply .Params.categories "T" ".")` stopped working at some point (see #135). -->
+            {{ .Scratch.Set "categories" slice }}
+            {{ range .Params.categories }}
+            {{ $title := . }}
+            <!-- Yes, that is actually the *recommended* way to do this (https://gohugo.io/templates/taxonomy-templates/#example-list-tags-in-a-single-page-template)… *sigh* -->
+            {{ with $.Site.GetPage (printf "/categories/%s" (urlize .)) }}
+            {{ $.Scratch.Add "categories" (printf "<a href='%s'>%s</a>" .Permalink (T $title)) }}
+            {{ end }}
+            {{ end }}
+            {{ with .Params.categories }}<p><strong>{{ T "cdb-categories" (len .) }}</strong>
+                {{ delimit (sort ($.Scratch.Get "categories")) ", " | safeHTML }}</p>{{ end }}
+            {{ with .Params.runs }}
+            <p>{{ T "cdb-runs-extended" $ }}</p>
+            <ul class="cdb-runs-list">
+                {{ range . }}
+                <li>{{ . }}</li>
                 {{ end }}
             </ul>
-        </div>
-    {{ end }}
+            {{ end }}
 
-    <div id="comments-widget" data-display-warning="1"></div>
+            {{ with .Params.comments }}
+            <p><strong>{{ T "cdb-notes" }}</strong></p>
+            <ul>
+                {{ range . }}
+                <li>{{ replace . "\n" "<br>" | safeHTML }}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+
+            {{ with .Params.sources }}
+            <p><strong>{{ T "cdb-sources" }}</strong></p>
+            <ul>
+                {{ range . }}
+                <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        {{ else }}
+            <div class="box box-error" style="margin-top: 1em;">
+                {{ T "cdb-obsolete-record" $ }} {{ T (print "cdb-obsolete-reason-" .Params.reason) }}
+            </div>
+
+            {{ with .Params.sources }}
+                <p><strong>{{ T "cdb-references" }}</strong></p>
+                <ul>
+                    {{ range . }}
+                    <li><a href="{{ . }}" rel="nofollow">{{ . }}</a></li>
+                    {{ end }}
+                </ul>
+            {{ end }}
+        {{ end }}
+    </div>
+
+    {{ if not (eq .Params.quality "obsolete") }}
+        {{ if or (eq .Params.quality "verified") (eq .Params.quality "tested")  }}
+        <div id="companies-help-needed" class="box box-info" style="margin-bottom: 20px;">
+            {{ if eq .Params.quality "tested" }}{{ T "cdb-tested" }} {{ end }}{{ T "cdb-help-needed" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug) "newUrl" (print ("suggest" | absURL) "#!type=new&for=cdb")) | safeHTML }}
+        </div>
+        {{ else }}
+        <div id="companies-unverified" class="box box-error" style="margin-bottom: 20px;">{{ T "cdb-warning-unverified" (dict "editUrl" (print ("suggest" | absURL) "#!type=edit&for=cdb&slug=" .Params.slug)) | safeHTML }}</div>
+        {{ end }}
+
+        {{ $related_pages := partialCached "functions/related-companies.html" . .Params.categories (.Param "relevant-countries") }}
+        {{ $related_pages := where $related_pages "page.Params.slug" "!=" $.Params.slug }}
+        {{ with $related_pages }}
+            <div id="related-companies">
+                <h2>{{ T "cdb-related-companies" }}</h2>
+                <!-- TODO: Nicer styling -->
+                <ul>
+                    {{ range (. | first 5) }}
+                        <li><a href="{{ .page.Permalink }}">{{ .page.Params.name }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+        {{ end }}
+
+        <div id="comments-widget" data-display-warning="1"></div>
+    {{ end }}
 </main>
 {{ end }}
 

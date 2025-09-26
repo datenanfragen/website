@@ -1,3 +1,7 @@
+# Redirects for obsolete records are automatically generated in `scripts/handle-obsolete-records.ts`.
+_redirects
+
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
@@ -209,6 +213,7 @@ static/templates/*
 static/db/*
 static/schema.json
 static/schema-supervisory-authorities.json
+static/schema-obsolete-records.json
 static/offline-data.json
 i18n/*.json
 /.hugo_build.lock
