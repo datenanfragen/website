@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection", "privacy", "datenschutzerklaerung", "datenschutzerklärung", "privatsphaere", "privatsphäre" ]
 }
 
-Unsere Datenschutzerklärung wurde zuletzt am 23. Dezember 2024 geändert.
+Unsere Datenschutzerklärung wurde zuletzt am 10. September 2025 geändert.
 
 ## Allgemeine Hinweise
 
@@ -88,6 +88,29 @@ Betroffenen Personen dieser Verarbeitung gewähren wir freiwillig ein [erweitert
 - Herkunft der Daten: Die Daten werden ausschließlich aus öffentlich zugänglichen Quellen übernommen, die jeweils auf der entsprechenden Unterseite in unserer Unternehmensdatenbank angegeben sind.
 - Dauer der Speicherung: unbeschränkt
 - Weitergabe der Daten: Die Daten sind öffentlich auf unserer Webseite einsehbar.
+
+#### Code of Conduct
+Für alle unsere Aktivitäten gilt unser {{< link slug="/verein/code-of-conduct" text="Code of Conduct" >}}, mit dem wir sicherstellen wollen, dass alle und insbesondere marginalisierte Personen in unserer Community sicher sind. Um dies zu erreichen, müssen wir im Rahmen von Meldungen von Fehlverhalten sowie beim Verhängen von Konsequenzen bestimmte personenbezogene Daten verarbeiten und ggf. speichern. Wir verarbeiten in diesem Kontext nur die absolut notwendigen Informationen und legen großen Wert auf {{< link slug="/verein/code-of-conduct#vertraulichkeit" text="Vertraulichkeit" >}} und den Schutz der meldenden Person(en).
+
+Konkret sind dies im Falle von Meldungen von Fehlverhalten:
+
+- Betroffene Daten: Identifikationsdaten der Person, die den Code of Conduct verletzt hat, Verhalten, das zur Konsequenz geführt hat, ungefährer Zeitpunkt des Vorfalls, Ort des Vorfalls, Notizen aus der Behandlung des Vorfalls durch das Ansprechteam
+- Rechtsgrundlage: Die Speicherung dieser Daten ist notwendig, um die Sicherheit aller Beteiligten im Rahmen unserer Projekte sicherzustellen. Sie erfolgt auf Basis von Art. 6 Abs. 1 lit. f DSGVO.
+- Dauer der Speicherung: Wir speichern Informationen aus Berichten bis zu drei Jahre, nachdem die letzte Handlung gegen die Person durchgeführt wurde, um wiederholtes inakzeptables Verhalten zu bemerken. Notizen aus der Behandlung des Vorfalls durch das Ansprechteam werden für 6 Monate nach der Handlung aufbewahrt, um Einsprüche behandeln zu können.
+- Weitergabe der Daten: Der Zugang zu den Informationen ist limitiert auf das Ansprechteam.
+
+Falls es zu einem Einspruch kommt, werden die folgenden Informationen mit dem Vorstand geteilt:
+
+- Das Verhalten, das den Code of Conduct verletzt hat
+- Aussagen der einspruchsführenden Person und des Ansprechteams dazu, wie der Vorfall behandelt wurde
+- Die Notizen des Ansprechteams zum Umgang mit dem Bericht
+
+Wenn wir aufgrund von Verletzungen des Code of Conducts Konsequenzen (wie etwa lebenslange Ausschlüsse oder Ultimaten) ergreifen, speichern wir ferner zur Durchsetzung der Konsequenzen:
+
+- Betroffene Daten: Identifikationsdaten der betroffenen Person, durchgeführte Handlung, Dauer, für wie lang die Handlung in Kraft bleibt
+- Rechtsgrundlage: Die Speicherung dieser Daten ist notwendig, um die ergriffenen Konsequenzen durchsetzen zu können. Sie erfolgt auf Basis von Art. 6 Abs. 1 lit. f DSGVO.
+- Dauer der Speicherung: so lang wie für die Handlung nötig
+- Weitergabe der Daten: Auf diese Daten hat grundsätzlich nur der Vorstand Zugriff.
 
 ### Informationen, die Du uns zur Verfügung stellst
 

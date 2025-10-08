@@ -5,7 +5,7 @@
     "aliases": [ "privacy-policy", "data-protection" ]
 }
 
-Our privacy policy was last changed on December 23, 2024.
+Our privacy policy was last changed on September 10, 2025.
 
 ## General remarks
 
@@ -88,6 +88,29 @@ We voluntarily grant data subjects of this processing an [extended right to obje
 - Data source: The data is taken exclusively from publicly accessible sources, each of which is indicated on the corresponding page in our company database.
 - Duration of storage: unlimited
 - Data disclosure: The data is publicly accessible via our website.
+
+#### Code of conduct
+Our {{< link slug="/verein/code-of-conduct" text="code of conduct" >}} applies to all our activities. With the code of conduct, we want to make sure that everyone, especially marginalized people, are safe within our community. To achieve this, we have to process and possibly store certain personal data in the context of reports of misconduct and when imposing consequences. In this context, we only process the absolutely necessary information and attach great importance to {{< link slug="/verein/code-of-conduct#confidentiality" text="confidentiality" >}} and the protection of the reporting person(s).
+
+Specifically, in the case of reports of misconduct, this includes:
+
+- Affected data: identifying information of the person who violated the code of conduct, behaviour that was in violation, approximate time of the behaviour, location of the code of conduct violation, notes on the handling of the case by the anti-harassment team
+- Lawful basis: The storage of this data is necessary to ensure the safety of all participants within our projects. It is based on Art. 6(1) lit. f GDPR.
+- Duration of storage: We store information from reports for up to three years after the last action was taken against the person in order to determine repeat violating behaviour. Notes from the anti-harassment team's handling of the incident are kept for 6 months after the action to handle appeals.
+- Data disclosure: Access to the information is limited to the response team.
+
+In the case of an appeal, the following additional information is made available to the board: 
+
+- The behaviour that was in violation 
+- Statements from the appealing person and the anti-harassment team on how the case was handled 
+- The notes by the anti-harassment team on the handling of the situation 
+
+If we take consequences for violations of the code of conduct (such as lifetime bans or ultimatums), we also store the following data to enforce those consequences:
+
+- Affected data: identifying information of the affected person, action to be taken, duration for how long the action will be in effect
+- Lawful basis: The storage of this data is necessary to be able to enforce the consequences taken. It is based on Art. 6(1) lit. f GDPR.
+- Duration of storage: as long as the action is necessary
+- Data disclosure: Only the board has access to this data.
 
 ### Data you provide to us
 
