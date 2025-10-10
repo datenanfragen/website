@@ -544,7 +544,7 @@
         "report-on-github": "Über GitHub melden",
         "report-via-email": "Per E-Mail melden",
         "no-internet": "Es scheint so, als hättest Du gerade keine Internetverbindung.",
-        "browser-too-old": "Es ist ein Fehler aufgetreten, aber Dein Browser ist so alt dass wir ihn nicht unterstützen. Aktualisiere bitte Deinen Browser oder wechsel zu einem modernen."
+        "browser-too-old": "Es ist ein Fehler aufgetreten, aber Dein Browser ist so alt, dass wir ihn nicht unterstützen. Aktualisiere bitte Deinen Browser oder wechsel zu einem modernen."
     },
     "error-msg": {
         "company-not-found": "Das gewünschte Unternehmen wurde nicht gefunden.",
