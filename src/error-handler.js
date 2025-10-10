@@ -37,8 +37,14 @@ function logError(event, debug_info = undefined) {
     console.groupEnd();
     /* eslint-enable no-console */
 }
-
-function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
+/**
+ * Primitive error modal without any dependencies.
+ * @param {String[]} explanations Array of translation keys (under `error-handler`) of explanations to show to the user.
+ * @param {String | undefined} enduser_message Enduser-facing message from our exception.
+ * @param {String | undefined} github_issue_url URL to create a GitHub issue.
+ * @param {String | undefined} mailto_url prefilled mailto URL.
+ */
+function primitiveErrorModal(explanations, enduser_message, github_issue_url, mailto_url) {
     document.getElementById('error-modal')?.remove();
 
     const dismiss = () => document.getElementById('error-modal') && document.getElementById('error-modal').remove();
@@ -51,14 +57,24 @@ function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
         }"></button>
 
         ${enduser_message ? '<p id="error-modal-enduser-message"></p>' : ''}
-        <p>${I18N_DEFINITION['error-handler']['explanation']}</p>
-        <p>${I18N_DEFINITION['error-handler']['privacy']}</p>
+        ${explanations.map((explanation) => `<p>${I18N_DEFINITION['error-handler'][explanation]}</p>`).join('\n')}
+        ${
+            github_issue_url
+                ? `
         <a id="error-modal-github-link" class="button button-small" style="margin-right: 10px;" target="_blank" rel="noopener noreferrer">
             ${I18N_DEFINITION['error-handler']['report-on-github']}
-        </a>
+        </a>`
+                : ''
+        }
+        ${
+            mailto_url
+                ? `
         <a id="error-modal-email-link" class="button button-small">
             ${I18N_DEFINITION['error-handler']['report-via-email']}
         </a>
+        `
+                : ''
+        }
     </div>
 </div>`;
 
@@ -66,8 +82,8 @@ function primitiveErrorModal(enduser_message, github_issue_url, mailto_url) {
     // attacker-controlled. All that content is later added safely.
     document.body.innerHTML += html;
     if (enduser_message) document.getElementById('error-modal-enduser-message').innerText = enduser_message;
-    document.getElementById('error-modal-github-link').href = github_issue_url;
-    document.getElementById('error-modal-email-link').href = mailto_url;
+    if (github_issue_url) document.getElementById('error-modal-github-link').href = github_issue_url;
+    if (mailto_url) document.getElementById('error-modal-email-link').href = mailto_url;
 
     document.querySelector('#error-modal .backdrop').onclick = dismiss;
     document.querySelector('#error-modal .close-button').onclick = dismiss;
@@ -82,6 +98,21 @@ const isNetworkError = (message) => {
     if (message === 'NetworkError when attempting to fetch resource.') return true;
     return false;
 };
+
+/**
+ * Heuristic to determine if the browser is too old. Uses somewhat recent language features to check if the browser is deprecated.
+ * @returns {boolean}
+ */
+const isBrowserDeprecated = () => {
+    try {
+        Object.fromEntries(new Map([['a', 'b']]));
+        [1, 2, 3, 4].findLast((x) => x > 0);
+    } catch (e) {
+        return true;
+    }
+    return false;
+};
+
 try {
     const handler = (event) => {
         try {
@@ -98,6 +129,11 @@ try {
                     '@webkit-masked-url://hidden/',
                 ].some((s) => event.error?.stack?.includes(s))
             ) {
+                return;
+            }
+
+            if (isBrowserDeprecated()) {
+                primitiveErrorModal(['browser-too-old'], event.error?.enduser_message);
                 return;
             }
 
@@ -187,7 +223,12 @@ try {
             const mailto_url = `mailto:dev@datenanfragen.de?subject=${report_title}&body=${email_body}`;
 
             if (!debug_info.error.code || debug_info.error.code <= 3) {
-                primitiveErrorModal(event.error?.enduser_message, github_issue_url, mailto_url);
+                primitiveErrorModal(
+                    ['explanation', 'privacy'],
+                    event.error?.enduser_message,
+                    github_issue_url,
+                    mailto_url
+                );
                 previous_github_report_body = github_body + encodeURIComponent('\n\n---\n\n');
                 previous_email_report_body = email_body + encodeURIComponent('\n\n---\n\n');
             }

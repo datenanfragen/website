@@ -543,7 +543,8 @@
         "explain-context": "Bitte gib uns wenn möglich ein bisschen Kontext für Deine Fehlermeldung. Beschreib also z. B., was Du getan hast, bevor der Fehler aufgetreten ist. Bitte entferne auch alle privaten Daten aus den Debuginformationen weiter unten.",
         "report-on-github": "Über GitHub melden",
         "report-via-email": "Per E-Mail melden",
-        "no-internet": "Es scheint so, als hättest Du gerade keine Internetverbindung."
+        "no-internet": "Es scheint so, als hättest Du gerade keine Internetverbindung.",
+        "browser-too-old": "Es ist ein Fehler aufgetreten, aber Dein Browser ist so alt, dass wir ihn nicht unterstützen. Aktualisiere bitte Deinen Browser oder wechsel zu einem modernen."
     },
     "error-msg": {
         "company-not-found": "Das gewünschte Unternehmen wurde nicht gefunden.",
