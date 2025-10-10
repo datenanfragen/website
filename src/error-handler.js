@@ -39,7 +39,7 @@ function logError(event, debug_info = undefined) {
 }
 /**
  * Primitive error modal without any dependencies.
- * @param {String[]} explanations Array of explanations to show to the user.
+ * @param {String[]} explanations Array of translation keys (under `error-handler`) of explanations to show to the user.
  * @param {String | undefined} enduser_message Enduser-facing message from our exception.
  * @param {String | undefined} github_issue_url URL to create a GitHub issue.
  * @param {String | undefined} mailto_url prefilled mailto URL.
@@ -57,7 +57,7 @@ function primitiveErrorModal(explanations, enduser_message, github_issue_url, ma
         }"></button>
 
         ${enduser_message ? '<p id="error-modal-enduser-message"></p>' : ''}
-        ${explanations.map((explanation) => `<p>${explanation}</p>`).join('\n')}
+        ${explanations.map((explanation) => `<p>${I18N_DEFINITION['error-handler'][explanation]}</p>`).join('\n')}
         ${
             github_issue_url
                 ? `
@@ -65,7 +65,7 @@ function primitiveErrorModal(explanations, enduser_message, github_issue_url, ma
             ${I18N_DEFINITION['error-handler']['report-on-github']}
         </a>`
                 : ''
-        } 
+        }
         ${
             mailto_url
                 ? `
@@ -74,7 +74,7 @@ function primitiveErrorModal(explanations, enduser_message, github_issue_url, ma
         </a>
         `
                 : ''
-        } 
+        }
     </div>
 </div>`;
 
@@ -133,9 +133,7 @@ try {
             }
 
             if (isBrowserDeprecated()) {
-                // eslint-disable-next-line no-console
-                const explanation = I18N_DEFINITION['error-handler']['browser-too-old'];
-                primitiveErrorModal([explanation], event.error?.enduser_message);
+                primitiveErrorModal(['browser-too-old'], event.error?.enduser_message);
                 return;
             }
 
@@ -226,7 +224,7 @@ try {
 
             if (!debug_info.error.code || debug_info.error.code <= 3) {
                 primitiveErrorModal(
-                    [I18N_DEFINITION['error-handler']['explanation'], I18N_DEFINITION['error-handler']['privacy']],
+                    ['explanation', 'privacy'],
                     event.error?.enduser_message,
                     github_issue_url,
                     mailto_url
