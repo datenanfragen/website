@@ -1,10 +1,25 @@
-import { render, Component } from 'preact';
+import { render, Component, type JSX, type ComponentChildren } from 'preact';
 import { createPortal } from 'preact/compat';
 import t from '../Utility/i18n';
-import PropTypes from 'prop-types';
+
+export type DeprecatedModalProps = {
+    positiveButton?: JSX.Element;
+    positiveText?: string;
+    positiveDefault?: boolean;
+    onPositiveFeedback?: () => void;
+
+    negativeButton?: JSX.Element;
+    negativeText?: string;
+    onNegativeFeedback?: () => void;
+
+    onDismiss?: () => void;
+    innerStyle?: string;
+
+    children: ComponentChildren;
+};
 
 // TODO: Get rid of this once we've moved everything to the new modal hook.
-export default class DeprecatedModal extends Component {
+export default class DeprecatedModal extends Component<DeprecatedModalProps> {
     render() {
         const positiveButton =
             this.props.positiveButton ||
@@ -37,10 +52,10 @@ export default class DeprecatedModal extends Component {
                     className="backdrop"
                     onClick={this.props.onDismiss}
                     onKeyDown={(e) => {
-                        if (e.key === 'Escape') this.props.onDismiss();
+                        if (e.key === 'Escape') this.props.onDismiss?.();
                     }}
                     role="presentation"
-                    tabIndex="0"
+                    tabIndex={0}
                 />
                 <div className="inner" style={this.props.innerStyle}>
                     {this.props.onDismiss ? (
@@ -63,27 +78,11 @@ export default class DeprecatedModal extends Component {
         );
         /* eslint-enable */
     }
-
-    static propTypes = {
-        positiveButton: PropTypes.element,
-        positiveText: PropTypes.string,
-        positiveDefault: PropTypes.bool,
-        onPositiveFeedback: PropTypes.func,
-
-        negativeButton: PropTypes.element,
-        negativeText: PropTypes.string,
-        onNegativeFeedback: PropTypes.func,
-
-        onDismiss: PropTypes.func,
-        innerStyle: PropTypes.string,
-
-        children: PropTypes.node.isRequired,
-    };
 }
 
-export function showModal(modal) {
+export function showModal(modal: DeprecatedModal) {
     return render(modal, document.body);
 }
-export function dismissModal(node) {
+export function dismissModal(node: Element) {
     render('', document.body, node);
 }
