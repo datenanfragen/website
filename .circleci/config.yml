@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker_hugo_node:
     docker:
-      - image: node:14.21.3-alpine
+      - image: cimg/node:14.21
 
 jobs:
   # Circle's "Auto-cancel redundant builds" feature doesn't work on the default branch. When merging PRs on data, this
@@ -15,8 +15,6 @@ jobs:
       - checkout
       - run:
           command: |
-            apk update
-            apk add curl jq bash
             sh .circleci/cancel-redundant-builds.sh
 
   build:
@@ -28,16 +26,11 @@ jobs:
     steps:
       - run:
           command: |
-            apk update
-            apk add --update bash git wget ca-certificates autoconf automake build-base libc6-compat libstdc++
-
-            # Install Hugo, see: https://discourse.gohugo.io/t/alpine-linux-install-hugo-from-a-prebuilt-binary/47551,
-            # via: https://github.com/gohugoio/hugo/issues/10839
-            wget -O "${TEMP}/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz"
-            tar -xf "${TEMP}/hugo.tar.gz" hugo -C /usr/bin
-
-            rm -rf /var/cache/apk/*
-            rm -rf /tmp/* /var/cache/apk/*
+            mkdir /usr/local/hugo
+            wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz -O /usr/local/hugo/${HUGO_BINARY}.tar.gz
+            tar xzf /usr/local/hugo/${HUGO_BINARY}.tar.gz -C /usr/local/hugo/
+            ln -s /usr/local/hugo/hugo /usr/local/bin/hugo
+            rm /usr/local/hugo/${HUGO_BINARY}.tar.gz
 
       - checkout
 
@@ -55,7 +48,7 @@ jobs:
 
   test:
       docker:
-        - image: cypress/base:14.17.0
+        - image: cypress/base:14.21.1
       resource_class: large
       environment:
         HUGO_VERSION: '0.139.0'
@@ -97,7 +90,7 @@ jobs:
 
   production_test:
       docker:
-        - image: cypress/base:14.17.0
+        - image: cypress/base:14.21.1
       resource_class: large
       environment:
         CYPRESS_baseUrl: 'https://www.datarequests.org'
