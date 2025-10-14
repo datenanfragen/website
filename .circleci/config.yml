@@ -1,15 +1,15 @@
 version: 2.1
 
 executors:
-  docker_hugo_node:
+  docker_cypress:
     docker:
-      - image: cimg/node:14.21
+      - image: cypress/base:14.21.1
 
 jobs:
   # Circle's "Auto-cancel redundant builds" feature doesn't work on the default branch. When merging PRs on data, this
   # can cause lots of unnecessary builds. Thus, we emulate this feature here for master.
   cancel_redundant_builds:
-    executor: docker_hugo_node
+    executor: docker_cypress
     resource_class: small
     steps:
       - checkout
@@ -18,7 +18,7 @@ jobs:
             sh .circleci/cancel-redundant-builds.sh
 
   build:
-    executor: docker_hugo_node
+    executor: docker_cypress
     resource_class: large
     environment:
         HUGO_VERSION: '0.139.0'
@@ -47,8 +47,7 @@ jobs:
             - .cache
 
   test:
-      docker:
-        - image: cypress/base:14.21.1
+      executor: docker_cypress
       resource_class: large
       environment:
         HUGO_VERSION: '0.139.0'
@@ -78,7 +77,7 @@ jobs:
               if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn cypress run --record; fi
 
   deploy:
-      executor: docker_hugo_node
+      executor: docker_cypress
       resource_class: large
       steps:
         - attach_workspace:
@@ -89,8 +88,7 @@ jobs:
               yarn deploy-dattel
 
   production_test:
-      docker:
-        - image: cypress/base:14.21.1
+      executor: docker_cypress
       resource_class: large
       environment:
         CYPRESS_baseUrl: 'https://www.datarequests.org'
