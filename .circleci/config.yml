@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker_hugo_node:
     docker:
-      - image: node:14.17.0-alpine
+      - image: node:14.21.3-alpine
 
 jobs:
   # Circle's "Auto-cancel redundant builds" feature doesn't work on the default branch. When merging PRs on data, this
@@ -24,14 +24,18 @@ jobs:
     resource_class: large
     environment:
         HUGO_VERSION: '0.139.0'
-        HUGO_BINARY: hugo_extended_0.139.0_Linux-64bit
+        HUGO_BINARY: hugo_extended_0.139.0_linux-amd64
     steps:
       - run:
           command: |
             apk update
-            apk add bash git wget ca-certificates autoconf automake build-base libc6-compat libstdc++ gcompat
-            # Workaround https://github.com/gohugoio/hugo/issues/10839
-            apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community hugo
+            apk add --update bash git wget ca-certificates autoconf automake build-base libc6-compat libstdc++
+
+            # Install Hugo, see: https://discourse.gohugo.io/t/alpine-linux-install-hugo-from-a-prebuilt-binary/47551,
+            # via: https://github.com/gohugoio/hugo/issues/10839
+            wget -O "${TEMP}/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz"
+            tar -xf "${TEMP}/hugo.tar.gz" hugo -C /usr/bin
+
             rm -rf /var/cache/apk/*
             rm -rf /tmp/* /var/cache/apk/*
 
@@ -55,7 +59,7 @@ jobs:
       resource_class: large
       environment:
         HUGO_VERSION: '0.139.0'
-        HUGO_BINARY: hugo_extended_0.139.0_Linux-64bit
+        HUGO_BINARY: hugo_extended_0.139.0_linux-amd64
       steps:
         - run:
             command: |
