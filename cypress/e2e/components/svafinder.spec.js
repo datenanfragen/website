@@ -43,7 +43,7 @@ describe('SvaFinder component', () => {
             },
             {
                 path: ['public or private entity', 'Entity is based in Germany', 'Lower Saxony'],
-                result_name: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
+                result_name: 'Der Landesbeauftragte für den Datenschutz Niedersachsen',
                 result_url_regex: /supervisory-authority\/dendslfd/,
             },
             {
@@ -58,7 +58,7 @@ describe('SvaFinder component', () => {
             },
             {
                 path: ['public or private entity', 'Entity is based in other country', 'Lower Saxony'],
-                result_name: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
+                result_name: 'Der Landesbeauftragte für den Datenschutz Niedersachsen',
                 result_url_regex: /supervisory-authority\/dendslfd/,
             },
             {
