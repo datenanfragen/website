@@ -49,13 +49,10 @@ const steps: Record<string, Steps> = {
             // this allows us to determine which ones the BfDI is not responsible for.
             'bund-kk': 'debfdi',
             kirche: {
-                ev: {
-                    // Source: https://dsbkd.de/geschaeftsverteilung/
-                    evdsbkd: 'dedsbkd',
-                    // Source: https://datenschutz.ekd.de/vernetzung/andere-evangelisch/
-                    evpfalz: 'deevpfalz',
-                    evsonst: 'deekdbfd',
-                },
+                // The previous other authorities for the evangelical churches have been merged into the BfD EKD, cf.
+                // https://artikel91.eu/2025/01/02/nur-noch-eine-evangelische-aufsicht-dsbkd-aufgeloest/ and
+                // https://datenschutz.ekd.de/2025/01/02/evangelische-datenschutzaufsicht/.
+                ev: 'deekdbfd',
                 kath: {
                     kathbay: 'dekathbayddsb',
                     kathnrw: 'dekathdsz',
@@ -68,6 +65,13 @@ const steps: Record<string, Steps> = {
                 // can defer to the regular state authorities for all other cases without their own autority.
                 // Note: I am assuming that the responsible authority for other churches in Bavaria is debayldb as
                 // churches tend to be Körperschaften des öffentlichen Rechts—I have not verified that.
+                // Update: Actually, no. There is no responsible authority for other churches in Bavaria, see:
+                // https://artikel91.eu/2023/10/18/datenschutzaufsichtsfreie-raeume-fuer-religionen-in-bayern/
+                // Also, just because a church has set up their own authority, it doesn't mean that they are actually
+                // responsible, cf. Jehovas Zeugen
+                // (https://artikel91.eu/2025/10/15/fast-alle-landesdatenschutzaufsichten-sehen-sich-fuer-jehovas-zeugen-zustaendig/)
+                // and SELK
+                // (https://artikel91.eu/2023/01/05/vg-hannover-kassiert-datenschutzrecht-der-selk-entscheidungsgruende).
                 // kirchesonst: {
                 //     bawue: 'debawueldb',
                 //     bay: 'debayldb',
@@ -238,7 +242,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
             else if (b === country) return 1;
 
             // We have a few "Any other …" steps that need to be sorted last.
-            const sortLastKeys = ['kirchesonst', 'evsonst', 'private'];
+            const sortLastKeys = ['kirchesonst', 'private'];
             if (sortLastKeys.includes(a)) return 1;
             else if (sortLastKeys.includes(b)) return -1;
 
@@ -248,10 +252,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
 
         const options = sorted_keys.map((key) => (
             <div className="radio-wrapper">
-                <label
-                    className={`radio-label${
-                        [country, 'private', 'kirchesonst', 'evsonst'].includes(key) ? ' active' : ''
-                    }`}>
+                <label className={`radio-label${[country, 'private', 'kirchesonst'].includes(key) ? ' active' : ''}`}>
                     <input className="form-element" type="radio" onClick={() => selectOption(key)} />
                     {entries[key]}
                 </label>
@@ -319,9 +320,7 @@ const svas = {
     debfdi: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
     debralda: 'Die Landesbeauftragte für den Datenschutz und für das Recht auf Akteneinsicht Brandenburg',
     debrelfdi: 'Die Landesbeauftragte für Datenschutz und Informationsfreiheit Bremen',
-    dedsbkd: 'Der Datenschutzbeauftragte für Kirche und Diakonie',
     deekdbfd: 'Der Beauftragte für den Datenschutz der EKD',
-    deevpfalz: 'Datenschutzbeauftragte Evangelische Kirche der Pfalz',
     dehessbdi: 'Der Hessische Beauftragte für Datenschutz und Informationsfreiheit',
     dehmbbfdi: 'Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit',
     dekathbayddsb: 'Diözesandatenschutzbeauftragter Bayerische Bistümer',

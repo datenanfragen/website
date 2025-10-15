@@ -37,7 +37,7 @@ describe('SvaFinder component', () => {
                 result_url_regex: /supervisory-authority\/dekathbayddsb/,
             },
             {
-                path: ['Religious body', 'Evangelical church', 'Any other evangelical church'],
+                path: ['Religious body', 'Evangelical church'],
                 result_name: 'Der Beauftragte für den Datenschutz der EKD',
                 result_url_regex: /supervisory-authority\/deekdbfd/,
             },

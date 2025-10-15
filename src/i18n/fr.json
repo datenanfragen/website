@@ -534,11 +534,7 @@
         "kirchesonst": "Toute autre religion/dénomination",
         "bund-kk": "Assurance maladie légale (sauf AOK, IKK Brandenburg et Berlin, IKK Südwest, et les assurances maladie directement sous le contrôle d'un État fédéral)",
         "bund-jobcenter": "Agence pour l'emploi (à l'exception des agences municipales agréées)",
-        "evsonst": "Toute autre église évangélique/Diakonisches Werk",
-        "evpfalz": "Église protestante du Palatinat",
-        "evdsbkd": "Église évangélique luthérienne de Saxe, Église évangélique d'Anhalt, Diakonie Saxe, Diakonie Allemagne centrale",
         "rundfunk-beitragsservice": "Beitragsservice (anciennement GEZ)",
-        "ev-q": "Quelle église ou Diakonisches Werk est concernée par votre demande ?",
         "bund-sueg": "Entreprise privée, dans les cas relevant de la loi sur le contrôle des habilitations de sécurité (« Sicherheitsüberprüfungsgesetz »)"
     },
     "countries": {
