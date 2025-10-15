@@ -141,7 +141,7 @@ const steps: Record<string, Steps> = {
                 'rundfunk-mdr': 'derf',
                 'rundfunk-ndr': 'derfndr',
                 'rundfunk-rb': 'derfrb',
-                'rundfunk-rbb': 'derfrbb',
+                'rundfunk-rbb': 'derf',
                 'rundfunk-sr': 'derf',
                 'rundfunk-swr': 'derf',
                 'rundfunk-wdr': 'derf',
