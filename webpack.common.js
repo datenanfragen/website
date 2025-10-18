@@ -34,24 +34,15 @@ module.exports = {
     optimization: {
         runtimeChunk: 'single',
         splitChunks: {
+            chunks: 'all',
             cacheGroups: {
                 commons: {
                     name: 'commons',
-                    chunks: 'all',
-                    test: (module, chunks) => {
-                        // these are always included so others can reuse code from them, i.e. preact
-                        const splitForEntries = ['general', 'error-handler'];
-                        return chunks.filter((c) => splitForEntries.includes(c.name)).length > 0;
-                    },
-                    minChunks: 2,
                     priority: -10,
                 },
                 vendors: {
                     name: 'vendors',
-                    chunks: 'all',
                     test: /[/\\]node_modules[/\\](?!@babel)/,
-                    // autocomplete.js, localforage, typesense
-                    minChunks: 4,
                     priority: -20,
                     reuseExistingChunk: true,
                 },
@@ -59,7 +50,7 @@ module.exports = {
         },
     },
     output: {
-        filename: 'js/[name].gen.js',
+        filename: 'js/[name].bundle.gen.js',
         chunkFilename: 'js/[name].bundle.gen.js',
         publicPath: '/',
         path: path.resolve(__dirname, 'static'),

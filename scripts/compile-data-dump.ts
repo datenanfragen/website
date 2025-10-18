@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join, basename } from 'path';
-import glob from 'glob';
+import * as glob from 'glob';
 import { getDirname } from 'cross-dirname';
 
 const dirname = getDirname();
