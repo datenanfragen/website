@@ -113,7 +113,7 @@
         "eslint-plugin-react": "^7.27.1",
         "execa": "^6.1.0",
         "fs-extra": "^10.1.0",
-        "glob": "^8.0.3",
+        "glob": "^11.0.3",
         "husky": "^4.2.5",
         "imagemin-lint-staged": "^0.4.0",
         "lint-staged": ">=9.4.3",
