@@ -1,7 +1,7 @@
 import { join } from 'path';
 import fs from 'fs-extra';
 import yesno from 'yesno';
-import { globSync } from 'glob';
+import { globSync } from 'node:fs';
 import { execa } from 'execa';
 import { getDirname } from 'cross-dirname';
 import { objFilter, deepCopyObject } from '../src/Utility/common';
