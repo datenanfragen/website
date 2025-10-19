@@ -1,43 +1,37 @@
 version: 2.1
 
 executors:
-  docker_hugo_node:
+  docker_cypress:
     docker:
-      - image: node:14.17.0-alpine
+      - image: cypress/base:22.20.0
 
 jobs:
   # Circle's "Auto-cancel redundant builds" feature doesn't work on the default branch. When merging PRs on data, this
   # can cause lots of unnecessary builds. Thus, we emulate this feature here for master.
   cancel_redundant_builds:
-    executor: docker_hugo_node
+    executor: docker_cypress
     resource_class: small
     steps:
       - checkout
       - run:
           command: |
-            apk update
-            apk add curl jq bash
+            wget https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-linux-amd64 -O /usr/local/bin/jq
             sh .circleci/cancel-redundant-builds.sh
 
   build:
-    executor: docker_hugo_node
+    executor: docker_cypress
     resource_class: large
     environment:
-        HUGO_VERSION: '0.88.1'
-        HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
+        HUGO_VERSION: '0.139.0'
+        HUGO_BINARY: hugo_extended_0.139.0_linux-amd64
     steps:
       - run:
           command: |
-            apk update
-            apk add bash git wget ca-certificates autoconf automake build-base libc6-compat
-
-            rm -rf /var/cache/apk/*
             mkdir /usr/local/hugo
             wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz -O /usr/local/hugo/${HUGO_BINARY}.tar.gz
             tar xzf /usr/local/hugo/${HUGO_BINARY}.tar.gz -C /usr/local/hugo/
             ln -s /usr/local/hugo/hugo /usr/local/bin/hugo
             rm /usr/local/hugo/${HUGO_BINARY}.tar.gz
-            rm -rf /tmp/* /var/cache/apk/*
 
       - checkout
 
@@ -54,12 +48,11 @@ jobs:
             - .cache
 
   test:
-      docker:
-        - image: cypress/base:14.17.0
+      executor: docker_cypress
       resource_class: large
       environment:
-        HUGO_VERSION: '0.88.1'
-        HUGO_BINARY: hugo_extended_0.88.1_linux-64bit
+        HUGO_VERSION: '0.139.0'
+        HUGO_BINARY: hugo_extended_0.139.0_linux-amd64
       steps:
         - run:
             command: |
@@ -85,7 +78,7 @@ jobs:
               if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn cypress run --record; fi
 
   deploy:
-      executor: docker_hugo_node
+      executor: docker_cypress
       resource_class: large
       steps:
         - attach_workspace:
@@ -96,8 +89,7 @@ jobs:
               yarn deploy-dattel
 
   production_test:
-      docker:
-        - image: cypress/base:14.17.0
+      executor: docker_cypress
       resource_class: large
       environment:
         CYPRESS_baseUrl: 'https://www.datarequests.org'
