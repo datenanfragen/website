@@ -116,8 +116,7 @@ export const RequestList = (props: RequestListProps) => {
                             <a
                                 id="new-request"
                                 className="button button-secondary button-small"
-                                href={`${window.BASE_URL}generator`}
-                                role="button">
+                                href={`${window.BASE_URL}generator`}>
                                 {t('new-request', 'generator')}
                             </a>
                         )}
