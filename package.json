@@ -47,7 +47,7 @@
     },
     "dependencies": {
         "autocomplete.js": "^0.37.0",
-        "brutusin-json-forms": "https://github.com/brutusin/json-forms",
+        "brutusin-json-forms": "https://github.com/brutusin/json-forms#44f27b29ef657f545b8a3d162c2b9c90ef137dbc",
         "cross-dirname": "^0.1.0",
         "deepmerge": "^4.2.2",
         "fast-deep-equal": "^3.1.3",
