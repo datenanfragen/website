@@ -896,7 +896,7 @@ input[type='search'].aa-input-search {
 
 /* Footnotes, adapted after: https://news.ycombinator.com/item?id=24747376 */
 details.footnote {
-    display: inline;
+    display: inline-block;
     @include desktop {
         position: relative;
     }
