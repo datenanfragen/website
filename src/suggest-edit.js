@@ -152,16 +152,16 @@ function renderForm(schema, company_data = undefined) {
         document.getElementById('suggest-form'),
         company_data || (PARAMETERS['name'] ? { name: PARAMETERS['name'] } : {})
     );
-    
+
     // Set attributes to avoid autocompletion on the form
     // This is to avoid private data to be submitted (e.g. via a Password Manager)
     document.querySelectorAll('.brutusin-form form').forEach((el) => {
-        el.setAttribute('autocomplete', 'off') 
-        el.setAttribute('data-1p-ignore', 'true') 
-        el.setAttribute('data-lpignore', 'true') 
-        el.setAttribute('data-protonpass-ignore', 'true') 
+        el.setAttribute('autocomplete', 'off');
+        el.setAttribute('data-1p-ignore', 'true');
+        el.setAttribute('data-lpignore', 'true');
+        el.setAttribute('data-protonpass-ignore', 'true');
     });
-    
+
     suggestSimilarNamedCompanies();
 }
 
