@@ -3112,7 +3112,7 @@ browserslist@^4.20.2:
     node-releases "^2.0.3"
     picocolors "^1.0.0"
 
-"brutusin-json-forms@https://github.com/brutusin/json-forms":
+"brutusin-json-forms@https://github.com/brutusin/json-forms#44f27b29ef657f545b8a3d162c2b9c90ef137dbc":
   version "0.0.0"
   resolved "https://github.com/brutusin/json-forms#44f27b29ef657f545b8a3d162c2b9c90ef137dbc"
 
