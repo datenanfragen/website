@@ -155,11 +155,16 @@ function renderForm(schema, company_data = undefined) {
 
     // Set attributes to avoid autocompletion on the form
     // This is to avoid private data to be submitted (e.g. via a Password Manager)
-    document.querySelectorAll('form.brutusin-form').forEach((el) => {
+    document.querySelectorAll('form.brutusin-form input, form.brutusin-form textarea').forEach((el) => {
         el.setAttribute('autocomplete', 'off');
-        el.setAttribute('data-1p-ignore', 'true');
+        // https://developer.1password.com/docs/web/compatible-website-design/#ignore-offers-to-save-or-fill-specific-fields
+        el.setAttribute('data-1p-ignore', '');
+        // https://support.lastpass.com/s/document-item?language=en_US&bundleId=lastpass&topicId=LastPass%2Fc_lp_prevent_fields_from_being_filled_automatically.html&_LANG=enus
         el.setAttribute('data-lpignore', 'true');
+        // https://stackoverflow.com/a/51272839
         el.setAttribute('data-protonpass-ignore', 'true');
+        // https://github.com/bitwarden/clients/blob/e1415af407fef139fb69126349e5cc6d286f4474/apps/browser/src/autofill/services/collect-autofill-content.service.ts#L884-L889
+        el.setAttribute('data-bwignore', 'true');
     });
 
     suggestSimilarNamedCompanies();
