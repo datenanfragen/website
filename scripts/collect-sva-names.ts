@@ -1,3 +1,4 @@
+/** @file Create a mapping of SVA slugs to SVA names for the SvaFinder. */
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import glob from 'glob';
