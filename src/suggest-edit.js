@@ -155,7 +155,7 @@ function renderForm(schema, company_data = undefined) {
 
     // Set attributes to avoid autocompletion on the form
     // This is to avoid private data to be submitted (e.g. via a Password Manager)
-    document.querySelectorAll('.brutusin-form form').forEach((el) => {
+    document.querySelectorAll('form.brutusin-form').forEach((el) => {
         el.setAttribute('autocomplete', 'off');
         el.setAttribute('data-1p-ignore', 'true');
         el.setAttribute('data-lpignore', 'true');
