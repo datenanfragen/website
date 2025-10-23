@@ -31,6 +31,15 @@ Nakon slanja obrasca, upisani podaci bit će javno vidljivi u našem <a href="ht
 {{< loadingIndicator >}}
 
 <div id="suggest-form">
+<div id="brutusin-form"></div>
+
+<hr>
+
+Do you have any further comments or notes that we should take into account when reviewing your suggestion? If so, you can share them with us here.
+
+<label for="comment" class="sr-only">Additional comments</label>
+<textarea id="comment" class="form-element" rows="5"></textarea>
+
 <button id="submit-suggest-form" class="button button-primary">Pošalji <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
 </div>
 

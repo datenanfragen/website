@@ -32,6 +32,15 @@ Si tienes alguna sugerencia que no se puede manejar a través de este formulario
 {{< loadingIndicator >}}
 
 <div id="suggest-form">
+<div id="brutusin-form"></div>
+
+<hr>
+
+¿Tienes algún otro comentario o nota que debamos tener en cuenta al revisar tu sugerencia? Si es así, puedes compartirlos con nosotros aquí.
+
+<label for="comment" class="sr-only">Comentarios adicionales</label>
+<textarea id="comment" class="form-element" rows="5"></textarea>
+
 <button id="submit-suggest-form" class="button button-primary">Enviar <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
 </div>
 

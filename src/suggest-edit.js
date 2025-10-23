@@ -147,7 +147,7 @@ function renderForm(schema, company_data = undefined) {
     });
     bf = BrutusinForms.create(schema);
     bf.render(
-        document.getElementById('suggest-form'),
+        document.getElementById('brutusin-form'),
         company_data || (PARAMETERS['name'] ? { name: PARAMETERS['name'] } : {})
     );
     suggestSimilarNamedCompanies();
@@ -307,8 +307,9 @@ document.getElementById('submit-suggest-form').onclick = () => {
             for: 'cdb',
             data,
             new: !PARAMETERS['slug'],
+            comment: document.getElementById('comment').value,
         },
-        ['for', 'data'].concat(properties, ['new'])
+        ['for', 'data'].concat(properties, ['new', 'comment'])
     );
 
     fetch(submitUrl, {
