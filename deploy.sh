@@ -43,10 +43,9 @@ cp data_tmp/companies/* static/db
 cp data_tmp/obsolete-records/* static/db
 cp data_tmp/supervisory-authorities/* static/db/sva
 
-# Run the script for handling obsolete records first because that enriches the JSONs will rename next with redirection
-# target metadata.
+# Run the script for handling obsolete records first because that enriches the JSONs we will rename next with
+# redirection target metadata.
 yarn tsm scripts/handle-obsolete-records.ts
-
 
 # Unfortunately, Hugo only accepts .md files as posts, so we have to rename our JSONs, see https://stackoverflow.com/a/27285610
 # To speed this up, we rename all files once in `data_tmp` and only then copy them to the language directories.
@@ -62,6 +61,7 @@ mv data_tmp/schema.json data_tmp/schema-supervisory-authorities.json data_tmp/sc
 
 yarn tsm scripts/compile-company-packs.ts
 yarn tsm scripts/compile-data-dump.ts
+yarn tsm scripts/collect-sva-names.ts
 
 rm -rf data_tmp
 

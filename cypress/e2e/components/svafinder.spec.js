@@ -37,13 +37,13 @@ describe('SvaFinder component', () => {
                 result_url_regex: /supervisory-authority\/dekathbayddsb/,
             },
             {
-                path: ['Religious body', 'Evangelical church', 'Any other evangelical church'],
+                path: ['Religious body', 'Evangelical church'],
                 result_name: 'Der Beauftragte für den Datenschutz der EKD',
                 result_url_regex: /supervisory-authority\/deekdbfd/,
             },
             {
                 path: ['public or private entity', 'Entity is based in Germany', 'Lower Saxony'],
-                result_name: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
+                result_name: 'Der Landesbeauftragte für den Datenschutz Niedersachsen',
                 result_url_regex: /supervisory-authority\/dendslfd/,
             },
             {
@@ -58,7 +58,7 @@ describe('SvaFinder component', () => {
             },
             {
                 path: ['public or private entity', 'Entity is based in other country', 'Lower Saxony'],
-                result_name: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
+                result_name: 'Der Landesbeauftragte für den Datenschutz Niedersachsen',
                 result_url_regex: /supervisory-authority\/dendslfd/,
             },
             {
@@ -69,7 +69,7 @@ describe('SvaFinder component', () => {
             {
                 path: ['Public service broadcaster', 'Deutschlandradio'],
                 result_name:
-                    'Der Rundfunkdatenschutzbeauftragte von BR, HR, MDR, SR, SWR, WDR, Deutschlandradio und ZDF',
+                    'Der Rundfunkdatenschutzbeauftragte beim BR, HR, MDR, rbb, SR, SWR, WDR, Deutschlandradio und ZDF',
                 result_url_regex: /supervisory-authority\/derf/,
             },
             {

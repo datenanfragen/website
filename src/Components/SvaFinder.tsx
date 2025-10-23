@@ -5,6 +5,7 @@ import { useAppStore } from '../store/app';
 import t from '../Utility/i18n';
 import { fetchSvaDataBySlug } from '../Utility/companies';
 import deepmerge from 'deepmerge';
+import svas from '../Utility/sva-names.json';
 
 type SvaFinderProps = {
     callback?: (sva?: SupervisoryAuthority) => void;
@@ -49,13 +50,10 @@ const steps: Record<string, Steps> = {
             // this allows us to determine which ones the BfDI is not responsible for.
             'bund-kk': 'debfdi',
             kirche: {
-                ev: {
-                    // Source: https://dsbkd.de/geschaeftsverteilung/
-                    evdsbkd: 'dedsbkd',
-                    // Source: https://datenschutz.ekd.de/vernetzung/andere-evangelisch/
-                    evpfalz: 'deevpfalz',
-                    evsonst: 'deekdbfd',
-                },
+                // The previous other authorities for the evangelical churches have been merged into the BfD EKD, cf.
+                // https://artikel91.eu/2025/01/02/nur-noch-eine-evangelische-aufsicht-dsbkd-aufgeloest/ and
+                // https://datenschutz.ekd.de/2025/01/02/evangelische-datenschutzaufsicht/.
+                ev: 'deekdbfd',
                 kath: {
                     kathbay: 'dekathbayddsb',
                     kathnrw: 'dekathdsz',
@@ -68,6 +66,13 @@ const steps: Record<string, Steps> = {
                 // can defer to the regular state authorities for all other cases without their own autority.
                 // Note: I am assuming that the responsible authority for other churches in Bavaria is debayldb as
                 // churches tend to be Körperschaften des öffentlichen Rechts—I have not verified that.
+                // Update: Actually, no. There is no responsible authority for other churches in Bavaria, see:
+                // https://artikel91.eu/2023/10/18/datenschutzaufsichtsfreie-raeume-fuer-religionen-in-bayern/
+                // Also, just because a church has set up their own authority, it doesn't mean that they are actually
+                // responsible, cf. Jehovas Zeugen
+                // (https://artikel91.eu/2025/10/15/fast-alle-landesdatenschutzaufsichten-sehen-sich-fuer-jehovas-zeugen-zustaendig/)
+                // and SELK
+                // (https://artikel91.eu/2023/01/05/vg-hannover-kassiert-datenschutzrecht-der-selk-entscheidungsgruende).
                 // kirchesonst: {
                 //     bawue: 'debawueldb',
                 //     bay: 'debayldb',
@@ -136,7 +141,7 @@ const steps: Record<string, Steps> = {
                 'rundfunk-mdr': 'derf',
                 'rundfunk-ndr': 'derfndr',
                 'rundfunk-rb': 'derfrb',
-                'rundfunk-rbb': 'derfrbb',
+                'rundfunk-rbb': 'derf',
                 'rundfunk-sr': 'derf',
                 'rundfunk-swr': 'derf',
                 'rundfunk-wdr': 'derf',
@@ -238,7 +243,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
             else if (b === country) return 1;
 
             // We have a few "Any other …" steps that need to be sorted last.
-            const sortLastKeys = ['kirchesonst', 'evsonst', 'private'];
+            const sortLastKeys = ['kirchesonst', 'private'];
             if (sortLastKeys.includes(a)) return 1;
             else if (sortLastKeys.includes(b)) return -1;
 
@@ -248,10 +253,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
 
         const options = sorted_keys.map((key) => (
             <div className="radio-wrapper">
-                <label
-                    className={`radio-label${
-                        [country, 'private', 'kirchesonst', 'evsonst'].includes(key) ? ' active' : ''
-                    }`}>
+                <label className={`radio-label${[country, 'private', 'kirchesonst'].includes(key) ? ' active' : ''}`}>
                     <input className="form-element" type="radio" onClick={() => selectOption(key)} />
                     {entries[key]}
                 </label>
@@ -303,73 +305,4 @@ export const SvaFinder = (props: SvaFinderProps) => {
     document.querySelectorAll('.sva-finder').forEach((el) => {
         render(<SvaFinder showTitle={props?.showTitle} steps={stepsFromProps} />, el.parentElement!, el);
     });
-};
-
-const svas = {
-    atdsb: 'Österreichische Datenschutzbehörde',
-    beapd: 'Autorite Protection Donnees de Belgique, Gegevensbeschermingsautoriteit van België',
-    bgcpdp: 'Commission for Personal Data Protection Bulgaria',
-    chedoeb: 'EDÖB – Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter',
-    cydp: 'Γραφείο Επιτρόπου Δεδομένων Προσωπικού Χαρακτήρα (Personal Data Commissioner of Cyprus)',
-    czcuooz: 'Úřad pro ochranu osobních údajů (Czech Office for Personal Data Protection)',
-    debawueldb: 'Der Landesbeauftragte für den Datenschutz Baden-Württemberg',
-    debaylda: 'Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)',
-    debayldb: 'Der Bayerische Landesbeauftragte für den Datenschutz',
-    deberlbdi: 'Berliner Beauftragte für Datenschutz und Informationsfreiheit',
-    debfdi: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
-    debralda: 'Die Landesbeauftragte für den Datenschutz und für das Recht auf Akteneinsicht Brandenburg',
-    debrelfdi: 'Die Landesbeauftragte für Datenschutz und Informationsfreiheit Bremen',
-    dedsbkd: 'Der Datenschutzbeauftragte für Kirche und Diakonie',
-    deekdbfd: 'Der Beauftragte für den Datenschutz der EKD',
-    deevpfalz: 'Datenschutzbeauftragte Evangelische Kirche der Pfalz',
-    dehessbdi: 'Der Hessische Beauftragte für Datenschutz und Informationsfreiheit',
-    dehmbbfdi: 'Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit',
-    dekathbayddsb: 'Diözesandatenschutzbeauftragter Bayerische Bistümer',
-    dekathdsz: 'Katholisches Datenschutzzentrum (KdöR)',
-    dekathffdsz: 'Katholisches Datenschutzzentrum Frankfurt (Mittel- und Südwestdeutsche Bistümer)',
-    dekathnordddsb:
-        'Der Diözesandatenschutzbeauftragte der (Erz-)Bistümer Hamburg, Hildesheim, Osnabrück und des Bischöflich Münsterschen Offizialats in Vechta i.O.',
-    dekathostddsb: 'Diözesandatenschutzbeauftragter der ostdeutschen Bistümer',
-    demvldi: 'Der Landesbeauftragte für Datenschutz und Informationsfreiheit Mecklenburg-Vorpommern',
-    dendslfd: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
-    denrwldi: 'Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen',
-    derlpbdi: 'Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz',
-    desaarudz: 'Unabhängiges Datenschutzzentrum Saarland',
-    desaechsdsb: 'Der Sächsische Datenschutzbeauftragte',
-    desalbd: 'Landesbeauftragter für den Datenschutz Sachsen-Anhalt',
-    deshuld: 'Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein',
-    detlfdi: 'Thüringer Landesbeauftragter für den Datenschutz und die Informationsfreiheit',
-    derf: 'Der Rundfunkdatenschutzbeauftragte von BR, HR, MDR, SR, SWR, WDR, Deutschlandradio und ZDF',
-    derfdw: 'Rundfunkdatenschutzbeauftragter Deutsche Welle',
-    derfndr: 'Rundfunkdatenschutzbeauftragter Norddeutscher Rundfunk',
-    derfrb: 'Datenschutzbeauftragte Radio Bremen',
-    derfrbb: 'Datenschutzbeauftragte Rundfunk Berlin-Brandenburg',
-    dkdi: 'Datatilsynet (Data Inspectorate of Denmark)',
-    eeaki: 'Andmekaitse Inspektsioon (Estonian Data Protection Inspectorate)',
-    esaepa: 'Agencia Española de Protección de Datos (Spanish Agency for Data Protection)',
-    fitst: 'Tietosuojavaltuutetun toimisto (Office of the Data Protection Ombudsman of Denmark)',
-    frcnil: "Commission Nationale de l'Informatique et des Libertés – CNIL (French National Commission on Informatics and Liberty)",
-    gbico: 'The Information Commissioner’s Office',
-    grdpa: 'Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (Hellenic Data Protection Authority)',
-    hrazop: 'Agencija za zaštitu osobnih podataka (Croatian Personal Data Protection Agency)',
-    hunaih: 'Nemzeti Adatvédelmi és Információszabadság Hatóság (Hungarian National Authority for Data Protection and Freedom of Information)',
-    iedpc: 'Irish Data Protection Commission',
-    isdpa: 'Persónuvernd (Icelandic Data Protection Authority)',
-    itgpdp: 'Garante per la protezione dei dati personali (Italian Data Protection Authority)',
-    lidss: 'Datenschutzstelle (DSS) Fürstentum Liechtenstein',
-    ltada: 'Valstybinė duomenų apsaugos inspekcija (State Data Protection Inspectorate of Lithuania)',
-    lucnpd: 'Commission nationale pour la protection des données (National Commission for Data Protection, Grand-Duchy of Luxembourg)',
-    lvdvi: 'Datu valsts inspekcija (Data State Inspectorate of Latvia)',
-    mtidpc: 'Office of the Information and Data Protection Commissioner of Malta',
-    nlap: 'Autoriteit Persoonsgegevens (Dutch Data Protection Authority)',
-    nods: 'Datatilsynet (Norwegian Data Protection Authority)',
-    plgiodo:
-        'GIODO – Biuro Generalnego Inspektora Ochrony Danych Osobowych (The Bureau of the Inspector General for the Protection of Personal Data of Poland)',
-    ptcnpd: 'CNPD – Comissão Nacional de Protecção de Dados',
-    roanspdcp:
-        'Autoritatea Naţională de Supraveghere a Prelucrării Datelor cu Caracter Personal (The National Supervisory Authority For Personal Data Processing of Romania)',
-    sedi: 'Datainspektionen (Swedish Data Protection Authority)',
-    siiprs: 'Informacijski pooblaščenec (Information Commissioner of the Republic of Slovenia)',
-    skunoou:
-        'Úrad na ochranu osobných údajov Slovenskej republiky (Office for Personal Data Protection of the Slovak Republic)',
 };
