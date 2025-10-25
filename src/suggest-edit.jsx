@@ -1,6 +1,6 @@
 import { render, Component, Fragment } from 'preact';
 import Modal from './Components/DeprecatedModal';
-import t from 'Utility/i18n';
+import t from './Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
 import { slugify, domainWithoutTldFromUrl } from './Utility/common';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
@@ -9,7 +9,7 @@ require('brutusin-json-forms');
 import { ErrorException, rethrow } from './Utility/errors';
 import { submitUrl } from './Utility/suggest';
 import { FlashMessage, flash } from './Components/FlashMessage';
-import { searchClient } from 'Utility/search';
+import { searchClient } from './Utility/search';
 import equal from 'fast-deep-equal';
 let bf;
 let schema;

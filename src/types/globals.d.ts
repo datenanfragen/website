@@ -10,8 +10,8 @@ declare global {
     interface Window {
         /** The current language version's base URL, including the trailing slash. */
         readonly BASE_URL: string;
-        /** The site version as specified in `package.json`. */
-        readonly CODE_VERSION: string;
+        /** The URL to the PDF worker bundle. */
+        readonly PDF_WORKER_URL: string;
 
         /** Two-letter ISO code of the site's language. */
         readonly LOCALE: I18nLanguage;

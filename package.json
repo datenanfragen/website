@@ -62,6 +62,8 @@
         "preact": "^10.5.5",
         "preact-i18n": "^2.3.0-preactx",
         "qrcode": "^1.4.4",
+        "react": "npm:@preact/compat",
+        "react-dom": "npm:@preact/compat",
         "react-instantsearch-dom": "^6.26.0",
         "react-scrollspy": "^3.4.0",
         "typesense": "^1.2.2",

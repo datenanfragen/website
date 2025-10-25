@@ -100,8 +100,8 @@ module.exports = {
         I18N_DEFINITION_REQUESTS: 'readonly',
         PARAMETERS: 'readonly',
 
-        // defined in `webpack.common.js`
-        CODE_VERSION: 'readonly',
+        // defined in `scripts.html` (only for entry points `app.tsx` and `generator.tsx`)
+        PDF_WORKER_URL: 'readonly',
     },
     settings: {
         react: {
