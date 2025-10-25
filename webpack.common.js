@@ -3,21 +3,6 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        'error-handler': './src/error-handler.js',
-        general: './src/general.tsx',
-        home: './src/home.tsx',
-        generator: './src/generator.tsx',
-        app: './src/app.tsx',
-        'company-list': './src/company-list.tsx',
-        'my-requests': './src/my-requests.tsx',
-        'privacy-controls': './src/privacy-controls.tsx',
-        'suggest-edit': './src/suggest-edit.js',
-        'id-data-controls': './src/id-data-controls.tsx',
-        'sva-finder': './src/Components/SvaFinder.tsx',
-        'act-widget': './src/Components/ActWidget.tsx',
-        'donation-widget': './src/Components/DonationWidget.tsx',
-        'misconduct-reporter': './src/Components/MisconductReporter.tsx',
-        'test-interface': './src/test-interface.tsx',
         // We need to define a dummy entrypoint that requires all our translation files, otherwise Webpack will not
         // process them.
         'translations-dummy': [
@@ -67,20 +52,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.worker\.ts$/,
-                use: [
-                    {
-                        loader: 'worker-loader',
-                        options: {
-                            filename: 'js/[name].worker.gen.js',
-                        },
-                    },
-                    {
-                        loader: 'babel-loader',
-                    },
-                ],
-            },
-            {
                 test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
@@ -118,10 +89,6 @@ This code is part of the Datenanfragen.de project. We want to help you exercise 
 @see {@link https://www.gegevensaanvragen.nl/|Dutch website}
 @see {@link https://zadostioudaje.org/|Czech website}`),
 
-        // Make the version number available in the code, see https://github.com/webpack/webpack/issues/237
-        new webpack.DefinePlugin({
-            CODE_VERSION: JSON.stringify(process.env.npm_package_version),
-        }),
         new webpack.ProvidePlugin({
             createElement: ['preact', 'createElement'],
             Fragment: ['preact', 'Fragment'],

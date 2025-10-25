@@ -11,65 +11,104 @@
 
     window.BASE_URL = {{ "/" | absURL }};
 </script>
-<script src="{{ "js/runtime.gen.js" | absURL }}"></script>
-<script src="{{ "js/vendors.bundle.gen.js" | absURL }}"></script>
-<script src="{{ "js/commons.bundle.gen.js" | absURL }}"></script>
+
+{{ $defines
+    := dict
+        "process.env.NODE_ENV" `"development"`
+        "global" "window"
+}}
+{{ $commonJsBuildOptions
+    := dict
+        "defines" $defines
+        "target" "es2015"
+        "minify" true
+        "sourceMap" "linked"
+}}
+
+{{ $pdfWorkerBundle := resources.Get "js/Utility/pdf.worker.ts" | js.Build $commonJsBuildOptions }}
+{{ $pdfWorkerDefines := dict "defines" (dict "window.PDF_WORKER_URL" ($pdfWorkerBundle.Permalink | jsonify)) }}
+
+<!-- Entry points that are included in every page. -->
+{{ $errorHandlerBundle := resources.Get "js/error-handler.js" | js.Build (merge $commonJsBuildOptions $pdfWorkerDefines) }}
+{{ $generalBundle := resources.Get "js/general.tsx" | js.Build (merge $commonJsBuildOptions $pdfWorkerDefines) }}
+
 <script src="{{ "js/translations-requests.gen.js" | absURL }}"></script>
 <script src="{{ (printf "js/translations-%s.gen.js" .Site.Language.Lang) | absURL }}"></script>
-<script src="{{ "js/error-handler.bundle.gen.js" | absURL }}"></script>
-<script src="{{ "js/general.bundle.gen.js" | absURL }}"></script>
 
+<script src="{{ $errorHandlerBundle.Permalink }}"></script>
+<script src="{{ $generalBundle.Permalink }}"></script>
+
+{{ if .Site.Params.devMode }}
+    <script>window.hugoDevMode = true;</script>
+    {{ $testInterfaceBundle := resources.Get "js/test-interface.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $testInterfaceBundle.Permalink }}"></script>
+{{ end }}
+
+<!-- Page-specific entry points -->
 {{ if eq .Type "generator" }}
-<script src="{{ "js/app.bundle.gen.js" | absURL }}"></script>
+    {{ $appBundle := resources.Get "js/app.tsx" | js.Build (merge $commonJsBuildOptions $pdfWorkerDefines) }}
+    <script src="{{ $appBundle.Permalink }}"></script>
 {{ end }}
 
 {{ if eq .Type "g" }}
-<script src="{{ "js/generator.bundle.gen.js" | absURL }}"></script>
+    {{ $gBundle := resources.Get "js/generator.tsx" | js.Build (merge $commonJsBuildOptions $pdfWorkerDefines) }}
+    <script src="{{ $gBundle.Permalink }}"></script>
 {{ end }}
 
 {{ if or (eq .Type "company") (eq .Type "categories") }}
-<script src="{{ "js/company-list.bundle.gen.js" | absURL }}"></script>
+    {{ $companyListBundle := resources.Get "js/company-list.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $companyListBundle.Permalink }}"></script>
 {{ end }}
 
 {{ if eq .Type "my-requests" }}
-<script src="{{ "js/my-requests.bundle.gen.js" | absURL }}"></script>
-<script>window.renderMyRequestsWidget();</script>
+    {{ $myRequestsBundle := resources.Get "js/my-requests.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $myRequestsBundle.Permalink }}"></script>
+    <script>window.renderMyRequestsWidget();</script>
 {{ end }}
 
 {{ if eq .Type "privacy-controls" }}
-<script src="{{ "js/privacy-controls.bundle.gen.js" | absURL }}"></script>
+    {{ $privacyControlsBundle := resources.Get "js/privacy-controls.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $privacyControlsBundle.Permalink }}"></script>
 {{ end }}
 
 {{ if eq .Type "id-data-controls" }}
-<script src="{{ "js/id-data-controls.bundle.gen.js" | absURL }}"></script>
+    {{ $idDataControlsBundle := resources.Get "js/id-data-controls.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $idDataControlsBundle.Permalink }}"></script>
 {{ end }}
 
 {{ if eq .Type "suggest" }}
-<script src="{{ "js/suggest-edit.bundle.gen.js" | absURL }}"></script>
+    {{ $suggestBundle := resources.Get "js/suggest-edit.jsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $suggestBundle.Permalink }}"></script>
 {{ end }}
 
 {{ if or (eq .Type "supervisory-authorities") .Params.has_sva_finder }}
-<script src="{{ "js/sva-finder.bundle.gen.js" | absURL }}"></script>
-{{ if eq .Type "supervisory-authorities" }}
-<script>window.renderSvaFinder();</script>
-{{ end }}
+    {{ $svaFinderBundle := resources.Get "js/Components/SvaFinder.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $svaFinderBundle.Permalink }}"></script>
+
+    {{ if eq .Type "supervisory-authorities" }}
+        <script>window.renderSvaFinder();</script>
+    {{ end }}
 {{ end }}
 
 {{ if eq .Type "act" }}
-<script src="{{ "js/act-widget.bundle.gen.js" | absURL }}"></script>
+    {{ $actWidget := resources.Get "js/Components/ActWidget.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $actWidget.Permalink }}"></script>
 {{ end }}
 
 {{ if eq .Type "donate" }}
-<script src="{{ "js/donation-widget.bundle.gen.js" | absURL }}"></script>
-<script>window.renderDonationWidget();</script>
+    {{ $donationWidgetBundle := resources.Get "js/Components/DonationWidget.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $donationWidgetBundle.Permalink }}"></script>
+    <script>window.renderDonationWidget();</script>
 {{ end }}
 
 {{ if eq .Type "misconduct-report" }}
-<script src="{{ "js/misconduct-reporter.bundle.gen.js" | absURL }}"></script>
+    {{ $misconductReporterBundle := resources.Get "js/Components/MisconductReporter.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $misconductReporterBundle.Permalink }}"></script>
 {{ end }}
 
 {{ if .IsHome }}
-<script src="{{ "js/home.bundle.gen.js" | absURL }}"></script>
+    {{ $homeBundle := resources.Get "js/home.tsx" | js.Build $commonJsBuildOptions }}
+    <script src="{{ $homeBundle.Permalink }}"></script>
 {{ end }}
 
 {{/* TODO: Do this in the js build via hugo pipes */}}
@@ -80,9 +119,4 @@
 {{ $link = $link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
 {{ end }}
 <link rel="stylesheet" href="{{ $link }}" integrity="{{ $loader.Data.Integrity }}" crossorigin="anonymous">
-{{ end }}
-
-{{ if .Site.Params.devMode }}
-<script>window.hugoDevMode = true;</script>
-<script src="{{ "js/test-interface.bundle.gen.js" | absURL }}"></script>
 {{ end }}
