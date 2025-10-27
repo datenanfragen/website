@@ -14,7 +14,7 @@
 
 {{ $defines
     := dict
-        "process.env.NODE_ENV" `"development"`
+        "process.env.NODE_ENV" ((cond .Site.Params.devMode "development" "production") | jsonify)
         "global" "window"
 }}
 {{ $commonJsBuildOptions
@@ -26,7 +26,9 @@
 }}
 
 {{ $pdfWorkerBundle := resources.Get "js/Utility/pdf.worker.ts" | js.Build $commonJsBuildOptions }}
-{{ $pdfWorkerDefines := dict "defines" (dict "window.PDF_WORKER_URL" ($pdfWorkerBundle.Permalink | jsonify)) }}
+<!-- We are using the `RelPermalink` here because otherwise we try to load the worker from the German domain even for
+the other languages, which causes cross-origin errors. I don't understand why. -->
+{{ $pdfWorkerDefines := dict "defines" (dict "window.PDF_WORKER_URL" ($pdfWorkerBundle.RelPermalink | jsonify)) }}
 
 <!-- Entry points that are included in every page. -->
 {{ $errorHandlerBundle := resources.Get "js/error-handler.js" | js.Build (merge $commonJsBuildOptions $pdfWorkerDefines) }}
