@@ -12,113 +12,187 @@
     window.BASE_URL = {{ "/" | absURL }};
 </script>
 
-{{ $defines
-    := dict
-        "process.env.NODE_ENV" ((cond .Site.Params.devMode "development" "production") | jsonify)
-        "global" "window"
-}}
-{{ $commonJsBuildOptions
-    := dict
-        "defines" $defines
-        "target" "es2015"
-        "minify" true
-        "sourceMap" "linked"
-}}
+{{ if .Site.Params.devMode }}
+    <script type="module">window.hugoDevMode = true;</script>
+{{ end }}
 
-{{ $pdfWorkerBundle := resources.Get "js/Utility/pdf.worker.ts" | js.Build $commonJsBuildOptions }}
-<!-- We are using the `RelPermalink` here because otherwise we try to load the worker from the German domain even for
-the other languages, which causes cross-origin errors. I don't understand why. -->
-{{ $pdfWorkerDefines := dict "defines" (dict "window.PDF_WORKER_URL" ($pdfWorkerBundle.RelPermalink | jsonify)) }}
+<!--
+Some bundles need to be built separately:
 
-<!-- Entry points that are included in every page. -->
-{{ $errorHandlerBundle := resources.Get "js/error-handler.js" | js.Build (merge $commonJsBuildOptions $pdfWorkerDefines) }}
-{{ $generalBundle := resources.Get "js/general.tsx" | js.Build (merge $commonJsBuildOptions $pdfWorkerDefines) }}
+- The error handler is deliberately meant to also work in browsers we otherwise don't support and not rely on any
+  external code.
+- The PDF worker needs to run in a `WebWorker`.
+-->
+{{ $buildOptionsSeparateBundles := dict "target" "es2015"  "minify" true  "sourceMap" "linked" }}
+{{ $errorHandlerBundle := resources.Get "js/error-handler.js" | js.Build $buildOptionsSeparateBundles }}
+{{ $pdfWorkerBundle := resources.Get "js/Utility/pdf.worker.ts" | js.Build $buildOptionsSeparateBundles }}
 
 <script src="{{ "js/translations-requests.gen.js" | absURL }}"></script>
 <script src="{{ (printf "js/translations-%s.gen.js" .Site.Language.Lang) | absURL }}"></script>
 
-<script src="{{ $errorHandlerBundle.Permalink }}"></script>
-<script src="{{ $generalBundle.Permalink }}"></script>
+<script src="{{ $errorHandlerBundle.RelPermalink | absURL }}"></script>
 
-{{ if .Site.Params.devMode }}
-    <script>window.hugoDevMode = true;</script>
-    {{ $testInterfaceBundle := resources.Get "js/test-interface.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $testInterfaceBundle.Permalink }}"></script>
+{{ $batch := js.Batch "js" }}
+
+<!-- Configure batch build options. -->
+{{ $defines
+    := dict
+        "process.env.NODE_ENV" ((cond .Site.Params.devMode "development" "production") | jsonify)
+        "global" "window"
+
+        "window.PDF_WORKER_URL" ($pdfWorkerBundle.RelPermalink | jsonify)
+}}
+{{ with $batch.Config }}
+    {{ .SetOptions (dict
+        "defines" $defines
+        "target" "es2015"
+        "format" "esm"
+        "minify" true
+        "sourceMap" "linked"
+    ) }}
 {{ end }}
 
-<!-- Page-specific entry points -->
-{{ if eq .Type "generator" }}
-    {{ $appBundle := resources.Get "js/app.tsx" | js.Build (merge $commonJsBuildOptions $pdfWorkerDefines) }}
-    <script src="{{ $appBundle.Permalink }}"></script>
-{{ end }}
+<!--
+Scripts that are needed on every page and need to be loaded first.
 
-{{ if eq .Type "g" }}
-    {{ $gBundle := resources.Get "js/generator.tsx" | js.Build (merge $commonJsBuildOptions $pdfWorkerDefines) }}
-    <script src="{{ $gBundle.Permalink }}"></script>
-{{ end }}
+The docs suggest that groups are included in alphabetical order (https://gohugo.io/functions/js/batch/#known-issues).
+While I haven't seen this be the case, I guess it doesn't hurt to make sure.
+-->
+{{ with $batch.Group "_general" }}
+    {{ with .Script "general" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/general.tsx")) }}
+    {{ end }}
 
-{{ if or (eq .Type "company") (eq .Type "categories") }}
-    {{ $companyListBundle := resources.Get "js/company-list.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $companyListBundle.Permalink }}"></script>
-{{ end }}
-
-{{ if eq .Type "my-requests" }}
-    {{ $myRequestsBundle := resources.Get "js/my-requests.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $myRequestsBundle.Permalink }}"></script>
-    <script>window.renderMyRequestsWidget();</script>
-{{ end }}
-
-{{ if eq .Type "privacy-controls" }}
-    {{ $privacyControlsBundle := resources.Get "js/privacy-controls.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $privacyControlsBundle.Permalink }}"></script>
-{{ end }}
-
-{{ if eq .Type "id-data-controls" }}
-    {{ $idDataControlsBundle := resources.Get "js/id-data-controls.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $idDataControlsBundle.Permalink }}"></script>
-{{ end }}
-
-{{ if eq .Type "suggest" }}
-    {{ $suggestBundle := resources.Get "js/suggest-edit.jsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $suggestBundle.Permalink }}"></script>
-{{ end }}
-
-{{ if or (eq .Type "supervisory-authorities") .Params.has_sva_finder }}
-    {{ $svaFinderBundle := resources.Get "js/Components/SvaFinder.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $svaFinderBundle.Permalink }}"></script>
-
-    {{ if eq .Type "supervisory-authorities" }}
-        <script>window.renderSvaFinder();</script>
+    {{ if $.Site.Params.devMode }}
+        {{ with .Script "test-interface" }}
+            {{ .SetOptions (dict "resource" (resources.Get "js/test-interface.tsx")) }}
+        {{ end }}
     {{ end }}
 {{ end }}
 
-{{ if eq .Type "act" }}
-    {{ $actWidget := resources.Get "js/Components/ActWidget.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $actWidget.Permalink }}"></script>
+<!-- Register group-specific scripts. -->
+{{ with $batch.Group "app" }}
+    {{ with .Script "app" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/app.tsx")) }}
+    {{ end }}
 {{ end }}
 
-{{ if eq .Type "donate" }}
-    {{ $donationWidgetBundle := resources.Get "js/Components/DonationWidget.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $donationWidgetBundle.Permalink }}"></script>
-    <script>window.renderDonationWidget();</script>
+{{ with $batch.Group "advanced-generator" }}
+    {{ with .Script "generator" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/generator.tsx")) }}
+    {{ end }}
 {{ end }}
 
-{{ if eq .Type "misconduct-report" }}
-    {{ $misconductReporterBundle := resources.Get "js/Components/MisconductReporter.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $misconductReporterBundle.Permalink }}"></script>
+{{ with $batch.Group "company-list" }}
+    {{ with .Script "company-list" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/company-list.tsx")) }}
+    {{ end }}
 {{ end }}
 
-{{ if .IsHome }}
-    {{ $homeBundle := resources.Get "js/home.tsx" | js.Build $commonJsBuildOptions }}
-    <script src="{{ $homeBundle.Permalink }}"></script>
+{{ with $batch.Group "my-requests" }}
+    {{ with .Script "my-requests" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/my-requests.tsx")) }}
+    {{ end }}
 {{ end }}
 
-{{/* TODO: Do this in the js build via hugo pipes */}}
-{{ if eq .Type "donate" }}
-{{ $loader := resources.Get "styles/loader.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
-{{ $link := $loader.RelPermalink | absURL }}
-{{ if (or (eq hugo.Environment "production") (eq hugo.Environment "staging")) }}
-{{ $link = $link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
+{{ with $batch.Group "privacy-controls" }}
+    {{ with .Script "privacy-controls" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/privacy-controls.tsx")) }}
+    {{ end }}
 {{ end }}
-<link rel="stylesheet" href="{{ $link }}" integrity="{{ $loader.Data.Integrity }}" crossorigin="anonymous">
+
+{{ with $batch.Group "id-data-controls" }}
+    {{ with .Script "id-data-controls" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/id-data-controls.tsx")) }}
+    {{ end }}
+{{ end }}
+
+{{ with $batch.Group "suggest" }}
+    {{ with .Script "suggest" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/suggest-edit.jsx")) }}
+    {{ end }}
+{{ end }}
+
+{{ with $batch.Group "sva-finder" }}
+    {{ with .Script "sva-finder" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/Components/SvaFinder.tsx")) }}
+    {{ end }}
+{{ end }}
+
+{{ with $batch.Group "act" }}
+    {{ with .Script "act-widget" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/Components/ActWidget.tsx")) }}
+    {{ end }}
+{{ end }}
+
+{{ with $batch.Group "donate" }}
+    {{ with .Script "donation-widget" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/Components/DonationWidget.tsx")) }}
+    {{ end }}
+{{ end }}
+
+{{ with $batch.Group "misconduct-report" }}
+    {{ with .Script "misconduct-reporter" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/Components/MisconductReporter.tsx")) }}
+    {{ end }}
+{{ end }}
+
+{{ with $batch.Group "home" }}
+    {{ with .Script "home" }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/home.tsx")) }}
+    {{ end }}
+{{ end }}
+
+<!-- Determine the script groups that apply to this page. -->
+{{ $groups := slice "_general" }}
+
+{{ if eq $.Type "generator" }} {{ $groups = $groups | append "app" }} {{ end }}
+{{ if eq $.Type "g" }} {{ $groups = $groups | append "advanced-generator" }} {{ end }}
+{{ if or (eq $.Type "company") (eq $.Type "categories") }} {{ $groups = $groups | append "company-list" }} {{ end }}
+{{ if eq $.Type "my-requests" }} {{ $groups = $groups | append "my-requests" }} {{ end }}
+{{ if eq $.Type "privacy-controls" }} {{ $groups = $groups | append "privacy-controls" }} {{ end }}
+{{ if eq $.Type "id-data-controls" }} {{ $groups = $groups | append "id-data-controls" }} {{ end }}
+{{ if eq $.Type "suggest" }} {{ $groups = $groups | append "suggest" }} {{ end }}
+{{ if or (eq $.Type "supervisory-authorities") $.Params.has_sva_finder }} {{ $groups = $groups | append "sva-finder" }} {{ end }}
+{{ if eq $.Type "act" }} {{ $groups = $groups | append "act" }} {{ end }}
+{{ if eq $.Type "donate" }} {{ $groups = $groups | append "donate" }} {{ end }}
+{{ if eq $.Type "misconduct-report" }} {{ $groups = $groups | append "misconduct-report" }} {{ end }}
+{{ if $.IsHome }} {{ $groups = $groups | append "home" }} {{ end }}
+
+<!-- Build and include the scripts that apply for this page. -->
+{{ with $batch.Build }}
+    {{ $groupsInBatch := .Groups }}
+    {{ range $groups }}
+        {{ with index $groupsInBatch . }}
+            {{ range . }}
+                {{ $s := . }}
+                {{ if eq $s.MediaType.SubType "css" }}
+                    <link href="{{ $s.RelPermalink }}" rel="stylesheet" />
+                {{ else }}
+                    <script src="{{ $s.RelPermalink }}" type="module"></script>
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+<!-- Page-specific initialization scripts. -->
+{{ if in $groups "my-requests" }}
+    <script type="module">window.renderMyRequestsWidget();</script>
+{{ end }}
+
+{{ if eq .Type "supervisory-authorities" }}
+    <script type="module">window.renderSvaFinder();</script>
+{{ end }}
+
+{{ if in $groups "donate" }}
+    <script type="module">window.renderDonationWidget();</script>
+
+    {{/* TODO: Do this in the js build via hugo pipes */}}
+    {{ $loader := resources.Get "styles/loader.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
+    {{ $link := $loader.RelPermalink | absURL }}
+    {{ if (or (eq hugo.Environment "production") (eq hugo.Environment "staging")) }}
+    {{ $link = $link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
+    {{ end }}
+    <link rel="stylesheet" href="{{ $link }}" integrity="{{ $loader.Data.Integrity }}" crossorigin="anonymous">
 {{ end }}
