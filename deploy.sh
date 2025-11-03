@@ -70,7 +70,7 @@ cd .. || exit
 
 yarn licenses generate-disclaimer --ignore-optional --ignore-platform > static/NOTICES.txt
 
-echo "Running Webpack and Hugo…"
+echo "Running Hugo and translations build…"
 yarn run build
 
 if [ "$CONTEXT" = "production" ]
