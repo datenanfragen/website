@@ -1,20 +1,19 @@
-{{ partialCached "supported-countries" . }}
-<script>
-    window.LOCALE = {{ .Site.Language.Lang }};
-    window.SUPPORTED_LANGUAGES = {
-        {{- if .IsTranslated -}}
-            {{- range .Translations -}}
-                "{{ .Lang }}": "{{ .Permalink }}",
-            {{- end -}}
-        {{- end -}}
-    };
+{{ $supportedCountries := partialCached "functions/supported-countries" . }}
 
+{{ $supportedLanguages := dict }}
+{{ if .IsTranslated }}
+    {{ range .Translations }}
+        {{ $supportedLanguages = merge $supportedLanguages (dict .Lang .Permalink) }}
+    {{ end }}
+{{ end }}
+<!--
+It is not a good idea to have these as `defines`. Otherwise, since they are baked into the JS bundles, _every_ page
+needs its own version of _every_ bundle.
+-->
+<script>
+    window.SUPPORTED_LANGUAGES = {{ $supportedLanguages | jsonify | safeJS }};
     window.BASE_URL = {{ "/" | absURL }};
 </script>
-
-{{ if .Site.Params.devMode }}
-    <script type="module">window.hugoDevMode = true;</script>
-{{ end }}
 
 <!--
 Some bundles need to be built separately:
@@ -39,6 +38,11 @@ Some bundles need to be built separately:
     := dict
         "process.env.NODE_ENV" ((cond .Site.Params.devMode "development" "production") | jsonify)
         "global" "window"
+
+        "window.SUPPORTED_COUNTRIES" ($supportedCountries | jsonify)
+        "window.LOCALE" (.Site.Language.Lang | jsonify)
+
+        "window.hugoDevMode" (.Site.Params.devMode | jsonify)
 
         "window.PDF_WORKER_URL" ($pdfWorkerBundle.RelPermalink | jsonify)
 }}

@@ -38,6 +38,9 @@ declare global {
         /** List of parameters specified in the URL, including both hash fragment and GET parameters. */
         readonly PARAMETERS: Record<string, string>;
 
+        /** Whether Hugo is running in dev mode. */
+        readonly hugoDevMode: boolean;
+
         ON_PROCEEDING_STATUS_CHANGE?: (proceeding: Proceeding, oldStatus: ProceedingStatus) => void;
     }
 }
