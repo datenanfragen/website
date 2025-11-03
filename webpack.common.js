@@ -58,17 +58,6 @@ module.exports = {
                     loader: 'babel-loader',
                 },
             },
-            // This loader has three purposes:
-            // * Hugo doesn't support nested translations but we want to have both the Hugo and Preact translations in a
-            //   single file. The loader simply extracts the Hugo translations, prepares them for Hugo and outputs them
-            //   to a separate file.
-            // * It further generates the JS files to be included in the HTML for the individual languages.
-            // * Finally, it combines the requests translations for all languages into one JS files to be included in
-            //   the HTML of all language versions.
-            {
-                test: /src[/\\]i18n[/\\][a-z]{2}\.json/,
-                loader: path.resolve('scripts/webpack-i18n-loader.js'),
-            },
         ],
     },
     plugins: [
