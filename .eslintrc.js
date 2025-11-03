@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
     parser: '@typescript-eslint/parser',
     env: {
@@ -149,6 +147,5 @@ module.exports = {
         },
         // The Preact config includes Jest rules but we don't have Jest installed. This stops them from complaining.
         jest: { version: 'n/a' },
-        'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } },
     },
 };
