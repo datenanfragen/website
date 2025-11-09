@@ -234,7 +234,7 @@ describe('Using the generator', () => {
         cy.get('.ais-SearchBox-input').type('{selectall}a1 austria');
         cy.contains('A1 Telekom Austria').click();
         cy.get('.ais-SearchBox-input').type('{selectall}joyn');
-        cy.contains('Joyn GmbH').click();
+        cy.contains('Joyn').click();
         cy.contains('Request 2 companies').click();
 
         cy.contains('Companies you selected');
@@ -247,7 +247,7 @@ describe('Using the generator', () => {
 
         cy.contains('Request 2 companies').click();
         cy.contains('A1 Telekom Austria');
-        cy.contains('Joyn GmbH');
+        cy.contains('Joyn');
 
         cy.contains('Continue with these companies').click();
 
