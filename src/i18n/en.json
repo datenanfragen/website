@@ -348,6 +348,7 @@
         "signature": "Signature",
         "reset": "Reset",
         "delete-field": "Delete “{{field_name}}” field",
+        "delete-unnamed-field": "Delete unnamed field",
         "tagxplanation": "You can use the tags <code>&lt;italic&gt;&lt;/italic&gt;</code> and <code>&lt;bold&gt;&lt;/bold&gt;</code> in your text. Nested tags are not supported.",
         "subject": "Subject",
         "content": "Content",

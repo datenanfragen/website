@@ -349,6 +349,7 @@
         "primary-address": "Absenderadresse",
         "reset": "Zurücksetzen",
         "delete-field": "Feld “{{field_name}}” löschen",
+        "delete-unnamed-field": "Unbenanntes Feld löschen",
         "tagxplanation": "Im Text können die Tags <code>&lt;italic&gt;&lt;/italic&gt;</code> sowie <code>&lt;bold&gt;&lt;/bold&gt;</code> verwendet werden. Geschachtelte Tags werden nicht unterstützt.",
         "subject": "Betreff",
         "content": "Inhalt",
@@ -464,7 +465,7 @@
         "send-request-email-explanation": "Hier ist Deine generierte Anfrage. Du musst sie selbst per E-Mail an das Unternehmen schicken.",
         "send-request-webform-explanation": "Hier ist Deine generierte Anfrage. Du musst sie selbst über das Webformular an das Unternehmen schicken.",
         "fill-in-request": "Anfrage an „{{company}}“ ausfüllen",
-        "unnamed-field": "Unbenanntes Feld",
+        "unnamed-field": "unbenanntes Feld",
         "add-n-companies": {
             "none": "Keine Unternehmen hinzufügen",
             "one": "Ein Unternehmen hinzufügen",
