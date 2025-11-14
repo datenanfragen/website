@@ -27,6 +27,8 @@ type RequestListProps = {
     getBlobFromStorage?: (blobId: string) => Promise<Blob | undefined>;
     /** Function to execute when the 'React' button is clicked. */
     onReact?: (reference: string) => void;
+    /** The order in which to show the requests (default: `new-to-old`). */
+    sortOrder?: 'new-to-old' | 'old-to-new';
 };
 export const RequestList = (props: RequestListProps) => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
@@ -35,7 +37,7 @@ export const RequestList = (props: RequestListProps) => {
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
     const [selectionMode, setSelectionMode] = useState(false);
 
-    const sortedRequestIds = useMemo(
+    const sortedRequestIdsOldToNew = useMemo(
         () =>
             Object.keys(proceedings).sort((a, b) => {
                 const req_a = Object.values(proceedings[a].messages)[0];
@@ -45,11 +47,12 @@ export const RequestList = (props: RequestListProps) => {
             }),
         [proceedings]
     );
+    const sortedRequestIdsNewToOld = useMemo(() => [...sortedRequestIdsOldToNew].reverse(), [sortedRequestIdsOldToNew]);
 
     const buildCsv = useCallback(() => {
         const csv =
             'date;slug;recipient;email;reference;type;via\r\n' +
-            sortedRequestIds
+            sortedRequestIdsOldToNew
                 .filter((id) => selectedRequestIds.includes(id))
                 .map((id) =>
                     Object.values(proceedings[id].messages).reduce(
@@ -71,17 +74,17 @@ export const RequestList = (props: RequestListProps) => {
                 .join('');
 
         return new Blob([csv], { type: 'text/csv;charset=utf-8' });
-    }, [proceedings, selectedRequestIds, sortedRequestIds]);
+    }, [proceedings, selectedRequestIds, sortedRequestIdsOldToNew]);
 
     const buildIcs = useCallback(
         () =>
             icsFromProceedings(
-                sortedRequestIds.reduce<Proceeding[]>(
+                sortedRequestIdsOldToNew.reduce<Proceeding[]>(
                     (acc, id) => (selectedRequestIds.includes(id) ? [...acc, proceedings[id]] : acc),
                     []
                 )
             ),
-        [proceedings, selectedRequestIds, sortedRequestIds]
+        [proceedings, selectedRequestIds, sortedRequestIdsOldToNew]
     );
 
     if (!Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
@@ -147,15 +150,17 @@ export const RequestList = (props: RequestListProps) => {
                                         onClick={() => {
                                             setSelectionMode(true);
                                             setSelectedRequestIds(
-                                                selectedRequestIds.length === sortedRequestIds.length
+                                                selectedRequestIds.length === sortedRequestIdsOldToNew.length
                                                     ? []
-                                                    : sortedRequestIds
+                                                    : sortedRequestIdsOldToNew
                                             );
                                         }}
                                         title={t('more-options', 'my-requests')}>
                                         <Text
                                             id={`${
-                                                selectedRequestIds.length === sortedRequestIds.length ? 'de' : ''
+                                                selectedRequestIds.length === sortedRequestIdsOldToNew.length
+                                                    ? 'de'
+                                                    : ''
                                             }select-all`}
                                         />
                                     </button>
@@ -184,31 +189,33 @@ export const RequestList = (props: RequestListProps) => {
                         )}
                     </div>
                     <ul className="proceeding-rows">
-                        {sortedRequestIds.map((id) => (
-                            <li className="proceeding-row-list-item">
-                                {selectionMode && (
-                                    <input
-                                        className="form-element"
-                                        type="checkbox"
-                                        aria-labelledby={`proceeding-row-heading-${proceedings[id].reference}`}
-                                        checked={selectedRequestIds.includes(proceedings[id].reference)}
-                                        data-reference={proceedings[id].reference}
-                                        onChange={(e) =>
-                                            setSelectedRequestIds((prev) =>
-                                                e.currentTarget.checked
-                                                    ? [...prev, e.currentTarget.dataset.reference!]
-                                                    : prev.filter((i) => i !== e.currentTarget.dataset.reference!)
-                                            )
-                                        }
+                        {(props.sortOrder === 'old-to-new' ? sortedRequestIdsOldToNew : sortedRequestIdsNewToOld).map(
+                            (id) => (
+                                <li className="proceeding-row-list-item">
+                                    {selectionMode && (
+                                        <input
+                                            className="form-element"
+                                            type="checkbox"
+                                            aria-labelledby={`proceeding-row-heading-${proceedings[id].reference}`}
+                                            checked={selectedRequestIds.includes(proceedings[id].reference)}
+                                            data-reference={proceedings[id].reference}
+                                            onChange={(e) =>
+                                                setSelectedRequestIds((prev) =>
+                                                    e.currentTarget.checked
+                                                        ? [...prev, e.currentTarget.dataset.reference!]
+                                                        : prev.filter((i) => i !== e.currentTarget.dataset.reference!)
+                                                )
+                                            }
+                                        />
+                                    )}
+                                    <ProceedingRow
+                                        proceeding={proceedings[id]}
+                                        getBlobFromStorage={props.getBlobFromStorage}
+                                        onReact={props.onReact}
                                     />
-                                )}
-                                <ProceedingRow
-                                    proceeding={proceedings[id]}
-                                    getBlobFromStorage={props.getBlobFromStorage}
-                                    onReact={props.onReact}
-                                />
-                            </li>
-                        ))}
+                                </li>
+                            )
+                        )}
                     </ul>
                 </>
             )}
