@@ -8,7 +8,7 @@
     "notices": "Titelfoto angepasst nach: „[man riding motorcycle on road during daytime](https://unsplash.com/photos/clYlmCaQbzY)“ von [Rowan Freeman](https://unsplash.com/@rowanfreeman) ([Unsplash-Lizenz](https://unsplash.com/license))"
 }
 
-Laut Recherchen des [BRs](https://www.tagesschau.de/investigativ/br-recherche/ueberwachung-lieferando-101.html) überwacht Lieferando seine Fahrer_innen sehr genau:
+Laut Recherchen des [BRs](https://web.archive.org/web/20210521122206/https://www.tagesschau.de/investigativ/br-recherche/ueberwachung-lieferando-101.html) überwacht Lieferando seine Fahrer_innen sehr genau:
 
 > Aus den Unterlagen geht hervor, dass die App pro Lieferung 39 Datenpunkte erhebt: Sekundengenau ist nachvollziehbar, wann ein Fahrer eine Bestellung zugeteilt bekommt, diese abholt und ausliefert. Zusätzlich wird hinterlegt, ob der Rider einzelne Zeitvorgaben einhält oder nicht. Kommt ein Fahrer zu spät bei einem Restaurant oder Kunden an, wird das vermerkt. Die Daten sind personalisiert, können also einzelnen Arbeitnehmerinnen oder Arbeitnehmern zugeordnet werden.
 
