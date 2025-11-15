@@ -24,6 +24,7 @@ const PrivacyControl = (props: PrivacyControlProps) => (
                     checked={Privacy.isAllowed(PRIVACY_ACTIONS[props.privacyAction])}
                     type="checkbox"
                     className="form-element"
+                    disabled={!navigator.cookieEnabled}
                     onChange={(event) => {
                         Privacy.setAllowed(PRIVACY_ACTIONS[props.privacyAction], event.currentTarget.checked);
                         flash(
@@ -90,6 +91,14 @@ const PrivacyControls = () => {
             <ClearIdDataModal />
             <ClearMyRequestsModal />
             <MarkupText id="explanation" />
+
+            {!navigator.cookieEnabled ? (
+                <div className="box box-info">
+                    <Text id="explanation-cookies-disabled" />
+                </div>
+            ) : (
+                <></>
+            )}
 
             <table>
                 {Object.keys(PRIVACY_ACTIONS).map((action) => (
