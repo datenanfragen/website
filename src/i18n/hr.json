@@ -991,7 +991,7 @@
         "cdb-meta-ai-objection-whatsapp": "Koliko znamo, trenutačno ne postoji obrazac za prigovor na korištenje tvojih podataka za umjetnu inteligenciju na WhatsAppu. Vjerujemo da se Meta-ina politika ne odnosi na tvoje privatne WhatsApp poruke jer se one ne mogu klasificirati kao javne objave.",
         "cdb-meta-ai-objection": "Meta je objavila svoju namjeru da će od 27. svibnja 2025. koristiti sve javne objave koje su korisnici dijelili na njezinim uslugama za treniranje tzv. sustava „umjetne inteligencije (UI)“, osim ako se ne usprotiš. Iako mi i druge organizacije za zaštitu podataka diljem Europe smatramo da je to kršenje važećeg zakona, preporučujemo da što prije podneseš prigovor Meti ako ne želiš da se tvoji podaci koriste u tu svrhu. Jedini pouzdan način da to učiniš je korištenje web obrasca za odgovarajuću uslugu:",
         "cdb-obsolete-record-heading": "„{{ .Params.name }}” je uklonjeno iz naše baze podataka",
-        "cdb-obsolete-record": "„{{ .Params.name }}” je uklonjeno iz naše baze podataka poduzeća.",
+        "cdb-obsolete-record": "„{{ .Params.name }}” je uklonjeno iz baze podataka našeg poduzeća.",
         "cdb-redirected-from-obsolete-record": "Preusmjeren/a si ovamo od „{{ .name }}”.",
         "cdb-obsolete-reason-company-acquired": "Poduzeće je preuzeto.",
         "cdb-obsolete-reason-company-defunct": "Poduzeće/usluga više ne postoji.",
