@@ -88,7 +88,7 @@ Die Information, dass die IP-Adresse 31.41.59.26 am 25. Mai 2018 unseren {{< lin
 
 ### Profiling
 
-Profiling ist eine Form der automatisierten Entscheidungsfindung, bei der der [Verantwortliche](#verantwortlicher) Deine [personenbezogenen Daten](#personenbezogene-daten) nutzt, um automatisch ohne Eingriff eines Menschen bestimmte persönliche Aspekte von Dir zu bewerten. Häufig geht es darum, Aspekte wie die folgenden über Dich zu analyisieren und vorherzusagen:
+Profiling ist eine Form der automatisierten Entscheidungsfindung, bei der der [Verantwortliche](#verantwortlicher) Deine [personenbezogenen Daten](#personenbezogene-daten) nutzt, um automatisch ohne Eingriff eines Menschen bestimmte persönliche Aspekte von Dir zu bewerten. Häufig geht es darum, Aspekte wie die folgenden über Dich zu analysieren und vorherzusagen:
 
 * Arbeitsleistung
 * wirtschaftliche Lage
@@ -99,7 +99,7 @@ Profiling ist eine Form der automatisierten Entscheidungsfindung, bei der der [V
 * Verhalten
 * Aufenthaltsort oder Ortswechsel
 
-Ein klassisches Beispiel ist das Abschließen von Kredit- oder Mobilfunkverträgen. Viele Unternehmen werden vor dem Vertragsschluss Deine Daten an eine Auskunftei wie die {{< link slug="schufa" text="Schufa" >}}, {{< link slug="creditreform-boniversum" text="Creditreform Boniversum" >}} oder {{< link slug="infoscore" text="infoscore" >}} weiterleiten, die dann anhand bestimmter Aspekte (wie Deinem bisherigen Zahlungsverhalten oder der Anzahl Deiner Bankkonten) Aussagen dazu trifft, wie wahrscheinlich Du Deine Vertragspflichten erfüllen würdest.
+Ein klassisches Beispiel ist das Abschließen von Kredit- oder Mobilfunkverträgen. Viele Unternehmen werden vor dem Vertragsschluss Deine Daten an eine Auskunftei wie die {{< link slug="company/schufa" text="Schufa" >}}, {{< link slug="company/crifbuergel" text="CRIF" >}} oder {{< link slug="company/infoscore" text="infoscore" >}} weiterleiten, die dann anhand bestimmter Aspekte (wie Deinem bisherigen Zahlungsverhalten oder der Anzahl Deiner Bankkonten) Aussagen dazu trifft, wie wahrscheinlich Du Deine Vertragspflichten erfüllen würdest.
 
 ### Rechte
 
