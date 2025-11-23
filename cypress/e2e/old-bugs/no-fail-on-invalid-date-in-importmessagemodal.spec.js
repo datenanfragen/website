@@ -8,6 +8,7 @@ describe('ImportMessageModal', () => {
     beforeEach(() => {
         skipOn(isOn('production'));
 
+        cy.clearIndexedDb('Datenanfragen.de');
         cy.visit('/my-requests');
         // TODO: Can this be more elegant?
         // eslint-disable-next-line cypress/no-unnecessary-waiting
