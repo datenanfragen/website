@@ -5,7 +5,8 @@
     "tags": [ "lieferando", "deutschland", "fahrer", "auskunft", "lieferdienst", "arbeitnehmerrechte" ],
     "featured_image": "lieferando-ueberwachung.jpg",
     "authors": [ "malte", "zner0l" ],
-    "notices": "Titelfoto angepasst nach: „[man riding motorcycle on road during daytime](https://unsplash.com/photos/clYlmCaQbzY)“ von [Rowan Freeman](https://unsplash.com/@rowanfreeman) ([Unsplash-Lizenz](https://unsplash.com/license))"
+    "notices": "Titelfoto angepasst nach: „[man riding motorcycle on road during daytime](https://unsplash.com/photos/clYlmCaQbzY)“ von [Rowan Freeman](https://unsplash.com/@rowanfreeman) ([Unsplash-Lizenz](https://unsplash.com/license))",
+    "discussedCompanies": [ "takeaway-com" ]
 }
 
 Laut Recherchen des [BRs](https://web.archive.org/web/20210521122206/https://www.tagesschau.de/investigativ/br-recherche/ueberwachung-lieferando-101.html) überwacht Lieferando seine Fahrer_innen sehr genau:
