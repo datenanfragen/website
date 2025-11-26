@@ -28,7 +28,7 @@ declare global {
          * Translations for the current language, with the scope being the first-, and the translation key being the
          * second-level key.
          */
-        readonly I18N_DEFINITION: Omit<typeof i18n_definition_type, 'hugo'>;
+        readonly I18N_DEFINITION: Omit<typeof i18n_definition_type, 'hugo' | 'requests'>;
         /**
          * Translations used for generating requests in all languages, with the two-letter ISO code of the language
          * being the first-, and the translation key being the second-level key.

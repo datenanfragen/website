@@ -85,6 +85,8 @@ const emitTranslations = (translations: Record<string, TranslationFile>) => {
 
         // The JS translation files don't need to include the translations only used by Hugo (#620).
         delete data.hugo;
+        // Same for the `requests` scope which is only used to generate `I18N_DEFINITION_REQUESTS` (#871).
+        delete data.requests;
 
         // Emit the translation files to be included in the HTML.
         writeFileSync(
