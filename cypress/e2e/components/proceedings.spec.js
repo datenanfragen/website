@@ -134,4 +134,39 @@ describe('Proceedings page', () => {
         cy.reload();
         assertDeletionWorked();
     });
+
+    it('can mark selected proceedings as done and reactivate them', () => {
+        const references = ['2022-KKD2YF1', '2025-1ISPYF6I', '2025-1INGZ5L6'];
+        cy.proceedingsStore().then((store) =>
+            Promise.all(references.map((ref) => store.addProceeding(makeProceeding(ref))))
+        );
+
+        const selectProceedings = () => {
+            cy.contains('Select').click();
+            cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2022-KKD2YF1"]').check();
+            cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2025-1INGZ5L6"]').check();
+        };
+
+        selectProceedings();
+        cy.get('button.icon-ellipsis').click();
+        cy.contains('Mark selected proceedings as done').click();
+
+        const assertState = (state) => {
+            cy.get('#proceeding-row-heading-2022-KKD2YF1').parent().should('contain.text', state);
+            cy.get('#proceeding-row-heading-2025-1INGZ5L6').parent().should('contain.text', state);
+            cy.get('#proceeding-row-heading-2025-1ISPYF6I')
+                .parent()
+                .should(state === 'Done' ? 'not.contain.text' : 'contain.text', state);
+        };
+
+        assertState('Done');
+        cy.reload();
+        assertState('Done');
+
+        selectProceedings();
+        cy.get('button.icon-ellipsis').click();
+        cy.contains('Reactivate selected proceedings').click();
+
+        assertState('Response pending');
+    });
 });

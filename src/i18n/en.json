@@ -241,6 +241,8 @@
         "export-ics": "Export selected proceedings to calendar",
         "delete-selected-proceedings": "Delete selected proceedings",
         "delete-selected-proceedings-confirm": "This will delete the selected proceedings and all messages they contain. Are you sure?",
+        "mark-selected-as-done": "Mark selected proceedings as done",
+        "reactivate-selected": "Reactivate selected proceedings",
         "no-requests-heading": "No requests yet",
         "no-requests": "You haven't generated any requests yet. As soon as you start doing that, they will appear here.",
         "generate-request": "Generate a request",

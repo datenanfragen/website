@@ -34,6 +34,10 @@ export const RequestList = (props: RequestListProps) => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
     const clearProceedings = useProceedingsStore((state) => state.clearProceedings);
     const removeProceeding = useProceedingsStore((state) => state.removeProceeding);
+    const [setProceedingStatus, reactivateProceeding] = useProceedingsStore((state) => [
+        state.setProceedingStatus,
+        state.reactivateProceeding,
+    ]);
 
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
     const [selectionMode, setSelectionMode] = useState(false);
@@ -94,6 +98,16 @@ export const RequestList = (props: RequestListProps) => {
         setSelectedRequestIds([]);
         setSelectionMode(false);
     }, [selectedRequestIds, removeProceeding]);
+
+    const changeSelectedStatus = useCallback(
+        (status: 'done' | 'reactivate') => {
+            for (const reference of selectedRequestIds) {
+                if (status === 'done') setProceedingStatus(reference, 'done');
+                else reactivateProceeding(reference);
+            }
+        },
+        [selectedRequestIds, setProceedingStatus, reactivateProceeding]
+    );
 
     if (!Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
         return (
@@ -199,6 +213,20 @@ export const RequestList = (props: RequestListProps) => {
                                                     deleteSelected()
                                                 }>
                                                 <Text id="delete-selected-proceedings" />
+                                            </button>
+                                            <button
+                                                id="mark-selected-as-done-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() => changeSelectedStatus('done')}>
+                                                <Text id="mark-selected-as-done" />
+                                            </button>
+                                            <button
+                                                id="reactivate-selected-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() => changeSelectedStatus('reactivate')}>
+                                                <Text id="reactivate-selected" />
                                             </button>
                                         </>
                                     )}

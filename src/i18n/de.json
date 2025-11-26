@@ -242,6 +242,8 @@
         "export-ics": "Ausgewählte in Kalender übernehmen",
         "delete-selected-proceedings": "Ausgewählte löschen",
         "delete-selected-proceedings-confirm": "Dadurch werden die ausgewählten Vorgänge mit allen enthaltenen Nachrichten gelöscht. Bist Du sicher?",
+        "mark-selected-as-done": "Ausgewählte als abgeschlossen markieren",
+        "reactivate-selected": "Ausgewählte reaktivieren",
         "no-requests-heading": "Noch keine Anfragen",
         "no-requests": "Du hast bisher noch keine Anfragen gestellt. Sobald Du das tust, werden diese hier erscheinen.",
         "generate-request": "Eine Anfrage generieren",
