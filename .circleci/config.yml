@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker_cypress:
     docker:
-      - image: cypress/base:14.17.0
+      - image: cypress/base:14.18.1
 
 jobs:
   # Circle's "Auto-cancel redundant builds" feature doesn't work on the default branch. When merging PRs on data, this
@@ -22,8 +22,8 @@ jobs:
     executor: docker_cypress
     resource_class: large
     environment:
-        HUGO_VERSION: '0.139.0'
-        HUGO_BINARY: hugo_extended_0.139.0_linux-amd64
+        HUGO_VERSION: '0.140.0'
+        HUGO_BINARY: hugo_extended_0.140.0_linux-amd64
     steps:
       - run:
           command: |
@@ -51,8 +51,8 @@ jobs:
       executor: docker_cypress
       resource_class: large
       environment:
-        HUGO_VERSION: '0.139.0'
-        HUGO_BINARY: hugo_extended_0.139.0_linux-amd64
+        HUGO_VERSION: '0.140.0'
+        HUGO_BINARY: hugo_extended_0.140.0_linux-amd64
       steps:
         - run:
             command: |
@@ -72,7 +72,7 @@ jobs:
               yarn cypress verify
               hugo server --baseURL "http://localhost" --disableFastRender --minify &
               # Wait for server to deploy before continuing (with 1 minute timeout)
-              yarn wait-on tcp:1314 -t 120000
+              yarn wait-on "http://localhost:1314/generator/" -t 240000
               # Only record the Cypress tests if the Cypress env var is set, see:
               # https://stackoverflow.com/a/13864829
               if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn cypress run --record; fi
