@@ -17,6 +17,6 @@ export default defineConfig({
         experimentalRunAllSpecs: true,
         experimentalStudio: true,
         testIsolation: true,
-        retries: 3,
+        retries: process.env.CYPRESS_RETRIES ? +process.env.CYPRESS_RETRIES : 3,
     },
 });
