@@ -33,6 +33,7 @@ type RequestListProps = {
 export const RequestList = (props: RequestListProps) => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
     const clearProceedings = useProceedingsStore((state) => state.clearProceedings);
+    const removeProceeding = useProceedingsStore((state) => state.removeProceeding);
 
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
     const [selectionMode, setSelectionMode] = useState(false);
@@ -86,6 +87,13 @@ export const RequestList = (props: RequestListProps) => {
             ),
         [proceedings, selectedRequestIds, sortedRequestIdsOldToNew]
     );
+
+    const deleteSelected = useCallback(() => {
+        for (const reference of selectedRequestIds) removeProceeding(reference);
+
+        setSelectedRequestIds([]);
+        setSelectionMode(false);
+    }, [selectedRequestIds, removeProceeding]);
 
     if (!Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
         return (
@@ -182,6 +190,16 @@ export const RequestList = (props: RequestListProps) => {
                                                 style="margin-right: 10px;">
                                                 <Text id="export-ics" />
                                             </a>
+                                            <button
+                                                id="delete-selected-proceedings-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() =>
+                                                    confirm(t('delete-selected-proceedings-confirm', 'my-requests')) &&
+                                                    deleteSelected()
+                                                }>
+                                                <Text id="delete-selected-proceedings" />
+                                            </button>
                                         </>
                                     )}
                                 </div>
