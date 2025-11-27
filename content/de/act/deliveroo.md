@@ -3,7 +3,8 @@
 	"type": "act",
     "date": "2019-09-15T12:31:47+02:00",
     "tags": [ "deliveroo", "deutschland", "schließung", "datenlöschung", "vergessenwerden" ],
-    "authors": [ "baltpeter" ]
+    "authors": [ "baltpeter" ],
+    "discussedCompanies": [ "deliveroo" ]
 }
 
 Der Essenslieferant *Deliveroo* hat sich [im August 2019 aus dem deutschen Markt zurückgezogen](https://www.tagesschau.de/wirtschaft/deliveroo-abschied-deutschland-101.html). Was übrig bleibt, sind die Kundenkonten und die damit verbundenen Daten.
@@ -24,7 +25,7 @@ Dabei können wir Dir helfen. Wir sind ein gemeinnütziger Verein, der sich {{< 
 window.addEventListener('load', function() { window.renderActWidget({
     requestTypes: ['erasure'],
     transportMedium: 'email',
-    company: 'deliveroo-de'
+    company: 'deliveroo'
 }); });
 </script>
 
