@@ -13,7 +13,7 @@ Die Creditreform Boniversum GmbH (zuletzt Boniversum GmbH) wurde von Experian, e
 
 {{< featuredImg alt="Stylisiertes blautöniges Foto von Computern in einem Datenzentrum, darüber der Text: „Übernahme von Boniversum durch infoscore/Experian“" >}}
 
-Teil dieser Partnerschaft ist auch die [Übernahme von Boniversum durch Experian](https://www.lto.de/recht/kanzleien-unternehmen/k/experian-creditreform-strategische-partnerschaft-uebernahme-boniversum). Die Verschmelzung der Boniversum GmbH mit der infoscore Consumer Data GmbH, einer weiteren Auskunftei und Teil der Experian-Gruppe, wurde im September 2025 im [Handelsregister](https://www.northdata.de/?id=4761284597514240) [eingetragen](https://www.northdata.de/?id=4887812606001152). Anfragen zu den gespeicherten Daten solltest Du also ab sofort an die infoscore Consumer Data GmbH richten.
+Teil dieser Partnerschaft ist auch die [Übernahme von Boniversum durch Experian](https://www.lto.de/recht/kanzleien-unternehmen/k/experian-creditreform-strategische-partnerschaft-uebernahme-boniversum). Die Verschmelzung der Boniversum GmbH mit der infoscore Consumer Data GmbH, einer weiteren Auskunftei und Teil der Experian-Gruppe, wurde im September 2025 im [Handelsregister](https://www.northdata.de/?id=4761284597514240) [eingetragen](https://www.northdata.de/?id=4887812606001152). Anfragen zu den gespeicherten Daten solltest Du also ab sofort an die infoscore Consumer Data GmbH [richten](https://www.creditreform.de/solingen/aktuelles-wissen/pressemeldungen-fachbeitraege/news-details/show/wichtig-fuer-alle-boniversum-kunden-anpassung-in-ihren-agb-noetig).
 
 ## Um welche Daten geht es?
 
