@@ -135,38 +135,57 @@ describe('Proceedings page', () => {
         assertDeletionWorked();
     });
 
-    it('can mark selected proceedings as done and reactivate them', () => {
-        const references = ['2022-KKD2YF1', '2025-1ISPYF6I', '2025-1INGZ5L6'];
-        cy.proceedingsStore().then((store) =>
-            Promise.all(references.map((ref) => store.addProceeding(makeProceeding(ref))))
-        );
+    for (const state of ['done', 'abandoned']) {
+        const stateLabel = state === 'done' ? 'Done' : 'Abandoned';
 
-        const selectProceedings = () => {
-            cy.contains('Select').click();
-            cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2022-KKD2YF1"]').check();
-            cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2025-1INGZ5L6"]').check();
-        };
+        it(`can mark selected proceedings as ${state} and reactivate them`, () => {
+            cy.proceedingsStore().then((store) => {
+                store.addProceeding({
+                    reference: '2022-KKD2YF1',
+                    messages: {},
+                });
+                store.addMessage({
+                    ...messageTemplate('2022-KKD2YF1'),
+                    date: new Date('2022-01-14T00:00:00.000Z'),
+                });
+            });
+            const references = ['2025-1ISPYF6I', '2025-1INGZ5L6'];
+            cy.proceedingsStore().then((store) =>
+                Promise.all(references.map((ref) => store.addProceeding(makeProceeding(ref))))
+            );
 
-        selectProceedings();
-        cy.get('button.icon-ellipsis').click();
-        cy.contains('Mark selected proceedings as done').click();
+            const selectProceedings = () => {
+                cy.contains('Select').click();
+                cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2022-KKD2YF1"]').check();
+                cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2025-1INGZ5L6"]').check();
+            };
 
-        const assertState = (state) => {
-            cy.get('#proceeding-row-heading-2022-KKD2YF1').parent().should('contain.text', state);
-            cy.get('#proceeding-row-heading-2025-1INGZ5L6').parent().should('contain.text', state);
-            cy.get('#proceeding-row-heading-2025-1ISPYF6I')
-                .parent()
-                .should(state === 'Done' ? 'not.contain.text' : 'contain.text', state);
-        };
+            selectProceedings();
+            cy.get('button.icon-ellipsis').click();
+            cy.contains(`Mark selected proceedings as ${state}`).click();
 
-        assertState('Done');
-        cy.reload();
-        assertState('Done');
+            const assertState = (state) => {
+                cy.get('#proceeding-row-heading-2022-KKD2YF1')
+                    .parent()
+                    .should('contain.text', state === 'Response pending' ? 'Overdue' : state);
+                cy.get('#proceeding-row-heading-2025-1INGZ5L6').parent().should('contain.text', state);
+                cy.get('#proceeding-row-heading-2025-1ISPYF6I')
+                    .parent()
+                    .should(state === stateLabel ? 'not.contain.text' : 'contain.text', state);
 
-        selectProceedings();
-        cy.get('button.icon-ellipsis').click();
-        cy.contains('Reactivate selected proceedings').click();
+                if (state === stateLabel) cy.get('#main-nav .badge-error').should('not.exist');
+                else cy.get('#main-nav .badge-error').should('contain.text', '1');
+            };
 
-        assertState('Response pending');
-    });
+            assertState(stateLabel);
+            cy.reload();
+            assertState(stateLabel);
+
+            selectProceedings();
+            cy.get('button.icon-ellipsis').click();
+            cy.contains('Reactivate selected proceedings').click();
+
+            assertState('Response pending');
+        });
+    }
 });

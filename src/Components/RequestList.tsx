@@ -4,7 +4,7 @@ import { useAppStore } from '../store/app';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { iconClassForTransportMedium, icsFromProceedings } from '../Utility/requests';
+import { iconClassForTransportMedium, icsFromProceedings, isCompletedProceedingStatus } from '../Utility/requests';
 import {
     compareMessage,
     getGeneratedMessage,
@@ -12,7 +12,7 @@ import {
     getNewestMessage,
     useProceedingsStore,
 } from '../store/proceedings';
-import type { Proceeding, Message } from '../types/proceedings';
+import type { Proceeding, Message, ProceedingStatus } from '../types/proceedings';
 import type { RequestType } from '../types/request.d';
 import { useModal } from './Modal';
 import { MessageMetadataInput } from './MessageMetadataInput';
@@ -100,10 +100,10 @@ export const RequestList = (props: RequestListProps) => {
     }, [selectedRequestIds, removeProceeding]);
 
     const changeSelectedStatus = useCallback(
-        (status: 'done' | 'reactivate') => {
+        (status: ProceedingStatus | 'reactivate') => {
             for (const reference of selectedRequestIds) {
-                if (status === 'done') setProceedingStatus(reference, 'done');
-                else reactivateProceeding(reference);
+                if (status === 'reactivate') reactivateProceeding(reference);
+                else setProceedingStatus(reference, status);
             }
         },
         [selectedRequestIds, setProceedingStatus, reactivateProceeding]
@@ -220,6 +220,13 @@ export const RequestList = (props: RequestListProps) => {
                                                 style="margin-right: 10px;"
                                                 onClick={() => changeSelectedStatus('done')}>
                                                 <Text id="mark-selected-as-done" />
+                                            </button>
+                                            <button
+                                                id="mark-selected-as-abandoned-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() => changeSelectedStatus('abandoned')}>
+                                                <Text id="mark-selected-as-abandoned" />
                                             </button>
                                             <button
                                                 id="reactivate-selected-button"
@@ -388,6 +395,8 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                 ? 'badge-success'
                                 : props.proceeding.status === 'overdue'
                                 ? 'badge-error'
+                                : props.proceeding.status === 'abandoned'
+                                ? 'badge-gray'
                                 : 'badge-warning'
                         }`}>
                         <Text id={props.proceeding.status} />
@@ -479,7 +488,7 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                             </div>
                             {index === Object.keys(props.proceeding.messages).length - 1 && (
                                 <>
-                                    {props.proceeding.status !== 'done' && (
+                                    {!isCompletedProceedingStatus(props.proceeding.status) ? (
                                         <a
                                             className="button button-small button-primary"
                                             style="word-wrap: unset;"
@@ -492,8 +501,7 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                             }}>
                                             <Text id="message-react" />
                                         </a>
-                                    )}
-                                    {props.proceeding.status === 'done' && (
+                                    ) : (
                                         <button
                                             className="button button-small button-secondary"
                                             style="word-wrap: unset;"
