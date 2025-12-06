@@ -1000,7 +1000,8 @@
         "cdb-obsolete-reason-gdpr-not-applicable": "GDPR se ne primjenjuje na ovo poduzeće/uslugu.",
         "cdb-obsolete-reason-out-of-scope": "Nije u okviru naše baze podataka.",
         "cdb-references": "Reference:",
-        "footer-coc": "Kodeks ponašanja"
+        "footer-coc": "Kodeks ponašanja",
+        "cdb-related-posts": "Objave povezane s ovim poduzećem"
     },
     "i18n-widget": {
         "not-supported-cta": "Pomogni nam!",
