@@ -830,6 +830,7 @@
         "letter": "Brief",
         "fax": "Fax",
         "webform": "Web-Formular",
+        "webform-message": "Nachricht über Web-Formular",
         "message-by-me": "{{medium}} von mir",
         "message-by-controller": "{{medium}} von der Verantwortlichen",
         "subject-is": " (Betreff: „{{subject}}“)",

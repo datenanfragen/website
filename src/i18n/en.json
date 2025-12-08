@@ -724,6 +724,7 @@
         "letter": "letter",
         "fax": "fax",
         "webform": "Web form",
+        "webform-message": "message via web form",
         "message-by-me": "{{medium}} by me",
         "message-by-controller": "{{medium}} by the controller",
         "subject-is": " (subject: “{{subject}}”)",
