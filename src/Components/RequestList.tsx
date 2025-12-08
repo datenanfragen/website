@@ -357,6 +357,13 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
     const locale_country = country.toUpperCase();
     const date_locale = locale_country === 'ALL' ? savedLocale : `${savedLocale}-${locale_country}`;
 
+    const companyName = getNameFromMesssage(
+        original_request,
+        <em>
+            <Text id="no-company-name" />
+        </em>
+    );
+
     return (
         <>
             <ImportMessageModal />
@@ -370,11 +377,12 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                 style="float: right;"
                             />
                         )}
-                        {getNameFromMesssage(
-                            original_request,
-                            <em>
-                                <Text id="no-company-name" />
-                            </em>
+                        {original_request?.slug ? (
+                            <a className="primary-link" href={`${window.BASE_URL}company/${original_request.slug}`}>
+                                {companyName}
+                            </a>
+                        ) : (
+                            companyName
                         )}
                     </h1>
                     <time
