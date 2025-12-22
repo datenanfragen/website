@@ -4,7 +4,7 @@ import { useAppStore } from '../store/app';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { iconClassForTransportMedium, icsFromProceedings } from '../Utility/requests';
+import { iconClassForTransportMedium, icsFromProceedings, isCompletedProceedingStatus } from '../Utility/requests';
 import {
     compareMessage,
     getGeneratedMessage,
@@ -12,7 +12,7 @@ import {
     getNewestMessage,
     useProceedingsStore,
 } from '../store/proceedings';
-import type { Proceeding, Message } from '../types/proceedings';
+import type { Proceeding, Message, ProceedingStatus } from '../types/proceedings';
 import type { RequestType } from '../types/request.d';
 import { useModal } from './Modal';
 import { MessageMetadataInput } from './MessageMetadataInput';
@@ -33,6 +33,11 @@ type RequestListProps = {
 export const RequestList = (props: RequestListProps) => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
     const clearProceedings = useProceedingsStore((state) => state.clearProceedings);
+    const removeProceeding = useProceedingsStore((state) => state.removeProceeding);
+    const [setProceedingStatus, reactivateProceeding] = useProceedingsStore((state) => [
+        state.setProceedingStatus,
+        state.reactivateProceeding,
+    ]);
 
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
     const [selectionMode, setSelectionMode] = useState(false);
@@ -85,6 +90,23 @@ export const RequestList = (props: RequestListProps) => {
                 )
             ),
         [proceedings, selectedRequestIds, sortedRequestIdsOldToNew]
+    );
+
+    const deleteSelected = useCallback(() => {
+        for (const reference of selectedRequestIds) removeProceeding(reference);
+
+        setSelectedRequestIds([]);
+        setSelectionMode(false);
+    }, [selectedRequestIds, removeProceeding]);
+
+    const changeSelectedStatus = useCallback(
+        (status: ProceedingStatus | 'reactivate') => {
+            for (const reference of selectedRequestIds) {
+                if (status === 'reactivate') reactivateProceeding(reference);
+                else setProceedingStatus(reference, status);
+            }
+        },
+        [selectedRequestIds, setProceedingStatus, reactivateProceeding]
     );
 
     if (!Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
@@ -182,6 +204,37 @@ export const RequestList = (props: RequestListProps) => {
                                                 style="margin-right: 10px;">
                                                 <Text id="export-ics" />
                                             </a>
+                                            <button
+                                                id="delete-selected-proceedings-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() =>
+                                                    confirm(t('delete-selected-proceedings-confirm', 'my-requests')) &&
+                                                    deleteSelected()
+                                                }>
+                                                <Text id="delete-selected-proceedings" />
+                                            </button>
+                                            <button
+                                                id="mark-selected-as-done-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() => changeSelectedStatus('done')}>
+                                                <Text id="mark-selected-as-done" />
+                                            </button>
+                                            <button
+                                                id="mark-selected-as-abandoned-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() => changeSelectedStatus('abandoned')}>
+                                                <Text id="mark-selected-as-abandoned" />
+                                            </button>
+                                            <button
+                                                id="reactivate-selected-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() => changeSelectedStatus('reactivate')}>
+                                                <Text id="reactivate-selected" />
+                                            </button>
                                         </>
                                     )}
                                 </div>
@@ -304,6 +357,13 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
     const locale_country = country.toUpperCase();
     const date_locale = locale_country === 'ALL' ? savedLocale : `${savedLocale}-${locale_country}`;
 
+    const companyName = getNameFromMesssage(
+        original_request,
+        <em>
+            <Text id="no-company-name" />
+        </em>
+    );
+
     return (
         <>
             <ImportMessageModal />
@@ -317,11 +377,12 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                 style="float: right;"
                             />
                         )}
-                        {getNameFromMesssage(
-                            original_request,
-                            <em>
-                                <Text id="no-company-name" />
-                            </em>
+                        {original_request?.slug ? (
+                            <a className="primary-link" href={`${window.BASE_URL}company/${original_request.slug}`}>
+                                {companyName}
+                            </a>
+                        ) : (
+                            companyName
                         )}
                     </h1>
                     <time
@@ -342,6 +403,8 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                 ? 'badge-success'
                                 : props.proceeding.status === 'overdue'
                                 ? 'badge-error'
+                                : props.proceeding.status === 'abandoned'
+                                ? 'badge-gray'
                                 : 'badge-warning'
                         }`}>
                         <Text id={props.proceeding.status} />
@@ -433,7 +496,7 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                             </div>
                             {index === Object.keys(props.proceeding.messages).length - 1 && (
                                 <>
-                                    {props.proceeding.status !== 'done' && (
+                                    {!isCompletedProceedingStatus(props.proceeding.status) ? (
                                         <a
                                             className="button button-small button-primary"
                                             style="word-wrap: unset;"
@@ -446,8 +509,7 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                             }}>
                                             <Text id="message-react" />
                                         </a>
-                                    )}
-                                    {props.proceeding.status === 'done' && (
+                                    ) : (
                                         <button
                                             className="button button-small button-secondary"
                                             style="word-wrap: unset;"

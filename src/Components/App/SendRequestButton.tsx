@@ -114,14 +114,16 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
             negativeButton: (
                 <>
                     {request.transport_medium === 'webform' ? (
-                        <a
-                            className={`button ${request.sent ? 'button-secondary' : 'button-primary'}`}
-                            target="_blank"
-                            rel="noreferrer"
-                            onClick={() => finishRequest()}
-                            href={currentCompany?.webform}>
-                            <Text id="open-webform" />
-                        </a>
+                        currentCompany?.webform && (
+                            <a
+                                className={`button ${request.sent ? 'button-secondary' : 'button-primary'}`}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={() => finishRequest()}
+                                href={currentCompany.webform}>
+                                <Text id="open-webform" />
+                            </a>
+                        )
                     ) : (
                         <ActionButton
                             dropup={true}

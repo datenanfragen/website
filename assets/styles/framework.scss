@@ -216,6 +216,23 @@ a:focus {
     color: color('teal', 800);
 }
 
+a.primary-link {
+    /* stylelint-disable scss/at-extend-no-missing-placeholder */
+    @extend .no-link-decoration;
+    /* stylelint-enable scss/at-extend-no-missing-placeholder */
+
+    &,
+    &:visited {
+        color: $primary-color;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+        color: color('blue', 900);
+    }
+}
+
 main a {
     overflow-wrap: anywhere;
 

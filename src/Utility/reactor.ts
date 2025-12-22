@@ -89,7 +89,12 @@ export const generateLetterContent = ({ reactorState, proceeding, generatorState
                     `* ${m.date.toLocaleDateString(language, dateFormat)}: ${t(
                         `message-by-${m.sentByMe ? 'me' : 'controller'}`,
                         'reactor',
-                        { medium: t(m.transport_medium, 'reactor') }
+                        {
+                            medium:
+                                m.transport_medium === 'webform'
+                                    ? t('webform-message', 'reactor')
+                                    : t(m.transport_medium, 'reactor'),
+                        }
                     )}${m.subject ? t('subject-is', 'reactor', { subject: m.subject }) : ''}`
             )
             .join('\n'),

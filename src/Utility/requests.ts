@@ -5,7 +5,7 @@ import t, { t_r } from './i18n';
 import { deepCopyObject, hash } from './common';
 import { requestTemplate } from './fetch';
 import type { UserRequest } from '../DataType/UserRequests';
-import type { Message, Proceeding } from '../types/proceedings';
+import type { Message, Proceeding, ProceedingStatus } from '../types/proceedings';
 import { useAppStore } from '../store/app';
 import { getGeneratedMessage } from '../store/proceedings';
 
@@ -20,7 +20,11 @@ export const EMTPY_ADDRESS: Address = {
     place: '',
     country: '',
 } as const;
-export const PROCEEDING_STATUS = ['overdue', 'actionNeeded', 'waitingForResponse', 'done'] as const;
+/**
+ * @note Both `done` and `abandoned` are "completed" statuses.
+ */
+export const PROCEEDING_STATUS = ['overdue', 'actionNeeded', 'waitingForResponse', 'abandoned', 'done'] as const;
+export const isCompletedProceedingStatus = (status: ProceedingStatus) => status === 'done' || status === 'abandoned';
 
 export function isAddress(value: IdDataElement['value']): value is Address {
     return typeof value === 'object' && 'country' in value;

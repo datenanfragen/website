@@ -44,7 +44,7 @@ describe('ImportMessageModal', () => {
             })
         );
 
-        cy.contains('Datenanfragen.de').click();
+        cy.contains('Datenanfragen.de').parent().click();
         cy.contains('Add message').click();
 
         cy.get('.modal');

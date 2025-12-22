@@ -224,6 +224,7 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
         const [email, setEmail] = useState('');
         const [address, setAddress] = useState('');
         const [fax, setFax] = useState('');
+        const [webform, setWebform] = useState('');
 
         const promptForCompanySuggestions = useAppStore((state) => state.promptForCompanySuggestions);
         const [suggest, setSuggest] = useState(false);
@@ -284,7 +285,22 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
                     </div>
                 )}
 
-                {transportMedium !== 'email' && (
+                {transportMedium === 'webform' && (
+                    <div className="form-group">
+                        <label htmlFor="custom-company-input-webform">
+                            <Text id="webform" />
+                        </label>
+                        <input
+                            id="custom-company-input-webform"
+                            type="text"
+                            className="form-element"
+                            value={webform}
+                            onChange={(e) => setWebform(e.currentTarget.value)}
+                        />
+                    </div>
+                )}
+
+                {!['email', 'webform'].includes(transportMedium) && (
                     <div className="form-group">
                         <label htmlFor="custom-company-input-address">
                             <Text id="company-letter" />
@@ -346,6 +362,7 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
                                 address,
                                 fax,
                                 email,
+                                webform,
                                 'suggested-transport-medium': transportMedium,
                                 quality: 'verified',
                             });
@@ -360,6 +377,7 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
                                             address,
                                             fax,
                                             email,
+                                            webform,
                                             sources: sources.split('\n').filter((l) => l.trim()),
                                             quality: 'verified',
                                         },
@@ -414,7 +432,7 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
                         className="button button-secondary"
                         style="float: left;"
                         onClick={() =>
-                            ((!name.trim() && !email.trim() && !address.trim()) ||
+                            ((!name.trim() && !email.trim() && !address.trim() && !webform.trim()) ||
                                 confirm(t('confirm-cancel-add-custom-company', 'generator'))) &&
                             dismissCustomCompanyModal()
                         }>
