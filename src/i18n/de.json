@@ -854,7 +854,7 @@
         "base_complaint-issue-resolved_option_resolved-include": "Problem gelöst, in die Beschwerde aufnehmen.",
         "base_complaint-issue-resolved_option_persists-include": "Problem besteht weiterhin, in die Beschwerde aufnehmen.",
         "base_complaint-issue-resolved_option_ignore": "Problem nicht in Beschwerde aufnehmen.",
-        "base_complaint-issue-changed_body": "{{youSaidThat}}\n\nFalls sich die Angelegenheit seit Deiner Mahnung verändert hat, müssen wir die Fragen nochmal durchgehen. Ansonsten verwenden wir Deine voherigen Antworten.",
+        "base_complaint-issue-changed_body": "{{youSaidThat}}\n\nFalls sich die Angelegenheit seit Deiner Mahnung verändert hat, müssen wir die Fragen nochmal durchgehen. Ansonsten verwenden wir Deine vorherigen Antworten.",
         "base_complaint-issue-changed_option_use-prev": "Voherige Antworten nutzen.",
         "base_complaint-issue-changed_option_again": "Die Fragen nochmal durchgehen.",
         "base_complaint-choose-sva_body": "Nun finden wir heraus, welche Aufsichtsbehörde für Deinen Fall zuständig ist. Wir leiten Dich durch den Prozess, beanworte einfach die Fragen.",
