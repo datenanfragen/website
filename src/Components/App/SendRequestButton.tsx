@@ -5,7 +5,7 @@ import { useModal } from '../Modal';
 import { SetPageFunction } from './App';
 import { ActionButton, ActionButtonProps } from '../Generator/ActionButton';
 import { MailtoDropdownProps, mailto_handlers } from '../MailtoDropdown';
-import t from '../../Utility/i18n';
+import t, { t_r } from '../../Utility/i18n';
 import { useProceedingsStore } from '../../store/proceedings';
 import { useInputSelectAll } from '../../hooks/useInputSelectAll';
 
@@ -33,6 +33,9 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
         if (request.transport_medium !== 'email') return initiatePdfGeneration();
     }, [initiatePdfGeneration, request]);
 
+    const myRefText = `${t_r('my-reference', letter().language)}: ${letter().reference}`;
+    const subject = letter().props.subject ? `${letter().props.subject} (${myRefText})` : myRefText;
+
     const [onModalInputClick, unsetModalPreviousActiveElement] = useInputSelectAll();
     const [Modal, showModal, dismissModal] = useModal(
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
@@ -54,7 +57,7 @@ export const SendRequestButton = (props: SendRequestButtonProps) => {
                     type="text"
                     id="send-request-modal-subject"
                     className="form-element"
-                    value={letter().props.subject}
+                    value={subject}
                     onClick={onModalInputClick}
                     readOnly
                 />
