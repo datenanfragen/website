@@ -18,7 +18,7 @@ export function TransportMediumChooser(props: TransportMediumChooserProps) {
             <fieldset className="request-transport-medium-chooser label-only-fieldset">
                 <legend>{props.label ? props.label : <Text id="request-transport-medium" />}</legend>
                 <div className="radio-group">
-                    {(props.media || TRANSPORT_MEDIA.filter((m) => m !== 'webform')).map((transportMedium) => (
+                    {(props.media || TRANSPORT_MEDIA).map((transportMedium) => (
                         <Radio
                             id={`request-transport-medium-choice-${transportMedium}`}
                             radioVariable={props.value}
