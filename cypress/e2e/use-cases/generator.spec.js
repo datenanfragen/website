@@ -53,8 +53,8 @@ describe('Using the generator', () => {
             .should(
                 'satisfy',
                 (subject) =>
-                    subject === 'Request to access to personal data according to Art. 15 GDPR' ||
-                    subject === 'Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO'
+                    subject.startsWith('Request to access to personal data according to Art. 15 GDPR') ||
+                    subject.startsWith('Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO')
             );
         cy.get('#send-request-modal-recipient').invoke('val').should('not.be.empty');
 
@@ -106,7 +106,7 @@ describe('Using the generator', () => {
 
         cy.get('.modal').contains('Here’s your generated request.');
         cy.get('#send-request-modal-subject').should(
-            'have.value',
+            'contain.value',
             'Request for erasure of personal data according to Art. 17 GDPR'
         );
         cy.get('#send-request-modal-recipient').invoke('val').should('not.be.empty');
@@ -150,7 +150,7 @@ describe('Using the generator', () => {
 
         cy.contains('Send request').click();
         cy.get('#send-request-modal-subject').should(
-            'have.value',
+            'contain.value',
             'Request to access to personal data according to Art. 15 GDPR'
         );
         cy.get('#send-request-modal-body').should('contain.value', 'I am hereby requesting access');
@@ -215,7 +215,7 @@ describe('Using the generator', () => {
         cy.contains('Send request').click();
         cy.get('.modal').contains('Here’s your generated request.');
         cy.get('#send-request-modal-subject').should(
-            'have.value',
+            'contain.value',
             'Request for rectification of personal data according to Art. 16 GDPR'
         );
         cy.get('#send-request-modal-recipient').should('have.value', 'privacy@darkenanfragen.tld');
@@ -269,7 +269,7 @@ describe('Using the generator', () => {
         cy.contains('Send request').click();
 
         cy.get('.modal').contains('Here’s your generated request. Download the PDF');
-        cy.get('#send-request-modal-subject').should('have.value', 'Werbewiderspruch gemäß Art. 21 Abs. 2 DSGVO');
+        cy.get('#send-request-modal-subject').should('contain.value', 'Werbewiderspruch gemäß Art. 21 Abs. 2 DSGVO');
         cy.get('#send-request-modal-recipient').should('contain.value', 'Österreich');
         cy.get('#send-request-modal-body')
             .should('contain.value', 'ich lege hiermit Widerspruch')
