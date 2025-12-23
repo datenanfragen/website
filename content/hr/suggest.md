@@ -40,7 +40,7 @@ Do you have any further comments or notes that we should take into account when 
 <label for="comment" class="sr-only">Additional comments</label>
 <textarea id="comment" class="form-element" rows="5"></textarea>
 
-<button id="submit-suggest-form" class="button button-primary">Pošalji <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
+<button id="submit-suggest-form" class="button button-primary">Objavi <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
 </div>
 
 Slanjem ovog obrasca pristaješ, da se tvoji prilozi objavljuju u našoj bazi podataka te da se podaci licenciraju pod [CC0 licencom](https://creativecommons.org/publicdomain/zero/1.0), čime se svima omogućuje neograničeno korištenje podataka.
