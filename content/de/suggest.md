@@ -41,7 +41,7 @@ Hast Du weitere Anmerkungen oder Hinweise, die wir bei der Überprüfung Deines 
 <label for="comment" class="sr-only">Zusätzliche Anmerkungen</label>
 <textarea id="comment" class="form-element" rows="5"></textarea>
 
-<button id="submit-suggest-form" class="button button-primary">Absenden <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
+<button id="submit-suggest-form" class="button button-primary">Veröffentlichen <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
 </div>
 
 
