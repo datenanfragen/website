@@ -679,7 +679,7 @@
         "comments": "Comments",
         "comment": "Comment",
         "author": "Author",
-        "submit": "Submit",
+        "publish-comment": "Publish comment",
         "sending": "Submitting your comment…",
         "send-success": "Comment sent successfully. It will have to be accepted by an administrator first before it is shown here.",
         "send-error": "An error occurred while sending your comment. Please try again later.",

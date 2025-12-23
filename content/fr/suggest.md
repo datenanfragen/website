@@ -23,7 +23,7 @@ As-tu d'autres commentaires ou remarques à nous faire parvenir concernant l'exa
 <label for="comment" class="sr-only">Commentaires supplémentaires</label>
 <textarea id="comment" class="form-element" rows="5"></textarea>
 
-<button id="submit-suggest-form" class="button button-primary">Proposer <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
+<button id="submit-suggest-form" class="button button-primary">Publier <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
 </div>
 
 En soumettant ce formulaire, tu acceptes que tes contributions soient publiées dans notre base de données d'entreprises et que tu les concèdes sous [licence CC0](https://creativecommons.org/publicdomain/zero/1.0), qui permet à quiconque de les utiliser sans restriction.

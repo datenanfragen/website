@@ -41,7 +41,7 @@ Si tienes alguna sugerencia que no se puede manejar a través de este formulario
 <label for="comment" class="sr-only">Comentarios adicionales</label>
 <textarea id="comment" class="form-element" rows="5"></textarea>
 
-<button id="submit-suggest-form" class="button button-primary">Enviar <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
+<button id="submit-suggest-form" class="button button-primary">Publicar <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
 </div>
 
 Al enviar este formulario, aceptas que tus contribuciones se publiquen en nuestra base de datos de empresas y bajo una [licencia CC0](https://creativecommons.org/publicdomain/zero/1.0), lo que permite que cualquiera pueda usarlos sin restricciones.
