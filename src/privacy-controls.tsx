@@ -58,7 +58,7 @@ const PrivacyControls = () => {
         <Text id={clickFromButton ? 'modal-clear-id_data' : 'confirm-delete-id_data'} />,
         {
             positiveText: <Text id="clear-id_data" />,
-            negativeText: <Text id="cancel" />,
+            negativeText: <Text id="no" />,
             onNegativeFeedback: () => dismissClearIdDataModal(),
             onPositiveFeedback: () => {
                 new SavedIdData().clear();
@@ -73,7 +73,7 @@ const PrivacyControls = () => {
         <Text id={clickFromButton ? 'modal-clear-requests' : 'confirm-delete-my-requests'} />,
         {
             positiveText: <Text id="confirm-clear-requests" />,
-            negativeText: <Text id="cancel" />,
+            negativeText: <Text id="no" />,
             onNegativeFeedback: () => dismissClearMyRequestsModal(),
             onPositiveFeedback: () => {
                 new UserRequests().clearRequests();
