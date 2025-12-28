@@ -49,6 +49,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                             else if (window.PARAMETERS.companies && batchLength > 0) props.setPage('review_selection');
                             else props.setPage('company_search');
                         }}>
+                        <span className={`icon-${type}`}>&nbsp;</span>
                         <MarkupText id={`${type}-request-statement`} />
                     </button>
                     <button
