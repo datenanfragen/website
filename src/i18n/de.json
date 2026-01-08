@@ -536,7 +536,7 @@
         "clear-id_data": "Alle Identifikationsdaten löschen",
         "confirm-delete-id_data": "Du hast das Speichern von Identifikationsdaten deaktiviert. Möchtest Du die zur Zeit gespeicherten Daten auch löschen?",
         "confirm-clear-requests": "Anfragen löschen",
-        "cancel": "Abbrechen",
+        "no": "Nein",
         "modal-clear-requests": "Damit werden alle gespeicherten Anfragen unwiderruflich von Deinem Computer gelöscht. Bist Du sicher?",
         "modal-clear-id_data": "Damit werden Deine gespeicherten Identifikationsdaten gelöscht. Bist Du sicher?",
         "modal-delete-single-request": "Damit wird diese Anfrage unwiderruflich von Deinem Computer gelöscht. Bist Du sicher?",
