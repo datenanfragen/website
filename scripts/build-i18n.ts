@@ -124,9 +124,13 @@ if (watch) {
 
     const handler = (path: string) => {
         try {
-            const translations = {
-                [basename(path, '.json')]: JSON.parse(readFileSync(path, 'utf8')) as TranslationFile,
-            };
+            const language = basename(path, '.json');
+            const translations =
+                // As English is used as the fallback, changes to the English translations can affect all other
+                // languages as well.
+                language === 'en'
+                    ? allTranslations
+                    : { [language]: JSON.parse(readFileSync(path, 'utf8')) as TranslationFile };
             emitTranslations(translations);
             emitRequestsTranslations();
         } catch (err) {
