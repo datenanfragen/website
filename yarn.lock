@@ -3347,14 +3347,14 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001272, can
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001741.tgz"
   integrity sha512-QGUGitqsc8ARjLdgAfxETDhRbJ0REsP6O3I96TAth/mVjh2cYzN2u+3AzPP3aVSm2FehEItaJw1xd+IGBXWeSw==
 
-carbone@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/carbone/-/carbone-3.2.3.tgz#9317b9403de2a9e8137c94754e12ada56f4f54f7"
-  integrity sha512-UV7nOsxje6/ChjbGip4lBOepozwPtH06JaiO08YAAx45f4M7HVRR8y6YPzLy0g3XfbVewODCaIFIPqCFwO6O5Q==
+carbone@^3.5.6:
+  version "3.5.6"
+  resolved "https://registry.yarnpkg.com/carbone/-/carbone-3.5.6.tgz#19ebf24d1f3b337e1c12903e5cf35ff7e3d9e6c8"
+  integrity sha512-bjTEJAmVQnMJoFAIs6Z0tAUpQoglUH0i4dLV34m8rCKWKagfhAM/zJyyKkU6n9EeyuuoOfCyppsShdvYr0ZfDw==
   dependencies:
-    dayjs "=1.10.4"
-    debug "=4.1.1"
-    timsort "=0.3.0"
+    dayjs "=1.11.11"
+    dayjs-timezone-iana-plugin "=0.1.0"
+    debug "=4.3.5"
     which "=2.0.2"
     yauzl "=2.10.0"
     yazl "=2.5.1"
@@ -4260,15 +4260,15 @@ dattel-client@^0.7.0:
     netlify-redirect-parser "^2.5.0"
     retry-axios "^2.2.1"
 
-dayjs@=1.10.4:
-  version "1.10.4"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.4.tgz#8e544a9b8683f61783f570980a8a80eaf54ab1e2"
-  integrity sha512-RI/Hh4kqRc1UKLOAf/T5zdMMX5DQIlDxwUe3wSyMMnEbGunnpENCdbUgM+dW7kXidZqCttBrmw7BhN4TMddkCw==
+dayjs-timezone-iana-plugin@=0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/dayjs-timezone-iana-plugin/-/dayjs-timezone-iana-plugin-0.1.0.tgz#216613f6ec80106ab8be025cf5935018c901e997"
+  integrity sha512-xc8cIZmi4oKr2nfu41I/FDWZKa8n8YaRMxSz9MrpXTNo8c6ZsjZuIoy5RPNmLXPqntFuITWI8obB7lUA+CdzGQ==
 
-dayjs@^1.10.4:
-  version "1.10.7"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
-  integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
+dayjs@=1.11.11, dayjs@^1.10.4:
+  version "1.11.11"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.11.tgz#dfe0e9d54c5f8b68ccf8ca5f72ac603e7e5ed59e"
+  integrity sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==
 
 debug@=3.1.0:
   version "3.1.0"
@@ -4277,12 +4277,12 @@ debug@=3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@=4.1.1, debug@^4.0.0, debug@^4.1.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
-  integrity sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
+debug@=4.3.5, debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.5.tgz#e83444eceb9fedd4a1da56d671ae2446a01a6e1e"
+  integrity sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==
   dependencies:
-    ms "^2.1.1"
+    ms "2.1.2"
 
 debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
   version "2.6.9"
@@ -4297,20 +4297,6 @@ debug@^3.1.0, debug@^3.2.7:
   integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   dependencies:
     ms "^2.1.1"
-
-debug@^4.1.1, debug@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
-  integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
-  dependencies:
-    ms "2.1.2"
-
-debug@^4.3.4:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
-  integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
-  dependencies:
-    ms "2.1.2"
 
 decamelize-keys@^1.1.0:
   version "1.1.0"
@@ -12588,7 +12574,7 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
-timsort@=0.3.0, timsort@^0.3.0:
+timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
