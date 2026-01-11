@@ -6,7 +6,7 @@
 }
 
 Zweck dieser Vortragsordnung ist die Regelung von vergüteten Vorträgen zu den Verein betreffenden Themen durch Vereinsmitglieder und Angestellte.  
-Diese Vortragsordnung wurde in der ordentlichen Mitgliederversammlung vom 16. Juni 2020 beschlossen und zuletzt in der ordentlichen Mitgliederversammlung vom 14. Dezember 2023 geändert.
+Diese Vortragsordnung wurde in der ordentlichen Mitgliederversammlung vom 16. Juni 2020 beschlossen und zuletzt in der ordentlichen Mitgliederversammlung vom 18. Dezember 2024 geändert.
 
 ## 1. Feststellungen
 
@@ -18,19 +18,19 @@ Für durch den Verein organisierte Vorträge und Vorträge, an denen sich der Ve
 
 ## 1a. Ausnahmen
 
-Angestellte des Vereins dürfen für Vorträge, die den Verein betreffen, keine Bezahlung annehmen, die über die reine Übernahme der entstandenen Reise- und/oder Übernachtungskosten hinausgeht. Die Bezeichnung der Bezahlung ist dabei irrelevant. Einer Annahme einer höheren Bezahlung steht ausnahmsweise nichts entgegen, wenn die Differenz an den Verein gespendet wird.
+Angestellte des Vereins dürfen für Vorträge, die im Namen des Vereins, keine externe Bezahlung annehmen, die über die reine Übernahme der entstandenen Reise-, Veranstaltungs- und Übernachtungskosten hinausgeht. Gleiches gilt für Vorträge, die den Verein betreffen, soweit nichts anderes vereinbart ist. Die Bezeichnung der Bezahlung ist dabei irrelevant. Einer Annahme einer höheren Bezahlung steht ausnahmsweise nichts entgegen, wenn die Differenz an den Verein gespendet wird.
 
 Erhält eine Person eine Vergütung für einen Vortrag zu Themen, die den Verein betreffen, ist die Übernahme oder Erstattung der Reisekosten durch den Verein ausgeschlossen.
 
 ## 2. Nutzung von Vereinsmitteln
 
-Erhält ein_e Vortragende_r von einer externen Organisation eine Vergütung für einen Vortrag, welche über die reine Erstattung der entstandenen Reise- und/oder Übernachtungskosten hinausgeht, übernimmt sie_er **privat** die Verantwortung für diesen Vortrag. Der Verein kann dennoch als Mitorganisator oder Beteiligter auftreten. Für die Organisation und Durchführung solcher Vorträge werden allerdings keine Vereinsmittel aufgewendet.
+Erhält ein_e Vortragende_r von einer externen Organisation eine Vergütung für einen Vortrag, welche über die reine Erstattung der entstandenen Reise-, Veranstaltungs- und Übernachtungskosten hinausgeht, übernimmt sie_er **privat** die Verantwortung für diesen Vortrag. Der Verein kann dennoch als Mitorganisator oder Beteiligter auftreten. Für die Organisation und Durchführung solcher Vorträge werden allerdings keine Vereinsmittel aufgewendet.
 
 Diese Regelung gilt nicht für die Bereitstellung von Informationsmaterialien, die der Verein ohnehin vorhält. Die Verbreitung dieser Materialien stellt eine unmittelbare Umsetzung der Satzungszwecke dar und ist insofern zu unterstützen.
 
 ## 3. Transparenzverpflichtung für Vorstandsmitglieder
 
-Die Mitglieder des Vorstandes werden verpflichtet, Informationen zu Vorträgen zu Themen, die den Verein betreffen, und für welche sie eine externe Bezahlung erhalten haben, auf der Transparenzseite des Vereins zu veröffentlichen. Diese Informationen müssen mindestens die folgenden Angaben enthalten: den Monat und das Jahr des Vortrages; die Namen der Vorstandsmitglieder, die für den Vortrag eine Bezahlung erhalten haben; die_der Auftraggeber_in; die Höhe des Honorars.
+Die Vorsitzenden werden verpflichtet, Informationen zu Vorträgen zu Themen, die den Verein betreffen, und für welche sie eine externe Bezahlung erhalten haben, auf der Transparenzseite des Vereins zu veröffentlichen. Gleiches gilt für Besitzende, hier allerdings nur für Vorträge im Namen des Vereins. Diese Informationen müssen mindestens die folgenden Angaben enthalten: den Monat und das Jahr des Vortrages; die Namen der Vorstandsmitglieder, die für den Vortrag eine Bezahlung erhalten haben; die_der Auftraggeber_in; die Höhe des Honorars.
 
 Als Bezahlung im Sinne dieser Regelung gilt auch die reine Übernahme von Reise- und/oder Übernachtungskosten.
 
