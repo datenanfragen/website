@@ -187,7 +187,8 @@
         "home-claim-send": "We genereren een verzoek van uw gegevens, die u dan zelf verstuurt, mestaal via e-mail. Wij krijgen nooit uw gegevens te zien.",
         "home-claim-react-title": "Ontvang antwoorden & reageer",
         "home-claim-react": "<em>Binnen een maand</em> zou u moeten krijgen wat u hebt aangevraagd. Kom regelmatig langs en we zullen u eraan herinneren als u moet navragen bij het bedrijf. We helpen u ook om het antwoord te beoordelen en indien nodig een klacht in te dienen.",
-        "home-claim-button": "Genereer nu een verzoek!"
+        "home-claim-button": "Genereer nu een verzoek!",
+        "home-blog-section-title": "Ons blog"
     },
     "countries": {
         "zw": "Zimbabwe",
