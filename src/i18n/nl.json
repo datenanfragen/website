@@ -38,7 +38,7 @@
         "home-how-it-works-generator-title": "Genereer een verzoek",
         "home-how-it-works-parameters": "Kies bedrijven waar u een aanvraag naar wilt sturen. Voer uw gegevens in, zodat de bedrijven u kunnen identificeren. Om het makkelijker voor u te maken, hebben wij de formulieren al voorbereid. En geen zorgen: alle gegevens blijven op uw computer en worden alleen daar verwerkt. Dit maakt het mogelijk dat uw gegevens nooit bij ons terecht komen.",
         "home-how-it-works-parameters-title": "Voer uw parameters in",
-        "header-blog": "Publicaties",
+        "header-blog": "Blog",
         "header-name": "${site_name}",
         "logo-title": "${site_name} logo",
         "logo": "img/logo-gegevensaanvragen.svg",
@@ -177,7 +177,17 @@
         "footer-tab-association": "Datenanfragen.de e. V.",
         "footer-licenses": "Licenties",
         "footer-social-rss-desc": "Abonneer op onze blogposts met uw RSS-feedreader.",
-        "footer-tab-learn": "Leren"
+        "footer-tab-learn": "Leren",
+        "skip-to-content": "Ga naar de inhoud",
+        "home-hero-desc": "Bedrijven moeten jou toegang tot jouw data geven en het verbeteren of zelfs verwijderen waar nodig.<br>Als non-profit organisatie helpen wij jou met het gebruik van deze rechten – <strong>gratis en zonder registratie</strong>, natuurlijk.",
+        "home-claim-title": "Dit is hoe dataverzoeken werken:",
+        "home-claim-choose-company-title": "Kies bedrijven",
+        "home-claim-choose-company": "Kies bedrijven uit onze database, of voeg je eigen toe. Weet je niet wie te bevragen? In dat geval hebben we wat suggesties.",
+        "home-claim-send-title": "Stuur de verzoeken",
+        "home-claim-send": "We genereren een verzoek van uw gegevens, die u dan zelf verstuurt, mestaal via e-mail. Wij krijgen nooit uw gegevens te zien.",
+        "home-claim-react-title": "Ontvang antwoorden & reageer",
+        "home-claim-react": "<em>Binnen een maand</em> zou u moeten krijgen wat u hebt aangevraagd. Kom regelmatig langs en we zullen u eraan herinneren als u moet navragen bij het bedrijf. We helpen u ook om het antwoord te beoordelen en indien nodig een klacht in te dienen.",
+        "home-claim-button": "Genereer nu een verzoek!"
     },
     "countries": {
         "zw": "Zimbabwe",
