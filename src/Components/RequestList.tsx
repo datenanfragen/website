@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'preact/hooks';
+import { useState, useCallback, useMemo, useEffect } from 'preact/hooks';
 import { IntlProvider, Text } from 'preact-i18n';
 import { useAppStore } from '../store/app';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
@@ -41,6 +41,27 @@ export const RequestList = (props: RequestListProps) => {
 
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
     const [selectionMode, setSelectionMode] = useState(false);
+
+    // selection mode: toggle on/off with Shift or Control keys, exit with Escape
+    // https://dev.to/barrymichaeldoyle/how-to-build-a-custom-react-hook-to-listen-for-keyboard-events-32b4
+    useEffect(() => {
+        function keyDownHandler(e: globalThis.KeyboardEvent) {
+            if (selectionMode && e.key === 'Escape') {
+                e.preventDefault();
+                setSelectionMode(false);
+            }
+            if (e.key === 'Shift' || e.key === 'Control') {
+                e.preventDefault();
+                setSelectionMode(!selectionMode);
+            }
+        }
+
+        document.addEventListener('keydown', keyDownHandler);
+
+        return () => {
+            document.removeEventListener('keydown', keyDownHandler);
+        };
+    }, [selectionMode]);
 
     const sortedRequestIdsOldToNew = useMemo(
         () =>
