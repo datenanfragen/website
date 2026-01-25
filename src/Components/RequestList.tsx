@@ -164,7 +164,7 @@ export const RequestList = (props: RequestListProps) => {
                         {selectionMode && (
                             <div className="dropdown-container" style="float:right;">
                                 <button className="icon-ellipsis button button-small button-secondary" />
-                                <div className="dropdown" style="right: 0; max-width: 400px; width: 90vw;">
+                                <div className="dropdown" style="right: 0; max-width: 300px; width: 90vw;">
                                     <button
                                         id="toggle-all-button"
                                         className="button button-secondary"
@@ -188,12 +188,14 @@ export const RequestList = (props: RequestListProps) => {
                                     </button>
                                     {selectedRequestIds.length > 0 && (
                                         <>
+                                            <hr style="width: 80%" />
+                                            Selection…
                                             <a
                                                 id="download-button"
                                                 className="button button-secondary"
                                                 href={URL.createObjectURL(buildCsv())}
                                                 download={csv_download_filename}
-                                                style="margin-right: 10px;">
+                                                style="margin-right: 10px; text-align: right;">
                                                 <Text id="export-btn" />
                                             </a>
                                             <a
@@ -201,13 +203,13 @@ export const RequestList = (props: RequestListProps) => {
                                                 className="button button-secondary"
                                                 href={URL.createObjectURL(buildIcs())}
                                                 download={ics_download_filename}
-                                                style="margin-right: 10px;">
+                                                style="margin-right: 10px; text-align: right;">
                                                 <Text id="export-ics" />
                                             </a>
                                             <button
                                                 id="delete-selected-proceedings-button"
-                                                className="button button-secondary"
-                                                style="margin-right: 10px;"
+                                                className="button button-secondary button-error"
+                                                style="margin-right: 10px; text-align: right;"
                                                 onClick={() =>
                                                     confirm(t('delete-selected-proceedings-confirm', 'my-requests')) &&
                                                     deleteSelected()
@@ -217,21 +219,23 @@ export const RequestList = (props: RequestListProps) => {
                                             <button
                                                 id="mark-selected-as-done-button"
                                                 className="button button-secondary"
-                                                style="margin-right: 10px;"
+                                                style="margin-right: 10px; text-align: right;"
                                                 onClick={() => changeSelectedStatus('done')}>
-                                                <Text id="mark-selected-as-done" />
+                                                <Text id="mark-selected-as" />{' '}
+                                                <span className="badge badge-success">done</span>.
                                             </button>
                                             <button
                                                 id="mark-selected-as-abandoned-button"
                                                 className="button button-secondary"
-                                                style="margin-right: 10px;"
+                                                style="margin-right: 10px; text-align: right;"
                                                 onClick={() => changeSelectedStatus('abandoned')}>
-                                                <Text id="mark-selected-as-abandoned" />
+                                                <Text id="mark-selected-as" />{' '}
+                                                <span className="badge badge-gray">abandoned</span>.
                                             </button>
                                             <button
                                                 id="reactivate-selected-button"
                                                 className="button button-secondary"
-                                                style="margin-right: 10px;"
+                                                style="margin-right: 10px; text-align: right;"
                                                 onClick={() => changeSelectedStatus('reactivate')}>
                                                 <Text id="reactivate-selected" />
                                             </button>
