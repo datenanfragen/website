@@ -1,5 +1,6 @@
 import { Fragment, ComponentChildren, JSX } from 'preact';
 import { useState, useCallback, useMemo, useEffect, useRef, useLayoutEffect } from 'preact/hooks';
+import { createPortal } from 'preact/compat';
 import type { MergeExclusive } from 'type-fest';
 import t from '../Utility/i18n';
 
@@ -68,7 +69,7 @@ export const useModal = (
     const Modal = useCallback(() => {
         if (!shown) return <Fragment />;
 
-        return (
+        return createPortal(
             <div className={`modal${document.getElementsByClassName('modal').length > 0 ? ' no-animation' : ''}`}>
                 <div className="backdrop" onClick={() => options.backdropDismisses && dismiss()} role="presentation" />
 
@@ -109,7 +110,8 @@ export const useModal = (
                             ))}
                     </div>
                 </div>
-            </div>
+            </div>,
+            document.body
         );
     }, [options, dismiss, children, shown]);
 
