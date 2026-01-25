@@ -1,12 +1,22 @@
 import type { IdDataElement, Signature } from '../types/request';
 import type { SetOptional } from 'type-fest';
-import { rethrow, WarningException } from '../Utility/errors';
+import { rethrow, WarningException, ErrorException, GenericException, NoticeException } from '../Utility/errors';
 import Cookie from 'js-cookie';
 import LocalForage from 'localforage';
 import { produce, nothing } from 'immer';
 import { isAddress, EMTPY_ADDRESS } from '../Utility/requests';
 
+const catchUnavailableStorage = (rethrowCallback: (err: GenericException) => void) => (error: Error) => {
+    // This just means that the localStorage is disabled and we still went into SavedIdData somehow. We shouldn’t annoy the user and this doesn’t break anything.
+    if (error.message.includes('No available storage method found')) {
+        rethrow(NoticeException.fromError(error));
+        return;
+    }
+    rethrowCallback(ErrorException.fromError(error));
+};
+
 export class SavedIdData {
+    // Get rid of localforage at some point.
     localforage_instance: LocalForage;
 
     constructor() {
@@ -27,7 +37,9 @@ export class SavedIdData {
         // '::' is a special character and disallowed in the database for user inputs. The user will not encounter that as the description will be saved in the original state with the data object.
         return this.localforage_instance
             .setItem(data.desc.replace('/::/g', '__'), to_store)
-            .catch((error) => rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] }));
+            .catch(
+                catchUnavailableStorage((error) => rethrow(error, 'Saving id_data failed.', { desc: to_store['desc'] }))
+            );
     }
 
     storeFixed(data: IdDataElement) {
@@ -40,7 +52,9 @@ export class SavedIdData {
 
         return this.localforage_instance
             .setItem(data.type + '::fixed', to_store)
-            .catch((error) => rethrow(error, 'Saving id_data failed.', { desc: to_store.desc }));
+            .catch(
+                catchUnavailableStorage((error) => rethrow(error, 'Saving id_data failed.', { desc: to_store.desc }))
+            );
     }
 
     storeArray(array: IdDataElement[], fixed_only = true) {
@@ -54,31 +68,31 @@ export class SavedIdData {
     storeSignature(signature: Signature) {
         return this.localforage_instance
             .setItem('::signature', signature)
-            .catch((error) => rethrow(error, 'Saving signature failed.', { signature }));
+            .catch(catchUnavailableStorage((error) => rethrow(error, 'Saving signature failed.', { signature })));
     }
 
     getByDesc(desc: string) {
         return this.localforage_instance
             .getItem<IdDataElement>(desc.replace(/::/g, '__'))
-            .catch((error) => rethrow(error, 'Could not retrieve id_data.', { desc }));
+            .catch(catchUnavailableStorage((error) => rethrow(error, 'Could not retrieve id_data.', { desc })));
     }
 
     getFixed(type: 'name' | 'birthdate' | 'email' | 'address') {
         return this.localforage_instance
             .getItem<IdDataElement>(type + '::fixed')
-            .catch((error) => rethrow(error, 'Could not retrieve fixed id_data.', { type }));
+            .catch(catchUnavailableStorage((error) => rethrow(error, 'Could not retrieve fixed id_data.', { type })));
     }
 
     getSignature() {
         return this.localforage_instance
             .getItem<Signature>('::signature')
-            .catch((error) => rethrow(error, 'Could not retrieve signature.'));
+            .catch(catchUnavailableStorage((error) => rethrow(error, 'Could not retrieve signature.')));
     }
 
     removeByDesc(desc: string) {
         return this.localforage_instance
             .removeItem(desc.replace(/::/g, '__'))
-            .catch((error) => rethrow(error, 'Could not delete id_data.', { desc }));
+            .catch(catchUnavailableStorage((error) => rethrow(error, 'Could not delete id_data.', { desc })));
     }
 
     getAllFixed() {
@@ -88,7 +102,7 @@ export class SavedIdData {
                 if (desc.match(/.*?::fixed$/)) id_data.push(data);
             })
             .then(() => id_data)
-            .catch((error) => rethrow(error, 'Could not retrieve all fixed id_data'));
+            .catch(catchUnavailableStorage((error) => rethrow(error, 'Could not retrieve all fixed id_data')));
     }
 
     getAll(exclude_fixed = true) {
@@ -99,7 +113,7 @@ export class SavedIdData {
                     id_data.push(data);
             })
             .then(() => id_data)
-            .catch((error) => rethrow(error, 'Could not retrieve all id_data'));
+            .catch(catchUnavailableStorage((error) => rethrow(error, 'Could not retrieve all id_data')));
     }
 
     clear() {
