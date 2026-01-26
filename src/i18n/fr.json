@@ -44,9 +44,9 @@
         "fax": "fax",
         "email": "e-mail",
         "letter": "lettre",
-        "delete-all-btn": "Supprimer toutes les demandes",
-        "export-btn": "Exporter les demandes sélectionnées au format CSV",
-        "export-ics": "Exporter les demandes sélectionnées au format calendrier",
+        "delete-all-btn": "Supprimer toutes les procédures",
+        "export-btn": "Exporter les procédures sélectionnées au format CSV",
+        "export-ics": "Exporter les procédures sélectionnées vers le calendrier",
         "no-requests-heading": "Aucune demande pour le moment",
         "no-requests": "Vous n'avez généré aucune demande pour le moment. Dès que vous le ferez, elles apparaîtrons ici.",
         "generate-request": "Générer une demande",
@@ -110,7 +110,13 @@
         "content": "Contenu",
         "invalid-date-entered": "La date que vous avez saisie est invalide.",
         "webform": "formulaire en ligne",
-        "import-message-modal-explanation": "Pour garder une trace des messages que vous avez envoyés et reçus concernant votre demande initiale, vous pouvez ajouter des métadonnées ici."
+        "import-message-modal-explanation": "Pour garder une trace des messages que vous avez envoyés et reçus concernant votre demande initiale, vous pouvez ajouter des métadonnées ici.",
+        "delete-selected-proceedings": "Supprimer les procédures sélectionnées",
+        "delete-selected-proceedings-confirm": "Cette action supprimera les procédures sélectionnées et tous les messages qu'elles contiennent. Voulez-vous continuer ?",
+        "mark-selected-as-done": "Marquer les procédures sélectionnées comme terminées",
+        "mark-selected-as-abandoned": "Marquer les procédures sélectionnées comme abandonnées",
+        "reactivate-selected": "Réactiver les procédures sélectionnées",
+        "abandoned": "Abandonnée"
     },
     "generator": {
         "reference": "Référence",
@@ -221,7 +227,7 @@
         "objection-reason": "Motif de votre contestation",
         "access-request-explanation-button": "Qu'est-ce qu'une demande d'accès ?",
         "erasure-request-explanation-button": "Qu'est-ce qu'une demande de suppression ?",
-        "add-custom-company": "Ajouter une entreprise",
+        "add-custom-company": "Ajouter une entreprise personnalisée",
         "company-name": "Nom de l'entreprise",
         "continue-with-requests": "Continuer avec ces entreprises",
         "access-request-statement": "<strong>Obtenir l'accès</strong> à mes données.",
@@ -290,7 +296,8 @@
         "request-type-info-access": "En effectuant une demande d'accès, vous pouvez savoir si une entreprise possède des données vous concernant et, le cas échéant, recevoir une copie de ces données. Par ailleurs, l'entreprise vous informera de l'usage qu'elle fait de vos données, des personnes à qui elle les communique, de leur origine et de la durée de leur conservation.",
         "request-type-info-learn-more-url": "/blog/vos-droits-rgpd/",
         "objection-request-statement": "M'opposer à la <strong>prospection</strong>.",
-        "want-to-suggest-disclaimer": "<p>Après avoir envoyé le formulaire, les données que vous avez saisies ci-dessous seront visibles publiquement sur notre <a href=\"https://github.com/datenanfragen/data/pulls\" target=\"_blank\" rel=\"noreferrer noopener\">dépôt GitHub</a>. Veuillez par conséquent ne pas saisir de données personnelles ici. Pour plus d'informations, veuillez consulter notre <a href=\"/privacy/#user-content-like-comments-and-contributions-to-our-company-database\" target=\"_blank\" rel=\"noreferrer noopener\">politique de confidentialité</a>.</p><p>Vous acceptez que votre suggestion soit publiée dans notre base de données d'entreprise sous <a href=\"https://creativecommons.org/publicdomain/zero/1.0\" target=\"_blank\" rel=\"noreferrer noopener\">licence CC0</a>, permettant à quiconque de l'utiliser sans restriction.</p>"
+        "want-to-suggest-disclaimer": "<p>Après avoir envoyé le formulaire, les données que vous avez saisies ci-dessous seront visibles publiquement sur notre <a href=\"https://github.com/datenanfragen/data/pulls\" target=\"_blank\" rel=\"noreferrer noopener\">dépôt GitHub</a>. Veuillez par conséquent ne pas saisir de données personnelles ici. Pour plus d'informations, veuillez consulter notre <a href=\"/privacy/#user-content-like-comments-and-contributions-to-our-company-database\" target=\"_blank\" rel=\"noreferrer noopener\">politique de confidentialité</a>.</p><p>Vous acceptez que votre suggestion soit publiée dans notre base de données d'entreprise sous <a href=\"https://creativecommons.org/publicdomain/zero/1.0\" target=\"_blank\" rel=\"noreferrer noopener\">licence CC0</a>, permettant à quiconque de l'utiliser sans restriction.</p>",
+        "delete-unnamed-field": "Supprimer le champ sans nom"
     },
     "privacy-controls": {
         "title": "Options de confidentialité",
@@ -314,7 +321,8 @@
         "clear-success": "Effacé avec succès.",
         "cookie-change-success": "Paramètres enregistrés.",
         "feature-disabled": "Vous avez désactivé cette fonction. Si vous souhaitez l'activer, jetez un œil aux <a href='/options-de-confidentialite'>options de confidentialité</a>.",
-        "feature-disabled-alt": "Fonction désactivée depuis les options de confidentialité"
+        "feature-disabled-alt": "Fonction désactivée depuis les options de confidentialité",
+        "no": "Non"
     },
     "error-handler": {
         "explanation": "Malheureusement, une erreur inattendue s'est produite. Nous apprécierons vraiment si vous preniez le temps de nous envoyer un rapport d'erreur via GitHub ou par e-mail, afin que nous puissions diagnostiquer le problème. Un grand merci d'avance !",
@@ -322,7 +330,8 @@
         "explain-context": "S'il y a lieu, pensez à fournir le contexte de l'erreur, c.-à-d. décrire ce que vous avez fait avant que l'erreur ne se produise. Pensez également à supprimer toute information sensible des informations de débogage ci-dessous.",
         "report-on-github": "Signaler sur GitHub",
         "report-via-email": "Signaler par e-mail",
-        "no-internet": "Il semble que vous ne soyez pas connecté à Internet."
+        "no-internet": "Il semble que vous ne soyez pas connecté à Internet.",
+        "browser-too-old": "Une erreur s'est produite, mais vous utilisez un navigateur non pris en charge. Veuillez mettre votre navigateur à jour ou en utiliser un plus récent."
     },
     "error-msg": {
         "company-not-found": "L'entreprise que vous recherchez n'a pas été trouvée.",
@@ -336,7 +345,7 @@
         "view-on-github": "Vous pouvez suivre l'état d'avancement sur GitHub",
         "ok": "Ok",
         "github-error": "Un problème s'est produit avec GitHub pendant l'envoi de votre suggestion, qui n'a pas pu être prise en compte. Veuillez réessayer.",
-        "also-runs": "également applicable: ",
+        "also-runs": "également applicable : ",
         "invalid-request": "Certaines informations ne sont pas au bon format ou sont incomplètes. Veuillez les corriger avant de d'envoyer de nouveau votre suggestion.",
         "name-or-web-missing": "Veuillez entrer au moins un nom ou un site Web.",
         "similarly-named-companies": "Nous avons déjà ces entreprises avec un nom similaire :",
@@ -464,7 +473,8 @@
         "send-too-long": "Une erreur s'est produite lors de l'envoi de votre commentaire. Votre commentaire est trop long.",
         "no-email-in-name": "Veuillez ne pas indiquer d'adresse e-mail dans le champ du nom. Les commentaires sont affichés publiquement et ne sont pas envoyés à l'entreprise.",
         "confirm-private-data": "Oups, il semblerait que votre commentaire contienne des données privées ou fasse référence à une commande. Voulez-vous vraiment publier ce commentaire en tant que commentaire PUBLIC ? Les commentaires ne seront PAS envoyés à l'entreprise.",
-        "regex-sus-words": "numéro de commande|numéro de confirmation|numéro de suivi|numéro de transfert|numéro de client|IBAN|compte bancaire|référence de paiement|virement bancaire|retrait|dépôt|frais d'abonnement|adresse de retour|remboursement|transaction|réservation|paquet|colis"
+        "regex-sus-words": "numéro de commande|numéro de confirmation|numéro de suivi|numéro de transfert|numéro de client|IBAN|compte bancaire|référence de paiement|virement bancaire|retrait|dépôt|frais d'abonnement|adresse de retour|remboursement|transaction|réservation|paquet|colis|bitcoin|arnaque|facture|commande",
+        "publish-comment": "Publier le commentaire"
     },
     "sva-finder": {
         "sva-finder": "Assistant de recherche d'autorité de contrôle",
@@ -932,7 +942,19 @@
         "home-blog-section-desc": "Nous rendons compte de nos expériences et publions des conseils ou des recherches sur les demandes de données et d'autres sujets liés à la protection de la vie privée. Nous publions également régulièrement des nouvelles de notre association ou de notre site.",
         "cdb-tested": "Au moins un de nos contributeurs a envoyé avec succès une demande en utilisant les coordonnées figurant dans cette fiche.",
         "noscript-app": "Le générateur de demande fonctionne uniquement sur votre ordinateur et est entièrement écrit en JavaScript. Le code envoie le moins de données possible à nos serveurs si vous n'y consentez pas. Cela peut inclure les recherches que vous effectuez, mais jamais les données que vous saisissez pour vos demandes. Ces données ne seront conservées que localement dans votre navigateur.\nSi vous souhaitez utiliser le générateur, veuillez activer JavaScript dans votre navigateur ou ajouter une exception à votre bloqueur. Si cela ne fonctionne toujours pas, envoyez-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
-        "noscript-sva": "Voici un outil qui aurait permis de trouver rapidement l'autorité de contrôle dont vous dépendez. Il ne fonctionne que sur votre ordinateur et est entièrement écrit en JavaScript. Si vous souhaitez l'utiliser, veuillez activer JavaScript dans votre navigateur. Si cela ne fonctionne toujours pas, envoyez-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>."
+        "noscript-sva": "Voici un outil qui aurait permis de trouver rapidement l'autorité de contrôle dont vous dépendez. Il ne fonctionne que sur votre ordinateur et est entièrement écrit en JavaScript. Si vous souhaitez l'utiliser, veuillez activer JavaScript dans votre navigateur. Si cela ne fonctionne toujours pas, envoyez-nous un e-mail à <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a>.",
+        "cdb-related-posts": "Publications associées à cette entreprise",
+        "cdb-obsolete-record-heading": "« {{ .Params.name }} » a été retiré de notre base de données",
+        "cdb-obsolete-record": "« {{ .Params.name }} » a été retiré de notre base de données d'entreprises.",
+        "cdb-redirected-from-obsolete-record": "Vous avez été redirigé ici depuis « {{ .name }} ».",
+        "cdb-obsolete-reason-company-acquired": "Elle a été rachetée.",
+        "cdb-obsolete-reason-company-defunct": "La société ou le service n'existe plus.",
+        "cdb-obsolete-reason-company-merged": "Elle a été fusionnée avec une autre compagnie ou service.",
+        "cdb-obsolete-reason-duplicate": "L'entrée était en doublon.",
+        "cdb-obsolete-reason-gdpr-not-applicable": "Le RGPD ne s'applique pas à cette entreprise ou à ce service.",
+        "cdb-obsolete-reason-out-of-scope": "Est en dehors de l'objectif de notre base de données.",
+        "cdb-references": "Références :",
+        "footer-coc": "Code de conduite"
     },
     "mailto": {
         "mailto": "Logiciel de messagerie par défaut",
@@ -1144,11 +1166,19 @@
         "id-copy_redaction-info_option_explicit-redaction": "L'entreprise m'a explicitement indiqué de ne rien censurer sur la copie de la pièce d'identité.",
         "excessive_other-reason_body": "Dans ce cas, nous ne pouvons malheureusement pas fournir de réponse pré-écrite. Veuillez expliquer pourquoi vous estimez que votre demande n'est ni infondée ni excessive.",
         "id-copy_start_option_unredacted-required": "Je suis disposé à fournir une copie de la pièce d'identité, mais l'entreprise a explicitement indiqué qu'elle ne devait pas être censurée.",
-        "overdue_start_body": "En général, les entreprises disposent d'un mois pour répondre à votre demande. Ce délai est désormais dépassé. Elles ne peuvent prolonger le délai de deux mois supplémentaires que si cela s'avère nécessaire et si elles vous informent de la prolongation et de ses motifs. L'ont-elles fait ?"
+        "overdue_start_body": "En général, les entreprises disposent d'un mois pour répondre à votre demande. Ce délai est désormais dépassé. Elles ne peuvent prolonger le délai de deux mois supplémentaires que si cela s'avère nécessaire et si elles vous informent de la prolongation et de ses motifs. L'ont-elles fait ?",
+        "webform-message": "message via le formulaire en ligne"
     },
     "hints": {
         "advanced-generator": "Bienvenue sur la nouvelle interface de notre générateur. Nous espérons qu'elle est plus intuitive et qu'elle permet d'envoyer plus facilement de multiples demandes.<br>Ne vous inquiétez pas : si vous préférez <a href='/g'>l'ancienne interface</a>, vous pouvez toujours l'utiliser. Nous n'avons pas l'intention de l'abandonner.",
         "dismiss-hint": "Masquer le conseil.",
         "new-generator": "Nous avons développé une <a href='/generator'>nouvelle interface pour le générateur</a> qui est plus intuitive et qui permet d'envoyer plus facilement de multiples demandes. Pourquoi ne pas l'essayer ?<br>Ne vous inquiétez pas : si vous préférez l'ancienne interface, vous pouvez toujours l'utiliser. Nous n'avons pas l'intention de l'abandonner."
+    },
+    "report-misconduct": {
+        "encryption-explanation": "Lorsque vous envoyez votre message, celui-ci est automatiquement chiffré dans votre navigateur et ne peut donc être lu que par la ou les personnes désignées pour lutter contre le harcèlement. Si vous souhaitez recevoir une réponse chiffrée, vous devez fournir vos coordonnées correspondantes.",
+        "message": "Message",
+        "submit": "Envoyer un signalement",
+        "send-success": "Votre signalement a bien été envoyé.",
+        "send-error": "Votre signalement n'a pas pu être envoyé pour des raisons techniques. Veuillez réessayer plus tard ou essayer d'autres méthodes de contact."
     }
 }
