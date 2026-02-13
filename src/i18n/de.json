@@ -777,8 +777,7 @@
         "rundfunk-swr": "Südwestrundfunk (SWR)",
         "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
         "rundfunk-zdf": "Zweites Deutsches Fernsehen (ZDF)",
-        "rundfunk-beitragsservice": "Beitragsservice (ehem. GEZ)",
-        "rundfunk-beitragsservice-q": "In welchem Bundesland bezahlst Du Rundfunkgebühren?"
+        "rundfunk-beitragsservice": "Beitragsservice (ehem. GEZ)"
     },
     "donation-widget": {
         "back": "Zurück zum Formular",
