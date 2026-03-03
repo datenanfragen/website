@@ -23,12 +23,12 @@ describe('SvaFinder component', () => {
         const paths = [
             {
                 path: ['Federal authority'],
-                result_name: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
+                result_name: 'Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
                 result_url_regex: /supervisory-authority\/debfdi/,
             },
             {
                 path: ['Statutory health insurance'],
-                result_name: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
+                result_name: 'Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
                 result_url_regex: /supervisory-authority\/debfdi/,
             },
             {
