@@ -8,6 +8,7 @@ Acknowledgments: https://www.datarequests.org/open-source/#contributors
 Preferred-Languages: en, de
 Canonical: https://www.datenanfragen.de/.well-known/security.txt
 Policy: https://github.com/datenanfragen/website/blob/master/.github/SECURITY.md
+Bug-Bounty: False
 -----BEGIN PGP SIGNATURE-----
 
 iQJOBAEBCgA4FiEELnLqW93jFzBY1/h9oMHAEj4rKWsFAmkV1RwaHHZvcnN0YW5k
