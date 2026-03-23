@@ -13,6 +13,7 @@ needs its own version of _every_ bundle.
 <script>
     window.SUPPORTED_LANGUAGES = {{ $supportedLanguages | jsonify | safeJS }};
     window.BASE_URL = {{ "/" | absURL }};
+    window.LOCALE = {{ .Site.Language.Lang }};
 </script>
 
 <!--
@@ -22,7 +23,7 @@ Some bundles need to be built separately:
   external code.
 - The PDF worker needs to run in a `WebWorker`.
 -->
-{{ $buildOptionsSeparateBundles := dict "target" "es2015"  "minify" true  "sourceMap" "linked" }}
+{{ $buildOptionsSeparateBundles := dict "target" "es2015"  "minify" true  "sourceMap" (cond $.Site.Params.devMode "inline" false) }}
 {{ $errorHandlerBundle := resources.Get "js/error-handler.js" | js.Build $buildOptionsSeparateBundles }}
 {{ $pdfWorkerBundle := resources.Get "js/Utility/pdf.worker.ts" | js.Build $buildOptionsSeparateBundles }}
 
@@ -33,17 +34,20 @@ Some bundles need to be built separately:
 
 {{ $batch := js.Batch "js" }}
 
-<!-- Configure batch build options. -->
+<!--
+Configure batch build options.
+
+We are using the `RelPermalink` for `PDF_WORKER_URL` because Hugo seems to only evaluate these once, with the first
+language, which would cause the worker to be loaded from the German domain even for the other languages, causing
+cross-origin errors.
+-->
 {{ $defines
     := dict
         "process.env.NODE_ENV" ((cond .Site.Params.devMode "development" "production") | jsonify)
         "global" "window"
 
         "window.SUPPORTED_COUNTRIES" ($supportedCountries | jsonify)
-        "window.LOCALE" (.Site.Language.Lang | jsonify)
-
         "window.hugoDevMode" (.Site.Params.devMode | jsonify)
-
         "window.PDF_WORKER_URL" ($pdfWorkerBundle.RelPermalink | jsonify)
 }}
 {{ with $batch.Config }}
@@ -52,7 +56,7 @@ Some bundles need to be built separately:
         "target" "es2015"
         "format" "esm"
         "minify" true
-        "sourceMap" "linked"
+        "sourceMap" (cond $.Site.Params.devMode "inline" false)
     ) }}
 {{ end }}
 
@@ -192,11 +196,6 @@ While I haven't seen this be the case, I guess it doesn't hurt to make sure.
 {{ if in $groups "donate" }}
     <script type="module">window.renderDonationWidget();</script>
 
-    {{/* TODO: Do this in the js build via hugo pipes */}}
-    {{ $loader := resources.Get "styles/loader.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify | fingerprint }}
-    {{ $link := $loader.RelPermalink | absURL }}
-    {{ if (or (eq hugo.Environment "production") (eq hugo.Environment "staging")) }}
-    {{ $link = $link | replaceRE "\\.[^\\.]*(\\.[^\\.]*)$" "$1" }}
-    {{ end }}
-    <link rel="stylesheet" href="{{ $link }}" integrity="{{ $loader.Data.Integrity }}" crossorigin="anonymous">
+    {{ $loader := resources.Get "styles/loader.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify  }}
+    <link rel="stylesheet" href="{{ $loader.RelPermalink | absURL }}" crossorigin="anonymous">
 {{ end }}

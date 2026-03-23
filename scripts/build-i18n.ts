@@ -28,8 +28,7 @@ const jsOutputDir = join(dirname, '..', 'static', 'js');
 const allTranslations = Object.fromEntries(
     glob
         .sync('*.json', { cwd: inputDir, absolute: true })
-        .map((p) => [basename(p, '.json'), readFileSync(p, 'utf8')] as const)
-        .map((r) => [r[0], JSON.parse(r[1]) as TranslationFile] as const)
+        .map((p) => [basename(p, '.json'), JSON.parse(readFileSync(p, 'utf8')) as TranslationFile] as const)
 );
 
 // eslint-disable-next-line no-console
@@ -51,7 +50,7 @@ const emitTranslations = (translations: Record<string, TranslationFile>) => {
         // fallback to English for untranslated strings.
         data = deepmerge(en, data);
 
-        // Macros allow us set set common strings (like the site name) once in the translations, and then use that value
+        // Macros allow us to set common strings (like the site name) once in the translations, and then use that value
         // in many places. Macros are used by inserting `${macro_name}` somewhere in a translation, where `macro_name`
         // is the key of the translation under the `macros` context that sets the macro's value.
         let json = JSON.stringify(data);
@@ -102,7 +101,10 @@ const emitTranslations = (translations: Record<string, TranslationFile>) => {
  */
 const emitRequestsTranslations = () => {
     const requestsTranslations = Object.entries(allTranslations).reduce(
-        (acc, [language, translations]) => ({ ...acc, [language]: translations.requests || {} }),
+        (acc, [language, translations]) => ({
+            ...acc,
+            ...(translations.requests && { [language]: translations.requests }),
+        }),
         {}
     );
 
