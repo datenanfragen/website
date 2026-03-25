@@ -5,7 +5,7 @@
  * It supports building for production (without any flags) or watch mode for development (with `--watch`). It is run by
  * `yarn dev` and `yarn build`.
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, unlinkSync } from 'fs';
 import { join, basename } from 'path';
 import glob from 'glob';
 import { getDirname } from 'cross-dirname';
@@ -25,11 +25,13 @@ const inputDir = join(dirname, '..', 'src', 'i18n');
 const hugoOutputDir = join(dirname, '..', 'i18n');
 const jsOutputDir = join(dirname, '..', 'static', 'js');
 
-const allTranslations = Object.fromEntries(
-    glob
-        .sync('*.json', { cwd: inputDir, absolute: true })
-        .map((p) => [basename(p, '.json'), JSON.parse(readFileSync(p, 'utf8')) as TranslationFile] as const)
-);
+// We need to recompute this every time because translations may have changed in watch mode.
+const allTranslations = () =>
+    Object.fromEntries(
+        glob
+            .sync('*.json', { cwd: inputDir, absolute: true })
+            .map((p) => [basename(p, '.json'), JSON.parse(readFileSync(p, 'utf8')) as TranslationFile] as const)
+    );
 
 // eslint-disable-next-line no-console
 const log = (...messages: unknown[]) => !quiet && console.log('[i18n]', ...messages, `(${new Date().toISOString()})`);
@@ -38,7 +40,7 @@ const log = (...messages: unknown[]) => !quiet && console.log('[i18n]', ...messa
  * Emit the Hugo and JS translations for the given input translations.
  */
 const emitTranslations = (translations: Record<string, TranslationFile>) => {
-    const en = allTranslations['en'];
+    const en = allTranslations()['en'];
 
     // Ensure output directories exist.
     mkdirSync(hugoOutputDir, { recursive: true });
@@ -100,7 +102,7 @@ const emitTranslations = (translations: Record<string, TranslationFile>) => {
  * Emit the special requests translations file to be included in the HTML.
  */
 const emitRequestsTranslations = () => {
-    const requestsTranslations = Object.entries(allTranslations).reduce(
+    const requestsTranslations = Object.entries(allTranslations()).reduce(
         (acc, [language, translations]) => ({
             ...acc,
             ...(translations.requests && { [language]: translations.requests }),
@@ -131,7 +133,7 @@ if (watch) {
                 // As English is used as the fallback, changes to the English translations can affect all other
                 // languages as well.
                 language === 'en'
-                    ? allTranslations
+                    ? allTranslations()
                     : { [language]: JSON.parse(readFileSync(path, 'utf8')) as TranslationFile };
             emitTranslations(translations);
             emitRequestsTranslations();
@@ -142,12 +144,22 @@ if (watch) {
     watcher.on('add', handler);
     watcher.on('change', handler);
 
+    watcher.on('unlink', (path) => {
+        const language = basename(path, '.json');
+
+        unlinkSync(join(hugoOutputDir, `${language}.json`));
+        unlinkSync(join(jsOutputDir, `translations-${language}.gen.js`));
+        log('Deleted translations for:', language);
+
+        emitRequestsTranslations();
+    });
+
     process.on('SIGINT', () => {
         watcher.close();
         log('Stopped watching translation files.');
         process.exit();
     });
 } else {
-    emitTranslations(allTranslations);
+    emitTranslations(allTranslations());
     emitRequestsTranslations();
 }
