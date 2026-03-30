@@ -34,15 +34,20 @@ module.exports = {
     optimization: {
         runtimeChunk: 'single',
         splitChunks: {
-            chunks: 'all',
             cacheGroups: {
                 commons: {
                     name: 'commons',
+                    chunks: 'all',
+                    minChunks: 2,
                     priority: -10,
                 },
                 vendors: {
                     name: 'vendors',
+                    filename: 'js/vendors.bundle.gen.js',
+                    chunks: 'all',
                     test: /[/\\]node_modules[/\\](?!@babel)/,
+                    // autocomplete.js, localforage, typesense
+                    minChunks: 4,
                     priority: -20,
                     reuseExistingChunk: true,
                 },
@@ -50,7 +55,7 @@ module.exports = {
         },
     },
     output: {
-        filename: 'js/[name].bundle.gen.js',
+        filename: 'js/[name].gen.js',
         chunkFilename: 'js/[name].bundle.gen.js',
         publicPath: '/',
         path: path.resolve(__dirname, 'static'),

@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker_cypress:
     docker:
-      - image: cypress/base:14.17.0
+      - image: cypress/base:24.14.1
 
 jobs:
   # Circle's "Auto-cancel redundant builds" feature doesn't work on the default branch. When merging PRs on data, this
@@ -22,8 +22,8 @@ jobs:
     executor: docker_cypress
     resource_class: large
     environment:
-        HUGO_VERSION: '0.139.0'
-        HUGO_BINARY: hugo_extended_0.139.0_linux-amd64
+        HUGO_VERSION: '0.159.1'
+        HUGO_BINARY: hugo_extended_0.159.1_linux-amd64
     steps:
       - run:
           command: |
@@ -51,8 +51,8 @@ jobs:
       executor: docker_cypress
       resource_class: large
       environment:
-        HUGO_VERSION: '0.139.0'
-        HUGO_BINARY: hugo_extended_0.139.0_linux-amd64
+        HUGO_VERSION: '0.159.1'
+        HUGO_BINARY: hugo_extended_0.159.1_linux-amd64
       steps:
         - run:
             command: |

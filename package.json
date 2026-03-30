@@ -39,10 +39,10 @@
         "merge-conflict-artifact-check": "./scripts/merge-conflict-artifact-check.sh",
         "lint": "yarn tsc && yarn eslint src --ext .json --ext .js --ext .jsx --ext .ts --ext .tsx && yarn stylelint assets/styles && git diff --check",
         "fix": "yarn eslint src --ext .json --ext .js --fix && yarn stylelint assets/styles --fix",
+        "postinstall": "husky",
         "prettier": "prettier --write {src,scripts,cypress,assets}/**/*.{js,jsx,ts,tsx,css,scss,json}",
         "deploy-dattel": "node deploy-dattel.js",
-        "postinstall": "patch-package",
-        "build-components-package": "yarn tsm scripts/build-components-package.ts",
+        "build-components-package": "yarn tsx scripts/build-components-package.ts",
         "build-sample-letters": "node ./scripts/build-sample-letters/build.js"
     },
     "dependencies": {
@@ -115,11 +115,10 @@
         "execa": "^6.1.0",
         "fs-extra": "^10.1.0",
         "glob": "^11.0.3",
-        "husky": "^4.2.5",
+        "husky": "^9.1.7",
         "imagemin-lint-staged": "^0.4.0",
         "lint-staged": ">=9.4.3",
         "matcher": "^4.0.0",
-        "patch-package": "^6.4.7",
         "path": "^0.12.7",
         "postcss": "^8.4.31",
         "postcss-cli": "^9.1.0",
@@ -141,8 +140,7 @@
         "svg-pathdata": "^5.0.2",
         "svgicons2svgfont": "^9.1.1",
         "svgo": "^1.3.0",
-        "terser-webpack-plugin": "^3.0.1",
-        "tsm": "^2.2.1",
+        "tsx": "^4.21.0",
         "type-fest": "^2.12.2",
         "typescript": "^5.9.3",
         "wait-on": "8.0.4",
@@ -156,16 +154,12 @@
         "last 2 versions",
         "> 5%"
     ],
-    "husky": {
-        "hooks": {
-            "pre-commit": "yarn merge-conflict-artifact-check && lint-staged && yarn tsc"
-        }
-    },
     "lint-staged": {
         "*.{js,jsx,ts,tsx,css,scss,json}": "prettier --write",
         "*.{js,jsx,ts,tsx,json}": "eslint --ext .json --ext .js --ext .jsx --ext .ts --ext .tsx",
         "*.{css,scss}": "stylelint",
         "*.{png,jpeg,jpg,gif,PNG,JPEG,JPG,GIF}": "imagemin-lint-staged",
         "*.{svg,SVG}": "svgo --disable=removeViewBox,convertPathData"
-    }
+    },
+    "packageManager": "yarn@4.13.0"
 }
