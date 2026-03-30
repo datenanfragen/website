@@ -37,6 +37,7 @@ jobs:
 
       - run:
           command: |
+            corepack enable
             export CONTEXT="production"
             yarn install
             ./deploy.sh
@@ -67,6 +68,7 @@ jobs:
 
         - run:
             command: |
+              corepack enable
               yarn
               yarn lint
               yarn cypress verify
@@ -86,6 +88,7 @@ jobs:
 
         - run:
             command: |
+              corepack enable
               yarn deploy-dattel
 
   production_test:
@@ -100,6 +103,7 @@ jobs:
 
         - run:
             command: |
+              corepack enable
               yarn
               yarn cypress verify
               if [ -z ${CYPRESS_RECORD_KEY+x} ]; then yarn cypress run; else yarn cypress run --record; fi
