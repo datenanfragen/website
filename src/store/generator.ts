@@ -65,7 +65,7 @@ const createGeneratorSpecificStore: StoreSlice<GeneratorSpecificState, RequestSt
         let pdfWorker = get().pdfWorker;
         if (!pdfWorker) pdfWorker = makePdfWorker();
 
-        if ((window as typeof window & { hugoDevMode: boolean }).hugoDevMode) {
+        if (window.hugoDevMode) {
             // copy the worker to window if we are in a dev env to enable easy testing
             (window as typeof window & { pdfWorker: Worker }).pdfWorker = pdfWorker;
         }
