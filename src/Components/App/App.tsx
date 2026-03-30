@@ -9,7 +9,7 @@ import { WhatsNextPage } from './WhatsNextPage';
 import t from '../../Utility/i18n';
 import type { MailtoDropdownProps } from '../MailtoDropdown';
 import type { SearchClient } from '../../Utility/search';
-import type { SearchParams } from 'typesense/lib/Typesense/Documents';
+import type { DocumentSchema, SearchParams } from 'typesense/lib/Typesense/Documents';
 import { ActionButtonProps } from '../Generator/ActionButton';
 import { useGeneratorStore } from '../../store/generator';
 import { useProceedingsStore } from '../../store/proceedings';
@@ -50,7 +50,7 @@ export type SetPageFunction = (newPage: AppPageId) => void;
 
 export type PageOptions = {
     mailtoDropdown?: Partial<MailtoDropdownProps>;
-    searchClient?: (params: Partial<SearchParams>) => SearchClient;
+    searchClient?: (params: Partial<SearchParams<DocumentSchema>>) => SearchClient;
     actionButton?: Partial<ActionButtonProps>;
     /** Function to execute when the 'View your requests' button on the 'What’s next?' page is clicked. */
     onViewRequests?: () => void;

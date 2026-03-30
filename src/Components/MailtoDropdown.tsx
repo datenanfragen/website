@@ -13,7 +13,7 @@ type MailtoHandler = (
           onClick: (
               data: EmailData,
               showCopyManuallyModal: () => void
-          ) => void | Promise<void | { content: ArrayBuffer; messageId: string }>;
+          ) => Promise<{ content: ArrayBuffer; messageId: string } | void>;
       }
 ) & { countries: Country[] };
 
@@ -60,7 +60,7 @@ export const mailto_handlers = createMailtoHandlers({
         countries: ['all'],
     },
     copymanually: {
-        onClick: (d, showCopyManuallyModal) => showCopyManuallyModal(),
+        onClick: (d, showCopyManuallyModal) => Promise.resolve(showCopyManuallyModal()),
         countries: ['all'],
     },
 });
@@ -138,13 +138,12 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
         const handler = availableHandlers[h];
 
         const common_props: Omit<JSX.HTMLAttributes, 'ref'> = {
-            onClick: (e) => {
+            onClick: async (e) => {
                 if (!props.letter) e.preventDefault();
                 else {
-                    let result: Promise<{ content: ArrayBuffer; messageId: string }> | void;
-                    if ('onClick' in handler) result = handler.onClick(data, showCopyManuallyModal);
-                    if (result) result.then((result) => props.onSuccess?.(result));
-                    else props.onSuccess?.();
+                    const result =
+                        'onClick' in handler ? await handler.onClick(data, showCopyManuallyModal) : undefined;
+                    props.onSuccess?.(result ?? undefined);
                 }
             },
             className: 'button button-secondary button-full-width',
