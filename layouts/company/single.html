@@ -177,6 +177,16 @@
             </div>
         {{ end }}
 
+        {{ $postsPerCompany := partialCached "functions/posts-per-company.html" . }}
+        {{ $companyPosts := index $postsPerCompany .Params.slug }}
+        {{ if $companyPosts }}
+            <h2>{{ T "cdb-related-posts" }}</h2>
+
+            {{ range $companyPosts }}
+                {{ partial "summary-minimal.html" . }}
+            {{ end }}
+        {{ end }}
+
         <div id="comments-widget" data-display-warning="1"></div>
     {{ end }}
 </main>

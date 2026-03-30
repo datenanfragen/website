@@ -1,8 +1,8 @@
 import { isOn, skipOn } from '@cypress/skip-test';
 
-const message_template = {
-    reference: '2022-KKD2YF1',
-    date: new Date(),
+const messageTemplate = (reference, date = undefined) => ({
+    reference,
+    date: date || new Date(),
     type: 'access',
     slug: 'datenanfragen',
     correspondent_address: 'Datenanfragen.de e. V.\nSchreinerweg 6\n38126 Braunschweig\nDeutschland',
@@ -12,7 +12,18 @@ const message_template = {
     content: undefined,
     sentByMe: true,
     extra: undefined,
-};
+});
+
+const makeProceeding = (reference) => ({
+    reference,
+    status: 'waitingForResponse',
+    messages: {
+        [`${reference}-00`]: {
+            id: `${reference}-00`,
+            ...messageTemplate(reference),
+        },
+    },
+});
 
 describe('Proceedings page', () => {
     beforeEach(() => {
@@ -30,18 +41,7 @@ describe('Proceedings page', () => {
     });
 
     it('shows regular proceeding', () => {
-        cy.proceedingsStore().then((store) =>
-            store.addProceeding({
-                reference: '2022-KKD2YF1',
-                status: 'done',
-                messages: {
-                    '2022-KKD2YF1-00': {
-                        id: '2022-KKD2YF1-00',
-                        ...message_template,
-                    },
-                },
-            })
-        );
+        cy.proceedingsStore().then((store) => store.addProceeding(makeProceeding('2022-KKD2YF1')));
         cy.get('.proceeding-rows')
             .should('contain.text', '2022-KKD2YF1')
             .should('contain.text', 'Datenanfragen.de e. V.');
@@ -54,7 +54,7 @@ describe('Proceedings page', () => {
                 messages: {},
             });
             store.addMessage({
-                ...message_template,
+                ...messageTemplate('2022-KKD2YF1'),
                 date: new Date('2022-01-14T00:00:00.000Z'),
             });
         });
@@ -62,7 +62,7 @@ describe('Proceedings page', () => {
 
         cy.proceedingsStore().then((store) => {
             store.addMessage({
-                ...message_template,
+                ...messageTemplate('2022-KKD2YF1'),
                 type: 'response',
                 sentByMe: false,
             });
@@ -72,7 +72,7 @@ describe('Proceedings page', () => {
 
         cy.proceedingsStore().then((store) => {
             store.addMessage({
-                ...message_template,
+                ...messageTemplate('2022-KKD2YF1'),
                 type: 'admonition',
                 sentByMe: true,
             });
@@ -80,4 +80,112 @@ describe('Proceedings page', () => {
 
         cy.get('.proceeding-rows').should('contain.text', 'Response pending');
     });
+
+    it('can delete selected proceedings', () => {
+        const references = ['2022-KKD2YF1', '2025-1ISPYF6I', '2025-1INGZ5L6', '2025-P1TJ3BC'];
+        cy.proceedingsStore().then((store) =>
+            Promise.all(references.map((ref) => store.addProceeding(makeProceeding(ref))))
+        );
+        const assertAllProceedingsExist = () => {
+            for (const ref of references) cy.get('.proceeding-rows').should('contain.text', ref);
+        };
+        assertAllProceedingsExist();
+
+        const selectProceedings = () => {
+            cy.contains('Select').click();
+            cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2022-KKD2YF1"]').check();
+            cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2025-P1TJ3BC"]').check();
+        };
+
+        let step = 0;
+        cy.on('window:confirm', (text) => {
+            // This is ugly but how you're supposed to do it
+            // (https://docs.cypress.io/api/cypress-api/catalog-of-events#Window-Confirm). I haven't found a way to
+            // remove the event handler. And due to Cypress' weird pseudo-promises, we can't reassign the variable
+            // outside of it either.
+            step++;
+            expect(text).to.contains('This will delete the selected proceedings');
+            return step === 2;
+        });
+
+        // Initially, we'll cancel deletion.
+        selectProceedings();
+        cy.get('button.icon-ellipsis').click();
+        cy.contains('Delete selected proceedings').click();
+
+        cy.reload();
+        assertAllProceedingsExist();
+
+        // This time, we'll go through with it.
+        selectProceedings();
+        cy.get('button.icon-ellipsis').click();
+        cy.contains('Delete selected proceedings').click();
+
+        const assertDeletionWorked = () => {
+            cy.get('.proceeding-rows').should('contain.text', '2025-1ISPYF6I');
+            cy.get('.proceeding-rows').should('contain.text', '2025-1INGZ5L6');
+            cy.get('.proceeding-rows').should('not.contain.text', '2022-KKD2YF1');
+            cy.get('.proceeding-rows').should('not.contain.text', '2025-P1TJ3BC');
+        };
+
+        cy.contains('Delete selected proceedings').should('not.exist');
+        assertDeletionWorked();
+
+        cy.reload();
+        assertDeletionWorked();
+    });
+
+    for (const state of ['done', 'abandoned']) {
+        const stateLabel = state === 'done' ? 'Done' : 'Abandoned';
+
+        it(`can mark selected proceedings as ${state} and reactivate them`, () => {
+            cy.proceedingsStore().then((store) => {
+                store.addProceeding({
+                    reference: '2022-KKD2YF1',
+                    messages: {},
+                });
+                store.addMessage({
+                    ...messageTemplate('2022-KKD2YF1'),
+                    date: new Date('2022-01-14T00:00:00.000Z'),
+                });
+            });
+            const references = ['2025-1ISPYF6I', '2025-1INGZ5L6'];
+            cy.proceedingsStore().then((store) =>
+                Promise.all(references.map((ref) => store.addProceeding(makeProceeding(ref))))
+            );
+
+            const selectProceedings = () => {
+                cy.contains('Select').click();
+                cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2022-KKD2YF1"]').check();
+                cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2025-1INGZ5L6"]').check();
+            };
+
+            selectProceedings();
+            cy.get('button.icon-ellipsis').click();
+            cy.contains(`Mark selected proceedings as ${state}`).click();
+
+            const assertState = (state) => {
+                cy.get('#proceeding-row-heading-2022-KKD2YF1')
+                    .parent()
+                    .should('contain.text', state === 'Response pending' ? 'Overdue' : state);
+                cy.get('#proceeding-row-heading-2025-1INGZ5L6').parent().should('contain.text', state);
+                cy.get('#proceeding-row-heading-2025-1ISPYF6I')
+                    .parent()
+                    .should(state === stateLabel ? 'not.contain.text' : 'contain.text', state);
+
+                if (state === stateLabel) cy.get('#main-nav .badge-error').should('not.exist');
+                else cy.get('#main-nav .badge-error').should('contain.text', '1');
+            };
+
+            assertState(stateLabel);
+            cy.reload();
+            assertState(stateLabel);
+
+            selectProceedings();
+            cy.get('button.icon-ellipsis').click();
+            cy.contains('Reactivate selected proceedings').click();
+
+            assertState('Response pending');
+        });
+    }
 });

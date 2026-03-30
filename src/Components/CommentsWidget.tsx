@@ -305,7 +305,7 @@ export function CommentForm(props: CommentFormProps) {
                     submitComment();
                 }}
                 style="float: right;">
-                <Text id="submit" />
+                <Text id="publish-comment" />
             </button>
             <div className="clearfix" />
         </form>

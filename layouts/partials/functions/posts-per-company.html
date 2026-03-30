@@ -1,0 +1,25 @@
+<!--
+Generates a map of company slugs to the posts (blog/act page) discussing them according to the `discussedCompanies`
+frontmatter parameter.
+-->
+
+{{ $companyPosts := dict }}
+
+{{ range $page := .Site.RegularPages }}
+  {{ if or (eq $page.Type "blog") (eq $page.Type "act") }}
+    {{ if $page.Params.discussedCompanies }}
+      {{ $pageCompanies := $page.Params.discussedCompanies }}
+
+      {{ range $companySlug := $pageCompanies }}
+        {{ if not (index $companyPosts $companySlug) }}
+            {{ $companyPosts = merge $companyPosts (dict $companySlug (slice $page)) }}
+        {{ else }}
+            {{ $existingPosts := index $companyPosts $companySlug }}
+            {{ $companyPosts = merge $companyPosts (dict $companySlug (append $page $existingPosts)) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ return $companyPosts }}

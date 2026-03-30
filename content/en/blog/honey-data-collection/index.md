@@ -6,7 +6,8 @@
     "featured_image": "honey-watches-you-while-browsing",
     "tags": [ "addon", "coupon codes", "data collection", "history data", "right to data access" ],
     "authors": [ "baltpeter" ],
-    "notices": "Photo adapted after: \"[Alien Invasion](https://unsplash.com/photos/QMFZhJCufKw)\" by [Henry Mwenge](https://unsplash.com/@ayende_the_walkingman) ([Unsplash license](https://unsplash.com/license))"
+    "notices": "Photo adapted after: \"[Alien Invasion](https://unsplash.com/photos/QMFZhJCufKw)\" by [Henry Mwenge](https://unsplash.com/@ayende_the_walkingman) ([Unsplash license](https://unsplash.com/license))",
+    "discussedCompanies": [ "joinhoney" ]
 }
 
 **The free browser extension "Honey" wants to save their users money by automatically finding and applying coupon codes. They describe themselves as advocates for data protection and allegedly only collect history data on online shopping websites. Two of our members who have used Honey in the past, have asked for access to the data saved on them using the GDPR. Our analysis of the responses shows that Honey collects history data on a large scale, contrary to what their own privacy policy says. Thus, we have submitted complaints with the data protection authorities.**

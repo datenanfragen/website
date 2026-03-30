@@ -23,12 +23,12 @@ describe('SvaFinder component', () => {
         const paths = [
             {
                 path: ['Federal authority'],
-                result_name: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
+                result_name: 'Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
                 result_url_regex: /supervisory-authority\/debfdi/,
             },
             {
                 path: ['Statutory health insurance'],
-                result_name: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
+                result_name: 'Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
                 result_url_regex: /supervisory-authority\/debfdi/,
             },
             {
@@ -37,13 +37,13 @@ describe('SvaFinder component', () => {
                 result_url_regex: /supervisory-authority\/dekathbayddsb/,
             },
             {
-                path: ['Religious body', 'Evangelical church', 'Any other evangelical church'],
+                path: ['Religious body', 'Evangelical church'],
                 result_name: 'Der Beauftragte für den Datenschutz der EKD',
                 result_url_regex: /supervisory-authority\/deekdbfd/,
             },
             {
                 path: ['public or private entity', 'Entity is based in Germany', 'Lower Saxony'],
-                result_name: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
+                result_name: 'Der Landesbeauftragte für den Datenschutz Niedersachsen',
                 result_url_regex: /supervisory-authority\/dendslfd/,
             },
             {
@@ -58,7 +58,7 @@ describe('SvaFinder component', () => {
             },
             {
                 path: ['public or private entity', 'Entity is based in other country', 'Lower Saxony'],
-                result_name: 'Die Landesbeauftragte für den Datenschutz Niedersachsen',
+                result_name: 'Der Landesbeauftragte für den Datenschutz Niedersachsen',
                 result_url_regex: /supervisory-authority\/dendslfd/,
             },
             {
@@ -68,14 +68,18 @@ describe('SvaFinder component', () => {
             },
             {
                 path: ['Public service broadcaster', 'Deutschlandradio'],
-                result_name:
-                    'Der Rundfunkdatenschutzbeauftragte von BR, HR, MDR, SR, SWR, WDR, Deutschlandradio und ZDF',
+                result_name: 'Der Rundfunkdatenschutzbeauftragte',
                 result_url_regex: /supervisory-authority\/derf/,
             },
             {
-                path: ['Public service broadcaster', 'Beitragsservice', 'Lower Saxony'],
-                result_name: 'Rundfunkdatenschutzbeauftragter Norddeutscher Rundfunk',
-                result_url_regex: /supervisory-authority\/derfndr/,
+                path: ['Public service broadcaster', 'Beitragsservice'],
+                result_name: 'Der Rundfunkdatenschutzbeauftragte',
+                result_url_regex: /supervisory-authority\/derf/,
+            },
+            {
+                path: ['Public service broadcaster', 'Deutsche Welle'],
+                result_name: 'Rundfunkdatenschutzbeauftragter Deutsche Welle',
+                result_url_regex: /supervisory-authority\/derfdw/,
             },
         ];
 

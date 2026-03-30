@@ -6,7 +6,8 @@
     "tags": [ "BVerfG", "TKÜV", "Posteo", "Telekommunikationsüberwachung", "Datensparsamkeit" ],
     "featured_image_url": "https://static.dacdn.de/blog/posteo.jpg",
     "license": "cc-by-nd-40",
-    "authors": [ "zner0l" ]
+    "authors": [ "zner0l" ],
+    "discussedCompanies": [ "posteo" ]
 }
 
 Mit dem [seit kürzlich öffentlichen Beschluss](https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2018/12/rk20181220_2bvr237716.html) weist das Bundesverfassungsgericht eine Klage des E-Mail-Anbieters Posteo zurück, der sich gegen die Verpflichtung wehrte, IP-Adressen an die Strafverfolgungsbehörden weiterzugeben, weil er diese nicht protokolliere. Posteo ist von dieser Entscheidung [„sehr überrascht“](https://posteo.de/blog/erster-kommentar-zur-entscheidung-des-bundesverfassungsgerichts), so wie auch wir die Entscheidung mit einigem Erschrecken aufgenommen haben.

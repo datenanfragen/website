@@ -494,7 +494,6 @@
         "rundfunk-br": "Bayerischer Rundfunk (BR)",
         "rundfunk-swr": "Südwestrundfunk (SWR)",
         "rundfunk-wdr": "Westdeutscher Rundfunk Köln (WDR)",
-        "rundfunk-beitragsservice-q": "W którym landzie płacisz opłaty za licencje nadawcze?",
         "kathnd": "Diecezje północnoniemieckie (archidiecezja Hamburg, diecezja Hildesheim, diecezja Osnabrück, diecezja Münster [część dolnosaksońska])",
         "kathod": "Diecezje wschodnioniemieckie (archidiecezja berlińska, diecezja drezdeńsko-miśnieńska, diecezja Erfurt, diecezja Görlitz, diecezja Magdeburg)",
         "kathmsw": "Diecezje środkowo- i południowo-zachodnich Niemiec (archidiecezja Fryburg, diecezja Fulda, diecezja Limburg, diecezja Moguncja, diecezja Stuttgart Rottenburg, diecezja Speyer i Trier)",
@@ -744,7 +743,6 @@
     },
     "schema": {
         "sources": "Źródła",
-        "comments": "Uwagi",
         "quality": "Jakość",
         "input": "Wartość wejściowa",
         "textarea": "Obszar tekstowy",
@@ -770,7 +768,6 @@
         "type": "Rodzaj",
         "optional": "Opcjonalnie?",
         "name": "Nazwa",
-        "required-elements": "Wymagane elementy",
         "request-language": "Język wniosków"
     },
     "categories": {

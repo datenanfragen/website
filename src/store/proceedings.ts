@@ -9,7 +9,7 @@ import type { ReactorState } from './reactor';
 import { ErrorException } from '../Utility/errors';
 import { UserRequest } from '../DataType/UserRequests';
 import { PrivacyAsyncStorage } from '../Utility/PrivacyAsyncStorage';
-import { isUserRequest, REQUEST_TYPES } from '../Utility/requests';
+import { isCompletedProceedingStatus, isUserRequest, REQUEST_TYPES } from '../Utility/requests';
 import { t_r } from '../Utility/i18n';
 import type { ComponentChildren } from 'preact';
 
@@ -265,8 +265,16 @@ export const getProceedingDueDate = (proceeding: Proceeding): Date | undefined =
 
     return dueDate;
 };
-const shouldHaveStatus = (proceeding: Proceeding, ignoreDone = false): ProceedingStatus => {
-    if (!ignoreDone && proceeding.status === 'done') return 'done';
+/**
+ * (Re-)compute the status the proceeding should have. This is necessary for example when new messages are added or to
+ * check whether the deadline has passed.
+ *
+ * @param proceeding The proceeding to check the status for.
+ * @param ignoreCompletedStatus Whether to pretend that a completed (i.e. `done` or `adandoned`) hasn't actually been
+ *  completed yet. This is needed when reactivating a proceeding.
+ */
+const shouldHaveStatus = (proceeding: Proceeding, ignoreCompletedStatus = false): ProceedingStatus => {
+    if (!ignoreCompletedStatus && isCompletedProceedingStatus(proceeding.status)) return proceeding.status;
 
     const newestMessage = getNewestMessage(proceeding);
     if (newestMessage?.sentByMe) {

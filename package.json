@@ -46,8 +46,9 @@
         "build-sample-letters": "node ./scripts/build-sample-letters/build.js"
     },
     "dependencies": {
+        "@sindresorhus/slugify": "2.2.1",
         "autocomplete.js": "^0.37.0",
-        "brutusin-json-forms": "https://github.com/brutusin/json-forms",
+        "brutusin-json-forms": "https://github.com/brutusin/json-forms#44f27b29ef657f545b8a3d162c2b9c90ef137dbc",
         "cross-dirname": "^0.1.0",
         "deepmerge": "^4.2.2",
         "fast-deep-equal": "^3.1.3",
@@ -90,7 +91,7 @@
         "@typescript-eslint/eslint-plugin": "^5.15.0",
         "@typescript-eslint/parser": "^5.15.0",
         "babel-loader": "^8.0.6",
-        "carbone": "^3.2.3",
+        "carbone": "^3.5.6",
         "cross-env": "^7.0.2",
         "cssnano": "^5.0.12",
         "cypress": "^12.8.1",

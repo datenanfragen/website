@@ -4,7 +4,7 @@ import { useAppStore } from '../store/app';
 import { FeatureDisabledWidget } from './FeatureDisabledWidget';
 import t from '../Utility/i18n';
 import { Privacy, PRIVACY_ACTIONS } from '../Utility/Privacy';
-import { iconClassForTransportMedium, icsFromProceedings } from '../Utility/requests';
+import { iconClassForTransportMedium, icsFromProceedings, isCompletedProceedingStatus } from '../Utility/requests';
 import {
     compareMessage,
     getGeneratedMessage,
@@ -12,7 +12,7 @@ import {
     getNewestMessage,
     useProceedingsStore,
 } from '../store/proceedings';
-import type { Proceeding, Message } from '../types/proceedings';
+import type { Proceeding, Message, ProceedingStatus } from '../types/proceedings';
 import type { RequestType } from '../types/request.d';
 import { useModal } from './Modal';
 import { MessageMetadataInput } from './MessageMetadataInput';
@@ -27,15 +27,22 @@ type RequestListProps = {
     getBlobFromStorage?: (blobId: string) => Promise<Blob | undefined>;
     /** Function to execute when the 'React' button is clicked. */
     onReact?: (reference: string) => void;
+    /** The order in which to show the requests (default: `new-to-old`). */
+    sortOrder?: 'new-to-old' | 'old-to-new';
 };
 export const RequestList = (props: RequestListProps) => {
     const proceedings = useProceedingsStore((state) => state.proceedings);
     const clearProceedings = useProceedingsStore((state) => state.clearProceedings);
+    const removeProceeding = useProceedingsStore((state) => state.removeProceeding);
+    const [setProceedingStatus, reactivateProceeding] = useProceedingsStore((state) => [
+        state.setProceedingStatus,
+        state.reactivateProceeding,
+    ]);
 
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
     const [selectionMode, setSelectionMode] = useState(false);
 
-    const sortedRequestIds = useMemo(
+    const sortedRequestIdsOldToNew = useMemo(
         () =>
             Object.keys(proceedings).sort((a, b) => {
                 const req_a = Object.values(proceedings[a].messages)[0];
@@ -45,11 +52,12 @@ export const RequestList = (props: RequestListProps) => {
             }),
         [proceedings]
     );
+    const sortedRequestIdsNewToOld = useMemo(() => [...sortedRequestIdsOldToNew].reverse(), [sortedRequestIdsOldToNew]);
 
     const buildCsv = useCallback(() => {
         const csv =
             'date;slug;recipient;email;reference;type;via\r\n' +
-            sortedRequestIds
+            sortedRequestIdsOldToNew
                 .filter((id) => selectedRequestIds.includes(id))
                 .map((id) =>
                     Object.values(proceedings[id].messages).reduce(
@@ -71,17 +79,34 @@ export const RequestList = (props: RequestListProps) => {
                 .join('');
 
         return new Blob([csv], { type: 'text/csv;charset=utf-8' });
-    }, [proceedings, selectedRequestIds, sortedRequestIds]);
+    }, [proceedings, selectedRequestIds, sortedRequestIdsOldToNew]);
 
     const buildIcs = useCallback(
         () =>
             icsFromProceedings(
-                sortedRequestIds.reduce<Proceeding[]>(
+                sortedRequestIdsOldToNew.reduce<Proceeding[]>(
                     (acc, id) => (selectedRequestIds.includes(id) ? [...acc, proceedings[id]] : acc),
                     []
                 )
             ),
-        [proceedings, selectedRequestIds, sortedRequestIds]
+        [proceedings, selectedRequestIds, sortedRequestIdsOldToNew]
+    );
+
+    const deleteSelected = useCallback(() => {
+        for (const reference of selectedRequestIds) removeProceeding(reference);
+
+        setSelectedRequestIds([]);
+        setSelectionMode(false);
+    }, [selectedRequestIds, removeProceeding]);
+
+    const changeSelectedStatus = useCallback(
+        (status: ProceedingStatus | 'reactivate') => {
+            for (const reference of selectedRequestIds) {
+                if (status === 'reactivate') reactivateProceeding(reference);
+                else setProceedingStatus(reference, status);
+            }
+        },
+        [selectedRequestIds, setProceedingStatus, reactivateProceeding]
     );
 
     if (!Privacy.isAllowed(PRIVACY_ACTIONS.SAVE_MY_REQUESTS)) {
@@ -116,8 +141,7 @@ export const RequestList = (props: RequestListProps) => {
                             <a
                                 id="new-request"
                                 className="button button-secondary button-small"
-                                href={`${window.BASE_URL}generator`}
-                                role="button">
+                                href={`${window.BASE_URL}generator`}>
                                 {t('new-request', 'generator')}
                             </a>
                         )}
@@ -148,15 +172,17 @@ export const RequestList = (props: RequestListProps) => {
                                         onClick={() => {
                                             setSelectionMode(true);
                                             setSelectedRequestIds(
-                                                selectedRequestIds.length === sortedRequestIds.length
+                                                selectedRequestIds.length === sortedRequestIdsOldToNew.length
                                                     ? []
-                                                    : sortedRequestIds
+                                                    : sortedRequestIdsOldToNew
                                             );
                                         }}
                                         title={t('more-options', 'my-requests')}>
                                         <Text
                                             id={`${
-                                                selectedRequestIds.length === sortedRequestIds.length ? 'de' : ''
+                                                selectedRequestIds.length === sortedRequestIdsOldToNew.length
+                                                    ? 'de'
+                                                    : ''
                                             }select-all`}
                                         />
                                     </button>
@@ -178,6 +204,37 @@ export const RequestList = (props: RequestListProps) => {
                                                 style="margin-right: 10px;">
                                                 <Text id="export-ics" />
                                             </a>
+                                            <button
+                                                id="delete-selected-proceedings-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() =>
+                                                    confirm(t('delete-selected-proceedings-confirm', 'my-requests')) &&
+                                                    deleteSelected()
+                                                }>
+                                                <Text id="delete-selected-proceedings" />
+                                            </button>
+                                            <button
+                                                id="mark-selected-as-done-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() => changeSelectedStatus('done')}>
+                                                <Text id="mark-selected-as-done" />
+                                            </button>
+                                            <button
+                                                id="mark-selected-as-abandoned-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() => changeSelectedStatus('abandoned')}>
+                                                <Text id="mark-selected-as-abandoned" />
+                                            </button>
+                                            <button
+                                                id="reactivate-selected-button"
+                                                className="button button-secondary"
+                                                style="margin-right: 10px;"
+                                                onClick={() => changeSelectedStatus('reactivate')}>
+                                                <Text id="reactivate-selected" />
+                                            </button>
                                         </>
                                     )}
                                 </div>
@@ -185,31 +242,33 @@ export const RequestList = (props: RequestListProps) => {
                         )}
                     </div>
                     <ul className="proceeding-rows">
-                        {sortedRequestIds.map((id) => (
-                            <li className="proceeding-row-list-item">
-                                {selectionMode && (
-                                    <input
-                                        className="form-element"
-                                        type="checkbox"
-                                        aria-labelledby={`proceeding-row-heading-${proceedings[id].reference}`}
-                                        checked={selectedRequestIds.includes(proceedings[id].reference)}
-                                        data-reference={proceedings[id].reference}
-                                        onChange={(e) =>
-                                            setSelectedRequestIds((prev) =>
-                                                e.currentTarget.checked
-                                                    ? [...prev, e.currentTarget.dataset.reference!]
-                                                    : prev.filter((i) => i !== e.currentTarget.dataset.reference!)
-                                            )
-                                        }
+                        {(props.sortOrder === 'old-to-new' ? sortedRequestIdsOldToNew : sortedRequestIdsNewToOld).map(
+                            (id) => (
+                                <li className="proceeding-row-list-item">
+                                    {selectionMode && (
+                                        <input
+                                            className="form-element"
+                                            type="checkbox"
+                                            aria-labelledby={`proceeding-row-heading-${proceedings[id].reference}`}
+                                            checked={selectedRequestIds.includes(proceedings[id].reference)}
+                                            data-reference={proceedings[id].reference}
+                                            onChange={(e) =>
+                                                setSelectedRequestIds((prev) =>
+                                                    e.currentTarget.checked
+                                                        ? [...prev, e.currentTarget.dataset.reference!]
+                                                        : prev.filter((i) => i !== e.currentTarget.dataset.reference!)
+                                                )
+                                            }
+                                        />
+                                    )}
+                                    <ProceedingRow
+                                        proceeding={proceedings[id]}
+                                        getBlobFromStorage={props.getBlobFromStorage}
+                                        onReact={props.onReact}
                                     />
-                                )}
-                                <ProceedingRow
-                                    proceeding={proceedings[id]}
-                                    getBlobFromStorage={props.getBlobFromStorage}
-                                    onReact={props.onReact}
-                                />
-                            </li>
-                        ))}
+                                </li>
+                            )
+                        )}
                     </ul>
                 </>
             )}
@@ -298,6 +357,13 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
     const locale_country = country.toUpperCase();
     const date_locale = locale_country === 'ALL' ? savedLocale : `${savedLocale}-${locale_country}`;
 
+    const companyName = getNameFromMesssage(
+        original_request,
+        <em>
+            <Text id="no-company-name" />
+        </em>
+    );
+
     return (
         <>
             <ImportMessageModal />
@@ -311,11 +377,12 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                 style="float: right;"
                             />
                         )}
-                        {getNameFromMesssage(
-                            original_request,
-                            <em>
-                                <Text id="no-company-name" />
-                            </em>
+                        {original_request?.slug ? (
+                            <a className="primary-link" href={`${window.BASE_URL}company/${original_request.slug}`}>
+                                {companyName}
+                            </a>
+                        ) : (
+                            companyName
                         )}
                     </h1>
                     <time
@@ -336,6 +403,8 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                 ? 'badge-success'
                                 : props.proceeding.status === 'overdue'
                                 ? 'badge-error'
+                                : props.proceeding.status === 'abandoned'
+                                ? 'badge-gray'
                                 : 'badge-warning'
                         }`}>
                         <Text id={props.proceeding.status} />
@@ -427,7 +496,7 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                             </div>
                             {index === Object.keys(props.proceeding.messages).length - 1 && (
                                 <>
-                                    {props.proceeding.status !== 'done' && (
+                                    {!isCompletedProceedingStatus(props.proceeding.status) ? (
                                         <a
                                             className="button button-small button-primary"
                                             style="word-wrap: unset;"
@@ -440,8 +509,7 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                                             }}>
                                             <Text id="message-react" />
                                         </a>
-                                    )}
-                                    {props.proceeding.status === 'done' && (
+                                    ) : (
                                         <button
                                             className="button button-small button-secondary"
                                             style="word-wrap: unset;"

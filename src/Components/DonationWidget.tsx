@@ -358,14 +358,15 @@ export const DonationWidget = () => {
 const printBankTransfer = () => {
     const content = document.getElementById('bank-transfer-info');
     const print_window = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-    const style = `<style>
-#bank-transfer-data-table td { border: 1px solid #000; padding: 10px; }
+    const style = `#bank-transfer-data-table td { border: 1px solid #000; padding: 10px; }
 .button { display: none; }
-#bank-transfer-qrcode-section { display: none; }
-</style>`;
+#bank-transfer-qrcode-section { display: none; }`;
     if (!print_window || !content) return;
 
-    print_window.document.write(style + content.innerHTML);
+    const style_tag = print_window.document.createElement('style');
+    style_tag.textContent = style;
+    print_window.document.head.appendChild(style_tag);
+    print_window.document.body.appendChild(content.cloneNode(true));
     print_window.document.close();
     print_window.focus();
     print_window.print();

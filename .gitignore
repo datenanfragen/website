@@ -1,6 +1,9 @@
 # Redirects for obsolete records are automatically generated in `scripts/handle-obsolete-records.ts`.
 _redirects
 
+# A mapping of SVA names is automatically generated in `scripts/collect-sva-names.ts`.
+src/Utility/sva-names.json
+
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
