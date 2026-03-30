@@ -38,16 +38,12 @@ module.exports = {
                 commons: {
                     name: 'commons',
                     chunks: 'all',
-                    test: (module, chunks) => {
-                        // these are always included so others can reuse code from them, i.e. preact
-                        const splitForEntries = ['general', 'error-handler'];
-                        return chunks.filter((c) => splitForEntries.includes(c.name)).length > 0;
-                    },
                     minChunks: 2,
                     priority: -10,
                 },
                 vendors: {
                     name: 'vendors',
+                    filename: 'js/vendors.bundle.gen.js',
                     chunks: 'all',
                     test: /[/\\]node_modules[/\\](?!@babel)/,
                     // autocomplete.js, localforage, typesense

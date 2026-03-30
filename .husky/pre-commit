@@ -1,0 +1,3 @@
+yarn merge-conflict-artifact-check
+lint-staged
+yarn tsc

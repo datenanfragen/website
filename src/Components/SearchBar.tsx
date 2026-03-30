@@ -72,7 +72,7 @@ const RealSearchBar = ({
                         { autoselect: true, hint: false, debug: debug || false },
                         {
                             source: (q: string, callback: (hits?: Hit[]) => void) => {
-                                const options: SearchParams = {
+                                const options: SearchParams<Company> = {
                                     q,
 
                                     ...defaultSearchParams,

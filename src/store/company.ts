@@ -75,7 +75,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
 
         // Set other data this way to allow for side effects
         get().setRecipientEmail(company['email'] ?? '');
-        get().setRecipientAddress(`${company['name']}\n${company['address']}` ?? '');
+        get().setRecipientAddress(`${company['name']}\n${company['address']}`);
         get().setTransportMedium(
             company['suggested-transport-medium']
                 ? company['suggested-transport-medium']
@@ -105,7 +105,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
 
         // Set other data this way to allow for side effects
         get().setRecipientEmail(sva['email'] ?? '');
-        get().setRecipientAddress(`${sva['name']}\n${sva['address']}` ?? '');
+        get().setRecipientAddress(`${sva['name']}\n${sva['address']}`);
         get().setTransportMedium(
             sva['suggested-transport-medium'] ? sva['suggested-transport-medium'] : sva.email ? 'email' : 'letter'
         );

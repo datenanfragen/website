@@ -1,8 +1,8 @@
 import type { Country } from '../store/app';
 import { Client } from 'typesense';
-import TypesenseInstantSearchAdapter, { SearchParametersWithQueryBy } from 'typesense-instantsearch-adapter';
+import TypesenseInstantSearchAdapter, { BaseSearchParameters } from 'typesense-instantsearch-adapter';
 import type { ConfigurationOptions } from 'typesense/lib/Typesense/Configuration';
-import type { SearchParams } from 'typesense/lib/Typesense/Documents';
+import type { DocumentSchema, SearchParams } from 'typesense/lib/Typesense/Documents';
 import type { Hit } from 'react-instantsearch-core';
 
 const serverConfig: ConfigurationOptions = {
@@ -16,7 +16,7 @@ const serverConfig: ConfigurationOptions = {
     ],
 };
 
-export const defaultSearchParams: SearchParametersWithQueryBy = {
+export const defaultSearchParams: BaseSearchParameters = {
     query_by: 'name, runs, web, slug, address, comments',
     sort_by: '_text_match:desc,sort-index:asc',
     num_typos: 4,
@@ -49,7 +49,7 @@ export type SearchClient = {
     search: <TObject>(queries: Query[]) => Promise<Result<TObject>>;
 };
 
-export const instantSearchClient = (searchParams?: Omit<Partial<SearchParams>, 'q'>): SearchClient =>
+export const instantSearchClient = (searchParams?: Omit<Partial<SearchParams<DocumentSchema>>, 'q'>): SearchClient =>
     new TypesenseInstantSearchAdapter({
         server: serverConfig,
 
