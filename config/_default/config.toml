@@ -19,3 +19,16 @@ hint = "picture"
 
 [params]
 mainSections = ['blog']
+
+# Mount the `src` dir to `assets/js` so that Hugo Pipes can find it. To do so, we need to recreate the default `assets`
+# mount, which would otherwise be lost.
+[mounts]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'src'
+    target = 'assets/js'
+
+[build]
+  noJSConfigInAssets = true

@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
     parser: '@typescript-eslint/parser',
     env: {
@@ -90,18 +88,21 @@ module.exports = {
     globals: {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly',
-        BASE_URL: 'readonly',
-        LOCALE: 'readonly',
-        SUPPORTED_LANGUAGES: 'readonly',
-        SUPPORTED_COUNTRIES: 'readonly',
 
-        // defined in `src/general.js`
+        // defined by included scripts (`translations-<lang>.gen.js` and `translations-requests.gen.js`)
         I18N_DEFINITION: 'readonly',
         I18N_DEFINITION_REQUESTS: 'readonly',
+
+        // defined in `src/general.js`
         PARAMETERS: 'readonly',
 
-        // defined in `webpack.common.js`
-        CODE_VERSION: 'readonly',
+        // defined in `scripts.html`
+        SUPPORTED_COUNTRIES: 'readonly',
+        LOCALE: 'readonly',
+        SUPPORTED_LANGUAGES: 'readonly',
+        BASE_URL: 'readonly',
+        hugoDevMode: 'readonly',
+        PDF_WORKER_URL: 'readonly',
     },
     settings: {
         react: {
@@ -146,6 +147,5 @@ module.exports = {
         },
         // The Preact config includes Jest rules but we don't have Jest installed. This stops them from complaining.
         jest: { version: 'n/a' },
-        'import/resolver': { webpack: { config: path.resolve(__dirname, 'webpack.common.js') } },
     },
 };
