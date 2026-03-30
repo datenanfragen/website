@@ -1,3 +1,1 @@
-import PdfWorker from './pdf.worker';
-
-export const makePdfWorker = () => new PdfWorker();
+export const makePdfWorker = () => new Worker(window.PDF_WORKER_URL);

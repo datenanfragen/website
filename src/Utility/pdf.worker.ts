@@ -1,5 +1,4 @@
 import { PdfRenderer } from 'letter-generator';
-import type { Class } from 'type-fest';
 import vfsFonts from './fonts.json';
 
 onmessage = (e) => {
@@ -22,7 +21,3 @@ onmessage = (e) => {
         })
     );
 };
-
-// The Webpack worker-loader plugin will transform this file to have default export that creates the worker but
-// TypeScript doesn't know that, so we introduce this fake export to trick it.
-export default undefined as unknown as Class<Worker>;
