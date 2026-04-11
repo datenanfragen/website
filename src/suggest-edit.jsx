@@ -60,22 +60,6 @@ function prepareForm(schema) {
 function renderForm(schema, company_data = undefined) {
     let BrutusinForms = brutusin['json-forms'];
 
-    const TO_HIDE = [
-        'slug',
-        'custom-access-template',
-        'custom-erasure-template',
-        'custom-rectification-template',
-        'custom-objection-template',
-        'required-elements',
-        'request-language',
-        'pgp-fingerprint',
-        'pgp-url',
-        'comments',
-        'quality',
-        'facet-group',
-        'needs-id-document',
-        'nsfw',
-    ];
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
 
