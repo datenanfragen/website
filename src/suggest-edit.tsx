@@ -1,8 +1,9 @@
-import { render } from "preact";
-import { Form, type FormProps } from "formj";
-import { useFetch } from "./hooks/useFetch";
-import { ajv } from "./Utility/suggest";
-
+import { render } from 'preact';
+import { Form, type FormProps } from 'formj';
+import { useFetch } from './hooks/useFetch';
+import { ajv } from './Utility/suggest';
+import { fetchCompanyDataBySlug } from './Utility/companies';
+import { useEffect, useState } from 'preact/hooks';
 
 const pointersToHide = [
     '/slug',
@@ -22,11 +23,34 @@ const pointersToHide = [
 ];
 
 export const SuggestForm = () => {
-    const { data, error } = useFetch<FormProps["schema"]>(window.BASE_URL + 'schema.json');
+    const [companyData, setCompanyData] = useState<any>(null);
+    const [old_companyData, setOldCompanyData] = useState<any>(null);
+
+    const { data, error } = useFetch<FormProps['schema']>(window.BASE_URL + 'schema.json');
+
+    const slug = window.PARAMETERS['slug'];
+    useEffect(() => {
+        if (!slug) return;
+        fetchCompanyDataBySlug(slug).then((data) => {
+            setOldCompanyData(data);
+            setCompanyData(data);
+        });
+    }, [slug]);
+
     if (error) return <div>Error loading form schema: {error.message}</div>;
     if (!data) return <div>Loading form schema...</div>;
 
-    return <Form schema={data} customAjv={ajv} pointersToHide={pointersToHide}></Form >
+    if (companyData !== null)
+        return (
+            <Form
+                schema={data}
+                customAjv={ajv}
+                pointersToHide={pointersToHide}
+                initialData={companyData}
+                autoComplete="off"
+            />
+        );
+    return <div>Loading company data...</div>;
 };
 
 const elem = document.getElementById('suggest-form');
