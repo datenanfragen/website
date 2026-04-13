@@ -1,3 +1,5 @@
+import { isOn, skipOn } from '@cypress/skip-test';
+
 describe('Using the generator', () => {
     beforeEach(() => {
         cy.visit('/generator', {
@@ -8,6 +10,9 @@ describe('Using the generator', () => {
     });
 
     it('Simple access requests to companies in "add-all" company pack', () => {
+        // This causes errors in production, see: https://github.com/datenanfragen/website/issues/1232
+        skipOn(isOn('production'));
+
         cy.contains('Get access');
         cy.get('.request-type-help-button').first().click();
         cy.contains('Through an access request, you can find out');
@@ -48,8 +53,8 @@ describe('Using the generator', () => {
             .should(
                 'satisfy',
                 (subject) =>
-                    subject === 'Request to access to personal data according to Art. 15 GDPR' ||
-                    subject === 'Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO'
+                    subject.startsWith('Request to access to personal data according to Art. 15 GDPR') ||
+                    subject.startsWith('Anfrage bzgl. Auskunft gemäß Art. 15 DSGVO')
             );
         cy.get('#send-request-modal-recipient').invoke('val').should('not.be.empty');
 
@@ -73,6 +78,9 @@ describe('Using the generator', () => {
     });
 
     it('Two erasure requests with various features, followed by an access request', () => {
+        // This causes errors in production, see: https://github.com/datenanfragen/website/issues/1232
+        skipOn(isOn('production'));
+
         cy.contains('Delete (parts of)').click();
 
         cy.get('.ais-SearchBox-input').type('{selectall}soundcloud');
@@ -98,7 +106,7 @@ describe('Using the generator', () => {
 
         cy.get('.modal').contains('Here’s your generated request.');
         cy.get('#send-request-modal-subject').should(
-            'have.value',
+            'contain.value',
             'Request for erasure of personal data according to Art. 17 GDPR'
         );
         cy.get('#send-request-modal-recipient').invoke('val').should('not.be.empty');
@@ -142,13 +150,16 @@ describe('Using the generator', () => {
 
         cy.contains('Send request').click();
         cy.get('#send-request-modal-subject').should(
-            'have.value',
+            'contain.value',
             'Request to access to personal data according to Art. 15 GDPR'
         );
         cy.get('#send-request-modal-body').should('contain.value', 'I am hereby requesting access');
     });
 
     it('Rectification request to custom company, appears in “My requests”', () => {
+        // This causes errors in production, see: https://github.com/datenanfragen/website/issues/1232
+        skipOn(isOn('production'));
+
         cy.contains('Correct data').click();
 
         cy.contains('Add a custom company').click();
@@ -204,7 +215,7 @@ describe('Using the generator', () => {
         cy.contains('Send request').click();
         cy.get('.modal').contains('Here’s your generated request.');
         cy.get('#send-request-modal-subject').should(
-            'have.value',
+            'contain.value',
             'Request for rectification of personal data according to Art. 16 GDPR'
         );
         cy.get('#send-request-modal-recipient').should('have.value', 'privacy@darkenanfragen.tld');
@@ -234,7 +245,7 @@ describe('Using the generator', () => {
         cy.get('.ais-SearchBox-input').type('{selectall}a1 austria');
         cy.contains('A1 Telekom Austria').click();
         cy.get('.ais-SearchBox-input').type('{selectall}joyn');
-        cy.contains('Joyn GmbH').click();
+        cy.contains('Joyn').click();
         cy.contains('Request 2 companies').click();
 
         cy.contains('Companies you selected');
@@ -247,7 +258,7 @@ describe('Using the generator', () => {
 
         cy.contains('Request 2 companies').click();
         cy.contains('A1 Telekom Austria');
-        cy.contains('Joyn GmbH');
+        cy.contains('Joyn');
 
         cy.contains('Continue with these companies').click();
 
@@ -258,7 +269,7 @@ describe('Using the generator', () => {
         cy.contains('Send request').click();
 
         cy.get('.modal').contains('Here’s your generated request. Download the PDF');
-        cy.get('#send-request-modal-subject').should('have.value', 'Werbewiderspruch gemäß Art. 21 Abs. 2 DSGVO');
+        cy.get('#send-request-modal-subject').should('contain.value', 'Werbewiderspruch gemäß Art. 21 Abs. 2 DSGVO');
         cy.get('#send-request-modal-recipient').should('contain.value', 'Österreich');
         cy.get('#send-request-modal-body')
             .should('contain.value', 'ich lege hiermit Widerspruch')

@@ -13,7 +13,16 @@ If you have any suggestions that cannot be handled through this form or that you
 {{< loadingIndicator >}}
 
 <div id="suggest-form">
-<button id="submit-suggest-form" class="button button-primary">Submit <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
+<div id="brutusin-form"></div>
+
+<hr>
+
+Do you have any further comments or notes that we should take into account when reviewing your suggestion? If so, you can share them with us here.
+
+<label for="comment" class="sr-only">Additional comments</label>
+<textarea id="comment" class="form-element" rows="5"></textarea>
+
+<button id="submit-suggest-form" class="button button-primary">Publish <span class="icon icon-arrow-right"></span></button><div class="clearfix"></div>
 </div>
 
 By submitting this form, you agree for your contributions to be published in our company database and license them under a [CC0 license](https://creativecommons.org/publicdomain/zero/1.0), which allows anyone to use them without restrictions.

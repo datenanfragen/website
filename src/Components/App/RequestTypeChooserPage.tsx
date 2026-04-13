@@ -42,7 +42,7 @@ export const RequestTypeChooserPage = (props: RequestTypeChooserPageProps) => {
                 <div id={`request-type-choice-${type}`} className="request-type-button-group">
                     <button
                         name="request-type"
-                        className="button button-secondary"
+                        className={`button button-secondary icon icon-${type}`}
                         onClick={() => {
                             setBatchRequestType(type);
                             if (window.PARAMETERS.company && batchLength === 1) props.setPage('fill_requests');

@@ -1,0 +1,13 @@
+# See: https://privacytxt.dev
+
+Entity: Datenanfragen.de e. V.
+Entity-country: DE
+
+# Other language versions are available but might not be up-to-date, so they are not linked here.
+Privacy-policy: https://www.datarequests.org/privacy
+Privacy-policy-EN: https://www.datarequests.org/privacy
+Privacy-policy-DE: https://www.datenanfragen.de/datenschutz/
+
+Contact: mailto:datenschutz@datenanfragen.de
+
+Consent-platform: none detected

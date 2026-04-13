@@ -2,7 +2,7 @@ import { render, Component, Fragment } from 'preact';
 import Modal from './Components/DeprecatedModal';
 import t from './Utility/i18n';
 import { fetchCompanyDataBySlug } from './Utility/companies';
-import { slugify, domainWithoutTldFromUrl } from './Utility/common';
+import { domainWithoutTldFromUrl } from './Utility/common';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 require('brutusin-json-forms');
 /* global brutusin */
@@ -11,6 +11,7 @@ import { submitUrl } from './Utility/suggest';
 import { FlashMessage, flash } from './Components/FlashMessage';
 import { searchClient } from './Utility/search';
 import equal from 'fast-deep-equal';
+import slugify from '@sindresorhus/slugify';
 let bf;
 let schema;
 let company_data_old;
@@ -59,22 +60,6 @@ function prepareForm(schema) {
 function renderForm(schema, company_data = undefined) {
     let BrutusinForms = brutusin['json-forms'];
 
-    const TO_HIDE = [
-        'slug',
-        'custom-access-template',
-        'custom-erasure-template',
-        'custom-rectification-template',
-        'custom-objection-template',
-        'required-elements',
-        'request-language',
-        'pgp-fingerprint',
-        'pgp-url',
-        'comments',
-        'quality',
-        'facet-group',
-        'needs-id-document',
-        'nsfw',
-    ];
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
 
@@ -147,7 +132,7 @@ function renderForm(schema, company_data = undefined) {
     });
     bf = BrutusinForms.create(schema);
     bf.render(
-        document.getElementById('suggest-form'),
+        document.getElementById('brutusin-form'),
         company_data || (PARAMETERS['name'] ? { name: PARAMETERS['name'] } : {})
     );
     suggestSimilarNamedCompanies();
@@ -268,7 +253,8 @@ document.getElementById('submit-suggest-form').onclick = () => {
     // Do some post-processing on the user-submitted data to make the review easier.
     if (!data.slug) {
         const DOMAIN = domainWithoutTldFromUrl(data.web);
-        data.slug = slugify(DOMAIN ? DOMAIN.replace('www.', '') : data.name);
+        // `decamelize` causes `Abc GmbH` to be turned into `abc-gmb-h`.
+        data.slug = slugify(DOMAIN ? DOMAIN.replace('www.', '') : data.name, { decamelize: false });
     }
     if (!data['relevant-countries']) data['relevant-countries'] = ['all'];
     if (data.phone) data.phone = formatPhoneNumber(data.phone);
@@ -307,8 +293,9 @@ document.getElementById('submit-suggest-form').onclick = () => {
             for: 'cdb',
             data,
             new: !PARAMETERS['slug'],
+            comment: document.getElementById('comment').value,
         },
-        ['for', 'data'].concat(properties, ['new'])
+        ['for', 'data'].concat(properties, ['new', 'comment'])
     );
 
     fetch(submitUrl, {

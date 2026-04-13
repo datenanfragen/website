@@ -59,8 +59,8 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                 data-dynamic-input-id={props.id}
                                 className="dynamic-input-delete button button-secondary button-small icon-trash"
                                 onClick={props.onRemove}
-                                title={t('delete-field', 'generator', {
-                                    field_name: props.value.desc || t('unnamed-field', 'generator'),
+                                title={t(props.value.desc ? 'delete-field' : 'delete-unnamed-field', 'generator', {
+                                    field_name: props.value.desc,
                                 })}
                             />
                         )}
@@ -82,7 +82,11 @@ export const DynamicInput = (props: DynamicInputProps) => {
                                 descInput.current?.select();
                             }}
                             aria-live="polite">
-                            {props.value.desc}
+                            {props.value.desc || (
+                                <em>
+                                    <Text id="unnamed-field" />
+                                </em>
+                            )}
                         </label>
                         <div
                             className={!(props.allowChangingDescription && isEditable) ? 'sr-only' : ''}

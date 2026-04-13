@@ -5,7 +5,8 @@
     "tags": [ "miles", "carsharing", "telematik", "fahrverhalten", "überwachung", "auskunftsanfrage" ],
     "featured_image": "miles-ueberwacht-fahrer-innen-jetzt-daten-anfragen",
     "authors": [ "baltpeter" ],
-    "notices": "Titelfoto angepasst nach: „[Traffic Transport Jam](https://pixabay.com/photos/traffic-transport-traffic-jam-2251530/)“ von [garten-gg](https://pixabay.com/users/garten-gg-201217/) ([Pixabay-Lizenz](https://pixabay.com/service/license-summary/))"
+    "notices": "Titelfoto angepasst nach: „[Traffic Transport Jam](https://pixabay.com/photos/traffic-transport-traffic-jam-2251530/)“ von [garten-gg](https://pixabay.com/users/garten-gg-201217/) ([Pixabay-Lizenz](https://pixabay.com/service/license-summary/))",
+    "discussedCompanies": [ "miles-mobility" ]
 }
 
 Miles ist mit 21.000 Fahrzeugen der größte Carsharing-Dienst in Deutschland – in Berlin und Hamburg wird er von mehr als einem Viertel der Menschen mit Führerschein [genutzt](https://vision-mobility.de/news/miles-waechst-weiter-und-sieht-erste-entlastungseffekte-durch-sharing-310005.html). Der Spiegel [berichtet](https://www.spiegel.de/auto/carsharing-frust-miles-und-co-ueberwachen-fahrer-immer-genauer-a-c449a4aa-e518-4986-a80f-a781109cd6fb) nun, dass Miles Mieter_innen seiner Autos über eingebaute Sensoren immer genauer überwache und Strafen etwa für angebliches Fehlverhalten verhänge.

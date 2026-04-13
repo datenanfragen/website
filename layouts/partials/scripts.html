@@ -117,7 +117,7 @@ While I haven't seen this be the case, I guess it doesn't hurt to make sure.
 
 {{ with $batch.Group "suggest" }}
     {{ with .Script "suggest" }}
-        {{ .SetOptions (dict "resource" (resources.Get "js/suggest-edit.jsx")) }}
+        {{ .SetOptions (dict "resource" (resources.Get "js/suggest-edit.tsx")) }}
     {{ end }}
 {{ end }}
 

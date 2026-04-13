@@ -1,6 +1,8 @@
 # This file contains a list of libraries and other external contributions used in this repository (that end up in the release build in some way or another). When including new dependencies, be sure to include them here. Please try to stick to the format used by the other entries. The list is sorted alphabetically by the name of the dependency.
 # The direct contributors to this repository are listed in the AUTHORS file.
 
+AJV TODO
+
 Autocomplete.js by Algolia, Inc. ([MIT License](https://github.com/algolia/autocomplete.js/blob/master/LICENSE))
 https://github.com/algolia/autocomplete.js
 
@@ -72,6 +74,9 @@ https://github.com/google/roboto
 
 Spartan MB by Matt Bailey ([OFL 1.1](https://github.com/MattBaileyDesign/Spartan-MB/blob/V-1.006/OFL.txt))
 https://github.com/MattBaileyDesign/Spartan-MB
+
+slugify by Sindre Sorhus ([MIT License](https://github.com/sindresorhus/slugify/blob/main/license))
+https://github.com/sindresorhus/slugify
 
 SpinKit by Tobias Ahlin ([MIT License](https://github.com/tobiasahlin/SpinKit/blob/master/LICENSE))
 https://github.com/tobiasahlin/SpinKit

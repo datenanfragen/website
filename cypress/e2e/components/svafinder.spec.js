@@ -23,12 +23,12 @@ describe('SvaFinder component', () => {
         const paths = [
             {
                 path: ['Federal authority'],
-                result_name: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
+                result_name: 'Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
                 result_url_regex: /supervisory-authority\/debfdi/,
             },
             {
                 path: ['Statutory health insurance'],
-                result_name: 'Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
+                result_name: 'Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
                 result_url_regex: /supervisory-authority\/debfdi/,
             },
             {
@@ -68,14 +68,18 @@ describe('SvaFinder component', () => {
             },
             {
                 path: ['Public service broadcaster', 'Deutschlandradio'],
-                result_name:
-                    'Der Rundfunkdatenschutzbeauftragte beim BR, HR, MDR, rbb, SR, SWR, WDR, Deutschlandradio und ZDF',
+                result_name: 'Der Rundfunkdatenschutzbeauftragte',
                 result_url_regex: /supervisory-authority\/derf/,
             },
             {
-                path: ['Public service broadcaster', 'Beitragsservice', 'Lower Saxony'],
-                result_name: 'Rundfunkdatenschutzbeauftragter Norddeutscher Rundfunk',
-                result_url_regex: /supervisory-authority\/derfndr/,
+                path: ['Public service broadcaster', 'Beitragsservice'],
+                result_name: 'Der Rundfunkdatenschutzbeauftragte',
+                result_url_regex: /supervisory-authority\/derf/,
+            },
+            {
+                path: ['Public service broadcaster', 'Deutsche Welle'],
+                result_name: 'Rundfunkdatenschutzbeauftragter Deutsche Welle',
+                result_url_regex: /supervisory-authority\/derfdw/,
             },
         ];
 

@@ -1,0 +1,34 @@
+<article class="list-article">
+    {{ if (or .Params.featured_image .Params.featured_image_url) }}
+        <div class="col25 article-featured-image">
+            <a href="{{ .Permalink }}" class="no-link-decoration">
+                {{ if .Params.featured_image }}
+                    {{ partial "picture" (dict "page" $.Page "name" $.Params.featured_image "srcset" (slice 280 375 684 874 230) "sizes" (dict "280" 320 "375" 425 "684" 768 "874" 979) "fallback" 230 "alt_text" $.Params.title) }}
+                {{ else }}
+                    <img class="image" src="{{ .Params.featured_image_url }}" alt="{{ .Title }}">
+                {{ end }}
+            </a>
+        </div>
+    {{ end }}
+    <div class="padded {{ if (or .Params.featured_image .Params.featured_image_url) }}col75{{end}}">
+        <a href="{{ .Permalink }}">
+            <h1>{{ .Title }}</h1>
+        </a>
+        <aside class="list-article-meta">
+            {{ T "blog-published" }}<span class="meta-date">{{ with .Params.date }}<time pubdate
+                    datetime="{{ .Format "2006-01-02T15:04" }}">{{ .Format "2006-01-02" }} {{ T "blog-time-at" }}
+                    {{ .Format "15:04" }}</time>{{- end -}}
+                {{ with .Params.last_edited }}{{T "blog-last-edited" }} <time
+                    datetime="{{ dateFormat "2006-01-02T15:04" . }}">{{ dateFormat "2006-01-02" . }}
+                    {{ T "blog-time-at" }} {{ dateFormat "15:04" . }}</time>{{ end }}</span><br>
+        </aside>
+        <p class="description">
+            {{ if .Description }}
+                {{ .Description }}
+            {{ end }}
+        </p>
+    </div>
+    <div class="clearfix"></div>
+    <a class="button button-primary read-more-button" href="{{ .Permalink }}">{{ T "blog-read-more" }}&nbsp;<span
+            class="icon icon-arrow-right"></span></a>
+</article>

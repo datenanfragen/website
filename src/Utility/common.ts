@@ -2,6 +2,9 @@ import type { I18nLanguage } from '../types/globals';
 import type { Country } from '../store/app';
 
 // Adapted after: https://gist.github.com/mathewbyrne/1280286
+// We deliberately have both this minimal implementation and @sindresorhus/slugify, because the bundle size of the
+// latter is quite large. Decide on which to use based on how good of a slugify implementation is needed. For example,
+// this one cannot handle non-ASCII characters.
 export const slugify = (text: string) =>
     text
         ?.toString()

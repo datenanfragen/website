@@ -15,6 +15,12 @@ If you want to, you can override the launch URLs:
 export CYPRESS_baseUrl='http://localhost:1314'
 ```
 
+To avoid flaky tests in CI, we allow up to three retries. However, this can be annoying when working on the tests, so you can disable this if you want:
+
+```sh
+export CYPRESS_RETRIES=0
+```
+
 Then, open the test runner:
 ```sh
 yarn cypress open --e2e --browser electron
