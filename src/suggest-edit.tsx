@@ -7,6 +7,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { searchClient } from './Utility/search';
 import { rethrow } from './Utility/errors';
 import t from './Utility/i18n';
+import { HtmlRenderer } from './Components/HtmlRenderer';
 
 const pointersToHide = [
     '/slug',
@@ -76,7 +77,7 @@ const SimilarList = (props: { name: string }) => {
                                     {' '}
                                     ({t('also-runs', 'suggest')}
                                     {/* eslint-disable-next-line react/no-danger */}
-                                    <span dangerouslySetInnerHTML={{ __html: similarMatch.runs.join(', ') }} />)
+                                    <HtmlRenderer html={similarMatch.runs.join(', ')} />)
                                 </>
                             )}
                         </li>
