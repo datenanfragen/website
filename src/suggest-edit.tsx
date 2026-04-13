@@ -30,7 +30,10 @@ export const SuggestForm = () => {
 
     const slug = window.PARAMETERS['slug'];
     useEffect(() => {
-        if (!slug) return;
+        if (!slug) {
+            setCompanyData({});
+            return;
+        }
         fetchCompanyDataBySlug(slug).then((data) => {
             setOldCompanyData(data);
             setCompanyData(data);
