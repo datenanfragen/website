@@ -68,19 +68,22 @@ describe('Advanced generator', () => {
     });
 
     it('loads companies from slug and clears URL parameters afterwards', () => {
-        cy.visit('/g/#!companies=facebook,google');
+        cy.visit('/g/#!companies=facebook,datenanfragen');
         cy.reload();
-        cy.contains('Meta Platforms Ireland Limited');
+        cy.get('#company-info').contains('Meta Platforms Ireland Limited');
 
         cy.contains('Next request').click();
         cy.contains('New request').click();
-        cy.contains('Google LLC');
+        cy.get('#company-info').contains('Datenanfragen.de');
 
         cy.contains('Send email').click();
         cy.contains('Default email software').clickLinkWithoutFollowingHref({ force: true });
         cy.contains('Next request').click();
-        cy.contains('Google LLC').should('not.exist');
-        cy.url().should('not.include', 'facebook').should('not.include', 'google').should('not.include', 'companies');
+        cy.get('#company-info').should('not.exist');
+        cy.url()
+            .should('not.include', 'facebook')
+            .should('not.include', 'datenanfragen')
+            .should('not.include', 'companies');
     });
 
     it("reflects the 'Information block' values in the generated request", () => {
