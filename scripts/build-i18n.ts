@@ -7,7 +7,7 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, unlinkSync } from 'fs';
 import { join, basename } from 'path';
-import glob from 'glob';
+import { globSync } from 'glob';
 import { getDirname } from 'cross-dirname';
 import deepmerge from 'deepmerge';
 import { watch as chokidar } from 'chokidar';
@@ -28,9 +28,9 @@ const jsOutputDir = join(dirname, '..', 'static', 'js');
 // We need to recompute this every time because translations may have changed in watch mode.
 const allTranslations = () =>
     Object.fromEntries(
-        glob
-            .sync('*.json', { cwd: inputDir, absolute: true })
-            .map((p) => [basename(p, '.json'), JSON.parse(readFileSync(p, 'utf8')) as TranslationFile] as const)
+        globSync('*.json', { cwd: inputDir, absolute: true }).map(
+            (p) => [basename(p, '.json'), JSON.parse(readFileSync(p, 'utf8')) as TranslationFile] as const
+        )
     );
 
 // eslint-disable-next-line no-console

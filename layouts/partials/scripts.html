@@ -23,7 +23,7 @@ Some bundles need to be built separately:
   external code.
 - The PDF worker needs to run in a `WebWorker`.
 -->
-{{ $buildOptionsSeparateBundles := dict "target" "es2015"  "minify" true  "sourceMap" (cond $.Site.Params.devMode "inline" false) }}
+{{ $buildOptionsSeparateBundles := dict "target" "es2015"  "minify" true  "sourceMap" (cond $.Site.Params.devMode "inline" "none") }}
 {{ $errorHandlerBundle := resources.Get "js/error-handler.js" | js.Build $buildOptionsSeparateBundles }}
 {{ $pdfWorkerBundle := resources.Get "js/Utility/pdf.worker.ts" | js.Build $buildOptionsSeparateBundles }}
 
@@ -56,7 +56,7 @@ cross-origin errors.
         "target" "es2015"
         "format" "esm"
         "minify" true
-        "sourceMap" (cond $.Site.Params.devMode "inline" false)
+        "sourceMap" (cond $.Site.Params.devMode "inline" "none")
     ) }}
 {{ end }}
 
