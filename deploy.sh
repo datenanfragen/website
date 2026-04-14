@@ -81,7 +81,3 @@ else
     cp _headers public/_headers
     cp _redirects public/_redirects
 fi
-
-# Finds all generated css files, matches and removes the second last non-dot characters (the md5 hash) and renames the files to the new filename without hash
-# This is really not a good fix and I beg hugo to change this!
-find "public" -regex '.*/styles/.*\.css' -print | sed -e "p" -e "s/\(.*\.min\)\.[^\.]*\(\.[^\.]*\)$/\1\2/" | xargs -P $process_number -n 2 mv
