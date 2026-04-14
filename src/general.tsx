@@ -1,6 +1,5 @@
 import { render } from 'preact';
-import Cookie from 'js-cookie';
-import { useAppStore, Country } from './store/app';
+import { useAppStore } from './store/app';
 import { I18nWidget, I18nButton } from './Components/I18nWidget';
 import { CommentsWidget } from './Components/CommentsWidget';
 import { FlashMessage, flash } from './Components/FlashMessage';
@@ -61,11 +60,7 @@ function notifyOtherLanguages(preferred_language?: string, website_language?: st
 }
 
 if (!useAppStore.getState().countrySet) {
-    // TODO: Remove the cookie migration code in a year or so.
-    useAppStore
-        .getState()
-        .changeCountry((Cookie.get('country') as Country) || guessUserCountry(useAppStore.getState().savedLocale));
-    Cookie.remove('country');
+    useAppStore.getState().changeCountry(guessUserCountry(useAppStore.getState().savedLocale));
 
     const { language: preferred_language } = parseBcp47Tag(navigator.language);
     const { language: website_language } = parseBcp47Tag(document.documentElement.lang);
