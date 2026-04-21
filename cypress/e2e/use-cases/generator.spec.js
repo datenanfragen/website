@@ -1,5 +1,3 @@
-import { isOn, skipOn } from '@cypress/skip-test';
-
 describe('Using the generator', () => {
     beforeEach(() => {
         cy.visit('/generator', {
@@ -11,7 +9,7 @@ describe('Using the generator', () => {
 
     it('Simple access requests to companies in "add-all" company pack', () => {
         // This causes errors in production, see: https://github.com/datenanfragen/website/issues/1232
-        skipOn(isOn('production'));
+        cy.skipOn('production');
 
         cy.contains('Get access');
         cy.get('.request-type-help-button').first().click();
@@ -79,7 +77,7 @@ describe('Using the generator', () => {
 
     it('Two erasure requests with various features, followed by an access request', () => {
         // This causes errors in production, see: https://github.com/datenanfragen/website/issues/1232
-        skipOn(isOn('production'));
+        cy.skipOn('production');
 
         cy.contains('Delete (parts of)').click();
 
@@ -158,7 +156,7 @@ describe('Using the generator', () => {
 
     it('Rectification request to custom company, appears in “My requests”', () => {
         // This causes errors in production, see: https://github.com/datenanfragen/website/issues/1232
-        skipOn(isOn('production'));
+        cy.skipOn('production');
 
         cy.contains('Correct data').click();
 

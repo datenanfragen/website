@@ -65,6 +65,8 @@ jobs:
         - attach_workspace:
             at: ~/
 
+        - checkout
+
         - run:
             command: |
               yarn
