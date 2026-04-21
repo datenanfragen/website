@@ -1,5 +1,3 @@
-import { isOn, skipOn } from '@cypress/skip-test';
-
 describe('SvaFinder component', () => {
     beforeEach(() => {
         cy.visit('/supervisory-authorities');
@@ -93,7 +91,8 @@ describe('SvaFinder component', () => {
     });
 
     it("moves the user's country to the top if set", () => {
-        skipOn(isOn('production'));
+        // We don't have access to `getAppStore` in prod.
+        cy.skipOn('production');
 
         cy.window().then((win) => {
             win.getAppStore().changeCountry('de');
