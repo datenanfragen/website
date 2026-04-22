@@ -28,17 +28,7 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'preact-i18n',
-        'import',
-        'babel',
-        'html',
-        'optimize-regex',
-        'json',
-        'jsx-a11y',
-    ],
+    plugins: ['react', '@typescript-eslint', 'preact-i18n', 'import', 'html', 'optimize-regex', 'json', 'jsx-a11y'],
     rules: {
         'no-unused-vars': 'off',
         'no-empty': ['error', { allowEmptyCatch: true }],
