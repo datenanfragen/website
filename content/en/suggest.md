@@ -31,7 +31,6 @@ If you have any suggestions that cannot be handled through this form or that you
 {{< loadingIndicator >}}
 
 <div id="suggest-form">
-<div id="brutusin-form"></div>
 
 <hr>
 

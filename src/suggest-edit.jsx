@@ -45,6 +45,7 @@ const sortCategories = (categories) => {
     });
 };
 
+// ported.
 function prepareForm(schema) {
     sortRelevantCountries(schema.properties['relevant-countries']);
     sortCategories(schema.properties['categories']);
@@ -57,6 +58,7 @@ function prepareForm(schema) {
     renderForm(schema);
 }
 
+// ported.
 function renderForm(schema, company_data = undefined) {
     let BrutusinForms = brutusin['json-forms'];
 
@@ -138,6 +140,7 @@ function renderForm(schema, company_data = undefined) {
     suggestSimilarNamedCompanies();
 }
 
+// ported.
 function suggestSimilarNamedCompanies() {
     const nameCell = document.querySelector('tr[data-schema_id="$.name"] > td.prop-value');
 
