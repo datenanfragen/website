@@ -327,7 +327,8 @@
         "send-too-long": "Došlo je do greške prilikom slanja tvog komentara. Tvoj komentar je predug.",
         "confirm-private-data": "Čini se da tvoj komentar možda sadrži privatne podatke ili da se odnosi na narudžbu. Želiš li stvarno ovo objaviti kao JAVNI komentar? Komentari se NEĆE slati poduzeću.",
         "regex-sus-words": "broj narudžbe|broj potvrde|broj praćenja|broj prijenosa|broj kupca|IBAN|bankovni račun|referenca uplate|bankovni prijenos|isplata|uplata|naknada pretplate|povratna adresa|povrat novca|transakcija|knjiženje|rezervacija|paket|paket|bitcoin|scam|ulazni račun|naruđba",
-        "no-email-in-name": "Nemoj navesti e-mail adresu u polju imena. Komentari se objavljuju javno i neće se slati poduzeću."
+        "no-email-in-name": "Nemoj navesti e-mail adresu u polju imena. Komentari se objavljuju javno i neće se slati poduzeću.",
+        "publish-comment": "Objavi komentar"
     },
     "signature": {
         "reset-signature": "Poništi potpis",
@@ -460,7 +461,8 @@
         "clear-my-requests": "Izbriši sve spremljene zahtjeve",
         "clear-cookies": "Izbriši sve kolačiće",
         "explanation": "<p>Iznimno cijenimo tvoje pravo na privatnost i nastojimo što više ograničiti prikupljanje i obradu podataka. Većina funkcija na ${site_name} pokrenut će se izravno na tvom računalu, a podaci koje upišeš nikada se neće slati na naše poslužitelje. Međutim, postoje neke funkcije koje ne možemo ponuditi bez prikupljanja nekih podataka (većina postavki čak i na ovoj stranici to <strong>ne</strong> zahtijeva). <br> Ovdje možeš samostalno odlučiti koje funkcije želiš aktivirati.</p><p>Kad postaviš bilo koju od donjih opcija, tvoj će se izbor spremiti u kolačić. Ako ne pronađemo kolačić za opciju, koristimo standardnu vrijednost za koju smo se odlučili.</p>",
-        "title": "Postavke privatnosti"
+        "title": "Postavke privatnosti",
+        "no": "Ne"
     },
     "requests": {
         "concerns": "Odnosi se na",
@@ -687,9 +689,9 @@
         "generate-request": "Generiraj zahtjev",
         "no-requests": "Još nisi generirao/la nijedan zahtjev. Čim počneš generirati zahtjeve, oni će se pojaviti ovdje.",
         "no-requests-heading": "Još nema zahtjeva",
-        "export-ics": "Izvezi odabrane zahtjeve u kalendar",
-        "export-btn": "Izvezi odabrane zahtjeve kao CSV",
-        "delete-all-btn": "Izbriši sve zahtjeve",
+        "export-ics": "Izvezi odabrane postupke u kalendar",
+        "export-btn": "Izvezi odabrane postupke kao CSV",
+        "delete-all-btn": "Izbriši sve postupke",
         "letter": "pismo",
         "email": "e-mail",
         "fax": "faks",
@@ -756,7 +758,13 @@
         },
         "delete-proceeding": "Izbriši postupak",
         "webform": "web obrazac",
-        "sent-via-medium": "poslano putem {{medium}}"
+        "sent-via-medium": "poslano putem {{medium}}",
+        "delete-selected-proceedings": "Izbriši odabrane postupke",
+        "delete-selected-proceedings-confirm": "Ovo će izbrisati odabrane postupke i sve poruke koje sadrže. Stvarno to želiš?",
+        "mark-selected-as-done": "Označi odabrane postupke kao završene",
+        "mark-selected-as-abandoned": "Označi odabrane postupke kao napuštene",
+        "reactivate-selected": "Ponovo aktiviraj odabrane postupke",
+        "abandoned": "Napušteno"
     },
     "cdb": {
         "suggest-new": "Predloži novo poduzeće",
@@ -836,11 +844,11 @@
         "lic-url-cc0-10": "https://creativecommons.org/publicdomain/zero/1.0/deed.hr",
         "lic-cc0-10": "CC0 1.0 Univerzalno (CC0 1.0) Prenošenje u javno dobro",
         "lic-url-cc-by-sa-40": "https://creativecommons.org/licenses/by-sa/4.0/deed.hr",
-        "lic-cc-by-sa-40": "Creative Commons – Imenovanje-Dijeli pod istim uvjetima 4.0 međunarodna (CC BY-SA 4.0)",
+        "lic-cc-by-sa-40": "Creative Commons – Imenovanje-Dijeli pod istim uvjetima 4.0 međunarodna licenca (CC BY-SA 4.0)",
         "lic-url-cc-by-nd-40": "https://creativecommons.org/licenses/by-nd/4.0/deed.hr",
-        "lic-cc-by-nd-40": "Creative Commons – Imenovanje-Bez prerada 4.0 međunarodna (CC BY-ND 4.0)",
+        "lic-cc-by-nd-40": "Creative Commons – Imenovanje-Bez prerada 4.0 međunarodna licenca (CC BY-ND 4.0)",
         "lic-url-cc-by-40": "https://creativecommons.org/licenses/by/4.0/deed.hr",
-        "lic-cc-by-40": "Creative Commons – Imenovanje 4.0 međunarodna (CC BY 4.0)",
+        "lic-cc-by-40": "Creative Commons – Imenovanje 4.0 međunarodna licenca (CC BY 4.0)",
         "404-alt": "Osoba koja sjedi na nuli velikog znaka 404. Drži knjigu sa stranicom koja nedostaje.",
         "404-body": "Tražena stranica nažalost ne postoji na ovom poslužitelju. Možda je URL adresa krivo utipkana? Ako greška ustraje, obavijesti nas putem naše e-mail adrese <a href='mailto:dev@datenanfragen.de'>dev@datenanfragen.de</a> ili pošalji problem na našu stranicu za <a href='https://github.com/datenanfragen/website/issues/new'>praćenje problema</a>.",
         "404-title": "Greška 404: Stranica nije pronađena",
@@ -1165,7 +1173,8 @@
         "excessive_too-many-more-than-one_body": "Smiješ besplatno slati više zahtjeva istom poduzeću u razumnim intervalima. Što se smatra razumnim intervalom ovisi o konkretnoj situaciji. Na primjer, platforme društvenih medija obično prikupljaju mnogo podataka o tebi. U takvim slučjevima je prikladan kraći interval između zahtjeva, npr. tri mjeseca. Suprotno tome, ako si samo jednom naručio/la nešto u internetskoj trgovini i ako su ti dali sve podatke o toj transakciji, vjerojatnost je mala da će se podaci koje imaju o tebi često mijenjati. Nadzorna tijela smatraju da je slanje zahtjeva jednom godišnje u svim slučajevima razuman interval.\n\nS obzirom na golemu količinu mogućih slučajeva, nažalost ne možemo automatski generirati obrazloženje o tome je li i zašto je količina zahtjeva koje si poslao/la razumna. Napiši vlastito obrazloženje.",
         "additional-id_start_body": "Je li poduzeće iznijelo bilo koje razumne sumnje u vezi s tvojim identitetom koje bi se mogle otkloniti korištenjem dodatnih identifikacijskih podataka? Ili su očigledni?",
         "id-copy_start_body_admonition": "Traženje kopije osobnog dokumenta je invazivna mjera koja predstavlja rizik za sigurnost tvojih osobnih podataka. Prikladno je samo ako je prijeko potrebno. Vrijedi li jedan od sljedećih protuargumenata?",
-        "signature_start_body": "Poduzeća ne smiju zahtijevati da potpišeš svoj zahtjev jer ne mogu nametnuti vlastite formalne uslove za zahtjeve. Osim toga, potpisi očito nisu prikladan način za identifikaciju tvoje osobe.\n\nIma li poduzeće tvoj potpis u dosjeu? Imaj na umu da poduzeće ni u jednom slučaju ne može zahtijevati tvoj potpis, problem bi bio još jasniji ako poduzeće uopće nema tvoj potpis u dosjeu."
+        "signature_start_body": "Poduzeća ne smiju zahtijevati da potpišeš svoj zahtjev jer ne mogu nametnuti vlastite formalne uslove za zahtjeve. Osim toga, potpisi očito nisu prikladan način za identifikaciju tvoje osobe.\n\nIma li poduzeće tvoj potpis u dosjeu? Imaj na umu da poduzeće ni u jednom slučaju ne može zahtijevati tvoj potpis, problem bi bio još jasniji ako poduzeće uopće nema tvoj potpis u dosjeu.",
+        "webform-message": "poruka putem web obrasca"
     },
     "hints": {
         "advanced-generator": "Dobro došao, dobro došla u novo sučelje za naš generator. Nadamo se da se može intuitivnije koristiti i da olakšava slanje mnogih zahtjeva.<br>Bez brige: ako više voliš <a href='/g'>staro sučelje</a>, možeš ga i dalje koristi. Ne planiramo prekinuti podršku starog sučelja.",
