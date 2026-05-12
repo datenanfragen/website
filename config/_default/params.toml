@@ -42,3 +42,7 @@ short_name = "Malte"
 [authors.berni]
 byline = "<span xmlns:cc='http://creativecommons.org/ns#' property='cc:attributionName' >Bernhard Seckinger</span>"
 short_name = "Berni"
+
+[authors.rina]
+byline = "Rina"
+short_name = "Rina"
