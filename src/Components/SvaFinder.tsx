@@ -37,8 +37,9 @@ const steps: Record<string, Steps> = {
         de: {
             bund: 'debfdi',
             'bund-telepost': 'debfdi',
-            // The BfDI is also responsible for the job centres, except those with "authorised municipal carriers"
-            // (https://www.bfdi.bund.de/SharedDocs/Downloads/DE/Flyer/DatenschutzImJobcenter.pdf?__blob=publicationFile&v=3).
+            // The BfDI is also responsible for the Arbeitsagenturen and job centres, except those with "authorised municipal carriers"
+            // (https://www.bfdi.bund.de/DE/Buerger/Inhalte/Arbeit-Besch%C3%A4ftigung/Arbeitsverwaltung/Arbeitsverwaltung.html?nn=341930,
+            // https://www.bfdi.bund.de/SharedDocs/Downloads/DE/Flyer/DatenschutzImJobcenter.pdf?__blob=publicationFile&v=3).
             // Unfortunately, there's 104 of those, so we can't list them all (https://kommunale-jobcenter.de/uebersichtskarte/).
             'bund-jobcenter': 'debfdi',
             // Source: https://www.bfdi.bund.de/DE/Service/Kontakt/Kontaktfinder/kontaktfinder_node.html?cms_klvl2=272376&cms_klvl1=272344#kontaktfinderDown
@@ -49,6 +50,8 @@ const steps: Record<string, Steps> = {
             // lists the ones the BfDI is responsible for. As there are only six remaining in total (https://www.ikk.de/),
             // this allows us to determine which ones the BfDI is not responsible for.
             'bund-kk': 'debfdi',
+            // TODO: The BfDI is also responsible for some tax authorities and offices
+            // (https://www.bfdi.bund.de/DE/Buerger/Inhalte/Finanzen-Steuern/Zust%C3%A4ndigkeit_Finanzbeh%C3%B6rden.html?nn=302362).
             kirche: {
                 // The previous other authorities for the evangelical churches have been merged into the BfD EKD, cf.
                 // https://artikel91.eu/2025/01/02/nur-noch-eine-evangelische-aufsicht-dsbkd-aufgeloest/ and
