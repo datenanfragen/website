@@ -1,7 +1,7 @@
 import { join } from 'path';
 import fs from 'fs-extra';
 import yesno from 'yesno';
-import glob from 'glob';
+import { globSync } from 'glob';
 import { execa } from 'execa';
 import { getDirname } from 'cross-dirname';
 import { objFilter, deepCopyObject } from '../src/Utility/common';
@@ -16,7 +16,7 @@ const generated_dir = join(package_dir, 'src', 'generated');
 
 const getSupportedCountries = () => {
     const db_dir = join(website_dir, 'static', 'db');
-    const country_counts = glob.sync('*.json', { cwd: db_dir }).reduce((acc: Record<string, number>, cur: string) => {
+    const country_counts = globSync('*.json', { cwd: db_dir }).reduce((acc: Record<string, number>, cur: string) => {
         const entry = JSON.parse(fs.readFileSync(join(db_dir, cur), 'utf-8'));
         entry['relevant-countries'].forEach((country) => (acc[country] ? (acc[country] += 1) : (acc[country] = 1)));
         return acc;
@@ -66,7 +66,7 @@ const getSupportedCountries = () => {
 
     // Build a JSON module that exports the templates.
     const template_dir = join(website_dir, 'static', 'templates');
-    const template_files = glob.sync('**/*.txt', { cwd: template_dir });
+    const template_files = globSync('**/*.txt', { cwd: template_dir });
     const templates = template_files.reduce((acc, cur) => {
         const [language, filename] = cur.split('/');
         if (!acc[language]) acc[language] = {};
