@@ -14,6 +14,15 @@ export type PrivacyAsyncStorageOption = {
 
 type KeyValueDatabase = IDBPDatabase<{ [key: string]: string }>;
 
+const errorFilter = (e: Error) =>
+    // These migh be caused if IndexedDB is disabled in Firefox
+    e.name === 'InvalidStateError' ||
+    e.name === 'SecurityError' ||
+    // We couldn’t identify the cause for this error, but it seems to be caused by problem in the browser, so there is
+    // no need to tell the user about it (we should fail gracefully anyway).
+    // See also: https://github.com/datenanfragen/website/issues/1014
+    e.message === 'Internal Error';
+
 export class PrivacyAsyncStorage {
     #db?: typeof localStorage | KeyValueDatabase;
     #options: PrivacyAsyncStorageOption;
@@ -49,7 +58,7 @@ export class PrivacyAsyncStorage {
                     },
                 })
                     .catch((e: DOMException) => {
-                        if (e.name === 'InvalidStateError') {
+                        if (errorFilter(e)) {
                             // Database is not writable, we are probably in Firefox' private browsing mode
                             this.#storageType = 'localStorage';
                             this.#db = localStorage;
@@ -144,20 +153,29 @@ export class PrivacyAsyncStorage {
     }
 
     static async doesStoreExist(name: string, storeName: string) {
-        const db: IDBPDatabase | void = await openDB(name, undefined, { blocking: () => db?.close() }).catch((e) => {
-            if (e.name === 'InvalidStateError' && e.name === 'VersionError') {
-                db?.close();
+        try {
+            const db: IDBPDatabase | void = await openDB(name, undefined, { blocking: () => db?.close() }).catch(
+                (e) => {
+                    if (errorFilter(e) || e.name === 'VersionError') {
+                        db?.close();
+                        return;
+                    }
+                    rethrow(e, 'Error in doesStoreExist', { name, storeName, db }, t('indexeddb-error', 'error-msg'));
+                }
+            );
+
+            if (db) {
+                const result = db.objectStoreNames.contains(storeName);
+                db.close();
+                return result;
+            }
+        } catch (e) {
+            if (e instanceof Error && errorFilter(e)) {
                 return;
             }
-            rethrow(e, 'Error in doesStoreExist', { name, storeName, db }, t('indexeddb-error', 'error-msg'));
-        });
-
-        if (db) {
-            const result = db.objectStoreNames.contains(storeName);
-            db.close();
-            return result;
         }
         return (
+            localStorage &&
             typeof Object.keys(localStorage).find((key) => new RegExp(`^${name}/${storeName}/`).test(key)) === 'string'
         );
     }
