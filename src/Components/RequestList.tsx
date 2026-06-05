@@ -40,7 +40,6 @@ export const RequestList = (props: RequestListProps) => {
     ]);
 
     const [selectedRequestIds, setSelectedRequestIds] = useState<string[]>([]);
-    const [selectionMode, setSelectionMode] = useState(false);
 
     const sortedRequestIdsOldToNew = useMemo(
         () =>
@@ -96,7 +95,6 @@ export const RequestList = (props: RequestListProps) => {
         for (const reference of selectedRequestIds) removeProceeding(reference);
 
         setSelectedRequestIds([]);
-        setSelectionMode(false);
     }, [selectedRequestIds, removeProceeding]);
 
     const changeSelectedStatus = useCallback(
@@ -131,136 +129,118 @@ export const RequestList = (props: RequestListProps) => {
             ) : (
                 <>
                     <div className="proceedings-toolbar">
-                        <button
+                        <a
+                            id="new-request"
                             className="button button-secondary button-small"
-                            onClick={() => setSelectionMode(!selectionMode)}>
-                            {selectionMode ? <Text id="cancel" /> : <Text id="selection-mode" />}
-                        </button>
+                            href={`${window.BASE_URL}generator`}>
+                            {t('new-request', 'generator')}
+                        </a>
 
-                        {!selectionMode && (
-                            <a
-                                id="new-request"
-                                className="button button-secondary button-small"
-                                href={`${window.BASE_URL}generator`}>
-                                {t('new-request', 'generator')}
-                            </a>
-                        )}
+                        <>
+                            {props.importEmailsButton}
+                            <button
+                                id="clear-button"
+                                className="button button-error button-small"
+                                onClick={() =>
+                                    window.confirm(t('modal-clear-requests', 'privacy-controls')) && clearProceedings()
+                                }>
+                                <Text id="delete-all-btn" />
+                            </button>
+                        </>
 
-                        {!selectionMode && (
-                            <>
-                                {props.importEmailsButton}
+                        <div className="dropdown-container" style="float:right;">
+                            <button className="icon-ellipsis button button-small button-secondary" />
+                            <div className="dropdown" style="right: 0; max-width: 400px; width: 90vw;">
                                 <button
-                                    id="clear-button"
-                                    className="button button-error button-small"
-                                    onClick={() =>
-                                        window.confirm(t('modal-clear-requests', 'privacy-controls')) &&
-                                        clearProceedings()
-                                    }>
-                                    <Text id="delete-all-btn" />
+                                    id="toggle-all-button"
+                                    className="button button-secondary"
+                                    style="margin-right: 10px;"
+                                    onClick={() => {
+                                        setSelectedRequestIds(
+                                            selectedRequestIds.length === sortedRequestIdsOldToNew.length
+                                                ? []
+                                                : sortedRequestIdsOldToNew
+                                        );
+                                    }}
+                                    title={t('more-options', 'my-requests')}>
+                                    <Text
+                                        id={`${
+                                            selectedRequestIds.length === sortedRequestIdsOldToNew.length ? 'de' : ''
+                                        }select-all`}
+                                    />
                                 </button>
-                            </>
-                        )}
-
-                        {selectionMode && (
-                            <div className="dropdown-container" style="float:right;">
-                                <button className="icon-ellipsis button button-small button-secondary" />
-                                <div className="dropdown" style="right: 0; max-width: 400px; width: 90vw;">
-                                    <button
-                                        id="toggle-all-button"
-                                        className="button button-secondary"
-                                        style="margin-right: 10px;"
-                                        onClick={() => {
-                                            setSelectionMode(true);
-                                            setSelectedRequestIds(
-                                                selectedRequestIds.length === sortedRequestIdsOldToNew.length
-                                                    ? []
-                                                    : sortedRequestIdsOldToNew
-                                            );
-                                        }}
-                                        title={t('more-options', 'my-requests')}>
-                                        <Text
-                                            id={`${
-                                                selectedRequestIds.length === sortedRequestIdsOldToNew.length
-                                                    ? 'de'
-                                                    : ''
-                                            }select-all`}
-                                        />
-                                    </button>
-                                    {selectedRequestIds.length > 0 && (
-                                        <>
-                                            <a
-                                                id="download-button"
-                                                className="button button-secondary"
-                                                href={URL.createObjectURL(buildCsv())}
-                                                download={csv_download_filename}
-                                                style="margin-right: 10px;">
-                                                <Text id="export-btn" />
-                                            </a>
-                                            <a
-                                                id="export-ics-button"
-                                                className="button button-secondary"
-                                                href={URL.createObjectURL(buildIcs())}
-                                                download={ics_download_filename}
-                                                style="margin-right: 10px;">
-                                                <Text id="export-ics" />
-                                            </a>
-                                            <button
-                                                id="delete-selected-proceedings-button"
-                                                className="button button-secondary"
-                                                style="margin-right: 10px;"
-                                                onClick={() =>
-                                                    confirm(t('delete-selected-proceedings-confirm', 'my-requests')) &&
-                                                    deleteSelected()
-                                                }>
-                                                <Text id="delete-selected-proceedings" />
-                                            </button>
-                                            <button
-                                                id="mark-selected-as-done-button"
-                                                className="button button-secondary"
-                                                style="margin-right: 10px;"
-                                                onClick={() => changeSelectedStatus('done')}>
-                                                <Text id="mark-selected-as-done" />
-                                            </button>
-                                            <button
-                                                id="mark-selected-as-abandoned-button"
-                                                className="button button-secondary"
-                                                style="margin-right: 10px;"
-                                                onClick={() => changeSelectedStatus('abandoned')}>
-                                                <Text id="mark-selected-as-abandoned" />
-                                            </button>
-                                            <button
-                                                id="reactivate-selected-button"
-                                                className="button button-secondary"
-                                                style="margin-right: 10px;"
-                                                onClick={() => changeSelectedStatus('reactivate')}>
-                                                <Text id="reactivate-selected" />
-                                            </button>
-                                        </>
-                                    )}
-                                </div>
+                                {selectedRequestIds.length > 0 && (
+                                    <>
+                                        <a
+                                            id="download-button"
+                                            className="button button-secondary"
+                                            href={URL.createObjectURL(buildCsv())}
+                                            download={csv_download_filename}
+                                            style="margin-right: 10px;">
+                                            <Text id="export-btn" />
+                                        </a>
+                                        <a
+                                            id="export-ics-button"
+                                            className="button button-secondary"
+                                            href={URL.createObjectURL(buildIcs())}
+                                            download={ics_download_filename}
+                                            style="margin-right: 10px;">
+                                            <Text id="export-ics" />
+                                        </a>
+                                        <button
+                                            id="delete-selected-proceedings-button"
+                                            className="button button-secondary"
+                                            style="margin-right: 10px;"
+                                            onClick={() =>
+                                                confirm(t('delete-selected-proceedings-confirm', 'my-requests')) &&
+                                                deleteSelected()
+                                            }>
+                                            <Text id="delete-selected-proceedings" />
+                                        </button>
+                                        <button
+                                            id="mark-selected-as-done-button"
+                                            className="button button-secondary"
+                                            style="margin-right: 10px;"
+                                            onClick={() => changeSelectedStatus('done')}>
+                                            <Text id="mark-selected-as-done" />
+                                        </button>
+                                        <button
+                                            id="mark-selected-as-abandoned-button"
+                                            className="button button-secondary"
+                                            style="margin-right: 10px;"
+                                            onClick={() => changeSelectedStatus('abandoned')}>
+                                            <Text id="mark-selected-as-abandoned" />
+                                        </button>
+                                        <button
+                                            id="reactivate-selected-button"
+                                            className="button button-secondary"
+                                            style="margin-right: 10px;"
+                                            onClick={() => changeSelectedStatus('reactivate')}>
+                                            <Text id="reactivate-selected" />
+                                        </button>
+                                    </>
+                                )}
                             </div>
-                        )}
+                        </div>
                     </div>
                     <ul className="proceeding-rows">
                         {(props.sortOrder === 'old-to-new' ? sortedRequestIdsOldToNew : sortedRequestIdsNewToOld).map(
                             (id) => (
                                 <li className="proceeding-row-list-item">
-                                    {selectionMode && (
-                                        <input
-                                            className="form-element"
-                                            type="checkbox"
-                                            aria-labelledby={`proceeding-row-heading-${proceedings[id].reference}`}
-                                            checked={selectedRequestIds.includes(proceedings[id].reference)}
-                                            data-reference={proceedings[id].reference}
-                                            onChange={(e) =>
-                                                setSelectedRequestIds((prev) =>
-                                                    e.currentTarget.checked
-                                                        ? [...prev, e.currentTarget.dataset.reference!]
-                                                        : prev.filter((i) => i !== e.currentTarget.dataset.reference!)
-                                                )
-                                            }
-                                        />
-                                    )}
+                                    <input
+                                        className="form-element"
+                                        type="checkbox"
+                                        aria-labelledby={`proceeding-row-heading-${proceedings[id].reference}`}
+                                        checked={selectedRequestIds.includes(proceedings[id].reference)}
+                                        data-reference={proceedings[id].reference}
+                                        onChange={(e) =>
+                                            setSelectedRequestIds((prev) =>
+                                                e.currentTarget.checked
+                                                    ? [...prev, e.currentTarget.dataset.reference!]
+                                                    : prev.filter((i) => i !== e.currentTarget.dataset.reference!)
+                                            )
+                                        }
+                                    />
                                     <ProceedingRow
                                         proceeding={proceedings[id]}
                                         getBlobFromStorage={props.getBlobFromStorage}
