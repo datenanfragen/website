@@ -17,7 +17,7 @@ Allemagne
 **Site Web&nbsp;:** [www.datarequests.org/verein](https://www.datarequests.org/verein)
 
 **Légalement représenté par&nbsp;:** Benjamin Altpeter et Lorenz Sieben  
-Datenanfragen.de e.&nbsp;V. est une association à but non lucratif enregistrée au registre des associations du tribunal de la circonscription de Braunschweig, sous le numéro VR&nbsp;201732, et reconnue comme une organisation caritative par les services fiscaux du Braunschweig-Wilhelmstraße.
+Datenanfragen.de e.&nbsp;V. est une association à but non lucratif enregistrée au registre des associations du tribunal de la circonscription de Braunschweig, sous le numéro VR&nbsp;201732, et reconnue comme une organisation à but non lucratif par les services fiscaux du Braunschweig-Wilhelmstraße.
 
 **Responsable de la publication, conformément au paragraphe 18, alinéa 2 du traité allemand «médias» (MStV) :**
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Allemagne
@@ -34,7 +34,7 @@ Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Allemagne
 		"name": "Datenanfragen.de e. V.",
 		"address": {
 			"@type": "PostalAddress",
-			"streetAddress": "c/o Benjamin Altpeter, Schreinerweg 6",
+			"streetAddress": "Schreinerweg 6",
 			"postalCode": "38126",
 			"addressLocality": "Braunschweig",
 			"addressCountry": "DE"

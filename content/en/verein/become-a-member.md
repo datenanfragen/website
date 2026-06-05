@@ -9,7 +9,7 @@
 
 Thank you for considering a supporting membership in the Datenanfragen.de e.&nbsp;V.! As a supporting member you support the association sustainably and regularly to set a sign for data protection.
 
-Because we are {{< link slug="verein/transparency#3-information-on-tax-privileges" text="recognized as a charitable organisation" >}} by the German tax authorities, we are able to give you a donation verification for your membership fees, so that you might be able to deduct it from your tax returns (please check with your local tax code).
+Because we are {{< link slug="verein/transparency#3-information-on-tax-privileges" text="recognized as a public-benefit organisation" >}} by the German tax authorities, we are able to give you a donation verification for your membership fees, so that you might be able to deduct it from your tax returns (please check with your local tax code).
 
 To become a supporting member, you'll only have to fill out the [membership application](https://static.dacdn.de/docs/mitgliedsantrag.pdf) (German only). Please then send the finished form via email (as filled out PDF or scan/image) to [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), via fax to +49&nbsp;531&nbsp;209299&nbsp;36 or via mail to the following address: Datenanfragen.de e.&nbsp;V., Schreinerweg 6, 38126 Braunschweig, Germany.  
 We will contact you subsequently to tell you whether your application had been accepted and to agree on a payment method.
@@ -45,7 +45,7 @@ We will contact you subsequently to tell you whether your application had been a
     This is regulated by our {{< link slug="verein/membership-fees" text="fee regulation" >}}: You can indicate a change of your personal membership fee at any time to the board (the minimum fee is of course still active). The change will be active in the following year of your membership.
 
 * **How can I deduct the membership fee in my tax returns?**  
-    Being a charitable organisation we are allowed to issue donation receipts for your membership fees which you can then use to deduct it in your tax returns (only in Germany, foreign tax codes might not recognise donations to foreign organisations). Unfortunately, we will need your address for that. If you already entered your address in the application, we will send you your receipt without your assistance. If you didn't, but you still want a donation receipt, please contact the board. 
+    Being a public-benefit organisation we are allowed to issue donation receipts for your membership fees which you can then use to deduct it in your tax returns (only in Germany, other tax codes might not recognise donations to foreign organisations). Unfortunately, we will need your address for that. If you already entered your address in the application, we will send you your receipt without your assistance. If you didn't, but you still want a donation receipt, please contact the board. 
 
     For membership fees that do not exceed 300&nbsp;€, the [simplified donation receipt](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) is sufficient under German law, which saves us some work.
 

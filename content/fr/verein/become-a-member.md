@@ -9,7 +9,7 @@
 
 Merci d'envisager de devenir membre de soutien de l'association Datenanfragen.de e.&nbsp;V. ! En tant que membre de soutien, vous soutenez l'association de manière durable et régulière afin de lancer un appel à la protection des données.
 
-Comme nous sommes {{< link slug="verein/transparency#3-information-on-tax-privileges" text="reconnus en tant qu'association caritative" >}} par les autorités fiscales allemandes, nous sommes en mesure de fournir une attestation de don pour tes cotisations, afin que tu puisses les déduire de ta déclaration d'impôts (vérifie le réglement fiscal local).
+Comme nous sommes {{< link slug="verein/transparency#3-information-on-tax-privileges" text="reconnus en tant qu'association à but non lucratif" >}} par les autorités fiscales allemandes, nous sommes en mesure de fournir une attestation de don pour tes cotisations, afin que tu puisses les déduire de ta déclaration d'impôts (vérifie le réglement fiscal local).
 
 Pour devenir membre de soutien, il te suffit de remplir la [demande d'adhésion](https://static.dacdn.de/docs/mitgliedsantrag.pdf) (en allemand uniquement). Merci d'envoyer le formulaire complété par e-mail (au format PDF ou scanné) à l'adresse [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), par fax au +49&nbsp;531&nbsp;209299&nbsp;36 ou par courrier à l'adresse suivante Datenanfragen.de e.&nbsp;V., Schreinerweg 6, 38126 Braunschweig, Allemagne.
 Nous te contacterons ultérieurement pour te dire si ta demande a été acceptée et pour convenir des modalités de paiement.
@@ -45,7 +45,7 @@ Nous te contacterons ultérieurement pour te dire si ta demande a été accepté
     Cette question est régie par notre {{< link slug="verein/membership-fees" text="règlement sur les cotisations" >}} : À tout moment, tu peux signaler au comité directeur une modification de ta cotisation personnelle (la cotisation minimale est bien entendu toujours en vigueur). La modification sera effective l'année suivante de ton adhésion.
 
 * **Comment puis-je déduire la cotisation dans mes déclarations fiscales ?**  
-    En tant qu'association caritative, nous sommes autorisés à délivrer des attestations de dons pour tes cotisations, que tu peux ensuite utiliser pour les déduire de tes déclarations fiscales (en tout cas en Allemagne, les règlements fiscaux étrangers ne reconnaissent pas toujours les dons aux organisations étrangères). Cependant, nous avons besoin de ton adresse pour cela. Si tu as déjà indiqué ton adresse dans la demande, nous t'enverrons ta vérification sans intervention de ta part. Si ce n'est pas le cas, mais que tu souhaites tout de même une vérification de ton don, contacte le comité directeur. 
+    En tant qu'association à but non lucratif, nous sommes autorisés à délivrer des attestations de dons pour tes cotisations, que tu peux ensuite utiliser pour les déduire de tes déclarations fiscales (en tout cas en Allemagne, les règlements fiscaux étrangers ne reconnaissent pas toujours les dons aux organisations étrangères). Cependant, nous avons besoin de ton adresse pour cela. Si tu as déjà indiqué ton adresse dans la demande, nous t'enverrons ta vérification sans intervention de ta part. Si ce n'est pas le cas, mais que tu souhaites tout de même une vérification de ton don, contacte le comité directeur. 
 
     Pour les cotisations qui ne dépassent pas 300&nbsp;€, le [reçu de don simplifié](https://static.dacdn.de/docs/vereinfachte-zuwendungsbestaetigung.pdf) est suffisant en vertu de la loi allemande, ce qui nous épargne du travail.
 

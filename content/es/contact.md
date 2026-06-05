@@ -36,7 +36,7 @@ Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Alemania
 		"name": "Datenanfragen.de e. V.",
 		"address": {
 			"@type": "PostalAddress",
-			"streetAddress": "c/o Benjamin Altpeter, Schreinerweg 6",
+			"streetAddress": "Schreinerweg 6",
 			"postalCode": "38126",
 			"addressLocality": "Braunschweig",
 			"addressCountry": "DE"

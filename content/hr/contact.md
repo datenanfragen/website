@@ -19,7 +19,7 @@ Germany
 **Web:** [www.osobnipodaci.org/verein](https://www.osobnipodaci.org/verein)
 
 **Zakonski predstavnici:** Benjamin Altpeter i Lorenz Sieben  
-Datenanfragen.de e.&nbsp;V. je neprofitna organizacija i registrirana je udruga u okružnom sudu u Braunschweigu, pod matičnim brojem VR&nbsp;201732, i od porezne uprave Braunschweig-Wilhelmstraße potvrđena kao dobrotvorna organizacija.
+Datenanfragen.de e.&nbsp;V. je neprofitna organizacija i registrirana je udruga u okružnom sudu u Braunschweigu, pod matičnim brojem VR&nbsp;201732, i od porezne uprave Braunschweig-Wilhelmstraße potvrđena kao organizacija od javnog interesa.
 
 **Odgovornost za sadržaj prema članku 55. stavka 2. njemačkog državnog ugovora o medijima (MStV):**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Deutschland
@@ -36,7 +36,7 @@ Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Deutschland
 		"name": "Datenanfragen.de e. V.",
 		"address": {
 			"@type": "PostalAddress",
-			"streetAddress": "c/o Benjamin Altpeter, Schreinerweg 6",
+			"streetAddress": "Schreinerweg 6",
 			"postalCode": "38126",
 			"addressLocality": "Braunschweig",
 			"addressCountry": "DE"
