@@ -37,6 +37,7 @@ Unsere Ziele entsprechen den Zwecken, die die Satzung festlegt, wir haben sie ab
 
 Beschlüsse der Mitgliederversammlung sind bindend für die Arbeit des Vereins und ergänzen die Satzung. Gemäß dem Beschluss der Mitgliederversammlung vom 14. Dezember 2023 veröffentlichen wir hier alle Beschlüsse der Mitgliederversammlung mit langfristiger Wirkung (also vor allem dauerhafte Ordnungen, Richtlinien und Grundsätze, nicht aber Beschlüsse, die nur eine einmalige oder kurzfristige Wirkung entfalten, wie etwa Wahl oder Entlastung des Vorstandes oder die Planung für das nächste Jahr).
 
+* {{< link slug="verein/membership-fees" text="Gebührenordnung" >}}
 * [Geschäftsordnung des Vertrauensgremiums](https://static.dacdn.de/docs/legal/geschaeftsordnung-vertrauensgremium.pdf)
 * [Richtlinien für den Ersatz nachgewiesener Auslagen](https://static.dacdn.de/docs/legal/richtlinien-auslagenersatz.pdf)
 * [Reiseordnung](https://static.dacdn.de/docs/legal/reiseordnung.pdf)

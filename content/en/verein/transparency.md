@@ -35,6 +35,7 @@ Our purpose is the same as stated in our constitution but we also compiled and e
 
 Resolutions of the general assembly are binding for the association’s work and complement the constitution. In accordance with the resolution of the general assembly of December 14, 2023, we publish here all resolutions of the general assembly with long-term effect (i.e., primarily permanent regulations, guidelines, and principles, but not resolutions that have only a one-time or short-term effect, such as the election or discharge of the board or planning for the coming year). Most of the documents are only available in German.
 
+* {{< link slug="verein/membership-fees" text="Fee regulation" >}}
 * [Rules of procedure for the trust committee (German)](https://static.dacdn.de/docs/legal/geschaeftsordnung-vertrauensgremium.pdf)
 * [Guidelines for the reimbursement of verified expenses (German)](https://static.dacdn.de/docs/legal/richtlinien-auslagenersatz.pdf)
 * [Travel policy (German)](https://static.dacdn.de/docs/legal/reiseordnung.pdf)
