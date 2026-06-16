@@ -16,33 +16,29 @@ type PrivacyControlProps = {
     showModal?: () => void;
 };
 const PrivacyControl = (props: PrivacyControlProps) => (
-    <div className="privacy-control">
-        <tr>
-            <td>
-                <input
-                    id={PRIVACY_ACTIONS[props.privacyAction].id + '-checkbox'}
-                    checked={Privacy.isAllowed(PRIVACY_ACTIONS[props.privacyAction])}
-                    type="checkbox"
-                    className="form-element"
-                    onChange={(event) => {
-                        Privacy.setAllowed(PRIVACY_ACTIONS[props.privacyAction], event.currentTarget.checked);
-                        flash(
-                            <FlashMessage type="success">{t('cookie-change-success', 'privacy-controls')}</FlashMessage>
-                        );
+    <tr className="privacy-control">
+        <td>
+            <input
+                id={PRIVACY_ACTIONS[props.privacyAction].id + '-checkbox'}
+                checked={Privacy.isAllowed(PRIVACY_ACTIONS[props.privacyAction])}
+                type="checkbox"
+                className="form-element"
+                onChange={(event) => {
+                    Privacy.setAllowed(PRIVACY_ACTIONS[props.privacyAction], event.currentTarget.checked);
+                    flash(<FlashMessage type="success">{t('cookie-change-success', 'privacy-controls')}</FlashMessage>);
 
-                        if (!event.currentTarget.checked && props.showModal) props.showModal();
-                    }}
-                />
-            </td>
-            <td>
-                <label htmlFor={PRIVACY_ACTIONS[props.privacyAction].id + '-checkbox'}>
-                    <Text id={PRIVACY_ACTIONS[props.privacyAction].id} />
-                </label>
-                <br />
-                <MarkupText id={PRIVACY_ACTIONS[props.privacyAction].id + '-description'} />
-            </td>
-        </tr>
-    </div>
+                    if (!event.currentTarget.checked && props.showModal) props.showModal();
+                }}
+            />
+        </td>
+        <td>
+            <label htmlFor={PRIVACY_ACTIONS[props.privacyAction].id + '-checkbox'}>
+                <Text id={PRIVACY_ACTIONS[props.privacyAction].id} />
+            </label>
+            <br />
+            <MarkupText id={PRIVACY_ACTIONS[props.privacyAction].id + '-description'} />
+        </td>
+    </tr>
 );
 
 const clearCookies = () => {
