@@ -1,4 +1,4 @@
-{{ $loader := resources.Get "styles/loader.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify }}
+{{ $loader := resources.Get "styles/loader.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "noMap" true) | minify }}
 <link rel="stylesheet" href="{{ $loader.RelPermalink | absURL }}" crossorigin="anonymous">
 <style>
 .sk-folding-cube {

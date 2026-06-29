@@ -196,6 +196,6 @@ While I haven't seen this be the case, I guess it doesn't hurt to make sure.
 {{ if in $groups "donate" }}
     <script type="module">window.renderDonationWidget();</script>
 
-    {{ $loader := resources.Get "styles/loader.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "config" "postcss.config.js" "noMap" true) | minify  }}
+    {{ $loader := resources.Get "styles/loader.scss" | toCSS (dict "enableSourceMap" .Site.Params.devMode) | postCSS (dict "noMap" true) | minify  }}
     <link rel="stylesheet" href="{{ $loader.RelPermalink | absURL }}" crossorigin="anonymous">
 {{ end }}
