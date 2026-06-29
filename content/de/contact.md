@@ -18,7 +18,8 @@ Deutschland
 **Web:** [www.datenanfragen.de/verein](https://www.datenanfragen.de/verein)
 
 **Vertreten durch den Vorstand:** Benjamin Altpeter und Lorenz Sieben  
-Der Datenanfragen.de e.&nbsp;V. ist im Vereinsregister des Amtsgerichts Braunschweig unter der [Registernummer VR&nbsp;201732](https://static.dacdn.de/docs/vereinsregisterabdruck_2020-09-11.pdf "Aktueller Abdruck aus dem Vereinsregister vom 11. September 2020") eingetragen und zuletzt per [Bescheid vom 30. Januar 2023](https://static.dacdn.de/docs/freistellungsbescheid_2023-01-30.pdf) vom Finanzamt Braunschweig-Wilhelmstraße als gemeinnützig anerkannt.
+Der Datenanfragen.de e.&nbsp;V. ist im Vereinsregister des Amtsgerichts Braunschweig unter der [Registernummer VR&nbsp;201732](https://static.dacdn.de/docs/vereinsregisterabdruck-2026-06-05.pdf "Abdruck aus dem Vereinsregister vom 05. Juni 2026") eingetragen und zuletzt per [Bescheid vom 10. November 2025](https://static.dacdn.de/docs/freistellungsbescheid-2025-11-10.pdf) vom Finanzamt Braunschweig-Wilhelmstraße als gemeinnützig anerkannt. Die Einhaltung der satzungsmäßigen Voraussetzungen wurde
+vom Finanzamt Braunschweig-Wilhelmstraße per [Bescheid vom 29. Oktober 2025](https://static.dacdn.de/docs/feststellungsbescheid-2025-10-29.pdf) gesondert festgestellt.
 
 **Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Deutschland
@@ -35,7 +36,7 @@ Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Deutschland
 		"name": "Datenanfragen.de e. V.",
 		"address": {
 			"@type": "PostalAddress",
-			"streetAddress": "c/o Benjamin Altpeter, Schreinerweg 6",
+			"streetAddress": "Schreinerweg 6",
 			"postalCode": "38126",
 			"addressLocality": "Braunschweig",
 			"addressCountry": "DE"

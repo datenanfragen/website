@@ -39,7 +39,7 @@ Schreinerweg 6
 Germany
 
 Legally represented by: Benjamin Altpeter and Lorenz Sieben  
-Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associations of the district court of Braunschweig, under the registration number VR&nbsp;201732, and recognized as a charitable organisation by the Braunschweig-Wilhelmstraße tax office.
+Datenanfragen.de e.&nbsp;V. is a non-profit listed in the register of associations of the district court of Braunschweig, under the registration number VR&nbsp;201732, and recognized as a public-benefit organisation by the Braunschweig-Wilhelmstraße tax office.
 
 Phone: +49 531 209299 35  
 Fax: +49 531 209299 36  
