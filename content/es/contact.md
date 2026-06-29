@@ -19,7 +19,7 @@ Alemania
 **Web:** [www.solicituddedatos.es/verein](https://www.solicituddedatos.es/verein)
 
 **Legalmente representado por:** Benjamin Altpeter and Lorenz Sieben  
-Datenanfragen.de e.&nbsp;V. es una organización sin fines de lucro que figura en el registro de asociaciones del tribunal de distrito de Braunschweig, con el número de registro VR&nbsp;201732, y reconocida como organización benéfica por la oficina de impuestos de Braunschweig-Wilhelmstraße.
+Datenanfragen.de e.&nbsp;V. es una organización sin fines de lucro que figura en el registro de asociaciones del tribunal de distrito de Braunschweig, con el número de registro VR&nbsp;201732, y reconocida como organización de beneficio público por la oficina de impuestos de Braunschweig-Wilhelmstraße.
 
 **Responsable del contenido según § 18(2) Tratado Interestatal Alemán de Medios *(MStV)*:**  
 Benjamin Altpeter, Schreinerweg 6, 38126 Braunschweig, Alemania
