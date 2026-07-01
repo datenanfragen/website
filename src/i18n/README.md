@@ -9,7 +9,6 @@
 * In all translation files, under `i18n-widget`, add the new language if necessary.
 * In the deploy script `deploy.sh`, make sure to also copy the companies and SVAs for the new language.
 * Add the new language to the `languageFiles` for `preact-i18n` in `.eslintrc.js`.
-* In `webpack.common.js`, extend the array for the `translations-dummy` entrypoint with the new language code. Also link the new domain in the banner.
 * In `content/` create a folder with the new language code and add a new file for all pages that should be available in the new language. At least create the following files: `generator.md`, `id-data-controls.md`, `my-requests.md`, `privacy-controls.md`, `suggest.md`, `g.md`
 * Update the privacy policies to include the new site under "Scope".
 * Add the domain to the `sites` array in `cypress/integration/use-cases/production.spec.js`.

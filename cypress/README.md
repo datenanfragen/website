@@ -36,6 +36,4 @@ export CYPRESS_baseUrl_DE='https://www.datenanfragen.de'
 export CYPRESS_ENVIRONMENT=production
 ```
 
-If you are writing a test that doesn't work in production, you can then use `skipOn(isOn('production'))` to skip it for production tests after importing `import { isOn, skipOn } from '@cypress/skip-test'`. See the [`@cypress/skip-test` README](https://github.com/cypress-io/cypress-skip-test) for more details.
-
-TODO: Change to `skipOn('production')` once the plugin actually behaves as documented, see: https://github.com/cypress-io/cypress-skip-test/issues/41
+If you are writing a test that doesn't work in production, you can then use `cy.skipOn('production')` to skip it for production tests. Conversely, use `cy.onlyOn('production')` to run a test only in production.
