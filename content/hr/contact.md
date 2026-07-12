@@ -5,7 +5,7 @@
     "aliases": ["contact"]
 }
  
-## Podaci na osnovi članka 5. njemačkog zakona o telekomunikaciji (TMG)
+## Podaci na osnovi članka 5. DDG
 
 **Poštanska adresa**:  
 Datenanfragen.de e.&nbsp;V.  

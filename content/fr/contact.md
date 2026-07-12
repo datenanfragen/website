@@ -3,7 +3,7 @@
     "type": "page"
 }
  
-## Informations relatives au paragraphe 5 de la loi allemande sur les télémédias (TMG)
+## Informations relatives au paragraphe 5 DDG
 
 **Adresse postale** (pas d'horaires de bureau)&nbsp;:  
 Datenanfragen.de e.&nbsp;V.  

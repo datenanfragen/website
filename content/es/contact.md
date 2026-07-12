@@ -5,7 +5,7 @@
     "aliases": ["contact"]
 }
  
-## Información de acuerdo con § 5 de la ley alemana de telecomunicaciones (TMG)
+## Información de acuerdo con § 5 DDG
 
 **Dirección postal:**  
 Datenanfragen.de e.&nbsp;V.  

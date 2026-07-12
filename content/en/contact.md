@@ -3,7 +3,7 @@
     "type": "page"
 }
  
-## Information according to § 5 of German Telemedia Act (TMG)
+## Information according to § 5 of the German act implementing the DSA (DDG)
 
 **Mail address** (no office hours):  
 Datenanfragen.de e.&nbsp;V.  

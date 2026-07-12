@@ -4,7 +4,7 @@
 	"aliases": ["impressum", "kontakt"]
 }
 
-## Angaben gemäß § 5 TMG
+## Angaben gemäß § 5 DDG
 
 **Postanschrift** (keine Bürozeiten):  
 Datenanfragen.de e.&nbsp;V.  
