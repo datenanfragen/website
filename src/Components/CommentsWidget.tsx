@@ -55,7 +55,7 @@ export function CommentsWidget(props: CommentsWidgetProps) {
             <div id="comments-widget">
                 <h2>
                     <Text id="comments" />
-                    <div style="float: right;">
+                    <div className="float-right">
                         <a
                             href={`${api_url}/feed/${target}`}
                             className="icon icon-rss"
@@ -299,12 +299,11 @@ export function CommentForm(props: CommentFormProps) {
 
             <button
                 id="submit-comment"
-                className="button button-secondary"
+                className="button button-secondary float-right"
                 onClick={(e) => {
                     e.preventDefault();
                     submitComment();
-                }}
-                style="float: right;">
+                }}>
                 <Text id="publish-comment" />
             </button>
             <div className="clearfix" />

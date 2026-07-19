@@ -372,9 +372,8 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                     <h1 id={`proceeding-row-heading-${props.proceeding.reference}`}>
                         {original_request && (
                             <span
-                                className={`icon-${original_request.type}`}
+                                className={`icon-${original_request.type} float-right`}
                                 title={t(original_request.type as RequestType, 'my-requests')}
-                                style="float: right;"
                             />
                         )}
                         {original_request?.slug ? (

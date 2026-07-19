@@ -257,8 +257,7 @@ export const DonationWidget = () => {
                             <button
                                 type="button"
                                 id="donation-widget-next-button"
-                                className={'button button-primary' + (ongoingRequest ? ' disabled' : '')}
-                                style="float: right;"
+                                className={'button button-primary float-right' + (ongoingRequest ? ' disabled' : '')}
                                 onClick={handlePayment}>
                                 <Text id="next-step" />
                             </button>
@@ -341,8 +340,7 @@ export const DonationWidget = () => {
                         </button>
                         <a
                             id="donation-widget-thanks-button"
-                            className="button button-primary"
-                            style="float: right;"
+                            className="button button-primary float-right"
                             href={`${window.BASE_URL}thanks#!donation_reference=${donationReference}`}>
                             <Text id="thanks" />
                         </a>

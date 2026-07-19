@@ -78,13 +78,12 @@ export const MisconductReporter = () => {
 
                 <button
                     id="submit-message"
-                    className="button button-secondary"
+                    className="button button-secondary float-right"
                     onClick={(e) => {
                         e.preventDefault();
                         submitReport();
                     }}
-                    disabled={!message}
-                    style="float: right;">
+                    disabled={!message}>
                     <Text id="submit" />
                 </button>
                 <div className="clearfix" />

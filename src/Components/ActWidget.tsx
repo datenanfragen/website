@@ -44,7 +44,7 @@ const _ActWidget = (props: ActWidgetProps) => {
 
                 {transport_medium !== 'email' && <StatefulSignatureInput />}
 
-                <div style="float: right; margin-top: 10px;">
+                <div className="float-right" style="margin-top: 10px;">
                     <ActionButton />
                 </div>
                 <div className="clearfix" />

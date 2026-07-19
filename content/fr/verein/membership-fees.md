@@ -25,7 +25,7 @@ La classification en tant que mineur ou autres réductions ou exemptions sont to
 
 Les membres fondateurs peuvent choisir de ne pas payer la cotisation. Ils en sont explicitement exemptés par l'assemblée fondatrice.
 
-<div style="float: right;">
+<div class="float-right;">
     <!-- TODO: Maybe a button with an icon here? -->
     <a href="https://static.dacdn.de/docs/gebuehrenordnung.pdf" class="button button-secondary icon icon-download">Télécharger au format PDF (en allemand)</a>
     <a href="/verein/devenir-membre-de-soutien" class="button button-primary">Devenir membre</a>

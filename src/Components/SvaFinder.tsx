@@ -272,8 +272,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
                 )}
 
                 <button
-                    className="button button-secondary button-small"
-                    style="float: right;"
+                    className="button button-secondary button-small float-right"
                     onClick={() => setState(initial_state)}>
                     {t('reset', 'sva-finder')}
                 </button>
