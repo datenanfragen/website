@@ -72,6 +72,7 @@ jobs:
               yarn
               yarn lint
               yarn cypress verify
+              echo nop
               hugo server --baseURL "http://localhost" --disableFastRender --minify &
               # Wait for server to deploy before continuing (with 1 minute timeout)
               yarn wait-on "http://localhost:1314/generator/" -t 240000
