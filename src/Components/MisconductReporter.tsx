@@ -55,7 +55,7 @@ export const MisconductReporter = () => {
     return (
         <IntlProvider definition={window.I18N_DEFINITION} scope="report-misconduct">
             <form id="report-form">
-                <p style="margin-top: 0;">
+                <p className="mt-0">
                     <Text id="encryption-explanation" />
                 </p>
 

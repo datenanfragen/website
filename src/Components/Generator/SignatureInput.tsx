@@ -151,7 +151,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
     return (
         <IntlProvider scope="signature" definition={window.I18N_DEFINITION}>
             <div className="signature-input">
-                <h2 style="margin-top: 1em;">
+                <h2 className="mt-3">
                     <Text id="signature" />
                 </h2>
                 <Text id={props.isForIdData ? 'signature-explanation-id-data' : 'signature-explanation'} />

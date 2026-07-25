@@ -89,7 +89,7 @@
             {{ end }}
 
             {{ if or (eq .Params.slug "whatsapp") (eq .Params.slug "facebook") (eq .Params.slug "instagram") }}
-            <div class="box" style="margin-top: 1em;">
+            <div class="box mt-3">
                 {{ T "cdb-meta-ai-objection" }}
 
                 <ul>
@@ -139,7 +139,7 @@
             </ul>
             {{ end }}
         {{ else }}
-            <div class="box box-error" style="margin-top: 1em;">
+            <div class="box box-error mt-3">
                 {{ T "cdb-obsolete-record" $ }} {{ T (print "cdb-obsolete-reason-" .Params.reason) }}
             </div>
 

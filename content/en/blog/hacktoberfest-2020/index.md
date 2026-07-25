@@ -43,7 +43,7 @@ I want to participate in the Hacktoberfest 2020 event by Datenanfragen.de e.&nbs
 <div class="form-group"><input type="checkbox" id="accept_us_transfers" name="accept_us_transfers" class="form-element" required><label for="accept_us_transfers"><div class="float-left" style="width: 90%;">For my participation, I want to use the US platform GitHub (<a href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement">privacy policy</a>), for which the organizer cannot guarantee the same level of data protection as in the EU. There is a risk that my data may be subject to access by US authorities, and I may not have effective legal remedies. I agree to this.<sup class="color-teal-700">*</sup></div></label></div>
 <input type="hidden" name="language" value="en">
 <input type="hidden" name="year" value="2020">
-<div class="float-right" style="margin-top: 10px;"><input class="button button-primary" type="submit" value="Register"></label></div>
+<div class="float-right mt-2"><input class="button button-primary" type="submit" value="Register"></label></div>
 <div class="clearfix"></div>
 </form>
 </div>
@@ -71,7 +71,7 @@ We may also accept additional repositories. If you think that your contribution 
 
 ## Do you have any suggestions on what to contribute?
 
-<img class="offset-image offset-image-right" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
+<img class="offset-image offset-image-right mt-n5" src="/card-icons/code.svg" style="height: 150px; margin-right: -100px;" alt="">
 
 If you're new to Datenanfragen.de, you may be a little overwhelmed and don't know where to start. Don't worry: There are numerous areas in which you can participate—regardless of whether you have experience with programming and data protection or not. To make it easier for you to get started, we have put together a few suggestions here. You can find many more tasks in the issues of the respective repositories. Of course we also welcome your own ideas on how you could improve the project.
 

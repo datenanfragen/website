@@ -320,8 +320,7 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                     includeContent={true}
                 />
                 <button
-                    className="button button-secondary"
-                    style="margin-top: 10px;"
+                    className="button button-secondary mt-2"
                     onClick={() => {
                         if (
                             JSON.stringify(newMessage) === JSON.stringify(newMessageTemplate) ||
@@ -334,8 +333,8 @@ export const ProceedingRow = (props: ProceedingRowProps) => {
                     <Text id="cancel" />
                 </button>
                 <button
-                    className="button button-primary"
-                    style="margin-left: 5px; margin-top: 10px;"
+                    className="button button-primary mt-2"
+                    style="margin-left: 5px;"
                     onClick={() => {
                         addMessage(newMessage);
                         setNewMessage(newMessageTemplate);

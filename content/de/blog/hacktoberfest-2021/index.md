@@ -50,7 +50,7 @@ Ich möchte an der Hacktoberfest 2021-Aktion des Datenanfragen.de e.&nbsp;V. üb
 <div class="form-group"><input type="checkbox" id="accept_us_transfers" name="accept_us_transfers" class="form-element" required><label for="accept_us_transfers"><div class="float-left" style="width: 90%;">Ich möchte für meine Teilnahme die US-amerikanische Plattform GitHub (<a href="https://docs.github.com/de/github/site-policy/github-privacy-statement">Datenschutzerklärung</a>) nutzen, für die der Datenanfragen.de e.&nbsp;V. nicht das gleiche Datenschutzniveau wie in der EU garantieren kann. Es besteht das Risiko, dass meine Daten dem Zugriff durch US-Behörden unterliegen, wogegen mir möglicherweise keine wirksamen Rechtsbehelfe zur Verfügung stehen. Damit bin ich einverstanden.<sup class="color-teal-700">*</sup></div></label></div>
 <input type="hidden" name="language" value="de">
 <input type="hidden" name="year" value="2021">
-<div style="margin-top: 10px;"><input class="button button-primary float-right" type="submit" value="Registrieren"></label></div>
+<div class="mt-2"><input class="button button-primary float-right" type="submit" value="Registrieren"></label></div>
 <div class="clearfix"></div>
 </form>
 </div>
@@ -63,7 +63,7 @@ Du hast aber auch die Möglichkeit, ohne Nutzung von GitHub teilzunehmen. Schick
 
 ## Habt Ihr Vorschläge für Beiträge?  
 
-<img class="offset-image offset-image-right" src="/card-icons/code.svg" height="150px" width="190px" style="height: 150px; margin-right: -100px; margin-top: -50px;" alt="">
+<img class="offset-image offset-image-right mt-n5" src="/card-icons/code.svg" height="150px" width="190px" style="height: 150px; margin-right: -100px;" alt="">
 
 Gerade wenn Du neu bei Datenanfragen.de bist, weißt Du wahrscheinlich gar nicht, wo Du anfangen kannst. Keine Sorge: Es gibt bei uns zahlreiche Bereiche, in denen Du mitmachen kannst – ganz unabhängig davon, ob Du Erfahrung mit Programmierung und Datenschutz hast oder nicht. Zum leichteren Einstieg haben wir Dir hier einmal ein paar Vorschläge zusammengestellt. Viele weitere Aufgaben findest Du in den Issues der jeweiligen [Repositories](#repos). Wir freuen uns natürlich auch, wenn Du eigenen Ideen hast, was Du am Projekt verbessern könntest.
 

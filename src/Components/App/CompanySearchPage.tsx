@@ -106,7 +106,7 @@ const Results = connectStateResults(
             )
         ) : (
             <>
-                <h3 style="margin-top: 30px;">
+                <h3 className="mt-4">
                     <Text id="empty-query-suggested-companies" />
                 </h3>
                 <div className="company-suggestion-container">
