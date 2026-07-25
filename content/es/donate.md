@@ -48,7 +48,7 @@ Como organización sin fines de lucro de beneficio público, también podemos em
     38126 Braunschweig  
     Alemania*
 
-    Para donaciones en efectivo, sugerimos utilizar el servicio postal alemán [WERT NATIONAL](https://www.deutschepost.de/de/w/wert-national.html) o un producto similar ofrecido por tu oficina de correos local. No recomendamos enviar donaciones en efectivo a nivel internacional. En cualquier caso, asegúrate de que el contenido de tu carta no sea visible desde el exterior.
+    No recomendamos enviar donaciones en efectivo a nivel internacional. En cualquier caso, asegúrate de que el contenido de tu carta no sea visible desde el exterior.
 
     Solo podemos aceptar donaciones en efectivo en euros.
 
