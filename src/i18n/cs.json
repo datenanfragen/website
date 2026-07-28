@@ -330,7 +330,7 @@
         "header-generator": "Generátor žádostí",
         "header-cdb": "Databáze společností",
         "header-my-requests": "Moje žádosti",
-        "header-blog": "Příspěvky",
+        "header-blog": "Blog",
         "header-contact": "Kontakt",
         "header-privacy-controls": "Nastavení soukromí",
         "header-id-data-controls": "Moje uložená data",
@@ -472,7 +472,11 @@
         "footer-legal-notice": "Zákonné oznámení a kontakt",
         "footer-privacy-policy": "Zásady ochrany osobních údajů",
         "footer-social-rss-desc": "Odebírejte příspěvky na našem blogu pomocí RSS čtečky.",
-        "footer-social-matrix-desc": "Kontaktujte nás pomocí Matrixu."
+        "footer-social-matrix-desc": "Kontaktujte nás pomocí Matrixu.",
+        "skip-to-content": "Přeskočit na obsah",
+        "home-blog-section-title": "Náš blog",
+        "home-blog-section-read-more": "Další články",
+        "cdb-webform": "Webový formulář:"
     },
     "my-requests": {
         "for": "pro",
@@ -505,7 +509,15 @@
         "ics-url": "${base_url}/my-requests",
         "and": "a",
         "toggle-all": "Připnout všechny",
-        "ics-title": "Moje žádosti na ${site_name}"
+        "ics-title": "Moje žádosti na ${site_name}",
+        "waitingForResponse": "Čeká se na odpověď",
+        "original-request": "Původní žádost",
+        "response": "Odpověď",
+        "complaint": "Stížnost",
+        "message-react": "Reagovat",
+        "message-reactivate": "Znovu aktivovat",
+        "delete-message": "Smazat tuto zprávu.",
+        "import-message": "Přidat zprávu"
     },
     "generator": {
         "ok": "OK",
@@ -639,7 +651,8 @@
         "search-disabled": "Nemáte povolené vyhledávání. Pokud ho chcete povolit, podívejte se do <a href='/privacy-controls'>nastavení soukromí</a>.",
         "no-results": "Bohužel, nebyly nalezeny žádné výsledky pro Váš dotaz.",
         "suggest-a-company": "Navrhněte novou společnost",
-        "quality-unverified": "Kontaktní údaje byly importovány automaticky. Nebyly námi kontrolovány."
+        "quality-unverified": "Kontaktní údaje byly importovány automaticky. Nebyly námi kontrolovány.",
+        "search-results": "Výsledky vyhledávání"
     },
     "cdb": {
         "title": "Databáze společností",
