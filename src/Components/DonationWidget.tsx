@@ -246,19 +246,18 @@ export const DonationWidget = () => {
                                 <span>
                                     <Text id={`${paymentMethod}-info`} />
                                 </span>
-                                <LoadingIndicator shown={ongoingRequest} style="margin-top: 50px;" />
+                                <LoadingIndicator shown={ongoingRequest} className="mt-5" />
                             </div>
                         </div>
                         <div className="clearfix" />
 
                         {/* TODO: How about offering to add a comment to a donation? That should be pretty easy to implement since we already have yace which is explicitly designed with the necessary flexibilty to do something like this in mind. */}
 
-                        <div className="donation-widget-section" style="margin-top: 30px;">
+                        <div className="donation-widget-section mt-4">
                             <button
                                 type="button"
                                 id="donation-widget-next-button"
-                                className={'button button-primary' + (ongoingRequest ? ' disabled' : '')}
-                                style="float: right;"
+                                className={'button button-primary float-right' + (ongoingRequest ? ' disabled' : '')}
                                 onClick={handlePayment}>
                                 <Text id="next-step" />
                             </button>
@@ -341,8 +340,7 @@ export const DonationWidget = () => {
                         </button>
                         <a
                             id="donation-widget-thanks-button"
-                            className="button button-primary"
-                            style="float: right;"
+                            className="button button-primary float-right"
                             href={`${window.BASE_URL}thanks#!donation_reference=${donationReference}`}>
                             <Text id="thanks" />
                         </a>

@@ -55,7 +55,7 @@ export const MisconductReporter = () => {
     return (
         <IntlProvider definition={window.I18N_DEFINITION} scope="report-misconduct">
             <form id="report-form">
-                <p style="margin-top: 0;">
+                <p className="mt-0">
                     <Text id="encryption-explanation" />
                 </p>
 
@@ -78,13 +78,12 @@ export const MisconductReporter = () => {
 
                 <button
                     id="submit-message"
-                    className="button button-secondary"
+                    className="button button-secondary float-right"
                     onClick={(e) => {
                         e.preventDefault();
                         submitReport();
                     }}
-                    disabled={!message}
-                    style="float: right;">
+                    disabled={!message}>
                     <Text id="submit" />
                 </button>
                 <div className="clearfix" />

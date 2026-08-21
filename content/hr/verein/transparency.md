@@ -3,7 +3,7 @@
     "type": "page"
 }
 
-<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" style="float: right; width: 40%; min-width: 200px; padding: 5px;" alt="Logo of the Initiative for a Transparent Civil Society, with the German text “Initiative Transparente Zivilgesellschaft”"></a>
+<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" class="float-right" style="width: 40%; min-width: 200px; padding: 5px;" alt="Logo of the Initiative for a Transparent Civil Society, with the German text “Initiative Transparente Zivilgesellschaft”"></a>
 
 Za postizanje povjerenja korisnika, obvezali smo se biti što transparentniji u pogledu naših postupaka, financija i odluka. Zbog toga smo se pridružili [Inicijativi za transparentno civilno društvo](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), inicijativi njemačkog ogranka Transparency Internationala, koja izvršava reviziju na temelju primjera. Oni osiguravaju naše obećanje o transparentnom upravljanju. Na ovoj stranici saželi smo sve važne informacije koje objavljujemo u sklopu transparentnosti.
 

@@ -75,7 +75,7 @@ export const useNewRequestModal = (
         </IntlProvider>,
         {
             positiveButton: (
-                <div style="float: right;">
+                <div className="float-right;">
                     <ActionButton
                         buttonText={
                             <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>

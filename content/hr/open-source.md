@@ -6,7 +6,7 @@
 	"heading": "<span style='text-align: center; font-family: monospace;'>osobnipodaci.org <span class='color-red-600' title='loves'>❤</span> otvoreni kod</span>"
 }
 
-<img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
+<img class="top-left-humaaan" src="/img/humaaans/open-source.svg" alt="">
 
 Projekt datarequests.org zasniva se na otvorenom kodu. Projekt smo izradili od temelja kako bi bio što otvoreniji. Naš [statut](https://www.datarequests.org/verein/constitution) <!-- TODO: Change to `{.{< link slug="verein/constitution" text="statut" >}}` once #580 is merged. --> zahtijeva da naš sadržaj objavljujemo pod slobodnim licencama.
 

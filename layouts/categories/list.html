@@ -11,7 +11,7 @@
 <main class="narrow-page">
 	<div id="company-search" data-filter-category="{{ .Title | lower }}"></div>
 
-	<div style="margin-top: 20px;">
+	<div class="mt-3">
 		{{ range .Paginator.Pages }}
 		{{ if eq .Kind "taxonomy" }}
 		<h2><a href="{{ .Permalink }}">{{ T (.Title | lower) }}</a></h2>

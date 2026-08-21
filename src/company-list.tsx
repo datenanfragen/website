@@ -65,7 +65,8 @@ const CompanyList = () => {
                             anchorize={true}
                             placeholder={t('select-company', 'cdb')}
                             debug={true}
-                            style="margin-top: 15px;"
+                            style="foo"
+                            className="mt-3"
                         />
                         <Scrollspy items={anchorIds} currentClassName="active" className="textscroll" offset={-280}>
                             {anchorLinks}
@@ -87,7 +88,7 @@ const CompanySearch = (props: CompanySearchProps) => (
             index="companies"
             placeholder={t('select-company', 'cdb')}
             debug={true}
-            style="margin-top: 15px;"
+            className="mt-3;"
             filters={props.filters}
             anchorize={true}
         />

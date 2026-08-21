@@ -14,7 +14,7 @@ Because we are {{< link slug="verein/transparency#3-information-on-tax-privilege
 To become a supporting member, you'll only have to fill out the [membership application](https://static.dacdn.de/docs/mitgliedsantrag.pdf) (German only). Please then send the finished form via email (as filled out PDF or scan/image) to [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), via fax to +49&nbsp;531&nbsp;209299&nbsp;36 or via mail to the following address: Datenanfragen.de e.&nbsp;V., Schreinerweg 6, 38126 Braunschweig, Germany.  
 We will contact you subsequently to tell you whether your application had been accepted and to agree on a payment method.
 
-<a href="https://static.dacdn.de/docs/mitgliedsantrag.pdf" class="button button-primary icon icon-download" style="float: right;">Download membership application</a>
+<a href="https://static.dacdn.de/docs/mitgliedsantrag.pdf" class="button button-primary icon icon-download float-right">Download membership application</a>
 <div class="clearfix"></div>
 
 ## Questions and Answers

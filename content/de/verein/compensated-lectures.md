@@ -36,7 +36,7 @@ Als Bezahlung im Sinne dieser Regelung gilt auch die reine Übernahme von Reise-
 
 Entsprechende Vorträge, die ein Mitglied des Vorstandes im Rahmen eines externen Anstellungsverhältnisses hält, sind von dieser Transparenzverpflichtung ausgenommen, sofern auf der Transparenzseite des Vereins ein jährlicher allgemeiner Hinweis dazu veröffentlicht wird, der mindestens den Namen der Arbeitgeber_in und, wenn angebracht, die jeweilige Organisationseinheit enthält.
 
-<div style="float: right;">
+<div class="float-right">
     <a href="https://static.dacdn.de/docs/legal/vortragsordnung.pdf" class="button button-secondary icon icon-download">Als PDF herunterladen</a>
 </div>
 <div class="clearfix"></div>
