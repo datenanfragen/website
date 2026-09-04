@@ -22,8 +22,8 @@ jobs:
     executor: docker_cypress
     resource_class: large
     environment:
-        HUGO_VERSION: '0.164.0'
-        HUGO_BINARY: hugo_extended_0.164.0_linux-amd64
+        HUGO_VERSION: '0.165.0'
+        HUGO_BINARY: hugo_extended_0.165.0_linux-amd64
     steps:
       - run:
           command: |
@@ -51,8 +51,8 @@ jobs:
       executor: docker_cypress
       resource_class: large
       environment:
-        HUGO_VERSION: '0.164.0'
-        HUGO_BINARY: hugo_extended_0.164.0_linux-amd64
+        HUGO_VERSION: '0.165.0'
+        HUGO_BINARY: hugo_extended_0.165.0_linux-amd64
       steps:
         - run:
             command: |
