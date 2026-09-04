@@ -81,3 +81,5 @@ else
     cp _headers public/_headers
     cp _redirects public/_redirects
 fi
+
+echo 2/5
