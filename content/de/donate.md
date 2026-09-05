@@ -51,7 +51,7 @@ Als gemeinnütziger Verein stellen wir Dir natürlich auch gerne eine [Spendenbe
     38126 Braunschweig  
     Deutschland*
 
-    Du kannst auch nachschauen ob der Postdienstleister deiner Wahl eine versicherte Versandmethode für Bargeld anbietet. Bitte sorg dafür, dass sich in keinem Fall von außen erkennen lässt, dass Deine Sendung Geld enthält.
+    Du kannst auch nachschauen ob der Postdienstleister deiner Wahl eine versicherte Versandmethode für Bargeld anbietet. Bei der Deutschen Post ist das zum Beispiel [EINSCHREIBEN Wert](https://www.deutschepost.de/de/e/einschreiben/kuendigung-abo-themen/geld-verschicken.html). Bitte sorg dafür, dass sich in keinem Fall von außen erkennen lässt, dass Deine Sendung Geld enthält.
     
     Bargeldspenden können wir leider nur in Euro annehmen.
 

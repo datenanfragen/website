@@ -48,7 +48,7 @@ As a public-benefit organization, we can also issue you a [donation receipt](#do
     38126 Braunschweig  
     Germany*
 
-    We do not recommend sending cash donations internationally. In any case, please ensure that the contents of your letter are not visible from the outside.
+    We do not recommend sending cash donations internationally. If you are in Germany consider a suitable post product, for example, *Deutsche Post*'s [EINSCHREIBEN Wert](https://www.deutschepost.de/de/e/einschreiben/kuendigung-abo-themen/geld-verschicken.html). In any case, please ensure that the contents of your letter are not visible from the outside.
 
     We can only accept cash donations in Euro.
 
