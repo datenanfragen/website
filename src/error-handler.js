@@ -204,7 +204,6 @@ try {
             if (typeof debug_info.error !== 'object' || debug_info.error === null) {
                 debug_info.error = { code: 999, message: event.message };
             }
-            debug_info.code_version = CODE_VERSION;
             debug_info.user_agent = window.navigator.userAgent;
             debug_info.url = window.location;
             debug_info.error.context = event.error?.context;

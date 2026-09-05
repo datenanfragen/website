@@ -1,3 +1,5 @@
+const germanOrigin = Cypress.expose('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313');
+
 describe('switching languages', () => {
     it('shows a warning', () => {
         cy.visit('/');
@@ -6,10 +8,7 @@ describe('switching languages', () => {
         cy.get('.i18n-button').click();
         cy.get('footer .i18n-widget-language select').select('German (Deutsch)').blur();
         cy.contains('Wenn Du die Sprache wechelst, wirst Du zu einer anderen Domain weitergeleitet.');
-        // RegEx taken from https://github.com/datenanfragen/website/pull/564/files#diff-56682af89782eee8f291dc44df0b21449b4203c2bc27990c869d3cd83ba8e036R9
-        cy.contains('Trotzdem wechseln')
-            .should('have.attr', 'href')
-            .and('match', /`${Cypress.env('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313')}`/);
+        cy.contains('Trotzdem wechseln').should('have.attr', 'href').and('eq', `${germanOrigin}/`);
     });
 });
 
@@ -43,25 +42,24 @@ describe('language suggestion modal', () => {
     });
 
     it('should appear if DE content is available in current language', () => {
-        cy.visit(`${Cypress.env('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313')}/`, {
-            onBeforeLoad(win) {
-                Object.defineProperty(win.navigator, 'language', { value: ['en-GB'] });
-            },
-        });
-        cy.get('#flash-messages').should('contain', 'This site is also available in your language!');
-    });
-
-    it('should not appear if the content is not available in current language', () => {
-        cy.visit(
-            `${
-                Cypress.env('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313')
-            }/blog/e-mail-werbung-einwilligung-beschwerde/`,
-            {
+        cy.origin(germanOrigin, () => {
+            cy.visit('/', {
                 onBeforeLoad(win) {
                     Object.defineProperty(win.navigator, 'language', { value: ['en-GB'] });
                 },
-            }
-        );
-        cy.get('#flash-messages').should('not.contain', 'This site is also available in your language!');
+            });
+            cy.get('#flash-messages').should('contain', 'This site is also available in your language!');
+        });
+    });
+
+    it('should not appear if the content is not available in current language', () => {
+        cy.origin(germanOrigin, () => {
+            cy.visit('/blog/e-mail-werbung-einwilligung-beschwerde/', {
+                onBeforeLoad(win) {
+                    Object.defineProperty(win.navigator, 'language', { value: ['en-GB'] });
+                },
+            });
+            cy.get('#flash-messages').should('not.contain', 'This site is also available in your language!');
+        });
     });
 });

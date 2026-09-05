@@ -35,3 +35,14 @@ Cypress.Commands.add('searchAndRequestCompanies', (searchTerms, skipReview = tru
     cy.get('#review-n-companies-button').click();
     if (skipReview) cy.contains('Continue with these companies').click();
 });
+
+// `@cypress/skip-test` has been archived and still uses `Cypress.env()`, which clashes with `allowCypressEnv: false`,
+// so we have to build our own.
+Cypress.Commands.add('skipOn', (envToSkip) => {
+    // Skipping inspired by (and simplified based on looking at `cy.state()`):
+    // https://github.com/cypress-io/cypress-skip-test/blob/1f9bb3ee95dcbc3884c4cc2c8d1692509ba0ab44/index.js#L72-L76
+    if (Cypress.expose('ENVIRONMENT') === envToSkip) cy.state('ctx').skip();
+});
+Cypress.Commands.add('onlyOn', (envToAllow) => {
+    if (Cypress.expose('ENVIRONMENT') !== envToAllow) cy.state('ctx').skip();
+});

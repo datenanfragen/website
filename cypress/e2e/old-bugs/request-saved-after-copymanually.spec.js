@@ -1,11 +1,11 @@
-import { isOn, skipOn } from '@cypress/skip-test';
 /*
  * In #830, we almost changed the behaviour that requests should be saved after the modal opened without waiting until the modal closed.
  */
 
 describe('Request should be saved without clicking ok in the copy manually modal', () => {
     it('After click on the ActionButton', () => {
-        skipOn(isOn('production'));
+        // We don't have access to `accessLocalForageStore` in prod.
+        cy.skipOn('production');
 
         cy.visit('/g');
         cy.contains('Information block').click();
@@ -24,7 +24,8 @@ describe('Request should be saved without clicking ok in the copy manually modal
     });
 
     it('After click in the new request modal', () => {
-        skipOn(isOn('production'));
+        // We don't have access to `accessLocalForageStore` in prod.
+        cy.skipOn('production');
 
         cy.visit('/g');
         cy.contains('Information block').click();

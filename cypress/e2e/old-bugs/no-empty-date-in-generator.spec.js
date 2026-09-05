@@ -1,4 +1,3 @@
-import { isOn, skipOn } from '@cypress/skip-test';
 /*
  * In #507, we noticed that an empty date in the generator causes an error in 'My requests' as parsing the empty date
  * will fail.
@@ -6,7 +5,8 @@ import { isOn, skipOn } from '@cypress/skip-test';
 
 describe('Requests without a date should not be allowed', () => {
     it('Deleting the date should reset to today', () => {
-        skipOn(isOn('production'));
+        // We don't have access to `getProceedingsStore` in prod.
+        cy.skipOn('production');
 
         cy.visit('/g');
 

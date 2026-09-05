@@ -6,15 +6,17 @@
 
 describe('Request language fallback', () => {
     it('Request language should match the locale by default', () => {
-        cy.visit(`${Cypress.env('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313')}/g`);
+        cy.origin(Cypress.expose('baseUrl_DE') || Cypress.config().baseUrl.replace('1314', '1313'), () => {
+            cy.visit('/g');
 
-        cy.contains('E-Mail senden').click();
-        cy.get('.dropdown-container').contains('Text von Hand kopieren').click({ force: true });
+            cy.contains('E-Mail senden').click();
+            cy.get('.dropdown-container').contains('Text von Hand kopieren').click({ force: true });
 
-        cy.get('#mailto-dropdown-copymanually-body')
-            .should('contain.value', 'Guten Tag,') // Check the request template language
-            .and('contain.value', 'Mein Zeichen:'); // Check the string translations
-        cy.get('#mailto-dropdown-copymanually-subject').should('contain.value', 'Anfrage');
+            cy.get('#mailto-dropdown-copymanually-body')
+                .should('contain.value', 'Guten Tag,') // Check the request template language
+                .and('contain.value', 'Mein Zeichen:'); // Check the string translations
+            cy.get('#mailto-dropdown-copymanually-subject').should('contain.value', 'Anfrage');
+        });
     });
 
     it('Request language should fallback to english, if language is not supported', () => {

@@ -19,3 +19,24 @@ hint = "picture"
 
 [params]
 mainSections = ['blog']
+
+# Mount the `src` dir to `assets/js` so that Hugo Pipes can find it. To do so, we need to recreate the default `assets`
+# mount, which would otherwise be lost.
+[mounts]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'src'
+    target = 'assets/js'
+
+[build]
+  noJSConfigInAssets = true
+
+[security]
+  [security.node]
+    [security.node.permissions]
+      # Browserlist tries walking up the directories until it finds a browserslist-stats.json
+      # (https://github.com/browserslist/browserslist/blob/03ba4e2724b4f77c408498d937c352c2e38f9e72/node.js#L297-L305).
+      # We don't have (or want) one, but if we don't allow it to try, PostCSS will fail.
+      allowRead = ['.', '/**/browserslist-stats.json']
