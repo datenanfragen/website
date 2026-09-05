@@ -82,4 +82,4 @@ else
     cp _redirects public/_redirects
 fi
 
-echo 5/5
+echo 6/5
