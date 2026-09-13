@@ -1,6 +1,6 @@
 <!-- Adapted after: https://gohugo.io/getting-started/configuration-markup#heading-link-example -->
 <div class="sub-heading">
     <h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}</h{{ .Level }}>
-    <a href="#{{ .Anchor | safeURL }}" class="heading-anchor-link" aria-label="Link to this heading"
-        aria-describedby="{{ .Anchor | safeURL }}" title="Link to this heading">#</a>
+    <a href="#{{ .Anchor | safeURL }}" class="heading-anchor-link no-link-decoration" aria-label="Link to this heading"
+    aria-describedby="{{ .Anchor | safeURL }}" title="Link to this heading"><span class="icon-link"></span></a>
 </div>
