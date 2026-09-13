@@ -14,7 +14,7 @@ Da wir als {{< link slug="verein/transparency#3-angaben-zur-steuerbegünstigung"
 Um Fördermitglied zu werden, musst Du nur den [Mitgliedsantrag](https://static.dacdn.de/docs/mitgliedsantrag.pdf) ausfüllen. Schicke uns das fertige Formular dann bitte per E-Mail (als ausgefülltes PDF oder Scan/Foto) an [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), per Fax an +49&nbsp;531&nbsp;209299&nbsp;36 oder per Post an die folgende Adresse: Datenanfragen.de e.&nbsp;V., Schreinerweg 6, 38126 Braunschweig, Deutschland.  
 Wir werden uns anschließend bei Dir melden, um Dir mitzuteilen, ob Dein Antrag angenommen wurde und die Bezahlung mit Dir zu klären.
 
-<a href="https://static.dacdn.de/docs/mitgliedsantrag.pdf" class="button button-primary icon icon-download" style="float: right;">Mitgliedsantrag herunterladen</a>
+<a href="https://static.dacdn.de/docs/mitgliedsantrag.pdf" class="button button-primary icon icon-download float-right">Mitgliedsantrag herunterladen</a>
 <div class="clearfix"></div>
 
 ## Fragen und Antworten

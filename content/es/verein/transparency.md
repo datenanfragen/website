@@ -5,7 +5,7 @@
     "aliases": ["transparency"]
 }
 
-<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" style="float: right; width: 40%; min-width: 200px; padding: 5px;" alt="Logotipo de la Iniciativa para una Sociedad Civil Transparente, con el texto alemán ”Initiative Transparente Zivilgesellschaft”"></a>
+<a href="https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/" class="no-link-decoration"><img src="/img/logo-itz.svg" class="float-right" style="width: 40%; min-width: 200px; padding: 5px;" alt="Logotipo de la Iniciativa para una Sociedad Civil Transparente, con el texto alemán ”Initiative Transparente Zivilgesellschaft”"></a>
 
 Para que pueda confiar en nosotros, nos comprometemos a ser lo más transparentes posible sobre nuestros procedimientos, finanzas y decisiones. Por eso, nos hemos unido a la [Iniciativa para una sociedad civil transparente](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), una iniciativa de la sucursal alemana de Transparencia Internacional, que está autorizada a auditarnos por muestreo. Garantizan que cumpliremos nuestra promesa de una gestión transparente. En esta página resumimos toda la información importante que publicamos como parte de eso.
 

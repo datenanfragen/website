@@ -198,9 +198,8 @@ export const ProceedingsList = <PageId extends string>(props: ProceedingsListPro
 
                         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a
-                            className="button button-primary"
+                            className="button button-primary float-right"
                             href=""
-                            style="float: right;"
                             onClick={(e) => {
                                 e.preventDefault();
                                 props.setPage('newRequests' as PageId);

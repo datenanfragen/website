@@ -25,7 +25,7 @@ The classification as minor or other reductions/exemptions are all solely based 
 
 Founding members can choose not to pay the membership fee. They are explicitly exempted by the founding assembly.
 
-<div style="float: right;">
+<div class="float-right">
     <!-- TODO: Maybe a button with an icon here? -->
     <a href="https://static.dacdn.de/docs/gebuehrenordnung.pdf" class="button button-secondary icon icon-download">Download as PDF (German)</a>
     <a href="/verein/become-a-member" class="button button-primary">Become a member</a>

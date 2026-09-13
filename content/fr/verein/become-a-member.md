@@ -14,7 +14,7 @@ Comme nous sommes {{< link slug="verein/transparency#3-information-on-tax-privil
 Pour devenir membre de soutien, il te suffit de remplir la [demande d'adhésion](https://static.dacdn.de/docs/mitgliedsantrag.pdf) (en allemand uniquement). Merci d'envoyer le formulaire complété par e-mail (au format PDF ou scanné) à l'adresse [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), par fax au +49&nbsp;531&nbsp;209299&nbsp;36 ou par courrier à l'adresse suivante Datenanfragen.de e.&nbsp;V., Schreinerweg 6, 38126 Braunschweig, Allemagne.
 Nous te contacterons ultérieurement pour te dire si ta demande a été acceptée et pour convenir des modalités de paiement.
 
-<a href="https://static.dacdn.de/docs/mitgliedsantrag.pdf" class="button button-primary icon icon-download" style="float: right;">Télécharger le formulaire de demande d'adhésion</a>
+<a href="https://static.dacdn.de/docs/mitgliedsantrag.pdf" class="button button-primary icon icon-download float-right">Télécharger le formulaire de demande d'adhésion</a>
 <div class="clearfix"></div>
 
 ## Questions fréquentes

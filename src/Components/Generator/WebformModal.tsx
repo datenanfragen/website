@@ -50,12 +50,7 @@ export const useWebformModal = (props: WebformModalProps) => {
             },
             onDismiss: unsetCopyManuallyPreviousActiveElement,
             positiveButton: (
-                <a
-                    className="button button-primary"
-                    style="float: right;"
-                    target="_blank"
-                    rel="noreferrer"
-                    href={props.webform}>
+                <a className="button button-primary float-right" target="_blank" rel="noreferrer" href={props.webform}>
                     <Text id="open-webform" />
                 </a>
             ),

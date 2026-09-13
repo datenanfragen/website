@@ -89,9 +89,8 @@ export const useModal = (
                                 <button
                                     className={`button ${
                                         options.defaultButton === 'positive' ? 'button-primary' : 'button-secondary'
-                                    }`}
-                                    onClick={options.onPositiveFeedback}
-                                    style={'float: right'}>
+                                    } float-right`}
+                                    onClick={options.onPositiveFeedback}>
                                     {options.positiveText}
                                 </button>
                             ))}
@@ -101,9 +100,8 @@ export const useModal = (
                                 <button
                                     className={`button ${
                                         options.defaultButton === 'negative' ? 'button-primary' : 'button-secondary'
-                                    }`}
-                                    onClick={options.onNegativeFeedback}
-                                    style={'float: left'}>
+                                    } float-left`}
+                                    onClick={options.onNegativeFeedback}>
                                     {options.negativeText}
                                 </button>
                             ))}
