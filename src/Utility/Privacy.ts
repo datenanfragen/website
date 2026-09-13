@@ -15,12 +15,12 @@ export const PRIVACY_ACTIONS: Record<string, PrivacyAction> = {
     SAVE_MY_REQUESTS: {
         id: 'save_my_requests',
         default: navigator.cookieEnabled,
-        dnt: true,
+        dnt: navigator.cookieEnabled,
     },
     SAVE_ID_DATA: {
         id: 'save_id_data',
         default: navigator.cookieEnabled,
-        dnt: true,
+        dnt: navigator.cookieEnabled,
     },
     // TELEMETRY: {
     //     'id': 'telemetry',
