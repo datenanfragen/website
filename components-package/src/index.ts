@@ -4,7 +4,6 @@ import type { I18nLanguage } from '../../src/types/globals';
 
 import { supported_countries } from './generated/globals.json';
 
-import { version } from '../package.json';
 import i18n_definition_de from '../../src/i18n/de.json';
 import i18n_definition_en from '../../src/i18n/en.json';
 import i18n_definition_fr from '../../src/i18n/fr.json';
@@ -50,9 +49,6 @@ export const setupWindow = ({
     /* eslint-disable @typescript-eslint/ban-ts-comment */
     // @ts-ignore
     window.BASE_URL = languages[locale].base_url;
-
-    // @ts-ignore
-    window.CODE_VERSION = version;
 
     // @ts-ignore
     window.SUPPORTED_COUNTRIES = supported_countries || [];

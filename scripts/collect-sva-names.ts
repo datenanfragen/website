@@ -1,13 +1,12 @@
 /** @file Create a mapping of SVA slugs to SVA names for the SvaFinder. */
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import glob from 'glob';
+import { globSync } from 'glob';
 import { getDirname } from 'cross-dirname';
 
 const dirname = getDirname();
 
-const svas = glob
-    .sync('*.json', { cwd: join(dirname, '..', 'static', 'db', 'sva'), absolute: true })
+const svas = globSync('*.json', { cwd: join(dirname, '..', 'static', 'db', 'sva'), absolute: true })
     .map((p) => readFileSync(p, 'utf8'))
     .map((f) => JSON.parse(f));
 

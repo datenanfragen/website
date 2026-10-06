@@ -1,7 +1,7 @@
 import { getDirname } from 'cross-dirname';
 import { join } from 'path';
 import { readFileSync, writeFileSync } from 'fs';
-import glob from 'glob';
+import { globSync } from 'glob';
 
 const dirname = getDirname();
 
@@ -14,10 +14,12 @@ type ObsoleteRecord = {
     quality: 'obsolete';
 };
 
-const companyContentFolders = glob.sync('*/company', { cwd: join(dirname, '..', 'content'), absolute: true });
+const companyContentFolders = globSync('*/company', { cwd: join(dirname, '..', 'content'), absolute: true });
 
-const obsoleteRecords: ObsoleteRecord[] = glob
-    .sync('*.json', { cwd: join(dirname, '..', 'data_tmp', 'obsolete-records'), absolute: true })
+const obsoleteRecords: ObsoleteRecord[] = globSync('*.json', {
+    cwd: join(dirname, '..', 'data_tmp', 'obsolete-records'),
+    absolute: true,
+})
     .map((p) => readFileSync(p, 'utf8'))
     .map((f) => JSON.parse(f));
 

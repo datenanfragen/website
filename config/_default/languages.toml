@@ -1,55 +1,55 @@
 [de]
-    languageCode = "de-DE"
-    languageName = "Deutsch"
+    locale = "de-DE"
+    label = "Deutsch"
     contentDir = "content/de"
     weight = 10
     title = "Datenanfragen.de"
     copyright = "Sofern nicht anders angegeben, ist dieses Werk unter einer Creative Commons Attribution 4.0 International-Lizenz lizensiert."
 [en]
-    languageCode = "en-US"
-    languageName = "English"
+    locale = "en-US"
+    label = "English"
     contentDir = "content/en"
     weight = 20
     title = "datarequests.org"
     copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."
 [fr]
-    languageCode = "fr-FR"
-    languageName = "Français"
+    locale = "fr-FR"
+    label = "Français"
     contentDir = "content/fr"
     weight = 30
     title = "demandetesdonnees.fr"
     copyright = "Sauf indication contraire, ce(tte) œuvre est mise à disposition selon les termes de la Licence Creative Commons Attribution 4.0 International."
 [pt]
-    languageCode = "pt-PT"
-    languageName = "Português"
+    locale = "pt-PT"
+    label = "Português"
     contentDir = "content/pt"
     weight = 40
     title = "pedidodedados.org"
     copyright = "Exceto onde indicado, esta obra está licenciada sob uma Licença Creative Commons Atribuição 4.0 Internacional."
 [es]
-    languageCode = "es-ES"
-    languageName = "Español"
+    locale = "es-ES"
+    label = "Español"
     contentDir = "content/es"
     weight = 50
     title = "solicituddedatos.es"
     copyright = "Salvo que se indique lo contrario, este sitio está sujeto a una licencia internacional Creative Commons Attribution 4.0."
 [hr]
-    languageCode = "hr-HR"
-    languageName = "Hrvatski"
+    locale = "hr-HR"
+    label = "Hrvatski"
     contentDir = "content/hr"
     weight = 60
     title = "osobnipodaci.org"
     copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."
 [nl]
-    languageCode = "nl-NL"
-    languageName = "Nederlands"
+    locale = "nl-NL"
+    label = "Nederlands"
     contentDir = "content/nl"
     weight = 70
     title = "gegevensaanvragen.nl"
     copyright = "Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License."
 [cs]
-    languageCode = "cs-CZ"
-    languageName = "Čeština"
+    locale = "cs-CZ"
+    label = "Čeština"
     contentDir = "content/cs"
     weight = 80
     title = "zadostioudaje.org"

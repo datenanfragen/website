@@ -1,0 +1,18 @@
+{{ $countryCounts := dict }}
+
+{{ range where $.Site.Pages "Type" "company" }}
+    {{ range .Param "relevant-countries" }}
+        {{ $currentCount := index $countryCounts . | default 0 }}
+        {{ $countryCounts = merge $countryCounts (dict . (add $currentCount 1)) }}
+    {{ end }}
+{{ end }}
+
+{{ $supportedCountries := slice }}
+
+{{ range $country, $count := $countryCounts }}
+    {{ if ge $count 10 }}
+        {{ $supportedCountries = $supportedCountries | append $country }}
+    {{ end }}
+{{ end }}
+
+{{ return $supportedCountries }}

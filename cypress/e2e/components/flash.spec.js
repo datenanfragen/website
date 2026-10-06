@@ -1,8 +1,6 @@
-import { isOn, skipOn } from '@cypress/skip-test';
-
 describe('Test the `Flash` component', () => {
     beforeEach(() => {
-        skipOn(isOn('production'));
+        cy.skipOn('production');
 
         cy.visit('/')
             // Make sure that the language suggestion message doesn't interfere.
