@@ -106,7 +106,7 @@ const Results = connectStateResults(
             )
         ) : (
             <>
-                <h3 style="margin-top: 30px;">
+                <h3 className="mt-4">
                     <Text id="empty-query-suggested-companies" />
                 </h3>
                 <div className="company-suggestion-container">
@@ -161,8 +161,7 @@ const CompanySuggestionsPack = ({ pack }: CompanySuggestionsPackProps) => {
                         })}
                     </ul>
                     <button
-                        className="button button-primary"
-                        style="float: right"
+                        className="button button-primary float-right"
                         onClick={() =>
                             Promise.all(
                                 selectedCompanies
@@ -352,8 +351,7 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
                 {/* Great. Now these out-of-line modal buttons are becoming a pattern. -.- */}
                 <div className="button-group">
                     <button
-                        className="button button-primary"
-                        style="float: right;"
+                        className="button button-primary float-right"
                         disabled={!name.trim()}
                         onClick={() => {
                             appendToBatch({
@@ -429,8 +427,7 @@ const useCustomCompanyModal = (props?: { initialName?: string }) => {
                         <Text id={suggest ? 'add-company-and-suggest' : 'add-company'} />
                     </button>
                     <button
-                        className="button button-secondary"
-                        style="float: left;"
+                        className="button button-secondary float-left"
                         onClick={() =>
                             ((!name.trim() && !email.trim() && !address.trim() && !webform.trim()) ||
                                 confirm(t('confirm-cancel-add-custom-company', 'generator'))) &&

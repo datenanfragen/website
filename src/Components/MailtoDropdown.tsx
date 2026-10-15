@@ -147,8 +147,8 @@ export const MailtoDropdown = (props: MailtoDropdownProps) => {
                     else props.onSuccess?.();
                 }
             },
-            className: 'button button-secondary button-full-width',
-            style: 'margin-top: 10px; text-align: left;',
+            className: 'button button-secondary button-full-width mt-2',
+            style: 'text-align: left;',
         };
         return 'link' in handler ? (
             <a {...common_props} href={handler.link(data)} target="_blank" rel="noreferrer noopener">

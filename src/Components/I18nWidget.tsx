@@ -21,7 +21,7 @@ export const I18nWidget = (props: I18nWidgetProps) => {
 
     const [Modal, showModal, dismissModal] = useModal(<MarkupText id="language-change-modal" />, {
         positiveButton: (
-            <a className="button button-primary" href={window.SUPPORTED_LANGUAGES[newLanguage]} style={'float: right'}>
+            <a className="button button-primary float-right" href={window.SUPPORTED_LANGUAGES[newLanguage]}>
                 <Text id="change-lang" />
             </a>
         ),

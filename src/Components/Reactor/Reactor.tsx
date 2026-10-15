@@ -222,7 +222,7 @@ const _Reactor = ({ reference, pageOptions }: ReactorProps) => {
                                                     </>
                                                 )}
 
-                                                <div style="margin-top: 10px;">
+                                                <div className="mt-2">
                                                     <ActionButton
                                                         dropup={true}
                                                         mailtoDropdownProps={

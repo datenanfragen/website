@@ -25,9 +25,10 @@ export default class DeprecatedModal extends Component<DeprecatedModalProps> {
             this.props.positiveButton ||
             (this.props.positiveText ? (
                 <button
-                    className={`button ${this.props.positiveDefault ? 'button-primary' : 'button-secondary'}`}
-                    onClick={this.props.onPositiveFeedback}
-                    style={'float: right'}>
+                    className={`button ${
+                        this.props.positiveDefault ? 'button-primary' : 'button-secondary'
+                    } float-right`}
+                    onClick={this.props.onPositiveFeedback}>
                     {this.props.positiveText}
                 </button>
             ) : (
@@ -37,9 +38,10 @@ export default class DeprecatedModal extends Component<DeprecatedModalProps> {
             this.props.negativeButton ||
             (this.props.negativeText ? (
                 <button
-                    className={`button ${!this.props.positiveDefault ? 'button-primary' : 'button-secondary'}`}
-                    onClick={this.props.onNegativeFeedback}
-                    style={'float: left'}>
+                    className={`button ${
+                        !this.props.positiveDefault ? 'button-primary' : 'button-secondary'
+                    } float-left`}
+                    onClick={this.props.onNegativeFeedback}>
                     {this.props.negativeText}
                 </button>
             ) : (
