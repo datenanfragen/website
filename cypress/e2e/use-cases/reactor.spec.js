@@ -1,5 +1,3 @@
-import { isOn, skipOn } from '@cypress/skip-test';
-
 const addProceeding = () =>
     cy.proceedingsStore().then((store) =>
         store.addProceeding({
@@ -26,7 +24,8 @@ const addProceeding = () =>
 
 describe('Reacting to request responses', () => {
     beforeEach(() => {
-        skipOn(isOn('production'));
+        // We don't have access to `proceedingsStore` in prod.
+        cy.skipOn('production');
 
         cy.clearIndexedDb('Datenanfragen.de');
         cy.visit('/my-requests');
