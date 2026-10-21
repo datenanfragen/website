@@ -87,7 +87,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                         </label>
                         <button
                             id={`add-fill-field-${props.id}-${idx}`}
-                            className="button button-small button-secondary icon-arrow-right float-none"
+                            className="button button-small button-secondary icon-arrow-right"
                             onClick={() => addFillField(field)}
                             title={t('add-input', 'generator')}
                         />
@@ -151,7 +151,7 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                                             </label>
                                             <button
                                                 id={`add-input-${props.id}-${input.inputType}`}
-                                                className="button button-small button-secondary icon-arrow-right float-none"
+                                                className="button button-small button-secondary icon-arrow-right"
                                                 onClick={() =>
                                                     props.onAddField(
                                                         input.inputType === 'address'
