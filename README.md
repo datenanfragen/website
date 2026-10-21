@@ -12,6 +12,7 @@ Live versions of the website are currently available in [German](https://www.dat
 ## Development
 
 Datenanfragen.de is designed as a static website, running on [Hugo](https://gohugo.io/) and [Preact](https://preactjs.com/).
+Dependency management is done with yarn and a project-specific [dependency management](DEPENDENCY_MANAGEMENT.md) style.
 
 To build the project locally for development, follow these steps:
 
