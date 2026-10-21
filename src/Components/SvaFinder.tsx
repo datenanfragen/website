@@ -248,7 +248,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
         ));
         content = (
             <Fragment>
-                <p style="margin-top: 0;">{state.question}</p>
+                <p className="mt-0">{state.question}</p>
                 <div className="radio-group radio-group-vertical" style="max-height: 450px; overflow: auto;">
                     {options}
                 </div>
@@ -262,7 +262,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
 
             {content}
 
-            <div style="margin-top: 20px;">
+            <div className="mt-3">
                 {state.prev_state && (
                     <button
                         className="button button-secondary button-small icon icon-arrow-left"
@@ -272,8 +272,7 @@ export const SvaFinder = (props: SvaFinderProps) => {
                 )}
 
                 <button
-                    className="button button-secondary button-small"
-                    style="float: right;"
+                    className="button button-secondary button-small float-right"
                     onClick={() => setState(initial_state)}>
                     {t('reset', 'sva-finder')}
                 </button>

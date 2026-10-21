@@ -15,7 +15,7 @@ export function RecipientInput(props: RecipientInputProps) {
 
     return (
         <IntlProvider scope="generator" definition={window.I18N_DEFINITION}>
-            <div className="form-group fancy-fg recipient-form" style="margin-top: 17px;">
+            <div className="form-group fancy-fg recipient-form">
                 <Text id="recipient-explanation" />
                 <br />
                 {props.transportMedium === 'email' ? (

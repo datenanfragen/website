@@ -263,7 +263,7 @@ Das in diesem Artikel beschriebene Recht auf Selbstauskunft gilt natürlich auch
 
 Hier bei Datenanfragen.de haben wir es uns zur Aufgabe gemacht, Dir die Ausübung Deiner Datenschutzrechte so einfach wie möglich zu machen. Und auch beim Anfragen Deiner Daten bei Honey wollen wir Dir natürlich helfen. Dafür haben wir extra eine {{< link slug="act/honey" text="Themenseite" >}} eingerichtet, die genau erklärt, welche Daten Du für die Anfrage brauchst und wie Du daran kommst. Anschließend musst Du die Anfrage nur noch per E-Mail abschicken – den Text haben wir schon für Dich formuliert. 
 
-<a href="{{< ref "act/honey" >}}" class="button button-primary icon icon-email" style="float: right;">Deine Daten bei Honey anfragen</a><div class="clearfix"></div>
+<a href="{{< ref "act/honey" >}}" class="button button-primary icon icon-email float-right">Deine Daten bei Honey anfragen</a><div class="clearfix"></div>
 
 Und falls Du dabei feststellen solltest, dass Du mit der umfangreichen Datensammlung von Honey nicht einverstanden bist, kannst Du auch von Deinem {{< link slug="your-gdpr-rights#recht-auf-vergessenwerden" text="*Recht auf Vergessenwerden*" >}} Gebrauch machen und die Löschung Deiner Daten verlangen. Das geht ganz einfach über unseren {{< link slug="generator#!company=joinhoney" text="Generator" >}}.  
 Zusätzlich kannst Du natürlich auch selbst eine Beschwerde einreichen. Wie das geht, erklären wir in unserem {{< link slug="blog/supervisory-authorities" text="Artikel zu den Datenschutzaufsichtsbehörden" >}} – in Deutschland ist {{< link slug="supervisory-authority/debralda" text="Die Landesbeauftragte für den Datenschutz und für das Recht auf Akteneinsicht Brandenburg" >}}) für Honey zuständig.

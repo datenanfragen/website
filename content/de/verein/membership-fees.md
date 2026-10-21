@@ -24,7 +24,7 @@ Die Einstufung als Minderjährige_r und sonstige Ermäßigungen/Befreiungen basi
 
 Gründungsmitglieder haben die Wahl, keinen Beitrag zu zahlen. Sie werden explizit von der Gründungsversammlung von der Beitragspflicht befreit.
 
-<div style="float: right;">
+<div class="float-right">
     <a href="https://static.dacdn.de/docs/gebuehrenordnung.pdf" class="button button-secondary icon icon-download">Als PDF herunterladen</a>
     <a href="/verein/mitglied-werden" class="button button-primary">Jetzt Mitglied werden</a>
 </div>

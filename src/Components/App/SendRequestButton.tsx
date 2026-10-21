@@ -183,7 +183,7 @@ export const NextRequestButton = (props: NextRequestButtonProps) => {
 
     return (
         <button
-            className={`button ${request.sent ? 'button-primary' : 'button-secondary'}`}
+            className={`button ${request.sent ? 'button-primary' : 'button-secondary'} float-right`}
             onClick={() => {
                 if (request.sent) markCurrentBatchCompanyDone();
                 else removeFromBatch(current_company!.slug);
@@ -191,8 +191,7 @@ export const NextRequestButton = (props: NextRequestButtonProps) => {
 
                 if (remainingBatchEntriesCount === 1) props.setPage('whats_next');
                 props.afterNext?.();
-            }}
-            style="float: right;">
+            }}>
             <Text id={request.sent ? 'continue' : 'skip-request'} />
         </button>
     );
