@@ -92,7 +92,6 @@ describe('Proceedings page', () => {
         assertAllProceedingsExist();
 
         const selectProceedings = () => {
-            cy.contains('Select').click();
             cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2022-KKD2YF1"]').check();
             cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2025-P1TJ3BC"]').check();
         };
@@ -155,7 +154,6 @@ describe('Proceedings page', () => {
             );
 
             const selectProceedings = () => {
-                cy.contains('Select').click();
                 cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2022-KKD2YF1"]').check();
                 cy.get('.proceeding-row-list-item input[type="checkbox"][data-reference="2025-1INGZ5L6"]').check();
             };
