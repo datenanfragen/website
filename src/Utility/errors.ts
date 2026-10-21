@@ -17,7 +17,7 @@ export function rethrow(
         }, 0);
 }
 
-class GenericException extends Error {
+export class GenericException extends Error {
     code = -1;
     description?: string;
     context?: Record<string, unknown>;
