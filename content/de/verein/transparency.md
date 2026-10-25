@@ -9,7 +9,7 @@
 
 Damit Du uns vertrauen kannst, haben wir uns verpflichtet, unsere Abläufe, Finanzen und Entscheidungen so transparent wie möglich zu machen. Wir sind deshalb Teil der [Initiative Transparente Zivilgesellschaft](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), die uns stichprobenartig kontrollieren kann und dafür sorgt, dass unser Versprechen zur transparenten Geschäftsführung kein leeres bleibt. Auf dieser Seite sind nun alle wichtigen Informationen zusammengefasst, die wir im Rahmen unseres Transparenzberichts veröffentlichen.
 
-Die Informationen sind auf dem Stand vom 05. Juni 2026.
+Die Informationen sind auf dem Stand vom 24. August 2026.
 
 ## 1. Name, Sitz, Anschrift und Gründungsjahr
 
@@ -81,6 +81,7 @@ Zusätzlich hat die Mitgliederversammlung vom 14. Dezember 2024 ein Vertrauensgr
 
 ## 5. Tätigkeitsbericht
 
+s. [Jahresbericht 2025 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2025.pdf#page=5)  
 s. [Jahresbericht 2024 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2024.pdf#page=5)  
 s. [Jahresbericht 2023 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2023.pdf#page=5)  
 s. [Jahresbericht 2022 (S. 5 ff.)](https://static.dacdn.de/docs/bericht-2022.pdf#page=5)  
@@ -97,6 +98,7 @@ Anzahl Ehrenamtliche: 3
 
 ## 7. Angaben zur Mittelherkunft
 
+s. [Jahresbericht 2025 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2025.pdf#page=9)  
 s. [Jahresbericht 2024 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2024.pdf#page=9)  
 s. [Jahresbericht 2023 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2023.pdf#page=9)  
 s. [Jahresbericht 2022 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2022.pdf#page=9)  
@@ -116,6 +118,7 @@ Vermögensstand Ende 2018: 119,70 €
 
 ## 8. Angaben zur Mittelverwendung
 
+s. [Jahresbericht 2025 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2025.pdf#page=9)  
 s. [Jahresbericht 2024 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2024.pdf#page=9)  
 s. [Jahresbericht 2023 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2023.pdf#page=9)  
 s. [Jahresbericht 2022 (S. 9 f.)](https://static.dacdn.de/docs/bericht-2022.pdf#page=9)  

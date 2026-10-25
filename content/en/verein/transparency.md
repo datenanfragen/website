@@ -7,7 +7,7 @@
 
 In order for you to be able to trust us, we pledged to be as transparent as possible about our procedures, finances and decisions. Because of that, we have joined the [Initiative for a Transparent Civil Society](https://www.transparency.de/mitmachen/initiative-transparente-zivilgesellschaft/), an initiative by the German branch of Transparency International, which is allowed to audit us on a sample basis. They ensure that we will keep our promise of transparent management. On this page we summarized all the important information that we publish as part of that.
 
-This information has been last updated on June 05, 2026.
+This information has been last updated on August 24, 2026.
 
 ## 1. Name, registered seat, address and date of foundation
 
@@ -79,6 +79,7 @@ In addition, the general assembly held of December 14, 2024, established a trust
 
 ## 5. Report of activities
 
+see [Yearly report 2025 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2025.pdf#page=5)  
 see [Yearly report 2024 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2024.pdf#page=5)  
 see [Yearly report 2023 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2023.pdf#page=5)  
 see [Yearly report 2022 (German, p. 5 ff.)](https://static.dacdn.de/docs/bericht-2022.pdf#page=5)  
@@ -95,6 +96,7 @@ Number of volunteers: 3
 
 ## 7. Funding sources
 
+see [Yearly report 2025 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2025.pdf#page=9)  
 see [Yearly report 2024 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2024.pdf#page=9)  
 see [Yearly report 2023 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2023.pdf#page=9)  
 see [Yearly report 2022 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2022.pdf#page=9)  
@@ -114,6 +116,7 @@ Financial assets at the end of 2018: 119.70 €
 
 ## 8. Use of funds
 
+see [Yearly report 2025 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2025.pdf#page=9)  
 see [Yearly report 2024 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2024.pdf#page=9)  
 see [Yearly report 2023 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2023.pdf#page=9)  
 see [Yearly report 2022 (German, p. 9 f.)](https://static.dacdn.de/docs/bericht-2022.pdf#page=9)  
