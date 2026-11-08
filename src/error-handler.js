@@ -11,7 +11,7 @@ function dejsonify(object) {
         if (!(obj instanceof Object)) return { [path.replace(/\.$/g, '')]: obj };
 
         return Object.keys(obj).reduce((output, key) => {
-            return obj instanceof Array
+            return Array.isArray(obj)
                 ? { ...output, ...flatten(obj[key], path + '[' + key + '].') }
                 : { ...output, ...flatten(obj[key], path + key + '.') };
         }, {});
@@ -107,7 +107,7 @@ const isBrowserDeprecated = () => {
     try {
         Object.fromEntries(new Map([['a', 'b']]));
         [1, 2, 3, 4].findLast((x) => x > 0);
-    } catch (e) {
+    } catch {
         return true;
     }
     return false;
@@ -246,7 +246,7 @@ try {
         evt.error = evt.reason;
         handler(evt);
     });
-} catch (e) {
+} catch {
     window.addEventListener('unhandledrejection', logError);
     window.addEventListener('error', logError);
 }

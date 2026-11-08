@@ -58,7 +58,7 @@ export const I18nWidget = (props: I18nWidgetProps) => {
         if (a === 'all') return -1;
         if (b === 'all') return 1;
         return t(a, 'countries').localeCompare(t(b, 'countries'));
-    }).map((country) => <option value={country}>{t(country, 'countries')}</option>);
+    }).map((country_option) => <option value={country_option}>{t(country_option, 'countries')}</option>);
 
     return (
         <IntlProvider scope="i18n-widget" definition={window.I18N_DEFINITION}>

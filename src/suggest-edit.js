@@ -60,7 +60,7 @@ function prepareForm(schema) {
 function renderForm(schema, company_data = undefined) {
     let BrutusinForms = brutusin['json-forms'];
 
-    const TO_HIDE = [
+    const TO_HIDE = new Set([
         'slug',
         'custom-access-template',
         'custom-erasure-template',
@@ -75,7 +75,7 @@ function renderForm(schema, company_data = undefined) {
         'facet-group',
         'needs-id-document',
         'nsfw',
-    ];
+    ]);
     BrutusinForms.addDecorator((element, schema) => {
         element.placeholder = '';
 
@@ -98,7 +98,7 @@ function renderForm(schema, company_data = undefined) {
                 )
             );
 
-            if (TO_HIDE.includes(SANITIZED_TEXT)) {
+            if (TO_HIDE.has(SANITIZED_TEXT)) {
                 // We are currently in the scope of some promise or something like that. `setTimeout` brings us back to the scope of the content process.
                 setTimeout(() => {
                     document.querySelector(`tr[data-schema_id="$.${SANITIZED_TEXT}"]`)?.remove();
