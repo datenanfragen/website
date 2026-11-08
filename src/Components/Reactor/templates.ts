@@ -217,8 +217,8 @@ The controller has now answered my request but still violated the GDPR by exceed
     },
 };
 
-export const template = (lang: keyof typeof templates, template: keyof typeof templates.en) => {
-    const res = templates[lang as 'en']?.[template];
+export const template = (lang: keyof typeof templates, ptemplate: keyof typeof templates.en) => {
+    const res = templates[lang as 'en']?.[ptemplate];
     if (res) return res;
-    return templates.en[template];
+    return templates.en[ptemplate];
 };
