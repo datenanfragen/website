@@ -124,7 +124,7 @@ export function Comment(props: CommentProps) {
                 <strong>{props.author}</strong> ({new Date(props.added_at).toLocaleString()})
             </span>
 
-            <p>{props.message.split('\n').map(processLine).flat()}</p>
+            <p>{props.message.split('\n').flatMap(processLine)}</p>
         </div>
     );
 }

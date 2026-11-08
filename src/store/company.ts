@@ -144,7 +144,7 @@ export const createCompanyStore: StoreSlice<CompanyState, RequestState<Request> 
     advanceBatch: async () => {
         if (!get().hasBatch()) return;
 
-        const firstCompany = Object.values(get().batch!).filter((c) => !c.done)[0]?.company;
+        const firstCompany = Object.values(get().batch!).find((c) => !c.done)?.company;
         if (firstCompany) {
             get().setRequestType(get().batchRequestType || 'access');
             return get().setCompany(firstCompany);

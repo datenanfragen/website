@@ -230,9 +230,9 @@ export const SvaFinder = (props: SvaFinderProps) => {
             else if (b === country) return 1;
 
             // We have a few "Any other …" steps that need to be sorted last.
-            const sortLastKeys = ['kirchesonst', 'private'];
-            if (sortLastKeys.includes(a)) return 1;
-            else if (sortLastKeys.includes(b)) return -1;
+            const sortLastKeys = new Set(['kirchesonst', 'private']);
+            if (sortLastKeys.has(a)) return 1;
+            else if (sortLastKeys.has(b)) return -1;
 
             // Otherwise, just sort alphabetically.
             return entries[a].localeCompare(entries[b]);
