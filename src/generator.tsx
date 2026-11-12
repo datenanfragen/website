@@ -28,7 +28,7 @@ const Generator = () => {
 
                 <CompanySelector />
 
-                <div id="request-generator" className="grid" style="margin-top: 10px;">
+                <div id="request-generator" className="grid mt-2">
                     <div id="form-container">
                         <RequestForm>{current_company ? <CompanyWidget /> : ''}</RequestForm>
                     </div>

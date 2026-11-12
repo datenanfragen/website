@@ -12,7 +12,7 @@ Porque somos {{< link slug="verein/transparency#3-information-on-tax-privileges"
 Para hacerte en miembro, solo tendrás que completar la [solicitud de membresía](https://static.dacdn.de/docs/mitgliedsantrag.pdf) (Solo disponible en alemán). Luego envía el formulario terminado por correo electrónico (como PDF completo o escaneado / imagen) a [vorstand@datenanfragen.de](mailto:vorstand@datenanfragen.de), via fax al +49&nbsp;531&nbsp;209299&nbsp;36 o por correo a la siguiente dirección: Datenanfragen.de e.&nbsp;V., Schreinerweg 6, 38126 Braunschweig, Alemania.  
 Nos pondremos en contacto contigo posteriormente para informarte si tu solicitud ha sido aceptada y acordar un método de pago.
 
-<a href="https://static.dacdn.de/docs/mitgliedsantrag.pdf" class="button button-primary icon icon-download" style="float: right;">Descargar formulario</a>
+<a href="https://static.dacdn.de/docs/mitgliedsantrag.pdf" class="button button-primary icon icon-download float-right">Descargar formulario</a>
 <div class="clearfix"></div>
 
 ## Preguntas y respuestas

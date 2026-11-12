@@ -260,7 +260,7 @@ The right to data access that we have talked about in this post also applies to 
 
 We at datarequests.org have made it our mission to make help you exercise your right to privacy. And of course, we also want to help you with your request to Honey. That's why we have put of a {{< link slug="act/honey" text="separate page" >}} that explains in detail which identification details you need for your request and how to obtain them. Afterwards, all you need to do is send the request by email—we have already written the necessary letter for you.
 
-<a href="{{< ref "act/honey" >}}" class="button button-primary icon icon-email" style="float: right;">Request your data from Honey</a><div class="clearfix"></div>
+<a href="{{< ref "act/honey" >}}" class="button button-primary icon icon-email float-right">Request your data from Honey</a><div class="clearfix"></div>
 
 And should you decide that you are not okay with Honey's vast data collection, you can make use of your {{< link slug="your-gdpr-rights#right-to-be-forgotten" text="*right to be forgotten*" >}} and demand the deletion of your data. You can use our {{< link slug="generator#!company=joinhoney" text="generator" >}} for that.  
 Finally, you also have the right to submit a complain yourself. We explain how that works in our {{< link slug="blog/supervisory-authorities" text="post on the supervisory authorities" >}}.

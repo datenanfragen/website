@@ -151,7 +151,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
     return (
         <IntlProvider scope="signature" definition={window.I18N_DEFINITION}>
             <div className="signature-input">
-                <h2 style="margin-top: 1em;">
+                <h2 className="mt-3">
                     <Text id="signature" />
                 </h2>
                 <Text id={props.isForIdData ? 'signature-explanation-id-data' : 'signature-explanation'} />
@@ -191,7 +191,7 @@ export const SignatureInput = (props: SignatureInputProps) => {
                     )}
                 </div>
                 <button
-                    className="button button-small button-secondary"
+                    className="button button-small button-secondary float-left"
                     onClick={() => {
                         // Clear the canvas
                         if (!isEmpty && context.current) {
@@ -201,13 +201,12 @@ export const SignatureInput = (props: SignatureInputProps) => {
                             props.onChange({ type: 'text', name: props.value.name || '' });
                         }
                     }}
-                    style="float: left; margin-right: 5px">
+                    style="margin-right: 5px">
                     <Text id="reset-signature" />
                 </button>
                 {props.fillSignature?.type === 'image' && (
                     <button
-                        style="float: left;"
-                        className="button button-small button-secondary"
+                        className="button button-small button-secondary float-left"
                         onClick={() => {
                             if (context.current && props.fillSignature?.type === 'image')
                                 drawSignature(context.current, props.fillSignature).then((newCropArea) => {

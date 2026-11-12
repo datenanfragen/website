@@ -15,6 +15,7 @@ export type SearchBarProps = {
     placeholder: string;
     debug?: boolean;
     style?: string;
+    className?: string;
 
     index: string;
     queryBy?: string;
@@ -53,6 +54,7 @@ const RealSearchBar = ({
     suggestionTemplate,
     placeholder,
     style,
+    className,
 }: SearchBarProps) => {
     const country = useAppStore((state) => state.country);
 
@@ -185,7 +187,7 @@ ${
     return (
         <input
             id={id}
-            className="aa-input-search"
+            className={'aa-input-search' + (className !== undefined ? ' ' + className : '')}
             placeholder={placeholder}
             type="search"
             style={style}

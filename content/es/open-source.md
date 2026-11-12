@@ -6,7 +6,7 @@
 	"heading": "<span style='text-align: center; font-family: monospace;'>solicituddedatos.es <span class='color-red-600' title='loves'>❤</span> código abierto</span>"
 }
 
-<img id="open-source-humaaan" class="top-left-humaaan" style="margin-top: -70px;" src="/img/humaaans/open-source.svg" alt="">
+<img class="top-left-humaaan" src="/img/humaaans/open-source.svg" alt="">
 
 El código abierto es el núcleo de solicituddedatos.es. Hemos diseñado el proyecto desde cero para que sea lo más abierto posible. Nuestra {{< link slug="verein/constitution" text="constitución" >}} requiere que publiquemos nuestro contenido bajo licencias gratuitas.
 

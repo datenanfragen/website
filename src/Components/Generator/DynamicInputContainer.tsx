@@ -87,7 +87,6 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                         </label>
                         <button
                             id={`add-fill-field-${props.id}-${idx}`}
-                            style="float: none;"
                             className="button button-small button-secondary icon-arrow-right"
                             onClick={() => addFillField(field)}
                             title={t('add-input', 'generator')}
@@ -151,7 +150,6 @@ export const DynamicInputContainer = (_props: DynamicInputContainerProps) => {
                                                 <Text id={input.text} />
                                             </label>
                                             <button
-                                                style="float: none;"
                                                 id={`add-input-${props.id}-${input.inputType}`}
                                                 className="button button-small button-secondary icon-arrow-right"
                                                 onClick={() =>

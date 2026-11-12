@@ -31,9 +31,8 @@ import { RequestList } from './Components/RequestList';
                                     <br />
 
                                     <a
-                                        className="button button-primary"
-                                        href={`${window.BASE_URL}generator`}
-                                        style="float: right;">
+                                        className="button button-primary float-right"
+                                        href={`${window.BASE_URL}generator`}>
                                         <Text id="generate-request" />
                                     </a>
                                     <div className="clearfix" />

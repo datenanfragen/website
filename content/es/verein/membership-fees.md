@@ -25,7 +25,7 @@ La clasificación como reducciones / exenciones menores u otras se basan exclusi
 
 Los miembros fundadores pueden optar por no pagar la cuota de membresía. Están explícitamente exentos por la asamblea fundacional.
 
-<div style="float: right;">
+<div class="float-right">
     <!-- TODO: Maybe a button with an icon here? -->
     <a href="https://static.dacdn.de/docs/gebuehrenordnung.pdf" class="button button-secondary icon icon-download">Descargar como PDF (Alemán)</a>
     <a href="/verein/become-a-member" class="button button-primary">Hacerse miembro</a>

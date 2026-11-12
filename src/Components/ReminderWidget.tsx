@@ -74,7 +74,7 @@ export const ReminderWidget = () => {
                     </ul>
                 </div>
                 <a href={`${window.BASE_URL}my-requests/`} className="reminder-widget-bottom-link">
-                    <Text id="see-more-details" /> <span style="float: right;" className="icon-arrow-right" />
+                    <Text id="see-more-details" /> <span className="icon-arrow-right float-right" />
                 </a>
             </details>
         </IntlProvider>
