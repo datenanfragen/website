@@ -1,5 +1,3 @@
-import { isOn, skipOn } from '@cypress/skip-test';
-
 const assertIsTrackingRequest = (company, isTrackingRequest) => {
     cy.contains(`Fill in request to “${company}”`);
     cy.get('#name0-value-id_data').clear().type('{selectall}Kim Mustermensch');
@@ -55,7 +53,7 @@ describe('Request generator tool component', () => {
 
     it('loads pdf worker for pdf only companies', () => {
         // `window.pdfWorker` is not populated in prod.
-        skipOn(isOn('production'));
+        cy.skipOn('production');
 
         cy.visit('/generator');
 
@@ -69,7 +67,7 @@ describe('Request generator tool component', () => {
 
     it('does not load pdf worker by default', () => {
         // `window.pdfWorker` is not populated in prod.
-        skipOn(isOn('production'));
+        cy.skipOn('production');
 
         cy.visit('/generator');
 
@@ -201,7 +199,7 @@ describe('Request generator tool component', () => {
     // (https://github.com/datenanfragen/website/issues/1043#issuecomment-1472355575,
     // https://github.com/datenanfragen/website/issues/1043#issuecomment-1472476245).
     // it('loads company from slug and clears URL parameters afterwards', () => {
-    //     skipOn(isOn('production'));
+    //     cy.skipOn('production');
 
     //     cy.visit('/generator#!company=airbnb');
     //     cy.waitUntil(() =>
@@ -221,7 +219,7 @@ describe('Request generator tool component', () => {
     // });
 
     // it('loads companies from slug and clears URL parameters afterwards', () => {
-    //     skipOn(isOn('production'));
+    //     cy.skipOn('production');
 
     //     cy.visit('/generator#!companies=airbnb,apple');
 

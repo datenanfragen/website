@@ -1,5 +1,3 @@
-import { isOn, skipOn } from '@cypress/skip-test';
-
 describe('Advanced generator', () => {
     beforeEach(() => {
         cy.visit('/g');
@@ -18,7 +16,8 @@ describe('Advanced generator', () => {
     });
 
     it('did not load pdfworker for email', () => {
-        skipOn(isOn('production'));
+        // We don't have access to the PDF worker in prod.
+        cy.skipOn('production');
 
         cy.window().then((win) => {
             expect(win.pdfWorker).to.be.undefined;
@@ -26,7 +25,8 @@ describe('Advanced generator', () => {
     });
 
     it('did load pdfworker for fax', () => {
-        skipOn(isOn('production'));
+        // We don't have access to the PDF worker in prod.
+        cy.skipOn('production');
 
         cy.get('.request-transport-medium-chooser').contains('Fax').click();
 

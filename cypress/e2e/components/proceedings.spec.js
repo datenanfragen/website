@@ -1,5 +1,3 @@
-import { isOn, skipOn } from '@cypress/skip-test';
-
 const messageTemplate = (reference, date = undefined) => ({
     reference,
     date: date || new Date(),
@@ -27,7 +25,8 @@ const makeProceeding = (reference) => ({
 
 describe('Proceedings page', () => {
     beforeEach(() => {
-        skipOn(isOn('production'));
+        // We don't have access to `proceedingsStore` in prod.
+        cy.skipOn('production');
 
         cy.clearIndexedDb('Datenanfragen.de');
         cy.visit('/my-requests');

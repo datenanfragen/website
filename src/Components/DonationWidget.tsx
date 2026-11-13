@@ -87,14 +87,12 @@ export const DonationWidget = () => {
             case 'bank-transfer':
                 setStep('bank-transfer-info');
 
-                import(/* webpackChunkName: "bank-transfer-codes" */ '../Utility/bank-transfer-codes').then(
-                    (module) => {
-                        if (epcr_canvas_ref.current)
-                            module.renderEpcrQr(epcr_canvas_ref.current, amount, newDonationReference);
-                        if (bezahlcode_canvas_ref.current)
-                            module.renderBezahlcodeQr(bezahlcode_canvas_ref.current, amount, newDonationReference);
-                    }
-                );
+                import('../Utility/bank-transfer-codes').then((module) => {
+                    if (epcr_canvas_ref.current)
+                        module.renderEpcrQr(epcr_canvas_ref.current, amount, newDonationReference);
+                    if (bezahlcode_canvas_ref.current)
+                        module.renderBezahlcodeQr(bezahlcode_canvas_ref.current, amount, newDonationReference);
+                });
                 break;
             case 'paypal':
                 setOngoingRequest(true);

@@ -40,7 +40,7 @@ Returns a dict with the following properties:
     <!-- If the page doesn't exist in our current language, we fall back to English and apply a suffix to the text. -->
     <!-- This depends on English being at index 1, which is highly unlikely to ever change. The alternative would have
          been an ugly loop. -->
-    {{ $page = ((index site.Sites 1).GetPage $slug) }}
+    {{ $page = ((index hugo.Sites 1).GetPage $slug) }}
     {{ $text = (printf "%s (EN)" $text) }}
 
     {{ if not $page }}{{ errorf "Page `%s` not found." $slug }}{{ end }}

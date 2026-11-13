@@ -1,12 +1,11 @@
-import { isOn, skipOn } from '@cypress/skip-test';
-
 /*
  * In #1015, we noticed that typing an invalid date in the `ImportMessageModal` would cause an error.
  */
 
 describe('ImportMessageModal', () => {
     beforeEach(() => {
-        skipOn(isOn('production'));
+        // We don't have access to `proceedingsStore` in prod.
+        cy.skipOn('production');
 
         cy.clearIndexedDb('Datenanfragen.de');
         cy.visit('/my-requests');
